@@ -1,0 +1,97 @@
+---
+layout: post
+title: "Benchmarking WebSockets avec NodeJs"
+description: ""
+author:
+  name:           M6Web
+  avatar:         
+  email:          
+  twitter:  techM6Web      
+  facebook:       
+  github:    
+category: 
+tags: [nodejs,websockets,benchmark,open-source]
+image:
+  feature: 
+  credit: 
+  creditlink: 
+comments: true  
+permalink: benchmarking-websockets-avec-nodejs
+---
+
+<span id="yui_3_5_0_1_1373026075507_38221" style="font-family: inherit;">Nous avons récemment eu repenser une application [Node.js](http://nodejs.org) de timeline temps réel, basée sur les [WebSockets](http://fr.wikipedia.org/wiki/Websocket)afin de tenir une charge plus élevée.</span>
+
+
+L'application timeline
+----------------------
+
+
+Fonctionnellement, l'application timeline est relativement simple: elle consiste afficher un flux de message publiés par des contributeursen temps réel pour les internautes présent sur la page. Pour cela l'application se base sur [socket.io](http://socket.io/) pour la partie websocket, et supporte peu près 15 000 connexions simultanées.
+
+
+Afin d'augmenter la capacité de l'application, nous avons décidé de la rendre scalable horizontalement. C'est dire, répartir la charge sur un nombre X de serveurs <span style="color: rgb(85, 85, 85); line-height: 20px;">communiquant</span> entre eux, par exemple, par le biaisde Redis.
+
+
+[![Benchmarking WebSockets avec NodeJs](http://img.over-blog-kiwi.com/0/00/30/83/201306/ob_f7b929d0a6fe57963aa5f28c2d48a291_test.png)](http://img.over-blog-kiwi.com/0/00/30/83/201306/ob_f7b929d0a6fe57963aa5f28c2d48a291_test.png)
+
+Pour cela socket.io propose un store redis qui permet aux différentes instances de communiquer entre elles.Malheureusement les performances de ce store sont plutôt désastreuses carle store que propose socket.io est beaucoup trop verbeux et écrit absolument tous les évènements que reçoit un serveur sur un seul channel redis. L'application devenait inutilisable autour de 8 000 connexions.Il était donc inenvisageable de l'utiliser en production.
+
+
+Nous avons donc décidé rapidement de passer une autre solution que socket.io.Après pas mal de recherche nous avons fait notre choix sur [Faye](http://faye.jcoglan.com/), une implémentation du protocole de Bayeux, bien documenté et proposant aussi d'utiliser redis comme "store".Après test, cette solution s'estrévélée bien plus performante que socket.io.
+
+
+
+Tests de charge
+---------------
+
+
+Une des problématiques rapidement rencontréessur ce projet a été de tester la charge de notre application: comment simuler 15 000 connexions simultanées ?
+
+En faisant le tour des solutions de benchmark de websocket ([thor](https://github.com/observing/thor), ...) ,nous n'avons pas trouvé la solutionqui nous permettait de faire les tests que nous souhaitions. [Siege](http://www.joedog.org/siege-home/), [ab](http://httpd.apache.org/docs/2.2/programs/ab.html) ne le propose pas encore,[Gatling](http://gatling-tool.org/), [Jmeter](http://jmeter.apache.org/), [Tsung](http://tsung.erlang-projects.org/) ont des plugins web-socket mais l'utilisation et le reporting ne sont pas des plus clair.
+
+La solution ?
+
+
+Websocket-bench
+---------------
+
+
+Nous avons donc décidé de développer notre propre outilde benchmark de websocket ([Socket.io](http://socket.io/) ou [Faye](http://faye.jcoglan.com/)), au nom très original : [websocket-bench](https://github.com/M6Web/websocket-bench).
+
+Cet outil se base sur les clients Nodeque proposent [Faye](http://faye.jcoglan.com/) et [Socket.io](http://socket.io/).Ilpeut être facilement étendu l'aide de "generator" (module Node), afin de rajouter la logique de votre application.Par exemple dans le cas de notre application, en se connectant, un client doit envoyer un message au serveur pour valider la connexion.
+
+
+Ci dessous un exemple de générateur qu'on a pu utiliser lors de nos tests de charge.
+
+
+
+<script src="https://gist.github.com/nchaulet/5875142.js"></script>
+Cet outil, lancé sur des instances Amazon, nous a permis d’exécuter nos tests de charge.
+
+
+Un exemple la commandeci dessous va lancer 25 000 connexions, raison de 1000 connexions par seconde en utilsant le generateur "generator.js" :
+
+
+<script src="https://gist.github.com/nchaulet/5934254.js"></script>
+[![Nombre de clients connectés sur Graphite](http://img.over-blog-kiwi.com/0/00/30/83/201306/ob_d08f10f02fad26d77fa14e6d966584c2_testcharge.png)](http://img.over-blog-kiwi.com/0/00/30/83/201306/ob_d08f10f02fad26d77fa14e6d966584c2_testcharge.png)
+Nombre de clients connectés sur Graphite
+
+
+Au delde 25 000 connexions, l'instance Amazon (large) qui lançait les tests ne tenait plus. Une solution pour tester un nombre plus élevés de connexions serait d'utiliser plusieurs machine de tests, peut être l'aide de [bees with machin guns](https://github.com/newsapps/beeswithmachineguns) et ainsi d'utiliser plusieurs instances pour lancer les tirs de charge.
+
+
+
+##### **Bonnes pratique de test de charge**
+
+Lors de votre test de charge (et pour la prod), n'oubliez pas d'augmenter le nombre maximal de descripteurs de fichiers coté client ET coté injecteur (ulimit -n 256000 par exemple dans la conf de supervisor, et dans le terminal avant de lancer le benchmark).
+
+Surveillez votre [conntrack](http://conntrack-tools.netfilter.org/) (si firewall iptables), augmentez votre plage locale de port, et si vous êtes amenés tester plus de 25K connexions, utilisez plusieurs machines et/ou plusieurs IP sources différentes.
+
+
+
+##### Comment contribuer au projet ?
+
+N’hésitez pas remonter d’éventuels bug via les issues ou contribuer au projet l'aide de pull request github ([https://github.com/M6Web/websocket-bench](https://github.com/M6Web/websocket-bench))
+
+
+
