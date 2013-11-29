@@ -19,7 +19,9 @@ comments: true
 permalink: cr-conference-agora-cms-du-15-mai-2013
 ---
 
-[![CR Conférence Agora Cms du 15 mai 2013](//img.over-blog-kiwi.com/300x300/0/00/30/83/201305/ob_32908c407070b79695e36e292abe7a4f_mg-3380-l-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_32908c407070b79695e36e292abe7a4f_mg-3380-l-jpg.jpeg)Le 15 mai 2013 avait lieu Paris, la première édition de l'AgoraCMS, Conférence axée sur les CMS et la gestion de contenu Web.
+[![CR Conférence Agora Cms du 15 mai 2013](//img.over-blog-kiwi.com/300x300/0/00/30/83/201305/ob_32908c407070b79695e36e292abe7a4f_mg-3380-l-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_32908c407070b79695e36e292abe7a4f_mg-3380-l-jpg.jpeg)
+
+Le 15 mai 2013 avait lieu à Paris, la première édition de l'AgoraCMS, Conférence axée sur les CMS et la gestion de contenu Web.
 
 Cette conférence est organisée par des acteurs importants du milieu, de chez Microsoft, Epitech, Oxalide, Cap Gemini ...
 
@@ -50,6 +52,7 @@ On finit sur une projection du futur des CMS qui devront répondre aux probléma
 
 
 [![(Source: http://photos.silberman.fr/Other/AgoraCMS/ )](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_c5fa6866001962d0cba0506a7a467ad3_mg-3357-l-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_c5fa6866001962d0cba0506a7a467ad3_mg-3357-l-jpg.jpeg)
+
 (Source: http://photos.silberman.fr/Other/AgoraCMS/ )
 
 
@@ -70,7 +73,7 @@ Jérome Renard, ancien développeur EzPublish, a monté ces derniers mois une st
 - Sécurité
 - Développement
 
-Mais aussi la difficulté traiter des logs de formats différents, pas forcément disposition, quand vous ne maitrisez pas ou peu l'hébergement.  
+Mais aussi la difficulté à traiter des logs de formats différents, pas forcément disposition, quand vous ne maitrisez pas ou peu l'hébergement.  
   
  Pour la recherche dans ses logs, on a des solutions comme [SolR](http://lucene.apache.org/solr/) ou les différents produits basés sur Lucene comme [ElasticSearch](http://www.elasticsearch.org/) (je rajouterais aussi le couple [LogStash](http://logstash.net/) + [Kibana](http://kibana.org/) utilisant aussi ElasticSearch)  
   
@@ -83,12 +86,12 @@ Sinon vous pouvez consulter les slides sur le lien ci-dessous.
 
 
 [![(Source: http://photos.silberman.fr/Other/AgoraCMS/ )](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_ed2084816ac5e6202fb949c56a606fa7_mg-3404-l-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_ed2084816ac5e6202fb949c56a606fa7_mg-3404-l-jpg.jpeg)
+
 (Source: http://photos.silberman.fr/Other/AgoraCMS/ )
 
 
-<div class="ob-section ob-section-link"><div class="ob-ctn">[Votre CMS intelligent grâce l'analyse des logs](http://jrenard.info/talks/agoracms2013/)
+[Votre CMS intelligent grâce l'analyse des logs](http://jrenard.info/talks/agoracms2013/)
 
-Votre CMS intelligent grâce l'analyse des logs
 
 [http://jrenard.info/talks/agoracms2013/](http://jrenard.info/talks/agoracms2013/)
 
@@ -101,7 +104,7 @@ Votre CMS intelligent grâce l'analyse des logs
 Très bonne présentation sur l’importance du design dans le premier sens du terme : un outil pouvant et devant permettre de servir les intérêts stratégiques d’une entreprise. Il en découle qu’il serait bon de placer le design en amont des décisions et non en aval comme c’est souvent le cas.  
   
   
- De ses nombreuses expériences, nous pouvons retenir qu’une des plus importantes tendances pour les années venir est l'adaptation du design l’utilisateur. Ainsi, une grande enseigne de prêt--porter masculin a inséré une puce RFID dans l’étiquette de ses vêtements pour que l’ambiance des cabines d’essayage s’adapte aux vêtements essayés (ex: une petite musique des îles se déclenche lorsque le client essaye une chemise hawaïenne).  
+ De ses nombreuses expériences, nous pouvons retenir qu’une des plus importantes tendances pour les années venir est l'adaptation du design l’utilisateur. Ainsi, une grande enseigne de prêt-à-porter masculin a inséré une puce RFID dans l’étiquette de ses vêtements pour que l’ambiance des cabines d’essayage s’adapte aux vêtements essayés (ex: une petite musique des îles se déclenche lorsque le client essaye une chemise hawaïenne).  
   
   
  De même, cette tendance d’adaptation du design l’utilisateur pourra se voir magnifiée par la TV connectée et le second écran.
@@ -109,7 +112,9 @@ Très bonne présentation sur l’importance du design dans le premier sens du t
 
 
 [![Le second écran chez M6Web](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_91c66f83c453d3080c673849af781b5f_mg-3440-l-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_91c66f83c453d3080c673849af781b5f_mg-3440-l-jpg.jpeg)
+
 [![Le second écran chez M6Web](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_0916d19304f6a7d518f9c986170e5690_photo.JPG)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_0916d19304f6a7d518f9c986170e5690_photo.JPG)
+
 Le second écran chez M6Web
 
 
@@ -120,14 +125,14 @@ Le second écran chez M6Web
 
   
   
- Petite introduction [Drupal](http://drupal.org/), présenté comme un CMS, mais surtout un CMF (Content Management Framework), avec la présentation de quelques modules très intéressants pour des développeurs ou pour réaliser son "Usine Site".
+ Petite introduction [Drupal](http://drupal.org/), présenté comme un CMS, mais surtout un CMF (Content Management Framework), avec la présentation de quelques modules très intéressants pour des développeurs ou pour réaliser son "Usine à Site".
 
   
  On retiendra [GCC](http://drupal.org/project/gcc) dont une démo très intéressante sera faite, [Drupal Commerce](http://www.drupalcommerce.org/), étant une distribution de Drupal avec un assemblage de modules et personnalisation pour orienter son drupal vers le e-commerce, mais aussi la présentation d'un des thèmes les plus évolués de Drupal : [Omega](http://drupal.org/project/omega), thème ultra complet, Responsive avec un back-office assez puissant.
 
 
-
 [![(Source: http://photos.silberman.fr/Other/AgoraCMS/ )](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_03ff809fcf2c8c3f844bdd81e5db8e2d_mg-3488-l-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_03ff809fcf2c8c3f844bdd81e5db8e2d_mg-3488-l-jpg.jpeg)
+
 (Source: http://photos.silberman.fr/Other/AgoraCMS/ )
 
 
@@ -155,6 +160,7 @@ Le second écran chez M6Web
 
 
 [![(Source: http://photos.silberman.fr/Other/AgoraCMS/ )](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_edf19ebe9b387189f8846e26c1d339cf_mg-3535-l-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_edf19ebe9b387189f8846e26c1d339cf_mg-3535-l-jpg.jpeg)
+
 (Source: http://photos.silberman.fr/Other/AgoraCMS/ )
 
 
@@ -165,18 +171,18 @@ Le second écran chez M6Web
 
   
   
- Raphael Gotter ( [@goetter](https://twitter.com/goetter)), le créateur [d'AlsaCréations](http://www.alsacreations.com/), est complètement incontournable pour tout ce qui touche l'intégration HTML, ou le RWD (Responsive Web Design) dans la communauté francophone, nous explique les approches avoir pour réaliser un site RWD.  
+ Raphael Gotter ( [@goetter](https://twitter.com/goetter)), le créateur [d'AlsaCréations](http://www.alsacreations.com/), est complètement incontournable pour tout ce qui touche l'intégration HTML, ou le RWD (Responsive Web Design) dans la communauté francophone, nous explique les approches à avoir pour réaliser un site RWD.  
  Notamment que le Mobile First, paraît toujours être la bonne approche, ainsi qu'un rappel sur le fait que le RWD doit être pensé et prévu en amont.  
   
  Raphael nous démontre aussi que son titre, et la réalisation d'un site RWD en moins d'une heure est infaisable. En prenant l'exemple du site d'[Agora CMS](http://www.agoracms.com/), et en nous présentant l'approche pour transformer sa HP en Responsive.  
- Plus de 15 jours de boulot au final, et des slides très intéressantes découvrir ci-dessous, remplies d'astuces, de checklists, et autres notions bien comprendre avant de s'intéresser et de se lancer dans le RWD :
+ Plus de 15 jours de boulot au final, et des slides très intéressantes découvrir ci-dessous, remplies d'astuces, de checklists, et autres notions à bien comprendre avant de s'intéresser et de se lancer dans le RWD :
 
 - Comprendre les surfaces d'affichage
 - Connaître les Media Queries css 3
 - le Box-sizing
 - Halte aux débordements
 
-Je vous invite tester sur un mobile [Mobitest.me](http://mobitest.me/) pour bien comprendre la différence entre viewport, largeur en pixel réelle, ...  
+Je vous invite à tester sur un mobile [Mobitest.me](http://mobitest.me/) pour bien comprendre la différence entre viewport, largeur en pixel réelle, ...  
   
  Présentation de la propriété hyphens aussi pour [gérer les débordements de texte](http://www.alsacreations.com/tuto/lire/1038-gerer-debordement-contenu-css.html), coupler avec la propriété word-wrap, le framework / css de base [Knacss.com](http://www.knacss.com/), les tailles de typo en "rem".  
   
@@ -213,6 +219,7 @@ Et les slides ci-dessous :
 
 
 [![(Source: http://photos.silberman.fr/Other/AgoraCMS/ )](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_f74390dd1ee07f7ac9c4aa0620f965d7_mg-3568-l-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_f74390dd1ee07f7ac9c4aa0620f965d7_mg-3568-l-jpg.jpeg)
+
 (Source: http://photos.silberman.fr/Other/AgoraCMS/ )
 
 
@@ -230,7 +237,7 @@ Et les slides ci-dessous :
   
  Une conférence très transparente, drôle, agréable et intéressante.  
   
- L'avenir de leur côté tend vers une transformation de l'usine site, vers une "usine interface" notamment pour gérer les multi-écrans, et une ouverture de leurs api/services vers de l'openApi, OpenData.  
+ L'avenir de leur côté tend vers une transformation de l'usine à site, vers une "usine à interface" notamment pour gérer les multi-écrans, et une ouverture de leurs api/services vers de l'openApi, OpenData.  
   
  FT c'est une très grosse DT (une centaine de personnes), une équipe d'expert transverse surnommée SWAT (composée d'Expert frontend JS/WebPerf, Expert Archi/Varnish, Expert Drupal, et de deux Coach Agile).
 
@@ -244,10 +251,9 @@ Et les slides ci-dessous :
 > Pourquoi Drupal ?   
 >  "La maison blanche utilise Drupal"
 
- Léo Poiroux
-
 
 [![(Source: http://photos.silberman.fr/Other/AgoraCMS/ )](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_4a860b2111e11618bc90d3785cadf611_mg-3560-l-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_4a860b2111e11618bc90d3785cadf611_mg-3560-l-jpg.jpeg)
+
 (Source: http://photos.silberman.fr/Other/AgoraCMS/ )
 
 

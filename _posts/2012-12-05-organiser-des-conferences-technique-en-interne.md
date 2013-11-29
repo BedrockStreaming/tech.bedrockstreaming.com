@@ -58,7 +58,7 @@ Les apports pour vos équipes sont nombreux :
 - Les conférenciers améliorent leur communication de "groupe".
 - Ils deviennent souvent le référent sur le sujet dans l'entreprise.
 - C'est du Team Building, et un rendez-vous mensuel avec vos équipes.
-- Et cela donne des idées tous les autres développeurs pour de futurs projets (perso ou d'entreprise bien sûr), et attise leur curiosité.
+- Et cela donne des idées à tous les autres développeurs pour de futurs projets (perso ou d'entreprise bien sûr), et attise leur curiosité.
 
 Nous avons donc tous les mois entre 5 et 10 présentations proposées pour n'en choisir que 4, et une trentaine de participants par session au niveau du public, et nous filmons toutes les conférences, et les archivons sur un site interne.
 
@@ -80,6 +80,7 @@ Alors si votre entreprise ou votre univers le permet, nous vous conseillons vrai
 
 
 [![Olivier Mansour nous présente la Programmation Orienté Objet "Canada Dry" !](http://img.over-blog-kiwi.com/0/00/30/83/201212/ob_c94d17c6bcf9b50c3bd95396fb16475f_screenshot.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201212/ob_c94d17c6bcf9b50c3bd95396fb16475f_screenshot.jpg)
+
 Olivier Mansour nous présente la Programmation Orienté Objet "Canada Dry" !
 
 

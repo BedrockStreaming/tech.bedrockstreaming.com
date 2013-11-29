@@ -19,7 +19,9 @@ comments: true
 permalink: cr-velocity-conference-europe-2012-day-2
 ---
 
-[![CR Velocity Conférence Europe 2012 : Day 2](//img.over-blog-kiwi.com/300x300/0/00/30/83/201210/ob_a7328c1e5880a56085c6e7bdb8fbf23a_velocity-top-jpg.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_a7328c1e5880a56085c6e7bdb8fbf23a_velocity-top-jpg.jpg)Deuxième journée, avec le début "officiel" de cette conférence, où l'on nous donne rendez vous dans l'immense King's Room.
+[![CR Velocity Conférence Europe 2012 : Day 2](//img.over-blog-kiwi.com/300x300/0/00/30/83/201210/ob_a7328c1e5880a56085c6e7bdb8fbf23a_velocity-top-jpg.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_a7328c1e5880a56085c6e7bdb8fbf23a_velocity-top-jpg.jpg)
+
+Deuxième journée, avec le début "officiel" de cette conférence, où l'on nous donne rendez vous dans l'immense King's Room.
 
 Pour bien démarrer, on commence avec en quelque sorte l'hymne de la Vélocity : Speed & Velocity !
 
@@ -41,13 +43,14 @@ Avec Bittorent, ils envoient 500Mb en moins d'une minute sur les 10 000 serveurs
 
 On a eu le droit une présentation de GateKeeper, outil interne, permettant de faire du feature flipping géolocalisé. La timeline a par exemple plus d'une centaine de GateKepper.
 
-Aujourd'hui, Facebook cherche trouver le moyen de scaler de plus de 1000 développeurs 10000, et d'évoluer sur ce système de "Move Fast" dans le mobile natif.
+Aujourd'hui, Facebook cherche trouver le moyen de scaler de plus de 1000 développeurs à 10000, et d'évoluer sur ce système de "Move Fast" dans le mobile natif.
 
 Pour ceux que ça intéresse, en plus de la vidéo çi dessous, Quora est une mine d'or d'infos sur FB : [http://www.quora.com/Girish-Patangay](http://www.quora.com/Girish-Patangay)
 
 
 
 [![(Source http://royal.pingdom.com/2012/10/03/report-from-velocity-europe-day-2/ )](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_8bcd544ab91083c4cc3c838a8fef5cff_facebook-jpg.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_8bcd544ab91083c4cc3c838a8fef5cff_facebook-jpg.jpg)
+
 (Source http://royal.pingdom.com/2012/10/03/report-from-velocity-europe-day-2/ )
 
 
@@ -90,7 +93,7 @@ Voir la présentation suivante pour plus d'infos, bien plus compléte : [http://
 
 **Démo 2 : Box Anemometer :**
 
-Gavin Towey ( [@gtowey](https://twitter.com/gtowey)), DBA MySql chez Box.com nous présente une interface pour visualiser et traiter correctement le slow log de Mysql. Basé sur Php 5.3, les outils Percona et Bootstrap pour l'interface, l'outil est un vrai bonheur pour tous ceux qui font un peu d'optimisation MySql au quotidien, développeur, sysadmin ou dba. Nous l'avions déjdécouvert aux DevOpsDays Mountain View cet été, et l'utilisons massivement depuis.
+Gavin Towey ( [@gtowey](https://twitter.com/gtowey)), DBA MySql chez Box.com nous présente une interface pour visualiser et traiter correctement le slow log de Mysql. Basé sur Php 5.3, les outils Percona et Bootstrap pour l'interface, l'outil est un vrai bonheur pour tous ceux qui font un peu d'optimisation MySql au quotidien, développeur, sysadmin ou dba. Nous l'avions déjà découvert aux DevOpsDays Mountain View cet été, et l'utilisons massivement depuis.
 
 Le projet est sur Github : [https://github.com/box/Anemometer](https://github.com/box/Anemometer)
 
@@ -122,7 +125,7 @@ Après des études d'Eye Tracking View, on remarque aussi entre la population ch
 
 Son twitter : [@timmorrow](https://twitter.com/timmorrow)
 
-Ancien de ShopZilla, et déja présent Berlin l'année dernière, Tim a partagé son retour d'expérience sur la refonte de BetFair (très gros site de pari en ligne). Les gens se plaignaient d'une mauvaise expérience (alors que les pages refondues étaient plus rapides), mais nécessitaient priori beaucoup plus de temps pour parvenir au pari final que dans l'ancienne version. En gros, le temps de chargement de vos pages n'est pas suffisant, il faut aussi regarder les scénarios fonctionnels de vos sites. Ils sont passés sur une navigation typée Ajax pour ne pas rafraîchir dans certains cas l'intégralité de la page.
+Ancien de ShopZilla, et déja présent Berlin l'année dernière, Tim a partagé son retour d'expérience sur la refonte de BetFair (très gros site de pari en ligne). Les gens se plaignaient d'une mauvaise expérience (alors que les pages refondues étaient plus rapides), mais nécessitaient à priori beaucoup plus de temps pour parvenir au pari final que dans l'ancienne version. En gros, le temps de chargement de vos pages n'est pas suffisant, il faut aussi regarder les scénarios fonctionnels de vos sites. Ils sont passés sur une navigation typée Ajax pour ne pas rafraîchir dans certains cas l'intégralité de la page.
 
 Voir les slides et la vidéo : [http://fr.slideshare.net/timmorrow/why-page-speed-isnt-enough-tim-morrow-velocity-europe-2012](http://fr.slideshare.net/timmorrow/why-page-speed-isnt-enough-tim-morrow-velocity-europe-2012)
 
@@ -188,7 +191,7 @@ Quelques petits outils intéressants, notamment le Multires pour la gestion des 
 
 A noter aussi une phrase que j'ai beaucoup aimé sur l'ergnonomie mobile, et la position des boutons de contrôle :
 
-"Controls should be beneath content: think calculator"
+> "Controls should be beneath content: think calculator"
 
 Les slides : [http://www.samdutton.com/velocity2012/ ](http://www.samdutton.com/velocity2012/)
 
@@ -209,6 +212,7 @@ La présentation n'étant pas nouvelle, est disponible ici : [http://fr.slidesha
 
 
 [![Mike Krieger (Source : http://royal.pingdom.com/2012/10/03/report-from-velocity-europe-day-2/ )](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_f78dbded1ddadf9aa2dfa65ce69cf5b4_instagram-jpg.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_f78dbded1ddadf9aa2dfa65ce69cf5b4_instagram-jpg.jpg)
+
 Mike Krieger (Source : http://royal.pingdom.com/2012/10/03/report-from-velocity-europe-day-2/ )
 
 
@@ -231,11 +235,11 @@ Conférence vraiment passionnante, avec un gars plutôt très transparent sur Fa
 
 ### Conclusion :
 
-Du lourd encore une fois, avec énormement de sujets très intéressants, même si l'on commence tourner un peu en rond autour de la WebPerf Mobile.
+Du lourd encore une fois, avec énormement de sujets très intéressants, même si l'on commence à tourner un peu en rond autour de la WebPerf Mobile.
 
 A noter aussi qu'un grand nombre de livre Oreilly ont été donné et dédicacé par Steve Souders et John Allspaw ;-)
 
-Les salles sont déjbien plus sympa, et l'organisation toujours au top ! Vivement demain.
+Les salles sont déjà bien plus sympa, et l'organisation toujours au top ! Vivement demain.
 
 Pour finir, voici quelques vidéos diffusées pendant les breaks la Vélocity :
 

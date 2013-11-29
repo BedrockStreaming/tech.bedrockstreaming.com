@@ -15,11 +15,13 @@ image:
   feature: 
   credit: 
   creditlink: 
-comments: true  
+comments: false  
 permalink: m6web-lyon-recherche-un-lead-developpeur-architecte-web-h-f-en-cdi
 ---
 
-[![M6Web Lyon recherche un Lead Developpeur / Architecte web (H/F) en CDI](//img.over-blog-kiwi.com/600x600/0/00/30/83/201302/ob_e427fc_05646956-photo-galaxie-m6-web-jpg.png)](http://img.over-blog-kiwi.com/0/00/30/83/201302/ob_e427fc_05646956-photo-galaxie-m6-web-jpg.png)Mise jour : Le poste n'est plus pourvoir. Merci
+[![M6Web Lyon recherche un Lead Developpeur / Architecte web (H/F) en CDI](//img.over-blog-kiwi.com/600x600/0/00/30/83/201302/ob_e427fc_05646956-photo-galaxie-m6-web-jpg.png)](http://img.over-blog-kiwi.com/0/00/30/83/201302/ob_e427fc_05646956-photo-galaxie-m6-web-jpg.png)
+
+Mise jour : Le poste n'est à plus pourvoir. Merci
 
 M6Web Lyon recrute, en CDI, un Lead Développeur LAMP, avec une très forte expertise sur les technologies PHP 5.4, MySQL, Symfony2, GIT, et capable d'encadrer une petite équipe de développement.
 
