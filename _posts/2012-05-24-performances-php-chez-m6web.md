@@ -19,7 +19,7 @@ comments: true
 permalink: post/23671071384/performances-php-chez-m6web
 ---
 
-[![Performances PHP chez M6Web](//img.over-blog-kiwi.com/100x100/0/00/30/83/201206/ob_ed4a69_a7dbfa70e46dfbeab9833780d8b43a57.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201206/ob_ed4a69_a7dbfa70e46dfbeab9833780d8b43a57.jpeg)Voici les slides de la présentation du 23 mai Epitech Lyon.
+Voici les slides de la présentation du 23 mai réalisée à l'Epitech de Lyon.
 
 C’est un retour d’expérience, qui survole un peu tous les axes sur lesquels nous travaillons chez m6web, ayant trait aux optimisations de nos sites.
 

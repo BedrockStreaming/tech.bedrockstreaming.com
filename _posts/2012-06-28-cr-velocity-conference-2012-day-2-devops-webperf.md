@@ -19,20 +19,22 @@ comments: true
 permalink: cr-velocity-conference-2012-day-2-devops-webperf
 ---
 
-Compte rendu des tracks DevOps/WebPerf de cette deuxième journée de cette Vélocity Conférence Santa Clara (Californie) qui marque l'ouverture "officielle" de la conférence, la veille étant considérée comme des conférences bonus orientées Tutoriaux.
+Compte rendu des tracks DevOps/WebPerf de cette deuxième journée de cette Vélocity Conférence à Santa Clara (Californie) qui marque l'ouverture "officielle" de la conférence, la veille étant considérée comme des conférences bonus orientées Tutoriaux.
 
 
+La matinée offrait un track unique dans une salle gigantesque.
 
-[![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](//img.over-blog-kiwi.com/600x600/0/00/30/83/201206/ob_57f6ebd2695fc4240fad4ce61ed26c4e_img-0750.JPG)](http://img.over-blog-kiwi.com/0/00/30/83/201206/ob_57f6ebd2695fc4240fad4ce61ed26c4e_img-0750.JPG)La matinée offrait un track unique dans une salle gigantesque.
+![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](/images/posts/velocityus2012-day2.jpg)
+
+Vidéo d'intro à la Vélocity !
+
+ <iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/Vxq9yj2pVWk?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
 
+L'ouverture officielle est donc présentée par Steve Souders (Google) et John Allspaw (Etsy), toujours dans un show l'américaine, et même déguisés. 
+![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](/images/posts/velocityus2012-intro.jpg)
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/Vxq9yj2pVWk?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
-Vidéo d'intro la Vélocity !
-
-
-[![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](//img.over-blog-kiwi.com/100x100/0/00/30/83/201206/ob_ba5738_29266d24bfa411e1a9f71231382044a1-7.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201206/ob_ba5738_29266d24bfa411e1a9f71231382044a1-7.jpg)L'ouverture officielle est donc présentée par Steve Souders (Google) et John Allspaw (Etsy), toujours dans un show l'américaine, et même déguisés.  
- S'enchaine ensuite un condensé de session plutôt courte par des acteurs très prestigieux du web.
+S'enchaine ensuite un condensé de session plutôt courte par des acteurs très prestigieux du web.
 
 *(Crédit photo : http://instagr.am/p/MV5xAAJLSt/ )*
 
@@ -61,15 +63,14 @@ Une explication sur les procédures de déploiement chez Facebook et leur gestio
 
 
 
-[![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](//img.over-blog-kiwi.com/100x100/0/00/30/83/201206/ob_e748d1887ff7dba771752fe9244c6e78_awvajmdcqaanlwy.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201206/ob_e748d1887ff7dba771752fe9244c6e78_awvajmdcqaanlwy.jpg)Et pour finir, une anecdote assez drôle sur un incident ayant eu lieu chez Facebook, où toutes les fonctionnalités "non terminées" se sont un jour retrouvées en production.
+![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](/images/posts/velocityus2012-facebook.jpg)
+Et pour finir, une anecdote assez drôle sur un incident ayant eu lieu chez Facebook, où toutes les fonctionnalités "non terminées" se sont un jour retrouvées en production.
 
 Bref, une conférence intéressante, mais très dense, dont je vous conseille de regarder la vidéo çi dessous.
 
 
 
-> Fix More, Whine less.
-
- Jay Parikh
+> "Fix More, Whine less." Jay Parikh
 
 
 <iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/oodS71YtkGU?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
@@ -78,24 +79,20 @@ Bref, une conférence intéressante, mais très dense, dont je vous conseille de
 
 #### [DevOps] Investigating Anomalies, par John Rauser (Amazon)
 
-Belle surprise de la journée, avec cette conférence sur la gestion d'incident, qui raconte l'histoire de l'épidémie de Cholera ayant eu lieu Londres en 1854, et comment John Snow, trouver l'origine de l'épidémie, en se concentrant sur les données, et non pas seulement sur les chiffres.
+Belle surprise de la journée, avec cette conférence sur la gestion d'incident, qui raconte l'histoire de l'épidémie de Cholera ayant eu lieu à Londres en 1854, et comment John Snow, trouver l'origine de l'épidémie, en se concentrant sur les données, et non pas seulement sur les chiffres.
 
 
 
-> Explaining anomalies often makes your theroy bulletproof
-
- John Rauser
+> "Explaining anomalies often makes your theroy bulletproof" John Rauser
 
 
-Une deuxième partie était concentrée sur le fait d'étudier les extremités sur vos échantillons de manière trouver ce qui n'allait pas. Point de vue très instructif.
+Une deuxième partie était concentrée sur le fait d'étudier les extremités sur vos échantillons de manière à trouver ce qui n'allait pas. Point de vue très instructif.
 
 La vidéo ci dessus est un "must-see" de la Vélocity.
 
 
 
-> Look at the extremes and you'll find things that are broken
-
- John Rauser
+> "Look at the extremes and you'll find things that are broken" John Rauser
 
 
 <iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/-3dw09N5_Aw?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
@@ -133,7 +130,7 @@ Tout cela donne des idéées sur la façon de prédire ce que vont faire les int
 
 <iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/RnMI-dCWgec?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
-[![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](//img.over-blog-kiwi.com/100x100/0/00/30/83/201206/ob_23ae885757d4e399937306ea7b12c5ce_4024407198-b155ee6a3d-z.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201206/ob_23ae885757d4e399937306ea7b12c5ce_4024407198-b155ee6a3d-z.jpg)
+![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](/images/posts/velocityus2012-jason.jpg)
 
 #### [WebPerf] Performance Implications of Responsive Web Design, par Jason Grigsby (Cloud Four)
 
@@ -153,7 +150,7 @@ La conférence n'étant pas disponible en vidéo, vous pouvez déjécouter Jason
 Jason Grigsby interview la Vélocity Conf 2012
 
 
-[![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](//img.over-blog-kiwi.com/100x100/0/00/30/83/201206/ob_58b250055a6f284fac17242faa080481_awwh6d1cqaevp30.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201206/ob_58b250055a6f284fac17242faa080481_awwh6d1cqaevp30.jpg)
+![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](/images/posts/velocity2012-jason.jpg)
 
 #### [WebPerf] RUM for Breakfast - Distilling Insights From the Noise, par Buddy Brewer (LogNormal), Philip Tellis (LogNormal, Inc) & Carlos Bueno (Facebook)
 
@@ -165,7 +162,7 @@ Slides : [http://www.slideshare.net/buddybrewer/rum-for-breakfast-distilling-ins
 
 
 
-[![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](//img.over-blog-kiwi.com/100x100/0/00/30/83/201206/ob_219501b76271db039a09acc442b7b688_awwwwx4cqaawgik.png)](http://img.over-blog-kiwi.com/0/00/30/83/201206/ob_219501b76271db039a09acc442b7b688_awwwwx4cqaawgik.png)
+![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](/images/posts/velocityus2012-bouncerate.jpg)
 
 #### [WebPerf] Rendering Slow? Too Much CSS3? Ask RSlow, par Marcel Duran (Twitter Inc.), David Calhoun (CBS Interactive)
 
@@ -173,7 +170,7 @@ On retrouve ici une présentation assez fun du résumé de la conf sous forme de
 
 Le talk a ensuite abordé les notions de rendering au niveau CSS avec au départ un cas d'étude : Réaliser le logo de ySlow en CSS3 entièrement. On observe de manière assez drôle le rendu finale dans les différents navigateurs (éclat de rire général sur IE off course). Vous pouvez les retrouver sur les slides ci dessous.
 
-La conférence part ensuite sur quelques tests réalisés sur Chrome uniquement (prendre donc avec des pincettes) sur les performances CSS3 de chacun de ces cas :
+La conférence part ensuite sur quelques tests réalisés sur Chrome uniquement (à prendre donc avec des pincettes) sur les performances CSS3 de chacun de ces cas :
 
 1. background-image vs css3 gradient
 2. <img> vs css background-image
@@ -193,9 +190,9 @@ Les slides sont dispo ici :
 
 Dan et Rob nous parle performances coté client chez Twitter, et la réecriture du Front-End.
 
-La notion de Time To First Tweet, correspond au temps de navigation jusqu'a l'affichage du premier twiit sur la Timeline. Cette mesure est prise grace la Navigation Timing Api, supportée dans IE>=9, Firefox & Chrome notamment.
+La notion de Time To First Tweet, correspond au temps de navigation jusqu'a l'affichage du premier twiit sur la Timeline. Cette mesure est prise grace à la Navigation Timing Api, supportée dans IE>=9, Firefox & Chrome notamment.
 
-Twitter aussi abandonné progressivement, l'utilisation des hashbangs (les #! dans l'url), pour utiliser la PushState Api, ainsi que le templating coté client ([Mustache.js](http://mustache.github.com/) et [Hogan.js](http://twitter.github.com/hogan.js/)) pour repasser sur un templating serveur avec leur migration de Ruby vers Java, avec au final 75% de temps client gagné sur le 95th Percentile !
+Twitter à aussi abandonné progressivement, l'utilisation des hashbangs (les #! dans l'url), pour utiliser la PushState Api, ainsi que le templating coté client ([Mustache.js](http://mustache.github.com/) et [Hogan.js](http://twitter.github.com/hogan.js/)) pour repasser sur un templating serveur avec leur migration de Ruby vers Java, avec au final 75% de temps client gagné sur le 95th Percentile !
 
 Conférence très intéressante, notamment sur la manière de charger les Javascripts.
 
@@ -209,7 +206,7 @@ Les slides sont disponible : [https://speakerdeck.com/u/danwrong/p/time-to-first
 
 #### Conclusion Day 2 :
 
-Encore une journée riche en informations et idées. Le rythme étant beaucoup plus soutenu, et la fatigue s'accumulant, il n'était pas évident d'être 100% dans chaque talk :-)
+Encore une journée riche en informations et idées. Le rythme étant beaucoup plus soutenu, et la fatigue s'accumulant, il n'était pas évident d'être à 100% dans chaque talk :-)
 
 En attendant le CR Ops, et celui du Day 3, vous pouvez relire le CR du Day 1 :   
 [http://tech.m6web.fr/cr-velocity-conference-day-1-dev-webperf](http://tech.m6web.fr/cr-velocity-conference-day-1-dev-webperf)
@@ -218,13 +215,7 @@ P.S : Retrouvez moi sur twitter : [@kenny_dee](https://twitter.com/#!/kenny_dee)
 
 
 
-<div class="ob-section ob-section-link"><div class="ob-ctn">[![Velocity US 2012](//resize.over-blog.com/170x170-ct.jpg?http://i3.ytimg.com/vi/BTk1v6WLxls/hqdefault.jpg)](http://www.youtube.com/playlist?list=PL80D9129677893FD8)[Velocity US 2012](http://www.youtube.com/playlist?list=PL80D9129677893FD8)
+[Playlist Youtube Velocity US 2012](http://www.youtube.com/playlist?list=PL80D9129677893FD8)
 
-The O'Reilly Velocity Conference is the best place on the planet for web operations and performance professionals to learn from experts, exchange ideas with peers, and share best practices and ...
-
-[http://www.youtube.com/playlist?list=PL80D9129677893FD8](http://www.youtube.com/playlist?list=PL80D9129677893FD8)
-
-
-Playlist des vidéos de la Vélocity US 2012
 
 
