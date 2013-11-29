@@ -19,7 +19,9 @@ comments: true
 permalink: velocity-europe-2013-day-2.html
 ---
 
-[![Velocity Europe 2013 - Day 2](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_9ce448_10859879244-aef165bef0-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_9ce448_10859879244-aef165bef0-z-jpg.jpeg)De retour l'hôtel Hilton de Londres, afin de commencer cette deuxième journée qui s’annonce très chargée : jusqu’4 tracks en parallèle. Performance, Mobile, Ops, et Sponsors.
+[![Velocity Europe 2013 - Day 2](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_9ce448_10859879244-aef165bef0-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_9ce448_10859879244-aef165bef0-z-jpg.jpeg)
+
+De retour à l'hôtel Hilton de Londres, afin de commencer cette deuxième journée qui s’annonce très chargée : jusqu’4 tracks en parallèle. Performance, Mobile, Ops, et Sponsors.
 
 
 
@@ -57,7 +59,7 @@ Le service est disponible sur : [http://dafree.keynote.com](http://dafree.keynot
 
 C’est plutôt impressionnant techniquement, on lance les applications que l’on souhaite, rentre du texte, change l’orientation … ! A mémoriser.
 
-MITE, le deuxième outil qui l’air très complet permet d’aller beaucoup plus loin, mais avec des simulateurs cette fois : [http://mite.keynote.com/download.php](http://mite.keynote.com/download.php)
+MITE, le deuxième outil qui à l’air très complet permet d’aller beaucoup plus loin, mais avec des simulateurs cette fois : [http://mite.keynote.com/download.php](http://mite.keynote.com/download.php)
 
 Dommage que l’on oublie les Macs dans l’histoire.
 
@@ -116,7 +118,7 @@ James est venu présenter lors d’une lightning démo : [worldwidepagetest.com]
 Un outil permettant de tester partout dans le monde les performances de son site, basé sur [Webpagetest](http://www.webpagetest.org/), et les locations et browsers disponible.
 
   
- En plus de l’échec total de la démo (bug/plantage … “worst demo ever” d’après le speaker lui même), l’outil qui parait intéressant sur le papier me semble une fausse bonne idée et le risque de saturer les instances de WPT mondial cause de ce type d’outil me parait bien plus gênant que les avantages qu’il apporte.
+ En plus de l’échec total de la démo (bug/plantage … “worst demo ever” d’après le speaker lui même), l’outil qui parait intéressant sur le papier me semble une fausse bonne idée et le risque de saturer les instances de WPT mondial à cause de ce type d’outil me parait bien plus gênant que les avantages qu’il apporte.
 
 
 
@@ -126,7 +128,7 @@ Un outil permettant de tester partout dans le monde les performances de son site
 
 Ilya Grigorik [@igrigorik](https://twitter.com/igrigorik)
 
-L’impressionnante quantité de données agrégées par [HTTP Archive](http://httparchive.org ) est maintenant disponible dans [Google BigQuery](https://bigquery.cloud.google.com) : toutes les données statistiques sur les requêtes et réponses HTTP de plusieurs centaines de milliers de site différents sont donc simplement requêtables et disponibles la vitesse de la lumière (c’est une expression la mode en ce moment par ici).
+L’impressionnante quantité de données agrégées par [HTTP Archive](http://httparchive.org ) est maintenant disponible dans [Google BigQuery](https://bigquery.cloud.google.com) : toutes les données statistiques sur les requêtes et réponses HTTP de plusieurs centaines de milliers de site différents sont donc simplement requêtables et disponibles la vitesse de la lumière (c’est une expression à la mode en ce moment par ici).
 
 Un article d’Ilya explique la marche suivre pour utiliser les données de HTTP Archive stockées sur BigQueries : [http://www.igvita.com/2013/06/20/http-archive-bigquery-web-performance-answers/](http://www.igvita.com/2013/06/20/http-archive-bigquery-web-performance-answers/)
 
@@ -160,7 +162,7 @@ Le monsieur effectue d’abord un récapitulatif des pratiques de cache dans le 
 
 Puis apparaissent les ESI, c’est en gros du reverse proxy cache par bloc (en réalité, ils sont parmi nous depuis bien longtemps). Mais une limitation conceptuelle évidente borne leur utilisation : les sites sont très souvent personnalisés en fonction de l’utilisateur (affichage du nom de l’utilisateur connecté par exemple). Et du coup, les blocs personnalisés, même simples, ne peuvent bénéficier du reverse proxy cache. Ce qui défie un peu le concept.
 
-Pour pallier ce problème, Wim et son équipe ont développé un langage spécifique dans Nginx (qui est aussi un reverse proxy en plus d’être un serveur http) permettant au serveur web de gérer des variables directement dans le reverse proxy afin que celui-ci les stock dans son propre memcache et puisse y accéder pour retourner la page au client sans faire un appel supplémentaire au serveur web : SCL.
+Pour pallier à ce problème, Wim et son équipe ont développé un langage spécifique dans Nginx (qui est aussi un reverse proxy en plus d’être un serveur http) permettant au serveur web de gérer des variables directement dans le reverse proxy afin que celui-ci les stock dans son propre memcache et puisse y accéder pour retourner la page au client sans faire un appel supplémentaire au serveur web : SCL.
 
   
  Alors oui. C’est pas forcément l’idéal de commencer poser des variables dans le reverse proxy. Mais n’ayons crainte, ce n’est pas pour tout de suite : la release publique ne devrait pas arriver avant mi-2014 :-)
@@ -175,11 +177,11 @@ Les slides : [http://cdn.oreillystatic.com/en/assets/1/event/101/When%20dynamic%
 
 Michael Klepikov (Google, Inc)
 
-Intégrer les mesures/tests de régressions de performance dans nos outils d’intégrations continues et une tâche très compliqué. Michael présente une approche assez maligne consistant utiliser les tests fonctionnels déjen place, pour récolter les mesures des outils de R.U.M. déjprésent sur le site (soit parce que les mesures sont présentes dans l’url d’appel de l’outil de R.U.M.), soit en récupérant les valeurs dans les DevTools de Chrome.
+Intégrer les mesures/tests de régressions de performance dans nos outils d’intégrations continues et une tâche très compliqué. Michael présente une approche assez maligne consistant utiliser les tests fonctionnels déjen place, pour récolter les mesures des outils de R.U.M. déjà présent sur le site (soit parce que les mesures sont présentes dans l’url d’appel de l’outil de R.U.M.), soit en récupérant les valeurs dans les DevTools de Chrome.
 
 L’outil [TSviewDB](https://github.com/google/tsviewdb) permet d’avoir une interface qui agrège plusieurs time-series sur une seule time-series (plus d’infos dans le Readme du projet).
 
-Pas mal d’informations creuser dans les slides, comme [l’envoi de donnée directe WebPageTest](https://gist.github.com/klepikov/5457750) pour utiliser l’UI sur le résultat, ou la façon de [récupérer les infos de la DevTools de Chrome en vidéo](http://www.youtube.com/watch?v=0_kAPWSZNY4&feature=youtu.be)
+Pas mal d’informations à creuser dans les slides, comme [l’envoi de donnée directe WebPageTest](https://gist.github.com/klepikov/5457750) pour utiliser l’UI sur le résultat, ou la façon de [récupérer les infos de la DevTools de Chrome en vidéo](http://www.youtube.com/watch?v=0_kAPWSZNY4&feature=youtu.be)
 
 Les slides :
 
@@ -216,9 +218,7 @@ Bref, encore un bel exemple de culture d’entreprise, qui démontre que la perf
 
 
 
-> Performance it’s not just for today, it’s for every day
-
- Peter Dyball
+> "Performance it’s not just for today, it’s for every day" Peter Dyball
 
 
 <iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://www.slideshare.net/slideshow/embed_code/28249315" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
@@ -290,53 +290,40 @@ Les slides sont ici [https://docs.google.com/presentation/d/1wAxB5DPN-rcelwbGO6l
 
 Avant de conclure, petit hommage [Natalia Talkowska](https://twitter.com/NatiTal ) [, qui, sur chaque conférence, réalisait un live sketching d’une qualité incroyable](https://twitter.com/NatiTal)
 
+<blockquote class="twitter-tweet"><p><a href="https://twitter.com/Natalka_Design">@Natalka_Design</a> <a href="https://twitter.com/search?q=%23livesketching&amp;src=hash">#livesketching</a> is back with <a href="https://twitter.com/allspaw">@allspaw</a> <a href="https://twitter.com/Souders">@souders</a> and <a href="https://twitter.com/courtneynash">@courtneynash</a> opening up <a href="https://twitter.com/search?q=%23velocityconf&amp;src=hash">#velocityconf</a>, let&#39;s go! <a href="http://t.co/FYBQIVk8tr">pic.twitter.com/FYBQIVk8tr</a></p>&mdash; Natalia Talkowska (@NatiTal) <a href="https://twitter.com/NatiTal/statuses/400913602104033281">November 14, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
-> [@Natalka_Design](https://twitter.com/Natalka_Design) [#livesketching](https://twitter.com/search?q=%23livesketching&src=hash) is back with [@allspaw](https://twitter.com/allspaw) [@souders](https://twitter.com/Souders) and [@courtneynash](https://twitter.com/courtneynash) opening up [#velocityconf](https://twitter.com/search?q=%23velocityconf&src=hash), let's go! [pic.twitter.com/FYBQIVk8tr](http://t.co/FYBQIVk8tr)
-> 
-> — Natalia Talkowska (@NatiTal) [November 14, 2013](https://twitter.com/NatiTal/statuses/400913602104033281)
+<blockquote class="twitter-tweet"><p><a href="https://twitter.com/search?q=%23livesketching&amp;src=hash">#livesketching</a> <a href="https://twitter.com/psd">@psd</a> at <a href="https://twitter.com/search?q=%23velocityconf&amp;src=hash">#velocityconf</a> as first <a href="https://twitter.com/search?q=%23keynote&amp;src=hash">#keynote</a>! <a href="http://t.co/9zAMXJZNWW">pic.twitter.com/9zAMXJZNWW</a></p>&mdash; Natalia Talkowska (@NatiTal) <a href="https://twitter.com/NatiTal/statuses/400917831153631232">November 14, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>> [#livesketching](https://twitter.com/search?q=%23livesketching&src=hash) [@psd](https://twitter.com/psd) at [#velocityconf](https://twitter.com/search?q=%23velocityconf&src=hash) as first [#keynote](https://twitter.com/search?q=%23keynote&src=hash)! [pic.twitter.com/9zAMXJZNWW](http://t.co/9zAMXJZNWW)
-> 
-> — Natalia Talkowska (@NatiTal) [November 14, 2013](https://twitter.com/NatiTal/statuses/400917831153631232)
+<blockquote class="twitter-tweet"><p><a href="https://twitter.com/search?q=%23livesketching&amp;src=hash">#livesketching</a> <a href="https://twitter.com/keynotesystems">@keynotesystems</a> at <a href="https://twitter.com/search?q=%23velocityconf&amp;src=hash">#velocityconf</a> <a href="http://t.co/S8XYaNFKzU">pic.twitter.com/S8XYaNFKzU</a></p>&mdash; Natalia Talkowska (@NatiTal) <a href="https://twitter.com/NatiTal/statuses/400920690192556033">November 14, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>> [#livesketching](https://twitter.com/search?q=%23livesketching&src=hash) [@keynotesystems](https://twitter.com/keynotesystems) at [#velocityconf](https://twitter.com/search?q=%23velocityconf&src=hash) [pic.twitter.com/S8XYaNFKzU](http://t.co/S8XYaNFKzU)
-> 
-> — Natalia Talkowska (@NatiTal) [November 14, 2013](https://twitter.com/NatiTal/statuses/400920690192556033)
+<blockquote class="twitter-tweet"><p><a href="https://twitter.com/search?q=%23livesketching&amp;src=hash">#livesketching</a> <a href="https://twitter.com/LMAX">@LMAX</a> at <a href="https://twitter.com/search?q=%23velocityconf&amp;src=hash">#velocityconf</a> <a href="http://t.co/UYLYDTSuPO">pic.twitter.com/UYLYDTSuPO</a></p>&mdash; Natalia Talkowska (@NatiTal) <a href="https://twitter.com/NatiTal/statuses/400924927634984960">November 14, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>> [#livesketching](https://twitter.com/search?q=%23livesketching&src=hash) [@LMAX](https://twitter.com/LMAX) at [#velocityconf](https://twitter.com/search?q=%23velocityconf&src=hash) [pic.twitter.com/UYLYDTSuPO](http://t.co/UYLYDTSuPO)
-> 
-> — Natalia Talkowska (@NatiTal) [November 14, 2013](https://twitter.com/NatiTal/statuses/400924927634984960)
+<blockquote class="twitter-tweet"><p><a href="https://twitter.com/search?q=%23livesketching&amp;src=hash">#livesketching</a> <a href="https://twitter.com/kenzenhofer">@kenzenhofer</a> at <a href="https://twitter.com/search?q=%23velocityconf&amp;src=hash">#velocityconf</a> <a href="http://t.co/l2ndwj8V1G">pic.twitter.com/l2ndwj8V1G</a></p>&mdash; Natalia Talkowska (@NatiTal) <a href="https://twitter.com/NatiTal/statuses/400926594828873728">November 14, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>> [#livesketching](https://twitter.com/search?q=%23livesketching&src=hash) [@kenzenhofer](https://twitter.com/kenzenhofer) at [#velocityconf](https://twitter.com/search?q=%23velocityconf&src=hash) [pic.twitter.com/l2ndwj8V1G](http://t.co/l2ndwj8V1G)
-> 
-> — Natalia Talkowska (@NatiTal) [November 14, 2013](https://twitter.com/NatiTal/statuses/400926594828873728)
+<blockquote class="twitter-tweet"><p>Must follow: <a href="https://twitter.com/NatiTal">@NatiTal</a>: <a href="https://twitter.com/search?q=%23livesketching&amp;src=hash">#livesketching</a> <a href="https://twitter.com/psd">@psd</a> at <a href="https://twitter.com/search?q=%23velocityconf&amp;src=hash">#velocityconf</a> as first <a href="https://twitter.com/search?q=%23keynote&amp;src=hash">#keynote</a>! <a href="http://t.co/W8xTTjC581">pic.twitter.com/W8xTTjC581</a> <a href="https://twitter.com/search?q=%23Awesomeness&amp;src=hash">#Awesomeness</a></p>&mdash; Mike Hendrickson (@mikehatora) <a href="https://twitter.com/mikehatora/statuses/400919337613422592">November 14, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>> Must follow: [@NatiTal](https://twitter.com/NatiTal): [#livesketching](https://twitter.com/search?q=%23livesketching&src=hash) [@psd](https://twitter.com/psd) at [#velocityconf](https://twitter.com/search?q=%23velocityconf&src=hash) as first [#keynote](https://twitter.com/search?q=%23keynote&src=hash)! [pic.twitter.com/W8xTTjC581](http://t.co/W8xTTjC581) [#Awesomeness](https://twitter.com/search?q=%23Awesomeness&src=hash)
-> 
-> — Mike Hendrickson (@mikehatora) [November 14, 2013](https://twitter.com/mikehatora/statuses/400919337613422592)
+<blockquote class="twitter-tweet"><p><a href="https://twitter.com/search?q=%23livesketching&amp;src=hash">#livesketching</a> <a href="https://twitter.com/triblondon">@triblondon</a> at <a href="https://twitter.com/search?q=%23velocityconf&amp;src=hash">#velocityconf</a> <a href="http://t.co/VTF2gZFEsH">pic.twitter.com/VTF2gZFEsH</a></p>&mdash; Natalia Talkowska (@NatiTal) <a href="https://twitter.com/NatiTal/statuses/400929312649805824">November 14, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>> [#livesketching](https://twitter.com/search?q=%23livesketching&src=hash) [@triblondon](https://twitter.com/triblondon) at [#velocityconf](https://twitter.com/search?q=%23velocityconf&src=hash) [pic.twitter.com/VTF2gZFEsH](http://t.co/VTF2gZFEsH)
-> 
-> — Natalia Talkowska (@NatiTal) [November 14, 2013](https://twitter.com/NatiTal/statuses/400929312649805824)
+<blockquote class="twitter-tweet"><p><a href="https://twitter.com/search?q=%23livesketching&amp;src=hash">#livesketching</a> <a href="https://twitter.com/TheDevMgr">@thedevmgr</a> at <a href="https://twitter.com/search?q=%23velocityconf&amp;src=hash">#velocityconf</a> <a href="http://t.co/iaaZgRxVwN">pic.twitter.com/iaaZgRxVwN</a></p>&mdash; Natalia Talkowska (@NatiTal) <a href="https://twitter.com/NatiTal/statuses/400931580312449024">November 14, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>> [#livesketching](https://twitter.com/search?q=%23livesketching&src=hash) [@thedevmgr](https://twitter.com/TheDevMgr) at [#velocityconf](https://twitter.com/search?q=%23velocityconf&src=hash) [pic.twitter.com/iaaZgRxVwN](http://t.co/iaaZgRxVwN)
-> 
-> — Natalia Talkowska (@NatiTal) [November 14, 2013](https://twitter.com/NatiTal/statuses/400931580312449024)
+<blockquote class="twitter-tweet"><p>Not a bad likeness! “<a href="https://twitter.com/NatiTal">@NatiTal</a>: <a href="https://twitter.com/search?q=%23livesketching&amp;src=hash">#livesketching</a> <a href="https://twitter.com/triblondon">@triblondon</a> at <a href="https://twitter.com/search?q=%23velocityconf&amp;src=hash">#velocityconf</a> <a href="http://t.co/Pq4NiAPEW7">pic.twitter.com/Pq4NiAPEW7</a>”</p>&mdash; Andrew Betts (@triblondon) <a href="https://twitter.com/triblondon/statuses/400930943130935296">November 14, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>> Not a bad likeness! “[@NatiTal](https://twitter.com/NatiTal): [#livesketching](https://twitter.com/search?q=%23livesketching&src=hash) [@triblondon](https://twitter.com/triblondon) at [#velocityconf](https://twitter.com/search?q=%23velocityconf&src=hash) [pic.twitter.com/Pq4NiAPEW7](http://t.co/Pq4NiAPEW7)”
-> 
-> — Andrew Betts (@triblondon) [November 14, 2013](https://twitter.com/triblondon/statuses/400930943130935296)
+<blockquote class="twitter-tweet"><p><a href="https://twitter.com/search?q=%23livesketching&amp;src=hash">#livesketching</a> <a href="https://twitter.com/igrigorik">@igrigorik</a> at <a href="https://twitter.com/search?q=%23velocityconf&amp;src=hash">#velocityconf</a> <a href="http://t.co/5rBPelS9an">pic.twitter.com/5rBPelS9an</a></p>&mdash; Natalia Talkowska (@NatiTal) <a href="https://twitter.com/NatiTal/statuses/400934378685345792">November 14, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>> [#livesketching](https://twitter.com/search?q=%23livesketching&src=hash) [@igrigorik](https://twitter.com/igrigorik) at [#velocityconf](https://twitter.com/search?q=%23velocityconf&src=hash) [pic.twitter.com/5rBPelS9an](http://t.co/5rBPelS9an)
-> 
-> — Natalia Talkowska (@NatiTal) [November 14, 2013](https://twitter.com/NatiTal/statuses/400934378685345792)
+<blockquote class="twitter-tweet"><p><a href="https://twitter.com/search?q=%23livesketching&amp;src=hash">#livesketching</a> <a href="https://twitter.com/edgecast">@edgecast</a> at <a href="https://twitter.com/search?q=%23velocityconf&amp;src=hash">#velocityconf</a> last <a href="https://twitter.com/search?q=%23keynote&amp;src=hash">#keynote</a> <a href="http://t.co/rZ5Pa1MvhQ">pic.twitter.com/rZ5Pa1MvhQ</a></p>&mdash; Natalia Talkowska (@NatiTal) <a href="https://twitter.com/NatiTal/statuses/400937585436286976">November 14, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>> [#livesketching](https://twitter.com/search?q=%23livesketching&src=hash) [@edgecast](https://twitter.com/edgecast) at [#velocityconf](https://twitter.com/search?q=%23velocityconf&src=hash) last [#keynote](https://twitter.com/search?q=%23keynote&src=hash) [pic.twitter.com/rZ5Pa1MvhQ](http://t.co/rZ5Pa1MvhQ)
-> 
-> — Natalia Talkowska (@NatiTal) [November 14, 2013](https://twitter.com/NatiTal/statuses/400937585436286976)
-
-<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>
 
 
 ### Conclusion :

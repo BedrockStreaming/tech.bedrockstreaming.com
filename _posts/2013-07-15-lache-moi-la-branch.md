@@ -21,7 +21,6 @@ permalink: lache-moi-la-branch
 
 [![Lâche moi la branch !](//img.over-blog-kiwi.com/0/00/30/83/201307/ob_fe73f6_capture-d-e-cran-2013-07-12-a-17-08-13.png)](http://img.over-blog-kiwi.com/0/00/30/83/201307/ob_fe73f6_capture-d-e-cran-2013-07-12-a-17-08-13.png)
 
-#### 
 
 
 
@@ -45,7 +44,7 @@ Il est donc nécessaire de créer un job dédié au test des Pull Requests pour 
 
 #### Configuration du plugin
 
-Le fonctionnement par défaut du plugin GitHub Pull Request Builder est assez restrictif. Il nécessite qu'un contributeur ajoute un commentaire sur la Pull Request en demandant un test puis qu'un admin (parmi une liste configurer) réponde avec un deuxième commentaire acceptant de lancer les tests (le tout avec des phrases types configurables). C'est uniquement ensuite que Jenkins lancera un build.
+Le fonctionnement par défaut du plugin GitHub Pull Request Builder est assez restrictif. Il nécessite qu'un contributeur ajoute un commentaire sur la Pull Request en demandant un test puis qu'un admin (parmi une liste à configurer) réponde avec un deuxième commentaire acceptant de lancer les tests (le tout avec des phrases types configurables). C'est uniquement ensuite que Jenkins lancera un build.
 
 Or dans notre contexte d'entreprise, nous souhaitons que l'automatisation soit totale, comme dans [Travis](https://travis-ci.org/) : chaque modification d'une Pull Request lance l'ensemble des tests. Pour arriver ce fonctionnement, il suffit de cocher "*Build every pull request automatically without asking (Dangerous!)*" dans la section "*Avancée*" des options de lancement de build par "*Github pull requests builder*".
 
@@ -55,13 +54,13 @@ Or dans notre contexte d'entreprise, nous souhaitons que l'automatisation soit t
 
 Nous essayons tant que possible de suivre le [workflow de déploiement de GitHub](https://github.com/blog/1557-github-flow-in-the-browser) : on développe une fonctionnalité par branch, on fait une Pull Request sur le *master* et on ne merge que lorsque tout le monde est d'accord et que les tests sont passés. Cela nous permet de garder le *master* toujours déployable.
 
-Nous avons donc, pour chaque projet, un second job qui lance l'ensemble des tests lors de chaque modification du *master*. Cela n'arrive normalement que lors du merge des nouvelles fonctionnalités contenues dans les Pull Requests, qui ont déjété individuellement testées. Nous sommes donc sereins sur l'intégration croisée de toutes les nouvelles fonctionnalités sur le *master*.
+Nous avons donc, pour chaque projet, un second job qui lance l'ensemble des tests lors de chaque modification du *master*. Cela n'arrive normalement que lors du merge des nouvelles fonctionnalités contenues dans les Pull Requests, qui ont déjà été individuellement testées. Nous sommes donc sereins sur l'intégration croisée de toutes les nouvelles fonctionnalités sur le *master*.
 
 
 
 #### Déploiement
 
-Avant de déployer l'aide de [Capistrano](http://www.capistranorb.com/), nous vérifions que les tests passent (résultat de l'intégration continue + lancement manuel des tests). Le manque d'automatisation concernant ces mises en production fait apparaitre une faille assez large. Pour la résorber, nous pourrions par exemple accepter le déploiement d'un service, uniquement si ses tests sont passés et si aucun autre n'est en cours ou en attente. Même si cela ajoute une dépendance aux serveurs d'intégration continue, cela sécurise les déploiements.
+Avant de déployer à l'aide de [Capistrano](http://www.capistranorb.com/), nous vérifions que les tests passent (résultat de l'intégration continue + lancement manuel des tests). Le manque d'automatisation concernant ces mises en production fait apparaitre une faille assez large. Pour la résorber, nous pourrions par exemple accepter le déploiement d'un service, uniquement si ses tests sont passés et si aucun autre n'est en cours ou en attente. Même si cela ajoute une dépendance aux serveurs d'intégration continue, cela sécurise les déploiements.
 
 *Crédit photo : http://www.dlna.be/*
 

@@ -19,11 +19,12 @@ comments: true
 permalink: velocity-europe-2013-day-3.html
 ---
 
-[![Velocity Europe 2013 - Day 3](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_7a35dd_10859619405-c7d5058073-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_7a35dd_10859619405-c7d5058073-z-jpg.jpeg)Dernière journée de cette Velocity Europe, avec en plus du track Performance et Ops, l'ouverture d'un track Culture.
+[![Velocity Europe 2013 - Day 3](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_7a35dd_10859619405-c7d5058073-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_7a35dd_10859619405-c7d5058073-z-jpg.jpeg)
 
-Pour rappel, si vous les avez ratés, les CR des journées précédentes sont retrouver ici :
+Dernière journée de cette Velocity Europe, avec en plus du track Performance et Ops, l'ouverture d'un track Culture.
 
-- 
+Pour rappel, si vous les avez ratés, les CR des journées précédentes sont à retrouver ici :
+
 - [CR Velocity Europe 2013 - Day 1](http://tech.m6web.fr/velocity-europe-2013-day-1.html)
 - [CR Velocity Europe 2013 - Day 2](http://tech.m6web.fr/velocity-europe-2013-day-2.html)
 
@@ -45,9 +46,7 @@ Nous utilisons toujours des technos vieilles de plus de 15 ans ! Jpg, Png, Gif �
 
 
 
-> Deploying new image formats on the web is HARD (but doable)
-
- Ilya Grigorik
+> "Deploying new image formats on the web is HARD (but doable)" Ilya Grigorik
 
 
 La conférence traite de deux formats bien plus récents :
@@ -98,9 +97,7 @@ Bref, une excellente conférence avec un très bon speaker (très drôle sur la 
 
 
 
-> Don’t do whoopsies on other people things
-
- Tom Maslen
+> "Don’t do whoopsies on other people things" Tom Maslen
 
 
 <iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/2U3joc9NaY4?wmode=transparent&feature=oembed" width="854"></iframe>
@@ -268,9 +265,7 @@ Cette présentation, bien que très intéressante par son contenu fut aussi mise
 
 
 
-> Tools, not rules
-
- Paul Lewis
+> "Tools, not rules" Paul Lewis
 
 
 
@@ -281,7 +276,7 @@ Epuisé par trois jours de conférence d'une densité incroyable, La Velocity a 
 
 Nous espérons que ces comptes-rendus vous auront été utile, autant que les présentations nous l'ont été.
 
-N'hésitez pas commenter l'un des CR pour donner votre avis, sur le CR, ou sur certains points couvert par les Talks.
+N'hésitez pas à commenter l'un des CR pour donner votre avis, sur le CR, ou sur certains points couvert par les Talks.
 
 Merci.
 
