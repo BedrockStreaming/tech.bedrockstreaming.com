@@ -4,7 +4,7 @@ logo:             site-logo.png
 disqus_shortname: m6webtechblog
 search:           true
 #Change url to your domain. Leave localhost server or blank when working locally.
-url:              http://m6web.github.io
+url:              http://tech.m6web.fr
 
 rss_path: /rss
 
