@@ -12,7 +12,7 @@ rss_path: /rss
 owner:
   name:           M6Web
   avatar:         bio-photo.jpg
-  email:          you@email.com
+  email:          opensource@m6web.fr
   # Social networking links used in footer. Update and remove as you like.
   twitter:  techM6Web      
   facebook: techM6Web      
@@ -26,7 +26,7 @@ owner:
   google_plus:    
 
 # Analytics and webmaster tools stuff goes here
-google_analytics:   
+google_analytics: UA-32126501-1
 google_verify:      
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:         
