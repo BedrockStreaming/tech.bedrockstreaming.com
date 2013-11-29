@@ -23,7 +23,7 @@ Nous vous avions parlé, il y'a quelques mois, de nos conférences interne, [les
 
 Voici une première vidéo de l'une de ces sessions sur "la POO Canada Dry".
 
-La POO (Programmation Orienté Objet) ne consiste pas mettre du code dans des classes, elle fait appel des concepts vitaux pour le développeur moderne. [Olivier](https://twitter.com/omansour) nous présente quelques mauvais exemples tirés de code legacy et quelques bonnes pratiques pour faire de la POO (mais en fait c'est surtout du troll).
+La POO (Programmation Orienté Objet) ne consiste pas mettre du code dans des classes, elle fait appel à des concepts vitaux pour le développeur moderne. [Olivier](https://twitter.com/omansour) nous présente quelques mauvais exemples tirés de code legacy et quelques bonnes pratiques pour faire de la POO (mais en fait c'est surtout du troll).
 
 Enjoy
 

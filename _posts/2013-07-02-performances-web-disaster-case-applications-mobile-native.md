@@ -21,7 +21,7 @@ permalink: performances-web-disaster-case-applications-mobile-native
 
 La performance Web (ou grossièrement temps de chargement) est devenue aujourd'hui une problématique majeure dans tout développement Web.
 
-Les outils pour mesurer / comprendre sont plutôt reconnus désormais et arrivent a une certaine maturité. Il y a toutefois encore un créneau plutôt peu documenté (mon goût) dans le domaine, celui permettant de mesurer les temps de chargement dans des applications mobiles natives (Android / iOs ...)
+Les outils pour mesurer / comprendre sont plutôt reconnus désormais et arrivent a une certaine maturité. Il y a toutefois encore un créneau plutôt peu documenté (à mon goût) dans le domaine, celui permettant de mesurer les temps de chargement dans des applications mobiles natives (Android / iOs ...)
 
 Voici un retour des méthodes que nous utilisons pour mesurer les performances (notamment de chargement) de nos applications natives et générer des Waterfall Charts, mais aussi sur la mise en place de tests "disaster case" en cas d'indisponibilité de services utilisés par l'application.
 
@@ -43,10 +43,6 @@ Une fois installé, lancez le, il devrait automatiquement commencer capturer le 
 
 
 
-### 
-
-
-
 ### Connexion Wi-Fi et récupération IP
 
 La deuxième étape consiste a connecter votre Ordinateur et votre Téléphone sur le même réseau Wi-Fi.
@@ -61,15 +57,12 @@ Récupérons ensuite notre adresse Ip via les "Préférences Système", section 
 
 
 
-### 
-
-
 
 ### Configuration du proxy sur son iPhone
 
 Passons ensuite sur le téléphone, dans vos préférences Wi-Fi.
 
-Cliquez ensuite sur la flèche bleu droite du nom de la connexion sur le paramétrage Wi-Fi de notre iPhone, et descendre tout en bas du paramétrage pour configurer manuellement notre proxy HTTP :
+Cliquez ensuite sur la flèche bleu à droite du nom de la connexion sur le paramétrage Wi-Fi de notre iPhone, et descendre tout en bas du paramétrage pour configurer manuellement notre proxy HTTP :
 
 Configurez le proxy de cette connexion pour passer par le Proxy Charles, avec l'adresse IP récupérée plus haut, et le port par défaut de Charles 8888.
 
@@ -85,13 +78,9 @@ Aller ensuite sur un site mobile via Safari pour vérifier que le trafic est bie
 
 
 
-### 
 
 A ce stade, tout est prêt pour commencer les mesures.
 
-
-
-### 
 
 
 
@@ -112,10 +101,6 @@ Sélectionnez toutes les requêtes, puis cliquez sur "Chart" sur la droite, pour
 
 
 [![Performances web et "Disaster case" sur applications mobile native](http://img.over-blog-kiwi.com/0/00/30/83/201306/ob_a5ed4b66cceafe170170112a0c5bc5ae_recording-charles-chart.png)](http://img.over-blog-kiwi.com/0/00/30/83/201306/ob_a5ed4b66cceafe170170112a0c5bc5ae_recording-charles-chart.png)
-
-
-
-### 
 
 
 
@@ -143,10 +128,6 @@ Vous retrouvez donc pour chaque requête tous les élements classique, avec dét
 
 
 
-### 
-
-
-
 ### Throttling
 
 Pour le moment, nous avons donc testé notre application sur notre connexion Wi-Fi, cas plutôt idéal. Mais comment simuler une connexion 3g par exemple, peut être plus proche de la réalité des utilisateurs de l'applications ?
@@ -159,15 +140,7 @@ Ensuite, toujours dans le menu "Proxy", activé l'option "Throttle" et vous pour
 
 
 
-### 
-
-
-
 [![Performances web et "Disaster case" sur applications mobile native](http://img.over-blog-kiwi.com/0/00/30/83/201306/ob_e2de8973ef740d2832a1e475cc632226_throttling.png)](http://img.over-blog-kiwi.com/0/00/30/83/201306/ob_e2de8973ef740d2832a1e475cc632226_throttling.png)
-
-
-
-### 
 
 
 
@@ -179,7 +152,7 @@ Toujours dans Charles, Allez dans "Tools", puis "Map Remote".
 
 Ici, vous allez pouvoir rediriger les domaines de vos choix, vers un domaine de type Blackhole.
 
-C'est dire que le domaine choisi réagira comme si votre serveur web était dans un état de mort cérébrale ! Pas celui où il rejette la connexion immédiatement (trop facile), celui où il végète sans arriver acquitter la réponse (le fameux "en attente de http:// ....")
+C'est à dire que le domaine choisi réagira comme si votre serveur web était dans un état de mort cérébrale ! Pas celui où il rejette la connexion immédiatement (trop facile), celui où il végète sans arriver acquitter la réponse (le fameux "en attente de http:// ....")
 
 Pour ce besoin, nous allons utiliser le Blackhole fourni par [Patrick Meenan](https://twitter.com/patmeenan) pour l'outil de mesure de performance web : [WebPageTest](http://www.webpagetest.org) : http://blackhole.webpagetest.org
 
@@ -195,13 +168,13 @@ Sur notre iPhone 4 de test, on remarque d'ailleurs un timeout sur les requêtes 
 
 [![Performances web et "Disaster case" sur applications mobile native](http://img.over-blog-kiwi.com/0/00/30/83/201307/ob_08a2d492e28867e560b7a8863c328022_spof.png)](http://img.over-blog-kiwi.com/0/00/30/83/201307/ob_08a2d492e28867e560b7a8863c328022_spof.png)
 
-Voil, vous avez désormais une solution vous permettant de générer des Waterfall Charts pour vos apps natives, et de tester des conditions de mauvaises connexions, ou d'indisponibilité de service.
+Voilà, vous avez désormais une solution vous permettant de générer des Waterfall Charts pour vos apps natives, et de tester des conditions de mauvaises connexions, ou d'indisponibilité de service.
 
 Si vous avez d'autres méthodes, plus simples ou plus complètes, ou tout autre remarque sur cette article, n'hésitez pas le faire dans les commentaires ci-dessous.
 
 Merci.
 
-P.s: pour complément, n'hésitez pas creuser le blogpost de Steve Souders sur les waterfall mobile, qui utilise une méthode très différente avec tcpdump et pcapperf [http://www.stevesouders.com/blog/2013/03/26/mobile-waterfalls/](http://www.stevesouders.com/blog/2013/03/26/mobile-waterfalls/)
+P.s: pour complément, n'hésitez pas à creuser le blogpost de Steve Souders sur les waterfall mobile, qui utilise une méthode très différente avec tcpdump et pcapperf [http://www.stevesouders.com/blog/2013/03/26/mobile-waterfalls/](http://www.stevesouders.com/blog/2013/03/26/mobile-waterfalls/)
 
 
 

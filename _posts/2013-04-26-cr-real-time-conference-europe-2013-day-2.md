@@ -20,6 +20,7 @@ permalink: cr-real-time-conference-europe-2013-day-2
 ---
 
 [![Crédit : http://www.flickr.com/photos/andyet-photos/8679275805/in/set-72157633306379029](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_9cf041_8679275805-4983128ec8-c-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_9cf041_8679275805-4983128ec8-c-jpg.jpeg)
+
 Crédit : http://www.flickr.com/photos/andyet-photos/8679275805/in/set-72157633306379029
 
 
@@ -32,6 +33,7 @@ Crédit : http://www.flickr.com/photos/andyet-photos/8679275805/in/set-721576333
 
 
 [![Crédit : https://twitter.com/OriPekelman/status/326600103475425281/photo/1](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_12f478_bihree-cmaezm5x-jpg-large.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_12f478_bihree-cmaezm5x-jpg-large.jpeg)
+
 Crédit : https://twitter.com/OriPekelman/status/326600103475425281/photo/1
 
 
@@ -52,10 +54,11 @@ Il nous indique différentes ressources pour approfondir le sujet :
 
 
 [![Crédit : https://twitter.com/OriPekelman/status/326607298556489728/photo/1](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_e5031c_bihxm4vccaep4av-jpg-large.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_e5031c_bihxm4vccaep4av-jpg-large.jpeg)
+
 Crédit : https://twitter.com/OriPekelman/status/326607298556489728/photo/1
 
 
-[@steveklabnik](https://twitter.com/steveklabnik) avait déjparlé la veille sur un autre sujet. Aujourd'hui, il nous expose la problématique de passer des objets (quelque soit le langage) JSON. Bien souvent, on utilise JSON pour la communication entre différents services (l'un en PHP et l'autre en Python par ex, ou deux services en PHP).
+[@steveklabnik](https://twitter.com/steveklabnik) avait déjà parlé la veille sur un autre sujet. Aujourd'hui, il nous expose la problématique de passer des objets (quelque soit le langage) JSON. Bien souvent, on utilise JSON pour la communication entre différents services (l'un en PHP et l'autre en Python par ex, ou deux services en PHP).
 
 Pour un site web, on arrive souvent au résultat suivant :
 
@@ -76,6 +79,7 @@ En résumé, il recommande de passer par un outil de serialisation des données 
 
 
 [![Crédit : https://twitter.com/OriPekelman/status/326613272969228288/photo/1](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_bf8753_bihdcplcmaabdq-jpg-large.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_bf8753_bihdcplcmaabdq-jpg-large.jpeg)
+
 Crédit : https://twitter.com/OriPekelman/status/326613272969228288/photo/1
 
 
@@ -92,7 +96,7 @@ Tyler présente ensuite 3 possibilités de purge :
 2. Love triangle : pas de serveur central mais notion de peer-to-peer. Chaque noeud interagit avec 2/3 autres noeuds. Problème : il n'y a pas d'état global ni de possibilité de scalabilité avec ce type d'infrastructure
 3. Hybride : on met en place des *switchs* au niveau des noeuds. Les switchs interagissent entre eux, puis redistribuent l'information au niveau de ces serveurs.
 
-La société a déjfait d'autres sessions lors d'autres conférences tel que Velocity qui pourrait fortement intéressé les adminsys ;-)
+La société a déjà fait d'autres sessions lors d'autres conférences tel que Velocity qui pourrait fortement intéressé les adminsys ;-)
 
 
 
@@ -101,10 +105,11 @@ La société a déjfait d'autres sessions lors d'autres conférences tel que Vel
 
 
 [![Crédit : http://www.flickr.com/photos/andyet-photos/8680450402/in/set-72157633306379029](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_637fb3_8680450402-4048e3b2df-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_637fb3_8680450402-4048e3b2df-jpg.jpeg)
+
 Crédit : http://www.flickr.com/photos/andyet-photos/8680450402/in/set-72157633306379029
 
 
-<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" mozallowfullscreen="" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/19960673" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" webkitallowfullscreen="" width="427"></iframe><div style="margin-bottom:5px">**[DiscoRank: optimizing discoverability on SoundCloud](http://fr.slideshare.net/utstikkar/discorank-optimizing-discoverability-on-soundcloud "DiscoRank: optimizing discoverability on SoundCloud")** from **[Amélie Anglade](http://fr.slideshare.net/utstikkar)**
+<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" mozallowfullscreen="" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/19960673" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" webkitallowfullscreen="" width="427"></iframe>
 
 [@utstikkar](https://twitter.com/utstikkar) est une française qui travaille pour Soundcloud en tant que MIR Software Engineer.
 
@@ -119,6 +124,7 @@ Ils utilisent pour cela : MySQL puis HDFS et enfin tout est re-manipulé dans [E
 
 
 [![Crédit : https://twitter.com/OriPekelman/status/326635400175161344/photo/1](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_e1ca08_bihxknbceae7ckp-jpg-large.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_e1ca08_bihxknbceae7ckp-jpg-large.jpeg)
+
 Crédit : https://twitter.com/OriPekelman/status/326635400175161344/photo/1
 
 
@@ -130,7 +136,7 @@ Simon Tennant est CEO de la société BuddyCloud. Il a tenté de faire passer le
 
 L'objectif de sa société est de permettre aux personnes de construire un réseau social fédéré et bien entendu temps-réel.
 
-N'hésitez pas fouiller dans leur source sur [Github](https://github.com/buddycloud)) qui fourmille de fonctionnalités.
+N'hésitez pas à fouiller dans leur source sur [Github](https://github.com/buddycloud)) qui fourmille de fonctionnalités.
 
 
 
@@ -141,6 +147,7 @@ Pierre Couzy travaille depuis plus de 10 ans chez Microsoft. Il nous présente u
 
 
 [![Crédit : http://www.flickr.com/photos/andyet-photos/8679336549/in/set-72157633306379029](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_045020_8679336549-cc73704704-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_045020_8679336549-cc73704704-jpg.jpeg)
+
 Crédit : http://www.flickr.com/photos/andyet-photos/8679336549/in/set-72157633306379029
 
 
@@ -162,13 +169,14 @@ A noter que cette présentation est l'une des rares qui n'a pas été réalisée
 
 
 [![Crédit : https://twitter.com/OriPekelman/status/326670519371980800/photo/1](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_0617d7_biirg0ocyaacsmb-jpg-large.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_0617d7_biirg0ocyaacsmb-jpg-large.jpeg)
+
 Crédit : https://twitter.com/OriPekelman/status/326670519371980800/photo/1
 
 
 Un des autres problèmes avec NodeJS est que le changement est difficile :
 
 - utilisé en production par différentes sociétés
-- difficulté modifier les APIs
+- difficulté à modifier les APIs
 
 Il a donc développé [Luvit](https://github.com/luvit/luvit) basé sur la technologie Lua (légère, rapide et permettant les co-routines).  
  Cette nouvelle couche HTTP donne la possibilité :
@@ -188,6 +196,7 @@ Vous pouvez retrouver l'ensemble des slides sur [Github](https://github.com/crea
 
 
 [![Crédit : http://www.flickr.com/photos/andyet-photos/8680421388/in/set-72157633306379029](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_05a059_8680421388-75c8b026cc-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_05a059_8680421388-75c8b026cc-jpg.jpeg)
+
 Crédit : http://www.flickr.com/photos/andyet-photos/8680421388/in/set-72157633306379029
 
 
@@ -205,6 +214,7 @@ Vous pourrez retrouver l'ensemble des slides sur [Github](https://github.com/dsc
 
 
 [![Crédit : https://twitter.com/OriPekelman/status/326684373090963456/photo/1](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_dbdd43_biidtnxceaasggc-jpg-large.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_dbdd43_biidtnxceaasggc-jpg-large.jpeg)
+
 Crédit : https://twitter.com/OriPekelman/status/326684373090963456/photo/1
 
 
@@ -213,6 +223,7 @@ Cependant, tout le monde n'utilise pas correctement les échanges binaires. Le s
 
 
 [![Crédit : https://twitter.com/noel_olivier/status/326686457257406464](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_5c9f0a_biifmh4cmaagumx-jpg-large.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_5c9f0a_biifmh4cmaagumx-jpg-large.jpeg)
+
 Crédit : https://twitter.com/noel_olivier/status/326686457257406464
 
 
@@ -220,7 +231,7 @@ JS ne propose pas d'API "native" mais un projet permet de traiter du binaire : [
 
 Kyle effectue différents benchs sur la taille des contenus envoyés : l'un en JSON, l'autre en Binary JSON et le dernier via MessagePack. Bien entendu, ce sont les contenus en binaire qui sont les plus légers, mais il reste voir l'impact du téléchargement du JS associé et du traitement côté client.
 
-Un sujet donc étudier qui rappelle [AMF](http://en.wikipedia.org/wiki/AmfPHP) pour échanger des informations au format binaire entre PHP et Flash.
+Un sujet donc à étudier qui rappelle [AMF](http://en.wikipedia.org/wiki/AmfPHP) pour échanger des informations au format binaire entre PHP et Flash.
 
 
 
@@ -244,6 +255,7 @@ Pour répondre aux différentes problématiques, il nous présente [Faye](http:/
 
 
 [![Crédit : https://twitter.com/OriPekelman/status/326711206209527809/photo/1](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_f74ac1_bii2hg7ciaag4bk-jpg-large.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_f74ac1_bii2hg7ciaag4bk-jpg-large.jpeg)
+
 Crédit : https://twitter.com/OriPekelman/status/326711206209527809/photo/1
 
 

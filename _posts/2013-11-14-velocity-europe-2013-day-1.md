@@ -23,12 +23,12 @@ permalink: velocity-europe-2013-day-1.html
 
 ### Introduction :
 
-Nous voici de retour Londres pour la troisième édition de la Vélocity Europe, qui se déroule, pour la deuxième fois Londres (la précédente était Berlin).
+Nous voici de retour à Londres pour la troisième édition de la Vélocity Europe, qui se déroule, pour la deuxième fois à Londres (la précédente était à Berlin).
 
-Pour rappel, la Vélocity est la conférence autour de la performance web. Qu'elle soit Front-End, Back-End, Dév ou Ops. C'est l'événement de l'année ne pas manquer en Europe, ou aux US (ou Chine) pour les plus chanceux
+Pour rappel, la Vélocity est la conférence autour de la performance web. Qu'elle soit Front-End, Back-End, Dév ou Ops. C'est l'événement de l'année à ne pas manquer en Europe, ou aux US (ou Chine) pour les plus chanceux
 
   
- Cette première journée (ayant eu lieu le 13 novembre 2013) est axée sur le signe des “Tutorials”. De looongues conférences de 90 minutes dont voici le compte rendu écrit 6 mains.  
+ Cette première journée (ayant eu lieu le 13 novembre 2013) est axée sur le signe des “Tutorials”. De looongues conférences de 90 minutes dont voici le compte rendu écrit à 6 mains.  
   
  La conférence “classique” commence le 14 et se déroulera sur deux journées.
 
@@ -46,10 +46,10 @@ Après la génération du code html par les serveurs et le transfert de ce code 
 
 Voici donc un résumé des bonnes pratiques permettant d’obtenir un meilleur framerate (nombre de rafraîchissement de la page par seconde) et ainsi une meilleure fluidité lors de la navigation :
 
-- disposer des images la bonne taille pour éviter les redimenssionnements la volée,
+- disposer des images à la bonne taille pour éviter les redimenssionnements la volée,
 - limiter les handlers sur l’événement onScroll(),
-- limiter tous les éléments ‘fixed’ car cela force le navigateur recalculer constamment la zone affichée (ou utiliser l’astuce `translateZ(0)`),
-- limiter les directives CSS qui nécessites un calcul supplémentaire (lorsque tout est déjaffiché) :
+- limiter tous les éléments ‘fixed’ car cela force le navigateur à recalculer constamment la zone affichée (ou utiliser l’astuce `translateZ(0)`),
+- limiter les directives CSS qui nécessites un calcul supplémentaire (lorsque tout est déjà affiché) :
 
 - les ombres,
 - les flous,
@@ -70,8 +70,10 @@ Les slides sont disponible ici : [https://speakerdeck.com/addyosmani/velocitycon
 
 
 <script async="" class="speakerdeck-embed" data-id="76ff3a902e8b0131b9452adb14392f56" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
 <iframe allowfullscreen="" frameborder="0" height="720" mozallowfullscreen="" src="http://player.vimeo.com/video/75540354" title="Addy Osmani — Gone in 60 Frames Per Second (SmashingConf 2013)" webkitallowfullscreen="" width="1280"></iframe>
-Vidéo de la même conférence (donnée la Smashing Conf 2013)
+
+Vidéo de la même conférence (donnée à la Smashing Conf 2013)
 
 
 [![Velocity Europe 2013 - Day 1](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_83eb3a_10845796864-8dbb9f704e-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_83eb3a_10845796864-8dbb9f704e-z-jpg.jpeg)
@@ -93,14 +95,10 @@ Quelques données sur Etsy :
 
 
 
-> We optimize for quick recovery by anticipating problems instead of fearing human error
-
- John Cowie
+> "We optimize for quick recovery by anticipating problems instead of fearing human error" John Cowie
 
 
-> Can’t Fix what you don’t measure
-
- W. Edwards Deming
+> "Can’t Fix what you don’t measure" W. Edwards Deming
 
 
 Leurs outils pour le monitoring :
@@ -119,14 +117,10 @@ Leurs outils pour le monitoring :
 
 
 
-> Not All things that break throw errors
-
- Oscar Wilde
+> "Not All things that break throw errors" Oscar Wilde
 
 
-> If it moves, graph it ! If it doesn’t move, graph it anyway
-
- Jon Cowie
+> "If it moves, graph it ! If it doesn’t move, graph it anyway" Jon Cowie
 
 
 La présentation s’axe ensuite plus particulièrement sur la stack “Kale”, qui englobe deux outils que l’on va détailler : Skyline et Oculus. Voir l’article sur le blog technique de Etsy [http://codeascraft.com/2013/06/11/introducing-kale/](http://codeascraft.com/2013/06/11/introducing-kale/)
@@ -158,6 +152,7 @@ Les slides sont disponible ici : [http://www.slideshare.net/jonlives/bring-the-n
 
 
 <iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://www.slideshare.net/slideshow/embed_code/24058352" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
+
 [![Velocity Europe 2013 - Day 1](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_f5459e_10845647355-e5150145e4-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_f5459e_10845647355-e5150145e4-z-jpg.jpeg)
 
 ### Responsive images Technique and Beyond
@@ -166,7 +161,7 @@ Yoav Weiss (WL Square) [@yoavweiss](https://twitter.com/yoavweiss)
 
 Yoav est un spécialiste de la WebPerf et travaille sur les problématiques des images liées au Responsive Web Design. Il est aussi Technical Lead au RICG (Responsive images community Group)
 
-Le principal problème des images responsive, c’est de charger l’image correctement dimensionnée par rapport une page, de manière efficace.
+Le principal problème des images responsive, c’est de charger l’image correctement dimensionnée par rapport à une page, de manière efficace.
 
 72% des sites RWD servent les mêmes ressources entre les résolutions petites et grandes …
 
@@ -176,7 +171,7 @@ Yoav a développé un outil utilisant PhantomJs, permettant de mesurer la diffé
 
 On aborde ensuite les deux cas principaux gênant :
 
-- Servir une dimension différentes de l’image différents support. (et les Retina uniquement aux devices le supportant)
+- Servir une dimension différentes de l’image à différents support. (et les Retina uniquement aux devices le supportant)
 - et le “Art direction”, avoir une image qui correspond au layout
 
 Ainsi que l’intérêt du Pre-loader, souvent peu connu. Beaucoup plus d’infos sur cet article d’Andy Davies ([http://andydavies.me/blog/2013/10/22/how-the-browser-pre-loader-makes-pages-load-faster/](http://andydavies.me/blog/2013/10/22/how-the-browser-pre-loader-makes-pages-load-faster/))
@@ -215,14 +210,12 @@ AKA comment condenser un livre dans un tutorial d’1H30. Exercice encore plus d
 
 
 
-> Video streaming is bandwidth limited, web browsing is latency limited
-
- Ilya Grigorik
+> "Video streaming is bandwidth limited, web browsing is latency limited" Ilya Grigorik
 
 
 Il a ensuite expliqué comment fonctionne le réseau radio 2G/3G/4G et les contraintes que ces architectures exercent sur les temps de chargement et la durée de vie des batteries pour les appareils mobiles.
 
-Le tutorial s'est achevé sur les défauts de HTTP 1.1 et les nouveautés (nombreuses et sexys) d'HTTP 2.0. Ce fut extrêmement plaisant d'assister cette présentation, tant Ilya est pointu techniquement, précis et didactique dans ses démonstrations. Le livre est un MUST-READ !
+Le tutorial s'est achevé sur les défauts de HTTP 1.1 et les nouveautés (nombreuses et sexys) d'HTTP 2.0. Ce fut extrêmement plaisant d'assister à cette présentation, tant Ilya est pointu techniquement, précis et didactique dans ses démonstrations. Le livre est un MUST-READ !
 
 Il est d’ailleurs disponible gratuitement ici : [http://chimera.labs.oreilly.com/books/1230000000545](http://chimera.labs.oreilly.com/books/1230000000545)
 
@@ -255,13 +248,14 @@ Gauntlt permet donc d’automatiser au sein de son système d’intégration con
 - Sqlmap
 - ...
 
-Si vous voulez tester l’outil, qui l’air très prometteur, vous pouvez suivre ce tutoriel : [http://bit.ly/gauntlt-demo-instructions](http://bit.ly/gauntlt-demo-instructions) qui vous fourni la Virtual Box, les consignes d’installations, et les exemples ayant été réalisés pendant la conférence, ainsi qu’une application de test en Ruby [Railsgoat](https://github.com/OWASP/railsgoat) pour servir de cible vos tests.
+Si vous voulez tester l’outil, qui à l’air très prometteur, vous pouvez suivre ce tutoriel : [http://bit.ly/gauntlt-demo-instructions](http://bit.ly/gauntlt-demo-instructions) qui vous fourni la Virtual Box, les consignes d’installations, et les exemples ayant été réalisés pendant la conférence, ainsi qu’une application de test en Ruby [Railsgoat](https://github.com/OWASP/railsgoat) pour servir de cible à vos tests.
 
 Les slides sont disponible ici : [http://www.slideshare.net/wickett/gauntlt-velocity-eu2013](http://www.slideshare.net/wickett/gauntlt-velocity-eu2013)
 
 
 
 <iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://www.slideshare.net/slideshow/embed_code/28203152" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
+
 [![Velocity Europe 2013 - Day 1](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_78440c_10845987613-5d3296cfbd-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_78440c_10845987613-5d3296cfbd-z-jpg.jpeg)
 
 ### Hands-on Web Performance Optimization Workshop
@@ -300,7 +294,7 @@ Bonne première journée avec ce format "Tutorials" un peu trop touffu (90 minut
 Retrouvez les autres CR :
 
 - [Compte rendu du jour 2 ](http://tech.m6web.fr/velocity-europe-2013-day-2.html)
-- Compte rendu du jour 3 (soon)
+- [Compte rendu du jour 3 ](http://tech.m6web.fr/velocity-europe-2013-day-3.html)
 
 © des photos : [Flickr officiel O'Reilly](http://www.flickr.com/photos/oreillyconf/with/10845987613/)
 

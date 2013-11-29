@@ -20,20 +20,21 @@ permalink: introduction-qualite-logicielle-avec-node-js
 ---
 
 [![(Source : http://www.flickr.com/photos/dieselbug2007/414348333/)](http://img.over-blog-kiwi.com/0/00/30/83/201307/ob_0f27a1_414348333-b72ff906de-b-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201307/ob_0f27a1_414348333-b72ff906de-b-jpg.jpeg)
+
 (Source : http://www.flickr.com/photos/dieselbug2007/414348333/)
 
 
-Chez M6Web, nous avonsrécemment réecrit un de nos projets [Node.js](http://nodejs.org/).
-Le monde Node.js évolue très rapidement et a fait d'énorme progrès dans le domaine de la qualité logicielle.<span style="font-family: inherit;">Nous avons donc decidéde monterenqualité surnos projets Node.js en utilisant les derniers outils proposés par la communauté.</span>
+Chez M6Web, nous avons récemment réecrit un de nos projets [Node.js](http://nodejs.org/).
+Le monde Node.js évolue très rapidement et a fait d'énorme progrès dans le domaine de la qualité logicielle.
+Nous avons donc decidéde monter en qualité sur nos projets Node.js en utilisant les derniers outils proposés par la communauté.
 
 
-Pour cela, nousmesuronsmaintenantdifférentes métriques sur nos projets Node:
+Pour cela, nous mesurons maintenant différentes métriques sur nos projets Node:
 
 - la qualité du code (checkstyle)
 - des tests unitaires et fonctionnels
 
-<span style="font-family: inherit;">et tout ceci est lancépar notre serveur d'intégration continue: </span>[Jenkins](http://jenkins-ci.org/)<span style="font-family: inherit;">.</span>
-
+et tout ceci est lancépar notre serveur d'intégration continue: [Jenkins](http://jenkins-ci.org/).
 
 
 
@@ -46,11 +47,15 @@ Pour tout ce qui est "tests", nous avons choisi le très bon duo :
 
 
 
-[![Introduction à la qualité logicielle avec Node.js](//img.over-blog-kiwi.com/100x100/0/00/30/83/201307/ob_d472509f78a8e21ad02b2e74ec9f03a0_15f75683-mocha-logo-png.png)](http://img.over-blog-kiwi.com/0/00/30/83/201307/ob_d472509f78a8e21ad02b2e74ec9f03a0_15f75683-mocha-logo-png.png)[Mocha](http://visionmedia.github.io/mocha/) c'est un "test-runner" javascript qui fonctionne aussi bien sur Node que dans un navigateur web. Plus simplement mocha est l'outil qui va contenir nos tests: il va exécuter les tests et afficher les résultats.
+[![Introduction à la qualité logicielle avec Node.js](//img.over-blog-kiwi.com/100x100/0/00/30/83/201307/ob_d472509f78a8e21ad02b2e74ec9f03a0_15f75683-mocha-logo-png.png)](http://img.over-blog-kiwi.com/0/00/30/83/201307/ob_d472509f78a8e21ad02b2e74ec9f03a0_15f75683-mocha-logo-png.png)
+
+[Mocha](http://visionmedia.github.io/mocha/) c'est un "test-runner" javascript qui fonctionne aussi bien sur Node que dans un navigateur web. Plus simplement mocha est l'outil qui va contenir nos tests: il va exécuter les tests et afficher les résultats.
 
 
 
-[![Introduction à la qualité logicielle avec Node.js](//img.over-blog-kiwi.com/100x100/0/00/30/83/201307/ob_99cf18_636ffadd667e8f9abe354403692aeb73.png)](http://img.over-blog-kiwi.com/0/00/30/83/201307/ob_99cf18_636ffadd667e8f9abe354403692aeb73.png)[Chai](http://chaijs.com/) est une librairie d'assertion assez complète, permettant plusieurs syntaxe :
+[![Introduction à la qualité logicielle avec Node.js](//img.over-blog-kiwi.com/100x100/0/00/30/83/201307/ob_99cf18_636ffadd667e8f9abe354403692aeb73.png)](http://img.over-blog-kiwi.com/0/00/30/83/201307/ob_99cf18_636ffadd667e8f9abe354403692aeb73.png)
+
+[Chai](http://chaijs.com/) est une librairie d'assertion assez complète, permettant plusieurs syntaxe :
 
 - assert.equal(foo, 'raoul');
 - foo.should.equal('raoul');
@@ -60,7 +65,9 @@ Ces deux outils fonctionnent aussi bien pour tester vos javascripts Node que fro
 
 
 
-Ce duo permet une écriture de test simple et très lisible, dont voici un exemple : <script src="https://gist.github.com/nchaulet/5857049.js"></script>
+Ce duo permet une écriture de test simple et très lisible, dont voici un exemple : 
+
+<script src="https://gist.github.com/nchaulet/5857049.js"></script>
 
 
 #### Tests fonctionnels
@@ -70,25 +77,26 @@ Pour les tests fonctionnels, nous avons choisi d'utiliser [Supertest](https://gi
 Ci-dessous, un exemple de tests fonctionnels :
 
 
-
 <script src="https://gist.github.com/nchaulet/5857173.js"></script>
 
 
 #### Checkstyle
 
 En javascript, on peut aussi écrire du code propre et respecter des conventions de codage.  
- Afin de vérifier que notre code respecte les standards en vigueur nous utilisons [JsHint](http://www.jshint.com/).
+ Afin de vérifier que notre code respecte les standards en vigueur, nous utilisons [JsHint](http://www.jshint.com/).
 
 
 
 #### Intégration continue
 
-Toutes ces métriques sont récoltées grâce [Jenkins-CI](http://jenkins-ci.org/) l'aide du fichier Ant suivant :
+Toutes ces métriques sont récoltées grâce à [Jenkins-CI](http://jenkins-ci.org/) à l'aide du fichier Ant suivant :
 
 
 
 <script src="https://gist.github.com/nchaulet/5857025.js"></script>
+
 [![Le résultat de l'intégration continue dans jenkins.](http://img.over-blog-kiwi.com/0/00/30/83/201306/ob_56a4f738660c069741e43ca3dad5a7d7_jenkins.png)](http://img.over-blog-kiwi.com/0/00/30/83/201306/ob_56a4f738660c069741e43ca3dad5a7d7_jenkins.png)
+
 Le résultat de l'intégration continue dans jenkins.
 
 
@@ -98,7 +106,7 @@ Le résultat de l'intégration continue dans jenkins.
 
 Node.js propose des outils très performants pour la qualité logicielle, et écrire des tests avec le duo "Mocha + Chai" devient vite quelque chose de simple. Et même les développeurs les plus réfractaires aux tests devraient apprécier.
 
-N’hésitez pas commenter cet article et indiquez la solution que vous utilisez pour vos projets Node.
+N’hésitez pas à commenter cet article et à indiquez la solution que vous utilisez pour vos projets Node.
 
 
 

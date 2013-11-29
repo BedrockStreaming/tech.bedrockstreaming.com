@@ -27,9 +27,9 @@ Après l'excellente moisson de la Vélocity US de Santa Clara, dont voici nos 3 
 - Day 2 : [http://tech.m6web.fr/cr-velocity-conference-2012-day-2-devops-webperf](http://tech.m6web.fr/cr-velocity-conference-2012-day-2-devops-webperf)
 - Day 3 : [http://tech.m6web.fr/cr-velocity-conference-2012-day-3-devops-webperf](http://tech.m6web.fr/cr-velocity-conference-2012-day-3-devops-webperf)
 
-Et après la session de l'année dernière qui avait lieu Berlin, nous nous retrouvons cette fois dans la capitale anglaise Londres, au Hilton hôtel.
+Et après la session de l'année dernière qui avait lieu à Berlin, nous nous retrouvons cette fois dans la capitale anglaise Londres, au Hilton hôtel.
 
-Voici le compte rendu des conférences de la première journée, journée un peu part placée sous le signe des "Tutorials" (2 octobre 2012)
+Voici le compte rendu des conférences de la première journée, journée un peu à part placée sous le signe des "Tutorials" (2 octobre 2012)
 
 
 
@@ -72,12 +72,12 @@ Les slides sont disponible ici et plutôt parlantes pour ceux qui voudraient cre
 
 
 <iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/14556223" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
-> You cannot correct what you cannot measure
 
- Theo Schlossnagle
+> "You cannot correct what you cannot measure" Theo Schlossnagle
 
 
 [![Theo Schlossnagle (Source : http://img.ly/o0Ht )](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_e5890eb4c00194f155cbb70dadf2df1e_large-jpg.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_e5890eb4c00194f155cbb70dadf2df1e_large-jpg.jpg)
+
 Theo Schlossnagle (Source : http://img.ly/o0Ht )
 
 
@@ -95,7 +95,7 @@ Difficile d'en faire un résumé, tellement la conférence était bourrée d'inf
 
 - Attention au contexte de vos graphiques : un graph qui parait anormal sur une heure, peut s'avérer normal sur une échelle de temps d'une journée par exemple
 - Des bons conseils sur la résolution d'incident en équipe, notamment au niveau de la communication avec des exemples de conversation pendant des incidents chez Etsy trop ambigus. Il est important de confirmer les réponses, corriger la communication des autres, afin d'éviter tout soucis de compréhension
-- Ne pas hésiter demander des "pre-mortem". Dire l'auteur du projet par exemple, que cela va planter dans plusieurs mois, et lui demander d'essayer de trouver la ou les raisons qui pourraient amener le projet au plantage.
+- Ne pas hésiter à demander des "pre-mortem". Dire à l'auteur du projet par exemple, que cela va planter dans plusieurs mois, et lui demander d'essayer de trouver la ou les raisons qui pourraient amener le projet au plantage.
 - ...
 
 Je vous invite encore consulter les slides pour plus d'informations et de références : [http://fr.slideshare.net/jallspaw/velocity-eu-2012-escalating-scenarios-outage-handling-pitfalls](http://fr.slideshare.net/jallspaw/velocity-eu-2012-escalating-scenarios-outage-handling-pitfalls)
@@ -104,6 +104,7 @@ Je vous invite encore consulter les slides pour plus d'informations et de réfé
 
 <iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/14567676?rel=0" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 [![John Allspaw (Source : https://twitter.com/lozzd/status/253074489540239360 )](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_dc94ca_1de339480c7911e2a04e123138141145-7-jpg.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_dc94ca_1de339480c7911e2a04e123138141145-7-jpg.jpg)
+
 John Allspaw (Source : https://twitter.com/lozzd/status/253074489540239360 )
 
 
@@ -115,13 +116,13 @@ Son twitter : [@jeroentjepkema](https://twitter.com/jeroentjepkema)
 
 L'objectif de cette conférence était de proposer en 90 minutes, les étapes nécessaire pour monter un dashboard orienté WebPerf.
 
-On re-parcourt du coup un peu tout le classique de la performance web, en présentant déjquelques exemples de Dashboard (rien de très sexy ..., hormis peut-être [celui de Nrc.nl](http://www.nrc.nl/apps/bigboard/) orienté "audience éditoriale" plutot intéressant), la pertinence de certains types de "graphs" comme les "heatmap" et aussi en comparant les différentes solutions pour mesurer la performance web, avec avantages et inconvénients :
+On re-parcourt du coup un peu tout le classique de la performance web, en présentant déjà quelques exemples de Dashboard (rien de très sexy ..., hormis peut-être [celui de Nrc.nl](http://www.nrc.nl/apps/bigboard/) orienté "audience éditoriale" plutot intéressant), la pertinence de certains types de "graphs" comme les "heatmap" et aussi en comparant les différentes solutions pour mesurer la performance web, avec avantages et inconvénients :
 
 - Synthetic Monitoring (Gomez, Keynote, IpLabel, Pingdom etc) (slide 104-105)
 - Real User Monitoring ([LogNormal](http://lognormal.com/) dont [l'acquisition par Soasta](http://lognormal.com/blog/2012/10/01/lognormal-acquired-by-soasta/) a aussi été annoncé ce jour, [Boomerang.js](http://lognormal.github.com/boomerang/doc/), Torbit, Google Analytics ...) (slide 121-122)
 - Real User Benchmarking ([WebPageTest](http://www.webpagetest.org)) (slide 134)
 
-Quelques idées sympa de design sont disséminées tout au long de cette longue présentation, on regrette simplement de survoler toujours un peu tous les concepts, mais malgrés tout, cela reste l'une des rares tentatives de faire un dashboard WebPerf accessible des "non-techniciens". Chapeau pour cela.
+Quelques idées sympa de design sont disséminées tout au long de cette longue présentation, on regrette simplement de survoler toujours un peu tous les concepts, mais malgrés tout, cela reste l'une des rares tentatives de faire un dashboard WebPerf accessible à des "non-techniciens". Chapeau pour cela.
 
 Une démo du dashboard est testable ici : [https://app.measureworks.nl/secured/dashboard](https://app.measureworks.nl/secured/dashboard) (Login : demo@measureworks.nl , password: performance )
 
@@ -131,6 +132,7 @@ Les slides sont disponibles ici : [http://www.slideshare.net/MeasureWorks/measur
 
 <iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/14559201?rel=0" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 [![Jeroen Tjepkema (Source : https://twitter.com/pingdom/status/253135289327951872 )](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_de570da1ddb751e35f1a96d2eadf7c9d_scaled-php.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_de570da1ddb751e35f1a96d2eadf7c9d_scaled-php.jpg)
+
 Jeroen Tjepkema (Source : https://twitter.com/pingdom/status/253135289327951872 )
 
 
@@ -169,6 +171,7 @@ Bref, superbe application de tous les concepts WebPerf avec des cas concrets d'�
 
 
 [![Patrick Meenan & Steve Souders (Source : https://twitter.com/simonox/status/253146271156670464 )](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_b0e31f_233d81c80ca111e28d1322000a1cba90-7-jpg.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_b0e31f_233d81c80ca111e28d1322000a1cba90-7-jpg.jpg)
+
 Patrick Meenan & Steve Souders (Source : https://twitter.com/simonox/status/253146271156670464 )
 
 
@@ -181,6 +184,7 @@ Pour finir cette journée, rendez vous dans l'immense salle (dans laquelle aura 
 
 
 [![Salle King's Room (Source : https://twitter.com/cmsj/status/253139957093367808/photo/1 )](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_89db26_a4nvcywcaaavwli-jpg-large.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_89db26_a4nvcywcaaavwli-jpg-large.jpg)
+
 Salle King's Room (Source : https://twitter.com/cmsj/status/253139957093367808/photo/1 )
 
 
@@ -194,6 +198,7 @@ Voici par exemple un talk sympa sur les "Dataviz as interface" par [@makoto_inou
 
 <iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/14559951" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 [![Makoto Inoue, de l'énergie, de la danse, et de la bière ! (Source: http://royal.pingdom.com/2012/10/02/velocity-europe-1/ )](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_8823f9b6bfed28f4d280b3f4ca99689e_ignite-jpg.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_8823f9b6bfed28f4d280b3f4ca99689e_ignite-jpg.jpg)
+
 Makoto Inoue, de l'énergie, de la danse, et de la bière ! (Source: http://royal.pingdom.com/2012/10/02/velocity-europe-1/ )
 
 
@@ -212,7 +217,7 @@ Conférence auquelle je n'ai pas pu assisté : [http://fr.slideshare.net/guypod/
 
 Bonne première journée avec déjpas mal de choses retenir et appliquer quotidiennement !
 
-On regrette le fait d'avoir été dans des petites salles (sûrement cause de la dernière journée de la Strata Conférence), et du coup d'avoir alterné le manque de place, avec la chaleur des salles ... Et je n'ai pas l'impression que les sessions du jour étaient filmées malheuresement !
+On regrette le fait d'avoir été dans des petites salles (sûrement à cause de la dernière journée de la Strata Conférence), et du coup d'avoir alterné le manque de place, avec la chaleur des salles ... Et je n'ai pas l'impression que les sessions du jour étaient filmées malheuresement !
 
 C'est en tout cas un très bon avant-gout de ce qui nous attend demain ;-)
 

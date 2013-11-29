@@ -20,19 +20,16 @@ permalink: firewall-applicatif-php-et-bundle-symfony
 ---
 
 [![(c) http://www.flickr.com/photos/23959858@N03/](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_7488b3_capture-d-e-cran-2013-05-30-a-14-19-08.png)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_7488b3_capture-d-e-cran-2013-05-30-a-14-19-08.png)
+
 (c) http://www.flickr.com/photos/23959858@N03/
 
 
 Nous publions aujourd'hui notre firewall applicatif sur notre [compte GitHub](https://github.com/M6Web). Il se compose :
 
 - d'un [composant PHP](https://github.com/M6Web/Firewall) (5.4+) gérant les IPs (V4 et V6), plages, wildcards, white/black lists, etc.
-- d'un [bundle Symfony](https://github.com/M6Web/FirewallBundle) permettant d'utiliser le composant [Firewall](https://github.com/M6Web/Firewall) dans les controllers l'aide des annotations et de retourner une réponse HTTP personnalisée.
+- d'un [bundle Symfony](https://github.com/M6Web/FirewallBundle) permettant d'utiliser le composant [Firewall](https://github.com/M6Web/Firewall) dans les controllers à l'aide des annotations et de retourner une réponse HTTP personnalisée.
 
 Ils utilisent tous les deux [Composer](http://getcomposer.org/) et sont [disponibles sur Packagist](https://packagist.org/packages/m6web/).
-
-
-
-#### 
 
 
 
@@ -45,11 +42,6 @@ Un Firewall applicatif permet de restreindre l’accès de certaines IPs certain
 #### Pourquoi cette implémentation ?
 
 Nous souhaitions éviter de redéfinir l’ensemble des IPs chaque point de restriction. Nous avons donc cherché centraliser la configuration. Le [FirewallBundle](https://github.com/M6Web/FirewallBundle) permet de mettre en place des listes hiérarchisées ainsi que des configurations prédéfinies que nous pouvons réutiliser et adapter chaque besoin.
-
-
-
-#### 
-
 
 
 #### Comment contribuer ?

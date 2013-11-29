@@ -19,58 +19,64 @@ comments: true
 permalink: m6web-dev-facts-5
 ---
 
-[![M6Web Dev Facts #5](//img.over-blog-kiwi.com/300x300/0/00/30/83/201307/ob_75a4be_ob-e2a6c1-ob-405b21-ob-5a36f2337bf2f4cbc7a86436a.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201307/ob_75a4be_ob-e2a6c1-ob-405b21-ob-5a36f2337bf2f4cbc7a86436a.jpeg)On est dredi, et on a encore pas mal de phrases chocs de nos développeurs, entendues dans nos locaux partager.
+[![M6Web Dev Facts #5](//img.over-blog-kiwi.com/300x300/0/00/30/83/201307/ob_75a4be_ob-e2a6c1-ob-405b21-ob-5a36f2337bf2f4cbc7a86436a.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201307/ob_75a4be_ob-e2a6c1-ob-405b21-ob-5a36f2337bf2f4cbc7a86436a.jpeg)
+
+On est dredi, et on a encore pas mal de phrases chocs de nos développeurs, entendues dans nos locaux partager.
 
 En voici une nouvelle sélection avec les Dev Facts #5
 
 
+# Faille de sécu ?
 
 > C'est un peu complexe, c'est une back-office front !
 
- Faille de sécu ?
+
+# La boucle est bouclée
+
+> Il finit là où il s'est arrêté
 
 
-> Il finit loù il s'est arrêté
-
- La boucle est bouclée
-
+# Envoi impossible
 
 > Mais tu n'étais pas en pièce jointe !
 
- Envoi impossible
 
+# C'est l'histoire d'une fille
 
 > C'est un peu comme "Un gars, une fille" mais sans le gars
 
- C'est l'histoire d'une fille
 
+
+# La minute de 30 secondes
 
 > J'ai pris une année sabatique de 6 mois.
 
- La minute de 30 secondes
 
+# L'année des deux mains
 
 > Ca dépend si c'est une année ambidextre !
 
- L'année des deux mains
 
+
+# Les dents de la neige
 
 > - Vous avez entendu, une championne de snowboard est morte.  
 >  - Elle s'est faite manger par un requin ?
 
- Les dents de la neige
 
+
+# Le vrai du faux
 
 > Ils ont trouvé une faille infaillible
 
- Le vrai du faux
 
+
+# Le roi de la combine
 
 > - En France, un truc comme ca, t'en as pour 280 euros !  
 >  - Et tu l'as eu a combien ?  
 >  - 280 euros.
 
- Le roi de la combine
 
 
 A bientôt pour un prochain épisode
