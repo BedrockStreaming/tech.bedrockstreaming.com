@@ -39,17 +39,17 @@ boum ! => "composer install” command cant downoad distant packages on api.gith
 
 Good luck explaining to your boss that you rely on free hosting service to deploy your business critical website !
 
-This this our situation. So here how we deal with that.
+This is our situation. So here how we deal with that.
 
 # Principles.
 
 ![principles](/images/posts/composer-installation-without-github/3.png)
 
-We choose to use Satis - a great tool provided by the Composer team. The main idea is, regulary, download packages and package informations on local servers. We (at M6Web) deploy services on our local infrastructure and on S3 servers in Amazon Web Services.
+We choosed to use Satis - a great tool provided by the Composer team. The main idea is, regulary download packages and their informations on local our servers. We (at M6Web) deployed services on our local infrastructure and on S3 servers in Amazon Web Services.
 
 # How to ? For your local network.
 
-We set 2 différents satis instance. One for our private packages, and another for all the dependencies we use (basically around Synfony2). The first one (satis-private) will build every 5 minutes, the second (satis-public) every half hour.
+We set 2 different satis instance. One for our private packages, and another for all the dependencies we use (basically around Synfony2). The first one (satis-private) will build every 5 minutes, the second (satis-public) every half hour.
 
 for example :
 * satis-private.yourcompany.com
@@ -60,7 +60,7 @@ Satis for private package configuration (data/satis.json) :
 ```json
 {
     "name": “satis-private",
-    "homepage": "http://satis-private.yourcompany.com",
+    "homepage": "https://satis-private.yourcompany.com",
     "archive": {
         "directory": "dist",
         "absolute-directory" : "/srv/data/satis-private/dist",
@@ -83,7 +83,7 @@ Satis for public package configuration (data/satis.json) :
 ```json
 {
     "name": “satis-public",
-    "homepage": "http://satis-public.yourcompany.com",
+    "homepage": "https://satis-public.yourcompany.com",
     "archive": {
         "directory": "dist",
         "format": "zip",
@@ -108,12 +108,12 @@ Satis for public package configuration (data/satis.json) :
 }
 ```
 
-On crontab add a this command for each satis instance :
+On the crontab add this command for each satis instance :
 php -d memory_limit=xx bin/satis build data/satis.json web
 
 (increasing memory_limit was mandatory for us with satis-public).
 
-Please note the require-dependencies directive. It tell satis to digg on sub-dependencies on the required packages. And yes it can’t take long time to do that. You will probably hit the Github API rate limit. To increase it, add a Github key on your composer configuration file on the satis servers.
+Please note the require-dependencies directive. It tell satis to digg on sub-dependencies on the required packages. And yes it can take a while. You will probably hit the Github API rate limit. To increase it, add a Github key on your composer configuration file on the satis servers.
 
 ```
 $ cat .composer/config.json
@@ -133,11 +133,11 @@ In your projects, edit the composer.json and replace the repositories entry by
     "repositories": [
         {
             "type": "composer",
-            "url": "http://satis-private.yourcompany.com"
+            "url": "https://satis-private.yourcompany.com"
         },
         {
             "type": "composer",
-            "url": "http://satis-public.yourcompany.com"
+            "url": "https://satis-public.yourcompany.com"
         },
         {
             "packagist": false
@@ -145,20 +145,20 @@ In your projects, edit the composer.json and replace the repositories entry by
     ],
 ```
 
-Remove your composer.lock and run composer update on the project.
-Packagist tells to your project : “do not search missing packages on packagist.com”. If a package is missing you have to add it on satis-public and try again.
+Remove your composer.lock and vendors then run `composer update` on the project.
+`"packagist": false"` mean : “do not search missing packages on packagist.com”. If a package is missing during install, you have to add it in satis-public configuration file then try again.
 
-*et voilà :)*
+*that's it :)*
 
 # How to ? For AWS.
 
-We chose to sync our 2 satis servers on S3.
+We choosed to sync our 2 satis servers with an S3 bucket.
 
 ![full system with s3 syncing](/images/posts/composer-installation-without-github/4.png)
 
-On satis servers, configure [s3cmd](http://s3tools.org/s3cmd) for using an S3 bucket. Let’s say : yourcloud-satis.
+On satis servers, use [s3cmd](http://s3tools.org/s3cmd) to keep in sync the S3 bucket. Let’s say : yourcloud-satis.
 
-Just add some commands after the build of satis :
+Just add some commands after the build script of satis :
 
 ```shell
 php -d memory_limit=xx bin/satis build data/satis.json web
@@ -194,8 +194,15 @@ setup composer on the front-end servers
 
 * configure composer.json
 
-You have to install the [S3 plugin for composer](https://github.com/naderman/composer-aws).
-If you don't use [IAM roles](http://aws.amazon.com/iam/), add the following config on your EC2 servers (```~/.composer/config.json```) :
+First, you have to install the [S3 plugin for composer](https://github.com/naderman/composer-aws).
+
+```shell
+$ composer global require "naderman/composer-aws:~0.2.3"
+```
+
+*As it is a global installation, you need to do it only once (per user)*
+
+If you don't use [IAM roles](http://aws.amazon.com/iam/), add the following composer config on your EC2 servers (`~/.composer/config.json`) :
 
 ```json
 {
@@ -207,18 +214,6 @@ If you don't use [IAM roles](http://aws.amazon.com/iam/), add the following conf
     }
 }
 ```
-
-You have to install the composer plugin too (```~/.composer/composer.json```) :
-
-```json
-{
-    "require": {
-        "naderman/composer-aws": "~0.2.3"
-    }
-}
-```
-
-And run ```composer install``` in the ```~/.composer/``` directory.
 
 # Known problems : (maybe solved at the time you are reading this article)
 * [This PR is waiting validation on composer aws plugin](https://github.com/naderman/composer-aws/pull/5) - allowing you to keep your packages.json private in S3 buckets. If not merged yet set the packages.json public while uploading it : ```s3cmd put --acl-public ...```.
