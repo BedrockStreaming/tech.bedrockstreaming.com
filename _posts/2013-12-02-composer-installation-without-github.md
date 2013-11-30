@@ -45,7 +45,7 @@ This is our situation. So here how we deal with that.
 
 ![principles](/images/posts/composer-installation-without-github/3.png)
 
-We choosed to use Satis - a great tool provided by the Composer team. The main idea is, regulary download packages and their informations on local our servers. We (at M6Web) deployed services on our local infrastructure and on S3 servers in Amazon Web Services.
+We chose to use Satis - a great tool provided by the Composer team. The main idea is, regulary download packages and their informations on local our servers. We (at M6Web) deployed services on our local infrastructure and on S3 servers in Amazon Web Services.
 
 # How to ? For your local network.
 
@@ -152,7 +152,7 @@ Remove your composer.lock and vendors then run `composer update` on the project.
 
 # How to ? For AWS.
 
-We choosed to sync our 2 satis servers with an S3 bucket.
+We chose to sync our 2 satis servers with an S3 bucket.
 
 ![full system with s3 syncing](/images/posts/composer-installation-without-github/4.png)
 
