@@ -35,7 +35,7 @@ And then :
 
 ![github is down](/images/posts/composer-installation-without-github/2.png)
 
-boum ! => "composer install” command cant download distant packages on api.github.com (website is down, or the network connection or wathever).
+boum ! => "composer install” command can't download distant packages on api.github.com (website is down, or the network connection or whatever).
 
 Good luck explaining to your boss that you rely on free hosting service to deploy your business critical website !
 
@@ -45,7 +45,7 @@ This is our situation. So here how we deal with that.
 
 ![principles](/images/posts/composer-installation-without-github/3.png)
 
-We chose to use Satis - a great tool provided by the Composer team. The main idea is, regulary download packages and their informations on local our servers. We (at M6Web) deployed services on our local infrastructure and on S3 servers in Amazon Web Services.
+We chose to use Satis - a great tool provided by the Composer team. The main idea is, regulary download packages and their informations on our local servers. We (at M6Web) deployed services on our local infrastructure and on S3 servers in Amazon Web Services.
 
 # How to ? For your local network.
 
@@ -105,13 +105,13 @@ Satis for public package configuration (data/satis.json) :
         "require-dependencies": true
     }
 
-On the crontab add this command for each satis instance :
+On the crontab, add this command for each satis instance :
 
     php -d memory_limit=xx bin/satis build data/satis.json web
 
 (increasing memory_limit was mandatory for us with satis-public).
 
-Please note the require-dependencies directive. It tell satis to digg on sub-dependencies on the required packages. And yes it can take a while. You will probably hit the Github API rate limit. To increase it, add a Github key on your composer configuration file on the satis servers.
+Please note the require-dependencies directive. It tell satis to digg on sub-dependencies on the required packages. And yes, it can take a while. You will probably hit the Github API rate limit. To increase it, add a Github key on your composer configuration file on the satis servers.
 
     $ cat .composer/config.json
     {
