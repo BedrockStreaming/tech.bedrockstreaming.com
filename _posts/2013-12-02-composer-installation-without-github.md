@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "composer installation without github.com (nor packagist) dependency - like a boss !"
+title: "Composer installation without github.com (nor packagist) dependency - like a boss !"
 description: ""
 author:
   name:           Olivier Mansour
