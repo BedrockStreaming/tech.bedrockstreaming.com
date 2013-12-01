@@ -10,18 +10,18 @@ author:
   facebook:
   github:   omansour
 category:
-tags: [satis,composer,aws,s3,github,packagist]
+tags: [satis,composer,aws,s3,github,packagist, cloud]
 image:
-  feature:
-  credit:
-  creditlink:
+  feature: posts/composer-installation-without-github/cloud.jpg
+  credit: archangel 12
+  creditlink: http://www.flickr.com/photos/archangel12/
 comments: true
 permalink: composer-installation-without-github.html
 ---
 
 ![github is down ! ok carry on](/images/posts/composer-installation-without-github/github_down.png)
 
-First a thought about github, composer, packagist : we like / adore / thanks the contributors, for those great services and all the open source people dropping great software on it.
+First a thought about github, [composer](http://getcomposer.org/doc/), [packagist](http://www.packagist.org) : we like / adore / thanks the contributors, for those great services and all the open source people dropping great software on it.
 
 That said, picture yourself operating an online PHP service, generating hundreds euros per hour (cool isn’t it ?).
 
@@ -45,7 +45,7 @@ This is our situation. So here how we deal with that.
 
 ![principles](/images/posts/composer-installation-without-github/3.png)
 
-We chose to use Satis - a great tool provided by the Composer team. The main idea is, regulary download packages and their informations on our local servers. We (at M6Web) deployed services on our local infrastructure and on S3 servers in Amazon Web Services.
+We chose to use [Satis](http://getcomposer.org/doc/articles/handling-private-packages-with-satis.md) - a great tool provided by the Composer team. The main idea is, regulary download packages and their informations on our local servers. We (at M6Web) deployed services on our local infrastructure and on S3 servers in Amazon Web Services.
 
 # How to ? For your local network.
 
@@ -75,7 +75,7 @@ Satis for private package configuration (data/satis.json) :
     …
         ],
         "require-all": true
-    }    
+    }
 
 Satis for public package configuration (data/satis.json) :
 
@@ -100,6 +100,8 @@ Satis for public package configuration (data/satis.json) :
             "doctrine/common"            : "~2.4",
             "doctrine/dbal"              : "~2.3",
             "doctrine/doctrine-bundle"   : "~1.2",
+
+            "naderman/composer-aws"      : "~0.2.3",
     …
         },
         "require-dependencies": true
@@ -146,13 +148,13 @@ Remove your composer.lock and vendors then run ``composer update`` on the projec
 
 # How to ? For AWS.
 
-We chose to sync our 2 satis servers with an S3 bucket.
+## Sync our 2 satis servers with an S3 bucket.
 
 ![full system with s3 syncing](/images/posts/composer-installation-without-github/4.jpeg)
 
 On satis servers, use [s3cmd](http://s3tools.org/s3cmd) to keep in sync the S3 bucket. Let’s say : yourcloud-satis.
 
-Just add some commands after the build script of satis :
+Add some commands after the build script of satis :
 
     php -d memory_limit=xx bin/satis build data/satis.json web
     cd web
@@ -164,9 +166,9 @@ Just add some commands after the build script of satis :
 
 (do the same for satis-public).
 
-**On your projects :**
+## update your projects
 
-setup composer on the front-end servers
+In your projects, edit the composer.json and replace the repositories entry by
 
     "repositories": [
         {
@@ -182,13 +184,30 @@ setup composer on the front-end servers
         }
     ],
 
-* configure composer.json
 
-First, you have to install the [S3 plugin for composer](https://github.com/naderman/composer-aws).
+## Enable the AWS plugin in EC2 servers
+
+Add our repositories in `~./composer/composer.json` file of the user used to deploy your code.
+
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://s3-eu-west-1.amazonaws.com/yourcloud-satis/satis-private/"
+        },
+        {
+            "type": "composer",
+            "url": "https://s3-eu-west-1.amazonaws.com/yourcloud-satis/satis-public/"
+        },
+        {
+            "packagist": false
+        }
+    ],
+
+
+You have to install the [S3 plugin for composer](https://github.com/naderman/composer-aws) on your EC2 instance.
 
     $ composer global require "naderman/composer-aws:~0.2.3"
 
-*As it is a global installation, you need to do it only once (per user)*
 
 If you don't use [IAM roles](http://aws.amazon.com/iam/), add the following composer config on your EC2 servers (`~/.composer/config.json`) :
 
@@ -201,10 +220,15 @@ If you don't use [IAM roles](http://aws.amazon.com/iam/), add the following comp
         }
     }
 
+`composer install --prefer-dist` command will now download all the packages files from S3 !
+
 # Known problems : (maybe solved at the time you are reading this article)
+
 * [This PR is waiting validation on composer aws plugin](https://github.com/naderman/composer-aws/pull/5) - allowing you to keep your packages.json private in S3 buckets. If not merged yet set the packages.json public while uploading it : ``s3cmd put --acl-public ...``.
 * [This PR is waiting on satis](https://github.com/composer/satis/pull/101) - allowing you to use the absolute directory option.
 
 
 
 Thanks to [Pierre](https://twitter.com/peikk00) and [Jeremy](https://twitter.com/JJourdin) for their help.
+
+Found a typo or bad english langage, just propose a [pull request](https://github.com/M6Web/m6web.github.io/blob/master/_posts/2013-12-02-composer-installation-without-github.md).
