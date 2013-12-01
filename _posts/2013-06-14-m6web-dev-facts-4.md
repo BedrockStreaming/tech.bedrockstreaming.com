@@ -4,18 +4,18 @@ title: "M6Web Dev Facts #4"
 description: ""
 author:
   name:           M6Web
-  avatar:         
-  email:          
-  twitter:  techM6Web      
-  facebook:       
-  github:    
-category: 
-tags: [devfacts]
+  avatar:
+  email:
+  twitter:  techM6Web
+  facebook:
+  github:
+category:
+tags: [devfacts,humour]
 image:
-  feature: 
-  credit: 
-  creditlink: 
-comments: true  
+  feature:
+  credit:
+  creditlink:
+comments: true
 permalink: m6web-dev-facts-4
 ---
 
@@ -26,7 +26,7 @@ Parceque c'est dredi et que ca nous fait toujours rire de partager les phrases c
 
 # Captain Obvious
 
-> - "Vous avez oubliez quelque chose ?"  
+> - "Vous avez oubliez quelque chose ?"
 >  - "Le problème, c'est que quand t'oublie, t'y penses pas"
 
 
@@ -59,7 +59,7 @@ Parceque c'est dredi et que ca nous fait toujours rire de partager les phrases c
 
 # Absent coupable!
 
-> "Dès que je ne suis pas là, j'ai toujours tord ... :("  
+> "Dès que je ne suis pas là, j'ai toujours tord ... :("
 >  "Bein oui! Les innocents ont toujours tord"
 
 
