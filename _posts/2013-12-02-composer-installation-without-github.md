@@ -148,7 +148,7 @@ Remove your composer.lock and vendors then run ``composer update`` on the projec
 
 We chose to sync our 2 satis servers with an S3 bucket.
 
-![full system with s3 syncing](/images/posts/composer-installation-without-github/4.png)
+![full system with s3 syncing](/images/posts/composer-installation-without-github/4.jpeg)
 
 On satis servers, use [s3cmd](http://s3tools.org/s3cmd) to keep in sync the S3 bucket. Let’s say : yourcloud-satis.
 
