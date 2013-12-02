@@ -21,11 +21,11 @@ permalink: composer-installation-without-github.html
 
 ![github is down ! ok carry on](/images/posts/composer-installation-without-github/github_down.png)
 
-First a thought about github, [composer](http://getcomposer.org/doc/), [packagist](http://www.packagist.org) : we like / adore / thanks the contributors, for those great services and all the open source people dropping great software on it.
+First a thought about [github](https://github.com/), [composer](http://getcomposer.org/doc/), [packagist](http://www.packagist.org) : we like / adore / thanks the contributors, for those great services and all the open source people dropping great software on it.
 
 That said, picture yourself operating an online PHP service, generating hundreds euros per hour (cool isn’t it ?).
 
-If you use sf2 and other public packages, like us, you’re probably deploying your application using composer.
+If you use [Symfony2](http://symfony.com/) and other public packages, like us, you’re probably deploying your application using composer.
 
 ![basic composer usage](/images/posts/composer-installation-without-github/1.png)
 
@@ -35,7 +35,7 @@ And then :
 
 ![github is down](/images/posts/composer-installation-without-github/2.png)
 
-boum ! => "composer install” command can't download distant packages on api.github.com (website is down, or the network connection or whatever).
+boum ! =>``composer install`` command can't download distant packages on api.github.com (website is down, or the network connection or whatever).
 
 Good luck explaining to your boss that you rely on free hosting service to deploy your business critical website !
 
@@ -142,7 +142,7 @@ In your projects, edit the composer.json and replace the repositories entry by
     ],
 
 Remove your composer.lock and vendors then run ``composer update`` on the project.
-``"packagist": false"` mean : “do not search missing packages on packagist.com”. If a package is missing during install, you have to add it in satis-public configuration file then try again.
+``"packagist": false"`` mean : “do not search missing packages on packagist.com”. If a package is missing during install, you have to add it in satis-public configuration file then try again.
 
 *that's it :)*
 
