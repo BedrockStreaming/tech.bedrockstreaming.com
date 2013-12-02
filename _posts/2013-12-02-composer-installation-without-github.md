@@ -222,10 +222,9 @@ If you don't use [IAM roles](http://aws.amazon.com/iam/), add the following comp
 
 `composer install --prefer-dist` command will now download all the packages files from S3 !
 
-# Known problems : (maybe solved at the time you are reading this article)
+# Known problem : (maybe solved at the time you are reading this article)
 
 * [This PR is waiting validation on composer aws plugin](https://github.com/naderman/composer-aws/pull/5) - allowing you to keep your packages.json private in S3 buckets. If not merged yet set the packages.json public while uploading it : ``s3cmd put --acl-public ...``.
-* [This PR is waiting on satis](https://github.com/composer/satis/pull/101) - allowing you to use the absolute directory option.
 
 
 
