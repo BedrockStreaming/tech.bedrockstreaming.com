@@ -10,7 +10,7 @@ author:
   facebook:       
   github:    
 category: 
-tags: [forumphp video php]
+tags: [forumphp,afup,video,php]
 image:
   feature: 
   credit: 
