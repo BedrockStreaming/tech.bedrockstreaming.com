@@ -10,7 +10,7 @@ M6Web Tech Blog
 * npm install
 * grunt
 * jekyll build
-* jekyll serve --watch --config _config.yml,_config_dev.yml
+* jekyll serve --watch --config \_config.yml,\_config_dev.yml
 
 #### or via Vagrant
 
@@ -18,4 +18,4 @@ M6Web Tech Blog
 * cd m6web.github.io
 * vagrant up
 * vagrant ssh
-* jekyll serve --watch --config _config.yml,_config_dev.yml
+* jekyll serve --watch --config \_config.yml,\_config_dev.yml
