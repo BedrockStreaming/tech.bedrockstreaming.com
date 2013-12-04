@@ -40,27 +40,27 @@ Pour rappel, la Vélocity est la conférence autour de la performance web. Qu'el
 
 Addy Osmani (Google Chrome) [@addyosmani](https://twitter.com/addyosmani)
 
-[Addy](http://addyosmani.com/blog/) est une figure incontournable du web. Créateur de [TodoMVC](http://todomvc.com/), Lead dév de [Yeoman](http://yeoman.io/) et travail dans la Google Chrome Team sur les outils destination des développeurs autour du navigateur.
+[Addy](http://addyosmani.com/blog/) est une figure incontournable du web. Créateur de [TodoMVC](http://todomvc.com/), Lead dév de [Yeoman](http://yeoman.io/) et travail dans la Google Chrome Team sur les outils à destination des développeurs autour du navigateur.
 
 Après la génération du code html par les serveurs et le transfert de ce code par les réseaux, le rendu graphique de la page par le navigateur est le dernier évènement significatif du chargement de la page lors de la consultation d’un site par un client.
 
 Voici donc un résumé des bonnes pratiques permettant d’obtenir un meilleur framerate (nombre de rafraîchissement de la page par seconde) et ainsi une meilleure fluidité lors de la navigation :
 
-- disposer des images à la bonne taille pour éviter les redimenssionnements la volée,
+- disposer des images à la bonne taille pour éviter les redimenssionnements à la volée,
 - limiter les handlers sur l’événement onScroll(),
 - limiter tous les éléments ‘fixed’ car cela force le navigateur à recalculer constamment la zone affichée (ou utiliser l’astuce `translateZ(0)`),
 - limiter les directives CSS qui nécessites un calcul supplémentaire (lorsque tout est déjà affiché) :
 
 - les ombres,
 - les flous,
-- et les dégradés ([Bootstrap](http://getbootstrap.com/) a supprimé tous les dégradés sur ses boutons : +100% de rapidité l’affichage).
+- et les dégradés : ([Bootstrap](http://getbootstrap.com/) a supprimé tous les dégradés sur ses boutons : +100% de rapidité l’affichage).
 
 Ensuite, il reste quelques conseils plus généraux :
 
 - Il faut se souvenir que les performances des téléphones ne sont pas celles des PC,
 - un framerate de 60 fps est parfait (c’est dû au matériel), mais un framerate de 30 fps peut aussi être suffisant pour peu qu’il soit constant,
 
-Enfin, comme souvent, tous les outils pour comprendre et améliorer le rendu graphique de ses pages web est disponible dans tous les navigateurs. Dans Chrome, il suffit d’aller dans la section “Frames” de l’onglet “Timeline” des DevTools.
+Enfin, comme souvent, tous les outils pour comprendre et améliorer le rendu graphique de ses pages web sont disponible dans tous les navigateurs. Dans Chrome, il suffit d’aller dans la section “Frames” de l’onglet “Timeline” des DevTools.
 
 Les slides sont disponible ici : [https://speakerdeck.com/addyosmani/velocityconf-rendering-performance-case-studies](https://speakerdeck.com/addyosmani/velocityconf-rendering-performance-case-studies)
 
@@ -127,11 +127,11 @@ La présentation s’axe ensuite plus particulièrement sur la stack “Kale”,
 
 L’objectif de Skyline, est de détecter les comportements anormaux (gros pics par exemple), avec pour principal challenge, la récupération des données (via le “relay agent” de Graphite, ils envoient en continue les données dans Redis via redis.append() ), le stockage de 250 000 métriques (dans Redis) au format MessagePack. Oculus quand lui permet de corréler les métriques, en utilisant les données brutes de l’api de Graphite, car il est bien plus efficace de comparer des chiffres, que des images …
 
-Il n’y a pas un mais huit algorithmes de détections d’anomalies qui sont utilisés dans un vote majorité, déterminant ainsi si l’anomalie est avérée (parmi ceux ci, OLS, Grubb’s test, l’histogramme bining etc…). La détection se fait sur une fenêtre d’une heure et une seconde de 24 heures. Skyline souffre encore de quelques faiblesses: l’absence de prise en compte de la saisonnalité, les pics qui peuvent en cacher d’autres plus faibles, le postulat pas toujours vrai que les données sont normalement distribuées et les corrélations négatives.
+Il n’y a pas un mais huit algorithmes de détections d’anomalies qui sont utilisés dans un vote à majorité, déterminant ainsi si l’anomalie est avérée (parmi ceux ci, OLS, Grubb’s test, l’histogramme bining etc…). La détection se fait sur une fenêtre d’une heure et une seconde de 24 heures. Skyline souffre encore de quelques faiblesses: l’absence de prise en compte de la saisonnalité, les pics qui peuvent en cacher d’autres plus faibles, le postulat pas toujours vrai que les données sont normalement distribuées et les corrélations négatives.
 
 Ils comparent donc la distance euclidienne (slide 99), en gérant aussi le décalage temporel (dynamic time warping / DTW) (voir slide 100).
 
-La partie la plus intéressante est la simplification d’une métrique temporelle, en la normalisant sur une courbe échelle réduite (de 0 25), et en la transformant en une chaine textuelle comportant cinq valeurs :
+La partie la plus intéressante est la simplification d’une métrique temporelle, en la normalisant sur une courbe échelle réduite (de 0 à 25), et en la transformant en une chaine textuelle comportant cinq valeurs :
 
 - sharpdecrement
 - decrement
@@ -139,7 +139,7 @@ La partie la plus intéressante est la simplification d’une métrique temporel
 - increment
 - sharpincrement
 
-Et ceci en fonction de la valeur en cours par rapport la valeur précedente.
+Et ceci en fonction de la valeur en cours par rapport à la valeur précedente.
 
 Ils poussent toutes ces métriques normalisées dans [Elastic Search](http://www.elasticsearch.org/) dans un champ non tokenisé en réalisant des recherches de phrases afin de corréler les métriques ayant le même pattern et en scorant via un plugin codé par leurs soins (incluant une version “rapide” du DTW).
 
@@ -289,7 +289,7 @@ Les slides :
 
 ### Conclusion :
 
-Bonne première journée avec ce format "Tutorials" un peu trop touffu (90 minutes par conférence ...). Déjdes tonnes d'idées qui ressortent, on a hâte de voir la suite.
+Bonne première journée avec ce format "Tutorials" un peu trop touffu (90 minutes par conférence ...). Déjà des tonnes d'idées qui ressortent, on a hâte de voir la suite.
 
 Retrouvez les autres CR :
 
