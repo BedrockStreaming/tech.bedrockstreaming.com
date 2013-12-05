@@ -1,30 +1,27 @@
 ---
 layout: post
-title: "Tester fonctionnellement une API REST (Symfony - Doctrine - atoum)"
+title: "Tester fonctionnellement une API REST"
 description: ""
 author:
-  name:           M6Web
-  avatar:         
-  email:          
-  twitter:  techM6Web      
-  facebook:       
-  github:    
-category: 
-tags: [qualite,symfony,atoum,tests fonctionnels]
+  name: Team Cytron
+  avatar: cytron.png
+  email:
+  twitter: techM6Web
+  facebook:
+  github:
+category:
+tags: [qualite, symfony, atoum, tests fonctionnels]
 image:
-  feature: 
-  credit: 
-  creditlink: 
-comments: true  
+  feature: posts/cytron/husky.png
+  credit: Nick Ellis
+  creditlink:
+comments: true
 permalink: 2013/10/tester-fonctionnellement-une-api-rest-symfony-doctrine-atoum.html
 ---
-
-[![Tester fonctionnellement une API REST (Symfony - Doctrine - atoum)](//img.over-blog-kiwi.com/600x600/0/00/30/83/201310/ob_e9cb5d_capture-d-e-cran-2013-10-15-a-08-20-11.png)](http://img.over-blog-kiwi.com/0/00/30/83/201310/ob_e9cb5d_capture-d-e-cran-2013-10-15-a-08-20-11.png)
 
 Un des enjeux des tests fonctionnels est de pouvoir être joués dans un environnement complètement indépendant, dissocié de l'environnement de production, afin de ne pas être tributaires de données versatiles qui pourraient impacter leur résultat. Il faut, cependant, que cet environnement soit techniquement similaire à celui de production pour que les tests aient une réelle validité fonctionnelle.
 
 Avec la Team Cytron, nous sommes tombés face à cette problématique lorsque nous avons voulu tester fonctionnellement un service agnostique de contenu mettant à disposition une API REST et utilisant [Symfony2](http://symfony.com/), MySQL, Doctrine et [atoum](http://www.atoum.org).
-
 
 
 #### Monter un serveur de données dédié aux tests
@@ -87,8 +84,3 @@ Nous pouvons donc maintenant tester unitairement et fonctionnellement notre API 
 Après avoir trouvé une solution pour l'accès à la structure de données en environnement de test, nous nous sommes penchés sur la question du contenu de ces données de tests. Pas longtemps.
 
 Notre service REST permettant des opérations CRUD, nous partons pour chaque test d'un contenu vide que nous remplissons à l'aide de notre propre service. Cela permet de tester beaucoup plus de cas d'utilisation. Mais surtout cela permet aussi de tester des cas plus réels, plus proches de son utilisation par nos clients.
-
-*Crédit photo : @2013 *[Nick Ellis](http://www.flickr.com/photos/takamakatree/)
-
-
-
