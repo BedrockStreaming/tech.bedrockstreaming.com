@@ -53,7 +53,9 @@ Throught github we participated to the improvement (we hope so) of many open sou
 * [atoum/AtoumBundle](https://github.com/atoum/AtoumBundle) : [#48](https://github.com/atoum/AtoumBundle/pull/48) - [#34](https://github.com/atoum/AtoumBundle/pull/34) - [#52](https://github.com/atoum/AtoumBundle/pull/52) - [#53](https://github.com/atoum/AtoumBundle/pull/53) - [#47](https://github.com/atoum/AtoumBundle/pull/47) - [#44](https://github.com/atoum/AtoumBundle/pull/44) - [#27](https://github.com/atoum/AtoumBundle/pull/27) - [#16](https://github.com/atoum/AtoumBundle/pull/16) -
 * [atoum/atoum](https://github.com/atoum/atoum) : [#210](https://github.com/atoum/atoum/pull/210) - [#200](https://github.com/atoum/atoum/pull/200)
 * [doctrine/DoctrineBundle](https://github.com/doctrine/DoctrineBundle) - [#159](https://github.com/doctrine/DoctrineBundle/pull/159)
-
+* [naderman/composer-aws](https://github.com/naderman/composer-aws/) : [#4](https://github.com/naderman/composer-aws/pull/4) - [#5](https://github.com/naderman/composer-aws/pull/5)
+* [nelmio/NelmioApiDocBundle](https://github.com/nelmio/NelmioApiDocBundle) : [#157](https://github.com/nelmio/NelmioApiDocBundle/pull/157) -  [#253](https://github.com/nelmio/NelmioApiDocBundle/pull/253) - 
+[#256](https://github.com/nelmio/NelmioApiDocBundle/pull/256) -  [#258](https://github.com/nelmio/NelmioApiDocBundle/pull/258) - [#277](https://github.com/nelmio/NelmioApiDocBundle/pull/277)
 
 
 
