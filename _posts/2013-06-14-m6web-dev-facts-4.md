@@ -19,7 +19,7 @@ comments: true
 permalink: m6web-dev-facts-4
 ---
 
-[![M6Web Dev Facts #4](//img.over-blog-kiwi.com/300x300/0/00/30/83/201306/ob_e2a6c1_ob-405b21-ob-5a36f2337bf2f4cbc7a86436a7773d37-36.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201306/ob_e2a6c1_ob-405b21-ob-5a36f2337bf2f4cbc7a86436a7773d37-36.jpeg)
+![M6Web Dev Facts #4](/images/posts/imgob/0-00-30-83-201306-ob_e2a6c1_ob-405b21-ob-5a36f2337bf2f4cbc7a86436a7773d37-36.jpeg)
 
 Parceque c'est dredi et que ca nous fait toujours rire de partager les phrases chocs entendues dans nos bureaux, voici les Dev Facts #4.
 

@@ -19,7 +19,7 @@ comments: true
 permalink: cr-velocity-conference-europe-2012-day-2
 ---
 
-[![CR Velocity Conférence Europe 2012 : Day 2](//img.over-blog-kiwi.com/300x300/0/00/30/83/201210/ob_a7328c1e5880a56085c6e7bdb8fbf23a_velocity-top-jpg.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_a7328c1e5880a56085c6e7bdb8fbf23a_velocity-top-jpg.jpg)
+![CR Velocity Conférence Europe 2012 : Day 2](/images/posts/imgob/0-00-30-83-201210-ob_a7328c1e5880a56085c6e7bdb8fbf23a_velocity-top-jpg.jpg)
 
 Deuxième journée, avec le début "officiel" de cette conférence, où l'on nous donne rendez vous dans l'immense King's Room.
 
@@ -49,7 +49,7 @@ Pour ceux que ça intéresse, en plus de la vidéo çi dessous, Quora est une mi
 
 
 
-[![(Source http://royal.pingdom.com/2012/10/03/report-from-velocity-europe-day-2/ )](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_8bcd544ab91083c4cc3c838a8fef5cff_facebook-jpg.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_8bcd544ab91083c4cc3c838a8fef5cff_facebook-jpg.jpg)
+![(Source http://royal.pingdom.com/2012/10/03/report-from-velocity-europe-day-2/ )](/images/posts/imgob/0-00-30-83-201210-ob_8bcd544ab91083c4cc3c838a8fef5cff_facebook-jpg.jpg)
 
 (Source http://royal.pingdom.com/2012/10/03/report-from-velocity-europe-day-2/ )
 
@@ -211,7 +211,7 @@ La présentation n'étant pas nouvelle, est disponible ici : [http://fr.slidesha
 
 
 
-[![Mike Krieger (Source : http://royal.pingdom.com/2012/10/03/report-from-velocity-europe-day-2/ )](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_f78dbded1ddadf9aa2dfa65ce69cf5b4_instagram-jpg.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_f78dbded1ddadf9aa2dfa65ce69cf5b4_instagram-jpg.jpg)
+![Mike Krieger (Source : http://royal.pingdom.com/2012/10/03/report-from-velocity-europe-day-2/ )](/images/posts/imgob/0-00-30-83-201210-ob_f78dbded1ddadf9aa2dfa65ce69cf5b4_instagram-jpg.jpg)
 
 Mike Krieger (Source : http://royal.pingdom.com/2012/10/03/report-from-velocity-europe-day-2/ )
 

@@ -19,7 +19,7 @@ comments: true
 permalink: m6web-dev-facts-1
 ---
 
-[![M6Web Dev Facts #1](//img.over-blog-kiwi.com/300x300/0/00/30/83/201303/ob_5a36f2337bf2f4cbc7a86436a7773d37_36449844-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201303/ob_5a36f2337bf2f4cbc7a86436a7773d37_36449844-jpg.jpeg)
+![M6Web Dev Facts #1](/images/posts/imgob/0-00-30-83-201303-ob_5a36f2337bf2f4cbc7a86436a7773d37_36449844-jpg.jpeg)
 
 Depuis de nombreuses années, toutes les "phrases chocs" dites par les équipes techniques de M6Web sont archivées, loggées, historisées. Pas moyen de sortir une ânerie sans qu'elle soit gravée dans le marbre.
 

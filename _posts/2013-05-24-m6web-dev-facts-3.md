@@ -19,7 +19,7 @@ comments: true
 permalink: m6web-dev-facts-3
 ---
 
-[![M6Web Dev Facts #3](//img.over-blog-kiwi.com/300x300/0/00/30/83/201305/ob_7393a4fbd8173899d4dc0024402fa750_jointherealm-sigil.png)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_7393a4fbd8173899d4dc0024402fa750_jointherealm-sigil.png)
+[![M6Web Dev Facts #3](/images/posts/imgob/0-00-30-83-201305-ob_7393a4fbd8173899d4dc0024402fa750_jointherealm-sigil.png)
 
 Episode 3 des [devfacts](http://tech.m6web.fr/tag/devfacts/) ! Parce qu'on ne s'en lasse pas.
 

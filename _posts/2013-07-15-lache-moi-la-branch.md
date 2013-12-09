@@ -23,12 +23,12 @@ permalink: lache-moi-la-branch
 
 Maintenant que nous [utilisons GitHub Enterprise](https://twitter.com/kenny_dee/status/352003224506605569) chez M6Web, nous avons la joie de pouvoir utiliser les Pull Requests de façon abusive. Mais leur puissance n'est maximale que lorsqu'elles peuvent être [testées individuellement](https://github.com/blog/1227-commit-status-api) avant d'être mergées sur le *master*.
 
-[![Lâche moi la branch !](http://img.over-blog-kiwi.com/0/00/30/83/201307/ob_b6e0b1_capture-d-e-cran-2013-07-12-a-15-03-58.png)](http://img.over-blog-kiwi.com/0/00/30/83/201307/ob_b6e0b1_capture-d-e-cran-2013-07-12-a-15-03-58.png)
+![Lâche moi la branch !](/images/posts/imgob/0-00-30-83-201307-ob_b6e0b1_capture-d-e-cran-2013-07-12-a-15-03-58.png)
 
 Pour ce faire, nous avons utilisé le plugin [GitHub Pull Request Builder](https://wiki.jenkins-ci.org/display/JENKINS/GitHub+pull+request+builder+plugin) de [Jenkins](http://jenkins-ci.org/), qui après une [configuration assez simple](http://buddylindsey.com/jenkins-and-github-pull-requests/), nous a permis de créer un job qui lance automatiquement un build lorsqu'une Pull Request est modifiée. Ce build se positionne sur la branch pointée par la Pull Request et exécute les tests.
 
 
-[![Lâche moi la branch !](http://img.over-blog-kiwi.com/0/00/30/83/201307/ob_e753d81cd5875809e61c474bcc6b8609_liste-des-builds.png)](http://img.over-blog-kiwi.com/0/00/30/83/201307/ob_e753d81cd5875809e61c474bcc6b8609_liste-des-builds.png)
+![Lâche moi la branch !](/images/posts/imgob/0-00-30-83-201307-ob_e753d81cd5875809e61c474bcc6b8609_liste-des-builds.png)
 
 Il est donc nécessaire de créer un job dédié au test des Pull Requests pour chaque projet dont nous souhaitons voir les Pull Request automatiquement testées. Ça peut paraître évident, mais lorsqu'on a plus de 200 repositories, c'est tout de suite moins trivial.
 
