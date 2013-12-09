@@ -19,7 +19,7 @@ comments: true
 permalink: m6web-dev-facts-5
 ---
 
-[![M6Web Dev Facts #5](//img.over-blog-kiwi.com/300x300/0/00/30/83/201307/ob_75a4be_ob-e2a6c1-ob-405b21-ob-5a36f2337bf2f4cbc7a86436a.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201307/ob_75a4be_ob-e2a6c1-ob-405b21-ob-5a36f2337bf2f4cbc7a86436a.jpeg)
+![M6Web Dev Facts #5](/images/posts/imgob/0-00-30-83-201307-ob_75a4be_ob-e2a6c1-ob-405b21-ob-5a36f2337bf2f4cbc7a86436a.jpeg)
 
 On est dredi, et on a encore pas mal de phrases chocs de nos développeurs, entendues dans nos locaux partager.
 

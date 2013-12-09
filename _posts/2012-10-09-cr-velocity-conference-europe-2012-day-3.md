@@ -19,7 +19,7 @@ comments: true
 permalink: cr-velocity-conference-europe-2012-day-3
 ---
 
-[![CR Velocity Conférence Europe 2012 : Day 3](//img.over-blog-kiwi.com/100x100/0/00/30/83/201210/ob_df8e6a600183b00e13ed9ae49d68e1e1_allspaw-souders-jpg.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_df8e6a600183b00e13ed9ae49d68e1e1_allspaw-souders-jpg.jpg)
+![CR Velocity Conférence Europe 2012 : Day 3](/images/posts/imgob/0-00-30-83-201210-ob_df8e6a600183b00e13ed9ae49d68e1e1_allspaw-souders-jpg.jpg)
 
 Troisième et dernière journée la Vélocity Europe.
 
@@ -39,7 +39,7 @@ Voir la vidéo ci-dessous vers 17min 30 :
 
 
 
-[![Ben Galbraith et Dion Almaer (Source : http://royal.pingdom.com/2012/10/05/report-from-velocity-europe-day-3/ )](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_217722ac6f1101dfc98f3303ee4ee09b_walmart-jpg.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_217722ac6f1101dfc98f3303ee4ee09b_walmart-jpg.jpg)
+![Ben Galbraith et Dion Almaer (Source : http://royal.pingdom.com/2012/10/05/report-from-velocity-europe-day-3/ )](/images/posts/imgob/0-00-30-83-201210-ob_217722ac6f1101dfc98f3303ee4ee09b_walmart-jpg.jpg)
 
 Ben Galbraith et Dion Almaer (Source : http://royal.pingdom.com/2012/10/05/report-from-velocity-europe-day-3/ )
 
@@ -100,7 +100,7 @@ Les slides : [http://fr.slideshare.net/mbjenn/performance-and-metrics-at-lonely-
 
 
 
-[![Mark Jennings et Dave Nolan (Source : https://twitter.com/smcinnes/status/253805752312033280/photo/1 )](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_08cafe_a4wy-kzccaamulr-jpg-large.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_08cafe_a4wy-kzccaamulr-jpg-large.jpg)
+![Mark Jennings et Dave Nolan (Source : https://twitter.com/smcinnes/status/253805752312033280/photo/1 )](/images/posts/imgob/0-00-30-83-201210-ob_08cafe_a4wy-kzccaamulr-jpg-large.jpg)
 
 Mark Jennings et Dave Nolan (Source : https://twitter.com/smcinnes/status/253805752312033280/photo/1 )
 
@@ -162,7 +162,7 @@ Les slides : [http://www.slideshare.net/AndyDavies/web-page-test-beyond-the-basi
 
 
 
-[![Andy Davies et Aaron Peters (Source : http://royal.pingdom.com/2012/10/05/report-from-velocity-europe-day-3/ )](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_771b7ad15a983bd9a3c761e9fe264d64_webpagetest-jpg.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201210/ob_771b7ad15a983bd9a3c761e9fe264d64_webpagetest-jpg.jpg)
+![Andy Davies et Aaron Peters (Source : http://royal.pingdom.com/2012/10/05/report-from-velocity-europe-day-3/ )](/images/posts/imgob/0-00-30-83-201210-ob_771b7ad15a983bd9a3c761e9fe264d64_webpagetest-jpg.jpg)
 
 Andy Davies et Aaron Peters (Source : http://royal.pingdom.com/2012/10/05/report-from-velocity-europe-day-3/ )
 
@@ -199,7 +199,6 @@ Pas mal de bonnes ideés applicables au web traditionnel, sur une stack NodeJs/M
 Nous avons aussi fait une démo live sur le jeu Phone Wars (Disponible sur Appstore et Google Play) d'une éxperience Gaming Multi-plateforme.
 
 Très rafraîchissant pour finir ces 3 journées marathons !
-
 
 
 

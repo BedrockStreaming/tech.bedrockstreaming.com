@@ -19,7 +19,7 @@ comments: true
 permalink: benchmarking-websockets-avec-nodejs
 ---
 
-Nous avons récemment eu à repenser une application [Node.js](http://nodejs.org) de timeline temps réel, basée sur les [WebSockets](http://fr.wikipedia.org/wiki/Websocket)afin de tenir une charge plus élevée.
+Nous avons récemment eu à repenser une application [Node.js](http://nodejs.org) de timeline temps réel, basée sur les [WebSockets](http://fr.wikipedia.org/wiki/Websocket) afin de tenir une charge plus élevée.
 
 
 L'application timeline
@@ -32,7 +32,7 @@ Fonctionnellement, l'application timeline est relativement simple: elle consiste
 Afin d'augmenter la capacité de l'application, nous avons décidé de la rendre scalable horizontalement. C'est dire, répartir la charge sur un nombre X de serveurs communiquant entre eux, par exemple, par le biais de Redis.
 
 
-[![Benchmarking WebSockets avec NodeJs](http://img.over-blog-kiwi.com/0/00/30/83/201306/ob_f7b929d0a6fe57963aa5f28c2d48a291_test.png)](http://img.over-blog-kiwi.com/0/00/30/83/201306/ob_f7b929d0a6fe57963aa5f28c2d48a291_test.png)
+![Benchmarking WebSockets avec NodeJs](/images/posts/imgob/0-00-30-83-201306-ob_f7b929d0a6fe57963aa5f28c2d48a291_test.png)
 
 Pour cela socket.io propose un store redis qui permet aux différentes instances de communiquer entre elles. Malheureusement les performances de ce store sont plutôt désastreuses car le store que propose socket.io est beaucoup trop verbeux et écrit absolument tous les évènements que reçoit un serveur sur un seul channel redis. L'application devenait inutilisable autour de 8 000 connexions. Il était donc inenvisageable de l'utiliser en production.
 
@@ -75,7 +75,7 @@ Un exemple : la commande ci dessous va lancer 25 000 connexions, à raison de 10
 
 <script src="https://gist.github.com/nchaulet/5934254.js"></script>
 
-[![Nombre de clients connectés sur Graphite](http://img.over-blog-kiwi.com/0/00/30/83/201306/ob_d08f10f02fad26d77fa14e6d966584c2_testcharge.png)](http://img.over-blog-kiwi.com/0/00/30/83/201306/ob_d08f10f02fad26d77fa14e6d966584c2_testcharge.png)
+![Nombre de clients connectés sur Graphite](/images/posts/imgob/0-00-30-83-201306-ob_d08f10f02fad26d77fa14e6d966584c2_testcharge.png)
 
 Nombre de clients connectés sur Graphite
 

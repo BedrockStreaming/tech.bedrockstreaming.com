@@ -19,7 +19,7 @@ comments: true
 permalink: organiser-des-conferences-technique-en-interne
 ---
 
-[![Organiser des conférences technique en interne](//img.over-blog-kiwi.com/600x600/0/00/30/83/201212/ob_0b12e60631696ffc6a43352705db6566_lft.png)](http://img.over-blog-kiwi.com/0/00/30/83/201212/ob_0b12e60631696ffc6a43352705db6566_lft.png)
+![Organiser des conférences technique en interne](/images/posts/imgob/0-00-30-83-201212-ob_0b12e60631696ffc6a43352705db6566_lft.png)
 
 
 
@@ -79,7 +79,7 @@ Alors si votre entreprise ou votre univers le permet, nous vous conseillons vrai
 
 
 
-[![Olivier Mansour nous présente la Programmation Orienté Objet "Canada Dry" !](http://img.over-blog-kiwi.com/0/00/30/83/201212/ob_c94d17c6bcf9b50c3bd95396fb16475f_screenshot.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201212/ob_c94d17c6bcf9b50c3bd95396fb16475f_screenshot.jpg)
+![Olivier Mansour nous présente la Programmation Orienté Objet "Canada Dry" !](/images/posts/imgob/0-00-30-83-201212-ob_c94d17c6bcf9b50c3bd95396fb16475f_screenshot.jpg)
 
 Olivier Mansour nous présente la Programmation Orienté Objet "Canada Dry" !
 

@@ -19,7 +19,7 @@ comments: true
 permalink: velocity-europe-2013-day-3.html
 ---
 
-[![Velocity Europe 2013 - Day 3](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_7a35dd_10859619405-c7d5058073-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_7a35dd_10859619405-c7d5058073-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_7a35dd_10859619405-c7d5058073-z-jpg.jpeg)
 
 Dernière journée de cette Velocity Europe, avec en plus du track Performance et Ops, l'ouverture d'un track Culture.
 
@@ -34,7 +34,7 @@ Pour ce "Day 3", nous nous retrouvons tous dans la grande salle avec la vidéo "
 
 <iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/Xz5z1hBxejg?wmode=transparent&feature=oembed" width="854"></iframe>
 
-[![Velocity Europe 2013 - Day 3](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_83fbcc_10870287065-71abb508d2-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_83fbcc_10870287065-71abb508d2-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_83fbcc_10870287065-71abb508d2-z-jpg.jpeg)
 
 ### Extreme Image Optimisation: WebP & JPEG XR
 
@@ -60,7 +60,7 @@ On retrouve un tableau très intéressant sur une comparaison taille entre les d
 
 
 
-[![Velocity Europe 2013 - Day 3](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_49b545_velocity-europe-conference-2013-ido-safruti-extre.png)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_49b545_velocity-europe-conference-2013-ido-safruti-extre.png)
+![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_49b545_velocity-europe-conference-2013-ido-safruti-extre.png)
 
 Attention, certaines fois (quelques %), l’image peut être plus grosse qu’en jpg. Si vous partez du Jpg pour la compression, comparez les tailles et affichez le Jpg s'il est plus petit.
 
@@ -79,7 +79,7 @@ Ido fera un article sur l’incontournable calendrier de l’avant sur le sujet 
 
 <iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/Y5ZOogjHpbk?wmode=transparent&feature=oembed" width="854"></iframe>
 
-[![Velocity Europe 2013 - Day 3](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_f3d7fc_10870619623-7206f4978b-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_f3d7fc_10870619623-7206f4978b-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_f3d7fc_10870619623-7206f4978b-z-jpg.jpeg)
 
 ### SLOWING DOWN TO GO FASTER: Responsive Web Design And The Problem Of Agility vs Robustness
 
@@ -102,7 +102,7 @@ Bref, une excellente conférence avec un très bon speaker (très drôle sur la 
 
 <iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/2U3joc9NaY4?wmode=transparent&feature=oembed" width="854"></iframe>
 
-[![Velocity Europe 2013 - Day 3](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_e392e8_10870291155-f1cf4c71f0-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_e392e8_10870291155-f1cf4c71f0-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_e392e8_10870291155-f1cf4c71f0-z-jpg.jpeg)
 
 ### An Introduction to Code Club
 
@@ -118,7 +118,7 @@ Leurs vidéos de présentation sont de plus assez fun, notamment celle ci, qui n
 
 <iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/NkowNBKEwIc?wmode=transparent&feature=oembed" width="854"></iframe>
 
-[![Velocity Europe 2013 - Day 3](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_25cc44_10870324686-efa10b2d4b-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_25cc44_10870324686-efa10b2d4b-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_25cc44_10870324686-efa10b2d4b-z-jpg.jpeg)
 
 ### Lightning Demo: Automating WebPagetest with wpt-script
 
@@ -132,7 +132,7 @@ L'outil est dispo sur Github : [Wpt-Script](https://github.com/etsy/wpt-script)
 
 <iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/RjHh6ULFHiM?wmode=transparent&feature=oembed" width="854"></iframe>
 
-[![Velocity Europe 2013 - Day 3](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_2962da_10870434124-fc7186bde4-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_2962da_10870434124-fc7186bde4-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_2962da_10870434124-fc7186bde4-z-jpg.jpeg)
 
 ### Lightning Demo: Introducing a New RUM Resource From SOASTA
 
@@ -146,7 +146,7 @@ Ils ont publié de nombreuses statistiques sur leur site, sur les performances, 
 
 <iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/OnB_u8ups-M?wmode=transparent&feature=oembed" width="854"></iframe>
 
-[![Velocity Europe 2013 - Day 3](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_b7cfdc_10870320786-34a7898e71-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_b7cfdc_10870320786-34a7898e71-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_b7cfdc_10870320786-34a7898e71-z-jpg.jpeg)
 
 ### Lightning Demo: Automating The Removal Of Unused CSS
 
@@ -163,7 +163,7 @@ Addy présente des solutions qu’on peut retrouver :
 
 <iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/833xr1MyE30?wmode=transparent&feature=oembed" width="854"></iframe>
 
-[![Velocity Europe 2013 - Day 3](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_1afdd2_10871075694-de275f1bd3-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_1afdd2_10871075694-de275f1bd3-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_1afdd2_10871075694-de275f1bd3-z-jpg.jpeg)
 
 ### Learning from the Worst of WebPagetest
 
@@ -179,7 +179,7 @@ Il présente une Pull Request en cours sur WebPageTest avec le Multi Variate Tes
 
 
 
-[![Velocity Europe 2013 - Day 3](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_4a78f0_10845987613-5d3296cfbd-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_4a78f0_10845987613-5d3296cfbd-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_4a78f0_10845987613-5d3296cfbd-z-jpg.jpeg)
 
 ### Are today’s good practices … tomorrows performance anti-patterns
 

@@ -40,12 +40,12 @@ Rendez-vous là bas ? ;-)
 
 Bannière du Forum PHP 2012
 
-[![Bannière du Forum PHP 2012](http://img.over-blog-kiwi.com/0/00/30/83/201206/ob_152c4d_bandeau-forum-php-2012-fr-large.jpg)](http://img.over-blog-kiwi.com/0/00/30/83/201206/ob_152c4d_bandeau-forum-php-2012-fr-large.jpg)
+[![Bannière du Forum PHP 2012](/images/posts/imgob/0-00-30-83-201206-ob_152c4d_bandeau-forum-php-2012-fr-large.jpg)
 
 
 Bannière du Web Event Lyon
 
-[![Bannière du Web Event Lyon](http://img.over-blog-kiwi.com/0/00/30/83/201206/ob_681156_webeventlyon-jyserai-dark.png)](http://img.over-blog-kiwi.com/0/00/30/83/201206/ob_681156_webeventlyon-jyserai-dark.png)
+[![Bannière du Web Event Lyon](/images/posts/imgob/0-00-30-83-201206-ob_681156_webeventlyon-jyserai-dark.png)
 
 
 
