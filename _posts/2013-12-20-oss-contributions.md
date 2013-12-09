@@ -31,7 +31,7 @@ Here some projects open sourced :
 
 * [M6Web/coke](https://github.com/M6Web/Coke) Coke is a Shell/Bash command using PHP Code Sniffer allowing rules management per project.
 * [M6Web/GitHubEnterpriseArchive](https://github.com/M6Web/GitHubEnterpriseArchive) Archive and graph your GithubEnterprise timeline
-* [M6web/JenkinsLight](https://github.com/M6Web/JenkinsLight) A build monitoring tool (buildwall) that allows you to quickly detect failing projects for Jenkins.
+* [M6Web/JenkinsLight](https://github.com/M6Web/JenkinsLight) A build monitoring tool (buildwall) that allows you to quickly detect failing projects for Jenkins.
 * [M6Web/JenkinsTerminalColors](https://github.com/M6Web/JenkinsTerminalColors) JenkinsTerminalColors is a very lightweight Chrome extension that provides terminal colors in all console panels of Jenkins. It uses black Solarized theme.
 * [M6Web/VigoJS](https://github.com/M6Web/VigoJS) VigoJS is a (small) Javascript tool using CasperJS and PhantomJS to make easily functional tests on web applications
 
