@@ -19,13 +19,13 @@ comments: true
 permalink: velocity-europe-2013-day-2.html
 ---
 
-[![Velocity Europe 2013 - Day 2](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_9ce448_10859879244-aef165bef0-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_9ce448_10859879244-aef165bef0-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 2](/images/posts/imgob/0-00-30-83-201311-ob_9ce448_10859879244-aef165bef0-z-jpg.jpeg)
 
 De retour à l'hôtel Hilton de Londres, afin de commencer cette deuxième journée qui s’annonce très chargée : jusqu’4 tracks en parallèle. Performance, Mobile, Ops, et Sponsors.
 
 
 
-[![Velocity Europe 2013 - Day 2](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_56b889_10859955903-a209ea1ac8-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_56b889_10859955903-a209ea1ac8-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 2](/images/posts/imgob/0-00-30-83-201311-ob_56b889_10859955903-a209ea1ac8-z-jpg.jpeg)
 
 ### Making Government digital services fast
 
@@ -41,7 +41,7 @@ Le tout est entièrement documenté en ligne, en accès public, et regorge d’i
 
 <iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/fo1VbYQB39E?wmode=transparent&feature=oembed" width="854"></iframe>
 
-[![Velocity Europe 2013 - Day 2](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_1fdf80_10859777974-7501eff881-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_1fdf80_10859777974-7501eff881-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 2](/images/posts/imgob/0-00-30-83-201311-ob_1fdf80_10859777974-7501eff881-z-jpg.jpeg)
 
 ### Stand down your smartphone testing army
 
@@ -67,7 +67,7 @@ Dommage que l’on oublie les Macs dans l’histoire.
 
 <iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/SYVnYr83QJM?wmode=transparent&feature=oembed" width="854"></iframe>
 
-[![Velocity Europe 2013 - Day 2](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_4d7e5f_10859672196-d79c68cb41-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_4d7e5f_10859672196-d79c68cb41-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 2](/images/posts/imgob/0-00-30-83-201311-ob_4d7e5f_10859672196-d79c68cb41-z-jpg.jpeg)
 
 ### Testing all the way to production
 
@@ -79,7 +79,7 @@ Pour ceux qui ne seraient pas encore convaincu de l'intérêt des tests automati
 
 <iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/_cS9QPJ5pIE?wmode=transparent&feature=oembed" width="854"></iframe>
 
-[![Velocity Europe 2013 - Day 2](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_80bd15_10859963953-9809187919-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_80bd15_10859963953-9809187919-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 2](/images/posts/imgob/0-00-30-83-201311-ob_80bd15_10859963953-9809187919-z-jpg.jpeg)
 
 ### Most of the time we measure the performance of others
 
@@ -93,7 +93,7 @@ Courte présentation de Compuware qui édite des solutions de monitoring, et aus
 
 <iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/LgDe16JXRCw?wmode=transparent&feature=oembed" width="854"></iframe>
 
-[![Velocity Europe 2013 - Day 2](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_1c7575_10859780954-053107c07e-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_1c7575_10859780954-053107c07e-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 2](/images/posts/imgob/0-00-30-83-201311-ob_1c7575_10859780954-053107c07e-z-jpg.jpeg)
 
 ### Making performance personal at Ft labs
 
@@ -107,7 +107,7 @@ Vous pouvez retrouvez les slides ici : [http://triblondon.github.io/talk-makingp
 
 <iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/UrKA5j-yx8Y?wmode=transparent&feature=oembed" width="854"></iframe>
 
-[![Velocity Europe 2013 - Day 2](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_b73fac_10859783724-8228a62e39-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_b73fac_10859783724-8228a62e39-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 2](/images/posts/imgob/0-00-30-83-201311-ob_b73fac_10859783724-8228a62e39-z-jpg.jpeg)
 
 ### Lightning demo : Global web page performance
 
@@ -122,7 +122,7 @@ Un outil permettant de tester partout dans le monde les performances de son site
 
 
 
-[![Velocity Europe 2013 - Day 2](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_13d430_10859782544-d28ccd39a8-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_13d430_10859782544-d28ccd39a8-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 2](/images/posts/imgob/0-00-30-83-201311-ob_13d430_10859782544-d28ccd39a8-z-jpg.jpeg)
 
 ### Lightning demo: HTTP Archive, BigQuery, and you!
 
@@ -167,7 +167,7 @@ Pour pallier à ce problème, Wim et son équipe ont développé un langage spé
   
  Alors oui. C’est pas forcément l’idéal de commencer poser des variables dans le reverse proxy. Mais n’ayons crainte, ce n’est pas pour tout de suite : la release publique ne devrait pas arriver avant mi-2014 :-)
 
-Les slides : [http://cdn.oreillystatic.com/en/assets/1/event/101/When%20dynamic%20becomes%20static_%20the%20next%20step%20in%20web%20caching%20techniques%20Presentation.odp](http://cdn.oreillystatic.com/en/assets/1/event/101/When%20dynamic%20becomes%20static_%20the%20next%20step%20in%20web%20caching%20techniques%20Presentation.odp)
+[Les slides](http://cdn.oreillystatic.com/en/assets/1/event/101/When%20dynamic%20becomes%20static_%20the%20next%20step%20in%20web%20caching%20techniques%20Presentation.odp)
 
 
 
@@ -266,7 +266,7 @@ C’était une présentation assez polémique mais particulièrement intéressan
 
 
 
-[![Velocity Europe 2013 - Day 2](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_dd9097_10859873934-1ce54696bc-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_dd9097_10859873934-1ce54696bc-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 2](/images/posts/imgob/0-00-30-83-201311-ob_dd9097_10859873934-1ce54696bc-z-jpg.jpeg)
 
 ### Breaking 1000ms Mobile Barrier
 
@@ -276,7 +276,7 @@ Comment arriver afficher sa page web sans dépasser la barrière de 1000 ms ! Un
 
 
 
-[![Velocity Europe 2013 - Day 2](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_c53a35_breaking-the-1000-ms-mobile-barrier-velocity-goog.png)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_c53a35_breaking-the-1000-ms-mobile-barrier-velocity-goog.png)
+![Velocity Europe 2013 - Day 2](/images/posts/imgob/0-00-30-83-201311-ob_c53a35_breaking-the-1000-ms-mobile-barrier-velocity-goog.png)
 
 Des problèmatiques de latence sur le “Touch” mobile, sur les communications 3G/4G, du fonctionnement TCP, du critical rendering path au niveau CSS et JS, mod_page_speed et ngx_page_speed, ainsi que des évolutions venir sur Page Speed Insights, c’est un panel ultra complet de la WebPerf qui été couvert sur cette heure ultra dense, mais oh combien indispensable. C’est donc, comment souvent avec Ilya Grigorik, un must read absolu pour ceux que la Performance Front-End et Mobile, ainsi que la latence, passionne.
 
@@ -330,7 +330,7 @@ Avant de conclure, petit hommage [Natalia Talkowska](https://twitter.com/NatiTal
 
 C'est complètement lessivé que nous sortons de cette journée, avec une quantité d'idées / projets tester incroyable.
 
-Vous pouvez retrouver [le compte rendu de la première journée](http://tech.m6web.fr/velocity-europe-2013-day-1.html) sur notre Blog, en attendant celui de la troisième et dernière journée.
+Vous pouvez retrouver [le compte rendu de la première journée](http://tech.m6web.fr/velocity-europe-2013-day-1.html) ainsi [que de la dernière](http://tech.m6web.fr/velocity-europe-2013-day-3.html) sur notre Blog.
 
 N'hésites pas donner vos retours (positifs ou négatifs en commentaire). Merci :-)
 

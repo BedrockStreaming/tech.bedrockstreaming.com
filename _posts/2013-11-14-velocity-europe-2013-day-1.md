@@ -19,7 +19,7 @@ comments: true
 permalink: velocity-europe-2013-day-1.html
 ---
 
-[![Velocity Europe 2013 - Day 1](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_0fc84f_9083212144-c916b6f5e1-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_0fc84f_9083212144-c916b6f5e1-jpg.jpeg)
+![Velocity Europe 2013 - Day 1](/images/posts/imgob/0-00-30-83-201311-ob_0fc84f_9083212144-c916b6f5e1-jpg.jpeg)
 
 ### Introduction :
 
@@ -34,7 +34,7 @@ Pour rappel, la Vélocity est la conférence autour de la performance web. Qu'el
 
 
 
-[![Velocity Europe 2013 - Day 1](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_69d331_10845977003-b429d75241-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_69d331_10845977003-b429d75241-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 1](/images/posts/imgob/0-00-30-83-201311-ob_69d331_10845977003-b429d75241-z-jpg.jpeg)
 
 ### Gone in 60 frames per second
 
@@ -76,7 +76,7 @@ Les slides sont disponible ici : [https://speakerdeck.com/addyosmani/velocitycon
 Vidéo de la même conférence (donnée à la Smashing Conf 2013)
 
 
-[![Velocity Europe 2013 - Day 1](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_83eb3a_10845796864-8dbb9f704e-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_83eb3a_10845796864-8dbb9f704e-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 1](/images/posts/imgob/0-00-30-83-201311-ob_83eb3a_10845796864-8dbb9f704e-z-jpg.jpeg)
 
 ### Bring the noise : Making effective use of a quarter million metrics
 
@@ -153,7 +153,7 @@ Les slides sont disponible ici : [http://www.slideshare.net/jonlives/bring-the-n
 
 <iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://www.slideshare.net/slideshow/embed_code/24058352" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 
-[![Velocity Europe 2013 - Day 1](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_f5459e_10845647355-e5150145e4-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_f5459e_10845647355-e5150145e4-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 1](/images/posts/imgob/0-00-30-83-201311-ob_f5459e_10845647355-e5150145e4-z-jpg.jpeg)
 
 ### Responsive images Technique and Beyond
 
@@ -182,7 +182,7 @@ L’étude et les retours sont extrêmement complet, et immanquable, si vous tra
 
 
 
-[![Velocity Europe 2013 - Day 1](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_f988cd_10845641605-306fa359cc-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_f988cd_10845641605-306fa359cc-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 1](/images/posts/imgob/0-00-30-83-201311-ob_f988cd_10845641605-306fa359cc-z-jpg.jpeg)
 
 ### Performance Analysis of JVM components for non-specialists
 
@@ -198,7 +198,7 @@ Il a présenté quelques optimisations indispensables selon lui, et a insisté s
 
 
 
-[![Velocity Europe 2013 - Day 1](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_0bd89e_10845984653-f790e99456-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_0bd89e_10845984653-f790e99456-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 1](/images/posts/imgob/0-00-30-83-201311-ob_0bd89e_10845984653-f790e99456-z-jpg.jpeg)
 
 ### Tuning Network Performance to Eleven
 
@@ -220,13 +220,11 @@ Le tutorial s'est achevé sur les défauts de HTTP 1.1 et les nouveautés (nombr
 Il est d’ailleurs disponible gratuitement ici : [http://chimera.labs.oreilly.com/books/1230000000545](http://chimera.labs.oreilly.com/books/1230000000545)
 
   
- Les slides sont disponible ici :
-
-[https://docs.google.com/presentation/d/1f2J_HrzMNvVHhsB3f7DKJFPl2N0Q_QR2ZEECWQu6oV8/present#slide=id.p19](https://docs.google.com/presentation/d/1f2J_HrzMNvVHhsB3f7DKJFPl2N0Q_QR2ZEECWQu6oV8/present#slide=id.p19)
+[Les slides sont disponible ici](https://docs.google.com/presentation/d/1f2J_HrzMNvVHhsB3f7DKJFPl2N0Q_QR2ZEECWQu6oV8/present#slide=id.p19)
 
 
 
-[![Velocity Europe 2013 - Day 1](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_a85c76_10845714576-42269f839c-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_a85c76_10845714576-42269f839c-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 1](/images/posts/imgob/0-00-30-83-201311-ob_a85c76_10845714576-42269f839c-z-jpg.jpeg)
 
 ### Be Mean to your code with Gauntlt and the Rugged Way
 
@@ -250,13 +248,13 @@ Gauntlt permet donc d’automatiser au sein de son système d’intégration con
 
 Si vous voulez tester l’outil, qui à l’air très prometteur, vous pouvez suivre ce tutoriel : [http://bit.ly/gauntlt-demo-instructions](http://bit.ly/gauntlt-demo-instructions) qui vous fourni la Virtual Box, les consignes d’installations, et les exemples ayant été réalisés pendant la conférence, ainsi qu’une application de test en Ruby [Railsgoat](https://github.com/OWASP/railsgoat) pour servir de cible à vos tests.
 
-Les slides sont disponible ici : [http://www.slideshare.net/wickett/gauntlt-velocity-eu2013](http://www.slideshare.net/wickett/gauntlt-velocity-eu2013)
+[Les slides sont disponible ici](http://www.slideshare.net/wickett/gauntlt-velocity-eu2013)
 
 
 
 <iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://www.slideshare.net/slideshow/embed_code/28203152" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 
-[![Velocity Europe 2013 - Day 1](//img.over-blog-kiwi.com/300x300/0/00/30/83/201311/ob_78440c_10845987613-5d3296cfbd-z-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201311/ob_78440c_10845987613-5d3296cfbd-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 1](/images/posts/imgob/0-00-30-83-201311-ob_78440c_10845987613-5d3296cfbd-z-jpg.jpeg)
 
 ### Hands-on Web Performance Optimization Workshop
 

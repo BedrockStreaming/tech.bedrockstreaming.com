@@ -19,7 +19,7 @@ comments: true
 permalink: cr-conference-agora-cms-du-15-mai-2013
 ---
 
-[![CR Conférence Agora Cms du 15 mai 2013](//img.over-blog-kiwi.com/300x300/0/00/30/83/201305/ob_32908c407070b79695e36e292abe7a4f_mg-3380-l-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_32908c407070b79695e36e292abe7a4f_mg-3380-l-jpg.jpeg)
+![CR Conférence Agora Cms du 15 mai 2013](/images/posts/imgob/0-00-30-83-201305-ob_32908c407070b79695e36e292abe7a4f_mg-3380-l-jpg.jpeg)
 
 Le 15 mai 2013 avait lieu à Paris, la première édition de l'AgoraCMS, Conférence axée sur les CMS et la gestion de contenu Web.
 
@@ -51,7 +51,7 @@ On finit sur une projection du futur des CMS qui devront répondre aux probléma
 
 
 
-[![(Source: http://photos.silberman.fr/Other/AgoraCMS/ )](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_c5fa6866001962d0cba0506a7a467ad3_mg-3357-l-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_c5fa6866001962d0cba0506a7a467ad3_mg-3357-l-jpg.jpeg)
+![(Source: http://photos.silberman.fr/Other/AgoraCMS/ )](/images/posts/imgob/0-00-30-83-201305-ob_c5fa6866001962d0cba0506a7a467ad3_mg-3357-l-jpg.jpeg)
 
 (Source: http://photos.silberman.fr/Other/AgoraCMS/ )
 
@@ -85,7 +85,7 @@ Sinon vous pouvez consulter les slides sur le lien ci-dessous.
 
 
 
-[![(Source: http://photos.silberman.fr/Other/AgoraCMS/ )](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_ed2084816ac5e6202fb949c56a606fa7_mg-3404-l-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_ed2084816ac5e6202fb949c56a606fa7_mg-3404-l-jpg.jpeg)
+![(Source: http://photos.silberman.fr/Other/AgoraCMS/ )](/images/posts/imgob/0-00-30-83-201305-ob_ed2084816ac5e6202fb949c56a606fa7_mg-3404-l-jpg.jpeg)
 
 (Source: http://photos.silberman.fr/Other/AgoraCMS/ )
 
@@ -111,9 +111,9 @@ Très bonne présentation sur l’importance du design dans le premier sens du t
 
 
 
-[![Le second écran chez M6Web](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_91c66f83c453d3080c673849af781b5f_mg-3440-l-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_91c66f83c453d3080c673849af781b5f_mg-3440-l-jpg.jpeg)
+![Le second écran chez M6Web](/images/posts/imgob/0-00-30-83-201305-ob_91c66f83c453d3080c673849af781b5f_mg-3440-l-jpg.jpeg)
 
-[![Le second écran chez M6Web](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_0916d19304f6a7d518f9c986170e5690_photo.JPG)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_0916d19304f6a7d518f9c986170e5690_photo.JPG)
+![Le second écran chez M6Web](/images/posts/imgob/0-00-30-83-201305-ob_0916d19304f6a7d518f9c986170e5690_photo.JPG)
 
 Le second écran chez M6Web
 
@@ -131,7 +131,7 @@ Le second écran chez M6Web
  On retiendra [GCC](http://drupal.org/project/gcc) dont une démo très intéressante sera faite, [Drupal Commerce](http://www.drupalcommerce.org/), étant une distribution de Drupal avec un assemblage de modules et personnalisation pour orienter son drupal vers le e-commerce, mais aussi la présentation d'un des thèmes les plus évolués de Drupal : [Omega](http://drupal.org/project/omega), thème ultra complet, Responsive avec un back-office assez puissant.
 
 
-[![(Source: http://photos.silberman.fr/Other/AgoraCMS/ )](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_03ff809fcf2c8c3f844bdd81e5db8e2d_mg-3488-l-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_03ff809fcf2c8c3f844bdd81e5db8e2d_mg-3488-l-jpg.jpeg)
+![(Source: http://photos.silberman.fr/Other/AgoraCMS/ )](/images/posts/imgob/0-00-30-83-201305-ob_03ff809fcf2c8c3f844bdd81e5db8e2d_mg-3488-l-jpg.jpeg)
 
 (Source: http://photos.silberman.fr/Other/AgoraCMS/ )
 
@@ -159,7 +159,7 @@ Le second écran chez M6Web
 
 
 
-[![(Source: http://photos.silberman.fr/Other/AgoraCMS/ )](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_edf19ebe9b387189f8846e26c1d339cf_mg-3535-l-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_edf19ebe9b387189f8846e26c1d339cf_mg-3535-l-jpg.jpeg)
+![(Source: http://photos.silberman.fr/Other/AgoraCMS/ )](/images/posts/imgob/0-00-30-83-201305-ob_edf19ebe9b387189f8846e26c1d339cf_mg-3535-l-jpg.jpeg)
 
 (Source: http://photos.silberman.fr/Other/AgoraCMS/ )
 
@@ -218,7 +218,7 @@ Et les slides ci-dessous :
 
 
 
-[![(Source: http://photos.silberman.fr/Other/AgoraCMS/ )](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_f74390dd1ee07f7ac9c4aa0620f965d7_mg-3568-l-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_f74390dd1ee07f7ac9c4aa0620f965d7_mg-3568-l-jpg.jpeg)
+![(Source: http://photos.silberman.fr/Other/AgoraCMS/ )](/images/posts/imgob/0-00-30-83-201305-ob_f74390dd1ee07f7ac9c4aa0620f965d7_mg-3568-l-jpg.jpeg)
 
 (Source: http://photos.silberman.fr/Other/AgoraCMS/ )
 
@@ -252,7 +252,7 @@ Et les slides ci-dessous :
 >  "La maison blanche utilise Drupal"
 
 
-[![(Source: http://photos.silberman.fr/Other/AgoraCMS/ )](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_4a860b2111e11618bc90d3785cadf611_mg-3560-l-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_4a860b2111e11618bc90d3785cadf611_mg-3560-l-jpg.jpeg)
+![(Source: http://photos.silberman.fr/Other/AgoraCMS/ )](/images/posts/imgob/0-00-30-83-201305-ob_4a860b2111e11618bc90d3785cadf611_mg-3560-l-jpg.jpeg)
 
 (Source: http://photos.silberman.fr/Other/AgoraCMS/ )
 
@@ -277,7 +277,7 @@ Et les slides ci-dessous :
 
 
 
-[![(Source: http://photos.silberman.fr/Other/AgoraCMS/ )](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_0c75212e8935dc261453146f39d2000c_mg-3572-l-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201305/ob_0c75212e8935dc261453146f39d2000c_mg-3572-l-jpg.jpeg)
+![(Source: http://photos.silberman.fr/Other/AgoraCMS/ )](/images/posts/imgob/0-00-30-83-201305-ob_0c75212e8935dc261453146f39d2000c_mg-3572-l-jpg.jpeg)
 (Source: http://photos.silberman.fr/Other/AgoraCMS/ )
 
 

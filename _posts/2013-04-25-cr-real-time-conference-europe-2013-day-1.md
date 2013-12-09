@@ -27,7 +27,7 @@ Passé l'accueil "la Titanic" avec l'orchestre dans le hall d'entrée, nous desc
 
 
 
-[![La vue de la salle de conférence (Crédit : https://twitter.com/frescosecco/status/326302218515017729/photo/1 )](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_007cc5_bidci5bccaakljg-jpg-large.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_007cc5_bidci5bccaakljg-jpg-large.jpeg)
+![La vue de la salle de conférence (Crédit : https://twitter.com/frescosecco/status/326302218515017729/photo/1 )](/images/posts/imgob/0-00-30-83-201304-ob_007cc5_bidci5bccaakljg-jpg-large.jpeg)
 
 La vue de la salle de conférence (Crédit : https://twitter.com/frescosecco/status/326302218515017729/photo/1 )
 
@@ -79,7 +79,7 @@ Je vous invite aussi à consulter son blog si le sujet vous intéresse : [http:/
 
 
 
-[![(Crédit : https://twitter.com/hintjens/status/326243158109347841/photo/1 )](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_c1a436_bicmbh4cyaaim30-jpg-large.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_c1a436_bicmbh4cyaaim30-jpg-large.jpeg)
+![(Crédit : https://twitter.com/hintjens/status/326243158109347841/photo/1 )](/images/posts/imgob/0-00-30-83-201304-ob_c1a436_bicmbh4cyaaim30-jpg-large.jpeg)
 
 (Crédit : https://twitter.com/hintjens/status/326243158109347841/photo/1 )
 
@@ -100,7 +100,7 @@ La 0.4 présentée est en cours de finalisation, et sera disponible prochainemen
 
 
 <script async="" class="speakerdeck-embed" data-id="cc3086208fe60130a3601231381b0f39" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
-[![(Crédit : http://www.flickr.com/photos/andyet-photos/8672407195/in/set-72157633306379029/ )](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_d3bd37_8672407195-5377c6db45-c-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_d3bd37_8672407195-5377c6db45-c-jpg.jpeg)
+![(Crédit : http://www.flickr.com/photos/andyet-photos/8672407195/in/set-72157633306379029/ )](/images/posts/imgob/0-00-30-83-201304-ob_d3bd37_8672407195-5377c6db45-c-jpg.jpeg)
 (Crédit : http://www.flickr.com/photos/andyet-photos/8672407195/in/set-72157633306379029/ )
 
 
@@ -114,7 +114,7 @@ Bref, un peu douloureux à regarder, mais la démo avait l'air d'avoir du potent
 
 
 
-[![(Crédit : http://www.flickr.com/photos/andyet-photos/8673638532/in/set-72157633306379029/ )](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_cd0b7a_8673638532-65e165e7d4-c-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_cd0b7a_8673638532-65e165e7d4-c-jpg.jpeg)
+![(Crédit : http://www.flickr.com/photos/andyet-photos/8673638532/in/set-72157633306379029/ )](/images/posts/imgob/0-00-30-83-201304-ob_cd0b7a_8673638532-65e165e7d4-c-jpg.jpeg)
 
 (Crédit : http://www.flickr.com/photos/andyet-photos/8673638532/in/set-72157633306379029/ )
 
@@ -139,7 +139,7 @@ Voir la présentation ci dessous :
 <iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" mozallowfullscreen="" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/19543723" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" webkitallowfullscreen="" width="427"></iframe>
 
 
-[![(Crédit : http://www.flickr.com/photos/andyet-photos/8672695927/in/set-72157633306379029/ )](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_309890_8672695927-d144bacc5c-c-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_309890_8672695927-d144bacc5c-c-jpg.jpeg)
+![(Crédit : http://www.flickr.com/photos/andyet-photos/8672695927/in/set-72157633306379029/ )](/images/posts/imgob/0-00-30-83-201304-ob_309890_8672695927-d144bacc5c-c-jpg.jpeg)
 
 (Crédit : http://www.flickr.com/photos/andyet-photos/8672695927/in/set-72157633306379029/ )
 
@@ -178,7 +178,7 @@ Plus d'infos/codes ou démos sur les slides : [http://samdutton.net/realtime2013
 > "WebRTC and HTML5 could enable the same transformation for real-time communications that the original browser did for information." Phil Edholm / Nojitter
 
 
-[![(Crédit : http://www.flickr.com/photos/andyet-photos/8673907134/in/set-72157633306379029 )](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_28a7e6_8673907134-213bc05531-c-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_28a7e6_8673907134-213bc05531-c-jpg.jpeg)
+![(Crédit : http://www.flickr.com/photos/andyet-photos/8673907134/in/set-72157633306379029 )](/images/posts/imgob/0-00-30-83-201304-ob_28a7e6_8673907134-213bc05531-c-jpg.jpeg)
 (Crédit : http://www.flickr.com/photos/andyet-photos/8673907134/in/set-72157633306379029 )
 
 
@@ -187,7 +187,7 @@ Plus d'infos/codes ou démos sur les slides : [http://samdutton.net/realtime2013
 
 
 
-[![CR Real Time Conférence Europe 2013 - Day 1](//img.over-blog-kiwi.com/300x300/0/00/30/83/201304/ob_dcab2750722555abc22c1e6a49b7fa35_skitch-png.png)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_dcab2750722555abc22c1e6a49b7fa35_skitch-png.png)
+![CR Real Time Conférence Europe 2013 - Day 1](/images/posts/imgob/0-00-30-83-201304-ob_dcab2750722555abc22c1e6a49b7fa35_skitch-png.png)
 
 L'une des présentations les plus intéressantes de la journée par Philip Roberts ( [@philip_roberts](https://twitter.com/philip_roberts) ), CTO et co-founder de [Float](http://floatapp.com/) avec l'introduction Bacon.Js et la "[Functional Reactive Programming](http://stackoverflow.com/questions/1028250/what-is-functional-reactive-programming/1030631#1030631)" en Javascript. Une façon différente de coder pour éviter les "callback hell" notamment.
 
@@ -200,7 +200,7 @@ P.s: la visualisation des streams sur ses slides était très sympa : [http://la
 Plus d'infos sur les slides : [http://latentflip.com/bacon-talk-realtimeconfeu/](http://latentflip.com/bacon-talk-realtimeconfeu/)
 
 
-[![(Crédit : http://www.flickr.com/photos/andyet-photos/8673684632/in/set-72157633306379029 )](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_859c21_8673684632-ce4c774373-c-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_859c21_8673684632-ce4c774373-c-jpg.jpeg)
+![(Crédit : http://www.flickr.com/photos/andyet-photos/8673684632/in/set-72157633306379029 )](/images/posts/imgob/0-00-30-83-201304-ob_859c21_8673684632-ce4c774373-c-jpg.jpeg)
 
 (Crédit : http://www.flickr.com/photos/andyet-photos/8673684632/in/set-72157633306379029 )
 
@@ -219,7 +219,7 @@ Retrouvez les slides ici :
 
 
 
-[![(Crédit : http://www.flickr.com/photos/andyet-photos/8673926016/in/set-72157633306379029/ )](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_7359c2_8673926016-ae5254c9ba-c-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_7359c2_8673926016-ae5254c9ba-c-jpg.jpeg)
+![(Crédit : http://www.flickr.com/photos/andyet-photos/8673926016/in/set-72157633306379029/ )](/images/posts/imgob/0-00-30-83-201304-ob_7359c2_8673926016-ae5254c9ba-c-jpg.jpeg)
 
 (Crédit : http://www.flickr.com/photos/andyet-photos/8673926016/in/set-72157633306379029/ )
 
@@ -253,7 +253,7 @@ Plus d'infos sur le langage ici : [http://golang.org/](http://golang.org/) avec 
 
 
 
-[![(Crédit : http://www.flickr.com/photos/andyet-photos/8673939104/in/set-72157633306379029 )](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_3cfbfd_8673939104-3574611f1c-c-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_3cfbfd_8673939104-3574611f1c-c-jpg.jpeg)
+![(Crédit : http://www.flickr.com/photos/andyet-photos/8673939104/in/set-72157633306379029 )](/images/posts/imgob/0-00-30-83-201304-ob_3cfbfd_8673939104-3574611f1c-c-jpg.jpeg)
 
 (Crédit : http://www.flickr.com/photos/andyet-photos/8673939104/in/set-72157633306379029 )
 
@@ -272,7 +272,7 @@ Bref, pas mal de bonnes idées à retenir et pas mal de projets intéressants su
 
 
 
-[![(Crédit : http://www.flickr.com/photos/andyet-photos/8673976982/in/set-72157633306379029/ )](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_68864d_8673976982-dc366df3d9-c-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_68864d_8673976982-dc366df3d9-c-jpg.jpeg)
+![(Crédit : http://www.flickr.com/photos/andyet-photos/8673976982/in/set-72157633306379029/ )](/images/posts/imgob/0-00-30-83-201304-ob_68864d_8673976982-dc366df3d9-c-jpg.jpeg)
 
 (Crédit : http://www.flickr.com/photos/andyet-photos/8673976982/in/set-72157633306379029/ )
 
@@ -302,7 +302,7 @@ et la présentation du framework Hoodie : [http://hood.ie/](http://hood.ie/), ba
 > "Think of CouchDB as Git for your application data" Jan Lehnardt
 
 
-[![(Crédit : http://www.flickr.com/photos/andyet-photos/8672884965/in/set-72157633306379029/ )](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_d8f953_8672884965-fdac5b947d-c-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_d8f953_8672884965-fdac5b947d-c-jpg.jpeg)
+![(Crédit : http://www.flickr.com/photos/andyet-photos/8672884965/in/set-72157633306379029/ )](/images/posts/imgob/0-00-30-83-201304-ob_d8f953_8672884965-fdac5b947d-c-jpg.jpeg)
 
 (Crédit : http://www.flickr.com/photos/andyet-photos/8672884965/in/set-72157633306379029/ )
 
@@ -318,7 +318,7 @@ Chaque site peut être une apps, à condition de mettre les lignes nécessaires 
 Plus d'infos dans les slides ci dessous :
 
 
-[![(Crédit : http://www.flickr.com/photos/andyet-photos/8672894401/in/set-72157633306379029 )](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_8fd5d0_8672894401-843661c273-c-jpg.jpeg)](http://img.over-blog-kiwi.com/0/00/30/83/201304/ob_8fd5d0_8672894401-843661c273-c-jpg.jpeg)
+![(Crédit : http://www.flickr.com/photos/andyet-photos/8672894401/in/set-72157633306379029 )](/images/posts/imgob/0-00-30-83-201304-ob_8fd5d0_8672894401-843661c273-c-jpg.jpeg)
 
 (Crédit : http://www.flickr.com/photos/andyet-photos/8672894401/in/set-72157633306379029 )
 
