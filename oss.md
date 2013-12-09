@@ -1,22 +1,13 @@
 ---
-layout: post
-title: "M6Web contribution to the open source"
-description: ""
-author:
-  name:           M6Web team & contractors
-  avatar:
-  email:          opensource@m6web.fr
-  twitter:  techM6Web
-  facebook:
-  github:
-category:
+layout: page
+permalink: /oss/index.html
+title: Open Source contributions
 tags: [open source, oss]
+modified: 2013-12-09
 image:
-  feature: posts/open-source-contributions/opensource.png
+  feature: opensource.png
   credit: opensourceway
   creditlink: http://www.flickr.com/photos/opensourceway/
-comments: true
-permalink: open-source-contributions.html
 ---
 
 # Open source
@@ -58,7 +49,7 @@ Throught github we participated to the improvement (we hope so) of many open sou
 * [liip/LiipImagineBundle](https://github.com/liip/LiipImagineBundle) : [#274](https://github.com/liip/LiipImagineBundle/pull/274)
 * [n1k0/casperjs](https://github.com/n1k0/casperjs) : [#605](https://github.com/n1k0/casperjs/pull/605)
 * [naderman/composer-aws](https://github.com/naderman/composer-aws/) : [#4](https://github.com/naderman/composer-aws/pull/4) - [#5](https://github.com/naderman/composer-aws/pull/5)
-* [nelmio/NelmioApiDocBundle](https://github.com/nelmio/NelmioApiDocBundle) : [#157](https://github.com/nelmio/NelmioApiDocBundle/pull/157) -  [#253](https://github.com/nelmio/NelmioApiDocBundle/pull/253) - 
+* [nelmio/NelmioApiDocBundle](https://github.com/nelmio/NelmioApiDocBundle) : [#157](https://github.com/nelmio/NelmioApiDocBundle/pull/157) -  [#253](https://github.com/nelmio/NelmioApiDocBundle/pull/253) -
 [#256](https://github.com/nelmio/NelmioApiDocBundle/pull/256) -  [#258](https://github.com/nelmio/NelmioApiDocBundle/pull/258) - [#277](https://github.com/nelmio/NelmioApiDocBundle/pull/277)
 * [willdurand/BazingaHateoasBundle](https://github.com/willdurand/BazingaHateoasBundle) : [#9](https://github.com/willdurand/BazingaHateoasBundle/pull/9)
 

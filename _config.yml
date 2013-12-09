@@ -14,22 +14,22 @@ owner:
   avatar:         bio-photo.jpg
   email:          opensource@m6web.fr
   # Social networking links used in footer. Update and remove as you like.
-  twitter:  techM6Web      
-  facebook: techM6Web      
-  github: M6Web   
-  stackexchange:  
-  linkedin:       
-  instagram:      
-  flickr:         
-  tumblr:         
+  twitter:  techM6Web
+  facebook: techM6Web
+  github: M6Web
+  stackexchange:
+  linkedin:
+  instagram:
+  flickr:
+  tumblr:
   # For Google Authorship https://plus.google.com/authorship
-  google_plus:    
+  google_plus:
 
 # Analytics and webmaster tools stuff goes here
 google_analytics: UA-32126501-1
-google_verify:      
+google_verify:
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:         
+bing_verify:
 
 # Links to include in top navigation
 # For external links add external: true
@@ -38,6 +38,8 @@ links:
     url: /
   - title: About
     url: /about
+  - title: OSS
+    url: /oss
   - title: Tags
     url: /tags.html
 #  - title: Theme Setup
@@ -67,7 +69,7 @@ kramdown:
   use_coderay: false
 
   coderay:
-    coderay_line_numbers: 
+    coderay_line_numbers:
     coderay_line_numbers_start: 1
     coderay_tab_width: 4
     coderay_bold_every: 10
