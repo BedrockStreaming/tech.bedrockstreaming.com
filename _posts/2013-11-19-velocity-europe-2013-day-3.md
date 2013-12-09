@@ -34,11 +34,11 @@ Pour ce "Day 3", nous nous retrouvons tous dans la grande salle avec la vidéo "
 
 <iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/Xz5z1hBxejg?wmode=transparent&feature=oembed" width="854"></iframe>
 
-![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_83fbcc_10870287065-71abb508d2-z-jpg.jpeg)
-
 ### Extreme Image Optimisation: WebP & JPEG XR
 
 Ido Safruti (Akamai) [@safruti](https://twitter.com/safruti)
+
+![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_83fbcc_10870287065-71abb508d2-z-jpg.jpeg)
 
 A ce jour, d’après HTTP Archive, 62% du poids des pages Web correspond aux images sur desktop, 65% sur mobile.
 
@@ -79,11 +79,11 @@ Ido fera un article sur l’incontournable calendrier de l’avant sur le sujet 
 
 <iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/Y5ZOogjHpbk?wmode=transparent&feature=oembed" width="854"></iframe>
 
-![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_f3d7fc_10870619623-7206f4978b-z-jpg.jpeg)
-
 ### SLOWING DOWN TO GO FASTER: Responsive Web Design And The Problem Of Agility vs Robustness
 
 Tom Maslen (BBC News) [@tmaslen](https://twitter.com/tmaslen)
+
+![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_f3d7fc_10870619623-7206f4978b-z-jpg.jpeg)
 
 Gros retour d’expérience des équipes de BBC News sur leur approche du “Responsive Web Design”, et sur la manière dont cela a impacté leurs workflows, ainsi que leur culture.
 
@@ -102,11 +102,11 @@ Bref, une excellente conférence avec un très bon speaker (très drôle sur la 
 
 <iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/2U3joc9NaY4?wmode=transparent&feature=oembed" width="854"></iframe>
 
-![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_e392e8_10870291155-f1cf4c71f0-z-jpg.jpeg)
-
 ### An Introduction to Code Club
 
 John Wards (White October)
+
+![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_e392e8_10870291155-f1cf4c71f0-z-jpg.jpeg)
 
 Code Club est un projet leadé par des bénévoles pour créer des clubs de coding dans les écoles, pour des enfants entre 9 et 11 ans. Plus de 1400 clubs ont déjété créés en Angleterre !
 
@@ -118,11 +118,11 @@ Leurs vidéos de présentation sont de plus assez fun, notamment celle ci, qui n
 
 <iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/NkowNBKEwIc?wmode=transparent&feature=oembed" width="854"></iframe>
 
-![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_25cc44_10870324686-efa10b2d4b-z-jpg.jpeg)
-
 ### Lightning Demo: Automating WebPagetest with wpt-script
 
 Jonathan Klein (Etsy) @jonathanklein
+
+![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_25cc44_10870324686-efa10b2d4b-z-jpg.jpeg)
 
 Afin d’automatiser la prise de mesure synthétique l’aide de WebPageTest (notamment si vous avez installé une instance privée), les gars d’Etsy ont développé un wrapper Php l’Api de Webpagetest. Le wrapper permet aussi de pousser les résultats dans un Graphite ou un Splunk.
 
@@ -132,11 +132,11 @@ L'outil est dispo sur Github : [Wpt-Script](https://github.com/etsy/wpt-script)
 
 <iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/RjHh6ULFHiM?wmode=transparent&feature=oembed" width="854"></iframe>
 
-![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_2962da_10870434124-fc7186bde4-z-jpg.jpeg)
-
 ### Lightning Demo: Introducing a New RUM Resource From SOASTA
 
 Buddy Brewer (SOASTA)
+
+![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_2962da_10870434124-fc7186bde4-z-jpg.jpeg)
 
 SOASTA, société connue notamment pour avoir racheté LogNormal (outil de R.U.M. l’année dernière), propose aujourd’hui un outil de R.U.M. nommé : mPulse.
 
@@ -146,11 +146,11 @@ Ils ont publié de nombreuses statistiques sur leur site, sur les performances, 
 
 <iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/OnB_u8ups-M?wmode=transparent&feature=oembed" width="854"></iframe>
 
-![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_b7cfdc_10870320786-34a7898e71-z-jpg.jpeg)
-
 ### Lightning Demo: Automating The Removal Of Unused CSS
 
 Addy Osmani (Google Chrome) [@addyosmani](https://twitter.com/addyosmani)
+
+![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_b7cfdc_10870320786-34a7898e71-z-jpg.jpeg)
 
 L’un des petits problèmes récurrents du développement web est situé dans nos fichiers Css. A force d’ajout de fonctionnalités ou de framework (notamment les fameux frameworks Css, Bootstrap & co), on finit par obtenir des fichiers CSS gigantesques, dans lesquels il devient très compliqué de savoir ce qui est utilisé ou pas sur votre site.
 
@@ -163,11 +163,11 @@ Addy présente des solutions qu’on peut retrouver :
 
 <iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/833xr1MyE30?wmode=transparent&feature=oembed" width="854"></iframe>
 
-![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_1afdd2_10871075694-de275f1bd3-z-jpg.jpeg)
-
 ### Learning from the Worst of WebPagetest
 
 Rick Viscomi (Google)
+
+![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_1afdd2_10871075694-de275f1bd3-z-jpg.jpeg)
 
 Rick travaille pour YouTube chez Google, comme WebDéveloppeur Front-end orienté performance.
 
@@ -179,11 +179,11 @@ Il présente une Pull Request en cours sur WebPageTest avec le Multi Variate Tes
 
 
 
-![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_4a78f0_10845987613-5d3296cfbd-z-jpg.jpeg)
-
 ### Are today’s good practices … tomorrows performance anti-patterns
 
 Andy Davies [@andydavies​](https://twitter.com/andydavies)
+
+![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_4a78f0_10845987613-5d3296cfbd-z-jpg.jpeg)
 
 Avec l’arrivée d’HTTP 2.0, on se demande, si les optimisations WebPerf que nous réalisons aujourd’hui ne seront pas gênantes demain : Les dataURI, le JS inline, le domain sharding, les sprites ...
 
