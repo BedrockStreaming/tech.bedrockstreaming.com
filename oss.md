@@ -20,21 +20,21 @@ We use open source on a daily basis. For production servers or on our workstatio
 
 Here some projects open sourced :
 
-* [M6Web/coke](https://github.com/M6Web/Coke) Coke is a Shell/Bash command using PHP Code Sniffer allowing rules management per project.
-* [M6Web/GitHubEnterpriseArchive](https://github.com/M6Web/GitHubEnterpriseArchive) Archive and graph your GithubEnterprise timeline
-* [M6Web/JenkinsLight](https://github.com/M6Web/JenkinsLight) A build monitoring tool (buildwall) that allows you to quickly detect failing projects for Jenkins.
-* [M6Web/JenkinsTerminalColors](https://github.com/M6Web/JenkinsTerminalColors) JenkinsTerminalColors is a very lightweight Chrome extension that provides terminal colors in all console panels of Jenkins. It uses black Solarized theme.
-* [M6Web/VigoJS](https://github.com/M6Web/VigoJS) VigoJS is a (small) Javascript tool using CasperJS and PhantomJS to make easily functional tests on web applications
+* [Coke](https://github.com/M6Web/Coke) is a Shell/Bash command using PHP Code Sniffer allowing rules management per project.
+* [GitHubEnterpriseArchive](https://github.com/M6Web/GitHubEnterpriseArchive) allows to archive and graph your GithubEnterprise timeline
+* [JenkinsLight](https://github.com/M6Web/JenkinsLight) is a build monitoring tool (buildwall) that allows you to quickly detect failing projects for Jenkins.
+* [JenkinsTerminalColors](https://github.com/M6Web/JenkinsTerminalColors) is a very lightweight Chrome extension that provides terminal colors in all console panels of Jenkins. It uses black Solarized theme.
+* [VigoJS](https://github.com/M6Web/VigoJS) is a (small) Javascript tool using CasperJS and PhantomJS to make easily functional tests on web applications
 
 # Bundle and libs
 
-* [M6Web/StatsdBundle](https://github.com/M6Web/StatsdBundle) Symfony2 Bundle easing the statsd usage
-* [M6Web/Firewall](https://github.com/M6Web/Firewall) and [M6Web/FireWallBundle](https://github.com/M6Web/FirewallBundle) Symfony2 bundle providing IP filtering features for your Symfony 2 applications.
-* [M6Web/Redis](https://github.com/M6Web/Redis) PHP component used to access Redis throught predis
-* [M6Web/RedisMock](https://github.com/M6Web/RedisMock) A simple PHP Redis mock
-* [M6Web/websocket-bench](https://github.com/M6Web/websocket-bench) Nodejs cli tool for benchmark web socket server, currently support (socket.io, faye)
-* [M6Web/roboxt](https://github.com/M6Web/roboxt) PHP lib parsing a robots.txt
-* [M6Web/behat-seo-extension](https://github.com/M6Web/behat-seo-extension) behat extension provinding specific features for testing the SEO of a website
+* [StatsdBundle](https://github.com/M6Web/StatsdBundle) : Symfony2 Bundle easing the statsd usage
+* [Firewall](https://github.com/M6Web/Firewall) and [FireWallBundle](https://github.com/M6Web/FirewallBundle) : Symfony2 bundle providing IP filtering features for your Symfony 2 applications.
+* [Redis](https://github.com/M6Web/Redis) : PHP component used to access Redis throught predis
+* [RedisMock](https://github.com/M6Web/RedisMock) : A simple PHP Redis mock
+* [websocket-bench](https://github.com/M6Web/websocket-bench) : Nodejs cli tool for benchmark web socket server, currently support (socket.io, faye)
+* [roboxt](https://github.com/M6Web/roboxt) : PHP lib parsing a robots.txt
+* [behat-seo-extension](https://github.com/M6Web/behat-seo-extension) : Behat extension provinding specific features for testing the SEO of a website
 
 # Contribution to free projects
 
