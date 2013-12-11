@@ -37,7 +37,7 @@ Toutes les commandes exposées par le mock sont testées unitairement via [atoum
 
 L’utilisation du mock reste très simple dans un projet Symfony. Chez M6Web, nous utilisons [notre propre composant Redis](https://github.com/M6Web/Redis), lui même basé sur [Predis](https://github.com/nrk/predis). Il nous suffit alors de modifier la définition du service Redis dans l’environnement de test.
 
-Tout d’abord, il faut rajouter la dépendance à la librairie dans le composer.json :
+Tout d’abord, il faut rajouter la dépendance à la librairie dans le `composer.json` :
 
 <script src="https://gist.github.com/fdubost/7893309.js"></script>
 
