@@ -14,7 +14,7 @@ image:
 
 At M6web we strongly believe in open source. We pushing our team to publish their  work and asking the same for our contractors.
 
-We use open source on day basis. For production servers or on our workstations. Contributing to open source is a simple and ethical way to give back to all the people contributing too.
+We use open source on a daily basis. For production servers or on our workstations. Contributing to open source is a simple and ethical way to give back to all the people contributing too.
 
 # Projects
 
