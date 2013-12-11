@@ -30,7 +30,7 @@ Afin de tester fonctionnellement ces services, nous avons d’abord eu l’idée
 
 Nous nous sommes alors penchés sur la possibilité de bouchonner Redis, chose qui parait au premier abord plus aisée que de bouchonner Doctrine : Redis propose une API simple et bien documenté (même si abondante). Nous pensions trouver une librairie PHP déjà existante mais nos recherches sont restées vaines.
 
-Nous avons donc créé la librairie RedisMock qui reprend simplement [les commandes de l’API de Redis](http://redis.io/commands) et simule leur comportement grâce aux fonctions natives de PHP. Évidemment, toutes les commandes Redis n’ont pas encore été implémentées, seules celles qui sont utilisées dans nos tests sont présentes. Vous pouvez nous proposer l’implémentation de nouvelles fonctions Redis, selon vos besoins, via des Pull Requests sur le projet [RedisMock](https://github.com/M6Web/RedisMock).
+Nous avons donc créé la librairie [RedisMock](https://github.com/M6Web/RedisMock) qui reprend simplement [les commandes de l’API de Redis](http://redis.io/commands) et simule leur comportement grâce aux fonctions natives de PHP. Évidemment, toutes les commandes Redis n’ont pas encore été implémentées, seules celles qui sont utilisées dans nos tests sont présentes. Vous pouvez nous proposer l’implémentation de nouvelles fonctions Redis, selon vos besoins, via des Pull Requests sur le projet.
 
 Toutes les commandes exposées par le mock sont testées unitairement via [atoum](http://www.atoum.org/) en reprenant pour chaque cas les spécifications énoncées dans la documentation Redis.
 
