@@ -12,9 +12,9 @@ author:
 category:
 tags: [qualité, outil, redis, cytron]
 image:
-  feature:
-  credit:
-  creditlink:
+  feature: posts/cytron/redismock.jpg
+  credit: Sam Howzit
+  creditlink: http://www.flickr.com/photos/aloha75/4182769957/
 comments: true
 permalink: redismock-qui-a-bouchonne-mon-redis.html
 ---
