@@ -39,11 +39,11 @@ L’utilisation du mock reste très simple dans un projet Symfony. Chez M6Web, n
 
 Tout d’abord, il faut rajouter la dépendance à la librairie dans le `composer.json` :
 
-<script src="https://gist.github.com/fdubost/7893309.js"></script>
+{% gist 7893309 %}
 
 Puis après avoir mis à jour les vendors, il suffit de modifier le `config_test.yml` du projet pour ajouter :
 
-<script src="https://gist.github.com/fdubost/7893376.js"></script>
+{% gist 7893376 %}
 
 Et voilà, le tour est joué ! Les tests utilisent maintenant le mock à la place du véritable Redis. Petit bémol cependant : si votre service Redis est passé en paramètre de fonctions avec une restriction sur le type (signature de type), ça ne marchera pas… Deux possibilités peuvent s’offrir à vous :
 - vous supprimez le typage dans la signature, mais ce n’est pas vraiment une bonne pratique, votre code en sera affaibli,
