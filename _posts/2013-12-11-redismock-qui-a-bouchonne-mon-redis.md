@@ -22,6 +22,7 @@ permalink: redismock-qui-a-bouchonne-mon-redis.html
 Les tests fonctionnels tiennent un rôle majeur dans la réussite et la pérennité d’un projet web, d’autant plus s’il est déployé continuellement. Nous nous étions donc déjà intéressés à cette problématique dans [le cas d’un service proposant une API REST et utilisant MySQL et Doctrine](http://tech.m6web.fr/2013/10/tester-fonctionnellement-une-api-rest-symfony-doctrine-atoum.html). Mais nous développons aussi des services du même type utilisant d’autres systèmes de stockage de données comme [Redis](http://redis.io/).
 
 Afin de tester fonctionnellement ces services, nous avons d’abord eu l’idée d’installer une instance Redis sur nos serveurs de tests. Mais nous allions inéluctablement retomber sur les mêmes obstacles qu’avec MySQL :
+
 - il n’est pas toujours possible de monter une instance Redis dédiée aux tests,
 - mais surtout une telle architecture n’est pas viable dans un système de tests concurrentiels.
 
@@ -46,6 +47,7 @@ Puis après avoir mis à jour les vendors, il suffit de modifier le `config_test
 {% gist 7893376 %}
 
 Et voilà, le tour est joué ! Les tests utilisent maintenant le mock à la place du véritable Redis. Petit bémol cependant : si votre service Redis est passé en paramètre de fonctions avec une restriction sur le type (signature de type), ça ne marchera pas… Deux possibilités peuvent s’offrir à vous :
+
 - vous supprimez le typage dans la signature, mais ce n’est pas vraiment une bonne pratique, votre code en sera affaibli,
 - vous définissez une interface que vous utilisez dans votre signature de fonction, mais vous devrez définir pour vos services Symfony des classes filles héritant de Redis et RedisMock et implémentant cette interface.
 
