@@ -89,7 +89,7 @@ Gros retour d’expérience des équipes de BBC News sur leur approche du “Res
 
 Le RWD prend du temps, beaucoup plus de temps (3x), sur le Design, le développement, le test.
 
-Tom parcourt les optimisations “classiques”, ainsi que la manière dont ils enrichissent l'expérience : Ils délivrent une “Core Experience” tous, et une “Enhanced Experience” aux navigateurs qui le supportent, utilisent Grunt pour certaines automatisations (pour fournir les bonnes images la bonne taille [https://github.com/BBC-News/Imager.js/](https://github.com/BBC-News/Imager.js/), versionner les assets [https://github.com/kswedberg/grunt-version](https://github.com/kswedberg/grunt-version) …).
+Tom parcourt les optimisations “classiques”, ainsi que la manière dont ils enrichissent l'expérience : Ils délivrent une “Core Experience” à tous, et une “Enhanced Experience” aux navigateurs qui le supportent, utilisent Grunt pour certaines automatisations (pour fournir les bonnes images à la bonne taille [https://github.com/BBC-News/Imager.js/](https://github.com/BBC-News/Imager.js/), versionner les assets [https://github.com/kswedberg/grunt-version](https://github.com/kswedberg/grunt-version) …).
 
 Vous pouvez aussi découvrir [Wraith, leur outil de comparaison de screeshot Responsive](https://github.com/BBC-News/wraith).
 
@@ -112,7 +112,7 @@ Code Club est un projet leadé par des bénévoles pour créer des clubs de codi
 
 Les enfants utilisent le projet [Scratch](http://scratch.mit.edu/), et qui permet via un langage de programmation assez simple, de programmer des jeux.
 
-Leurs vidéos de présentation sont de plus assez fun, notamment celle ci, qui nous été montrée, 6mn50 dans la vidéo ci dessous :
+Leurs vidéos de présentation sont de plus assez fun, notamment celle ci, qui nous à été montrée, à 6mn50 dans la vidéo ci dessous :
 
 
 
@@ -124,7 +124,7 @@ Jonathan Klein (Etsy) @jonathanklein
 
 ![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_25cc44_10870324686-efa10b2d4b-z-jpg.jpeg)
 
-Afin d’automatiser la prise de mesure synthétique l’aide de WebPageTest (notamment si vous avez installé une instance privée), les gars d’Etsy ont développé un wrapper Php l’Api de Webpagetest. Le wrapper permet aussi de pousser les résultats dans un Graphite ou un Splunk.
+Afin d’automatiser la prise de mesure synthétique à l’aide de WebPageTest (notamment si vous avez installé une instance privée), les gars d’Etsy ont développé un wrapper Php à l’Api de Webpagetest. Le wrapper permet aussi de pousser les résultats dans un Graphite ou un Splunk.
 
 L'outil est dispo sur Github : [Wpt-Script](https://github.com/etsy/wpt-script)
 
@@ -173,7 +173,7 @@ Rick travaille pour YouTube chez Google, comme WebDéveloppeur Front-end orient�
 
 Sa passion, se moquer des mauvais résultats sur les historiques du WPT public :-)
 
-C’est d’ailleurs pour lui, l’une des bonnes sources pour découvrir les “anti-patterns” de la perf, et les choses ne pas faire.
+C’est d’ailleurs pour lui, l’une des bonnes sources pour découvrir les “anti-patterns” de la perf, et les choses à ne pas faire.
 
 Il présente une Pull Request en cours sur WebPageTest avec le Multi Variate Testing, permettant de tester tout un site, sur plusieurs localités. Plus d’infos sur l’article de son blog sur le sujet : [http://jrvis.com/blog/wpt-mvt/](http://jrvis.com/blog/wpt-mvt/)
 
@@ -187,7 +187,7 @@ Andy Davies [@andydavies​](https://twitter.com/andydavies)
 
 Avec l’arrivée d’HTTP 2.0, on se demande, si les optimisations WebPerf que nous réalisons aujourd’hui ne seront pas gênantes demain : Les dataURI, le JS inline, le domain sharding, les sprites ...
 
-Les réponses ne sont pas aussi simples, et nous “développeurs” nous devons de nous poser les questions afin d’avoir les bonnes réponses avant l’arrivée d’HTTP 2.0. Andy le mérite de lancer le débat, via des protocoles de test pour chacun des cas. en comparant HTTP 1.0 et SPDY.
+Les réponses ne sont pas aussi simples, et nous “développeurs” nous devons de nous poser les questions afin d’avoir les bonnes réponses avant l’arrivée d’HTTP 2.0. Andy à le mérite de lancer le débat, via des protocoles de test pour chacun des cas. en comparant HTTP 1.0 et SPDY.
 
 
 
