@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Qui a bouchonné mon Redis ?"
-description:
+description: "Présentation de la librairie RedisMock, un mock PHP open-source de Redis à utiliser dans vos tests fonctionnels."
 author:
   name: Team Cytron
   avatar: cytron.png
