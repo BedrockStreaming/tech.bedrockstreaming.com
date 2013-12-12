@@ -10,7 +10,7 @@ author:
   facebook:
   github:
 category:
-tags: [qualité, outil, redis, cytron]
+tags: [qualite, outil, redis, cytron]
 image:
   feature: posts/cytron/redismock.jpg
   credit: Sam Howzit
