@@ -3,12 +3,12 @@ layout: post
 title: "Vis ma vie de Sysadmin chez M6Web"
 description: "Vidéo de la conférence donnée par Baptiste Dupain, sysadmin chez M6Web, lors du Forum PHP 2013 organisé par l'AFUP."
 author:
-  name: Olivier Mansour
-  avatar: oliviermansour.jpg
+  name: M6Web
+  avatar:
   email:
-  twitter: omansour
+  twitter: techM6Web
   facebook:
-  github: omansour
+  github: M6Web
 category:
 tags: [video, devops, sysadmin]
 image:
