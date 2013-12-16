@@ -52,6 +52,7 @@ Throught github we participated to the improvement (we hope so) of many open sou
 * [nelmio/NelmioApiDocBundle](https://github.com/nelmio/NelmioApiDocBundle) : [#157](https://github.com/nelmio/NelmioApiDocBundle/pull/157) -  [#253](https://github.com/nelmio/NelmioApiDocBundle/pull/253) -
 [#256](https://github.com/nelmio/NelmioApiDocBundle/pull/256) -  [#258](https://github.com/nelmio/NelmioApiDocBundle/pull/258) - [#277](https://github.com/nelmio/NelmioApiDocBundle/pull/277)
 * [willdurand/BazingaHateoasBundle](https://github.com/willdurand/BazingaHateoasBundle) : [#9](https://github.com/willdurand/BazingaHateoasBundle/pull/9)
+* [macbre/phantomas](https://github.com/macbre/phantomas) : [#166](https://github.com/macbre/phantomas/pull/166)
 
 
 
