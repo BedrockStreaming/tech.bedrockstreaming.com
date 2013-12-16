@@ -20,7 +20,7 @@ permalink: vis-ma-vie-sysadmin-forumphp.html
 ---
 
 
-[Baptiste](https://twitter.com/bdu_p), notre collègue sysadmin et néanmoins ami, a donné une conférence très intéressante au dernier Forum PHP organisé par [l'AFUP](http://www.afup.org). Elle éclaire les particularités de son métier et le rapport qu'il a avec ses collèges (et néanmoins amis) développeurs.
+[Baptiste](https://twitter.com/bdu_p), notre collègue sysadmin et néanmoins ami, a donné une conférence très intéressante au dernier Forum PHP organisé par [l'AFUP](http://www.afup.org). Elle éclaire les particularités de son métier et le rapport qu'il a avec ses collègues (et néanmoins amis) développeurs.
 
 La vidéo :
 
