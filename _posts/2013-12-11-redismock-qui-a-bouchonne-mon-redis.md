@@ -36,20 +36,19 @@ Toutes les commandes exposées par le mock sont testées unitairement via [atoum
 
 #### Utiliser RedisMock dans vos tests sur Symfony
 
-L’utilisation du mock reste très simple dans un projet Symfony. Chez M6Web, nous utilisons [notre propre composant Redis](https://github.com/M6Web/Redis), lui même basé sur [Predis](https://github.com/nrk/predis). Il nous suffit alors de modifier la définition du service Redis dans l’environnement de test.
-
-Tout d’abord, il faut rajouter la dépendance à la librairie dans le `composer.json` :
+Tout d’abord, il faut rajouter la dépendance à la librairie dans le `composer.json` et mettre à jour les vendors :
 
 {% gist 7893309 %}
 
-Puis après avoir mis à jour les vendors, il suffit de modifier le `config_test.yml` du projet pour ajouter :
+L’utilisation du mock reste très simple dans un projet Symfony. Chez M6Web, nous utilisons [notre propre composant Redis](https://github.com/M6Web/Redis), lui même basé sur [Predis](https://github.com/nrk/predis). Afin que le mock puisse complètement se faire passer pour la librairie Redis lors de l'execution des tests, nous avons implémenté une factory qui crée à la volée un adapteur héritant de la classe à bouchonner. La méthode `getAdpaterClass` permet de récupérer le nom de la classe à instancier.
 
-{% gist 7893376 %}
+{% gist 8025392 %}
 
-Et voilà, le tour est joué ! Les tests utilisent maintenant le mock à la place du véritable Redis. Petit bémol cependant : si votre service Redis est passé en paramètre de fonctions avec une restriction sur le type (signature de type), ça ne marchera pas… Deux possibilités peuvent s’offrir à vous :
+Pour simplifier la création de l'adapteur et son injection dans l'application via le fichier `config_test.yml`, on peut utiliser la méthode `getAdapter` qui instancie directement l'objet sans paramètre. Il nous suffit alors de modifier la définition du service Redis dans l’environnement de test.
 
-- vous supprimez le typage dans la signature, mais ce n’est pas vraiment une bonne pratique, votre code en sera affaibli,
-- vous définissez une interface que vous utilisez dans votre signature de fonction, mais vous devrez définir pour vos services Symfony des classes filles héritant de Redis et RedisMock et implémentant cette interface.
+{% gist 8025640 %}
+
+Et voilà, le tour est joué ! Les tests utilisent maintenant le mock à la place du véritable Redis. Attention cependant, si votre librairie utilise des fonctionnalités non implémentées dans RedisMock, vous pourriez faire face à des comportements aléatoires indésirables.
 
 [RedisMock ](https://github.com/M6Web/RedisMock) est disponible en [open-source](http://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur [le compte GitHub de M6Web](https://github.com/M6Web).
 
