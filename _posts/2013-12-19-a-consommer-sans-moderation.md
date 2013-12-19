@@ -39,13 +39,13 @@ Nous avons tout d’abord besoin de créer une classe `User` implémentant `Symf
 Les différents `Users` sont ensuite créés à l’aide d’un fournisseurs d'utilisateurs implémentant `Symfony\Component\Security\Core\User\UserProviderInterface`.
 Dans notre cas, chaque utilisateur possède son propre fichier de configuration yml. Le fournisseur d’utilisateur vérifie donc que l’utilisateur demandé possède un fichier de configuration et instancie un objet `User` avec cette configuration. Ce UserProvider est défini comme service dans notre bundle et configuré dans `security.yml`.
 
-Il faut ensuite créer notre propre fournisseur d’authentification pour avoir une authentification par nom de domaine. Pour cela nous avons suivi et adapté le cookbook de Symfony. Cette authentification s’articule autour de 2 classes : un FirewallListener et un AuthenticationProvider. Pour que notre FirewallListener puisse facilement récupérer le client associé, nous avons ajouté un paramètre au routing Symfony :
+Il faut ensuite créer notre propre fournisseur d’authentification pour avoir une authentification par nom de domaine. Pour cela nous avons suivi et adapté le [cookbook de Symfony](http://symfony.com/doc/current/cookbook/security/custom_authentication_provider.html). Cette authentification s’articule autour de 2 classes : un FirewallListener et un AuthenticationProvider. Pour que notre FirewallListener puisse facilement récupérer le client associé, nous avons ajouté un paramètre au routing Symfony :
 
 ```yaml
 host: {client}.api.m6web.fr
 ```
 
-Le FirewallListener utilise donc ce paramètre du routing comme nom d’utilisateur et le transmet à notre AuthenticationProvider. Celui-ci récupère le `User` grâce au `UserProvider` et profite de cette phase pour vérifier que l’adresse IP du client est bien autorisée dans sa configuration grâce au FirewallBundle.
+Le FirewallListener utilise donc ce paramètre du routing comme nom d’utilisateur et le transmet à notre AuthenticationProvider. Celui-ci récupère le `User` grâce au `UserProvider` et profite de cette phase pour vérifier que l’adresse IP du client est bien autorisée dans sa configuration grâce au [FirewallBundle](https://github.com/M6Web/FirewallBundle).
 
 Effectivement, nous avons ajouté un filtrage initial (mais optionnel) sur les IPs pour chaque client, dans le fichiers `app/config/users/{username}.yml` :
 
@@ -62,21 +62,21 @@ firewall:
             m6_public: true
 ```
 
-Pour plus de précisions, voir la documentation du FirewallBundle.
+Pour plus de précisions, voir la [documentation du FirewallBundle](https://github.com/M6Web/FirewallBundle#firewall-bundle-).
 
 #### Autorisation
 
-Pour gérer les autorisations d’accès des utilisateurs aux différentes routes, nous avons créé un EventListener qui écoute kernel.request et qui décide de laisser passer la requête ou non en fonction de la configuration de l’utilisateur.
+Pour gérer les autorisations d’accès des utilisateurs aux différentes routes, nous avons créé un EventListener qui écoute `kernel.request` et qui décide de laisser passer la requête ou non en fonction de la configuration de l’utilisateur.
 
 ```yaml
 allow:
-default: true
-methods:
-        	delete: false
-    	resources:
-        	exam: false
-    	routes:
-        	get_articles: false
+    default: true
+    methods:
+        delete: false
+    resources:
+        exam: false
+    routes:
+        get_articles: false
 ```
 
 Dans cet exemple l’utilisateur a accès par défaut à toutes les routes sauf les méthodes `DELETE`, les routes concernant les exams et la route spécifique `get_articles`.
