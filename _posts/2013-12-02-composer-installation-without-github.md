@@ -206,7 +206,7 @@ Add our repositories in `~./composer/composer.json` file of the user used to dep
 
 You have to install the [S3 plugin for composer](https://github.com/naderman/composer-aws) on your EC2 instance.
 
-    $ composer global require "naderman/composer-aws:~0.2.3"
+    $ composer global require "naderman/composer-aws:~0.2.5"
 
 
 If you don't use [IAM roles](http://aws.amazon.com/iam/), add the following composer config on your EC2 servers (`~/.composer/config.json`) :
@@ -224,7 +224,6 @@ If you don't use [IAM roles](http://aws.amazon.com/iam/), add the following comp
 
 # Known problem : (maybe solved at the time you are reading this article)
 
-* [This PR is waiting validation on composer aws plugin](https://github.com/naderman/composer-aws/pull/5) - allowing you to keep your packages.json private in S3 buckets. If not merged yet set the packages.json public while uploading it : ``s3cmd put --acl-public ...``.
 
 
 
