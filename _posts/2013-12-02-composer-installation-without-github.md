@@ -222,7 +222,6 @@ If you don't use [IAM roles](http://aws.amazon.com/iam/), add the following comp
 
 `composer install --prefer-dist` command will now download all the packages files from S3 !
 
-# Known problem : (maybe solved at the time you are reading this article)
 
 
 
