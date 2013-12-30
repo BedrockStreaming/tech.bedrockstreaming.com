@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A consommer sans modération"
+title: "API à consommer avec modération"
 description: "TODO"
 author:
   name: Team Cytron
@@ -10,13 +10,12 @@ author:
   facebook:
   github:
 category:
-tags: [api, cytron]
+tags: [api, doctrine, cytron]
 image:
   feature: 
   credit: 
   creditlink: 
 comments: true
-permalink: a-consommer-sans-moderation.html
 ---
 
 Après avoir travaillé pendant plusieurs mois sur la création de nos API avec Symfony, arrive le moment de leur publication !
@@ -79,7 +78,7 @@ allow:
         get_articles: false
 ```
 
-Dans cet exemple l’utilisateur a accès par défaut à toutes les routes sauf les méthodes `DELETE`, les routes concernant les exams et la route spécifique `get_articles`.
+Dans cet exemple, l’utilisateur a accès par défaut à toutes les routes sauf les méthodes `DELETE`, les routes concernant les exams et la route spécifique `get_articles`.
 
 #### Durée de cache
 
@@ -89,7 +88,7 @@ Nous avons là-aussi créé un EventListener qui écoute cette fois kernel.respo
 
 #### Filtrage automatique avec Doctrine
 
-Nous pouvons offrir une "vue" différente de nos données à chaque client en définissant des critères de filtrages (ex: date de publication, ressource activé, etc.) dans les fichiers de configuration des clients.
+Nous pouvons offrir une "vue" différente de nos données à chaque client en définissant des critères de filtrage pour Doctrine (ex: date de publication, ressource activée, etc.) dans les fichiers de configuration des clients :
 
 ```yaml
 entities:
@@ -98,9 +97,7 @@ entities:
         publication: false
 ```
 
-Afin de ne pas modifier le comportement par défaut de Doctrine, nous avons ajoutés une méthode [`findWithContext`](https://gist.github.com/oziks/8180382) qui reprends les mêmes paramètres que la méthode `findBy` de Doctrine avec le `SecurityContext` en plus.
-
-Il est donc très simple de récupérer les ressources en fonctions des paramètres d'un client grâce à la méthode `findWithContext` :
+Afin de ne pas modifier le comportement par défaut de Doctrine, nous avons ajouté une méthode [`findWithContext`](https://gist.github.com/oziks/8180382) qui reprend les mêmes paramètres que la méthode `findBy` en injectant le `SecurityContext`. Cette méthode permet donc de récupérer des entités filtrées en fonction des paramètres d'un client :
 
 ```php
 $article = $this
