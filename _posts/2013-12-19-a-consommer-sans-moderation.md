@@ -80,7 +80,8 @@ allow:
 ```
 
 Dans cet exemple l’utilisateur a accès par défaut à toutes les routes sauf les méthodes `DELETE`, les routes concernant les exams et la route spécifique `get_articles`.
-Durée de cache
+
+#### Durée de cache
 
 Les temps de cache sont différents en fonction de l’utilisation des données. Les données du backoffice ne seront pas cachées, tandis que les données de l’application mobile auront un temps de cache de 300s.
 Nous avons là-aussi créé un EventListener qui écoute cette fois kernel.response et qui modifie les headers de cache de la réponse en fonction de la configuration utilisateur qui peut contenir une durée par défaut de cache et des durées de cache par route. 
@@ -88,7 +89,25 @@ Nous avons là-aussi créé un EventListener qui écoute cette fois kernel.respo
 
 #### Filtrage automatique avec Doctrine
 
-TODO MOMO
+Nous pouvons offrir une "vue" différente de nos données à chaque client en définissant des critères de filtrages (ex: date de publication, ressource activé, etc.) dans les fichiers de configuration des clients.
+
+```yaml
+entities:
+    article:
+        active: true
+        publication: false
+```
+
+Afin de ne pas modifier le comportement par défaut de Doctrine, nous avons ajoutés une méthode [`findWithContext`](https://gist.github.com/oziks/8180382) qui reprends les mêmes paramètres que la méthode `findBy` de Doctrine avec le `SecurityContext` en plus.
+
+Il est donc très simple de récupérer les ressources en fonctions des paramètres d'un client grâce à la méthode `findWithContext` :
+
+```php
+$article = $this
+    ->get('m6_contents.article.manager')
+    ->getRepository()
+    ->findWithContext($this->container->get('security.context'), ['id' => $id]);
+```
 
 #### Personnalisation avancée
 
