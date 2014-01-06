@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "API à consommer avec modération"
-description: "TODO"
+description: "Authentification des API par nom de domaine"
 author:
   name: Team Cytron
   avatar: cytron.png
@@ -10,7 +10,7 @@ author:
   facebook:
   github:
 category:
-tags: [api, doctrine, cytron]
+tags: [outil, api, symfony, doctrine, cytron]
 image:
   feature: 
   credit: 
@@ -18,11 +18,11 @@ image:
 comments: true
 ---
 
-Après avoir travaillé pendant plusieurs mois sur la création de nos API avec Symfony, arrive le moment de leur publication !
+Après avoir travaillé pendant plusieurs mois sur la création et les [tests](http://tech.m6web.fr/redismock-qui-a-bouchonne-mon-redis.html) de nos API avec Symfony, le moment de leur publication est enfin arrivé !
 
-Or, les clients de nos API sont multiples : il peut s'agir d'applications mobiles, de sites web mais aussi d’un BO interne. Chacun de ces clients peut nécessiter des “vues” différentes de l’API.
+Or, les clients de nos API sont multiples : il peut s'agir d'applications mobiles, de sites web mais aussi d’un *back office* interne. Chacun de ces clients peut nécessiter des “vues” différentes de l’API.
 
-Effectivement, alors que le BO devra pouvoir accéder à la totalité des ressources disponibles, l'application mobile ne devra avoir accès qu’aux ressources publiées. De la même manière, la gestion du cache ainsi que la disponibilité des routes doit pouvoir facilement s’adapter au client qui consomme l’API.
+Effectivement, alors que le BO devra pouvoir accéder à la totalité des ressources disponibles, l'application mobile ne devra avoir accès qu’aux ressources publiées. De la même manière, la gestion du cache ainsi que la disponibilité des routes doit pouvoir s’adapter facilement aux clients qui consomment l’API.
 
 Nous avons opté pour l’utilisation d’un sous-domaine par client afin de l’identifier et ainsi de lui appliquer des configurations particulières. Ex :
 * http://bo.api.m6web.fr pour le BO,
@@ -109,3 +109,12 @@ $article = $this
 #### Personnalisation avancée
 
 Grâce à l'utilisation du Bundle Security de Symfony, toute la configuration spécifique à un sous-domaine est stockée dans l’utilisateur courant. Et dans Symfony, l’utilisateur courant est facilement récupérable à partir du service `security_context`. Il est ainsi possible de personnaliser n’importe quelle brique du service en y injectant la dépendance sur ce service.
+
+#### DomainUserBundle
+
+Afin d'implémenter facilement ce fonctionnement sur nos API, nous avons développé un bundle dédié. Il peut donc auss vous permettre de gérer l'authentification et la configuration de vos API par nom de domaine.
+
+[DomainUserBundle](https://github.com/M6Web/DomainUserBundle) est disponible en [open-source](http://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur le [compte GitHub de M6Web](https://github.com/M6Web).
+
+Enjoy !
+
