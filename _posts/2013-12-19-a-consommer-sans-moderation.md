@@ -33,7 +33,7 @@ Nous avons opté pour l’utilisation d’un sous-domaine par client afin de l�
 
 Nous utilisons le composant sécurité de Symfony, qui permet de créer un utilisateur authentifié à la volée et de charger la configuration spécifique à celui-ci.
 
-Nous avons tout d’abord besoin de créer une classe `User` implémentant `Symfony\Component\Security\Core\User\UserInterface`, et contentant les informations de configuration spécifique.
+Nous avons tout d’abord besoin de créer une classe `User` implémentant `Symfony\Component\Security\Core\User\UserInterface`, et contenant les informations de configuration spécifique.
 
 Les différents `Users` sont ensuite créés à l’aide d’un fournisseur d'utilisateurs implémentant `Symfony\Component\Security\Core\User\UserProviderInterface`.
 Dans notre cas, chaque utilisateur possède son propre fichier de configuration yml. Le fournisseur d’utilisateur vérifie donc que l’utilisateur demandé possède un fichier de configuration et instancie un objet `User` avec cette configuration. Ce UserProvider est défini comme service dans notre bundle et configuré dans `security.yml`.
