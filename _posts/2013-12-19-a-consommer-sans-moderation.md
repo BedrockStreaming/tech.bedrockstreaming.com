@@ -35,7 +35,7 @@ Nous utilisons le composant sécurité de Symfony, qui permet de créer un utili
 
 Nous avons tout d’abord besoin de créer une classe `User` implémentant `Symfony\Component\Security\Core\User\UserInterface`, et contentant les informations de configuration spécifique.
 
-Les différents `Users` sont ensuite créés à l’aide d’un fournisseurs d'utilisateurs implémentant `Symfony\Component\Security\Core\User\UserProviderInterface`.
+Les différents `Users` sont ensuite créés à l’aide d’un fournisseur d'utilisateurs implémentant `Symfony\Component\Security\Core\User\UserProviderInterface`.
 Dans notre cas, chaque utilisateur possède son propre fichier de configuration yml. Le fournisseur d’utilisateur vérifie donc que l’utilisateur demandé possède un fichier de configuration et instancie un objet `User` avec cette configuration. Ce UserProvider est défini comme service dans notre bundle et configuré dans `security.yml`.
 
 Il faut ensuite créer notre propre fournisseur d’authentification pour avoir une authentification par nom de domaine. Pour cela nous avons suivi et adapté le [cookbook de Symfony](http://symfony.com/doc/current/cookbook/security/custom_authentication_provider.html). Cette authentification s’articule autour de 2 classes : un FirewallListener et un AuthenticationProvider. Pour que notre FirewallListener puisse facilement récupérer le client associé, nous avons ajouté un paramètre au routing Symfony :
