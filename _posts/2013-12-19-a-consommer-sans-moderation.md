@@ -112,7 +112,7 @@ Grâce à l'utilisation du Bundle Security de Symfony, toute la configuration sp
 
 #### DomainUserBundle
 
-Afin d'implémenter facilement ce fonctionnement sur nos API, nous avons développé un bundle dédié. Il peut donc auss vous permettre de gérer l'authentification et la configuration de vos API par nom de domaine.
+Afin d'implémenter facilement ce fonctionnement sur nos API, nous avons développé un bundle dédié. Il peut donc aussi vous permettre de gérer l'authentification et la configuration de vos API par nom de domaine.
 
 [DomainUserBundle](https://github.com/M6Web/DomainUserBundle) est disponible en [open-source](http://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur le [compte GitHub de M6Web](https://github.com/M6Web).
 
