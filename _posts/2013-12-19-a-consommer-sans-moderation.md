@@ -25,8 +25,8 @@ Or, les clients de nos API sont multiples : il peut s'agir d'applications mobile
 Effectivement, alors que le BO devra pouvoir accéder à la totalité des ressources disponibles, l'application mobile ne devra avoir accès qu’aux ressources publiées. De la même manière, la gestion du cache ainsi que la disponibilité des routes doit pouvoir s’adapter facilement aux clients qui consomment l’API.
 
 Nous avons opté pour l’utilisation d’un sous-domaine par client afin de l’identifier et ainsi de lui appliquer des configurations particulières. Ex :
-* http://bo.api.m6web.fr pour le BO,
-* http://mobile.api.m6web.fr pour l'application mobile.
+* http://bo.api.monservice.fr pour le BO,
+* http://mobile.api.monservice.fr pour l'application mobile.
 
 
 #### Authentification
@@ -41,7 +41,7 @@ Dans notre cas, chaque utilisateur possède son propre fichier de configuration 
 Il faut ensuite créer notre propre fournisseur d’authentification pour avoir une authentification par nom de domaine. Pour cela nous avons suivi et adapté le [cookbook de Symfony](http://symfony.com/doc/current/cookbook/security/custom_authentication_provider.html). Cette authentification s’articule autour de 2 classes : un FirewallListener et un AuthenticationProvider. Pour que notre FirewallListener puisse facilement récupérer le client associé, nous avons ajouté un paramètre au routing Symfony :
 
 ```yaml
-host: {client}.api.m6web.fr
+host: {client}.api.monservice.fr
 ```
 
 Le FirewallListener utilise donc ce paramètre du routing comme nom d’utilisateur et le transmet à notre AuthenticationProvider. Celui-ci récupère le `User` grâce au `UserProvider` et profite de cette phase pour vérifier que l’adresse IP du client est bien autorisée dans sa configuration grâce au [FirewallBundle](https://github.com/M6Web/FirewallBundle).
