@@ -25,6 +25,7 @@ Or, les clients de nos API sont multiples : il peut s'agir d'applications mobile
 Effectivement, alors que le BO devra pouvoir accéder à la totalité des ressources disponibles, l'application mobile ne devra avoir accès qu’aux ressources publiées. De la même manière, la gestion du cache ainsi que la disponibilité des routes doit pouvoir s’adapter facilement aux clients qui consomment l’API.
 
 Nous avons opté pour l’utilisation d’un sous-domaine par client afin de l’identifier et ainsi de lui appliquer des configurations particulières. Ex :
+
 * http://bo.api.monservice.fr pour le BO,
 * http://mobile.api.monservice.fr pour l'application mobile.
 
@@ -40,15 +41,15 @@ Dans notre cas, chaque utilisateur possède son propre fichier de configuration 
 
 Il faut ensuite créer notre propre fournisseur d’authentification pour avoir une authentification par nom de domaine. Pour cela nous avons suivi et adapté le [cookbook de Symfony](http://symfony.com/doc/current/cookbook/security/custom_authentication_provider.html). Cette authentification s’articule autour de 2 classes : un FirewallListener et un AuthenticationProvider. Pour que notre FirewallListener puisse facilement récupérer le client associé, nous avons ajouté un paramètre au routing Symfony :
 
-```yaml
+{% highlight yaml %}
 host: {client}.api.monservice.fr
-```
+{% endhighlight %}
 
 Le FirewallListener utilise donc ce paramètre du routing comme nom d’utilisateur et le transmet à notre AuthenticationProvider. Celui-ci récupère le `User` grâce au `UserProvider` et profite de cette phase pour vérifier que l’adresse IP du client est bien autorisée dans sa configuration grâce au [FirewallBundle](https://github.com/M6Web/FirewallBundle).
 
 Effectivement, nous avons ajouté un filtrage initial (mais optionnel) sur les IPs pour chaque client, dans le fichiers `app/config/users/{username}.yml` :
 
-```yaml
+{% highlight yaml %}
 firewall:
     user_access:
         default_state: false
@@ -59,7 +60,7 @@ firewall:
             m6_lan: true
             m6_local: true
             m6_public: true
-```
+{% endhighlight %}
 
 Pour plus de précisions, voir la [documentation du FirewallBundle](https://github.com/M6Web/FirewallBundle#firewall-bundle-).
 
@@ -67,7 +68,7 @@ Pour plus de précisions, voir la [documentation du FirewallBundle](https://gith
 
 Pour gérer les autorisations d’accès des utilisateurs aux différentes routes, nous avons créé un EventListener qui écoute `kernel.request` et qui décide de laisser passer la requête ou non en fonction de la configuration de l’utilisateur.
 
-```yaml
+{% highlight yaml %}
 allow:
     default: true
     methods:
@@ -76,35 +77,34 @@ allow:
         exam: false
     routes:
         get_articles: false
-```
+{% endhighlight %}
 
-Dans cet exemple, l’utilisateur a accès par défaut à toutes les routes sauf les méthodes `DELETE`, les routes concernant les exams et la route spécifique `get_articles`.
+Dans cet exemple, l’utilisateur a accès par défaut à toutes les routes sauf les méthodes `DELETE`, les routes concernant les `exams` et la route spécifique `get_articles`.
 
 #### Durée de cache
 
 Les temps de cache sont différents en fonction de l’utilisation des données. Les données du backoffice ne seront pas cachées, tandis que les données de l’application mobile auront un temps de cache de 300s.
-Nous avons là-aussi créé un EventListener qui écoute cette fois kernel.response et qui modifie les headers de cache de la réponse en fonction de la configuration utilisateur qui peut contenir une durée par défaut de cache et des durées de cache par route. 
-
+Nous avons là-aussi créé un EventListener qui écoute cette fois `kernel.response` et qui modifie les headers de cache de la réponse en fonction de la configuration utilisateur qui peut contenir une durée par défaut de cache et des durées de cache par route.
 
 #### Filtrage automatique avec Doctrine
 
 Nous pouvons offrir une "vue" différente de nos données à chaque client en définissant des critères de filtrage pour Doctrine (ex: date de publication, ressource activée, etc.) dans les fichiers de configuration des clients :
 
-```yaml
+{% highlight yaml %}
 entities:
     article:
         active: true
         publication: false
-```
+{% endhighlight %}
 
 Afin de ne pas modifier le comportement par défaut de Doctrine, nous avons ajouté une méthode [`findWithContext`](https://gist.github.com/oziks/8180382) qui reprend les mêmes paramètres que la méthode `findBy` en injectant le `SecurityContext`. Cette méthode permet donc de récupérer des entités filtrées en fonction des paramètres d'un client :
 
-```php
+{% highlight php %}
 $article = $this
     ->get('m6_contents.article.manager')
     ->getRepository()
     ->findWithContext($this->container->get('security.context'), ['id' => $id]);
-```
+{% endhighlight %}
 
 #### Personnalisation avancée
 
