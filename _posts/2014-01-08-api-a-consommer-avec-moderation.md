@@ -12,9 +12,9 @@ author:
 category:
 tags: [outil, api, symfony, doctrine, cytron]
 image:
-  feature: 
-  credit: 
-  creditlink: 
+  feature: posts/cytron/domainuserbundle.png
+  credit: ram reddy
+  creditlink: http://www.flickr.com/photos/rammorrison/with/4704353204/
 comments: true
 ---
 
@@ -32,7 +32,7 @@ Nous avons opté pour l’utilisation d’un sous-domaine par client afin de l�
 
 #### Authentification
 
-Nous utilisons le composant sécurité de Symfony, qui permet de créer un utilisateur authentifié à la volée et de charger la configuration spécifique à celui-ci.
+Nous utilisons le [composant sécurité](http://symfony.com/doc/current/components/security/introduction.html) de Symfony, qui permet de créer un utilisateur authentifié à la volée et de charger la configuration spécifique à celui-ci.
 
 Nous avons tout d’abord besoin de créer une classe `User` implémentant `Symfony\Component\Security\Core\User\UserInterface`, et contenant les informations de configuration spécifique.
 
