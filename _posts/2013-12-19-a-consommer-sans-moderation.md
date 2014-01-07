@@ -100,6 +100,7 @@ entities:
 Afin de ne pas modifier le comportement par défaut de Doctrine, nous avons ajouté une méthode [`findWithContext`](https://gist.github.com/oziks/8180382) qui reprend les mêmes paramètres que la méthode `findBy` en injectant le `SecurityContext`. Cette méthode permet donc de récupérer des entités filtrées en fonction des paramètres d'un client :
 
 {% highlight php %}
+<?php
 $article = $this
     ->get('m6_contents.article.manager')
     ->getRepository()
