@@ -97,7 +97,7 @@ entities:
         publication: false
 {% endhighlight %}
 
-Afin de ne pas modifier le comportement par défaut de Doctrine, nous avons ajouté une méthode [`findWithContext`](https://gist.github.com/oziks/8180382) qui reprend les mêmes paramètres que la méthode `findBy` en injectant le `SecurityContext`. Cette méthode permet donc de récupérer des entités filtrées en fonction des paramètres d'un client :
+Afin de ne pas modifier le comportement par défaut de Doctrine, nous avons ajouté une méthode [`findWithContext`](https://gist.github.com/oziks/8180382) à nos repositories qui reprend les mêmes paramètres que la méthode `findBy` en injectant le `SecurityContext`. Cette méthode permet donc de récupérer des entités filtrées en fonction des paramètres d'un client :
 
 {% highlight php %}
 <?php
@@ -109,7 +109,7 @@ $article = $this
 
 #### Personnalisation avancée
 
-Grâce à l'utilisation du Bundle Security de Symfony, toute la configuration spécifique à un sous-domaine est stockée dans l’utilisateur courant. Et dans Symfony, l’utilisateur courant est facilement récupérable à partir du service `security_context`. Il est ainsi possible de personnaliser n’importe quelle brique du service en y injectant la dépendance sur ce service.
+Grâce à l'utilisation du Bundle Security de Symfony, toute la configuration spécifique à un sous-domaine est stockée dans l’utilisateur courant. Et dans Symfony, l’utilisateur courant est facilement récupérable à partir du service `security_context`. Il est ainsi possible de personnaliser n’importe quelle brique de l'application en y injectant la dépendance sur ce service.
 
 #### DomainUserBundle
 
