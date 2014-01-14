@@ -86,7 +86,7 @@ A ce stade, tout est prêt pour commencer les mesures.
 
 ### Prise de mesure avec Charles
 
-Pour prendre une mesure avec Charles, commencez par fermer tout ce qui va entrainer des connexions web sur votre ordinateur (Mail & co ...). et nettoyez l'écran de Charles pour commencer une "session" propre.
+Pour prendre une mesure avec Charles, allez dans le menu "Proxy" et décochez le "MAC OS X Proxy" afin de ne pas parasiter vos mesures, et nettoyez l'écran de Charles pour commencer une "session" propre.
 
 
 
