@@ -37,7 +37,7 @@ Nous allons donc utiliser le logiciel payant [CharlesProxy](http://www.charlespr
 
 Commencez donc par aller sur le site et installez CharlesProxy.
 
-Une fois installé, lancez le, il devrait automatiquement commencer capturer le trafic réseau.
+Une fois installé, lancez le, il devrait automatiquement commencer à capturer le trafic réseau.
 
 
 
@@ -45,7 +45,7 @@ Une fois installé, lancez le, il devrait automatiquement commencer capturer le 
 
 ### Connexion Wi-Fi et récupération IP
 
-La deuxième étape consiste a connecter votre Ordinateur et votre Téléphone sur le même réseau Wi-Fi.
+La deuxième étape consiste à connecter votre Ordinateur et votre Téléphone sur le même réseau Wi-Fi.
 
 
 
@@ -92,7 +92,7 @@ Pour prendre une mesure avec Charles, allez dans le menu "Proxy", décochez le "
 
 ![Performances web et "Disaster case" sur applications mobile native](/images/posts/imgob/0-00-30-83-201306-ob_689b14b9dc97e42b31a007ecfe7343f1_cleaner-charles.png)
 
-Vous n'avez ensuite plus qu'a lancer une application pour mesurer la liste des requêtes HTTP nécessaire a son démarrage.
+Vous n'avez ensuite plus qu'a lancer une application pour mesurer la liste des requêtes HTTP nécessaire à son démarrage.
 
 Dans la partie Structure, un clic sur un domaine vous donnera plus d'infos (nombre de requête, et détails de chacune) ...
 
@@ -112,7 +112,7 @@ Nous allons ensuite utiliser l'outil harviewer, pour visualiser le waterfall sou
 
 Rendez vous ici (avec Firefox, plutôt que Chrome dont le rendu est buggé sur cet outil) : [http://www.softwareishard.com/har/viewer/](http://www.softwareishard.com/har/viewer/)
 
-Décochez la case "Validate data before processing?" pour être moins embêté par des problèmes de compatibilité surement lié à l'export de Charles.
+Décochez la case "Validate data before processing?" pour être moins embêté par des problèmes de compatibilité surement liés à l'export de Charles.
 
 
 
@@ -152,7 +152,7 @@ Toujours dans Charles, Allez dans "Tools", puis "Map Remote".
 
 Ici, vous allez pouvoir rediriger les domaines de vos choix, vers un domaine de type Blackhole.
 
-C'est à dire que le domaine choisi réagira comme si votre serveur web était dans un état de mort cérébrale ! Pas celui où il rejette la connexion immédiatement (trop facile), celui où il végète sans arriver acquitter la réponse (le fameux "en attente de http:// ....")
+C'est à dire que le domaine choisi réagira comme si votre serveur web était dans un état de mort cérébrale ! Pas celui où il rejette la connexion immédiatement (trop facile), celui où il végète sans arriver à acquitter la réponse (le fameux "en attente de http:// ....")
 
 Pour ce besoin, nous allons utiliser le Blackhole fourni par [Patrick Meenan](https://twitter.com/patmeenan) pour l'outil de mesure de performance web : [WebPageTest](http://www.webpagetest.org) : http://blackhole.webpagetest.org
 
@@ -162,7 +162,7 @@ Pour ce besoin, nous allons utiliser le Blackhole fourni par [Patrick Meenan](ht
 
 Vous pouvez ensuite jouer avec les domaines, et regarder comment se comporte votre application dans le cas où l'un d'entre eux est inaccessible.
 
-Sur notre iPhone 4 de test, on remarque d'ailleurs un timeout sur les requêtes de 75 secondes ! Imaginez le cas, où le développement et l'appel ce service est synchrone ? 75 secondes de loading dans votre application avant de passer aux requêtes suivantes ...
+Sur notre iPhone 4 de test, on remarque d'ailleurs un timeout sur les requêtes de 75 secondes ! Imaginez le cas, où le développement et l'appel à ce service est synchrone ? 75 secondes de loading dans votre application avant de passer aux requêtes suivantes ...
 
 
 
@@ -170,7 +170,7 @@ Sur notre iPhone 4 de test, on remarque d'ailleurs un timeout sur les requêtes 
 
 Voilà, vous avez désormais une solution vous permettant de générer des Waterfall Charts pour vos apps natives, et de tester des conditions de mauvaises connexions, ou d'indisponibilité de service.
 
-Si vous avez d'autres méthodes, plus simples ou plus complètes, ou tout autre remarque sur cette article, n'hésitez pas le faire dans les commentaires ci-dessous.
+Si vous avez d'autres méthodes, plus simples ou plus complètes, ou tout autre remarque sur cette article, n'hésitez pas à le faire dans les commentaires ci-dessous.
 
 Merci.
 
