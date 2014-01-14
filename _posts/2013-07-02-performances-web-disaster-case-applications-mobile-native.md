@@ -86,7 +86,7 @@ A ce stade, tout est prêt pour commencer les mesures.
 
 ### Prise de mesure avec Charles
 
-Pour prendre une mesure avec Charles, allez dans le menu "Proxy" et décochez le "MAC OS X Proxy" afin de ne pas parasiter vos mesures, et nettoyez l'écran de Charles pour commencer une "session" propre.
+Pour prendre une mesure avec Charles, allez dans le menu "Proxy", décochez le "MAC OS X Proxy" afin de ne pas parasiter vos mesures, et nettoyez l'écran de Charles pour commencer une "session" propre.
 
 
 
@@ -106,13 +106,13 @@ Sélectionnez toutes les requêtes, puis cliquez sur "Chart" sur la droite, pour
 
 ### Génération de Waterfall (plus complet)
 
-Toujours sous Charles, avec toutes les structures sélectionnés, Fichier / Export puis selectionner le format Http Archive (.har)
+Toujours sous Charles, avec toutes les structures sélectionnées, Fichier / Export puis selectionner le format Http Archive (.har)
 
 Nous allons ensuite utiliser l'outil harviewer, pour visualiser le waterfall sous une forme plus complète que dans Charles.
 
 Rendez vous ici (avec Firefox, plutôt que Chrome dont le rendu est buggé sur cet outil) : [http://www.softwareishard.com/har/viewer/](http://www.softwareishard.com/har/viewer/)
 
-Décochez la case "Validate data before processing?" pour être moins embêté par des problèmes de compatibilité surement lié l'export de Charles.
+Décochez la case "Validate data before processing?" pour être moins embêté par des problèmes de compatibilité surement lié à l'export de Charles.
 
 
 
