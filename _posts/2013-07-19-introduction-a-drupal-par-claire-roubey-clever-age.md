@@ -19,7 +19,7 @@ comments: true
 permalink: introduction-à-drupal-par-claire-roubey-clever-age
 ---
 
-Drupal, le CMS très très connu mais que nous on connait pas ! A notre demande [Clever Age](http://fr.clever-age.com/societe/agences/lyon/), par l'intermédiaire de [Claire Roubey](https://twitter.com/kalis1), est venue nous présenter cet outil lors d'un de nos fameux [Last Friday Talk](http://tech.m6web.fr/tag/lft/).
+Drupal, le CMS très très connu mais que nous on connait pas ! A notre demande [Clever Age](http://fr.clever-age.com/societe/agences/lyon/), par l'intermédiaire de [Claire Roubey](https://twitter.com/kalis1), est venue nous présenter cet outil lors d'un de nos fameux [Last Friday Talk](http://tech.m6web.fr/tags.html#lft).
 
 
 
