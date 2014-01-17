@@ -10,7 +10,7 @@ author:
   facebook:       
   github:    
 category: 
-tags: [lft,nosql,mongodb]
+tags: [lft,nosql,mongodb,video]
 image:
   feature: 
   credit: 
