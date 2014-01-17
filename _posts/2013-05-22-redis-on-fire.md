@@ -10,7 +10,7 @@ author:
   facebook:       
   github:    
 category: 
-tags: [redis,lft]
+tags: [redis,lft,video]
 image:
   feature: 
   credit: 
