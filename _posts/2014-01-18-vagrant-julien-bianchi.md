@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Vagrant & Cie, du Dév à la Prod avec Julien Bianchi"
-description: ""
+description: "Vagrant, Packer, Chef ... Du dév à la prod."
 author:
   name:           Olivier Mansour
   avatar:         oliviermansour.jpg
