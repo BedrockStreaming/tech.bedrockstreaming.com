@@ -10,7 +10,7 @@ author:
   facebook:
   github:
 category:
-tags: [outil, jenkins, ci, cytron]
+tags: [outil, jenkins, ci, cytron, open-source]
 image:
   feature: posts/cytron/jenkinslight.png
   credit:

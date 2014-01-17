@@ -10,7 +10,7 @@ author:
   facebook:
   github:
 category:
-tags: [outil, php, symfony]
+tags: [outil, php, symfony, open-source]
 image:
   feature: posts/cytron/football.png
   credit: http://www.flickr.com/photos/23959858@N03
