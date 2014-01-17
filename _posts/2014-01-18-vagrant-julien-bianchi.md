@@ -10,11 +10,11 @@ author:
   facebook:
   github:
 category:
-tags: [lft,vagrant]
+tags: [lft,vagrant,video]
 image:
-  feature:
-  credit:
-  creditlink:
+  feature: posts/vagrant/vagrant_header.png
+  credit: VagrantUp.com
+  creditlink: http://www.vagrantup.com
 comments: true
 ---
 
