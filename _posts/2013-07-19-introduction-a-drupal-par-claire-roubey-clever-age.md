@@ -10,7 +10,7 @@ author:
   facebook:       
   github:    
 category: 
-tags: [lft,drupal,clever age,video]
+tags: [lft,drupal,video]
 image:
   feature: 
   credit: 

@@ -10,7 +10,7 @@ author:
   facebook:       
   github:    
 category: 
-tags: [devfacts]
+tags: [devfacts, humour]
 image:
   feature: 
   credit: 

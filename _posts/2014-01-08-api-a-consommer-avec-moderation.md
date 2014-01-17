@@ -10,7 +10,7 @@ author:
   facebook:
   github:
 category:
-tags: [outil, api, symfony, doctrine, cytron]
+tags: [outil, api, symfony, doctrine, cytron, open-source]
 image:
   feature: posts/cytron/domainuserbundle.png
   credit: ram reddy

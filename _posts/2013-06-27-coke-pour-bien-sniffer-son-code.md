@@ -10,7 +10,7 @@ author:
   facebook:
   github:
 category:
-tags: [outil, qualite, php]
+tags: [outil, qualite, php, open-source]
 image:
   feature: posts/cytron/sniff.jpg
   credit: iPad Wallpapers free

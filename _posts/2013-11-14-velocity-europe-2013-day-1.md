@@ -10,7 +10,7 @@ author:
   facebook:       
   github:    
 category: 
-tags: [conference,velocity,webperf,security]
+tags: [conference,velocity,webperf]
 image:
   feature: 
   credit: 
