@@ -12,14 +12,12 @@ author:
 category: 
 tags: [devfacts, humour]
 image:
-  feature: 
-  credit: 
+  feature: posts/devfacts.jpg
+  credit: Game Of Thrones
   creditlink: 
 comments: true  
 permalink: m6web-dev-facts-5
 ---
-
-![M6Web Dev Facts #5](/images/posts/imgob/0-00-30-83-201307-ob_75a4be_ob-e2a6c1-ob-405b21-ob-5a36f2337bf2f4cbc7a86436a.jpeg)
 
 On est dredi, et on a encore pas mal de phrases chocs de nos développeurs, entendues dans nos locaux partager.
 

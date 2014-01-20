@@ -12,14 +12,12 @@ author:
 category: 
 tags: [humour,devfacts]
 image:
-  feature: 
-  credit: 
+  feature: posts/devfacts.jpg
+  credit: Game Of Thrones
   creditlink: 
 comments: true  
 permalink: m6web-dev-facts-1
 ---
-
-![M6Web Dev Facts #1](/images/posts/imgob/0-00-30-83-201303-ob_5a36f2337bf2f4cbc7a86436a7773d37_36449844-jpg.jpeg)
 
 Depuis de nombreuses années, toutes les "phrases chocs" dites par les équipes techniques de M6Web sont archivées, loggées, historisées. Pas moyen de sortir une ânerie sans qu'elle soit gravée dans le marbre.
 
