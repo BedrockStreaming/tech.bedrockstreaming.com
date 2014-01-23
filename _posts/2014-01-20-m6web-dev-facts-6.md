@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "M6Web Dev Facts #6"
-description: ""
+description: "Les plus belles phrases de nos équipes technique"
 author:
   name:           M6Web
   avatar:         
@@ -18,7 +18,8 @@ image:
 comments: true  
 ---
 
-Nouvelle sélection des meilleures phrases entendues dans nos bureaux
+Parceque nous en avons encore une quantité incroyable en stock, voici une nouvelle sélection des meilleures phrases entendues dans nos bureaux !
+
 
 
 # To code or not to code
@@ -35,7 +36,7 @@ Un dév teste une appli sur ipad
 
 # Une histoire de chocolat
 
-> * Qui à testé la Kindle HDX ?
+> * Qui a testé la Kindle HDX ?
 > * Moi j'ai pas trop aimé
 > * Pourquoi ?
 > * Je préfére le Kindle Surprise
@@ -70,4 +71,4 @@ Par mail :
 
 # La minute de 30 secondes - le retour
 
-> Tu as prix six mois d'année sabatique
+> Tu as pris six mois d'année sabatique
