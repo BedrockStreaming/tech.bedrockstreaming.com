@@ -12,14 +12,12 @@ author:
 category: 
 tags: [humour,devfacts]
 image:
-  feature: 
-  credit: 
+  feature: posts/devfacts.jpg
+  credit: Game Of Thrones
   creditlink: 
 comments: true  
 permalink: m6web-dev-facts-2
 ---
-
-![M6Web Dev Facts #2](/images/posts/imgob/0-00-30-83-201304-ob_405b21_ob-5a36f2337bf2f4cbc7a86436a7773d37-36449844-jpg.jpeg)
 
 On continue la série des Dév Facts, phrases oh combien cultes prononcées par nos chers développeurs lors d'oublis cérébraux :-)
 
