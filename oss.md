@@ -25,6 +25,7 @@ Here some projects open sourced :
 * [JenkinsLight](https://github.com/M6Web/JenkinsLight) is a build monitoring tool (buildwall) that allows you to quickly detect failing projects for Jenkins
 * [JenkinsTerminalColors](https://github.com/M6Web/JenkinsTerminalColors) is a very lightweight Chrome extension that provides terminal colors in all console panels of Jenkins. It uses black Solarized theme
 * [VigoJS](https://github.com/M6Web/VigoJS) is a (small) Javascript tool using CasperJS and PhantomJS to make easily functional tests on web applications
+* [HttpToStatsd](https://github.com/M6Web/HttpToStatsd) is a node.js http to statsd logger
 
 # Bundle and libs
 
@@ -36,6 +37,7 @@ Here some projects open sourced :
 * [websocket-bench](https://github.com/M6Web/websocket-bench) : Nodejs cli tool for benchmark web socket server, currently support (socket.io, faye)
 * [roboxt](https://github.com/M6Web/roboxt) : PHP lib parsing a robots.txt
 * [behat-seo-extension](https://github.com/M6Web/behat-seo-extension) : Behat extension provinding specific features for testing the SEO of a website
+* [HttpKernelBundle](https://github.com/M6Web/HttpKernelBundle) : Custom sf2 HttpKernel with additional events
 
 # Contribution to free projects
 
