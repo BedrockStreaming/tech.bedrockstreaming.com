@@ -115,4 +115,4 @@ For alerting purpose, [a tool based on Graphite JSON output has been developed](
 
 If you use such a tool, and you're happy with it, please let us know in the comments.
 
-Found a typo or bad english langage, just propose a [pull request](https://github.com/M6Web/m6web.github.io/blob/master/_posts/2014-01-25-how-we-use-statsd.md).
+Found a typo or bad english langage, just propose a [pull request](https://github.com/M6Web/m6web.github.io/blob/master/_posts/2014-01-28-how-we-use-statsd.md).
