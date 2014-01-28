@@ -68,7 +68,7 @@ It provides those features:
 
 During Symfony 2 execution, metrics are collected and sent only at the kernel shutdown. A nice feature is that you can [easily collect basic metrics based on events](https://github.com/M6Web/StatsdBundle/blob/master/doc/usage.md#bind-on-events) without touching your code.
 
-For example, in conjunction with the [M6Web\HttpKernelBundle](https://github.com/M6Web/HttpKernelBundle), just dropping this in ``config.yml``` is enough:
+For example, in conjunction with the [M6Web\HttpKernelBundle](https://github.com/M6Web/HttpKernelBundle), just dropping this in ```config.yml``` is enough:
 
 {% highlight yaml %}
 m6_statsd:
