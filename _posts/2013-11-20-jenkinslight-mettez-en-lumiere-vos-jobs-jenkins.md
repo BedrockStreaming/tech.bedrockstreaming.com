@@ -31,8 +31,10 @@ L’application propose quelques variables de configuration éditables dans le f
 - l’identification au serveur (si nécessaire),
 - la vue Jenkins par défault,
 - les types de jobs affichés,
-- le nombre de jobs par ligne sur l’écran,
-- l’intervalle de rafraîchissement (en millisecondes).
+- une regexp pour exclure certains jobs,
+- le nombre maximum de jobs par ligne sur l’écran,
+- l’intervalle de rafraîchissement (en millisecondes),
+- une image de fond quand il n'y a aucun job à afficher.
 
 [JenkinsLight](https://github.com/M6Web/JenkinsLight) est disponible en [open-source](http://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur [le compte GitHub de M6Web](https://github.com/M6Web).
 
