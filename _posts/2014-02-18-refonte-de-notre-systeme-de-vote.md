@@ -20,9 +20,9 @@ comments: true
 
 # Refonte de notre sytème de vote
 
-Notre système de vote est utilisé d'une part pour gérer l'ensemble des questions et des réponses associées utilisées dans nos [quizz](http://www.m6.fr/emission-top_chef/jeux.html) et d'autres part pour récolter le nombre de vote des internautes lors des [jeux concours](http://www.m6.fr/jeux-concours.html).
+Notre système de vote est utilisé d'une part pour gérer l'ensemble des questions et des réponses associées utilisées dans nos [quizz](http://www.m6.fr/emission-top_chef/jeux.html) et d'autres part pour récolter le nombre de votes des internautes lors des [jeux concours](http://www.m6.fr/jeux-concours.html).
 
-Actuellement, la charge sur cette fonctionnalité varie entre quelques votes par minutes la nuit à quelques dizainnes de vote par secondes lors des premières parties de soirée.
+Actuellement, la charge sur cette fonctionnalité varie entre quelques votes par minutes la nuit à quelques dizainnes de votes par secondes lors des premières parties de soirée.
 
 ## Historique
 
@@ -51,9 +51,7 @@ Concernant le stockage des données, nous avons simplement choisi un moteur trè
 Le code se trouve, pour sa part, complètement isolé sur son propre serveur.
 Comme ce service est complètement *stateless* et que notre base de donnée est centralisée, nous pouvons donc facilement *scaler* horizontalement notre infrastructure : on ajuste le nombre de serveurs web que l'on souhaite selon la charge attendue.
 
-Lorsque l'architecture mise en place permet de répartir la charge sur un nombre variable de machines, le contrat est rempli : ce n'est plus qu'une question d'argent pour supporter n'importe quelle charge. Et comme tout le monde le sait :
-
-> L'argent n'est pas un problème, c'est une solution.
+Lorsque l'architecture mise en place permet de répartir la charge sur un nombre variable de machines, le contrat est rempli : ce n'est plus qu'une question d'argent pour supporter n'importe quelle charge. Et comme tout le monde le sait : l'argent n'est pas un problème, c'est une solution.
 
 ## Développement
 
@@ -65,11 +63,9 @@ Une attention toute particulière a été porté à la qualité avec des tests u
 
 L'intégration de ce nouveau service Polls a cependant été bien plus longue que son développement. Nous l'avons d'abord mis en production en doublon de l'ancien système : toutes les écritures étaient faites sur les deux systèmes, mais l'ancien était encore la référence lors de la lecture des résultats par les clients.
 
-Puis après deux semaines, lorsque nous avons validé avec Graphite l'exacte corrélation entre les deux courbes du nombre de votes par minute, nous avons alors changé les clients pour qu'ils viennent lire les résultats sur le service Polls.
+Puis après deux semaines, lorsque nous avons validé avec Graphite l'exacte corrélation entre les deux courbes du nombre de votes par minute, nous avons alors changé les clients pour qu'ils viennent lire les résultats sur le service Polls. Encore deux semaines plus tard, lorsque tout était validé, nous avons débranché l'ancien système.
 
-Encore deux semaines plus tard, lorsque tout était validé, nous avons débranché l'ancien système.
-
-L'intégration a été au moins trois fois plus longue, et donc couteuse, que le développement du service en lui-même.
+L'intégration a donc été au moins trois fois plus longue, et donc couteuse, que le développement du service en lui-même.
 
 # Optimisation
 
@@ -95,13 +91,13 @@ Une fois corrigé, nous avons gagné les ultimes millisecondes nous permettant d
 
 Le service Polls a facilement tenu la charge pour la première émission mettant en avant le *second écran* : un épisode de Hawaï 5-0 durant lequel les internautes pouvaient [choisir le coupable](http://www.programme-tv.net/news/series-tv/39233-hawaii-5-0-m6-ce-soir-vous-decidez-fin-episode/) avec un sondage (sur leur téléphone, tablette ou PC).
 
-![Nombre de votes pour Hawai 5-0](/images/posts/cytron/polls/hawai5-0.png)
+![Nombre de votes pour Hawai 5-0](/images/posts/cytron/polls/hawai50.png)
 
-Plus précisément, nous sommes monté à 150 requêtes par secondes (ce qui est évidemment bien moins que nos tests de charge ;-)
+Plus précisément, nous sommes monté à 150 requêtes par secondes (ce qui est évidemment bien moins que nos tests de charge).
 
 # Leçons
 
 Au cours du développement, de la mise en production et de la maintenance de ce service, j'ai appris plusieurs chose que j'essaierai de ne pas oublier trop vite :
 * Yes we can! Il est possible de combler petit à petit la dette technique, mais uniquement si c'est la volonté des décideurs,
-* la sérénité apportée par les tests est sans égale pour le confort du développeur (à part une bonne chaise ;-),
-* Redis est vraiment très performant.
+* la sérénité apportée par les tests est sans égale pour le confort de développement,
+* Redis est très performant. Vraiment.
