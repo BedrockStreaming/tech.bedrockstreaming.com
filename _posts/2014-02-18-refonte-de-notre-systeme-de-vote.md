@@ -75,7 +75,7 @@ Il existait plusieurs pistes d'optimisation connues (système de queue, node.js,
 
 Dans un premier temps, nous avons légèrement ajusté notre modèle de données pour limiter le nombre d'action à réaliser sur la base de données : nous avons seulement deux instructions Redis de [complexité constante O(1)](http://fr.wikipedia.org/wiki/Analyse_de_la_complexit%C3%A9_des_algorithmes#Complexit.C3.A9.2C_comparatif) a réaliser pour chaque vote. Puis nous avons utilisé les transactions pour grouper ces deux instructions et éviter la latence d'une connexion supplémentaire vers notre serveur Redis.
 
-Nous avons enfin supprimé la vérifications de deux contraintes d'intégrité sans importance. Le code retour en cas d'erreur est juste un peu moins cohérent (`400` au lieu de `422`) mais cela n'impacte ni l'intégrité des votes ni la sécurité du service.
+Nous avons enfin supprimé la vérification de deux contraintes d'intégrité sans importance. Le code retour en cas d'erreur est juste un peu moins cohérent (`400` au lieu de `422`) mais cela n'impacte ni l'intégrité des votes ni la sécurité du service.
 
 ![Suppression de la première contrainte](/images/posts/cytron/polls/contrainte1.png)
 
