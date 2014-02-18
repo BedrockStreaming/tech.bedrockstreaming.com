@@ -59,7 +59,7 @@ Le service Polls a été développé en PHP avec [Symfony](http://symfony.com/) 
 
 Une attention toute particulière a été portée à la qualité avec des tests unitaires couvrant un maximum de code et des [tests fonctionnels](http://tech.m6web.fr/redismock-qui-a-bouchonne-mon-redis.html) couvrant la plupart des cas d'utilisation des clients. Les nombreuses mises en production journalières pendant la phase d'optimisation ont ainsi été grandement facilité, notamment grâce à la sérénité apportée par l'intégration continue.
 
-## Intégration
+## Mise en production
 
 L'intégration de ce nouveau service Polls a cependant été bien plus longue que son développement. Nous l'avons d'abord mis en production en doublon de l'ancien système : toutes les écritures étaient faites sur les deux systèmes, mais l'ancien était encore la référence lors de la lecture des résultats par les clients.
 
@@ -89,13 +89,17 @@ Une fois corrigé, nous avons gagné les ultimes millisecondes nous permettant d
 
 ![Suppression des bundles superflus](/images/posts/cytron/polls/bundles.png)
 
-## Production
+Vous remarquerez que nous avons d'abord déployé le système en production avant de chercher à l'optimiser : nous pouvions ainsi mesurer en temps réel l'impact de nos développements sur une multitude d'indicateurs dont le temps de réponse.
+
+## Mise en pratique
 
 Le service Polls a facilement tenu la charge pour la première émission mettant en avant le *second écran* : un épisode de Hawaï 5-0 durant lequel les internautes pouvaient [choisir le coupable](http://www.programme-tv.net/news/series-tv/39233-hawaii-5-0-m6-ce-soir-vous-decidez-fin-episode/) avec un sondage (sur leur téléphone, tablette ou PC).
 
 ![Nombre de votes pour Hawai 5-0](/images/posts/cytron/polls/hawai50.png)
 
 Plus précisément, nous sommes monté à 150 requêtes par secondes (ce qui est évidemment bien moins que nos tests de charge), mais nous savons que nous pourrons maintenant nous adapter très simplement à une charge beaucoup plus forte en ajoutant des serveurs web. Nottament lors d'émissions faisant grandement appel au *second écran*.
+
+Dans le pire des cas, si le service Polls devient indisponible, aucune autre partie de notre infrastructure ne sera compromise.
 
 ## Leçons
 
