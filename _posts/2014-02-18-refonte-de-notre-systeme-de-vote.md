@@ -14,7 +14,7 @@ tags: [api, symfony, redis, monitoring, qualite, cytron]
 image:
   feature: posts/cytron/polls.png
   credit: Refuge de Gève
-  creditlink: http://refugedegeve.com/
+  creditlink: 
 comments: true
 ---
 
