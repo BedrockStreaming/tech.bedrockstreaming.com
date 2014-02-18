@@ -30,11 +30,11 @@ Comme souvent, les besoins ont régulièrement évolués depuis la mise en place
 
 L'année 2012 a vu l'arrivée du *second écran* : à l'aide de l'application gratuite adéquate, les périphériques mobiles peuvent désormais se synchroniser avec l'émission en cours de visionnage, en direct ou en différé, sur la TV ou sur web (la synchronisation se fait par la bande son). Cette synchronisation nous permet de *pusher* instantanément sur les périphériques mobiles du contenu adapté à ce que le téléspectateur regarde : le détail de la recette que le cuisinier prépare dans Top Chef ou un sondage concernant la dernière trouvaille linguistique d'un ch'tit face à sa ch'tite.
 
-Le *second écran* s'annoncait alors comme une source importante de trafique supplémenataire pour notre système de vote. Effectivement, en plus du trafic historique généré par les sites web, nous allions aussi recevoir tous les votes provenant des péripheriques mobiles.
+Le *second écran* s'annoncait alors comme une source importante de trafic supplémentaire pour notre système de vote. Effectivement, en plus du trafic historique généré par les sites web, nous allions aussi recevoir tous les votes provenant des péripheriques mobiles.
 
 ## Problématique
 
-La principale problématique venait de l'architecture des bases de données MySql. Étant fortement couplées sur l'ensemble de la plateforme, la moindre défaillance de l'une d'elles, dûe à une surchage sur un sondage, risquait de pénaliser les internautes de tous nos autres sites (un sondage du *second écran* pouvait donc impacter l'expérience utilisateur de [Clubic](http://www.clubic.com/)). Or ce scénario était tout à fait possible lorsqu'on sait que chaque vote se traduit par une écriture dans la base de données MySql, qui est une action bloquante favorisant l'indisponibilité de la base à tous les autres services en cas de forte charge.
+La principale problématique venait de l'architecture des bases de données MySql. Étant fortement couplées sur l'ensemble de la plateforme, la moindre défaillance de l'une d'elles, due à une surchage sur un sondage, risquait de pénaliser les internautes de tous nos autres sites (un sondage du *second écran* pouvait donc impacter l'expérience utilisateur de [Clubic](http://www.clubic.com/)). Or ce scénario était tout à fait possible lorsqu'on sait que chaque vote se traduit par une écriture dans la base de données MySql, qui est une action bloquante favorisant l'indisponibilité de la base à tous les autres services en cas de forte charge.
 
 Le code était aussi fortement couplé entre nos différentes applications : l'action PHP d'un vote était exécutée sur la même plateforme que notre BO permettant à tous nos web services de fonctionner ainsi qu'aux contributeurs d'ajouter du contenu. Une surchage sur les votes aurait donc pu entrainer des perturbations sur le fonctionnement global du site [m6.fr](http://www.m6.fr/) et de ses web services, donc de beaucoup de produits par extension.
 
@@ -44,12 +44,12 @@ C'est donc début 2013 que [Kenny Dits](https://twitter.com/kenny_dee) m'a conta
 
 ## Solution
 
-Nous avons alors conçu un nouveau service dédié uniquement à la gestion des questions, réponses et votes des utilisateurs. Ce nouveau *service Polls* est autonome, ce qui nous permet de le découpler complètement de notre usine logiciel avec laquelle il communique via une API REST.
+Nous avons alors conçu un nouveau service dédié uniquement à la gestion des questions, réponses et votes des utilisateurs. Ce nouveau *service Polls* est autonome, ce qui nous permet de le découpler complètement de notre usine logicielle avec laquelle il communique via une API REST.
 
 Concernant le stockage des données, nous avons simplement choisi un moteur très performant qui supporterait la charge sur une seule machine bien calibrée. Cela nous évitait alors les problématiques complexes de *clustering*. Mais nous devions tout de même stocker quelques informations relationnelles : il fallait donc avoir accès à quelques primitives nous permettant d'émuler les relations minimum entre nos données. [Redis](http://redis.io/) s'est donc imposé comme la [solution adéquate](http://stackoverflow.com/questions/10558465/memcache-vs-redis).
 
 Le code se trouve, pour sa part, complètement isolé sur son propre serveur.
-Comme ce service est complètement [stateless](http://en.wikipedia.org/wiki/Stateless_protocol) et que notre base de donnée est centralisée et suffisament performante, nous pouvons donc facilement ajouter ou supprimer des serveurs web selon la charge attendue :  on peut dire qu'en pratique le service Polls est [scalable horizontalement](http://fr.wikipedia.org/wiki/Exigences_d'architecture_technique#Scalabilit.C3.A9).
+Comme ce service est complètement [stateless](http://en.wikipedia.org/wiki/Stateless_protocol) et que notre base de donnée est centralisée et suffisament performante, nous pouvons donc facilement ajouter ou supprimer des serveurs web selon la charge attendue : on peut dire qu'en pratique le service Polls est [scalable horizontalement](http://fr.wikipedia.org/wiki/Exigences_d'architecture_technique#Scalabilit.C3.A9).
 
 Lorsque l'architecture mise en place permet de répartir la charge sur un nombre variable de machines, le contrat est rempli : ce n'est plus qu'une question d'argent pour supporter n'importe quelle charge. Et comme tout le monde le sait : l'argent n'est pas un problème, c'est une solution.
 
@@ -57,7 +57,7 @@ Lorsque l'architecture mise en place permet de répartir la charge sur un nombre
 
 Le service Polls a été développé en PHP avec [Symfony](http://symfony.com/) et le [FOSRestBundle](https://github.com/FriendsOfSymfony/FOSRestBundle#fosrestbundle). Nous avons d'abord suivi certaines [références](http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/), puis nous avons ensuite développé un micro ORM maison pour faire persister nos données dans Redis et enfin [nous avons monitoré](http://tech.m6web.fr/monitoring-applicatif-pourquoi-et-comment/) tous ce que l'on pouvait à l'aide de notre [bundle dédié](https://github.com/M6Web/StatsdBundle).
 
-Une attention toute particulière a été portée à la qualité avec des tests unitaires couvrant un maximum de code et des [tests fonctionnels](http://tech.m6web.fr/redismock-qui-a-bouchonne-mon-redis.html) couvrant la plupart des cas d'utilisation des clients. Les nombreuses mises en production journalières pendant la phase d'optimisation ont ainsi été grandement facilité, notamment grâce à la sérénité apportée par l'intégration continue.
+Une attention toute particulière a été portée à la qualité avec des tests unitaires couvrant un maximum de code et des [tests fonctionnels](http://tech.m6web.fr/redismock-qui-a-bouchonne-mon-redis.html) couvrant la plupart des cas d'utilisation des clients. Les nombreuses mises en production journalières pendant la phase d'optimisation ont ainsi été grandement facilitées, notamment grâce à la sérénité apportée par l'intégration continue.
 
 ## Mise en production
 
@@ -83,7 +83,7 @@ Nous avons enfin supprimé la vérifications de deux contraintes d'intégrité s
 
 Afin de savoir si nous n'avions pas complètement pris une mauvaise direction dans notre utilisation de Symfony, nous avons alors fait appel à [Alexandre Salomé](https://twitter.com/alexandresalome), consultant SensioLabs, pour auditer notre code.
 
-Lors de cette journée, durant laquelle nous avons beaucoup appris, nous avons simplement désactivé tous les bundles que nous n'utilisions pas réellement en production : principalement Twig. Cela a accasionné une légère modification de notre code car le FOSRestBundle nécessite Twig pour afficher les erreurs même lorsque celles-ci sont en JSON.
+Lors de cette journée, durant laquelle nous avons beaucoup appris, nous avons simplement désactivé tous les bundles que nous n'utilisions pas réellement en production : principalement Twig. Cela a occasionné une légère modification de notre code car le FOSRestBundle nécessite Twig pour afficher les erreurs même lorsque celles-ci sont en JSON.
 
 Une fois corrigé, nous avons gagné les ultimes millisecondes nous permettant de passer sous la barre symbolique des 10ms de temps de réponse sur notre route critique.
 
@@ -97,7 +97,7 @@ Le service Polls a facilement tenu la charge pour la première émission mettant
 
 ![Nombre de votes pour Hawai 5-0](/images/posts/cytron/polls/hawai50.png)
 
-Plus précisément, nous sommes monté à 150 requêtes par secondes (ce qui est évidemment bien moins que nos tests de charge), mais nous savons que nous pourrons maintenant nous adapter très simplement à une charge beaucoup plus forte en ajoutant des serveurs web. Nottament lors d'émissions faisant grandement appel au *second écran*.
+Plus précisément, nous sommes monté à 150 requêtes par secondes (ce qui est évidemment bien moins que nos tests de charge), mais nous savons que nous pourrons maintenant nous adapter très simplement à une charge beaucoup plus forte en ajoutant des serveurs web. Notament lors d'émissions faisant grandement appel au *second écran*.
 
 Dans le pire des cas, si le service Polls devient indisponible, aucune autre partie de notre infrastructure ne sera compromise.
 
