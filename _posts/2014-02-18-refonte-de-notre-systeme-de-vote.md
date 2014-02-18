@@ -26,7 +26,7 @@ Actuellement, le trafic généré par cette fonctionnalité varie entre quelques
 
 ## Historique
 
-Comme souvent, les besoins ont régulièrement évolués depuis la mise en place initiale du système en 2009, faisant parfois prendre des chemins tortueux à l'implémentation technique. Il est par exemple possible, qu'au fil des demandes, notre système de vote ait dû stocker ses données dans nos forums.
+Comme souvent, les besoins ont régulièrement évolué depuis la mise en place initiale du système en 2009, faisant parfois prendre des chemins tortueux à l'implémentation technique. Il est par exemple possible, qu'au fil des demandes, notre système de vote ait dû stocker ses données dans nos forums.
 
 L'année 2012 a vu l'arrivée du *second écran* : à l'aide de l'application gratuite adéquate, les périphériques mobiles peuvent désormais se synchroniser avec l'émission en cours de visionnage, en direct ou en différé, sur la TV ou sur web (la synchronisation se fait par la bande son). Cette synchronisation nous permet de *pusher* instantanément sur les périphériques mobiles du contenu adapté à ce que le téléspectateur regarde : le détail de la recette que le cuisinier prépare dans Top Chef ou un sondage concernant la dernière trouvaille linguistique d'un ch'tit face à sa ch'tite.
 
