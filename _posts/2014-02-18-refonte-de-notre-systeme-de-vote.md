@@ -10,7 +10,7 @@ author:
   facebook:
   github:
 category:
-tags: [api, symfony, redis, cytron]
+tags: [api, symfony, redis, monitoring, qualite, cytron]
 image:
   feature: posts/cytron/polls.png
   credit: Refuge de Gève
@@ -59,7 +59,7 @@ Le service Polls a été développé en PHP avec [Symfony](http://symfony.com/) 
 
 Une attention toute particulière a été portée à la qualité avec des tests unitaires couvrant un maximum de code et des [tests fonctionnels](http://tech.m6web.fr/redismock-qui-a-bouchonne-mon-redis.html) couvrant la plupart des cas d'utilisation des clients. Les nombreuses mises en production journalières pendant la phase d'optimisation ont ainsi été grandement facilité, notamment grâce à la sérénité apportée par l'intégration continue.
 
-# Intégration
+## Intégration
 
 L'intégration de ce nouveau service Polls a cependant été bien plus longue que son développement. Nous l'avons d'abord mis en production en doublon de l'ancien système : toutes les écritures étaient faites sur les deux systèmes, mais l'ancien était encore la référence lors de la lecture des résultats par les clients.
 
@@ -67,37 +67,39 @@ Puis après deux semaines, lorsque nous avons validé l'exacte corrélation entr
 
 L'intégration a donc été au moins trois fois plus longue, et donc couteuse, que le développement du service en lui-même.
 
-# Optimisation
+## Optimisation
 
 La première optimisation est simplement conceptuelle : nous avons concentré la criticité sur une seule route, celle qui est utilisée par chaque client pour voter. Il est ainsi plus simple de mesurer et donc d'améliorer les performances du service Polls. Cette route est critique parce qu'elle est utilisée par tous les clients, qu'elle ne peut pas être cachée et qu'il faut écrire des données en base lors de chaque appel.
 
-Il existait plusieurs pistes d'optimisation connues (système de queue, node.js, etc.) mais dans une optique [KISS](http://fr.wikipedia.org/wiki/Principe_KISS) nous avons d'abord opté pour rester avec les technologies en places pour ensuite interprêter les résultats récupérés lors des tests de charge et s'adapter si besoin.
+Il existait plusieurs pistes d'optimisation connues (système de queue, node.js, etc.) mais dans une optique [KISS](http://fr.wikipedia.org/wiki/Principe_KISS) nous avons d'abord opté pour utilisation des technologies en place pour ensuite interprêter les résultats récupérés lors des tests de charge puis s'adapter si besoin.
 
-Nous avons donc, dans un premier temps, légèrement adapté notre modèle de données pour limiter le nombre d'action à réaliser sur la base de données : nous avons seulement deux instructions Redis de [complexité constante O(1)](http://fr.wikipedia.org/wiki/Analyse_de_la_complexit%C3%A9_des_algorithmes#Complexit.C3.A9.2C_comparatif) a réaliser pour chaque vote. Puis nous avons utilisé les transactions pour grouper ces deux instructions et éviter un aller/retour vers notre serveur Redis.
+Dans un premier temps nous avons légèrement adapté notre modèle de données pour limiter le nombre d'action à réaliser sur la base de données : nous avons seulement deux instructions Redis de [complexité constante O(1)](http://fr.wikipedia.org/wiki/Analyse_de_la_complexit%C3%A9_des_algorithmes#Complexit.C3.A9.2C_comparatif) a réaliser pour chaque vote. Puis nous avons utilisé les transactions pour grouper ces deux instructions et éviter la latence d'une connexion supplémentaire vers notre serveur Redis.
 
-Puis nous avons supprimé la vérifications de deux contraintes d'intégrité sans importance. Le code retour en cas d'erreur est juste un peu moins cohérent (`400` au lieu de `422`) mais cela n'impacte ni l'intégrité des votes ni la sécurité du service.
+Nous avons enfin supprimé la vérifications de deux contraintes d'intégrité sans importance. Le code retour en cas d'erreur est juste un peu moins cohérent (`400` au lieu de `422`) mais cela n'impacte ni l'intégrité des votes ni la sécurité du service.
 
 ![Suppression de la première contrainte](/images/posts/cytron/polls/contrainte1.png)
 
 ![Suppression de la deuxieme contrainte et transaction Redis](/images/posts/cytron/polls/contrainte2-transaction.png)
 
-Afin de savoir si nous n'avions pas complètement pris une mauvaise direction dans notre utilisation de Symfony, nous avons alors fait appel à un consultant de SensioLabs, [Alexandre Salomé](https://twitter.com/alexandresalome), pour auditer notre code.
+Afin de savoir si nous n'avions pas complètement pris une mauvaise direction dans notre utilisation de Symfony, nous avons alors fait appel à [Alexandre Salomé](https://twitter.com/alexandresalome), consultant SensioLabs, pour auditer notre code.
 
-Lors de cette journée, durant laquelle nous avons beaucoup appris, nous avons *simplement* désactivé tous les bundles que nous n'utilisions pas en production : principalement Twig. Cela a accasionné une légère modification de notre code car le FOSRestBundle nécessite Twig pour afficher les erreurs même lorsque c'est uniquement du Json.
+Lors de cette journée, durant laquelle nous avons beaucoup appris, nous avons simplement désactivé tous les bundles que nous n'utilisions pas réellement en production : principalement Twig. Cela a accasionné une légère modification de notre code car le FOSRestBundle nécessite Twig pour afficher les erreurs même lorsque celles-ci sont en JSON.
 
 Une fois corrigé, nous avons gagné les ultimes millisecondes nous permettant de passer sous la barre symbolique des 10ms de temps de réponse sur notre route critique.
 
 ![Suppression des bundles superflus](/images/posts/cytron/polls/bundles.png)
 
+## Production
+
 Le service Polls a facilement tenu la charge pour la première émission mettant en avant le *second écran* : un épisode de Hawaï 5-0 durant lequel les internautes pouvaient [choisir le coupable](http://www.programme-tv.net/news/series-tv/39233-hawaii-5-0-m6-ce-soir-vous-decidez-fin-episode/) avec un sondage (sur leur téléphone, tablette ou PC).
 
 ![Nombre de votes pour Hawai 5-0](/images/posts/cytron/polls/hawai50.png)
 
-Plus précisément, nous sommes monté à 150 requêtes par secondes (ce qui est évidemment bien moins que nos tests de charge).
+Plus précisément, nous sommes monté à 150 requêtes par secondes (ce qui est évidemment bien moins que nos tests de charge), mais nous savons que nous pourrons maintenant nous adapter très simplement à une charge beaucoup plus forte en ajoutant des serveurs web. Nottament lors d'émissions faisant grandement appel au *second écran*.
 
-# Leçons
+## Leçons
 
-Au cours du développement, de la mise en production et de la maintenance de ce service, j'ai appris plusieurs chose que j'essaierai de ne pas oublier trop vite :
-* Yes we can! Il est possible de combler petit à petit la dette technique, mais uniquement si c'est la volonté des décideurs,
+Au cours du développement, de la mise en production et de la maintenance de ce service, j'ai appris plusieurs choses que j'essaierai de ne pas oublier trop vite :
+* Yes we can! Il est possible de combler petit à petit la dette technique, mais uniquement si c'est [la volonté des décideurs](https://twitter.com/mbohlende/status/431446680874258433),
 * la sérénité apportée par les tests automatisés est sans égale pour le confort de développement,
-* Redis est très performant. Vraiment.
+* Redis est très performant.
