@@ -20,15 +20,15 @@ comments: true
 
 # Refonte de notre sytème de vote
 
-Notre système de vote est utilisé d'une part pour gérer l'ensemble des questions et des réponses associées utilisées dans nos [quizz](http://www.m6.fr/emission-top_chef/jeux.html) et d'autres part pour récolter le nombre de votes des internautes lors des [jeux concours](http://www.m6.fr/jeux-concours.html).
+Notre système de vote est utilisé d'une part pour gérer l'ensemble des questions et des réponses associées utilisées dans nos [quizz](http://www.m6.fr/emission-top_chef/jeux.html) et d'autre part pour récolter le nombre de votes des internautes lors des [jeux concours](http://www.m6.fr/jeux-concours.html).
 
-Actuellement, la charge sur cette fonctionnalité varie entre quelques votes par minutes la nuit à quelques dizainnes de votes par secondes lors des premières parties de soirée.
+Actuellement, le trafic généré par cette fonctionnalité varie entre quelques votes par minutes la nuit à quelques dizainnes de votes par secondes lors des premières parties de soirée.
 
 ## Historique
 
 Comme souvent, les besoins ont régulièrement évolués depuis la mise en place initiale du système en 2009, faisant parfois prendre des chemins tortueux à l'implémentation technique. Il est par exemple possible, qu'au fil des demandes, notre système de vote ait dû stocker ses données dans nos forums.
 
-L'année 2012 a vu l'arrivée du *second écran* : à l'aide de l'application gratuite adéquate, les périphériques mobiles peuvent désormais se synchroniser avec l'émission en cours de visionnage, en direct ou en différé, sur la TV ou sur web (la synchronisation se fait par la bande son). Cette synchronisation nous permet de *pusher* instantanément du contenu adapté à ce que le téléspectateur regarde : le détail de la recette que le cuisinier prépare dans Top Chef ou un sondage concernant la dernière trouvaille linguistique d'un ch'tit face à sa ch'tite.
+L'année 2012 a vu l'arrivée du *second écran* : à l'aide de l'application gratuite adéquate, les périphériques mobiles peuvent désormais se synchroniser avec l'émission en cours de visionnage, en direct ou en différé, sur la TV ou sur web (la synchronisation se fait par la bande son). Cette synchronisation nous permet de *pusher* instantanément sur les périphériques mobiles du contenu adapté à ce que le téléspectateur regarde : le détail de la recette que le cuisinier prépare dans Top Chef ou un sondage concernant la dernière trouvaille linguistique d'un ch'tit face à sa ch'tite.
 
 Le *second écran* s'annoncait alors comme une source importante de trafique supplémenataire pour notre système de vote. Effectivement, en plus du trafic historique généré par les sites web, nous allions aussi recevoir tous les votes provenant des péripheriques mobiles.
 
@@ -38,32 +38,32 @@ La principale problématique venait de l'architecture des bases de données MySq
 
 Le code était aussi fortement couplé entre nos différentes applications : l'action PHP d'un vote était exécutée sur la même plateforme que notre BO permettant à tous nos web services de fonctionner ainsi qu'aux contributeurs d'ajouter du contenu. Une surchage sur les votes aurait donc pu entrainer des perturbations sur le fonctionnement global du site [m6.fr](http://www.m6.fr/) et de ses web services, donc de beaucoup de produits par extension.
 
-Pour résumer, l'imbrication du code et des bases de données dans l'usine logiciel ne permettaient pas de calibrer le système de vote pour qu'il puisse recevoir la charge attendue par le *second écran*.
+Pour résumer, l'imbrication du code et des bases de données dans l'usine logiciel ne permettait pas de calibrer le système de vote pour qu'il puisse recevoir la charge attendue par le *second écran*.
 
 C'est donc début 2013 que [Kenny Dits](https://twitter.com/kenny_dee) m'a contacté pour que nous trouvions une solution permettant de découpler le système de vote tout en faisant évoluer son architecture interne afin qu'il puisse facilement s'adapter à la charge inconstante du *second écran*.
 
 ## Solution
 
-Nous avons conçu un nouveau service dédié uniquement à la gestion des questions, réponses et votes des utilisateurs. Ce nouveau *service Polls* est autonome, ce qui nous permet de le découpler complètement de notre usine logiciel avec laquelle il communique via une API REST.
+Nous avons alors conçu un nouveau service dédié uniquement à la gestion des questions, réponses et votes des utilisateurs. Ce nouveau *service Polls* est autonome, ce qui nous permet de le découpler complètement de notre usine logiciel avec laquelle il communique via une API REST.
 
 Concernant le stockage des données, nous avons simplement choisi un moteur très performant qui supporterait la charge sur une seule machine bien calibrée. Cela nous évitait alors les problématiques complexes de *clustering*. Mais nous devions tout de même stocker quelques informations relationnelles : il fallait donc avoir accès à quelques primitives nous permettant d'émuler les relations minimum entre nos données. [Redis](http://redis.io/) s'est donc imposé comme la [solution adéquate](http://stackoverflow.com/questions/10558465/memcache-vs-redis).
 
 Le code se trouve, pour sa part, complètement isolé sur son propre serveur.
-Comme ce service est complètement *stateless* et que notre base de donnée est centralisée, nous pouvons donc facilement *scaler* horizontalement notre infrastructure : on ajuste le nombre de serveurs web que l'on souhaite selon la charge attendue.
+Comme ce service est complètement [stateless](http://en.wikipedia.org/wiki/Stateless_protocol) et que notre base de donnée est centralisée et suffisament performante, nous pouvons donc facilement ajouter ou supprimer des serveurs web selon la charge attendue :  on peut dire qu'en pratique le service Polls est [scalable horizontalement](http://fr.wikipedia.org/wiki/Exigences_d'architecture_technique#Scalabilit.C3.A9).
 
 Lorsque l'architecture mise en place permet de répartir la charge sur un nombre variable de machines, le contrat est rempli : ce n'est plus qu'une question d'argent pour supporter n'importe quelle charge. Et comme tout le monde le sait : l'argent n'est pas un problème, c'est une solution.
 
 ## Développement
 
-Le service Polls a été développé en PHP avec [Symfony](http://symfony.com/) et le [FOSRestBundle](https://github.com/FriendsOfSymfony/FOSRestBundle#fosrestbundle). Nous avons d'abord suivi certaines [références](http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/), puis nous avons ensuite développé un micro ORM maison pour faire persister nos données dans Redis et enfin nous avons monitoré tous ce que l'on pouvait à l'aide de notre [bundle dédié](https://github.com/M6Web/StatsdBundle).
+Le service Polls a été développé en PHP avec [Symfony](http://symfony.com/) et le [FOSRestBundle](https://github.com/FriendsOfSymfony/FOSRestBundle#fosrestbundle). Nous avons d'abord suivi certaines [références](http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/), puis nous avons ensuite développé un micro ORM maison pour faire persister nos données dans Redis et enfin [nous avons monitoré](http://tech.m6web.fr/monitoring-applicatif-pourquoi-et-comment/) tous ce que l'on pouvait à l'aide de notre [bundle dédié](https://github.com/M6Web/StatsdBundle).
 
-Une attention toute particulière a été porté à la qualité avec des tests unitaires couvrant un maximum de code et des [tests fonctionnels](http://tech.m6web.fr/redismock-qui-a-bouchonne-mon-redis.html) couvrant la plupart des cas d'utilisation des clients. Les nombreuses mises en production journalières pendant la phase d'optimisation ont ainsi été grandement facilité, notamment grâce à l'intégration continue.
+Une attention toute particulière a été portée à la qualité avec des tests unitaires couvrant un maximum de code et des [tests fonctionnels](http://tech.m6web.fr/redismock-qui-a-bouchonne-mon-redis.html) couvrant la plupart des cas d'utilisation des clients. Les nombreuses mises en production journalières pendant la phase d'optimisation ont ainsi été grandement facilité, notamment grâce à la sérénité apportée par l'intégration continue.
 
 # Intégration
 
 L'intégration de ce nouveau service Polls a cependant été bien plus longue que son développement. Nous l'avons d'abord mis en production en doublon de l'ancien système : toutes les écritures étaient faites sur les deux systèmes, mais l'ancien était encore la référence lors de la lecture des résultats par les clients.
 
-Puis après deux semaines, lorsque nous avons validé avec Graphite l'exacte corrélation entre les deux courbes du nombre de votes par minute, nous avons alors changé les clients pour qu'ils viennent lire les résultats sur le service Polls. Encore deux semaines plus tard, lorsque tout était validé, nous avons débranché l'ancien système.
+Puis après deux semaines, lorsque nous avons validé l'exacte corrélation entre les deux courbes du nombre de votes par minute à l'aide de [Graphite](http://graphite.wikidot.com/), nous avons alors changé les clients pour qu'ils viennent lire les résultats sur le service Polls. Encore deux semaines plus tard, lorsque tout était validé, nous avons débranché l'ancien système.
 
 L'intégration a donc été au moins trois fois plus longue, et donc couteuse, que le développement du service en lui-même.
 
@@ -99,5 +99,5 @@ Plus précisément, nous sommes monté à 150 requêtes par secondes (ce qui est
 
 Au cours du développement, de la mise en production et de la maintenance de ce service, j'ai appris plusieurs chose que j'essaierai de ne pas oublier trop vite :
 * Yes we can! Il est possible de combler petit à petit la dette technique, mais uniquement si c'est la volonté des décideurs,
-* la sérénité apportée par les tests est sans égale pour le confort de développement,
+* la sérénité apportée par les tests automatisés est sans égale pour le confort de développement,
 * Redis est très performant. Vraiment.
