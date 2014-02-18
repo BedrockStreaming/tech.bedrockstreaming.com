@@ -28,7 +28,7 @@ Actuellement, le trafic généré par cette fonctionnalité varie entre quelques
 
 Comme souvent, les besoins ont régulièrement évolué depuis la mise en place initiale du système en 2009, faisant parfois prendre des chemins tortueux à l'implémentation technique. Il est par exemple possible, qu'au fil des demandes, notre système de vote ait dû stocker ses données dans nos forums.
 
-L'année 2012 a vu l'arrivée du *second écran* : à l'aide de l'application gratuite adéquate, les périphériques mobiles peuvent désormais se synchroniser avec l'émission en cours de visionnage, en direct ou en différé, sur la TV ou sur web (la synchronisation se fait par la bande son). Cette synchronisation nous permet de *pusher* instantanément sur les périphériques mobiles du contenu adapté à ce que le téléspectateur regarde : le détail de la recette que le cuisinier prépare dans Top Chef ou un sondage concernant la dernière trouvaille linguistique d'un ch'tit face à sa ch'tite.
+L'année 2012 a vu l'arrivée du *second écran* : à l'aide de l'application gratuite adéquate, les périphériques mobiles peuvent désormais se synchroniser avec l'émission en cours de visionnage, en direct ou en différé, sur la TV ou sur le web (la synchronisation se fait par la bande son). Cette synchronisation nous permet de *pusher* instantanément sur les périphériques mobiles du contenu adapté à ce que le téléspectateur regarde : le détail de la recette que le cuisinier prépare dans Top Chef ou un sondage concernant la dernière trouvaille linguistique d'un ch'tit face à sa ch'tite.
 
 Le *second écran* s'annonçait alors comme une source importante de trafic supplémentaire pour notre système de vote. Effectivement, en plus du trafic historique généré par les sites web, nous allions aussi recevoir tous les votes provenant des péripheriques mobiles.
 
@@ -55,7 +55,7 @@ Lorsque l'architecture mise en place permet de répartir la charge sur un nombre
 
 ## Développement
 
-Le service Polls a été développé en PHP avec [Symfony](http://symfony.com/) et le [FOSRestBundle](https://github.com/FriendsOfSymfony/FOSRestBundle#fosrestbundle). Nous avons d'abord suivi certaines [références](http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/), puis nous avons ensuite développé un micro ORM maison pour faire persister nos données dans Redis et enfin [nous avons monitoré](http://tech.m6web.fr/monitoring-applicatif-pourquoi-et-comment/) tous ce que l'on pouvait à l'aide de notre [bundle dédié](https://github.com/M6Web/StatsdBundle).
+Le service Polls a été développé en PHP avec [Symfony](http://symfony.com/) et le [FOSRestBundle](https://github.com/FriendsOfSymfony/FOSRestBundle#fosrestbundle). Nous avons d'abord suivi certaines [références](http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/), puis nous avons ensuite développé un micro ORM maison pour faire persister nos données dans Redis et enfin [nous avons monitoré](http://tech.m6web.fr/how-we-use-statsd/) tous ce que l'on pouvait à l'aide de notre [bundle dédié](https://github.com/M6Web/StatsdBundle).
 
 Une attention toute particulière a été portée à la qualité avec des tests unitaires couvrant un maximum de code et des [tests fonctionnels](http://tech.m6web.fr/redismock-qui-a-bouchonne-mon-redis.html) couvrant la plupart des cas d'utilisation des clients. Les nombreuses mises en production journalières pendant la phase d'optimisation ont ainsi été grandement facilitées, notamment grâce à la sérénité apportée par l'intégration continue.
 
@@ -63,7 +63,9 @@ Une attention toute particulière a été portée à la qualité avec des tests 
 
 L'intégration de ce nouveau service Polls a cependant été bien plus longue que son développement. Nous l'avons d'abord mis en production en doublon de l'ancien système : toutes les écritures étaient faites sur les deux systèmes, mais l'ancien était encore la référence lors de la lecture des résultats par les clients.
 
-Puis après deux semaines, lorsque nous avons validé l'exacte corrélation entre les deux courbes du nombre de votes par minute à l'aide de [Graphite](http://graphite.wikidot.com/), nous avons alors changé les clients pour qu'ils viennent lire les résultats sur le service Polls. Encore deux semaines plus tard, lorsque tout était validé, nous avons débranché l'ancien système.
+Puis après deux semaines, lorsque nous avons validé l'exacte corrélation entre les deux courbes du nombre de votes par minute à l'aide de [Graphite](http://graphite.wikidot.com/), nous avons alors changé les clients pour qu'ils viennent lire les résultats sur le service Polls.
+
+Encore deux semaines plus tard, lorsque tout était validé et que nous avions développé et exécuté un script d'import de l'historique, nous avons débranché l'ancien système. 
 
 L'intégration a donc été au moins trois fois plus longue, et donc couteuse, que le développement du service en lui-même.
 
