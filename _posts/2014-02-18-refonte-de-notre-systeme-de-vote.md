@@ -3,12 +3,12 @@ layout: post
 title: "Refonte de notre système de vote"
 description: "Création d'un nouveau service de vote communiquant avec une API REST"
 author:
-  name: Team Cytron
-  avatar: cytron.png
+  name: Denis Roussel
+  avatar: denis.png
   email:
-  twitter: techM6Web
+  twitter: dondouny
   facebook:
-  github:
+  github: kuikui
 category:
 tags: [api, symfony, redis, monitoring, qualite, cytron]
 image:
