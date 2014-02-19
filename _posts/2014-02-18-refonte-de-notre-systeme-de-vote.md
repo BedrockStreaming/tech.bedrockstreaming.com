@@ -111,3 +111,7 @@ Au cours du développement, de la mise en production et de la maintenance de ce 
 * Yes we can! Il est possible de combler petit à petit [la dette technique](http://blog.octo.com/maitriser-sa-dette-technique), mais uniquement si c'est [la volonté des décideurs](https://twitter.com/mbohlende/status/431446680874258433),
 * la sérénité apportée par les tests automatisés est sans égale pour le confort de développement,
 * Redis est très performant.
+
+Ha ? Attendez ! On me dit dans l'oreillette que certains doutaient encore qu'il était possible de faire du code performant avec un framework *full stack* comme Symfony.
+
+Pas moi :-)
