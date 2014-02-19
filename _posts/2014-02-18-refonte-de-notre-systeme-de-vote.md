@@ -18,8 +18,6 @@ image:
 comments: true
 ---
 
-# Refonte de notre sytème de vote
-
 Notre système de vote est utilisé d'une part pour gérer l'ensemble des questions et des réponses associées utilisées dans nos [quizz](http://www.m6.fr/emission-top_chef/jeux.html) et d'autre part pour récolter le nombre de votes des internautes lors des [jeux concours](http://www.m6.fr/jeux-concours.html).
 
 Actuellement, le trafic généré par cette fonctionnalité varie entre quelques votes par minutes la nuit à quelques dizaines de votes par secondes lors des premières parties de soirée.
