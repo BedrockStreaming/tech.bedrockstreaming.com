@@ -99,7 +99,7 @@ Le service Polls a facilement tenu la charge pour la première émission mettant
 
 ![Nombre de votes pour Hawai 5-0](/images/posts/cytron/polls/hawai50.png)
 
-Plus précisément, nous sommes monté à 150 requêtes par secondes (ce qui est évidemment bien moins que nos tests de charge), mais nous savons que nous pourrons maintenant nous adapter très simplement à une charge beaucoup plus forte en ajoutant des serveurs web. Notament lors d'émissions faisant grandement appel au *second écran*.
+Plus précisément, nous sommes montés à 150 requêtes par secondes (ce qui est évidemment bien moins que nos tests de charge), mais nous savons que nous pourrons maintenant nous adapter très simplement à une charge beaucoup plus forte en ajoutant des serveurs web. Notament lors d'émissions faisant grandement appel au *second écran*.
 
 Dans le pire des cas, si le service Polls devient indisponible, aucune autre partie de notre infrastructure ne sera compromise.
 
