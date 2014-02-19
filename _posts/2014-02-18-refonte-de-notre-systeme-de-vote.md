@@ -4,7 +4,7 @@ title: "Refonte de notre système de vote"
 description: "Création d'un nouveau service de vote communiquant avec une API REST"
 author:
   name: Denis Roussel
-  avatar: denis.png
+  avatar: denis.jpg
   email:
   twitter: dondouny
   facebook:
