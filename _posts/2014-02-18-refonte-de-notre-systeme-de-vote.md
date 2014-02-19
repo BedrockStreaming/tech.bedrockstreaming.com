@@ -108,6 +108,7 @@ Dans le pire des cas, si le service Polls devient indisponible, aucune autre par
 ## Leçons
 
 Au cours du développement, de la mise en production et de la maintenance de ce service, j'ai appris plusieurs choses que j'essaierai de ne pas oublier trop vite :
+
 * Yes we can! Il est possible de combler petit à petit [la dette technique](http://blog.octo.com/maitriser-sa-dette-technique), mais uniquement si c'est [la volonté des décideurs](https://twitter.com/mbohlende/status/431446680874258433),
 * la sérénité apportée par les tests automatisés est sans égale pour le confort de développement,
 * Redis est très performant.
