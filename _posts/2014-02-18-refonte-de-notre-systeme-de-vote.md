@@ -36,7 +36,7 @@ Ce nouveau trafic a une saisonnalité très marquée : il est principalement pr�
 
 ## Problématique
 
-La principale problématique venait de l'architecture des bases de données MySQL. Étant fortement couplées sur l'ensemble de la plateforme, la moindre défaillance de l'une d'elles, due à une surchage sur un sondage, risquait de pénaliser les internautes de tous nos autres sites (un sondage du *second écran* pouvait donc impacter l'expérience utilisateur de [Clubic](http://www.clubic.com/)). Or ce scénario était tout à fait possible lorsqu'on sait que chaque vote se traduit par une écriture dans la base de données MySQL, qui est une action bloquante en MyISAM, favorisant l'indisponibilité de la base pour tous les autres services en cas de forte charge.
+La principale problématique venait de l'architecture des bases de données MySQL. Étant fortement couplées sur l'ensemble de la plateforme, la moindre défaillance de l'une d'elles, due à une surchage sur un sondage, risquait de pénaliser les internautes de tous nos autres sites (un sondage du *second écran* pouvait donc impacter l'expérience utilisateur de [Clubic](http://www.clubic.com/)).
 
 Le code était aussi fortement couplé entre nos différentes applications : l'action PHP d'un vote était exécutée sur la même plateforme que notre BO permettant à tous nos web services de fonctionner ainsi qu'aux contributeurs d'ajouter du contenu. Une surchage sur les votes aurait donc pu entrainer des perturbations sur le fonctionnement global du site [m6.fr](http://www.m6.fr/) et de ses web services, donc de beaucoup de produits par extension.
 
