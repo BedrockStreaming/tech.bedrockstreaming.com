@@ -26,11 +26,13 @@ Actuellement, le trafic généré par cette fonctionnalité varie entre quelques
 
 ## Historique
 
-Comme souvent, les besoins ont régulièrement évolué depuis la mise en place initiale du système en 2009, faisant parfois prendre des chemins tortueux à l'implémentation technique. Il est par exemple possible, qu'au fil des demandes, notre système de vote ait dû stocker ses données dans nos forums.
+Comme souvent, les besoins ont régulièrement évolué depuis la mise en place initiale du système en 2009, faisant parfois prendre des chemins tortueux à l'implémentation technique. Au fil des demandes, notre système a par exemple dû stocker ses données dans nos forums pour une fonctionnalité qui a ensuite été rapidement abandonnée.
 
 L'année 2012 a vu l'arrivée du *second écran* : à l'aide de l'application gratuite adéquate, les périphériques mobiles peuvent désormais se synchroniser avec l'émission en cours de visionnage, en direct ou en différé, sur la TV ou sur le web (la synchronisation se fait par la bande son). Cette synchronisation nous permet de *pusher* instantanément sur les périphériques mobiles du contenu adapté à ce que le téléspectateur regarde : le détail de la recette que le cuisinier prépare dans Top Chef ou un sondage concernant la dernière trouvaille linguistique d'un ch'tit face à sa ch'tite.
 
 Le *second écran* s'annonçait alors comme une source importante de trafic supplémentaire pour notre système de vote. Effectivement, en plus du trafic historique généré par les sites web, nous allions aussi recevoir tous les votes provenant des péripheriques mobiles.
+
+Ce nouveau trafic a une saisonnalité très marquée : il est principalement présent en début de soirée et reste très dépendant du programme diffusé et de la contribution apportée.
 
 ## Problématique
 
@@ -46,7 +48,7 @@ C'est donc début 2013 que [Kenny Dits](https://twitter.com/kenny_dee) m'a conta
 
 Nous avons alors conçu un nouveau service dédié uniquement à la gestion des questions, réponses et votes des utilisateurs. Ce nouveau *service Polls* est autonome, ce qui nous permet de le découpler complètement de notre usine logicielle avec laquelle il communique via une API REST.
 
-Concernant le stockage des données, nous avons simplement choisi un moteur très performant qui supporterait la charge sur une seule machine bien calibrée. Cela nous évitait alors les problématiques complexes de *clustering*. Mais nous devions tout de même stocker quelques informations relationnelles : il fallait donc avoir accès à quelques primitives nous permettant d'émuler les relations minimum entre nos données. [Redis](http://redis.io/) s'est donc imposé comme la [solution adéquate](http://stackoverflow.com/questions/10558465/memcache-vs-redis).
+Concernant le stockage des données, nous avons simplement choisi un moteur très performant qui supporterait la charge sur une seule machine bien calibrée. Cela nous évitait alors les problématiques complexes de *clustering*. Mais nous devions tout de même stocker quelques informations relationnelles : il fallait donc avoir accès à quelques primitives nous permettant d'émuler les relations minimum entre nos données. [Redis](http://redis.io/) s'est donc imposé comme la [solution adéquate](http://stackoverflow.com/questions/10558465/memcache-vs-redis). Cela reste malgré tout une solution théoriquement insatisfaisante, car non réellement scalable. Mais en pratique, les très bonnes performances de Redis permettent de répondre à (bien plus que) nos attentes.
 
 Le code se trouve, pour sa part, complètement isolé sur son propre serveur.
 Comme ce service est complètement [stateless](http://en.wikipedia.org/wiki/Stateless_protocol) et que notre base de donnée est centralisée et suffisament performante, nous pouvons donc facilement ajouter ou supprimer des serveurs web selon la charge attendue : on peut dire qu'en pratique le service Polls est [scalable horizontalement](http://fr.wikipedia.org/wiki/Exigences_d'architecture_technique#Scalabilit.C3.A9).
