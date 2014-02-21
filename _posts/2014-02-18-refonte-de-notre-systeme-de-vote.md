@@ -20,7 +20,7 @@ comments: true
 
 Notre système de vote est utilisé d'une part pour gérer l'ensemble des questions et des réponses associées utilisées dans nos [quizz](http://www.m6.fr/emission-top_chef/jeux.html) et d'autre part pour récolter le nombre de votes des internautes lors des [jeux concours](http://www.m6.fr/jeux-concours.html).
 
-Actuellement, le trafic généré par cette fonctionnalité varie entre quelques votes par minutes la nuit à quelques dizaines de votes par secondes lors des premières parties de soirée.
+Actuellement, le trafic généré par cette fonctionnalité varie entre quelques votes par minute la nuit à quelques dizaines de votes par seconde lors des premières parties de soirée.
 
 ## Historique
 
@@ -28,13 +28,13 @@ Comme souvent, les besoins ont régulièrement évolué depuis la mise en place 
 
 L'année 2012 a vu l'arrivée du *second écran* : à l'aide de l'application gratuite adéquate, les périphériques mobiles peuvent désormais se synchroniser avec l'émission en cours de visionnage, en direct ou en différé, sur la TV ou sur le web (la synchronisation se fait par la bande son). Cette synchronisation nous permet de *pusher* instantanément sur les périphériques mobiles du contenu adapté à ce que le téléspectateur regarde : le détail de la recette que le cuisinier prépare dans Top Chef ou un sondage concernant la dernière trouvaille linguistique d'un ch'tit face à sa ch'tite.
 
-Le *second écran* s'annonçait alors comme une source importante de trafic supplémentaire pour notre système de vote. Effectivement, en plus du trafic historique généré par les sites web, nous allions aussi recevoir tous les votes provenant des péripheriques mobiles.
+Le *second écran* s'annonçait alors comme une source importante de trafic supplémentaire pour notre système de vote. Effectivement, en plus du trafic historique généré par les sites web, nous allions aussi recevoir tous les votes provenant des périphériques mobiles.
 
 Ce nouveau trafic a une saisonnalité très marquée : il est principalement présent en début de soirée et reste très dépendant du programme diffusé et de la contribution apportée.
 
 ## Problématique
 
-La principale problématique venait de l'architecture des bases de données MySQL. Étant fortement couplées sur l'ensemble de la plateforme, la moindre défaillance de l'une d'elles, due à une surchage sur un sondage, risquait de pénaliser les internautes de tous nos autres sites (un sondage du *second écran* pouvait donc impacter l'expérience utilisateur de [Clubic](http://www.clubic.com/)).
+La principale problématique venait de l'architecture des bases de données MySQL. Étant fortement couplées sur l'ensemble de la plateforme, la moindre défaillance de l'une d'elles, due à une surcharge sur un sondage, risquait de pénaliser les internautes de tous nos autres sites (un sondage du *second écran* pouvait donc impacter l'expérience utilisateur de [Clubic](http://www.clubic.com/)).
 
 Le code était aussi fortement couplé entre nos différentes applications : l'action PHP d'un vote était exécutée sur la même plateforme que notre BO permettant à tous nos web services de fonctionner ainsi qu'aux contributeurs d'ajouter du contenu. Une surchage sur les votes aurait donc pu entrainer des perturbations sur le fonctionnement global du site [m6.fr](http://www.m6.fr/) et de ses web services, donc de beaucoup de produits par extension.
 
@@ -49,7 +49,7 @@ Nous avons alors conçu un nouveau service dédié uniquement à la gestion des 
 Concernant le stockage des données, nous avons simplement choisi un moteur très performant qui supporterait la charge sur une seule machine bien calibrée. Cela nous évitait alors les problématiques complexes de *clustering*. Mais nous devions tout de même stocker quelques informations relationnelles : il fallait donc avoir accès à quelques primitives nous permettant d'émuler les relations minimum entre nos données. [Redis](http://redis.io/) s'est donc imposé comme la [solution adéquate](http://stackoverflow.com/questions/10558465/memcache-vs-redis). Cela reste malgré tout une solution théoriquement insatisfaisante, car non réellement scalable. Mais en pratique, les très bonnes performances de Redis permettent de répondre à (bien plus que) nos attentes.
 
 Le code se trouve, pour sa part, complètement isolé sur son propre serveur.
-Comme ce service est complètement [stateless](http://en.wikipedia.org/wiki/Stateless_protocol) et que notre base de donnée est centralisée et suffisament performante, nous pouvons donc facilement ajouter ou supprimer des serveurs web selon la charge attendue : on peut dire qu'en pratique le service Polls est [scalable horizontalement](http://fr.wikipedia.org/wiki/Exigences_d'architecture_technique#Scalabilit.C3.A9).
+Comme ce service est complètement [stateless](http://en.wikipedia.org/wiki/Stateless_protocol) et que notre base de donnée est centralisée et suffisamment performante, nous pouvons donc facilement ajouter ou supprimer des serveurs web selon la charge attendue : on peut dire qu'en pratique le service Polls est [scalable horizontalement](http://fr.wikipedia.org/wiki/Exigences_d'architecture_technique#Scalabilit.C3.A9).
 
 Lorsque l'architecture mise en place permet de répartir la charge sur un nombre variable de machines, le contrat est rempli : ce n'est plus qu'une question d'argent pour supporter n'importe quelle charge. Et comme tout le monde le sait : l'argent n'est pas un problème, c'est une solution.
 
@@ -75,7 +75,7 @@ La première optimisation est simplement conceptuelle : nous avons concentré la
 
 Il existait plusieurs pistes d'optimisation connues (système de queue, node.js, etc.) mais dans une optique [KISS](http://fr.wikipedia.org/wiki/Principe_KISS), nous avons d'abord opté pour l'utilisation des technologies en place pour ensuite interpréter les résultats récupérés lors des tests de charge et s'adapter si besoin.
 
-Dans un premier temps, nous avons légèrement ajusté notre modèle de données pour limiter le nombre d'action à réaliser sur la base de données : nous avons seulement deux instructions Redis de [complexité constante O(1)](http://fr.wikipedia.org/wiki/Analyse_de_la_complexit%C3%A9_des_algorithmes#Complexit.C3.A9.2C_comparatif) a réaliser pour chaque vote. Puis nous avons utilisé les transactions pour grouper ces deux instructions et éviter la latence d'une connexion supplémentaire vers notre serveur Redis.
+Dans un premier temps, nous avons légèrement ajusté notre modèle de données pour limiter le nombre d'action à réaliser sur la base de données : nous avons seulement deux instructions Redis de [complexité constante O(1)](http://fr.wikipedia.org/wiki/Analyse_de_la_complexit%C3%A9_des_algorithmes#Complexit.C3.A9.2C_comparatif) à réaliser pour chaque vote. Puis nous avons utilisé les transactions pour grouper ces deux instructions et éviter la latence d'une connexion supplémentaire vers notre serveur Redis.
 
 Nous avons enfin supprimé la vérification de deux contraintes d'intégrité sans importance. Le code retour en cas d'erreur est juste un peu moins cohérent (`400` au lieu de `422`) mais cela n'impacte ni l'intégrité des votes ni la sécurité du service.
 
@@ -87,7 +87,7 @@ Afin de savoir si nous n'avions pas complètement pris une mauvaise direction da
 
 Lors de cette journée, durant laquelle nous avons beaucoup appris, nous avons simplement désactivé tous les bundles que nous n'utilisions pas réellement en production : principalement Twig. Cela a occasionné une légère modification de notre code car le FOSRestBundle nécessite Twig pour afficher les erreurs même lorsque celles-ci sont en JSON.
 
-Une fois corrigé, nous avons gagné les ultimes millisecondes nous permettant de passer sous la barre symbolique des 10ms de temps de réponse sur notre route critique.
+Une fois cette modification apportée, nous avons gagné les ultimes millisecondes nous permettant de passer sous la barre symbolique des 10ms de temps de réponse sur notre route critique.
 
 ![Suppression des bundles superflus](/images/posts/cytron/polls/bundles.png)
 
@@ -99,7 +99,7 @@ Le service Polls a facilement tenu la charge pour la première émission mettant
 
 ![Nombre de votes pour Hawai 5-0](/images/posts/cytron/polls/hawai50.png)
 
-Plus précisément, nous sommes montés à 150 requêtes par secondes (ce qui est évidemment bien moins que nos tests de charge), mais nous savons que nous pourrons maintenant nous adapter très simplement à une charge beaucoup plus forte en ajoutant des serveurs web. Notament lors d'émissions faisant grandement appel au *second écran*.
+Plus précisément, nous sommes montés à 150 requêtes par secondes (ce qui est évidemment bien moins que nos tests de charge), mais nous savons que nous pourrons maintenant nous adapter très simplement à une charge beaucoup plus forte en ajoutant des serveurs web. Notamment lors d'émissions faisant grandement appel au *second écran*.
 
 Dans le pire des cas, si le service Polls devient indisponible, aucune autre partie de notre infrastructure ne sera compromise.
 
