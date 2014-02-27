@@ -48,7 +48,7 @@ Babitch was born :)
 # Architecture
 
 At the beggining, there was only one project, with the server Api, and the client part.
-This was bad. It was a good way to start fast, but a bad way to allow each project to evolve in his side.
+This was bad. It was a good way to start fast, but a bad way to allow each project to evolve in his own side.
 So we decided to divide the Babitch Project into two parts, Babitch, the server Api, and BabitchClient, a client to consume Babitch Api data.
 
 # Babitch, the Api
@@ -60,8 +60,8 @@ A Vagrant file is available if you want to try it easily. (More information in t
 
 # Babitch Client
 
-The "Babitch Client", is the "official" client for the Api. 
-The client side doesn't require any webserver, it's just an Angular.js apps, doing Rest queries to the Babitch API.
+The "Babitch Client", is the "official" client for the Api.
+The client side doesn't require any webserver, it's just an Angular.js apps, doing Rest queries to the Babitch API, thanks to Restangular.
 
 We Use Yeoman to bootstrap the project because it helps in many ways :
 
@@ -71,13 +71,13 @@ We Use Yeoman to bootstrap the project because it helps in many ways :
 For development on this client, we are heavily using Grunt, Karma for Unit Testing, and the new Protactor for E2E testing.
 
 
-The client is divided into three major parts :
+The client is divided into four major parts :
 
 ## New Game
 
 This is the main feature, it allows to begin a new game, choose 4 players, and assign each goals to the right players.
 The game is saved only when the last goals is made.
-Each player is representated by is Gravatar for a nicer UI :)
+Each player is represented by is Gravatar for a nicer UI :)
 
 ## Live
 
@@ -87,30 +87,40 @@ With a screen on this feature, we could see :
 * if a game is played right now
 * who played
 * The live score
-* for each goal, in live who score, and on which side :)
+* for each goal, in live, who score, and on which side :)
 
 The live part use a Faye server, which you can host freely on Heroku (more information on Readme.md). You configure a channel name, and all actions done on the new game view are forwarded to the Faye server, forwarded back to the client listening on the Live view. It just rocks !
 
 ## Stats
 
-All of this would be useless if you don't have anyway to compare your ... stats to others competitors, right ?
-So stats section is here for that purpose. 
-It show you : 
+All of this would be useless if you don't have any way to compare your ... stats to others competitors, right ?
+So stats section is here for that purpose.
+It show you :
 
 * the last match played
 * a table sortable for each stats of each players
 * an individual card by players
+* a table sortable for each stats of each teams
 
-And for each players, you have access to a lot of stats :
+And for each players and teams, you have access to a lot of stats :
 
-* Number of goals (+ % per Balls)
-* Number of goals conceided (+ % per Balls)
-* Number of victory/loose (+ % per game)
+* Percentage of goals per balls played
+* Percentage of victory/loose per game
+* Number of Gameplayed
+* Team Goalaverage
 * ...
+
+There was some long debate about how stats has to be computed : On the server side ? (not really the goal of a REST Api ...), on the client side ?
+After some successfull tries, we decide to compute stats on the client side, in an Angular.Js Service.
+The service load the last 300 games, and compute team and player stats fastly.
+
+## Admin
+
+Probably the first screen you will need, for a simple way to add, modify, or delete players.
 
 # Conclusion
 
-Working on a side-project like this is awesome !
+Working on our free (or lunch) time on a side-project like this is awesome !
 It allows us to use several technologies or tools we don't use often, to improve our knowledge on tons of other things, and to mix teams who don't work a lot together.
 
 One other thing interested to remember about that project : Keep things as simple & small as possible (according to KISS principles) ! And only when your simple project is done, iterate by adding more & more features.
