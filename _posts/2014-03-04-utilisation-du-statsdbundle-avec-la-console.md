@@ -19,7 +19,7 @@ comments: true
 ---
 ## Le StatsdBundle
 
-Chez M6Web, nous [utilisons]({% post_url('2014-01-28-how-we-use-statsd.md') %}) StatsD et nous avons créé un [bundle](https://github.com/M6Web/StatsdBundle) pour cela.
+Chez M6Web, nous [utilisons]({% post_url 2014-01-28-how-we-use-statsd %}) StatsD et nous avons créé un [bundle](https://github.com/M6Web/StatsdBundle) pour cela.
 Ce bundle permet d'ajouter facilement des incréments et des timings dans StatsD sur des événements Symfony2.
 
 ## De la Request à la console
