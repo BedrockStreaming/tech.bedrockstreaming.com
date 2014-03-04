@@ -34,10 +34,16 @@ La première solution était donc d'appeler manuellement `$container->get('m6_st
 
 La seconde solution a donc été de modifier le StatsdBundle et d'ajouter une configuration au niveau de l'événement pour forcer l'envoi instantanné des données.
 
+Ainsi, avec la configuration suivante :
+
 ```yml
 clients:
     event:
         console.exception:
-            increment: mysite.command.<command.name>.exception
+            increment:      mysite.command.<command.name>.exception
             immediate_send: true
+        m6kernel.exception:
+            increment: mysite.errors.<status_code>
 ```
+
+L'incrément `mysite.command.<command.name>.exception` sera envoyé en temps réel, alors que les autres comme `mysite.errors.<status_code>` continueront à être envoyés pendant `kernel.terminate`.
