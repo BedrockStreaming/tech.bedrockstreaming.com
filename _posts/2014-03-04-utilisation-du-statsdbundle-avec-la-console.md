@@ -19,7 +19,7 @@ comments: true
 ---
 ## Le StatsdBundle
 
-Chez M6Web, nous [utilisons]({% post_url 2014-01-28-how-we-use-statsd %}) StatsD et nous avons créé un [bundle](https://github.com/M6Web/StatsdBundle) pour cela.
+Chez M6Web, nous [utilisons StatsD]({% post_url 2014-01-28-how-we-use-statsd %}) et nous avons créé un [bundle](https://github.com/M6Web/StatsdBundle) pour cela.
 Ce bundle permet d'ajouter facilement des incréments et des timings dans StatsD sur des événements Symfony2.
 
 ## De la Request à la console
@@ -32,7 +32,7 @@ Nous avons envisagé d'utiliser l'événement `console.terminate` pour palier à
 
 La première solution était donc d'appeler manuellement `$container->get('m6_statsd')->send()` dans la commande ou dans un `ConsoleExceptionListener` mais cela nous fait perdre le principal intérêt du StatsdBundle à savoir le découplage entre la commande et le client StatsD.
 
-La seconde solution a donc été de modifier le StatsdBundle et d'ajouter une configuration au niveau de l'événement pour forcer l'envoi instantanné des données.
+La seconde solution a donc été de modifier le StatsdBundle et d'ajouter une configuration au niveau de l'événement pour forcer l'envoi instantané des données.
 
 Ainsi, avec la configuration suivante :
 
