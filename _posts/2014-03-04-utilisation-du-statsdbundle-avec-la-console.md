@@ -28,7 +28,7 @@ Or pour des raisons de performances, lors des événements Symfony, les incréme
 Ceci pose un problème pour les événements lancés depuis une commande Symfony puisque en console, il n'y pas de `Request` et donc pas de `kernel.terminate`.
 Nous avons envisagé d'utiliser l'événement `console.terminate` pour palier à cela, mais cela pose deux problèmes :
 
-* pour une commande qui est censée tourner indéfiniment (par exemple un *consumer*), on ne veut pas attendre la fin de la commande pour envoyer les données
+* pour une commande qui est censée tourner indéfiniment (par exemple un *consumer*), on ne veut pas attendre la fin de la commande pour envoyer les données,
 * dans le cas d'une exception pendant la commande, l'événement `console.terminate` est lancé avant `console.exception`.
 
 La première solution était donc d'appeler manuellement `$container->get('m6_statsd')->send()` dans la commande ou dans un `ConsoleExceptionListener` mais cela nous fait perdre le principal intérêt du StatsdBundle à savoir le découplage entre la commande et le client StatsD.
