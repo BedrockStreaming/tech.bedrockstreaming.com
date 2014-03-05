@@ -12,9 +12,9 @@ author:
 category:
 tags: [statsd, php, symfony, console, monitoring, cytron]
 image:
-  feature:
-  credit:
-  creditlink:
+  feature: posts/cytron/console.png
+  credit: tjahardie
+  creditlink: http://www.flickr.com/photos/16762451@N04/
 comments: true
 ---
 ## Le StatsdBundle
