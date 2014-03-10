@@ -89,7 +89,7 @@ Satis for public package configuration (data/satis.json) :
             "absolute-directory" : "/srv/data/satis-public/dist"
         },
         "repositories": [
-            { "type": "composer", "url": "http://packagist.org” }
+            { "type": "composer", "url": "http://packagist.org" }
         ],
         "require": {
 
