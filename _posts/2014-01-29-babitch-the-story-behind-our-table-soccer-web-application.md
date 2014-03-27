@@ -104,20 +104,23 @@ It show you :
 
 * the last match played
 * a table sortable for each stats of each players
+* data visualization on each type of stats
 * an individual card by players
 * a table sortable for each stats of each teams
 
 And for each players and teams, you have access to a lot of stats:
 
+* Elo Ranking (According to the [Bonzini Usa Player Ranking/Rating System](http://www.bonziniusa.com/foosball/tournament/TournamentRankingSystem.html))
 * Percentage of goals per balls played
 * Percentage of victory/loose per game
-* Number of Gameplayed
+* Number of Game played
 * Team Goalaverage
 * ...
 
 There was some long debate about how stats has to be computed : On the server side ? (not really the goal of a REST Api ...), or on the client side ?
 After some successfull tries, we decide to compute stats on the client side, in an Angular.Js Service.
 The service load the last 300 games, and compute team and player stats fastly.
+We also use the awesome [D3.Js](http://d3js.org/) framework for data visualization.
 
 ## Admin
 
@@ -126,7 +129,7 @@ Probably the first screen you will need, for a simple way to add, modify, or del
 # Conclusion
 
 Working on our free (or lunch) time on a side-project like this is awesome!
-It allows us to use several technologies or tools we don't use often, to improve our knowledge on tons of other things, and to mix teams who don't work a lot together.
+It allows us to use several technologies or tools we don't use often, to improve our knowledge on tons of other things, to view the project on the product owner side and to mix teams who don't work a lot together.
 
 One other thing interested to remember about that project: Keep things as simple & small as possible (according to KISS principles) ! And only when your simple project is done, iterate by adding more & more features.
 
@@ -134,4 +137,6 @@ One other thing interested to remember about that project: Keep things as simple
 
 So, if like us, you love foosball and play at work, give it a try, and give us feedback if you use it :)
 
-Also, it's open-source, so you're welcome to contribute on [BabitchClient](https://github.com/M6Web/BabitchClient) and [BabitchService](https://github.com/M6Web/Babitch).
+Also, it's open-source, so you're welcome to contribute on [BabitchClient](https://github.com/M6Web/BabitchClient) and [BabitchService](https://github.com/M6Web/Babitch), by posting/reading/commenting issue and PR.
+
+Thanks ! :)
