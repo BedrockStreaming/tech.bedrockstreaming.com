@@ -12,7 +12,7 @@ author:
 category:
 tags: [symfony, conference]
 image:
-  feature: posts/sflive2014/header_pourri_sflive2014.jpg
+  feature: posts/sflive2014/header_sflive2014.jpg
   credit: mes petites mains
   creditlink:
 comments: true
@@ -21,6 +21,8 @@ comments: true
 Invité par [SensioLabs](http://www.sensiolabs.com) au [Symfony Live 2014](paris2014.live.symfony.com), j'ai pu présenter le travail des équipes de M6Web, et de nos partenaires, autour de [Symfony 2](http://symfony.com).
 
 Voici les slides de la conférence :
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/33242561" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
 
 
 L'enregistrement audio devrait être disponible sous peu.
