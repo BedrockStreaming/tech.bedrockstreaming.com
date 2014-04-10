@@ -10,7 +10,7 @@ author:
   facebook:       
   github:    
 category: 
-tags: [monitoring,graphite,statsd]
+tags: [monitoring,graphite,statsd,conference]
 image:
   feature: 
   credit: 
