@@ -10,7 +10,7 @@ author:
   facebook:
   github: M6Web
 category:
-tags: [video, devops, sysadmin]
+tags: [video, devops, sysadmin, conference]
 image:
   feature: posts/sysadmin.jpg
   credit: les internets
