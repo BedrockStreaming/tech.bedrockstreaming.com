@@ -27,7 +27,7 @@ Nous recherchons quelqu'un de très passionné, enthousiaste, et mordu de veille
 
 Si, en plus, vous êtes un malade de l'optimisation back-end et front-end, que des technologies comme Node.js vous émoustillent, que, malgré la qualité de MySQL, vous envisagez dans certains cas des solutions NoSQL alternatives (Mongo, Redis…), votre profil nous intéresse !
 
-Venez apporter vos compétences aux équipes techniques de M6Web en travaillant sur des sites à très forte charge ([m6.fr](http://www.m6.fr), [clubic.com](http://www.clubic.com), [jeuxvideo.fr](http://www.jeuxvideo.fr) …), et partagez-les grâce à des conférences internes ou externes et des articles sur notre blog.
+Venez apporter vos compétences aux équipes techniques de M6Web en travaillant sur des sites à très forte charge ([6Play](http://www.6play.fr), [m6.fr](http://www.m6.fr), [clubic.com](http://www.clubic.com), [jeuxvideo.fr](http://www.jeuxvideo.fr) …), et partagez-les grâce à des conférences internes ou externes et des articles sur notre blog.
 
 Si vous avez les qualités requises et l'envie de nous rejoindre, allez sur le lien ci-dessous et faites nous part de votre CV, de votre compte github, et d’une lettre attrayante pour nous motiver à vous rencontrer.
 
