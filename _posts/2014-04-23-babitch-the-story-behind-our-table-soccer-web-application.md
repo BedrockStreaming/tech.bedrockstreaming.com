@@ -26,7 +26,7 @@ The soccer table in enterprise is awesome for a lot of things:
 * Team building between each players,
 * Don’t think about work (almost) when we are playing,
 * Fun! a lot of!
-* …
+* [Attract good people](http://tech.m6web.fr/m6web-lyon-recherche-un-lead-developpeur-architecte-web-h-f-en-cdi) …
 
 Our rules are simple : Doubles (4 players) only, and the first team at ten win.
 
