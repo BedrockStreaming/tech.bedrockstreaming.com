@@ -10,7 +10,7 @@ author:
   facebook:
   github: M6Web
 category:
-tags: [opensource, babyfoot]
+tags: [opensource, babyfoot, angularjs, d3js, symfony]
 image:
   feature: posts/babitch/tablesoccer.jpg
   credit: Japrisner @ Flickr
