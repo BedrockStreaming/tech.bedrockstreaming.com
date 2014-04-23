@@ -77,7 +77,7 @@ The client is divided into four major parts:
 
 ## New Game
 
-![Main View](images/posts/babitch/mainview.png)
+![Main View](/images/posts/babitch/mainview.png)
 
 This is the main feature, it allows to begin a new game, choose 4 players, and assign each goals to the right players.
 The game is saved only when the last goal is made.
