@@ -85,6 +85,8 @@ Each player is represented by his [Gravatar](http://fr.gravatar.com/) for a nice
 
 ## Live
 
+![Live View](/images/posts/babitch/liveview.png)
+
 The table soccer is not at the same floor than we are, so we are using our monitoring screen to show at lunch time the live state of the table score !
 
 With a screen on this feature, we could see:
