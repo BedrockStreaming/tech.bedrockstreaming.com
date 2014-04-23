@@ -4,7 +4,7 @@ title: "Babitch, the story behind our table soccer web application"
 description: "Babitch, the story behind our table soccer/foosball web application"
 author:
   name:           M6Web
-  avatar:         m6web.jpg
+  avatar:
   email:
   twitter:  techm6web
   facebook:
