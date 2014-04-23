@@ -23,8 +23,8 @@ We have one old (incredibly strong) soccer table in our « fun room », and at l
 
 The soccer table in enterprise is awesome for a lot of things:
 
-* Team building between each players
-* Don’t think about work (almost) when we are playing
+* Team building between each players,
+* Don’t think about work (almost) when we are playing,
 * Fun! a lot of!
 * …
 
@@ -67,8 +67,8 @@ The client side doesn't require any webserver, it's just an [Angular.js](http://
 
 We used [Yeoman](http://yeoman.io/) to bootstrap the project because it helps in many ways:
 
-* adds grunt configuration and support for serving, building and testing the project
-* have generators for controllers, service, etc
+* adds grunt configuration and support for serving, building and testing the project,
+* have generators for controllers, service, etc ...
 
 For development on this client, we are heavily using [Grunt](http://gruntjs.com/), [Karma](http://karma-runner.github.io/0.10/index.html) for Unit Testing, and the new [Protactor](https://github.com/angular/protractor) for E2E testing.
 
@@ -89,32 +89,34 @@ The table soccer is not at the same floor than we are, so we are using our monit
 
 With a screen on this feature, we could see:
 
-* if a game is played right now
-* who's playing
-* the live score
+* if a game is played right now,
+* who's playing,
+* the live score,
 * for each goal, in live, who scored, and on which side :)
 
 The live part use a [Faye](http://faye.jcoglan.com/) server, which you can host freely on [Heroku](https://www.heroku.com/) (more information on Readme.md). You configure a channel name, and all actions done on the new game view are forwarded to the Faye server, forwarded back to the client listening on the Live view. It just rocks !
 
 ## Stats
 
+![Stats View](/images/posts/babitch/statsview.png)
+
 All of this would be useless if you don't have any way to compare your ... stats to others competitors, right ?
 So stats section is here for that purpose.
 It shows you :
 
-* the last played match
-* a sortable table by each stat of each player
-* data visualization on each type of stats
-* an individual card by player
-* a sortable table by each stat of each team
+* the last played match,
+* a sortable table by each stat of each player,
+* data visualization on each type of stats,
+* an individual card by player,
+* a sortable table by each stat of each team.
 
 And for each player and team, you have access to a lot of stats:
 
-* Elo Ranking (According to the [Bonzini Usa Player Ranking/Rating System](http://www.bonziniusa.com/foosball/tournament/TournamentRankingSystem.html))
-* Percentage of goals per ball played
-* Percentage of victory/loose per game
-* Number of games played
-* Team Goalaverage
+* Elo Ranking (According to the [Bonzini Usa Player Ranking/Rating System](http://www.bonziniusa.com/foosball/tournament/TournamentRankingSystem.html)),
+* Percentage of goals per ball played,
+* Percentage of victory/loose per game,
+* Number of games played,
+* Team Goalaverage,
 * ...
 
 There was some long debate about how stats have to be computed : on the server side ? (not really the goal of a REST Api ...), or on the client side ?
@@ -131,7 +133,7 @@ Probably the first screen you will need, for a simple way to add, modify, or del
 Working on our free (or lunch) time on a side-project like this is awesome!
 It allows us to use several technologies or tools we don't use often, to improve our knowledge on tons of other things, to view the project on the product owner side and to mix teams who don't work a lot together.
 
-One other thing interesting to remember about that project: Keep things as simple & small as possible (according to KISS principles) ! And only when your simple project is done, iterate by adding more & more features.
+One other thing interesting to remember about that project: Keep things as simple and small as possible (according to KISS principles) ! And only when your simple project is done, iterate by adding more and more features.
 
 # Try and contribute?
 
