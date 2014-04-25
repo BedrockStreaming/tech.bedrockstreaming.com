@@ -33,17 +33,17 @@ Our rules are simple : Doubles (4 players) only, and the first team at ten win.
 So, as programmers, we tend to have software ideas for each questions in our life ! and the questions we had with foosball were:
 
 * Who is the best player?
-* How many goals I did?
-* Who won most games?
+* How many goals did I score ?
+* Who won the most games?
 * …
 
-So, we begin to talk several month ago about a foosball app, allowing us to record each games, and each goals, to compute lot of stats about our games.
+So, we begin to talk several months ago about a foosball app, allowing us to record each games, and each goals, to compute lot of stats about our games.
 Everyone had good ideas about it, but someone had many more than us. Even more that it ruined all motivation of the other folks wanting to do work on this webapp, because the first steps to begin the app with all the features we had in mind was too big for all of us …
 
 So before having started the project, it was over !
 
-Few months later, another part of the team began in a « ghost » way to develop the most simple and stupid foosball application. It just allows to select 4 players, and to do match by telling who scores and what kind of goal it is (normal or own goal).
-This was ugly as possible, but it worked ! and was an awesome start for improving it and giving back all motivation developpers had loosed before !
+Few months later, an undercover part of the team began the development of a more simple and stupid foosball application : it just allowed to select 4 players, and to register matches by telling who scored and what kind of goal it was (normal or own goal).
+This was ugly as possible, but it worked ! And it was an awesome start for improving it and giving back all the motivation developpers had lost before !
 
 Babitch was born :)
 
