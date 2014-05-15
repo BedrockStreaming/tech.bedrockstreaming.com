@@ -12,9 +12,9 @@ author:
 category:
 tags: [afup, phptour]
 image:
-  feature:
-  credit:
-  creditlink:
+  feature: posts/phptour/PHPTourLyon2014_megaban.jpg
+  credit: AFUP
+  creditlink: http://afup.org/pages/phptourlyon2014/banners/
 comments: true
 ---
 
