@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "M6Web sera présent au PHPTour Lyon 2014"
-description: ""
+description: "M6Web sera présent au PHPTour Lyon 2014 organisé par l'AFUP"
 author:
   name: M6Web
   avatar:
