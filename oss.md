@@ -26,6 +26,7 @@ Here some projects open sourced :
 * [JenkinsTerminalColors](https://github.com/M6Web/JenkinsTerminalColors) is a very lightweight Chrome extension that provides terminal colors in all console panels of Jenkins. It uses black Solarized theme
 * [VigoJS](https://github.com/M6Web/VigoJS) is a (small) Javascript tool using CasperJS and PhantomJS to make easily functional tests on web applications
 * [HttpToStatsd](https://github.com/M6Web/HttpToStatsd) is a node.js http to statsd logger
+* [Babitch](https://github.com/M6Web/Babitch) and [BabitchClient](https://github.com/M6Web/BabitchClient) is a project to record foosball scores, archive them, and make them easily accessible
 
 # Bundle and libs
 
