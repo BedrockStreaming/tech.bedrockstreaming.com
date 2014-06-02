@@ -34,11 +34,14 @@ Here some projects open sourced :
 * [StatsdBundle](https://github.com/M6Web/StatsdBundle) : Symfony2 Bundle easing the statsd usage
 * [Firewall](https://github.com/M6Web/Firewall) and [FireWallBundle](https://github.com/M6Web/FirewallBundle) : Symfony2 bundle providing IP filtering features for your Symfony 2 applications
 * [Redis](https://github.com/M6Web/Redis) : PHP component used to access Redis throught predis
+* [RedisBundle] (https://github.com/M6Web/RedisBundle) : Bundle over Redis component
 * [RedisMock](https://github.com/M6Web/RedisMock) : A simple PHP Redis mock
 * [websocket-bench](https://github.com/M6Web/websocket-bench) : Nodejs cli tool for benchmark web socket server, currently support (socket.io, faye)
 * [roboxt](https://github.com/M6Web/roboxt) : PHP lib parsing a robots.txt
 * [behat-seo-extension](https://github.com/M6Web/behat-seo-extension) : Behat extension provinding specific features for testing the SEO of a website
 * [HttpKernelBundle](https://github.com/M6Web/HttpKernelBundle) : Custom sf2 HttpKernel with additional events
+* [DaemonBundle](https://github.com/M6Web/DaemonBundle) Bundle easing the creation of daemon sf2 commands
+* [AwsBundle](https://github.com/M6Web/AwsBundle) AWS client as a sf2 service
 
 # Contribution to free projects
 
