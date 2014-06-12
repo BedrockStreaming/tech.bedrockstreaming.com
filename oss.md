@@ -38,6 +38,8 @@ Here some projects open sourced :
 * [roboxt](https://github.com/M6Web/roboxt) : PHP lib parsing a robots.txt
 * [behat-seo-extension](https://github.com/M6Web/behat-seo-extension) : Behat extension provinding specific features for testing the SEO of a website
 * [HttpKernelBundle](https://github.com/M6Web/HttpKernelBundle) : Custom sf2 HttpKernel with additional events
+* [WsClientBundle](https://github.com/M6Web/WsClientBundle) : Symfony2 bundle service to call external webservices, and adding cache, logging, ...
+* [AwsBundle](https://github.com/M6Web/AwsBundle) : [AWS SDK](http://aws.amazon.com/sdkforphp/) as a Symfony2 service, with WSClientBundle functionnality (cache, logging, ...)
 
 # Contribution to free projects
 
