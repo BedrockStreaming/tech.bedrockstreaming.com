@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "M6Web était au PHPTour Lyon 2014"
-description: "M6Web était au PHPTour Lyon 2014 organisé par l'AFUP"
+title: "M6Web était présent au PHPTour Lyon 2014"
+description: "M6Web était présent au PHPTour Lyon 2014 organisé par l'AFUP"
 author:
   name: M6Web
   avatar:
@@ -18,8 +18,8 @@ image:
 comments: true
 ---
 
-M6Web était présent le Lundi 23 et Mardi 24 juin pour l'évenement de l'année à Lyon de la communauté PHP, le PHPTour Lyon.
-Sponsor Argent de l'évenement, et aussi représenté via deux conférences :
+Le Lundi 23 et Mardi 24 juin a eu lieu l'événement PHP de l'année à Lyon : le PHPTour Lyon.
+À cette occasion, les équipes d'M6Web ont présenté deux talks, dont voici les slides  :
 
 # Take a walk on the OPS side (par Baptiste D.)
 
