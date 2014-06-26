@@ -41,7 +41,8 @@ Here some projects open sourced :
 * [behat-seo-extension](https://github.com/M6Web/behat-seo-extension) : Behat extension provinding specific features for testing the SEO of a website
 * [HttpKernelBundle](https://github.com/M6Web/HttpKernelBundle) : Custom sf2 HttpKernel with additional events
 * [DaemonBundle](https://github.com/M6Web/DaemonBundle) Bundle easing the creation of daemon sf2 commands
-* [AwsBundle](https://github.com/M6Web/AwsBundle) AWS client as a sf2 service
+* [AwsBundle](https://github.com/M6Web/AwsBundle) : [AWS SDK](http://aws.amazon.com/sdkforphp/) as a Symfony2 service, with WSClientBundle functionnality (cache, logging, ...)
+* [WsClientBundle](https://github.com/M6Web/WsClientBundle) : Symfony2 bundle service to call external webservices, and adding cache, logging, ...
 
 # Contribution to free projects
 
@@ -61,5 +62,3 @@ Throught github we participated to the improvement (we hope so) of many open sou
 * [willdurand/BazingaHateoasBundle](https://github.com/willdurand/BazingaHateoasBundle) : [#9](https://github.com/willdurand/BazingaHateoasBundle/pull/9)
 * [macbre/phantomas](https://github.com/macbre/phantomas) : [#166](https://github.com/macbre/phantomas/pull/166)
 * [sensiolabs/SensioFrameworkExtraBundle](https://github.com/sensiolabs/SensioFrameworkExtraBundle) : [#260](https://github.com/sensiolabs/SensioFrameworkExtraBundle/pull/260)
-
-
