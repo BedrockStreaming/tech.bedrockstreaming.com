@@ -10,7 +10,7 @@ author:
   facebook:
   github:
 category:
-tags: [afup, phptour, conference]
+tags: [afup, phptour, conference, video]
 image:
   feature: posts/phptour2014/elephant.jpg
   credit: Vagner Rodrigues
@@ -19,11 +19,14 @@ comments: true
 ---
 
 Le Lundi 23 et Mardi 24 juin a eu lieu l'événement PHP de l'année à Lyon : le PHPTour Lyon.
-À cette occasion, les équipes d'M6Web ont présenté deux talks, dont voici les slides  :
+À cette occasion, les équipes d'M6Web ont présenté deux talks, dont voici les slides et vidéos :
 
 # Take a walk on the OPS side (par Baptiste D.)
 
 La première conférence de @techM6Web a été tenue par Baptiste D ([@bdu_p](https://twitter.com/bdu_p)) : "Take a walk on the OPS side".
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/O03GflHG-WU?rel=0" frameborder="0" allowfullscreen></iframe>
+
 
 <iframe src="//www.slideshare.net/slideshow/embed_code/36209122" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
 [Voir les commentaires sur Joind.in](https://joind.in/talk/view/11221)
@@ -36,6 +39,9 @@ Baptiste a aussi fait sensation en offrant quelques gateaux spécialement réali
 #Nouveau socle pour une nouvelle vie, chez M6Web (par Kenny Dits)
 
 La seconde conférence de [@techM6Web](https://twitter.com/TechM6Web) a été tenue par Kenny Dits ([@kenny_dee](https://twitter.com/kenny_dee)) : "Nouveau socle pour une nouvelle vie, chez M6Web".
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/7lgWS6NULXo?rel=0" frameborder="0" allowfullscreen></iframe>
+
 
 <script async class="speakerdeck-embed" data-id="929666f0da7d0131c6a07202678817e0" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
 [Voir les commentaires sur Joind.in](https://joind.in/talk/view/11223)
