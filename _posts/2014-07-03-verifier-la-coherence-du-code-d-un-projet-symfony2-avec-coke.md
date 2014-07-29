@@ -6,29 +6,29 @@ author:
   name:     Mikael Randy
   avatar:   mikaelrandy.png
   email:
-  twitter:  techM6Web
+  twitter:  mikaelrandy
   facebook:
   github:
 category:
 tags: [code sniffing, coke, Symfony2]
 image:
-  feature:
-  credit:
-  creditlink:
+  feature: posts/coke-et-symfony2/feature.png
+  credit: Wikipedia
+  creditlink: http://upload.wikimedia.org/wikipedia/commons/3/36/Sus_scrofa_piglet.jpg
 comments: true
 ---
 
 Pour qu'un projet persiste dans le temps, il est important que le style de codage soit le même. Et quand vous vous reposez sur des outils, autant faire en sorte que le style de codage retenu soit proche, si ce n'est le même, que les briques que vous utilisez. Et dans le cas où vous utilisez un framework, c'est d'autant plus important.
 
-Dans le cas de Symfony2, c'est d'autant plus marqué que l'architecture des bundles est très marquée, et qu'un coding guide est publié.
+Dans le cas de Symfony2, c'est d'autant plus facile que l'architecture des bundles est très marquée, et qu'un coding guide est publié.
 
-Ça, c'est pour la théorie, mais en pratique, si ce n'est pas super simple, automatique, une somme de toutes petites erreurs s'installent et le sentiment d'abandon s'installe vite.
+Ça, c'est pour la théorie, mais en pratique, si ce n'est pas super simple, automatique, une somme de toutes petites erreurs apparaissent et le sentiment d'abandon s'installe rapidement.
 
 ## Coke
 
 Il y a un peu plus d'un an, chez M6Web, nous avons développé [coke](/coke-pour-bien-sniffer-son-code/) pour configurer simplement l'exécution de PHP_CodeSniffer.
 
-Récemment, nous avons ajouté la possibilité d'installer coke via Composer :
+Depuis quelques mois, il est possible [d'installer coke via Composer](https://github.com/M6Web/Coke/pull/4) :
 
 {% highlight json %}
 {
@@ -50,7 +50,7 @@ Chez M6Web, nous maintenons le standard [Symfony2-coding-standard](https://githu
 
 Pour rendre à César ce qui appartient à César, nous avons récupéré la base du standard telle que créé par [opensky](https://github.com/opensky).
 
-Si nous avons décidé de le forker, c'est que la structure ne correspondait pas à ce qui nécessaire pour une installation de ce standard via Composer
+Si nous avons décidé de le forker, c'est que la structure ne correspondait pas à ce qui est nécessaire pour une installation de ce standard via Composer
 
 ## Procédure complète, pas-à-pas
 
@@ -72,7 +72,6 @@ composer install
 {% endhighlight %}
 
 Créer le fichier `.coke` suivant :
-test
 
 {% highlight bash %}
 # Standard used by PHP CodeSniffer (required)
