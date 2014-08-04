@@ -20,7 +20,7 @@ comments: true
 
 Pour qu'un projet persiste dans le temps, il est important que le style de codage soit le même. Et quand vous vous reposez sur des outils, autant faire en sorte que le style de codage retenu soit proche, si ce n'est le même, que les briques que vous utilisez. Et dans le cas où vous utilisez un framework, c'est d'autant plus important.
 
-Dans le cas de Symfony2, c'est d'autant plus facile que l'architecture des bundles est très marquée, et qu'un coding guide est publié.
+Avec Symfony2, c'est d'autant plus facile que l'architecture des bundles est très marquée, et qu'un coding guide est publié.
 
 Ça, c'est pour la théorie, mais en pratique, si ce n'est pas super simple, automatique, une somme de toutes petites erreurs apparaissent et le sentiment d'abandon s'installe rapidement.
 
@@ -90,4 +90,10 @@ Avec cette technique, il est très simple de valider le style de codage d'un pro
 
 ## Bonus
 
-Pour que cette vérification soit faite automatiquement au commit, il suffit d'ajouter la ligne `./vendor/bin/coke` dans le fichier `.git/hooks/pre-commit`.
+L'idéal, pour ne jamais commiter un code ne respectant pas les conventions de codage, est d'utiliser les [hooks de commit](http://git-scm.com/book/en/Customizing-Git-Git-Hooks) pour que cette vérification soit automatiquement.
+
+La manière la plus simple de le faire est d'ajouter la ligne `./vendor/bin/coke` dans le fichier `.git/hooks/pre-commit`, mais cette méthode a le défaut de vérifier tout le projet, et pas uniquement le code modifié et à commiter.
+
+Pour aller plus loin, vous pouvez vous inspirer du [script suivant](https://gist.github.com/JJK801/5867810) qui ne lance coke que sur les fichier dans le "staging" de Git (les fichiers à commiter).
+
+
