@@ -58,7 +58,7 @@ Créer le fichier `composer.json` suivant :
 
 {% highlight json %}
 {
-  "require": {
+  "require-dev": {
     "m6web/coke"                       : "~1.2",
     "m6web/symfony2-coding-standard"   : "~1.1",
   }
