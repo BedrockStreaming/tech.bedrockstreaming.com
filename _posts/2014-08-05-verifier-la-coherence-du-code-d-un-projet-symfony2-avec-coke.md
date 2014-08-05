@@ -90,7 +90,7 @@ Avec cette technique, il est très simple de valider le style de codage d'un pro
 
 ## Bonus
 
-L'idéal, pour ne jamais commiter un code ne respectant pas les conventions de codage, est d'utiliser les [hooks de commit](http://git-scm.com/book/en/Customizing-Git-Git-Hooks) pour que cette vérification soit automatiquement.
+L'idéal, pour ne jamais commiter un code ne respectant pas les conventions de codage, est d'utiliser les [hooks de commit](http://git-scm.com/book/en/Customizing-Git-Git-Hooks) pour que cette vérification soit faite automatiquement.
 
 La manière la plus simple de le faire est d'ajouter la ligne `./vendor/bin/coke` dans le fichier `.git/hooks/pre-commit`, mais cette méthode a le défaut de vérifier tout le projet, et pas uniquement le code modifié et à commiter.
 
