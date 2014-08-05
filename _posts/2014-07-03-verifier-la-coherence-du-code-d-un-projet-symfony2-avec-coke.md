@@ -94,6 +94,6 @@ L'idéal, pour ne jamais commiter un code ne respectant pas les conventions de c
 
 La manière la plus simple de le faire est d'ajouter la ligne `./vendor/bin/coke` dans le fichier `.git/hooks/pre-commit`, mais cette méthode a le défaut de vérifier tout le projet, et pas uniquement le code modifié et à commiter.
 
-Pour aller plus loin, vous pouvez vous inspirer du [script suivant](https://gist.github.com/JJK801/5867810) qui ne lance coke que sur les fichier dans le "staging" de Git (les fichiers à commiter).
+Pour aller plus loin, vous pouvez vous inspirer du [script suivant](https://gist.github.com/JJK801/5867810) qui ne lance coke que sur les fichiers dans le "staging" de Git (les fichiers à commiter).
 
 
