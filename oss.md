@@ -62,3 +62,5 @@ Throught github we participated to the improvement (we hope so) of many open sou
 * [willdurand/BazingaHateoasBundle](https://github.com/willdurand/BazingaHateoasBundle) : [#9](https://github.com/willdurand/BazingaHateoasBundle/pull/9)
 * [macbre/phantomas](https://github.com/macbre/phantomas) : [#166](https://github.com/macbre/phantomas/pull/166)
 * [sensiolabs/SensioFrameworkExtraBundle](https://github.com/sensiolabs/SensioFrameworkExtraBundle) : [#260](https://github.com/sensiolabs/SensioFrameworkExtraBundle/pull/260)
+* [guzzle/guzzle3](https://github.com/guzzle/guzzle3) : [#38](https://github.com/guzzle/guzzle3/pull/38)
+
