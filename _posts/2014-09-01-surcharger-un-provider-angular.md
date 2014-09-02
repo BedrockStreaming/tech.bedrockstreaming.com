@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Surcharger un provider angular"
-description: "Surcharger un provider angular"
+title: "Surcharger un provider AngularJS"
+description: "Surcharger un provider AngularJS"
 author:
   name: Team Cytron
   avatar: cytron.png
@@ -10,20 +10,20 @@ author:
   facebook:
   github:
 category:
-tags: [angular, cytron]
+tags: [AngularJS, cytron]
 image:
   feature:
   credit:
   creditlink:
 comments: true
 ---
-## Surcharger un provider angular
+## Surcharger un provider AngularJS
 
-Nous avons eu besoin de surcharger un provider angular – [AnalyticsProvider](https://github.com/revolunet/angular-google-analytics) – pour le rendre configurable dynamiquement – à partir de `$route` qui n'est pas disponible dans la phase de configuration d'angular.
+Nous avons eu besoin de surcharger un provider AngularJS – [AnalyticsProvider](https://github.com/revolunet/angular-google-analytics) – pour le rendre configurable dynamiquement – à partir de `$route` qui n'est pas disponible dans la phase de configuration d'AngularJS.
 
 Le but est donc de changer la méthode `$get` de ce provider afin de lui ajouter notre dépendance et ainsi finir notre configuration.
 
-Il existe bien une méthode [`decorator()`](https://docs.angularjs.org/api/auto/service/$provide#decorator) dans le service d'injection de dependance d'angular, mais celle-ci ne permet que de décorer des service et non pas leurs providers.
+Il existe bien une méthode [`decorator()`](https://docs.angularjs.org/api/auto/service/$provide#decorator) dans le service d'injection de dependance d'AngularJS, mais celle-ci ne permet que de décorer des service et non pas leurs providers.
 
 Nous allons donc mettre les mains dans l'`$injector` pour récupérer et modifier à la volée le provider :
 
