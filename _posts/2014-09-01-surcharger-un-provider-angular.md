@@ -23,7 +23,7 @@ Nous avons eu besoin de surcharger un provider AngularJS – [AnalyticsProvider]
 
 Le but est donc de changer la méthode `$get` de ce provider afin de lui ajouter notre dépendance et ainsi finir notre configuration.
 
-Il existe bien une méthode [`decorator()`](https://docs.angularjs.org/api/auto/service/$provide#decorator) dans le service d'injection de dependance d'AngularJS, mais celle-ci ne permet que de décorer des service et non pas leurs providers.
+Il existe bien une méthode [`decorator()`](https://docs.angularjs.org/api/auto/service/$provide#decorator) dans le service d'injection de dependance d'AngularJS, mais celle-ci ne permet que de décorer des services et non pas leurs providers.
 
 Nous allons donc mettre les mains dans l'`$injector` pour récupérer et modifier à la volée le provider :
 
