@@ -10,7 +10,7 @@ author:
   facebook:
   github:
 category:
-tags: [qualite, tests, protractor, angular, cytron]
+tags: [qualite, tests, protractor, angular, grunt, cytron]
 image:
   feature: posts/cytron/protractor.jpg
   credit: 
@@ -19,7 +19,7 @@ comments: true
 permalink: protractor-n-est-pas-un-dinosaure.html
 ---
 
-Familier des tests fonctionnels avec Behat et Atoum pour des applications majoritairement PHP, nous l’étions beaucoup moins avec les tests end-2-end pour des applications pures Javascript, qui plus est, sous AngularJS. L’objectif du présent article est de montrer le cheminement que nous avons emprunté pour mettre en place ces tests sur une de nos applications et pour gérer les difficultés qui en ont découlées.
+Familier des tests fonctionnels avec Behat et Atoum pour des applications majoritairement PHP, nous l’étions beaucoup moins avec les tests end-2-end pour des applications pures Javascript, qui plus est, sous [AngularJS](https://angularjs.org/). L’objectif de cet article est de montrer le cheminement que nous avons emprunté pour mettre en place ces tests sur une de nos applications et pour gérer les difficultés qui en ont découlées.
 
 #### Le contexte
 
@@ -27,12 +27,12 @@ Il s’agit d’une application web présentant des écrans différents à l’u
 
 #### Mettre en place Protractor
 
-La première étape consiste à installer Protractor, framework de tests e2e dédié à AngularJS et utilisant Node.js. Rien de compliqué jusque là si vous utilisez Grunt pour gérer les tâches de build de votre projet, il suffit d'exécuter la commande :
+La première étape consiste à installer [Protractor](http://angular.github.io/protractor/#/), framework de tests e2e dédié à AngularJS et utilisant Node.js. Si vous utilisez Grunt pour gérer les tâches de build de votre projet, il suffit d'exécuter la commande :
 ```
 npm install grunt-protractor-runner --save-dev
 ```
  
-Puis on crée le fichier protractor-e2e.conf.js :
+Puis on crée le fichier `protractor-e2e.conf.js` dans le projet :
 ```js
 exports.config =  {
   specs: ['app/**/*.e2e.js'],
@@ -42,14 +42,14 @@ exports.config =  {
 
 #### Un navigateur pour mes tests
 
-Qui dit tests e2e, dit nécessairement browser pour exécuter dans des conditions réelles son application. Nous développons sur un serveur distant en SSH. Le seul navigateur utilisable est donc un browser headless, c’est-à-dire sans interface graphique, le plus connu et utilisé étant PhantomJS. Et là premier problème : il n’est pas compatible avec Protractor pour le moment. Nous optons donc pour Chrome via le plugin chromedriver. Nécessitant une interface graphique, nous ne pourrons donc pas lancer nos tests sur le serveur de développement mais nous devrons le faire en local sur nos machines.
+Pour exécuter ses tests dans les conditions réelles son application, il nous faut un navigateur. Nous développons sur un serveur distant en SSH. Le seul navigateur utilisable est donc un browser headless, le plus connu et utilisé étant [PhantomJS](http://phantomjs.org/). Cependant, combiné à Protractor, ce dernier est particulièrement instable pour le moment et il n'est pas recommandé de l'utiliser. Nous optons donc pour Chrome via le plugin chromedriver. Nécessitant une interface graphique, nous ne pourrons donc pas lancer nos tests sur le serveur de développement mais nous devrons le faire en local sur nos machines.
 
 ```
 npm install chromedriver --save-dev
 npm install grunt-run --save-dev
 ```
 
-Puis on ajoute cette tâche dans son Gruntfile.js :
+Puis on ajoute les tâches dans le fichier `Gruntfile.js` :
 ```js
 grunt.initConfig({
     connect: {
@@ -98,7 +98,8 @@ grunt.registerTask('test-e2e', [
 ```
 
 #### Intégration continue
-La majorité de nos projets jouent automatiquement leurs tests sur un serveur Jenkins commun qui ne dispose pas de navigateurs graphiques. Comment allons nous faire pour intégrer notre application ? La réponse aurait pu être la mise en place d’un serveur Selenium. Mais les contraintes du projet ne nous autorisent pas à y consacrer le temps nécessaire. Nous avons donc opté pour une solution plus rapide à mettre en œuvre : SauceLabs, plateforme de tests hébergée dans le “cloud”.
+
+L'ensemble de nos projets jouent automatiquement leurs tests sur un serveur Jenkins commun qui ne dispose pas de navigateurs graphiques. Nous aurions pu mettre en place un serveur Selenium pour répondre à ce . Mais les contraintes du projet ne nous autorisent pas à y consacrer le temps nécessaire. Nous avons donc opté pour une solution plus rapide à mettre en œuvre : SauceLabs, plateforme de tests hébergée dans le “cloud”.
 
 Après s’être créé un compte, il est nécessaire de faire évoluer son fichier de configuration protractor.
 
