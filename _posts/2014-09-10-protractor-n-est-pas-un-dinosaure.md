@@ -97,7 +97,7 @@ grunt.registerTask('test-e2e', [
 ]);
 ```
 
-### Intégration continue
+#### Intégration continue
 La majorité de nos projets jouent automatiquement leurs tests sur un serveur Jenkins commun qui ne dispose pas de navigateurs graphiques. Comment allons nous faire pour intégrer notre application ? La réponse aurait pu être la mise en place d’un serveur Selenium. Mais les contraintes du projet ne nous autorisent pas à y consacrer le temps nécessaire. Nous avons donc opté pour une solution plus rapide à mettre en œuvre : SauceLabs, plateforme de tests hébergée dans le “cloud”.
 
 Après s’être créé un compte, il est nécessaire de faire évoluer son fichier de configuration protractor.
