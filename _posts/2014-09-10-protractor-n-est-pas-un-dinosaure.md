@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Non, Protractor n'est pas un dinosaure !"
+title: "Non, Protractor n'est pas un dinosaure"
 description: "Comment mettre en place des tests E2E sur son application AngularJS : outils et problématiques."
 author:
   name: Team Cytron
