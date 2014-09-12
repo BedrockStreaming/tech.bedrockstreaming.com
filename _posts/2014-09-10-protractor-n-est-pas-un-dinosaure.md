@@ -221,7 +221,7 @@ On peut également ajouter l’option `--debug` à la commande grunt pour affich
 
 #### Mocker sa config
 
-Comme on le voit souvent dans les projets AngularJS, nous utilisons un module pour définir nos variables de configuration :
+Comme souvent dans les projets AngularJS, nous utilisons un module pour définir nos variables de configuration :
 
 ```js
 angular.module("config", [])
