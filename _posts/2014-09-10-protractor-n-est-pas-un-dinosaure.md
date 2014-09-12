@@ -224,11 +224,10 @@ On peut également ajouter l’option `--debug` à la commande grunt pour affich
 Comme on le voit souvent dans les projets AngularJS, nous utilisons un module pour définir nos variables de configuration :
 
 ```js
- angular.module("config", [])
-
-.constant("config", {
-  “ma_variable”: “une_valeur”
-});
+angular.module("config", [])
+  .constant("config", {
+    'ma_variable': 'une_valeur'
+  });
 ```
 
 Dans les tests e2e, on veut tout tester, en particulier les comportements qui diffèrent en fonction des valeurs de configuration. Comment faire puisque ce module est chargé une fois pour toute au lancement de l’application ? Protractor introduit la fonction `addMockModule` qui permet de bouchonner à la volée un module Angular.
@@ -237,7 +236,7 @@ Dans les tests e2e, on veut tout tester, en particulier les comportements qui di
 it('comportement avec une autre valeur', function () {
 browser.addMockModule('config', function () {
     	angular.module('config', []).constant('config', {
-      		“ma_variable”: “une_autre_valeur”
+      		'ma_variable': 'une_autre_valeur'
     	});
   });
 
