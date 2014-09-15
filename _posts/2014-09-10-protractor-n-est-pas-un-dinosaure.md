@@ -56,13 +56,13 @@ exports.config =  {
   ]
 };
 ```
-On installe les binaires nécessaires au lancement de Chrome via protractor :
+On installe les binaires nécessaires au lancement de Chrome via Protractor :
 
 ```
 ./node_modules/.bin/webdriver-manager update
 ```
 
-Puis on ajoute les tâches grunt :
+Puis on ajoute les tâches Grunt :
 ```js
 /* Gruntfile.js */
 grunt.initConfig({
@@ -94,7 +94,7 @@ grunt.registerTask('test', [
 
 L'ensemble de nos projets jouent automatiquement leurs tests sur un serveur Jenkins commun qui ne dispose pas de navigateurs graphiques. Nous aurions pu mettre en place au sein de notre infrastructure un serveur Selenium pour répondre à cette problèmatique. Mais les contraintes du projet ne nous autorisaient pas à y consacrer le temps nécessaire. Nous avons donc opté pour une solution tiers plus rapide à mettre en œuvre : [SauceLabs](https://saucelabs.com/), plateforme de tests hébergée dans le “cloud”.
 
-Une fois son compte créé, on crée un nouveau fichier de configuration protractor :
+Une fois son compte créé, on crée un nouveau fichier de configuration Protractor :
 
 ```js
 /* protractor-saucelabs.conf.js */
@@ -129,7 +129,7 @@ exports.config =  {
 };
 ```
 
-Notons que l'on peut lancer ses tests sur autant de couples OS/navigateurs que l'on souhaite en remplissant le tableau `multiCapabilities`. Le fichier de configuartion grunt doit être adapté pour lancer *SauceConnect*, l’interface entre SauceLabs et l’application, avant le démarrage des tests :
+Notons que l'on peut lancer ses tests sur autant de couples OS/navigateurs que l'on souhaite en remplissant le tableau `multiCapabilities`. Le fichier de configuartion Grunt doit être adapté pour lancer *SauceConnect*, l’interface entre SauceLabs et l’application, avant le démarrage des tests :
 
 ```js
 /* Gruntfile.js */
@@ -202,7 +202,7 @@ grunt.registerTask('test-e2e', function (target) {
 });
 ```
 
-Avec cette configuration, nous pouvez lancer nos tests en local sur notre machine avec `grunt test-e2e:local` ou à distance sur SauceLabs avec `grunt test-e2e`.
+Avec cette configuration, nous pouvez lancer nos tests en local sur notre machine avec la commande `grunt test-e2e:local` ou à distance sur SauceLabs avec `grunt test-e2e`.
 
 #### Notre premier test
 
@@ -217,11 +217,11 @@ describe('Controller: MainCtrl', function () {
 });
 ```
 
-On remarque que l’écriture d’un test e2e utilise, comme les tests unitaires, la syntaxe du framework [Jasmine](http://jasmine.github.io/) : un bloc `describe` regroupe une suite de tests définis dans des bloc `it`. Les variables de configuration définies dans le fichier `protractor-e2e.conf.js` sont utilisables via la variable globale `browser`, variable qui nous permettra d’entretenir le lien entre nos tests et le code exécuté dans le navigateur. Pour mieux appréhender les étapes du processus et les erreurs qui se produisent, il est effet très important de bien comprendre la séparation entre le code Javascript exécuté dans Node.js via Protractor, qui correspond au déroulement des tests, et le code Javascript de notre application qui lui est exécuté dans le browser et avec lequel on ne peut interagir depuis les tests que par certaines fonctions du framework (`element`, `executeScript`, `addMockModule`, etc.). Ce sont deux univers d'execution bien distincts.
+On remarque que l’écriture d’un test e2e utilise, comme les tests unitaires, la syntaxe du framework [Jasmine](http://jasmine.github.io/) : un bloc `describe` regroupe une suite de tests définis dans des bloc `it`. Les variables de configuration définies dans les fichiers de configuration Protractor sont utilisables via la variable globale `browser`, variable qui nous permettra d’entretenir le lien entre nos tests et le code exécuté dans le navigateur. Pour mieux appréhender les étapes du processus et les erreurs qui se produisent, il est effet très important de bien comprendre la séparation entre le code Javascript exécuté dans Node.js via Protractor, qui correspond au déroulement des tests, et le code Javascript de notre application qui lui est exécuté dans le browser et avec lequel on ne peut interagir depuis les tests que par certaines fonctions du framework (`element`, `executeScript`, `addMockModule`, etc.). Ce sont deux univers d'execution bien distincts.
 
 #### Débugger avec Protractor
 
-Lorsque vous lancerez les tests en local, vous remarquerez que Chrome est réellement exécuté mais vous ne verrez pas grand chose car l’affichage est bien trop rapide. Il est possible de mettre des points d’arrêt dans ses tests pour y voir plus clair et pour, par exemple, consulter la console Javascript du navigateur. Pour cela, il faut utiliser la fonction `browser.debugger()` comme point d’arrêt et ajouter l’option `debug` dans la configuartion grunt : 
+Lorsque vous lancerez les tests en local, vous remarquerez que Chrome est réellement exécuté mais vous ne verrez pas grand chose car l’affichage est bien trop rapide. Il est possible de mettre des points d’arrêt dans ses tests pour y voir plus clair et pour, par exemple, consulter la console Javascript du navigateur. Pour cela, il faut utiliser la fonction `browser.debugger()` comme point d’arrêt et ajouter l’option `debug` dans la configuartion Grunt : 
 
 ```js
 /* Gruntfile.js */
@@ -236,7 +236,7 @@ protractor: {
 ```
 
 Pour passer d’un point d’arrêt à l’autre, on saisit `c` comme continue.
-On peut également ajouter l’option `--debug` à la commande grunt pour afficher l’ensemble des requêtes lancées par l’application.
+On peut également ajouter l’option `--debug` à la commande `grunt test-e2e:local` pour afficher l’ensemble des requêtes lancées par l’application.
 
 #### Mocker sa config
 
