@@ -19,11 +19,11 @@ comments: true
 permalink: test-e2e-angularjs-protractor.html
 ---
 
-Familier des tests fonctionnels avec Behat et Atoum pour des applications majoritairement PHP, nous l’étions beaucoup moins avec les tests end-2-end pour des applications pures Javascript, qui plus est, sous [AngularJS](https://angularjs.org/). L’objectif de cet article est de montrer le cheminement que nous avons emprunté pour mettre en place ces tests sur une de nos applications et pour gérer les difficultés qui en ont découlées.
+Familier des tests fonctionnels avec Behat et Atoum pour des applications majoritairement PHP, nous l’étions beaucoup moins avec les tests end-2-end pour des applications pures Javascript, qui plus est, sous [AngularJS](https://angularjs.org/). L’objectif de cet article est de montrer le cheminement que nous avons emprunté pour mettre en place ces tests sur une de nos applications et pour gérer les difficultés qui en ont découlé.
 
 ### Le contexte
 
-Il s’agit d’une application web présentant des écrans différents à l’utilisateur en fonction des données contenues dans un fichier distant requêté à intervalle régulier court (quelques secondes). L’utilisateur est invité ou non à agir avec les vues, principalement en appuyant sur des boutons, qui change l’état interne de l’application et peut, a posteriori, influer sur les écrans suivants.
+Il s’agit d’une application web présentant des écrans différents à l’utilisateur en fonction des données contenues dans un fichier distant requêté à intervalle régulier court (quelques secondes). L’utilisateur est invité ou non à agir avec les vues, principalement en appuyant sur des boutons, qui changent l’état interne de l’application et peut, a posteriori, influer sur les écrans suivants.
 
 ### Mettre en place Protractor
 
@@ -45,7 +45,7 @@ Tous les tests e2e de notre application seront écrits dans des fichiers javascr
 
 ### Un navigateur pour mes tests
 
-Pour exécuter ses tests dans les conditions réelles son application, il faut un navigateur. Nous développons sur un serveur distant en SSH. Le seul navigateur utilisable est donc un browser headless, le plus connu et utilisé étant [PhantomJS](http://phantomjs.org/). Cependant, combiné à Protractor, ce dernier est particulièrement instable pour le moment et il n'est pas recommandé de l'utiliser. Nous optons donc pour Chrome (via le plugin chromedriver). Nécessitant une interface graphique, nous ne pourrons donc pas lancer nos tests sur le serveur de développement mais nous devrons le faire en local sur nos machines.
+Pour exécuter ses tests dans les conditions réelles de son application, il faut un navigateur. Nous développons sur un serveur distant en SSH. Le seul navigateur utilisable est donc un browser headless, le plus connu et utilisé étant [PhantomJS](http://phantomjs.org/). Cependant, combiné à Protractor, ce dernier est particulièrement instable pour le moment et il n'est pas recommandé de l'utiliser. Nous optons donc pour Chrome (via le plugin chromedriver). Nécessitant une interface graphique, nous ne pourrons donc pas lancer nos tests sur le serveur de développement mais nous devrons le faire en local sur nos machines.
 
 {% highlight js %}
 /* protractor-local.conf.js */
@@ -94,7 +94,7 @@ grunt.registerTask('test', [
 
 ### Intégration continue
 
-L'ensemble de nos projets jouent automatiquement leurs tests sur un serveur Jenkins commun qui ne dispose pas de navigateurs graphiques. Nous aurions pu mettre en place au sein de notre infrastructure un serveur Selenium pour répondre à cette problèmatique. Mais les contraintes du projet ne nous autorisaient pas à y consacrer le temps nécessaire. Nous avons donc opté pour une solution tiers plus rapide à mettre en œuvre : [SauceLabs](https://saucelabs.com/), plateforme de tests hébergée dans le “cloud”.
+L'ensemble de nos projets joue automatiquement leurs tests sur un serveur Jenkins commun qui ne dispose pas de navigateurs graphiques. Nous aurions pu mettre en place au sein de notre infrastructure un serveur Selenium pour répondre à cette problèmatique. Mais les contraintes du projet ne nous autorisaient pas à y consacrer le temps nécessaire. Nous avons donc opté pour une solution tiers plus rapide à mettre en œuvre : [SauceLabs](https://saucelabs.com/), plateforme de tests hébergée dans le “cloud”.
 
 Une fois enregistré sur le site, on crée un nouveau fichier de configuration Protractor :
 
@@ -219,11 +219,11 @@ describe('Controller: MainCtrl', function () {
 });
 {% endhighlight %}
 
-On remarque que l’écriture d’un test e2e utilise, comme les tests unitaires, la syntaxe du framework [Jasmine](http://jasmine.github.io/) : un bloc `describe` regroupe une suite de tests définis dans des bloc `it`. Les variables de configuration définies dans les fichiers de configuration Protractor sont utilisables via la variable globale `browser`, variable qui nous permettra d’entretenir le lien entre nos tests et le code exécuté dans le navigateur. Pour mieux appréhender les étapes du processus et les erreurs qui se produisent, il est effet très important de bien comprendre la séparation entre le code Javascript exécuté dans Node.js via Protractor, qui correspond au déroulement des tests, et le code Javascript de notre application qui lui est exécuté dans le browser et avec lequel on ne peut interagir depuis les tests que par certaines fonctions du framework (`element`, `executeScript`, `addMockModule`, etc.)[^1]. Ce sont deux univers d'execution bien distincts.
+On remarque que l’écriture d’un test e2e utilise, comme les tests unitaires, la syntaxe du framework [Jasmine](http://jasmine.github.io/) : un bloc `describe` regroupe une suite de tests définis dans des bloc `it`. Les variables de configuration définies dans les fichiers de configuration Protractor sont utilisables via la variable globale `browser`, variable qui nous permettra d’entretenir le lien entre nos tests et le code exécuté dans le navigateur. Pour mieux appréhender les étapes du processus et les erreurs qui se produisent, il est en effet très important de bien comprendre la séparation entre le code Javascript exécuté dans Node.js via Protractor, qui correspond au déroulement des tests, et le code Javascript de notre application qui lui est exécuté dans le browser et avec lequel on ne peut interagir depuis les tests que par certaines fonctions du framework (`element`, `executeScript`, `addMockModule`, etc.)[^1]. Ce sont deux univers d'exécution bien distincts.
 
 ### Débugger avec Protractor
 
-Lorsque vous lancerez les tests en local, vous remarquerez que Chrome est réellement exécuté mais vous ne verrez pas grand chose car l’affichage est bien trop rapide. Il est possible de mettre des points d’arrêt dans ses tests pour y voir plus clair et pour, par exemple, consulter la console Javascript du navigateur. Pour cela, il faut utiliser la fonction `browser.debugger()` comme point d’arrêt et ajouter l’option `debug` dans la configuartion Grunt : 
+Lorsque vous lancerez les tests en local, vous remarquerez que Chrome est réellement exécuté mais vous ne verrez pas grand chose car l’affichage est bien trop rapide. Il est possible de mettre des points d’arrêt dans ses tests pour y voir plus clair et pour, par exemple, consulter la console Javascript du navigateur. Pour cela, il faut utiliser la fonction `browser.debugger()` comme point d’arrêt et ajouter l’option `debug` dans la configuration Grunt : 
 
 {% highlight js %}
 /* Gruntfile.js */
