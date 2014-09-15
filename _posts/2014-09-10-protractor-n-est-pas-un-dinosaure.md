@@ -32,68 +32,60 @@ La première étape consiste à installer [Protractor](http://angular.github.io/
 npm install grunt-protractor-runner --save-dev
 ```
  
-Puis on crée le fichier `protractor-e2e.conf.js` dans le projet :
+Puis on crée le fichier `protractor-local.conf.js` dans le projet :
 ```js
 exports.config =  {
   specs: ['app/**/*.e2e.js'],
-  baseUrl: 'http://localhost:9001/'
+  baseUrl: 'http://localhost:9000/'
 };
 ```
 
 #### Un navigateur pour mes tests
 
-Pour exécuter ses tests dans les conditions réelles son application, il faut un navigateur. Nous développons sur un serveur distant en SSH. Le seul navigateur utilisable est donc un browser headless, le plus connu et utilisé étant [PhantomJS](http://phantomjs.org/). Cependant, combiné à Protractor, ce dernier est particulièrement instable pour le moment et il n'est pas recommandé de l'utiliser. Nous optons donc pour Chrome via le plugin chromedriver. Nécessitant une interface graphique, nous ne pourrons donc pas lancer nos tests sur le serveur de développement mais nous devrons le faire en local sur nos machines.
+Pour exécuter ses tests dans les conditions réelles son application, il faut un navigateur. Nous développons sur un serveur distant en SSH. Le seul navigateur utilisable est donc un browser headless, le plus connu et utilisé étant [PhantomJS](http://phantomjs.org/). Cependant, combiné à Protractor, ce dernier est particulièrement instable pour le moment et il n'est pas recommandé de l'utiliser. Nous optons donc pour Chrome (via le plugin chromedriver). Nécessitant une interface graphique, nous ne pourrons donc pas lancer nos tests sur le serveur de développement mais nous devrons le faire en local sur nos machines.
+
+```js
+// protractor-local.conf.js
+
+exports.config =  {
+  specs: ['app/**/*.e2e.js'],
+  baseUrl: 'http://localhost:9000/',
+  maxSessions: 1,
+  multiCapabilities: [
+    { browserName: 'chrome' }
+  ]
+};
+```
+On installe les binaires nécessaires au lancement de Chrome via protractor :
 
 ```
-npm install chromedriver --save-dev
-npm install grunt-run --save-dev
+./node_modules/.bin/webdriver-manager update
 ```
 
 Puis on ajoute les tâches dans le fichier `Gruntfile.js` :
 ```js
 grunt.initConfig({
-    connect: {
-        test: {
-            options: {
-                port: 9001,
-                hostname: 'localhost',
-                base: [
-                    '.tmp',
-                    'test',
-                    '<%= yeoman.app %>'
-                ]
-            }
-        }
-    },
-    protractor: {
-        e2e: {
-            options: {
-                configFile: "protractor-e2e.conf.js",
-                args: {seleniumAddress: 'http://localhost:4444'}
-            }
-        }
-    },
-    run: {
-        chromedriver: {
-            options: {
-                wait: false,
-                quiet: true,
-                ready: true
-            },
-            cmd: require('chromedriver').path,
-            args: [
-                '--port=4444',
-                '--no-sandbox'
-            ]
-        }
+  connect: {
+    dist: {
+      options: {
+        port: 9000,
+        hostname: 'localhost',
+        base: 'dist'
+      }
     }
+  },
+  protractor: {
+    local: {
+      options: {
+        configFile: "protractor-local.conf.js"
+      }
+    }
+  }
 });
 
-grunt.registerTask('test-e2e', [
-    'connect:test',
-    'run:chromedriver',
-    'protractor:e2e',
-    'stop:chromedriver'
+grunt.registerTask('test', [
+  'connect:dist',
+  'protractor:local'
 ]);
 ```
 
@@ -101,7 +93,7 @@ grunt.registerTask('test-e2e', [
 
 L'ensemble de nos projets jouent automatiquement leurs tests sur un serveur Jenkins commun qui ne dispose pas de navigateurs graphiques. Nous aurions pu mettre en place au sein de notre infrastructure un serveur Selenium pour répondre à cette problèmatique. Mais les contraintes du projet ne nous autorisaient pas à y consacrer le temps nécessaire. Nous avons donc opté pour une solution tiers plus rapide à mettre en œuvre : [SauceLabs](https://saucelabs.com/), plateforme de tests hébergée dans le “cloud”.
 
-Une fois son compte créé, il est nécessaire de faire évoluer son fichier de configuration protractor :
+Une fois son compte créé, on crée un nouveau fichier de configuration protractor `protractor-saucelabs.conf.js` :
 
 ```js
 exports.config =  {
@@ -130,60 +122,84 @@ exports.config =  {
     {
       browserName: 'chrome',
       platform: 'Windows 8.1'
-    },
-    {
-      browserName: 'firefox',
-      platform: 'Windows 8.1'
     }
   ]
 };
 ```
 
-Puis le fichier `Gruntfile.js` doit être adapté pour lancer *SauceConnect*, l’interface entre SauceLabs et l’application, avant le lancement des tests :
+Notons que l'on peut lancer ses tests sur autant de couples OS/navigateurs que l'on souhaite en remplissant le tableau `multiCapabilities`. Le fichier `Gruntfile.js` doit être adapté pour lancer *SauceConnect*, l’interface entre SauceLabs et l’application, avant le démarrage des tests :
 
 ```js
-protractor: {
-      saucelabs: {
-        options: {
-          configFile: 'protractor-saucelabs.conf.js'
-        }
+grunt.initConfig({
+  connect: {
+    dist: {
+      options: {
+        port: 9000,
+        hostname: 'localhost',
+        base: 'dist'
+      }
+    }
+  },
+  protractor: {
+    local: {
+      options: {
+        configFile: 'protractor-local.conf.js'
       }
     },
-
-    run: {
-      installsc: {
-        options: {
-          wait: true
-        },
-        cmd: 'bash',
-        args: [
-          '-c',
-          'test -d sc-4.2-linux || (wget https://saucelabs.com/downloads/sc-4.2-linux.tar.gz && tar xvf sc-4.2-linux.tar.gz)'
-        ]
+    saucelabs: {
+      options: {
+        configFile: 'protractor-saucelabs.conf.js'
+      }
+    }
+  },
+  run: {
+    installsc: {
+      options: {
+        wait: true
       },
-      sauceconnect: {
-        options: {
-          wait: false,
-          quiet: true,
-          ready: /Sauce Connect is up/
-        },
-        cmd: './sc-4.2-linux/bin/sc',
-        args: [
-          '-u',
-          'mySauceUser',
-          '-k',
-          'mySauceKey'
-        ]
-      }
+      cmd: 'bash',
+      args: [
+        '-c',
+        'test -d sc-4.2-linux || (wget https://saucelabs.com/downloads/sc-4.2-linux.tar.gz && tar xvf sc-4.2-linux.tar.gz)'
+      ]
     },
+    sauceconnect: {
+      options: {
+        wait: false,
+        quiet: true,
+        ready: /Sauce Connect is up/
+      },
+      cmd: './sc-4.2-linux/bin/sc',
+      args: [
+        '-u',
+        'mySauceUser',
+        '-k',
+        'mySauceKey'
+      ]
+    }
+  }
+});
+  
 
-grunt.registerTask('_saucelabs', [
-    'run:installsc',
-    'run:sauceconnect',
-    'protractor:saucelabs',
-    'stop:sauceconnect'
-  ]);
+grunt.registerTask('test-e2e', function (target) {
+  var tasks = [
+    'connect:dist'
+  ];
+
+  if (target === 'local') {
+    tasks.push('protractor:local');
+  } else {
+    tasks.push('run:installsc');
+    tasks.push('run:sauceconnect');
+    tasks.push('protractor:saucelabs');
+    tasks.push('stop:sauceconnect');
+  }
+
+  grunt.task.run(tasks);
+});
 ```
+
+Avec cette configuration, nous pouvez lancer nos tests en local sur notre machine avec `grunt test-e2e:local` ou à distance sur SauceLabs avec `grunt test-e2e`.
 
 #### Notre premier test
 
@@ -202,17 +218,17 @@ On remarque que l’écriture d’un test e2e utilise, comme les tests unitaires
 
 #### Débugger avec Protractor
 
-Lorsque vous lancer les tests avec la commande `grunt test-e2e`, vous remarquerez que Chrome est réellement exécuté mais vous ne verrez pas grand chose car l’affichage est bien trop rapide. Il est possible de mettre des points d’arrêt dans ses tests pour y voir plus clair et pour, par exemple, consulter la console Javascript du navigateur. Pour cela, il faut utiliser la fonction `browser.debugger()` comme point d’arrêt et ajouter l’option `debug` dans le fichier `Gruntfile.js` : 
+Lorsque vous lancerez les tests en local, vous remarquerez que Chrome est réellement exécuté mais vous ne verrez pas grand chose car l’affichage est bien trop rapide. Il est possible de mettre des points d’arrêt dans ses tests pour y voir plus clair et pour, par exemple, consulter la console Javascript du navigateur. Pour cela, il faut utiliser la fonction `browser.debugger()` comme point d’arrêt et ajouter l’option `debug` dans le fichier `Gruntfile.js` : 
 
 ```js
 protractor: {
   e2e: {
-    	options: {
-      	configFile: 'protractor-e2e.conf.js',
-      	args: {seleniumAddress: 'http://localhost:4444'},
-      	debug: true
-    	}
+  	options: {
+    	configFile: 'protractor-e2e.conf.js',
+    	args: {seleniumAddress: 'http://localhost:4444'},
+    	debug: true
   	}
+  }
 }
 ```
 
