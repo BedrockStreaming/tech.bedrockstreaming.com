@@ -253,23 +253,26 @@ Dans les tests e2e, on veut tout tester, en particulier les comportements qui di
 
 ```js
 it('comportement avec une autre valeur', function () {
-browser.addMockModule('config', function () {
-    	angular.module('config', []).constant('config', {
-      		'ma_variable': 'une_autre_valeur'
-    	});
+  browser.addMockModule('config', function () {
+  	angular.module('config', []).constant('config', {
+    		'ma_variable': 'une_autre_valeur'
+  	});
   });
 
-// mon test
+  // mon test
+  
+  browser.removeMockModule('config');
 });
 ```
 
 #### Mocker le service `$http`
 
-Dans notre application, un fichier externe est requêté régulièrement via le service Angular `$http`. AngularJS fournit déjà un mock complet de ce service nommé `$httpBackend`. Pour y avoir accès, il faut ajouter la dépendance `angular-mocks` en `devDependencies` dans son fichier `bower.json` et inclure le fichier `bower_components/angular-mocks/angular-mocks.js` dans l’application en développement. `$httpBackend` permet de définir quels appels HTTP doivent être interceptés et quelles réponses doivent être renvoyées. La difficulté dans notre cas réside dans le fait de pouvoir simuler le changement d’état du fichier distant dans un même test pour pouvoir vérifier les changements de vue qui en découlent.
+Dans notre application, un fichier externe est requêté régulièrement via le service Angular `$http`. AngularJS fournit déjà un mock complet de ce service nommé `$httpBackend`. Pour y avoir accès, il faut ajouter la dépendance `angular-mocks` en `devDependencies` dans son fichier `bower.json` et inclure le fichier `bower_components/angular-mocks/angular-mocks.js` dans l’application en développement. `$httpBackend` permet de définir quels appels HTTP doivent être interceptés et quelles réponses doivent être renvoyées.
 
-Un exemple de code avec $httpBackend nu.
 
-Puis parler du module de Nico Chaulet qui simplie tout ça et un exemple avec.
+La difficulté dans notre cas réside dans le fait de pouvoir simuler le changement d’état du fichier distant dans un même test pour pouvoir vérifier les changements de vue qui en découlent. Il est possible de le faire directement via `$httpBackend` moyennant quelques acrobaties, mais la librairie [HttpBackend](https://github.com/nchaulet/httpbackend) simplifie grandement son utilisation pour ce type de tests.
+
+Exemple
 
 cf article Nico Chaulet : http://blog.nchaulet.fr/test-angularjs-app-mock-backend/
 
