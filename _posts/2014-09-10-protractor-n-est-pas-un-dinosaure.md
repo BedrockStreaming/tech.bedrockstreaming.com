@@ -61,8 +61,9 @@ On installe les binaires nécessaires au lancement de Chrome via protractor :
 ./node_modules/.bin/webdriver-manager update
 ```
 
-Puis on ajoute les tâches dans le fichier `Gruntfile.js` :
+Puis on ajoute les tâches grunt :
 ```js
+/* Gruntfile.js */
 grunt.initConfig({
   connect: {
     dist: {
