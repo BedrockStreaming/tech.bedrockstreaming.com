@@ -41,6 +41,8 @@ exports.config =  {
 };
 ```
 
+Tous les tests e2e de notre application doivent être écrits dans des fichiers javascript dont le nom est suffixé par `.e2e.js`.
+
 ### Un navigateur pour mes tests
 
 Pour exécuter ses tests dans les conditions réelles son application, il faut un navigateur. Nous développons sur un serveur distant en SSH. Le seul navigateur utilisable est donc un browser headless, le plus connu et utilisé étant [PhantomJS](http://phantomjs.org/). Cependant, combiné à Protractor, ce dernier est particulièrement instable pour le moment et il n'est pas recommandé de l'utiliser. Nous optons donc pour Chrome (via le plugin chromedriver). Nécessitant une interface graphique, nous ne pourrons donc pas lancer nos tests sur le serveur de développement mais nous devrons le faire en local sur nos machines.
