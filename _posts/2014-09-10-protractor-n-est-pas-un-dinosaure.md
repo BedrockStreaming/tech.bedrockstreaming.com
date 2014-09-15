@@ -310,10 +310,10 @@ describe('Test workflow', function() {
 {% endhighlight %}
 
 ### Oui, mais...
-Protractor nous a été indispensable pour mettre en oeuvre les tests fonctionnels sur notre application car son intégration avec AngularJS offre des possibilités que les autres frameworks de tests fonctionnels n'ont pas. Cependant, avec le recul que l'on peut avoir sur notre projet :
+Protractor nous a été indispensable pour implémenter les tests fonctionnels sur notre application car son intégration avec AngularJS offre des possibilités que les autres frameworks de tests fonctionnels n'ont pas. On pense principalement à la synchronisation qui est mise en œuvre entre les tests et l'initialisation d'Angular dans la page ("wait for angular"). Cependant, avec le recul que l'on peut avoir sur notre projet :
 
-* il faut l'avouer, Protractor n'est pas aussi simple à mettre en œuvre que [Behat](http://docs.behat.org/) par exemple,
-* le debuggage est assez pénible car les messages d'erreur sont souvent peu verbeux et, c'est l'inconvénénient de tester du javascript avec du javascript, on se sait pas toujours où se situe l'erreur (dans les tests ou dans le code applicatif ?),
+* il faut l'avouer, Protractor n'est pas aussi simple à mettre en place que [Behat](http://docs.behat.org/) par exemple,
+* le debuggage est assez pénible car les messages d'erreur sont souvent peu verbeux et, c'est l'inconvénénient de tester du javascript avec du javascript, on ne sait pas toujours où se situe l'erreur (dans les tests ou dans le code applicatif ?),
 * Protractor est parfois instable avec les webdrivers utilisés, ce qui nous oblige à relancer les tests manuellement,
 * nos tests dans SauceLabs sont (très) lents, ce qui nous a contraint à la longue à réduire le nombre de navigateurs testés (améliorant par la même occasion la stabilité des tests).
 
