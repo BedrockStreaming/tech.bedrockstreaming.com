@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Non, Protractor n'est pas un dinosaure"
+title: "Protractor, la Rising Star des tests E2E"
 description: "Comment mettre en place des tests E2E sur son application AngularJS : outils et problématiques."
 author:
   name: Team Cytron
@@ -16,10 +16,10 @@ image:
   credit: Dominik Bartsch
   creditlink: https://www.flickr.com/photos/downhilldom1984/5807857860
 comments: true
-permalink: test-e2e-angularjs-protractor.html
+permalink: tests-e2e-angularjs-protractor.html
 ---
 
-Familier des tests fonctionnels avec Behat et Atoum pour des applications majoritairement PHP, nous l’étions beaucoup moins avec les tests end-2-end pour des applications pures Javascript, qui plus est, sous [AngularJS](https://angularjs.org/). L’objectif de cet article est de montrer le cheminement que nous avons emprunté pour mettre en place ces tests sur une de nos applications et pour gérer les difficultés qui en ont découlé.
+Familier des tests fonctionnels avec Behat et Atoum pour des applications majoritairement PHP, nous l’étions beaucoup moins avec les tests end-to-end pour des applications pures Javascript, qui plus est, sous [AngularJS](https://angularjs.org/). Les tests end-to-end ou tests e2e ne sont autres que des tests fonctionnels dans la domaine du Javascript. L’objectif de cet article est de montrer le cheminement que nous avons emprunté pour mettre en place ces tests sur une de nos applications et pour gérer les difficultés qui en ont découlé.
 
 ### Le contexte
 
@@ -41,7 +41,7 @@ exports.config =  {
 };
 {% endhighlight %}
 
-Tous les tests e2e de notre application seront écrits dans des fichiers javascript dont le nom est suffixé par `.e2e.js`.
+Tous les tests e2e de notre application sont écrits dans des fichiers javascript dont le nom est suffixé par `.e2e.js`. Nous avons en effet fait le choix d'une architecture modulaire se retrouvant dans l'organisation des dossiers de notre projet : les fichiers de tests e2e se trouvent dans les mêmes répertoires que les controllers auxquels ils sont rattachés [^1].
 
 ### Un navigateur pour mes tests
 
@@ -219,7 +219,7 @@ describe('Controller: MainCtrl', function () {
 });
 {% endhighlight %}
 
-On remarque que l’écriture d’un test e2e utilise, comme les tests unitaires, la syntaxe du framework [Jasmine](http://jasmine.github.io/) : un bloc `describe` regroupe une suite de tests définis dans des bloc `it`. Les variables de configuration définies dans les fichiers de configuration Protractor sont utilisables via la variable globale `browser`, variable qui nous permettra d’entretenir le lien entre nos tests et le code exécuté dans le navigateur. Pour mieux appréhender les étapes du processus et les erreurs qui se produisent, il est en effet très important de bien comprendre la séparation entre le code Javascript exécuté dans Node.js via Protractor, qui correspond au déroulement des tests, et le code Javascript de notre application qui lui est exécuté dans le browser et avec lequel on ne peut interagir depuis les tests que par certaines fonctions du framework (`element`, `executeScript`, `addMockModule`, etc.)[^1]. Ce sont deux univers d'exécution bien distincts.
+On remarque que l’écriture d’un test e2e utilise, comme les tests unitaires, la syntaxe du framework [Jasmine](http://jasmine.github.io/) : un bloc `describe` regroupe une suite de tests définis dans des blocs `it`. Les variables de configuration définies dans les fichiers de configuration Protractor sont utilisables via la variable globale `browser`, variable qui nous permettra d’entretenir le lien entre nos tests et le code exécuté dans le navigateur. Pour mieux appréhender les étapes du processus et les erreurs qui se produisent, il est en effet très important de bien comprendre la séparation entre le code Javascript exécuté dans Node.js via Protractor, qui correspond au déroulement des tests, et le code Javascript de notre application qui lui est exécuté dans le browser et avec lequel on ne peut interagir depuis les tests que par certaines fonctions du framework (`element`, `executeScript`, `addMockModule`, etc.)[^2]. Ce sont deux univers d'exécution bien distincts.
 
 ### Débugger avec Protractor
 
@@ -272,7 +272,7 @@ it('comportement avec une autre valeur', function () {
 Dans notre application, un fichier externe est requêté régulièrement via le service Angular `$http`. AngularJS fournit déjà un mock complet de ce service nommé [`$httpBackend`](https://docs.angularjs.org/api/ngMock/service/$httpBackend). Pour y avoir accès, il faut ajouter la dépendance `angular-mocks` en `devDependencies` dans son fichier `bower.json` et inclure le fichier `bower_components/angular-mocks/angular-mocks.js` dans l’application en développement. `$httpBackend` permet de définir quels appels HTTP doivent être interceptés et quelles réponses doivent être renvoyées.
 
 
-La difficulté dans notre cas réside dans le fait de pouvoir simuler le changement d’état du fichier distant dans un même test pour pouvoir vérifier les changements de vue qui en découlent. Il est possible de le faire directement via `$httpBackend` moyennant quelques acrobaties, mais la librairie [HttpBackend](https://github.com/nchaulet/httpbackend) simplifie grandement son utilisation pour ce type de tests [^2].
+La difficulté dans notre cas réside dans le fait de pouvoir simuler le changement d’état du fichier distant dans un même test pour pouvoir vérifier les changements de vue qui en découlent. Il est possible de le faire directement via `$httpBackend` moyennant quelques acrobaties, mais la librairie [HttpBackend](https://github.com/nchaulet/httpbackend) simplifie grandement son utilisation pour ce type de tests [^3].
 
 {% highlight js %}
 var HttpBackend = require('httpbackend');  
@@ -317,5 +317,6 @@ Protractor nous a été indispensable pour implémenter les tests fonctionnels s
 * Protractor est parfois instable avec les webdrivers utilisés, ce qui nous oblige à relancer les tests manuellement,
 * nos tests dans SauceLabs sont (très) lents, ce qui nous a contraint à la longue à réduire le nombre de navigateurs testés (améliorant par la même occasion la stabilité des tests).
 
-[^1]: [Protractor API](http://angular.github.io/protractor/#/api)
-[^2]: [Angular e2e tests, Mock your backend](http://blog.nchaulet.fr/test-angularjs-app-mock-backend/).
+[^1]: [Scalable code organization in AngularJS](https://medium.com/opinionated-angularjs/scalable-code-organization-in-angularjs-9f01b594bf06)
+[^2]: [Protractor API](http://angular.github.io/protractor/#/api)
+[^3]: [Angular e2e tests, Mock your backend](http://blog.nchaulet.fr/test-angularjs-app-mock-backend/).
