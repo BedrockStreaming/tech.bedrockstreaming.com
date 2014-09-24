@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Protractor, la Rising Star des tests E2E"
+title: "Tests E2E sur son application AngularJS avec Protractor"
 description: "Comment mettre en place des tests E2E sur son application AngularJS : outils et problématiques."
 author:
   name: Team Cytron
@@ -10,13 +10,13 @@ author:
   facebook:
   github:
 category:
-tags: [qualite, tests, javascript, protractor, angular, cytron]
+tags: [qualite, tests, javascript, angular, protractor, cytron]
 image:
   feature: posts/cytron/protractor.jpg
   credit: Dominik Bartsch
   creditlink: https://www.flickr.com/photos/downhilldom1984/5807857860
 comments: true
-permalink: tests-e2e-angularjs-protractor.html
+permalink: tests-e2e-application-angularjs-protractor.html
 ---
 
 Familier des tests fonctionnels avec Behat et Atoum pour des applications majoritairement PHP, nous l’étions beaucoup moins avec les tests end-to-end pour des applications pures Javascript, qui plus est, sous [AngularJS](https://angularjs.org/). Les tests end-to-end ou tests e2e ne sont autres que des tests fonctionnels dans la domaine du Javascript. L’objectif de cet article est de montrer le cheminement que nous avons emprunté pour mettre en place ces tests sur une de nos applications et pour gérer les difficultés qui en ont découlé.
