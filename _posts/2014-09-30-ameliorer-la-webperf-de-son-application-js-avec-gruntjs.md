@@ -85,7 +85,7 @@ Grace à cet ajout, nous économiserons une requête HTTP pour chacune des image
 Une autre bonne pratique est de versionner les assets en production. Cela signifie, donner un nom unique à chaque fichier statique (Js, Css, Image), ne changeant pas, tant que le fichier en question n’aura pas subi de modification, dans le but de pouvoir mettre un cache navigateur (Expire) et un cache CDN/Proxy Cache le plus long possible (Cache-control).
 Nous passerons de `/images/info.jpg` à `/images/a21992d7.info.jpg` par exemple.
 
-Nous utilisons ici le plugin [grunt-usemin](https://github.com/yeoman/grunt-usemin), un peu plus complexe à configurer, car il va d’abord devoir versionner les assets ayant changés, et ensuite, mettre à jour tous vos fichiers html, css, js, afin de mettre à jour les références vers les fichiers en question.
+Nous utilisons ici le plugin [grunt-rev](https://github.com/cbas/grunt-rev) (en combinaison avec [grunt-usemin](https://github.com/yeoman/grunt-usemin)), qui va va d’abord  versionner les assets ayant changés, et ensuite, mettre à jour les références vers les fichiers en question dans tous vos fichiers Html, Css, Js.
 
 ### Concaténation des fichiers JS
 
