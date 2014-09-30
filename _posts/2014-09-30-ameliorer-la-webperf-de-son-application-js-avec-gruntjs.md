@@ -91,7 +91,7 @@ Nous utilisons ici le plugin [grunt-usemin](https://github.com/yeoman/grunt-usem
 
 Directement dans le code HTML, toujours avec le plugin [grunt-usemin](https://github.com/yeoman/grunt-usemin), vous allez pouvoir mettre des commentaires HTML pour définir quels ensembles de fichiers devra être concaténé.
 La bonne pratique est d’avoir un fichier app.js avec son code maison, un fichier vendor.js avec les librairies tierces, et potentiellement un fichier de config.js
-Etant donné que dans notre cas, 99% du poids Js est concentré dans "Vendor", nous avons décidés de concaténer l’ensemble dans un seul fichier.
+Etant donné que dans notre cas, 99% du poids Js est concentré dans "Vendor", nous avons décidé de concaténer l’ensemble dans un seul fichier.
 
 {% highlight html %}
 <!-- build:js(.tmp) scripts/risingstar.js -->
@@ -106,7 +106,7 @@ Etant donné que dans notre cas, 99% du poids Js est concentré dans "Vendor", n
 
 ### Inlining des templates
 
-Pour finir, vous aurez peut-être remarqué, si vous développez des SPA avec angular, ou un autre framework moderne, un changement de route (ou d’état) de votre application (ou l’affichage d’une directive) va impliquer des appels XHR pour charger les nouveaux templates a afficher. La bonne pratique ici étant de découper au maximum tous les templates dans des fichiers distincts.
+Pour finir, vous aurez peut-être remarqué, si vous développez des SPA avec angular, ou un autre framework moderne, un changement de route (ou d’état) de votre application (ou l’affichage d’une directive) va impliquer des appels XHR pour charger les nouveaux templates à afficher. La bonne pratique ici étant de découper au maximum tous les templates dans des fichiers distincts.
 Cela ne pose pas de problème en temps normal, mais dans notre cas, cela ne respecte pas nos ambitions de départ.
 
 Angular a la particularité de permettre d’utiliser la balise script pour charger des templates :
@@ -114,15 +114,15 @@ Angular a la particularité de permettre d’utiliser la balise script pour char
 <script type="text/ng-template" id="views/info.html">Code HTML du template</script>
 {% endhighlight %}
 
-Si votre routeur, ou une directive demande un template, Angular, avant de vérifier si le fichier existe, vérifiera si une balise `<script type=’text/ng-template’>` a été déclarée avec l’identifiant correspondant au chemin demandé.
+Si votre routeur ou une directive demande un template, avant de vérifier si le fichier existe, Angular vérifiera si une balise `<script type=’text/ng-template’>` a été déclarée avec l’identifiant correspondant au chemin demandé.
 
-Grunt via le plugin [grunt-angular-inline-templates](https://github.com/wmluke/grunt-inline-angular-templates), nous permet d’automatiser cette tâche au build, afin de regrouper dans le index.html du build, tous les templates dans un script avec l’id correspondant au chemin du fichier html original. De cette manière, nous n’avons plus aucun appel HTTP a faire pendant toute l’utilisation de l’application.
+Grunt via le plugin [grunt-angular-inline-templates](https://github.com/wmluke/grunt-inline-angular-templates), nous permet d’automatiser cette tâche au build, afin de regrouper dans le index.html du build, tous les templates dans un script avec l’id correspondant au chemin du fichier html original. De cette manière, nous n’avons plus aucun appel HTTP à faire pendant toute l’utilisation de l’application.
 Attention toutefois, cela signifie que le poids du fichier HTML original va forcément augmenter.
 
 
 ### Conclusion
 
-Comme vous avez pu le voir, nous avons grandement optimisé notre application, en utilisant simplement des plugins Grunt à notre disposition. Nous travaillons donc sur un espace de développement respectant toutes les bonnes pratiques (découpages des fichiers Js, css, html au maximum, code commenté …) et toutes les opérations d’optimisation sont automatiquement éfféctuées au build, fait avant chaque déploiement.
+Comme vous avez pu le voir, nous avons grandement optimisé notre application, en utilisant simplement des plugins Grunt à notre disposition. Nous travaillons donc sur un espace de développement respectant toutes les bonnes pratiques (découpages des fichiers Js, Css, Html au maximum, code commenté …) et toutes les opérations d’optimisation sont automatiquement effectuées au build, fait avant chaque déploiement.
 
 Attention, cela signifie aussi que votre projet en production devient relativement différent de celui que vous testé en développement. Il devient donc important de mettre en place des tests fonctionnels sur le build de production (avec [Protractor](http://tech.m6web.fr/tests-e2e-application-angularjs-protractor.html) par exemple, ou même [Behat](http://docs.behat.org/en/latest/)), et de tester régulièrement la bonne génération et le bon fonctionnement du build de prod.
 
