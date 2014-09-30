@@ -67,7 +67,7 @@ Nous avons donc un premier fichier `.less` qui va contenir toutes les images d�
 Le plugin Grunt [grunt-css-url-embed](https://github.com/mihhail-lapushkin/grunt-css-url-embed) sera configuré pour remplacer les urls présentes dans ce fichier par la version data-uri (=source de l’image encodée en base64).
 Il est important de se concentrer uniquement sur les images « d’interface », car le poids des images sera ici augmenté d’environ 30% (à cause du base64).
 
-Dans notre css principal, on pourra ensuite mettre cette image en background d’une classe CSS
+Dans notre css principal, on pourra ensuite mettre cette image en background d’une classe CSS :
 
 {% highlight css %}
 .faceless {
