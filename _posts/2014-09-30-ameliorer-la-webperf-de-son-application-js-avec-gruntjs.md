@@ -25,7 +25,7 @@ C’est une problématique qu’on croit souvent lié uniquement aux backends (s
 
 C’est notamment le cas pour une "[Single Page Application](http://fr.wikipedia.org/wiki/Application_web_monopage)" [Angular.Js](https://angularjs.org/) que nous développons en ce moment.
 
-L’objectif ici, est d’avoir une application, qui exécutera le moins de requêtes possible pour s’afficher, et qui une fois affichée, sera quasiment autonome, et ne fera que le minimum de requête http ensuite. Ceci afin de garantir, que lorsque quelqu’un charge l’application, l’expérience est quasi parfaite, même si entre temps, le CDN ou l'hébergement connait une surcharge temporaire.
+L’objectif ici est d’avoir une application qui exécutera le moins de requêtes possible pour s’afficher, et qui ensuite sera quasiment autonome en ne faisant que le minimum de requêtes HTTP. Ceci afin de garantir, que lorsque quelqu’un charge l’application, l’expérience est quasi parfaite, même si entre temps, le CDN ou l'hébergement connait une surcharge temporaire.
 
 L’autre avantage de diminuer le nombre d’appels HTTP, c’est aussi de limiter l’impact de la latence réseau, encore plus imposante dans notre cas, car notre cible est majoritairement mobile.
 
