@@ -23,7 +23,7 @@ Quand ils sont liés à des sites à fort trafic ou à une émission télé ([#e
 
 C’est une problématique qu’on croit souvent lié uniquement aux backends (scripts serveurs, base de données etc), en oubliant souvent que le front-end est aussi, voir tout autant concerné.
 
-C’est notamment le cas pour une "Single Page Application" [Angular.Js](https://angularjs.org/) que nous développons en ce moment.
+C’est notamment le cas pour une "[Single Page Application](http://fr.wikipedia.org/wiki/Application_web_monopage)" [Angular.Js](https://angularjs.org/) que nous développons en ce moment.
 
 L’objectif ici, est d’avoir une application, qui exécutera le moins de requêtes possible pour s’afficher, et qui une fois affichée, sera quasiment autonome, et ne fera que le minimum de requête http ensuite. Ceci afin de garantir, que lorsque quelqu’un charge l’application, l’expérience est quasi parfaite, même si entre temps, le CDN ou l'hébergement connait une surcharge temporaire.
 
@@ -31,7 +31,7 @@ L’autre avantage de diminuer le nombre d’appels HTTP, c’est aussi de limit
 
 Pour les applications "Client-Side", nous utilisons [Grunt.Js](http://gruntjs.com/) pour automatiser toutes les tâches de développement, build, déploiement … (Nul doute que la même chose existe avec [Gulp](http://gulpjs.com/) pour les plus Hipsters d’entre vous). Grunt regorge de plugins en tout genre pour automatiser énormément de choses coté WebPerf, commençons par le plus évident et le plus simple.
 
-P.S : Je passe volontairement l’installation/initialisation de Grunt ainsi que de ses plugins. Le web regorgeant de ressources là dessus.
+P.S : Je passe volontairement l’[installation/initialisation de Grunt](http://gruntjs.com/getting-started) ainsi que de ses plugins. Le web regorgeant de ressources là dessus.
 
 ### Minification HTML
 
