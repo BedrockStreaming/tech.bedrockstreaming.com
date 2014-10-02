@@ -87,8 +87,8 @@ grunt.initConfig({
 });
 
 grunt.registerTask('test', [
-  'connect:dist',
   'build',
+  'connect:dist',
   'protractor:local'
 ]);
 {% endhighlight %}
@@ -189,8 +189,8 @@ grunt.initConfig({
 
 grunt.registerTask('test-e2e', function (target) {
   var tasks = [
-    'connect:dist',
-    'build'
+    'build',
+    'connect:dist'
   ];
 
   if (target === 'local') {
