@@ -61,7 +61,7 @@ exports.config =  {
 On installe les binaires nécessaires au lancement de Chrome via Protractor :
 
 {% highlight bash %}
-./node_modules/.bin/webdriver-manager update
+./node_modules/grunt-protractor-runner/node_modules/.bin/webdriver-manager update
 {% endhighlight %}
 
 Puis on ajoute les tâches Grunt :
@@ -88,6 +88,7 @@ grunt.initConfig({
 
 grunt.registerTask('test', [
   'connect:dist',
+  'build',
   'protractor:local'
 ]);
 {% endhighlight %}
@@ -188,7 +189,8 @@ grunt.initConfig({
 
 grunt.registerTask('test-e2e', function (target) {
   var tasks = [
-    'connect:dist'
+    'connect:dist',
+    'build'
   ];
 
   if (target === 'local') {
