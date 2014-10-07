@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Surcharger un provider AngularJS"
-description: "Surcharger un provider AngularJS"
+title: "Providers AngularJS et configuration dynamique"
+description: "Comment surcharger un provider AngularJS pour le rendre configurable dynamiquement."
 author:
   name: Team Cytron
   avatar: cytron.png
@@ -10,20 +10,20 @@ author:
   facebook:
   github:
 category:
-tags: [AngularJS, cytron]
+tags: [configuration, angular, cytron]
 image:
-  feature:
-  credit:
-  creditlink:
+  feature: posts/cytron/providersangular.jpg
+  credit: Cedrennes
+  creditlink: https://www.flickr.com/photos/cedrennes/5714109473
 comments: true
+permalink: surcharger-un-provider-angular.html
 ---
-## Surcharger un provider AngularJS
 
-Nous avons eu besoin de surcharger un provider AngularJS – [AnalyticsProvider](https://github.com/revolunet/angular-google-analytics) – pour le rendre configurable dynamiquement – à partir de `$route` qui n'est pas disponible dans la phase de configuration d'AngularJS.
+Nous avons eu besoin de surcharger un [provider AngularJS](https://docs.angularjs.org/guide/providers) – [AnalyticsProvider](https://github.com/revolunet/angular-google-analytics) – pour le rendre configurable dynamiquement en fonction d'un paramètre de la route. Le service `$route` n'étant pas disponible dans la phase de configuration d'AngularJS, il a fallu ruser...
 
 Le but est donc de changer la méthode `$get` de ce provider afin de lui ajouter notre dépendance et ainsi finir notre configuration.
 
-Il existe bien une méthode [`decorator()`](https://docs.angularjs.org/api/auto/service/$provide#decorator) dans le service d'injection de dependance d'AngularJS, mais celle-ci ne permet que de décorer des services et non pas leurs providers.
+Il existe bien une méthode [`decorator()`](https://docs.angularjs.org/api/auto/service/$provide#decorator) dans le service d'injection de dependance d'AngularJS, mais celle-ci ne permet que de décorer des services et pas leurs providers.
 
 Nous allons donc mettre les mains dans l'`$injector` pour récupérer et modifier à la volée le provider :
 
@@ -43,7 +43,7 @@ Maintenant que nous avons le `$get`, il faut le modifier pour ajouter notre dép
 this.$get = ['$document', '$rootScope', '$location', '$window', function($document, $rootScope, $location, $window) {
 {% endhighlight %}
 
-Il faut donc modifier ce tableau en ajoutant nos dépendances et en remplaçant la fonction :
+Nous devons modifier ce tableau en ajoutant nos dépendances et en remplaçant la fonction :
 
 {% highlight js %}
 // la fonction d'origine est le dernier élément du tableau
@@ -61,5 +61,7 @@ $get[$get.length] = function () {
 };
 {% endhighlight %}
 
-On peut noter l'utilisation de [`arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) qui permet de rester générique et de garder la compatibilité en cas de changement des dépendances du module surchargé.
+On peut noter l'utilisation de l'objet [`arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) qui permet de rester générique et de garder la compatibilité en cas de changement des dépendances du module surchargé.
+
+Grâce à cette astuce, notre service `Analytics` est maintenant configuré dynamiquement selon nos souhaits avant son utilisation.
 
