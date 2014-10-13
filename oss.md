@@ -43,6 +43,8 @@ Here some projects open sourced :
 * [DaemonBundle](https://github.com/M6Web/DaemonBundle) Bundle easing the creation of daemon sf2 commands
 * [AwsBundle](https://github.com/M6Web/AwsBundle) : [AWS SDK](http://aws.amazon.com/sdkforphp/) as a Symfony2 service, with WSClientBundle functionnality (cache, logging, ...)
 * [WsClientBundle](https://github.com/M6Web/WsClientBundle) : Symfony2 bundle service to call external webservices, and adding cache, logging, ...
+* [LogBridgeBundle](https://github.com/M6Web/LogBridgeBundle) : Symfony Bundle to log Request/Response with Monolog.
+* [MonologExtraBundle](https://github.com/M6Web/MonologExtraBundle) : Provide extra features for Monolog.
 
 # Contribution to free projects
 
