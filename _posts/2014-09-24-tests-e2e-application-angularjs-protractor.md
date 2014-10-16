@@ -239,7 +239,8 @@ protractor: {
 }
 {% endhighlight %}
 
-Pour passer d’un point d’arrêt à l’autre, on saisit `c` comme *continue*.
+Pour passer d’un point d’arrêt à l’autre, on saisit `c` comme *continue*. Notez que cela ne fonctionnera pas si vous avez plus d'un navigateur dans le tableau `multiCapabilities` de votre configuration.
+
 On peut également ajouter l’option `--debug` à la commande `grunt test-e2e:local` pour afficher l’ensemble des requêtes lancées par l’application.
 
 ### Mocker sa config
