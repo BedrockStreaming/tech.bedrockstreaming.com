@@ -65,4 +65,4 @@ Throught github we participated to the improvement (we hope so) of many open sou
 * [macbre/phantomas](https://github.com/macbre/phantomas) : [#166](https://github.com/macbre/phantomas/pull/166)
 * [sensiolabs/SensioFrameworkExtraBundle](https://github.com/sensiolabs/SensioFrameworkExtraBundle) : [#260](https://github.com/sensiolabs/SensioFrameworkExtraBundle/pull/260)
 * [guzzle/guzzle3](https://github.com/guzzle/guzzle3) : [#38](https://github.com/guzzle/guzzle3/pull/38)
-
+* [grafana/grafana](https://github.com/grafana/grafana) : [#974](https://github.com/grafana/grafana/pull/974)
