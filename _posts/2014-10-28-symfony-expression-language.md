@@ -47,7 +47,8 @@ services:
       - [ setConfiguration, []]
 {% endhighlight %}
 
-La [configuration sémantique](http://symfony.com/fr/doc/current/cookbook/bundles/extension.html) est gérée par l'extension du bundle :
+La [configuration sémantique](http://symfony.com/fr/doc/current/cookbook/bundles/extension.html) est gérée par l'extension du bundle.
+Nous utilisons une définition de service abstraite qui sert de modèle pour les services qui sont générés à partir de la configuration sémantique.
 
 {% highlight php %}
 foreach ($config['processors'] as $name => $processor) {
