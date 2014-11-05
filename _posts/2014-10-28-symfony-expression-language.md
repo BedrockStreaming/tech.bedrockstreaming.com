@@ -19,10 +19,10 @@ comments: true
 permalink: symfony-expression-language.html
 ---
 
-Avec notre bundle [MonologExtra](http://github.com/M6Web/MonologExtraBundle), nous avons la possibilité d'ajouter des informations statiques dans le contexte de nos logs.
-Nous avons maintenant le besoin d'ajouter automatiquement d'autres informations plus dynamiques comme le nom de l'utilisateur.
+Avec notre bundle [MonologExtra](http://github.com/M6Web/MonologExtraBundle), nous avons la possibilité d'inclure des informations statiques dans le contexte de nos logs.
+Nous souhaiterions maintenant avoir aussi d'autres informations plus dynamiques comme le nom de l'utilisateur.
 
-Pour cela, nous avons donc ajouté la possibilité de configurer une expression qui sera évaluée par le composant [ExpressionLanguage](http://symfony.com/doc/current/components/expression_language/index.html) de Symfony.
+Pour cela, nous avons donc ajouté la possibilité de configurer une expression qui sera évaluée par le composant [ExpressionLanguage](http://symfony.com/doc/current/components/expression_language/index.html) de Symfony de cette manière :
 
 {% highlight yaml %}
 config:
@@ -30,7 +30,7 @@ config:
     user: expr(container.get('security.context').getToken() ? container.get('security.context').getToken().getUser().getUsername() : 'anonymous')
 {% endhighlight %}
 
-Nous avons donc injecté dans notre processeur Monolog une instance de `ExpressionLanguage` ainsi que le `container` :
+Pour interpréter cette expression, nous avons injecté dans notre processeur Monolog une instance de `ExpressionLanguage` ainsi que le `container` :
 
 {% highlight yaml %}
 services:
@@ -47,8 +47,7 @@ services:
       - [ setConfiguration, []]
 {% endhighlight %}
 
-La [configuration sémantique](http://symfony.com/fr/doc/current/cookbook/bundles/extension.html) est gérée par l'extension du bundle.
-Nous utilisons une définition de service abstraite qui sert de modèle pour les services qui sont générés à partir de la configuration sémantique.
+Nous utilisons une définition de service abstraite qui sert de modèle pour les services qui sont générés à partir de la [configuration sémantique](http://symfony.com/fr/doc/current/cookbook/bundles/extension.html) gérée par l'extension du bundle :
 
 {% highlight php %}
 foreach ($config['processors'] as $name => $processor) {
@@ -79,7 +78,7 @@ foreach ($config['processors'] as $name => $processor) {
 }
 {% endhighlight %}
 
-Et l'expression est finalement évaluée par le processeur en utilisant le composant :
+Et l'expression est finalement évaluée par le processeur en utilisant le composant quand la valeur est de la forme `expr(...)`, ceci permettant de garder une compatibilité ascendante avec les configurations statiques précédentes.
 
 {% highlight php %}
 protected function evaluateValue($value)
@@ -90,3 +89,5 @@ protected function evaluateValue($value)
     return $value;
 }
 {% endhighlight %}
+
+Avec la configuration présentée au début, nous récupérons ainsi l'environnement et l'utilisateur connecté dans le contexte de nos logs.
