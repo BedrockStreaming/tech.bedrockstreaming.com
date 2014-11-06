@@ -27,11 +27,11 @@ Chez M6Web, nous utilisons [Github Enterprise](https://enterprise.github.com/) e
 
 Nous utilisons aussi [HipChat](https://www.hipchat.com/) pour communiquer au quotidien et rapidemment au sein de nos équipes. Chaque création de Pull Request émet une notification sur HipChat. Cependant, le nombre de pull requests initiées augmente avec le temps et chacun tend à ignorer peu à peu les notifications ou y fait moins attention. Les Pull Requests s'accumulent sur certains projets et nous n'avions, jusqu'à présent, pas vraiment de moyen pour lister par équipe toutes les PR en cours. Cela nous permettrait d'avoir une vue globale et d'être plus réactifs et rigoureux.
 
-Il y a bien le nouveau [Pull Requests Dashboard](https://github.com/blog/1901-managing-issues-and-pull-requests-across-repositories) de Github avec ces filtres de recherche avancée qui permet de répertorier toutes ses PR ou celles d'une organisation. Cette mise à jour n'est pas encore entrée en application dans Github Enterprise. Mais surtout, nous avons plusieurs équipes au sein d'une même organisation et nous voulons pouvoir les gérer de manière indépendante : cette fonctionnalité ne résoud pas notre problématique.
+Il y a bien le nouveau [Pull Requests Dashboard](https://github.com/blog/1901-managing-issues-and-pull-requests-across-repositories) de Github avec ses filtres de recherche avancée qui permet de répertorier toutes ses PR ou celles d'une organisation. Cette mise à jour n'est pas encore entrée en application dans Github Enterprise. Mais surtout, nous avons plusieurs équipes au sein d'une même organisation et nous voulons pouvoir les gérer de manière indépendante : cette fonctionnalité ne résoud pas notre problématique.
 
 #### GTR !
 
-Nous avons donc développé [Github Team Reviewer](https://github.com/M6Web/GithubTeamReviewer), un outil ultra simple mais efficace qui permet en un coup d'oeil de voir toutes les PR de ses équipes et leur statut, qu'elles soient sur un Github Entreprise interne ou sur Github. Le projet utilise [AngularJS](https://angularjs.org/) et l'[API fournit par Github](https://developer.github.com/v3/). L’installation se fait sur n’importe quel serveur web et requiert npm (via [Node.js](http://nodejs.org/)) pour *builder* l'application grâce à [Bower](http://bower.io/) et [Gulp.js](http://gulpjs.com/).
+Nous avons donc développé [Github Team Reviewer](https://github.com/M6Web/GithubTeamReviewer), un outil ultra simple mais efficace qui permet en un coup d'œil de voir toutes les PR de ses équipes et leur statut, qu'elles soient sur un Github Entreprise interne ou sur Github. Le projet utilise [AngularJS](https://angularjs.org/) et l'[API fournit par Github](https://developer.github.com/v3/). L’installation se fait sur n’importe quel serveur web et requiert npm (via [Node.js](http://nodejs.org/)) pour *builder* l'application grâce à [Bower](http://bower.io/) et [Gulp.js](http://gulpjs.com/).
 
 L'application propose volontairement un nombre limité de paramètres de configuration éditables dans le fichier `config/config.json`:
 
@@ -41,7 +41,7 @@ L'application propose volontairement un nombre limité de paramètres de configu
   * les utilisateurs Github concernés,
   * les organisations Github concernées,
   * l'url de l'API à interroger (pour Github Enterprise, par défaut l'url de l'API public de Github est utilisée),
-  * un token utilisateur (utile pour augmenter le *rate limit* de l'API public).
+  * un [token utilisateur](https://help.github.com/articles/creating-an-access-token-for-command-line-use/) (utile pour augmenter le *rate limit* de l'API public).
 
 Une *select box* permet de basculer d'une équipe à une autre très facilement. Vous pouvez voir GTR en action sur [le site de démonstration](http://tech.m6web.fr/GithubTeamReviewer/dist/index.html).
 
