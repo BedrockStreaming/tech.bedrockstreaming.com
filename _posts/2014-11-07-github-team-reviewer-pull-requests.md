@@ -43,7 +43,7 @@ L'application propose volontairement un nombre limité de paramètres de configu
   * l'url de l'API à interroger (pour Github Enterprise, par défaut l'url de l'API public de Github est utilisée),
   * un token utilisateur (utile pour augmenter le *rate limit* de l'API public).
 
-Une *select box* permet de basculer d'une équipe à une autre très facilement.
+Une *select box* permet de basculer d'une équipe à une autre très facilement. Vous pouvez voir GTR en action sur [le site de démonstration](http://tech.m6web.fr/GithubTeamReviewer/dist/index.html).
 
 [Github Team Reviewer](https://github.com/M6Web/GithubTeamReviewer) est disponible en [open-source](http://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur [le compte Github de M6Web](https://github.com/M6Web).
 
