@@ -48,8 +48,7 @@ Sans revenir sur l’ensemble de la présentation, voici un retour sur les 12 fa
 
 [slides](https://speakerdeck.com/ubermuda/vers-des-applications-twelve-factor)
 
-**TODO** faire un retour plus personnel 
-
+Personnellement, j'ai trouvé cette conférence vraiment riche et instructive. Peut-être un peu plus d'exemples de configuration fig/docker aurait pu illustrer d'avantage. 
 
 ## La mesure ce n'est pas que pour le devops
 
