@@ -12,22 +12,26 @@ author:
 category:
 tags: [configuration, symfony, cytron]
 image:
-  feature:
-  credit:
-  creditlink:
+  feature: posts/cytron/symfonyexpressionlanguage.jpg
+  credit: Christophe Paquignon
+  creditlink: https://www.flickr.com/photos/kryyslee/7995303972
 comments: true
 permalink: symfony-expression-language.html
 ---
 
-Avec notre bundle [MonologExtra](http://github.com/M6Web/MonologExtraBundle), nous avons la possibilité d'inclure des informations statiques dans le contexte de nos logs.
+Grâce à notre bundle [MonologExtra](http://github.com/M6Web/MonologExtraBundle), nous avons la possibilité d'inclure des informations statiques dans le contexte de nos logs.
 Nous souhaiterions maintenant avoir aussi d'autres informations plus dynamiques comme le nom de l'utilisateur.
 
 Pour cela, nous avons donc ajouté la possibilité de configurer une expression qui sera évaluée par le composant [ExpressionLanguage](http://symfony.com/doc/current/components/expression_language/index.html) de Symfony de cette manière :
 
 {% highlight yaml %}
-config:
-    env: expr(container.getParameter('kernel.environment'))
-    user: expr(container.get('security.context').getToken() ? container.get('security.context').getToken().getUser().getUsername() : 'anonymous')
+m6_web_monolog_extra:
+    processors:
+        userProcessor:
+            type: ContextInformation
+            config:
+                env: expr(container.getParameter('kernel.environment'))
+                user: expr(container.get('security.context').getToken() ? container.get('security.context').getToken().getUser().getUsername() : 'anonymous')
 {% endhighlight %}
 
 Pour interpréter cette expression, nous avons injecté dans notre processeur Monolog une instance de `ExpressionLanguage` ainsi que le `container` :
@@ -91,3 +95,5 @@ protected function evaluateValue($value)
 {% endhighlight %}
 
 Avec la configuration présentée au début, nous récupérons ainsi l'environnement et l'utilisateur connecté dans le contexte de nos logs.
+
+[MonologExtraBundle](https://github.com/M6Web/MonologExtraBundle) est disponible en [open-source](http://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur le [compte GitHub de M6Web](https://github.com/M6Web).
