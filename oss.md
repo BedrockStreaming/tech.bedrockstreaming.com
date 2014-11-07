@@ -21,30 +21,31 @@ We use open source on a daily basis. For production servers or on our workstatio
 Here some projects open sourced:
 
 * [Coke](https://github.com/M6Web/Coke) is a Shell/Bash command using PHP Code Sniffer allowing rules management per project
+* [Babitch](https://github.com/M6Web/Babitch) and [BabitchClient](https://github.com/M6Web/BabitchClient) is a project to record foosball scores, archive them, and make them easily accessible
 * [GitHubEnterpriseArchive](https://github.com/M6Web/GitHubEnterpriseArchive) allows to archive and graph your GithubEnterprise timeline
+* [GitHubTeamReviewer](https://github.com/M6Web/GitHubTeamReviewer) is a monitoring tool that allows you to quickly view all Github pull requests of your teams and their statuses
+* [HttpToStatsd](https://github.com/M6Web/HttpToStatsd) is a node.js http to statsd logger
 * [JenkinsLight](https://github.com/M6Web/JenkinsLight) is a build monitoring tool (buildwall) that allows you to quickly detect failing projects for Jenkins
 * [JenkinsTerminalColors](https://github.com/M6Web/JenkinsTerminalColors) is a very lightweight Chrome extension that provides terminal colors in all console panels of Jenkins. It uses black Solarized theme
 * [VigoJS](https://github.com/M6Web/VigoJS) is a (small) Javascript tool using CasperJS and PhantomJS to make easily functional tests on web applications
-* [HttpToStatsd](https://github.com/M6Web/HttpToStatsd) is a node.js http to statsd logger
-* [Babitch](https://github.com/M6Web/Babitch) and [BabitchClient](https://github.com/M6Web/BabitchClient) is a project to record foosball scores, archive them, and make them easily accessible
 
 # Bundle and libs
-
-* [DomainUserBundle](https://github.com/M6Web/DomainUserBundle): User authentication by domain
-* [StatsdBundle](https://github.com/M6Web/StatsdBundle): Symfony2 Bundle easing the statsd usage
-* [Firewall](https://github.com/M6Web/Firewall) and [FireWallBundle](https://github.com/M6Web/FirewallBundle): Symfony2 bundle providing IP filtering features for your Symfony 2 applications
-* [Redis](https://github.com/M6Web/Redis): PHP component used to access Redis throught predis
-* [RedisBundle] (https://github.com/M6Web/RedisBundle): Bundle over Redis component
-* [RedisMock](https://github.com/M6Web/RedisMock): A simple PHP Redis mock
-* [websocket-bench](https://github.com/M6Web/websocket-bench): Nodejs cli tool for benchmark web socket server, currently support (socket.io, faye)
-* [roboxt](https://github.com/M6Web/roboxt): PHP lib parsing a robots.txt
-* [behat-seo-extension](https://github.com/M6Web/behat-seo-extension): Behat extension provinding specific features for testing the SEO of a website
-* [HttpKernelBundle](https://github.com/M6Web/HttpKernelBundle): Custom sf2 HttpKernel with additional events
-* [DaemonBundle](https://github.com/M6Web/DaemonBundle) Bundle easing the creation of daemon sf2 commands
+    
 * [AwsBundle](https://github.com/M6Web/AwsBundle): [AWS SDK](http://aws.amazon.com/sdkforphp/) as a Symfony2 service, with WSClientBundle functionnality (cache, logging, ...)
-* [WsClientBundle](https://github.com/M6Web/WsClientBundle): Symfony2 bundle service to call external webservices, and adding cache, logging, ...
+* [behat-seo-extension](https://github.com/M6Web/behat-seo-extension): Behat extension provinding specific features for testing the SEO of a website
+* [DaemonBundle](https://github.com/M6Web/DaemonBundle) Bundle easing the creation of daemon sf2 commands
+* [DomainUserBundle](https://github.com/M6Web/DomainUserBundle): User authentication by domain
+* [Firewall](https://github.com/M6Web/Firewall) and [FireWallBundle](https://github.com/M6Web/FirewallBundle): Symfony2 bundle providing IP filtering features for your Symfony 2 applications
+* [HttpKernelBundle](https://github.com/M6Web/HttpKernelBundle): Custom sf2 HttpKernel with additional events
 * [LogBridgeBundle](https://github.com/M6Web/LogBridgeBundle): Symfony Bundle to log Request/Response with Monolog.
 * [MonologExtraBundle](https://github.com/M6Web/MonologExtraBundle): Provide extra features for Monolog.
+* [Redis](https://github.com/M6Web/Redis): PHP component used to access Redis throught predis
+* [RedisBundle](https://github.com/M6Web/RedisBundle): Bundle over Redis component
+* [RedisMock](https://github.com/M6Web/RedisMock): A simple PHP Redis mock
+* [roboxt](https://github.com/M6Web/roboxt): PHP lib parsing a robots.txt
+* [StatsdBundle](https://github.com/M6Web/StatsdBundle): Symfony2 Bundle easing the statsd usage
+* [websocket-bench](https://github.com/M6Web/websocket-bench): Nodejs cli tool for benchmark web socket server, currently support (socket.io, faye)
+* [WsClientBundle](https://github.com/M6Web/WsClientBundle): Symfony2 bundle service to call external webservices, and adding cache, logging, ...
 
 # Contribution to free projects
 
