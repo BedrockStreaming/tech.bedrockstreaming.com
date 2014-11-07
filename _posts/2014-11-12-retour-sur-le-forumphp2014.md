@@ -91,7 +91,7 @@ Une conférence didactique et claire.
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/nxqEpkTV_BE" frameborder="0" allowfullscreen></iframe>
 
-##
+## VDM, DevOps malgré moi
 
 Maxime Valette nous expliqué comment il a (à 20 ans à peine) crée un business incroyable sur Internet et surtout réussi à gérer une augmentation de 30 à 40K visiteurs de plus chaque jour avec pratiquement sa b* et son c*.
 
