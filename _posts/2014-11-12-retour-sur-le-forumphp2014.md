@@ -22,6 +22,48 @@ permalink:
 
 M6Web était présent en force avec 5 collaborateurs présent à l’évènement. Voici un retour des conférences qui nous ont le plus marquées.
 
+## Vers des applications "12 factor" avec Symfony et Docker
+
+Cette session avait pour objectif de nous présenter la méthodologie du “twelve-factor app”, à travers des exemples concrets pour PHP à l’aide de Symfony et Docker.
+
+[“The twelve-factor app”](http://12factor.net/) est une suite de recommandations, indépendante d’un langage de programmation particulier et pouvant s’appliquer à toutes sortes de logiciels développés en tant que service.
+
+Sans revenir sur l’ensemble de la présentation, voici un retour sur les 12 facteurs :
+
+* Codebase : une app = un repo (ou équivalent) servant de source à tous les déploiements (dev / preprod / recette / prod  etc.). Exemples : git, mercurial etc.
+* Dependencies : déclaration explicite et complète de l’arbre de dépendances, utilisé uniformément pour tous les environnements. Exemples : composer, npm etc.
+* Config : séparation stricte config/code (Resources, Backing services, Credentials, Hostname etc.). Exemples : parameters.yml pour Symfony 2 ou utilisation de variables d’environnement avec Docker notamment. Utilisation de fig pour l’orchestration des containers docker.
+* Backing Services : tous les services utilisés par l’application sont accessibles par le réseau. Il n’y a pas de distinction entre les ressources locales et distantes car toutes sont accessibles via URL et/ou Credentials. Exemples : MySQL, RabbitMQ, Postfix, Redis, S3 etc.
+* Build, release, run : séparation stricte entre 
+ * “build stage” : téléchargement d’une version du code et des dépendances. Exemples : “docker build”
+ * “release stage“ : utilise le “build” et le combine avec la configuration du déploiement (une version sur un environnement). Exemple : “docker push”, utilisation de capistrano...
+ * “run stage” : lancement de la “release” sur l’environnement cible. Exemple “docker run” ou “fig run”
+* Processes : chaque composant de l’application est ‘sans état’ et ne doit pas partager directement des données. Tout doit être partagé en “backing service”.
+* Port binding : les services doivent être disponibles en mettant à disposition un port d’accès, directement accessible. Cela permet une utilisation aisée en environnement de dev mais également de réutiliser les services.
+* Concurrency : une application respectant les “12 factor” est facilement scalable, quel que soit son type (web, worker, etc.) car elle repose sur des composants systèmes pour son pilotage.
+* Disposability : robustesse par le lancement et l’arrêt rapide des services, pour rendre chacune de ses services scalables.
+* Dev/Pro parity : homogénéité des environnements dev/prod et gain de temps pour la prise en main d’un projet. (mais le développeur n’aura pas une vision précise de la configuration… boite noire ?)
+* Logs : traitement des logs en tant que flux, utilisés par des services. Exemples : ELK, StatsD/Grafana etc.
+* Admin process : Exécuter les tâches de maintenance sur les mêmes environnements/containers. Exemples : docker exec
+
+[slides](https://speakerdeck.com/ubermuda/vers-des-applications-twelve-factor)
+
+**TODO** faire un retour plus personnel 
+
+
+## La mesure ce n'est pas que pour le devops
+
+Les conférenciers ont commencé leur présentation sur un rappel de ce qu'est le Lean Startup, héritier de la méthode Lean mise au point par Toyota. Nous connaissions la démarche Lean mais pas du tout son approche spécifique au lancement d'un produit .
+
+Le concept pourrait se résumé à : la base du lean startup est de savoir écouter -ses utilisateurs- car le succès dépend d'un feedback mesurable.
+
+Le processus d'application est très simple : un cycle construit/mesure/apprend.
+
+S'en est logiquement suivi une énumération des manières de mettre en oeuvre le processus en sachant prendre en compte les mesures qui importent (AAA, AARRR), plutôt que des “mesures de vanité” (followers, nombre de visite,..).
+
+Enfin pour appliquer ces mesures, une présentation des outils a disposition a été faite.
+
+
 ## Frameworks: A History of Violence
 
 ![president](/images/posts/forumphp2014/francoisz.jpg)
