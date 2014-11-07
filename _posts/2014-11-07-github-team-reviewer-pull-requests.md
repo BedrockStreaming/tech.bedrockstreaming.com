@@ -21,7 +21,7 @@ permalink: github-team-reviewer-pull-requests.html
 
 #### Les PR, c'est le bien
 
-Chez M6Web, nous utilisons [Github Enterprise](https://enterprise.github.com/) en interne pour nos projets privés et [Github](https://github.com/) pour nos projets open-source. Grâce à ces outils, nous avons adopté de manière systématique l'usage des Pull Requests pour faire relire et valider notre code par nos collaborateurs. La qualité de nos développements a ainsi été grandement amélioré au fil du temps.
+Chez M6Web, nous utilisons [Github Enterprise](https://enterprise.github.com/) en interne pour nos projets privés et [Github](https://github.com/) pour nos projets open-source. Grâce à ces outils, nous avons adopté de manière systématique l'usage des Pull Requests pour faire relire et valider notre code par nos collaborateurs. La qualité de nos développements a ainsi été grandement améliorée au fil du temps.
 
 #### Oui, mais...
 
