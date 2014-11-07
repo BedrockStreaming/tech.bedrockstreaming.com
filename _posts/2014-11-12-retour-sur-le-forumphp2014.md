@@ -50,6 +50,19 @@ Une conférence didactique et claire.
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/nxqEpkTV_BE" frameborder="0" allowfullscreen></iframe>
 
+##
+
+Maxime Valette nous expliqué comment il a (à 20 ans à peine) crée un business incroyable sur Internet et surtout réussi à gérer une augmentation de 30 à 40K visiteurs de plus chaque jour avec pratiquement sa b* et son c*.
+
+```
+- Comment on fait ? 
+- Comme on peut !
+``` 
+
+De vrai qualité d'orateur pour lui et une conf très rafraichissante. Une démonstration de lean startup par l'exemple. 
+ 
+ <iframe width="560" height="315" src="//www.youtube.com/embed/rZrj_1IFGCM" frameborder="0" allowfullscreen></iframe>
+
 ## Table ronde "Etat des lieux et avenir de PHP"
 
 [Pascal Martin](https://twitter.com/pascal_martin) a animé d’une main de maître une table ronde sur l’avenir de PHP avec Jordi Boggiano, lead developer de Composer, Pierre Joye, core dev de PHP, Julien Pauli, release manager de PHP 5.5 et co-RM de PHP 5.6. 
