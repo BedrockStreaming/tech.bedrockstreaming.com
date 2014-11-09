@@ -12,8 +12,8 @@ author:
 category:
 tags: [afup, php, forumphp,conference]
 image:
-  feature: 
-  credit: 
+  feature: posts/forumphp2014/cover.jpg
+  credit: Olivier Mansour
   creditlink: 
 comments: true
 permalink: 
@@ -35,9 +35,9 @@ Sans revenir sur l’ensemble de la présentation, voici un retour sur les 12 fa
 * Config : séparation stricte config/code (Resources, Backing services, Credentials, Hostname etc.). Exemples : parameters.yml pour Symfony 2 ou utilisation de variables d’environnement avec Docker notamment. Utilisation de fig pour l’orchestration des containers docker.
 * Backing Services : tous les services utilisés par l’application sont accessibles par le réseau. Il n’y a pas de distinction entre les ressources locales et distantes car toutes sont accessibles via URL et/ou Credentials. Exemples : MySQL, RabbitMQ, Postfix, Redis, S3 etc.
 * Build, release, run : séparation stricte entre 
- * “build stage” : téléchargement d’une version du code et des dépendances. Exemples : “docker build”
- * “release stage“ : utilise le “build” et le combine avec la configuration du déploiement (une version sur un environnement). Exemple : “docker push”, utilisation de capistrano...
- * “run stage” : lancement de la “release” sur l’environnement cible. Exemple “docker run” ou “fig run”
+  * “build stage” : téléchargement d’une version du code et des dépendances. Exemples : “docker build”
+  * “release stage“ : utilise le “build” et le combine avec la configuration du déploiement (une version sur un environnement). Exemple : “docker push”, utilisation de capistrano...
+  * “run stage” : lancement de la “release” sur l’environnement cible. Exemple “docker run” ou “fig run”
 * Processes : chaque composant de l’application est ‘sans état’ et ne doit pas partager directement des données. Tout doit être partagé en “backing service”.
 * Port binding : les services doivent être disponibles en mettant à disposition un port d’accès, directement accessible. Cela permet une utilisation aisée en environnement de dev mais également de réutiliser les services.
 * Concurrency : une application respectant les “12 factor” est facilement scalable, quel que soit son type (web, worker, etc.) car elle repose sur des composants systèmes pour son pilotage.
@@ -62,6 +62,51 @@ S'en est logiquement suivi une énumération des manières de mettre en oeuvre l
 
 Enfin pour appliquer ces mesures, une présentation des outils a disposition a été faite.
 
+<iframe width="560" height="315" src="//www.youtube.com/embed/8tgvbue4Qqo" frameborder="0" allowfullscreen></iframe>
+
+## PHP dans les distributions RPM
+
+[Slides](http://blog.famillecollet.com/public/Docs/PHPRPM.pdf)
+
+Cette session avait comme objectif de faire un état de PHP dans les distributions RPM RHEL/Centos/Fedora.
+
+RHEL / Centos :
+* Objectif de stabilité à 10 ans
+* Stabilité binaire et de configuration sur la durée de vie de la distribution
+* RHEL : version payante avec support (contacts avec les ingénieurs RedHat, ressources en ligne, cycles de mises à jour garantis etc.).
+* Centos : même code que RHEL (juste recompilé) mais uniquement un support communautaire (comme fedora, ubuntu, suse...).
+* RHEL 5 : PHP 5.1 / RHEL 6 : PHP 5.3 / RHEL 7 : PHP 5.4
+* Application des patchs de sécurités sur les versions anciennes de PHP pendant 10 ans.
+* Possibilité d’utiliser des repos tiers pour choisir une version plus récente spécifique (comme ceux de Remi Collet) - mais pas de support officiel.
+* Distributions plutôt destinées à des applicatifs maintenus sur le long terme.
+
+Fedora 21+ :
+* 3 sous distributions : Workstation / Server / Cloud
+* Dernière version de PHP (PHP5.5 pour f20 et PHP5.6 pour f21)
+* Intégration continue de PHP dans les cycles de Fédora. Permet d’éviter les régressions.
+
+A venir : Software Collections (scl) permet d’avoir TOUTES les versions de PHP souhaitées simultanément sur la même installation de Fedora. **Vraiment prometteur** !
+
+Exemple d’utilisation des SCL en cli : 
+
+
+    scl enable php56 -f myscript56.php
+    scl enable php56 bash
+    scl enable php53 -f myscript53only.php
+    scl enable php53 bash
+
+
+
+Dans une config apache :
+
+    <VirtualHost *:80>
+    ServerName php56scl
+    
+    # Redirect to FPM server in php56 SCL
+    <FilesMatch \.php$>
+    SetHandler "proxy:fcgi://127.0.0.1:9006"
+    </FilesMatch>
+    </VirtualHost>
 
 ## Frameworks: A History of Violence
 
@@ -95,21 +140,23 @@ Une conférence didactique et claire.
 
 Maxime Valette nous expliqué comment il a (à 20 ans à peine) crée un business incroyable sur Internet et surtout réussi à gérer une augmentation de 30 à 40K visiteurs de plus chaque jour avec pratiquement sa b* et son c*.
 
-```
-- Comment on fait ? 
-- Comme on peut !
-``` 
 
-De vrai qualité d'orateur pour lui et une conf très rafraichissante. Une démonstration de lean startup par l'exemple. 
+    - Comment on fait ? 
+    - Comme on peut !
+ 
+
+De vrai qualité d'orateur pour Maxime et une conf très rafraichissante. Une démonstration de lean startup par l'exemple. Même si ce choix n'a pas été discuté, PHP était naturellement 
  
  <iframe width="560" height="315" src="//www.youtube.com/embed/rZrj_1IFGCM" frameborder="0" allowfullscreen></iframe>
 
 ## Table ronde "Etat des lieux et avenir de PHP"
 
-[Pascal Martin](https://twitter.com/pascal_martin) a animé d’une main de maître une table ronde sur l’avenir de PHP avec Jordi Boggiano, lead developer de Composer, Pierre Joye, core dev de PHP, Julien Pauli, release manager de PHP 5.5 et co-RM de PHP 5.6. 
+[Pascal Martin](https://twitter.com/pascal_martin) a animé d’une main de maître une table ronde sur l’avenir de PHP. Avec Jordi Boggiano, lead developer de Composer, Pierre Joye, core dev de PHP, Julien Pauli, release manager de PHP 5.5 et co-RM de PHP 5.6. 
 
 La communauté se pose beaucoup de questions sur le devenir de l’engine PHP et comment va évoluer le langage.   
 Les débats ont été intenses et les invités ont pu répondre à des questions posées via Twitter. Au final peu de conclusions définitives. On peut déduire que malgré les alternatives proposées par HHVM et HippyVM, la communauté reste majoritairement sur PHP et est toujours très friande d’évolutions du langage et de sa performance. Les invités de la table ronde ont exhortés les participants à contribuer au code de PHP en nous fournissant pas mal de conseils.
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/U4dYlxQATlk" frameborder="0" allowfullscreen></iframe>
 
 ## Slideshow Karaoké
    
@@ -119,4 +166,4 @@ Une honte ! En plus les slides n’avaient aucun sens ! :)
 
 ![Les participants au karaoké](/images/posts/forumphp2014/ss_karaoke.jpg)   
    
-Un grand merci à l’AFUP pour ce joli évènement !
+Un grand merci à l’AFUP pour ce joli évènement ! Retrouvez pas mal de ressources partagés pendant l'event sur [eventifier](http://eventifier.com/event/frmphp/).
