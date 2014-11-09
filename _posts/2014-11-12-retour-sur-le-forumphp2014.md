@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Retour sur le forum PHP 2014"
-description: "On a dit qu’on ne parlait pas du jeudi soir !"
+title: "Retour sur le forum PHP 2014 organisé par l'AFUP"
+description: ""
 author:
   name: Team Burton
   avatar: 
@@ -19,6 +19,7 @@ comments: true
 permalink: 
 ---
 
+> On a dit qu’on ne parlait pas du jeudi soir !
 
 M6Web était présent en force avec 5 collaborateurs présent à l’évènement. Voici un retour des conférences qui nous ont le plus marquées.
 
@@ -114,13 +115,14 @@ Dans une config apache :
 
 Francois Zaninotto nous a offert un vrai show en se mettant dans la peau d'un homme politique candidat à la présidence du parti des développeurs. Avec beaucoup d'humour il a fait un retour sur l'évolution (sa propre évolution ?) du développement web et son futur hypothétique, tout en distillant (son programme) de précieux conseils pour être de meilleur développeur.
 
-Son programme : 
- * Le domaine d'abord : lier son développement métier à un minimum de tierce partie (pas facile à faire !)
- * Dites non au full-stack (ça se discute !)
- * L'application plurielle : ne pas hésitez à mélanger différents langages et différents projets dialoguant via http sur une même application
- * Repenser le temps : passons au 32h pour nous permettre de faire de la veille
+Son programme :
  
- A la communauté PHP nous pourrions proposer une synthèse (entendu ailleurs) : "soyons plus des développeurs web que des développeurs PHP, soyons plus des développeurs que des développeurs web". 
+* Le domaine d'abord : lier son développement métier à un minimum de tierce partie (pas facile à faire !),
+* Dites non au full-stack (ça se discute !),
+* L'application plurielle : ne pas hésitez à mélanger différents langages et différents projets dialoguant via http sur une même application,
+* Repenser le temps : passons au 32h pour nous permettre de faire de la veille.
+ 
+ A la communauté PHP nous pourrions proposer une synthèse (entendu ailleurs) : *"soyons plus des développeurs web que des développeurs PHP, soyons plus des développeurs que des développeurs web"*. 
  
 <iframe width="560" height="315" src="//www.youtube.com/embed/ep3Oztvy0rk" frameborder="0" allowfullscreen></iframe>
 
@@ -128,7 +130,7 @@ Son programme :
 
 Un conférence donnée par un de nos confrères d’ARTE sur des problématiques très actuelles pour nous. [François Dume](https://twitter.com/_franek_) a expliqué la stratégie de mise en place d’une API autour de [JSON API](http://jsonapi.org/) et des microservices. L’utilisation de OpenResty et du langage Lua couplé à un serveur oAuth en Symfony2 gérant la validation des tokens et le throttling.
 
-Il a ensuite expliqué en détail l’implémentation de {json:api} dans Symfony2 en mettant en avant de nombreuses contributions open-source.
+Il a ensuite expliqué en détail l’implémentation de {json:api} dans Symfony2, en mettant en avant de nombreuses contributions open-source.
 
 ![archi de l'API ARTE](/images/posts/forumphp2014/arte.jpg)
 
@@ -138,14 +140,14 @@ Une conférence didactique et claire.
 
 ## VDM, DevOps malgré moi
 
-Maxime Valette nous expliqué comment il a (à 20 ans à peine) crée un business incroyable sur Internet et surtout réussi à gérer une augmentation de 30 à 40K visiteurs de plus chaque jour avec pratiquement sa b* et son c*.
+[Maxime Valette](https://twitter.com/maxime) nous expliqué comment il a (à 20 ans à peine) crée un business incroyable sur Internet et a surtout réussi à gérer une augmentation de 30 à 40K visiteurs de plus chaque jour avec pratiquement juste sa b* et son c*.
 
 
     - Comment on fait ? 
     - Comme on peut !
  
 
-De vrai qualité d'orateur pour Maxime et une conf très rafraichissante. Une démonstration de lean startup par l'exemple. Même si ce choix n'a pas été discuté, PHP était naturellement 
+De vrai qualité d'orateur pour Maxime et une conf très rafraichissante. Une démonstration de lean startup par l'exemple. Même si ce choix n'a pas été discuté, PHP était un choix naturel pour lui à l'époque.
  
  <iframe width="560" height="315" src="//www.youtube.com/embed/rZrj_1IFGCM" frameborder="0" allowfullscreen></iframe>
 
