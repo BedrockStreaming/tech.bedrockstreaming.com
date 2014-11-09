@@ -113,7 +113,7 @@ Dans une config apache :
 
 ![president](/images/posts/forumphp2014/francoisz.jpg)
 
-Francois Zaninotto nous a offert un vrai show en se mettant dans la peau d'un homme politique candidat à la présidence du parti des développeurs. Avec beaucoup d'humour il a fait un retour sur l'évolution (sa propre évolution ?) du développement web et son futur hypothétique, tout en distillant (son programme) de précieux conseils pour être de meilleur développeur.
+Francois Zaninotto nous a offert un vrai show en se mettant dans la peau d'un homme politique candidat à la présidence du parti des développeurs. Avec beaucoup d'humour il a fait un retour sur l'évolution (sa propre évolution ?) du développement web et son futur hypothétique, tout en distillant (son programme) de précieux conseils pour être un meilleur développeur.
 
 Son programme :
  
