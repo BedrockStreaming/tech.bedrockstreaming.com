@@ -149,6 +149,16 @@ De vrai qualité d'orateur pour Maxime et une conf très rafraichissante. Une d�
  
  <iframe width="560" height="315" src="//www.youtube.com/embed/rZrj_1IFGCM" frameborder="0" allowfullscreen></iframe>
 
+## An introduction to the Laravel Framework for PHP.
+
+Bien que Symfony soit très largement majoritaire en Europe, [Laravel](http://laravel.com/) est très populaire en Amérique du Nord, c'est donc avec curiosité que nous avons assistés à cette présentation du framework faite par [Dayle Rees](https://twitter.com/daylerees), core developer.
+
+Une fois passé la très longue présentation des livres et autres activités du conférencier, nous avons eu droit à une présentation générale du framework qui nous as fortement rappelé Symfony1 : utilisation de singleton à outrance, MagicBox (équivalent du sfContext), beaucoup de magie pour réduire la configuration (nom des contrôleurs).
+
+Au final, l'impression laissée est mitigée : certes, le seuil d'entrée est relativement réduit, tout est simple d'apparence, mais c'était la même chose pour Symfony1, et l'expérience nous a montré que dès qu'on essayait de sortir le framework des sentiers battus, cette simplicité devenait un vrai obstacle.
+
+Au final, Laravel est surement une alternative intéressante pour les nostalgique de Symfony1, puisque le projet est actif et maintenu, mais pour les projets que nous développons, Symfony2 reste une solution tout à fait adaptée. 
+
 ## Table ronde "Etat des lieux et avenir de PHP"
 
 [Pascal Martin](https://twitter.com/pascal_martin) a animé d’une main de maître une table ronde sur l’avenir de PHP. Avec Jordi Boggiano, lead developer de Composer, Pierre Joye, core dev de PHP, Julien Pauli, release manager de PHP 5.5 et co-RM de PHP 5.6. 
