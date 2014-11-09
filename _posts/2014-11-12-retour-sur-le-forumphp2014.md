@@ -162,7 +162,7 @@ Les débats ont été intenses et les invités ont pu répondre à des questions
 
 ## Slideshow Karaoké
    
-Une honte ! En plus les slides n’avaient aucun sens ! :)
+Une honte ! En plus les slides n’avaient aucun sens ! :) Bravo à [Mc Kenny](https://twitter.com/kenny_dee) pour l'animation.
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/Ln12meWM1pE" frameborder="0" allowfullscreen></iframe>
 
