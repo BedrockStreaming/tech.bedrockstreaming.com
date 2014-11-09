@@ -10,7 +10,7 @@ author:
   facebook:
   github:
 category:
-tags: [afup, php, forumphp,conference]
+tags: [afup, php, forumphp, conference]
 image:
   feature: posts/forumphp2014/cover.jpg
   credit: Olivier Mansour
@@ -18,8 +18,6 @@ image:
 comments: true
 permalink: 
 ---
-
-> On a dit qu’on ne parlait pas du jeudi soir !
 
 M6Web était présent en force avec 5 collaborateurs présent à l’évènement. Voici un retour des conférences qui nous ont le plus marquées.
 
@@ -90,24 +88,26 @@ A venir : Software Collections (scl) permet d’avoir TOUTES les versions de PHP
 
 Exemple d’utilisation des SCL en cli : 
 
-
-    scl enable php56 -f myscript56.php
-    scl enable php56 bash
-    scl enable php53 -f myscript53only.php
-    scl enable php53 bash
-
+```bash
+scl enable php56 -f myscript56.php
+scl enable php56 bash
+scl enable php53 -f myscript53only.php
+scl enable php53 bash
+```
 
 
 Dans une config apache :
 
-    <VirtualHost *:80>
+```apache
+<VirtualHost *:80>
     ServerName php56scl
     
     # Redirect to FPM server in php56 SCL
     <FilesMatch \.php$>
     SetHandler "proxy:fcgi://127.0.0.1:9006"
     </FilesMatch>
-    </VirtualHost>
+</VirtualHost>
+```
 
 ## Frameworks: A History of Violence
 
@@ -142,10 +142,8 @@ Une conférence didactique et claire.
 
 [Maxime Valette](https://twitter.com/maxime) nous expliqué comment il a (à 20 ans à peine) crée un business incroyable sur Internet et a surtout réussi à gérer une augmentation de 30 à 40K visiteurs de plus chaque jour avec pratiquement juste sa b* et son c*.
 
-
-    - Comment on fait ? 
-    - Comme on peut !
- 
+- Comment on fait ? 
+- Comme on peut ! 
 
 De vrai qualité d'orateur pour Maxime et une conf très rafraichissante. Une démonstration de lean startup par l'exemple. Même si ce choix n'a pas été discuté, PHP était un choix naturel pour lui à l'époque.
  
