@@ -163,6 +163,8 @@ Au final, Laravel est surement une alternative intéressante pour les nostalgiqu
 
 [Olivier Dolbeau](https://twitter.com/odolbeau) nous a fait un retour sur la problématique de l'accès et l'interprétation aux logs sur les serveurs de production.
 
+![Olivier on stage](/images/posts/forumphp2014/dolbeau.jpg)  
+
 Il nous as donc présenté la solution qu'il utilise, à savoir la stack ELK, pour [ElasticSearch](http://www.elasticsearch.org/)/[LogStash](http://logstash.net/)/[Kibana](http://www.elasticsearch.org/overview/kibana/), qui permet à chaque serveur d'envoyer ses logs vers un serveur central, qui a pour charge de les agréger, et de permettre leur utilisation avancée.
 Fini la recherche dans des fichiers textes plats qu'il faut commencer par comprendre, désormais vos applicatifs peuvent enrichir leurs logs, les envoyer sur un système dédié à la gestion des logs disposant de vraies interfaces de recherche et de consultation.
 
