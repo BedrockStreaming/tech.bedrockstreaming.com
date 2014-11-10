@@ -88,17 +88,17 @@ A venir : Software Collections (scl) permet d’avoir TOUTES les versions de PHP
 
 Exemple d’utilisation des SCL en cli : 
 
-```bash
+{% highlight bash %}
 scl enable php56 -f myscript56.php
 scl enable php56 bash
 scl enable php53 -f myscript53only.php
 scl enable php53 bash
-```
+{% endhighlight %}
 
 
 Dans une config apache :
 
-```apache
+{% highlight bash %}
 <VirtualHost *:80>
     ServerName php56scl
     
@@ -107,7 +107,7 @@ Dans une config apache :
     SetHandler "proxy:fcgi://127.0.0.1:9006"
     </FilesMatch>
 </VirtualHost>
-```
+{% endhighlight %}
 
 ## Frameworks: A History of Violence
 
@@ -142,8 +142,10 @@ Une conférence didactique et claire.
 
 [Maxime Valette](https://twitter.com/maxime) nous expliqué comment il a (à 20 ans à peine) crée un business incroyable sur Internet et a surtout réussi à gérer une augmentation de 30 à 40K visiteurs de plus chaque jour avec pratiquement juste sa b* et son c*.
 
+{% highlight bash %}
 - Comment on fait ? 
 - Comme on peut ! 
+{% endhighlight %}
 
 De vrai qualité d'orateur pour Maxime et une conf très rafraichissante. Une démonstration de lean startup par l'exemple. Même si ce choix n'a pas été discuté, PHP était un choix naturel pour lui à l'époque.
  
