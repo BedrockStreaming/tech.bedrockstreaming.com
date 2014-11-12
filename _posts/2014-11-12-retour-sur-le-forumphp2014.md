@@ -142,10 +142,10 @@ Une conférence didactique et claire.
 
 [Maxime Valette](https://twitter.com/maxime) nous expliqué comment il a (à 20 ans à peine) crée un business incroyable sur Internet et a surtout réussi à gérer une augmentation de 30 à 40K visiteurs de plus chaque jour avec pratiquement juste sa b* et son c*.
 
-{% highlight bash %}
-- Comment on fait ? 
-- Comme on peut ! 
-{% endhighlight %}
+
+    - Comment on fait ? 
+    - Comme on peut ! 
+
 
 De vrai qualité d'orateur pour Maxime et une conf très rafraichissante. Une démonstration de lean startup par l'exemple. Même si ce choix n'a pas été discuté, PHP était un choix naturel pour lui à l'époque.
  
