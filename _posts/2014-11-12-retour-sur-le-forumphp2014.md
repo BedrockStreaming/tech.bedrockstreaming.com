@@ -51,7 +51,7 @@ Personnellement, j'ai trouvé cette conférence vraiment riche et instructive. P
 
 ## La mesure ce n'est pas que pour le devops
 
-Les conférenciers ont commencé leur présentation sur un rappel de ce qu'est le Lean Startup, héritier de la méthode Lean mise au point par Toyota. Nous connaissions la démarche Lean mais pas du tout son approche spécifique au lancement d'un produit .
+Les conférenciers ont commencé leur présentation sur un rappel de ce qu'est le Lean Startup, héritier de la méthode Lean mise au point par Toyota. Nous connaissions la démarche Lean mais pas du tout son approche spécifique au lancement d'un produit.
 
 Le concept pourrait se résumer à : la base du lean startup est de savoir écouter -ses utilisateurs- car le succès dépend d'un feedback mesurable.
 
