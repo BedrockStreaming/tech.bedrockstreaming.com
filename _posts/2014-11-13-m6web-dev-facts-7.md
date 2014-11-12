@@ -29,7 +29,7 @@ Ca faisait un moment ! Voici le retour des [devfacts](http://tech.m6web.fr/tags.
 # Proprement sale
 > C'est pas forcément plus propre, mais c'est moins sale
 
-#  A un vache près !
+#  A une vache près !
 > C'est à peu près approximatif …
 
 #  Il faut savoir ce qu'on veux
