@@ -170,7 +170,7 @@ Au final, Laravel est sûrement une alternative intéressante pour les nostalgiq
 Il nous as donc présenté la solution qu'il utilise, à savoir la stack ELK, pour [ElasticSearch](http://www.elasticsearch.org/)/[LogStash](http://logstash.net/)/[Kibana](http://www.elasticsearch.org/overview/kibana/), qui permet à chaque serveur d'envoyer ses logs vers un serveur central, qui a pour charge de les agréger, et de permettre leur utilisation avancée.
 Fini la recherche dans des fichiers textes plats qu'il faut commencer par comprendre, désormais vos applicatifs peuvent enrichir leurs logs, les envoyer sur un système dédié à la gestion des logs disposant de vraies interfaces de recherche et de consultation.
 
-Nous avons été confortés dans notre idée, puisque nous mettons également en place nous même cette solution. 
+Nous avons été confortés dans notre idée, puisque nous mettons également en oeuvre cette solution. 
 
 ## Table ronde "Etat des lieux et avenir de PHP"
 
