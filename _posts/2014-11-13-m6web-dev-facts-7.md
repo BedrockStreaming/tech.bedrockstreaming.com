@@ -29,10 +29,10 @@ comments: true
 # Proprement sale
 > C'est pas forcément plus propre, mais c'est moins sale
 
-#  A une vache près !
+# A une vache près !
 > C'est à peu près approximatif …
 
-#  Il faut savoir ce qu'on veut
+# Il faut savoir ce qu'on veut
 > C'est pas prévu pour être utile
 
 # C'est louche.
