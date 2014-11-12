@@ -153,17 +153,17 @@ De vrai qualité d'orateur pour Maxime et une conf très rafraichissante. Une d�
 
 ## An introduction to the Laravel Framework for PHP.
 
-Bien que Symfony soit très largement majoritaire en Europe, [Laravel](http://laravel.com/) est très populaire en Amérique du Nord, c'est donc avec curiosité que nous avons assistés à cette présentation du framework faite par [Dayle Rees](https://twitter.com/daylerees), core developer.
+Bien que Symfony soit très largement majoritaire en Europe, [Laravel](http://laravel.com/) est très populaire en Amérique du Nord, c'est donc avec curiosité que nous avons assisté à cette présentation du framework faite par [Dayle Rees](https://twitter.com/daylerees), core developer.
 
 Une fois passé la très longue présentation des livres et autres activités du conférencier, nous avons eu droit à une présentation générale du framework qui nous as fortement rappelé Symfony1 : utilisation de singleton à outrance, MagicBox (équivalent du sfContext), beaucoup de magie pour réduire la configuration (nom des contrôleurs).
 
-Au final, l'impression laissée est mitigée : certes, le seuil d'entrée est relativement réduit, tout est simple d'apparence, mais c'était la même chose pour Symfony1, et l'expérience nous a montré que dès qu'on essayait de sortir le framework des sentiers battus, cette simplicité devenait un vrai obstacle.
+Au final, l'impression laissée est mitigée : certes, le seuil d'entrée est relativement réduit, tout est simple d'apparence, mais c'était la même chose pour Symfony1, et l'expérience nous a montré que lorsque l'on essayait de sortir le framework des sentiers battus, cette simplicité devenait un vrai obstacle.
 
-Au final, Laravel est surement une alternative intéressante pour les nostalgique de Symfony1, puisque le projet est actif et maintenu, mais pour les projets que nous développons, Symfony2 reste une solution tout à fait adaptée. 
+Au final, Laravel est sûrement une alternative intéressante pour les nostalgiques de Symfony1, puisque le projet est actif et maintenu. Mais, pour les projets que nous développons, Symfony2 reste une solution tout à fait adaptée. 
 
 ## Laisse pas trainer ton log !
 
-[Olivier Dolbeau](https://twitter.com/odolbeau) nous a fait un retour sur la problématique de l'accès et l'interprétation aux logs sur les serveurs de production.
+[Olivier Dolbeau](https://twitter.com/odolbeau) nous a fait un retour sur la problématique d'accès et l'interprétation des logs sur les serveurs de production.
 
 ![Olivier on stage](/images/posts/forumphp2014/dolbeau.jpg)  
 
