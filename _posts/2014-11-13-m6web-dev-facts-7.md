@@ -48,7 +48,7 @@ comments: true
 > Au sujet d'une sombre histoire d'expression de besoin 
 > "Je ne peux pas toujours les aider à faire leurs besoins…"
 
-# Comprend moi !
+# Comprends moi !
 > "Comprends mon incompréhension !"
 
 # ROI !
