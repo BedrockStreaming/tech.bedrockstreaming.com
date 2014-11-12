@@ -53,7 +53,7 @@ Personnellement, j'ai trouvé cette conférence vraiment riche et instructive. P
 
 Les conférenciers ont commencé leur présentation sur un rappel de ce qu'est le Lean Startup, héritier de la méthode Lean mise au point par Toyota. Nous connaissions la démarche Lean mais pas du tout son approche spécifique au lancement d'un produit .
 
-Le concept pourrait se résumé à : la base du lean startup est de savoir écouter -ses utilisateurs- car le succès dépend d'un feedback mesurable.
+Le concept pourrait se résumer à : la base du lean startup est de savoir écouter -ses utilisateurs- car le succès dépend d'un feedback mesurable.
 
 Le processus d'application est très simple : un cycle construit/mesure/apprend.
 
@@ -119,8 +119,8 @@ Son programme :
  
 * Le domaine d'abord : lier son développement métier à un minimum de tierce partie (pas facile à faire !),
 * Dites non au full-stack (ça se discute !),
-* L'application plurielle : ne pas hésitez à mélanger différents langages et différents projets dialoguant via http sur une même application,
-* Repenser le temps : passons au 32h pour nous permettre de faire de la veille.
+* L'application plurielle : ne pas hésiter à mélanger différents langages et différents projets dialoguant via http sur une même application,
+* Repenser le temps : passons aux 32h pour nous permettre de faire de la veille.
  
  A la communauté PHP nous pourrions proposer une synthèse (entendu ailleurs) : *"soyons plus des développeurs web que des développeurs PHP, soyons plus des développeurs que des développeurs web"*. 
  
