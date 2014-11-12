@@ -70,6 +70,7 @@ Enfin pour appliquer ces mesures, une présentation des outils a disposition a �
 Cette session avait comme objectif de faire un état de PHP dans les distributions RPM RHEL/Centos/Fedora.
 
 RHEL / Centos :
+
 * Objectif de stabilité à 10 ans
 * Stabilité binaire et de configuration sur la durée de vie de la distribution
 * RHEL : version payante avec support (contacts avec les ingénieurs RedHat, ressources en ligne, cycles de mises à jour garantis etc.).
@@ -80,6 +81,7 @@ RHEL / Centos :
 * Distributions plutôt destinées à des applicatifs maintenus sur le long terme.
 
 Fedora 21+ :
+
 * 3 sous distributions : Workstation / Server / Cloud
 * Dernière version de PHP (PHP5.5 pour f20 et PHP5.6 pour f21)
 * Intégration continue de PHP dans les cycles de Fédora. Permet d’éviter les régressions.
@@ -128,7 +130,7 @@ Son programme :
 
 ## Retour d'expérience ARTE GEIE : développement d’API
 
-Un conférence donnée par un de nos confrères d’ARTE sur des problématiques très actuelles pour nous. [François Dume](https://twitter.com/_franek_) a expliqué la stratégie de mise en place d’une API autour de [JSON API](http://jsonapi.org/) et des microservices. L’utilisation de OpenResty et du langage Lua couplé à un serveur oAuth en Symfony2 gérant la validation des tokens et le throttling.
+Une conférence donnée par un de nos confrères d’ARTE sur des problématiques très actuelles pour nous. [François Dume](https://twitter.com/_franek_) a expliqué la stratégie de mise en place d’une API autour de [JSON API](http://jsonapi.org/) et des microservices. L’utilisation de OpenResty et du langage Lua couplé à un serveur oAuth en Symfony2 gérant la validation des tokens et le throttling.
 
 Il a ensuite expliqué en détail l’implémentation de {json:api} dans Symfony2, en mettant en avant de nombreuses contributions open-source.
 
