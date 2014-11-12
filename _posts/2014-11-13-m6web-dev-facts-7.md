@@ -18,7 +18,7 @@ image:
 comments: true  
 ---
 
-Ca faisait un moment ! Voici le retour des [devfacts](http://tech.m6web.fr/tags.html#devfacts) !
+Ça faisait un moment ! Voici le retour des [devfacts](http://tech.m6web.fr/tags.html#devfacts) !
 
 # Reproduction
 > Je ne sais pas si ça corrige le bug qu'on ne reproduit pas mais en tout cas je ne le reproduis toujours pas
@@ -32,26 +32,26 @@ Ca faisait un moment ! Voici le retour des [devfacts](http://tech.m6web.fr/tags.
 #  A une vache près !
 > C'est à peu près approximatif …
 
-#  Il faut savoir ce qu'on veux
+#  Il faut savoir ce qu'on veut
 > C'est pas prévu pour être utile
 
 # C'est louche.
 > Commençons par comprendre pourquoi le code fonctionne
 
-# toi aussi fait du marketing ...
-> on pourrait leverager le ROI du big data avec de l'analytics predictif.
+# Toi aussi fais du marketing ...
+> On pourrait leverager le ROI du big data avec de l'analytics predictif.
 
 # Pour une fois ....
-> pour une fois c'est pas un bug ! c'est un truc qui marche.
+> Pour une fois c'est pas un bug ! c'est un truc qui marche.
 
 # Pooh
 > Au sujet d'une sombre histoire d'expression de besoin 
 > "Je ne peux pas toujours les aider à faire leurs besoins…"
 
 # Comprend moi !
-> "comprends mon incompréhension !"
+> "Comprends mon incompréhension !"
 
 # ROI !
-> y a autant d'utilisateurs que de jour homme pour ce projet !
+> Y a autant d'utilisateurs que de jour homme pour ce projet !
 
  
