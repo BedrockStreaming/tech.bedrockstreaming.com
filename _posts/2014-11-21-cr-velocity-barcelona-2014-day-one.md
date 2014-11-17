@@ -32,11 +32,10 @@ Les keynotes du matin semblaient être scénarisées sur différents points que 
 
 ## Life after human error - Steven Shorrock (EUROCONTROL)
 
-Steven Shorrock n’est pas un homme de l’IT mais travaille autour de la sécurité aérienne. Il se définit comme un ergonomiste des systèmes. Il a présenté comment, autour des erreurs humaines, “les mots créaient le monde” et entrainait immédiatement un jugement social (“négligence" est évidement plus connoté que “erreur d’attention”). Il peut y avoir des erreurs dans la définition d’une erreur. Qualifier une erreur demandait une définition précise de standard et de contextes. Il a également conseillé d’étudier les cas de fonctionnement normaux ; ne pas faire seulement des *post-mortem* mais des *pre* et des *no* mortem.
+Steven Shorrock n’est pas un homme de l’IT, mais travaille autour de la sécurité aérienne. Il se définit comme un ergonomiste des systèmes. Il a présenté comment, autour des erreurs humaines, “les mots créaient le monde” et entrainaient immédiatement un jugement social (“négligence" est évidement plus connoté que “erreur d’attention”). Il peut y avoir des erreurs dans la définition d’une erreur. Qualifier une erreur demandait une définition précise de standard et de contextes.   
+Il a également conseillé d’étudier les cas de fonctionnement normaux ; ne pas faire seulement des *post-mortem* mais des *pre* et des *no* mortem.
 
 ![hal](/images/posts/velocity2014/hal.jpg)
-
-
 
 
 Une présentation intéressante sur l’incident et l’erreur.
@@ -55,7 +54,8 @@ A découvrir : [PerfBar](http://lafikl.github.io/perfBar/)
 
 ## The Impatience Economy, Where Velocity Creates Value Monica Pal (Aerospike Inc.)
 
-Il y a une génération on attendait 10 jours un échange avec le courrier postal, aujourd’hui un adolescent vérifie son téléphone toutes les 10 secondes ! Nous sommes moins attentifs, plus impatients. De ce constat Monica Pal explique comment les backend webs doivent s’adapter et servir de plus en plus d’informations contextualisées : *search, sort, recommand, personalize*.
+Il y a une génération on attendait 10 jours un échange de courrier postal, aujourd’hui un adolescent vérifie son téléphone toutes les 10 secondes ! Nous sommes moins attentifs, plus impatients.  
+De ce constat Monica Pal explique comment les backend webs doivent s’adapter et servir de plus en plus d’informations contextualisées : *search, sort, recommand, personalize*.
 
 ## Recruiting for Diversity in Tech Laine Campbell (Pythian)
 
@@ -64,7 +64,7 @@ Un thème récurrent de la velocity de cette année. Laine explique comment l’
 ## Better Performance Through Better Design Mark Zeman (SpeedCurve)
 
 La dernière keynote était vraiment excellente. Mark Zeman, venue de Nouvelle Zélande, a expliqué comment le processus créatif pouvait aider à améliorer la performance. Pour cela il faut *redesign the design process*. Pour cela il a proposé, entre autre de : 
-- se fixer certains principes/objectifs dès le départ 
+- se fixer certains principes/objectifs de performance dès le départ 
 - d’ajouter les designers dans la *feature team* et d’itérer via des prototypes
 - de partager le savoir sous forme d’informations visuelles
 
@@ -75,13 +75,11 @@ La dernière keynote était vraiment excellente. Mark Zeman, venue de Nouvelle Z
 
 # IT Janitor - How to Tidy Up Mark Barnes (Financial Times)
 
-
 Ce manager au Financial Times a expliqué comment le journal a été touché de plein fouet par la révolution du web mobile et a dû s’adapter très rapidement. 
 
 ![transfo_mobile_FT](/images/posts/velocity2014/transfo_mobile_FT.jpg)
 
-
-Il a expliqué quelle stratégie il a adopté pour tuer ou refaire les vieux systèmes et comment, en premier lieu, il a vendu le projet à ses supérieurs.
+Il a expliqué quelle stratégie il a adopté pour tuer ou refaire les vieux systèmes et comment, en premier lieu, il a vendu le projet à ses supérieurs.  
 Il a tout d’abord présenté le TCO de ce qu’il a appelé la version *”classic”* de ft.com (la carotte) puis a appuyé sur la peur de l’incident et les pbs de sécurités (le baton) ; le journal ayant été la cible de hackers israéliens. 
 
 Après une analyse fine du traffic il a ensuite appliqué ces stratégies : 
