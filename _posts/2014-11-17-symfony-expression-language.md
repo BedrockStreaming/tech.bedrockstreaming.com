@@ -54,6 +54,8 @@ services:
 Nous utilisons une définition de service abstraite qui sert de modèle pour les services qui sont générés à partir de la [configuration sémantique](http://symfony.com/fr/doc/current/cookbook/bundles/extension.html) gérée par l'extension du bundle :
 
 {% highlight php %}
+<?php
+
 foreach ($config['processors'] as $name => $processor) {
     $serviceId = sprintf('%s.processor.%s', $alias, is_int($name) ? uniqid() : $name);
 
@@ -85,6 +87,7 @@ foreach ($config['processors'] as $name => $processor) {
 Et l'expression est finalement évaluée par le processeur en utilisant le composant quand la valeur est de la forme `expr(...)`, ceci permettant de garder une compatibilité ascendante avec les configurations statiques précédentes.
 
 {% highlight php %}
+<?php 
 protected function evaluateValue($value)
 {
     if (preg_match('/^expr\((.*)\)$/', $value, $matches)) {
