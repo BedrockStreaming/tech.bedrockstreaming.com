@@ -55,7 +55,6 @@ Nous utilisons une définition de service abstraite qui sert de modèle pour les
 
 {% highlight php %}
 <?php
-
 foreach ($config['processors'] as $name => $processor) {
     $serviceId = sprintf('%s.processor.%s', $alias, is_int($name) ? uniqid() : $name);
 
