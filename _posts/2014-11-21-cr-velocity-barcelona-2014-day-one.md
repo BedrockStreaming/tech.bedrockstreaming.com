@@ -3,19 +3,20 @@ layout: post
 title: "Retour sur la velocity Barcelone - day 1"
 description: ""
 author:
-  name:           M6Web
+  name:           Baptiste, François Verron et Olivier Mansour
   avatar:
   email:
   twitter:  techM6Web
   facebook:
   github:
 category:
-tags: []
+tags: [conference,velocity,webperf]
 image:
   feature:
   credit:
   creditlink:
 comments: true
+permalink: velocity-europe-2014-day-1.html
 ---
 
 # Velocity Barcelone, day 1
