@@ -26,7 +26,6 @@ Baptiste, François et Olivier ont eu la chance de participer à la Vélocity Co
 Voici le compte rendu des conférences et des moments qui les ont marqués.
 
 
-
 ## Morning Keynotes
 
 Les keynotes du matin semblaient être scénarisées sur différents points que les organisateurs de la conférence voulaient mettre en avant.
@@ -37,7 +36,6 @@ Steven Shorrock n’est pas un homme de l’IT, mais travaille autour de la séc
 Il a également conseillé d’étudier les cas de fonctionnement normaux ; ne pas faire seulement des *post-mortem* mais des *pre* et des *no* mortem.
 
 ![hal](/images/posts/velocity2014/hal.jpg)
-
 
 Une présentation intéressante sur l’incident et l’erreur.
 
@@ -74,6 +72,8 @@ La dernière keynote était vraiment excellente. Mark Zeman, venu de Nouvelle Z�
 
 ![better_perf_with_better_design2](/images/posts/velocity2014/better_perf_with_better_design2.jpg)
 
+---
+
 ## IT Janitor, How to Tidy Up - Mark Barnes (Financial Times)
 
 Ce manager au Financial Times a expliqué comment le journal a été touché de plein fouet par la révolution du web mobile et a dû s’adapter très rapidement. 
@@ -97,6 +97,8 @@ Au final la purge du legacy a apporter :
 
 Slides : [IT Janitor - How to Tidy Up](http://cdn.oreillystatic.com/en/assets/1/event/121/IT%20Janitor%20-%20How%20to%20Tidy%20Up%20Presentation.pptx)
 
+---
+
 ## Mansplaining 101: Cisadmin Edition - Marni Cohen (Puppet Labs)
 
 La conférence la plus geek de la journée. La conférencière a ouvert un terminal et à tapé 
@@ -115,7 +117,7 @@ La conférence était très sincère et didactique sur comment mieux intégrer l
 
 Voici les scripts et les ressources qu’elle a présenté : [https://gitlab.com/marni/mansplaining](https://gitlab.com/marni/mansplaining)
 
-
+---
 
 ## Building the FirefoxOS Homescreen - Kevin Grandon (Mozilla) 
 
@@ -132,6 +134,8 @@ http://slidedeck.io/KevinGrandon/slides-fxos-home-screen-velocity-2014
 
 https://github.com/KevinGrandon/slides-fxos-home-screen-velocity-2014
 
+---
+
 ## Don’t Kill Yourself : Mobile Web Performance Tricks that Aren’t Worth it, and Somme that Are - Lyza Gardner (Cloud Four) 
 
 Optimisations pour le web mobile.
@@ -140,6 +144,7 @@ Lyza Gardner nous a présenté sa vision de l’optimisation sur web mobile. Ell
 Elle a ensuite fait la parallèle entre le web lors de ces débuts qui était limité par le débit de nos connexions de l’époque, et le web mobile tel qu’il est actuellement. Ainsi certaines optimisation de l’époque sont adaptable, et même toujours valables, à nos problématiques actuelles.
 Selon elle, il ne faut pas optimiser un site pour le mobile, mais l’optimiser tout cours. Elle propose de se fixer des objectifs, par exemple se fixer une limite de nombre d’appel asset. Mais surtout d’optimiser / limiter les images puisque 62% du trafic d’un site correspond a ces dernières.
 
+---
 
 ## What are the Third-party Components Doing to Your Site’s Performance? - Andy Davies, Simon Hearne (NCC Group) 
 
@@ -149,6 +154,7 @@ Un Third-Party est un script que nous chargeons depuis un autre site. Par exempl
 
 Pour conclure, il faut trouver le bon compromis entre ce que nous apporte le Third-Party et ce qu’il peux nous couter ...
 
+---
 
 ## Guide to Survive a World Wide Event - Almudena Vivanco, Mateus Bartz (Telefónica
 
@@ -166,8 +172,75 @@ Mais en jouant avance beaucoup de problématiques :
 * Déploiement sur plusieurs continent (Amérique du Sud, Europe)
 * Rassembler 11 outils de monitoring en un seul.
 
+---
 
+## Is TLS Fast yet ?
 
+_slides: https://docs.google.com/presentation/d/1BH9DI1XlmukCzU2i8OvxLIfgQf_aGlZgZyvWDSyYyzs/present?slide=id.p19_
+
+TL;DR = Oui, il pourrait l'être !
+
+Le talent d'Ilya pour les conférences techniques une fois de plus a fait ses preuves. 
+Tout en détaillant l'utilité de TransportLayerSecurity (compression, vérification d'erreurs, authentification, chiffrement...) Ilya nous prouve que dans le meilleur des cas, un RTT supplémentaire est nécessaire et l'impact CPU très faible. 
+
+Outre l'utilisation des dernières versions du Kernel, d'OpenSSL et de votre OS serveur, la performance de TLS passe aussi par la réutilisation d'éléments négociés lors de la première (et coûteuse) poignée de main. Cette optimisation se fait coté serveur en conservant les "sessions identifiers" coté serveur ou coté client avec un "cookie" chiffré, le "session ticket". Il faudra bien entendu ajuster la durée de cache et/ou les timeouts (~ 1 jour).
+
+Une erreur fréquemment commise consite à ne pas intégrer le certificat intermediaire (peu de CA s'autorise à signer votre certificat avec leur CA Root) dans le certificat serveur ce qui a pour conséquence de stopper le render, ouvrir une nouvelle connexion tcp et https pour récuperer ce dernier chez l'autorité de certification. 
+
+L'OSCP stappling permet lui d'inclure directement la réponse OCSP est ainsi eviter le même problème de blocage du rendu, connexion à un tiers etc... 
+
+L'utilisation hasardeuse de redirection 301 peut considérablement augmenter le Time To First Byte de votre site, il est donc fortement conseilé de bien analyser ses chaines de redirections (ex: http://domain.com => http://www.domain.com => https://www.domain.com) et d'utiliser HSTS. Ce header émis par le serveur permettra au navigateur de mettre en cache la décision de redirection vers https.
+
+Le talk s'est terminé par un tableau comparatif fort intéréssant des serveurs HTTP et des CDNs concernant tout ces aspects.
+
+Quelques liens supplémentaires:
+
+https://www.ssllabs.com/ssltest/
+
+https://www.feistyduck.com/books/bulletproof-ssl-and-tls/
+
+---
+
+## Monitoring: the math behind bad behavior
+
+_slides: https://speakerdeck.com/postwait/the-math-behind-big-systems-analysis_
+
+La détéction d'anomalies dans les flux continus de données de type Time Series n'est pas une chose aisée. 
+
+Se baser sur un percentile, une moyenne ou une mediane uniquement ne permet pas de capturer les phénomènes de saisonalités et d'anomalies.  
+
+Théo nous a proposé une méthode de détéction de ces dernières appelée "lurching windows". Sur des fenetres de temps glissantes, on applique la méthode CUSUM (Cumulative Sum), qui somme les données en affectant un poids relatif (en réalité la probabilité que cette valeur existe).
+A voir:
+
+http://en.wikipedia.org/wiki/CUSUM
+
+---
+
+## What ops can learn from design
+
+"Un designer est quelqu'un qui design". 
+
+Derrière cette lapalissade se cache en réalité plusieurs concepts importants à intégrer pour toutes personnes produisant un code, un service utilisé par un tiers. 
+
+Nous sommes tous des designers. Il est donc indispensable de mettre en oeuvre 3 mécanismes simples pour faciliter l'utilisation de votre code/service. 
+
+Le "Feedback": le bon code de retour lors de l'échec d'un script, un message intelligible et contextualisé dans un log d'erreur applicatif, le "natural Mapping": -d dans une option en ligne de commande pour indique --database, et le "force functions": sous Unix, kill est par défaut non destructif, il faut forcer avec kill -9 pour tuer définitivement un processus, tout comme on vous force à fermer la porte de votre micro-onde pour le mettre en marche. 
+
+Conférénce intéressante qui vous fera sentir moins coupable de ne pas savoir si il fallait pousser ou tirer une porte :)
+
+---
+
+## Statistical Learning-based Automatic Anomaly Detection @Twitter
+
+_slides: http://velocityconf.com/velocityeu2014/public/schedule/detail/37111_
+
+Arun Kejariwal est maintenant un habitué de la Velocity, j'avais particulièremnt apprécié sa présentation l'année dernière à Londres sur la détéction d'anomalies chez twitter. 
+
+L'ojectif est toujours le même: prédire la capacité pour ajouter du matériel en datacenter, détécter des événements particulier, distinguer le spam du trafic normal etc...
+
+Leur méthode est relativement identique à ce qui avait été présenté l'année dernières: sur deux semaines de données on applique un traitement du signal pour décomposer et filtrer la saisonalité. Il "suffit" ensuite d'appliquer une regression ou un ESD sur les résidus pour détécter d'eventuels anomalies.
+
+Chose à savoir: Twitter va publier un package R contenant ces fonctions et algorithms, qui seront donc utilisables par le commun des mortels !
 
 
 
