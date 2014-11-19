@@ -32,7 +32,7 @@ Les keynotes du matin semblaient être scénarisées sur différents points que 
 
 ### Life after human error - Steven Shorrock (EUROCONTROL)
 
-Steven Shorrock n’est pas un homme de l’IT, mais travaille autour de la sécurité aérienne. Il se définit comme un ergonomiste des systèmes. Il a présenté comment, autour des erreurs humaines, “les mots créaient le monde” et entrainaient immédiatement un jugement social (“négligence" est évidement plus connoté que “erreur d’attention”). Il peut y avoir des erreurs dans la définition d’une erreur. Qualifier une erreur demandait une définition précise de standard et de contextes.   
+Steven Shorrock n’est pas un homme de l’IT, mais travaille autour de la sécurité aérienne. Il se définit comme un ergonomiste des systèmes. Il a présenté comment, autour des erreurs humaines, “les mots créaient le monde” et entrainaient immédiatement un jugement social (“négligence" est évidement plus connoté que “erreur d’attention”). Il peut y avoir des erreurs dans la définition d’une erreur. Qualifier une erreur demandait une définition précise de standards et de contextes.   
 Il a également conseillé d’étudier les cas de fonctionnement normaux ; ne pas faire seulement des *post-mortem* mais des *pre* et des *no* mortem.
 
 ![hal](/images/posts/velocity2014/hal.jpg)
@@ -70,7 +70,7 @@ Slides : [The Impatience Economy](http://cdn.oreillystatic.com/en/assets/1/event
 
 ### Recruiting for Diversity in Tech - Laine Campbell (Pythian)
 
-Un thème récurrent de la velocity de cette année. Laine explique comment l’ascenseur *méritocratique* est cassé et que seul une démarche volontaire permettra d’augementer la diversité dans les entreprises. 
+Un thème récurrent de la velocity de cette année. Laine explique comment l’ascenseur *méritocratique* est cassé et que seule une démarche volontaire permettra d’augmenter la diversité dans les entreprises. 
 
 Slides : [Recruiting for Diversity in Tech](http://cdn.oreillystatic.com/en/assets/1/event/121/Recruiting%20for%20Diversity%20in%20Tech%20Presentation.pptx)
 
@@ -81,7 +81,7 @@ Slides : [Recruiting for Diversity in Tech](http://cdn.oreillystatic.com/en/asse
 La dernière keynote était vraiment excellente. Mark Zeman, venu de Nouvelle Zélande, a expliqué comment le processus créatif pouvait aider à améliorer la performance. Dans ce but il a proposé de *redesign the design process*. 
 - se fixer certains principes/objectifs de performance dès le départ 
 - d’ajouter les designers dans la *feature team* et d’itérer via des prototypes
-- de partager le savoir sous forme d’informations visuelles (graphique mais aussi sous forme [d'un bookmaklet](https://github.com/zeman/perfmap) indiquant qu'elle partie d'un site met du temps à charger)
+- de partager le savoir sous forme d’informations visuelles (graphique mais aussi sous forme [d'un bookmarklet](https://github.com/zeman/perfmap) indiquant quelle partie d'un site met du temps à charger)
 
 
 ![better_perf_with_better_design1](/images/posts/velocity2014/better_perf_with_better_design1.jpg)
@@ -101,7 +101,7 @@ Ce manager au Financial Times a expliqué comment le journal a été touché de 
 ![transfo_mobile_FT](/images/posts/velocity2014/transfo_mobile_FT.jpg)
 
 Il a expliqué quelle stratégie il a adopté pour tuer ou refaire les vieux systèmes et comment, en premier lieu, il a vendu le projet à ses supérieurs.  
-Il a tout d’abord présenté le TCO de ce qu’il a appelé la version *”classic”* de ft.com (la carotte) puis a appuyé sur la peur de l’incident et les problèmes de sécurité (le bâton ; le journal ayant été la cible des pirates syriens. 
+Il a tout d’abord présenté le TCO de ce qu’il a appelé la version *”classic”* de ft.com (la carotte) puis a appuyé sur la peur de l’incident et les problèmes de sécurité (le bâton ; le journal ayant été la cible des pirates syriens). 
 
 Après une analyse fine du traffic il a ensuite appliqué ces stratégies : 
 - tuer directement une application inutile (il y en avait), quitte à la rallumer si quelqu’un finalement en à l’usage :) (et couper un serveur Solaris avec 1833 jours d’uptime !)
@@ -148,8 +148,8 @@ Slides : [Building the FirefoxOS Homescreen](http://slidedeck.io/KevinGrandon/sl
 
 Conférence de présentation de l'OS pour smartphone de Firefox.
 
-Lors de cette présentation, Kevin Grandon Ingénieur chez Mozilla nous a présenté le nouvel OS, et nous a initié la programmation sur ce dernier.
-Ce nouvel OS est donc basé sur des languages simples : HTML / CSS / Javascript. 
+Lors de cette présentation, Kevin Grandon Ingénieur chez Mozilla nous a présenté le nouvel OS, et nous a initié à la programmation sur ce dernier.
+Ce nouvel OS est donc basé sur des langages simples : HTML / CSS / Javascript. 
 
 Le développement est donc assez facile à prendre en main, le débugage aussi car on peux monitorer tout ce qu’il se passe sur le device de test via un firebug dédié.
 
@@ -159,9 +159,9 @@ Le développement est donc assez facile à prendre en main, le débugage aussi c
 
 Optimisations pour le web mobile.
 
-Lyza Gardner nous a présenté sa vision de l’optimisation sur web mobile. Elle nous a tout d’abord fait un compte rendu sur son expérience personnelle. Liza a chercher via différentes analyses (speedIndex…) à trouver une relation entre temps de chargement , nombres d’assets etc… Et la conclusion qu’elle mettais en avant, c’est qu’il n’y avais pas de recette magique. 
-Elle a ensuite fait la parallèle entre le web lors de ces débuts qui était limité par le débit de nos connexions de l’époque, et le web mobile tel qu’il est actuellement. Ainsi certaines optimisation de l’époque sont adaptable, et même toujours valables, à nos problématiques actuelles.
-Selon elle, il ne faut pas optimiser un site pour le mobile, mais l’optimiser tout cours. Elle propose de se fixer des objectifs, par exemple se fixer une limite de nombre d’appel asset. Mais surtout d’optimiser / limiter les images puisque 62% du trafic d’un site correspond a ces dernières.
+Lyza Gardner nous a présenté sa vision de l’optimisation sur web mobile. Elle nous a tout d’abord fait un compte rendu sur son expérience personnelle. Liza a cherché via différentes analyses (speedIndex…) à trouver une relation entre temps de chargement, nombres d’assets etc… Et la conclusion qu’elle mettait en avant, c’est qu’il n’y avait pas de recette magique. 
+Elle a ensuite fait la parallèle entre le web lors de ces débuts qui était limité par le débit de nos connexions de l’époque, et le web mobile tel qu’il est actuellement. Ainsi certaines optimisations de l’époque sont adaptables, et même toujours valables, à nos problématiques actuelles.
+Selon elle, il ne faut pas optimiser un site pour le mobile, mais l’optimiser tout court. Elle propose de se fixer des objectifs, par exemple se fixer une limite de nombre d’appel asset. Mais surtout d’optimiser / limiter les images puisque 62% du trafic d’un site correspond a ces dernières.
 
 ---
 
@@ -171,9 +171,9 @@ Slides : [Third-party components and site performance?](http://cdn.oreillystatic
 
  Nous utilisons tous des « Third-Party » sur nos sites, mais est-ce une bonne idée ?
 
-Un Third-Party est un script que nous chargeons depuis un autre site. Par exemple : Google Analitycs. Il existe différents type de Third-Party : la publicité, les analyseurs de trafic … La problématique est que nous ne pouvons pas controller ces outils. Nous n’avons pas la main sur le temps de chargement, la disponibilité de l’outils, et cela peux influer sur l’expérience utilisateur et la qualité de nos services.
+Un Third-Party est un script que nous chargeons depuis un autre site. Par exemple : Google Analitycs. Il existe différents type de Third-Party : la publicité, les analyseurs de trafic … La problématique est que nous ne pouvons pas controller ces outils. Nous n’avons pas la main sur le temps de chargement, la disponibilité de l’outils, et cela peut influer sur l’expérience utilisateur et la qualité de nos services.
 
-Pour conclure, il faut trouver le bon compromis entre ce que nous apporte le Third-Party et ce qu’il peux nous couter ...
+Pour conclure, il faut trouver le bon compromis entre ce que nous apporte le Third-Party et ce qu’il peut nous coûter ...
 
 
 ---
@@ -182,18 +182,18 @@ Pour conclure, il faut trouver le bon compromis entre ce que nous apporte le Thi
 
 Slides : [Survive a World Wide Event](http://cdn.oreillystatic.com/en/assets/1/event/121/Guide%20to%20Survive%20a%20World%20Wide%20Event%20%20Presentation.pdf)
 
-Retour d’expérience de Movistar TV, une chaine payante multi-support qui a diffuser la coupe du monde en Espagne, au Brésil et en Argentine. 
+Retour d’expérience de Movistar TV, une chaîne payante multi-support qui a diffusé la coupe du monde en Espagne, au Brésil et en Argentine. 
 
-Cette société c’est confronté à une problématique de traffic avec des pics de connexions important en peu de temps. La société devais diffuser la coupe du monde FIFA 2014 dans plusieurs pays et sur plusieurs devices différents. Après des tests en condition réels avant le début de la compétition, ils se sont aperçus qu’ils ne pouvais pas gérer le pic de connexion qui arrivais entre 5 minutes avant le coup d’envoie et 5 minutes après, ainsi qu’a la reprise du match et début de deuxième mit-temps.  
+Cette société s’est confrontée à une problématique de traffic avec des pics de connexions importants en peu de temps. La société devait diffuser la coupe du monde FIFA 2014 dans plusieurs pays et sur plusieurs devices différents. Après des tests en condition réelles avant le début de la compétition, ils se sont aperçus qu’ils ne pouvaient pas gérer le pic de connexion qui arrivait entre 5 minutes avant le coup d’envoi et 5 minutes après, ainsi qu’à la reprise du match et début de deuxième mi-temps.  
 Il a donc fallu tout refaire à plusieurs niveaux : 
 * Création d’un CDN en interne
-* Refonte globale du système de connexion pour pouvoir supporté les pics. 
+* Refonte globale du système de connexion pour pouvoir supporter les pics. 
 * Mise en place de monitoring via Graphite
 * Mise en place de Tests
 
-Mais en jouant avance beaucoup de problématiques : 
+Mise en avant de beaucoup de problématiques : 
 * Multi plateforme
-* Déploiement sur plusieurs continent (Amérique du Sud, Europe)
+* Déploiement sur plusieurs continents (Amérique du Sud, Europe)
 * Rassembler 11 outils de monitoring en un seul.
 
 
@@ -211,13 +211,13 @@ Tout en détaillant l'utilité de TransportLayerSecurity (compression, vérifica
 
 Outre l'utilisation des dernières versions du Kernel, d'OpenSSL et de votre OS serveur, la performance de TLS passe aussi par la réutilisation d'éléments négociés lors de la première (et coûteuse) poignée de main. Cette optimisation se fait coté serveur en conservant les "sessions identifiers" coté serveur ou coté client avec un "cookie" chiffré, le "session ticket". Il faudra bien entendu ajuster la durée de cache et/ou les timeouts (~ 1 jour).
 
-Une erreur fréquemment commise consite à ne pas intégrer le certificat intermediaire (peu de CA s'autorise à signer votre certificat avec leur CA Root) dans le certificat serveur ce qui a pour conséquence de stopper le render, ouvrir une nouvelle connexion tcp et https pour récuperer ce dernier chez l'autorité de certification. 
+Une erreur fréquemment commise consiste à ne pas intégrer le certificat intermédiaire (peu de CA s'autorise à signer votre certificat avec leur CA Root) dans le certificat serveur ce qui a pour conséquence de stopper le render, ouvrir une nouvelle connexion tcp et https pour récupérer ce dernier chez l'autorité de certification. 
 
-L'OSCP stappling permet lui d'inclure directement la réponse OCSP est ainsi eviter le même problème de blocage du rendu, connexion à un tiers etc... 
+L'OSCP stappling permet lui d'inclure directement la réponse OCSP et ainsi éviter le même problème de blocage du rendu, connexion à un tiers etc... 
 
-L'utilisation hasardeuse de redirection 301 peut considérablement augmenter le Time To First Byte de votre site, il est donc fortement conseilé de bien analyser ses chaines de redirections (ex: http://domain.com => http://www.domain.com => https://www.domain.com) et d'utiliser HSTS. Ce header émis par le serveur permettra au navigateur de mettre en cache la décision de redirection vers https.
+L'utilisation hasardeuse de redirection 301 peut considérablement augmenter le Time To First Byte de votre site, il est donc fortement conseillé de bien analyser ses chaînes de redirections (ex: http://domain.com => http://www.domain.com => https://www.domain.com) et d'utiliser HSTS. Ce header émis par le serveur permettra au navigateur de mettre en cache la décision de redirection vers https.
 
-Le talk s'est terminé par un tableau comparatif fort intéréssant des serveurs HTTP et des CDNs concernant tout ces aspects.
+Le talk s'est terminé par un tableau comparatif fort intéressant des serveurs HTTP et des CDNs concernant tous ces aspects.
 
 Quelques liens supplémentaires:
 
@@ -232,9 +232,9 @@ Slides : [the math behind bad behavior](https://speakerdeck.com/postwait/the-mat
 
 La détection d'anomalies dans les flux continus de données de type Time Series n'est pas une chose aisée. 
 
-Se baser sur un percentile, une moyenne ou une mediane uniquement ne permet pas de capturer les phénomènes de saisonalités et d'anomalies.  
+Se baser sur un percentile, une moyenne ou une mediane uniquement ne permet pas de capturer les phénomènes de saisonnalité et d'anomalies.  
 
-Théo nous a proposé une méthode de détéction de ces dernières appelée "lurching windows". Sur des fenetres de temps glissantes, on applique la méthode CUSUM (Cumulative Sum), qui somme les données en affectant un poids relatif (en réalité la probabilité que cette valeur existe).
+Théo nous a proposé une méthode de détection de ces dernières appelée "lurching windows". Sur des fenêtres de temps glissantes, on applique la méthode CUSUM (Cumulative Sum), qui somme les données en affectant un poids relatif (en réalité la probabilité que cette valeur existe).
 
 A voir: [http://en.wikipedia.org/wiki/CUSUM](http://en.wikipedia.org/wiki/CUSUM)
 
@@ -252,23 +252,23 @@ Nous sommes tous des designers. Il est donc indispensable de mettre en oeuvre 3 
 
 Le "Feedback": le bon code de retour lors de l'échec d'un script, un message intelligible et contextualisé dans un log d'erreur applicatif, le "natural Mapping": -d dans une option en ligne de commande pour indique --database, et le "force functions": sous Unix, kill est par défaut non destructif, il faut forcer avec kill -9 pour tuer définitivement un processus, tout comme on vous force à fermer la porte de votre micro-onde pour le mettre en marche. 
 
-Conférénce intéressante qui vous fera sentir moins coupable de ne pas savoir si il fallait pousser ou tirer une porte :)
+Conférence intéressante qui vous fera sentir moins coupable de ne pas savoir si il fallait pousser ou tirer une porte :)
 
 ---
 
 ## Statistical Learning-based Automatic Anomaly Detection @Twitter
 
 
-Arun Kejariwal est maintenant un habitué de la Velocity, j'avais particulièremnt apprécié sa présentation l'année dernière à Londres sur la détéction d'anomalies chez twitter. 
+Arun Kejariwal est maintenant un habitué de la Velocity, j'avais particulièrement apprécié sa présentation l'année dernière à Londres sur la détection d'anomalies chez twitter. 
 
-L'ojectif est toujours le même: prédire la capacité pour ajouter du matériel en datacenter, détécter des événements particulier, distinguer le spam du trafic normal etc...
+L'ojectif est toujours le même: prédire la capacité pour ajouter du matériel en datacenter, détecter des événements particulier, distinguer le spam du trafic normal etc...
 
-Leur méthode est relativement identique à ce qui avait été présenté l'année dernières: sur deux semaines de données on applique un traitement du signal pour décomposer et filtrer la saisonalité. Il "suffit" ensuite d'appliquer une regression ou un ESD sur les résidus pour détécter d'eventuels anomalies.
+Leur méthode est relativement identique à ce qui avait été présenté l'année dernières: sur deux semaines de données on applique un traitement du signal pour décomposer et filtrer la saisonnalité. Il "suffit" ensuite d'appliquer une regression ou un ESD sur les résidus pour détecter d'éventuelles anomalies.
 
 Chose à savoir: Twitter va publier un package R contenant ces fonctions et algorithms, qui seront donc utilisables par le commun des mortels !
 
 
-## conclusion
+## Conclusion
 
 Une première journée intéressante et intense, sous le soleil de Barcelone !
  
