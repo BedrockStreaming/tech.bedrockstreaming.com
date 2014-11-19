@@ -69,7 +69,7 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
  
  J'ai profité d'un instant avec lui pour lui présenté [GitHubTeamReviewer](http://tech.m6web.fr/github-team-reviewer-pull-requests.html) (un outil interne open-sourcé) et il été enchanté de découvrir ce qui avait été fait avec l'API de Github. Il a indiqué que l'entreprise travaillait actuellement sur des vues permettant de pallier aux problèmes résolus par GitHubTeamReviewer.
  
- ## HTTP Archive and Google Cloud Dataflow - Ilya Grigorik (Google)
+## HTTP Archive and Google Cloud Dataflow - Ilya Grigorik (Google)
  
  Ilya Grigorik a présenté [http://bigqueri.es/](http://bigqueri.es/), un outil permettant de requêter [HTTP archive](http://httparchive.org/). La nouveauté est que mainteant le *body* des requêtes est maintenant conservé et on peut réquêter dedans. Un engine Javascript a été intégré au SQL de bigqueries permettant de faire des requêtes très puissantes. 
  
@@ -179,6 +179,7 @@ En effet les microservices ont besoin d'outils de diagnostics plus poussés, on 
 --- 
 
 ## It's 3AM, Do You Know Why You Got Paged ?
+
 Slides: [It's 3AM, Do You Know Why You Got Paged ?](https://speakerdeck.com/ryanfrantz/its-3am-do-you-know-why-you-got-paged)
 
 Ryan Frantz nous rappelle quelques éléments de bon sens concernant les alertes:
@@ -190,12 +191,13 @@ Ryan Frantz nous rappelle quelques éléments de bon sens concernant les alertes
 
 Ryan nous a ensuite présenté nagios-herald, l'alerte générée par nagios peut désormais être relayée dans graphite, logstash etc.. et donc mesurée ! 
 
-![](https://speakerd.s3.amazonaws.com/presentations/1c7b165020ce01328c621a1ab62a9337/slide_26.jpg?141098...)
+![](https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/40462/467784/ssJ2W5TU7233d2M/Capture%20d%E2%80%99%C3%A9cran%202014-11-19%20%C3%A0%2019.13.49.png)
 
 --- 
 
 ## Customizing Chef for Fun and Profit
 
+TODO
 
 ---
 
@@ -204,10 +206,10 @@ Ryan nous a ensuite présenté nagios-herald, l'alerte générée par nagios peu
 Perry Dyball, Stephen Thair avaient préparé un quiz interactif avec les participants à la conférence. Des questions diverses et variées défilaient sur le grand écran et une application web permettaient à chacun d'y répondre. Un moment fun animé par deux animateurs survoltés.
  Malheuresement il semble que l'application n'aient pas tenu la charge et personne n'a pu voté après la seconde question (la prochaine ils devraient nous confier le projet :) ), mais un système de fallback a été prévu, basé sur des feuilles de papier de couleur à brandir bien haut pour répondre aux questions. 
  
- > merci le papier !
+ > merci le papier ! :)
  
  ![quizz](/images/posts/velocity2014/quizz.jpg) 
  
- ## Conclusion
+## Conclusion
  
- Fin des conférences et direction les soirées offertes par Facebook (où nous avons pu discuter avec Santosh Janardhan, responsable des infrastructures de Facebook !) et Dyn.
+ Fin des conférences et direction les soirées offertes par Facebook (où nous avons pu discuter avec Santosh Janardhan, responsable des infrastructures de Facebook ^^ !) et Dyn.
