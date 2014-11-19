@@ -39,6 +39,8 @@ Il a également conseillé d’étudier les cas de fonctionnement normaux ; ne p
 
 Une présentation intéressante sur l’incident et l’erreur.
 
+<iframe width="560" height="315" src="//www.youtube.com/embed/STU3Or6ZU60" frameborder="0" allowfullscreen></iframe>
+
 ### Maximize the Return of Your Digital Investments - Aaron Rudger (Keynote Systems)
 
 Une présentation sponsorisée bien faite, montrant les difficultés de communication entre deux populations (IT et biz en l’occurence) et comment un outil performant et agréable peut aider à combler ce gap.  
@@ -51,10 +53,16 @@ Une rapide démonstration d’un outil en javascript à installer sur les postes
 
 A découvrir : [PerfBar](http://lafikl.github.io/perfBar/) 
 
+<iframe width="560" height="315" src="//www.youtube.com/embed/xJogXOzmcSk" frameborder="0" allowfullscreen></iframe>
+
 ### The Impatience Economy, Where Velocity Creates Value - Monica Pal (Aerospike Inc.)
 
 Il y a une génération on attendait 10 jours un échange de courrier postal, aujourd’hui un adolescent vérifie son téléphone toutes les 10 secondes ! Nous sommes moins attentifs, plus impatients.  
 De ce constat Monica Pal explique comment les backend web doivent s’adapter et servir de plus en plus d’informations contextualisées : *search, sort, recommand, personalize*.
+
+Slides : [The Impatience Economy](http://cdn.oreillystatic.com/en/assets/1/event/121/The%20Impatience%20Economy,%20Where%20Velocity%20Creates%20Value%20Presentation.pptx)
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/mgnLVSSfols" frameborder="0" allowfullscreen></iframe>
 
 ### Recruiting for Diversity in Tech Laine Campbell (Pythian)
 
@@ -71,6 +79,10 @@ La dernière keynote était vraiment excellente. Mark Zeman, venu de Nouvelle Z�
 ![better_perf_with_better_design1](/images/posts/velocity2014/better_perf_with_better_design1.jpg)
 
 ![better_perf_with_better_design2](/images/posts/velocity2014/better_perf_with_better_design2.jpg)
+
+Je vous invite vivement à regarder sa vidéo : 
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/DFImM0r4EpE" frameborder="0" allowfullscreen></iframe>
 
 ---
 
@@ -158,6 +170,8 @@ Pour conclure, il faut trouver le bon compromis entre ce que nous apporte le Thi
 
 ## Guide to Survive a World Wide Event - Almudena Vivanco, Mateus Bartz (Telefónica
 
+Slides : [Survive a World Wide Event](http://cdn.oreillystatic.com/en/assets/1/event/121/Guide%20to%20Survive%20a%20World%20Wide%20Event%20%20Presentation.pdf)
+
 Retour d’expérience de Movistar TV, une chaine payante multi-support qui a diffuser la coupe du monde en Espagne, au Brésil et en Argentine. 
 
 Cette société c’est confronté à une problématique de traffic avec des pics de connexions important en peu de temps. La société devais diffuser la coupe du monde FIFA 2014 dans plusieurs pays et sur plusieurs devices différents. Après des tests en condition réels avant le début de la compétition, ils se sont aperçus qu’ils ne pouvais pas gérer le pic de connexion qui arrivais entre 5 minutes avant le coup d’envoie et 5 minutes après, ainsi qu’a la reprise du match et début de deuxième mit-temps.  
@@ -172,11 +186,13 @@ Mais en jouant avance beaucoup de problématiques :
 * Déploiement sur plusieurs continent (Amérique du Sud, Europe)
 * Rassembler 11 outils de monitoring en un seul.
 
+
+
 ---
 
 ## Is TLS Fast yet ?
 
-_slides: https://docs.google.com/presentation/d/1BH9DI1XlmukCzU2i8OvxLIfgQf_aGlZgZyvWDSyYyzs/present?slide=id.p19_
+Slides : [Is TLS Fast yet ?](https://docs.google.com/presentation/d/1BH9DI1XlmukCzU2i8OvxLIfgQf_aGlZgZyvWDSyYyzs/present?slide=id.p19)
 
 TL;DR = Oui, il pourrait l'être !
 
@@ -203,16 +219,15 @@ https://www.feistyduck.com/books/bulletproof-ssl-and-tls/
 
 ## Monitoring: the math behind bad behavior
 
-_slides: https://speakerdeck.com/postwait/the-math-behind-big-systems-analysis_
+Slides : [the math behind bad behavior](https://speakerdeck.com/postwait/the-math-behind-big-systems-analysis)
 
 La détéction d'anomalies dans les flux continus de données de type Time Series n'est pas une chose aisée. 
 
 Se baser sur un percentile, une moyenne ou une mediane uniquement ne permet pas de capturer les phénomènes de saisonalités et d'anomalies.  
 
 Théo nous a proposé une méthode de détéction de ces dernières appelée "lurching windows". Sur des fenetres de temps glissantes, on applique la méthode CUSUM (Cumulative Sum), qui somme les données en affectant un poids relatif (en réalité la probabilité que cette valeur existe).
-A voir:
 
-http://en.wikipedia.org/wiki/CUSUM
+A voir: [http://en.wikipedia.org/wiki/CUSUM](http://en.wikipedia.org/wiki/CUSUM)
 
 ---
 
@@ -232,7 +247,6 @@ Conférénce intéressante qui vous fera sentir moins coupable de ne pas savoir 
 
 ## Statistical Learning-based Automatic Anomaly Detection @Twitter
 
-_slides: http://velocityconf.com/velocityeu2014/public/schedule/detail/37111_
 
 Arun Kejariwal est maintenant un habitué de la Velocity, j'avais particulièremnt apprécié sa présentation l'année dernière à Londres sur la détéction d'anomalies chez twitter. 
 
