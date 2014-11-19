@@ -95,6 +95,43 @@ TODO
  
 Slides : [Why the Web is Slowing Your Mobile App](http://cdn.oreillystatic.com/en/assets/1/event/121/Recycling_%20Why%20the%20Web%20is%20Slowing%20Your%20Mobile%20App%20Presentation.pdf)
 
+## Breaking News at 1000ms
+Le Guargian est un journal Anglais présent sur le web et sur tout type de device. Ils ont récemment fait une refonte de leur site pour passer à une version Responsive avec pour challenge d’afficher son contenu en moins d’une seconde.
+
+Le Guardian c’est 110 000 utilisateurs, 7000 différents devices. L’ancien site avait un début de rendu en 8 secondes pour un affichage complet en 12. Avec la nouvelle version le site s’affiche en 1 seconde et le chargement complet au bout de 3. Quelles-sont les principales optimisations ?
+
+Pour commencer, il faut charge le contenu important pour l’utilisateur en premier, à savoir le menu, l’article, et le widget d’article populaire. Le reste du contenu sera chargé dynamiquement en JS.
+
+En ce qui concerne le css, c’est la même chose. Les CSS important (critique) qui concernent l’article et le rendu global et inliner. Ainsi, nous n’avons pas de blocage du rendu de la page. Le reste des css est chargé via Javascript. Avec ce système, on gagne au moins une demi-seconde sur le début d’affichage du contenu.
+Pour gagner en fluidité pour les prochains affichages, le css est stocké en localStorage. On gagne ainsi des ressources pour les prochains chargements.
+
+Pour les fonts ? C’est la même chose, ils sont mis en cache dans le localStorage pour supprimer de nouveaux chargements.
+
+Enfin le gros morceau : les images ! Elles sont chargées de façon asynchrone en lazyloading. Cela permet de ne pas bloquer le rendu principal de la page.
+
+En complément, ils ont mis en place des outils. Notamment pour monitorer dans Github la taille des Assets afin de vérifier qu’il n’y a pas de grosses variations.
+
+Avec ces optimisations et un système de Proxy qui va gérer les données mises en localStorage, le site peut même être accessible en mode offline.
+
+[Github du Front](https://github.com/guardian/frontend)
+[Slide de la présentation](https://speakerdeck.com/patrickhamann/breaking-news-at-1000ms-velocity-eu-2014)
+
+## Offline-first Web Apps
+
+Matt Andrews nous présente comment rendre une application web disponible Offline.
+
+Plusieurs contraintes peuvent nous pousser à avoir besoin d’une app (signet d’accueil) disponible même sans connexion. Que ce soit un article dans le métro ou une carte au milieu de nulle part sans connexion, il y a une réelle attente utilisateur.
+
+Premièrement, il faut activer [AppCache](http://www.w3schools.com/html/html5_app_cache.asp) en précisant qu’il faut faire un petit Hack pour qu’il soit vraiment utile (voir slide).
+
+Ensuite l’utilisation de plusieurs outils nous permet d’arriver à nos fins : 
+* Utilisation de [FetchApi](https://github.com/github/fetch) : Il permet de remplacer nos appels Ajax avec une fonction succès , d’erreur et les Promises pour charger le contenu, ou lire le cache en cas d’absence de connexion.
+* Cache Api : Il permet de choisir des Url a mettre en cache. Ainsi que de forcer le contenu de ces urls dans le code.
+* Service Worker : Il permet d’intercepter les events de chargement pour ensuite appeler le système de Cache Api
+ 
+Toutes ces optimisations nous permettent d’accéder au site en Offline. Mais ces optimisations nous permettent aussi d’optimiser le chargement de nos pages puisqu’on limite le nombre d’appels http avec la mise en cache de certaines ressources.
+
+[Slide de la présentation](http://fr.slideshare.net/andrewsmatt/velocity-eu-2014)
 
 
 ## Mega quiz Velocity
