@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Retour sur la velocity Barcelone - premier jour"
+title: "Retour sur la Velocity Barcelone - premier jour"
 description: ""
 author:
   name:           Baptiste, François Verron et Olivier Mansour
