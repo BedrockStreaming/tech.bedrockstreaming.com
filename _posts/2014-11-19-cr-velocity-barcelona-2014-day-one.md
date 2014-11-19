@@ -206,7 +206,7 @@ Slides : [Is TLS Fast yet ?](https://docs.google.com/presentation/d/1BH9DI1Xlmuk
 
 TL;DR = Oui, il pourrait l'être !
 
-Le talent d'Ilya pour les conférences techniques une fois de plus a fait ses preuves. 
+Le talent d'Ilya pour les conférences techniques a une fois de plus fait ses preuves. 
 Tout en détaillant l'utilité de TransportLayerSecurity (compression, vérification d'erreurs, authentification, chiffrement...) Ilya nous prouve que dans le meilleur des cas, un RTT supplémentaire est nécessaire et l'impact CPU très faible. 
 
 Outre l'utilisation des dernières versions du Kernel, d'OpenSSL et de votre OS serveur, la performance de TLS passe aussi par la réutilisation d'éléments négociés lors de la première (et coûteuse) poignée de main. Cette optimisation se fait coté serveur en conservant les "sessions identifiers" coté serveur ou coté client avec un "cookie" chiffré, le "session ticket". Il faudra bien entendu ajuster la durée de cache et/ou les timeouts (~ 1 jour).
@@ -263,9 +263,9 @@ Arun Kejariwal est maintenant un habitué de la Velocity, j'avais particulièrem
 
 L'ojectif est toujours le même: prédire la capacité pour ajouter du matériel en datacenter, détecter des événements particulier, distinguer le spam du trafic normal etc...
 
-Leur méthode est relativement identique à ce qui avait été présenté l'année dernières: sur deux semaines de données on applique un traitement du signal pour décomposer et filtrer la saisonnalité. Il "suffit" ensuite d'appliquer une regression ou un ESD sur les résidus pour détecter d'éventuelles anomalies.
+Leur méthode est relativement identique à ce qui avait été présenté l'année dernière: sur deux semaines de données on applique un traitement du signal pour décomposer et filtrer la saisonnalité. Il "suffit" ensuite d'appliquer une regression ou un ESD sur les résidus pour détecter d'éventuelles anomalies.
 
-Chose à savoir: Twitter va publier un package R contenant ces fonctions et algorithms, qui seront donc utilisables par le commun des mortels !
+Chose à savoir: Twitter va publier un package R contenant ces fonctions et algorithmes, qui seront donc utilisables par le commun des mortels !
 
 
 ## Conclusion
