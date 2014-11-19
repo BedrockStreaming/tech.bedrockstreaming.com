@@ -34,14 +34,14 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
  Slides : [the Future of Web Development at Scale](http://cdn.oreillystatic.com/en/assets/1/event/121/Upgrading%20the%20Web_%20Polyfills,%20Components%20and%20the%20Future%20of%20Web%20Development%20at%20Scale%20Presentation.pdf)
   
  
- ## Troubleshooting Using HTTP Headers - Steve Miller-Jones (Limelight Networks)
+### Troubleshooting Using HTTP Headers - Steve Miller-Jones (Limelight Networks)
  
  Slides : [Troubleshooting Using HTTP Headers](http://cdn.oreillystatic.com/en/assets/1/event/121/Troubleshooting%20Using%20HTTP%20Headers%20Presentation.pptx)
   
   Un employé de Limelight nous a présenté comment l'ajout de header dans une requête pouvait renvoyer des headers supplémentaires dans la réponse HTTP. Cela peut être utile pour débugguer et analyser un incident.  
   Cette présentation nous rappelée, qu'en interne, [nos gentils ops](https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/40462/467784/bB5W31POypiBcuF/LSpC0ZX.gif) nous permettent déjà de faire ce genre chose sur nos proxy cache.
    
- ## Monitoring without Alerts - and Why it Makes Way More Sense than You Might Think - Alois Reitbauer (ruxit.com) 
+### Monitoring without Alerts - and Why it Makes Way More Sense than You Might Think - Alois Reitbauer (ruxit.com) 
   
  Alois a évoqué la solution Ruxit développé depuis plus de trois ans. Cette solution consiste a installer un agent sur vos serveurs qui va automatique détecter des anomalies statistiques et corréler cette information avec d'autres déviations dans le but de trouver la *root cause* d'un indident 
  
@@ -49,7 +49,7 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
  
  <iframe width="560" height="315" src="//www.youtube.com/embed/j0kh5u_NewA" frameborder="0" allowfullscreen></iframe>
  
- ## Lowering the Barrier to Programming - Pamela Fox (Khan Academy) 
+### Lowering the Barrier to Programming - Pamela Fox (Khan Academy) 
  
  Pamela Fox nous a présenté l'initive [code.org](http://code.org/promote) dont le but est de promouvoir l'enseignement de l'informatique (bon, apparement seulement aux US).
   
@@ -59,7 +59,7 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
  
  Slides : [Lowering the Barrier to Programming](http://cdn.oreillystatic.com/en/assets/1/event/121/Lowering%20the%20Barrier%20to%20Programming%20Presentation.pdf)
 
-## Velocity at GitHub - Brian Doll (GitHub)
+### Velocity at GitHub - Brian Doll (GitHub)
  
  Brian a fait une présentation très ... minimaliste. Il est revenu sur 7 ans de développement à GitHub ... TODO 
  
@@ -77,7 +77,7 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
  
  Pour ceux qui ne voudraient pas se plonger dedans, beaucoup de recherches faites par d'autres utilisateurs sont disponibles et abondamment discutées ([exemple](http://bigqueri.es/t/are-popular-websites-faster/162). 
  
- ## Webpagetest-automation 2.0 - Nils Kuhn (iteratec GmbH), Uwe Beßle (iteratec GmbH)
+### Webpagetest-automation 2.0 - Nils Kuhn (iteratec GmbH), Uwe Beßle (iteratec GmbH)
   
  Webpagetest est un outil formidable mais il est difficile à automatiser. Les orateurs ont présentés un outil pour le faire, permettant donc de réaliser une mesure continuelle de la webperf avec un parcourt utilisateur complet - démonstration à l'appuie.
  
@@ -85,17 +85,26 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
  
  <iframe width="560" height="315" src="//www.youtube.com/embed/_CMcaYnBt-g#t=627" frameborder="0" allowfullscreen></iframe>
 
+---
+
 ## Etsy’s Journey to Building a Continuous Integration Infrastructure for Mobile Apps - Nassim Kammah (Etsy)
 
 TODO 
 
+---
+
 ## Recycling: Why the Web is Slowing Your Mobile App - Colin Bendell (Akamai) 
  
 *Mobile app monitoring is where browser RUM where 7 years ago*. 
+
+TODO 
  
 Slides : [Why the Web is Slowing Your Mobile App](http://cdn.oreillystatic.com/en/assets/1/event/121/Recycling_%20Why%20the%20Web%20is%20Slowing%20Your%20Mobile%20App%20Presentation.pdf)
 
+---
+
 ## Breaking News at 1000ms
+
 Le Guargian est un journal Anglais présent sur le web et sur tout type de device. Ils ont récemment fait une refonte de leur site pour passer à une version Responsive avec pour challenge d’afficher son contenu en moins d’une seconde.
 
 Le Guardian c’est 110 000 utilisateurs, 7000 différents devices. L’ancien site avait un début de rendu en 8 secondes pour un affichage complet en 12. Avec la nouvelle version le site s’affiche en 1 seconde et le chargement complet au bout de 3. Quelles-sont les principales optimisations ?
@@ -113,8 +122,10 @@ En complément, ils ont mis en place des outils. Notamment pour monitorer dans G
 
 Avec ces optimisations et un système de Proxy qui va gérer les données mises en localStorage, le site peut même être accessible en mode offline.
 
-[Github du Front](https://github.com/guardian/frontend)
-[Slide de la présentation](https://speakerdeck.com/patrickhamann/breaking-news-at-1000ms-velocity-eu-2014)
+ - [Github du Front](https://github.com/guardian/frontend)
+ - [Slide de la présentation](https://speakerdeck.com/patrickhamann/breaking-news-at-1000ms-velocity-eu-2014)
+
+---
 
 ## Offline-first Web Apps
 
@@ -133,6 +144,60 @@ Toutes ces optimisations nous permettent d’accéder au site en Offline. Mais c
 
 [Slide de la présentation](http://fr.slideshare.net/andrewsmatt/velocity-eu-2014)
 
+--- 
+
+## Microservices - What an Ops Team Needs to Know
+
+Slides: [Microservices - What an Ops Team Needs to Know](https://speakerdeck.com/bruntonspall/microservices-what-an-ops-team-needs-to-know)
+
+
+![govuk](https://www.gov.uk/service-manual/assets/govuk_template/images/opengraph-image.png)
+
+Le buzzword est laché. Le propos n'était pas ici de troller autour de la notion de microservices, de l'implémentation ou de leur utilisation mais plûtot du changement que cela implique pour les équipes d'exploitation.
+
+Pourquoi l'exploitation n'aime pas (en règle général) ce type d'architecture ? Parce que les composants sont mis à jour régulierement et indépendament de l'exploit, on peut donc rapidement tout casser en prod.
+
+L'exploitation n'a pas a être le goulot d'étranglement de la mise en prod ! En fournissant des [services de bases](http://fr.wikipedia.org/wiki/Pyramide_des_besoins) et des outils aux équipes de développement, on peut considérablement augmenter leur autonomie et la disponibilité des infras. 
+
+Cela passe par:
+
+- automatiser les VMs ou containers en prod
+- un système de métriques "As a Service" (ala graphite)
+- un service de log central
+- un outil de deploiement
+
+Mais les droits vont de pairs avec les devoirs :) 
+
+"Give developers pagers too"
+
+"Developers should be exposed to the pain they cause"
+
+Ces outils et services (ces services sont des commidités de nos jours) ainsi fournis vont permettre à l'exploitation de se concentrer sur des problèmatiques plus complexes. 
+
+En effet les microservices ont besoin d'outils de diagnostics plus poussés, on citera au passage Zipkin, d'alerting et de monitoring spécialisés.
+
+--- 
+
+## It's 3AM, Do You Know Why You Got Paged ?
+Slides: [It's 3AM, Do You Know Why You Got Paged ?](https://speakerdeck.com/ryanfrantz/its-3am-do-you-know-why-you-got-paged)
+
+Ryan Frantz nous rappelle quelques éléments de bon sens concernant les alertes:
+
+- un contexte (quel hôte ? serveur ? service ? l'impact front / back ?)
+- l'historique de la métrique (- 5min, 15min, 1 jour, 1 semaine)
+- la raison d'être du check (rédigée par le créateur du check)
+- des couleurs et mise en forme permettant de trouver visuellement l'information le plus rapidement possible (rappel il est 3 heure du matin)
+
+Ryan nous a ensuite présenté nagios-herald, l'alerte générée par nagios peut désormais être relayée dans graphite, logstash etc.. et donc mesurée ! 
+
+![](https://speakerd.s3.amazonaws.com/presentations/1c7b165020ce01328c621a1ab62a9337/slide_26.jpg?141098...)
+
+--- 
+
+## Customizing Chef for Fun and Profit
+
+
+---
 
 ## Mega quiz Velocity
 
@@ -140,6 +205,8 @@ Perry Dyball, Stephen Thair avaient préparé un quiz interactif avec les partic
  Malheuresement il semble que l'application n'aient pas tenu la charge et personne n'a pu voté après la seconde question (la prochaine ils devraient nous confier le projet :) ), mais un système de fallback a été prévu, basé sur des feuilles de papier de couleur à brandir bien haut pour répondre aux questions. 
  
  > merci le papier !
+ 
+ ![quizz](/images/posts/velocity2014/quizz.jpg) 
  
  ## Conclusion
  
