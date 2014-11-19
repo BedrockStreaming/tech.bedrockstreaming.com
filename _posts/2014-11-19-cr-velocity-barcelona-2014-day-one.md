@@ -46,6 +46,10 @@ Une présentation intéressante sur l’incident et l’erreur.
 Une présentation sponsorisée bien faite, montrant les difficultés de communication entre deux populations (IT et biz en l’occurence) et comment un outil performant et agréable peut aider à combler ce gap.  
 Chez M6Web nous utilisons grafana, et il est vrai que cet outil pourrait largement sortir du périmètre de l’IT. 
 
+Slides : [Maximize the Return of Your Digital Investments](http://cdn.oreillystatic.com/en/assets/1/event/121/Maximize%20the%20Return%20of%20Your%20Digital%20Investments%20Presentation.ppt)
+
+<iframe width="853" height="480" src="//www.youtube.com/embed/en4ywZINQhI" frameborder="0" allowfullscreen></iframe>
+
 
 ### Always Keep an Eye on Your Website Performance - PerfBar Khalid Lafi (WireFilter)
 
@@ -64,9 +68,13 @@ Slides : [The Impatience Economy](http://cdn.oreillystatic.com/en/assets/1/event
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/mgnLVSSfols" frameborder="0" allowfullscreen></iframe>
 
-### Recruiting for Diversity in Tech Laine Campbell (Pythian)
+### Recruiting for Diversity in Tech - Laine Campbell (Pythian)
 
 Un thème récurrent de la velocity de cette année. Laine explique comment l’ascenseur *méritocratique* est cassé et que seul une démarche volontaire permettra d’augementer la diversité dans les entreprises. 
+
+Slides : [Recruiting for Diversity in Tech](http://cdn.oreillystatic.com/en/assets/1/event/121/Recruiting%20for%20Diversity%20in%20Tech%20Presentation.pptx)
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/Hw8D0gW5rZA" frameborder="0" allowfullscreen></iframe>
 
 ### Better Performance Through Better Design - Mark Zeman (SpeedCurve)
 
@@ -102,10 +110,11 @@ Après une analyse fine du traffic il a ensuite appliqué ces stratégies :
 
 Son crédo était *”try to make the right thing easier.”* Ainsi les projets basés sur la nouvelle stack disposait *out of the box* de fonctionnalités de monitoring et de log. Cela a beaucoup motivé les équipes de développements. 
 
-Au final la purge du legacy a apporter : 
-- un gain de 30% de performance 
-- un meilleur TTM
-- de substantiels retours sur investissement
+Au final la purge du legacy a apportée : 
+
+ - un gain de 30% de performance 
+ - un meilleur TTM
+ - de substantiels retours sur investissement
 
 Slides : [IT Janitor - How to Tidy Up](http://cdn.oreillystatic.com/en/assets/1/event/121/IT%20Janitor%20-%20How%20to%20Tidy%20Up%20Presentation.pptx)
 
@@ -113,7 +122,7 @@ Slides : [IT Janitor - How to Tidy Up](http://cdn.oreillystatic.com/en/assets/1/
 
 ## Mansplaining 101: Cisadmin Edition - Marni Cohen (Puppet Labs)
 
-La conférence la plus geek de la journée. La conférencière a ouvert un terminal et à tapé 
+La conférence la plus geek de la journée. La conférencière a ouvert un terminal et a tapé 
 
 ```bash
 brew install feminism
@@ -131,9 +140,11 @@ Voici les scripts et les ressources qu’elle a présenté : [https://gitlab.com
 
 ---
 
-## Building the FirefoxOS Homescreen - Kevin Grandon (Mozilla) 
+## Building the FirefoxOS Homescreen - Kevin Grandon (Mozilla)
 
 ![Firefox OS](http://zef.me/wp-content/uploads/2013/05/FirefoxOS-logo_610x385.png)
+
+Slides : [Building the FirefoxOS Homescreen](http://slidedeck.io/KevinGrandon/slides-fxos-home-screen-velocity-2014)
 
 Conférence de présentation de l'OS pour smartphone de Firefox.
 
@@ -141,10 +152,6 @@ Lors de cette présentation, Kevin Grandon Ingénieur chez Mozilla nous a prése
 Ce nouvel OS est donc basé sur des languages simples : HTML / CSS / Javascript. 
 
 Le développement est donc assez facile à prendre en main, le débugage aussi car on peux monitorer tout ce qu’il se passe sur le device de test via un firebug dédié.
-
-http://slidedeck.io/KevinGrandon/slides-fxos-home-screen-velocity-2014 
-
-https://github.com/KevinGrandon/slides-fxos-home-screen-velocity-2014
 
 ---
 
@@ -160,11 +167,14 @@ Selon elle, il ne faut pas optimiser un site pour le mobile, mais l’optimiser 
 
 ## What are the Third-party Components Doing to Your Site’s Performance? - Andy Davies, Simon Hearne (NCC Group) 
 
+Slides : [Third-party components and site performance?](http://cdn.oreillystatic.com/en/assets/1/event/121/What%20are%20Third-party%20Components%20Doing%20to%20Your%20Site_s%20Performance_%20Presentation.pdf)
+
  Nous utilisons tous des « Third-Party » sur nos sites, mais est-ce une bonne idée ?
 
 Un Third-Party est un script que nous chargeons depuis un autre site. Par exemple : Google Analitycs. Il existe différents type de Third-Party : la publicité, les analyseurs de trafic … La problématique est que nous ne pouvons pas controller ces outils. Nous n’avons pas la main sur le temps de chargement, la disponibilité de l’outils, et cela peux influer sur l’expérience utilisateur et la qualité de nos services.
 
 Pour conclure, il faut trouver le bon compromis entre ce que nous apporte le Third-Party et ce qu’il peux nous couter ...
+
 
 ---
 
@@ -211,9 +221,8 @@ Le talk s'est terminé par un tableau comparatif fort intéréssant des serveurs
 
 Quelques liens supplémentaires:
 
-https://www.ssllabs.com/ssltest/
-
-https://www.feistyduck.com/books/bulletproof-ssl-and-tls/
+ - [https://www.ssllabs.com/ssltest/](https://www.ssllabs.com/ssltest/)
+ - [https://www.feistyduck.com/books/bulletproof-ssl-and-tls/](https://www.feistyduck.com/books/bulletproof-ssl-and-tls/)
 
 ---
 
@@ -221,7 +230,7 @@ https://www.feistyduck.com/books/bulletproof-ssl-and-tls/
 
 Slides : [the math behind bad behavior](https://speakerdeck.com/postwait/the-math-behind-big-systems-analysis)
 
-La détéction d'anomalies dans les flux continus de données de type Time Series n'est pas une chose aisée. 
+La détection d'anomalies dans les flux continus de données de type Time Series n'est pas une chose aisée. 
 
 Se baser sur un percentile, une moyenne ou une mediane uniquement ne permet pas de capturer les phénomènes de saisonalités et d'anomalies.  
 
@@ -231,7 +240,9 @@ A voir: [http://en.wikipedia.org/wiki/CUSUM](http://en.wikipedia.org/wiki/CUSUM)
 
 ---
 
-## What ops can learn from design
+## What ops can learn from design - Robert Treat (OmniTI) 
+
+Slides : [What ops can learn from design](http://cdn.oreillystatic.com/en/assets/1/event/121/What%20Ops%20Can%20Learn%20From%20Design%20Presentation.pdf)
 
 "Un designer est quelqu'un qui design". 
 
@@ -257,5 +268,9 @@ Leur méthode est relativement identique à ce qui avait été présenté l'ann�
 Chose à savoir: Twitter va publier un package R contenant ces fonctions et algorithms, qui seront donc utilisables par le commun des mortels !
 
 
+## conclusion
 
+Une première journée intéressante et intense, sous le soleil de Barcelone !
+ 
+![sun of Barcelona](/images/posts/velocity2014/sun.jpg) 
 
