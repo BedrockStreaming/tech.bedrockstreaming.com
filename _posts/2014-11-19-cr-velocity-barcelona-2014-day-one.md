@@ -80,7 +80,7 @@ Slides : [Recruiting for Diversity in Tech](http://cdn.oreillystatic.com/en/asse
 
 La dernière keynote était vraiment excellente. Mark Zeman, venu de Nouvelle Zélande, a expliqué comment le processus créatif pouvait aider à améliorer la performance. Dans ce but il a proposé de *redesign the design process*. 
 - se fixer certains principes/objectifs de performance dès le départ 
-- d’ajouter les designers dans la *feature team* et d’itérer via des prototypes
+- ajouter les designers dans la *feature team* et itérer via des prototypes
 - de partager le savoir sous forme d’informations visuelles (graphique mais aussi sous forme [d'un bookmarklet](https://github.com/zeman/perfmap) indiquant quelle partie d'un site met du temps à charger)
 
 
@@ -100,7 +100,7 @@ Ce manager au Financial Times a expliqué comment le journal a été touché de 
 
 ![transfo_mobile_FT](/images/posts/velocity2014/transfo_mobile_FT.jpg)
 
-Il a expliqué quelle stratégie il a adopté pour tuer ou refaire les vieux systèmes et comment, en premier lieu, il a vendu le projet à ses supérieurs.  
+Il a expliqué quelle stratégie il a adoptée pour tuer ou refaire les vieux systèmes et comment, en premier lieu, il a vendu le projet à ses supérieurs.  
 Il a tout d’abord présenté le TCO de ce qu’il a appelé la version *”classic”* de ft.com (la carotte) puis a appuyé sur la peur de l’incident et les problèmes de sécurité (le bâton ; le journal ayant été la cible des pirates syriens). 
 
 Après une analyse fine du traffic il a ensuite appliqué ces stratégies : 
@@ -110,7 +110,7 @@ Après une analyse fine du traffic il a ensuite appliqué ces stratégies :
 
 Son crédo était *”try to make the right thing easier.”* Ainsi les projets basés sur la nouvelle stack disposait *out of the box* de fonctionnalités de monitoring et de log. Cela a beaucoup motivé les équipes de développements. 
 
-Au final la purge du legacy a apportée : 
+Au final la purge du legacy a apporté : 
 
  - un gain de 30% de performance 
  - un meilleur TTM
@@ -136,7 +136,7 @@ brew install feminism
 La conférence était très sincère et didactique sur comment mieux intégrer les femmes dans l’IT. 
 
 
-Voici les scripts et les ressources qu’elle a présenté : [https://gitlab.com/marni/mansplaining](https://gitlab.com/marni/mansplaining)
+Voici les scripts et les ressources qu’elle a présentés : [https://gitlab.com/marni/mansplaining](https://gitlab.com/marni/mansplaining)
 
 ---
 
@@ -250,7 +250,7 @@ Derrière cette lapalissade se cache en réalité plusieurs concepts importants 
 
 Nous sommes tous des designers. Il est donc indispensable de mettre en oeuvre 3 mécanismes simples pour faciliter l'utilisation de votre code/service. 
 
-Le "Feedback": le bon code de retour lors de l'échec d'un script, un message intelligible et contextualisé dans un log d'erreur applicatif, le "natural Mapping": -d dans une option en ligne de commande pour indique --database, et le "force functions": sous Unix, kill est par défaut non destructif, il faut forcer avec kill -9 pour tuer définitivement un processus, tout comme on vous force à fermer la porte de votre micro-onde pour le mettre en marche. 
+Le "Feedback": le bon code de retour lors de l'échec d'un script, un message intelligible et contextualisé dans un log d'erreur applicatif, le "natural Mapping": -d dans une option en ligne de commande pour indiquer --database, et le "force functions": sous Unix, kill est par défaut non destructif, il faut forcer avec kill -9 pour tuer définitivement un processus, tout comme on vous force à fermer la porte de votre micro-onde pour le mettre en marche. 
 
 Conférence intéressante qui vous fera sentir moins coupable de ne pas savoir si il fallait pousser ou tirer une porte :)
 
