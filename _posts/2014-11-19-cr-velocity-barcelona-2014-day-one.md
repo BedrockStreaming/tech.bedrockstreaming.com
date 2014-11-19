@@ -12,9 +12,9 @@ author:
 category:
 tags: [conference,velocity,webperf]
 image:
-  feature:
-  credit:
-  creditlink:
+  feature: posts/velocity2014/velocity_banner.jpg
+  credit: oreillyconf
+  creditlink: https://www.flickr.com/photos/oreillyconf/15790152366/in/set-72157649351412705
 comments: true
 permalink: velocity-europe-2014-day-1.html
 ---
