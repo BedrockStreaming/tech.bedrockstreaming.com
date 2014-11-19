@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Retour sur la velocity Barcelone - day 1"
+title: "Retour sur la velocity Barcelone - premier jour"
 description: ""
 author:
   name:           Baptiste, François Verron et Olivier Mansour
@@ -19,7 +19,7 @@ comments: true
 permalink: velocity-europe-2014-day-1.html
 ---
 
-# Velocity Barcelone, day 1
+# Velocity Barcelone, premier jour
 
 Baptiste, François et Olivier ont eu la chance de participer à la Vélocity Conférence Europe 2014 qui avait lieu cette année à Barcelone. 
 
