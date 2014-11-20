@@ -21,13 +21,13 @@ permalink: velocity-europe-2014-day-2.html
 
 # Velocity Barcelone, seconde journée
 
-Deuxième jour de conférence avec un programme encore plus chargé et quelques conférences alléchantes repérées au préalable
+Deuxième jour de conférence avec un programme encore plus chargé et quelques conférences alléchantes repérées au préalable.
 
 ## Morning Keynotes
 
 ### Upgrading the Web: Polyfills, Components and the Future of Web Development at Scale - Andrew Betts (FT Labs)
  
- L'orateur fait remarquer que de nombreux systèmes existent pour packager et gérer les dépendances des applications backend, mais rien n'est disponible pour les composants webs. Il nous présenté le projet [Origami](http://origami.ft.com/) qui permet de réutiliser massivement des composants html. 
+ L'orateur fait remarquer que de nombreux systèmes existent pour packager et gérer les dépendances des applications backend, mais rien n'est disponible pour les composants webs. Il nous a présenté le projet [Origami](http://origami.ft.com/) qui permet de réutiliser massivement des composants HTML. 
  
  <iframe width="560" height="315" src="//www.youtube.com/embed/oHB74_vQPrU" frameborder="0" allowfullscreen></iframe>
  
@@ -39,11 +39,11 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
  Slides : [Troubleshooting Using HTTP Headers](http://cdn.oreillystatic.com/en/assets/1/event/121/Troubleshooting%20Using%20HTTP%20Headers%20Presentation.pptx)
   
   Un employé de Limelight nous a présenté comment l'ajout de header dans une requête pouvait renvoyer des headers supplémentaires dans la réponse HTTP. Cela peut être utile pour débugguer et analyser un incident.  
-  Cette présentation nous rappelée, qu'en interne, [nos gentils ops](https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/40462/467784/bB5W31POypiBcuF/LSpC0ZX.gif) nous permettent déjà de faire ce genre chose sur nos proxy cache.
+  Cette présentation nous a rappelée, qu'en interne, [nos gentils ops](https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/40462/467784/bB5W31POypiBcuF/LSpC0ZX.gif) nous permettent déjà de faire ce genre chose sur nos proxy cache.
    
 ### Monitoring without Alerts - and Why it Makes Way More Sense than You Might Think - Alois Reitbauer (ruxit.com) 
   
- Alois a évoqué la solution Ruxit développé depuis plus de trois ans. Cette solution consiste a installer un agent sur vos serveurs qui va automatique détecter des anomalies statistiques et corréler cette information avec d'autres déviations dans le but de trouver la *root cause* d'un indident 
+ Alois a évoqué la solution Ruxit développé depuis plus de trois ans. Cette solution consiste a installer un agent sur vos serveurs qui va automatiquement détecter des anomalies statistiques et corréler cette information avec d'autres déviations dans le but de trouver la *root cause* d'un incident 
  
  Beaucoup d'autres solutions de ce genre existe (et la plupart étaient dans le salon des sponsors). Nous n'avons pas été totalement convaincu de leurs capacité à détecter des *root cause* mais elles sont toutes assez intéressantes et matures.
  
@@ -51,7 +51,7 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
  
 ### Lowering the Barrier to Programming - Pamela Fox (Khan Academy) 
  
- Pamela Fox nous a présenté l'initive [code.org](http://code.org/promote) dont le but est de promouvoir l'enseignement de l'informatique (bon, apparement seulement aux US).
+ Pamela Fox nous a présenté l'initiative [code.org](http://code.org/promote) dont le but est de promouvoir l'enseignement de l'informatique (bon, apparement seulement aux US).
   
   Elle a également donné quelques conseils si on veut s'investir dans l'enseignement de l'informatique à destination des plus jeunes. Par exemple créer un *{code club}*.
  
@@ -71,7 +71,7 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
  
 ## HTTP Archive and Google Cloud Dataflow - Ilya Grigorik (Google)
  
- Ilya Grigorik a présenté [http://bigqueri.es/](http://bigqueri.es/), un outil permettant de requêter [HTTP archive](http://httparchive.org/). La nouveauté est que mainteant le *body* des requêtes est maintenant conservé et on peut réquêter dedans. Un engine Javascript a été intégré au SQL de bigqueries permettant de faire des requêtes très puissantes. 
+ Ilya Grigorik a présenté [http://bigqueri.es/](http://bigqueri.es/), un outil permettant de requêter [HTTP archive](http://httparchive.org/). La nouveauté est que le *body* des requêtes est maintenant conservé et que l'on peut réquêter dedans. Un engine Javascript a été intégré au SQL de bigqueries permettant de faire des requêtes très puissantes. 
  
  <iframe width="560" height="315" src="//www.youtube.com/embed/_CMcaYnBt-g" frameborder="0" allowfullscreen></iframe>
  
@@ -79,7 +79,7 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
  
 ### Webpagetest-automation 2.0 - Nils Kuhn (iteratec GmbH), Uwe Beßle (iteratec GmbH)
   
- Webpagetest est un outil formidable mais il est difficile à automatiser. Les orateurs ont présentés un outil pour le faire, permettant donc de réaliser une mesure continuelle de la webperf avec un parcourt utilisateur complet - démonstration à l'appuie.
+ Webpagetest est un outil formidable mais il est difficile à automatiser. Les orateurs ont présentés un outil pour le faire, permettant donc de réaliser une mesure continuelle de la webperf avec un parcours utilisateur complet - démonstration à l'appuie.
  
  Leur travail est disponible sur GitHub sous licence Apache : [https://github.com/IteraSpeed/OpenSpeedMonitor](https://github.com/IteraSpeed/OpenSpeedMonitor). Un grand merci <3 !
  
@@ -114,11 +114,11 @@ Pour commencer, il faut charge le contenu important pour l’utilisateur en prem
 En ce qui concerne le css, c’est la même chose. Les CSS important (critique) qui concernent l’article et le rendu global et inliner. Ainsi, nous n’avons pas de blocage du rendu de la page. Le reste des css est chargé via Javascript. Avec ce système, on gagne au moins une demi-seconde sur le début d’affichage du contenu.
 Pour gagner en fluidité pour les prochains affichages, le css est stocké en localStorage. On gagne ainsi des ressources pour les prochains chargements.
 
-Pour les fonts ? C’est la même chose, ils sont mis en cache dans le localStorage pour supprimer de nouveaux chargements.
+Pour les fonts ? C’est la même chose, elles sont mises en cache dans le localStorage pour supprimer de nouveaux chargements.
 
 Enfin le gros morceau : les images ! Elles sont chargées de façon asynchrone en lazyloading. Cela permet de ne pas bloquer le rendu principal de la page.
 
-En complément, ils ont mis en place des outils. Notamment pour monitorer dans Github la taille des Assets afin de vérifier qu’il n’y a pas de grosses variations.
+En complément, ils ont mis en place des outils, notamment pour monitorer dans Github la taille des Assets afin de vérifier qu’il n’y a pas de grosses variations.
 
 Avec ces optimisations et un système de Proxy qui va gérer les données mises en localStorage, le site peut même être accessible en mode offline.
 
@@ -140,7 +140,7 @@ Ensuite l’utilisation de plusieurs outils nous permet d’arriver à nos fins 
 * Cache Api : Il permet de choisir des Url a mettre en cache. Ainsi que de forcer le contenu de ces urls dans le code.
 * Service Worker : Il permet d’intercepter les events de chargement pour ensuite appeler le système de Cache Api
  
-Toutes ces optimisations nous permettent d’accéder au site en Offline. Mais ces optimisations nous permettent aussi d’optimiser le chargement de nos pages puisqu’on limite le nombre d’appels http avec la mise en cache de certaines ressources.
+Toutes ces optimisations nous permettent d’accéder au site en Offline. Mais ces optimisations nous permettent aussi d’optimiser le chargement de nos pages puisqu’on limite le nombre d’appels HTTP avec la mise en cache de certaines ressources.
 
 [Slide de la présentation](http://fr.slideshare.net/andrewsmatt/velocity-eu-2014)
 
@@ -172,7 +172,7 @@ Mais les droits vont de pairs avec les devoirs :)
 
 "Developers should be exposed to the pain they cause"
 
-Ces outils et services (ces services sont des commidités de nos jours) ainsi fournis vont permettre à l'exploitation de se concentrer sur des problèmatiques plus complexes. 
+Ces outils et services (ces services sont des commodités de nos jours) ainsi fournis vont permettre à l'exploitation de se concentrer sur des problèmatiques plus complexes. 
 
 En effet les microservices ont besoin d'outils de diagnostics plus poussés, on citera au passage Zipkin, d'alerting et de monitoring spécialisés.
 
