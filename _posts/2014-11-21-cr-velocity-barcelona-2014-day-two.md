@@ -61,13 +61,13 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
 
 ### Velocity at GitHub - Brian Doll (GitHub)
  
- Brian a fait une présentation très ... minimaliste. Il est revenu sur 7 ans de développement à GitHub ... TODO 
+ Brian a fait une présentation très ... minimaliste. Il est revenu rapidement sur 7 ans de développement à GitHub et comment ils sont venus à développer l'Enterprise Edition. Il a évoqué différents problèmes que certains de leurs clients avaient et notamment avec l'utilisation de GE en environnement cloud.
  
- Il a enfin évoqué le lancement de GitHub Enterprise 2.0 qui fonctionne maintenant sur AWS.
+ Il a donc annoncé le lancement de GitHub Enterprise 2.0 qui fonctionne maintenant sur AWS (et un changement de la grille tarifaire) !
  
  <iframe width="560" height="315" src="//www.youtube.com/embed/AYlfEtP0rmc" frameborder="0" allowfullscreen></iframe>
  
- J'ai profité d'un instant avec lui pour lui présenté [GitHubTeamReviewer](http://tech.m6web.fr/github-team-reviewer-pull-requests.html) (un outil interne open-sourcé) et il été enchanté de découvrir ce qui avait été fait avec l'API de Github. Il a indiqué que l'entreprise travaillait actuellement sur des vues permettant de pallier aux problèmes résolus par GitHubTeamReviewer.
+ J'ai profité d'un instant avec lui pour lui présenter [GitHubTeamReviewer](http://tech.m6web.fr/github-team-reviewer-pull-requests.html) (un outil interne open-sourcé). Il été enchanté de découvrir ce qui avait été fait avec l'API de Github. Il a indiqué que l'entreprise travaillait actuellement sur des vues permettant de pallier aux problèmes résolus par GitHubTeamReviewer.
  
 ## HTTP Archive and Google Cloud Dataflow - Ilya Grigorik (Google)
  
