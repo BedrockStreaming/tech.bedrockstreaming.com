@@ -45,7 +45,7 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
   
  Alois a évoqué la solution Ruxit développé depuis plus de trois ans. Cette solution consiste a installer un agent sur vos serveurs qui va automatiquement détecter des anomalies statistiques et corréler cette information avec d'autres déviations dans le but de trouver la *root cause* d'un incident 
  
- Beaucoup d'autres solutions de ce genre existe (et la plupart étaient dans le salon des sponsors). Nous n'avons pas été totalement convaincu de leurs capacité à détecter des *root cause* mais elles sont toutes assez intéressantes et matures.
+ Beaucoup d'autres solutions de ce genre existent (et la plupart étaient dans le salon des sponsors). Nous n'avons pas été totalement convaincu de leurs capacité à détecter des *root cause*, mais elles sont toutes assez intéressantes et matures.
  
  <iframe width="560" height="315" src="//www.youtube.com/embed/j0kh5u_NewA" frameborder="0" allowfullscreen></iframe>
  
