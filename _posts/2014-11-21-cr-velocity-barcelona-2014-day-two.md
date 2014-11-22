@@ -111,11 +111,27 @@ On peut retrouver tous les éléments de cette conférence sur le [blog techniqu
 
 ## Recycling: Why the Web is Slowing Your Mobile App - Colin Bendell (Akamai) 
  
-*Mobile app monitoring is where browser RUM where 7 years ago*. 
+Pourquoi recycler nos contenus pour les applications mobiles ? 
 
-TODO 
+- accélérer le *time to market*.
+- réduire le risque 
+
+Les APIs encouragent le recyclage. 
+
+Colin Blendel nous encourage à utiliser les mêmes recettes que pour les navigateurs web et à en ajouter d'autres : 
+
+ - gérer le pool de connection en groupant les appels par domaine (quitte à les passer séquentiellement par exemple si les cookies sont utilisés),
+ - surveiller les *packet eaters* (headers inutiles, *Set-Cookies* répétés),
+ - setter correctement *Content-Type* sur des types standard (les exemples de content-type tirés des logs d'Akamai sont assez drôles, comme par exemple test/binary !),
+ - faire un minimum de redirect,
+ - fragmenter son cache au minumum (quitte à calculer des clés plus consistantes coté client),
+ - ajouter du cache (Max-Age: 30s c'est à peu près du temps réel et ça change tout pour un CDN),
+ - préfetcher les urls présentes dans les API car on va surement en avoir besoin immédiatement après,
+ - ne pas hésiter à mettre CRUD au placard et merger plusieurs appels API en un seul ; il faut trouver une balance efficace pour bien gérer la webperf.
  
-Slides : [Why the Web is Slowing Your Mobile App](http://cdn.oreillystatic.com/en/assets/1/event/121/Recycling_%20Why%20the%20Web%20is%20Slowing%20Your%20Mobile%20App%20Presentation.pdf)
+Une présentation dense et vraiment intéressante ! 
+ 
+Slides : [Why the Web is Slowing Your Mobile App](http://www.slideshare.net/colinbendell/velocity-eu-2014-recycling-the-web-why)
 
 ---
 
