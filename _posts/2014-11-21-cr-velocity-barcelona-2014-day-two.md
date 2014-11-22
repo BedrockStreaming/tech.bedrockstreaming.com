@@ -97,6 +97,8 @@ Une parmi les très nombreuses conférences Etsy sur la vélocity (le moment de 
 
 La livraison des applications sous ios est au même stade que la diffusion des logiciels via CD-ROMs. Partant de ce constat un système de build (avec 25 mac-minis derrières) a été mis en place à chaque commit sur le *master*. On ne peut pas délivrer une version de l'application tous les jours aux clients, mais on peut le faire pour les employés (and *eat your own dog food*) ! 
 
+Il y a également [un système de gamification](https://github.com/etsy/BugHunt-iOS) autour de l'application livrée journalièrement afin de motiver tout le monde à trouver des bugs.
+
 ![esty-devbuild](/images/posts/velocity2014/esty-devbuild.jpg)
 
 Des tests unitaires sont mis en place ainsi que des tests fonctionnels avec [AppThwack](https://appthwack.com/). Il est intéressant de constater qu'ils n'attendent pas, pour les tests fonctionnels une réussite à 100% de la suite.
