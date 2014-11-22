@@ -51,7 +51,7 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
  
 ### Lowering the Barrier to Programming - Pamela Fox (Khan Academy) 
  
- Pamela Fox nous a présenté l'initiative [code.org](http://code.org/promote) dont le but est de promouvoir l'enseignement de l'informatique (bon, apparement seulement aux US).
+ Pamela Fox nous a présenté l'initiative [code.org](http://code.org/promote), dont le but est de promouvoir l'enseignement de l'informatique (bon, apparement seulement aux US).
   
   Elle a également donné quelques conseils si on veut s'investir dans l'enseignement de l'informatique à destination des plus jeunes. Par exemple créer un *{code club}*.
  
@@ -93,7 +93,17 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
 
 ## Etsy’s Journey to Building a Continuous Integration Infrastructure for Mobile Apps - Nassim Kammah (Etsy)
 
-TODO 
+Une parmi les très nombreuses conférences Etsy sur la vélocity (le moment de renouveller les conférenciers ?). Nassim Kammah nous a expliqué comment Etsy délivrait ses applications ios. 
+
+La livraison des applications sous ios est au même stade que la diffusion des logiciels via CD-ROMs. Partant de ce constat un système de build (avec 25 mac-minis derrières) a été mis en place à chaque commit sur le *master*. On ne peut pas délivrer une version de l'application tous les jours aux clients, mais on peut le faire pour les employés (and *eat your own dog food*) ! 
+
+![esty-devbuild](/images/posts/velocity2014/esty-devbuild.jpg)
+
+Des tests unitaires sont mis en place ainsi que des tests fonctionnels avec [AppThwack](https://appthwack.com/). Il est intéressant de constater qu'ils n'attendent pas, pour les tests fonctionnels une réussite à 100% de la suite.
+
+Les équipes ont également mis en place des *testing dojos* dans lesquels les ingénieurs QA encadrent des salariés d'Etsy et testent à fond les applications. 
+
+On peut retrouver tous les éléments de cette conférence sur le [blog technique d'Etsy](https://codeascraft.com/2014/02/28/etsys-journey-to-continuous-integration-for-mobile-apps/).
 
 ---
 
