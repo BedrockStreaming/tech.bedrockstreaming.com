@@ -27,7 +27,7 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
 
 ### Upgrading the Web: Polyfills, Components and the Future of Web Development at Scale - Andrew Betts (FT Labs)
  
- L'orateur fait remarquer que de nombreux systèmes existent pour packager et gérer les dépendances des applications backend, mais rien n'est disponible pour les composants webs. Il nous a présenté le projet [Origami](http://origami.ft.com/) qui permet de réutiliser massivement des composants HTML. 
+ L'orateur fait remarquer que de nombreux systèmes existent pour packager et gérer les dépendances des applications backends, mais rien n'est disponible pour les composants webs. Il nous a présenté le projet [Origami](http://origami.ft.com/) qui permet de réutiliser massivement des composants HTML. 
  
  <iframe width="560" height="315" src="//www.youtube.com/embed/oHB74_vQPrU" frameborder="0" allowfullscreen></iframe>
  
@@ -38,12 +38,12 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
  
  Slides : [Troubleshooting Using HTTP Headers](http://cdn.oreillystatic.com/en/assets/1/event/121/Troubleshooting%20Using%20HTTP%20Headers%20Presentation.pptx)
   
-  Un employé de Limelight nous a présenté comment l'ajout de header dans une requête pouvait renvoyer des headers supplémentaires dans la réponse HTTP. Cela peut être utile pour débugguer et analyser un incident.  
-  Cette présentation nous a rappelée, qu'en interne, [nos gentils ops](https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/40462/467784/bB5W31POypiBcuF/LSpC0ZX.gif) nous permettent déjà de faire ce genre chose sur nos proxy cache.
+  Un employé de Limelight nous a présenté comment l'ajout de headers dans une requête pouvait renvoyer des headers supplémentaires dans la réponse HTTP. Cela peut être utile pour débugguer et analyser un incident.  
+  Cette présentation nous a rappelé, qu'en interne, [nos gentils ops](https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/40462/467784/bB5W31POypiBcuF/LSpC0ZX.gif) nous permettent déjà de faire ce genre chose sur nos proxy cache.
    
 ### Monitoring without Alerts - and Why it Makes Way More Sense than You Might Think - Alois Reitbauer (ruxit.com) 
   
- Alois a évoqué la solution Ruxit développé depuis plus de trois ans. Cette solution consiste a installer un agent sur vos serveurs qui va automatiquement détecter des anomalies statistiques et corréler cette information avec d'autres déviations dans le but de trouver la *root cause* d'un incident 
+ Alois Reitbauer a évoqué la solution [Ruxit](https://ruxit.com/) développé depuis plus de trois ans. Cette solution consiste a installer un agent sur vos serveurs qui va automatiquement détecter des anomalies statistiques et corréler cette information avec d'autres déviations dans le but de trouver la *root cause* d'un incident.
  
  Beaucoup d'autres solutions de ce genre existent (et la plupart étaient dans le salon des sponsors). Nous n'avons pas été totalement convaincu de leurs capacité à détecter des *root cause*, mais elles sont toutes assez intéressantes et matures.
  
@@ -71,11 +71,11 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
  
 ## HTTP Archive and Google Cloud Dataflow - Ilya Grigorik (Google)
  
- Ilya Grigorik a présenté [http://bigqueri.es/](http://bigqueri.es/), un outil permettant de requêter [HTTP archive](http://httparchive.org/). La nouveauté est que le *body* des requêtes est maintenant conservé et que l'on peut réquêter dedans. Un engine Javascript a été intégré au SQL de bigqueries permettant de faire des requêtes très puissantes. 
+ Ilya Grigorik a présenté [http://bigqueri.es/](http://bigqueri.es/), un outil permettant de requêter [HTTP archive](http://httparchive.org/). La nouveauté est que le *body* des requêtes est maintenant conservé et que l'on peut l'analyser. Un *engine* Javascript a été intégré au SQL de bigqueries permettant de faire des requêtes très puissantes. 
  
  <iframe width="560" height="315" src="//www.youtube.com/embed/_CMcaYnBt-g" frameborder="0" allowfullscreen></iframe>
  
- Pour ceux qui ne voudraient pas se plonger dedans, beaucoup de recherches faites par d'autres utilisateurs sont disponibles et abondamment discutées ([exemple](http://bigqueri.es/t/are-popular-websites-faster/162). 
+ Pour ceux qui ne voudraient pas se plonger dedans, beaucoup de recherches faites par d'autres utilisateurs sont disponibles et abondamment discutées ([exemple](http://bigqueri.es/t/are-popular-websites-faster/162)). 
  
  ![bigqueries](/images/posts/velocity2014/bigqueries.jpg)
  
