@@ -12,9 +12,9 @@ author:
 category:
 tags: [conference,velocity,webperf]
 image:
-  feature:
-  credit:
-  creditlink:
+  feature: posts/velocity2014/velocity_banner2.jpg
+  credit: oreillyconf
+  creditlink: https://www.flickr.com/photos/oreillyconf/15790152366/in/set-72157649351412705
 comments: true
 permalink: velocity-europe-2014-day-2.html
 ---
@@ -77,13 +77,17 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
  
  Pour ceux qui ne voudraient pas se plonger dedans, beaucoup de recherches faites par d'autres utilisateurs sont disponibles et abondamment discutées ([exemple](http://bigqueri.es/t/are-popular-websites-faster/162). 
  
+ ![bigqueries](/images/posts/velocity2014/bigqueries.jpg)
+ 
 ### Webpagetest-automation 2.0 - Nils Kuhn (iteratec GmbH), Uwe Beßle (iteratec GmbH)
   
  Webpagetest est un outil formidable mais il est difficile à automatiser. Les orateurs ont présentés un outil pour le faire, permettant donc de réaliser une mesure continuelle de la webperf avec un parcours utilisateur complet - démonstration à l'appuie.
  
- Leur travail est disponible sur GitHub sous licence Apache : [https://github.com/IteraSpeed/OpenSpeedMonitor](https://github.com/IteraSpeed/OpenSpeedMonitor). Un grand merci <3 !
+ Leur travail est disponible sur GitHub sous licence Apache : [https://github.com/IteraSpeed/OpenSpeedMonitor](https://github.com/IteraSpeed/OpenSpeedMonitor). Un grand merci <3 ! (à 10 minutes sur la vidéo).
  
  <iframe width="560" height="315" src="//www.youtube.com/embed/_CMcaYnBt-g#t=627" frameborder="0" allowfullscreen></iframe>
+
+![openspeed](/images/posts/velocity2014/openspeed.jpg)
 
 ---
 
@@ -111,7 +115,7 @@ Le Guardian c’est 110 000 utilisateurs, 7000 différents devices. L’ancien s
 
 Pour commencer, il faut charge le contenu important pour l’utilisateur en premier, à savoir le menu, l’article, et le widget d’article populaire. Le reste du contenu sera chargé dynamiquement en JS.
 
-En ce qui concerne le css, c’est la même chose. Les CSS important (critique) qui concernent l’article et le rendu global et inliner. Ainsi, nous n’avons pas de blocage du rendu de la page. Le reste des css est chargé via Javascript. Avec ce système, on gagne au moins une demi-seconde sur le début d’affichage du contenu.
+En ce qui concerne le css, c’est la même chose. Les CSS importantes (critiques) qui concernent l’article et le rendu global sont intégrées *inline*. Ainsi, nous n’avons pas de blocage du rendu de la page. Le reste des css est chargé via Javascript. Avec ce système, on gagne au moins une demi-seconde sur le début d’affichage du contenu.
 Pour gagner en fluidité pour les prochains affichages, le css est stocké en localStorage. On gagne ainsi des ressources pour les prochains chargements.
 
 Pour les fonts ? C’est la même chose, elles sont mises en cache dans le localStorage pour supprimer de nouveaux chargements.
