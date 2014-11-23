@@ -93,15 +93,15 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
 
 ## Etsy’s Journey to Building a Continuous Integration Infrastructure for Mobile Apps - Nassim Kammah (Etsy)
 
-Une parmi les très nombreuses conférences Etsy sur la vélocity (le moment de renouveller les conférenciers ?). Nassim Kammah nous a expliqué comment Etsy délivrait ses applications ios. 
+Une parmi les très nombreuses conférences Etsy sur la vélocity (le moment de renouveller les conférenciers ?). Nassim Kammah nous a expliqué comment Etsy délivrait ses applications iOS. 
 
-La livraison des applications sous ios est au même stade que la diffusion des logiciels via CD-ROMs. Partant de ce constat un système de build (avec 25 mac-minis derrières) a été mis en place à chaque commit sur le *master*. On ne peut pas délivrer une version de l'application tous les jours aux clients, mais on peut le faire pour les employés (and *eat your own dog food*) ! 
+La livraison des applications sous iOS est au même stade que la diffusion des logiciels via CD-ROMs. Partant de ce constat un système de build (avec 25 mac-minis derrière) a été mis en place à chaque commit sur le *master*. On ne peut pas délivrer une version de l'application tous les jours aux clients, mais on peut le faire pour les employés (and *eat your own dog food*) ! 
 
-Il y a également [un système de gamification](https://github.com/etsy/BugHunt-iOS) autour de l'application livrée journalièrement afin de motiver tout le monde à trouver des bugs.
+Il y a également [un système de gamification](https://github.com/etsy/BugHunt-iOS), autour de l'application livrée journalièrement, afin de motiver tout le monde à trouver des bugs.
 
 ![esty-devbuild](/images/posts/velocity2014/esty-devbuild.jpg)
 
-Des tests unitaires sont mis en place ainsi que des tests fonctionnels avec [AppThwack](https://appthwack.com/). Il est intéressant de constater qu'ils n'attendent pas, pour les tests fonctionnels une réussite à 100% de la suite.
+Des tests unitaires sont mis en place, ainsi que des tests fonctionnels avec [AppThwack](https://appthwack.com/). Il est intéressant de constater qu'ils n'attendent pas, pour les tests fonctionnels, une réussite à 100% de la suite mais une tendance positive.
 
 Les équipes ont également mis en place des *testing dojos* dans lesquels les ingénieurs QA encadrent des salariés d'Etsy et testent à fond les applications. 
 
@@ -118,15 +118,17 @@ Pourquoi recycler nos contenus pour les applications mobiles ?
 
 Les APIs encouragent le recyclage. 
 
+![recycling](/images/posts/velocity2014/recycling.jpg)
+
 Colin Blendel nous encourage à utiliser les mêmes recettes que pour les navigateurs web et à en ajouter d'autres : 
 
- - gérer le pool de connection en groupant les appels par domaine (quitte à les passer séquentiellement par exemple si les cookies sont utilisés),
+ - gérer le pool de connections en groupant les appels par domaine (quitte à les passer séquentiellement, par exemple, si des cookies sont utilisés),
  - surveiller les *packet eaters* (headers inutiles, *Set-Cookies* répétés),
- - setter correctement *Content-Type* sur des types standard (les exemples de content-type tirés des logs d'Akamai sont assez drôles, comme par exemple test/binary !),
- - faire un minimum de redirect,
+ - setter correctement *Content-Type* sur des types standard (les exemples de content-type tirés des logs d'Akamai sont assez drôles, comme par exemple test/binary ^^ !),
+ - faire un minimum de redirections,
  - fragmenter son cache au minumum (quitte à calculer des clés plus consistantes coté client),
  - ajouter du cache (Max-Age: 30s c'est à peu près du temps réel et ça change tout pour un CDN),
- - préfetcher les urls présentes dans les API car on va surement en avoir besoin immédiatement après,
+ - préfetcher les urls présentes dans les retours d'API, car on va surement en avoir besoin immédiatement après,
  - ne pas hésiter à mettre CRUD au placard et merger plusieurs appels API en un seul ; il faut trouver une balance efficace pour bien gérer la webperf.
  
 Une présentation dense et vraiment intéressante ! 
