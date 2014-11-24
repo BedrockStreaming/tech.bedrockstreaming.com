@@ -122,7 +122,7 @@ Les APIs encouragent le recyclage.
 
 Colin Blendel nous encourage à utiliser les mêmes recettes que pour les navigateurs web et à en ajouter d'autres :
 
- - gérer le pool de connections en groupant les appels par domaine (quitte à les passer séquentiellement, par exemple, si des cookies sont utilisés),
+ - gérer le pool de connexions en groupant les appels par domaine (quitte à les passer séquentiellement, par exemple, si des cookies sont utilisés),
  - surveiller les *packet eaters* (headers inutiles, *Set-Cookies* répétés),
  - setter correctement *Content-Type* sur des types standard (les exemples de content-type tirés des logs d'Akamai sont assez drôles, comme par exemple test/binary ^^ !),
  - faire un minimum de redirections,
