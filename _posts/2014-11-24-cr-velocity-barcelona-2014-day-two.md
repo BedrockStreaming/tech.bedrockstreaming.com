@@ -187,14 +187,14 @@ Pamela Fox nous présente comment elle a optimisé les images d’un site intern
 La première astuce est de compresser ces images au maximum. Il existe des outils online comme le site [TinyPng](https://tinypng.com/) qui compresse vos images et vous permet de les télécharger directement.
 
 Deuxième astuce, mettre les images dans les css en base 64. 
-A noter qu’il existe des outils javascript qui effectuent la conversion dans les css à l’aide d’un petit commentaire en bout de ligne (voir les slides de présentation)
+A noter qu’il existe des outils javascript qui effectuent la conversion dans les css à l’aide d’un petit commentaire en bout de ligne (voir les slides de présentation).
 
 Troisième solution : Les Fonts ! 
-Pour remplacer les petites images et surtout pour remplacer les sprites qui ne sont pas forcément adaptés, vous pouvez utiliser des Fonts. Leur avantage et de pouvoir s’adapter facilement en taille et en couleur … Des outils existent déjà pour les générer : [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
+Pour remplacer les petites images et surtout pour remplacer les sprites qui ne sont pas forcément adaptés, vous pouvez utiliser des Fonts. Leurs avantages est de pouvoir s’adapter facilement en taille et en couleur … Des outils existent déjà pour les générer : [Font Awesome](http://fortawesome.github.io/Font-Awesome/).
 
 Autre astuce, le differ de chargement des images. Pamela nous propose [son outils javascript](https://gist.github.com/pamelafox/8705015), qui va permettre de vous simplifier les chargements. Il est aussi possible de ne charger que les images présentes à l’écran et de charger les suivantes lors du scroll. (lazyload).
 
-Pour les vidéos la même astuce est possible. Puisque les vidéos sont à présent chargées dans des iFrame, leur contenu peut être chargé de façon différé. Attention, il ne faut pas remplir le href par une url blank, sinon on perd en temps de chargement
+Pour les vidéos la même astuce est possible. Puisque les vidéos sont à présent chargées dans des iFrame, leur contenu peut être chargé de façon différé. Attention, il ne faut pas remplir le href par une url blank, sinon on perd en temps de chargement.
 
 [Slide de la présentation](https://speakerdeck.com/pamelafox/look-ma-no-image-requests)
 
