@@ -190,7 +190,7 @@ Deuxième astuce, mettre les images dans les css en base 64.
 A noter qu’il existe des outils javascript qui effectuent la conversion dans les css à l’aide d’un petit commentaire en bout de ligne (voir les slides de présentation).
 
 Troisième solution : Les Fonts ! 
-Pour remplacer les petites images et surtout pour remplacer les sprites qui ne sont pas forcément adaptés, vous pouvez utiliser des Fonts. Leurs avantages est de pouvoir s’adapter facilement en taille et en couleur … Des outils existent déjà pour les générer : [Font Awesome](http://fortawesome.github.io/Font-Awesome/).
+Pour remplacer les petites images et surtout pour remplacer les sprites qui ne sont pas forcément adaptés, vous pouvez utiliser des Fonts. L'avantage des fonts est qu'elles peuvent s’adapter facilement en taille et en couleur … Des outils existent déjà pour les générer : [Font Awesome](http://fortawesome.github.io/Font-Awesome/).
 
 Autre astuce, le differ de chargement des images. Pamela nous propose [son outils javascript](https://gist.github.com/pamelafox/8705015), qui va permettre de vous simplifier les chargements. Il est aussi possible de ne charger que les images présentes à l’écran et de charger les suivantes lors du scroll. (lazyload).
 
