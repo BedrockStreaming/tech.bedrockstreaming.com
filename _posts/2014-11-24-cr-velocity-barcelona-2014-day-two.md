@@ -214,7 +214,7 @@ Pourtant en fournissant des [services de bases](http://fr.wikipedia.org/wiki/Pyr
 Cela passe par:
 
 - automatiser les VMs ou les containers en prod comme en dev
-- un système de métriques "As a Service" (ala graphite/statsd)
+- un système de métriques "As a Service" (similaire à graphite / statsd)
 - un service de log central (logstash/heka/fluentd)
 - un outil de déploiement (capistrano/deployinator)
 
@@ -276,7 +276,7 @@ Par ailleurs Jon vient de publier un livre sur le sujet:
 
 ## Mega quiz Velocity
 
-Perry Dyball, Stephen Thair avaient préparé un quiz interactif avec les participants à la conférence. Des questions diverses et variées défilaient sur le grand écran et une application web permettaient à chacun d'y répondre. Un moment fun animé par deux animateurs survoltés.
+Perry Dyball et Stephen Thair avaient préparé un quiz interactif avec les participants à la conférence. Des questions diverses et variées défilaient sur le grand écran et une application web permettaient à chacun d'y répondre. Un moment fun animé par deux animateurs survoltés.
  Malheuresement il semble que l'application n'aient pas tenu la charge et personne n'a pu voté après la seconde question (la prochaine fois ils devraient nous confier le projet :) ), mais un système de fallback a été prévu, basé sur des feuilles de papier de couleur à brandir bien haut pour répondre aux questions.
 
  > merci le papier ! :)
