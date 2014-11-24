@@ -43,7 +43,7 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
 
 ### Monitoring without Alerts - and Why it Makes Way More Sense than You Might Think - Alois Reitbauer (ruxit.com)
 
- Alois Reitbauer a évoqué la solution [Ruxit](https://ruxit.com/) développé depuis plus de trois ans. Cette solution consiste à installer un agent sur vos serveurs qui va automatiquement détecter des anomalies statistiques et corréler cette information avec d'autres déviations dans le but de trouver la *root cause* d'un incident.
+ Alois Reitbauer a évoqué la solution [Ruxit](https://ruxit.com/) développée depuis plus de trois ans. Cette solution consiste à installer un agent sur vos serveurs qui va automatiquement détecter des anomalies statistiques et corréler cette information avec d'autres déviations dans le but de trouver la *root cause* d'un incident.
 
  Beaucoup d'autres solutions de ce genre existent (et la plupart étaient dans le salon des sponsors). Nous n'avons pas été totalement convaincu de leurs capacités à détecter des *root cause*, mais elles sont toutes assez intéressantes et matures.
 
@@ -67,7 +67,7 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
 
  <iframe width="560" height="315" src="//www.youtube.com/embed/AYlfEtP0rmc" frameborder="0" allowfullscreen></iframe>
 
- J'ai profité d'un instant avec lui pour lui présenter [GitHubTeamReviewer](http://tech.m6web.fr/github-team-reviewer-pull-requests.html) (un outil interne open-sourcé). Il été enchanté de découvrir ce qui avait été fait avec l'API de Github. Il a indiqué que l'entreprise travaillait actuellement sur des vues permettant de pallier aux problèmes résolus par GitHubTeamReviewer.
+ J'ai profité d'un instant avec lui pour lui présenter [GitHubTeamReviewer](http://tech.m6web.fr/github-team-reviewer-pull-requests.html) (un outil interne open-sourcé). Il était enchanté de découvrir ce qui avait été fait avec l'API de Github. Il a indiqué que l'entreprise travaillait actuellement sur des vues permettant de pallier aux problèmes résolus par GitHubTeamReviewer.
 
 ## HTTP Archive and Google Cloud Dataflow - Ilya Grigorik (Google)
 
@@ -81,7 +81,7 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
 
 ### Webpagetest-automation 2.0 - Nils Kuhn (iteratec GmbH), Uwe Beßle (iteratec GmbH)
 
- Webpagetest est un outil formidable mais il est difficile à automatiser. Les orateurs ont présentés un outil pour le faire, permettant donc de réaliser une mesure continuelle de la webperf avec un parcours utilisateur complet - démonstration à l'appuie.
+ Webpagetest est un outil formidable mais il est difficile à automatiser. Les orateurs ont présentés un outil pour le faire, permettant donc de réaliser une mesure continuelle de la webperf avec un parcours utilisateur complet - démonstration à l'appui.
 
  Leur travail est disponible sur GitHub sous licence Apache : [https://github.com/IteraSpeed/OpenSpeedMonitor](https://github.com/IteraSpeed/OpenSpeedMonitor). Un grand merci <3 ! (à 10 minutes sur la vidéo).
 
@@ -93,7 +93,7 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
 
 ## Etsy’s Journey to Building a Continuous Integration Infrastructure for Mobile Apps - Nassim Kammah (Etsy)
 
-Une parmi les très nombreuses conférences Etsy sur la conférence (le moment de renouveller les conférenciers ?). Nassim Kammah nous a expliqué comment Etsy délivrait ses applications iOS.
+Une parmi les très nombreuses conférences Etsy sur la Vélocity (le moment de renouveller les conférenciers ?). Nassim Kammah nous a expliqué comment Etsy délivrait ses applications iOS.
 
 La livraison des applications sous iOS est au même stade que la diffusion des logiciels via CD-ROMs. Partant de ce constat un système de build (avec 25 mac-minis derrière) a été mis en place à chaque commit sur le *master*. On ne peut pas délivrer une version de l'application tous les jours aux clients, mais on peut le faire pour les employés (and *eat your own dog food*) !
 
