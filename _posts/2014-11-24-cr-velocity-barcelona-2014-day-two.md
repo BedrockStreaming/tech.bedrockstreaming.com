@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Retour sur la velocity Barcelone - seconde journée"
+title: "Retour sur la Velocity Barcelone - seconde journée"
 description: ""
 author:
   name:           Baptiste, François Verron et Olivier Mansour
@@ -43,9 +43,9 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
 
 ### Monitoring without Alerts - and Why it Makes Way More Sense than You Might Think - Alois Reitbauer (ruxit.com)
 
- Alois Reitbauer a évoqué la solution [Ruxit](https://ruxit.com/) développé depuis plus de trois ans. Cette solution consiste a installer un agent sur vos serveurs qui va automatiquement détecter des anomalies statistiques et corréler cette information avec d'autres déviations dans le but de trouver la *root cause* d'un incident.
+ Alois Reitbauer a évoqué la solution [Ruxit](https://ruxit.com/) développé depuis plus de trois ans. Cette solution consiste à installer un agent sur vos serveurs qui va automatiquement détecter des anomalies statistiques et corréler cette information avec d'autres déviations dans le but de trouver la *root cause* d'un incident.
 
- Beaucoup d'autres solutions de ce genre existent (et la plupart étaient dans le salon des sponsors). Nous n'avons pas été totalement convaincu de leurs capacité à détecter des *root cause*, mais elles sont toutes assez intéressantes et matures.
+ Beaucoup d'autres solutions de ce genre existent (et la plupart étaient dans le salon des sponsors). Nous n'avons pas été totalement convaincu de leurs capacités à détecter des *root cause*, mais elles sont toutes assez intéressantes et matures.
 
  <iframe width="560" height="315" src="//www.youtube.com/embed/j0kh5u_NewA" frameborder="0" allowfullscreen></iframe>
 
@@ -53,7 +53,7 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
 
  Pamela Fox nous a présenté l'initiative [code.org](http://code.org/promote), dont le but est de promouvoir l'enseignement de l'informatique (bon, apparement seulement aux US).
 
-  Elle a également donné quelques conseils si on veut s'investir dans l'enseignement de l'informatique à destination des plus jeunes. Par exemple créer un *{code club}*.
+  Elle a également donné quelques conseils si on veut s'investir dans l'enseignement de l'informatique à destination des plus jeunes. Par exemple créer un *code club*.
 
  <iframe width="560" height="315" src="//www.youtube.com/embed/CZTywncF_EQ" frameborder="0" allowfullscreen></iframe>
 
@@ -71,7 +71,7 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
 
 ## HTTP Archive and Google Cloud Dataflow - Ilya Grigorik (Google)
 
- Ilya Grigorik a présenté [http://bigqueri.es/](http://bigqueri.es/), un outil permettant de requêter [HTTP archive](http://httparchive.org/). La nouveauté est que le *body* des requêtes est maintenant conservé et que l'on peut l'analyser. Un *engine* Javascript a été intégré au SQL de bigqueries permettant de faire des requêtes très puissantes.
+ Ilya Grigorik a présenté [http://bigqueri.es/](http://bigqueri.es/), un outil permettant d'interroger [HTTP archive](http://httparchive.org/). La nouveauté est que le *body* des requêtes est maintenant conservé et que l'on peut l'analyser. Un *engine* Javascript a été intégré au SQL de bigqueries permettant de faire des requêtes très puissantes.
 
  <iframe width="560" height="315" src="//www.youtube.com/embed/_CMcaYnBt-g" frameborder="0" allowfullscreen></iframe>
 
@@ -93,7 +93,7 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
 
 ## Etsy’s Journey to Building a Continuous Integration Infrastructure for Mobile Apps - Nassim Kammah (Etsy)
 
-Une parmi les très nombreuses conférences Etsy sur la vélocity (le moment de renouveller les conférenciers ?). Nassim Kammah nous a expliqué comment Etsy délivrait ses applications iOS.
+Une parmi les très nombreuses conférences Etsy sur la conférence (le moment de renouveller les conférenciers ?). Nassim Kammah nous a expliqué comment Etsy délivrait ses applications iOS.
 
 La livraison des applications sous iOS est au même stade que la diffusion des logiciels via CD-ROMs. Partant de ce constat un système de build (avec 25 mac-minis derrière) a été mis en place à chaque commit sur le *master*. On ne peut pas délivrer une version de l'application tous les jours aux clients, mais on peut le faire pour les employés (and *eat your own dog food*) !
 
@@ -141,7 +141,7 @@ Slides : [Why the Web is Slowing Your Mobile App](http://www.slideshare.net/coli
 
 Le Guargian est un journal Anglais présent sur le web et sur tout type de device. Ils ont récemment fait une refonte de leur site pour passer à une version Responsive avec pour challenge d’afficher son contenu en moins d’une seconde.
 
-Le Guardian c’est 110 000 utilisateurs, 7000 différents devices. L’ancien site avait un début de rendu en 8 secondes pour un affichage complet en 12. Avec la nouvelle version le site s’affiche en 1 seconde et le chargement complet au bout de 3. Quelles-sont les principales optimisations ?
+Le Guardian c’est 110 000 utilisateurs, 7000 différents devices. L’ancien site avait un début de rendu en 8 secondes pour un affichage complet en 12. Avec la nouvelle version le site s’affiche en 1 seconde et le chargement complet au bout de 3. Quelles sont les principales optimisations ?
 
 Pour commencer, il faut charge le contenu important pour l’utilisateur en premier, à savoir le menu, l’article, et le widget d’article populaire. Le reste du contenu sera chargé dynamiquement en JS.
 
@@ -171,8 +171,8 @@ Premièrement, il faut activer [AppCache](http://www.w3schools.com/html/html5_ap
 
 Ensuite l’utilisation de plusieurs outils nous permet d’arriver à nos fins :
 * Utilisation de [FetchApi](https://github.com/github/fetch) : Il permet de remplacer nos appels Ajax avec une fonction succès , d’erreur et les Promises pour charger le contenu, ou lire le cache en cas d’absence de connexion.
-* Cache Api : Il permet de choisir des Url a mettre en cache. Ainsi que de forcer le contenu de ces urls dans le code.
-* Service Worker : Il permet d’intercepter les events de chargement pour ensuite appeler le système de Cache Api
+* Cache API : Il permet de choisir des Url a mettre en cache. Ainsi que de forcer le contenu de ces urls dans le code.
+* Service Worker : Il permet d’intercepter les events de chargement pour ensuite appeler le système de Cache API.
 
 Toutes ces optimisations nous permettent d’accéder au site en Offline. Mais ces optimisations nous permettent aussi d’optimiser le chargement de nos pages puisqu’on limite le nombre d’appels HTTP avec la mise en cache de certaines ressources.
 
@@ -188,7 +188,7 @@ Slides: [Microservices - What an Ops Team Needs to Know](https://speakerdeck.com
 
 Le buzzword est lâché. Le propos n'était pas ici de troller autour de la notion de micro-services, de l'implémentation ou de leur utilisation, mais plutôt du changement que cela implique pour les équipes d'exploitation.
 
-Souvent considéré comme le goulot d'étranglement de la chaîne de mise en prod, l'exploit' regarde les architectures de micro-services avec circonspection: en plus d’avoir des dépendances entre eux, les composants sont mis à jour indépendamment et régulièrement, on peut donc vite tout casser en prod.
+Souvent considéré comme le goulot d'étranglement de la chaîne de mise en prod, l'exploit' regarde les architectures de micro-services avec circonspection : en plus d’avoir des dépendances entre eux, les composants sont mis à jour indépendamment et régulièrement, on peut donc vite tout casser en prod.
 Pourtant en fournissant des [services de bases](http://fr.wikipedia.org/wiki/Pyramide_des_besoins) et des outils aux équipes de développement, on peut augmenter leur autonomie et la disponibilité des infras.
 
 Cela passe par:
@@ -257,7 +257,7 @@ Par ailleurs Jon vient de publier un livre sur le sujet:
 ## Mega quiz Velocity
 
 Perry Dyball, Stephen Thair avaient préparé un quiz interactif avec les participants à la conférence. Des questions diverses et variées défilaient sur le grand écran et une application web permettaient à chacun d'y répondre. Un moment fun animé par deux animateurs survoltés.
- Malheuresement il semble que l'application n'aient pas tenu la charge et personne n'a pu voté après la seconde question (la prochaine ils devraient nous confier le projet :) ), mais un système de fallback a été prévu, basé sur des feuilles de papier de couleur à brandir bien haut pour répondre aux questions.
+ Malheuresement il semble que l'application n'aient pas tenu la charge et personne n'a pu voté après la seconde question (la prochaine fois ils devraient nous confier le projet :) ), mais un système de fallback a été prévu, basé sur des feuilles de papier de couleur à brandir bien haut pour répondre aux questions.
 
  > merci le papier ! :)
 
