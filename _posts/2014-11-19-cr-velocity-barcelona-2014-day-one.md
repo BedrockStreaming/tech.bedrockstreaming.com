@@ -274,3 +274,4 @@ Une première journée intéressante et intense, sous le soleil de Barcelone !
  
 ![sun of Barcelona](/images/posts/velocity2014/sun.jpg) 
 
+Le résumé de [la seconde journée]({% post_url 2014-11-24-cr-velocity-barcelona-2014-day-two %}) est également disponible.
