@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Retour sur la Velocity Barcelone - troisième journée"
-description: ""
+description: "Retour sur la Vélocity Europe 2014 à Barcelone - Troisième journée"
 author:
   name:           Baptiste, François Verron et Olivier Mansour
   avatar:
@@ -10,7 +10,7 @@ author:
   facebook:
   github:
 category:
-tags: [conference,velocity,webperf]
+tags: [conference,velocity,webperf,devops,sysadmin]
 image:
   feature: posts/velocity2014/velocity_banner2.jpg
   credit: oreillyconf
@@ -21,7 +21,7 @@ permalink: velocity-europe-2014-day-2.html
 
 # Velocity Barcelone, troisième journée
 
-Le troisième jour est en dédié au tutoriaux, on passe de conférence de 45min à des ateliers de 1h30 :)
+Le troisième jour étant dédié aux tutoriaux, on passe de conférence de 45min à des ateliers de 1h30.
 
 ---
 
