@@ -41,7 +41,7 @@ A contre courant des systèmes de gestion de configurations comme SaltStack, Pup
 
 La simplicité de ce modèle en fait sa plus grande force. Ansible est capable de gérer dynamiquement les inventaires (de base c'est une liste statique contenue dans un fichier). Par exemple il est capable d'interroger les APIs Amazon, Google Cloud ou RackSpace pour récupérer la liste de vos machines, celles de votre Cluster VMWare ou n'importe quel script qui sortira une liste en JSON.
 
-Alors que Chef et Puppet offrent une DSL pour décrire votre infrastructure sous forme de code, Ansible a opté pour une description au format YAML. Sur l'Ansible Galaxy vous retrouverez tout les modules disponibles (quelques milliers) comme Nginx, PHP etc... Développé en Python, il est évidemment possible de faire soit même ses modules.
+Alors que Chef et Puppet offrent une DSL pour décrire votre infrastructure sous forme de code, Ansible a opté pour une description au format YAML. Sur l'Ansible Galaxy vous retrouverez tout les modules disponibles (quelques milliers) comme Nginx, PHP etc... Développés en Python, il est évidemment possible de faire soit même ses modules.
 
 Le déploiement avec zéro temps de panne peut être implémenté avec Ansible de la façon suivante:
 
@@ -51,7 +51,7 @@ Le déploiement avec zéro temps de panne peut être implémenté avec Ansible d
 - période d'attente: vous spécifiez si un port TCP doit être disponible, un fichier, etc...
 - itération sur la machine suivante
 
-Le nombre de machine traité en parallèle est bien entendu configurable.
+Le nombre de machine traitées en parallèle est bien entendu configurable.
 
 ![ansible_deploy](http://cdn2.hubspot.net/hub/330046/file-480404281-png/site_diagrams/app_deploy_diagram.png?t=1416582132229)
 
@@ -59,7 +59,7 @@ Je suis Ansible depuis quelques mois déjà et j'ai été conforté dans l'idée
 
 Ansible facilite le déploiement d'infrastructure immuable, le blue/green, violet et canary deployment de par son modèle. C'est un atout qui en fait à mon sens le meilleur système de gestion de configuration aujourd'hui.
 
-Cependant je reste encore un peu dubitatif sur le déploiement et le rollback de code qui ne sont pas encore à la hauteur de Capistrano. Un aperçu du workflow et des schémas de développement aurait été aussi bienvenus.
+Cependant je reste encore un peu dubitatif sur le déploiement et le rollback de code qui ne sont pas encore à la hauteur de Capistrano. Un aperçu du workflow et des schémas de développement auraient été aussi bienvenus.
 
 [Ansible Galaxy](https://galaxy.ansible.com/)
 
@@ -88,7 +88,7 @@ Joshua Hoffman (SoundCloud) est dans le top 5 de mes orateurs préféré. J'ai b
 Le tutorial vous aménera à créer plusieurs containers portable, du plus simple ou plus complexe, avec les outils de bases du noyau. Vous apprendrez aussi à vous servir des cgroups, des namespaces process, network, et mount, et serez amené à utiliser des systèmes de fichiers unis, ici AUFS.
 J’aurais bien aimé une démo avec le format de QEMU ou btrfs pour ce qui est des systèmes de fichiers unis au niveau bloc.
 
-Ce tutorial est un must-do pour tout personne désirant s’initier aux architectures de containers. Le marketing relativement agressif de Docker ne doit pas faire oublier qu'il existe d'autre alternatives, et que Docker est un choix de design bien particulier pas forcement adapter à tous.
+Ce tutorial est un must-do pour tout personne désirant s’initier aux architectures de containers. Le marketing relativement agressif de Docker ne doit pas faire oublier qu'il existe d'autres alternatives, et que Docker est un choix de design bien particulier pas forcement adapter à tous.
 Ex: un container en 3 lignes:
 
 ![container](http://image.slidesharecdn.com/linuxcontainersfromscratch-velocitybarcelona2014-141119031144-conversion-gate01/95/linux-containers-from-scratch-26-638.jpg)
@@ -113,7 +113,7 @@ Docker = un des cas d'usage des containers, application unique, statique, immuab
 
 Tutorial très attendu par beaucoup, Kelsey Hightower (CoreOS Inc.) nous a présenté l'écosystème de CoreOs et les problèmes qu'il tente de résoudre. Suite à la demande générale il nous a aussi fait une démonstration de Kubernetes, l'outil de gestion de containers de Google.
 
-CoreOS est distribution Linux accompagné d'outils qui vise à penser le datacentre comme une seule machine (voir Mesos/Yarn). En d'autre termes, vous n'avez que faire de savoir quelle application tourne sur quel serveur. Le datacentre apparaît comme une entité unique où l'on déploie des applications.
+CoreOS est distribution Linux accompagnée d'outils qui vise à penser le datacentre comme une seule machine (voir Mesos/Yarn). En d'autres termes, vous n'avez que faire de savoir quelle application tourne sur quel serveur. Le datacentre apparaît comme une entité unique où l'on déploie des applications.
 
 Techniquement, CoreOS est un Linux + systemd + docker + etcd + fleet. CoreOS est basé sur Chrome OS, épuré et léger, il bénéficie du système d'update en arrière plan bien connu de Chrome. On oublie donc le gestionnaire de paquets, les outils de debug (tcpdump etc..) et tout ce qui fait un Linux en mode serveur tel qu'on le connaît.
 
@@ -127,13 +127,13 @@ Techniquement, CoreOS est un Linux + systemd + docker + etcd + fleet. CoreOS est
 
 ![core_os_archi2](https://coreos.com/assets/images/media/5-Machine-Cluster.png)
 
-La démonstration vous aménéra à lancer 1 master et plusieurs machines "workers" et quelques containers Docker.
+La démonstration vous amènera à lancer 1 master et plusieurs machines "workers" et quelques containers Docker.
 
 ![kubernetes](http://kubernetes.io/img/desktop/hero_logo.svg)
 
 Kubernetes est la réponse de Google à la question des gestionnaires de containers disitribués.
 
-Constitué d'un certains nombre de composants qu'on ne détaillera pas ici, il permet de gérer des pods (un ou plusieurs containers qui doivent fonctionner localement sur le même host). Il intervient dans la répartition des applications dans le cluster, la distribution et l'ordonnancement des containers Docker.
+Constitué d'un certain nombre de composants qu'on ne détaillera pas ici, il permet de gérer des pods (un ou plusieurs containers qui doivent fonctionner localement sur le même host). Il intervient dans la répartition des applications dans le cluster, la distribution et l'ordonnancement des containers Docker.
 
 Liens:
 
