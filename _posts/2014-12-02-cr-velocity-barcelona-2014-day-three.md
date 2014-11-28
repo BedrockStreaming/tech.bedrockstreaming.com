@@ -12,7 +12,7 @@ author:
 category:
 tags: [conference,velocity,webperf,devops,sysadmin]
 image:
-  feature: posts/velocity2014/velocity_banner2.jpg
+  feature: posts/velocity2014/velocity_banner3.jpg
   credit: oreillyconf
   creditlink: https://www.flickr.com/photos/oreillyconf/15790152366/in/set-72157649351412705
 comments: true
@@ -86,15 +86,11 @@ Ansible facilite le déploiement d'infrastructure immuable, le blue/green, viole
 
 Cependant je reste encore un peu dubitatif sur le déploiement et le rollback de code qui ne sont pas encore à la hauteur de Capistrano. Un aperçu du workflow et des schémas de développement auraient été aussi bienvenus.
 
-[Ansible Galaxy](https://galaxy.ansible.com/)
-
-[Ansible Docs](http://docs.ansible.com/index.html)
-
-[How Twitter use Ansible](https://www.youtube.com/watch?v=fwGrKXzocg4)
-
-[Ansible Tower (Payant)](http://www.ansible.com/tower)
-
-[Thoughts on deploying Symfony with Ansible](http://www.future500.nl/articles/2014/07/thoughts-on-deploying-with-ansible/)
+- [Ansible Galaxy](https://galaxy.ansible.com/)
+- [Ansible Docs](http://docs.ansible.com/index.html)
+- [How Twitter use Ansible](https://www.youtube.com/watch?v=fwGrKXzocg4)
+- [Ansible Tower (Payant)](http://www.ansible.com/tower)
+- [Thoughts on deploying Symfony with Ansible](http://www.future500.nl/articles/2014/07/thoughts-on-deploying-with-ansible/)
 
 ---
 
@@ -162,11 +158,14 @@ Constitué d'un certain nombre de composants qu'on ne détaillera pas ici, il pe
 
 Liens:
 
-[CoreOS Doc](https://coreos.com/docs/)
-
-[Kubernetes](http://kubernetes.io/)
-
-[Introduction to Kubernetes](https://www.digitalocean.com/community/tutorials/an-introduction-to-kubernetes)
+- [CoreOS Doc](https://coreos.com/docs/)
+- [Kubernetes](http://kubernetes.io/)
+- [Introduction to Kubernetes](https://www.digitalocean.com/community/tutorials/an-introduction-to-kubernetes)
 
 ---
 
+## Conclusion
+
+Une conférence dense et intéressante qui nous a donné l'opportunité de rencontrer pleins de gens intéressants et même de visiter (un peu) Barcelone !
+
+![sagrada](/images/posts/velocity2014/sagrada.jpg)
