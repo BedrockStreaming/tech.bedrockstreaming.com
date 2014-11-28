@@ -23,6 +23,31 @@ permalink: velocity-europe-2014-day-2.html
 
 Le troisième jour étant dédié aux tutoriaux, on passe de conférence de 45min à des ateliers de 1h30.
 
+## Extreme Web Performance for Mobile Devices
+
+Maximiliano Firtman nous a dressé un portrait vraiment exhaustif du web mobile et de l'état actuel des navigateurs. 
+
+![browser_mess](/images/posts/velocity2014/browser_mess.jpg)
+
+En gros c'est compliqué. Le marché est très fragmenté, certains constructeurs comme Samsung ajoute du bruit en diffusant massivement un navigateur modifié. L'usage des sites en webview depuis une application native n'arrange pas les choses (par exemple, l'application Facebook).
+
+Après un rappel sur l'importance de la performance, l'orateur a distillé de nombreuses pratiques permettant de faire un web mobile plus performant.
+  
+On peut retenir : 
+
+ - Le RWD est un outil, pas un fin en soi,
+ - il faut s'imposer de tester sur du hadware *cheap* avec une connection faible,
+ - ne pas oublier le temps perdu sur le réseau (*600ms mandatory network overhead*),
+ - ne pas oublier l'impact que le parsing du JS et le rendu CSS est bloquant,
+ - utiliser les solutions de stockage coté client,
+ - de très nombreux outils de simulation existent, il faut les maitriser.
+
+Il propose un site récapitulatant toutes les informations délivrées : [http://firtman.github.io/velocity/](http://firtman.github.io/velocity/).
+
+Slides :  
+
+<iframe src="//www.slideshare.net/slideshow/embed_code/41739320" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/firt/extreme-web-performance-for-mobile-devices-velocity-barcelona-2014" title="Extreme Web Performance for Mobile Devices - Velocity Barcelona 2014" target="_blank">Extreme Web Performance for Mobile Devices - Velocity Barcelona 2014</a> </strong> from <strong><a href="//www.slideshare.net/firt" target="_blank">Maximiliano Firtman</a></strong> </div>
+
 ---
 
 ## Zero Downtime Deployment with Ansible
