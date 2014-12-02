@@ -166,13 +166,13 @@ Liens:
 
 ## Build a device lab
 
-- "Qui a un placard avec pleins de devices en vrac qui n'ont ni câble, ni batterie et dont vous ne connaissez plus le mot de passe ?"
+- "Qui a un placard avec pleins de devices en vrac qui n'ont ni câbles, ni batterie et dont vous ne connaissez plus le mot de passe ?"
 
 J'ai levé la main ;) .
 
-Lara Hogan et Destiny Montague nous ont expliqués comment Etsy avait construit un *device lab*, permettant à leur collaborateurs d'emprunter des appareils mobiles pour tester leur applications, sites mobiles et newsletters.
+Lara Hogan et Destiny Montague nous ont expliqués comment Etsy avait construit un *device lab*, permettant à leurs collaborateurs d'emprunter des appareils mobiles pour tester leur applications, sites mobiles et newsletters.
 
-L'idée est d'outiller puissament les équipes et leur donner un accès extrement simple à un parc complet - afin d'assurer un maximum de tests sur les différents équipements.
+L'idée est d'outiller puissament les équipes et leur donner un accès extrement simple à un parc complet (même un chromebook pixel !) - afin d'assurer un maximum de tests sur les différents équipements.
 
 Bien sur il y a un *device lab* pour les équipes techniques et un autre pour le produit / marketing. 
 
@@ -180,7 +180,7 @@ Les sujets suivants ont été abordées :
 
 - choix des appareils
 - consommation électrique
-- le setup des devices (à l'aide du Mobile Device Management xxx) 
+- le setup des devices (à l'aide d'un Mobile Device Management) 
 - les tests
 - le réseau
 - un retour complet sur l'expèrience utilisateur
@@ -193,7 +193,7 @@ Une vidéo de la même conférence à New York est également en ligne :
  
  <iframe width="853" height="480" src="//www.youtube.com/embed/YBn_bQrdVRI" frameborder="0" allowfullscreen></iframe>
  
- Une conférence un peu #old mais complètement d'actualité. Je suis bluffé par la capacité de Etsy à mettre en oeuvre des moyens et des compétences sur des sujets qu'ils estiment important. C'est surement en ligne avec le succès que la société rencontre actuellement.
+ Une conférence un peu #old car déjà faite, mais toujours d'actualité concernant la problématique. Je suis bluffé par la capacité d'Etsy à mettre en oeuvre des moyens et des compétences sur des sujets qu'ils estiment important. C'est surement en ligne avec le succès que la société rencontre actuellement.
 
 ---
 
