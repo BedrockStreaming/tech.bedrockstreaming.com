@@ -200,6 +200,8 @@ Une vidéo de la même conférence à New York est également en ligne :
  
  <iframe width="853" height="480" src="//www.youtube.com/embed/QOatJD_3bTM" frameborder="0" allowfullscreen></iframe>
  
+   
+ 
  <iframe width="853" height="480" src="//www.youtube.com/embed/YBn_bQrdVRI" frameborder="0" allowfullscreen></iframe>
  
  Une conférence un peu #old car déjà faite, mais toujours d'actualité concernant la problématique. Je suis bluffé par la capacité d'Etsy à mettre en oeuvre des moyens et des compétences sur des sujets qu'ils estiment important. C'est surement en ligne avec le succès que la société rencontre actuellement.
