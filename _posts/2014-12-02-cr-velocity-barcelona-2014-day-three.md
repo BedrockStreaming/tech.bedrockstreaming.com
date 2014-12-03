@@ -162,6 +162,15 @@ Liens:
 - [Kubernetes](http://kubernetes.io/)
 - [Introduction to Kubernetes](https://www.digitalocean.com/community/tutorials/an-introduction-to-kubernetes)
 
+--
+
+## Responsive and Fast: Iterating Live on a RWD Site
+
+Cette conférence est globalement une redite des autres sur l’optimisation côté front. Colin Bendell d’Akamai nous présente plusieurs outils comme webpagetest, mais aussi des astuces pour tester sur Device depuis chrome. Il nous rappelle qu’il faut faire attention aux conditions de tests avec certains facteurs comme la connexion. Il faut faire aussi attention à limiter le nombre d’images, de ressources (js, css …). Un des gros problèmes sur un site responsive, est celui des images. Pour éviter de charger des images trop importantes, il faut utiliser la balise <picture>. Cette nouvelle balise n’étant pas disponible sur tous les navigateurs, il nous conseille d’utiliser un composant Picturefill. En ce qui concerne les CSS, il conseille d'inliner les css critiques et de ne charger, par la suite, que les css correspondant au device que l’on utilise. Pour conclure, l’utilisation d’un CDN avancé est hautement recommandée grâce à des options permettant de différencier navigateur / devices.
+
+Liens :
+- [Slide de la présentation](http://fr.slideshare.net/AkamaiTechnologies/edge-2014-responsive-fast-iterating-live-on-modern-rwd-sites)
+
 ---
 
 ## Build a device lab
