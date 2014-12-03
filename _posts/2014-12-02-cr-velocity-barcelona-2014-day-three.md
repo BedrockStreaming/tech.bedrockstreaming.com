@@ -16,7 +16,7 @@ image:
   credit: oreillyconf
   creditlink: https://www.flickr.com/photos/oreillyconf/15790152366/in/set-72157649351412705
 comments: true
-permalink: velocity-europe-2014-day-2.html
+permalink: velocity-europe-2014-day-3.html
 ---
 
 # Velocity Barcelone, troisième journée
