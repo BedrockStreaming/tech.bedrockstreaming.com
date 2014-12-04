@@ -35,14 +35,14 @@ Après un rappel sur l'importance de la performance, l'orateur a distillé de no
   
 On peut retenir : 
 
- - Le RWD est un outil, pas un fin en soi,
- - il faut s'imposer de tester sur du hadware *cheap* avec une connection faible,
+ - Le RWD est un outil, pas une fin en soi,
+ - il faut s'imposer de tester sur du hardware *cheap* avec une connection faible,
  - ne pas oublier le temps perdu sur le réseau (*600ms mandatory network overhead*),
  - ne pas oublier l'impact que le parsing du JS et le rendu CSS est bloquant,
  - utiliser les solutions de stockage coté client,
  - de très nombreux outils de simulation existent, il faut les maitriser.
 
-Il propose un site récapitulatant toutes les informations délivrées : [http://firtman.github.io/velocity/](http://firtman.github.io/velocity/).
+Il propose un site récapitulant toutes les informations délivrées : [http://firtman.github.io/velocity/](http://firtman.github.io/velocity/).
 
 Slides :  
 
