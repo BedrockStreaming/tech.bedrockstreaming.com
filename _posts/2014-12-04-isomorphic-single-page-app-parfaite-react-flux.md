@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "App Isomorphic: la Single Page Application parfaite ?"
+title: "App Isomorphic: la Single Page App parfaite ?"
 description: "Développer une SPA référencable et performante avec React.Js et Flux"
 author:
   name: Kenny DITS
@@ -68,7 +68,8 @@ Autre sujet, qui peut être très problématique, si le site en question s’y p
 </html>
 {% endhighlight %}
 
-Container qui servira à recevoir le HTML généré par votre appli JS une fois exécutée.
+> Container qui servira à recevoir le HTML généré par votre appli JS une fois exécutée.
+
 De base, Google (et autres moteurs/crawler) ne verra donc rien, tout votre contenu allant être injecté via JS dans votre balise ng-view. 
 Excepté le fait **qu’il parait** que depuis des mois/années, [Google commence à réellement crawler du JS](http://googlewebmastercentral.blogspot.fr/2014/05/understanding-web-pages-better.html) ... Si le site est important, cette supposition ne devrait pas suffire à vous convaincre, et vous avez raison.
 
