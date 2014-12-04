@@ -166,7 +166,7 @@ Liens:
 
 ## Responsive and Fast: Iterating Live on a RWD Site
 
-Cette conférence est globalement une redite des autres sur l’optimisation côté front. Colin Bendell d’Akamai nous présente plusieurs outils comme webpagetest, mais aussi des astuces pour tester sur Device depuis chrome. Il nous rappelle qu’il faut faire attention aux conditions de tests avec certains facteurs comme la connexion. Il faut faire aussi attention à limiter le nombre d’images, de ressources (js, css …). Un des gros problèmes sur un site responsive, est celui des images. Pour éviter de charger des images trop importantes, il faut utiliser la balise <picture>. Cette nouvelle balise n’étant pas disponible sur tous les navigateurs, il nous conseille d’utiliser un composant Picturefill. En ce qui concerne les CSS, il conseille d'intégré directement les css critiques dans lle corps de la page et de ne charger, par la suite, que les css correspondant au device que l’on utilise. Pour conclure, l’utilisation d’un CDN avancé est hautement recommandée grâce à des options permettant de différencier navigateur / devices.
+Cette conférence est globalement une redite des autres sur l’optimisation côté front. Colin Bendell d’Akamai nous présente plusieurs outils comme webpagetest, mais aussi des astuces pour tester sur Device depuis chrome. Il nous rappelle qu’il faut faire attention aux conditions de tests avec certains facteurs comme la connexion. Il faut faire aussi attention à limiter le nombre d’images, de ressources (js, css …). Un des gros problèmes sur un site responsive, est celui des images. Pour éviter de charger des images trop importantes, il faut utiliser la balise <picture>. Cette nouvelle balise n’étant pas disponible sur tous les navigateurs, il nous conseille d’utiliser un composant Picturefill. En ce qui concerne les CSS, il conseille d'intégrer directement les css critiques dans le corps de la page et de ne charger, par la suite, que les css correspondants au device que l’on utilise. Pour conclure, l’utilisation d’un CDN avancé est hautement recommandée grâce à des options permettant de différencier navigateurs / devices.
 
 Liens :
 - [Slide de la présentation](http://fr.slideshare.net/AkamaiTechnologies/edge-2014-responsive-fast-iterating-live-on-modern-rwd-sites)
@@ -175,24 +175,24 @@ Liens :
 
 ## Build a device lab
 
-- "Qui a un placard avec pleins de devices en vrac qui n'ont ni câbles, ni batterie et dont vous ne connaissez plus le mot de passe ?"
+- "Qui a un placard avec pleins de devices en vrac qui n'ont ni câble, ni batterie et dont vous ne connaissez plus le mot de passe ?"
 
 J'ai levé la main ;) .
 
-Lara Hogan et Destiny Montague nous ont expliqués comment Etsy avait construit un *device lab*, permettant à leurs collaborateurs d'emprunter des appareils mobiles pour tester leur applications, sites mobiles et newsletters.
+Lara Hogan et Destiny Montague nous ont expliqué comment Etsy avait construit un *device lab*, permettant à leurs collaborateurs d'emprunter des appareils mobiles pour tester leurs applications, sites mobiles et newsletters.
 
-L'idée est d'outiller puissament les équipes et leur donner un accès extrement simple à un parc complet (même un chromebook pixel !) - afin d'assurer un maximum de tests sur les différents équipements.
+L'idée est d'outiller puissamment les équipes et de leur donner un accès extrêmement simple à un parc complet (même un chromebook pixel !) - afin d'assurer un maximum de tests sur les différents équipements.
 
-Bien sur il y a un *device lab* pour les équipes techniques et un autre pour le produit / marketing. 
+Bien sûr il y a un *device lab* pour les équipes techniques et un autre pour le produit / marketing. 
 
-Les sujets suivants ont été abordées : 
+Les sujets suivants ont été abordés : 
 
 - choix des appareils
 - consommation électrique
 - le setup des devices (à l'aide d'un Mobile Device Management) 
 - les tests
 - le réseau
-- un retour complet sur l'expèrience utilisateur
+- un retour complet sur l'expérience utilisateur
 
 Un site complet dédié à leur conférence est disponible : [http://larahogan.me/devicelab/](http://larahogan.me/devicelab/).
 
@@ -204,12 +204,12 @@ Une vidéo de la même conférence à New York est également en ligne :
  
  <iframe width="853" height="480" src="//www.youtube.com/embed/YBn_bQrdVRI" frameborder="0" allowfullscreen></iframe>
  
- Une conférence un peu #old car déjà faite, mais toujours d'actualité concernant la problématique. Je suis bluffé par la capacité d'Etsy à mettre en oeuvre des moyens et des compétences sur des sujets qu'ils estiment important. C'est surement en ligne avec le succès que la société rencontre actuellement.
+ Une conférence un peu #old car déjà faite, mais toujours d'actualité concernant la problématique. Je suis bluffé par la capacité d'Etsy à mettre en oeuvre des moyens et des compétences sur des sujets qu'ils estiment importants. C'est sûrement en lien avec le succès que la société rencontre actuellement.
 
 ---
 
 ## Conclusion
 
-Une conférence dense et intéressante, qui nous a donnée l'opportunité de rencontrer pleins de gens intéressants et même de visiter (un peu) Barcelone !
+Une conférence dense et intéressante, qui nous a donné l'opportunité de rencontrer pleins de gens intéressants et même de visiter (un peu) Barcelone !
 
 ![sagrada](/images/posts/velocity2014/sagrada.jpg)
