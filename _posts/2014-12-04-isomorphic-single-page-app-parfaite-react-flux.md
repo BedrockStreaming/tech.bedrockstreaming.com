@@ -24,7 +24,7 @@ Qu’est ce qu’une Single Page App (SPA) ?
 
 Les SPA se répandent de plus en plus, et deviennent un choix « commun » lorsque l’on veut développer un Front assez riche (souvent câblé sur des API REST) qu’on souhaite :
 
-* testable (unitairement et fonctionnelement)
+* testable (unitairement et fonctionnellement)
 * fluide (pas de rechargement d’url etc)
 * bien organisé
 * maintenable et évolutif
@@ -32,7 +32,7 @@ Les SPA se répandent de plus en plus, et deviennent un choix « commun » lorsq
 
 Les Frameworks type [AngularJs](https://angularjs.org/) et [EmberJs](http://emberjs.com/) tiennent le haut du panier et ont largement fait leur preuve, mais ils continuent à échouer lamentablement sur deux sujets pourtant primordiaux dans beaucoup de cas :
 
-* La performance de rendu initiale (qu’on pourrais simplifier en « la performance » tout court)
+* La performance de rendu initiale (qu’on pourrait simplifier en « la performance » tout court)
 * Le référencement
 
 Prenons cas par cas :
@@ -43,7 +43,7 @@ Aujourd’hui, quand vous chargez une Single Page App, voici en version « gross
 
 * Récupération du fichier HTML
 * Récupération des différents Assets et Js (Angular/Jquery par exemple)
-* Récupération du code JS de votre application entière (sauf si vous [lazyloadé](https://github.com/ocombe/ocLazyLoad))
+* Récupération du code JS de votre application entière (sauf si vous [lazyloadez](https://github.com/ocombe/ocLazyLoad))
 * Execution de tout ce petit monde, qui va devoir savoir où vous êtes dans l’application afin de générer le HTML correspondant à l’état demandé.
 
 Sur une application de type « back-office », c’est peut être acceptable. Sur un gros site « front-office », ca peut l’être beaucoup moins, d’avoir ces quelques secondes à attendre avant de se retrouver dans un état fonctionnel. Et ce temps aura tendance à augmenter fortement, parallèlement à l’enrichissement de votre application.
@@ -86,11 +86,11 @@ La solution permet à priori de faire le boulot, mais cela reste une gymnastique
 # La lumière au fond du tunnel ?
 
 Vous l’avez donc compris, dans certains cas, les SPA basées sur des frameworks Js posent deux problèmes très gênant et difficilement résolvable.
-C’est là qu’entre en piste, une nouvelle façon de penser les SPA, grace à une librairie développé par Facebook : [React.JS](http://facebook.github.io/react/)
+C’est là qu’entre en piste, une nouvelle façon de penser les SPA, grace à une librairie développée par Facebook : [React.JS](http://facebook.github.io/react/)
 
 React fait parlé de lui car il commence à être utilisé massivement par des très gros acteurs Web, Facebook bien entendu pour ses composants Chat, ou son [éditeur vidéo](http://facebook.com/lookback/edit), [Instagram](http://facebook.github.io/react/blog/2013/11/05/thinking-in-react.html) pour l’intégralité du site, [Yahoo Mail](http://www.slideshare.net/rmsguhan/react-meetup-mailonreact), [Github avec l’IDE Atom](http://blog.atom.io/2014/07/02/moving-atom-to-react.html), [Khan Academy](http://joelburget.com/backbone-to-react/), [NyTimes](http://www.nytimes.com/interactive/2014/02/02/fashion/red-carpet-project.html?_r=0), [Feed.ly](https://twitter.com/feedly/status/517163824206458880) ...
 
-Au premier abord, React n’est qu’une librairie qu’on pourrait comparer à la partie Vue d’un Framework MVC (voir aux Directives d’Angular), mais il à la particularité d’être basé sur un Virtual Dom.
+Au premier abord, React n’est qu’une librairie qu’on pourrait comparer à la partie Vue d’un Framework MVC (voir aux Directives d’Angular), mais il a la particularité d’être basé sur un Virtual Dom.
 Ce qui parait au départ simplement une bonne idée pour avoir des performances bien supérieures à celle d’un framework MVC basé sur le DOM, et éviter par exemple les Dirty checking du Dom (qui explique en partie le manque de perf d’Angular), permet aussi d’utiliser ces mêmes composants coté serveur !
 
 C’est ce qu’on appel l’approche **« Isomorphic »** .
@@ -107,7 +107,7 @@ Exemple:
 * Une fois affiché, React sait reprendre la main sur votre appli afin de continuer en mode SPA pour la suite de l’application.
 
 Et là, vous répondez de manière parfaite aux deux points problématique.
-Google n’y verra que du feu, et pourra crawler votre site entièrement comme si il n’étais composé que de fichier statique. 
+Google n’y verra que du feu, et pourra crawler votre site entièrement comme si il n’était composé que de fichier statique. 
 La performance du premier rendu sera quasi imbattable, car ne nécessitant aucun JS !
 
 Sur le papier, c’est juste le rêve ultime de tout développeur Front-end: Tous les avantages d’une SPA sans les inconvénients !
@@ -123,12 +123,12 @@ Mais là encore, l’approche de Flux est plutôt prometteuse, alors quel est le
 
 * Finalement c’est encore peu mature (déjà React et Flux, mais encore plus l’approche Isomorphic)
 * La montée en compétence n’est pas négligeable
-* Il n’y a pas vraiment de Framework comparable à date, et vous allez surement devoir ré-inviter la roue à certains moment. (à suivre l’arrivée imminente de React Nexus notamment)
+* Il n’y a pas vraiment de Framework comparable à date, et vous allez surement devoir ré-inviter la roue à certains moments. (à suivre l’arrivée imminente de React Nexus notamment)
 * La documentation est très faiblarde encore
 * Les ressources très difficile à trouver et de qualité très différente
 * Pas vraiment de starter-kit ou générateur digne de ce nom
 * Le coté Isomorphic va aussi engendrer une certaine complexité :
-    * Est ce que ce que mon client reçoit bien le même état que celui qu’avait mon serveur au moment du rendu initial
+    * Est-ce que ce que mon client reçoit bien le même état que celui qu’avait mon serveur au moment du rendu initial
     * Obligation de n’utiliser que des composants Isomorphic, typiquement un router qui fonctionne aussi bien coté client que serveur ([React-Router](https://github.com/rackt/react-router) ou [Director](https://github.com/flatiron/director)), même chose pour les requêtes HTTP ([Superagent](https://github.com/visionmedia/superagent) par exemple) ...
 
 Si malgré ces points, vous souhaitez tester cette approche, je vous conseille de regarder du coté de Yahoo, qui après avoir annoncé la migration de Yahoo Mail de PHP/YUI vers React/Flux Isomorphic a aussi publié quelques packages Open-Source très intéressant, pouvant constituer une bonne base de départ pour un projet isomorphic :
