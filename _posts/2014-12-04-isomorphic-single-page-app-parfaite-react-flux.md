@@ -112,6 +112,8 @@ La performance du premier rendu sera quasi imbattable, car ne nécessitant aucun
 
 Sur le papier, c’est juste le rêve ultime de tout développeur Front-end: Tous les avantages d’une SPA sans les inconvénients !
 
+*Facebook propose aussi sur son Github, une solution pour ceux ayant déjà un applicatif dans un autre language (ici PHP) : [Server side rendering](https://github.com/facebook/react/blob/master/examples/server-rendering/README.md)*
+
 # La solution parfaite ?
 
 Presque.
@@ -132,7 +134,7 @@ Mais là encore, l’approche de Flux est plutôt prometteuse, alors quel est le
 Si malgré ces points, vous souhaitez tester cette approche, je vous conseille de regarder du coté de Yahoo, qui après avoir annoncé la migration de Yahoo Mail de PHP/YUI vers React/Flux Isomorphic a aussi publié quelques packages Open-Source très intéressant, pouvant constituer une bonne base de départ pour un projet isomorphic :
 
 * [Fluxible-App](https://github.com/yahoo/fluxible-app)
-* [Flux-exemples](https://github.com/yahoo/flux-examples)
+* [Flux-examples](https://github.com/yahoo/flux-examples)
 * ou cet exemple utilisant Fluxible-app : [Isomorphic-React](https://github.com/alexaivars/isomorphic-react)
 
 Si vous souhaitez plus d’infos sur React et Flux, je vous conseille ces deux articles en anglais de [@andrewray](https://twitter.com/andrewray): 
@@ -140,7 +142,7 @@ Si vous souhaitez plus d’infos sur React et Flux, je vous conseille ces deux a
 * [React for stupid people](http://blog.andrewray.me/reactjs-for-stupid-people/)
 * [Flux for stupid people](http://blog.andrewray.me/flux-for-stupid-people/)
 
-Ou ce tutorial chez nos amis de Jolicode, pour [faire un Gifomatic avec React et Flux](http://jolicode.com/blog/flux-react-vers-un-nouveau-paradigme)
+Ou ce tuto chez nos amis de Jolicode, pour [faire un Gifomatic avec React et Flux](http://jolicode.com/blog/flux-react-vers-un-nouveau-paradigme)
 
 Et pour finir, si ces sujets vous passionnent tout comme nous, restez à l’écoute ici, d’autres posts pourraient arriver à l’avenir ;-)
 
