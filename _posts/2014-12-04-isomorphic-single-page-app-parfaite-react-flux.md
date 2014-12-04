@@ -22,7 +22,7 @@ Qu’est ce qu’une Single Page App (SPA) ?
 
 > « As rich and responsive as a desktop app but built with HTML5, CSS and Javascript »
 
-Les SPA se répandent de plus en plus, et deviennent un choix « commun » lorsque l’on veut développer un Front assez riche (souvent câblé sur des API REST) qu’on souhaite :
+Les SPA se répandent de plus en plus, et deviennent un choix « commun » lorsque l’on veut développer un Front riche (souvent câblé sur des API REST) que l’on souhaite :
 
 * testable (unitairement et fonctionnellement)
 * fluide (pas de rechargement d’url etc)
@@ -47,7 +47,7 @@ Aujourd’hui, quand vous chargez une SPA, voici grossièrement ce qui se passe 
 Sur une application de type « back-office », c’est peut être acceptable. Sur un gros site « front-office », ca peut l’être beaucoup moins, d’avoir ces quelques secondes à attendre avant de se retrouver dans un état fonctionnel. Et ce temps aura tendance à augmenter fortement, parallèlement à l’enrichissement de votre application.
 
 Si l’on se soucie un minimum des aspects de performances Web, c’est forcément dérangeant.
-Et d’un point de vue plus global, tout le monde sait aujourd’hui que la performance brute, n’est pas le point fort de ces frameworks.
+Et d’un point de vue plus global, tout le monde sait aujourd’hui que la performance brute n’est pas le point fort de ces frameworks.
 
 # Le référencement
 
