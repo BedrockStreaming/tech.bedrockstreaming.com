@@ -30,7 +30,7 @@ Les SPA se répandent de plus en plus, et deviennent un choix « commun » lorsq
 * maintenable et évolutif
 * ...
 
-Les Frameworks type [AngularJs](https://angularjs.org/) et [EmberJs](http://emberjs.com/) tiennent le haut du panier et ont largement fait leurs preuves, mais ils continuent à échouer lamentablement sur deux sujets pourtant primordiaux dans beaucoup de cas :
+Les Frameworks type [AngularJs](https://angularjs.org/) et [EmberJs](http://emberjs.com/) tiennent le haut du panier et ont largement fait leurs preuves, mais ils continuent à échouer sur deux sujets pourtant primordiaux dans beaucoup de cas :
 
 * La performance (dont le rendu initial)
 * Le référencement
@@ -44,7 +44,7 @@ Aujourd’hui, quand vous chargez une SPA, voici grossièrement ce qui se passe 
 * Ainsi que de l'intégralité du code JS de votre application (sauf si vous [lazyloadez](https://github.com/ocombe/ocLazyLoad))
 * Execution de tout ce petit monde, qui va devoir savoir où vous êtes dans l’application afin de générer le HTML correspondant à l’état demandé.
 
-Sur une application de type « back-office », c’est peut être acceptable. Sur un gros site « front-office », ca peut l’être beaucoup moins, d’avoir ces quelques secondes à attendre avant de se retrouver dans un état fonctionnel. Et ce temps aura tendance à augmenter fortement, parallèlement à l’enrichissement de votre application.
+Avoir ces quelques secondes à attendre avant de se retrouver dans un état fonctionnel est peut être acceptable pour un backoffice. Mais ça l'est beaucoup moins pour un front riche.Et ce temps aura tendance à augmenter fortement, parallèlement à l’enrichissement de votre application.
 
 Si l’on se soucie un minimum des aspects de performances Web, c’est forcément dérangeant.
 Et d’un point de vue plus global, tout le monde sait aujourd’hui que la performance brute n’est pas le point fort de ces frameworks.
@@ -123,10 +123,10 @@ Mais là encore, l’approche de Flux est plutôt prometteuse, alors quel est le
 * La montée en compétence n’est pas négligeable
 * Il n’y a pas vraiment de Framework comparable à date, et vous allez surement devoir ré-inviter la roue à certains moments (à suivre l’arrivée imminente de React Nexus notamment)
 * La documentation est très faiblarde encore
-* Les ressources très difficile à trouver et de qualité très différente
+* Les ressources très difficiles à trouver et de qualité très différente
 * Pas vraiment de starter-kit ou générateur digne de ce nom
 * Le coté Isomorphic va aussi engendrer une certaine complexité :
-    * Est-ce que ce que mon client reçoit bien le même état que celui qu’avait mon serveur au moment du rendu initial
+    * Est-ce que mon client reçoit bien le même état que celui qu’avait mon serveur au moment du rendu initial
     * Obligation de n’utiliser que des composants Isomorphic, typiquement un router qui fonctionne aussi bien coté client que serveur ([React-Router](https://github.com/rackt/react-router) ou [Director](https://github.com/flatiron/director)), même chose pour les requêtes HTTP ([Superagent](https://github.com/visionmedia/superagent) par exemple) ...
 
 Si malgré ces points, vous souhaitez tester cette approche, je vous conseille de regarder du coté de Yahoo, qui après avoir annoncé la migration de Yahoo Mail de PHP/YUI vers React/Flux Isomorphic a aussi publié quelques packages Open-Source très intéressant, pouvant constituer une bonne base de départ pour un projet isomorphic :
