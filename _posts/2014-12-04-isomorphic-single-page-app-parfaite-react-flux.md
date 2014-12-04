@@ -30,7 +30,7 @@ Les SPA se répandent de plus en plus, et deviennent un choix « commun » lorsq
 * maintenable et évolutif
 * ...
 
-Les Frameworks type [AngularJs](https://angularjs.org/) et [EmberJs](http://emberjs.com/) tiennent le haut du panier et ont largement fait leur preuve, mais ils continuent à échouer lamentablement sur deux sujets pourtant primordiaux dans beaucoup de cas :
+Les Frameworks type [AngularJs](https://angularjs.org/) et [EmberJs](http://emberjs.com/) tiennent le haut du panier et ont largement fait leurs preuves, mais ils continuent à échouer lamentablement sur deux sujets pourtant primordiaux dans beaucoup de cas :
 
 * La performance de rendu initiale (qu’on pourrait simplifier en « la performance » tout court)
 * Le référencement
