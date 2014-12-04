@@ -32,18 +32,16 @@ Les SPA se répandent de plus en plus, et deviennent un choix « commun » lorsq
 
 Les Frameworks type [AngularJs](https://angularjs.org/) et [EmberJs](http://emberjs.com/) tiennent le haut du panier et ont largement fait leurs preuves, mais ils continuent à échouer lamentablement sur deux sujets pourtant primordiaux dans beaucoup de cas :
 
-* La performance de rendu initiale (qu’on pourrait simplifier en « la performance » tout court)
+* La performance (dont le rendu initial)
 * Le référencement
-
-Prenons cas par cas :
 
 # La Performance
 
-Aujourd’hui, quand vous chargez une Single Page App, voici en version « grossière » ce qu’il ce passe coté navigateur client :
+Aujourd’hui, quand vous chargez une SPA, voici grossièrement ce qui se passe coté navigateur client :
 
-* Récupération du fichier HTML
-* Récupération des différents Assets et Js (Angular/Jquery par exemple)
-* Récupération du code JS de votre application entière (sauf si vous [lazyloadez](https://github.com/ocombe/ocLazyLoad))
+* Chargement du fichier HTML
+* Chargement des différents Assets (Css, image, scripts JS externe comme Angular et Jquery par exemple)
+* Ainsi que du code JS de votre application entière (sauf si vous [lazyloadez](https://github.com/ocombe/ocLazyLoad))
 * Execution de tout ce petit monde, qui va devoir savoir où vous êtes dans l’application afin de générer le HTML correspondant à l’état demandé.
 
 Sur une application de type « back-office », c’est peut être acceptable. Sur un gros site « front-office », ca peut l’être beaucoup moins, d’avoir ces quelques secondes à attendre avant de se retrouver dans un état fonctionnel. Et ce temps aura tendance à augmenter fortement, parallèlement à l’enrichissement de votre application.
@@ -85,7 +83,7 @@ La solution permet à priori de faire le boulot, mais cela reste une gymnastique
 
 # La lumière au fond du tunnel ?
 
-Vous l’avez donc compris, dans certains cas, les SPA basées sur des frameworks Js posent deux problèmes très gênant et difficilement résolvable.
+Vous l’avez donc compris, dans certains cas, les SPA basées sur des frameworks Js posent deux problèmes très gênants et difficilement résolvables.
 C’est là qu’entre en piste, une nouvelle façon de penser les SPA, grace à une librairie développée par Facebook : [React.JS](http://facebook.github.io/react/)
 
 React fait parlé de lui car il commence à être utilisé massivement par des très gros acteurs Web, Facebook bien entendu pour ses composants Chat, ou son [éditeur vidéo](http://facebook.com/lookback/edit), [Instagram](http://facebook.github.io/react/blog/2013/11/05/thinking-in-react.html) pour l’intégralité du site, [Yahoo Mail](http://www.slideshare.net/rmsguhan/react-meetup-mailonreact), [Github avec l’IDE Atom](http://blog.atom.io/2014/07/02/moving-atom-to-react.html), [Khan Academy](http://joelburget.com/backbone-to-react/), [NyTimes](http://www.nytimes.com/interactive/2014/02/02/fashion/red-carpet-project.html?_r=0), [Feed.ly](https://twitter.com/feedly/status/517163824206458880) ...
@@ -106,7 +104,7 @@ Exemple:
 * Il reçoit aussi le bundle Js
 * Une fois affiché, React sait reprendre la main sur votre appli afin de continuer en mode SPA pour la suite de l’application.
 
-Et là, vous répondez de manière parfaite aux deux points problématique.
+Et là, vous répondez de manière parfaite aux deux points problématiques.
 Google n’y verra que du feu, et pourra crawler votre site entièrement comme si il n’était composé que de fichier statique. 
 La performance du premier rendu sera quasi imbattable, car ne nécessitant aucun JS !
 
@@ -117,7 +115,7 @@ Sur le papier, c’est juste le rêve ultime de tout développeur Front-end: Tou
 # La solution parfaite ?
 
 Presque.
-React, n’est que la partie **Vue** au final de votre application, il va falloir encore organisé tout ca. C’est ici qu’entre en compte [Flux](https://facebook.github.io/flux/), un pattern d’architecture unidirectionnel proposé aussi par Facebook, à priori plus scalable que ne l’est le pattern MVC.
+React, n’est que la partie **Vue** au final de votre application, il va falloir encore organiser tout ça. C’est ici qu’entre en compte [Flux](https://facebook.github.io/flux/), un pattern d’architecture unidirectionnel proposé aussi par Facebook, à priori plus scalable que ne l’est le pattern MVC.
 
 Mais là encore, l’approche de Flux est plutôt prometteuse, alors quel est le problème ? 
 
