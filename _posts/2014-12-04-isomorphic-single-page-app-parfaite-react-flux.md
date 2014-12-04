@@ -35,7 +35,7 @@ Les Frameworks type [AngularJs](https://angularjs.org/) et [EmberJs](http://embe
 * La performance (dont le rendu initial)
 * Le référencement
 
-# La Performance
+# La performance
 
 Aujourd’hui, quand vous chargez une SPA, voici grossièrement ce qui se passe coté client :
 
@@ -143,7 +143,7 @@ Si vous souhaitez plus d’infos sur React et Flux, je vous conseille ces deux a
 
 Ou ce tuto chez nos amis de Jolicode, pour [faire un Gifomatic avec React et Flux](http://jolicode.com/blog/flux-react-vers-un-nouveau-paradigme)
 
-D'autres solutions existent aussi conservant la même approche, mais sur base d'autres technos, notamment celle d'Airbnb: [RendR](http://nerds.airbnb.com/weve-open-sourced-rendr-run-your-backbonejs-a/), permettant d'utiliser du [Backbone coté client et server](http://nerds.airbnb.com/weve-launched-our-first-nodejs-app-to-product/).
+D'autres solutions existent aussi conservant la même approche, mais sur base d'autres technos, notamment celle d'Airbnb: [RendR](http://nerds.airbnb.com/weve-open-sourced-rendr-run-your-backbonejs-a/), permettant d'utiliser du [Backbone coté client et serveur](http://nerds.airbnb.com/weve-launched-our-first-nodejs-app-to-product/).
 
 Et pour finir, si ces sujets vous passionnent tout comme nous, restez à l’écoute ici, d’autres posts pourraient arriver à l’avenir ;-)
 
