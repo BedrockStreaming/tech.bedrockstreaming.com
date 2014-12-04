@@ -37,11 +37,11 @@ Les Frameworks type [AngularJs](https://angularjs.org/) et [EmberJs](http://embe
 
 # La Performance
 
-Aujourd’hui, quand vous chargez une SPA, voici grossièrement ce qui se passe coté navigateur client :
+Aujourd’hui, quand vous chargez une SPA, voici grossièrement ce qui se passe coté client :
 
 * Chargement du fichier HTML
 * Chargement des différents Assets (Css, image, scripts JS externe comme Angular et Jquery par exemple)
-* Ainsi que du code JS de votre application entière (sauf si vous [lazyloadez](https://github.com/ocombe/ocLazyLoad))
+* Ainsi que de l'intégralité du code JS de votre application (sauf si vous [lazyloadez](https://github.com/ocombe/ocLazyLoad))
 * Execution de tout ce petit monde, qui va devoir savoir où vous êtes dans l’application afin de générer le HTML correspondant à l’état demandé.
 
 Sur une application de type « back-office », c’est peut être acceptable. Sur un gros site « front-office », ca peut l’être beaucoup moins, d’avoir ces quelques secondes à attendre avant de se retrouver dans un état fonctionnel. Et ce temps aura tendance à augmenter fortement, parallèlement à l’enrichissement de votre application.
@@ -73,10 +73,10 @@ De base, Google (et autres moteurs/crawler) ne verra donc rien, tout votre conte
 Excepté le fait **qu’il parait** que depuis des mois/années, [Google commence à réellement crawler du JS](http://googlewebmastercentral.blogspot.fr/2014/05/understanding-web-pages-better.html) ... Si le site est important, cette supposition ne devrait pas suffire à vous convaincre, et vous avez raison.
 
 Rassurez vous, à ce stade, des solutions existent pour fournir spécifiquement à Google une version correspondante aux snapshots HTML générés par vos applications.
-Ces solutions existent soit en mode SAAS (payante et hébérgé), soit en mode Open-Source à héberger vous même. Je pense notamment à [Prerender.io](https://prerender.io/) qui fait plutôt bien le job, et vous propose d’indiquer aux moteurs que vous faites une application de type « Ajax » en respectant les recommandations de Google.
+Ces solutions sont accessibles soit en mode SAAS (payante et hébérgé), soit en mode Open-Source à héberger vous même. Je pense notamment à [Prerender.io](https://prerender.io/) qui fait plutôt bien le job, et vous propose d’indiquer aux moteurs que vous faites une application de type « Ajax » en respectant les recommandations de Google.
 
 Prerender est composée de plusieurs briques :
-Un middleware applicatif (Rails, Node, Varnish, Nginx selon votre infra etc), qui va intercepter les moteurs, et les renvoyer sur votre service de Prerender 
+Un middleware applicatif (Rails, Node, Varnish, Nginx, etc selon votre infrastructure), qui va intercepter les moteurs et les renvoyer sur votre service de Prerender 
 Un service de Prerender qui est une brique Node.js qui va lancer des HeadLess Browser ([PhantomJS](http://phantomjs.org/) ou [SlimerJs](http://slimerjs.org/ ...)) pour executer votre appli JS et renvoyer un snapshot HTML une fois le rendu JS terminée.
 
 La solution permet à priori de faire le boulot, mais cela reste une gymnastique complexe, et beaucoup d'interrogations subsistent (pertinence, maintenance, stabilité, Page Rank, pondération vs sites classique ...)
@@ -88,13 +88,13 @@ C’est là qu’entre en piste, une nouvelle façon de penser les SPA, grace à
 
 React fait parlé de lui car il commence à être utilisé massivement par des très gros acteurs Web, Facebook bien entendu pour ses composants Chat, ou son [éditeur vidéo](http://facebook.com/lookback/edit), [Instagram](http://facebook.github.io/react/blog/2013/11/05/thinking-in-react.html) pour l’intégralité du site, [Yahoo Mail](http://www.slideshare.net/rmsguhan/react-meetup-mailonreact), [Github avec l’IDE Atom](http://blog.atom.io/2014/07/02/moving-atom-to-react.html), [Khan Academy](http://joelburget.com/backbone-to-react/), [NyTimes](http://www.nytimes.com/interactive/2014/02/02/fashion/red-carpet-project.html?_r=0), [Feed.ly](https://twitter.com/feedly/status/517163824206458880) ...
 
-Au premier abord, React n’est qu’une librairie qu’on pourrait comparer à la partie Vue d’un Framework MVC (voir aux Directives d’Angular), mais il a la particularité d’être basé sur un Virtual Dom.
-Ce qui parait au départ simplement une bonne idée pour avoir des performances bien supérieures à celle d’un framework MVC basé sur le DOM, et éviter par exemple les Dirty checking du Dom (qui explique en partie le manque de perf d’Angular), permet aussi d’utiliser ces mêmes composants coté serveur !
+Au premier abord, React n’est qu’une librairie qu’on pourrait comparer à la partie Vue d’un Framework MVC (voir aux Directives d’Angular), mais il a la particularité d’être basé sur un Virtual DOM.
+Ce qui parait au départ simplement une bonne idée pour avoir des performances bien supérieures à celle d’un framework MVC basé sur le DOM, et éviter par exemple les Dirty checking du DOM (qui explique en partie le manque de perf d’Angular), permet aussi d’utiliser ces mêmes composants coté serveur !
 
-C’est ce qu’on appel l’approche **« Isomorphic »** .
+C’est ce qu’on appelle l’approche **« Isomorphic »** .
 
 Un composant React n’est finalement qu’un module CommonJs et peut donc aussi bien être utilisé coté browser sur le client, que coté server dans du [Node.Js](http://nodejs.org/) (ou [IO.js](https://github.com/iojs/io.js/issues/28) devrais-je dire maintenant ?).
-L’idée de l’isomorphisme aussi, est d’être capable de servir le premier rendu directement par le serveur.
+L’idée de l’isomorphisme est aussi d’être capable de servir le premier rendu directement par le serveur.
 Exemple:
 
 * Vous accéder à votresite.com/votrepage.html
@@ -108,20 +108,20 @@ Et là, vous répondez de manière parfaite aux deux points problématiques.
 Google n’y verra que du feu, et pourra crawler votre site entièrement comme si il n’était composé que de fichier statique. 
 La performance du premier rendu sera quasi imbattable, car ne nécessitant aucun JS !
 
-Sur le papier, c’est juste le rêve ultime de tout développeur Front-end: Tous les avantages d’une SPA sans les inconvénients !
+Sur le papier, c’est juste le rêve ultime de tout développeur Front-end : tous les avantages d’une SPA sans les inconvénients !
 
 *Facebook propose aussi sur son Github, une solution pour ceux ayant déjà un applicatif dans un autre language (ici PHP) : [Server side rendering](https://github.com/facebook/react/blob/master/examples/server-rendering/README.md)*
 
 # La solution parfaite ?
 
 Presque.
-React, n’est que la partie **Vue** au final de votre application, il va falloir encore organiser tout ça. C’est ici qu’entre en compte [Flux](https://facebook.github.io/flux/), un pattern d’architecture unidirectionnel proposé aussi par Facebook, à priori plus scalable que ne l’est le pattern MVC.
+React n’est au final que la partie **Vue** de votre application, il va falloir encore organiser tout ça. C’est ici qu’entre en compte [Flux](https://facebook.github.io/flux/), un pattern d’architecture unidirectionnel proposé aussi par Facebook, à priori plus scalable que ne l’est le pattern MVC.
 
 Mais là encore, l’approche de Flux est plutôt prometteuse, alors quel est le problème ? 
 
 * Finalement c’est encore peu mature (déjà React et Flux, mais encore plus l’approche Isomorphic)
 * La montée en compétence n’est pas négligeable
-* Il n’y a pas vraiment de Framework comparable à date, et vous allez surement devoir ré-inviter la roue à certains moments. (à suivre l’arrivée imminente de React Nexus notamment)
+* Il n’y a pas vraiment de Framework comparable à date, et vous allez surement devoir ré-inviter la roue à certains moments (à suivre l’arrivée imminente de React Nexus notamment)
 * La documentation est très faiblarde encore
 * Les ressources très difficile à trouver et de qualité très différente
 * Pas vraiment de starter-kit ou générateur digne de ce nom
