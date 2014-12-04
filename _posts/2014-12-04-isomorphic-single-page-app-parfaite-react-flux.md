@@ -78,16 +78,16 @@ Ces solutions sont accessibles soit en mode SAAS (payante et hébérgé), soit e
 
 Prerender est composée de plusieurs briques :
 Un middleware applicatif (Rails, Node, Varnish, Nginx, etc selon votre infrastructure), qui va intercepter les moteurs et les renvoyer sur votre service de Prerender 
-Un service de Prerender qui est une brique Node.js qui va lancer des HeadLess Browser ([PhantomJS](http://phantomjs.org/) ou [SlimerJs](http://slimerjs.org/ ...)) pour executer votre appli JS et renvoyer un snapshot HTML une fois le rendu JS terminée.
+Un service de Prerender qui est une brique Node.js qui va lancer des HeadLess Browser ([PhantomJS](http://phantomjs.org/) ou [SlimerJs](http://slimerjs.org/ ...)) pour executer votre appli JS et renvoyer un snapshot HTML une fois le rendu JS terminé.
 
-La solution permet à priori de faire le boulot, mais cela reste une gymnastique complexe, et beaucoup d'interrogations subsistent (pertinence, maintenance, stabilité, Page Rank, pondération vs sites classique ...)
+La solution permet à priori de faire le boulot, mais cela reste une gymnastique complexe, et beaucoup d'interrogations subsistent (pertinence, maintenance, stabilité, Page Rank, pondération vs sites classiques ...)
 
 # La lumière au fond du tunnel ?
 
 Vous l’avez donc compris, dans certains cas, les SPA basées sur des frameworks Js posent deux problèmes très gênants et difficilement résolvables.
 C’est là qu’entre en piste, une nouvelle façon de penser les SPA, grace à une librairie développée par Facebook : [React.JS](http://facebook.github.io/react/)
 
-React fait parlé de lui car il commence à être utilisé massivement par des très gros acteurs Web, Facebook bien entendu pour ses composants Chat, ou son [éditeur vidéo](http://facebook.com/lookback/edit), [Instagram](http://facebook.github.io/react/blog/2013/11/05/thinking-in-react.html) pour l’intégralité du site, [Yahoo Mail](http://www.slideshare.net/rmsguhan/react-meetup-mailonreact), [Github avec l’IDE Atom](http://blog.atom.io/2014/07/02/moving-atom-to-react.html), [Khan Academy](http://joelburget.com/backbone-to-react/), [NyTimes](http://www.nytimes.com/interactive/2014/02/02/fashion/red-carpet-project.html?_r=0), [Feed.ly](https://twitter.com/feedly/status/517163824206458880) ...
+React fait parler de lui car il commence à être utilisé massivement par des très gros acteurs Web, Facebook bien entendu pour ses composants Chat, ou son [éditeur vidéo](http://facebook.com/lookback/edit), [Instagram](http://facebook.github.io/react/blog/2013/11/05/thinking-in-react.html) pour l’intégralité du site, [Yahoo Mail](http://www.slideshare.net/rmsguhan/react-meetup-mailonreact), [Github avec l’IDE Atom](http://blog.atom.io/2014/07/02/moving-atom-to-react.html), [Khan Academy](http://joelburget.com/backbone-to-react/), [NyTimes](http://www.nytimes.com/interactive/2014/02/02/fashion/red-carpet-project.html?_r=0), [Feed.ly](https://twitter.com/feedly/status/517163824206458880) ...
 
 Au premier abord, React n’est qu’une librairie qu’on pourrait comparer à la partie Vue d’un Framework MVC (voir aux Directives d’Angular), mais il a la particularité d’être basé sur un Virtual DOM.
 Ce qui parait au départ simplement une bonne idée pour avoir des performances bien supérieures à celle d’un framework MVC basé sur le DOM, et éviter par exemple les Dirty checking du DOM (qui explique en partie le manque de perf d’Angular), permet aussi d’utiliser ces mêmes composants coté serveur !
@@ -98,7 +98,7 @@ Un composant React n’est finalement qu’un module CommonJs et peut donc aussi
 L’idée de l’isomorphisme est aussi d’être capable de servir le premier rendu directement par le serveur.
 Exemple:
 
-* Vous accéder à votresite.com/votrepage.html
+* Vous accédez à votresite.com/votrepage.html
 * Votre serveur Node, construit votre page et sert le rendu HTML généré par votre appli au client
 * Il sert aussi votre application JS dans un Bundle (généré via du [Gulp](http://gulpjs.com/) ou [Grunt](http://gruntjs.com/) par [WebPack](http://webpack.github.io/) ou [Browserify](http://browserify.org/))
 * Le client reçoit un fichier statique et l’affiche (sans attendre le moindre JS)
@@ -106,7 +106,7 @@ Exemple:
 * Une fois affiché, React sait reprendre la main sur votre appli afin de continuer en mode SPA pour la suite de l’application.
 
 Et là, vous répondez de manière parfaite aux deux points problématiques.
-Google n’y verra que du feu, et pourra crawler votre site entièrement comme si il n’était composé que de fichier statique. 
+Google n’y verra que du feu, et pourra crawler votre site entièrement comme si il n’était composé que de fichiers statiques. 
 La performance du premier rendu sera quasi imbattable, car ne nécessitant aucun JS !
 
 Sur le papier, c’est juste le rêve ultime de tout développeur Front-end : tous les avantages d’une SPA sans les inconvénients !
@@ -122,15 +122,15 @@ Mais là encore, l’approche de Flux est plutôt prometteuse, alors quel est le
 
 * Finalement c’est encore peu mature (déjà React et Flux, mais encore plus l’approche Isomorphic)
 * La montée en compétence n’est pas négligeable
-* Il n’y a pas vraiment de Framework comparable à date, et vous allez surement devoir ré-inviter la roue à certains moments (à suivre l’arrivée imminente de React Nexus notamment)
+* Il n’y a pas vraiment de Framework comparable à date, et vous allez surement devoir réinventer la roue à certains moments (à suivre l’arrivée imminente de React Nexus notamment)
 * La documentation est très faiblarde encore
-* Les ressources très difficiles à trouver et de qualité très différente
+* Les ressources très difficiles à trouver et de qualités très différentes
 * Pas vraiment de starter-kit ou générateur digne de ce nom
 * Le coté Isomorphic va aussi engendrer une certaine complexité :
     * Est-ce que mon client reçoit bien le même état que celui qu’avait mon serveur au moment du rendu initial
     * Obligation de n’utiliser que des composants Isomorphic, typiquement un router qui fonctionne aussi bien coté client que serveur ([React-Router](https://github.com/rackt/react-router) ou [Director](https://github.com/flatiron/director)), même chose pour les requêtes HTTP ([Superagent](https://github.com/visionmedia/superagent) par exemple) ...
 
-Si malgré ces points, vous souhaitez tester cette approche, je vous conseille de regarder du coté de Yahoo, qui après avoir annoncé la migration de Yahoo Mail de PHP/YUI vers React/Flux Isomorphic a aussi publié quelques packages Open-Source très intéressant, pouvant constituer une bonne base de départ pour un projet isomorphic :
+Si malgré ces points, vous souhaitez tester cette approche, je vous conseille de regarder du coté de Yahoo, qui après avoir annoncé la migration de Yahoo Mail de PHP/YUI vers React/Flux Isomorphic a aussi publié quelques packages Open-Source très intéressants, pouvant constituer une bonne base de départ pour un projet isomorphic :
 
 * [Fluxible-App](https://github.com/yahoo/fluxible-app)
 * [Flux-examples](https://github.com/yahoo/flux-examples)
@@ -143,7 +143,7 @@ Si vous souhaitez plus d’infos sur React et Flux, je vous conseille ces deux a
 
 Ou ce tuto chez nos amis de Jolicode, pour [faire un Gifomatic avec React et Flux](http://jolicode.com/blog/flux-react-vers-un-nouveau-paradigme)
 
-D'autres solutions existent aussi conservant la même approche, mais sur base d'autres technos, notamment celle d'Airbnb: [RendR](http://nerds.airbnb.com/weve-open-sourced-rendr-run-your-backbonejs-a/), permettant d'utiliser du [Backbone coté client et serveur](http://nerds.airbnb.com/weve-launched-our-first-nodejs-app-to-product/).
+D'autres solutions existent aussi conservant la même approche, mais sur la base d'autres technos, notamment celle d'Airbnb: [RendR](http://nerds.airbnb.com/weve-open-sourced-rendr-run-your-backbonejs-a/), permettant d'utiliser du [Backbone coté client et serveur](http://nerds.airbnb.com/weve-launched-our-first-nodejs-app-to-product/).
 
 Et pour finir, si ces sujets vous passionnent tout comme nous, restez à l’écoute ici, d’autres posts pourraient arriver à l’avenir ;-)
 
