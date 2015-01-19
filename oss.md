@@ -25,6 +25,7 @@ Here some projects open sourced:
 * [GitHubEnterpriseArchive](https://github.com/M6Web/GitHubEnterpriseArchive) allows to archive and graph your GithubEnterprise timeline
 * [GitHubTeamReviewer](https://github.com/M6Web/GitHubTeamReviewer) is a monitoring tool that allows you to quickly view all Github pull requests of your teams and their statuses
 * [HttpToStatsd](https://github.com/M6Web/HttpToStatsd) is a node.js http to statsd logger
+* [HttpToGelf](https://github.com/M6Web/HttpToGelf) is a node.js http to gelf logger 
 * [JenkinsLight](https://github.com/M6Web/JenkinsLight) is a build monitoring tool (buildwall) that allows you to quickly detect failing projects for Jenkins
 * [JenkinsTerminalColors](https://github.com/M6Web/JenkinsTerminalColors) is a very lightweight Chrome extension that provides terminal colors in all console panels of Jenkins. It uses black Solarized theme
 * [VigoJS](https://github.com/M6Web/VigoJS) is a (small) Javascript tool using CasperJS and PhantomJS to make easily functional tests on web applications
