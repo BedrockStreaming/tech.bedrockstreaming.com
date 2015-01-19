@@ -36,6 +36,7 @@ Here some projects open sourced:
 * [behat-seo-extension](https://github.com/M6Web/behat-seo-extension): Behat extension provinding specific features for testing the SEO of a website
 * [DaemonBundle](https://github.com/M6Web/DaemonBundle) Bundle easing the creation of daemon sf2 commands
 * [DomainUserBundle](https://github.com/M6Web/DomainUserBundle): User authentication by domain
+* [ElasticsearchBundle](https://github.com/M6Web/ElasticsearchBundle): Integration of the Elasticsearch official PHP client within a Symfony Project
 * [Firewall](https://github.com/M6Web/Firewall) and [FireWallBundle](https://github.com/M6Web/FirewallBundle): Symfony2 bundle providing IP filtering features for your Symfony 2 applications
 * [HttpKernelBundle](https://github.com/M6Web/HttpKernelBundle): Custom sf2 HttpKernel with additional events
 * [LogBridgeBundle](https://github.com/M6Web/LogBridgeBundle): Symfony Bundle to log Request/Response with Monolog.
