@@ -72,3 +72,4 @@ Throught github we participated to the improvement (we hope so) of many open sou
 * [guzzle/guzzle3](https://github.com/guzzle/guzzle3): [#38](https://github.com/guzzle/guzzle3/pull/38)
 * [grafana/grafana](https://github.com/grafana/grafana): [#974](https://github.com/grafana/grafana/pull/974)
 * [symfony/symfony-docs](https://github.com/symfony/symfony-docs): [#4300](https://github.com/symfony/symfony-docs/pull/4300)
+* [sindresorhus/globals](https://github.com/sindresorhus/globals): [#21](https://github.com/sindresorhus/globals/pull/21)
