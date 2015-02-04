@@ -24,8 +24,8 @@ Les 28 et 29 janvier 2015, sur le campus de Facebook (à Menlo Park), avait lieu
 
 # L’ouverture de la conférence par Tom Occhino 
 
-Tom Occhino [@tomocchino](https://twitter.com/tomocchino) a permis de rétablir la vérité sur l’origine de React.
-Elle a eu lieu dans les équipes de Facebook Ads.
+Tom Occhino, [@tomocchino](https://twitter.com/tomocchino), a permis de rétablir la vérité sur l’origine de React.
+Ce sont les équipes de Facebook Ads qui sont à la genèse de ce projet.
 
 A l’époque, sur des applis MVC côté client, plus les applications et le nombre de développeurs grandissaient, plus elles étaient difficiles à maintenir et devenaient lentes !
 Le « Two Way Data Binding » rendait les mises à jour en cascade trop compliquées (tout l’écran devait être rafraîchi) et le code devenait vraiment non prévisible. Mais malgré tout, cela “marchait” ! L’appli de Chat Facebook fonctionnait aussi de la même manière.
@@ -45,25 +45,25 @@ Avec React Native, ils ne veulent pas faire du "write once, run anywhere », mai
 
 Le code sera fourni sur un dépot privé à tous les participants de la conférence lors de la Keynote de clôture !
 
-Pour finir sa keynote d’entrée, il a voulu listé les frameworks JS qui avait été influencé par React ces derniers mois : Tous ! 
+Pour finir sa keynote d’entrée, il a voulu lister les frameworks JS qui ont été influencés par React ces derniers mois : Tous ! 
 
 <iframe width="720" height="405" src="https://www.youtube.com/embed/KVZ-P-ZI6W4" frameborder="0" allowfullscreen></iframe>
 
 # Ebay : Tweak your page in real time, without leaving the comfort of your editor
 
-Brenton Simpsons d’Ebay [@appsforartists](https://twitter.com/appsforartists), nous a montré comment coder en live du React de son mac, avec le rendu affiché en temps réel sans reload sur un ipad.
+Brenton Simpsons d’Ebay, [@appsforartists](https://twitter.com/appsforartists), nous a montré comment coder en live du React de son mac, avec le rendu affiché en temps réel sans reload sur un ipad.
 
 L’avantage d’un iPad étant sa taille qui lui permet de représenter 3 écrans d’iPhone 5 sur sa largeur, soit 3 états de son application.
 Il utilise « [WebPack](http://webpack.github.io/) » et l’extension pour WebPack « [react-hot-loader](http://gaearon.github.io/react-hot-loader/) » de [Dan Abramov](https://twitter.com/dan_abramov).
 
-Ebay a aussi opensourcé un framework assez experimental ( 6 mois d’ancienneté) du nom d’Ambidex pour gérer du server side rendering avec React et Flux : [https://github.com/appsforartists/ambidex](https://github.com/appsforartists/ambidex)
+Ebay a aussi open-sourcé un framework assez experimental (6 mois d’ancienneté) du nom d’Ambidex pour gérer du server side rendering avec React et Flux : [https://github.com/appsforartists/ambidex](https://github.com/appsforartists/ambidex)
 
 <iframe width="720" height="405" src="https://www.youtube.com/embed/yaymfLj5tjA" frameborder="0" allowfullscreen></iframe>
 
 # Data fetching for React Applications at Facebook
 
 
-Jing Chen [@jingc](https://twitter.com/jingc) et Daniel Schafer [@dlschafer](https://twitter.com/dlschafer), nous ont présenté Relay, une nouvelle approche au pattern Flux orienté Data Fetching, permettant grâce à GraphQL de définir au niveau de son composant les data nécessaires.
+Jing Chen, [@jingc](https://twitter.com/jingc), et Daniel Schafer, [@dlschafer](https://twitter.com/dlschafer), nous ont présenté Relay, une nouvelle approche au pattern Flux orienté Data Fetching, permettant grâce à GraphQL de définir au niveau de son composant les data nécessaires.
 Relay se chargeant ensuite de générer les bons appels HTTP grâce à GraphQL.
 
 Une approche intéressante, mais qui parait très couplée au fonctionnement de Facebook et soulève pas mal de questions : dois-je modifier toutes mes API pour supporter GraphQL ? Quid de l’optimisation du cache coté API ? ...
@@ -76,7 +76,7 @@ Beaucoup plus d’infos sont disponibles ici : [https://gist.github.com/wincent/
 
 # Communicating with channels
 
-James Long [@jlongster](https://twitter.com/jlongster), assez réputé via son blog [http://jlongster.com](http://jlongster.com/) et pour son travail chez Mozilla sur les Dev Tools de Firefox, a présenté une manière de communiquer entre composants via des « channels » en utilisant la librairie “ [js-scp](https://github.com/ubolonton/js-csp)”  permettant de coder à la manière des « goroutine » de Go ou des « [core.async](https://github.com/clojure/core.async) » de Clojurescript.
+James Long, [@jlongster](https://twitter.com/jlongster), assez réputé via son blog [http://jlongster.com](http://jlongster.com/) et pour son travail chez Mozilla sur les Dev Tools de Firefox, a présenté une manière de communiquer entre composants via des « channels » en utilisant la librairie “ [js-scp](https://github.com/ubolonton/js-csp)”  permettant de coder à la manière des « goroutine » de Go ou des « [core.async](https://github.com/clojure/core.async) » de Clojurescript.
 
 <iframe src="//www.slideshare.net/slideshow/embed_code/44054367" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
 
@@ -84,7 +84,7 @@ James Long [@jlongster](https://twitter.com/jlongster), assez réputé via son b
 
 # React-router increases your productivity
 
-Michael Jackson [@mjackson](https://twitter.com/mjackson), co-créateur du routeur le plus populaire de React “[react router](https://github.com/rackt/react-router)”, est venu avec Ryan Florence (l’autre co-créateur), nous expliquer les origines du routeur, l’inspiration très forte du router d’Ember.Js, ainsi que quelques techniques avancées d’utilisations (transitions, etc). Un excellent speaker et une introduction très drôle sur les origines de React-Router.
+Michael Jackson, [@mjackson](https://twitter.com/mjackson), co-créateur du routeur le plus populaire de React “[react router](https://github.com/rackt/react-router)”, est venu avec Ryan Florence (l’autre co-créateur), nous expliquer les origines du routeur, l’inspiration très forte du router d’Ember.Js, ainsi que quelques techniques avancées d’utilisations (transitions, etc). Un excellent speaker et une introduction très drôle sur les origines de React-Router.
 
 > "Url should be part of your design process"
 
@@ -94,7 +94,7 @@ Michael Jackson [@mjackson](https://twitter.com/mjackson), co-créateur du route
 
 # Full Stack Flux
 
-Pete Hunt [@floydophone](https://twitter.com/floydophone), l’une des personnes responsable des origines de React et de son « open-sourcage », ancien Lead-Dev d’Instagram chez Facebook, a présenté un talk un peu particulier expliquant comment on pouvait, coté architecture serveur, reproduire le pattern Flux. 
+Pete Hunt, [@floydophone](https://twitter.com/floydophone), l’une des personnes responsable des origines de React et de son « open-sourcage », ancien Lead-Dev d’Instagram chez Facebook, a présenté un talk un peu particulier expliquant comment on pouvait, coté architecture serveur, reproduire le pattern Flux. 
 
 > "shared mutable state is the root of all evil."
 
@@ -121,7 +121,7 @@ En résumé :
 
 # Format data and strings in any language with FormatJS and react-intl
 
-Dernière conférence de la journée par Eric Ferraiuolo [@ericf](http://twitter.com/ericf), sur l’internationalisation et la manière de la gérer dans React, grâce à [react-intl](https://github.com/yahoo/react-intl) (open-sourcé par Yahoo).
+Dernière conférence de la journée par Eric Ferraiuolo, [@ericf](http://twitter.com/ericf), sur l’internationalisation et la manière de la gérer dans React, grâce à [react-intl](https://github.com/yahoo/react-intl) (open-sourcé par Yahoo).
 
 Pour ceux qui douteraient encore de la complexité de gérer plusieurs langues, ainsi que les chiffres et pluralisations, et qui ont cette problématique sur un projet React, cette vidéo est un must-see.
 [Format.Js](http://formatjs.io/) a aussi été cité et s’apparente à une collection de module Js pour l’internationalisation.
