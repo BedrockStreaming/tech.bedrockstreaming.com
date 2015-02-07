@@ -10,7 +10,7 @@ author:
   facebook:
   github:
 category:
-tags: [javascript, react, flux, isomorphic]
+tags: [javascript, react, flux, isomorphic, conference]
 image:
   feature: posts/reactconf/reactconf.png
   credit: irvine broque
