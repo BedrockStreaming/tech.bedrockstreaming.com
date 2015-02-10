@@ -26,9 +26,9 @@ Christopher Chedeau, [@vjeux](https://twitter.com/vjeux/), revient sur les origi
 
 Les 3 piliers d’une appli natives qu’ils ont dûs traiter pour React Native sont :
 
-Touch Handling : la vraie différence entre appli native et web
-Native Components : tout le monde essaye de s’en rapprocher mais personne n’y arrive, et il y a déjà beaucoup de très bons composants natifs
-Style & Layout : le layout impacte énormément la façon dont on code, que l’on soit sur le Web, iOS ou Android
+ - Touch Handling : la vraie différence entre appli native et web
+ - Native Components : tout le monde essaye de s’en rapprocher mais personne n’y arrive, et il y a déjà beaucoup de très bons composants natifs
+ - Style & Layout : le layout impacte énormément la façon dont on code, que l’on soit sur le Web, iOS ou Android
 
 Nous voyons que chaque composant natif a été recréé comme un composant React : `<View>`, `<Text>` …, et Christopher explique comment un composant React est transformé en composant natif iOS.
 
@@ -44,7 +44,7 @@ Nous parcourons ensuite les manières de gérer du layout nativement dans iOS, q
 
 Les équipes de Facebook ont donc décidé de re-coder Flexbox et le Box Model en JS avec une approche TDD, de manière à pouvoir utiliser la plupart des bases de Flexbox dans React Native pour faire du layout facilement sur iOS ! 
 
-Vous pouvez retrouver le résultat « [https://github.com/facebook/css-layout](Css-Layout) » sur le Github de Facebook.
+Vous pouvez retrouver le résultat « [Css-Layout](https://github.com/facebook/css-layout) » sur le Github de Facebook.
 
 La démonstration continue sur un « live coding » montrant le « live reload » entre la modification du JS et le rafraîchissement instantané du Simulator iOS. 
 
@@ -63,11 +63,11 @@ Il nous montre un exemple d’un player html5 vidéo avec un shadow dom qui cont
 
 La communauté WebComponent a déjà partagé pas mal de WebComponents : 
 
-[les x-](http://www.x-tags.org/)
-[les core-](https://www.polymer-project.org/docs/elements/core-elements.html#core-a11y-keys)
-[google-](https://github.com/GoogleWebComponents)
-[paper-](https://www.polymer-project.org/docs/elements/paper-elements.html#paper-button)
-et d’autres …
+ - [les x-](http://www.x-tags.org/)
+ - [les core-](https://www.polymer-project.org/docs/elements/core-elements.html#core-a11y-keys)
+ - [google-](https://github.com/GoogleWebComponents)
+ - [paper-](https://www.polymer-project.org/docs/elements/paper-elements.html#paper-button)
+ - et d’autres …
 
 Pour conclure, Andrew partage les bonnes pratique pour créer un WebComponent : 
 
@@ -87,7 +87,7 @@ Concept passionnant que nous avons entendu dans presque l’intégralité des co
 
 > Un objet immuable, en programmation orientée objet et fonctionnelle, est un objet dont l'état ne peut pas être modifié après sa création. Ce concept est à contraster avec celui d'objet variable. Source : [Wikipédia](http://fr.wikipedia.org/wiki/Objet_immuable)
 
-Lee Byron est donc le créateur de la librairie [Immutable-JS](facebook.github.io/immutable-js/) permettant de gérer facilement des collections immuable en JS.
+Lee Byron est donc le créateur de la librairie [Immutable-JS](http://facebook.github.io/immutable-js/) permettant de gérer facilement des collections immuable en JS.
 
 > Immutable data cannot be changed once created, leading to much simpler application development, no defensive copying, and enabling advanced memoization and change detection techniques with simple logic. Persistent data presents a mutative API which does not update the data in-place, but instead always yields new updated data. Source : [immutable-js](http://facebook.github.io/immutable-js/)
 
@@ -108,7 +108,7 @@ Pour connaître les raisons pour lesquels ils ont choisi React, je vous invite �
 
 Aujourd’hui, Netflix développe majoritairement en Javascript et ont 3 UI en JS, une pour le mobile, une pour le web et une pour les télés.
 Ils ont vu assez vite que le DOM était très loin, c’est pourquoi ils ont créé et introduit Gibbon (une sorte de Webkit maison plus rapide et adapté à leur besoin sur les téléviseurs).
-Ils ont donc fait évoluer React (un fork au départ) pour permettre de sortir vers quelque chose d’autres que du DOM afin de correspondre à leur moteur Gibbon et vont donc continuer pendant 2015 le déploiement de leur nouvelle UI avec React sur tous les services y compris télés.
+Ils ont donc fait évoluer React (un fork au départ) pour permettre de sortir vers quelque chose d’autres que du DOM afin de correspondre à leur moteur Gibbon et vont donc continuer en 2015 le déploiement de leur nouvelle UI avec React sur tous les services y compris télés.
 
 Vous pouvez retrouver le [Netflix Open Source Software Center](http://netflix.github.io/) pour découvrir le grand nombre d’outils Open source de qualité qu’ils délivrent.
 
@@ -132,7 +132,7 @@ Talk par David Nolen, [@swannodette](https://twitter.com/swannodette), personne 
 
 Bill Fisher (Facebook) a rassemblé une partie des utilisateurs (voir des contributeurs) à React pour confronter les différentes approches sur l’utilisation de Flux, ainsi que sur la manière de gérer de l’isomorphisme.
 
-On parle notamment, via Michael Ridgway, [@theridgway](https://twitter.com/theridgway), de [Fluxible](www.fluxible.io), la librairie open source proposée par Yahoo (que nous utilisons), qui a annoncé le jour même la création de sa [documentation en ligne isomorphique](www.fluxible.io), elle-même [open source](https://github.com/yahoo/fluxible.io) et utilisant Fluxible.
+On parle notamment, via Michael Ridgway, [@theridgway](https://twitter.com/theridgway), de [Fluxible](http://www.fluxible.io), la librairie open source proposée par Yahoo (que nous utilisons), qui a annoncé le jour même la création de sa [documentation en ligne isomorphique](http://www.fluxible.io), elle-même [open source](https://github.com/yahoo/fluxible.io) et utilisant Fluxible.
 
 Spike Brehm est aussi intervenu pour AirBnb, qui fut la première société, je pense, à parler d’[isomorphisme](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/).
 
