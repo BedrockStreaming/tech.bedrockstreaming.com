@@ -144,3 +144,5 @@ Pour ceux qui douteraient encore des performances de React, je vous invite à re
 # Conclusion du premier jour
 
 Bonne grosse claque sur cette première journée, notamment avec l’annonce de React Native. Nous avons eu le droit à une organisation absolument parfaite (snack, boisson chaude et froide à volonté) et des speakers de très grand talent (ce qui n’est pas toujours le cas de certaines conférences, surtout aussi ciblée que celle-là).
+
+p.s: Retrouvez les [retours sur la deuxième journée de la React conférence 2015](http://tech.m6web.fr/cr-react-conf-2015-day-two/).
