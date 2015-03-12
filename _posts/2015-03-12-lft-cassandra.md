@@ -10,7 +10,7 @@ author:
   facebook:
   github:
 category:
-tags: [cassandra,lft,video]
+tags: [cassandra,nosql,lft,video]
 image:
   feature: 
   credit: 
