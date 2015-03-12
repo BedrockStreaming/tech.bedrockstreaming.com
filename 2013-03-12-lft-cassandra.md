@@ -1,0 +1,24 @@
+---
+layout: post
+title: "Introduction à Apache Cassandra"
+description: "Baptiste nous présente Cassandra et ce qu'il y a sous le capot."
+author:
+  name:           Olivier Mansour
+  avatar:         oliviermansour.jpg
+  email:
+  twitter:  techM6Web
+  facebook:
+  github:
+category:
+tags: [cassandra,lft,video]
+image:
+  feature: 
+  credit: 
+  creditlink: 
+comments: true
+permalink: 
+---
+
+
+On est un peu avare de [LFT](http://tech.m6web.fr/tag/lft/) dernièrement, pour nous faire pardonner voici une présentation de [Cassandra](https://cassandra.apache.org/) par Baptiste.
+
