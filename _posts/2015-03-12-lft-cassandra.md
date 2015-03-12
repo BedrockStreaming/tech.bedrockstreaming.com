@@ -12,9 +12,9 @@ author:
 category:
 tags: [cassandra,nosql,lft,video]
 image:
-  feature: 
-  credit: 
-  creditlink: 
+  feature: posts/lft-cassandra/cassandra.jpg
+  credit: Apache Cassandra
+  creditlink: https://cassandra.apache.org/
 comments: true
 permalink: 
 ---
