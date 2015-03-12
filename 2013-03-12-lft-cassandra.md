@@ -22,3 +22,4 @@ permalink:
 
 On est un peu avare de [LFT](http://tech.m6web.fr/tag/lft/) dernièrement, pour nous faire pardonner voici une présentation de [Cassandra](https://cassandra.apache.org/) par Baptiste.
 
+<iframe width="853" height="480" src="https://www.youtube.com/embed/usRbKPk-6Mo" frameborder="0" allowfullscreen></iframe>
