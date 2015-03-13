@@ -8,7 +8,7 @@ author:
   email:
   twitter:  techM6Web
   facebook:
-  github:
+  github:   M6Web
 category:
 tags: [cassandra,nosql,lft,video]
 image:
