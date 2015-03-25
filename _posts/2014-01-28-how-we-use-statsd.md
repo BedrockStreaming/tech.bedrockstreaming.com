@@ -16,6 +16,7 @@ image:
   credit: les internets
   creditlink:
 comments: true
+language: en
 ---
 
 # What we want

@@ -17,6 +17,7 @@ image:
   creditlink: http://www.flickr.com/photos/archangel12/
 comments: true
 permalink: composer-installation-without-github.html
+language: en
 ---
 
 ![github is down ! ok carry on](/images/posts/composer-installation-without-github/github_down.png)
