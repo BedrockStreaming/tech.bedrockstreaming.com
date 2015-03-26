@@ -48,7 +48,7 @@ Like superagent, superagent-mock can be installed via npm, and be used by server
 npm install superagent-mock --save-dev
 {% endhighlight %}  
 
-Then, we create the configuration file. It's where you will define which data will be mocked. Let's take for example a nonexistent API, the authors list on our technical blog : `http://tech.m6web.fr/api/authors`.
+Then, create the configuration file, where you will define which data will be mocked. Let's take for example a nonexistent API, the authors list on our technical blog : `http://tech.m6web.fr/api/authors`.
 
 Here the structure of the file we need : 
 
