@@ -30,9 +30,9 @@ Both teams started the project at the same time, meaning that at the beginning, 
   
 # Interface
   
-Our technical choices for the SPA has been guided by a deep thinking about isomorphic applications. This approach, React, Flux and all the environment around, was at the time, totally unknown. 
+Our technical choices for the SPA has been guided by a deep thinking about isomorphic applications. This approach, React, Flux and all the environment around, was at the time, totally unknown. Upstream work was to build foundations of the site architecture, demonstrate the feasibility of the project and document all .
   
-The schedule allowed the backend team to describe the output of the API. With those informations, we wrote fixture files. The idea was to have data on a nonexistent webservice.
+This schedule allowed the backend team to describe the output of the API. With those informations, we wrote fixture files. The idea was to have data on a nonexistent webservice.
   
 # Superagent and superagent-mock
   
