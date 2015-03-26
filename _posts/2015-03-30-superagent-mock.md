@@ -20,9 +20,9 @@ permalink: comment-a-t-on-bouchonne-les-developpeurs-backend.html
 ---
 
 
-At M6Web we are curretly working on a new version of a website, with two separated teams: 
-- backend team providing data access throught APIs,
-- we, the frontend team, building an [isomorphic][isomorphic]SPA application using [React.JS][react-website] and the [flux pattern][flux-website]
+At M6Web we are currently working on a new version of a website, with two separate teams: 
+- backend team providing data access through APIs,
+- we, the frontend team, are building an [isomorphic][isomorphic]SPA application using [React.JS][react-website] and the [flux pattern][flux-website]
   
 # Develop frontend before the APIs
   
@@ -30,9 +30,9 @@ We started the projet at the same time than the other backend team. At that time
   
 # Interface
   
-Our technical choice for the SPA has been guided by a deep thinking about isomorphic applications. This approach, React, Flux and all the environment around, was at the time, totally unknown. 
+Our technical choices for the SPA has been guided by a deep thinking about isomorphic applications. This approach, React, Flux and all the environment around, was at the time, totally unknown. 
   
-The time allowed the backend team to describe the output of the API. With those informations, we writted fixtures files. The idea was having datas on a non existent web service.
+The schedule allowed the backend team to describe the output of the API. With those informations, we wrote fixture files. The idea was to have data on a nonexistent webservice.
   
 # Superagent and superagent-mock
   
@@ -48,7 +48,7 @@ Like superagent, superagent-mock can be installed via npm, et be used by server 
 npm install superagent-mock --save-dev
 {% endhighlight %}  
 
-Then, you create the configuration file that will be used to decide which data will be mocked. Let's take for exemple a non existant API, the authors list on our technical blog : `http://tech.m6web.fr/api/authors`.
+Then, we create the configuration file. It's here, you will decide wich data will be mocked. Let's take for exemple a non existant API, the authors list on our technical blog : `http://tech.m6web.fr/api/authors`.
 
 Here the structure of the file we need : 
 
