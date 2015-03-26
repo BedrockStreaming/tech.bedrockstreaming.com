@@ -22,7 +22,7 @@ permalink: comment-a-t-on-bouchonne-les-developpeurs-backend.html
 
 At M6Web we are currently working on a new version of a website, with two separate teams: 
 - backend team providing data access through APIs,
-- us, the frontend team, building an [isomorphic][isomorphic]SPA application using [React.JS][react-website] and the [flux pattern][flux-website]
+- us, the frontend team, building an [isomorphic][isomorphic] SPA application using [React.JS][react-website] and the [flux pattern][flux-website]
   
 # Develop frontend before the APIs
 
@@ -30,25 +30,25 @@ Both teams started the project at the same time, meaning that at the beginning, 
   
 # Interface
   
-Our technical choices for the SPA has been guided by a deep thinking about isomorphic applications. This approach, React, Flux and all the environment around, was at the time, totally unknown. Upstream work was to build foundations of the site architecture, demonstrate the feasibility of the project and document all .
+Our technical choices for the SPA has been guided by a deep thinking about isomorphic applications. This approach, React, Flux and all the environment around, was at the time, totally unknown. Upstream work was to build foundations of the site architecture, demonstrate the feasibility of the project and document everything.
   
-This schedule allowed the backend team to describe the output of the API. With those informations, we wrote fixture files. The idea was to have data on a nonexistent webservice.
+This schedule allowed the backend team to describe the output of the API. With those informations, we wrote fixtures. The idea was to have data on a nonexistent webservice.
   
 # Superagent and superagent-mock
   
-To request the API we use the [superagent][superagent] library, an easily-extensible Javascript HTTP client. He's isopmorhic, so it can be used both on server and client sides.
+To request the API we use the [superagent][superagent] library, an easily-extensible Javascript HTTP client. It is isomorphic, so it can be used both on server and client sides.
   
-We developed [superagent-mock][superagent-mock], a superagent plugin dedicated to simulate HTTP requests returning fixtures datas.
+We developed [superagent-mock][superagent-mock], a superagent plugin dedicated to simulate HTTP requests returning fixtures data.
+
+# Application
   
-# application
-  
-Like superagent, superagent-mock can be installed via npm, et be used by server or client side libraries. You need first to add the ___ in your `package.json`.
+Like superagent, superagent-mock can be installed via npm, and be used by server or client side libraries. You need first to add the library in your `package.json`.
   
 {% highlight bash %}
 npm install superagent-mock --save-dev
 {% endhighlight %}  
 
-Then, we create the configuration file. It's here, you will decide wich data will be mocked. Let's take for exemple a non existant API, the authors list on our technical blog : `http://tech.m6web.fr/api/authors`.
+Then, we create the configuration file. It's where you will define which data will be mocked. Let's take for example a nonexistent API, the authors list on our technical blog : `http://tech.m6web.fr/api/authors`.
 
 Here the structure of the file we need : 
 
