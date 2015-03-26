@@ -25,8 +25,8 @@ At M6Web we are currently working on a new version of a website, with two separa
 - we, the frontend team, are building an [isomorphic][isomorphic]SPA application using [React.JS][react-website] and the [flux pattern][flux-website]
   
 # Develop frontend before the APIs
-  
-We started the projet at the same time than the other backend team. At that time, we didn't have the web services needeed for our application. We looked for the best way to develop the application without waiting thoses webservices availables.
+
+Both teams started the project at the same time, meaning that at the beginning, we didn't have the webservices needed for our application. We looked for the best way to develop the application without waiting for those webservices to become available.
   
 # Interface
   
