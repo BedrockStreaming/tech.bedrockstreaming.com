@@ -30,7 +30,7 @@ We started the projet at the same time than the other backend team. So, at the t
   
 # Interface
   
-Out technical choise for the SPA has been guided by a deep thinking about isomorphic applications. This approach, React, FLux and all the environment around was, at the time, totally unknown. 
+Out technical choice for the SPA has been guided by a deep thinking about isomorphic applications. This approach, React, FLux and all the environment around, was at the time, totally unknown. 
   
 The time allowed the backend team to describe the output of the API. With those informations, we writted fixtures files. The idea was having datas on a non existent web service.
   
