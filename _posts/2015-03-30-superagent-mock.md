@@ -30,13 +30,13 @@ We started the projet at the same time than the other backend team. At that time
   
 # Interface
   
-Out technical choice for the SPA has been guided by a deep thinking about isomorphic applications. This approach, React, FLux and all the environment around, was at the time, totally unknown. 
+Our technical choice for the SPA has been guided by a deep thinking about isomorphic applications. This approach, React, Flux and all the environment around, was at the time, totally unknown. 
   
 The time allowed the backend team to describe the output of the API. With those informations, we writted fixtures files. The idea was having datas on a non existent web service.
   
 # Superagent and superagent-mock
   
-To request the API we use the [superagent][superagent] library, a Javascript HTTP client extensible easily. He's isopmorhic, so ha can be used serverd site or client side.
+To request the API we use the [superagent][superagent] library, a Javascript HTTP client extensible easily. He's isopmorhic, so it can be used both on server and client sides.
   
 We developed [superagent-mock][superagent-mock], a superagent plugin dedicated to simulate HTTP request returning fixtures datas.
   
