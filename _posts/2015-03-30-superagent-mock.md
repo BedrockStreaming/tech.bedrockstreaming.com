@@ -19,6 +19,80 @@ comments: true
 permalink: comment-a-t-on-bouchonne-les-developpeurs-backend.html
 ---
 
+
+At M6Web we are curretly working on a new version of a web with two separated teams: 
+- backend team providing data access throught APIs,
+- we, the frontend team, building an [isomorphic][isomorphic]SPA application using [React.JS][react-website] and the [flux pattern][flux-website]
+  
+# Develop frontend before the APIs
+  
+We started the projet at the same time than the other backend team. So, at the time, we didnt had the web services needeed for our application. We asked ourselves for the best way to develop the application without waiting thoses webservices availables.
+  
+# Interface
+  
+Out technical choise for the SPA has been guided by a deep thinking about isomorphic applications. This approach, React, FLux and all the environment around was, at the time, totally unknown. 
+  
+The time allowed the backend team to describe the output of the API. With those informations, we writted fixtures files. The idea was having datas on a non existent web service.
+  
+# Superagent and superagent-mock
+  
+To request the API we use the [superagent][superagent] library, a Javascript HTTP client extensible easily. He's isopmorhic, so ha can be used serverd site or client side.
+  
+We developed [superagent-mock][superagent-mock], un superagent plugin dedicated to simulate HTTP request returning fixtures datas.
+  
+# application
+  
+Like superagent, superagent-mock can be installed via npm, et be used by server or client side libraries. You need first to add the ___ in your `package.json`.
+  
+{% highlight bash %}
+npm install superagent-mock --save-dev
+{% endhighlight %}  
+
+Then, we create the configuration file. It's here, you will decide wich data will be mocked. Let's take for exemple a non existant API, the authors list on our technical blog : `http://tech.m6web.fr/api/authors`.
+
+Here the structure of the file we need : 
+
+{% highlight javascript %}
+// ./config.js file
+module.exports = [
+  {
+    pattern: 'http://tech.m6web.fr/api/authors',
+    fixtures: './authors.js',
+    callback: function (match, data) {
+      return { body : data };
+    }
+];
+{% endhighlight %}
+
+> The `pattern` attribute should be a regular expression, in the case of a route which contains variable parameters (ie: `https://tech.m6web.fr/api/authors/(\\d+)`.
+> The `fixtures` attribute represents the link to file associated to the `pattern`
+> The `callback`attribute is two function arguments. `match`is the result of the regular expression and `data` the fixtures. `match` allow to use some call parameters (ie: the author id) to return relevant datas (ie: the autor in the fixture file).
+
+Next, you have to create the fixture file using this syntax: 
+
+{% highlight javascript %}
+// ./authors.js file
+module.exports = function () {
+  return [
+    {
+      id: 1,
+      name: "John Doe",
+      description: "unidentified person"
+    },
+    ...
+  ];
+};
+{% endhighlight %}
+
+> js file exposing a function returning the mocked datas.
+
+# what's next 
+
+
+# even more !
+
+
+
 Chez M6Web, nous travaillons actuellement sur la nouvelle version d’un site web pour lequel sont dédiées deux teams :
 
 * l’équipe backend fournit l’accès aux données via des API sous Symfony2,
