@@ -86,6 +86,17 @@ module.exports = function () {
 
 > js file exposing a function returning the mocked datas.
 
+To finish, at the tip of the file called by node, you have to patch [superagent][superagent] with the [superagent-mock][superagent-mock] this way : 
+
+{% highlight javascript %}
+// ./server.js file
+var request = require('superagent');
+var config = require('./config.js');
+require('superagent-mock')(request, config);
+{% endhighlight %}
+
+Those few lines allow to to overload some suparagent methods to apply the configuration of the mocked requests (check the [source code][superagent-mock-source]).
+
 # what's next 
 
 
