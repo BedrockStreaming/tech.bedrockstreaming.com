@@ -20,7 +20,7 @@ permalink: comment-a-t-on-bouchonne-les-developpeurs-backend.html
 ---
 
 
-At M6Web we are curretly working on a new version of a web with two separated teams: 
+At M6Web we are curretly working on a new version of a website, with two separated teams: 
 - backend team providing data access throught APIs,
 - we, the frontend team, building an [isomorphic][isomorphic]SPA application using [React.JS][react-website] and the [flux pattern][flux-website]
   
