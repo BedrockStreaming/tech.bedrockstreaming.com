@@ -38,7 +38,7 @@ The time allowed the backend team to describe the output of the API. With those 
   
 To request the API we use the [superagent][superagent] library, a Javascript HTTP client extensible easily. He's isopmorhic, so ha can be used serverd site or client side.
   
-We developed [superagent-mock][superagent-mock], un superagent plugin dedicated to simulate HTTP request returning fixtures datas.
+We developed [superagent-mock][superagent-mock], a superagent plugin dedicated to simulate HTTP request returning fixtures datas.
   
 # application
   
