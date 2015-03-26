@@ -26,7 +26,7 @@ At M6Web we are curretly working on a new version of a web with two separated te
   
 # Develop frontend before the APIs
   
-We started the projet at the same time than the other backend team. So, at the time, we didnt had the web services needeed for our application. We asked ourselves for the best way to develop the application without waiting thoses webservices availables.
+We started the projet at the same time than the other backend team. At that time, we didn't have the web services needeed for our application. We looked for the best way to develop the application without waiting thoses webservices availables.
   
 # Interface
   
