@@ -36,7 +36,7 @@ The time allowed the backend team to describe the output of the API. With those 
   
 # Superagent and superagent-mock
   
-To request the API we use the [superagent][superagent] library, a Javascript HTTP client extensible easily. He's isopmorhic, so it can be used both on server and client sides.
+To request the API we use the [superagent][superagent] library, an easily-extensible Javascript HTTP client. He's isopmorhic, so it can be used both on server and client sides.
   
 We developed [superagent-mock][superagent-mock], a superagent plugin dedicated to simulate HTTP request returning fixtures datas.
   
