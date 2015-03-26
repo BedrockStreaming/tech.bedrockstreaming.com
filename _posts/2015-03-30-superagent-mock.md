@@ -22,7 +22,7 @@ permalink: comment-a-t-on-bouchonne-les-developpeurs-backend.html
 
 At M6Web we are currently working on a new version of a website, with two separate teams: 
 - backend team providing data access through APIs,
-- we, the frontend team, are building an [isomorphic][isomorphic]SPA application using [React.JS][react-website] and the [flux pattern][flux-website]
+- us, the frontend team, building an [isomorphic][isomorphic]SPA application using [React.JS][react-website] and the [flux pattern][flux-website]
   
 # Develop frontend before the APIs
 
