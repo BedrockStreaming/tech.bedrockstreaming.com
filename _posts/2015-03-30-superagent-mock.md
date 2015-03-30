@@ -86,7 +86,7 @@ module.exports = function () {
 
 > js file exposing a function returning the mocked datas.
 
-To finish, at the tip of the file called by node, you have to patch [superagent][superagent] with the [superagent-mock][superagent-mock] this way : 
+To finish, at the top of the file called by node, you have to patch [superagent][superagent] with the [superagent-mock][superagent-mock] this way : 
 
 {% highlight javascript %}
 // ./server.js file
@@ -97,10 +97,13 @@ require('superagent-mock')(request, config);
 
 Those few lines allow to to overload some suparagent methods to apply the configuration of the mocked requests (check the [source code][superagent-mock-source]).
 
-# what's next 
+# What's next 
 
+With this tip, you can develop the front without access to any API. It's very useful in order to work locally on your computer, without internet, or to make your functional tests independent of any third party.
 
-# even more !
+However it gets tricky when you connect your application with the real API... and you realize that the interface was not respected. We often have to fix our code at this stage, but the changes are usually minor and time saving provided by the mock isn't questioned. The tedious part is still to maintain fixtures with the API evolution, especially necessary if it's used with functional tests.
+
+# Even more !
 
 
 
