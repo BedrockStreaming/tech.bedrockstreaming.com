@@ -105,6 +105,10 @@ However it gets tricky when you connect your application with the real API... an
 
 # Even more !
 
+Our app build itself the URLs of images retrieved via the API: it provides us an id and we guess the final URL through a configuration setting. This isn't REST compliant but we have good reasons to do this. The URL generation uses the library [sprintf-js][sprintf-js]. To have a completely independent application of any external request, we also had to mock these calls to local images. With this in mind, we have developed [sprintf-mock][sprintf-mock] whose operating mode is eerily similar to that of superagent-mock.
+
+Projects [superagent-mock][superagent-mock] and [sprintf-mock][sprintf-mock] are open source. Very easy to use, they allow us to parallelize our developments with backend team and to make our functional tests autonomous. So don't wait API completion to start your frontend developments!
+
 
 
 Chez M6Web, nous travaillons actuellement sur la nouvelle version d’un site web pour lequel sont dédiées deux teams :
