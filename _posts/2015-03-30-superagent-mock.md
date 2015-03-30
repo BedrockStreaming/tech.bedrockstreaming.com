@@ -17,7 +17,7 @@ image:
   creditlink: https://www.flickr.com/photos/jeffclow/3503587957/
 comments: true
 permalink: comment-a-t-on-bouchonne-les-developpeurs-backend.html
-other_language: how-did-we-mock-the-backend-developpers.html
+other_language: how-did-we-mock-the-backend-developers.html
 ---
 
 Chez M6Web, nous travaillons actuellement sur la nouvelle version d’un site web pour lequel sont dédiées deux teams :
