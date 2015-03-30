@@ -99,15 +99,15 @@ Those few lines allow to to overload some suparagent methods to apply the config
 
 # What's next 
 
-With this tip, you can develop the front without access to any API. It's very useful in order to work locally on your computer, without internet, or to make your functional tests independent of any third party.
+With this tip, you can develop the frontend without access to any API. It's very useful in order to work locally on your computer, without the internet, or to make your functional tests independent of any third party.
 
-However it gets tricky when you connect your application with the real API... and you realize that the interface was not respected. We often have to fix our code at this stage, but the changes are usually minor and time saving provided by the mock isn't questioned. The tedious part is still to maintain fixtures with the API evolution, especially necessary if it's used with functional tests.
+However it gets tricky when you connect your application with the real API... and you realize that the interface was not respected. We often have to fix our code at this stage, but the changes are usually minor and time saved by the mock isn't questioned. The tedious part is still to maintain fixtures with the API evolution, especially necessary if it's used with functional tests.
 
 # Even more !
 
 Our app build itself the URLs of images retrieved via the API: it provides us an id and we guess the final URL through a configuration setting. This isn't REST compliant but we have good reasons to do this. The URL generation uses the library [sprintf-js][sprintf-js]. To have a completely independent application of any external request, we also had to mock these calls to local images. With this in mind, we have developed [sprintf-mock][sprintf-mock] whose operating mode is eerily similar to that of superagent-mock.
 
-Projects [superagent-mock][superagent-mock] and [sprintf-mock][sprintf-mock] are open source. Very easy to use, they allow us to parallelize our developments with backend team and to make our functional tests autonomous. So don't wait API completion to start your frontend developments!
+Projects [superagent-mock][superagent-mock] and [sprintf-mock][sprintf-mock] are open source. Very easy to use, they allow us to parallelize our developments with the backend team and to make our functional tests autonomous. So don't wait API completion to start your frontend developments!
 
 
 
