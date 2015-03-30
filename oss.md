@@ -46,7 +46,9 @@ Here some projects open sourced:
 * [RedisBundle](https://github.com/M6Web/RedisBundle): Bundle over Redis component
 * [RedisMock](https://github.com/M6Web/RedisMock): A simple PHP Redis mock
 * [roboxt](https://github.com/M6Web/roboxt): PHP lib parsing a robots.txt
+* [sprintf-mock](https://github.com/M6Web/sprintf-mock): [sprintf-js](https://github.com/alexei/sprintf.js) plugin allowing to mock sprintf behaviour
 * [StatsdBundle](https://github.com/M6Web/StatsdBundle): Symfony2 Bundle easing the statsd usage
+* [superagent-mock](https://github.com/M6Web/superagent-mock): [superagent](https://github.com/visionmedia/superagent) plugin allowing to simulate HTTP calls
 * [websocket-bench](https://github.com/M6Web/websocket-bench): Nodejs cli tool for benchmark web socket server, currently support (socket.io, faye)
 * [WsClientBundle](https://github.com/M6Web/WsClientBundle): Symfony2 bundle service to call external webservices, and adding cache, logging, ...
 
