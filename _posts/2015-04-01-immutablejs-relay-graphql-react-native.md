@@ -33,7 +33,7 @@ Les slides :
 
 <script async class="speakerdeck-embed" data-id="67994df555e64b37b04a49fddacccc6d" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
 
-Pour plus d'informations sur la React Conférence, nos CR sont disponible ici : 
+Pour plus d'informations sur la React Conférence, nos CR sont disponibles ici : 
 
 * [Compte rendu React Conférence Jour 1](http://tech.m6web.fr/cr-react-conf-2015-day-one)
 * [Compte rendu React Conférence Jour 2](http://tech.m6web.fr/cr-react-conf-2015-day-two)
