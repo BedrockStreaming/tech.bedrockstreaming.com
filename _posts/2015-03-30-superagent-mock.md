@@ -27,7 +27,7 @@ Chez M6Web, nous travaillons actuellement sur la nouvelle version d’un site we
 
 # Développer le front avant les API...
 
-Nous avons démarré le projet au même moment que l’équipe backend, donc sans avoir accès aux API qui nous fournissent les données nécessaires au fonctionnement de l’application. Nous nous sommes alors interrogé sur la meilleur façon de développer notre front sans dépendre des API tout en impactant un minimum le code cible.
+Nous avons démarré le projet au même moment que l’équipe backend, donc sans avoir accès aux API qui nous fournissent les données nécessaires au fonctionnement de l’application. Nous nous sommes alors interrogé sur la meilleure façon de développer notre front sans dépendre des API tout en impactant un minimum le code cible.
 
 # Le contrat d'interface
 
