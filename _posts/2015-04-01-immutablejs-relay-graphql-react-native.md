@@ -19,7 +19,7 @@ comments: true
 ---
 Voici un petit compte rendu vidéo, filmé lors de notre [Last Friday Talk](http://tech.m6web.fr/organiser-des-conferences-technique-en-interne/) de Mars, d'un retour de veille techno suite à la [React Conférence](http://conf.reactjs.com/).
 
-Le retour est une introduction sur 3 des sujets qui m'ont paru le plus important lors de cette conférence :
+Le retour est une introduction sur 3 des sujets qui m'ont paru les plus importants lors de cette conférence :
 
 * <a href='javascript:;' id='sn1-button'>Immutable.Js</a>
 * <a href='javascript:;' id='sn2-button'>Relay + GraphQL</a>
