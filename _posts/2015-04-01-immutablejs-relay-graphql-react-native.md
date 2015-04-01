@@ -4,7 +4,7 @@ title: "Introduction à Immutable.Js, Relay + GraphQL et React Native"
 description: "Compte rendu de la React Conférence ciblé sur 3 sujets : Immutable.Js, Relay + GraphQL et React Native"
 author:
   name: Kenny DITS
-  avatar:
+  avatar: kenny.jpg
   email:
   twitter: kenny_dee
   facebook:
