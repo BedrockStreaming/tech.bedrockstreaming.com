@@ -64,7 +64,7 @@ Et comme ça fait longtemps, voici une grosse fournée. Enjoy !
 
 # Nos amis les belges
 
-> le script pour les belges, comme c'est un "one shot", on peux dire qu'on va l'exécuter, [accent belge]une fois[/accent belge]
+> le script pour les belges, comme c'est un "one shot", on peux dire qu'on va l'exécuter, [accent bruxellois]une fois[/accent bruxellois]
 
 # Proprement sale
 
