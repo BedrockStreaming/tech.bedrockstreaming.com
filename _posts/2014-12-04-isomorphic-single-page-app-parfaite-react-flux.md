@@ -78,7 +78,7 @@ Ces solutions sont accessibles soit en mode SAAS (payante et hébérgé), soit e
 
 Prerender est composée de plusieurs briques :
 Un middleware applicatif (Rails, Node, Varnish, Nginx, etc selon votre infrastructure), qui va intercepter les moteurs et les renvoyer sur votre service de Prerender 
-Un service de Prerender qui est une brique Node.js qui va lancer des HeadLess Browser ([PhantomJS](http://phantomjs.org/) ou [SlimerJs](http://slimerjs.org/ ...)) pour executer votre appli JS et renvoyer un snapshot HTML une fois le rendu JS terminé.
+Un service de Prerender qui est une brique Node.js qui va lancer des HeadLess Browser ([PhantomJS](http://phantomjs.org/) ou [SlimerJs](http://slimerjs.org/) ...) pour executer votre appli JS et renvoyer un snapshot HTML une fois le rendu JS terminé.
 
 La solution permet à priori de faire le boulot, mais cela reste une gymnastique complexe, et beaucoup d'interrogations subsistent (pertinence, maintenance, stabilité, Page Rank, pondération vs sites classiques ...)
 
