@@ -12,8 +12,8 @@ author:
 category:
 tags: [conference,afup,phptour]
 image:
-  feature: 
-  credit: 
+  feature: post/phptourlux/inphpinity.jpg
+  credit: Olivier
   creditlink: 
 comments: true
 permalink: velocity-europe-2014-day-1.html
@@ -21,7 +21,7 @@ permalink: velocity-europe-2014-day-1.html
 
 # On était au PHP Tour et c'était bien !
 
-(c’était bien y avait un gros gâteau et des biscuits en forme d’elephant)
+(y avait un gros gâteau et des biscuits en forme d’elephant)
 
 Le voyage fut un peu épique, surtout les quelques kilomètres en plus quand le meilleur d'entre nous à oublié son sac à dos dans une station à 150 km de là :)
 
@@ -42,4 +42,8 @@ MySQL 5.7 est annoncé par Oracle avec pleins de features + 2x plus rapide que 5
 
 PHP7 va être important pour le langage. Pour la perf (au moins x2 vitesse, x0.5 mémoire), les nouvelles fonctionnalités (classes anonymes, scalar type hints, stricts type hints, return type declaration, exceptions on fatals, …). Presque pas de BC break, on devrait surement chez M6Web faire des tests avec la RC dès que possible et migrer rapidement quelques services à la sortie d’une stable.
  
- ?? Peu de migrations constatées sur HHVM : qques pb de compat mais surtout peu d’extensions à ce jour et peu de rex sur un usage en prod.
+# Another (php) brick in the wall
+ 
+M6Web était représenté par Olivier qui a fait une présentation sur l'architecture backend du second écran.
+ 
+<iframe width="853" height="480" src="https://www.youtube.com/embed/VPYFnaX_5Tg" frameborder="0" allowfullscreen></iframe>
