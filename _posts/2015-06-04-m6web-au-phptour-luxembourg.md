@@ -12,11 +12,11 @@ author:
 category:
 tags: [conference,afup,phptour]
 image:
-  feature: post/phptourlux/inphpinity.jpg
+  feature: posts/phptourlux/inphinity.jpg
   credit: Olivier
   creditlink: 
 comments: true
-permalink: velocity-europe-2014-day-1.html
+permalink: 
 ---
 
 # On était au PHP Tour et c'était bien !
