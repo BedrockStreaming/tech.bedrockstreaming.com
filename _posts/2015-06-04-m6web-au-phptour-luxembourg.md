@@ -48,4 +48,4 @@ M6Web était représenté par Olivier qui a fait une présentation sur l'archite
  
 <iframe width="853" height="480" src="https://www.youtube.com/embed/VPYFnaX_5Tg" frameborder="0" allowfullscreen></iframe>
 
-N'hésitez pas à (commenter la conférence)[https://joind.in/talk/view/14286].
+N'hésitez pas à [commenter la conférence](https://joind.in/talk/view/14286).
