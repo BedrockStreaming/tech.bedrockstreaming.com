@@ -38,7 +38,7 @@ Il y a une bonne maturité autour des tests et du CI dans la communauté PHP. On
 
 Des solutions pour faire du PHP async se dessinent. Cela reste à expérimenter ([libevent](http://libevent.org/), [ReactPHP](http://reactphp.org/), le tradeoff vitesse, consommation CPU étant inconnu. C’est à creuser, car cela peut sortir à moindre coût de quelques situations difficiles. L'intégration avec certaines librairies comme Guzzle est très intéressante. 
 
-MySQL 5.7 est annoncé par Oracle avec pleins de features + 2x plus rapide que 5.6 et 3x que 5.5 (query) et encore plus sur le connection time. Ils annoncent une meilleur intégration avec FusionIO. Ce qui a semblé intéressant c’est qu’ils semblent pousser des solutions de cluster multi-master (via [Fabric](https://www.mysql.com/products/enterprise/fabric.html)) alors que c’était considéré expérimental avant, c’est maintenant annoncé stable.
+MySQL 5.7 est annoncé par Oracle avec pleins de features + 2x plus rapide que 5.6 et 3x que 5.5 (query) et encore plus sur le connection time. Ils annoncent une meilleur intégration avec FusionIO et ils semblent pousser des solutions de cluster multi-master (via [Fabric](https://www.mysql.com/products/enterprise/fabric.html)) alors que c’était considéré expérimental avant, c’est maintenant annoncé stable.
 
 PHP7 va être important pour le langage. Pour la performance (au moins x2 vitesse, x0.5 mémoire), les nouvelles fonctionnalités (classes anonymes, scalar type hints, stricts type hints, return type declaration, exceptions on fatals, …). Presque pas de BC break, on devrait surement chez M6Web faire des tests avec la RC dès que possible et migrer rapidement quelques services à la sortie d’une stable.
  
