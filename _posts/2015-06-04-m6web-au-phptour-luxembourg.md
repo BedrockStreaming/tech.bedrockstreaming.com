@@ -47,3 +47,5 @@ PHP7 va être important pour le langage. Pour la performance (au moins x2 vitess
 M6Web était représenté par Olivier qui a fait une présentation sur l'architecture backend du second écran.
  
 <iframe width="853" height="480" src="https://www.youtube.com/embed/VPYFnaX_5Tg" frameborder="0" allowfullscreen></iframe>
+
+N'hésitez pas à (commenter la conférence)[https://joind.in/talk/view/14286].
