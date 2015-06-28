@@ -39,6 +39,8 @@ Here some projects open sourced:
 * [DomainUserBundle](https://github.com/M6Web/DomainUserBundle): User authentication by domain
 * [ElasticsearchBundle](https://github.com/M6Web/ElasticsearchBundle): Integration of the Elasticsearch official PHP client within a Symfony Project
 * [Firewall](https://github.com/M6Web/Firewall) and [FireWallBundle](https://github.com/M6Web/FirewallBundle): Symfony2 bundle providing IP filtering features for your Symfony 2 applications
+* [FOSRestExtraBundle](https://github.com/M6Web/FOSRestExtraBundle): Extra features for the FOSRestBundle
+* [GuzzleHttpBundle](https://github.com/M6Web/GuzzleHttpBundle): Bundle of top on HttpGuzzle
 * [HttpKernelBundle](https://github.com/M6Web/HttpKernelBundle): Custom sf2 HttpKernel with additional events
 * [LogBridgeBundle](https://github.com/M6Web/LogBridgeBundle): Symfony Bundle to log Request/Response with Monolog.
 * [MonologExtraBundle](https://github.com/M6Web/MonologExtraBundle): Provide extra features for Monolog.
