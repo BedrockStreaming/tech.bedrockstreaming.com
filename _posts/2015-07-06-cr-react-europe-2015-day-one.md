@@ -12,8 +12,8 @@ author:
 category:
 tags: [javascript, react, reactnative, video, graphql]
 image:
-  feature: 
-  credit: 
+  feature: posts/reacteurope/reacteurope1.png
+  credit: Fred V.
   creditlink: 
 comments: true
 ---
