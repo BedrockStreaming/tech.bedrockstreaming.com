@@ -18,7 +18,7 @@ image:
 comments: true
 ---
 
-Après la première conférence officielle sur React, que nous avons déjà couvert en janvier ([Jour 1](http://tech.m6web.fr/cr-react-conf-2015-day-one) et [Jour 2](http://tech.m6web.fr/cr-react-conf-2015-day-two)), nous nous sommes rendu les 2 et 3 juillet à Paris sous une chaleur infernale pour cette première édition de la [React Europe](https://www.react-europe.org/) avec l’envie de voir et de mesurer les évolutions autour de ReactJs.
+Après la première conférence officielle sur React, que nous avons déjà couvert en janvier ([Jour 1](http://tech.m6web.fr/cr-react-conf-2015-day-one) et [Jour 2](http://tech.m6web.fr/cr-react-conf-2015-day-two)), nous nous sommes rendus les 2 et 3 juillet à Paris sous une chaleur infernale pour cette première édition de la [React Europe](https://www.react-europe.org/) avec l’envie de voir et de mesurer les évolutions autour de ReactJs.
 
 # Keynote
 
