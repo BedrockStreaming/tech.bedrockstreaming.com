@@ -69,7 +69,7 @@ Il y a eu [Traceur](https://github.com/google/traceur-compiler) et [Recast](http
 
 Nous retrouvons Node.Js, Commonjs, npm. 
 Dans le browser : [Browserify](http://browserify.org/) et [Webpack](http://webpack.github.io/).
-Même si il y’a encore du travail à faire pour avoir de bonnes performance, et ne pas attendre une compilation via les mises à jour incrémentales, ou [React Hot Loader](https://github.com/gaearon/react-hot-loader) sur lequel nous reviendrons.
+Même si il y’a encore du travail à faire pour avoir de bonnes performances, et ne pas attendre une compilation via les mises à jour incrémentales, ou [React Hot Loader](https://github.com/gaearon/react-hot-loader) sur lequel nous reviendrons.
 
 ### 4) Targets : 
 
