@@ -43,7 +43,7 @@ Depuis l’annonce de Flux, ont fleuries beaucoup d’autres implémentations du
 * [Fluxxor](http://fluxxor.com/documentation/flux.html)
 * [Redux](https://github.com/gaearon/redux)
 
-Certaines vont mourir dans les prochains mois laissant seulement la place aux implémentations les plus pertinentes.
+D'après Christopher, certaines vont mourir dans les prochains mois laissant seulement la place aux implémentations les plus pertinentes. (et Redux a fait un buzz sans pareil lors de ces 2 jours, voir plus bas).
 
 L’immuabilité revient aussi énormément en regardant du coté de [ClojureScript](https://github.com/clojure/clojurescript) ou [ImmutableJs](https://facebook.github.io/immutable-js/).
 
@@ -57,13 +57,13 @@ Il reste encore les cotés Persistence et Temps réel qui ne sont pas traités d
 
 ### 2) Languages
 
-Le language Js à énormement évolué, avec CoffeeScript, [jsTransform](https://github.com/facebook/jstransform) (utilisé chez facebook pour la gestion du jsx, "internalization pipeline", ...)
+Le language Js a énormement évolué, avec CoffeeScript, [jsTransform](https://github.com/facebook/jstransform) (utilisé chez facebook pour la gestion du jsx, "internalization pipeline", ...)
 
 > “think of js as a compile target”
 
-Il y a eu [Traceur](https://github.com/google/traceur-compiler) et [Recast](https://github.com/benjamn/recast), et désormais [Babel](babeljs.io), qui a tout ecrasé sur son passage. Facebook convertit en ce moment tout son code Front Js à Babel.
+Il y a eu [Traceur](https://github.com/google/traceur-compiler) et [Recast](https://github.com/benjamn/recast), et désormais [Babel](babeljs.io) qui a tout ecrasé sur son passage. Facebook convertit en ce moment tout son code Front Js à Babel.
 
-[Eslint](http://eslint.org/), un “linter” de code. et le typage de données avec [TypeScript](http://www.typescriptlang.org/) et [Flow](http://flowtype.org/).
+On retrouve aussi [Eslint](http://eslint.org/), un “linter” de code, et du typage de données avec [TypeScript](http://www.typescriptlang.org/) et [Flow](http://flowtype.org/).
 
 ### 3) Packager
 
@@ -95,6 +95,8 @@ Un appel est fait pour stopper le “bashing” sur les autres frameworks. C’e
 
 ![Prise de note dessiné de @chantastic](https://pbs.twimg.com/media/CI6if-EUAAAvJts.jpg:large)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PAA9O4E1IM4" frameborder="0" allowfullscreen></iframe>
+
 # Inline Styles: themes, media queries, contexts, and when it's best to use CSS
 
 ## Style are not CSS
@@ -123,6 +125,8 @@ Michael nous montre enfin comment aller plus loin en gérant variables de style,
 Pour conclure sa conf, Michael cite Sandi Metz [@sandimetz](https://twitter.com/sandimetz), designeuse Ruby, défendant l’idée que l’objectif du design est de permettre de (re-)designer plus tard son application et donc de réduire les coûts du changement. Le composant React est l’interface, il se suffit à lui-même.
 
 [Les slides sur SpeakerDeck](https://speakerdeck.com/chantastic/inline-styles-react-europe)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ERB1TJBn32c" frameborder="0" allowfullscreen></iframe>
 
 # Flux over the Wire
 
