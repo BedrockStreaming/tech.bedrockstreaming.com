@@ -3,7 +3,7 @@ layout: post
 title: "CR de la React Europe - Jour 1"
 description: "Compte rendu de la React Europe - Jour 1"
 author:
-  name: Frédéric Vieudrin, Matthieu Guillermain, Florent Dubost, Kenny Dits
+  name: Frédéric Vieudrin, Matthieu Guillermin, Florent Dubost, Kenny Dits
   avatar: 
   email:
   twitter: techM6Web
