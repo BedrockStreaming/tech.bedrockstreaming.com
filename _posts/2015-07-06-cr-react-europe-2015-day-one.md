@@ -34,7 +34,7 @@ Christopher Chedeaux [@vjeux](https://twitter.com/vjeux), l’un des core-dev de
 
 ### 1) Data
 
-Depuis l’annonce de Flux ont fleuries beaucoup d’autres implémentations du pattern, notamment :
+Depuis l’annonce de Flux ont fleuri beaucoup d’autres implémentations du pattern, notamment :
 
 * [Mcfly](https://github.com/kenwheeler/mcfly)
 * [Barracks](https://github.com/yoshuawuyts/barracks)
@@ -73,7 +73,7 @@ Même s'il y a encore du travail à faire pour avoir de bonnes performances, et 
 
 ### 4) Targets : 
 
-Les cibles de React sont désormais multiples grace au Virtual DOM : 
+Les cibles de React sont désormais multiples grâce au Virtual DOM : 
 
 * DOM
 * SVG
@@ -229,7 +229,7 @@ Le problème avec les réécritures est que l’on est généralement obligé de
 
 Au lieu d’utiliser cette approche, de haut en bas, Ryan nous propose d’utiliser React en partant du bas de l’arbre, c’est à dire par une fonctionnalité unitaire très limitée.
 
-React se prête parfaitement à ce type de travail puisque son design permet de l’utiliser dans un contexte isolé très facilement. Petit à petit, on arrive à remonter de plus en plus, en réécrivant des fonctionnalités de plus en plus importante, jusqu’à avoir réécrit l’application complète.
+React se prête parfaitement à ce type de travail puisque son design permet de l’utiliser dans un contexte isolé très facilement. Petit à petit, on arrive à remonter de plus en plus, en réécrivant des fonctionnalités de plus en plus importantes, jusqu’à avoir réécrit l’application complète.
 
 
 # Live React: Hot Reloading with Time Travel
@@ -239,7 +239,7 @@ React se prête parfaitement à ce type de travail puisque son design permet de 
 Dan Abramov [@dan_abramov](https://twitter.com/dan_abramov) nous présente son workflow React.
 Il est notamment le créateur de [React Hot Loader](https://github.com/gaearon/react-hot-loader), et de [Redux](https://github.com/gaearon/redux), l’une des dernières implémentations de Flux jouissant déjà d’une très grande popularité.
 
-L’un des messages a retenir de sa présentation est l’importance de travailler sur ses outils de développement afin d’avoir plus de temps a passer sur ses applications.
+L’un des messages à retenir de sa présentation est l’importance de travailler sur ses outils de développement afin d’avoir plus de temps à passer sur ses applications.
 
 Quelques outils pour accélérer le workflow de développement : 
 
@@ -256,14 +256,14 @@ Nous faisons ensuite un focus sur son workflow autour de ces principaux outils :
 * React Hot Loader
 * webpack
 
-React Hot Loader permet de rafraichir son application instantanément à chaque modification de code, et ce, sans refresh de page, uniquement en rafraichissement les composants ayant changés !
+React Hot Loader permet de rafraîchir son application instantanément à chaque modification de code, et ce, sans refresh de page, uniquement en rafraichissement les composants ayant changé !
 C’est très impressionnant en Live démo !
 
-Rajouter à ca le Redux Dev Tools qui permet de suivre en temps réels les actions étant lancées, ainsi que l’état des states, de pouvoir revenir en arrière dans les actions “à la git”, mais aussi d’avoir un error handler très quali en live (inspiré j’imagine de la gestion d’erreur de React Native).
+Rajouter à ça le Redux Dev Tools qui permet de suivre en temps réel les actions lancées, ainsi que l’état des states, de pouvoir revenir en arrière dans les actions “à la git”, mais aussi d’avoir un error handler très quali en live (inspiré j’imagine de la gestion d’erreur de React Native).
 
 L’idée derrière Redux (son implémentation du pattern Flux) est de faire un Store immuable. On peut résumer une action à une fonction prenant en entrée un état du store et donnant en sortie un nouvel état du Store (sans toucher au premier). En partant de ce principe, appliquer une série d’actions revient simplement à effectuer une réduction (un “reduce”). 
 On applique ici les principes d’[Event Sourcing](http://martinfowler.com/eaaDev/EventSourcing.html).
-L’immutabilité permet de stocker les différents états intermédiaires du store et donc de naviguer extrèmement facilement dans les différentes versions pendant le développement.
+L’immutabilité permet de stocker les différents états intermédiaires du store et donc de naviguer extrêmement facilement dans les différentes versions pendant le développement.
 
 Plus d’infos ici : [The evolution of flux](https://medium.com/@dan_abramov/the-evolution-of-flux-frameworks-6c16ad26bb31)
 
