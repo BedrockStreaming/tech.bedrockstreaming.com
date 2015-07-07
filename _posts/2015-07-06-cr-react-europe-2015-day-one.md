@@ -18,7 +18,7 @@ image:
 comments: true
 ---
 
-Après la première conférence officielle sur React, que nous avons déjà couvert en janvier ([Jour 1](http://tech.m6web.fr/cr-react-conf-2015-day-one) et [Jour 2](http://tech.m6web.fr/cr-react-conf-2015-day-two)), nous nous sommes rendus les 2 et 3 juillet à Paris sous une chaleur infernale pour cette première édition de la [React Europe](https://www.react-europe.org/) avec l’envie de voir et de mesurer les évolutions autour de ReactJs.
+Après la première conférence officielle sur React, que nous avons déjà couvert en janvier ([Jour 1](http://tech.m6web.fr/cr-react-conf-2015-day-one) et [Jour 2](http://tech.m6web.fr/cr-react-conf-2015-day-two)), nous nous sommes rendus les 2 et 3 juillet à Paris sous une chaleur infernale pour cette première édition de la [React Europe](https://www.react-europe.org/) avec l’envie de voir et de mesurer les évolutions autour de ReactJS.
 
 # Keynote
 
@@ -34,7 +34,7 @@ Christopher Chedeaux [@vjeux](https://twitter.com/vjeux), l’un des core-dev de
 
 ### 1) Data
 
-Depuis l’annonce de Flux, ont fleuries beaucoup d’autres implémentations du pattern, notamment :
+Depuis l’annonce de Flux ont fleuries beaucoup d’autres implémentations du pattern, notamment :
 
 * [Mcfly](https://github.com/kenwheeler/mcfly)
 * [Barracks](https://github.com/yoshuawuyts/barracks)
@@ -43,9 +43,9 @@ Depuis l’annonce de Flux, ont fleuries beaucoup d’autres implémentations du
 * [Fluxxor](http://fluxxor.com/documentation/flux.html)
 * [Redux](https://github.com/gaearon/redux)
 
-D'après Christopher, certaines vont mourir dans les prochains mois laissant seulement la place aux implémentations les plus pertinentes. (et Redux a fait un buzz sans pareil lors de ces 2 jours, voir plus bas).
+D'après Christopher, certaines vont mourir dans les prochains mois laissant seulement la place aux implémentations les plus pertinentes (et Redux a fait un buzz sans pareil lors de ces 2 jours, voir plus bas).
 
-L’immuabilité revient aussi énormément en regardant du coté de [ClojureScript](https://github.com/clojure/clojurescript) ou [ImmutableJs](https://facebook.github.io/immutable-js/).
+L’immuabilité revient aussi énormément en regardant du coté de [ClojureScript](https://github.com/clojure/clojurescript) ou [ImmutableJS](https://facebook.github.io/immutable-js/).
 
 Coté Data fetching, cela commence à bouger pas mal avec : 
 * Relay et GraphQL
@@ -57,19 +57,19 @@ Il reste encore les cotés Persistence et Temps réel qui ne sont pas traités d
 
 ### 2) Languages
 
-Le language Js a énormement évolué, avec CoffeeScript, [jsTransform](https://github.com/facebook/jstransform) (utilisé chez facebook pour la gestion du jsx, "internalization pipeline", ...)
+Le language JS a énormement évolué avec CoffeeScript, [jsTransform](https://github.com/facebook/jstransform) (utilisé chez facebook pour la gestion du jsx, "internalization pipeline", ...)
 
 > “think of js as a compile target”
 
-Il y a eu [Traceur](https://github.com/google/traceur-compiler) et [Recast](https://github.com/benjamn/recast), et désormais [Babel](babeljs.io) qui a tout ecrasé sur son passage. Facebook convertit en ce moment tout son code Front Js à Babel.
+Il y a eu [Traceur](https://github.com/google/traceur-compiler) et [Recast](https://github.com/benjamn/recast), et désormais [Babel](babeljs.io) qui a tout ecrasé sur son passage. Facebook convertit en ce moment tout son code Front JS à Babel.
 
-On retrouve aussi [Eslint](http://eslint.org/), un “linter” de code, et du typage de données avec [TypeScript](http://www.typescriptlang.org/) et [Flow](http://flowtype.org/).
+On retrouve aussi [ESLint](http://eslint.org/), un “linter” de code, et du typage de données avec [TypeScript](http://www.typescriptlang.org/) et [Flow](http://flowtype.org/).
 
 ### 3) Packager
 
-Nous retrouvons Node.Js, Commonjs, npm. 
+Nous retrouvons Node.js, CommonJS, npm. 
 Dans le browser : [Browserify](http://browserify.org/) et [Webpack](http://webpack.github.io/).
-Même si il y’a encore du travail à faire pour avoir de bonnes performances, et ne pas attendre une compilation via les mises à jour incrémentales, ou [React Hot Loader](https://github.com/gaearon/react-hot-loader) sur lequel nous reviendrons.
+Même s'il y a encore du travail à faire pour avoir de bonnes performances, et ne pas attendre une compilation via les mises à jour incrémentales, ou [React Hot Loader](https://github.com/gaearon/react-hot-loader) sur lequel nous reviendrons.
 
 ### 4) Targets : 
 
@@ -80,12 +80,12 @@ Les cibles de React sont désormais multiples grace au Virtual DOM :
 * Canvas
 * Terminal
 
-Un focus est ensuite fait sur [React Native](https://facebook.github.io/react-native/), permettant de développer des apps natives sur iOs et Android tout en faisant du React. 
+Un focus est ensuite fait sur [React Native](https://facebook.github.io/react-native/), permettant de développer des apps natives sur iOS et Android tout en faisant du React. 
 
-> “UX of a native apps / DX of a web apps”
+> “UX of a native app / DX of a web app”
 
 Christopher insiste sur le terme DX qu’on ne voit jamais dans des slides tech, signifiant “Developper Experience”. 
-Il compare aussi le développement de l’appli Ads de Facebook, réalisé avec React Native sur iOs (7 ingénieurs pendant 5 mois), et celui qui a suivi avec React Native Android avec les mêmes 7 ingénieurs durant seulement 3 mois en réutilisant 87% du code !
+Il compare aussi le développement de l’appli Ads de Facebook, réalisé avec React Native sur iOS (7 ingénieurs pendant 5 mois), et celui qui a suivi avec React Native Android avec les mêmes 7 ingénieurs durant seulement 3 mois en réutilisant 87% du code !
 
 React Native Android sera open-sourcé au mois d’Août.
 
@@ -138,7 +138,7 @@ Il présente ensuite les librairies qu’il a élaboré autour de ses idées :
 
 * [nexus-flux](https://github.com/elierotenberg/nexus-flux) implémentant le pattern Flux de manière “classique”, notamment autour de l’EventEmitter,
 * [nexus-flux-socket.io](https://github.com/elierotenberg/nexus-flux-socket.io), l’impémentation de Flux autour des websockets,
-* [react-nexus](https://github.com/elierotenberg/react-nexus) une surcouche aux précédentes librairies permettant d’écouter les stores depuis les composants * React en utilisant les decorators ES7,
+* [react-nexus](https://github.com/elierotenberg/react-nexus) une surcouche aux précédentes librairies permettant d’écouter les stores depuis les composants React en utilisant les decorators ES7,
 * [react-nexus-chat](https://github.com/elierotenberg/react-nexus-chat), l’implémentation du chat donné en exemple.
 
 Une des forces de sa librairie est la facilité à mettre en oeuvre l’asynchronisme des actions Flux côté serveur.
@@ -154,15 +154,15 @@ Enfin, on découvre l’utilisation réel de ces concepts chez Webedia :
 
 # React Native: Building Fluid User Experiences
 
-Spencer Ahrens [@sahrens2012](https://twitter.com/sahrens2012) de chez Facebook nous présente une librairie, qui devrait être open sourcé sous peu pour gérer les animations dans React Native iOs : Animated.
+Spencer Ahrens [@sahrens2012](https://twitter.com/sahrens2012) de chez Facebook nous présente une librairie, qui devrait être open sourcé sous peu pour gérer les animations dans React Native iOS : Animated.
 
 {% highlight javascript %} 
 var { Animated } = require(‘react-native’) 
 {% endhighlight %}
 
 Cette librairie devrait marcher directement sur React Native Android et arriver ensuite sur le web.
-L’implémentation est 100%Js.
-Nous avons suivi un live coding démo sur iOs, d’une application sans animations au départ, consistant à enrichir l’experience utilisateur en rajoutant des animations fluides via la librairie Animated.
+L’implémentation est 100% JS.
+Nous avons suivi un live coding démo sur iOS d’une application sans animation au départ, consistant à enrichir l’expérience utilisateur en rajoutant des animations fluides via la librairie Animated.
 
 [Le code des exemples](https://gist.github.com/sahrens/7609a4e8ffd1bbace51a) et [les slides](https://gist.github.com/sahrens/2e9b6a0caf4a66f7f1d1)
 
@@ -170,8 +170,8 @@ Nous avons suivi un live coding démo sur iOs, d’une application sans animatio
 
 ![](https://pbs.twimg.com/media/CI7FFISUsAAAvK1.jpg:large)
 
-Lee Byron [@leeb](https://twitter.com/leeb) a introduit GraphQL, une solution permettant de résoudre les problématiques d’accès au données.
-L’idée est de résoudre les problèmes d’une approche RESTful (qui entraîne beaucoup d’aller-retours avec le serveur) et l’approche FQL (variante de SQL permettant de limiter les aller-retours, mais très compliqués à maintenir).
+Lee Byron [@leeb](https://twitter.com/leeb) a introduit GraphQL, une solution permettant de résoudre les problématiques d’accès aux données.
+L’idée est de résoudre les problèmes de l'approche RESTful (qui entraîne beaucoup d’aller-retours avec le serveur) et l’approche FQL (variante de SQL permettant de limiter les aller-retours, mais très compliquée à maintenir).
 
 GraphQL permet au client de définir très précisément les données qu’il souhaite obtenir via leur relations.
 
@@ -201,19 +201,19 @@ Response
 
 Le tout donne un code très facile à lire et à raisonner. Le serveur expose un schéma des données disponibles, ce qui permet : 
 
-* au client de construire sa requête et de la vailder.
+* au client de construire sa requête et de la valider
 * de générer du code côté client à partir du schéma
 * une bonne intégration dans les IDE (autocompletion)
 * génération d’une API Doc
 
-GraphQL ne s’occupe pas du stockage, c’est uniquement la couche de requêtage qui peut être implémenté avec votre code actuel.
+GraphQL ne s’occupe pas du stockage, c’est uniquement la couche de requêtage qui peut être implémentée avec votre code actuel.
 
 GraphQL est utilisé depuis plus de 3 ans chez Facebook et sert à l’heure actuelle environ 260 milliards de requêtes par jour.
 
 Lee Byron a annoncé lors de sa conférence la diffusion d’un “working draft” d’une [RFC GraphQL](facebook.github.io/graphql), ainsi qu’une [implémentation de référence en Javascript](https://github.com/graphql/graphql-js).
 
 Suite à cette présentation de GraphQL, Joseph Savona introduit Relay, un framework proposé par Facebook qui permet de gérer côté client le data-fetching via GraphQL dans les applications React.
-Le principe de Relay est que chaque composant définit ses propres dépendances en utilisant le langage de requête de GraphQL. Les données sont mises à disposition dans le composant dans this.props par Relay.
+Le principe de Relay est que chaque composant définit ses propres dépendances en utilisant le langage de requête de GraphQL. Les données sont mises à disposition dans le composant dans `this.props` par Relay.
 
 Le développeur fait ses composants React naturellement, et Relay s’occupe de composer les requêtes, permettant ainsi de fournir à chaque composant les données précises dont il a besoin (et pas plus), de mettre à jour les composants quand les données changent et de maintenir un store côté client (cache) avec toutes les données.
 
@@ -241,7 +241,7 @@ Il est notamment le créateur de [React Hot Loader](https://github.com/gaearon/r
 
 L’un des messages a retenir de sa présentation est l’importance de travailler sur ses outils de développement afin d’avoir plus de temps a passer sur ses applications.
 
-Quelques outils pour accelerer le workflow de développement : 
+Quelques outils pour accélérer le workflow de développement : 
 
 * [amok](http://amokjs.com/)
 * [figwheel](https://github.com/bhauman/lein-figwheel)
@@ -253,15 +253,15 @@ Nous faisons en suite un focus sur son workflow autour de ces principaux outils 
 
 * Redux
 * Redux Dev Tools
-* React hot loader
+* React Hot Loader
 * webpack
 
 React Hot Loader permet de rafraichir son application instantanément à chaque modification de code, et ce, sans refresh de page, uniquement en rafraichissement les composants ayant changés !
 C’est très impressionnant en Live démo !
 
-Rajouter à ca le Redux Dev Tools qui permet de suivre en temps réels les actions étant lancés, ainsi que l’état des states. De pouvoir revenir en arrière dans les actions “à la git”. Mais aussi d’avoir un error handler très quali en live (inspiré j’imagine de la gestion d’erreur de React Native).
+Rajouter à ca le Redux Dev Tools qui permet de suivre en temps réels les actions étant lancées, ainsi que l’état des states, de pouvoir revenir en arrière dans les actions “à la git”, mais aussi d’avoir un error handler très quali en live (inspiré j’imagine de la gestion d’erreur de React Native).
 
-L’idée derrière Redux (son implémentation du pattern Flux) est de faire un Store immuable. On peut résumer une action à une fonction prenant en entrée un état du store et donnant en sortie un nouvel état du store (sans toucher au premier). En partant de ce principe, appliquer une série d’actions revient simplement à effectuer une réduction (un “reduce”). 
+L’idée derrière Redux (son implémentation du pattern Flux) est de faire un Store immuable. On peut résumer une action à une fonction prenant en entrée un état du store et donnant en sortie un nouvel état du Store (sans toucher au premier). En partant de ce principe, appliquer une série d’actions revient simplement à effectuer une réduction (un “reduce”). 
 On applique ici les principes d’[Event Sourcing](http://martinfowler.com/eaaDev/EventSourcing.html).
 L’immutabilité permet de stocker les différents états intermédiaires du store et donc de naviguer extrèmement facilement dans les différentes versions pendant le développement.
 
@@ -273,16 +273,16 @@ Plus d’infos ici : [The evolution of flux](https://medium.com/@dan_abramov/the
 
 # Back to Text UI
 
-Mikhail Davydov [@azproduction](https://twitter.com/azproduction) a eu l’idée folle de créer une interface texte pour le terminal avec les outils web : HTML, CSS, Js et donc React.
+Mikhail Davydov [@azproduction](https://twitter.com/azproduction) a eu l’idée folle de créer une interface texte pour le terminal avec les outils web : HTML, CSS, JS et donc React.
 C’est complétement fou, assez impressionnant, mais on se demande quand même pourquoi ?
 
 [Voir les slides](http://azproduction.ru/talk-back-to-text-ui/)
 
 # Lightning Talk
 
-Pour finir la journée, nous avons eu le droit à quelques Lightning Talk de qualité inégale, abordant l’intégration de D3 avec React, de l’outil [Cosmos](https://github.com/skidding/cosmos) permettant de tester dans un browser ses composants React un par un, de [React Native Playground ](https://rnplay.org/), un bel outil pour tester facilement online dans un simulateur des applis ou exemple de code de React Native, et [Turbine](https://github.com/chute/tubrine) une sorte de remplacant de Relay en l’attendant.
+Pour finir la journée, nous avons eu le droit à quelques Lightning Talk de qualité inégale, abordant l’intégration de D3 avec React, de l’outil [Cosmos](https://github.com/skidding/cosmos) permettant de tester dans un browser ses composants React un par un, de [React Native Playground ](https://rnplay.org/), un bel outil pour tester facilement online dans un simulateur des applis ou exemple de code de React Native, et [Turbine](https://github.com/chute/tubrine) une sorte de remplacant de Relay en l’attendant ([voir cet article](https://medium.com/chute-engineering/turbine-a1f55d4b7d91)).
 
 # Conclusion 
 
-Excellente organisation (et on ne dis pas ca seulement pour les bières à volonté), un line-up du tonnerre et de belles annonces (React Native Android en Aout, GraphQL etc).
+Excellente organisation (et on ne dit pas ca seulement pour les bières à volonté), un line-up du tonnerre et de belles annonces (React Native Android en Août, GraphQL etc).
 C’est déjà avec plein d’idées et de pistes d’améliorations pour nos projets React que nous sortons de ce premier jour très complet.
