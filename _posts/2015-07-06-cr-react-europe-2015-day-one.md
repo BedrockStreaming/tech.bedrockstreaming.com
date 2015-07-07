@@ -61,7 +61,7 @@ Le langage JS a énormement évolué avec CoffeeScript, [jsTransform](https://gi
 
 > “think of js as a compile target”
 
-Il y a eu [Traceur](https://github.com/google/traceur-compiler) et [Recast](https://github.com/benjamn/recast), et désormais [Babel](babeljs.io) qui a tout ecrasé sur son passage. Facebook convertit en ce moment tout son code Front JS à Babel.
+Il y a eu [Traceur](https://github.com/google/traceur-compiler) et [Recast](https://github.com/benjamn/recast), et désormais [Babel](http://babeljs.io) qui a tout ecrasé sur son passage. Facebook convertit en ce moment tout son code Front JS à Babel.
 
 On retrouve aussi [ESLint](http://eslint.org/), un “linter” de code, et du typage de données avec [TypeScript](http://www.typescriptlang.org/) et [Flow](http://flowtype.org/).
 
