@@ -57,7 +57,7 @@ Il reste encore les cotés Persistence et Temps réel qui ne sont pas traités d
 
 ### 2) Languages
 
-Le language JS a énormement évolué avec CoffeeScript, [jsTransform](https://github.com/facebook/jstransform) (utilisé chez facebook pour la gestion du jsx, "internalization pipeline", ...)
+Le langage JS a énormement évolué avec CoffeeScript, [jsTransform](https://github.com/facebook/jstransform) (utilisé chez facebook pour la gestion du jsx, "internalization pipeline", ...)
 
 > “think of js as a compile target”
 
@@ -120,7 +120,7 @@ Avec le web interactif actuel, l’état de l’application est noyé entre ces 
 
 ## No more CSS
 
-Michael nous montre enfin comment aller plus loin en gérant variables de style, pseudo-classes et pseudo-elements en inline dans le composant, et sans trop de difficultés. La gestion des hovers et des media queries est beaucoup plus ardue et n’est clairement pas recommandé. L’utilisation d’une librairie comme [Radium](http://projects.formidablelabs.com/radium/) (mais il en existe d’autres) permet de surmonter cet obstacle et d’écrire du style inline très clairement. On aborde quelques conseils pour gérer au mieux les couleurs et le layout. Pour voir un exemple illustrant toutes les concepts abordés par Michael, vous pouvez explorer son projet [React Soundplayer](http://labs.voronianski.com/react-soundplayer/).
+Michael nous montre enfin comment aller plus loin en gérant variables de style, pseudo-classes et pseudo-elements en inline dans le composant, et sans trop de difficultés. La gestion des hovers et des media queries est beaucoup plus ardue et n’est clairement pas recommandé. L’utilisation d’une librairie comme [Radium](http://projects.formidablelabs.com/radium/) (mais il en existe d’autres) permet de surmonter cet obstacle et d’écrire du style inline très clairement. On aborde quelques conseils pour gérer au mieux les couleurs et le layout. Pour voir un exemple illustrant tous les concepts abordés par Michael, vous pouvez explorer son projet [React Soundplayer](http://labs.voronianski.com/react-soundplayer/).
 
 Pour conclure sa conf, Michael cite Sandi Metz [@sandimetz](https://twitter.com/sandimetz), designeuse Ruby, défendant l’idée que l’objectif du design est de permettre de (re-)designer plus tard son application et donc de réduire les coûts du changement. Le composant React est l’interface, il se suffit à lui-même.
 
@@ -249,7 +249,7 @@ Quelques outils pour accélérer le workflow de développement :
 * [React Hot Loader](https://github.com/gaearon/react-hot-loader)
 * [webpack](webpack.github.io)
 
-Nous faisons en suite un focus sur son workflow autour de ces principaux outils :
+Nous faisons ensuite un focus sur son workflow autour de ces principaux outils :
 
 * Redux
 * Redux Dev Tools
