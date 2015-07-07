@@ -137,7 +137,7 @@ Elie nous montre qu’on peut voir Flux comme un modèle symétrique : les compo
 Il présente ensuite les librairies qu’il a élaboré autour de ses idées :
 
 * [nexus-flux](https://github.com/elierotenberg/nexus-flux) implémentant le pattern Flux de manière “classique”, notamment autour de l’EventEmitter,
-* [nexus-flux-socket.io](https://github.com/elierotenberg/nexus-flux-socket.io), l’impémentation de Flux autour des websockets,
+* [nexus-flux-socket.io](https://github.com/elierotenberg/nexus-flux-socket.io), l’implémentation de Flux autour des websockets,
 * [react-nexus](https://github.com/elierotenberg/react-nexus) une surcouche aux précédentes librairies permettant d’écouter les stores depuis les composants React en utilisant les decorators ES7,
 * [react-nexus-chat](https://github.com/elierotenberg/react-nexus-chat), l’implémentation du chat donné en exemple.
 
