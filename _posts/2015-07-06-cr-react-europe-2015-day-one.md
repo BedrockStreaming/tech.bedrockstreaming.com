@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "CR de la React Europe - Jour 1"
+title: "CR React Europe Conférence 2015 - Day 1"
 description: "Compte rendu de la React Europe - Jour 1"
 author:
   name: Frédéric Vieudrin, Matthieu Guillermin, Florent Dubost, Kenny Dits
