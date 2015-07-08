@@ -152,6 +152,8 @@ Enfin, on découvre l’utilisation réel de ces concepts chez Webedia :
 
 [Les slides sur SpeakerDeck](https://speakerdeck.com/elierotenberg/flux-over-the-wire-at-reacteurope-2015)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JSjhhUvB9DY" frameborder="0" allowfullscreen></iframe>
+
 # React Native: Building Fluid User Experiences
 
 Spencer Ahrens [@sahrens2012](https://twitter.com/sahrens2012) de chez Facebook nous présente une librairie, qui devrait être open sourcé sous peu pour gérer les animations dans React Native iOS : Animated.
@@ -165,6 +167,8 @@ L’implémentation est 100% JS.
 Nous avons suivi un live coding démo sur iOS d’une application sans animation au départ, consistant à enrichir l’expérience utilisateur en rajoutant des animations fluides via la librairie Animated.
 
 [Le code des exemples](https://gist.github.com/sahrens/7609a4e8ffd1bbace51a) et [les slides](https://gist.github.com/sahrens/2e9b6a0caf4a66f7f1d1)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xDlfrcM6YBk" frameborder="0" allowfullscreen></iframe>
 
 # Exploring GraphQL + Relay: An Application Framework For React 
 
