@@ -166,7 +166,7 @@ Cette librairie devrait marcher directement sur React Native Android et arriver 
 L’implémentation est 100% JS.
 Nous avons suivi un live coding démo sur iOS d’une application sans animation au départ, consistant à enrichir l’expérience utilisateur en rajoutant des animations fluides via la librairie Animated.
 
-[Le code des exemples](https://gist.github.com/sahrens/7609a4e8ffd1bbace51a) et [les slides](https://gist.github.com/sahrens/2e9b6a0caf4a66f7f1d1)
+[Le code des exemples](https://gist.github.com/sahrens/7609a4e8ffd1bbace51a) et [les slides](https://gist.github.com/sahrens/2e9b6a0caf4a66f7f1d1), ainsi qu'un nouvel exemple sur [l'animation "Tinder"](https://github.com/brentvatne/react-native-animated-demo-tinder)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/xDlfrcM6YBk" frameborder="0" allowfullscreen></iframe>
 
@@ -235,6 +235,7 @@ Au lieu d’utiliser cette approche, de haut en bas, Ryan nous propose d’utili
 
 React se prête parfaitement à ce type de travail puisque son design permet de l’utiliser dans un contexte isolé très facilement. Petit à petit, on arrive à remonter de plus en plus, en réécrivant des fonctionnalités de plus en plus importantes, jusqu’à avoir réécrit l’application complète.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BF58ZJ1ZQxY" frameborder="0" allowfullscreen></iframe>
 
 # Live React: Hot Reloading with Time Travel
 
@@ -284,7 +285,7 @@ C’est complétement fou, assez impressionnant, mais on se demande quand même 
 
 # Lightning Talk
 
-Pour finir la journée, nous avons eu le droit à quelques Lightning Talk de qualité inégale, abordant l’intégration de D3 avec React, de l’outil [Cosmos](https://github.com/skidding/cosmos) permettant de tester dans un browser ses composants React un par un, de [React Native Playground ](https://rnplay.org/), un bel outil pour tester facilement online dans un simulateur des applis ou exemple de code de React Native, et [Turbine](https://github.com/chute/tubrine) une sorte de remplacant de Relay en l’attendant ([voir cet article](https://medium.com/chute-engineering/turbine-a1f55d4b7d91)).
+Pour finir la journée, nous avons eu le droit à quelques Lightning Talk de qualité inégale, abordant l’intégration de D3 avec React, de l’outil [Cosmos](https://github.com/skidding/cosmos) permettant de tester dans un browser ses composants React un par un, de [React Native Playground ](https://rnplay.org/), un bel outil pour tester facilement online dans un simulateur des applis ou exemple de code de React Native [voir vidéo du LT](https://www.youtube.com/watch?v=E8aAAXqrVG0), et [Turbine](https://github.com/chute/tubrine) une sorte de remplacant de Relay en l’attendant ([voir cet article](https://medium.com/chute-engineering/turbine-a1f55d4b7d91)).
 
 # Conclusion 
 
