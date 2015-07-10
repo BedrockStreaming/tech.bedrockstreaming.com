@@ -18,7 +18,7 @@ image:
 comments: true
 ---
 
-# Jour 2
+Après une [première journée pleine de nouveautés et d'annonces](http://tech.m6web.fr/cr-react-europe-2015-day-one/), voici la suite du compte rendu avec un programme encore très chargé pour cette deuxième journée de la React Europe.
 
 # Improving Your Workflow With Code Transformation (Kenny)
 
@@ -41,6 +41,8 @@ Le talk ce finit sur le futur de Babel, qui sera à chercher du coté de :
 * static analysis / linting
 
 Steven Lusher, l’un des dev Facebook travaillant sur Relay vient de mettre un blog post sur le site Babel concernant [l’utilisation ES6 de React](http://babeljs.io/blog/2015/06/07/react-on-es6-plus/)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OFuDvqZmUrE" frameborder="0" allowfullscreen></iframe>
 
 # The State of Animation in React (Fred)
 
@@ -219,3 +221,5 @@ Nous attendons aussi impatiemment React Native Android, pour voir si le buzz et 
 GraphQL + Relay parait vraiment être la solution idéale pour réaliser simplement du data fetching coté client (React Web ou React Native), mais l’absence de Relay (toujours pas open-sourcé), combiné au manque de retour sur GraphQL pose encore de nombreuses questions.
 
 On a donc hâte d’être à la prochaine React Conférence ou React Europe pour voir la suite de l’évolution de React.
+
+[Vous pouvez retrouvez le compte rendu de la première journée ici](http://tech.m6web.fr/cr-react-europe-2015-day-one/)

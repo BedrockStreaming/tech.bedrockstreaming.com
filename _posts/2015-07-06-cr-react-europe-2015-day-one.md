@@ -216,12 +216,14 @@ GraphQL est utilisé depuis plus de 3 ans chez Facebook et sert à l’heure act
 
 Lee Byron a annoncé lors de sa conférence la diffusion d’un “working draft” d’une [RFC GraphQL](facebook.github.io/graphql), ainsi qu’une [implémentation de référence en Javascript](https://github.com/graphql/graphql-js).
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WQLzZf34FJ8" frameborder="0" allowfullscreen></iframe>
+
 Suite à cette présentation de GraphQL, Joseph Savona introduit Relay, un framework proposé par Facebook qui permet de gérer côté client le data-fetching via GraphQL dans les applications React.
 Le principe de Relay est que chaque composant définit ses propres dépendances en utilisant le langage de requête de GraphQL. Les données sont mises à disposition dans le composant dans `this.props` par Relay.
 
 Le développeur fait ses composants React naturellement, et Relay s’occupe de composer les requêtes, permettant ainsi de fournir à chaque composant les données précises dont il a besoin (et pas plus), de mettre à jour les composants quand les données changent et de maintenir un store côté client (cache) avec toutes les données.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/WQLzZf34FJ8" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IrgHurBjQbg" frameborder="0" allowfullscreen></iframe>
 
 # Don't Rewrite, React! 
 
@@ -283,6 +285,8 @@ C’est complétement fou, assez impressionnant, mais on se demande quand même 
 
 [Voir les slides](http://azproduction.ru/talk-back-to-text-ui/)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ee_U2t-8L48" frameborder="0" allowfullscreen></iframe>
+
 # Lightning Talk
 
 Pour finir la journée, nous avons eu le droit à quelques Lightning Talk de qualité inégale, abordant l’intégration de D3 avec React, de l’outil [Cosmos](https://github.com/skidding/cosmos) permettant de tester dans un browser ses composants React un par un, de [React Native Playground ](https://rnplay.org/), un bel outil pour tester facilement online dans un simulateur des applis ou exemple de code de React Native [voir vidéo du LT](https://www.youtube.com/watch?v=E8aAAXqrVG0), et [Turbine](https://github.com/chute/tubrine) une sorte de remplacant de Relay en l’attendant ([voir cet article](https://medium.com/chute-engineering/turbine-a1f55d4b7d91)).
@@ -291,3 +295,5 @@ Pour finir la journée, nous avons eu le droit à quelques Lightning Talk de qua
 
 Excellente organisation (et on ne dit pas ca seulement pour les bières à volonté), un line-up du tonnerre et de belles annonces (React Native Android en Août, GraphQL etc).
 C’est déjà avec plein d’idées et de pistes d’améliorations pour nos projets React que nous sortons de ce premier jour très complet.
+
+[Vous pouvez retrouvez le compte rendu de la deuxième journée ici](http://tech.m6web.fr/cr-react-europe-2015-day-two/)
