@@ -66,6 +66,7 @@ Cheng Lou a développé une librairie appelée `<Spring />` qui parlera aux anci
 
 [démo de Spring](https://github.com/chenglou/react-motion/tree/master/demo2)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1tavDv5hXpo" frameborder="0" allowfullscreen></iframe>
 
 # Simplifying the data layer
 
