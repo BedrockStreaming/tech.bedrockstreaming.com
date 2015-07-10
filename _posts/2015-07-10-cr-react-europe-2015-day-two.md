@@ -34,7 +34,7 @@ Sébastian nous explique le fonctionnement interne de Babel avec le découpage e
 Ils utilisent l’AST (abstract syntax tree) pour avoir une "data structure" du code et pouvoir faire des traitements sur cette structure.
 On rentre très (trop ?) en profondeur dans les bas-fond de Babel, afin de partager les différentes difficultés et trucs et astuces pour les transformations que Babel réalise.
 
-Le talk ce finit sur le futur de Babel, qui sera à chercher du côté de : 
+Le talk se finit sur le futur de Babel, qui sera à chercher du côté de : 
 
 * Dead code elimination/minification
 * constant folding/static evaluation
@@ -80,16 +80,16 @@ Au niveau des stores, il prone l’utilisation de structures immuables en stocka
 
 On retrouve dans leur approche beaucoup de concepts de la programmation fonctionnel (de la même manière que Redux), mais malheureusement, aucun code n’est ouvert par Twitter à ce sujet.
 
-On reste un peu sur notre faim en ne pouvant pas aller jouer “concrêtement” avec leurs outils.
+On reste un peu sur notre faim en ne pouvant pas aller jouer “concrètement” avec leurs outils.
 
 # Going Mobile with React
 
 ![Jed Watson](https://scontent-fra3-1.xx.fbcdn.net/hphotos-xtp1/t31.0-8/11696380_1634481350144860_1142691694641390511_o.jpg)
 (crédits : [Fabien Champigny - React Europe](https://www.facebook.com/media/set/?set=a.1634468596812802.1073741829.1541044122821917&type=3))
 
-Jed Watson créateur du framework [TouchStone JS](http://touchstonejs.io/), un framework JS (basé sur React) permettant de faire des applications mobiles hybride (à base de Webview via Apache Cordova), nous explique comment réaliser des applis hybride grâce à React.
+Jed Watson, créateur du framework [TouchStone JS](http://touchstonejs.io/), un framework JS (basé sur React) permettant de faire des applications mobiles hybride (à base de Webview via Apache Cordova), nous explique comment réaliser des applis hybride grâce à React.
 
-Le débat ici est plutôt de démontrer qu’on peut malgrès les dires de certains et en connaissant quelques astuces, faire une appli mobile hybride qui ressemblera à une appli native. Pour nous prouver cela, Jed annonce que l’appli de la React Europe, dispo sur iOS et Android, et que nous avons tous utilisé a été faite avec TouchStone JS !
+Le débat ici est plutôt de démontrer qu’on peut malgré les dires de certains et en connaissant quelques astuces, faire une appli mobile hybride qui ressemblera à une appli native. Pour nous prouver cela, Jed annonce que l’appli de la React Europe, dispo sur iOS et Android, et que nous avons tous utilisé a été faite avec TouchStone JS !
 
 > If you have great developer experience, you are much more likely to get to a great UX
 
@@ -122,27 +122,27 @@ Le code de l’application React Europe sera rendu open-source à la fin de la d
 ![Michael Jackson](https://scontent-fra3-1.xx.fbcdn.net/hphotos-xtp1/t31.0-8/11238219_1634482576811404_3585441542448837466_o.jpg)
 (crédits : [Fabien Champigny - React Europe](https://www.facebook.com/media/set/?set=a.1634468596812802.1073741829.1541044122821917&type=3))
 
-Belle présentation de Michael Jackson [@mjackson](https://twitter.com/mjackson), pas aussi spectaculaire qu’un concert de l’artiste homonyme, mais assez surprenante et délirante quand même ! Il introduit la librairie qu’il porte avec Ryan Florence [@ryanflorence](https://twitter.com/ryanflorence) depuis plus d’un an et qui est majoritairement utilisée par les utilisateurs de React pour mettre du routing dans leur application : [React Router](https://github.com/rackt/react-router), “The” Router.
+Belle présentation de Michael Jackson ([@mjackson](https://twitter.com/mjackson)), pas aussi spectaculaire qu’un concert de l’artiste homonyme, mais assez surprenante et délirante quand même ! Il introduit la librairie qu’il porte avec Ryan Florence ([@ryanflorence](https://twitter.com/ryanflorence)) depuis plus d’un an et qui est majoritairement utilisée par les utilisateurs de React pour mettre du routing dans leur application : [React Router](https://github.com/rackt/react-router), “The” Router.
 
 Michael commence par nous présenter les bases de la librairie : la définition des routes dans un composant React et le composant Link permettant de générer les liens. Il explique que ce sont des concepts simples et qu’ils permettent à de nouveaux développeurs peu expérimentés de rentrer facilement dans un projet.
 
 Il fait ensuite l’analogie entre les vues et les URLs, affirmant que de bonnes URLs, bien formées, augmentent la confiance de l’utilisateur envers l’application. Une notion importante dans React Router est celle des transitions permettant de changer de vues (et donc d’URLs) et de gérer le “browser history”.
 
-Michael nous annonce une nouveauté dans la prochaine version : l’attribut onEnter sur la définition de route, permettant d’executer une callback avant d’afficher la page (utile par exemple pour protéger une page par authentification).
+Michael nous annonce une nouveauté dans la prochaine version : l’attribut `onEnter` sur la définition de route, permettant d’executer une callback avant d’afficher la page (utile par exemple pour protéger une page par authentification).
 
-Il nous expose sa vision du composant comme une fonction prenant en entrée props et state et renvoyant en sortie une UI. Le router n’est finalement qu’un composant comme un autre qui reçoit en entrée l’URL. L’idée que ce qui est explicite est bien meilleur que ce qui est “magique” dans une implémentation lui permet de présenter les changements de l’API dans les dernières versions du React Router avec la récupération des paramètres de l’URL via les props du composant (et plus via une mixin) ou la disparition du composant RouteHandler qui peut simplement être remplacé par `props.children` pour utiliser les “nested routes” dans ses composants.
+Il nous expose sa vision du composant comme une fonction prenant en entrée `props` et `state` et renvoyant en sortie une UI. Le router n’est finalement qu’un composant comme un autre qui reçoit en entrée l’URL. L’idée que ce qui est explicite est bien meilleur que ce qui est “magique” dans une implémentation lui permet de présenter les changements de l’API dans les dernières versions du React Router avec la récupération des paramètres de l’URL via les `props` du composant (et plus via une mixin) ou la disparition du composant `RouteHandler` qui peut simplement être remplacé par `props.children` pour utiliser les “nested routes” dans ses composants.
 
 Dans les travaux en cours, on retiendra les transitions animées qui permettent à Michael de faire une démo “wahou”. L’animation est, bien entendu, répétée en sens inverse sur l’utilisation du back du navigateur. Cette fonctionnalité a d’autant plus d’importance que changement d’URLs et animations ne sont traditionnellement pas de bons amis et posent souvent problème.
 
 Le “dynamic routing” est la deuxième démo montrant la possibilité de contextualiser l’ouverture d’une URL : sur une page, un contenu peut être ouvert dans une popup, mais en copiant et ouvrant l’URL obtenue dans un autre onglet, on a une page avec le même contenu mais une présentation différente (plus de popup).
 
-Enfin, le clou du spectacle sera la dernière démo qui échouera (un dernier commit sur le repo qui aurait provoquer une erreur) qui nous aura valu une fabuleuse danse de Ryan Florence sur la scène (venu en renfort de Michael) ! L’idée initiale était de présenter une fonctionnalité assez énorme permettant de lazy loader les JS de sa SPA en fonction des besoins de chaque route (le “gradual loading”) évitant de charger dès le départ les 3Mo de son bundle webpack alors qu’on en utilise qu’une petite partie. Il faudra attendre pour voir cette fonctionnalité en action...
+Enfin, le clou du spectacle sera la dernière démo qui échouera (un dernier commit sur le repo qui aurait provoqué une erreur) qui nous aura valu une fabuleuse danse de Ryan Florence sur la scène (venu en renfort de Michael) ! L’idée initiale était de présenter une fonctionnalité assez énorme permettant de lazy loader les JS de sa SPA en fonction des besoins de chaque route (le “gradual loading”) évitant de charger dès le départ les 3Mo de son bundle webpack alors qu’on en utilise qu’une petite partie. Il faudra attendre pour voir cette fonctionnalité en action...
 
 # Creating a GraphQL Server
 
-Après la conférence de la veille sur GraphQL, Nick Schrock et Dan Schafer nous montre comment réaliser un serveur GraphQL.
+Après la conférence de la veille sur GraphQL, Nick Schrock et Dan Schafer nous montrent comment réaliser un serveur GraphQL.
 
-GraphQL est une spécification d’échange et ne présuppose aucune technologie backend. Comme on l’a déjà vu dans la conférence précédente, l’idée est de faire de GraphQL une couche entre le client et le code backend déjà existant.
+GraphQL est une spécification d’échange et ne présuppose aucune technologie backend. Comme nous l’avons déjà vu dans la conférence précédente, l’idée est de faire de GraphQL une couche entre le client et le code backend déjà existant.
 
 Facebook, en ouvrant cette spécification et l’implémentation de référence, espère fédérer une communauté autour de cette solution. Si d’autres personnes réalisent des implémentations dans différents langages, cela permettrait à tout le monde de capitaliser sur ces techniques et de faciliter la réutilisation de code que ce soit côté client ou serveur.
 
@@ -158,7 +158,7 @@ La “stack” imaginée pour GraphQL est présentée en partant du serveur jusq
 
 Au delà de la présentation théorique, on se pose quand même la question de la mise en oeuvre concrête au dessus de code existant.
 Facebook utilise maintenant intensivement GraphQL. Par contre, ils n’utilisent pas l’implémentation de référence mais sans doute une implémentation très imbriquée à leur backend (et donc difficile à rendre open-source).
-On manque malheureusement de retour sur des questions de mise en oeuvre comme le cache ou la gestion des droits par exemple.
+On manque malheureusement de retours sur des questions de mise en oeuvre comme le cache ou la gestion des droits par exemple.
 Espérons que des “early-adopters” puissent nous faire des retours là-dessus dans les semaines/mois à venir.
 
 Pour en savoir plus, un bon article sur le sujet : [GraphQL overview : Getting start with GraphQL and Node.JS](http://blog.risingstack.com/graphql-overview-getting-started-with-graphql-and-nodejs/)
@@ -168,7 +168,7 @@ Pour en savoir plus, un bon article sur le sujet : [GraphQL overview : Getting s
 ![Michael Ridgway](https://scontent-fra3-1.xx.fbcdn.net/hphotos-xat1/t31.0-8/11157524_1634483346811327_5314578204448681932_o.jpg)
 (crédits : [Fabien Champigny - React Europe](https://www.facebook.com/media/set/?set=a.1634468596812802.1073741829.1541044122821917&type=3))
 
-Michael Ridgway [@theridgway](https://twitter.com/theridgway) aborde une notion souvent abordée ces 2 jours et sur laquelle nous avions fait un [article en décembre dernier]( http://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/).
+Michael Ridgway ([@theridgway](https://twitter.com/theridgway)) aborde une notion souvent abordée ces 2 jours et sur laquelle nous avions fait un [article en décembre dernier]( http://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/).
 
 Selon Michael, les avantages du “server rendering” sont multiples :
 
@@ -212,7 +212,7 @@ Déjà que la communauté et l’engouement autour de React ne cesse de grandir,
 
 L’organisation était vraiment impeccable (mise à part les soucis de climatisation) avec beaucoup de très bonnes idées, notamment, les bureaux au fond et sur les cotés de la salle de conférence pour que les personnes avec LapTop puissent suivre confortablement.
 
-C’est aussi plutôt étonnant, pour une conférence en france, d’avoir vu aussi peu de personnes francophones. Le public étant très majoritairement anglophone. On se dit que React n’a pas encore complètement pris en France.
+C’est aussi plutôt étonnant, pour une conférence en France, d’avoir vu aussi peu de personnes francophones. Le public étant très majoritairement anglophone. On se dit que React n’a pas encore complètement pris en France.
 
 Coté tendance, on voit qu’au niveau des librairies Flux, Redux parait clairement être celle qui attire tous les buzz. A voir dans le temps si cela suit, mais le talent indéniable de son créateur, combiné aux bonnes idées (reducers, hot reload) donne vraiment envie de s’y pencher. On regrette aussi toujours le manque de sujets autour des tests.
 
@@ -220,6 +220,6 @@ Nous attendons aussi impatiemment React Native Android, pour voir si le buzz et 
 
 GraphQL + Relay parait vraiment être la solution idéale pour réaliser simplement du data fetching coté client (React Web ou React Native), mais l’absence de Relay (toujours pas open-sourcé), combinée au manque de retour sur GraphQL pose encore de nombreuses questions.
 
-On a donc hâte d’être à la prochaine React Conférence ou React Europe pour voir la suite de l’évolution de React.
+Nous avons donc hâte d’être à la prochaine React Conférence ou React Europe pour voir la suite de l’évolution de React.
 
 [Vous pouvez retrouvez le compte rendu de la première journée ici](http://tech.m6web.fr/cr-react-europe-2015-day-one/)
