@@ -13,8 +13,8 @@ category:
 tags: [javascript, react, reactnative, video, graphql]
 image:
   feature: posts/reacteurope/reacteurope2.png
-  credit: Fred V.
-  creditlink: 
+  credit: Fabien Champigny
+  creditlink: https://www.facebook.com/media/set/?set=a.1634468596812802.1073741829.1541044122821917&type=3 
 comments: true
 ---
 
