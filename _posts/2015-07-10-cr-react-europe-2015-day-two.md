@@ -20,7 +20,7 @@ comments: true
 
 Après une [première journée pleine de nouveautés et d'annonces](http://tech.m6web.fr/cr-react-europe-2015-day-one/), voici la suite du compte rendu avec un programme encore très chargé pour cette deuxième journée de la React Europe.
 
-# Improving Your Workflow With Code Transformation (Kenny)
+# Improving Your Workflow With Code Transformation
 
 ![Sebastian](https://scontent-fra3-1.xx.fbcdn.net/hphotos-xtp1/t31.0-8/11708021_1634479723478356_6327923852808196299_o.jpg)
 (crédits : [Fabien Champigny - React Europe](https://www.facebook.com/media/set/?set=a.1634468596812802.1073741829.1541044122821917&type=3))
@@ -44,7 +44,7 @@ Steven Lusher, l’un des dev Facebook travaillant sur Relay vient de mettre un 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/OFuDvqZmUrE" frameborder="0" allowfullscreen></iframe>
 
-# The State of Animation in React (Fred)
+# The State of Animation in React
 
 ![Cheng Lou](https://scontent-fra3-1.xx.fbcdn.net/hphotos-xtp1/t31.0-8/11708006_1634480313478297_332588232232742214_o.jpg)
 (crédits : [Fabien Champigny - React Europe](https://www.facebook.com/media/set/?set=a.1634468596812802.1073741829.1541044122821917&type=3))
@@ -84,7 +84,7 @@ On retrouve dans leur approche beaucoup de concepts de la programmation fonction
 
 On reste un peu sur notre faim en ne pouvant pas aller jouer “concrêtement” avec leurs outils.
 
-# Going Mobile with React (Fred)
+# Going Mobile with React
 
 ![Jed Watson](https://scontent-fra3-1.xx.fbcdn.net/hphotos-xtp1/t31.0-8/11696380_1634481350144860_1142691694641390511_o.jpg)
 (crédits : [Fabien Champigny - React Europe](https://www.facebook.com/media/set/?set=a.1634468596812802.1073741829.1541044122821917&type=3))
@@ -117,7 +117,7 @@ Le code de l’application React Europe sera rendu open-source à la fin de la d
 
 ![Notes de @chantastic](https://pbs.twimg.com/media/CI_hYErUcAAan_P.jpg:large)
 
-# React Router (Florent)
+# React Router
 
 ![Michael Jackson](https://scontent-fra3-1.xx.fbcdn.net/hphotos-xtp1/t31.0-8/11238219_1634482576811404_3585441542448837466_o.jpg)
 (crédits : [Fabien Champigny - React Europe](https://www.facebook.com/media/set/?set=a.1634468596812802.1073741829.1541044122821917&type=3))
@@ -138,7 +138,7 @@ Le “dynamic routing” est la deuxième démo montrant la possibilité de cont
 
 Enfin, le clou du spectacle sera la dernière démo qui échouera (un dernier commit sur le repo qui aurait provoquer une erreur) qui nous aura valu une fabuleuse danse de Ryan Florence sur la scène (venu en renfort de Michael) ! L’idée initiale était de présenter une fonctionnalité assez énorme permettant de lazy loader les JS de sa SPA en fonction des besoins de chaque route (le “gradual loading”) évitant de charger dès le départ les 3Mo de son bundle webpack alors qu’on en utilise qu’une petite partie. Il faudra attendre pour voir cette fonctionnalité en action...
 
-# Creating a GraphQL Server (Matthieu)
+# Creating a GraphQL Server
 
 Après la conférence de la veille sur GraphQL, Nick Schrock et Dan Schafer nous montre comment réaliser un serveur GraphQL.
 
@@ -163,7 +163,7 @@ Espérons que des “early-adopters” puissent nous faire des retours là-dessu
 
 Pour en savoir plus, un bon article sur le sujet : [GraphQL overview : Getting start with GraphQL and Node.JS](http://blog.risingstack.com/graphql-overview-getting-started-with-graphql-and-nodejs/)
 
-# Isomorphic Flux (Florent)
+# Isomorphic Flux
 
 ![Michael Ridgway](https://scontent-fra3-1.xx.fbcdn.net/hphotos-xat1/t31.0-8/11157524_1634483346811327_5314578204448681932_o.jpg)
 (crédits : [Fabien Champigny - React Europe](https://www.facebook.com/media/set/?set=a.1634468596812802.1073741829.1541044122821917&type=3))
