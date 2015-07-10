@@ -75,8 +75,8 @@ Les Declarative Tweens sont une solution alternative interessante qui permettent
 
 Kevin Robinson nous présente comment Twitter utilise React. L’approche présentée fait la part belle au “fonctionnel”, à l’image de leur infrastructure backend.
 
-Il nous détail les mécanismes mis en place pour l’accès aux données, notamment la possibilité de gérer de manière déclarative les dépendances aux données au niveau des composants.
-Au niveau des stores, il prone l’utilisation de structures immutables en stockant un “log” d’événement et en utilisant des “reducers” pour en extraire l’état des données réel.
+Il nous détaille les mécanismes mis en place pour l’accès aux données, notamment la possibilité de gérer de manière déclarative les dépendances aux données au niveau des composants.
+Au niveau des stores, il prone l’utilisation de structures immuables en stockant un “log” d’événement et en utilisant des “reducers” pour en extraire l’état des données réel.
 
 On retrouve dans leur approche beaucoup de concepts de la programmation fonctionnel (de la même manière que Redux), mais malheureusement, aucun code n’est ouvert par Twitter à ce sujet.
 
@@ -89,11 +89,11 @@ On reste un peu sur notre faim en ne pouvant pas aller jouer “concrêtement”
 
 Jed Watson créateur du framework [TouchStone JS](http://touchstonejs.io/), un framework JS (basé sur React) permettant de faire des applications mobiles hybride (à base de Webview via Apache Cordova), nous explique comment réaliser des applis hybride grâce à React.
 
-Le débat ici est plutôt de démontrer qu’on peut malgrès les dire de certains et en connaissant quelques astuces, faire une appli mobile hybride qui ressemblera à une appli native. Pour nous prouver cela, Jed annonce que l’appli de la React Europe, dispo sur iOS et Android, et que nous avons tous utilisé a été faite avec TouchStone JS !
+Le débat ici est plutôt de démontrer qu’on peut malgrès les dires de certains et en connaissant quelques astuces, faire une appli mobile hybride qui ressemblera à une appli native. Pour nous prouver cela, Jed annonce que l’appli de la React Europe, dispo sur iOS et Android, et que nous avons tous utilisé a été faite avec TouchStone JS !
 
 > If you have great developer experience, you are much more likely to get to a great UX
 
-Jed conseille de ne pas faire de l’hybrid lorsqu’on :
+Jed conseille de ne pas faire de l’hybride lorsqu’on :
 
 * est Facebook ou Twitter
 * a beaucoup de données
@@ -128,7 +128,7 @@ Il fait ensuite l’analogie entre les vues et les URLs, affirmant que de bonnes
 
 Michael nous annonce une nouveauté dans la prochaine version : l’attribut onEnter sur la définition de route, permettant d’executer une callback avant d’afficher la page (utile par exemple pour protéger une page par authentification).
 
-Il nous expose sa vision du composant comme une fonction prenant en entrée props et state et renvoyant en sortie une UI. Le router n’est finalement qu’un composant comme un autre qui reçoit en entrée l’URL. L’idée que ce qui est explicite est bien meilleure que ce qui est “magique” dans une implémentation lui permet de présenter les changements de l’API dans les dernières versions du React Router avec la récupération des paramètres de l’URL via les props du composant (et plus via une mixin) ou la disparition du composant RouteHandler qui peut simplement être remplacé par `props.children` pour utiliser les “nested routes” dans ses composants.
+Il nous expose sa vision du composant comme une fonction prenant en entrée props et state et renvoyant en sortie une UI. Le router n’est finalement qu’un composant comme un autre qui reçoit en entrée l’URL. L’idée que ce qui est explicite est bien meilleur que ce qui est “magique” dans une implémentation lui permet de présenter les changements de l’API dans les dernières versions du React Router avec la récupération des paramètres de l’URL via les props du composant (et plus via une mixin) ou la disparition du composant RouteHandler qui peut simplement être remplacé par `props.children` pour utiliser les “nested routes” dans ses composants.
 
 Dans les travaux en cours, on retiendra les transitions animées qui permettent à Michael de faire une démo “wahou”. L’animation est, bien entendu, répétée en sens inverse sur l’utilisation du back du navigateur. Cette fonctionnalité a d’autant plus d’importance que changement d’URLs et animations ne sont traditionnellement pas de bons amis et posent souvent problème.
 
