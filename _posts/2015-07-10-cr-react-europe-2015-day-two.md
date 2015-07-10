@@ -63,11 +63,9 @@ Les Declarative Tweens sont une solution alternative interessante qui permettent
 
 ## Spring
 Cheng Lou a développé une librairie appelée `<Spring />` qui parlera aux anciens Flasheurs, tout comme lui, puisqu'elle reprend le principe d'interpolation et de courbes. Elle permet de définir une animation sur un composant React, en précisant sur chacune de ses propriétés des critères simples de transformation. La librairie se charge d'interpoler la structure du composant pour une animation fluide.
-[démo des Spring](https://github.com/chenglou/react-motion/tree/master/demo2)
 
-## Transition Springs
-[voir la démo](https://github.com/chenglou/react-motion/tree/master/demo3)
-[voir la démo](https://github.com/chenglou/react-motion/tree/master/demo4)
+[démo de Spring](https://github.com/chenglou/react-motion/tree/master/demo2)
+
 
 # Simplifying the data layer
 
