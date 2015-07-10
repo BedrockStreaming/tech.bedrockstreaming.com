@@ -111,6 +111,8 @@ Les points les plus importants pour qu’une application hybride fonctionne sont
 
 > You should not do everything in a webview, but you can
 
+La [démo](http://demo.touchstonejs.io/) présente l'ensemble des composants et des transitions disponibles. En plus de React, Touchstone.js utilise [cordova](https://cordova.apache.org/), une bibliothèque d'APIs permettant d'accéder en Javascript aux fonctions natives du mobile, comme l'accéléromètre, le GPS ou l'appareil photo.
+
 Le code de l’application React Europe sera rendu open-source à la fin de la démo : [Sketch & Code de l’app React Europe](http://thinkmill.com.au/react-europe)
 
 ![Notes de @chantastic](https://pbs.twimg.com/media/CI_hYErUcAAan_P.jpg:large)
