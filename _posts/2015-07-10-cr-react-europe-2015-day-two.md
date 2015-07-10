@@ -27,14 +27,14 @@ Après une [première journée pleine de nouveautés et d'annonces](http://tech.
 
 Nous commencons la journée avec le créateur du fameux Babel: Sebastian McKenzie.
 Babel est un transpiler JS permettant de transformer le code ES6/7 en code ES5.
-Après un petit historique sur le nom, car cet outil s’appelait 6to5 avant l’arrivée d’ES7 , pour finalement ce renommer Babel :)
-L’Adoption par la communauté a ensuite été assez massive !
+Après un petit historique sur le nom, car cet outil s’appelait 6to5 avant l’arrivée d’ES7 , pour finalement se renommer Babel :)
+L’adoption par la communauté a ensuite été assez massive !
 
 Sébastian nous explique le fonctionnement interne de Babel avec le découpage en 3 sections : Parser / Transformer / Generator
 Ils utilisent l’AST (abstract syntax tree) pour avoir une "data structure" du code et pouvoir faire des traitements sur cette structure.
-On rentre très (trop ?) en profondeur dans les bas-fond de Babel, afin de partager les différentes difficultés et trucs et astuces pour les transformations que Babel réalisent.
+On rentre très (trop ?) en profondeur dans les bas-fond de Babel, afin de partager les différentes difficultés et trucs et astuces pour les transformations que Babel réalise.
 
-Le talk ce finit sur le futur de Babel, qui sera à chercher du coté de : 
+Le talk ce finit sur le futur de Babel, qui sera à chercher du côté de : 
 
 * Dead code elimination/minification
 * constant folding/static evaluation
@@ -77,8 +77,8 @@ Les Declarative Tweens sont une solution alternative interessante qui permettent
 
 Kevin Robinson nous présente comment Twitter utilise React. L’approche présentée fait la part belle au “fonctionnel”, à l’image de leur infrastructure backend.
 
-Il nous détail les mécanismes mis en place pour l’accès aux données, notamment la possibilité de gérer de manière déclarative les dépendances aux données au niveau des composants.
-Au niveau des stores, il prone l’utilisation de structures immutables en stockant un “log” d’événement et en utilisant des “reducers” pour en extraire l’état des données réel.
+Il nous détaille les mécanismes mis en place pour l’accès aux données, notamment la possibilité de gérer de manière déclarative les dépendances aux données au niveau des composants.
+Au niveau des stores, il prone l’utilisation de structures immuables en stockant un “log” d’événement et en utilisant des “reducers” pour en extraire l’état des données réel.
 
 On retrouve dans leur approche beaucoup de concepts de la programmation fonctionnel (de la même manière que Redux), mais malheureusement, aucun code n’est ouvert par Twitter à ce sujet.
 
@@ -91,11 +91,11 @@ On reste un peu sur notre faim en ne pouvant pas aller jouer “concrêtement”
 
 Jed Watson créateur du framework [TouchStone JS](http://touchstonejs.io/), un framework JS (basé sur React) permettant de faire des applications mobiles hybride (à base de Webview via Apache Cordova), nous explique comment réaliser des applis hybride grâce à React.
 
-Le débat ici est plutôt de démontrer qu’on peut malgrès les dire de certains et en connaissant quelques astuces, faire une appli mobile hybride qui ressemblera à une appli native. Pour nous prouver cela, Jed annonce que l’appli de la React Europe, dispo sur iOS et Android, et que nous avons tous utilisé a été faite avec TouchStone JS !
+Le débat ici est plutôt de démontrer qu’on peut malgrès les dires de certains et en connaissant quelques astuces, faire une appli mobile hybride qui ressemblera à une appli native. Pour nous prouver cela, Jed annonce que l’appli de la React Europe, dispo sur iOS et Android, et que nous avons tous utilisé a été faite avec TouchStone JS !
 
 > If you have great developer experience, you are much more likely to get to a great UX
 
-Jed conseille de ne pas faire de l’hybrid lorsqu’on :
+Jed conseille de ne pas faire de l’hybride lorsqu’on :
 
 * est Facebook ou Twitter
 * a beaucoup de données
@@ -130,7 +130,7 @@ Il fait ensuite l’analogie entre les vues et les URLs, affirmant que de bonnes
 
 Michael nous annonce une nouveauté dans la prochaine version : l’attribut onEnter sur la définition de route, permettant d’executer une callback avant d’afficher la page (utile par exemple pour protéger une page par authentification).
 
-Il nous expose sa vision du composant comme une fonction prenant en entrée props et state et renvoyant en sortie une UI. Le router n’est finalement qu’un composant comme un autre qui reçoit en entrée l’URL. L’idée que ce qui est explicite est bien meilleure que ce qui est “magique” dans une implémentation lui permet de présenter les changements de l’API dans les dernières versions du React Router avec la récupération des paramètres de l’URL via les props du composant (et plus via une mixin) ou la disparition du composant RouteHandler qui peut simplement être remplacé par `props.children` pour utiliser les “nested routes” dans ses composants.
+Il nous expose sa vision du composant comme une fonction prenant en entrée props et state et renvoyant en sortie une UI. Le router n’est finalement qu’un composant comme un autre qui reçoit en entrée l’URL. L’idée que ce qui est explicite est bien meilleur que ce qui est “magique” dans une implémentation lui permet de présenter les changements de l’API dans les dernières versions du React Router avec la récupération des paramètres de l’URL via les props du composant (et plus via une mixin) ou la disparition du composant RouteHandler qui peut simplement être remplacé par `props.children` pour utiliser les “nested routes” dans ses composants.
 
 Dans les travaux en cours, on retiendra les transitions animées qui permettent à Michael de faire une démo “wahou”. L’animation est, bien entendu, répétée en sens inverse sur l’utilisation du back du navigateur. Cette fonctionnalité a d’autant plus d’importance que changement d’URLs et animations ne sont traditionnellement pas de bons amis et posent souvent problème.
 
@@ -189,7 +189,7 @@ Pour la mise en oeuvre de Flux côté serveur, nous avons déjà vu au cours de 
 
 [Fluxible](http://fluxible.io) crée un contexte pour chaque requête côté serveur avec un dispatcher custom optimisé pour cette opération. L’état de l’application est transmis du serveur vers le client grâce à un mécanisme de déshydratation/réhydratation des stores.
 
-Michael précise que Fluxible force les développeurs à utiliser Flux de manière conforme sans transgresser les pratiques définies par le modèle. La librairie fournit des composants de haut niveau permettant une parfaite intégration avec React. Enfin, la particularité de Fluxible est son système de plugins permettant de facilité l’ajout de nouvelles fonctionnalités.
+Michael précise que Fluxible force les développeurs à utiliser Flux de manière conforme sans transgresser les pratiques définies par le modèle. La librairie fournit des composants de haut niveau permettant une parfaite intégration avec React. Enfin, la particularité de Fluxible est son système de plugins permettant de faciliter l’ajout de nouvelles fonctionnalités.
 
 Michael nous montre un exemple de chat isomorphique et la différence observée au chargement avec une SPA classique. Il précise ensuite les outils de développement qu’il utilise :
 
@@ -201,22 +201,22 @@ Michael nous montre un exemple de chat isomorphique et la différence observée 
 * Yeoman Generators
 
 Michael termine sa conf en indiquant que plusieurs applications en prod chez Yahoo utilisent la stack présentée et Fluxible mais qu’il reste encore quelques améliorations à apporter pour les raisons suivantes :
-Les dépendences des composants envers les données ne sont pas facilement connues (rendant le data fetching en amont du rendering côté serveur délicat). Relay pourrait être une solution.
+Les dépendances des composants envers les données ne sont pas facilement connues (rendant le data fetching en amont du rendering côté serveur délicat). Relay pourrait être une solution.
 Le rendu côté serveur de React est relativement lent (mais pourrait être amélioré dans les futures version de React).
 Le Hot Reloading (avec React Hot Loader) ne fonctionne pas avec les stores Fluxible.
 
 # Conclusion
 
 Que dire après ces deux jours de conférence ? 
-Déjà que la communauté et l’engouement autour de React ne cesse de grandir, mais aussi que ca ne chome pas coté Facebook avec Relay, GraphQL, Animated, React Native Android qui ne devraient pas tarder à pointer le bout de leur nez, avec aussi la mise en place d’une personne full time sur Jest ! C’est rassurant sur l’avenir court/moyen terme de React.
+Déjà que la communauté et l’engouement autour de React ne cesse de grandir, mais aussi que ca ne chôme pas coté Facebook avec Relay, GraphQL, Animated, React Native Android qui ne devraient pas tarder à pointer le bout de leur nez, avec aussi la mise en place d’une personne full time sur Jest ! C’est rassurant sur l’avenir court/moyen terme de React.
 
-L’organisation était vraiment impeccable (mise à part les soucis de climatisation) avec beaucoup de très bonnes idées, notamment, les bureaux au fond et sur les cotés de la salle de conférence pour que les personnes avec LapTop puisse suivre confortablement.
+L’organisation était vraiment impeccable (mise à part les soucis de climatisation) avec beaucoup de très bonnes idées, notamment, les bureaux au fond et sur les cotés de la salle de conférence pour que les personnes avec LapTop puissent suivre confortablement.
 
-C’est aussi plutôt étonnant, pour une conférence en france, d’avoir vu aussi peu de personnes francophone. Le public étant très majoritairement anglophone. On se dit que React n’a pas encore complétement pris en France.
+C’est aussi plutôt étonnant, pour une conférence en france, d’avoir vu aussi peu de personnes francophones. Le public étant très majoritairement anglophone. On se dit que React n’a pas encore complètement pris en France.
 
 Coté tendance, on voit qu’au niveau des librairies Flux, Redux parait clairement être celle qui attire tous les buzz. A voir dans le temps si cela suit, mais le talent indéniable de son créateur, combiné aux bonnes idées (reducers, hot reload) donne vraiment envie de s’y pencher. On regrette aussi toujours le manque de sujets autour des tests.
 
-Nous attendons aussi impatiemment React Native Android, pour voir si le buzz et les superbes promesses sont toujours présente avec deux environnements cibles, et on espère voir sur nos stores de plus en plus d’applis React Native.
+Nous attendons aussi impatiemment React Native Android, pour voir si le buzz et les superbes promesses sont toujours présentes avec deux environnements cibles, et on espère voir sur nos stores de plus en plus d’applis React Native.
 
 GraphQL + Relay parait vraiment être la solution idéale pour réaliser simplement du data fetching coté client (React Web ou React Native), mais l’absence de Relay (toujours pas open-sourcé), combiné au manque de retour sur GraphQL pose encore de nombreuses questions.
 
