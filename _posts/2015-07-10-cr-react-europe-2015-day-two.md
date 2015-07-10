@@ -51,20 +51,19 @@ Steven Lusher, l’un des dev Facebook travaillant sur Relay vient de mettre un 
 
 ![Cheng Lou Notes](https://pbs.twimg.com/media/CI_C8rIVEAA34Sa.jpg:large)
 
-Cheng Lou fait le point sur les animations en React et nous présente sa nouvelle approche [react-motion](https://github.com/chenglou/react-motion)
+Cheng Lou fait le point sur les animations en React et nous présente sa nouvelle approche [react-motion](https://github.com/chenglou/react-motion).
 
-Il est convaincu qu'il faut abandonner les [ReactCssTransitionGroup](https://facebook.github.io/react/docs/animation.html) au profit des animations basées sur des interpolations “à-la-flash".
+Il est convaincu qu'il faut abandonner les [ReactCssTransitionGroup](https://facebook.github.io/react/docs/animation.html) au profit des animations basées sur des interpolations "à-la-flash".
 
 ## CSS Transitions
-
 Les Transitions CSS présentent plusieurs défaut, elles sont difficiles à controler et elles sont étroitement liées au DOM. En revanche, elles sont plutôt performantes, non bloquantes et répondent à la plupart des usages.
 
 ## Declarative Tweens
-
 Les Declarative Tweens sont une solution alternative interessante qui permettent de composer une animation selon des critères précis (début, durée, direction, …). Cette solution présente aussi l’avantage de pouvoir créer des animations composées de plusieurs sous-animations et d'interrompre leur execution sur demande.
 
-## Springs
-[voir la démo](https://github.com/chenglou/react-motion/tree/master/demo2)
+## Spring
+Cheng Lou a développé une librairie appelée `<Spring />` qui parlera aux anciens Flasheurs, tout comme lui, puisqu'elle reprend le principe d'interpolation et de courbes. Elle permet de définir une animation sur un composant React, en précisant sur chacune de ses propriétés des critères simples de transformation. La librairie se charge d'interpoler la structure du composant pour une animation fluide.
+[démo des Spring](https://github.com/chenglou/react-motion/tree/master/demo2)
 
 ## Transition Springs
 [voir la démo](https://github.com/chenglou/react-motion/tree/master/demo3)
