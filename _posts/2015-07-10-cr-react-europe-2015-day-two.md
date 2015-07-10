@@ -25,9 +25,9 @@ Après une [première journée pleine de nouveautés et d'annonces](http://tech.
 ![Sebastian](https://scontent-fra3-1.xx.fbcdn.net/hphotos-xtp1/t31.0-8/11708021_1634479723478356_6327923852808196299_o.jpg)
 (crédits : [Fabien Champigny - React Europe](https://www.facebook.com/media/set/?set=a.1634468596812802.1073741829.1541044122821917&type=3))
 
-Nous commencons la journée avec le créateur du fameux Babel: Sebastian McKenzie.
+Nous commençons la journée avec le créateur du fameux Babel: Sebastian McKenzie.
 Babel est un transpiler JS permettant de transformer le code ES6/7 en code ES5.
-Après un petit historique sur le nom, car cet outil s’appelait 6to5 avant l’arrivée d’ES7 , pour finalement se renommer Babel :)
+Après un petit historique sur le nom, car cet outil s’appelait 6to5 avant l’arrivée d’ES7, pour finalement se renommer Babel :)
 L’adoption par la communauté a ensuite été assez massive !
 
 Sébastian nous explique le fonctionnement interne de Babel avec le découpage en 3 sections : Parser / Transformer / Generator
@@ -218,7 +218,7 @@ Coté tendance, on voit qu’au niveau des librairies Flux, Redux parait clairem
 
 Nous attendons aussi impatiemment React Native Android, pour voir si le buzz et les superbes promesses sont toujours présentes avec deux environnements cibles, et on espère voir sur nos stores de plus en plus d’applis React Native.
 
-GraphQL + Relay parait vraiment être la solution idéale pour réaliser simplement du data fetching coté client (React Web ou React Native), mais l’absence de Relay (toujours pas open-sourcé), combiné au manque de retour sur GraphQL pose encore de nombreuses questions.
+GraphQL + Relay parait vraiment être la solution idéale pour réaliser simplement du data fetching coté client (React Web ou React Native), mais l’absence de Relay (toujours pas open-sourcé), combinée au manque de retour sur GraphQL pose encore de nombreuses questions.
 
 On a donc hâte d’être à la prochaine React Conférence ou React Europe pour voir la suite de l’évolution de React.
 
