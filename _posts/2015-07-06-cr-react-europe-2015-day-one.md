@@ -270,7 +270,7 @@ Rajouter à ça le Redux Dev Tools qui permet de suivre en temps réel les actio
 
 L’idée derrière Redux (son implémentation du pattern Flux) est de faire un Store immuable. On peut résumer une action à une fonction prenant en entrée un état du store et donnant en sortie un nouvel état du Store (sans toucher au premier). En partant de ce principe, appliquer une série d’actions revient simplement à effectuer une réduction (un “reduce”). 
 On applique ici les principes d’[Event Sourcing](http://martinfowler.com/eaaDev/EventSourcing.html).
-L’immutabilité permet de stocker les différents états intermédiaires du store et donc de naviguer extrêmement facilement dans les différentes versions pendant le développement.
+L’immuabilité permet de stocker les différents états intermédiaires du store et donc de naviguer extrêmement facilement dans les différentes versions pendant le développement.
 
 Plus d’infos ici : [The evolution of flux](https://medium.com/@dan_abramov/the-evolution-of-flux-frameworks-6c16ad26bb31)
 
