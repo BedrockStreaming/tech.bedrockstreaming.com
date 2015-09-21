@@ -29,4 +29,4 @@ Ce monitoring vous permettra de retrouver la vue sur vos projets, pour mieux ant
 
 
 
-**[Monitoring applicatif : Pourquoi et comment ?](http://www.slideshare.net/kennydee/monitoring-applicatif-pourquoi-et-comment "Monitoring applicatif : Pourquoi et comment ?")**<object height="355" id="__sse13336162" width="425"><param name="movie" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=graphitewebeventpartage-120615034124-phpapp01&stripped_title=monitoring-applicatif-pourquoi-et-comment&userName=kennydee"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"></param><param name="wmode" value="transparent"></param></object>
+**[Monitoring applicatif : Pourquoi et comment ?](http://www.slideshare.net/kennydee/monitoring-applicatif-pourquoi-et-comment "Monitoring applicatif : Pourquoi et comment ?")**<iframe src="//fr.slideshare.net/slideshow/embed_code/key/4SISPpvF2jp4Tf" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
