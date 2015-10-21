@@ -35,10 +35,10 @@ Au niveau tests, et parce que nous ne concevons plus de développer de tels proj
 * [Cucumber.js](https://cucumber.io/docs/reference/javascript), [WebdriverIO](http://webdriver.io/) et [PhantomJS](http://phantomjs.org/) pour les tests fonctionnels
 * [superagent-mock](https://github.com/M6Web/superagent-mock) (\o/) pour mocker les requêtes HTTP des services externes
 * [Jenkins](https://jenkins-ci.org/) pour l'intégration continue
-* [React Hot Loader](https://github.com/gaearon/react-hot-loader) pour le confort de DX (Developer Experience)
+* [React Hot Loader](https://github.com/gaearon/react-hot-loader) pour améliorer la DX (Developer eXperience)
 
 Depuis lundi, vous pouvez désormais tester la bêta de ce service vidéo à l'adresse suivante : [http://beta.6play.fr](http://beta.6play.fr)
 
-![6play Beta](/images/posts/6play/screen.jpg)
+[![6play Beta](/images/posts/6play/screen.jpg)](http://beta.6play.fr)
 
-Pour ceux qui veulent en savoir plus sur cette refonte (notamment front-end), une conférence sera tenue par Kenny Dits ([@kenny_dee](https://twitter.com/kenny_dee)) lors de la [Blend Web Mix](http://www.blendwebmix.com/programme.html), le 29 octobre à Lyon à 16h.
+Pour ceux qui veulent en savoir plus sur cette refonte (notamment front-end), une conférence sera tenue par Kenny Dits ([@kenny_dee](https://twitter.com/kenny_dee)) lors de [Blend Web Mix](http://www.blendwebmix.com/programme.html), le 29 octobre à Lyon à 16h.
