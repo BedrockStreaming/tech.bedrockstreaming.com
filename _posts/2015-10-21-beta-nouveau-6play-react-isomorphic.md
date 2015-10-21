@@ -12,7 +12,7 @@ author:
 category:
 tags: [6play, react, isomorphic, javascript, flux]
 image:
-  feature: posts/logo.jpg
+  feature: posts/6play/logo.jpg
   credit: 
   creditlink: 
 comments: true
