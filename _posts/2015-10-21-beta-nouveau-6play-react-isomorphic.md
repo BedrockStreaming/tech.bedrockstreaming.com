@@ -31,7 +31,7 @@ Nous avons donc travaillé depuis le début d'année à la mise en place du nouv
 Au niveau tests, et parce que nous ne concevons plus de développer de tels projets sans une approche qualité complète : 
 
 * [ESLint](http://eslint.org/) pour le respect des conventions de codage
-* [Jest](https://facebook.github.io/jest/) pour les Tests unitaires
+* [Jest](https://facebook.github.io/jest/) pour les tests unitaires
 * [Cucumber.js](https://cucumber.io/docs/reference/javascript), [WebdriverIO](http://webdriver.io/) et [PhantomJS](http://phantomjs.org/) pour les tests fonctionnels
 * [superagent-mock](https://github.com/M6Web/superagent-mock) (\o/) pour mocker les requêtes HTTP des services externes
 * [Jenkins](https://jenkins-ci.org/) pour l'intégration continue
