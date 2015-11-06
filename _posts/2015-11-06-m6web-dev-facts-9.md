@@ -32,9 +32,9 @@ comments: true
 
 # Dyslexie
 
-> X : Il parait que Marven n'arrive pas à hériter de la config de java par défaut °°
-> Y : marven ? connais pas
-> Z : c'est l'équivalent Java de comrposer :)
+> * X : Il parait que Marven n'arrive pas à hériter de la config de java par défaut °°
+> * Y : marven ? connais pas
+> * Z : c'est l'équivalent Java de comrposer :)
 
 # Régime Fifa
 
@@ -46,8 +46,8 @@ comments: true
 
 # Soif
 
-> X : Rappel important : on a 12 litres de rosé à boire avant vendredi prochain (et un pack de heinekein).
-> X : si on ne s'y prend pas en avance ça va être la panique
+> * X : Rappel important : on a 12 litres de rosé à boire avant vendredi prochain (et un pack de heinekein).
+> * X : si on ne s'y prend pas en avance ça va être la panique
 
 # La prod de la dev ?
 
@@ -55,18 +55,18 @@ comments: true
 
 # Error or not error
 
-> X : c'est parce que tu pars du principe que le message d'erreur a un rapport avec l'erreur 
-> Y : euh ce qui devrait être le cas non ? 
-> X : ouais, mais bon...
+> * X : c'est parce que tu pars du principe que le message d'erreur a un rapport avec l'erreur 
+> * Y : euh ce qui devrait être le cas non ? 
+> * X : ouais, mais bon...
 
 # C'était un message digital
 
-> X : pour les massage d'erreur
-> Y : Les massages d'erreur ?
-> Z : humm les massages
-> Y : La première partie me tente, mais d'erreur ?
-> X : un laius digital
-> Y : oula ... massage ... digital
+> * X : pour les massage d'erreur
+> * Y : Les massages d'erreur ?
+> * Z : humm les massages
+> * Y : La première partie me tente, mais d'erreur ?
+> * X : un laius digital
+> * Y : oula ... massage ... digital
 
 # En Famille
 
@@ -78,7 +78,7 @@ comments: true
 
 # Formalisme
 
-> En tant qu'ordinateur ayant accès à l'INTERNET MONDIAL et voulant naviguer sur le site internet de M6 se nommant 6PALY.FR mettre un titre dans la balise <title> ... merci
+> En tant qu'ordinateur ayant accès à l'INTERNET MONDIAL et voulant naviguer sur le site internet de M6 se nommant 6PALY.FR mettre un titre dans la balise \<title\> ... merci
 
 # Les gouts et les couleurs
 
