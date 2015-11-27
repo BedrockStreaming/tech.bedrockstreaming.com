@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "L'envers du décors du nouveau 6play"
-description: "Présentation du backend derrières les nouvelles applications 6play"
+description: "Présentation du backend derrière les nouvelles applications 6play"
 author:
   name:     TechM6Web
   avatar:   
@@ -18,7 +18,7 @@ image:
 comments: true
 ---
 
-Il y a quelques semaines, nous vous publions ici même de la [stack technique mise en place pour le nouveau front web de 6play](/beta-nouveau-6play-react-isomorphic/).
+Il y a quelques semaines, nous vous parlions ici même de la [stack technique mise en place pour le nouveau front web de 6play](/beta-nouveau-6play-react-isomorphic/).
 
 Aujourd'hui, nous vous proposons un retour sur ce qui a été mis en place côté backend pour assurer la mise à disposition des données aux différents frontaux 6play.
 
@@ -33,7 +33,7 @@ Pour sécuriser tout ça, nous utilisons toujours notre bundle [DomainUserBundle
 
 # ... mais pas que
 
-Toutefois, une fois mise en place la théorie brute, nous nous sommes heurtés à la réalité des choses : face à un modèle de données complexe, si on reste très strict face à la philosophie RESTFull, nous passons notre temps à faire des requêtes à l'API.
+Une fois mise en place la théorie brute, nous nous sommes heurtés à la réalité des choses : face à un modèle de données complexe, si on reste très strict face à la philosophie RESTFull, nous passons notre temps à faire des requêtes à l'API.
 
 Ainsi, nous avons un second applicatif, que nous nommons "middleware" qui est un hybride entre une API REST et un catalogue de données préformaté. Dans cet applicatif, nous réalisons les aggrégations qui permettent de récupérer de manière unifiée les données liées, permettant aux frontaux de réduire leurs appels.
 
