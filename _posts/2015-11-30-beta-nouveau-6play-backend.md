@@ -81,4 +81,4 @@ Côté tests, tous les tests unitaires ont été écrits avec [atoum](https://gi
 
 # Conclusion
 
-Au cours de ce projet, nous avons eu l'occasion de transformer l'essai de beaucoup de choses que nous avions fait pour RisingStar, de découvrir de nouvelles technos et de mettre en place une architecture moderne et adaptée aux nouveaux challenges des fronts.
+Au cours de ce projet, nous avons eu l'occasion de transformer l'essai de beaucoup de choses que nous avions faites pour RisingStar, de découvrir de nouvelles technos et de mettre en place une architecture moderne et adaptée aux nouveaux challenges des fronts.
