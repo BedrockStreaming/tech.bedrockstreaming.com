@@ -38,7 +38,7 @@ Pour sécuriser tout ça, nous utilisons toujours notre bundle [DomainUserBundle
 
 # ... mais pas que
 
-Une fois mise en place la théorie brute, nous nous sommes heurtés à la réalité des choses : face à un modèle de données complexe, si on reste très strict face à la philosophie RESTFull, cela peux demander aux clients de réaliser un nombre conséquent de requêtes afin d'afficher une simple page.
+Une fois mise en place la théorie brute, nous nous sommes heurtés à la réalité des choses : face à un modèle de données complexe, si on reste très strict face à la philosophie RESTful, cela peux demander aux clients de réaliser un nombre conséquent de requêtes afin d'afficher une simple page.
 
 Ainsi, nous avons un second applicatif, que nous nommons "middleware" qui est un hybride entre une API REST et un catalogue de données préformaté. Dans cet applicatif, nous réalisons les agrégations qui permettent de récupérer de manière unifiée les données liées, permettant aux frontaux de réduire leurs appels.
 
