@@ -33,6 +33,7 @@ Here some projects open sourced:
 # Bundle and libs
     
 * [AmqpBundle](https://github.com/M6Web/AmqpBundle): The AmqpBundle incorporates messaging in your application using the php-amqp extension.
+* [ApiExceptionBundle](https://github.com/M6Web/ApiExceptionBundle): The ApiExceptionBundle manages exceptions for your API and return a clean json.
 * [AwsBundle](https://github.com/M6Web/AwsBundle): [AWS SDK](http://aws.amazon.com/sdkforphp/) as a Symfony2 service, with WSClientBundle functionnality (cache, logging, ...)
 * [behat-seo-extension](https://github.com/M6Web/behat-seo-extension): Behat extension provinding specific features for testing the SEO of a website
 * [DaemonBundle](https://github.com/M6Web/DaemonBundle) Bundle easing the creation of daemon sf2 commands
