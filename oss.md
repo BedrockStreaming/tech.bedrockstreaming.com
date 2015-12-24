@@ -53,7 +53,6 @@ Here some projects open sourced:
 * [StatsdBundle](https://github.com/M6Web/StatsdBundle): Symfony2 Bundle easing the statsd usage
 * [superagent-mock](https://github.com/M6Web/superagent-mock): [superagent](https://github.com/visionmedia/superagent) plugin allowing to simulate HTTP calls
 * [websocket-bench](https://github.com/M6Web/websocket-bench): Nodejs cli tool for benchmark web socket server, currently support (socket.io, faye)
-* [WsClientBundle](https://github.com/M6Web/WsClientBundle): Symfony2 bundle service to call external webservices, and adding cache, logging, ...
 
 # Contribution to free projects
 
