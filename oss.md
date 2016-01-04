@@ -72,6 +72,7 @@ Throught github we participated to the improvement (we hope so) of many open sou
 [#256](https://github.com/nelmio/NelmioApiDocBundle/pull/256) -  [#258](https://github.com/nelmio/NelmioApiDocBundle/pull/258) - [#277](https://github.com/nelmio/NelmioApiDocBundle/pull/277)
 * [willdurand/BazingaHateoasBundle](https://github.com/willdurand/BazingaHateoasBundle): [#9](https://github.com/willdurand/BazingaHateoasBundle/pull/9)
 * [macbre/phantomas](https://github.com/macbre/phantomas): [#166](https://github.com/macbre/phantomas/pull/166)
+* [FriendsOfSymfony/FOSRestBundle](https://github.com/FriendsOfSymfony/FOSRestBundle): [#1110](https://github.com/FriendsOfSymfony/FOSRestBundle/pull/1110)
 * [sensiolabs/SensioFrameworkExtraBundle](https://github.com/sensiolabs/SensioFrameworkExtraBundle): [#260](https://github.com/sensiolabs/SensioFrameworkExtraBundle/pull/260)
 * [guzzle/guzzle3](https://github.com/guzzle/guzzle3): [#38](https://github.com/guzzle/guzzle3/pull/38)
 * [grafana/grafana](https://github.com/grafana/grafana): [#974](https://github.com/grafana/grafana/pull/974)
