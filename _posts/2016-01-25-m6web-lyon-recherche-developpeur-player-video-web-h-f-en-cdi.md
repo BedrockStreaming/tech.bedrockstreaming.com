@@ -25,7 +25,7 @@ Vous maitrisez les problématiques et les technologies Frontend :
 *	ECMAScript 2015 « ES6 »
 *	VideoJS
 *	Gulp / Grunt
-*	Les outils de testing (Jasmine, qUnit, Jest, PhantomJS ...)
+*	Les outils de testing (Jasmine, qUnit, Jest, PhantomJS, BrowserStack ...)
 
 
 Vous avez une bonne connaissance des problématiques vidéos :
