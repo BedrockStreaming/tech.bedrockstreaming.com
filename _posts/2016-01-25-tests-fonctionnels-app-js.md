@@ -20,7 +20,7 @@ comments: true
 
 L’utilité des tests fonctionnels pour les applications web n’est plus à démontrer (comment ça, vous ne testez pas encore vos apps ?). Malheureusement, tout ne peut pas être totalement testé fonctionnellement, ou de façon aisée : je pense par exemple au player chez nous, un composant stratégique mais pauvrement testé fonctionnellement de par sa nature un peu hybride (mélange de flash et de JS). Dans tous les cas, pour ce qui peut l’être, nous sommes partisans dans l’équipe Cytron d’user sans mesure (ou presque !) de cet outil de manière à être le plus zen possible au moment d’appuyer sur le bouton “deploy”.
 
-## Quel stack ?
+## Quelle stack ?
 
 Notre application est codée en JS isomorphique (ou [Universal JS](https://medium.com/@mjackson/universal-javascript-4761051b7ae9#.2srtfrqku)) grâce à [React et Node.js](/beta-nouveau-6play-react-isomorphic/).
 
