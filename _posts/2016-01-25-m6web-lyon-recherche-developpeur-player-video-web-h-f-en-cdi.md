@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "M6Web Lyon recherche un Developpeur player vidéo (H/F) en CDI"
-description: ""
+title: "M6Web Lyon recherche un développeur player vidéo JavaScript (H/F) en CDI"
+description: "M6Web Lyon recherche un développeur player vidéo JavaScript (H/F) en CDI"
 author:
   name:           M6Web
   avatar:         
