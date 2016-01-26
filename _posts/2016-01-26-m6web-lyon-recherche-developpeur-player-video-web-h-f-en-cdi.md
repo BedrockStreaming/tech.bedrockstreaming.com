@@ -46,7 +46,7 @@ Le profil recherché se caractérise par :
 
 * Une très forte sensibilité sur les sujets Vidéo et Qualité de Service 
 * Un goût prononcé pour l'innovation
-* Une bonne culture du web et du monde du digital
+* Une bonne culture du web et du monde du numérique
 * Une aptitude à la prise d'initiatives, un grand dynamisme, une curiosité et une ouverture d'esprit
 * Une connaissance (idéalement validée par une première expérience) des Méthodes Agiles (Scrum), et une culture de l'amélioration continue 
 
