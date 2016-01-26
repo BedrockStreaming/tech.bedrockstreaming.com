@@ -18,7 +18,7 @@ image:
 comments: false  
 ---
 
-Au sein de l'équipe Player Vidéo, en charge entre autre de [6play](http://www.6play.fr) et des lecteurs vidéos des autres portails Internet d'M6 Web ([Clubic.com](http://www.clubic.com), [Deco.fr](http://www.deco.fr), ...), vous participez à la conception technique et au développement de nos players vidéos.
+Au sein de la team Tube (équipe Player Vidéo), en charge entre autre du player [6play](http://www.6play.fr) et des lecteurs vidéos des autres portails Internet d'M6 Web ([Clubic.com](http://www.clubic.com), [Deco.fr](http://www.deco.fr), ...), vous participez à la conception technique et au développement de nos players vidéos.
 
 Vous maitrisez les problématiques et les technologies Frontend :
 
@@ -32,7 +32,7 @@ Vous avez une bonne connaissance des problématiques vidéos :
 
 *	Les nombreux formats en streaming mais aussi en Progressive Download
 *	Les contraintes d'encodage vidéo
-*	Les problématiques autour de la sécurité (le chiffrement, les DRMs du marché, .)
+*	Les problématiques autour de la sécurité (le chiffrement, les DRMs du marché, ...)
 
 
 Par ailleurs, vous avez déjà eu à travailler sur l'intégration de formats publicitaires.
@@ -44,7 +44,7 @@ Vous aurez des interactions avec les équipes Produit de Paris, ainsi qu'avec no
 
 Le profil recherché se caractérise par : 
 
-* Une très forte sensibilité sur les sujets Vidéo et Qualité de Services 
+* Une très forte sensibilité sur les sujets Vidéo et Qualité de Service 
 * Un goût prononcé pour l'innovation
 * Une bonne culture du web et du monde du digital
 * Une aptitude à la prise d'initiatives, un grand dynamisme, une curiosité et une ouverture d'esprit
