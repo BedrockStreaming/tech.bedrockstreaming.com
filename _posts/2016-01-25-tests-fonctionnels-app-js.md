@@ -226,7 +226,7 @@ Pour lancer les tests, il faut :
 
 ## Particularité de l’isomorphisme
 
-Deux chemins sont possibles avec l’isomorphisme. Soit l’utilisateur arrive directement sur la page, auquel cas celle-ci sera générée sur le serveur, soit il y arrive en naviguant sur l’app et c’est le client qui aura exécuté le code. Il faut tester ces deux cas car le code concerné n’est pas toujours le même (la variable `window par exemple n’est pas accessible côté serveur).
+Deux chemins sont possibles avec l’isomorphisme. Soit l’utilisateur arrive directement sur la page, auquel cas celle-ci sera générée sur le serveur, soit il y arrive en naviguant sur l’app et c’est le client qui aura exécuté le code. Il faut tester ces deux cas car le code concerné n’est pas toujours le même (la variable `window` par exemple n’est pas accessible côté serveur).
 
 Il est bien sûr impossible d’être exhaustif. L’idée est d’abord de couvrir les cas les plus fréquents et les plus critiques pour l’application. Ensuite, il faut s’astreindre à ajouter un test à chaque fois qu’un bug est détecté de façon à s’assurer qu’on ne le rencontrera plus dans le futur.
 
