@@ -212,7 +212,7 @@ module.exports = function () {
 {% endhighlight %}
 
 ### Design
-Nous n'avons pas mis en œuvre le [pattern Page Object](http://blog.josephwilk.net/cucumber/page-object-pattern.html). Ce n'était pas un choix délibéré mais le contexte et les enjeux du projet nous ont fait passé à côté, ou ce n'était peut être simplement pas le moment. Malgré tout, nous avons tenté de rationaliser au mieux l'organisation du code. Par exemple, afin de ne pas se retrouver avec des sélecteurs CSS éparpillés dans plusieurs fichiers de “features” ou de “step definitions”, nous avons choisi de les regrouper dans un fichier `constants.json` et d’utiliser seulement des labels ailleurs. Nous faisons le lien entre le label et le sélecteur CSS avec la méthode `getDOMSelector`, visible ci-dessus et définie dans le fichier `world.js`.
+Nous n'avons pas mis en œuvre le [pattern Page Object](http://blog.josephwilk.net/cucumber/page-object-pattern.html). Ce n'était pas un choix délibéré mais le contexte et les enjeux du projet nous ont fait passer à côté, ou ce n'était peut être simplement pas le moment. Malgré tout, nous avons tenté de rationaliser au mieux l'organisation du code. Par exemple, afin de ne pas se retrouver avec des sélecteurs CSS éparpillés dans plusieurs fichiers de “features” ou de “step definitions”, nous avons choisi de les regrouper dans un fichier `constants.json` et d’utiliser seulement des labels ailleurs. Nous faisons le lien entre le label et le sélecteur CSS avec la méthode `getDOMSelector`, visible ci-dessus et définie dans le fichier `world.js`.
 
 ### Run 
 Pour lancer les tests, il faut :
