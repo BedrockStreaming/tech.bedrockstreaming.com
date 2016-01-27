@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "M6Web Lyon recherche un développeur player vidéo JavaScript (H/F) en CDI"
-description: "M6Web Lyon recherche un développeur player vidéo JavaScript (H/F) en CDI"
+description: "M6Web Lyon recherche un développeur de lecteur vidéo JavaScript (H/F) en CDI"
 author:
   name:           M6Web
   avatar:         
@@ -18,19 +18,19 @@ image:
 comments: false  
 ---
 
-Au sein de la team Tube (équipe Player Vidéo), en charge entre autre du player [6play](http://www.6play.fr) et des lecteurs vidéos des autres portails Internet d'M6 Web ([Clubic.com](http://www.clubic.com), [Deco.fr](http://www.deco.fr), ...), vous participez à la conception technique et au développement de nos players vidéos.
+Au sein de la team Tube (équipe Lecteur Vidéo), en charge entre autre du lecteur de [6play](http://www.6play.fr) et des lecteurs vidéos des autres portails Internet d'M6 Web ([Clubic.com](http://www.clubic.com), [Deco.fr](http://www.deco.fr), ...), vous participez à la conception technique et au développement de nos lecteurs vidéos.
 
-Vous maitrisez les problématiques et les technologies Frontend :
+Vous maitrisez les problématiques et les technologies Web :
 
 *	ECMAScript 2015 « ES6 »
 *	VideoJS
 *	Gulp / Grunt
-*	Les outils de testing (Jasmine, qUnit, Jest, PhantomJS, BrowserStack ...)
+*	Les outils de tests (Jasmine, qUnit, Jest, PhantomJS, BrowserStack ...)
 
 
 Vous avez une bonne connaissance des problématiques vidéos :
 
-*	Les nombreux formats en streaming mais aussi en Progressive Download
+*	Les nombreux formats en diffusion continue (streaming) mais aussi en téléchargement progressif ([Progressive Download](https://en.wikipedia.org/wiki/Progressive_download))
 *	Les contraintes d'encodage vidéo
 *	Les problématiques autour de la sécurité (le chiffrement, les DRMs du marché, ...)
 
@@ -46,7 +46,7 @@ Le profil recherché se caractérise par :
 
 * Une très forte sensibilité sur les sujets Vidéo et Qualité de Service 
 * Un goût prononcé pour l'innovation
-* Une bonne culture du web et du monde du digital
+* Une bonne culture du web et du monde du numérique
 * Une aptitude à la prise d'initiatives, un grand dynamisme, une curiosité et une ouverture d'esprit
 * Une connaissance (idéalement validée par une première expérience) des Méthodes Agiles (Scrum), et une culture de l'amélioration continue 
 
