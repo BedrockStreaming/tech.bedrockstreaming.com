@@ -52,6 +52,7 @@ Here some projects open sourced:
 * [sprintf-mock](https://github.com/M6Web/sprintf-mock): [sprintf-js](https://github.com/alexei/sprintf.js) plugin allowing to mock sprintf behaviour
 * [StatsdBundle](https://github.com/M6Web/StatsdBundle): Symfony2 Bundle easing the statsd usage
 * [superagent-mock](https://github.com/M6Web/superagent-mock): [superagent](https://github.com/visionmedia/superagent) plugin allowing to simulate HTTP calls
+* [Symfony2MockerExtension](https://github.com/PolishSymfonyCommunity/Symfony2MockerExtension) Symfony2 mocker for Behat
 * [websocket-bench](https://github.com/M6Web/websocket-bench): Nodejs cli tool for benchmark web socket server, currently support (socket.io, faye)
 
 # Contribution to free projects
