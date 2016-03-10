@@ -55,7 +55,7 @@ pygments:    true
 markdown:    kramdown
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink:   /:categories/:title
+permalink:   /:categories/:title/
 
 # Split posts over multiple subdirectories called “page2”, “page3”, … “pageN”
 paginate: 20
