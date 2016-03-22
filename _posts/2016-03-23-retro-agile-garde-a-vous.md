@@ -12,7 +12,7 @@ author:
 category: 
 tags: [agile, scrum]
 image:
-  feature: posts/retro/retroagile.png
+  feature: posts/Retro_gardeavous.png
   credit: 
   creditlink:  
 ---
@@ -178,5 +178,5 @@ Force et Scrum !
 <iframe width="560" height="315" src="https://www.youtube.com/embed/5pZP2PEfjmw" frameborder="0" allowfullscreen></iframe>
 
 * Jeu #4 - Duck Hunt
-![Texte alternatif](url_de_l'image "texte pour le titre, facultatif")
+![Les Teams en actions](/images/posts/phptourlux/m6web_car.jpg)
 
