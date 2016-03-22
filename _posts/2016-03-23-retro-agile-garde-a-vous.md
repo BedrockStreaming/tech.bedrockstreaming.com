@@ -19,7 +19,7 @@ image:
 
 Bonjour à tous,
 
-Depuis quelques années les équipes d’M6Web se sont organisés autour des méthodes agiles. Scrum, Kanban, Lean, méthodes adaptées, nous nous efforçons de toujours garder en tête l’amélioration continue et le fun spirit au coeur du travail de nos équipes. 
+Depuis quelques années les équipes d’M6Web se sont organisées autour des méthodes agiles. Scrum, Kanban, Lean, méthodes adaptées, nous nous efforçons de toujours garder en tête l’amélioration continue et le fun spirit au coeur du travail de nos équipes. 
 
 Au delà des rituels “classiques”, l’équipe des Scrum master cherche de temps en temps à thématiser et casser les routines en créant des jeux autour de l’agilité. 
 
@@ -51,7 +51,7 @@ Votre équipe est sélectionnée pour une retro spéciale. Un défi difficile qu
 
 # Préparation / matériel : 
 
-* Vous trouverez ici un lien vers le kit de la rétro garde à vous. 
+* Vous trouverez ici [un lien vers le kit](https://drive.google.com/file/d/0B3bDuFzbbA8nNG9rUXhuaDlBdWs/view?usp=sharing) de la rétro garde à vous. 
 * Créer un décor : Mettez vos équipes dans l'ambiance et poussez l’aspect « jeux de rôle ». 
 *Exemple : filet à chat, bâche de tente Quechua, palissage, affiche militaire, etc..*
 * Costume de l'animateur : pantalon/veste militaire (demander autour de vous), cravache, casque avec lunette de ski, chemise beige, etc..
@@ -105,7 +105,7 @@ Objectif du scrumaster :
 * L’une des 2 personnes va avoir les yeux bandés. On l’équipe d’un gilet fluo de sécurité afin d’éviter de lui rentrer dedans… :p
 * L’autre personne devra le guider en utilisant les mots : « avance / recule / à droite / à gauche ». 
 * Il est interdit de toucher son coéquipier pendant la course.
-* Vous êtes chronométrés. Un classement général sera fait avec les autres équipes pour déterminer les plus rapide.
+* Vous êtes chronométrés. Un classement général sera fait avec les autres équipes pour déterminer les plus rapides.
 
 * Faites mettre le bandana ou la serviette. Prenez les guides et montrez leur le parcours.
 * Faites aligner les paires devant la ligne de départ.
@@ -144,7 +144,7 @@ Au bout des 7 minutes : chacun passe au paperboard coller ses post-it et les exp
 * Éviter de définir les actions à mettre en oeuvre pour les post-it négatif. Faites le en dehors sinon ça prendra trop de temps et cassera la dynamique.
 
 
-## Étape.4 - Duck Hunt - 15 minutes
+## Étape.4 - Duck Hunt - 15 minutess
 
 Règles : 3 stands sont proposés
 
