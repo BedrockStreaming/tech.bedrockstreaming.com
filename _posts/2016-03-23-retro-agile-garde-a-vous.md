@@ -144,7 +144,7 @@ Au bout des 7 minutes : chacun passe au paperboard coller ses post-it et les exp
 * Éviter de définir les actions à mettre en oeuvre pour les post-it négatif. Faites le en dehors sinon ça prendra trop de temps et cassera la dynamique.
 
 
-## Étape.4 - Duck Hunt - 15 minutess
+## Étape.4 - Duck Hunt - 15 minutes
 
 Règles : 3 stands sont proposés
 
