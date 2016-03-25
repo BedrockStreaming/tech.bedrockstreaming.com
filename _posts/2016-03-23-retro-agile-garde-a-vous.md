@@ -41,7 +41,7 @@ Votre équipe est sélectionnée pour une retro spéciale. Un défi difficile qu
 
 * Changer de la rétro classique : 2 activités sur les 4 sont des mini-jeux.
 * Créer du team building : Le 1er jeu demande confiance et cohésion entre les membres de son équipe. Et accessoirement c’est très fun !
-* Stimuler les équipes entre-elles autour d’une compétition sympa (Nos 5 équipes ont fait la même rétro lors de la rotation). 
+* Stimuler les équipes entre-elles autour d’une compétition sympa (nos 5 équipes ont fait la même rétro lors de la rotation). 
 * Garder à l’esprit l’amélioration continue au travers des 2 activités post-it. 
 
 
