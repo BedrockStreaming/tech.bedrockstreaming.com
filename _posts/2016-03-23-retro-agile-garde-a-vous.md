@@ -37,6 +37,7 @@ Au menu de ce premier jeu, nous avions choisi de profiter de l’arrivée de l�
 Votre équipe est sélectionnée pour une retro spéciale. Un défi difficile qui les mènera à dépasser leur limite. 
 Épreuve physique et mentale, il y en aura pour tous. Mais surtout c’est en groupe qu’ils réussiront les épreuves. :) 
 
+![Retro garde à vous - decor](/images/posts/retro/retro-gav1b.png.jpg)
 
 # Objectifs :
 
@@ -57,6 +58,8 @@ Votre équipe est sélectionnée pour une retro spéciale. Un défi difficile qu
 * Pour l’étape #3 : Post-it, feutres pour écrire, l’affiche paperboard « 4 thèmes d’amélioration ». 
 * Pour l’étape #4 : 2 Nerfs, 4 canettes vides, 4 peluches (ou autre), 4 balles en mousse, une poubelle, tapis de sol.
 * La feuille des scores. 
+
+![Retro garde à vous - decor](/images/posts/retro/retro-gav2b.png.jpg)
 
 
 # Le déroulement : 
@@ -156,6 +159,7 @@ Ceci afin de répartir les personnes sur plusieurs stands.
 
 Feuille des scores : Notez le score de chacun.
 
+![Retro garde à vous - decor](/images/posts/retro/retro-gav3b.png.jpg)
 
 # Conclusion :
 
