@@ -31,9 +31,6 @@ Au menu de ce premier jeu, nous avions choisi de profiter de l’arrivée de l�
 * Type : Rétrospective d’équipe.
 * Durée : 1 heure. 
 
-Voici une petite bande annonce :
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/620aWzx9LGo" frameborder="0" allowfullscreen></iframe>
 
 # PunchLine : 
 
@@ -162,21 +159,12 @@ Feuille des scores : Notez le score de chacun.
 
 # Conclusion :
 
-* Afficher le tableau des scores et féliciter tout le monde. 
-* Next step : 
+Afficher le tableau des scores et féliciter tout le monde. 
+Next step : 
+
  *  Les résultats des équipes seront affichés le lendemain / fin de journée / autres (à vous de voir)
  *  Les post-it négatifs de l’étape 1 et 3 seront pris en compte par les Scrumaster qui travailleront avec les personnes adéquates pour continuer à s’améliorer. Vous pouvez ajouter à votre DSK (Do, Store, Keep) certaines actions.
-
-Retrouvez ci-dessous quelques images de nos équipes lors de cette rétro « garde à vous » 
 
 N’hésitez pas à nous envoyer vos feedbacks sur ce jeu. 
 
 Force et Scrum !
-
-
-* Jeu #2 - en avant marche avec les Cytrons
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5pZP2PEfjmw" frameborder="0" allowfullscreen></iframe>
-
-* Jeu #4 - Duck Hunt
-![Les Teams en actions](/images/posts/Retro_gardeavous.png)
-
