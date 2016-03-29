@@ -15,6 +15,7 @@ image:
   feature: posts/retro/retroagile.png
   credit: 
   creditlink:  
+comments: true
 ---
 
 Depuis quelques années les équipes d’M6Web se sont organisées autour des méthodes agiles. Scrum, Kanban, Lean, méthodes adaptées, nous nous efforçons de toujours garder en tête l’amélioration continue et le fun spirit au coeur du travail de nos équipes. 
