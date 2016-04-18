@@ -54,7 +54,7 @@ Non seulement nous disposons d'un système de recherche de données très perfor
 
 Pour maintenir les données à jour dans cet index Elasticsearch, nous avons mutualisé sur l'expérience et le travail que nous avions réalisé pour RisingStar, qui nous a apporté l'expérience que des daemons sont beaucoup plus efficaces que des crons. Cette technique nous apporte plusieurs avantages :
 
-* **Scalablilité** : il est facilement possible de multiplier les process qui traitent les données, et donc d'augmenter la capacité de traitement 
+* **Scalabilité** : il est facilement possible de multiplier les process qui traitent les données, et donc d'augmenter la capacité de traitement 
 * **Rapidité** : le fait d'avoir des daemons qui tournent en continue permet de traiter les demandes dès leur arrivée, et pas lors de la minute suivante. Cela permet aussi de lisser au maximum les traitements sans créer de piles d'attente inutiles.
 
 Nous nous sommes donc appuyés sur notre [DaemonBundle](https://github.com/M6Web/DaemonBundle) pour mettre en place un double système d'indexation : 
@@ -67,7 +67,7 @@ Ainsi, nous assurons une fraicheur des données quasi-immédiate et optimale.
 
 Au cours de ce travail, nous avons construit 2 nouveaux bundle : [ElasticsearchBundle](https://github.com/M6Web/ElasticsearchBundle) et [AmqpBundle](https://github.com/M6Web/AmqpBundle). L'un comme l'autre sont des bundles permettant de faciliter la configuration et l'utilisation des clients natifs dans Symfony2, en tant que service.
 
-# Et la grosse données ?
+# Et la grosse donnée ?
 
 Si vous avez essayé la nouvelle version web de 6play, vous avez certainement remarqué que la personnalisation de votre compte est fortement mise en avant. Pour stocker ce fort volume de données, nous avons fait le choix d'utiliser [Cassandra](http://cassandra.apache.org/), pour son approche distribuée permettant une forte scalabilité, et un ratio rapidité/redondance optimal.
 
