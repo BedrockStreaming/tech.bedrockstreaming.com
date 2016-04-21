@@ -28,7 +28,7 @@ Here some projects open sourced:
 * [HttpToStatsd](https://github.com/M6Web/HttpToStatsd) is a node.js http to statsd logger
 * [JenkinsLight](https://github.com/M6Web/JenkinsLight) is a build monitoring tool (buildwall) that allows you to quickly detect failing projects for Jenkins
 * [JenkinsTerminalColors](https://github.com/M6Web/JenkinsTerminalColors) is a very lightweight Chrome extension that provides terminal colors in all console panels of Jenkins. It uses black Solarized theme
-* [SeyrenLight](https://github.com/M6Web/SeyrenLight) is an other monitoring tool (buildwall) that allow to quickly show failing Seyen checks
+* [SeyrenLight](https://github.com/M6Web/SeyrenLight) is an other monitoring tool (buildwall) that allow to quickly show failing [Seyren](https://github.com/scobal/seyren) checks
 * [VigoJS](https://github.com/M6Web/VigoJS) is a (small) Javascript tool using CasperJS and PhantomJS to make easily functional tests on web applications
 
 # Bundle and libs
