@@ -26,7 +26,7 @@ Avec Symfony2, c'est d'autant plus facile que l'architecture des bundles est tr�
 
 ## Coke
 
-Il y a un peu plus d'un an, chez M6Web, nous avons développé [coke](/coke-pour-bien-sniffer-son-code/) pour configurer simplement l'exécution de PHP_CodeSniffer.
+Il y a un peu plus d'un an, chez M6Web, nous avons développé [coke](/coke-pour-bien-sniffer-son-code) pour configurer simplement l'exécution de PHP_CodeSniffer.
 
 Depuis quelques mois, il est possible [d'installer coke via Composer](https://github.com/M6Web/Coke/pull/4) :
 
