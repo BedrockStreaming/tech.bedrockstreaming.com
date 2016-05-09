@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "M6web sera présent au PHPTour Clermont-Ferrand"
-description: "Fabien de Saint Pern, lead développeur sur 6play y donnera une conférence sur la réalisation de workers en PHP / Symfony2"
+description: "Fabien de Saint Pern, lead développeur sur 6play, y donnera une conférence sur la réalisation de workers en PHP / Symfony2."
 author:
   name:     TechM6Web
   avatar:   
