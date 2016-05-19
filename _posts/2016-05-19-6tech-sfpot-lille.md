@@ -18,7 +18,7 @@ image:
 comments: true
 ---
 
-[Pierre Marichez](https://twitter.com/chtipepere), [Renaud Bougré](https://twitter.com/rbougre) et [Nicolas Beze](https://twitter.com/nbeze) une partie de l'équipe PHP de M6Web Lille, vous feront part d'un retour d'expérience sur l'industrialisation des développements.
+[Pierre Marichez](https://twitter.com/chtipepere), [Renaud Bougré](http:renaud.bougré.fr) et [Nicolas Beze](https://fr.linkedin.com/in/nicolas-beze-9222005b) une partie de l'équipe PHP de M6Web Lille, vous feront part d'un retour d'expérience sur l'industrialisation des développements.
 Ca parlera jenkins, gitlab, gitlab-ci, outil de gestion de projets, api, sentry, capistrano, user scripts, docker, grafana, slack…
 
 Lors de ce sfpot, Kevin Dunglas présentera le [DunglasActionBundle](https://github.com/dunglas/DunglasActionBundle) et [Alexandre Salomé](https://twitter.com/alexandresalome) et [Luc Vieillescazes](https://twitter.com/schtroumpf_luc) vous feront un retour sur le sflive 2016.
