@@ -18,6 +18,8 @@ image:
 comments: false  
 ---
 
+Mise jour : Le poste n'est à plus pourvoir. Merci
+
 Au sein de la team Tube (équipe Lecteur Vidéo), en charge entre autre du lecteur de [6play](http://www.6play.fr) et des lecteurs vidéos des autres portails Internet d'M6 Web ([Clubic.com](http://www.clubic.com), [Deco.fr](http://www.deco.fr), ...), vous participez à la conception technique et au développement de nos lecteurs vidéos.
 
 Vous maitrisez les problématiques et les technologies Web :
