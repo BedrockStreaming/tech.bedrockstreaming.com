@@ -1,3 +1,9 @@
 language: ruby
 
+before_install:
+  - npm install surge
+
 script: "bundle exec jekyll build"
+
+after_success:
+  - surge --project _site/ --domain techm6webfr.surge.sh
