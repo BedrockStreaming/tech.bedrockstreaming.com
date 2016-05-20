@@ -4,11 +4,12 @@ rvm:
   2.2
 
 before_install:
-  - npm install surge
-  - curl "https://api.github.com/repos/m6web/m6web.github.io?io/statuses/$TRAVIS_COMMIT?access_token=$GITHUB_TOKEN" -H "Content-Type: application/json" -X POST -d "{\"state\": \"pending\", \"description\": \"Preview\", \"target_url\": \"http://techm6web.surge.sh\"}"
+- |
+    curl https://api.github.com/repos/m6web/m6web.github.io?io/statuses/$TRAVIS_COMMIT?access_token=$GITHUB_TOKEN -H "Content-Type: application/json" -X POST -d "{\"state\": \"pending\", \"description\": \"Preview\", \"target_url': \"http://techm6web.surge.sh\"}"
 
 script: "bundle exec jekyll build"
 
 after_success:
   - surge --project _site/ --domain techm6webfr.surge.sh
-  - curl "https://api.github.com/repos/m6web/m6web.github.io?io/statuses/$TRAVIS_COMMIT?access_token=$GITHUB_TOKEN" -H "Content-Type: application/json" -X POST -d "{\"state\": \"success\", \"description\": \"Preview\", \"target_url\": \"http://techm6web.surge.sh\"}"
+  - |
+    curl https://api.github.com/repos/m6web/m6web.github.io?io/statuses/$TRAVIS_COMMIT?access_token=$GITHUB_TOKEN -H "Content-Type: application/json" -X POST -d "{\"state\": \"success\", \"description\": \"Preview\", \"target_url': \"http://techm6web.surge.sh\"}"
