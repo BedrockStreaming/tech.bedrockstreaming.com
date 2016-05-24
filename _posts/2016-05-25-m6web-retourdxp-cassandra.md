@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "M6web fera un retour d'expérience sur l'usage de Cassandra sur 6play du 14/06/2016"
-description: "M6web fera un retour d'expérience sur l'usage de Cassandra sur 6play du 14/06/2016"
+title: "M6web fera un retour d'expérience sur l'usage de Cassandra sur 6play le 14/06/2016"
+description: "M6web fera un retour d'expérience sur l'usage de Cassandra sur 6play le 14/06/2016"
 author:
   name:     TechM6Web
   avatar:   
