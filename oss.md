@@ -49,6 +49,7 @@ Here some projects open sourced:
 * [Redis](https://github.com/M6Web/Redis): PHP component used to access Redis throught predis
 * [RedisBundle](https://github.com/M6Web/RedisBundle): Bundle over Redis component
 * [RedisMock](https://github.com/M6Web/RedisMock): A simple PHP Redis mock
+* [RequestHeadersForwarderGuzzleBundle](https://github.com/M6Web/RequestHeadersForwarderGuzzleBundle): Fetch HTTP headers from current request and reuse them in Guzzle clients sub-requests.
 * [roboxt](https://github.com/M6Web/roboxt): PHP lib parsing a robots.txt
 * [sprintf-mock](https://github.com/M6Web/sprintf-mock): [sprintf-js](https://github.com/alexei/sprintf.js) plugin allowing to mock sprintf behaviour
 * [StatsdBundle](https://github.com/M6Web/StatsdBundle): Symfony2 Bundle easing the statsd usage
