@@ -19,20 +19,20 @@ comments: true
 language: en
 ---
 
-We are playing since a few weeks with [React Native](https://facebook.github.io/react-native/) for a Proof Of Concept and wanted to have the same development workflow for mobile apps, as we have for web.
+We are playing since a few weeks with [React Native](https://facebook.github.io/react-native/) for a Proof Of Concept and wanted to have the same development workflow for mobile apps, as we have for the web.
 
 Here is the workflow we use for web development:
 
-* Branch ![allthethings](/images/posts/reactnative/allthethings.png) : every bugfix or feature is developed on a new git branch
-* Pull Request (PR) ![allthethings](/images/posts/reactnative/allthethings.png) : we make PR for each bugfix or feature to propose the modification to the « master » git branch
-* Code Review ![allthethings](/images/posts/reactnative/allthethings.png) : other teammates have to review each PR and add :+1: when they agree with the modification.
-* Test ![allthethings](/images/posts/reactnative/allthethings.png) : a CI system ([Jenkins](https://jenkins.io/)) runs Unit and Integration tests, and Lint on each Pull Request
-* Preview ![allthethings](/images/posts/reactnative/allthethings.png) : an internal tool (Github Hooker) is called with a Github webhook on each Pull Request to create a staging environment.
+* Branch ![allthethings](/images/posts/reactnative/allthethings.png) : every bugfix or feature is developed on a new git branch,
+* Pull Request (PR) ![allthethings](/images/posts/reactnative/allthethings.png) : we make PR for each bugfix or feature to propose the modification to the « master » git branch,
+* Code Review ![allthethings](/images/posts/reactnative/allthethings.png) : other teammates have to review each PR and add :+1: when they agree with the modification,
+* Test ![allthethings](/images/posts/reactnative/allthethings.png) : a CI system ([Jenkins](https://jenkins.io/)) runs Unit and Integration tests, and Lint on each PR,
+* Preview ![allthethings](/images/posts/reactnative/allthethings.png) : an internal tool (Github Hooker) is called with a Github webhook on each PR to create a staging environment.
 
 When every step is ok, the PR is merged.
 
-The « Branch step », « PR step » and « Code Review step" are mostly related to our CVS (Github Enterprise) and are not a problem.
-The « Test step » is related to React Native, we’ll use, [Jest](https://facebook.github.io/jest/), [ESLint](http://eslint.org/) and we have to dig a little bit more for Integration test ([Appium](http://appium.io/) ?)
+The « Branch step », « PR step » and « Code Review step » are mostly related to our CVS (Github Enterprise) and are not a problem.
+The « Test step » is related to React Native, we’ll use, [Jest](https://facebook.github.io/jest/), [ESLint](http://eslint.org/) and we have to dig a little bit more for Integration test ([Appium](http://appium.io/) ?).
 
 The « Preview step » is more interesting. It was not the most simple thing to do on our web project, but this is probably one of the most useful feature we have on our stack.
 Having a staging environment for all open PR allows devs, PO, PM and scrum masters to play with this exact version of the code (on any browser they want), and really see if the bug is fixed, or if the feature correspond to the PO needs. It allows everyone to iterate and make feedbacks before the code lands on the master branch. It’s also a good way to be sure your app build didn’t fail.
@@ -107,7 +107,7 @@ private_lane :githubStatusUpdate do |options|
 end
 {% endhighlight %}
 
-Appetize allows you to create different apps. We want one app per Pull Request, and update the corresponding app when a new commit is made on a Pull Request. For that, we keep track of the branch name by storing it on the “notes” field of the app on Appetize.io.
+Appetize allows you to create different apps. We want one app per PR, and update the corresponding app when a new commit is made on a PR. For that, we keep track of the branch name by storing it on the “notes” field of the app on Appetize.io.
 
 So here’s a little utility private lane to get back the public key of the corresponding app on Appetize.io to update the good one if it already exists.
 
@@ -269,7 +269,7 @@ Fastlane ios deployAppetize
 Fastlane android deployAppetize
 ```
 
-You have now two new checks on each Pull Request with a link to the iOs or Android instance on Appetize.io.
+You have now two new checks on each PR with a link to the iOs or Android instance on Appetize.io.
 
 ![Github Pull Request with preview url](/images/posts/reactnative/githubpr.png)
 
