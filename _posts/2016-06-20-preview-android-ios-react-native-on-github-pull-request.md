@@ -12,9 +12,9 @@ author:
 category:
 tags: [reactnative, react, mobile, github, jenkins, fastlane, appetize]
 image:
-  feature:
-  credit:
-  creditlink:
+  feature: posts/reactnative/nighttrain.jpg
+  credit: Sascha Haase
+  creditlink: https://www.flickr.com/photos/100955334@N06/with/15991008931/
 comments: true
 language: en
 ---
@@ -270,6 +270,8 @@ Fastlane android deployAppetize
 ```
 
 You have now two new checks on each Pull Request with a link to the iOs or Android instance on Appetize.io.
+
+![Github Pull Request with preview url](/images/posts/reactnative/githubpr.png)
 
 The complete `Fastfile` on a Github Gist : [FastFile](https://gist.github.com/kennydee/e5dbefb1b75eb79cf1de3b47b9fdf00a)
 
