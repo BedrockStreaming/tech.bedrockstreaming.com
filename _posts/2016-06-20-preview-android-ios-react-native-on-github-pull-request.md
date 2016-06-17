@@ -275,6 +275,10 @@ You have now two new checks on each PR with a link to the iOS or Android instanc
 
 The complete `Fastfile` on a Github Gist : [FastFile](https://gist.github.com/kennydee/e5dbefb1b75eb79cf1de3b47b9fdf00a)
 
+## Conclusion
+
+At M6web, we are glad to see the whole  React Native promise taking a concrete shape: the developer experience is the same for both mobile &web development, even about tooling. We are continuing to play with it and we'll certainly keep posting articles here, stay tuned !
+
 P.s: you could also look at the [Fabric Blog post](https://fabric.io/blog/fastlane-updates-powerful-prs-enhanced-deployment) on the device grid for Fabric but with Danger commenting on the PR instead of Github Statuses, and iOS only.
 
 P.s 2: You could also look at [Reploy.io](https://reploy.io), which try to improve this workflow with extra features and a more cleaner UX than Appetize.io, but it is very “alpha” for now.
