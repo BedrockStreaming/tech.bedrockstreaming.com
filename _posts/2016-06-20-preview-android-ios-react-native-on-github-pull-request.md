@@ -32,9 +32,9 @@ Here is the workflow we use for web development:
 When every step is ok, the PR is merged.
 
 The « Branch step », « PR step » and « Code Review step » are mostly related to our CVS (Github Enterprise) and are not a problem.
-The « Test step » is related to React Native, we’ll use, [Jest](https://facebook.github.io/jest/), [ESLint](http://eslint.org/) and we have to dig a little bit more for Integration test ([Appium](http://appium.io/) ?).
+The « Test step » is related to React Native. We already use [Jest](https://facebook.github.io/jest/) and [ESLint](http://eslint.org/), but we have to dig more for Integration test ([Appium](http://appium.io/) ?).
 
-The « Preview step » is more interesting. It was not the most simple thing to do on our web project, but this is probably one of the most useful feature we have on our stack.
+The « Preview step » is more interesting. It was not the simplest thing to do on our web project, but this is probably one of the most useful feature we have on our stack.
 Having a staging environment for all open PR allows devs, PO, PM and scrum masters to play with this exact version of the code (on any browser they want), and really see if the bug is fixed, or if the feature correspond to the PO needs. It allows everyone to iterate and make feedbacks before the code lands on the master branch. It’s also a good way to be sure your app build didn’t fail.
 
 So, what we want is to have on each of our React Native PR, a link to preview iOs and Android version of our app in a web browser, refreshed after every commit on the branch.
@@ -45,7 +45,7 @@ The goal of this blog post is just to show you, that it is something doable and 
 
 Concerning the CI, we already use Jenkins, so we will continue to. Beware that for building iOs apps,  a CI running on OSX is needed. In our case, we had added a Jenkins slave to our Jenkins pool. If you don’t have CI system internally, you should take a look at [Bitrise](https://www.bitrise.io/) or [CircleCi](https://circleci.com/) because they propose OSX CI systems.
 Our CVS is Github Enterprise, but everything is also possible with Gitlab (or any other CVS).
-We use [Fastlane.tools](https://fastlane.tools/) to automate build and credentials support. (Mostly because it was recommended by some of our iOs developer).
+We use [Fastlane.tools](https://fastlane.tools/) to automate build and credentials support. (Mostly because it was recommended by some of our iOs developers).
 
 In order to preview iOs and Android app in a web browser, we use the amazing SAAS service [Appetize.io](https://appetize.io/) (free for 100min/month).
 
@@ -53,7 +53,7 @@ In order to preview iOs and Android app in a web browser, we use the amazing SAA
 
 ## How did we do ?
 
-We had set up an Osx machine with a fresh Jenkins install, and created one job that triggers a build everytime a push is made on a PR, thanks to the "[Github Pull Request Builder](https://wiki.jenkins-ci.org/display/JENKINS/GitHub+pull+request+builder+plugin) » Jenkins plugin. There is also a lot of things to configure on this machine (Nodejs, Ruby, xCode …), and i recommend you to do some builds (iOs and Android) manually to be sure everything is ready.
+We had set up an OSX machine with a fresh Jenkins install, and created a job that triggers a build everytime a push is made on a PR, thanks to the "[Github Pull Request Builder](https://wiki.jenkins-ci.org/display/JENKINS/GitHub+pull+request+builder+plugin) » Jenkins plugin. There is also a lot of things to configure on this machine (Nodejs, Ruby, xCode …), and i recommend you to do some builds (iOs and Android) manually to be sure everything is ready.
 
 Fastlane is an open-source automation toolset for iOs & Android. It lets you write « lane » to automate a lot of things. We set up a unique Fastlane at the root of our React Native project directory dealing with Android & iOs lanes.
 
