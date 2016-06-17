@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Preview your Android & iOs React Native apps on your Github Pull Request"
-description: "Staging environment for your Android and iOs React Native apps on your Github Pull Request with Jenkins, Fastlane & Appetize"
+title: "Preview your Android & iOS React Native apps on your Github Pull Request"
+description: "Staging environment for your Android and iOS React Native apps on your Github Pull Request with Jenkins, Fastlane & Appetize"
 author:
   name:  Kenny Dits
   avatar:
@@ -37,30 +37,30 @@ The « Test step » is related to React Native. We already use [Jest](https://fa
 The « Preview step » is more interesting. It was not the simplest thing to do on our web project, but this is probably one of the most useful feature we have on our stack.
 Having a staging environment for all open PR allows devs, PO, PM and scrum masters to play with this exact version of the code (on any browser they want), and really see if the bug is fixed, or if the feature correspond to the PO needs. It allows everyone to iterate and make feedbacks before the code lands on the master branch. It’s also a good way to be sure your app build didn’t fail.
 
-So, what we want is to have on each of our React Native PR, a link to preview iOs and Android version of our app in a web browser, refreshed after every commit on the branch.
+So, what we want is to have on each of our React Native PR, a link to preview iOS and Android version of our app in a web browser, refreshed after every commit on the branch.
 
 The goal of this blog post is just to show you, that it is something doable and really useful. If you are interested in, here are some more information, that maybe can help you.
 
 ## The stack
 
-Concerning the CI, we already use Jenkins, so we will continue to. Beware that for building iOs apps,  a CI running on OSX is needed. In our case, we had added a Jenkins slave to our Jenkins pool. If you don’t have CI system internally, you should take a look at [Bitrise](https://www.bitrise.io/) or [CircleCi](https://circleci.com/) because they propose OSX CI systems.
+Concerning the CI, we already use Jenkins, so we will continue to. Beware that for building iOS apps, a CI running on OSX is needed. In our case, we had added a Jenkins slave to our Jenkins pool. If you don’t have CI system internally, you should take a look at [Bitrise](https://www.bitrise.io/) or [CircleCi](https://circleci.com/) because they propose OSX CI systems.
 Our CVS is Github Enterprise, but everything is also possible with Gitlab (or any other CVS).
-We use [Fastlane.tools](https://fastlane.tools/) to automate build and credentials support. (Mostly because it was recommended by some of our iOs developers).
+We use [Fastlane.tools](https://fastlane.tools/) to automate build and credentials support. (Mostly because it was recommended by some of our iOS developers).
 
-In order to preview iOs and Android app in a web browser, we use the amazing SAAS service [Appetize.io](https://appetize.io/) (free for 100min/month).
+In order to preview iOS and Android app in a web browser, we use the amazing SAAS service [Appetize.io](https://appetize.io/) (free for 100min/month).
 
 ![Appetize](/images/posts/reactnative/appetize.png)
 
 ## How did we do ?
 
-We had set up an OSX machine with a fresh Jenkins install, and created a job that triggers a build everytime a push is made on a PR, thanks to the "[Github Pull Request Builder](https://wiki.jenkins-ci.org/display/JENKINS/GitHub+pull+request+builder+plugin) » Jenkins plugin. There is also a lot of things to configure on this machine (Nodejs, Ruby, xCode …), and i recommend you to do some builds (iOs and Android) manually to be sure everything is ready.
+We had set up an OSX machine with a fresh Jenkins install, and created a job that triggers a build everytime a push is made on a PR, thanks to the "[Github Pull Request Builder](https://wiki.jenkins-ci.org/display/JENKINS/GitHub+pull+request+builder+plugin) » Jenkins plugin. There is also a lot of things to configure on this machine (Nodejs, Ruby, xCode …), and i recommend you to do some builds (iOS and Android) manually to be sure everything is ready.
 
-Fastlane is an open-source automation toolset for iOs & Android. It lets you write « lane » to automate a lot of things. We set up a unique Fastlane at the root of our React Native project directory dealing with Android & iOs lanes.
+Fastlane is an open-source automation toolset for iOS & Android. It lets you write « lane » to automate a lot of things. We set up a unique Fastlane file at the root of our React Native project directory dealing with Android & iOS lanes.
 
-To suit our needs, we created one lane « deployAppetize » for each platform: it does the corresponding build, uploads it to Appetize.io via their API, and updates the Github PR Statuses during the process.
+To suit our needs, we created one lane « deployAppetize » for each platform: it performs the corresponding build, uploads it to Appetize.io via their API, and updates the Github PR Statuses during the process.
 
-I’m not a Ruby programmer, so please, don’t cry, and feel free to improve the code below if you want (on this [Github Gist](https://gist.github.com/kennydee/e5dbefb1b75eb79cf1de3b47b9fdf00a)).
-This is not the state of the art, nor a beautiful open source thing, we just share what we did in case it helps someone :-)
+I’m not a Ruby programmer, so please, don’t blame me, and feel free to improve the code below if you want (on this [Github Gist](https://gist.github.com/kennydee/e5dbefb1b75eb79cf1de3b47b9fdf00a)).
+This is neither the state of the art, nor a beautiful open source thing, we just share what we did in case it helps someone :-)
 
 Before doing anything, you’ll have to set some variables on Fastlane, so go to the `Fastfile` file in your `fastlane` folder:
 
@@ -72,7 +72,7 @@ fastlane_version "1.95.0"
 default_platform :ios
 
 before_all do
-  # put here your token and iOs scheme app
+  # put here your token and iOS scheme app
   ENV["GITHUB_TOKEN"] = "----"
   ENV["APPETIZE_TOKEN"] = "----"
   ENV["APP_IOS_SCHEME"] = "----"
@@ -107,9 +107,9 @@ private_lane :githubStatusUpdate do |options|
 end
 {% endhighlight %}
 
-Appetize allows you to create different apps. We want one app per PR, and update the corresponding app when a new commit is made on a PR. For that, we keep track of the branch name by storing it on the “notes” field of the app on Appetize.io.
+Appetize allows you to create different apps. We want one app per PR, and update the corresponding app when a new commit is made on a PR. For that, we keep track of the branch name by storing it in the « notes » field of the app on Appetize.io.
 
-So here’s a little utility private lane to get back the public key of the corresponding app on Appetize.io to update the good one if it already exists.
+So, here’s a private lane to get back the public key of the corresponding app on Appetize.io, to update the good one if it already exists.
 
 {% highlight ruby %}
 # get the publicKey of the appetizeApp corresponding to your git branch
@@ -130,19 +130,19 @@ private_lane :getAppetizePublicKey do |options|
 end
 {% endhighlight %}
 
-Now, we have everything ready to do the deployAppetize lane for iOs :
+Now, we have everything ready to do the deployAppetize lane for iOS :
 
 
 {% highlight ruby %}
 platform :ios do
 
-  desc "Deployment iOs lane"
+  desc "Deployment iOS lane"
 
      githubStatusUpdate(
-        context: 'Appetize iOs',
+        context: 'Appetize iOS',
         state: 'pending',
         url: "https://appetize.io/dashboard",
-        description: 'iOs build in progress'
+        description: 'iOS build in progress'
       )
 
       Dir.chdir "../ios" do
@@ -176,10 +176,10 @@ platform :ios do
       end
 
       githubStatusUpdate(
-        context: 'Appetize iOs',
+        context: 'Appetize iOS',
         state: 'success',
         url: "#{lane_context[SharedValues::APPETIZE_APP_URL]}",
-        description: 'iOs build succeed'
+        description: 'iOS build succeed'
       )
   	end
 
@@ -187,17 +187,17 @@ platform :ios do
     case lane
       when /deployAppetize/
         githubStatusUpdate(
-          context: 'Appetize iOs',
+          context: 'Appetize iOS',
           state: 'failure',
           url: "https://appetize.io/dashboard",
-          description: 'iOs build failed'
+          description: 'iOS build failed'
         )
     end
   end
 end
 {% endhighlight %}
 
-For Android, this is almost the same things, except we have to do some small business logic to found the apk generated by Gradle, with this private lane :
+For Android, it's almost the same things, except we have to do some small business logic to find the apk generated by `Gradle`, with this private lane :
 
 {% highlight ruby %}
 # find the path of the last apk build
@@ -269,12 +269,12 @@ Fastlane ios deployAppetize
 Fastlane android deployAppetize
 ```
 
-You have now two new checks on each PR with a link to the iOs or Android instance on Appetize.io.
+You have now two new checks on each PR with a link to the iOS or Android instance on Appetize.io.
 
 ![Github Pull Request with preview url](/images/posts/reactnative/githubpr.png)
 
 The complete `Fastfile` on a Github Gist : [FastFile](https://gist.github.com/kennydee/e5dbefb1b75eb79cf1de3b47b9fdf00a)
 
-P.s: you could also look at the [Fabric Blog post](https://fabric.io/blog/fastlane-updates-powerful-prs-enhanced-deployment) on the device grid for Fabric but with Danger commenting on the PR instead of Github Statuses, and iOs only.
+P.s: you could also look at the [Fabric Blog post](https://fabric.io/blog/fastlane-updates-powerful-prs-enhanced-deployment) on the device grid for Fabric but with Danger commenting on the PR instead of Github Statuses, and iOS only.
 
 P.s 2: You could also look at [Reploy.io](https://reploy.io), which try to improve this workflow with extra features and a more cleaner UX than Appetize.io, but it is very “alpha” for now.
