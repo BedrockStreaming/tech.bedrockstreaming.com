@@ -88,7 +88,7 @@ before_all do
 end
 {% endhighlight %}
 
-Create a private_lane to make the POST request to your Github statuses API to avoid DRY:
+Create a private lane to make the POST request to your Github statuses API to avoid DRY:
 
 {% highlight ruby %}
 # Update git statuses of your commit.
@@ -138,7 +138,9 @@ platform :ios do
 
   desc "Deployment iOS lane"
 
-     githubStatusUpdate(
+    lane :deployAppetize do
+
+      githubStatusUpdate(
         context: 'Appetize iOS',
         state: 'pending',
         url: "https://appetize.io/dashboard",
@@ -181,19 +183,19 @@ platform :ios do
         url: "#{lane_context[SharedValues::APPETIZE_APP_URL]}",
         description: 'iOS build succeed'
       )
-  	end
-
-  error do |lane, exception|
-    case lane
-      when /deployAppetize/
-        githubStatusUpdate(
-          context: 'Appetize iOS',
-          state: 'failure',
-          url: "https://appetize.io/dashboard",
-          description: 'iOS build failed'
-        )
     end
-  end
+
+    error do |lane, exception|
+      case lane
+        when /deployAppetize/
+          githubStatusUpdate(
+            context: 'Appetize iOS',
+            state: 'failure',
+            url: "https://appetize.io/dashboard",
+            description: 'iOS build failed'
+          )
+        end
+      end
 end
 {% endhighlight %}
 
@@ -218,7 +220,8 @@ platform :android do
 
   desc "Deployment Android lane"
 
-  	lane :deployAppetize do
+    lane :deployAppetize do
+
       githubStatusUpdate(
         context: 'Appetize Android',
         state: 'pending',
@@ -246,8 +249,9 @@ platform :android do
         url: "#{lane_context[SharedValues::APPETIZE_APP_URL]}",
         description: 'Android build succeed'
       )
-  end
-  error do |lane, exception|
+    end
+
+    error do |lane, exception|
       case lane
         when /deployAppetize/
           githubStatusUpdate(
@@ -256,8 +260,7 @@ platform :android do
             url: "https://appetize.io/dashboard",
             description: 'Android build failed'
           )
-    end
-
+      end
 end
 {% endhighlight %}
 
@@ -277,8 +280,8 @@ The complete `Fastfile` on a Github Gist : [FastFile](https://gist.github.com/ke
 
 ## Conclusion
 
-At M6web, we are glad to see the whole  React Native promise taking a concrete shape: the developer experience is the same for both mobile &web development, even about tooling. We are continuing to play with it and we'll certainly keep posting articles here, stay tuned !
+At M6web, we are glad to see the whole React Native promise taking a concrete shape: the developer experience is the same for both mobile & web development, even about tooling. We are continuing to play with it and we'll certainly keep posting articles here, stay tuned !
 
-P.s: you could also look at the [Fabric Blog post](https://fabric.io/blog/fastlane-updates-powerful-prs-enhanced-deployment) on the device grid for Fabric but with Danger commenting on the PR instead of Github Statuses, and iOS only.
+P.S.: You could also look at the [Fabric Blog post](https://fabric.io/blog/fastlane-updates-powerful-prs-enhanced-deployment) on the device grid for Fabric but with [Danger](https://github.com/danger/danger) commenting on the PR instead of Github Statuses, and iOS only.
 
-P.s 2: You could also look at [Reploy.io](https://reploy.io), which try to improve this workflow with extra features and a more cleaner UX than Appetize.io, but it is very “alpha” for now.
+P.S.2: You could also look at [Reploy.io](https://reploy.io), which try to improve this workflow with extra features and a more cleaner UX than Appetize.io, but it is very “alpha” for now.
