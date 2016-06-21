@@ -19,7 +19,7 @@ comments: true
 ---
 
 
-Fabien de Saint pern - lead dev de notre team back-end 6play - était au PHP Tour et à fait une présentation sur la façon dont nous faisons des workers en PHP.
+[Fabien de Saint pern](https://twitter.com/fabdsp) - lead dev de notre team back-end 6play - était au PHP Tour et à fait une présentation sur la façon dont nous faisons des workers en PHP.
 
 <iframe width="853" height="480" src="https://www.youtube.com/embed/0A5tbrMarGA" frameborder="0" allowfullscreen></iframe>
 
