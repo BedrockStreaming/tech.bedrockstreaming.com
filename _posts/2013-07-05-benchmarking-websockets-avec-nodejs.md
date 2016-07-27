@@ -45,7 +45,7 @@ Tests de charge
 ---------------
 
 
-Une des problématiques rapidement rencontrée ssur ce projet a été de tester la charge de notre application: comment simuler 15 000 connexions simultanées ?
+Une des problématiques rapidement rencontrée sur ce projet a été de tester la charge de notre application: comment simuler 15 000 connexions simultanées ?
 
 En faisant le tour des solutions de benchmark de websocket ([thor](https://github.com/observing/thor), ...) ,nous n'avons pas trouvé la solution qui nous permettait de faire les tests que nous souhaitions. [Siege](http://www.joedog.org/siege-home/), [ab](http://httpd.apache.org/docs/2.2/programs/ab.html) ne le propose pas encore,[Gatling](http://gatling-tool.org/), [Jmeter](http://jmeter.apache.org/), [Tsung](http://tsung.erlang-projects.org/) ont des plugins web-socket mais l'utilisation et le reporting ne sont pas des plus clair.
 
