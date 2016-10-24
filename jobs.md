@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /jobs/index.html
-title: Postes ouvert dans l'équipe technique de M6Web Lyon
+title: Postes ouverts dans l'équipe technique de M6Web Lyon
 tags: []
 modified: 2016-10-24
 image:
@@ -12,22 +12,20 @@ image:
 
 # On recrute ! 
 
-Voici la liste des postes ouverts en ce moment. Nous sommes ouverts à tout type de candidature, n'hésitez pas à nous en parler. 
+Voici la liste des postes ouverts en ce moment.
 
 Pour candidater : jobs@m6web.fr. 
 
 # Pourquoi rejoindre M6 WEB ?
 
-intégrer un groupe média leader sur le numérique en France,
-concevoir et développer des produits utilisés par des millions de personnes,
-travailler sur Lyon dans des locaux lumineux et modernes et bénéficier d’un équipement au top,
+Pour intégrer un groupe média leader sur le numérique en France et concevoir et développer des produits utilisés par des millions de personnes. Pour travailler sur Lyon dans des locaux lumineux et modernes et bénéficier d’un équipement au top,
 apprendre et évoluer avec des collègues formidables au sein d’une direction technique d’une quarantaine de développeurs et d’une brillante équipe de sysadmin.
 
 Pour découvrir nos technologies et nos pratiques, n'hésitez pas à vous [renseigner sur ce blog](http://tech.m6web.fr/) ou nous suivre [sur twitter](https://twitter.com/TechM6Web).
 
 ## Développeur ou leadDev backend
 
-Nous cherchons avant tout des personnalités curieuses et passionnées, pouvant s’intégrer rapidement dans un environnement technique exigeant. 
+Nous cherchons avant tout des personnalités curieuses et passionnées, pouvant s’intégrer rapidement dans un environnement technique exigeant.
 
 Les compétences recherchées sont les suivantes : 
 
