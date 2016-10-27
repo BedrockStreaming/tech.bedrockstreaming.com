@@ -43,7 +43,7 @@ Serait un plus :
 Les compétences recherchées sont les suivantes : 
 
 * connaissances d’un framework javascript (React, Angular, Backbone, Ember …)
-* bonne maîtrise de git, la ligne de commande Unix, le protocole HTTP
+* bonne maîtrise de GIT, la ligne de commande Unix, le protocole HTTP
 
 Serait un plus : 
 
