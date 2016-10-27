@@ -23,14 +23,14 @@ apprendre et évoluer avec des collègues formidables au sein d’une direction 
 
 Pour découvrir nos technologies et nos pratiques, n'hésitez pas à vous [renseigner sur ce blog](http://tech.m6web.fr/) ou nous suivre [sur twitter](https://twitter.com/TechM6Web).
 
-## Développeur ou leadDev backend
+## Développeur ou leadDev backend (H/F)
 
 Nous cherchons avant tout des personnalités curieuses et passionnées, pouvant s’intégrer rapidement dans un environnement technique exigeant.
 
 Les compétences recherchées sont les suivantes : 
 
 * maîtrise d’un langage objet, des patterns OOP, pratique des tests unitaires
-* bonne maîtrise de git, la ligne de commande Unix, le protocole HTTP, le langage SQL
+* bonne maîtrise de GIT, la ligne de commande Unix, le protocole HTTP, le langage SQL
 
 Serait un plus : 
 
@@ -38,7 +38,7 @@ Serait un plus :
 * expérience dans le développement d’applications à fort trafic,
 * expériences de développement avec Elasticsearch et/ou Cassandra.
 
-# Développeur JS
+# Développeur JS  (H/F)
 
 Les compétences recherchées sont les suivantes : 
 
