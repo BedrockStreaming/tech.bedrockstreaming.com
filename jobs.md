@@ -57,7 +57,9 @@ Serait un plus :
 # Responsable Systèmes & Réseaux (H/F)
 
 Vous prenez la direction de l’équipe d’exploitation en charge des plateformes techniques hébergeant les applications relatives à 6play dont notamment le delivery des vidéos (CDN interne).
+
 Vous pilotez l’ensemble des aspects techniques, administratifs et budgétaires de votre plateforme.
+
 Vous assurez notamment la gestion technique et administrative de l’Autonomous System.
 
 Vos missions sont :
@@ -82,12 +84,7 @@ Les compétences suivantes sont le pilier de ce poste :
 
 # Architecte systèmes & réseaux (H/F)
 
-vous rejoignez l’équipe d’exploitation en charge des plateformes techniques hébergeant les applications relatives à 6play dont notamment le delivery des vidéos (CDN interne) :
-
-*	Environ 900 équipements physiques et virtuels
-*	Une charge de plus de 10k requêtes/seconde
-*	Un réseau opérateur (AS30972) de plus de 100 Gbps
-*	Présence sur 2 datacenters (TH2 & EQX PA3)
+Vous rejoignez l’équipe d’exploitation en charge des plateformes techniques hébergeant les applications relatives à 6play dont notamment le delivery des vidéos (CDN interne).
 
 Vous êtes l’expert et référent technique de l’équipe.
 
