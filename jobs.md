@@ -54,5 +54,73 @@ Serait un plus :
 * compétences Node.js
 * développement mobile ou sur un framework hybride
 
+# Responsable Systèmes & Réseaux (H/F)
 
+Vous prenez la direction de l’équipe d’exploitation en charge des plateformes techniques hébergeant les applications relatives à 6play dont notamment le delivery des vidéos (CDN interne).
+Vous pilotez l’ensemble des aspects techniques, administratifs et budgétaires de votre plateforme.
+Vous assurez notamment la gestion technique et administrative de l’Autonomous System.
+
+Vos missions sont :
+
+*	Management de l’équipe d’exploitation
+*	Pilotage et suivi des projets
+*	Gestion du budget
+*	Recherches, relations et négociations avec les fournisseurs
+*	Gestion des commandes
+*	Choix d’évolution des technos et plateformes
+*	Participation au design voire à l’implémentation des nouvelles architectures
+*	Identification des outils de l’équipe
+*	Support des équipes de développements et des équipes produits
+
+Les compétences suivantes sont le pilier de ce poste :
+
+* Maîtrise de l’environnement GNU/Linux
+* Maîtrise des hébergements LAMP (et dérivés) à fort trafic et haute disponibilité
+* Maîtrise services réseaux IP (mail, DNS, NTP, firewalling, routing)
+* Gestion technique et administrative d’un Autonomous System (RIPE, routage, switching, BGP)
+* Maitrise de l'anglais indispensable
+
+# Architecte systèmes & réseaux (H/F)
+
+vous rejoignez l’équipe d’exploitation en charge des plateformes techniques hébergeant les applications relatives à 6play dont notamment le delivery des vidéos (CDN interne) :
+
+*	Environ 900 équipements physiques et virtuels
+*	Une charge de plus de 10k requêtes/seconde
+*	Un réseau opérateur (AS30972) de plus de 100 Gbps
+*	Présence sur 2 datacenters (TH2 & EQX PA3)
+
+Vous êtes l’expert et référent technique de l’équipe.
+
+Vous êtes moteur quant aux choix de nouvelles technologies nécessaires pour les nouveaux projets, et des évolutions à mener pour optimiser le fonctionnement des plateformes.
+
+Vous travaillez en étroite collaboration avec les développeurs.
+
+Vous participez au support et à la gestion des incidents, principalement niveau 3.
+
+Vos missions sont de :
+
+*	Participer au design et à l’implémentation des nouvelles architectures
+*	Recommander les évolutions nécessaires sur l’architecture en place
+*	Identifier et mettre en place des outils de déploiement, monitoring, …
+*	Piloter et participer au maintien en conditions opérationnelles des plateformes
+*	Former les autres membres de l’équipe, et diffuser votre expertise dans les équipes de développement (culture DevOps)
+*	Etre le bras droit du Responsable Systèmes et Réseaux, et prendre le relais de ses responsabilités si besoin
+*	Collaborer avec les équipes Produit lors du design fonctionnel et technique des nouveaux services
+
+Une première expérience significative d’ingénieur/architecte systèmes et réseaux sur une architecture orientée webscale (ie. forte charge et haute-disponibilité de produits grand public) et basée sur de l’open-source est demandée.
+
+Les compétences suivantes sont le pilier de ce poste :
+
+*	Maîtrise de l’environnement GNU/Linux
+*	Maîtrise des hébergements LAMP (et dérivés) à fort trafic / haute dispo
+*	Maîtrise Python (RW) et PHP (RO, configuration)
+*	Maîtrise d’une technologie de virtualisation (VMware idéalement)
+*	Bonne connaissance de l’IPv6
+*	Bonne connaissance d’Ansible
+*	Bonne connaissance d’ElasticSearch
+*	Option : Cassandra
+*	Option : gestion technique d’un Autonomous System (routage, switching, BGP)
+* Maîtrise de l'anglais indispensable
+
+De fait, il semblerait que la barbe soit un prérequis ! ^^
 
