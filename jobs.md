@@ -38,7 +38,7 @@ Serait un plus :
 * expérience dans le développement d’applications à fort trafic,
 * expériences de développement avec Elasticsearch et/ou Cassandra.
 
-# Développeur JS  (H/F)
+## Développeur JS  (H/F)
 
 Notre stack technique coté front-end est construite autour de React.js, React-Native, Redux et Node.js.
 
@@ -54,7 +54,7 @@ Serait un plus :
 * compétences Node.js
 * développement mobile ou sur un framework hybride
 
-# Responsable Systèmes & Réseaux (H/F)
+## Responsable Systèmes & Réseaux (H/F)
 
 Vous prenez la direction de l’équipe d’exploitation en charge des plateformes techniques hébergeant les applications relatives à 6play dont notamment le delivery des vidéos (CDN interne).
 
@@ -82,7 +82,7 @@ Les compétences suivantes sont le pilier de ce poste :
 * Gestion technique et administrative d’un Autonomous System (RIPE, routage, switching, BGP)
 * Maitrise de l'anglais indispensable
 
-# Architecte systèmes & réseaux (H/F)
+## Architecte systèmes & réseaux (H/F)
 
 Vous rejoignez l’équipe d’exploitation en charge des plateformes techniques hébergeant les applications relatives à 6play dont notamment le delivery des vidéos (CDN interne).
 
