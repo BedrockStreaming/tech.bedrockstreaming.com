@@ -40,9 +40,11 @@ Serait un plus :
 
 # Développeur JS  (H/F)
 
+Notre stack technique coté front-end est construite autour de React.js, React-Native, Redux et Node.js.
+
 Les compétences recherchées sont les suivantes : 
 
-* connaissances d’un framework javascript (React, Angular, Backbone, Ember …)
+* connaissances d’un framework javascript (React, React-Native, Angular, Backbone, Ember …)
 * bonne maîtrise de GIT, la ligne de commande Unix, le protocole HTTP
 
 Serait un plus : 
