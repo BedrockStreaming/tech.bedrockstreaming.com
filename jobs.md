@@ -119,5 +119,5 @@ Les compétences suivantes sont le pilier de ce poste :
 *	Option : gestion technique d’un Autonomous System (routage, switching, BGP)
 * Maîtrise de l'anglais indispensable
 
-De fait, il semblerait que la barbe soit un prérequis ! ^^
+De fait, il semblerait que la barbe soit un plus mais on est ouvert ! ^^
 
