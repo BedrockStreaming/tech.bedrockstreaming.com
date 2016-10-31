@@ -181,6 +181,6 @@ Le profil recherché se caractérise par :
 *	Des qualités démontrées de chef de projets : esprit d'analyse et de synthèse, capacité d'organisation, de planification, de priorisation et de gestion des délais, grande rigueur, 
 *	Une grande créativité, un esprit tourné vers la recherche de solutions, un sens du résultat
 
-Poste basé de préférence à Paris, voir à Lyon.
+Poste basé à Paris ou à Lyon.
 
 Pour candidater : jobs_popub@m6web.fr
