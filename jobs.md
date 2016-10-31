@@ -129,7 +129,7 @@ De fait, il semblerait que la barbe soit un plus mais on est ouvert ! ^^
 
 Poste basé à Lyon.
 
-## Product Owner publicité
+## Product Owner publicité (H/F)
 
 Focalisé sur les sujets autour de la publicité digitale au sein de la régie du Groupe M6, M6 Pub Digital, vous portez les projets au carrefour du Métier (Marketing Pub, Traffic Management), du Produit (M6 Web) et de la Technique (Direction Technique M6 Web).
 
