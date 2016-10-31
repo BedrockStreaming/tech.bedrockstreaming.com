@@ -14,8 +14,6 @@ image:
 
 Voici la liste des postes ouverts en ce moment.
 
-Pour candidater : jobs@m6web.fr. 
-
 # Pourquoi rejoindre M6 WEB ?
 
 Pour intégrer un groupe média leader sur le numérique en France et concevoir et développer des produits utilisés par des millions de personnes. Pour travailler sur Lyon dans des locaux lumineux et modernes et bénéficier d’un équipement au top,
@@ -40,6 +38,8 @@ Serait un plus :
 
 Poste basé à Lyon.
 
+Pour candidater : jobs_devback@m6web.fr
+
 ## Développeur JS  (H/F)
 
 Notre stack technique coté front-end est construite autour de React.js, React-Native, Redux et Node.js.
@@ -57,6 +57,8 @@ Serait un plus :
 * développement mobile ou sur un framework hybride
 
 Poste basé à Lyon.
+
+Pour candidater : jobs_devjs@m6web.fr
 
 ## Responsable Systèmes & Réseaux (H/F)
 
@@ -87,6 +89,8 @@ Les compétences suivantes sont le pilier de ce poste :
 * Maitrise de l'anglais indispensable
 
 Poste basé à Lyon.
+
+Pour candidater : jobs_resphosting@m6web.fr
 
 ## Architecte systèmes & réseaux (H/F)
 
@@ -128,6 +132,8 @@ Les compétences suivantes sont le pilier de ce poste :
 De fait, il semblerait que la barbe soit un plus mais on est ouvert ! ^^
 
 Poste basé à Lyon.
+
+Pour candidater : jobs_archisys@m6web.fr
 
 ## Product Owner publicité (H/F)
 
@@ -176,3 +182,5 @@ Le profil recherché se caractérise par :
 *	Une grande créativité, un esprit tourné vers la recherche de solutions, un sens du résultat
 
 Poste basé de préférence à Paris, voir à Lyon.
+
+Pour candidater : jobs_popub@m6web.fr
