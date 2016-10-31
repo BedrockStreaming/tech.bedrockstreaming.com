@@ -133,13 +133,15 @@ Poste basé à Lyon.
 
 Focalisé sur les sujets autour de la publicité digitale au sein de la régie du Groupe M6, M6 Pub Digital, vous portez les projets au carrefour du Métier (Marketing Pub, Traffic Management), du Produit (M6 Web) et de la Technique (Direction Technique M6 Web).
 
-*	Accompagner les équipes Métier et Produit dans le cadrage du besoin 
+Accompagner les équipes Métier et Produit dans le cadrage du besoin 
+
  *	Contribue au cadrage du besoin sur chacun des projets,
  *	Découpe et priorise les expressions de besoins 
  *	Définit et met à jour régulièrement la roadmap pour garantir un retour sur investissement optimal sur le développement
  *	Rencontre et détecte des prestataires externes proposant des solutions pertinentes  pour de nouveaux dispositifs publicitaires
 
-*	Transmettre la vision Métier & Produit à l’équipe de développement :
+Transmettre la vision Métier & Produit à l’équipe de développement :
+
  *	Négocie et suit les demandes exprimées par son Responsable selon leurs priorités, en cohérence avec les capacités de développement de l’équipe technique
  *	Se coordonne avec l’ensemble des parties prenantes et des équipes transverses pour incarner totalement le besoin 
  *	Priorise et revoit régulièrement le Backlog produit
@@ -147,7 +149,8 @@ Focalisé sur les sujets autour de la publicité digitale au sein de la régie d
  *	Participe à la conception de l’architecture technique, en collaboration avec les équipes de développement
  *	Travaille étroitement avec les équipes de développement pour les aider à comprendre la Vision du Métier
 
-*	Suivre la réalisation et ajuster la vision du Métier :
+Suivre la réalisation et ajuster la vision du Métier :
+
  *	Teste et valide les User Stories développées au fur et à mesure
  *	Participe aux Daily Meetings et aux différents rituels agiles avec l’équipe
  *	Organise les démonstrations des résultats du développement à chaque fin d’itération
