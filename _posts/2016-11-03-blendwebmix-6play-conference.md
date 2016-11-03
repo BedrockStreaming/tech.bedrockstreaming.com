@@ -12,8 +12,8 @@ author:
 category:
 tags: [conference]
 image:
-  feature: 
-  credit: 
+  feature: posts/blend2016.jpg
+  credit: Olivier Mansour
   creditlink: 
 comments: true
 ---
