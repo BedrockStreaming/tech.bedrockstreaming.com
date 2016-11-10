@@ -40,7 +40,7 @@ Poste basé à Lyon.
 
 Pour candidater : [jobs_devback@m6web.fr](mailto:jobs_devback@m6web.fr)
 
-## Développeur JS  (H/F)
+## Développeur ou leadDev JS  (H/F)
 
 Notre stack technique coté front-end est construite autour de React.js, React-Native, Redux et Node.js.
 
