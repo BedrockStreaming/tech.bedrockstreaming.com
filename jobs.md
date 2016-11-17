@@ -21,25 +21,6 @@ apprendre et évoluer avec des collègues formidables au sein d’une direction 
 
 Pour découvrir nos technologies et nos pratiques, n'hésitez pas à vous [renseigner sur ce blog](http://tech.m6web.fr/) ou nous suivre [sur twitter](https://twitter.com/TechM6Web).
 
-## Développeur ou leadDev backend (H/F)
-
-Nous cherchons avant tout des personnalités curieuses et passionnées, pouvant s’intégrer rapidement dans un environnement technique exigeant.
-
-Les compétences recherchées sont les suivantes : 
-
-* maîtrise d’un langage objet, des patterns OOP, pratique des tests unitaires
-* bonne maîtrise de GIT, la ligne de commande Unix, le protocole HTTP, le langage SQL
-
-Serait un plus : 
-
-* connaissances autour de Symfony ou d’un autre framework PHP moderne,
-* expérience dans le développement d’applications à fort trafic,
-* expériences de développement avec Elasticsearch et/ou Cassandra.
-
-Poste basé à Lyon.
-
-Pour candidater : [jobs_devback@m6web.fr](mailto:jobs_devback@m6web.fr)
-
 ## Développeur ou leadDev JS  (H/F)
 
 Notre stack technique coté front-end est construite autour de React.js, React-Native, Redux et Node.js.
