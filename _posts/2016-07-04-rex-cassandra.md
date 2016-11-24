@@ -10,7 +10,7 @@ author:
   facebook:       
   github:    
 category:
-tags: [6tech, lyon, conference, cassandra]
+tags: [6tech, lyon, conference, cassandra, video]
 image:
   feature: posts/6play/logo.jpg
   credit: 
