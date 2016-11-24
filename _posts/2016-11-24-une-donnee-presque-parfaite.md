@@ -12,7 +12,7 @@ author:
 category:
 tags: [lyon, conference, elasticsearch, video]
 image:
-  feature: posts/6play/logo.jpg
+  feature: posts/conf-afup-viguier/6play.jpg
   credit: 
   creditlink: 
 comments: true
