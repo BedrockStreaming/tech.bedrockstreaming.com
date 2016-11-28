@@ -22,4 +22,4 @@ comments: true
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kSlYXpezjIQ" frameborder="0" allowfullscreen></iframe>
 
-Les slides sont également [disponibles en PDF](http://b-viguier.github.io/downloads/talks/ForumPhp-Une-Donnée-Presque-Parfaite.pdf).
+Les slides sont également [disponibles en PDF](http://b-viguier.github.io/downloads/talks/ForumPhp-Une-Donne%CC%81e-Presque-Parfaite.pdf).
