@@ -67,7 +67,7 @@ Throught github we participated to the improvement (we hope so) of many open sou
 * [atoum/AtoumBundle](https://github.com/atoum/AtoumBundle): [#16](https://github.com/atoum/AtoumBundle/pull/16) - [#27](https://github.com/atoum/AtoumBundle/pull/27) - [#34](https://github.com/atoum/AtoumBundle/pull/34) - [#35](https://github.com/atoum/AtoumBundle/pull/35) - [#44](https://github.com/atoum/AtoumBundle/pull/44) - [#47](https://github.com/atoum/AtoumBundle/pull/47) - [#48](https://github.com/atoum/AtoumBundle/pull/48) - [#52](https://github.com/atoum/AtoumBundle/pull/52) - [#53](https://github.com/atoum/AtoumBundle/pull/53) - [#56](https://github.com/atoum/AtoumBundle/pull/56)
 * [atoum/atoum](https://github.com/atoum/atoum): [#200](https://github.com/atoum/atoum/pull/200) - [#210](https://github.com/atoum/atoum/pull/210)
 * [doctrine/DoctrineBundle](https://github.com/doctrine/DoctrineBundle) - [#159](https://github.com/doctrine/DoctrineBundle/pull/159)
-* [elasticsearch/elasticsearch-php](https://github.com/elasticsearch/elasticsearch-php) - [#149](https://github.com/elasticsearch/elasticsearch-php/pull/149)
+* [elasticsearch/elasticsearch-php](https://github.com/elasticsearch/elasticsearch-php) - [#149](https://github.com/elasticsearch/elasticsearch-php/pull/149) [#506](https://github.com/elastic/elasticsearch-php/pull/506)
 * [liip/LiipImagineBundle](https://github.com/liip/LiipImagineBundle): [#274](https://github.com/liip/LiipImagineBundle/pull/274)
 * [n1k0/casperjs](https://github.com/n1k0/casperjs): [#605](https://github.com/n1k0/casperjs/pull/605)
 * [naderman/composer-aws](https://github.com/naderman/composer-aws/): [#4](https://github.com/naderman/composer-aws/pull/4) - [#5](https://github.com/naderman/composer-aws/pull/5)
