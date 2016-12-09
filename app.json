@@ -1,14 +1,12 @@
 {
   "name": "m6web.github.io",
   "scripts": {
-    "postdeploy": "bin/setup"
   },
   "env": {
   },
   "formation": {
   },
   "addons": [
-
   ],
   "buildpacks": [
 
