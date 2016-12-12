@@ -10,7 +10,7 @@
   ],
   "buildpacks": [
     {
-      "url": "https://github.com/bacongobbler/heroku-buildpack-jekyll.git"
+      "url": "http://github.com/mattmanning/heroku-buildpack-ruby-jekyll.git"
     }
   ]
 }
