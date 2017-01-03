@@ -21,26 +21,6 @@ apprendre et évoluer avec des collègues formidables au sein d’une direction 
 
 Pour découvrir nos technologies et nos pratiques, n'hésitez pas à vous [renseigner sur ce blog](http://tech.m6web.fr/) ou nous suivre [sur twitter](https://twitter.com/TechM6Web).
 
-## Développeur ou leadDev JS  (H/F)
-
-Notre stack technique coté front-end est construite autour de React.js, React-Native, Redux et Node.js.
-
-Les compétences recherchées sont les suivantes : 
-
-* connaissances d’un framework javascript (React, React-Native, Angular, Backbone, Ember …)
-* bonne maîtrise de GIT, la ligne de commande Unix, le protocole HTTP
-
-Serait un plus : 
-
-* pratique des tests unitaires et fonctionnels coté Front-End
-* connaissance d’ES6 et du pattern Flux (ou Redux)
-* compétences Node.js
-* développement mobile ou sur un framework hybride
-
-Poste basé à Lyon.
-
-Pour candidater : [jobs_devjs@m6web.fr](mailto:jobs_devjs@m6web.fr)
-
 ## Responsable Systèmes & Réseaux (H/F)
 
 Vous prenez la direction de l’équipe d’exploitation en charge des plateformes techniques hébergeant les applications relatives à 6play dont notamment le delivery des vidéos (CDN interne).
@@ -72,49 +52,6 @@ Les compétences suivantes sont le pilier de ce poste :
 Poste basé à Lyon.
 
 Pour candidater : [jobs_resphosting@m6web.fr](mailto:jobs_resphosting@m6web.fr)
-
-## Architecte systèmes & réseaux (H/F)
-
-Vous rejoignez l’équipe d’exploitation en charge des plateformes techniques hébergeant les applications relatives à 6play dont notamment le delivery des vidéos (CDN interne).
-
-Vous êtes l’expert et référent technique de l’équipe.
-
-Vous êtes moteur quant aux choix de nouvelles technologies nécessaires pour les nouveaux projets, et des évolutions à mener pour optimiser le fonctionnement des plateformes.
-
-Vous travaillez en étroite collaboration avec les développeurs.
-
-Vous participez au support et à la gestion des incidents, principalement niveau 3.
-
-Vos missions sont de :
-
-*	Participer au design et à l’implémentation des nouvelles architectures
-*	Recommander les évolutions nécessaires sur l’architecture en place
-*	Identifier et mettre en place des outils de déploiement, monitoring, …
-*	Piloter et participer au maintien en conditions opérationnelles des plateformes
-*	Former les autres membres de l’équipe, et diffuser votre expertise dans les équipes de développement (culture DevOps)
-*	Etre le bras droit du Responsable Systèmes et Réseaux, et prendre le relais de ses responsabilités si besoin
-*	Collaborer avec les équipes Produit lors du design fonctionnel et technique des nouveaux services
-
-Une première expérience significative d’ingénieur/architecte systèmes et réseaux sur une architecture orientée webscale (ie. forte charge et haute-disponibilité de produits grand public) et basée sur de l’open-source est demandée.
-
-Les compétences suivantes sont le pilier de ce poste :
-
-*	Maîtrise de l’environnement GNU/Linux
-*	Maîtrise des hébergements LAMP (et dérivés) à fort trafic / haute dispo
-*	Maîtrise Python (RW) et PHP (RO, configuration)
-*	Maîtrise d’une technologie de virtualisation (VMware idéalement)
-*	Bonne connaissance de l’IPv6
-*	Bonne connaissance d’Ansible
-*	Bonne connaissance d’ElasticSearch
-*	Option : Cassandra
-*	Option : gestion technique d’un Autonomous System (routage, switching, BGP)
-* Maîtrise de l'anglais indispensable
-
-De fait, il semblerait que la barbe soit un plus mais on est ouvert ! ^^
-
-Poste basé à Lyon.
-
-Pour candidater : [jobs_archisys@m6web.fr](mailto:jobs_archisys@m6web.fr)
 
 ## Product Owner publicité (H/F)
 
