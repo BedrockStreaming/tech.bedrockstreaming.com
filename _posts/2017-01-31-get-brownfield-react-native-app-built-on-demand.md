@@ -21,10 +21,10 @@ language: en
 As you may know, at M6Web we decided to embrace [React Native](http://facebook.github.io/react-native/) a few months ago.
 It’s a really exciting piece of software that adds a lot of value in the mobile development ecosystem.
 
-We already use it for a side project on a standalone app (not public yet, stay tuned!) to record table soccer games, that’s why, we (mostly [@ncuillery](https://twitter.com/ncuillery)) decided to improve the upgrade process for apps made with the embedded generator. See Nicolas’ blog post on it: [Easier Upgrades with React Native](http://facebook.github.io/react-native/blog/2016/12/05/easier-upgrades.html).
+We already use it for a side project on a standalone app (not public yet, stay tuned!) to record table soccer games, that’s why, we (mostly [@ncuillery](https://twitter.com/ncuillery) 😏) decided to improve the upgrade process for apps made with the embedded generator. See Nicolas’ blog post on it: [Easier Upgrades with React Native](http://facebook.github.io/react-native/blog/2016/12/05/easier-upgrades.html).
 
 As a result, we wanted to start using React Native for our most popular app: 6Play ([6play iOS](https://itunes.apple.com/app/6play/id369692259?mt=8), [6play Android](https://play.google.com/store/apps/details?id=fr.m6.m6replay)).
-6play is a French TV platform to offer live-streaming and full episodes for web, mobile and set-top box. Since the apps launched in 2016, there have been over 1.5 billion videos streamed. Our iOS (mostly Swift) and Android native applications, both important parts of the 6play platform, were exclusively developed externally until now.
+6play is the [catchup TV](https://en.wikipedia.org/wiki/Video_on_demand#Catch-up_TV) platform for the French TV group M6. It offers live-streaming and full episodes for web, mobile and set-top box. Since the apps launched in 2016, there have been over 1.5 billion videos streamed. Our iOS (mostly Swift) and Android native applications, both important parts of the 6play platform, were exclusively developed externally until now.
 
 We wanted to use React Native to develop this project in-house and to take advantage of the benefits this hybrid technology could bring into our native apps. Here are just some of the benefits we found when using React Native:
 
