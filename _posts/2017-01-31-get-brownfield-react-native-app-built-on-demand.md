@@ -13,26 +13,25 @@ category:
 tags: [mobile, github, ci, react-native]
 image:
   feature: /posts/rn-brownfield/feature.jpg
-  credit:
-  creditlink:
+  credit: Lucia Martinez
+  creditlink: https://flic.kr/p/cuZLGb
 comments: true
 language: en
 ---
 As you may know, at M6Web we decided to embrace [React Native](http://facebook.github.io/react-native/) a few months ago.
 It’s a really exciting piece of software that adds a lot of value in the mobile development ecosystem.
 
-We already use it for a side project on a standalone app (not public yet, stay tuned!) to record table soccer games, that’s why, we (mostly [@ncuillery](https://twitter.com/ncuillery)) decided to improve the upgrade process for apps made with the embedded generator. See Nicolas’ blog post on it : [Easier Upgrades with React Native](http://facebook.github.io/react-native/blog/2016/12/05/easier-upgrades.html).
+We already use it for a side project on a standalone app (not public yet, stay tuned!) to record table soccer games, that’s why, we (mostly [@ncuillery](https://twitter.com/ncuillery)) decided to improve the upgrade process for apps made with the embedded generator. See Nicolas’ blog post on it: [Easier Upgrades with React Native](http://facebook.github.io/react-native/blog/2016/12/05/easier-upgrades.html).
 
 As a result, we wanted to start using React Native for our most popular app: 6Play ([6play iOS](https://itunes.apple.com/app/6play/id369692259?mt=8), [6play Android](https://play.google.com/store/apps/details?id=fr.m6.m6replay)).
-6play is a French TV platform to offer live-streaming and full episodes for web, mobile and set-top box. Since the apps launched in 2016, there have been over 1.5 billion videos streamed.Our iOS (mostly Swift) and Android native applications both important parts of the 6play platform, were exclusively developed externally until now.
+6play is a French TV platform to offer live-streaming and full episodes for web, mobile and set-top box. Since the apps launched in 2016, there have been over 1.5 billion videos streamed. Our iOS (mostly Swift) and Android native applications, both important parts of the 6play platform, were exclusively developed externally until now.
 
 We wanted to use React Native to develop this project in-house and to take advantage of the benefits this hybrid technology could bring into our native apps. Here are just some of the benefits we found when using React Native:
 
-* **JavaScript development for mobile**. We have a lot of awesome JavaScript developers internally who develop the [6play website](http://www.6play.fr/) using React. We love React & Redux and want to mutualize the piece of technology we use on most of the frontends of the 6play platform.
-* **Hot fixing with [CodePush](https://microsoft.github.io/code-push/)**.. For our mobile apps, we want to accomplish the same continuous delivery process we have for the website. CodePush helps us to keep the same flexibility by allowing us to make deployments on a weekly or even daily basis.
+* **JavaScript development for mobile**. We have a lot of awesome JavaScript developers internally who develop the [6play website](http://www.6play.fr/) using React. We love React & Redux and want to mutualize this piece of technology we use on most of the frontends of the 6play platform.
+* **Hot fixing with [CodePush](https://microsoft.github.io/code-push/)**. For our mobile apps, we want to accomplish the same continuous delivery process we have for the website. CodePush helps us to keep the same flexibility by allowing us to make deployments on a weekly or even daily basis.
 * **Knowledge sharing**. We would like to be closer to the external development of our mobile apps, which was difficult without native knowledge and without any Android or Swift internal developers. React Native allows us to be part of that, we started working closely with the native team, sharing all developments between the two teams and bringing the best of both worlds (native and web) into the same project.
 * **Code Sharing**. We also want to share major parts of the mobile code base between apps (Android & iOS). Today, the code bases for each app are completely separate and are managed by two separate teams. With React Native, we’d have one common code base while being able to implement specificities for a particular platform if needed. We have also imagined some ways to share code with the 6play website.
-
 
 As we mentioned in a previous [blog post](http://tech.m6web.fr/preview-android-ios-react-native-on-github-pull-request/), we use Github pull requests extensively in our development process, especially for testing (automatically and manually) each new commit before merging them into the `master` branch.
 
@@ -43,9 +42,9 @@ For the second iteration of our development process, we had a few simple require
 * Test each pull request in conditions as close to the reality as possible,
 * Use the same testing workflow for both iOS and Android apps.
 
-TThis post outlines our new mobile development process for the 6play apps. We’ll walk through how we manage the environment of a brownfield React Native app, our Git repository structure, our build and release workflows, and how we’ve created a CI environment that mirrors our production environment.
+This post outlines our new mobile development process for the 6play apps. We’ll walk through how we manage the environment of a brownfield React Native app, our Git repository structure, our build and release workflows, and how we’ve created a CI environment that mirrors our production environment.
 
-# Mono Repository / Multi Repositories ?
+# Mono Repository / Multi Repositories?
 
 The first thing we had to do, was to decide how we wanted to organize our Git repositories.
 
@@ -53,13 +52,13 @@ For this, we looked into how  [Leland Richardson and the AirBnb team work with t
 
 We soon realized we had two options here:
 
-**Multi-repositories** :
+**Multi-repositories**:
 
 * the iOS one
 * the Android one
 * and one for React Native code
 
-**Mono-repository** :
+**Mono-repository**:
 
 * One giant repository that has iOS, Android, and React Native folders inside.
 
@@ -74,11 +73,11 @@ Let’s take a look at the pros and cons of both solutions.
 │   ├── react-native-views/
 ```
 
-At first glance, this solution seems like the Holy Grail :
+At first glance, this solution seems like the Holy Grail:
 
 * (+) Everything is in the same place
 * (+) If a modification needs both native & React Native developments, changes can be contained in a unique pull request.
-* (-) Code, Documentation, Setup, are more difficult at the beginning (For example, how can we keep Git history of each existing repository ?).
+* (-) Code, Documentation, Setup, are more difficult at the beginning (For example, how can we keep Git history of each existing repository?).
 * (-) For our workflow, we need to have everyone working the same way, with the same git workflow, and the same review process. Remember that our native team is an external team (in Belgium), the Android & iOS teams are two different teams (located in the same place) and the React Native one is an internal team (in France). If we succeed, we’ll have synchronous development between teams, this is a really positive point, but it may be difficult to reach.
 * (-) Android, iOS and Javascript CI environments are very different (different tools, different needs), so it is really complex to setup.
 
@@ -119,7 +118,7 @@ So we will have two sibling folders:
 ├── react-native-views/
 ```
 
-We decided to use symlink to have a cleaner structure (and that will make the CI configuration easy later, see Continuous Integration), so the setup for the Android project will look like this :
+We decided to use symlink to have a cleaner structure (and that will make the CI configuration easy later, see Continuous Integration), so the setup for the Android project will look like this:
 
 {% highlight bash %}
 cd app-android
@@ -169,12 +168,12 @@ Now we can choose: JavaScript developers are able to develop on any native app w
 # Continuous integration
 
 The next step was to find a way to improve the mobile development workflow.
-During our research, we found a SAAS tool named [buddybuild](https://www.buddybuild.com) that’s able to build the iOS & Android apps on each pull request. The setup for the native apps (before the React Native integration) or the React Native side project was really straightforward. It just magically works !
+During our research, we found a SAAS tool named [buddybuild](https://www.buddybuild.com) that’s able to build the iOS & Android apps on each pull request. The setup for the native apps (before the React Native integration) or the React Native side project was really straightforward. It just magically works!
 
-With the 3 Git repositories of our brownfield app, it’s a bit more complicated than that. For this, buddybuild provides two useful hooks during the CI process. We just have to add a shell file in the repository :
+With the 3 Git repositories of our brownfield app, it’s a bit more complicated than that. For this, buddybuild provides two useful hooks during the CI process. We just have to add a shell file in the repository:
 
-* `buddybuild_postclone.sh` : This is the hook that happens just after the cloning of the current repository by buddybuild
-* `buddybuild_prebuild.sh` : This hook is called after postclone and after buddybuild gets all dependencies (npm, Pod, Gradle …), but just before the build starts  
+* `buddybuild_postclone.sh`: This is the hook that happens just after the cloning of the current repository by buddybuild
+* `buddybuild_prebuild.sh`: This hook is called after postclone and after buddybuild gets all dependencies (npm, Pod, Gradle …), but just before the build starts  
 
 To allow our Product Owners to test the app’s functionality, whether it's related to React Native or not, we’d need:
 
@@ -197,7 +196,7 @@ The key here is to clone the React Native repository in the `postclone` buddybui
 
 ### for iOS
 
-buddybuild_postclone.sh :
+buddybuild_postclone.sh:
 
 {% highlight bash %}
 git clone react-native-views
@@ -208,10 +207,10 @@ ln -s react-native-views/package.json package.json
 ln -s react-native-views/node_modules node_modules
 {% endhighlight %}
 
-buddybuild_prebuild.sh :
+buddybuild_prebuild.sh:
 
 {% highlight bash %}
-# export React Native bundle :
+# export React Native bundle:
 node_modules/.bin/react-native bundle --platform ios --entry-file index.ios.js --bundle-output ../<appFolder>/main.ios.jsbundle --dev false
 {% endhighlight %}
 
@@ -226,7 +225,7 @@ node_modules/.bin/react-native bundle --platform ios --entry-file index.ios.js -
 
 ### for Android
 
-buddybuild_postclone.sh :
+buddybuild_postclone.sh:
 
 {% highlight bash %}
 git clone react-native-views
@@ -237,10 +236,10 @@ ln -s react-native-views/package.json package.json
 ln -s react-native-views/node_modules node_modules
 {% endhighlight %}
 
-buddybuild_prebuild.sh :
+buddybuild_prebuild.sh:
 
 {% highlight bash %}
-# export React Native bundle :
+# export React Native bundle:
 node_modules/.bin/react-native bundle --platform android --entry-file index.android.js --bundle-output ../<appFolder>/main.android.jsbundle --dev false
 {% endhighlight %}
 
@@ -261,7 +260,7 @@ The only thing you have to do in the buddybuild dashboard is to create the app f
 
 Now, we’d like to easily test each `react-native-views` pull request on both iOS and Android apps.
 
-For that purpose, we used the buddybuild hook again. Here is the `buddybuild_postclone.sh` :
+For that purpose, we used the buddybuild hook again. Here is the `buddybuild_postclone.sh`:
 
 {% highlight bash %}
 # Create a react-native-views folder
@@ -290,7 +289,7 @@ ln -s react-native-views/node_modules node_modules
 ln -s react-native-views/package.json package.json
 {% endhighlight %}
 
-For iOS, you’ll have :
+For iOS, you’ll have:
 
 ```
 ├── buddybuild workspace/ (app-ios inside)
@@ -301,7 +300,7 @@ For iOS, you’ll have :
 │   ├── node_modules -> react-native-views/node_modules
 ```
 
-For Android, you’ll have :
+For Android, you’ll have:
 
 ```
 ├── buddybuild workspace/ (app-android inside)
@@ -326,10 +325,10 @@ ACCESS_TOKEN_BB=<AccessToken>
 APP_ID_BB_IOS=<buddybuildiOSAppID>
 APP_ID_BB_ANDROID=<buddybuildAndroidAppID>
 
-#Build iOS
+# Build iOS
 curl -X POST -H  'Authorization: Bearer '$ACCESS_TOKEN_BB” -d 'branch=master’ 'https://api.buddybuild.com/v1/apps/'$APP_ID_BB_IOS'/build'
 
-#Build Android
+# Build Android
 curl -X POST -H  'Authorization: Bearer '$ACCESS_TOKEN_BB” -d 'branch=master’ 'https://api.buddybuild.com/v1/apps/'$APP_ID_BB_ANDROID'/build'
 {% endhighlight %}
 
@@ -345,15 +344,15 @@ We have decided here to add a rule: for a “cross platform feature” (like a b
 
 A bridge for a native component (the authentication bridge as an example) would have three Git branches with the same name, and three pull requests (one on each repository).
 
-By following this convention, we only have to checkout that branch when we clone the external repository in our `postclone` hooks :
+By following this convention, we only have to checkout that branch when we clone the external repository in our `postclone` hooks:
 
 {% highlight bash %}
 {
   # Detect with the env variable BUDDYBUILD_BRANCH (given by buddybuild) the branch we are on.
-  echo "Git checkout branch : $BUDDYBUILD_BRANCH"
+  echo "Git checkout branch: $BUDDYBUILD_BRANCH"
   git checkout $BUDDYBUILD_BRANCH
 } || {
-  echo "Git default branch : master"
+  echo "Git default branch: master"
   git checkout master # if master is the name of your default branch
 }
 {% endhighlight %}
@@ -366,4 +365,4 @@ Thanks to React Native and buddybuild, we now have a complete workflow as powerf
 
 Big up to [Tapptic Team](http://tapptic.com/), M6Web React Native team for this work, to the buddybuild support team for the help when needed.
 
-Special thanks to Nicolas Cuillery and Alysha for their proofreading !
+Special thanks to Nicolas Cuillery and Alysha for their proofreading!
