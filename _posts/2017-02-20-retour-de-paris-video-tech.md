@@ -12,7 +12,7 @@ author:
 category:
 tags: [video, ott, react, dash, hls, mse, cmaf, 6play, html5]
 image:
-  feature: posts/retour-de-paris-video-tech/banner-paris-video-tech.png
+  feature: posts/retour-de-paris-video-tech/banner-paris-video-tech.jpg
   credit: Paris Video Tech
   creditlink: https://parisvideotech.com/
 comments: true
