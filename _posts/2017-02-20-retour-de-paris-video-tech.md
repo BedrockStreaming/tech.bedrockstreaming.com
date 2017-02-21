@@ -60,7 +60,7 @@ En complément de l'approche composant proposée par React, [Redux](http://redux
 ### Media Engines
 Inspiré du système [multi-techs de Video.js](https://github.com/videojs/video.js/blob/master/docs/guides/tech.md), nous avons développé notre propre système de *Bridge* pilotant les différents SDK Video du marché : [hls.js](https://github.com/dailymotion/hls.js), [dash.js](https://github.com/Dash-Industry-Forum/dash.js), [Adobe Primetime Browser TVSDK](http://www.adobe.com/marketing-cloud/primetime-tv-platform/video-player-sdk.html), et HTML5.
 
-Tous les *Bridges* communiquent ainsi de la même manière avec notre player React au travers des [MediaEvents HTML5](https://www.w3schools.com/tags/ref_av_dom.asp).
+Tous les *Bridges* communiquent ainsi de la même manière avec notre player React au travers des [MediaEvents HTML5](https://developer.mozilla.org/fr/docs/Web/API/HTMLMediaElement).
 
 
 
