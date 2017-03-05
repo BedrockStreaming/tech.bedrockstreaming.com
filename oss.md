@@ -73,6 +73,7 @@ Throught github we participated to the improvement (we hope so) of many open sou
 * [naderman/composer-aws](https://github.com/naderman/composer-aws/): [#4](https://github.com/naderman/composer-aws/pull/4) - [#5](https://github.com/naderman/composer-aws/pull/5)
 * [nelmio/NelmioApiDocBundle](https://github.com/nelmio/NelmioApiDocBundle): [#157](https://github.com/nelmio/NelmioApiDocBundle/pull/157) -  [#253](https://github.com/nelmio/NelmioApiDocBundle/pull/253) -
 [#256](https://github.com/nelmio/NelmioApiDocBundle/pull/256) -  [#258](https://github.com/nelmio/NelmioApiDocBundle/pull/258) - [#277](https://github.com/nelmio/NelmioApiDocBundle/pull/277)
+* [nelmio/NelmioCorsBundle](https://github.com/nelmio/NelmioCorsBundle): [#67](https://github.com/nelmio/NelmioCorsBundle/pull/67) - [#72](https://github.com/nelmio/NelmioCorsBundle/pull/72)
 * [willdurand/BazingaHateoasBundle](https://github.com/willdurand/BazingaHateoasBundle): [#9](https://github.com/willdurand/BazingaHateoasBundle/pull/9)
 * [macbre/phantomas](https://github.com/macbre/phantomas): [#166](https://github.com/macbre/phantomas/pull/166)
 * [FriendsOfSymfony/FOSRestBundle](https://github.com/FriendsOfSymfony/FOSRestBundle): [#1110](https://github.com/FriendsOfSymfony/FOSRestBundle/pull/1110)
