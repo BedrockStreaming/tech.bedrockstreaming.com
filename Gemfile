@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'json'
+gem 'json', '1.8.3'
 gem 'jekyll'
 gem 'coderay'
 gem 'rake'
