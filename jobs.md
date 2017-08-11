@@ -21,37 +21,7 @@ apprendre et évoluer avec des collègues formidables au sein d’une direction 
 
 Pour découvrir nos technologies et nos pratiques, n'hésitez pas à vous [renseigner sur ce blog](http://tech.m6web.fr/) ou nous suivre [sur twitter](https://twitter.com/TechM6Web).
 
-## Responsable Systèmes & Réseaux (H/F)
 
-Vous prenez la direction de l’équipe d’exploitation en charge des plateformes techniques hébergeant les applications relatives à 6play dont notamment le delivery des vidéos (CDN interne).
-
-Vous pilotez l’ensemble des aspects techniques, administratifs et budgétaires de votre plateforme.
-
-Vous assurez notamment la gestion technique et administrative de l’Autonomous System.
-
-Vos missions sont :
-
-*	Management de l’équipe d’exploitation
-*	Pilotage et suivi des projets
-*	Gestion du budget
-*	Recherches, relations et négociations avec les fournisseurs
-*	Gestion des commandes
-*	Choix d’évolution des technos et plateformes
-*	Participation au design voire à l’implémentation des nouvelles architectures
-*	Identification des outils de l’équipe
-*	Support des équipes de développements et des équipes produits
-
-Les compétences suivantes sont le pilier de ce poste :
-
-* Maîtrise de l’environnement GNU/Linux
-* Maîtrise des hébergements LAMP (et dérivés) à fort trafic et haute disponibilité
-* Maîtrise services réseaux IP (mail, DNS, NTP, firewalling, routing)
-* Gestion technique et administrative d’un Autonomous System (RIPE, routage, switching, BGP)
-* Maitrise de l'anglais indispensable
-
-Poste basé à Lyon.
-
-Pour candidater : [jobs_resphosting@m6web.fr](mailto:jobs_resphosting@m6web.fr)
 
 ## Product Owner publicité (H/F)
 
