@@ -12,8 +12,7 @@ author:
 category: Data
 tags: [Data,Hadoop,BigData,Airflow,Hive,Spark,DMP]
 image:
-  feature: posts/cerebro/logo_cerebro.png
-  credit: Laurent Vion
+  feature: posts/cerebro/data-lake.jpg
 comments: true
 language: en
 ---
