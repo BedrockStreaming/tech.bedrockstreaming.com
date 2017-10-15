@@ -44,6 +44,7 @@ At the end of the day, Krux's DMP did the job. In November 2015 we launched Smar
 To give some detail of our use of the DMP, it turned out building our own segments was very successful, but we didn't use any 3rd party interconnection because we didn't find any valuable Data to buy and didn't want to reduce the value of our own Data by sharing it out.
 
 ![Krux’s segment builder](/images/posts/cerebro/krux-segment-builder.png)
+
 Krux’s segment builder
 
 
