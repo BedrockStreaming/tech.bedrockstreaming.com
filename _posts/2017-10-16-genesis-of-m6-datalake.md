@@ -90,7 +90,8 @@ As you can see, combining information between our ecosystems involved some very 
 
 With our Data in Hadoop, all this turns out to be a simple SQL query in Hue (a PhpMyAdmin style interface for Hadoop):
 
-```SELECT COUNT(*) FROM adserver_logs A
+```
+SELECT COUNT(*) FROM adserver_logs A
    JOIN users U ON A.uid = U.uid
    JOIN programs P on A.pid = P.id
 WHERE A.type = 'impression'
