@@ -58,7 +58,7 @@ Having a DMP is both a great accomplishment and frustrating.
 It's great because you can start to combine the use of your service with the user profiles to produce segments and activate use cases to address them.
 But for CRM, the workflows to plug segments into our emailing systems weren't native and we needed to build some custom workflows. No rocket science, but when we first received a 2 Billion line file for the user/segment map that we needed to filter and convert into another format, our developers went grumpy.
 We also got frustrated very fast because we wanted to start to extract some unpreceded analytics insights combining our user knowledge (our major service, 6play had just switched to fully logged-in users) with usage stats or with external sources like our adserver logs. Advanced analytics was clearly not the field of Krux.
-Last but not least came some limitations (either due to the design of Krux or the pricing) :
+Last but not least came some limitations (either due to the design of Krux or the pricing):
 
   - We could only work on 3 months of history if we wanted to keep the price reasonable (on 6play we have a lot of TV shows that run for 3 months per year, and segmenting the users who watched the show last year is important).
   - It's based on cookies + device ids on mobile (it's the best solution for most use cases, but if your users are logged in, it introduces quite a lot of risk to make mistakes).
@@ -88,7 +88,7 @@ Before the Data Lake, this would have been impossible. The closest we could get 
 
 As you can see, combining information between our ecosystems involved some very manual processes and could only lead to approximations, so basically we never did them.
 
-With our Data in Hadoop, all this turns out to be a simple SQL query in Hue (a PhpMyAdmin style interface for Hadoop) :
+With our Data in Hadoop, all this turns out to be a simple SQL query in Hue (a PhpMyAdmin style interface for Hadoop):
 
 ```SELECT COUNT(*) FROM adserver_logs A
    JOIN users U ON A.uid = U.uid
@@ -125,7 +125,7 @@ Once the team was staffed, we got onto the job. We had 5 steps :
 a) Hosting platform
 ----------------
 
-This stage of the project was a very religious one. Many people at M6 had a very strong desire to go towards cloud and managed services, others were totally in favor of Hadoop and have full in house control over the platform. The major options were :
+This stage of the project was a very religious one. Many people at M6 had a very strong desire to go towards cloud and managed services, others were totally in favor of Hadoop and have full in house control over the platform. The major options were:
 
   - AWS
     - Amazon EMR + S3
@@ -140,7 +140,7 @@ This stage of the project was a very religious one. Many people at M6 had a very
 We spent 3 months talking to the different vendors and considering options.
 
 The first decision we took was to use Hadoop instead of managed services.
-The AWS and Google sales teams were very convincing, but we finally declined for 2 main reasons :
+The AWS and Google sales teams were very convincing, but we finally declined for 2 main reasons:
 
   - People in our company were starting to learn how to use Hadoop, changing the stack would have forced everyone to re-learn what they were just starting to dominate. Not very efficient while building up expertise.
   - Using proprietary solutions like Big Query involves a strong locking risk. If we developped all our projets to leverage a specific platform, changing providers in a few years would involve a lot of reworking on all our code base.
