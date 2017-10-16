@@ -156,7 +156,7 @@ At the end of the process we wrote up an evaluation grid. Here is the summary ve
 The decision was there, we went for a fully on premise stack with Odiso.
 To detail some of that evaluation, here's a few insights on what it came down to.
 
-  - AWS is cool, but ultra expensive. I mean it's 10 times more than our on premise option ! We would have gone full AWS if the price was reasonable. The possibility to pop clusters up and down is very interesting and reduces costs, but our v1 platform was using our 4 EC2 Data Nodes at ~80% 24/7, so we could never go down to 0 servers.
+  - AWS is cool, but ultra expensive. I mean it's 10 times more than our on premise option! We would have gone full AWS if the price was reasonable. The possibility to pop clusters up and down is very interesting and reduces costs, but our v1 platform was using our 4 EC2 Data Nodes at ~80% 24/7, so we could never go down to 0 servers.
   - Google feels better on the service side of things, but it involved taking chances because the commercial product is young and support + community experience seemed weak.
   - On premise was clearly much cheaper, and felt more secure for our low experience on Hadoop since we're used to managing servers and our team had managed serious Hadoop before.
 
@@ -271,7 +271,7 @@ We needed all our ingestion and treatment jobs to be up and running before we co
 
 
 So there we are, we now have our 2 feet in our second Hadoop platform. Now we're looking forwards, both on how we make this platform evolve to empower our future use cases, and to raise our innovation pace for Big Data to count much more within M6.
-By all means stay posted, we'll update you on some of the awesome projects we've been working on !
+By all means stay posted, we'll update you on some of the awesome projects we've been working on!
 
 
 
