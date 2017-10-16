@@ -97,7 +97,8 @@ WHERE A.type = 'impression'
    AND U.age >= '25'
    AND U.age <= '49'
    AND U.gender = 'F'
-   AND P.name = 'NCIS'```
+   AND P.name = 'NCIS'
+```
 
 Hadoop and our Data Lake, we could just jump over the barriers between tools and ecosystems within seconds. Combined with the ability to code in various languages, we could instantly start to industrialize such insights and start going further.
 
