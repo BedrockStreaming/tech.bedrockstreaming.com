@@ -231,7 +231,7 @@ Setting this stack up felt very simple from my perspective, but that's surely be
 On the timeline, the biggest part of the setup was receiving the physical servers. That took about 3 months because some parts (SSD disks) were out of stock for a long time.
 We received a first part of the Data Nodes a couple of months before the rest of the servers, so we decided to start building the cluster with temporary Name Nodes and services, and migrate them after.
 
-We deployed Cloudera Hadoop via KMV servers (managed with Puppet) and the Cloudera Manager. Very straightforward.
+We deployed Cloudera Hadoop via KVM servers (managed with Puppet) and the Cloudera Manager. Very straightforward.
 We used Ansible to install our stack, manage all our configuration files and user access.
 
 
