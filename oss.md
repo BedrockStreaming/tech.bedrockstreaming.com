@@ -48,6 +48,7 @@ Here some projects open sourced:
 * [MonologExtraBundle](https://github.com/M6Web/MonologExtraBundle): Provide extra features for Monolog.
 * [Redis](https://github.com/M6Web/Redis): PHP component used to access Redis throught predis
 * [RedisBundle](https://github.com/M6Web/RedisBundle): Bundle over Redis component
+* [RedisMessageBrocker](https://github.com/M6Web/RedisMessageBroker): PHP Component to deal with message in Redis 
 * [RedisMock](https://github.com/M6Web/RedisMock): A simple PHP Redis mock
 * [RequestHeadersForwarderGuzzleBundle](https://github.com/M6Web/RequestHeadersForwarderGuzzleBundle): Fetch HTTP headers from current request and reuse them in Guzzle clients sub-requests.
 * [roboxt](https://github.com/M6Web/roboxt): PHP lib parsing a robots.txt
