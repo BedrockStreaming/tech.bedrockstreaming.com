@@ -12,8 +12,8 @@ author:
 category: OSS
 tags: [OSS, Open source, php, js]
 image:
-  feature: https://cdn.ttgtmedia.com/visuals/ComputerWeekly/Hero%20Images/open-source-fotolia.jpg
-  credit: Fotolia
+  feature: opensource.png
+  credit: opensourceway
 comments: true
 language: en
 ---
