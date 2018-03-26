@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "6play goes international"
+title: "the 6play platform goes international"
 description: ""
 author:
   name:  Olivier Mansour
@@ -10,7 +10,7 @@ author:
   facebook:
   github: omansour
 category: 6play
-tags: [6play]
+tags: [6play, intl]
 image:
   feature: 6play-intl/feature.png
   credit: m6web
@@ -21,14 +21,15 @@ language: en
 
 Within less than a year m6web and [techm6web](https://twitter.com/TechM6Web) managed to launch three websites, three android apps, three ios apps for three RTL TV channel in Europe, all based on the [6play](https://www.6play.fr) technology. 
 
-Theses deployments include: 
+These deployments include: 
 
 * broadcasted and themathic channels,
-* live streaming and video catchup encoding and playout,
+* live streaming, video catchup encoding and playout,
 * video resuming,
 * local adservers (for videos and display), DMP system and CDN,
 * contribution via our backoffice and automated through our API,
-* and almost all the features of the 6play application.
+* translations system,
+* and almost all the features of the 6play platform.
 
 ## RTL Play (Belgium)
 
