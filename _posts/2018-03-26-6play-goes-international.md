@@ -3,12 +3,12 @@ layout: post
 title: "the 6play platform goes international"
 description: ""
 author:
-  name:  Olivier Mansour
-  avatar: oliviermansour.jpg
+  name:  TechM6Web
+  avatar:
   email:
-  twitter:  omansour
+  twitter:  techM6Web
   facebook:
-  github: omansour
+  github: M6Web
 category: 6play
 tags: [6play, intl]
 image:
@@ -17,7 +17,6 @@ image:
 comments: true
 language: en
 ---
-
 
 Within less than a year m6web and [techm6web](https://twitter.com/TechM6Web) managed to launch three websites, three android apps, three ios apps for three RTL TV channel in Europe, all based on the [6play](https://www.6play.fr) technology. 
 
