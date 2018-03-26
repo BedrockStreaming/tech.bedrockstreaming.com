@@ -40,4 +40,4 @@ These deployments include:
 
 ## RTL Most (Hungary)
 
-![RTL Play Hungary](/images/posts/6play-intl/rtl_play_most.png)
+![RTL Play Hungary](/images/posts/6play-intl/rtl_most.png)
