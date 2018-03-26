@@ -12,7 +12,7 @@ author:
 category: 6play
 tags: [6play, intl]
 image:
-  feature: 6play-intl/feature.png
+  feature: posts/6play-intl/feature.png
   credit: m6web
 comments: true
 language: en
