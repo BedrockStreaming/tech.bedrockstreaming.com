@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "the 6play platform goes international"
+title: "The 6play platform goes international"
 description: ""
 author:
   name:  TechM6Web
