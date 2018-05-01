@@ -87,7 +87,7 @@ pour que nos requêtes puissent être acceptées.
 Pour s'assurer du bon fonctionnement des APIs suite à ces nombreux changements, nous avons investi du temps pour écrire des tests fonctionnels de bout en bout,
 pour vérifier que les résultats restaient inchangés malgré le changement de version de cluster.
 Bien sûr, même si en local nos tests étaient au vert, des erreurs pouvaient apparaître en production.
-Le scénario était alors simple, faire un *rollback*, ajouter les tests correspondants aux nouvelles erreurs detectées, les faire passer en local, puis reccomencer!
+Le scénario était alors simple, faire un *rollback*, ajouter les tests correspondants aux nouvelles erreurs detectées, les faire passer en local, puis recommencer!
 
 
 Ce qui nous a peut-être le plus éprouvé dans cette migration, c'est une [regression introduite dans la version `5.2`](https://github.com/elastic/elasticsearch/issues/23796)
