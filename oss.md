@@ -7,7 +7,7 @@ modified: 2013-12-09
 image:
   feature: opensource.png
   credit: opensourceway
-  creditlink: http://www.flickr.com/photos/opensourceway/
+  creditlink: https://www.flickr.com/photos/opensourceway/
 ---
 
 # Open source
@@ -35,7 +35,7 @@ Here some projects open sourced:
     
 * [AmqpBundle](https://github.com/M6Web/AmqpBundle): The AmqpBundle incorporates messaging in your application using the php-amqp extension.
 * [ApiExceptionBundle](https://github.com/M6Web/ApiExceptionBundle): The ApiExceptionBundle manages exceptions for your API and return a clean json.
-* [AwsBundle](https://github.com/M6Web/AwsBundle): [AWS SDK](http://aws.amazon.com/sdkforphp/) as a Symfony2 service, with WSClientBundle functionnality (cache, logging, ...)
+* [AwsBundle](https://github.com/M6Web/AwsBundle): [AWS SDK](https://aws.amazon.com/sdkforphp/) as a Symfony2 service, with WSClientBundle functionnality (cache, logging, ...)
 * [behat-seo-extension](https://github.com/M6Web/behat-seo-extension): Behat extension provinding specific features for testing the SEO of a website
 * [DaemonBundle](https://github.com/M6Web/DaemonBundle) Bundle easing the creation of daemon sf2 commands
 * [DomainUserBundle](https://github.com/M6Web/DomainUserBundle): User authentication by domain
