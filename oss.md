@@ -42,13 +42,14 @@ Here some projects open sourced:
 * [ElasticsearchBundle](https://github.com/M6Web/ElasticsearchBundle): Integration of the Elasticsearch official PHP client within a Symfony Project
 * [Firewall](https://github.com/M6Web/Firewall) and [FireWallBundle](https://github.com/M6Web/FirewallBundle): Symfony2 bundle providing IP filtering features for your Symfony 2 applications
 * [FOSRestExtraBundle](https://github.com/M6Web/FOSRestExtraBundle): Extra features for the FOSRestBundle
-* [GuzzleHttpBundle](https://github.com/M6Web/GuzzleHttpBundle): Bundle of top on HttpGuzzle
+* [GuzzleHttpBundle](https://github.com/M6Web/GuzzleHttpBundle): Bundle on top of HttpGuzzle
 * [HttpKernelBundle](https://github.com/M6Web/HttpKernelBundle): Custom sf2 HttpKernel with additional events
+* [KafkaBundle](https://github.com/M6Web/KafkaBundle): Bundle on top of rdkafka PHP extension
 * [LogBridgeBundle](https://github.com/M6Web/LogBridgeBundle): Symfony Bundle to log Request/Response with Monolog.
 * [MonologExtraBundle](https://github.com/M6Web/MonologExtraBundle): Provide extra features for Monolog.
 * [Redis](https://github.com/M6Web/Redis): PHP component used to access Redis throught predis
 * [RedisBundle](https://github.com/M6Web/RedisBundle): Bundle over Redis component
-* [RedisMessageBrocker](https://github.com/M6Web/RedisMessageBroker): PHP Component to deal with message in Redis 
+* [RedisMessageBroker](https://github.com/M6Web/RedisMessageBroker): PHP Component to deal with message in Redis 
 * [RedisMock](https://github.com/M6Web/RedisMock): A simple PHP Redis mock
 * [RequestHeadersForwarderGuzzleBundle](https://github.com/M6Web/RequestHeadersForwarderGuzzleBundle): Fetch HTTP headers from current request and reuse them in Guzzle clients sub-requests.
 * [roboxt](https://github.com/M6Web/roboxt): PHP lib parsing a robots.txt
@@ -58,10 +59,9 @@ Here some projects open sourced:
 * [websocket-bench](https://github.com/M6Web/websocket-bench): Nodejs cli tool for benchmark web socket server, currently support (socket.io, faye)
 * [XRequestUidBundle](https://github.com/M6Web/XRequestUidBundle): Generating call traces in the microservices hell 
 
-# Contribution to free projects
+# Contribution to open source projects
 
-
-Throught github we participated to the improvement (we hope so) of many open source projects:
+Throught GitHub we participated to the improvement (we hope so) of many open source projects:
 
 * [composer/satis](https://github.com/composer/satis): [#101](https://github.com/composer/satis/pull/101) - [#60](https://github.com/composer/satis/pull/60)
 * [composer/composer](https://github.com/composer/composer) - [#2434](https://github.com/composer/composer/pull/2434) - [#2446](https://github.com/composer/composer/pull/2446) - [#2482](https://github.com/composer/composer/pull/2482)
