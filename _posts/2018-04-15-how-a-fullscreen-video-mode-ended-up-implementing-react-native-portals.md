@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How a fullscreen video mode ended up implementing React Native Portals ?"
+title: "How a fullscreen video mode ended up implementing React Native Portals?"
 description: ""
 author:
   name:  Marvin Frachet (Zenika consultant)
@@ -20,7 +20,7 @@ language: en
 
 This story introduces a declarative native side portal implementation module called rn-reparentable.
 
-My teammate ([Laetitia BONANNI](https://medium.com/@LaetitiaBonanni)) and I are working on a React Native module embedded in the [6Play application](https://itunes.apple.com/fr/app/6play/id369692259?mt=8) that aims to provide best moments of different TV shows from the [(french) M6](http://tech.m6web.fr/) channel.
+My teammate ([Laetitia BONANNI](https://medium.com/@LaetitiaBonanni)) and I are working on a React Native module embedded in the [6Play application](https://itunes.apple.com/fr/app/6play/id369692259?mt=8) that aims to provide best moments of different TV shows from the [M6](https://tech.m6web.fr/) channel.
 
 The module, called Refresh, is a list of videos that are playing while the user is scrolling. It also provides a “theater mode” which is a way to create an immersive user experience by obscuring the cards that are not focused:
 
@@ -34,7 +34,7 @@ At the time I’m writing this article, creating such a thing using React Native
 
 While being a web developer, we usually work with positioning to display something over the rest (like a popup for example).
 
-Dealing with React Native and its style APIs (that really looks like the web one), we thought that it would be super-easy to simulate the exact same behaviour.
+Dealing with React Native and its style APIs (which really looks like the web one), we thought that it would be super-easy to simulate the exact same behaviour.
 
 That’s why our main idea was to manage the fullscreen mode by adding a style that takes the screen size and an absolute position. Thus, the video would have followed the device edges while rotating:
 
@@ -64,9 +64,9 @@ The fact that an element is always positioned relatively to its parent has been 
 
 ### Overflow and android are not friends
 
-And even if we would have found a way (we could have cheated by calculating negative values, relative to the parent, in order to stick to the edges of the device) , we would have met other problems such as the fact the equivalent of overflow prop doesn’t work on Android.
+And even if we would have found a way (we could have cheated by calculating negative values, relative to the parent, in order to stick to the edges of the device), we would have met other problems such as the fact the equivalent of overflow prop doesn’t work on Android.
 
-_There are actually multiple opened issues concerning this problem. Grabbou gave a shot on this one [#7229](https://github.com/facebook/react-native/issues/7229) :_
+_There are actually multiple opened issues concerning this problem. [Grabbou](https://github.com/grabbou) gave a shot on this one [#7229](https://github.com/facebook/react-native/issues/7229):_
 
 ![Mike GRABOWSKI on 2017-11-27 concerning overflow on Android](/images/posts/refresh/grabowski.png)
 
@@ -78,11 +78,11 @@ This time, while rotating the device, we would have hidden everything around the
 
 ![](/images/posts/refresh/refresh-mobile-way.png)
 
-Here’s the result we have got :
+Here’s the result we have got:
 
 ![Refresh’s fullscreen](/images/posts/refresh/refresh-mobile-way-image.gif)
 
-### What is happening on here ?
+### What is happening on here?
 
 There are multiple interesting things here, at ~200 cards down:
 
@@ -100,7 +100,7 @@ The second thing to notice is that we are always playing the video that is **the
 
 The last thing to know is that we actually have multiple rendering cycles to hide the different components around the VideoPlayer.
 
-For now, with that information, let’s imagine the following scenario :
+For now, with that information, let’s imagine the following scenario:
 
 1.  Scroll ~200 cards down
 
@@ -122,7 +122,7 @@ So, how can we avoid this “yo-yo” behaviour ?
 
 ## Portal to the rescue
 
-Recently, we heard about [React portals](https://reactjs.org/docs/portals.html). It seems that it could have saved us from this specific situation. The idea is quite simple, we would have teleported the player from its current location to somewhere higher in the component tree, like the React Native documentation encourages us to, **without triggering special state based rendering-cycles (aka : Headers + Footers removals):**
+Recently, we heard about [React portals](https://reactjs.org/docs/portals.html). It seems that it could have saved us from this specific situation. The idea is quite simple, we would have teleported the player from its current location to somewhere higher in the component tree, like the React Native documentation encourages us to, **without triggering special state based rendering-cycles (aka: Headers + Footers removals):**
 
 ![React portal concept](/images/posts/refresh/refresh-treeview.gif)
 
@@ -134,17 +134,17 @@ The problem is that React would have created a new instance of the VideoPlayer e
 
 **Each time we rotate the device, the video will restart from the beginning.**
 
-## What can we do with portal ? On the native side ?
+## What can we do with portal ? On the native side?
 
 The portal idea is quite interesting: we need to find a way to create a portal-like behaviour with React Native, but on the **native side**, so that we won’t lose the VideoPlayer native context.
 
-Since we had the chance to be at the [React Native Europe](https://medium.zenika.com/takeaways-from-the-first-react-native-eu-b48b234ebab0?source=user_profile---------1----------------), we have learnt the way React Native is managing views thanks to [Emile Sjolander](https://www.youtube.com/watch?v=jFiQ6FxBDqY).
+Since we had the chance to be at the [React Native Europe](https://medium.zenika.com/takeaways-from-the-first-react-native-eu-b48b234ebab0), we have learnt the way React Native is managing views thanks to [Emile Sjolander](https://www.youtube.com/watch?v=jFiQ6FxBDqY).
 
 To demonstrate this idea, let’s take an example :
 
 ![](/images/posts/refresh/refresh-unique-id.gif)
 
-This is a simple application that provides two <Text> components and displays some content. On the right, we can see the native tree view. The cursor shows the two native views that need to permute. The idea is to make <Text>First</Text> taking place of <Text>Second</Text> and vice versa.
+This is a simple application which provides two <Text> components and displays some content. On the right, we can see the native tree view. The cursor shows the two native views that need to permute. The idea is to make <Text>First</Text> taking place of <Text>Second</Text> and vice versa.
 
 It’s possible, using React Native, to use the module responsible of view management: UIManager (available directly from react-native module):
 
@@ -157,7 +157,7 @@ It’s possible, using React Native, to use the module responsible of view manag
   }
 ```
 
-This will end up by making something like :
+This will end up making something like:
 
 ![Wait 3 seconds to check the view permutation](/images/posts/refresh/refresh-unique-id-2.gif)
 
@@ -165,7 +165,7 @@ It seems that creating a portal-like behaviour is possible using ReactNative.
 
 The main reason we didn’t choose this solution is the fact that we didn’t find a way to get the UIView native identifier from the JavaScript side (I’m not talking about nativeID or testID props, but the unique identifier of the view set on the native side).
 
-[Here's a tweet from me concerning unique identifier](https://twitter.com/mfrachet/status/959344416300380161?ref_src=twsrc%5Etfw&ref_url=https%3A%2F%2Fmedium.com%2Fmedia%2Ffbca8114fb4ca347d189bf2ca96f0435)
+[Here's a tweet from me concerning unique identifier](https://twitter.com/mfrachet/status/959344416300380161)
 
 ## Native implementation of “portals”
 
@@ -195,7 +195,7 @@ On this gist, <Reparentable name="2" .../> will take place of <Reparentable name
 
 _What does it mean?_
 
-In our context, it means that when the state isFullscreen is true, we are able to move the player from its current view to the higher one :
+In our context, it means that when the state isFullscreen is true, we are able to move the player from its current view to the higher one:
 
 ```javascript
 <View style={styles.container}>
