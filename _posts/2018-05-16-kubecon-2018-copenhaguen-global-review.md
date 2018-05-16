@@ -23,9 +23,9 @@ After those three days at KubeCon, we've seen and heard a lot of interesting ide
 
 First of all "Cloud native" seems to be *the* buzzword of the year. Not just *cloud* anymore, but *cloud native*! What does it mean? Instead of just deploying your application to the cloud, it should fully *use the cloud*.
 
-Then, Kubernetes. It is a mature solution in itself. There doesn't seem to be any doubt left about that.
+Then, Kubernetes. It is a mature solution in itself. There doesn't seem to be any doubt left about that. If this is the case with kubernetes, the majority of the ecosystem around it is not mature, and that's a bit of a problem. We saw a lot of tools and some that was presented during talks are still WIP and some demos completly failed. If you're in the Kubernetes wave, please take care of tools you choose, and don't loose yourself adopting a fancy/non-working tool that will drop down your infrastructure. Continue to master what you do without being trapped by the hype brought by certain solutions.
 
-Deployment, CI and CD. Well, not so much. There are a few projects out there and several different approaches (`kubectl apply`, a bit of Jenkins around it, deployments from inside the cluster, ...), but not one thing that everyone is doing/using.
+Deployment, CI and CD. Well, not so much. There are a few projects out there and several different approaches (`kubectl apply`, a bit of Jenkins around it, deployments from inside the cluster, several black boxes like CodeFresh ...), but not one thing that everyone is doing/using.
 
 For monitoring, use Prometheus. It's pretty much what everyone is using.
 
@@ -37,4 +37,4 @@ GitOps. Everybody is going this way. Versionning, of course. But also using Git 
 
 Things are beginning to move on the security side of things. Companies are starting to notice there is work to be done, startups are appearing with different services.
 
-And, finally, multi-clusters. We felt a few people are using multi-cluster, but it's often done *by hand*. Maybe a subject we'll hear more about in the future?
+And, finally, multi-clusters. We felt a few people are using multi-cluster, but it's often done *by hand*. That doesn't seem mature at all. Maybe a subject we'll hear more about in the future?
