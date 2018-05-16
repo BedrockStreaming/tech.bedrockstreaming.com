@@ -80,11 +80,11 @@ The tool they developed for this is [`nearmap/cvmanager`](https://github.com/nea
 
 OpenCensus (distributed tracing metrics system) + Istio is the combo provided for this talk to let devs debug the most of their apps.
 
-OpenCensus is a tracing tool, like the CNCF's project Opentracing. It can be implemented in many languages starting with those we use: PHP and javascript.
+OpenCensus is a tracing tool, like the CNCF's project Opentracing. It can be implemented in many languages, starting with those we use: PHP and javascript.
 
 OpenCensus can trace RPC and http APIs calls.
 
-You can install a dedicated dashboard that gives a lot of metrics out of the box (like 90th percentils, etc.) and allows customisable ones.
+You can install a dedicated dashboard that gives a lot of metrics out of the box (like 90th percentiles, etc.) and allows customizable ones.
 
 Mixer (Istio tool) makes the aggregation between those metrics from what is gathered by OpenCensus.
 
@@ -102,19 +102,19 @@ Really nice production case study from the Norwegian Tax Administration about th
 
 One idea kept my attention is the tagging of their containers:
 
-*        Pusing docker image tag 1.2.3 also pushes tag 1.2 and tag 1.
-*        So going to v2 and rolling back to v1 can effectively rolls out 2.0.0 to 1.2.3 without knowing the exact subversions.
-*        You are always assured that the tag of the major version always points to the latest subversion.
+*        Pushing docker image tag 1.2.3 also pushes tag 1.2 and tag 1.
+*        So going to v2 and rolling back to v1 effectively rolls out 2.0.0 to 1.2.3 without knowing the exact subversions.
+*        You are assured that the tag of the major version always points to the latest subversion.
 
-It's not clear to me hwo to implement that. Maybe a codefresh hack. But still, I found the approach interesting.
+It's not clear to me how to implement that. Maybe a codefresh hack. But still, I found the approach interesting.
 
 Another lesson for those who want to migrate from on-premise to the cloud is to keep things that work on-premise and simply migrate them on cloud as it is. That will ease the migration. You can rethink all afterward if needed, but the first step is to migrate, not rebuild from scratch plus migrating.
 
 As they use CodeFresh for CI/CD, it's easy for them to automate their pipelines. That's another lesson: automate everything. To automate, you need to standardize.
 
-Another lesson is to use what is rock-solid. We all see a lot of tools and startups around the cloud nebula. A lot of them won't last and some will, like Kubernetes. This is the tip: use what will last. Don't build your whole infrastracture on something unstable or with poor pro/community support.
+Another lesson is to use what is rock-solid. We all see a lot of tools and startups around the cloud nebula. A lot of them won't last and some will, like Kubernetes. This is the tip: use what will last. Don't build your whole infrastructure on something unstable or with poor pro/community support.
 
-The final point I kept from this really good rex, is to create a predictable infrastructure. You cannot guess what will happen. You have to know and use the right tools/annotations to make it behave the way you want, predictably and repetably.
+The final point I kept from this really good rex, is to create a predictable infrastructure. You cannot guess what will happen. You have to know and use the right tools/annotations to make it behave the way you want, predictably and repeatedly.
 
 
 # How to Export Prometheus Metrics from Just About Anything - Matt Layher, DigitalOcean
@@ -126,17 +126,17 @@ This presentation was about a few good practices to follow when it comes to expo
 
 Another really good rex from Zalando from their utilization of k8s in prod and lessons learned.
 
-They talked of Stups, a Zalando toolset around AWS. That definitly needs to be tested.
+They talked of Stups, a Zalando toolset around AWS. That definitely needs to be tested.
 
 From their experience of managing a k8s cluster on AWS EC2s, they gave us few tips:
 
 *        Always upgrade to the latest k8s version
-*        Manage as minimum clusters as possible
-*        Automate all the things. The only manual step should only be merge PRs. This is a base *GitOps* principle.
+*        Manage the smallest possible number of clusters
+*        Automate all the things. The only manual step should be merging PRs. This is a base *GitOps* principle.
 *        Define an AWS HA control plane setup behind ELBs. That can be debated but this is a good first step.
-*        All cluster config files must be git versionned (another *GitOps* principle). An upgrade is then only a git branch merge at some point.
+*        All cluster config files must be git versioned (another *GitOps* principle). An upgrade is then only a git branch merge at some point.
 
-Some of the points above can be acheive via a CD tool. I remember they use Jenkins for that, but not 100% sure. Alongside this CD tool should live a CI tool (or one tool for both).
+Some of the points above can be achieved via a CD tool. I remember they use Jenkins for that, but not 100% sure. Alongside this CD tool, there should be a CI tool (or one tool for both).
 
 They gave us some points on CI tests too:
 
@@ -146,13 +146,13 @@ They gave us some points on CI tests too:
 
 For those who are using AWS, keep in mind the following: volumes cannot be mounted across several AZ.
 
-Keep yourself away from unavailability by always setting "minAvailable".
+Keep yourself away from unavailability by always setting `minAvailable`.
 
 Final tip: If you go for a self-managed k8s cluster (not EKS, GKE, etc.), check that nodes are up and running before continuing upgrade.
 
 I really enjoyed this rex that was full of good prod-ready advices.
 
-I recommand you to see [the slides](https://schd.ws/hosted_files/kccnceu18/18/2018-05-02%20Continuously%20Deliver%20your%20Kubernetes%20Infrastructure%20-%20KubeCon%202018%20Copenhagen.pdf)
+I recommend you take a look at [the slides](https://schd.ws/hosted_files/kccnceu18/18/2018-05-02%20Continuously%20Deliver%20your%20Kubernetes%20Infrastructure%20-%20KubeCon%202018%20Copenhagen.pdf)
 
 
 # Seamless Development Environments on Kubernetes using Telepresence - Ara Pulido, Bitnami
@@ -186,25 +186,23 @@ The most important idea here is you don't have to do everything right from the s
 
 This might be one of the hottest project of this early 2018.
 
-We already saw this project that was created in february and are using it for testing purposes. We hope to use it in production very soon.
+We already saw this project that was created in February, and we are using it for testing purposes. We hope to use it in production very soon.
 
 For those of you who don't know Jenkins-X:
 
-*        It's piloted by `jx` a command line tool (Mac/Linux)
+*        It's piloted by `jx`, a command line tool (Mac/Linux)
 *        It drives a Jenkins instance + Docker Registry + Nexus + Chartmuseum + Monocular
 *        It allows you to manage your app's deployments via Jenkins blueocean's pipelines with k8s endpoints
 *        That means Jenkins will be able to run CI tests, Continuously Deploy your project to preview, staging, prod and so on with Skaffold/Helm to k8s
-*        Jenkins will run pipelines from the jenkinsfile in the repo to do that CI/CD part
+*        Jenkins will run pipelines from the `Jenkinsfile` in the repo to do that CI/CD part
 *        In the provided pipelines given with `jx import`, you will use provided docker images that embed `jx` cli and other tools to manage the deployments of your app.
 *        That allows you to promote your app between stages, build your docker image, etc. in your pipeline steps.
 *        Those deployments are based on Helm Charts in the repo.
-*        Jenkins-x follows *GitOps* strategy, that means anything usefull is stored in each app's repo: it is versionned and git events will trigger pipelines.
+*        Jenkins-x follows *GitOps* strategy, that means anything useful is stored in each app's repo: it is versioned and git events will trigger pipelines.
 
-Jenkins-X brings this CI/CD part that was missing for k8s users. Gitlab + gitlab-ci already do that for some years now but nothing was that fancy for GH users.
+Jenkins-X brings this CI/CD part that was missing for k8s users. Gitlab + gitlab-ci were already doing that for some years now, but nothing was that fancy for GH users.
 
-We are very excited about Jenkins-X as it answers a lot of problematics plus bringing gitops as core concept.
-
-We re actively adopting it and we hope to give feedback asap.
+We are very excited about Jenkins-X, as it answers a lot of problematics and brings in gitops as core concept. We're actively adopting it and we hope to give feedback asap.
 
 
 # Keynote: Anatomy of a Production Kubernetes Outage - Oliver Beattie, Head of Engineering, Monzo Bank
