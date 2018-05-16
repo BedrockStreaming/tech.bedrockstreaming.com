@@ -66,7 +66,7 @@ Storage of persistent data is one of these challenges (simple replication is rar
 
 During this talk, WeaveWorks team talked about how istio config can be managed like code through git based workflows.
 They evoked using terraform to describe cloud state.
-As of *gitops* principles, devs shouldn't use `kubectl` to interract with clusters. Additionally, they should push code, not containers. GitHub events must lead deployments, not humans.
+As of *gitops* principles, devs shouldn't use `kubectl` to interact with clusters. Additionally, they should push code, not containers. GitHub events must lead deployments, not humans.
 As part of this automation, deployments must auto-rollout when things break. They either fail or succeed cleanly.
 One can use operator patterns to help integrating those concepts. The WeaveWorks team also talked about [flux](https://github.com/weaveworks/flux) to manage environments states.
 Weave Flux brings a lot more annotations for Istio, making automated releases deployments, etc.
@@ -81,12 +81,12 @@ Policy enforcement is a fundamental problem for an organisation, and policy deci
 
 A lot of people are using multiple Kubernetes clusters. For example, Zalando uses 80. It can become a mess to manage all those clusters with their specific components like secrets, controllers, configmaps, etc.
 To solve this problem, a new cli has been created: `kubefed`.
-But Rob explains that this new tool doesn't solves all the problems. I.E: You'll have to give access to all-clusters to people and not only few clusters (that breaks isolation), the Federation api must be run by a top-root user (accessing everything), etc.
+But Rob explains that this new tool doesn't solve all the problems. I.E: You'll have to give access to all-clusters to people and not only few clusters (that breaks isolation), the Federation api must be run by a top-root user (accessing everything), etc.
 
 CoreOs brought the concept of [k8s operators](https://coreos.com/operators/).
-Rob explains why that resolves problems and why you should use that instead of Federation.
+Rob explains why that solves problems and why you should use that instead of Federation.
 
-Clearly I wasn't convince at all of this presentation. Thus, we are working in the same building and problems brought by Rob (modifications by hundred of devs/SRE split accross the world) do not concern us at the moment.
+Clearly I wasn't convinced at all of this presentation. Thus, we are working in the same building and problems brought by Rob (modifications by hundred of devs/SRE split across the world) do not concern us at the moment.
 
 
 # Building a Kubernetes Scheduler using Custom Metrics - Mateo Burillo, Sysdig
@@ -100,7 +100,7 @@ In the end, the idea of implementing a custom scheduler might be interesting, bu
 
 # Clusters as Cattle: How to Seamlessly Migrate Apps across Kubernetes Clusters - Andy Goldstein, Heptio
 
-As many people, And has a lot of clusters. To re-route traffic between clusters, he uses envoy.
+As many people, Andy has a lot of clusters. To re-route traffic between clusters, he uses envoy.
 To maintain consistent configurations, he uses ansible to provision everything.
 So far, I don't really see the point of having a lot of clusters and even less of migrating a single app between clusters, but that can be interesting for people that like that trend.
 
