@@ -53,7 +53,7 @@ The talk finished with a few words about the [Chaos Toolkit](http://chaostoolkit
 
 # Istio - The Weather Company's Journey - Nick Nellis & Fabio Oliveira, IBM
 
-Several istio talks weren't enough for me, I wanted more. I didn't learn much more on this new one, exepts those tips:
+Several istio talks weren't enough for me, I wanted more. I didn't learn much more on this new one, except those tips:
 *       You can define route specific retries with Istio
 *       They use vistio to visualize istio traffic. That tool seems based on Netflix's Vizceral. Unfortunately, I couldn't find any GH repo nor blog talking about vistio.
 *       If you want to implement Istio: start small
@@ -69,11 +69,11 @@ The talk introduced the idea of deploying Kubernetes in edge locations -- like i
 # Integrating Prometheus and InfluxDB - Paul Dix, InfluxData
 
 I was a lot surprised in this talk as we were like 30 in a room for 300.
-I guess people don't need to keep metrics more than 15days with the Prometheus engine, or maybe people are already using InfluxDB as a garanted long term storage.
+I guess people don't need to keep metrics more than 15days with the Prometheus engine, or maybe people are already using InfluxDB as a guaranteed long term storage.
 Because we are in the second case, we are testing influxDB with Prometheus, so this talk came at the right time.
 I didn't learn much on InfluxDB + Prometheus, nor on federated queries that comes with HA.
 
-Paul then questionned why not use a single query language for all query engines? That would be more
+Paul then questioned why not use a single query language for all query engines? That would be more
 practical and maintainable. The question is still open, even if Paul proposes IFQL to rule them all.
 The main idea is for all query engines to coordinate and stop creating a new language on each new engine.
 
@@ -89,7 +89,7 @@ On Kubernetes, external attackers will try to access the API server and etcd, th
 
 # Cloudbursting with Kubernetes - Irfan Ur Rehman & Quinton Hoole, Huawei Technologies
 
-That might not be everyone's problematic, but still interesting to hear about. If you have multiple cloud providers with different pricings, you might want to optimize your costs by using the most expensive only on load peaks. That is exactly what they did, using Kubernetes clusters federation and specific annotations. We won't go over this approach because we'll stick on one cloud provider, but that may be a thing for some people.
+That might not be everyone's problematic, but still interesting to hear about. If you have multiple cloud providers with different pricings, you might want to optimize your costs by using the most expensive only on load peaks. That is exactly what they did, using Kubernetes clusters federation and specific annotations. We won't go over this approach because we'll stick with one cloud provider, but that may be a thing for some people.
 
 
 # Operating a Global-Scale FaaS on Top of Kubernetes - Chad Arimura & Matt Stephenson, Oracle
@@ -106,8 +106,8 @@ I have to admit I didn't take much notes during this talk, but noted the slides 
 
 # Observing and Troubleshooting your Microservices with Istio - Isaiah Snell-feikema, IBM & Douglas Reid, Google
 
-I promise, this is the last Istio conf to which I was.
-In case that wasn't obvious, Istio is becoming the defaulted service mesh like Prometheus is for metrics. I couldn't work much on it so I wanted to learn the most possible from it during this KubeCon. I can say this talk was one of the best for Istio discovery and even advanced skill. I won't be able to summarize everything, so here are few tips I kept from it:
+I promise, this is the last Istio conf I went to.
+In case that wasn't obvious, Istio is becoming the default service mesh, like Prometheus is for metrics. I couldn't work much on it so I wanted to learn the most possible from it during this KubeCon. I can say this talk was one of the best for Istio discovery and even advanced skill. I won't be able to summarize everything, so here are few tips I kept from it:
 * Envoy's `/stats` route gives a lot of infos of servers
 * Istio system logs gives also traffic spikes
 * Istio's access logs can be uploaded to fluentd/elk
@@ -123,6 +123,6 @@ I heard about [Vitess](https://vitess.io/) for the first time during this KubeCo
 
 # Final words?
 
-
+The weather was nice and our plane was only on Saturday, so we finished the day with a walk in the City.
 
 ![Doing some sightseeing in the city after KubeCon](/images/posts/kubecon-2018/a-boat-in-the-city.jpg)
