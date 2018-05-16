@@ -51,11 +51,31 @@ Chaos Engineering follows a continuous loop. Start with a steady state (a baseli
 The talk finished with a few words about the [Chaos Toolkit](http://chaostoolkit.org/), which aims to be simpler than the famous [Chaos Monkey](https://github.com/Netflix/chaosmonkey).
 
 
+# Istio - The Weather Company's Journey - Nick Nellis & Fabio Oliveira, IBM
+
+Several istio talks weren't enough for me, I wanted more. I didn't learn much more on this new one, exepts those tips:
+*       You can define route specific retries with Istio
+*       They use vistio to visualize istio traffic. That tool seems based on Netflix's Vizceral. Unfortunately, I couldn't find any GH repo nor blog talking about vistio.
+*       If you want to implement Istio: start small
+
+
 # Are You Ready to Be Edgy? — Bringing Cloud-Native Applications to the Edge of the Network - Megan O'Keefe & Steve Louie, Cisco
 
 There are a few common problems in a *cloud computing* setting. Many devices (with IoT for instance) can mean a bottleneck on the network side of things, *the cloud* being far away can cause latency problems. Edge computing, moving apps (or parts of apps) from a centralized cloud, could help with those problems. Think AR/VR for latency, Video for high bandwidth, facial recognition for temporary/secure data.
 
 The talk introduced the idea of deploying Kubernetes in edge locations -- like in cell towers -- and pointing users to the closest location. Those Kubernetes clusters would only host APIs or applications with specific needs, while the main parts would remain in a centralized cloud, which means we would have to develop edge-ready applications, keeping in mind problems such as network splits, data synchronization, deployment, ...
+
+
+# Integrating Prometheus and InfluxDB - Paul Dix, InfluxData
+
+I was a lot surprised in this talk as we were like 30 in a room for 300.
+I guess people don't need to keep metrics more than 15days with the Prometheus engine, or maybe people are already using InfluxDB as a garanted long term storage.
+Because we are in the second case, we are testing influxDB with Prometheus, so this talk came at the right time.
+I didn't learn much on InfluxDB + Prometheus, nor on federated queries that comes with HA.
+
+Paul then questionned why not use a single query language for all query engines? That would be more
+practical and maintainable. The question is still open, even if Paul proposes IFQL to rule them all.
+The main idea is for all query engines to coordinate and stop creating a new language on each new engine.
 
 
 # A Hackers Guide to Kubernetes and the Cloud - Rory McCune, NCC Group PLC
@@ -65,6 +85,11 @@ First, a word about threat models. Pretty much everyone will see random Internet
 Then, time to think about your attack surface. Attackers will find the weakest point, which is not always where your might think. What about the cloud around your Kubernetes cluster? Github is a great way of getting accesses (many commit their credentials and/or do not remove them from history -- bots are crawling this!). Developers' laptop are generally full of interesting data, and are not necessarily protected enough.
 
 On Kubernetes, external attackers will try to access the API server and etcd, the kubelets, or maybe inject malicious containers. You should turn off the *insecure port*, control access to kubelet and etcd, retrict the use of service tokens, restrict privileged containers, enable authentication and authorization on the API server, set pod security and network policies, and do regular upgrades. Also, don't forget about cloud rights.
+
+
+# Cloudbursting with Kubernetes - Irfan Ur Rehman & Quinton Hoole, Huawei Technologies
+
+That might not be everyone's problematic, but still interesting to hear about. If you have multiple cloud providers with different pricings, you might want to optimize your costs by using the most expensive only on load peaks. That is exactly what they did, using Kubernetes clusters federation and specific annotations. We won't go over this approach because we'll stick on one cloud provider, but that may be a thing for some people.
 
 
 # Operating a Global-Scale FaaS on Top of Kubernetes - Chad Arimura & Matt Stephenson, Oracle
@@ -79,6 +104,18 @@ Resource management goes through cgroups. With containers, we see all CPU/RAM, b
 I have to admit I didn't take much notes during this talk, but noted the slides contain a lot of informations -- for more, go read them ;-)
 
 
+# Observing and Troubleshooting your Microservices with Istio - Isaiah Snell-feikema, IBM & Douglas Reid, Google
+
+I promise, this is the last Istio conf to which I was.
+In case that wasn't obvious, Istio is becoming the defaulted service mesh like Prometheus is for metrics. I couldn't work much on it so I wanted to learn the most possible from it during this KubeCon. I can say this talk was one of the best for Istio discovery and even advanced skill. I won't be able to summarize everything, so here are few tips I kept from it:
+* Envoy's `/stats` route gives a lot of infos of servers
+* Istio system logs gives also traffic spikes
+* Istio's access logs can be uploaded to fluentd/elk
+* Canary testing / blue-green deployments can be done via RouteRule CRD.
+
+If you are considering using Istio, you **must** see [the slides](https://schd.ws/hosted_files/kccnceu18/99/Observing%20and%20Troubleshooting%20your%20Microservices%20with%20Istio.pdf)
+
+
 # Vitess and a Kubernetes Operator - Sugu Sougoumarane, YouTube
 
 I heard about [Vitess](https://vitess.io/) for the first time during this KubeCon, even though it's an *old* project. It's a middleware for MySQL, sitting between the database and our applications. It helps scale it through sharding -- the goal being to answer the common pain points for databases: scalability, cloud and making DBAs happy. It's also one of the CNCF project I noted a few days ago I should take a closer look at.
@@ -88,4 +125,4 @@ I heard about [Vitess](https://vitess.io/) for the first time during this KubeCo
 
 
 
-![Doig some sightseeing in the city after KubeCon](/images/posts/kubecon-2018/a-boat-in-the-city.jpg)
+![Doing some sightseeing in the city after KubeCon](/images/posts/kubecon-2018/a-boat-in-the-city.jpg)
