@@ -171,6 +171,7 @@ We went to Datawire’s booth and saw a nice demo. And also learnt about other t
 Return of Istio devs on project's recent updates: closed PRs, enhancements, etc.
 
 That was not really what I was looking for so I went to some bootcamps to say hi, especially the HAProxy bootcamp one that is always a good moment. Special thanks to Baptiste for his time and the awesome talk we had!
+For the record: HAProxy has it's own [Ingress Controller](https://www.haproxy.com/fr/blog/haproxy_ingress_controller_for_kubernetes/)
 
 
 # From Data Centers to Cloud Native - Dave Zolotusky & James Wen, Spotify
