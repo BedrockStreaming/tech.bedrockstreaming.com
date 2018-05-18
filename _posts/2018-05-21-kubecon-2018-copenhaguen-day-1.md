@@ -25,22 +25,13 @@ You can read about [the second day here](/kubecon-2018-copenhaguen-day-2/) and [
 
 # Keynotes
 
-## How Good Is Our Code? - Dan Kohn, Executive Director, Cloud Native Computing Foundation
-
 ## CNCF Project Update - Liz Rice, Technology Evangelist, Aqua Security; Sugu Sougoumarane, CTO, PlanetScale Data; Colin Sullivan, Product Manager, Synadia Communications, Inc. & Andrew Jessup, Co-founder, Scytale Inc.
 
 During this keynote, I realized the CNCF is helping a lot more projects than I thought it was: it's not just Kubernetes. I will take a closer look to some of them in the future -- they are all listed on [l.cncf.io](https://landscape.cncf.io/).
 
-## Re-thinking Networking for Microservices - Lew Tucker, VP/CTO Cloud Computing, Cisco Systems, Inc.
-
 ## CERN Experiences with Multi-Cloud Federated Kubernetes - Ricardo Rocha, Staff Member, CERN & Clenimar Filemon, Software Engineer, Federal University of Campina Grande
 
 OK, so, sometimes, it actually is *rocket-science* (or pretty close to it). It's nice seeing Kubernetes used for science and research, on a federation of around 400 clusters!
-
-## From Innovation to Production - Dirk Hohndel, VP & Chief Open Source Officer, VMware
-
-## CNCF 20-20 Vision - Alexis Richardson, Founder & CEO, Weaveworks
-
 
 ![Waiting for the Keynotes to start](/images/posts/kubecon-2018/kubecon-before-keynotes.jpg)
 
