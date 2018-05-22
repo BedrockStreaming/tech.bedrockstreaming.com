@@ -38,3 +38,5 @@ GitOps. Everybody is going this way. Versioning, of course. But also using Git e
 Things are beginning to move on the security side of things. Companies are starting to notice there is work to be done, startups are appearing with different services.
 
 And, finally, multi-clusters. We felt a few people are using multi-cluster, but it's often done *by hand*. That doesn't seem mature at all. Maybe a subject we'll hear more about in the future?
+
+In any case, we had a really great time during this KubeCon in Copenhaguen, we saw many interesting talks and discussed with lots of people!
