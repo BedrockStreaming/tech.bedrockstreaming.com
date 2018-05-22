@@ -24,7 +24,7 @@ After an interesting [first day at KubeCon 2018](/kubecon-2018-copenhaguen-day-1
 
 # Autoscale your Kubernetes Workload with Prometheus - Frederic Branczyk, CoreOS
 
-The goal of autoscaling, ultimately, is to fullfill SLO of SLA through SLI (yeah, you may have to think for a while after reading this ^^). Demand must be measured by metrics, which must themselves be collected, stored and made queryable. Autoscaling can be *horizontal* (increase replicas when necessary, the focus of this talk) or *vertical* (increase resources request/limits when necessary).
+The goal of autoscaling, ultimately, is to fullfill [SLO](https://en.wikipedia.org/wiki/Service_level_objective) of [SLA](https://en.wikipedia.org/wiki/Service-level_agreement) through [SLI](https://en.wikipedia.org/wiki/Service_level_indicator) (yeah, you may have to think for a while after reading this ^^). Demand must be measured by metrics, which must themselves be collected, stored and made queryable. Autoscaling can be *horizontal* (increase replicas when necessary, the focus of this talk) or *vertical* (increase resources request/limits when necessary).
 
 Autoscaling on Kubernetes used to rely on Heapster. But Heapster's API is unspecified, it doesn't work with Prometheus, and vendor implementations are often unmaintained. Starting with 1.8, Kubernetes provides a resource and custom metrics API. It is a specification (not an implementation), the implementations are developed and of maintained by vendors, and each metric returns a single value. Kubernetes' HPA (HorizontalPodAutoscaler) uses these metrics to scale up/down.
 
