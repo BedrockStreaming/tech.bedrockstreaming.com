@@ -12,7 +12,7 @@ author:
 category:
 tags: [kubernetes, KubeCon]
 image:
-  feature: posts/kubecon-2018/kubecon-day-1.jpg
+  feature: posts/kubecon-2018/title-kubecon.jpg
   credit: Pascal Martin
   creditlink:
 comments: true
@@ -24,31 +24,22 @@ At the very beginning of May, we (Pascal and Vincent) went to KubeCon 2018. It w
 
 # Keynotes
 
-## How Good Is Our Code? - Dan Kohn, Executive Director, Cloud Native Computing Foundation
-
 ## CNCF Project Update - Liz Rice, Technology Evangelist, Aqua Security; Sugu Sougoumarane, CTO, PlanetScale Data; Colin Sullivan, Product Manager, Synadia Communications, Inc. & Andrew Jessup, Co-founder, Scytale Inc.
 
 During this keynote, I realized the CNCF is helping a lot more projects than I thought it was: it's not just Kubernetes. I will take a closer look to some of them in the future -- they are all listed on [l.cncf.io](https://landscape.cncf.io/).
-
-## Re-thinking Networking for Microservices - Lew Tucker, VP/CTO Cloud Computing, Cisco Systems, Inc.
 
 ## CERN Experiences with Multi-Cloud Federated Kubernetes - Ricardo Rocha, Staff Member, CERN & Clenimar Filemon, Software Engineer, Federal University of Campina Grande
 
 OK, so, sometimes, it actually is *rocket-science* (or pretty close to it). It's nice seeing Kubernetes used for science and research, on a federation of around 400 clusters!
 
-## From Innovation to Production - Dirk Hohndel, VP & Chief Open Source Officer, VMware
-
-## CNCF 20-20 Vision - Alexis Richardson, Founder & CEO, Weaveworks
-
-
-![Waiting for the Keynotes to start](/images/posts/kubecon-2018/kubecon-before-keynotes.jpg)
+![Waiting for the Keynotes to start](/images/posts/kubecon-2018/boat.jpg)
 
 
 # Whats Up With All The Different Container Runtimes? - Ricardo Aravena, Branch Metrics
 
-Overview of the different containers runtimes, starting with OpenVZ in 2006 (still maintained, but the last 2.7 version is not as stable as the previous one, and it doesn't support Kubernetes), and LXC (Kubernetes support is low-priority WIP and LXC uses a specific image format) in 2011. Docker (initially based on LXC) arrived in 2013 and things have gone insane since then. With libcontainer and rkt in 2014, OCI in 2015 and CRI in 2016. Today, Kubernetes supports several runtines.
+Overview of the different containers runtimes, starting with OpenVZ in 2006 (still maintained, but the last 2.7 version is not as stable as the previous one, and it doesn't support Kubernetes), and LXC (Kubernetes support is low-priority WIP and LXC uses a specific image format) in 2011. Docker (initially based on LXC) arrived in 2013 and things have gone insane since then. With libcontainer and `rkt` in 2014, OCI in 2015 and CRI in 2016. Today, Kubernetes supports several runtimes.
 
-rkt could be interesting from a security point of view (supports TPM and VMs). With Kubernetes 1.10, the default runtime is runc. crun is the most interesting runtime for performances, but is WIP and isn't currently used much. Kata, released in 2017 has the best security (it runs containers in VMs) and is OCI compliant, but is slower and more heavyweight. Other very specific runtimes include nvidia, railcar, pouch, lmctfg, systemd-nspawn...
+`rkt` could be interesting from a security point of view (supports TPM and VMs). With Kubernetes 1.10, the default runtime is runc. `crun` is the most interesting runtime for performances, but is WIP and isn't currently used much. Kata, released in 2018 has the best security (it runs containers in VMs) and is OCI compliant, but is slower and more heavyweight. Other very specific runtimes include nvidia, railcar, pouch, lmctfg, systemd-nspawn...
 
 Basically, today and for most workloads, you should go with the standard docker/containerd runtime. There is a convergence towards OCI, it's the default for Kubernetes and docker is going to adopt the CRI plugin.
 
