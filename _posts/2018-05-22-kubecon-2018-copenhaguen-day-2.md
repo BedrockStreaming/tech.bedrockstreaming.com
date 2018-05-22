@@ -22,21 +22,6 @@ language: en
 After an interesting [first day at KubeCon 2018](/kubecon-2018-copenhaguen-day-1/), we are back for the second day!
 
 
-# Keynotes
-
-## Kubernetes Project Update - Aparna Sinha, Group Product Manager, Kubernetes and Google Kubernetes Engine, Google
-
-## Accelerating Kubernetes Native Applications - Brandon Philips, CTO of CoreOS, Red Hat
-
-## Switching Horses Midstream: The Challenges of Migrating 150+ Microservices to Kubernetes - Sarah Wells, Technical Director for Operations and Reliability, Financial Times
-
-## Shaping the Cloud Native Future - Abby Kearns, Executive Director, Cloud Foundry Foundation
-
-## Skip the Anxiety Attack - Build Secure Apps with Kubernetes - Jason McGee, Fellow, IBM
-
-## Software's Community - Dave Zolotusky, Software Engineer, Spotify
-
-
 # Autoscale your Kubernetes Workload with Prometheus - Frederic Branczyk, CoreOS
 
 The goal of autoscaling, ultimately, is to fullfill SLO of SLA through SLI (yeah, you may have to think for a while after reading this ^^). Demand must be measured by metrics, which must themselves be collected, stored and made queryable. Autoscaling can be *horizontal* (increase replicas when necessary, the focus of this talk) or *vertical* (increase resources request/limits when necessary).
