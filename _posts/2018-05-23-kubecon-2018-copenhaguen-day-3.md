@@ -34,11 +34,6 @@ Trying to run Machine Learning on Kubernetes? Working with Jupyter and Tensorflo
 Even if we *never fall*, running with scissors could be dangerous. We wouldn't run with scissors, would we? Then, why do we keep running containers with privileges they should not need? And why do we mount more directories than needed as volumes?
 
 
-## Scaling Deep Learning Models in Production Using Kubernetes - Sahil Dua, Software Developer, Booking.com
-
-## Crossing the River by Feeling the Stones - Simon Wardley, Researcher, Leading Edge Forum
-
-
 ![Just before the Keynotes](/images/posts/kubecon-2018/pascal-and-vincent-at-kubecon.jpg)
 
 
