@@ -12,7 +12,7 @@ author:
 category:
 tags: [kubernetes, KubeCon]
 image:
-  feature: posts/kubecon-2018/kubecon-day-1.jpg
+  feature: posts/kubecon-2018/title-kubecon.jpg
   credit: Pascal Martin
   creditlink:
 comments: true
@@ -20,7 +20,6 @@ language: en
 ---
 
 At the very beginning of May, we (Pascal and Vincent) went to KubeCon 2018. It was a three-days long event, with more than 300 conferences. 4300 people met at Bella Center, a huge conference place close to Copenhaguen in Denmark. Here are some of our notes about some talks we saw.
-You can read about [the second day here](/kubecon-2018-copenhaguen-day-2/) and [the third day there](/kubecon-2018-copenhaguen-day-3/)
 
 
 # Keynotes
@@ -33,7 +32,7 @@ During this keynote, I realized the CNCF is helping a lot more projects than I t
 
 OK, so, sometimes, it actually is *rocket-science* (or pretty close to it). It's nice seeing Kubernetes used for science and research, on a federation of around 400 clusters!
 
-![Waiting for the Keynotes to start](/images/posts/kubecon-2018/kubecon-before-keynotes.jpg)
+![Waiting for the Keynotes to start](/images/posts/kubecon-2018/boat.jpg)
 
 
 # Whats Up With All The Different Container Runtimes? - Ricardo Aravena, Branch Metrics
