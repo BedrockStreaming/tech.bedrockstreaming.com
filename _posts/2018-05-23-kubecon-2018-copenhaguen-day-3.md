@@ -94,7 +94,7 @@ This was about the [Fn project](http://fnproject.io/). A couples of problems rel
 
 Resource management goes through cgroups. With containers, we see all CPU/RAM, but this doesn't mean we'll be able to use them all: we may have to share with other containers. Work with requests. For now, cpu and memory are stable resources, but others (hugepages, ephemeral storage, device plugins) are in beta. You should align Kubernetes' QoS with the underlying infrastructure, enable quotas in the cluster, and protect critical system pods.
 
-I have to admit I didn't take much notes during this talk, but noted the slides contain a lot of informations -- for more, go read them ;-)
+I have to admit I didn't take much notes during this talk, but noted [the slides](https://schd.ws/hosted_files/kccnceu18/33/Inside%20Kubernetes%20QoS%20M.%20Gasch%20KubeCon%20EU%20FINAL.pdf) contain a lot of informations -- for more, go read them ;-)
 
 
 # Observing and Troubleshooting your Microservices with Istio - Isaiah Snell-feikema, IBM & Douglas Reid, Google
