@@ -68,9 +68,7 @@ I guess people don't need to keep metrics more than 15days with the Prometheus e
 Because we are in the second case, we are testing influxDB with Prometheus, so this talk came at the right time.
 I didn't learn much on InfluxDB + Prometheus, nor on federated queries that comes with HA.
 
-Paul then questioned why not use a single query language for all query engines? That would be more
-practical and maintainable. The question is still open, even if Paul proposes IFQL to rule them all.
-The main idea is for all query engines to coordinate and stop creating a new language on each new engine.
+Paul then questioned why not use a single query language for all query engines? That would be more practical and maintainable. The question is still open, even if Paul proposes IFQL to rule them all. The main idea is for all query engines to coordinate and stop creating a new language on each new engine.
 
 
 # A Hackers Guide to Kubernetes and the Cloud - Rory McCune, NCC Group PLC
