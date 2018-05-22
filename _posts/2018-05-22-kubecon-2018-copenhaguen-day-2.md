@@ -90,11 +90,6 @@ To maintain consistent configurations, he uses ansible to provision everything.
 So far, I don't really see the point of having a lot of clusters and even less of migrating a single app between clusters, but that can be interesting for people that like that trend.
 
 
-# Horizontal Pod Autoscaler Reloaded - Scale on Custom Metrics - Maciej Pytel, Google & Solly Ross, Red Hat
-
-Last talk of the day... I didn't write much: I don't think we went deeper than what I already knew or learnt in other talks about the HPA.
-
-
 # Party, Tivoli Gardens
 
 For the evening, we went to an all-attendees party at [Tivoli Gardens](https://en.wikipedia.org/wiki/Tivoli_Gardens), an amusement park and pleasure garden right in the middle of Copenhagen. We walked around for a bit, before settling for a beer and a few snacks, talking with other French Kubenetes fans.
