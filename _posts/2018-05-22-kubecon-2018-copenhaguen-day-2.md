@@ -71,7 +71,7 @@ But Rob explains that this new tool doesn't solve all the problems. I.E: You'll 
 CoreOs brought the concept of [k8s operators](https://coreos.com/operators/).
 Rob explains why that solves problems and why you should use that instead of Federation.
 
-Clearly I wasn't convinced at all of this presentation. Thus, we are working in the same building and problems brought by Rob (modifications by hundred of devs/SRE split across the world) do not concern us at the moment.
+Clearly I wasn't convinced at all by this presentation. Besides, we are working in the same building and problems brought by Rob (modifications by hundred of devs/SRE split across the world) do not concern us at the moment.
 
 
 # Building a Kubernetes Scheduler using Custom Metrics - Mateo Burillo, Sysdig
