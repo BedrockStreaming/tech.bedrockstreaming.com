@@ -29,11 +29,11 @@ Deployment, CI and CD. Well, not so much. There are a few projects out there and
 
 For monitoring, use Prometheus. It's pretty much what everyone is using.
 
-Service mesh. One of the big things this year, everybody is talking about it, Istio seems to be taking the lead. It's still moving fast, though and not enough people are trully mastering this in a production setup.
+Service mesh. One of the big things this year, everybody is talking about it, Istio seems to be taking the lead. It's still moving fast, though and not enough people are truly mastering this in a production setup.
 
 Development environment. Well, "LOL" would do it maybe. This is clearly not a priority yet. Some teams and projects (like Telepresence) have started working on this, but there is still road ahead.
 
-GitOps. Everybody is going this way. Versionning, of course. But also using Git events to pilot things.
+GitOps. Everybody is going this way. Versioning, of course. But also using Git events to pilot things.
 
 Things are beginning to move on the security side of things. Companies are starting to notice there is work to be done, startups are appearing with different services.
 
