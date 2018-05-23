@@ -211,4 +211,4 @@ Prometheus is *the* monitoring stack everyone seems to be using now. This keynot
 
 This first day ended with a nice buffet at Bella Center, next to the sponsor booths. As we each one went to see different talks, it allowed us to chat about what we saw and heard, even if we didn't stick around too long, after such a long day -- especially knowing there would be two more just after!
 
-![There is so much wind in Copenhaguen there was a sign at the corner of the conference center!](/images/posts/kubecon-2018/windy-in-copenhagen.jpg)
+![There is so much wind in Copenhagen there was a sign at the corner of the conference center!](/images/posts/kubecon-2018/windy-in-copenhagen.jpg)
