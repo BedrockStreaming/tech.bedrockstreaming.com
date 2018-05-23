@@ -49,8 +49,8 @@ Storage of persistent data is one of these challenges (simple replication is rar
 
 # GitOps for Istio - Manage Istio Config like Code - Varun Talwar, Stealth Startup & Alexis Richardson, WeaveWorks
 
-During this talk, WeaveWorks team talked about how istio config can be managed like code through git based workflows.
-They evoked using terraform to describe cloud state.
+During this talk, WeaveWorks team talked about how Istio config can be managed like code through git based workflows.
+They evoked using Terraform to describe cloud state.
 As of *gitops* principles, devs shouldn't use `kubectl` to interact with clusters. Additionally, they should push code, not containers. GitHub events must lead deployments, not humans.
 As part of this automation, deployments must auto-rollout when things break. They either fail or succeed cleanly.
 One can use operator patterns to help integrating those concepts. The WeaveWorks team also talked about [flux](https://github.com/weaveworks/flux) to manage environments states.
