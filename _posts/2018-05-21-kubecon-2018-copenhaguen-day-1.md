@@ -39,7 +39,7 @@ OK, so, sometimes, it actually is *rocket-science* (or pretty close to it). It's
 
 Overview of the different containers runtimes, starting with OpenVZ in 2006 (still maintained, but the last 2.7 version is not as stable as the previous one, and it doesn't support Kubernetes), and LXC (Kubernetes support is low-priority WIP and LXC uses a specific image format) in 2011. Docker (initially based on LXC) arrived in 2013 and things have gone insane since then. With libcontainer and `rkt` in 2014, OCI in 2015 and CRI in 2016. Today, Kubernetes supports several runtimes.
 
-`rkt` could be interesting from a security point of view (supports TPM and VMs). With Kubernetes 1.10, the default runtime is runc. `crun` is the most interesting runtime for performances, but is WIP and isn't currently used much. Kata, released in 2018 has the best security (it runs containers in VMs) and is OCI compliant, but is slower and more heavyweight. Other very specific runtimes include nvidia, railcar, pouch, lmctfy, systemd-nspawn...
+`rkt` could be interesting from a security point of view (supports TPM and VMs). With Kubernetes 1.10, the default runtime is [`runc`](https://github.com/opencontainers/runc). [`crun`](https://github.com/giuseppe/crun) is the most interesting runtime for performances, but is WIP and isn't currently used much. Kata, released in 2018 has the best security (it runs containers in VMs) and is OCI compliant, but is slower and more heavyweight. Other very specific runtimes include nvidia, railcar, pouch, lmctfy, systemd-nspawn...
 
 Basically, today and for most workloads, you should go with the standard docker/containerd runtime. There is a convergence towards OCI, it's the default for Kubernetes and docker is going to adopt the CRI plugin.
 
