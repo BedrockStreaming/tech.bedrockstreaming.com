@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "KubeCon 2018 Copenhaguen, global review"
-description: "Our global review of KubeCon 2018 in Copenhaguen"
+title: "KubeCon 2018 Copenhagen, global review"
+description: "Our global review of KubeCon 2018 in Copenhagen"
 author:
   name: Vincent Gallissot, Pascal Martin
   avatar:
@@ -39,4 +39,4 @@ Things are beginning to move on the security side of things. Companies are start
 
 And, finally, multi-clusters. We felt a few people are using multi-cluster, but it's often done *by hand*. That doesn't seem mature at all. Maybe a subject we'll hear more about in the future?
 
-In any case, we had a really great time during this KubeCon in Copenhaguen, we saw many interesting talks and discussed with lots of people!
+In any case, we had a really great time during this KubeCon in Copenhagen, we saw many interesting talks and discussed with lots of people!
