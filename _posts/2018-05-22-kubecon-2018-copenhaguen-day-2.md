@@ -59,14 +59,14 @@ Weave Flux brings a lot more annotations for Istio, making automated releases de
 
 # OPA: The Cloud Native Policy Engine - Torin Sandall, Styra
 
-Policy enforcement is a fundamental problem for an organisation, and policy decisions should be decoupled from policy enforcement. [Open Policy Agent](https://www.openpolicyagent.org/) is an open-source general-purpose policy engine. It uses a high-level declarative language, can be used to implement RBAC, has integrations with Istio or Terraform. This is not my current priority, but it could be worth taking a look at OPA if you need to add policy enforcement to your application.
+Policy enforcement is a fundamental problem for an organisation, and policy decisions should be decoupled from policy enforcement. [Open Policy Agent](https://www.openpolicyagent.org/) is an open-source general-purpose policy engine. It uses a high-level declarative language, can be used to implement RBAC and has integrations with Istio or Terraform. This is not my current priority, but it could be worth taking a look at OPA if you need to add policy enforcement to your application.
 
 
 # Kubernetes Multi-Cluster Operations without Federation - Rob Szumski, CoreOS
 
 A lot of people are using multiple Kubernetes clusters. For example, Zalando uses 80. It can become a mess to manage all those clusters with their specific components like secrets, controllers, configmaps, etc.
 To solve this problem, a new cli has been created: `kubefed`.
-But Rob explains that this new tool doesn't solve all the problems. I.E: You'll have to give access to all-clusters to people and not only few clusters (that breaks isolation), the Federation api must be run by a top-root user (accessing everything), etc.
+But Rob explains that this new tool doesn't solve all the problems. I.E: You'll have to give access to all-clusters to people and not only few clusters (that breaks isolation), the Federation API must be run by a top-root user (accessing everything), etc.
 
 CoreOs brought the concept of [k8s operators](https://coreos.com/operators/).
 Rob explains why that solves problems and why you should use that instead of Federation.
@@ -78,16 +78,16 @@ Clearly I wasn't convinced at all by this presentation. Besides, we are working 
 
 There are so many possibilities when scheduling pods. The scheduler first applies filters (resource requests, volumes, selectors/taints), then ranks (including the default behavior of spreading pods of the same service), then goes to applying hard constraints (taints, node selector), and soft contraints (prefer no schedule, node affinity, pod affinity, weight) and pod priority and does taint-based evictions. To understand what actually goes on and prevent complex situations, you should only add important constraints.
 
-In some cases, you might want to build a custom scheduler, using custom metrics (when the default scheduler is not good enough for you and/or you have very specific needs). An example, based on sysdig metrics: [`draios/kubernetes-scheduler`](https://github.com/draios/kubernetes-scheduler). And more informations in [this blog-post](https://sysdig.com/blog/kubernetes-scheduler/). Remember creating a scheduler is not easy task and many things can go wrong (think about concurrency and race conditions).
+In some cases, you might want to build a custom scheduler, using custom metrics (when the default scheduler is not good enough for you and/or you have very specific needs). An example, based on sysdig metrics: [`draios/kubernetes-scheduler`](https://github.com/draios/kubernetes-scheduler). And more informations in [this blog-post](https://sysdig.com/blog/kubernetes-scheduler/). Remember creating a scheduler is not an easy task and many things can go wrong (think about concurrency and race conditions).
 
 In the end, the idea of implementing a custom scheduler might be interesting, but a bit *scary*: messing things up could mean no pod getting scheduled, which is not a nice scenario. I'm not sure I currently see a situation in which I'd go this way...
 
 
 # Clusters as Cattle: How to Seamlessly Migrate Apps across Kubernetes Clusters - Andy Goldstein, Heptio
 
-As many people, Andy has a lot of clusters. To re-route traffic between clusters, he uses envoy.
-To maintain consistent configurations, he uses ansible to provision everything.
-So far, I don't really see the point of having a lot of clusters and even less of migrating a single app between clusters, but that can be interesting for people that like that trend.
+As many people, Andy has a lot of clusters. To re-route traffic between clusters, he uses Envoy.
+To maintain consistent configurations, he uses Ansible to provision everything.
+So far, I don't really see the point of having a lot of clusters and even less of migrating a single app between clusters, but that can be interesting for people who like that trend.
 
 
 # Party, Tivoli Gardens
