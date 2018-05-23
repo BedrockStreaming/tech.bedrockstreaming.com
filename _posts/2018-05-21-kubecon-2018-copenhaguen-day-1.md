@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "KubeCon 2018 Copenhaguen, day 1"
-description: "Our notes for the conferences we saw during the first day of KubeCon 2018 in Copenhaguen"
+title: "KubeCon 2018 Copenhagen, day 1"
+description: "Our notes for the conferences we saw during the first day of KubeCon 2018 in Copenhagen"
 author:
   name: Vincent Gallissot, Pascal Martin
   avatar:
@@ -19,7 +19,7 @@ comments: true
 language: en
 ---
 
-At the very beginning of May, we (Pascal and Vincent) went to KubeCon 2018. It was a three-days long event, with more than 300 conferences. 4300 people met at Bella Center, a huge conference place close to Copenhaguen in Denmark. Here are some of our notes about some talks we saw.
+At the very beginning of May, we (Pascal and Vincent) went to KubeCon 2018. It was a three-days long event, with more than 300 conferences. 4300 people met at Bella Center, a huge conference place close to Copenhagen in Denmark. Here are some of our notes about some talks we saw.
 
 
 # Keynotes
@@ -211,4 +211,4 @@ Prometheus is *the* monitoring stack everyone seems to be using now. This keynot
 
 This first day ended with a nice buffet at Bella Center, next to the sponsor booths. As we each one went to see different talks, it allowed us to chat about what we saw and heard, even if we didn't stick around too long, after such a long day -- especially knowing there would be two more just after!
 
-![There is so much wind in Copenhaguen there was a sign at the corner of the conference center!](/images/posts/kubecon-2018/windy-in-copenhaguen.jpg)
+![There is so much wind in Copenhagen there was a sign at the corner of the conference center!](/images/posts/kubecon-2018/windy-in-copenhaguen.jpg)
