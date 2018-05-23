@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "KubeCon 2018 Copenhaguen, day 3"
-description: "Our notes for the conferences we saw during the third day of KubeCon 2018 in Copenhaguen"
+title: "KubeCon 2018 Copenhagen, day 3"
+description: "Our notes for the conferences we saw during the third day of KubeCon 2018 in Copenhagen"
 author:
   name: Vincent Gallissot, Pascal Martin
   avatar:
@@ -19,7 +19,7 @@ comments: true
 language: en
 ---
 
-Back to KubeCon 2018 in Copenhaguen, for the third and last day! You can read about [our first day here](/kubecon-2018-copenhaguen-day-1/) and [about our second day there](/kubecon-2018-copenhaguen-day-2/).
+Back to KubeCon 2018 in Copenhagen, for the third and last day! You can read about [our first day here](/kubecon-2018-copenhaguen-day-1/) and [about our second day there](/kubecon-2018-copenhaguen-day-2/).
 
 
 # Keynotes
