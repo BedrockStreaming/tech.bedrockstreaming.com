@@ -26,7 +26,7 @@ Back to KubeCon 2018 in Copenhagen, for the third and last day! You can read abo
 
 ## Cloud Native ML on Kubernetes - David Aronchick, Product Manager, Cloud AI and Co-Founder of Kubeflow, Google & Vishnu Kannan, Sr. Software Engineer, Google
 
-Trying to run Machine Learning on Kubernetes? Working with Jupyter and Tensorflow? [Kuebeflow](https://github.com/kubeflow/kubeflow) could be of interest for you.
+Trying to run Machine Learning on Kubernetes? Working with Jupyter and Tensorflow? [Kuebeflow](https://github.com/kubeflow/kubeflow) could be of interest to you.
 
 
 ## Running with Scissors - Liz Rice, Technology Evangelist, Aqua Security
@@ -77,12 +77,12 @@ First, a word about threat models. Pretty much everyone will see random Internet
 
 Then, time to think about your attack surface. Attackers will find the weakest point, which is not always where your might think. What about the cloud around your Kubernetes cluster? Github is a great way of getting accesses (many commit their credentials and/or do not remove them from history -- bots are crawling this!). Developers' laptop are generally full of interesting data, and are not necessarily protected enough.
 
-On Kubernetes, external attackers will try to access the API server and etcd, the kubelets, or maybe inject malicious containers. You should turn off the *insecure port*, control access to kubelet and etcd, retrict the use of service tokens, restrict privileged containers, enable authentication and authorization on the API server, set pod security and network policies, and do regular upgrades. Also, don't forget about cloud rights.
+On Kubernetes, external attackers will try to access the API server and etcd, the kubelets, or maybe inject malicious containers. You should turn off the *insecure port*, control access to kubelet and etcd, retrict the use of service tokens, restrict privileged containers, enable authentication and authorization on the API server, set pod security and network policies, and do regular upgrades. Also, don't forget about cloud permissions.
 
 
 # Cloudbursting with Kubernetes - Irfan Ur Rehman & Quinton Hoole, Huawei Technologies
 
-That might not be everyone's problematic, but still interesting to hear about. If you have multiple cloud providers with different pricings, you might want to optimize your costs by using the most expensive only on load peaks. That is exactly what they did, using Kubernetes clusters federation and specific annotations. We won't go over this approach because we'll stick with one cloud provider, but that may be a thing for some people.
+That might not be everyone's problem, but still interesting to hear about. If you have multiple cloud providers with different pricings, you might want to optimize your costs by using the most expensive only on load peaks. That is exactly what they did, using Kubernetes clusters federation and specific annotations. We won't go over this approach because we'll stick with one cloud provider, but that may be interesting for some people.
 
 
 # Operating a Global-Scale FaaS on Top of Kubernetes - Chad Arimura & Matt Stephenson, Oracle
@@ -92,7 +92,7 @@ This was about the [Fn project](http://fnproject.io/). A couples of problems rel
 
 # Inside Kubernetes Resource Management (QoS) – Mechanics and Lessons from the Field - Michael Gasch, VMware
 
-Resource management goes through cgroups. With containers, we see all CPU/RAM, but this doesn't mean we'll be able to use them all: we may have to share with other containers. Work with requests. For now, cpu and memory are stable resources, but others (hugepages, ephemeral storage, device plugins) are in beta. You should align Kubernetes' QoS with the underlying infrastructure, enable quotas in the cluster, and protect critical system pods.
+Resource management goes through cgroups. With containers, we see all the CPU/RAM, but this doesn't mean we'll be able to use them all: we may have to share with other containers. Works with requests. For now, cpu and memory are stable resources, but others (hugepages, ephemeral storage, device plugins) are in beta. You should align Kubernetes' QoS with the underlying infrastructure, enable quotas in the cluster, and protect critical system pods.
 
 I have to admit I didn't take much notes during this talk, but noted [the slides](https://schd.ws/hosted_files/kccnceu18/33/Inside%20Kubernetes%20QoS%20M.%20Gasch%20KubeCon%20EU%20FINAL.pdf) contain a lot of informations -- for more, go read them ;-)
 
