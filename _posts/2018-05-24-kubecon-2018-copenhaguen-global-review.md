@@ -19,7 +19,7 @@ comments: true
 language: en
 ---
 
-After those three days at KubeCon, we've seen and heard a lot of interesting ideas. If we had to do a short recap, here are the points we would list.
+After those three days at KubeCon, we've seen and heard a lot of interesting ideas. You can read about [our first day here](/kubecon-2018-copenhaguen-day-1/), [about our second day there](/kubecon-2018-copenhaguen-day-2/), and [about our third day there](/kubecon-2018-copenhaguen-day-2/). If we had to do a short recap, here are the points we would list.
 
 First of all "Cloud native" seems to be *the* buzzword of the year. Not just *cloud* anymore, but *cloud native*! What does it mean? Instead of just deploying your application to the cloud, it should fully *use the cloud*.
 
