@@ -78,7 +78,7 @@ Conférence animée par [Gregoire Pineau](https://twitter.com/lyrixx).
 Cette conférence a retenu notre attention. Particulièrement bien faite, elle résume les fonctionnalités de ce nouveau composant de Symfony, 
 en partant de workflow simple jusqu’au réseau de Pétri. Grégoire donnait des exemples d’utilisations concrètes.
 
-Difficile à résumer, je vous invite à consulter la documentation Symfony sur ce composant.
+Difficile à résumer, je vous invite à consulter la [documentation Symfony sur ce composant](https://symfony.com/doc/current/components/workflow.html).
 
 
 ### Mais encore ?
