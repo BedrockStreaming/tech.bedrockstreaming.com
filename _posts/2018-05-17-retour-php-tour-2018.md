@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Symfony Live Paris 2017"
-description: "Symfony Live Paris 2017"
+title: "PHP Tour Montpellier 2018"
+description: "Nos retours du PHP Tour à Montpellier, les 17 et 18 mai 2018"
 author:
   name: Guillaume BOUYGE, Fabien De Saint Pern, Héléna Hiraux, Pascal Martin, Valentin Claras, Francois-Xavier Gaberan
   avatar:
