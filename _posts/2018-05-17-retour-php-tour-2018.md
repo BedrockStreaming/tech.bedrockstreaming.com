@@ -61,7 +61,9 @@ Cette conférence, qui présentait notamment `strace` (pour suivre les appels sy
 
 Ce talk était proposé par [Sarah Haïm-Lubczanski](https://twitter.com/sarahhaim).
 
-Tout le monde, dans sa vie de développeur, a été confronté au problème suivant : écrire la documentation des fonctionnalités développées.
+Tout le monde, dans sa vie de développeur, a été confronté au problème suivant : écrire la documentation des fonctionnalités développées. C'est un challenge
+que nous avons nous-même rencontré lorsque nous avons travaillé, l'année dernière, sur [l'internationalisation de notre plate-forme](/6play/6play-goes-international/),
+puisque nous avons dû documenter nos API, désormais appelées par des collègues basés dans d'autres pays.
 
 Sarah nous a montré comment faire face à cette barrière souvent perçue comme insurmontable par bon nombre d’entre nous.
 Elles nous a pour cela donné les clés et les bonnes pratiques pour créer, maintenir et rédiger une documentation cohérente.
