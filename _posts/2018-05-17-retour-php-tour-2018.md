@@ -34,7 +34,7 @@ quelques mots sur les conférences que nous avons tout particulièrement appréc
 
 Conférence donnée par [Nicolas Grekas](https://twitter.com/nicolasgrekas).
 
-L’approche de nicolas était très intéressante et nous à permis de mieux comprendre le fonctionnement interne de symfony, en lien avec les optimisations
+L’approche de Nicolas était très intéressante et nous à permis de mieux comprendre le fonctionnement interne de Symfony, en lien avec les optimisations
 apportées par le nouveau moteur de PHP7.
 
 Les exemples cités nous ont permis de voir qu’avec quelques “tips”, il est possible de “bypasser” des étapes coûteuses lors de l'exécution de notre code.
@@ -44,7 +44,18 @@ Les exemples cités nous ont permis de voir qu’avec quelques “tips”, il es
 
 Une présentation de [Joel Wurtz](https://twitter.com/joelwurtz).
 
-To be completed.
+Cette conférence nous a permis d'aborder un sujet assez peu connu dans l'univers PHP : l'asynchrone.
+
+Dès lors qu'un projet commence à être complèxe, il est souvent possible de réaliser des tâches en prarrallèle, non bloquantes, permettant d'optimiser les temps de réponse.
+
+Pour répondre à ce besoin, Joel nous a présenté le concept de l'asynchrone : `l'event loop`.
+Via cette boucle, Joel nous a expliqué comment les évènements sont "dispatcher" au travers de [générateurs](http://php.net/manual/en/language.generators.overview.php).
+
+Pour aller plus loin, Joel nous a aussi parlé des outils existants qui implémentent cette logique d'event loop : [AMP](https://github.com/amphp/amp).
+
+Enfin pour terminer, pour être 0% callback, Joel nous a présenté [Fiber](https://github.com/fiberphp/fiber-ext). Cette extension implémente [la RFC Fiber](https://wiki.php.net/rfc/fiber) à ce jour toujours en cours d'homologation.
+
+Nous vous recommandons de creuser ce sujet, qui selons nous, ouvre de belles perspectives dans l'univers PHP !
 
 
 ### “Bienvenue dans la matrice !”
@@ -61,12 +72,12 @@ Cette conférence, qui présentait notamment `strace` (pour suivre les appels sy
 
 Ce talk était proposé par [Sarah Haïm-Lubczanski](https://twitter.com/sarahhaim).
 
-Tout le monde, dans sa vie de développeur, a été confronté au problème suivant : écrire la documentation des fonctionnalités développées. C'est un challenge
-que nous avons nous-même rencontré lorsque nous avons travaillé, l'année dernière, sur [l'internationalisation de notre plate-forme](/6play/6play-goes-international/),
+Tout le monde, dans sa vie de développeur, a été confronté au problème suivant : écrire la documentation des fonctionnalités développées. 
+C'est un challenge auquel nous nous sommes nous-même confrontés lorsque nous avons travaillé, l'année dernière, sur [l'internationalisation de notre plate-forme](/6play/6play-goes-international/),
 puisque nous avons dû documenter nos API, désormais appelées par des collègues basés dans d'autres pays.
 
 Sarah nous a montré comment faire face à cette barrière souvent perçue comme insurmontable par bon nombre d’entre nous.
-Elles nous a pour cela donné les clés et les bonnes pratiques pour créer, maintenir et rédiger une documentation cohérente.
+Elle nous a pour cela donné les clés et les bonnes pratiques pour créer, maintenir et rédiger une documentation cohérente.
 
 On retiendra aussi la présentation des différents [outils open source de gestion de documentation](https://www.staticgen.com/).
 
@@ -76,7 +87,7 @@ On retiendra aussi la présentation des différents [outils open source de gesti
 Conférence animée par [Gregoire Pineau](https://twitter.com/lyrixx).
 
 Cette conférence a retenu notre attention. Particulièrement bien faite, elle résume les fonctionnalités de ce nouveau composant de Symfony, 
-en partant de workflow simple jusqu’au réseau de Pétri. Grégoire donnait des exemples d’utilisations concrètes.
+en partant d'un workflow simple jusqu’au réseau de Pétri. Grégoire donnait des exemples d’utilisations concrètes.
 
 Difficile à résumer, je vous invite à consulter la [documentation Symfony sur ce composant](https://symfony.com/doc/current/components/workflow.html).
 
@@ -88,7 +99,7 @@ intéressantes pour des débutants ou des personnes ne connaissant pas encore le
 
 Dans l’ordre, vous trouverez :
 
- * *IT figures* par [Sara Golemon](https://twitter.com/SaraMG), qui revient sur ce qu’est le FIG, organisme important qui régit aujourd’hui une partie de l'organisation de la communauté PHP, et sur ce que sont les PSR.
+ * *IT figures* par [Sara Golemon](https://twitter.com/SaraMG), qui revient sur ce qu’est le FIG, organisme important qui régit aujourd’hui une partie de l'organisation de la communauté PHP, et sur ce que sont les PSRs.
  * *Nommer les choses ? Oui : avec le DNS* par [Julien Pauli](https://twitter.com/julienPauli). Cette conférence revient sur les bases du fonctionnement du DNS et son utilité.
  * Et, pour finir : *Caching with PSRs* par [Hannes Van De Vreken](https://twitter.com/hannesvdvreken). Dernière des conférences “à voir une fois”, celle-ci revient sur ce qu’est le cache en général, pourquoi on en utilise. Puis s’intéresse au cache applicatif via les PSRs.
 
@@ -99,4 +110,4 @@ Ce PHP Tour était le dernier, puisque l’AFUP proposera à partir de 2019 un n
 
 Encore un grand merci à l'AFUP !
 
-Enfin, retrouvez toute l'actualité de l'évennement sur [#phptour](https://twitter.com/hashtag/phptour?src=hash).
+Enfin, retrouvez toute l'actualité de l'événement sur [#phptour](https://twitter.com/hashtag/phptour?src=hash).
