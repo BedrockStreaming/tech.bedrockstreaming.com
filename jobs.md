@@ -10,7 +10,6 @@ image:
   creditlink: 
 ---
 
-Pas de poste ouvert en ce moment.
 
 # Pourquoi rejoindre M6 WEB ?
 
@@ -18,5 +17,23 @@ Pour intégrer un groupe média leader sur le numérique en France et concevoir 
 apprendre et évoluer avec des collègues formidables au sein d’une direction technique d’une cinquantaine de développeurs et d’une brillante équipe de sysadmin.
 
 Pour découvrir nos technologies et nos pratiques, n'hésitez pas à vous [renseigner sur ce blog](http://tech.m6web.fr/) ou nous suivre [sur twitter](https://twitter.com/TechM6Web).
+
+
+## Développeur backend (H/F)
+
+Nous cherchons avant tout des personnalités curieuses et passionnées, pouvant s’intégrer rapidement dans un environnement technique exigeant.
+
+Les compétences recherchées sont les suivantes : 
+
+* maîtrise d’un langage objet, des patterns OOP, pratique des tests unitaires
+* bonne maîtrise de GIT, la ligne de commande Unix, le protocole HTTP, le langage SQL
+
+Serait un plus : 
+
+* connaissances autour de Symfony ou d’un autre framework PHP moderne,
+* expérience dans le développement d’applications à fort trafic,
+* expériences de développement autour d'Elasticsearch et/ou Cassandra et/ou AWS.
+
+Poste basé à Lyon.
 
 Pour candidater : [jobs@m6web.fr](mailto:jobs@m6web.fr)
