@@ -19,9 +19,10 @@ apprendre et évoluer avec des collègues formidables au sein d’une direction 
 Pour découvrir nos technologies et nos pratiques, n'hésitez pas à vous [renseigner sur ce blog](http://tech.m6web.fr/) ou nous suivre [sur twitter](https://twitter.com/TechM6Web).
 
 
+Nous cherchons avant tout des personnalités curieuses et passionnées, pouvant s’intégrer rapidement dans un environnement technique exigeant.
+
 ## Développeur backend (H/F)
 
-Nous cherchons avant tout des personnalités curieuses et passionnées, pouvant s’intégrer rapidement dans un environnement technique exigeant.
 
 Les compétences recherchées sont les suivantes : 
 
