@@ -38,3 +38,21 @@ Serait un plus :
 Poste basé à Lyon.
 
 Pour candidater : [jobs@m6web.fr](mailto:jobs@m6web.fr)
+
+## Développeur frontend (H/F)
+
+
+Les compétences recherchées sont les suivantes :
+
+* maîtrise du javascript et d’un framework moderne (Angular, React, Vue), pratique des
+tests unitaires et fonctionnels
+* bonne maîtrise de git, la ligne de commande Unix, le protocole HTTP
+* connaissance de NodeJs
+* capacité à travailler en équipe, esprit critique, volonté d’apprendre
+
+Serait un plus :
+* expériences sur le cloud (AWS, GCP ou Azure)
+
+Poste basé à Lyon.
+
+Pour candidater : [jobs@m6web.fr](mailto:jobs@m6web.fr)
