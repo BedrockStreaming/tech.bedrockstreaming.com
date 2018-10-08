@@ -84,5 +84,7 @@ Throught GitHub we participated to the improvement (we hope so) of many open sou
 * [sindresorhus/globals](https://github.com/sindresorhus/globals): [#21](https://github.com/sindresorhus/globals/pull/21)
 * [symfony/symfony-docs](https://github.com/symfony/symfony-docs): [#4300](https://github.com/symfony/symfony-docs/pull/4300)
 * [video-dev/hls.js](https://github.com/video-dev/hls.js): [#1907](https://github.com/video-dev/hls.js/pull/1907)
+* [vuejs/vue-router](https://github.com/vuejs/vue-router): [#2411](https://github.com/vuejs/vue-router/pull/2411)
+* [vuejs/vuex](https://github.com/vuejs/vuex): [#1412](https://github.com/vuejs/vuex/pull/1412)
 * [webpack/webpack](https://github.com/webpack/webpack): [#5862](https://github.com/webpack/webpack/pull/5862)
 * [willdurand/BazingaHateoasBundle](https://github.com/willdurand/BazingaHateoasBundle): [#9](https://github.com/willdurand/BazingaHateoasBundle/pull/9)
