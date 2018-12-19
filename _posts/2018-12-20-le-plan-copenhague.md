@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Le Plan Copenhague : notre migration dans Le Cloud, retour d’expérience"
+title: "Le Plan Copenhague : notre migration vers Le Cloud, retour d’expérience"
 description: "Comment nous avons migré la plateforme 6play vers Le Cloud, sur AWS et Kubernetes."
 author:
   name: Pascal MARTIN
