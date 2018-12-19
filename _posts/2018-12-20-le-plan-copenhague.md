@@ -6,7 +6,7 @@ author:
   name: Pascal MARTIN
   avatar:
   email:
-  twitter:
+  twitter: pascal_martin
   facebook:
   github:
 category:
