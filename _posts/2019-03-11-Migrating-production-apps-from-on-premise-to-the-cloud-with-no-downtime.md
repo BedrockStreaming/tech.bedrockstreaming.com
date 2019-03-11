@@ -17,17 +17,17 @@ language: en
 
 We are migrating all our on-premise applications to AWS cloud.
 Most of them are/will be migrated to Kops-managed Kubernetes clusters, and some are/will be migrated as lambdas.
-To secure this migration (first only sending 1% of each application's requests to AWS, then 5%, then 25% and so on), we are using HAProxy in front of both on-prem and on-AWS deployments.
-Disclaimer: This article describes a feedback from production. We have changed the name of applications mentioned here, but everything else is true within the limits of our knowledge.
+To secure this migration, we are using HAProxy in front of both on-prem and on-AWS deployments (first only sending 1% of each application's requests to AWS, then 5%, then 25% and so on).
+Disclaimer: This article describes a feedback from production environment. We have changed the name of applications mentioned here, but everything else is true within the limits of our knowledge.
 
 
-# The first application we migrated
+# The first migrated application
 
 It's an API written in PHP. It has no external dependency (database, redis…), except for another API, called over HTTP.
 We have migrated this application to the cloud like we've done with other applications since.
 
 The first step was to deploy this application to a kubernetes cluster and expose it over an ELB.
-Then, we wanted to send real-user requests to that app. We wanted to see how it behaves with real production traffic.
+Then, we wanted to send real-user requests to that app. We wanted to see how it would behave with real production traffic.
 But we didn’t wanted to send 100% of our users over there at once: we’d rather first check everything works fine with just 1% of our users.
 
 
@@ -36,7 +36,7 @@ But we didn’t wanted to send 100% of our users over there at once: we’d rath
 We’ve been using HAProxy for several years now.
 Because of its features, like advanced backend monitoring or its enormous number of metrics, it's the perfect tool to help us on this migration.
 
-At the beginning, we didn't know how the app, the Horizontal Pod Autoscaler, Liveness probes etc. would react with real live production requests.
+At first, we didn't know how the app, the Horizontal Pod Autoscaler, Liveness probes etc. would react with real live production requests.
 So, we decided to migrate only 1% of production HTTP requests to our Kubernetes cluster. The other 99% of HTTP requests would remain on premise, where the application works for sure.
 
 Here's a part of the associated HAProxy configuration:
@@ -59,13 +59,13 @@ Some explanations on key elements of this configuration:
 * `observe layer7`: It will simulate a bad healthcheck for each application server error (e.g: 500, 502, 503, etc.) making this server fall in such a situation
 * `weight 25`: We use weights from 0 to 100 (you can go up to 256), so that corresponds to traffic percentages in our case
 
-With the configuration above, HAProxy won't send traffic to our application on AWS/Kubernetes anymore, as soon as there is an error, so it will have a minimum impact on endusers.
+With the above configuration, as soon as there is an error, HAProxy won't send traffic to our AWS/Kubernetes application anymore; consequently, it will have a minimum impact on endusers.
 
 
 # Tests
 
 We first tested this with staging proxies, with a temporary domain name and a 50-50% loadbalancer, to ensure the load-balancing worked fine.
-We tested killing the deployment on Kubernetes to check 100% of requests came back on-prem. We tested killing random pods to see if we had some user impact. We tested to slow down the application so it would be slower than 1s to respond. We also tested to slow down only one of two pods running the application.
+We tried to kill the deployment on Kubernetes to check 100% of requests came back on-prem. We tested killing random pods to see if we had some user impact. We tested to slow down the application so it would be slower than 1s to respond. We also tested to slow down only one of two pods running the application.
 It was all OK, so we were confident to go to production.
 
 
@@ -75,8 +75,8 @@ Before its migration, the application infrastructure looked like this:
 ![Application before the migration to AWS & Kubernetes](/images/posts/migrating-production-apps-to-the-cloud/application_pre_migration.png)
 
 We inserted HAProxy servers in that schema, so the traffic passes through them before being sent to the caches.
-That way, HAProxy controls where the traffic is sent.
-To make those migrations the most transparent possible, we first configured HAProxy to send traffic to on-prem servers only.
+That way, HAProxy controls where traffic is sent.
+To make those migrations as transparent as possible, we first configured HAProxy to send traffic to on-prem servers only.
 In the same time, developpers have deployed all mandatory resources (RDS, DynamoDB, elasticache, etc.) with Terraform and verified the application works fine. The application itself could have changed: either the code or kubernetes manifests.
 When ready, both ops and dev gave their approval to send traffic to the cloud.
 
@@ -181,7 +181,7 @@ The workflow stays unchanged:
 3. Load balance from 1% to 100% traffic to the in-cloud instance
 4. Configure accurate Requests and Limits
 5. Create efficient alerting
-6. Point the DNS at the ELB
+6. Point DNS to ELB
 
 
 # Migrate an application path by path
@@ -207,7 +207,7 @@ The workflow is almost the same as above, with few changes:
 6. Create a specific HAProxy Backend section for each route to load balance traffic differently for each route
 7. Increase traffic load balancing up to 100% to the cloud
 8. Create efficient alerting
-9. Point the DNS at the ELB
+9. Point the DNS to the ELB
 
 
 ## Traffic replication with GOReplay
