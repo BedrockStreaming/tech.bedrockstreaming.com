@@ -93,20 +93,20 @@ We compared everything we could:
 We were amazed: only 3ms in average difference between on-prem and our Kubernetes cluster in AWS cloud.
 And no error. Everything worked as expected. It was almost suspicious.
 
-![Average connect times from HAProxy to backends](/images/posts/cloud-migration/haproxy_cloud_connect_time_avg.png)
+![Average connect times from HAProxy to backends](/images/posts/migrating-production-apps-to-the-cloud/haproxy_cloud_connect_time_avg.png)
 This graph shows the average connect times from HAProxy.
 
 We're using Paris as AWS zone and our datacenters are located in Paris too, so that explains the few milliseconds to go back and forth from HAProxy (on prem) to the cloud. In fact, this one to two millisecond between our on-prem servers and AWS is one of the reasons adding HAProxy in the mix was possible.
 
 
-![Average response times from HAProxy to backends](/images/posts/cloud-migration/haproxy_cloud_response_time_avg.png)
+![Average response times from HAProxy to backends](/images/posts/migrating-production-apps-to-the-cloud/haproxy_cloud_response_time_avg.png)
 This graph shows the average response times from the application.
 
 We also had some PHP configurations to update to be ISO prod (OPCache, APCu, etc.). Why? Well, at first, we created a quick’n dirty (working, but not optimized) Docker image for our application and it went straight to production, before our sysadmins could take a better look at it.
 
 
-![HTTP codes 2xx](/images/posts/cloud-migration/haproxy_cloud_http2xx_codes.png)
-This graph shows the number of 2xx HTTP codes.
+![HTTP codes 2xx](/images/posts/migrating-production-apps-to-the-cloud/haproxy_cloud_http2xx_codes.png)
+This graph shows the number of 2xx HTTP codes with 25% of traffic sent to AWS.
 
 Once those PHP optimisations were fixed, we had only 2ms difference between our on-premise and our Kubernetes on AWS. It's low enough to allow us to test this setup a bit longer without any visible user impact.
 
