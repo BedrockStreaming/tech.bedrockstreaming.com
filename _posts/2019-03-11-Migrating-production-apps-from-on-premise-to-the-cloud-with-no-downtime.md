@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Migrating production apps from on-premise to the cloud with no downtime"
+title: "Migrating production applications from on-premise to the cloud with no downtime"
 description: "How did we proceed, what lessons we learned and what tools we used"
 author:
   name: Vincent Gallissot
@@ -28,7 +28,7 @@ We have migrated this application to the cloud like we've done with other applic
 
 The first step was to deploy this application to a kubernetes cluster and expose it over an ELB.
 Then, we wanted to send real-user requests to that app. We wanted to see how it would behave with real production traffic.
-But we didn’t wanted to send 100% of our users over there at once: we’d rather first check everything works fine with just 1% of our users.
+But we didn’t want to send 100% of our users over there at once: we’d first rather check everything works fine with just 1% of our users.
 
 
 # HAProxy
@@ -77,8 +77,8 @@ Before its migration, the application infrastructure looked like this:
 We inserted HAProxy servers in that schema, so the traffic passes through them before being sent to the caches.
 That way, HAProxy controls where traffic is sent.
 To make those migrations as transparent as possible, we first configured HAProxy to send traffic to on-prem servers only.
-In the same time, developpers have deployed all mandatory resources (RDS, DynamoDB, elasticache, etc.) with Terraform and verified the application works fine. The application itself could have changed: either the code or kubernetes manifests.
-When ready, both ops and dev gave their approval to send traffic to the cloud.
+In the same time, developers have deployed all mandatory resources (RDS, DynamoDB, elasticache, etc.) with Terraform and verified the application works fine. The application itself could have changed: either the code or kubernetes manifests.
+When ready, both ops and devs gave their approval to send traffic to the cloud.
 
 We started by load-balancing 1% to the AWS ELB with HAProxy
 ![Application while migrating 1% to AWS & Kubernetes](/images/posts/migrating-production-apps-to-the-cloud/application_migrating.png)
@@ -120,7 +120,7 @@ We checked application's pods CPU usage, it was really low. Too low to even trig
 
 So far, it was enough for us to validate things we could check were working fine. The application cache was efficient, we had stable performances and no surprise on traffic peaks.
 
-On this first app migration, we decided to stay at 25% of traffic sent to the cloud for the moment, to observe.
+On this first application migration, we decided to stay at 25% of traffic sent to the cloud for the moment, to observe.
 We did it because HAProxy would have saved us if something bad happened.
 
 It did behave well: nothing happened for 26 days.
@@ -150,7 +150,7 @@ This last phase started again every 5 minutes, making sure that our pods did not
 
 ## Application latencies undetected by health checks
 
-Our application was really slow on Kubernetes/AWS (due to a network misconfiguration) but HAProxy did not disable it. We specified a 1s timeout as shown in the example above, but this is only for healthchecks. Our global server timeout is upper than 1s. Because our application calls another webservice, those calls were timeouting. HAProxy was not aware of that, because the application's `/HealthCheck` health page doesn't check external webservices and thus, were not impacted by those external webservices timeouts. This is an application choice that we can encounter on-premise too, with the exact same behavior. For that reason, we decided to change nothing for now (and we'll discuss this with the dev teams to see if there's something we can do).
+Our application was really slow on Kubernetes/AWS (due to a network misconfiguration) but HAProxy did not disable it. We specified a 1s timeout as shown in the example above, but this is only for healthchecks. Our global server timeout is upper than 1s. Because our application calls another webservice, those calls were timeouting. HAProxy was not aware of that, because the application's `/HealthCheck` health page doesn't check external webservices and thus, were not impacted by those external webservices timeouts. This is an application choice that we can encounter on-premise too, with the exact same behavior. For that reason, we decided to change nothing for now (and we'll discuss this with the devs teams to see if there's something we can do).
 We don't check external webservices in our `/HealthCheck` page on purpose, because that page is also tested by kubernetes for livenessProbe. Kubernetes restarts a pod when it is not healthy anymore but when it comes to an external service that is failing, restarting the current pod is non-sens. Kubernetes will restart pods again and again even if the application itself can't to anything about it! The livenessProbe should test only what the pod does. The Amadeus team [talked about that at the KubeCon EU 2018](https://www.youtube.com/watch?v=HIB_haT1z5M) while presenting Kubervisor.
 
 
@@ -159,7 +159,7 @@ We don't check external webservices in our `/HealthCheck` page on purpose, becau
 We were stabilized again.
 So we raised HAProxy load-balancing to 50% on our application in the cloud.
 After seven days without any error, we pushed it to 75%.
-After another seven days, we passed the on-prem server as a backup in HAProxy, making the app in kubernetes receiving 100% traffic.
+After another seven days, we passed the on-prem server as a backup in HAProxy, making the application in kubernetes receiving 100% traffic.
 
 We stayed with that configuration for 2 months.
 That gave us plenty of time to adapt pods Requests and Limits.
@@ -176,7 +176,7 @@ Everything works perfectly as expected since that day.
 We've done a lot of work for our first migration. We've capitalized that time for the next projects to finally be able to migrate them in few days.
 The workflow stays unchanged:
 
-1. Deploy the app into a kubernetes cluster
+1. Deploy the application into a kubernetes cluster
 2. Add HAProxy servers in front of both on-prem and in-cloud instances
 3. Load balance from 1% to 100% traffic to the in-cloud instance
 4. Configure accurate Requests and Limits
@@ -194,12 +194,12 @@ We also used [GOReplay](https://github.com/buger/goreplay) to replicate producti
 
 The workflow is almost the same as above, with few changes:
 
-1. Deploy the app into a kubernetes cluster
+1. Deploy the application into a kubernetes cluster
 2. Add HAProxy servers in front of both on-prem and in-cloud instances
 3. Use HAProxy `map_reg` to route traffic, depending of the requested URL
 4. Define path routing preferences in the map file created in step 3 (see example below)
 5. Configure and test each path:
-    a) Let developpers rewrite paths, I.E: /HealthCheck
+    a) Let developers rewrite paths, I.E: /HealthCheck
     b) Replicate production traffic with [GOReplay](https://github.com/buger/goreplay), to specific paths, including /HealthCheck, from on-prem to the application in the Kubernetes cluster in AWS
     c) Stabilize the application: either code optimisations or Kubernetes Requests and Limits adaptations
     d) Add this newly created path /HealthCheck on the HAProxy's routing map file
@@ -333,7 +333,7 @@ Some examples of traffic routing made by HAProxy with the configuration above:
     * this is the default
 
 With HAProxy map files and the according backend sections, we're able to migrate path by path any application from on-premise to our kubernetes cluster in the cloud.
-With gor on top of it, it's even easier to allow developpers developp a specific path while another is being migrated, and all that, with no downtime.
+With gor on top of it, it's even easier to allow developers develop a specific path while another is being migrated, and all that, with no downtime.
 
 
 # Next steps
@@ -342,7 +342,7 @@ We've done most of our cloud migration with workflows explained in this blogpost
 Thanks to HAProxy, most of our applications could be migrated at the same time with no impact from on migration to another.
 
 There are still some applications to migrate though and one of them is a tough one. This application is heavily using Cassandra database. There is no Cassandra managed in AWS, so we are completely rewriting the application to adapt it to DynamoDB and also to face upcoming business needs.
-The challenge is to keep existing pathUrl of the application, working. In other words: the new version have to give same functionnalities, keeping the same URLs, but with totally different data management under the hood.
+The challenge is to keep existing pathUrl of the application, working. In other words: the new version have to give same functionalities, keeping the same URLs, but with totally different data management under the hood.
 GOReplay is a wonderful asset to help us in this task.
 
 If you found this useful and you'd like more production return of experiences like this one, please let us know. We plan to write more in the coming weeks.
