@@ -84,7 +84,7 @@ To make those migrations as transparent as possible, we first configured HAProxy
 In the same time, developers have deployed all mandatory resources (RDS, DynamoDB, elasticache, etc.) with Terraform and verified the application works fine. The application itself could have changed: either the code or kubernetes manifests.
 When ready, both ops and devs gave their approval to send traffic to the cloud.
 
-We started by load-balancing 1% to the AWS ELB with HAProxy
+We started by load-balancing 1% to the AWS ELB with HAProxy:
 ![Application while migrating 1% to AWS & Kubernetes](/images/posts/migrating-production-apps-to-the-cloud/application_migrating.png)
 
 We compared everything we could:
@@ -165,6 +165,8 @@ So we raised HAProxy load-balancing to 50% on our application in the cloud.
 After seven days without any error, we pushed it to 75%.
 After another seven days, we passed the on-prem server as a backup in HAProxy, making the application in kubernetes receiving 100% traffic.
 
+![HTTP codes 2xx with 100% traffic sent to AWS](/images/posts/migrating-production-apps-to-the-cloud/haproxy_cloud_http2xx_codes_100pc.png)
+
 We stayed with that configuration for 2 months.
 That gave us plenty of time to adapt pods Requests and Limits.
 That is really important for us, because we use HorizontalPodAutoscaler ressources with CPU metrics to scale most of our APIs. [Here you can find slides](https://fr.slideshare.net/VincentGallissot/how-we-auto-scale-applications-based-on-cpu-with-kubernetes-at-m6web) deep diving one of our applications that autoscales in prod with kubernetes.
@@ -194,7 +196,10 @@ Some of our applications needed to be partially rewritten to be cloud native.
 Only specific paths were affected by this rewrite.
 
 So we decided to use HAProxy to migrate those applications, path by path.
-We also used [GOReplay](https://github.com/buger/goreplay) to replicate production traffic for each path, to be sure we didn't messed up things before sending end-users traffic.
+We also used GOReplay to replicate production traffic for each path, to be sure we didn't messed up things before sending end-users traffic.
+
+![Application while migrating 50% to AWS & Kubernetes for specific v2 path](/images/posts/migrating-production-apps-to-the-cloud/application_migrating_specific_v2_path.png)
+This schema shows how HAProxy were routing traffic according to specific paths.
 
 The workflow is almost the same as above, with few changes:
 
@@ -216,7 +221,7 @@ The workflow is almost the same as above, with few changes:
 
 ### Traffic replication with GOReplay
 
-We use a lot GOReplay.
+We use a lot [GOReplay](https://github.com/buger/goreplay).
 Not only because it's light and easy to work with, but because we can do whatever we want with it to replicate traffic. It can rewrite headers, catch only a specific domain or a specific url. It's the perfect tool to complete our migration workflow.
 
 Here is a script we used in the step 5.b of the workflow above:
