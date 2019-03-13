@@ -11,6 +11,10 @@ author:
   github:
 category:
 tags: [Cloud, AWS, Kubernetes, Kops, HAProxy, GOReplay]
+image:
+  feature: posts/migrating-production-apps-to-the-cloud/kaushik-panchal-37070-unsplash.jpg
+  credit: Kaushik Panchal
+  creditlink: https://unsplash.com/photos/0juC5JIhPks
 comments: true
 language: en
 ---
@@ -21,7 +25,7 @@ To secure this migration, we are using HAProxy in front of both on-prem and on-A
 Disclaimer: This article describes a feedback from production environment. We have changed the name of applications mentioned here, but everything else is true within the limits of our knowledge.
 
 
-# The first migrated application
+## The first migrated application
 
 It's an API written in PHP. It has no external dependency (database, redis…), except for another API, called over HTTP.
 We have migrated this application to the cloud like we've done with other applications since.
@@ -31,7 +35,7 @@ Then, we wanted to send real-user requests to that app. We wanted to see how it 
 But we didn’t want to send 100% of our users over there at once: we’d first rather check everything works fine with just 1% of our users.
 
 
-# HAProxy
+## HAProxy
 
 We’ve been using HAProxy for several years now.
 Because of its features, like advanced backend monitoring or its enormous number of metrics, it's the perfect tool to help us on this migration.
@@ -62,14 +66,14 @@ Some explanations on key elements of this configuration:
 With the above configuration, as soon as there is an error, HAProxy won't send traffic to our AWS/Kubernetes application anymore; consequently, it will have a minimum impact on endusers.
 
 
-# Tests
+## Tests
 
 We first tested this with staging proxies, with a temporary domain name and a 50-50% loadbalancer, to ensure the load-balancing worked fine.
 We tried to kill the deployment on Kubernetes to check 100% of requests came back on-prem. We tested killing random pods to see if we had some user impact. We tested to slow down the application so it would be slower than 1s to respond. We also tested to slow down only one of two pods running the application.
 It was all OK, so we were confident to go to production.
 
 
-# Migration steps
+## Migration steps
 
 Before its migration, the application infrastructure looked like this:
 ![Application before the migration to AWS & Kubernetes](/images/posts/migrating-production-apps-to-the-cloud/application_pre_migration.png)
@@ -111,7 +115,7 @@ This graph shows the number of 2xx HTTP codes with 25% of traffic sent to AWS.
 Once those PHP optimisations were fixed, we had only 2ms difference between our on-premise and our Kubernetes on AWS. It's low enough to allow us to test this setup a bit longer without any visible user impact.
 
 
-# Deploying more and more
+## Deploying more and more
 
 1% on our kubernetes cluster was great, but it was not enough to see perfs issues.
 So we raised HAProxy's load balancing from 1%/99% to 10%/90%.
@@ -126,9 +130,9 @@ We did it because HAProxy would have saved us if something bad happened.
 It did behave well: nothing happened for 26 days.
 
 
-# Some errors encountered
+## Some errors encountered
 
-## Unknown nodes
+### Unknown nodes
 
 On the 27th day, we noticed two of our three nodes were in `Unknown` state. As our Replicas specified we wanted several pods, Kubernetes started new pods. But as we only had one `Ready` node left (3 worker nodes in the cluster, including two in `Unknown` state), all pods for our application were now on that single node. Not great for reliability.  
 We found that the CoreOS image we used was doing automatic updates that restarted nodes regularly. On those two nodes (and on the third one a few days later!), the restart did not go well and Kubelet wasn't starting at bootime. After investigation, it appears we changed the [KOPS STATE STORE](https://github.com/kubernetes/kops/blob/master/docs/state.md) bucket. Nodes started before that change were impacted as Kubelet couldn't find its configuration. Starting new nodes and killing the old ones solved this issue.  
@@ -140,7 +144,7 @@ From that, we knew we had to monitor:
 * If the number of Ready nodes is at most 90% the Auto Scaling Group maximum
 
 
-## Differences between cluster-autoscaler and ASG values
+### Differences between cluster-autoscaler and ASG values
 
 While trying to solve the problem above, we also found that pods were living around 5mns before being destroyed and created again. After some investigation, we found that min and max EC2 instances were not configured to the same values between the AWS Auto Scaling Group and the cluster-autoscaler pod.  
 Some day, we modified the Kops configuration for those worker nodes and the configuration was well applied to the ASG, but was not applied to the cluster-autoscaler. As a result, we had an ASG minimum of 4 worker nodes, but a cluster-autoscaler minimum of 3.  
@@ -148,13 +152,13 @@ At some point in the history, the cluster-autoscaler defined that the current am
 This last phase started again every 5 minutes, making sure that our pods did not survive longer than that.
 
 
-## Application latencies undetected by health checks
+### Application latencies undetected by health checks
 
 Our application was really slow on Kubernetes/AWS (due to a network misconfiguration) but HAProxy did not disable it. We specified a 1s timeout as shown in the example above, but this is only for healthchecks. Our global server timeout is upper than 1s. Because our application calls another webservice, those calls were timeouting. HAProxy was not aware of that, because the application's `/HealthCheck` health page doesn't check external webservices and thus, were not impacted by those external webservices timeouts. This is an application choice that we can encounter on-premise too, with the exact same behavior. For that reason, we decided to change nothing for now (and we'll discuss this with the devs teams to see if there's something we can do).
 We don't check external webservices in our `/HealthCheck` page on purpose, because that page is also tested by kubernetes for livenessProbe. Kubernetes restarts a pod when it is not healthy anymore but when it comes to an external service that is failing, restarting the current pod is non-sens. Kubernetes will restart pods again and again even if the application itself can't to anything about it! The livenessProbe should test only what the pod does. The Amadeus team [talked about that at the KubeCon EU 2018](https://www.youtube.com/watch?v=HIB_haT1z5M) while presenting Kubervisor.
 
 
-# Foot to the floor
+## Foot to the floor
 
 We were stabilized again.
 So we raised HAProxy load-balancing to 50% on our application in the cloud.
@@ -171,20 +175,20 @@ After weeks of optimizations, we migrated this app's DNS directly on ELB without
 Everything works perfectly as expected since that day.
 
 
-# Next applications to migrate
+## Next applications to migrate
 
 We've done a lot of work for our first migration. We've capitalized that time for the next projects to finally be able to migrate them in few days.
 The workflow stays unchanged:
 
-1. Deploy the application into a kubernetes cluster
-2. Add HAProxy servers in front of both on-prem and in-cloud instances
-3. Load balance from 1% to 100% traffic to the in-cloud instance
-4. Configure accurate Requests and Limits
-5. Create efficient alerting
-6. Point DNS to ELB
+* Deploy the application into a kubernetes cluster
+* Add HAProxy servers in front of both on-prem and in-cloud instances
+* Load balance from 1% to 100% traffic to the in-cloud instance
+* Configure accurate Requests and Limits
+* Create efficient alerting
+* Point DNS to ELB
 
 
-# Migrate an application path by path
+## Migrate an application path by path
 
 Some of our applications needed to be partially rewritten to be cloud native.
 Only specific paths were affected by this rewrite.
@@ -194,23 +198,23 @@ We also used [GOReplay](https://github.com/buger/goreplay) to replicate producti
 
 The workflow is almost the same as above, with few changes:
 
-1. Deploy the application into a kubernetes cluster
-2. Add HAProxy servers in front of both on-prem and in-cloud instances
-3. Use HAProxy `map_reg` to route traffic, depending of the requested URL
-4. Define path routing preferences in the map file created in step 3 (see example below)
-5. Configure and test each path:
-    a) Let developers rewrite paths, I.E: /HealthCheck
-    b) Replicate production traffic with [GOReplay](https://github.com/buger/goreplay), to specific paths, including /HealthCheck, from on-prem to the application in the Kubernetes cluster in AWS
-    c) Stabilize the application: either code optimisations or Kubernetes Requests and Limits adaptations
-    d) Add this newly created path /HealthCheck on the HAProxy's routing map file
-    e) Repeat for each new path 
-6. Create a specific HAProxy Backend section for each route to load balance traffic differently for each route
-7. Increase traffic load balancing up to 100% to the cloud
-8. Create efficient alerting
-9. Point the DNS to the ELB
+* Deploy the application into a kubernetes cluster
+* Add HAProxy servers in front of both on-prem and in-cloud instances
+* Use HAProxy `map_reg` to route traffic, depending of the requested URL
+* Define path routing preferences in the map file created in step 3 (see example below)
+* Configure and test each path:
+    * Let developers rewrite paths, I.E: /HealthCheck
+    * Replicate production traffic with [GOReplay](https://github.com/buger/goreplay), to specific paths, including /HealthCheck, from on-prem to the application in the Kubernetes cluster in AWS
+    * Stabilize the application: either code optimisations or Kubernetes Requests and Limits adaptations
+    * Add this newly created path /HealthCheck on the HAProxy's routing map file
+    * Repeat for each new path 
+* Create a specific HAProxy Backend section for each route to load balance traffic differently for each route
+* Increase traffic load balancing up to 100% to the cloud
+* Create efficient alerting
+* Point the DNS to the ELB
 
 
-## Traffic replication with GOReplay
+### Traffic replication with GOReplay
 
 We use a lot GOReplay.
 Not only because it's light and easy to work with, but because we can do whatever we want with it to replicate traffic. It can rewrite headers, catch only a specific domain or a specific url. It's the perfect tool to complete our migration workflow.
@@ -266,7 +270,7 @@ We could follow the replication with HAProxy dashboard, like the following graph
 ![Replicating production traffic with gor](/images/posts/migrating-production-apps-to-the-cloud/gor-traffic-replication.png)
 
 
-## HAProxy configuration
+### HAProxy configuration
 
 To achieve a path-by-path migration of an application, we used this HAProxy configuration:
 {% highlight apache %}
@@ -336,7 +340,7 @@ With HAProxy map files and the according backend sections, we're able to migrate
 With gor on top of it, it's even easier to allow developers develop a specific path while another is being migrated, and all that, with no downtime.
 
 
-# Next steps
+## Next steps
 
 We've done most of our cloud migration with workflows explained in this blogpost.
 Thanks to HAProxy, most of our applications could be migrated at the same time with no impact from on migration to another.
