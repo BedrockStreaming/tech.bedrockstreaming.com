@@ -158,7 +158,7 @@ Our application was really slow on Kubernetes/AWS (due to a network misconfigura
 We don't check external webservices in our `/HealthCheck` page on purpose, because that page is also tested by kubernetes for livenessProbe. Kubernetes restarts a pod when it is not healthy anymore but when it comes to an external service that is failing, restarting the current pod is non-sens. Kubernetes will restart pods again and again even if the application itself can't to anything about it! The livenessProbe should test only what the pod does. The Amadeus team [talked about that at the KubeCon EU 2018](https://www.youtube.com/watch?v=HIB_haT1z5M) while presenting Kubervisor.
 
 
-## Foot to the floor
+## Pedal to the metal
 
 We were stabilized again.
 So we raised HAProxy load-balancing to 50% on our application in the cloud.
