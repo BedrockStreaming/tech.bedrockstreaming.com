@@ -20,3 +20,21 @@ language: en
 ---
 
 WIP :construction:
+
+# Intro - Flo
+
+# Keynote - Flo
+
+# Animation /React spring - Nico & Antoine
+
+# Test - Flo
+
+# GraphQL - Antoine
+
+# Workflow - Nico
+
+# a11y - Antoine
+
+# Yarn 2 - Antoine
+
+# Next.js & Code Sandbox - Antoine
