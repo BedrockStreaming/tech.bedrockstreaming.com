@@ -29,7 +29,7 @@ WIP :construction:
 
 # Test - Flo
 
-# GraphQL - Antoine
+# GraphQL
 
 One of the main themes of the conference was also `GraphQL`. 
 This data exchange paradigm now seems to have its place among many users.
@@ -39,20 +39,29 @@ For more than a year now, we have been using `GraphQL` on our BackOffice and we 
 - Easy consumption thanks to queries
 - Cache management provided by Apollo (also providing a collection of great tools for `GraphQL`)
 
+[Kenny already talked about it in 2015](https://tech.m6web.fr/immutablejs-relay-graphql-react-native/) but now we use it for 6play.
+
 # Workflow - Nico
 
-# a11y - Antoine
+# a11y
 
-# Yarn 2 - Antoine
+Several very inspiring talks on accessibility seem to show that this issue finally appears to be considered by web actors. In particular Facebook, which has distinguished itself by showing its assistant to detect accessibility errors in the development of its new version. However, it is regrettable that this toolkit is not accessible to the community because it could be a great help to avoid putting people with disabilities on our platforms.
 
-// To translate
-On l'attendait de pieds ferme à M6, la nouvelle release de `yarn` nommé `berry` propose presque tout ce qui nous manquait dans notre gestionnaire de package préféré.
-En effet, en utilisant `yarn` en mode _monorepo_ pour le projet 6play, nous avons été confrontés à plusieurs soucis qu'il a fallu contourner avec des outils maison ou même *Lerna*.
+It is clear that 6play is not yet very accessible but we are working to correct this error, especially on the new screens we have been integrating for several months. 
 
-Exemple ici avec notre outil [monorepo-dependencies-check](https://github.com/M6Web/monorepo-dependencies-check) qui devient maintenant obsolètes grâce aux `Contraints`.
+# Yarn 2
 
-On est également ravis de la fonctionnalité de Zero install. 
+We were waiting for it at M6, the new `yarn` release named `berry` offers almost everything we were missing in our favorite package manager.
+Indeed, by using `yarn` in _monorepo_ mode for the 6play project, we were confronted with several problems that had to be overcome with in-house tools.Example here with our[monorepo-dependencies-check] tool (https://github.com/M6Web/monorepo-dependencies-check) which is now becoming obsolete thanks to `Constraints`.
 
-Mais ce qu'on attendait le plus tournait autour des _workspaces_. On aura enfin une gestion de la publication de ceux-ci et on en est très content.
+We are also delighted with the functionality of Zero install. But what we expected most was about the _workspaces_. We will finally have a management of the publication of these.
 
-# Next.js & Code Sandbox - Antoine
+Take a look at [this repository](https://github.com/yarnpkg/berry) for more information.
+
+# Next.js & Code Sandbox
+
+Even if these two tools are not used for the development of our applications, the new features of NextJS and Code Sandbox are clearly very interesting. 
+
+As for Next.js, the 6play project has its own configuration of `server side rendering` (Florent explains it in ['Last night isomorphic JS saved our life!'] (https://tech.m6web.fr/spa-mode-isomorphism-js/)). However, NextJS is a great project that we use for many of our side projects. AMP support, client-only pages and API endpoints are clearly welcome.
+
+As for Code Sandbox, Ives van Hoorne told us his personal story and that of his project. In addition to the great tool that is CodeSandbox, we have seen that the use of WebAssembly seems to have solved a lot of performance and implementation problems. For example, he cites the coloring of the code based on _TextMate_ only available in C could not have been ported to the browser without going through WebAssembly.
