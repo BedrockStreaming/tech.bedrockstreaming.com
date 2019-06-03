@@ -12,8 +12,8 @@ author:
 category:
 tags: [React, JS, 6play, Conference, 2019]
 image:
-  feature: 
-  credit: 
+  feature: posts/react-europe-2019/brendan-church-182747-unsplash.jpg
+  credit: Brendan Church
   creditlink: 
 comments: true
 language: en
