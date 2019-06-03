@@ -41,7 +41,20 @@ For more than a year now, we have been using `GraphQL` on our BackOffice and we 
 
 [Kenny already talked about it in 2015](https://tech.m6web.fr/immutablejs-relay-graphql-react-native/) but now we use it for 6play.
 
-# Workflow - Nico
+# Workflow
+
+One of the most interesting conferences in my opinion was about the need to optimize the development workflow. This is an element that is too often ignored but is very important in the life of a project.  Paul Amstrong presents us here an analysis of the workflow of his team in charge of the development of the Twitter Lite application and these conclusions and solutions implemented. In a standard development workflow there are 3 points that allow a significant margin of progress: Increased developer confidence and delivery speed, Automate the PR process to maximum and finally detect errors as early as possible.
+
+These words echo our own questions on the subject and these conclusions confirm our decisions. 
+It is important to have the shortest and most automated workflow possible between the developer and the user without sacrificing the developer's experience because it goes hand in hand with all the other aspects of a project
+
+At M6, we use most of the tools presented, but two in particular caught our attention
+
+The first, React Component Benchmark, is of particular interest to us because in the past we had started to investigate the subject and used tools that are depreciated today.
+
+The second, Build Tracker, which allows us to test the evolution of bundle size, will allow us to replace an equivalent tool developed internally while providing a more detailed analysis in order to work more accurately on these issues.
+
+[Move fast with confidence - Paul Armstrong](https://www.youtube.com/watch?v=ikn_dBSski8&t=428s)
 
 # a11y
 
