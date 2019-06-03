@@ -54,7 +54,7 @@ The first, React Component Benchmark, is of particular interest to us because in
 
 The second, Build Tracker, which allows us to test the evolution of bundle size, will allow us to replace an equivalent tool developed internally while providing a more detailed analysis in order to work more accurately on these issues.
 
-[Move fast with confidence - Paul Armstrong](https://www.youtube.com/watch?v=ikn_dBSski8&t=428s)
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ikn_dBSski8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 # a11y
 
