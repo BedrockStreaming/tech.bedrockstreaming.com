@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "React europe 2019"
-description: "Nos retours sur le PHP DAY 2019 à LYON"
+title: "React Europe 2019"
+description: "Our feedbacks about the European React Conference 2019"
 author:
   name: Florent Dubost, Nicolas Afresne, Antoine Caron
   avatar:
@@ -17,9 +17,21 @@ language: en
 
 WIP :construction:
 
-# Intro - Flo
+The M6 Distribution's (M6 Web's new name !) front team haven't posted since a long time. We took part as listeners of the 5th European React Conference in Paris on May 24th and 25th. It's an opportunity to talk about what are the last moves in the React community and at M6.
 
-# Keynote - Flo
+As usual, we were waiting a lot of announcements in this conference and a lot of new tools or new library. There has been no big declaration, no surprise. But many subjects have been interesting and several talks had confirmed the way we have taken over the last few years. 
+
+# Hooks, more hooks and suspense
+
+During the keynote, Jared Palmer put the emphasis on _[hooks](_ through an example to simplify the use of GraphQL queries. At M6 Distribution, we use hooks since the beginning of the year and many are in production. That has changed the way we write component. We already used functionnal components before, but using simplify the readability and the evolutivity of old class component. The bad point is testing... Because we use Enzyme, testing hooks is painful for now. Until Enzyme fully supports hooks, we have implemented custom mocks.
+
+Jared Palmer also showed us the interest of React Suspense to manage a main loading state in an app instead of many spinners that not offer a good user experience. We can't use Suspense for our app because of the [SSR](https://tech.m6web.fr/spa-mode-isomorphism-js/). As it is [recommended by the React team](https://reactjs.org/docs/code-splitting.html#reactlazy), we use [Loadable Components](https://github.com/smooth-code/loadable-components) instead. Jared  annouced that a new asynchronous server renderer is in progress and could be released in 2019 supporting Suspense. Suspense will also include [data fetching](https://reactjs.org/blog/2018/11/27/react-16-roadmap.html#react-16x-mid-2019-the-one-with-suspense-for-data-fetching).
+
+Others features or refactoring will come in the future, but there is very limited information:
+- [React Fire](https://github.com/facebook/react/issues/13525)
+- React Fusion (?)
+- [React Native Fabric](https://github.com/react-native-community/discussions-and-proposals/issues/4)
+- [React Flare](https://github.com/facebook/react/issues/15257)
 
 # Animation /React spring - Nico & Antoine
 
