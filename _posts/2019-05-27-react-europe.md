@@ -31,7 +31,15 @@ Others features or refactoring will come in the future, but there is very limite
 - [React Native Fabric](https://github.com/react-native-community/discussions-and-proposals/issues/4)
 - [React Flare](https://github.com/facebook/react/issues/15257)
 
-## Animation /React spring - Nico & Antoine
+## Do the harlem shake
+
+Several conferences have addressed the theme of animations with React. This subject is very often complicated to solve. Finding a high-performance solution that is compatible with as many browsers as possible can be a real challenge.
+
+For more than a year now we have been migrating from Sass to Styled-component. Despite some resentment, it should be noted that this new tool makes it very easy to create/compose our new rendering components. He also helps us a lot with his management of the theme.
+
+Between the [react-spring](https://www.react-spring.io/)library  and tips of[Josh Comeau](https://twitter.com/JoshWComeau) we now have many ways to integrate the new animations that designers can invent.
+
+To summarize their comments, **There is no better way to make animations in all situations**. Whether with canvas, SVG, web API, CSS, 2D sprite, you should try to do it in several ways to compare performance and rendering in order to choose the best option for your specific case.
 
 ## Make tests but make good tests
 
