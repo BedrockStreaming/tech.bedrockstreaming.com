@@ -75,7 +75,7 @@ One of the most interesting conferences in my opinion was about the need to opti
 These words echo our own questions on the subject and these conclusions confirm our decisions. 
 It is important to have **the shortest and most automated workflow possible** between the developer and the user without sacrificing the developer's experience because it goes hand in hand with all the other aspects of a project
 
-At M6, we use most of the tools presented, but two in particular caught our attention
+At M6 Distribution, we use most of the tools presented, but two in particular caught our attention.
 
 The first, **React Component Benchmark**, is of particular interest to us because in the past we had started to investigate the subject and used tools that are depreciated today.
 
