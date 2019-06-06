@@ -65,7 +65,7 @@ For more than a year now, we have been using `GraphQL` on our back office and we
 
 [Kenny already talked about it in 2015](https://tech.m6web.fr/immutablejs-relay-graphql-react-native/) but now we use it!
 
-## Workflow
+## Development worflow: the expected journey
 
 One of the most interesting conferences in my opinion was about the need to optimize the development workflow. This is an element that is too often ignored but is very important in the life of a project.  Paul Amstrong presents us here an analysis of the workflow of his team in charge of the development of the Twitter Lite application and these conclusions and solutions implemented. In a standard development workflow there are 3 points that allow a significant margin of progress:
 - increased developer confidence and delivery speed,
@@ -102,6 +102,6 @@ Take a look at [this repository](https://github.com/yarnpkg/berry) for more info
 
 Even if these two tools are not used for the development of our applications, the new features of Next.js and Code Sandbox are clearly very interesting. 
 
-As for Next.js, the 6play project has its own configuration of `server side rendering` (Florent explains it in ['Last night isomorphic JS saved our life!'](https://tech.m6web.fr/spa-mode-isomorphism-js/)). However, NextJS is a great project that we use for many of our side projects. **AMP support, client-only pages and API endpoints** are clearly welcome.
+As for Next.js, our front web project has its own configuration of `server side rendering` (Florent explains it in ['Last night isomorphic JS saved our life!'](https://tech.m6web.fr/spa-mode-isomorphism-js/)). However, NextJS is a great project that we use for many of our side projects. **AMP support, client-only pages and API endpoints** are clearly welcome.
 
 As for Code Sandbox, Ives van Hoorne told us his personal story and that of his project. In addition to **the great tool that is CodeSandbox**, we have seen that the use of WebAssembly seems to have solved a lot of performance and implementation problems. For example, he cites the coloring of the code based on _TextMate_ only available in C could not have been ported to the browser without going through WebAssembly.
