@@ -83,6 +83,8 @@ The first, [**React Component Benchmark**](https://github.com/paularmstrong/reac
 
 The second, [**Build Tracker**](https://buildtracker.dev/), which allows us to test the evolution of bundle size, will allow us to replace an equivalent tool developed internally while providing a more detailed analysis in order to work more accurately on these issues.
 
+![our version of Build tracker](/images/posts/react-europe-2019/our-build-tracker.png)
+
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ikn_dBSski8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## a11y is our new challenge
