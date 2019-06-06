@@ -41,7 +41,7 @@ Lisa aslo advices to **better use Jest snapshots**. They are often too many, too
 
 A difficult thing is to **keep test agnostic to implementation details**. We should consider the code as a black-box and only test the user interaction of the components, otherwise any refactoring of code will be painful and discourage developers from writing tests.
 
-E2E tests are also complex to setup, write and debug but are **absolutely necessary**. For the backoffice app, unlike our front app where [we use a custom stack](https://tech.m6web.fr/tests-fonctionnels-app-js/), we choose [Cypress](https://www.cypress.io/) a complete E2E framework that has saved us a lot of time.
+E2E tests are also complex to setup, write and debug but are **absolutely necessary**. For the back office app, unlike our front app where [we use a custom stack](https://tech.m6web.fr/tests-fonctionnels-app-js/), we choose [Cypress](https://www.cypress.io/) a complete E2E framework that has saved us a lot of time.
 
 Lisa concluded her very interesting lightning talk by saying that there is no such thing as a one-size-fits-all approach, the way of testing has to be adapted to the team and the project. For example on our 6play project, we have more than 3000 unit tests performed by Jest in less than 4 minutes and 450 E2E scenarios that save your life every day!
 
@@ -49,13 +49,13 @@ Lisa concluded her very interesting lightning talk by saying that there is no su
 
 One of the main themes of the conference was also `GraphQL`. 
 This data exchange paradigm now seems to have its place among many users.
-For more than a year now, we have been using `GraphQL` on our BackOffice and we are already seeing a lot of benefits.
+For more than a year now, we have been using `GraphQL` on our back office and we are already seeing a lot of benefits:
 
-- A Front/Back exchange contract materialized in a schema
-- Easy consumption thanks to queries
-- Cache management provided by Apollo (also providing a collection of great tools for `GraphQL`)
+- a front/back exchange contract materialized in a schema,
+- easy consumption thanks to queries,
+- cache management provided by Apollo (also providing a collection of great tools for `GraphQL`).
 
-[Kenny already talked about it in 2015](https://tech.m6web.fr/immutablejs-relay-graphql-react-native/) but now we use it for 6play.
+[Kenny already talked about it in 2015](https://tech.m6web.fr/immutablejs-relay-graphql-react-native/) but now we use it!
 
 # Workflow
 
