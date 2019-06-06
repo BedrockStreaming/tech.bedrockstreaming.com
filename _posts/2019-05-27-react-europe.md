@@ -59,7 +59,10 @@ For more than a year now, we have been using `GraphQL` on our back office and we
 
 # Workflow
 
-One of the most interesting conferences in my opinion was about the need to optimize the development workflow. This is an element that is too often ignored but is very important in the life of a project.  Paul Amstrong presents us here an analysis of the workflow of his team in charge of the development of the Twitter Lite application and these conclusions and solutions implemented. In a standard development workflow there are 3 points that allow a significant margin of progress: Increased developer confidence and delivery speed, Automate the PR process to maximum and finally detect errors as early as possible.
+One of the most interesting conferences in my opinion was about the need to optimize the development workflow. This is an element that is too often ignored but is very important in the life of a project.  Paul Amstrong presents us here an analysis of the workflow of his team in charge of the development of the Twitter Lite application and these conclusions and solutions implemented. In a standard development workflow there are 3 points that allow a significant margin of progress:
+- increased developer confidence and delivery speed,
+- automate the PR process to maximum,
+- detect errors as early as possible.
 
 These words echo our own questions on the subject and these conclusions confirm our decisions. 
 It is important to have the shortest and most automated workflow possible between the developer and the user without sacrificing the developer's experience because it goes hand in hand with all the other aspects of a project
