@@ -43,7 +43,7 @@ A difficult thing is to **keep test agnostic to implementation details**. We sho
 
 E2E tests are also complex to setup, write and debug but are **absolutely necessary**. For the backoffice app, unlike our front app where [we use a custom stack](https://tech.m6web.fr/tests-fonctionnels-app-js/), we choose [Cypress](https://www.cypress.io/) a complete E2E framework that has saved us a lot of time.
 
-Lisa concluded her very interesting lightning talk by saying that there is no such thing as a one-size-fits-all approach, the way of testing has to be adapted to the team and the project. 
+Lisa concluded her very interesting lightning talk by saying that there is no such thing as a one-size-fits-all approach, the way of testing has to be adapted to the team and the project. For example on our 6play project, we have more than 3000 unit tests performed by Jest in less than 4 minutes and 450 E2E scenarios that save your life every day!
 
 # GraphQL
 
