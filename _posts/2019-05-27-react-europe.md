@@ -65,7 +65,7 @@ One of the most interesting conferences in my opinion was about the need to opti
 - detect errors as early as possible.
 
 These words echo our own questions on the subject and these conclusions confirm our decisions. 
-It is important to have the shortest and most automated workflow possible between the developer and the user without sacrificing the developer's experience because it goes hand in hand with all the other aspects of a project
+It is important to have **the shortest and most automated workflow possible** between the developer and the user without sacrificing the developer's experience because it goes hand in hand with all the other aspects of a project
 
 At M6, we use most of the tools presented, but two in particular caught our attention
 
