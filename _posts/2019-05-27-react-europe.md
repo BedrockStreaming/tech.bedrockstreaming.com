@@ -53,6 +53,8 @@ E2E tests are also complex to setup, write and debug but are **absolutely necess
 
 Lisa concluded her very interesting lightning talk by saying that there is no such thing as a one-size-fits-all approach, the way of testing has to be adapted to the team and the project. For example on our 6play project, we have more than 3000 unit tests performed by Jest in less than 4 minutes and 450 E2E scenarios that save your life every day!
 
+If you are interested in this subject, take a look at [this article about JS testing best practices](https://medium.com/@me_37286/yoni-goldberg-javascript-nodejs-testing-best-practices-2b98924c9347).
+
 ## Finally a little GraphQL in our projects
 
 One of the main themes of the conference was also `GraphQL`. 
