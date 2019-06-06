@@ -72,7 +72,7 @@ The second, Build Tracker, which allows us to test the evolution of bundle size,
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ikn_dBSski8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-# a11y
+# a11y is our new challenge
 
 Several very inspiring talks on accessibility seem to show that this issue finally appears to be considered by web actors. In particular Facebook, which has distinguished itself by showing its assistant to detect accessibility errors in the development of its new version. However, it is regrettable that this toolkit is not accessible to the community because it could be a great help to avoid putting people with disabilities on our platforms.
 
