@@ -15,7 +15,7 @@ comments: true
 language: en
 ---
 
-The M6 Distribution's (M6 Web's new name !) front team haven't posted since a long time. We took part as listeners of the 5th European React Conference in Paris on May 24th and 25th. It's an opportunity to talk about what are the last moves in the React community and at M6.
+The M6 Distribution's (M6 Web's new name!) front team haven't posted since a long time. We took part as listeners of the 5th European React Conference in Paris on May 24th and 25th. It's an opportunity to talk about what are the last moves in the React community and at M6.
 
 As usual, we were waiting a lot of announcements in this conference and a lot of new tools or new library. There has been no big declaration, no surprise. But many subjects have been interesting and several talks had confirmed the way we have taken over the last few years. 
 
