@@ -91,6 +91,6 @@ Take a look at [this repository](https://github.com/yarnpkg/berry) for more info
 
 Even if these two tools are not used for the development of our applications, the new features of NextJS and Code Sandbox are clearly very interesting. 
 
-As for Next.js, the 6play project has its own configuration of `server side rendering` (Florent explains it in ['Last night isomorphic JS saved our life!'] (https://tech.m6web.fr/spa-mode-isomorphism-js/)). However, NextJS is a great project that we use for many of our side projects. AMP support, client-only pages and API endpoints are clearly welcome.
+As for Next.js, the 6play project has its own configuration of `server side rendering` (Florent explains it in ['Last night isomorphic JS saved our life!'](https://tech.m6web.fr/spa-mode-isomorphism-js/)). However, NextJS is a great project that we use for many of our side projects. AMP support, client-only pages and API endpoints are clearly welcome.
 
 As for Code Sandbox, Ives van Hoorne told us his personal story and that of his project. In addition to the great tool that is CodeSandbox, we have seen that the use of WebAssembly seems to have solved a lot of performance and implementation problems. For example, he cites the coloring of the code based on _TextMate_ only available in C could not have been ported to the browser without going through WebAssembly.
