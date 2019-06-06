@@ -71,7 +71,7 @@ At M6, we use most of the tools presented, but two in particular caught our atte
 
 The first, **React Component Benchmark**, is of particular interest to us because in the past we had started to investigate the subject and used tools that are depreciated today.
 
-The second, Build Tracker, which allows us to test the evolution of bundle size, will allow us to replace an equivalent tool developed internally while providing a more detailed analysis in order to work more accurately on these issues.
+The second, **Build Tracker**, which allows us to test the evolution of bundle size, will allow us to replace an equivalent tool developed internally while providing a more detailed analysis in order to work more accurately on these issues.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ikn_dBSski8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
