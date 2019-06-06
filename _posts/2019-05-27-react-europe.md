@@ -81,7 +81,7 @@ Several very inspiring talks on accessibility seem to show that this issue final
 
 It is clear that 6play is not yet very accessible but we are working to correct this error, especially on the new screens we have been integrating for several months. 
 
-# Yarn 2
+# Our expectations on Yarn finally fulfilled
 
 We were waiting for it at M6, the new `yarn` release named `berry` offers almost everything we were missing in our favorite package manager.
 Indeed, by using `yarn` in _monorepo_ mode for the 6play project, we were confronted with several problems that had to be overcome with in-house tools.Example here with our[monorepo-dependencies-check] tool (https://github.com/M6Web/monorepo-dependencies-check) which is now becoming obsolete thanks to `Constraints`.
