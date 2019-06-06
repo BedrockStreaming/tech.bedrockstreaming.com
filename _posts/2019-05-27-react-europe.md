@@ -21,7 +21,7 @@ As usual, we were waiting a lot of announcements in this conference and a lot of
 
 ## Hooks, more hooks and suspense
 
-During the keynote, Jared Palmer put the emphasis on _[hooks](https://reactjs.org/docs/hooks-overview.html)_ through an example to simplify the use of GraphQL queries. At M6 Distribution, **we use hooks since the beginning of the year and many are in production**. That has changed the way we write component. We already used functionnal components before, but using hooks simplify the readability and the evolutivity of old class component. The bad point is testing... Because we use Enzyme, testing hooks is painful for now. Until Enzyme fully supports hooks, we have implemented custom mocks.
+During the keynote, Jared Palmer put the emphasis on [_hooks_](:s://reactjs.org/docs/hooks-overview.html) through an example to simplify the use of GraphQL queries. At M6 Distribution, **we use hooks since the beginning of the year and many are in production**. That has changed the way we write component. We already used functionnal components before, but using hooks simplify the readability and the evolutivity of old class component. The bad point is testing... Because we use Enzyme, testing hooks is painful for now. Until Enzyme fully supports hooks, we have implemented custom mocks.
 
 Jared Palmer also showed us the interest of React Suspense to manage a main loading state in an app instead of many spinners that not offer a good user experience. We can't use Suspense for our app because of the [SSR](https://tech.m6web.fr/spa-mode-isomorphism-js/). As it is [recommended by the React team](https://reactjs.org/docs/code-splitting.html#reactlazy), we use [Loadable Components](https://github.com/smooth-code/loadable-components) instead. Jared  announced that a new asynchronous server renderer is in progress and could be released in 2019 supporting Suspense. Suspense will also include [data fetching](https://reactjs.org/blog/2018/11/27/react-16-roadmap.html#react-16x-mid-2019-the-one-with-suspense-for-data-fetching).
 
@@ -81,7 +81,7 @@ At M6 Distribution, we use most of the tools presented, but two in particular ca
 
 The first, [**React Component Benchmark**](https://github.com/paularmstrong/react-component-benchmark), is of particular interest to us because in the past we had started to investigate the subject and used tools that are depreciated today.
 
-The second, **[Build Tracker](https://buildtracker.dev/)**, which allows us to test the evolution of bundle size, will allow us to replace an equivalent tool developed internally while providing a more detailed analysis in order to work more accurately on these issues.
+The second, [**Build Tracker**](https://buildtracker.dev/), which allows us to test the evolution of bundle size, will allow us to replace an equivalent tool developed internally while providing a more detailed analysis in order to work more accurately on these issues.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ikn_dBSski8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
