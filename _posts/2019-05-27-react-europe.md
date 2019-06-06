@@ -69,7 +69,7 @@ It is important to have the shortest and most automated workflow possible betwee
 
 At M6, we use most of the tools presented, but two in particular caught our attention
 
-The first, React Component Benchmark, is of particular interest to us because in the past we had started to investigate the subject and used tools that are depreciated today.
+The first, **React Component Benchmark**, is of particular interest to us because in the past we had started to investigate the subject and used tools that are depreciated today.
 
 The second, Build Tracker, which allows us to test the evolution of bundle size, will allow us to replace an equivalent tool developed internally while providing a more detailed analysis in order to work more accurately on these issues.
 
