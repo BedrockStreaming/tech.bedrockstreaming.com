@@ -100,7 +100,7 @@ Take a look at [this repository](https://github.com/yarnpkg/berry) for more info
 
 ## Some projects that interest us a lot: Next.js & Code Sandbox
 
-Even if these two tools are not used for the development of our applications, the new features of NextJS and Code Sandbox are clearly very interesting. 
+Even if these two tools are not used for the development of our applications, the new features of Next.js and Code Sandbox are clearly very interesting. 
 
 As for Next.js, the 6play project has its own configuration of `server side rendering` (Florent explains it in ['Last night isomorphic JS saved our life!'](https://tech.m6web.fr/spa-mode-isomorphism-js/)). However, NextJS is a great project that we use for many of our side projects. **AMP support, client-only pages and API endpoints** are clearly welcome.
 
