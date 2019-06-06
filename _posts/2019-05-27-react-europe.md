@@ -90,7 +90,7 @@ We are also delighted with the functionality of Zero install. But what we expect
 
 Take a look at [this repository](https://github.com/yarnpkg/berry) for more information.
 
-# Next.js & Code Sandbox
+# Some projects that interest us a lot: Next.js & Code Sandbox
 
 Even if these two tools are not used for the development of our applications, the new features of NextJS and Code Sandbox are clearly very interesting. 
 
