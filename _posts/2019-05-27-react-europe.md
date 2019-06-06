@@ -41,7 +41,7 @@ Lisa aslo advices to **better use Jest snapshots**. They are often too many, too
 
 A difficult thing is to **keep test agnostic to implementation details**. We should consider the code as a black-box and only test the user interaction of the components, otherwise any refactoring of code will be painful and discourage developers from writing tests.
 
-E2E tests are also complex to setup, write and debug but are **absolutely necessary**. For the backoffice app, unlike our front app where [we use a custom stack](https://tech.m6web.fr/tests-fonctionnels-app-js/), we choose [Cypress](https://www.cypress.io/) a complete E2E framewrok that has saved us a lot of time.
+E2E tests are also complex to setup, write and debug but are **absolutely necessary**. For the backoffice app, unlike our front app where [we use a custom stack](https://tech.m6web.fr/tests-fonctionnels-app-js/), we choose [Cypress](https://www.cypress.io/) a complete E2E framework that has saved us a lot of time.
 
 Lisa concluded her very interesting lightning talk by saying that there is no such thing as a one-size-fits-all approach, the way of testing has to be adapted to the team and the project. 
 
