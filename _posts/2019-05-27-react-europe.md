@@ -87,7 +87,7 @@ The second, **[Build Tracker](https://buildtracker.dev/)**, which allows us to t
 
 Several very inspiring talks on accessibility seem to show that this issue finally appears to be considered by web actors. In particular Facebook, which has distinguished itself by showing its assistant to detect accessibility errors in the development of its new version. However, it is regrettable that this toolkit is not accessible to the community because it could be a great help to avoid putting people with disabilities on our platforms.
 
-It is clear that 6play is not yet very accessible but we are working to correct this error, especially on the new screens we have been integrating for several months. 
+It is clear that our front web app is not yet very accessible but we are working to correct this error, especially on the new screens we have been integrating for several months. 
 
 ## Our expectations on Yarn finally fulfilled
 
