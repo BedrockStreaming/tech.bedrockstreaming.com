@@ -35,7 +35,7 @@ Others features or refactoring will come in the future, but there is very limite
 
 # Make tests but make good tests
 
-Lisa Gagarina gave us some tips to better testing the code. If we have been using ESLint and Prettier for a long time in our JS projects, we have chosen not to implement static typing for the moment. Indeed, we think that it is a huge step, it has a big impact on the code and it can make the onboarding of new developpers more complex. For now, we just use the React proptypes well.
+[Lisa Gagarina](https://twitter.com/lisa_gagarina) gave us some tips to better testing the code. If we have been using ESLint and Prettier for a long time in our JS projects, we have chosen not to implement static typing for the moment. Indeed, we think that it is a huge step, it has a big impact on the code and it can make the onboarding of new developpers more complex. For now, we just use the React proptypes well.
 
 Lisa aslo advices to **better use Jest snapshots**. They are often too many, too big, not clear, hard to review. And we have experienced it too. A best pratice can be to reduce snapshots size and inline it in the test file. The readability of a test is indeed very important and it is not recommended to refer to other files than the test file (this is valid for snapshots but also for fixtures). There are some ESLint rules to ensure this: jest/no-large-snapshots, jest/prefer-inline-snapshots. [`snapshot-diff`](https://github.com/jest-community/snapshot-diff) can also help by making a diff between the nominal case and the tested case of a component rendering.
 
