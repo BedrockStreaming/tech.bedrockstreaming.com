@@ -69,7 +69,7 @@ For more than a year now, we have been using `GraphQL` on our back office and we
 
 ## Development worflow: the expected journey
 
-One of the most interesting conferences in my opinion was about the need to optimize the development workflow. This is an element that is too often ignored but is very important in the life of a project.  Paul Amstrong presents us here an analysis of the workflow of his team in charge of the development of the Twitter Lite application and these conclusions and solutions implemented. In a standard development workflow there are 3 points that allow a significant margin of progress:
+One of the most interesting conferences in my opinion was about the need to optimize the development workflow. This is an element that is too often ignored but is very important in the life of a project. Paul Amstrong presents us here an analysis of the workflow of his team in charge of the development of the Twitter Lite application. He also presented some conclusions and solutions he implemented. In a standard development workflow there are 3 points that allow a significant margin of progress:
 - increased developer confidence and delivery speed,
 - automate the PR process to maximum,
 - detect errors as early as possible.
@@ -83,6 +83,7 @@ The first, [**React Component Benchmark**](https://github.com/paularmstrong/reac
 
 The second, [**Build Tracker**](https://buildtracker.dev/), which allows us to test the evolution of bundle size, will allow us to replace an equivalent tool developed internally while providing a more detailed analysis in order to work more accurately on these issues.
 
+Here is an example of a message posted by our in-house build tracker on a Pull Request. 
 ![our version of Build tracker](/images/posts/react-europe-2019/our-build-tracker.png)
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ikn_dBSski8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
