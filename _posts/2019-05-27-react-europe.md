@@ -15,15 +15,15 @@ comments: true
 language: en
 ---
 
-The M6 Distribution's (M6 Web's new name!) front team haven't posted since a long time. We took part as listeners of the 5th European React Conference in Paris on May 24th and 25th. It's an opportunity to talk about what are the last moves in the React community and at M6.
+The M6 Distribution's (M6 Web's new name!) front team hasn't posted for a long time. We took part as listeners of the 5th European React Conference in Paris on May 24th and 25th. It's an opportunity to talk about what are the last moves in the React community and at M6.
 
-As usual, we were waiting a lot of announcements in this conference and a lot of new tools or new library. There has been no big declaration, no surprise. But many subjects have been interesting and several talks had confirmed the way we have taken over the last few years. 
+As usual, we were waiting for lot of announcements in this conference and a lot of new tools or new libraries. There has been no big declaration, no surprise. But many subjects were interesting and several talks confirmed the way we have taken over the last few years. 
 
 ## Hooks, more hooks and suspense
 
-During the keynote, Jared Palmer put the emphasis on [_hooks_](:s://reactjs.org/docs/hooks-overview.html) through an example to simplify the use of GraphQL queries. At M6 Distribution, **we use hooks since the beginning of the year and many are in production**. That has changed the way we write component. We already used functionnal components before, but using hooks simplify the readability and the evolutivity of old class component. The bad point is testing... Because we use Enzyme, testing hooks is painful for now. Until Enzyme fully supports hooks, we have implemented custom mocks.
+During the keynote, Jared Palmer put the emphasis on [_hooks_](:s://reactjs.org/docs/hooks-overview.html) through an example to simplify the use of GraphQL queries. At M6 Distribution, **we use hooks since the beginning of the year and many are in production**. That has changed the way we write components. We already have used functionnal components before, but using hooks simplify the readability and the evolutivity of old class component. The bad point is testing... Because we use Enzyme, testing hooks is painful for now. Until Enzyme fully supports hooks, we have implemented custom mocks.
 
-Jared Palmer also showed us the interest of React Suspense to manage a main loading state in an app instead of many spinners that not offer a good user experience. We can't use Suspense for our app because of the [SSR](https://tech.m6web.fr/spa-mode-isomorphism-js/). As it is [recommended by the React team](https://reactjs.org/docs/code-splitting.html#reactlazy), we use [Loadable Components](https://github.com/smooth-code/loadable-components) instead. Jared  announced that a new asynchronous server renderer is in progress and could be released in 2019 supporting Suspense. Suspense will also include [data fetching](https://reactjs.org/blog/2018/11/27/react-16-roadmap.html#react-16x-mid-2019-the-one-with-suspense-for-data-fetching).
+Jared Palmer also showed us the interest of React Suspense to manage a main loading state in an app instead of many spinners that don't offer a good user experience. We can't use Suspense for our app because of the [SSR](https://tech.m6web.fr/spa-mode-isomorphism-js/). As it is [recommended by the React team](https://reactjs.org/docs/code-splitting.html#reactlazy), we use [Loadable Components](https://github.com/smooth-code/loadable-components) instead. Jared  announced that a new asynchronous server renderer is in progress and could be released in 2019 supporting Suspense. Suspense will also include [data fetching](https://reactjs.org/blog/2018/11/27/react-16-roadmap.html#react-16x-mid-2019-the-one-with-suspense-for-data-fetching).
 
 Others features or refactoring will come in the future, but there is very limited information:
 - [React Fire](https://github.com/facebook/react/issues/13525)
@@ -35,19 +35,19 @@ Others features or refactoring will come in the future, but there is very limite
 
 Several conferences have addressed the theme of animations with React. This subject is very often complicated to solve. Finding a high-performance solution that is compatible with as many browsers as possible can be a real challenge.
 
-For more than a year now, we have been migrating from Sass to [styled-components](https://www.styled-components.com/). Despite some resentment, it should be noted that this new tool makes it very easy to create/compose our new visual components. He also helps us a lot with his management of the theme.
+For more than a year now, we have been migrating from Sass to [styled-components](https://www.styled-components.com/). Despite some resentment, it should be noted that this new tool makes it very easy to create/compose our new visual components. It also helps us a lot with its management of the theme.
 
-Between the [react-spring](https://www.react-spring.io/)library and tips of[Joshua Comeau](https://twitter.com/JoshWComeau), we now have many ways to integrate the new animations that designers can invent.
+Between the [react-spring](https://www.react-spring.io/) library and the tips of [Joshua Comeau](https://twitter.com/JoshWComeau), we now have many ways to integrate the new animations that designers can invent.
 
 To summarize their comments, **there is no single best way to make animations in all situations**. Whether with canvas, SVG, web API, CSS, 2D sprite, you should try to do it in several ways to compare performance and rendering in order to choose the best option for your specific case.
 
 ## Make tests but make good tests
 
-[Lisa Gagarina](https://twitter.com/lisa_gagarina) gave us some tips to better testing the code. If we have been using ESLint and Prettier for a long time in our JS projects, we have chosen not to implement static typing for the moment. Indeed, we think that it is a huge step, it has a big impact on the code and it can make the onboarding of new developpers more complex. For now, we just use the React proptypes well.
+[Lisa Gagarina](https://twitter.com/lisa_gagarina) gave us some tips to better testing the code. Even If we have been using ESLint and Prettier for a long time in our JS projects, we have chosen not to implement static typing for the moment. Indeed, we think that it is a huge step, it has a big impact on the code and it can make the onboarding of new developpers more complex. For now, we just use the React proptypes well.
 
-Lisa also advices to **better use Jest snapshots**. They are often too many, too big, not clear, hard to review. And we have experienced it too. A best pratice can be to reduce snapshots size and inline it in the test file. The readability of a test is indeed very important and it is not recommended to refer to other files than the test file (this is valid for snapshots but also for fixtures). There are some ESLint rules to ensure this: jest/no-large-snapshots, jest/prefer-inline-snapshots. [`snapshot-diff`](https://github.com/jest-community/snapshot-diff) can also help by making a diff between the nominal case and the tested case of a component rendering.
+Lisa also advices to **better use Jest snapshots**. They are often too many, too big, not clear, hard to review. And we have experienced it too. A best pratice can be to reduce snapshots size and inline it in the test file. The readability of a test is indeed very important and it is not recommended to refer to other files than the test file (this is valid for snapshots but also for fixtures). There are some ESLint rules to ensure this: jest/no-large-snapshots, jest/prefer-inline-snapshots. [`snapshot-diff`](https://github.com/jest-community/snapshot-diff) can also helps by making a diff between the nominal case and the tested case of a component rendering.
 
-A difficult thing is to **keep test agnostic to implementation details**. We should consider the code as a black-box and only test the user interaction of the components, otherwise any refactoring of code will be painful and discourage developers from writing tests.
+A difficult thing is to **keep test agnostic to implementation details**. We should consider the code as a black-box and only test the user interaction of the components, otherwise any refactoring of code will be painful and might discourage developers from writing tests.
 
 E2E tests are also complex to setup, write and debug but are **absolutely necessary**. For the back office app, unlike our front app where [we use a custom stack](https://tech.m6web.fr/tests-fonctionnels-app-js/), we choose [Cypress](https://www.cypress.io/) a complete E2E framework that has saved us a lot of time.
 
@@ -75,7 +75,7 @@ One of the most interesting conferences in my opinion was about the need to opti
 - detect errors as early as possible.
 
 These words echo our own questions on the subject and these conclusions confirm our decisions. 
-It is important to have **the shortest and most automated workflow possible** between the developer and the user without sacrificing the developer's experience because it goes hand in hand with all the other aspects of a project
+It is important to have **the shortest and most automated workflow possible** between the developer and the user without sacrificing the developer's experience because it goes hand in hand with all the other aspects of a project.
 
 At M6 Distribution, we use most of the tools presented, but two in particular caught our attention.
 
@@ -87,9 +87,9 @@ The second, [**Build Tracker**](https://buildtracker.dev/), which allows us to t
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ikn_dBSski8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## a11y is our new challenge
+## A11y is our new challenge
 
-Several very inspiring talks on accessibility seem to show that this issue finally appears to be considered by web actors. In particular Facebook, which has distinguished itself by showing its assistant to detect accessibility errors in the development of its new version. However, it is regrettable that this toolkit is not accessible to the community because it could be a great help to avoid putting people with disabilities on our platforms.
+Several very inspiring talks on accessibility seem to show that this issue finally appears to be considered by web actors. In particular Facebook, which has distinguished itself by showing its assistant to detect accessibility errors in the development of its new version. However, it is regrettable that this toolkit is not accessible to the community because it could be a great help to avoid putting people from being in a situation of handicap.
 
 It is clear that our front web app is not yet very accessible but we are working to correct this error, especially on the new screens we have been integrating for several months. 
 
@@ -98,7 +98,7 @@ It is clear that our front web app is not yet very accessible but we are working
 We were waiting for it at M6, the new `yarn` release named `berry` offers almost everything we were missing in our favorite package manager.
 Indeed, by using `yarn` in _monorepo_ mode for our front projects, we were confronted with several problems that had to be overcome with in-house tools. Example here with our[monorepo-dependencies-check] tool (https://github.com/M6Web/monorepo-dependencies-check) which is now becoming obsolete thanks to `Constraints`.
 
-We are also delighted with the functionality of Zero install. But what we expected most was about the _workspaces_. We will finally have a management of the publication of these.
+We are also delighted with the functionality of Zero install. But what we expected the most was about the _workspaces_. We will finally have a management of the publication of these.
 
 Take a look at [this repository](https://github.com/yarnpkg/berry) for more information.
 
