@@ -70,7 +70,7 @@ Throught GitHub we participated to the improvement (we hope so) of many open sou
 * [doctrine/DoctrineBundle](https://github.com/doctrine/DoctrineBundle) - [#159](https://github.com/doctrine/DoctrineBundle/pull/159)
 * [elastic/elasticsearch-php](https://github.com/elastic/elasticsearch-php) - [#149](https://github.com/elastic/elasticsearch-php/pull/149) - [#506](https://github.com/elastic/elasticsearch-php/pull/506) - [#507](https://github.com/elastic/elasticsearch-php/pull/507)
 * [FriendsOfSymfony/FOSRestBundle](https://github.com/FriendsOfSymfony/FOSRestBundle): [#1110](https://github.com/FriendsOfSymfony/FOSRestBundle/pull/1110)
-* [google/shaka-player](https://github.com/google/shaka-player): [#1962](https://github.com/google/shaka-player/pull/1962)
+* [google/shaka-player](https://github.com/google/shaka-player): [#1962](https://github.com/google/shaka-player/pull/1962) - [#2034](https://github.com/google/shaka-player/pull/2034)
 * [grafana/grafana](https://github.com/grafana/grafana): [#974](https://github.com/grafana/grafana/pull/974)
 * [guzzle/guzzle3](https://github.com/guzzle/guzzle3): [#38](https://github.com/guzzle/guzzle3/pull/38)
 * [liip/LiipImagineBundle](https://github.com/liip/LiipImagineBundle): [#274](https://github.com/liip/LiipImagineBundle/pull/274)
