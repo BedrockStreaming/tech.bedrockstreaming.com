@@ -28,26 +28,29 @@ comments: true
 
 # Restons zen !
 > _ Ah mais en fait !!! Je comprends pourquoi tu viens tôt le matin! Tu viens parce que c'est calme !!!!
-_ Tais toi Mehdi !!
+
+>_ Tais toi Mehdi !!
 
 # Prévoir l'imprévisible
 > C'est la première étape de l'étape suivante.
 
 # Ce matin au chiffrage 
-
 > J'ai pensé 5 mais j'ai mis 3...
 
 # Schroedinger app
 > _ Ça marche ?
-_ Je sais pas mais c'est en prod !
+
+>_ Je sais pas mais c'est en prod !
 
 # L'effet de serre
 > _ Il fait froid dans le bureau
-_ Bah démarre 2-3 docker sur ton Mac, ça devrait résoudre le problème
+
+> _ Bah démarre 2-3 docker sur ton Mac, ça devrait résoudre le problème
 
 # Les priorités
 > _ Alleeeez, s'il te plaiiiiiiiit !
-_ Les incidents d'abord, les détails graphiques après !
+
+> _ Les incidents d'abord, les détails graphiques après !
 
 Petite nouveauté, voici quelques mèmes maison !
 
@@ -55,5 +58,5 @@ Petite nouveauté, voici quelques mèmes maison !
 
 ![bug](/images/posts/dev-facts-10/bug.jpg)
 
-![bug](/images/posts/dev-facts-10/build.jpg)
+![bug](/images/posts/dev-facts-10/build.png)
 
