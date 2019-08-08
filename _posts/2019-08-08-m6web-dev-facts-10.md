@@ -24,7 +24,7 @@ comments: true
 > Il faut mieux recevoir une erreur 500, que 500 erreurs
 
 # L'odeur du code
-> Le code de merde, tu sais quand c'est le tiens, c'est comme les pets, pas la peine de git blame.
+> Le code de merde, tu sais quand c'est le tien, c'est comme les pets, pas la peine de git blame.
 
 # Restons zen !
 > _ Ah mais en fait !!! Je comprends pourquoi tu viens tôt le matin! Tu viens parce que c'est calme !!!!
