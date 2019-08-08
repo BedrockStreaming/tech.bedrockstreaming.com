@@ -45,6 +45,10 @@ _ Je sais pas mais c'est en prod !
 > _ Il fait froid dans le bureau
 _ Bah démarre 2-3 docker sur ton Mac, ça devrait résoudre le problème
 
+# Les priorités
+> _ Alleeeez, s'il te plaiiiiiiiit !
+_ Les incidents d'abord, les détails graphiques après !
+
 Petite nouveauté, voici quelques mèmes maison !
 
 ![mep](/images/posts/dev-facts-10/mep.jpg)
