@@ -64,12 +64,12 @@ Episode 3 des [devfacts](http://tech.m6web.fr/tag/devfacts/) ! Parce qu'on ne s'
 
 # la honte
 
-> - j'ai un peu honte de ce que je fait là ...  
+> - j'ai un peu honte de ce que je fais là ...  
 >  - quoi tu fais du javascript ?
 
 # l'aveuglement
 
-> Tu peux etre valide w3c, l'aveugle, il verra toujours rien !
+> Tu peux être valide w3c, l'aveugle, il verra toujours rien !
 
 
 #  le choix dans la date
