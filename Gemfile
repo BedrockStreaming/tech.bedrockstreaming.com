@@ -7,5 +7,5 @@ gem 'rake'
 gem 'thor'
 gem 'kramdown'
 gem 'jekyll-paginate'
-gem 'jekyll-gist'
+gem 'jekyll-gist', "1.5.0"
 gem 'pygments.rb'
