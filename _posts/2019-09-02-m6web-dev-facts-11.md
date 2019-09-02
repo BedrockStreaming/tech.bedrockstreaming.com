@@ -108,7 +108,7 @@ $programId = 'chapeaupointu'
 # Les projets à succès
 > Il parait qu’un projet legacy c’est un projet qui a réussi… bin on a certains projets qui ont vachement bien réussi !
 
-# L'apétit des croissants
+# L'appétit des croissants
 > Pourriez-vous péter la prod plus souvent ? 
 
 
