@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "M6Web Dev Facts #11"
-description: "Les plus belles phrases de nos équipes technique"
+description: "Les plus belles phrases de nos équipes techniques"
 author:
   name:           M6Web
   avatar:         
@@ -32,7 +32,7 @@ Reprenons un rythme soutenu des [devfacts](http://tech.m6web.fr/tags.html#devfac
 > Vous pourriez tirer vers nous! On a plus de flèches de nerf ?
 
 # Seal of approval (lu sur slack)
-> Moi, Mr XXXX, LD de mon état, sain de corps et d’esprit, atteste de la validation et du bien fondé de cette requête, même si c’est un vendredi
+> Moi, Mr XXXX, Lead Dev de mon état, sain de corps et d’esprit, atteste de la validation et du bien fondé de cette requête, même si c’est un vendredi
 
 # Précision
 > Si il faut que ce soit précis, il faut préciser
@@ -42,8 +42,8 @@ Reprenons un rythme soutenu des [devfacts](http://tech.m6web.fr/tags.html#devfac
 > _ Yes.
 
 # La difficulté
->Il y a 2 choses de compliquée en développement : nommer les choses et invalider du cache.
-> Figures toi que je suis en train de nommer une PR qui invalide du cache
+>Il y a 2 choses de compliquées en développement : nommer les choses et invalider du cache.
+> Figure toi que je suis en train de nommer une PR qui invalide du cache
 
 # La qualité avant tout
 
@@ -57,11 +57,11 @@ if (value instanceof Collection) {
 
 # Boire ou coder
 > _ J'ai fait un bateau à la ganane pour la rétro !
-> _ Il y a du rhum dans le recette :rolling_on_the_floor_laughing: ?
+> _ Il y a du rhum dans la recette :rolling_on_the_floor_laughing: ?
 > _ Même pas !!
 
-# La communication avant tout
-> Conférence de presse driven development
+# Le CDD
+> Conférence de presse Driven Development
 
 # Mais oui c'est clair
 ```php
