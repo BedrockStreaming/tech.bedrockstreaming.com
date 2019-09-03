@@ -38,15 +38,15 @@ Toutes les commandes exposées par le mock sont testées unitairement via [atoum
 
 Tout d’abord, il faut rajouter la dépendance à la librairie dans le `composer.json` et mettre à jour les vendors :
 
-{% gist 7893309 %}
+<script src="https://gist.github.com/fdubost/7893309.js"></script>
 
 L’utilisation du mock reste très simple dans un projet Symfony. Chez M6Web, nous utilisons [notre propre composant Redis](https://github.com/M6Web/Redis), lui même basé sur [Predis](https://github.com/nrk/predis). Afin que le mock puisse complètement se faire passer pour la librairie Redis lors de l'execution des tests, nous avons implémenté une factory qui crée à la volée un adapteur héritant de la classe à bouchonner. La méthode `getAdpaterClass` permet de récupérer le nom de la classe à instancier.
 
-{% gist 8025392 %}
+<script src="https://gist.github.com/fdubost/8025392.js"></script>
 
 Pour simplifier la création de l'adapteur et son injection dans l'application via le fichier `config_test.yml`, on peut utiliser la méthode `getAdapter` qui instancie directement l'objet sans paramètre. Il nous suffit alors de modifier la définition du service Redis dans l’environnement de test.
 
-{% gist 8025640 %}
+<script src="https://gist.github.com/fdubost/8025640.js"></script>
 
 Et voilà, le tour est joué ! Les tests utilisent maintenant le mock à la place du véritable Redis. Attention cependant, si votre librairie utilise des fonctionnalités non implémentées dans RedisMock, vous pourriez faire face à des comportements aléatoires indésirables.
 
