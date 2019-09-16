@@ -169,7 +169,7 @@ After another seven days, we passed the on-prem server as a backup in HAProxy, m
 
 We stayed with that configuration for 2 months.
 That gave us plenty of time to adapt pods Requests and Limits.
-That is really important for us, because we use HorizontalPodAutoscaler ressources with CPU metrics to scale most of our APIs. [Here you can find slides](https://fr.slideshare.net/VincentGallissot/how-we-auto-scale-applications-based-on-cpu-with-kubernetes-at-m6web) deep diving one of our applications that autoscales in prod with kubernetes.
+That is really important for us, because we use HorizontalPodAutoscaler resources with CPU metrics to scale most of our APIs. [Here you can find slides](https://fr.slideshare.net/VincentGallissot/how-we-auto-scale-applications-based-on-cpu-with-kubernetes-at-m6web) deep diving one of our applications that autoscales in prod with kubernetes.
 We had several events during those 2 months that helped us optimize Requests and Limits for that app. For example, we had holiday traffic, a football match and some special primetime sessions.
 We also improved our knowledge of both Kubernetes and AWS during this time (I.e: What happens when we rolling restart worker nodes?). Finally, we have configured our Prometheus servers with effective and non-noisy alerts.
 
