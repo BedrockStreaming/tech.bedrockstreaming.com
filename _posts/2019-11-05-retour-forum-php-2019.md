@@ -33,15 +33,15 @@ Frederic a souligné qu’être *pragmatique* c’était savoir écouter son exp
 
 Le passage de PHP 5 à PHP 7 a apporté des gains énormes en terme de performances, et nous sommes tous impatients de voir si PHP 8 nous réservera les mêmes surprises.
 
-Le JIT est une bonne piste, en permettant de compiler le Php directement en langage machine, pour se passer de l’exécution sur la machine virtuelle de Php. [Benoit JACQUEMONT](https://twitter.com/bjacquemont) a très bien détaillé l’histoire du JIT dans l’écosystème PHP, son objectif et son fonctionnement. Même si les tests qu’il a effectué ne montrent pas de gains perceptibles, le sujet était très intéressant.
+Le JIT est une bonne piste, en permettant de compiler le PHP directement en langage machine, pour se passer de l’exécution sur la machine virtuelle de PHP. [Benoit JACQUEMONT](https://twitter.com/bjacquemont) a très bien détaillé l’histoire du JIT dans l’écosystème PHP, son objectif et son fonctionnement. Même si les tests qu’il a effectué ne montrent pas de gains perceptibles, le sujet était très intéressant.
 
 À retenir : l’optimisation du CPU pour PHP n’a pas beaucoup d’intérêt si votre application passe son temps à attendre des I/O.
 
 ### Aggressive PHP quality assurance in 2019
 
-[Marco PIVETTA](https://twitter.com/ocramius) est très actif dans la communauté Php, notamment pour l’ORM Doctrine. Il nous a présenté les outils qu’il considère comme indispensables pour assurer la qualité et la robustesse d’un projet, mais aussi l’ordre d’importance pour les mettre en place selon lui.
+[Marco PIVETTA](https://twitter.com/ocramius) est très actif dans la communauté PHP, notamment pour l’ORM Doctrine. Il nous a présenté les outils qu’il considère comme indispensables pour assurer la qualité et la robustesse d’un projet, mais aussi l’ordre d’importance pour les mettre en place selon lui.
 
-Si nous étions déjà convaincu par l’importance de l’analyse statique, nous avons été intrigués par la place qu’il accordait à tous ces outils basés sur les annotations Php. Par exemple, il n’hésite pas à laisser publiques les propriétés de ses classes immutables, sans méthode `get` ni `set`, et déléguer à la CI la responsabilitéde vérifier que toutes les instances des classes avec l’annotation `@psalm-immutable` ne soient jamais modifiées… déroutant, mais à méditer.
+Si nous étions déjà convaincus par l’importance de l’analyse statique, nous avons été intrigués par la place qu’il accordait à tous ces outils basés sur les annotations PHP. Par exemple, il n’hésite pas à laisser publiques les propriétés de ses classes immutables, sans méthode `get` ni `set`, et déléguer à la CI la responsabilité de vérifier que toutes les instances des classes avec l’annotation `@psalm-immutable` ne soient jamais modifiées… Déroutant, mais à méditer.
 
 ### Mercure, et PHP s'enamoure enfin du temps réel
 
@@ -66,7 +66,7 @@ Celle du second jour était plus légère : Roland LEHOUCQ nous a parlé de phys
 Nous avons aussi présenté deux conférences, autour de sujets que nous pratiquons au quotidien chez M6 Distribution :
 
  * [Pascal MARTIN](https://twitter.com/pascal_martin) a donné quelques pistes pour améliorer la résilience d’applications, en insistant sur le fait que nos plateformes, de plus en plus complexes, ne sont jamais opérationnelles : elle se trouvent en permanence dans un état de service partiellement dégradé.
- * [Benoit VIGUIER](https://twitter.com/b_viguier) a continué dans la lancée de sa conférence de l’année dernière, en présentant cette fois-ci un retour d’expérience après un an d’utilisation de PHP asynchrone en production. Spoiler alert : PHP répond très bien au besoin et les générateurs sont *le bien* ! À noter aussi son intervention aux traditionnels Lightning Talks, ou il nous a présenté une idée un peu folle: faire des [interfaces graphiques avec Php](https://github.com/b-viguier/ForumPhp2019-LT).
+ * [Benoit VIGUIER](https://twitter.com/b_viguier) a continué dans la lancée de sa conférence de l’année dernière, en présentant cette fois-ci un retour d’expérience après un an d’utilisation de PHP asynchrone en production. Spoiler alert : PHP répond très bien au besoin et les générateurs sont *le bien* ! À noter aussi son intervention aux traditionnels Lightning Talks, où il nous a présenté une idée un peu folle : faire des [interfaces graphiques avec Php](https://github.com/b-viguier/ForumPhp2019-LT).
 
 L’[AFUP Day 2020 Lyon](https://event.afup.org/afup-day-2020/afup-day-2020-lyon/) est déjà en train de s’organiser ! Nous y serons sans doute en nombre et espérons vous y rencontrer à nouveau !
 
