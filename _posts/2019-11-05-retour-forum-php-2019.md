@@ -63,7 +63,7 @@ Celle du second jour était plus légère : Roland LEHOUCQ nous a parlé de phys
 
 ![Quelle est la puissance d'un sabre laser ?](/images/posts/forumphp2019/puissance-sabre-laser.jpg)
 
-Nous avons aussi présenté deux conférences, autour de sujets que nous pratiquons au quotidien chez M6 Distribution :
+Nous avons aussi présenté deux conférences, autour de sujets que nous pratiquons au quotidien chez M6 Distribution :
 
  * [Pascal MARTIN](https://twitter.com/pascal_martin) a donné quelques pistes pour améliorer la résilience d’applications, en insistant sur le fait que nos plateformes, de plus en plus complexes, ne sont jamais opérationnelles : elle se trouvent en permanence dans un état de service partiellement dégradé.
  * [Benoit VIGUIER](https://twitter.com/b_viguier) a continué dans la lancée de sa conférence de l’année dernière, en présentant cette fois-ci un retour d’expérience après un an d’utilisation de PHP asynchrone en production. Spoiler alert : PHP répond très bien au besoin et les générateurs sont *le bien* ! À noter aussi son intervention aux traditionnels Lightning Talks, où il nous a présenté une idée un peu folle : faire des [interfaces graphiques avec Php](https://github.com/b-viguier/ForumPhp2019-LT).
