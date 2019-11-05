@@ -29,3 +29,5 @@ jekyll serve --watch --config \_config.yml,\_config_dev.yml
 
 #### local
 http://localhost:4000/
+
+enjoy
