@@ -19,7 +19,8 @@ comments: true
 language: fr
 ---
 
-Comme tous les ans, nous étions au [Forum PHP 2019](https://event.afup.org/forumphp2019/) organisé par l’AFUP ! Nous avons assisté à de très bonnes conférences et échangé avec beaucoup d’entre vous. Voici quelques mots sur les interventions qui nous ont le plus marquées cette année.
+Comme tous les ans, nous étions au [Forum PHP 2019](https://event.afup.org/forumphp2019/) organisé par l’AFUP ! 
+Nous avons assisté à de très bonnes conférences et échangé avec beaucoup d’entre vous. Voici quelques mots sur les interventions qui nous ont le plus marquées cette année.
 
 ### “PHP Pragmatic Development” et “L'architecture progressive”
 
