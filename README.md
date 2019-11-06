@@ -31,3 +31,7 @@ jekyll serve --watch --config \_config.yml,\_config_dev.yml
 http://localhost:4000/
 
 enjoy
+
+# GH dependencies
+
+https://pages.github.com/versions/
