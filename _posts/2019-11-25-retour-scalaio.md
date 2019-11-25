@@ -19,6 +19,10 @@ comments: true
 language: fr
 ---
 
+Nous étions à la [ScalaIO 2019](https://schedule.scala.io/#/day/2) organisée à Lyon ! 
+Nous avons assisté à de très bonnes conférences. Voici quelques mots sur les interventions qui nous ont le plus marquées cette année.
+
+
 ### A live-coding introduction to Mill: finally a build tool we can all understand!
 
 Mill est outil de build qui permet de coder en scala les différentes étapes de notre build. La puissance de cet outil vient principalement du fait qu’on écrit du code. On peut donc effectuer des opérations très complexes lors du build. Les fonctionnalités principales sont :
@@ -28,7 +32,7 @@ Mill est outil de build qui permet de coder en scala les différentes étapes de
  
 ### Context Buddy: the tool that knows your code better than you
 
-Context Buddy est un plugin pour votre IDE (Intellij) qui permet de mieux parcourir l’historique des modifications de votre code. ContextBuddy vous permet grâce à la coloration syntaxique exactement quel élément de la ligne a été modifié. De plus, comme il se base sur les données du compilateur, il est capable de voir si une même classe utilise ou nouvelle version de la lib voire même une nouvelle lib.
+Context Buddy est un plugin pour votre IDE (Intellij) qui permet de mieux parcourir l’historique des modifications de votre code. ContextBuddy vous permet grâce à la coloration syntaxique exactement quel élément de la ligne a été modifié. De plus, comme il se base sur les données du compilateur, il est capable de voir si une même classe utilise une nouvelle version de la lib voire même une nouvelle lib.
 
 ### Railway Oriented Programming - Une approche fonctionnelle pour la gestion d'erreurs
 
@@ -44,17 +48,17 @@ Les principaux avantages que j’ai retenu :
  * Gloop permet le GoToDefinition et plein de choses sympas, plus rapides que l’indexation intelliJ
  * Fonctionne partiellement pour Java (juste le nécessaire)
  * Compilation incrémentale avec Zinc
- * En fort développement, pleins de super features dans les mois à venir
+ * En plain développement, de super features dans les mois à venir
  * Tout ce que j’oublie ;-)
 
 ### Running Amok: Igniting a Documentation Revolution
 
-L’idée de Jon Pretty (@propensive) est de décorréler la Doc du code (différent repo git) et de pouvoir rétro-documenter (mettre à jour la doc des version antérieures).
-Amok permet de relier chaque fichier de doc à un commit, à partir duquel cette doc est valide, permettant ainsi de sortir une release du doc même si la doc n’est pas entièrement terminé (problème récurrent en open-source).
+L’idée de Jon Pretty (@propensive) est de décorréler la documentation du code (différent repo git) et de pouvoir rétro-documenter (mettre à jour la doc des version antérieures).
+Amok permet de relier chaque fichier de documentation à un commit, à partir duquel cette documentation est valide, permettant ainsi de sortir une release du document même si la documentation n’est pas entièrement terminée (problème récurrent en open-source).
 
 ### Refined, des Types sur mesure
 
-A prendre avec T(ype)DD, permet de mettre des conditions sur un type. On peut ajouter des prédicats au type (notamment des regex sur les Strings, des range de valeurs pour les Int, etc) et ainsi réduire les valeurs possible. Validation au compile-time quand possible, et pour le runtime des erreurs très explicites sont jetées.
+Permet de mettre des conditions sur un type. On peut ajouter des prédicats au type (notamment des regex sur les Strings, des range de valeurs pour les Int, etc) et ainsi réduire les valeurs possibles. Validation au compile-time quand possible, et pour le runtime des erreurs très explicites sont jetées.
 Pour les avantages, voir T(ype)DD, principalement la sécurité apportée et plus besoin de tester ce qui est inclu dans les prédicats, Refined le fait pour nous.
 
 ### Apache Spark et le machine learning : rêves et réalités
