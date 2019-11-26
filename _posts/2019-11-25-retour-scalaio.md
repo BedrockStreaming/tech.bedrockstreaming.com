@@ -32,7 +32,7 @@ Mill est outil de build qui permet de coder en scala les différentes étapes de
  
 ### Context Buddy: the tool that knows your code better than you
 
-Context Buddy est un plugin pour votre IDE (Intellij) qui permet de mieux parcourir l’historique des modifications de votre code. ContextBuddy vous permet grâce à la coloration syntaxique exactement quel élément de la ligne a été modifié. De plus, comme il se base sur les données du compilateur, il est capable de voir si une même classe utilise une nouvelle version de la lib voire même une nouvelle lib.
+Context Buddy est un plugin pour votre IDE (Intellij) qui permet de mieux parcourir l’historique des modifications de votre code. ContextBuddy vous permet de savoir grâce à la coloration syntaxique exactement quel élément de la ligne a été modifié. De plus, comme il se base sur les données du compilateur, il est capable de voir si une même classe utilise une nouvelle version de la lib voire même une nouvelle lib.
 
 ### Railway Oriented Programming - Une approche fonctionnelle pour la gestion d'erreurs
 
