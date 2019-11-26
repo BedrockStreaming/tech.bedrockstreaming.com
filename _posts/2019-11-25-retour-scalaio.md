@@ -48,7 +48,7 @@ Les principaux avantages que j’ai retenu :
  * Gloop permet le GoToDefinition et plein de choses sympas, plus rapides que l’indexation intelliJ
  * Fonctionne partiellement pour Java (juste le nécessaire)
  * Compilation incrémentale avec Zinc
- * En plain développement, de super features dans les mois à venir
+ * En plein développement, de super features dans les mois à venir
  * Tout ce que j’oublie ;-)
 
 ### Running Amok: Igniting a Documentation Revolution
