@@ -12,7 +12,7 @@ author:
 category:
 tags: [scalio, scala, lyon, 2019]
 image:
-  feature: posts/scalio2019/header.jpg
+  feature: posts/scalaio2019/header.jpg
   credit: Fabien de Saint pern
   creditlink: 
 comments: true
