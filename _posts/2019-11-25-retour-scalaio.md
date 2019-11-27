@@ -63,6 +63,6 @@ Pour les avantages, voir T(ype)DD, principalement la sécurité apportée et plu
 
 ### Apache Spark et le machine learning : rêves et réalités
 
-A travers des exemples basés sur une population de citrouille (c’était Halloween ;-)), Nastasia Saby (@saby_nastasia) nous a fait une présentation de Spark ML en prenant en exemple KMeans, un des algorithmes de clustering disponibles. Elle en a montré les limites et présenté KMedoids, n’existant pas dans Spark ML et plus complexe mais convergeant mieux. Elle a terminé sur la nécessité de mettre en balance l’utilisation d’outils communautaires testés et reconnus mais parfois limités, versus développer ses propres librairies parfaitement adaptées à ses besoins, au risque de se confronter à des problèmes que d'autres ont déjà réglés.
+A travers des exemples basés sur une population de citrouilles (c’était Halloween ;-)), Nastasia Saby (@saby_nastasia) nous a fait une présentation de Spark ML en prenant en exemple KMeans, un des algorithmes de clustering disponibles. Elle en a montré les limites et présenté KMedoids, n’existant pas dans Spark ML et plus complexe mais convergeant mieux. Elle a terminé sur la nécessité de mettre en balance l’utilisation d’outils communautaires testés et reconnus mais parfois limités, versus développer ses propres librairies parfaitement adaptées à ses besoins, au risque de se confronter à des problèmes que d'autres ont déjà réglés.
 
 Les [slides](https://slides.com/nastasiasaby/spark-ml-scala-io).
