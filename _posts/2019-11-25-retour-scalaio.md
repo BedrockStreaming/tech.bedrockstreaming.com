@@ -13,7 +13,7 @@ category:
 tags: [scalio, scala, lyon, 2019]
 image:
   feature: posts/scalaio2019/header.jpg
-  credit: Fabien de Saint pern
+  credit: Team Data
   creditlink: 
 comments: true
 language: fr
