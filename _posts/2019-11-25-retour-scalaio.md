@@ -10,7 +10,7 @@ author:
   facebook:
   github:
 category:
-tags: [scalio, scala, lyon, 2019]
+tags: [scalaio, scala, lyon, 2019]
 image:
   feature: posts/scalaio2019/header.jpg
   credit: Team Data
