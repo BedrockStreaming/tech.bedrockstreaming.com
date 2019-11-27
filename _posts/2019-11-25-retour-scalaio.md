@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "ScalaIO LYon 2019"
-description: "Nos retours sur la ScalaIO à Paris, les 30 et 31 octobre 2019"
+description: "Nos retours sur la ScalaIO à Lyon, les 30 et 31 octobre 2019"
 author:
   name: Fabien de Saint pern, Adrien Chaussende, Julien Grand-Mourcel, Valentin Nourdin
   avatar:
