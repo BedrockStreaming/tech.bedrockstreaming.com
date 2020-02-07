@@ -35,6 +35,7 @@ Reprenons un rythme soutenu des [devfacts](http://tech.m6web.fr/tags.html#devfac
 # Le meilleur support
 *Dans un bar de Lyon*
 > Une inconnue: " je peux pas me connecter à l'amour est dans le pré ..."
+
 > Un dev d'M6web: "c'est quoi ta box ?"
 
 # Des choix forts
@@ -84,6 +85,7 @@ Reprenons un rythme soutenu des [devfacts](http://tech.m6web.fr/tags.html#devfac
 
 # Je l'ai pas touchéééo
 > Un sysadmin: "C'est quoi le foot?"
+
 > Un autre: "C'est le truc qui fait tomber ton infra quand on en diffuse."
 
 # La concurrence et la mauvaise foi 
