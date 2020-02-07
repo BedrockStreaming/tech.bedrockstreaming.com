@@ -23,14 +23,14 @@ Reprenons un rythme soutenu des [devfacts](http://tech.m6web.fr/tags.html#devfac
 # En parlant de slack
 > stalker ou bosser il faut choisir
 
-# En parlant d’ornithorinques:
+# En parlant d’ornithorynque:
 > Non mais l’australie, c’est le staging du monde
 
 # Le dresseur
 > Mon charisme légendaire a encore frappé… les VPNs filent au pas avec moi…
 
 # Cloudix
-> Les gaulois qui avaient peur que le ciel/cloud leur tombe sur la tête ils étaient visionnaires en fait!
+> Les gaulois qui avaient peur que le ciel/cloud leur tombe sur la tête, ils étaient visionnaires en fait!
 
 # Le meilleur support
 *Dans un bar de Lyon*
@@ -68,7 +68,7 @@ Reprenons un rythme soutenu des [devfacts](http://tech.m6web.fr/tags.html#devfac
 > J’ai fait un fichier waf.tf dans le module waf, ca fait waf waf 
 
 # Confluence
-> Mais effectivement à ce niveau c’est aussi facile d’écrire des .txt qu’on se file par clé usb que d’utiliser confluence.
+> Mais effectivement à ce niveau c’est aussi facile d’écrire des .txt qu’on se file par clé usb que d’utiliser Confluence.
 
 # Quickwin
 > C'est un quickwin jusqu'à ce qu'on fasse F5
@@ -90,5 +90,6 @@ Reprenons un rythme soutenu des [devfacts](http://tech.m6web.fr/tags.html#devfac
 > Du coup tous les trucs inutiles de netflix on les fait, mais tous les trucs utiles on les fait pas
 
 # Oulà!
-> C'est fou ce qu'on peu faire aujourd'hui avec des spreadsheet.... Je crois bien que c'est la dernière fois que j'ai codé
+> C'est fou ce qu'on peut faire aujourd'hui avec des spreadsheets.... Je crois bien que c'est la dernière fois que j'ai codé
+
 *Un certain K.D*
