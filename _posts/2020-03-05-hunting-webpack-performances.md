@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "How did I cut the time to webpack build for my project in half?"
-description: "A story of performance optimization and application of the Pareto principle for a webpack build that has become far too long."
+title: "How to boost the speed of your webpack build?"
+description: "A story of performance optimization and application of the Pareto principle to a webpack build that has become far too long."
 author:
   name: Antoine Caron
   avatar:
@@ -19,65 +19,71 @@ comments: true
 language: en
 ---
 
-Who never complained about the infinite duration of a webpack build on a project that got older or fatter?
+## How did I cut in half my project's webpack build time ?
+
+Who never complained about the infinite duration of a webpack build on a project ?
 I'm currently working on a big web application coded in React/Redux with server side rendering.
-The application exists since 2015 and it has evolved a lot since then.
+The application exists since 2015 and it has evolved a lot since then
 
 ![6play screenshot](posts/hunting-webpack-performances/6play.png)
 
 ## TLDR;
 
-> Never, ever, ever, ever work on performance improvements without monitoring!
+> Never, ever, ever, ever work on performance improvements or optimization without monitoring!
 
 If you want to optimize the duration of a job, **you have to monitor precisely** the duration of it and all its sub-steps.
-By doing that, then you can really focus on what really takes biggest amount of time.
+By doing that, you can really focus on the most expensive task.
 This will save you from wasting time on optimizations that will have little impact on the system as a whole.
-
 **Use existing monitoring tools! Create them if they don't exist!**
 
-## What was the problem ?
+## What was the problem with webpack ?
 
-For several weeks/months my colleagues had been complaining about the length of our `yarn build' command. 
-The purpose of this command is to build the distributable package of our application in a production target with webpack.
+For several weeks/months my colleagues had been complaining about the duration of our `yarn build` command. 
+The purpose of this command is to build the distributable package of our application in a production target with _webpack_.
 
 I even heard:
-> "This command, I don't run it locally anymore, it takes too much time."
-
-> "My computer starts ventilating heavily every time I run this command. There's nothing else I can do!"
+* "This command, I don't run it locally anymore, it takes too much time."
+* "My computer starts ventilating heavily every time I run this command. There's nothing else I can do!"
 
 Depending on the machine on which the build was launched, it took **between 5 and 12 minutes**.
+It is not possible to have a build that takes so long.
+`webpack` is not a slow bundler. 
+It is our use of `webpack` that makes it slow.
 
-## The primary pitfall is the bias
+## Focus error, a morning lost
 
-Since this command launches a webpack build in `production' mode, I figured that the culprit was webpack.
-Given that I've dug deep into webpack to design a complete workshop to learn how to use it from scratch (https://webpack-workshop.netlify.com), I thought it would be interesting to focus on this performance concern.
-Fortunately, every month, one day is dedicated to R&D. So at the end of January I tried to improve the situation.
+Since this command launches a webpack build in `production` mode, I figured out that the culprit was webpack config itself.
+Given that I've dug deep into webpack, I thought it would be interesting to focus on this performance concern.
+I have indeed open sourced a set of workshop to learn how to use webpack from scratch (https://webpack-workshop.netlify.com).
+So at the end of January I took one day to improve the situation.
 
-I had an idea of the task that took the most time for me. I tried to improve it, I spent my whole morning on it. 
+I had my own idea of the task that would take the most. So I tried to improve it, spending my entire morning on it. 
 I just managed to **gain 17 seconds**.
 
-I'm not going to hide it from you, I was very disappointed with what I managed to do.
+I'm not going to lie, I was very disappointed with what I achieved.
 
-The concern in my strategy was obvious. 
-I started off with a preconceived notion, 
->"This is definitely the stage that takes the longest."
+The concern in my strategy was however obvious. 
+I started off with a preconceived idea _"This is definitely the stage that takes the longest."_
 
 Nothing was objective in my analysis.
+To improve the performance of an application it is necessary to focus on objective facts.
 
-## Pareto principle
+## Successful afternoon
+
+When I came back from my lunch break, I was motivated to win more than those poor 17 seconds.
+Then I remembered the Pareto principle. 
 
 > The Pareto principle (also known as the 80/20 rule, the law of the vital few, or the principle of factor sparsity) states that, for many events, roughly 80% of the effects come from 20% of the causes.
 > [Wikipedia](https://en.wikipedia.org/wiki/Pareto_principle) 
 
-When I came back from my lunch break, I was motivated to win more than those poor 17 seconds.
-Then I remembered the Pareto principle. 
-There is probably one step in the webpack build that takes up most of the time.
+There is probably one step that takes up most of the webpack build time.
+Pareto principle adapted to webpack could mean _"80% of the build time is caused by 20% of the config"_
+
+*Let's find the culprit ! 🎉*
 
 I had to determine the build time of each loader, of each plugin.
-Basically, I lacked time metrics.
-
 I was very lucky, the webpack community has already proposed a plugin that allows to measure everything.
-It is very easy to install.
+And it is very easy to install. ♥️
 
 [Speed Measure Plugin](https://www.npmjs.com/package/speed-measure-webpack-plugin)
 
@@ -131,8 +137,8 @@ script-loader took 0.003 secs
 ```
 
 As expected, it's not great! 
-But at least I'm starting to get a sense of who the culprits are.
-I observe that for 2222 Javascript modules, webpack takes 2mins **but** for only 95 Sass files, it takes 1min43.
+But at least I'm starting to get who the culprits are.
+We can see that for 2222 Javascript modules takes up 2mins **but** for only 95 Sass files 1min43 🤣.
 
 <iframe src="https://giphy.com/embed/PjNx7g5jtLyJtvDohb" width="480" height="218" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
@@ -140,21 +146,23 @@ I observe that for 2222 Javascript modules, webpack takes 2mins **but** for only
 
 Once the migration from `node-sass` to `sass` (new Sass re-implementation) and the update of `sass-loader`, I was shocked!
 It took me about 10 minutes because there were few breaking changes and I **gained more than 1min30** on the build time.
-The sadness of telling me that I had lost a morning was quickly replaced by the joy of having managed to reduce the build time by a quarter.
+
+`sass-loader` made big improvements on performances, you should definitely make sure you use the last version.
+
+**I lost a morning on gaining 17 seconds and I spent 10 minutes to win 1min30.🤣**
 
 ### IgnorePlugin, TerserPlugin
 
 - `TerserPlugin` is used to uglify the javascript code in order to reduce its size and readability. It's a relatively long process, but *39 seconds* is too much.
-Just by updating the version of TerserPlugin to use the one integrated in Webpack, I could **reduce by 20 seconds** the build time.
+Just by updating the version of TerserPlugin to use the one integrated in Webpack, I managed to **reduce by 20 seconds** the build time.
 
 - `IgnorePlugin` is a core plugin that was used a lot in our application to avoid loading certain scripts in order to reduce the weight of the site.
-It was necessary, but today with Webpack we can use much better than that. Dynamic Import, ContextReplacement, there are plenty of solutions.
-As a general rule, one should avoid compiling files and then not using them.
+It was necessary, but today with Webpack we can use much better than that. _Dynamic Import, ContextReplacement_, there are plenty of solutions. As a general rule, we should avoid compiling files and then not using them.
 
 ### Recommendations from the community
 
 To improve the build perfs webpack provides a web page listing the actions to take to hunt what takes time.
-Je vous recommande fortement de vous y intéresser.
+I strongly advise to have a look at it.
 
 https://webpack.js.org/guides/build-performance/
 
@@ -167,7 +175,13 @@ https://webpack.js.org/guides/build-performance/
 
 <iframe src="https://giphy.com/embed/3rUbeDiLFMtAOIBErf" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
-Based on precise and concrete measures, I was able to drastically improve the performance of the webpack build of my application.
+Based on precise and concrete measures, I was able to drastically improve the webpack build of my application.
 No more computers suffering just to compile a bit of JS and SASS.
 I could have lost whole days on futile modifications if I had not measured precisely what penalized the build.
 
+ℹ️
+* Use `Speed Measure Plugin` to debug webpack build time
+* Track your build time evolution to detect big evolution before merge
+* Follow webpack performances recommandations
+* Look at webpack 5 new caching strategies
+* Keep your webpack config up to date
