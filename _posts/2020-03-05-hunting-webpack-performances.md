@@ -12,7 +12,7 @@ author:
 category:
 tags: [js, webpack]
 image:
-  feature: posts/scalaio2019/header.jpg
+  feature: posts/hunting-webpack-performances/julian-hochgesang-0Y_YNPW5qds-unsplash.jpg
   credit: Team Data
   creditlink: 
 comments: true
@@ -23,7 +23,7 @@ Who never complained about the infinite duration of a webpack build on a project
 I'm currently working on a big web application coded in React/Redux with server side rendering.
 The application exists since 2015 and it has evolved a lot since then.
 
-![6play screenshot](./assets/hunting-webpack-performances/6play.png)
+![6play screenshot](posts/hunting-webpack-performances/6play.png)
 
 ## TLDR;
 
