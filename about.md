@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /about/index.html
-title: A propos du Blog technique d'M6Web
+title: About the Bedrock Technical Blog
 tags: []
 modified: 2013-11-29
 image:
@@ -10,5 +10,5 @@ image:
   creditlink: 
 ---
 
-Ce blog présente la veille technologique des équipes techniques de [M6WEB](http://www.groupem6.fr/le-groupe/activites/diversifications/m6-web.html) ainsi que les [briques open-source](http://tech.m6web.fr/oss/) réalisées par l'équipe.
+This blog present the work from the [Bedrock](https://bedrockstreaming.com/) technical team (Former [M6WEB](http://www.groupem6.fr/le-groupe/activites/diversifications/m6-web.html)/M6Distributions) and the [open source contributions](http://tech.m6web.fr/oss/) done by the team.
 
