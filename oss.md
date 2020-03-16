@@ -12,7 +12,7 @@ image:
 
 # Open source
 
-At M6web we strongly believe in open source. We push our team members to publish their work and demand the same for our contractors.
+At [Bedrock](https://www.bedrockstreaming.com/) we strongly believe in open source. We push our team members to publish their work and demand the same for our contractors.
 
 We use open source on a daily basis. For production servers or on our workstations. Contributing to open source is a simple and ethical way to give back to all the people contributing too.
 
