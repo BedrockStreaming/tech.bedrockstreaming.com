@@ -88,4 +88,5 @@ Throught GitHub we participated to the improvement (we hope so) of many open sou
 * [vuejs/vue-router](https://github.com/vuejs/vue-router): [#2411](https://github.com/vuejs/vue-router/pull/2411)
 * [vuejs/vuex](https://github.com/vuejs/vuex): [#1412](https://github.com/vuejs/vuex/pull/1412)
 * [webpack/webpack](https://github.com/webpack/webpack): [#5862](https://github.com/webpack/webpack/pull/5862)
+* [webonyx/graphql-php](https://github.com/webonyx/graphql-php): [#631](https://github.com/webonyx/graphql-php/pull/631)
 * [willdurand/BazingaHateoasBundle](https://github.com/willdurand/BazingaHateoasBundle): [#9](https://github.com/willdurand/BazingaHateoasBundle/pull/9)
