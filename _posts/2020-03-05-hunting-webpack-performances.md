@@ -16,6 +16,7 @@ image:
   credit: Team Data
   creditlink: 
 comments: true
+canonical: "https://slashgear.github.io/hunting-webpack-performances/"
 language: en
 ---
 
