@@ -21,7 +21,7 @@ language: en
 ---
 
 After 2 years using React with Redux for the video platform [6play](https://6play.fr), I was able to identify good practices and pitfalls to avoid at all costs.
-The [Bedrock](https://www.bedrockstreaming.com/) team (to which I currently belong) kept the technical stack of the project up to date to take advantage of the new features of `react`, `react-redux` and `redux`.
+The [Bedrock](https://www.bedrockstreaming.com/) team kept the technical stack of the project up to date to take advantage of the new features of `react`, `react-redux` and `redux`.
 
 So here are my tips for maintaining and using React and Redux in your application without going mad.
 
