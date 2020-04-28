@@ -268,7 +268,7 @@ function reducer(initialState, action) {
 ```
 
 We can naively say that this [reducer] manages two different actions. It's okay.
-If we isolate this [reducer] there are only two types of `action' that can change this state; the`FOO' action and any other action.
+If we isolate this [reducer] there are only two types of action that can change this state; the `FOO` action and any other action.
 
 However, if you have followed the advice to cut out your reducers, you don't have only one reducer acting on your blind.
 
