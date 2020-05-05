@@ -25,6 +25,10 @@ To secure this migration, we are using HAProxy in front of both on-prem and on-A
 Disclaimer: This article describes a feedback from production environment. We have changed the name of applications mentioned here, but everything else is true within the limits of our knowledge.
 
 
+You can find the content of this blogpost (and more) in a 25mn talk at the HAProxy conf given in Amsterdam in 2019 :
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NmStcGBkXmQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 ## The first migrated application
 
 It's an API written in PHP. It has no external dependency (database, redis…), except for another API, called over HTTP.
