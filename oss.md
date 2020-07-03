@@ -92,3 +92,4 @@ Throught GitHub we participated to the improvement (we hope so) of many open sou
 * [webpack/webpack](https://github.com/webpack/webpack): [#5862](https://github.com/webpack/webpack/pull/5862)
 * [webonyx/graphql-php](https://github.com/webonyx/graphql-php): [#631](https://github.com/webonyx/graphql-php/pull/631)
 * [willdurand/BazingaHateoasBundle](https://github.com/willdurand/BazingaHateoasBundle): [#9](https://github.com/willdurand/BazingaHateoasBundle/pull/9)
+* [JetBrains/svg-sprite-loader](https://github.com/JetBrains/svg-sprite-loader): [#396](https://github.com/JetBrains/svg-sprite-loader/pull/396)
