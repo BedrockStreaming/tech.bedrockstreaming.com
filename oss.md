@@ -75,6 +75,7 @@ Throught GitHub we participated to the improvement (we hope so) of many open sou
 * [google/shaka-player](https://github.com/google/shaka-player): [#1962](https://github.com/google/shaka-player/pull/1962) - [#2034](https://github.com/google/shaka-player/pull/2034)
 * [grafana/grafana](https://github.com/grafana/grafana): [#974](https://github.com/grafana/grafana/pull/974)
 * [guzzle/guzzle3](https://github.com/guzzle/guzzle3): [#38](https://github.com/guzzle/guzzle3/pull/38)
+* [JetBrains/svg-sprite-loader](https://github.com/JetBrains/svg-sprite-loader): [#396](https://github.com/JetBrains/svg-sprite-loader/pull/396)
 * [liip/LiipImagineBundle](https://github.com/liip/LiipImagineBundle): [#274](https://github.com/liip/LiipImagineBundle/pull/274)
 * [macbre/phantomas](https://github.com/macbre/phantomas): [#166](https://github.com/macbre/phantomas/pull/166)
 * [naderman/composer-aws](https://github.com/naderman/composer-aws/): [#4](https://github.com/naderman/composer-aws/pull/4) - [#5](https://github.com/naderman/composer-aws/pull/5)
