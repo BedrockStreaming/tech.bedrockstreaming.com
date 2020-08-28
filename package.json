@@ -25,5 +25,11 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified.\""
+  },
+  "dependencies": {
+    "imagemin-gifsicle": "^7.0.0",
+    "jpegtran-bin": "^5.0.2",
+    "optipng-bin": "^7.0.0",
+    "pngquant-bin": "^6.0.0"
   }
 }
