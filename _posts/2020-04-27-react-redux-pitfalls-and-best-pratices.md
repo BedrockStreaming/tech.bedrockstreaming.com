@@ -450,7 +450,7 @@ switch (action.type) {
       ...state,
       user: {
         ...action.user,
-        profilUrl: `https://profil-pic.com/${action.user.id}`,
+        profileUrl: `https://profil-pic.com/${action.user.id}`,
       },
     }
 }
