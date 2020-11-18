@@ -59,6 +59,7 @@ Here some projects open sourced:
 * [Tornado](https://github.com/M6Web/Tornado): A library for asynchronous programming in Php
 * [websocket-bench](https://github.com/M6Web/websocket-bench): Nodejs cli tool for benchmark web socket server, currently support (socket.io, faye)
 * [XRequestUidBundle](https://github.com/M6Web/XRequestUidBundle): Generating call traces in the microservices hell 
+* [RateLimitBundle](https://github.com/M6Web/RateLimitBundle): Manage limitation for your routes 
 
 # Contribution to open source projects
 
