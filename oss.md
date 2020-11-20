@@ -47,6 +47,7 @@ Here some projects open sourced:
 * [KafkaBundle](https://github.com/M6Web/KafkaBundle): Bundle on top of rdkafka PHP extension
 * [LogBridgeBundle](https://github.com/M6Web/LogBridgeBundle): Symfony Bundle to log Request/Response with Monolog.
 * [MonologExtraBundle](https://github.com/M6Web/MonologExtraBundle): Provide extra features for Monolog.
+* [RateLimitBundle](https://github.com/M6Web/RateLimitBundle): This bundle provides an easy way to protect your project by limiting access to your controllers.
 * [Redis](https://github.com/M6Web/Redis): PHP component used to access Redis throught predis
 * [RedisBundle](https://github.com/M6Web/RedisBundle): Bundle over Redis component
 * [RedisMessageBroker](https://github.com/M6Web/RedisMessageBroker): PHP Component to deal with message in Redis 
