@@ -259,9 +259,6 @@ Our developers can only deploy on Worker nodes. An application’s pods can only
 
 Those admin nodes are on-demand. Having an ASG of few nodes all Spot is a risk we didn’t want to take regarding the criticality of those pods.
 
-TODO: rewrite this: We are rolling back that choice and we are removing those dedicated admin nodes of the mix. We have too many clusters for this solution to be profitable.
-CoreDNS, HAProxy Ingress Controller and cluster-autoscaler are going back on the main ASGs.
-
 
 ### QOS Guaranteed Daemonsets
 
@@ -423,14 +420,197 @@ You can see that one waits 30 minutes after an upscale, before downscaling:
 We can observe on the graph above that it’s rather : “this duration specifies how long the autoscaler has to wait to perform a downscale after the last upscale”.
 
 
+## Observability
+
+### Metrics
+
+We scrap metrics via Prometheus.
+
+We’re using Victoria Metrics as long term storage. We found it really easy to deploy and it needs really few time to administer on a daily basis, unlike Prometheus.
+
+Details:
+
+* Prometheus scraps metrics of pods having : 
+    ```yaml
+      annotations:
+        prometheus.io/path: /metrics
+        prometheus.io/port: "8080"
+        prometheus.io/scrape: "true"
+    ```
+
+* Then, inside prometheus jsonnet files, we define a remoteWrite pointing to VictoriaMetrics:
+    ```yaml
+          prometheus+: {
+            spec+: {
+              remoteWrite: [
+                {
+                  url: 'http://victoria-metrics-cluster-vminsert.monitoring.svc.cluster.local.:8480/insert/001/prometheus',
+                  queueConfig: {
+                    capacity: 50000,
+                    maxSamplesPerSend: 10000,
+                    maxShards: 30,
+                  },
+                  writeRelabelConfigs: [
+                    {
+                      action: 'labeldrop',
+                      regex: 'prometheus_replica',
+                    },
+                  ],
+    …
+    ```
+
+We have 2 Prometheus pods per cluster, each on separate nodes.
+Each Prometheus scraps all metrics in the cluster, for resilience.
+They have a really low retention (few hours) and are deployed on SPOT instances.
+
+We have 2 Victoria Metrics pods per cluster (cluster version), each on separate nodes, separated of Prometheus pods through a _podAntiAffinity_
+```yaml
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: app
+              operator: In
+              values:
+              - prometheus
+          topologyKey: "kubernetes.io/hostname"
+```
+
+Each Victoria Metrics pod receives all metrics in duplicate, from the two prometheus pods.
+We use the command-line flag _“dedup.minScrapeInterval: 15s”_ to deduplicate metrics.
+
+We’re thinking about totally removing Prometheus from the mix, using only Victoria Metrics Agent to scrap metrics.
 
 
+### Logs
+
+We collect stderr and stdout of all our containers.
+
+We use fluentd for that, as a DaemonSet, which uses the node’s /var/log/containers directory.
+
+We use Grafana Loki as an interface to filter those logs.
+
+Our developers catch most of their logs and send them directly to Kibana. Fluentd and Loki are used only for uncatched errors and have little traffic.
+
+Fluentd uses around 200MB of memory per node and so we look at replacing it by promtail which uses only 40MB in our case.
+
+![Grafana Loki](/images/posts/2020-12-08-three-years-running-kubernetes/Screenshot-from-2020-12-02-12-22-54.png)
+We’re happy with Loki, because we have few logs to parse. We’ve tested to get our Ingress Controller access logs sent to Loki and it was a nightmare. Too many entries to parse.
+
+There’s a default limit of 1000 log entries, which we raised but then, Grafana became very slow. Very very slow. 3000 log entries is the best fit for us.
+
+### Alerting
+
+We mostly use alerts defined in [the official prometheus-operator repo](https://github.com/prometheus-operator/kube-prometheus/blob/master/manifests/prometheus-rules.yaml).
+
+We also add some alerts to those, E.g: an alert when our Ingress Controller can’t connect to a pod:
+```yaml
+    - labels:
+        admin_alert: "true"
+        bcs_alert: HO
+        nmcback_alert: "false"
+        severity: critical
+        cluster_name: "{{ $externalLabels.cluster_name }}"
+      annotations:
+        alertmessage: '{{ $labels.proxy }} : {{ printf "%.2f" $value }} requests in error per second'
+        description: 'HAProxy pods cannot send requests to this application. Connection errors may happen when one or more pods are failing or there''s no more healthy pods : Application is crashed !!'
+        summary: "{{ $externalLabels.cluster_name }} - Critical - K8S - HAProxy IC - Backend connection errors"
+      alert: Critical -K8S - HAProxy IC - Backend connection errors
+      expr: |
+        sum(rate(haproxy_backend_connection_errors_total[1m])) by (proxy) > 0
+      for: 1m
+```
+
+Prometheus generates alerts that it sends to AlertManager.
+We have several possibilities then:
+
+* Send alerts on Slack dedicated channels
+* Send alerts to PagerDuty for the on-call teams
+
+Our developers are managing their own alerts (Kubernetes CRD: PrometheusRule) that are following a different path regarding labels defined. They have their own alerts sent in their own channels.
 
 
+## Costs
+
+### SPOT instances
+
+We’re running 100% of our application workloads on SPOT instances.
+
+It was easy at first: implement [spot-termination-handler](https://github.com/kube-aws/kube-spot-termination-notice-handler) and voilà.
+Indeed, but that was only the first step.
+
+As mentioned before, we are running 10+ instance types split on two ASGs, one for 4x, one for 8x. That’s also true for ASGs dedicated to applications.
 
 
+#### Inter accounts reclaims
+
+We created AWS accounts for salto.fr platform, for which we did a lot of load tests with on-demand servers.
+That's when **we reclaimed our own instances** on our other accounts.
+
+![ec2 instances per cluster](/images/posts/2020-12-08-three-years-running-kubernetes/ec2-instances-per-cluster.gif)
+
+Your accounts are not “linked” to each other in terms of spot reclaims.
+Launching on-demand instances on one account triggered reclaims on our other accounts in the same region.
 
 
+#### Ondemand fallback
+
+We didn’t have ondemand fallback for a year and it went well.
+
+Then, all our instance types (+10) went InsufficientInstanceCapacity at the same time.
+We could only work around with a manual ASG we have from our first days on Kubernetes at AWS, on which we could launch on-demand instances.
+
+Now, we’re using cluster-autoscaler with the expander: Priority to automatically fallback on lower priority ASGs (see above Scalability/Cluster-autoscaler).
+
+It takes us around 10mn to start a node when all our instances are InsufficientInstanceCapacity.
+There are other mechanisms that directly detect InsufficientInstanceCapacity on an ASG, so we don’t have to wait 5mn before moving on to the next one. We’re thinking about implementing them, but they’re not really compatible with cluster-autoscaler right now.
+
+As of today, we have two ASGs per application group, as SPOT, and also two ASGs as ondemand automatic fallback.
 
 
+#### Draino and node-problem-detector
 
+The problem came when downscaling : cluster-autoscaler removes the least used node, whether it’s a SPOT or an ondemand instance.
+
+We found ourselves with a lot of on-demand nodes after load peaks and they stayed.
+
+We were already using node-problem-detector, so we added draino, to detect if an instance is an on-demand and try to remove it when it’s so. Draino waits for 2h after the node is launched before trying to remove it.
+
+Since then, we use on-demand only when there’s no SPOT left and only for a few hours.
+
+We can see on this graph, that we added automated ondemand fallback and we never stopped having on-demand instances, until we added draino:
+![nodes per lifecycle](/images/posts/2020-12-08-three-years-running-kubernetes/Screenshot-from-2020-12-09-08-32-43.png)
+
+
+#### SPOT Tips
+
+* You need to be in an “old” AWS region to have a large number of SPOT available. I.E: Consider eu-west-1 instead of eu-west-3,
+* Use the maximum number of instance types possible. A dozen is barely enough,
+* Do not use SPOT on a single AZ,
+* Prepare yourself to large reclaims, dozens at a time,
+* Configure and test your ondemand fallback
+
+
+### Kube-downscaler
+
+[Open-source project](https://codeberg.org/hjacobs/kube-downscaler) from Zalando which allows us to scale down Kubernetes deployments after work hours.
+
+We use it on our staging clusters. We save 12 hours a day of EC2 instances.
+
+
+### HAProxy Ingress Controller
+
+The whole traffic of a cluster goes through a single ALB.
+
+We load-balance traffic to the correct pod through HAProxy, who uses Ingress rules to update its configuration.
+We explained the way HAProxy Ingress controller lives inside the cluster during a [talk at the HAProxy Conf in 2019](https://www.haproxy.com/user-spotlight-series/rtls-journey-to-kubernetes-with-haproxy/).
+
+Reducing the number of managed load balancers at AWS isn’t the only benefit of HAProxy : we have tons of metrics in a single Grafana dashboard. Requests number, errors, retries, response times, connect times, bad health checks, etc.
+
+
+---
+
+_Thanks to all the reviewers, for their good advices and their time ❤️ _
