@@ -24,7 +24,7 @@ Three years later, we manage a dozen clusters, to which we have added a lot of t
 Each cluster reaches, depending on the load, hundreds of nodes and thousands of pods.
 
 
-## Table of Content
+## Table of Contents
 
 * Base
     * Kops and templates
@@ -32,7 +32,7 @@ Each cluster reaches, depending on the load, hundreds of nodes and thousands of 
     * Keep tools up to date on all clusters
 * Resiliency
     * DNS
-    * Lot of ASGs
+    * Lots of ASGs
     * edicated ASGs by app
     * QOS Guaranteed Daemonsets
 * Scalability
@@ -60,7 +60,7 @@ Each cluster reaches, depending on the load, hundreds of nodes and thousands of 
 
 ### Kops and templates
 
-EKS didn’t exist when we started to work on Kubernetes on AWS. So we chose to use Kops which, by the way, works very well.
+[EKS](https://aws.amazon.com/eks/) didn’t exist when we started to work on Kubernetes on AWS. So we chose to use [Kops](https://github.com/kubernetes/kops) which, by the way, works very well.
 Kops is responsible for creating, updating and deleting our clusters, but also associating resources on our AWS accounts: DNS zone + entries, AutoScalingGroups, SecurityGroups, etc.
 Our rolling-updates and rolling-upgrades are 100% handled by kops which never failed us.
 
@@ -163,6 +163,7 @@ Consistency is maintained over all our clusters through this Jenkins job.
 
 
 ## Resiliency
+
 ### DNS
 
 Like everyone who’s using Kubernetes on production, at some point, we faced an outage due to DNS. It was either [UDP failing because of a kernel race condition](https://www.weave.works/blog/racy-conntrack-and-dns-lookup-timeouts), or [musl (Alpine Linux’s replacement of glibc) not correctly handling domain or search](https://github.com/gliderlabs/docker-alpine/blob/master/docs/caveats.md#dns), or also the default ndots 5 dnsConfig, or even KubeDNS not handling peak loads properly.
@@ -192,7 +193,7 @@ Example of a dns configuration in prod:
 Dnsmasq forwards DNS queries to CoreDNS for certain domains and to the VPC’s DNS server for the rest.
 
 
-### Lot of ASGs
+### Lots of ASGs
 
 We had a dozen ASGs per cluster.
 This is both for resiliency and because we use Spot instances.
@@ -204,7 +205,7 @@ As a result, we had ASGs like:
 * spot_4x_64Gb
 * spot_4x_128Gb
 
-**Lot of ASGs doesn’t work well**
+**Lots of ASGs doesn’t work well**
 AZ rebalancing doesn’t work anymore when using more than one ASG. It becomes totally unpredictable and uncontrollable. It is even a total nightmare with a dozen ASGs.
 
 You can see the difference of outgoing traffic between our 3 NAT Gateway over 4 hours time range :
@@ -223,7 +224,7 @@ We started to dedicate ASGs for some applications when Prometheus was eating all
 
 Then, one of our main API experienced a huge load, 60% IDLE CPU to 0%, in a few seconds. Because of the violence of such a peak, active pods started to consume all CPU available on nodes, depriving other pods. Getting rid of CPU Limits is [a recommendation](https://erickhun.com/posts/kubernetes-faster-services-no-cpu-limits/) that comes with drawbacks that we measured and chose to ensure performance. As a result, the entire cluster went down, lacking for available CPU.
 We tried to isolate this API on its own nodes, as such peaks can repeat in the future, because it’s uncacheable and userfacing. We added Taint on dedicated nodes and Tolerations on the selected API.
-Since that, we had to deploy a dedicated overprovisioning on those nodes as the overprovisioning pods didn’t have this toleration. It turned out we’re also able to adapt the overprovisioning specifically for this API, which wasn’t the base idea, but it has proven to be very effective due to the API’s nature. We talk more about overprovisioning's conf a little later on.
+Since that, we had to deploy a dedicated overprovisioning on those nodes as the overprovisioning pods didn’t have this `toleration`. It turned out we’re also able to adapt the overprovisioning specifically for this API, which wasn’t the base idea, but it has proven to be very effective due to the API’s nature. We talk more about overprovisioning's conf a little later on (Scalability/Overprovisioning).
 
 For the record, we’re using back CPU limits, at least for all applications not using dedicated nodes and also because we’ve updated our kernels [to the patched version](https://engineering.indeedblog.com/blog/2019/12/cpu-throttling-regression-fix/). We follow their CPU usage through Prometheus alerting, with:
 
@@ -318,8 +319,9 @@ We have already faced, multiple times, a fallback to on-demand instances, even w
 
 
 ### Overprovisioning
+
 We have overprovisioning pods inside the cluster.
-The objective is to trigger a node scale-up before a legitimate pod actually needs resources. Doing so, the pod doesn’t wait minutes to be scheduled, but a few seconds.
+The objective is to trigger a node scale-up before a legitimate pod actually needs resources. Doing so, the pod doesn’t wait minutes to be scheduled, but a few seconds. This need for speed is linked to our business and sometimes the television audience brings us many viewers very quickly.
 This works using overprovisioning pods which request resources without doing anything (docker image: k8s.gcr.io/pause). Those pods are also using a low PriorityClass (-10), lower than our apps.
 
 This trick is the whole magic of this overprovisioning: we reserve space until API needs it. When we need it, we free up this space by expelling overprovisioning pods (lower priority) and the expelled pods change their state to "Unschedulable". Pods on "Unschedulable" state force the cluster-autoscaler to add nodes.
@@ -461,7 +463,7 @@ Details:
 
 We have 2 Prometheus pods per cluster, each on separate nodes.
 Each Prometheus scraps all metrics in the cluster, for resilience.
-They have a really low retention (few hours) and are deployed on SPOT instances.
+They have a really low retention (few hours) and are deployed on Spot instances.
 
 We have 2 Victoria Metrics pods per cluster (cluster version), each on separate nodes, separated of Prometheus pods through a _podAntiAffinity_
 ```yaml
@@ -509,9 +511,6 @@ We mostly use alerts defined in [the official prometheus-operator repo](https://
 We also add some alerts to those, E.g: an alert when our Ingress Controller can’t connect to a pod:
 ```yaml
     - labels:
-        admin_alert: "true"
-        bcs_alert: HO
-        nmcback_alert: "false"
         severity: critical
         cluster_name: "{{ $externalLabels.cluster_name }}"
       annotations:
@@ -535,9 +534,9 @@ Our developers are managing their own alerts (Kubernetes CRD: PrometheusRule) th
 
 ## Costs
 
-### SPOT instances
+### Spot instances
 
-We’re running 100% of our application workloads on SPOT instances.
+We’re running 100% of our application workloads on Spot instances.
 
 It was easy at first: implement [spot-termination-handler](https://github.com/kube-aws/kube-spot-termination-notice-handler) and voilà.
 Indeed, but that was only the first step.
@@ -558,40 +557,40 @@ Launching on-demand instances on one account triggered reclaims on our other acc
 
 #### Ondemand fallback
 
-We didn’t have ondemand fallback for a year and it went well.
+We didn’t have on-demand fallback for a year and it went well.
 
-Then, all our instance types (+10) went InsufficientInstanceCapacity at the same time.
+Then, all our instance types (+10) went _InsufficientInstanceCapacity_ at the same time.
 We could only work around with a manual ASG we have from our first days on Kubernetes at AWS, on which we could launch on-demand instances.
 
 Now, we’re using cluster-autoscaler with the expander: Priority to automatically fallback on lower priority ASGs (see above Scalability/Cluster-autoscaler).
 
-It takes us around 10mn to start a node when all our instances are InsufficientInstanceCapacity.
-There are other mechanisms that directly detect InsufficientInstanceCapacity on an ASG, so we don’t have to wait 5mn before moving on to the next one. We’re thinking about implementing them, but they’re not really compatible with cluster-autoscaler right now.
+It takes us around 10mn to start a node when all our instances are _InsufficientInstanceCapacity_.
+There are other mechanisms that directly detect _InsufficientInstanceCapacity_ on an ASG, so we don’t have to wait 5mn before moving on to the next one. We’re thinking about implementing them, but they’re not really compatible with cluster-autoscaler right now.
 
-As of today, we have two ASGs per application group, as SPOT, and also two ASGs as ondemand automatic fallback.
+As of today, we have two ASGs per application group, as Spot, and also two ASGs as on-demand automatic fallback.
 
 
 #### Draino and node-problem-detector
 
-The problem came when downscaling : cluster-autoscaler removes the least used node, whether it’s a SPOT or an ondemand instance.
+The problem came when downscaling : cluster-autoscaler removes the least used node, whether it’s a Spot or an on-demand instance.
 
 We found ourselves with a lot of on-demand nodes after load peaks and they stayed.
 
 We were already using node-problem-detector, so we added draino, to detect if an instance is an on-demand and try to remove it when it’s so. Draino waits for 2h after the node is launched before trying to remove it.
 
-Since then, we use on-demand only when there’s no SPOT left and only for a few hours.
+Since then, we use on-demand only when there’s no Spot left and only for a few hours.
 
-We can see on this graph, that we added automated ondemand fallback and we never stopped having on-demand instances, until we added draino:
+We can see on this graph, that we added automated on-demand fallback and we never stopped having on-demand instances, until we added draino:
 ![nodes per lifecycle](/images/posts/2020-12-08-three-years-running-kubernetes/Screenshot-from-2020-12-09-08-32-43.png)
 
 
-#### SPOT Tips
+#### Spot Tips
 
-* You need to be in an “old” AWS region to have a large number of SPOT available. I.E: Consider eu-west-1 instead of eu-west-3,
+* You need to be in an “old” AWS region to have a large number of Spot available. I.E: Consider eu-west-1 instead of eu-west-3,
 * Use the maximum number of instance types possible. A dozen is barely enough,
-* Do not use SPOT on a single AZ,
+* Do not use Spot on a single AZ,
 * Prepare yourself to large reclaims, dozens at a time,
-* Configure and test your ondemand fallback
+* Configure and test your on-demand fallback
 
 
 ### Kube-downscaler
