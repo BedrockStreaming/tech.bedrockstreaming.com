@@ -235,7 +235,7 @@ Then, one of our main API experienced a huge load, **60% IDLE CPU to 0% in a few
 
 We tried to isolate this API on its own nodes, as such peaks can repeat in the future, because it’s uncacheable and userfacing. We added `Taints` on dedicated nodes and `Tolerations` on the selected API.
 
-Since that, we had to deploy a dedicated overprovisioning on those nodes as the overprovisioning pods didn’t have this `Toleration`. It turned out we’re also able to adapt the overprovisioning specifically for this API, which wasn’t the base idea, but it has proven to be very effective due to the API’s nature. We talk more about overprovisioning's conf a little later on (Scalability/Overprovisioning).
+Since then, we had to deploy a dedicated overprovisioning on those nodes as the overprovisioning pods didn’t have this `Toleration`. It turned out we’re also able to adapt the overprovisioning specifically for this API, which wasn’t the base idea, but it has proven to be very effective due to the API’s nature. We talk more about overprovisioning's conf a little later on (Scalability/Overprovisioning).
 
 For the record, we’re using back CPU limits, at least for all applications not using dedicated nodes and also because we’ve updated our kernels [to the patched version](https://engineering.indeedblog.com/blog/2019/12/cpu-throttling-regression-fix/). We follow their CPU usage through Prometheus alerting, with:
 
