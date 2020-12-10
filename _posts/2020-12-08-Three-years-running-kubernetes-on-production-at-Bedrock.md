@@ -231,7 +231,7 @@ We’ve rolled-back on the ASG number. We now have a maximum of 4 ASGs per appli
 
 We started to dedicate ASGs for some applications when Prometheus was eating all the memory of a node, ending up in OOM errors. Because Prometheus replays its WAL at startup and consumes a lot of memory doing so, adding a Limit over the memory was of no use. It was OOMKill during the WAL process, restarted, OOMKilled again, etc. . Therefore, we isolated Prometheus on on-demand nodes having a lot of memory so it could use up all of it.
 
-Then, one of our main API experienced a huge load, **60% IDLE CPU to 0% in a few seconds**. Because of the violence of such a peak, active pods started to consume all CPU available on nodes, depriving other pods. Getting rid of CPU Limits is [a recommendation](https://erickhun.com/posts/kubernetes-faster-services-no-cpu-limits/) that comes with drawbacks that we measured and chose to ensure performance. As a result, the entire cluster went down, lacking for available CPU.
+Then, one of our main API experienced a huge load, **60% IDLE CPU to 0% in a few seconds**. Because of the violence of such a peak, active pods started to consume all CPU available on nodes, depriving other pods. Getting rid of CPU Limits is [a recommendation](https://erickhun.com/posts/kubernetes-faster-services-no-cpu-limits/) that comes with drawbacks that we measured and chose to follow the recommendation to ensure performance. As a result, the entire cluster went down, lacking for available CPU.
 
 We tried to isolate this API on its own nodes, as such peaks can repeat in the future, because it’s uncacheable and userfacing. We added `Taints` on dedicated nodes and `Tolerations` on the selected API.
 
@@ -263,7 +263,7 @@ sum by (pod) (rate(container_cpu_cfs_throttled_seconds_total{job="kubelet", imag
 {% endhighlight %}
 
 
-At the same time, we chose to isolate Prometheus on its own ASGs, as we later did for Victoria Metrics and Grafana Loki.
+After Prometheus, we later isolated Victoria Metrics and Grafana Loki on their own ASGs.
 We’re also isolating “admin” tools, like CoreDNS, cluster-autoscaler, HAProxy Ingress Controller, on dedicated “admin nodes” group. That way, admin tools can’t mess with developers pods and vice versa.
 
 ![Nodes separations on groups](/images/posts/2020-12-08-three-years-running-kubernetes/dedicated_admin_nodes.png)
@@ -274,7 +274,7 @@ Those admin nodes are on-demand. Having an ASG of few nodes all Spot is a risk w
 
 ### QOS Guaranteed Daemonsets
 
-All our Daemonsets have Requests and Limits at the same value.
+All our Daemonsets have Requests and Limits set at the same value.
 We’ve found out that a lot of Daemonsets don’t define those values by default.
 Enforcing QOS Guaranteed Daemonsets:
 
@@ -288,7 +288,7 @@ Enforcing QOS Guaranteed Daemonsets:
 
 ### Cluster Autoscaler
 
-We automatically scale our EC2 Instances, our nodes, with cluster-autoscaler.
+We automatically scale our EC2 Instances with cluster-autoscaler.
 
 ![Autoscaling nodes](/images/posts/2020-12-08-three-years-running-kubernetes/overprovisioning-total-node-count.png)
 
