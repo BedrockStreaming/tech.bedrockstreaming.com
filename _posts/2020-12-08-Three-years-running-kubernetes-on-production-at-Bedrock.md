@@ -32,8 +32,8 @@ Each cluster reaches, depending on the load, hundreds of nodes and thousands of 
     * Keep tools up to date on all clusters
 * Resiliency
     * DNS
-    * Lots of ASGs
-    * Dedicated ASGs by app
+    * Lots of AutoScalingGroups
+    * Dedicated AutoScalingGroups by app
     * QOS Guaranteed Daemonsets
 * Scalability
     * Cluster Autoscaler
@@ -139,7 +139,7 @@ Some of those tools stand for compatibility reasons after our cloud migration, s
 
 We need all these tools to have a production-ready cluster, so we can provide scaling, resilience, observability, security with controlled costs. This list isn't even exhaustive.
 
-It evolved a lot over the last 2 years and will surely evolve a lot in the near future, as both Kubernetes and AWS are moving playgrounds.
+It evolved a lot over the last two years and will surely evolve a lot in the near future, as both Kubernetes and AWS are moving playgrounds.
 
 
 ### Keep tools up to date on all clusters
@@ -162,9 +162,9 @@ app/loki/.cloud/
     └── deployer.sh
 {% endhighlight %}
 
-A Jenkins job runs the builder.sh, then the deployer.sh script for every k8s-tool.
-Builder.sh is run when we need to build our own Docker images.
-Deployer.sh handles the Helm Chart deployment subtleties.
+A Jenkins job runs the `builder.sh`, then the `deployer.sh` script for every k8s-tool.
+`builder.sh` is run when we need to build our own Docker images.
+`deployer.sh` handles the Helm Chart deployment subtleties.
 All apps are first deployed on all our staging clusters, then on prod.
 
 Consistency is maintained over all our clusters through this Jenkins job.
@@ -201,19 +201,19 @@ Example of a dns configuration in prod:
 Dnsmasq forwards DNS queries to CoreDNS for certain domains and to the VPC’s DNS server for the rest.
 
 
-### Lots of ASGs
+### Lots of AutoScalingGroups
 
-We had a dozen ASGs per cluster.
+We had a dozen AutoScalingGroups per cluster.
 This is both for resiliency and because we use Spot instances.
 With Spot instance reclaims, we needed to have a lot of instance types and family types: m5.4xlarge, c5.4xlarge, m5n.8xlarge, etc.
-This is an autoscaler recommendation to split ASGs so that [each ASG has the same amount of RAM and number of CPU cores](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md#using-mixed-instances-policies-and-spot-instances) when using mixed instances policies.
+This is an autoscaler recommendation to split AutoScalingGroups so that [each ASG has the same amount of RAM and number of CPU cores](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md#using-mixed-instances-policies-and-spot-instances) when using mixed instances policies.
 As a result, we had ASGs like:
 
 * spot_4x_32Gb
 * spot_4x_64Gb
 * spot_4x_128Gb
 
-**Lots of ASGs doesn’t work well**
+**Lots of AutoScalingGroups doesn’t work well**
 
 [AZ rebalancing](https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-benefits.html#AutoScalingBehavior.InstanceUsage) doesn’t work anymore when using more than one ASG. It becomes totally unpredictable and uncontrollable. It is even a total nightmare with a dozen ASGs.
 
@@ -222,15 +222,15 @@ You can see the difference of outgoing traffic between our 3 NAT Gateway over 4 
 The blue NAT gateway is used way more than the two others between 19h00 and 22h00. The green NAT gateway is used half as much as the other two during peak usage times.  
 This is because AZ-rebalacing has resulted in twice as many instances in one AZ than in the others.
 
-Also, Kubernetes’s **cluster-autoscaler** isn’t really compatible with many ASGs. We’ll cover how it works later in this post (Scalability/ExpanderPriority), but keep in mind that each application should run on no more than a maximum of 4 ASGs. This is due to the failover mechanism of cluster-autoscaler that doesn’t detect ASGs errors like _InsufficientInstanceCapacity_, which considerably increases the scale-up time. We are particularly concerned because we need to scale quickly and intensely.
+Also, Kubernetes’s **cluster-autoscaler** isn’t really compatible with many AutoScalingGroups. We’ll cover how it works later in this post (Scalability/ExpanderPriority), but keep in mind that each application should run on no more than a maximum of 4 ASGs. This is due to the failover mechanism of cluster-autoscaler that doesn’t detect ASGs errors like _InsufficientInstanceCapacity_, which considerably increases the scale-up time. We are particularly concerned because we need to scale quickly and intensely.
 
 
-We’ve rolled-back on the ASG number. We now have a maximum of 4 ASGs per application group (see next section: Resiliency/DedicatedASGs), with 2 being Spot and 2 on-demand fallbacks.
+We’ve rolled-back on the ASG number. We now have a maximum of 4 ASGs per application group (see next section: Resiliency/DedicatedAutoScalingGroups), with 2 being Spot and 2 on-demand fallbacks.
 
 
-### Dedicated ASGs by app
+### Dedicated AutoScalingGroups by app
 
-We started to dedicate ASGs for some applications when Prometheus was eating all the memory of a node, ending up in OOM errors. Because Prometheus replays its WAL at startup and consumes a lot of memory doing so, adding a Limit over the memory was of no use. It was OOMKill during the WAL process, restarted, OOMKilled again, etc. . Therefore, we isolated Prometheus on on-demand nodes having a lot of memory so it could use up all of it.
+We started to dedicate AutoScalingGroups for some applications when Prometheus was eating all the memory of a node, ending up in OOM errors. Because Prometheus replays its WAL at startup and consumes a lot of memory doing so, adding a Limit over the memory was of no use. It was OOMKill during the WAL process, restarted, OOMKilled again, etc. . Therefore, we isolated Prometheus on on-demand nodes having a lot of memory so it could use up all of it.
 
 Then, one of our main API experienced a huge load, **60% IDLE CPU to 0% in a few seconds**. Because of the violence of such a peak, active pods started to consume all CPU available on nodes, depriving other pods. Getting rid of CPU Limits is [a recommendation](https://erickhun.com/posts/kubernetes-faster-services-no-cpu-limits/) that comes with drawbacks that we measured and chose to follow the recommendation to ensure performance. As a result, the entire cluster went down, lacking for available CPU.
 
@@ -293,7 +293,7 @@ We automatically scale our EC2 Instances with cluster-autoscaler.
 
 ![Autoscaling nodes](/images/posts/2020-12-08-three-years-running-kubernetes/overprovisioning-total-node-count.png)
 
-As mentioned before, we have several ASGs per Cluster.
+As mentioned before, we have several AutoScalingGroups per Cluster.
 We use the service discovery feature of cluster-autoscaler to find all ASGs to work with and to control them automatically.
 This is done in two steps:
 
