@@ -64,7 +64,7 @@ Each cluster reaches, depending on the load, hundreds of nodes and thousands of 
 Kops is responsible for creating, updating and deleting our clusters, but also associating resources on our AWS accounts: DNS zone + entries, AutoScalingGroups, SecurityGroups, etc.
 Our rolling-updates and rolling-upgrades are 100% handled by kops which never failed us.
 
-Because we have several clusters, we chose to use `kops toolbox template` feature instead of having a single YAML file per cluster. That allows us to have mutualized resources definitions, like AutoScalingGroups, DNS options or namespaces list, inside common files and a dedicated template file per cluster, referencing mutualized configs through variables.
+Because we have several clusters, we use `kops toolbox template` instead of having a single YAML file per cluster. We have mutualized resources definitions, like AutoScalingGroups, DNS options or namespaces list, inside common files and use a dedicated template file per cluster, referencing mutualized configs through variables.
 
 For example, the EC2 instance types will be defined as snippets:
 {% highlight bash %}
@@ -237,7 +237,7 @@ We tried to isolate this API on its own nodes, as such peaks can repeat in the f
 
 Since then, we had to deploy a dedicated overprovisioning on those nodes as the overprovisioning pods didn’t have this `Toleration`. It turned out we’re also able to adapt the overprovisioning specifically for this API, which wasn’t the base idea, but it has proven to be very effective due to the API’s nature. We talk more about overprovisioning's conf a little later on (Scalability/Overprovisioning).
 
-For the record, we’re using back CPU limits, at least for all applications not using dedicated nodes and also because we’ve updated our kernels [to the patched version](https://engineering.indeedblog.com/blog/2019/12/cpu-throttling-regression-fix/). We follow their CPU usage through Prometheus alerting, with:
+Now, we’re setting CPU limits, at least for all applications not using dedicated nodes and also because we’ve updated our kernels [to the patched version](https://engineering.indeedblog.com/blog/2019/12/cpu-throttling-regression-fix/). We follow their CPU usage through Prometheus alerting, with:
 
 ```yaml
     - labels:
@@ -334,7 +334,7 @@ We have already faced, multiple times, a fallback to on-demand instances even wi
 ### Overprovisioning
 
 We have overprovisioning pods inside the cluster.  
-The objective is to trigger a node scale-up before a legitimate pod actually needs resources. Doing so, the pod doesn’t wait minutes to be scheduled, but a few seconds. This need for speed is linked to our business and sometimes the television audience brings us many viewers very quickly.
+The objective is to trigger a node scale-up before a legitimate pod actually needs resources. Doing so, the pod doesn’t wait minutes to be scheduled, but a few seconds. This need for speed is linked to our business and sometimes the television audience bringing us many viewers very quickly.
 
 This works using overprovisioning pods which request resources without doing anything (docker image: `k8s.gcr.io/pause`). Those pods are also using a low PriorityClass (-10), lower than our apps.
 
@@ -433,7 +433,7 @@ You can see that one waits 30 minutes after an upscale, before downscaling:
 
 [Documentation](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-cooldown-delay) specifies that: “this duration specifies how long the autoscaler has to wait before another downscale operation can be performed after the current one has completed.”
 
-We can observe on the graph above that it’s rather : “this duration specifies how long the autoscaler has to wait to perform a downscale after the last upscale”.
+We can observe on the graph above that it’s rather: “this duration specifies how long the autoscaler has to wait to perform a downscale after the last upscale”.
 
 
 ## Observability
@@ -445,7 +445,7 @@ We’re using Victoria Metrics as long term storage. We found it really easy to 
 
 Details:
 
-* Prometheus scraps metrics of pods having : 
+* Prometheus scrapes metrics of pods having: 
 ```yaml
 annotations:
   prometheus.io/path: /metrics
@@ -475,8 +475,8 @@ prometheus+: {
 ```
 
 We have 2 Prometheus pods per cluster, each on separate nodes.
-Each Prometheus scraps all metrics in the cluster, for resilience.
-They have a really low retention (few hours) and are deployed on Spot instances.
+Each Prometheus scrapes all metrics in the cluster, for resilience.
+They have a really low retention (few hours, because of the WAL replay issue) and are deployed on Spot instances.
 
 We have 2 Victoria Metrics pods per cluster (cluster version), each on separate nodes, separated of Prometheus pods through a `podAntiAffinity`
 ```yaml
@@ -497,7 +497,7 @@ We have 2 Victoria Metrics pods per cluster (cluster version), each on separate 
 Each Victoria Metrics pod receives all metrics in duplicate, from the two prometheus pods.
 We use the command-line flag `dedup.minScrapeInterval: 15s` to deduplicate metrics.
 
-We’re thinking about totally removing Prometheus from the mix, using only Victoria Metrics Agent to scrap metrics.
+We’re thinking about totally removing Prometheus from the mix, using only Victoria Metrics Agent to scrape metrics.
 
 
 ### Logs
@@ -506,20 +506,20 @@ We collect stderr and stdout of all our containers.
 We use fluentd for that, as a DaemonSet, which uses the node’s /var/log/containers directory.  
 We use Grafana Loki as an interface to filter those logs.
 
-Our developers catch most of their logs and send them directly to Kibana. Fluentd and Loki are used only for uncatched errors and have little traffic.
+Our developers catch most of their logs and send them directly to Elasticsearch. Fluentd and Loki are used only for uncatched errors and have little traffic.
 
 Fluentd uses around 200MB of memory per node and so we look at replacing it by promtail which uses only 40MB in our case.
 
 ![Grafana Loki](/images/posts/2020-12-08-three-years-running-kubernetes/Screenshot-from-2020-12-02-12-22-54.png)
 We’re happy with Loki, because we have few logs to parse. We’ve tested to get our Ingress Controller access logs sent to Loki and it was a nightmare. Too many entries to parse.
 
-There’s a default limit of 1000 log entries, which we raised but then, Grafana became very slow. Very very slow. 3000 log entries is the best fit for us.
+There’s a default limit of 1000 log entries when querying, which we raised but then Grafana became very slow. Very very slow. 3000 log entries is the best fit for us.
 
 ### Alerting
 
 We mostly use alerts defined in [the official prometheus-operator repo](https://github.com/prometheus-operator/kube-prometheus/blob/master/manifests/prometheus-rules.yaml).
 
-We also add some alerts to those, E.g: an alert when our Ingress Controller can’t connect to a pod:
+We also added some alerts of our own. E.g: an alert when our Ingress Controller can’t connect to a pod:
 ```yaml
     - labels:
         severity: critical
@@ -577,18 +577,18 @@ We could only work around with a manual ASG we have from our first days on Kuber
 Now, we’re using cluster-autoscaler with the expander priority to automatically fallback on lower priority ASGs (see above Scalability/Cluster-autoscaler).
 
 It takes us around 10mn to start a node when all our instances are _InsufficientInstanceCapacity_.
-There are other mechanisms that directly detect _InsufficientInstanceCapacity_ on an ASG, so we don’t have to wait 5mn before moving on to the next one. We’re thinking about implementing them, but they’re not really compatible with cluster-autoscaler right now.
+There are other mechanisms that directly detect _InsufficientInstanceCapacity_ on an ASG, so we wouldn't have to wait 5mn before moving on to the next one. We’re thinking about implementing them, but they’re not really compatible with cluster-autoscaler right now.
 
 As of today, we have two ASGs per application group, as Spot, and also two ASGs as on-demand automatic fallback.
 
 
 #### Draino and node-problem-detector
 
-The problem came when downscaling : cluster-autoscaler removes the least used node, whether it’s a Spot or an on-demand instance.
+The problem came when downscaling : cluster-autoscaler removes the least used node, no matter if it’s a Spot or an on-demand instance.
 
-We found ourselves with a lot of on-demand nodes after load peaks and they stayed.
+We found ourselves with a lot of on-demand nodes after load peaks and they stayed on. And they cost a lot more than Spot instances
 
-We were already using node-problem-detector, so we added draino, to detect if an instance is an on-demand and try to remove it when it’s so. Draino waits for 2h after the node is launched before trying to remove it.
+We were already using node-problem-detector, so we added draino, to detect if an instance is on-demand and try to remove it when it is. Draino waits for 2h after the node is launched before trying to remove it.
 
 Since then, we use on-demand only when there’s no Spot left and only for a few hours.
 
@@ -616,10 +616,10 @@ We use it on our staging clusters. We save 12 hours a day of EC2 instances.
 
 The whole traffic of a cluster goes through a single ALB.
 
-We load-balance traffic to the correct pod through HAProxy, who uses Ingress rules to update its configuration.
+We load-balance traffic to the correct pod through HAProxy, which uses Ingress rules to update its configuration.
 We explained the way HAProxy Ingress controller lives inside the cluster during a [talk at the HAProxy Conf in 2019](https://www.haproxy.com/user-spotlight-series/rtls-journey-to-kubernetes-with-haproxy/).
 
-Reducing the number of managed load balancers at AWS isn’t the only benefit of HAProxy : we have tons of metrics in a single Grafana dashboard. Requests number, errors, retries, response times, connect times, bad health checks, etc.
+Reducing the number of managed load balancers at AWS isn’t the only benefit of HAProxy: we have tons of metrics in a single Grafana dashboard. Requests number, errors, retries, response times, connect times, bad health checks, etc.
 
 
 ---
