@@ -178,7 +178,7 @@ Like everyone who’s using Kubernetes on production, at some point, we faced an
 As of today:
 
 * We are using a local DNS cache on each worker node, with dnsmasq,
-* We use Fully Qualified Domain Names as much as possible,
+* We use Fully Qualified Domain Names (trailing dot on curl calls) as much as possible,
 * We’ve defined `dnsConfig` preferences for all our applications,
 * We use CoreDNS with autoscaling,
 * We forbid as much as possible musl/Alpine
