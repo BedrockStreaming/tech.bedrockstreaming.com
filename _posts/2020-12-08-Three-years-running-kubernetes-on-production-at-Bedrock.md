@@ -221,7 +221,7 @@ You can see the difference of outgoing traffic between our 3 NAT Gateway over 4 
 The blue NAT gateway is used way more than the two others between 19h00 and 22h00. The green NAT gateway is used half as much as the other two during peak usage times.  
 This is because AZ-rebalacing has resulted in twice as many instances in one AZ than in the others.
 
-Also, Kubernetes’s **cluster-autoscaler** isn’t really compatible with many ASGs. We’ll cover how it works later in this post (Scalability/ExpanderPriority), but keep in mind that you shouldn’t have more than 4 ASGs per application group. This is due to the failover mechanism of cluster-autoscaler that doesn’t detect ASGs errors like _InsufficientInstanceCapacity_.
+Also, Kubernetes’s **cluster-autoscaler** isn’t really compatible with many ASGs. We’ll cover how it works later in this post (Scalability/ExpanderPriority), but keep in mind that each application should run on no more than a maximum of 4 ASGs. This is due to the failover mechanism of cluster-autoscaler that doesn’t detect ASGs errors like _InsufficientInstanceCapacity_, which considerably increases the scale-up time. We are particularly concerned because we need to scale quickly and intensely.
 
 
 We’ve rolled-back on the ASG number. We now have a maximum of 4 ASGs per application group (see next section: Resiliency/DedicatedASGs), with 2 being Spot and 2 on-demand fallbacks.
