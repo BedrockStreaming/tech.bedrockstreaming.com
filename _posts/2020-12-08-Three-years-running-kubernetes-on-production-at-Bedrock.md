@@ -101,7 +101,7 @@ spot_nodes:
 {% endhighlight %}
 
 
-A bash script makes the glue between all this, generating manifests files, creating/updating clusters and checking everything is operating normally.
+A bash script makes the glue between all this, generating manifest files, creating/updating clusters and checking everything is operating normally.
 
 All of the above lives as files in a git repository, ensuring we’re doing only Infrastructure as Code.
 
