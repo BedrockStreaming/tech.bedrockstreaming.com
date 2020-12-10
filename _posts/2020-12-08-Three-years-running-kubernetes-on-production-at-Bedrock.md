@@ -225,7 +225,12 @@ This is because AZ-rebalacing has resulted in twice as many instances in one AZ 
 Also, Kubernetes’s **cluster-autoscaler** isn’t really compatible with many AutoScalingGroups. We’ll cover how it works later in this post (Scalability/ExpanderPriority), but keep in mind that each application should run on no more than a maximum of 4 ASGs. This is due to the failover mechanism of cluster-autoscaler that doesn’t detect ASGs errors like _InsufficientInstanceCapacity_, which considerably increases the scale-up time. We are particularly concerned because we need to scale quickly and intensely.
 
 
-We’ve rolled-back on the ASG number. We now have a maximum of 4 ASGs per application group (see next section: Resiliency/DedicatedAutoScalingGroups), with 2 being Spot and 2 on-demand fallbacks.
+We’ve rolled-back on the ASG number. We now have a maximum of 4 ASGs per application group (see next section: Resiliency/DedicatedAutoScalingGroups), with 2 being Spot and 2 on-demand fallbacks.  
+For this reason, we no longer respect the recommendation to split AutoScalingGroups so that each ASG has the same amount of RAM and number of CPU cores, in order to reduce ASGs number.  
+
+Running PHP, the CPU is our bottleneck, not RAM. So we made the choice to have mixed ASG with the same number of CPUs, but not the same amount of RAM.
+This means that our ASG `spot-8x` is composed of m5.8xlarge as well as r5.8xlarge
+
 
 
 ### Dedicated AutoScalingGroups by app
@@ -459,22 +464,22 @@ annotations:
 
 * Then, inside prometheus jsonnet files, we define a remoteWrite pointing to VictoriaMetrics:
 ```yaml
-prometheus+: {
-  spec+: {
-    remoteWrite: [
-      {
-        url: 'http://victoria-metrics-cluster-vminsert.monitoring.svc.cluster.local.:8480/insert/001/prometheus',
-        queueConfig: {
-          capacity: 50000,
-          maxSamplesPerSend: 10000,
-          maxShards: 30,
-        },
-        writeRelabelConfigs: [
-          {
-            action: 'labeldrop',
-            regex: 'prometheus_replica',
-          },
-        ],
+remote_write:
+- url: http://victoria-metrics-cluster-vminsert.monitoring.svc.cluster.local.:8480/insert/001/prometheus
+  remote_timeout: 30s
+  write_relabel_configs:
+  - separator: ;
+    regex: prometheus_replica
+    replacement: $1
+    action: labeldrop
+  queue_config:
+    capacity: 50000
+    max_shards: 30
+    min_shards: 1
+    max_samples_per_send: 10000
+    batch_send_deadline: 5s
+    min_backoff: 30ms
+    max_backoff: 100ms
 …
 ```
 
@@ -538,7 +543,7 @@ We also added some alerts of our own. E.g: an alert when our Ingress Controller 
       for: 1m
 ```
 
-Prometheus generates alerts that it sends to AlertManager.
+Prometheus generates alerts that it sends to 2 redundant AlertManager instances, in a separate account that centralises alerts from all our clusters.  
 We have several possibilities then:
 
 * Send alerts on Slack dedicated channels
@@ -556,8 +561,6 @@ We’re running 100% of our application workloads on Spot instances.
 It was easy at first: implement [spot-termination-handler](https://github.com/kube-aws/kube-spot-termination-notice-handler) and voilà.
 Indeed, but that was only the first step.
 
-As mentioned before, we are running 10+ instance types split on two ASGs, one for 4x, one for 8x. That’s also true for ASGs dedicated to applications.
-
 
 #### Inter accounts reclaims
 
@@ -566,8 +569,8 @@ That's when **we reclaimed our own instances** on our other accounts.
 
 ![ec2 instances per cluster](/images/posts/2020-12-08-three-years-running-kubernetes/ec2-instances-per-cluster.gif)
 
-Your accounts are not “linked” to each other in terms of Spot reclaims.
-Launching on-demand instances on one account triggered reclaims on our other accounts in the same region.
+Your accounts are not “linked” to each other in terms of Spot reclaims. Having resources in the same region with different accounts creates a relationship itself that we had never though about.
+In this case, launching on-demand instances on one account triggered reclaims on our other accounts in the same region.
 
 
 #### On-demand fallback
@@ -576,7 +579,7 @@ We didn’t have on-demand fallback for a year and it went well.
 There was enough spot capacity and there was no need for fallback. Therefore, we didn't prioritize automated on-demand fallbacks.
 
 Then, all our instance types (+10) went _InsufficientInstanceCapacity_ at the same time.
-We could only work around with a manual ASG we have from our first days on Kubernetes at AWS, on which we could launch on-demand instances.
+We could only work around with a manual ASG we have from our first days on Kubernetes at AWS, on which we could launch on-demand instances as a last-resort fallback.
 
 Now, we’re using cluster-autoscaler with the expander priority to automatically fallback on lower priority ASGs (see above Scalability/Cluster-autoscaler).
 
