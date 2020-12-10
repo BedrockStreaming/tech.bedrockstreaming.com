@@ -19,7 +19,7 @@ comments: true
 language: en
 ---
 
-We migrated our first application to a Kubernetes cluster at AWS in 2018.
+We migrated our first application to a Kubernetes cluster at AWS in 2018 (a colleague even wrote [a book about it)](https://leanpub.com/tci/).
 Three years later, we manage a dozen clusters, to which we have added a lot of tools and we have a much better grasp of certain subtleties.
 Each cluster reaches, depending on the load, hundreds of nodes and thousands of pods.
 
@@ -60,9 +60,9 @@ Each cluster reaches, depending on the load, hundreds of nodes and thousands of 
 
 ### Kops and templates
 
-[EKS](https://aws.amazon.com/eks/) didn’t exist when we started to work on Kubernetes on AWS. So we chose to use [Kops](https://github.com/kubernetes/kops) which, by the way, works very well.
-Kops is responsible for creating, updating and deleting our clusters, but also associating resources on our AWS accounts: DNS zone + entries, AutoScalingGroups, SecurityGroups, etc.
-Our rolling-updates and rolling-upgrades are 100% handled by kops which never failed us.
+[EKS](https://aws.amazon.com/eks/) didn’t exist when we started to work on Kubernetes on AWS. So we use [Kops](https://github.com/kubernetes/kops) which, by the way, works very well.
+Kops creates, updates and deletes our clusters, but also associates resources on our AWS accounts: DNS zone + entries, AutoScalingGroups, SecurityGroups, etc.
+Our rolling updates and rolling upgrades are 100% handled by kops which never failed us.
 
 Because we have several clusters, we use `kops toolbox template` instead of having a single YAML file per cluster. We have mutualized resources definitions, like AutoScalingGroups, DNS options or namespaces list, inside common files and use a dedicated template file per cluster, referencing mutualized configs through variables.
 
@@ -112,27 +112,28 @@ We never make any Infrastructure modification outside of code.
 
 We add some tools to a raw Kubernetes cluster:
 
-* aws-authenticator
-* cluster-autoscaler
+* [aws-iam-authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator)
+* [cluster-autoscaler](https://github.com/kubernetes/autoscaler)
 * cloudwatch-exporter-in-cluster
-* cni-metrics-helper
-* draino
-* fluentd
-* haproxy-ingress-controller
-* iam-role-for-serviceaccount
-* k8s-spot-termination-handler
-* kube-downscaler
-* logstash
-* loki
-* metrics-server
-* node-problem-detector
-* overprovisioning
-* prometheus
-* prometheus-dnsmasq-exporter
-* prometheus-pushgateway
-* statsd-exporter
-* statsd-proxy
-* victoria-metrics-cluster
+* [cni-metrics-helper](https://github.com/aws/amazon-vpc-cni-k8s)
+* [draino](https://github.com/planetlabs/draino)
+* [elasticsearch-cerebro](https://github.com/lmenezes/cerebro)
+* [fluentd](https://github.com/fluent/fluentd-kubernetes-daemonset)
+* [haproxy-ingress-controller](https://github.com/haproxytech/kubernetes-ingress/)
+* [iam-role-for-serviceaccount](https://github.com/aws/amazon-eks-pod-identity-webhook)
+* [k8s-spot-termination-handler](https://github.com/kube-aws/kube-spot-termination-notice-handler)
+* [kube-downscaler](https://codeberg.org/hjacobs/kube-downscaler)
+* [logstash](https://github.com/elastic/logstash)
+* [loki](https://github.com/grafana/loki)
+* [metrics-server](https://github.com/kubernetes-sigs/metrics-server)
+* [node-problem-detector](https://github.com/kubernetes/node-problem-detector)
+* [overprovisioning](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-can-i-configure-overprovisioning-with-cluster-autoscaler)
+* [prometheus](https://github.com/prometheus-operator/kube-prometheus)
+* [prometheus-dnsmasq-exporter](https://github.com/google/dnsmasq_exporter)
+* [prometheus-pushgateway](https://github.com/prometheus/pushgateway)
+* [statsd-exporter](https://github.com/prometheus/statsd_exporter)
+* [statsd-proxy](https://github.com/hit9/statsd-proxy)
+* [victoria-metrics-cluster](https://github.com/VictoriaMetrics/VictoriaMetrics)
 
 Some of those tools stand for compatibility reasons after our cloud migration, so our developers can still use our ELK stack, or a statsd format to generate metrics.
 
