@@ -204,7 +204,7 @@ Dnsmasq forwards DNS queries to CoreDNS for certain domains and to the VPC’s D
 ### Lots of AutoScalingGroups
 
 We had a dozen AutoScalingGroups per cluster.
-This is both for resiliency and because we use Spot instances.
+This was both for resiliency and because we use Spot instances.
 With Spot instance reclaims, we needed to have a lot of instance types and family types: m5.4xlarge, c5.4xlarge, m5n.8xlarge, etc.
 This is an autoscaler recommendation to split AutoScalingGroups so that [each ASG has the same amount of RAM and number of CPU cores](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md#using-mixed-instances-policies-and-spot-instances) when using mixed instances policies.
 As a result, we had ASGs like:
@@ -230,7 +230,7 @@ We’ve rolled-back on the ASG number. We now have a maximum of 4 ASGs per appli
 
 ### Dedicated AutoScalingGroups by app
 
-We started to dedicate AutoScalingGroups for some applications when Prometheus was eating all the memory of a node, ending up in OOM errors. Because Prometheus replays its WAL at startup and consumes a lot of memory doing so, adding a Limit over the memory was of no use. It was OOMKill during the WAL process, restarted, OOMKilled again, etc. . Therefore, we isolated Prometheus on on-demand nodes having a lot of memory so it could use up all of it.
+We started to dedicate AutoScalingGroups for some applications when Prometheus was eating all the memory of a node, ending up in OOM errors. Because Prometheus replays its WAL at startup and consumes a lot of memory doing so, adding a Limit over the memory was of no use. It was OOMKill during the WAL process, restarted, OOMKilled again, etc. . Therefore, we isolated Prometheus on nodes having a lot of memory so it could use up all of it.
 
 Then, one of our main API experienced a huge load, **60% IDLE CPU to 0% in a few seconds**. Because of the violence of such a peak, active pods started to consume all CPU available on nodes, depriving other pods. Getting rid of CPU Limits is [a recommendation](https://erickhun.com/posts/kubernetes-faster-services-no-cpu-limits/) that comes with drawbacks that we measured and chose to follow the recommendation to ensure performance. As a result, the entire cluster went down, lacking for available CPU.
 
@@ -265,24 +265,24 @@ sum by (pod) (rate(container_cpu_cfs_throttled_seconds_total{job="kubelet", imag
 
 
 After Prometheus, we later isolated Victoria Metrics and Grafana Loki on their own ASGs.
-We’re also isolating “admin” tools, like CoreDNS, cluster-autoscaler, HAProxy Ingress Controller, on dedicated “admin nodes” group. That way, admin tools can’t mess with developers pods and vice versa.
+We’re also isolating “admin” tools, like CoreDNS, cluster-autoscaler, HAProxy Ingress Controller, on dedicated “admin nodes” group. That way, admin tools can’t mess with applications pods and vice versa.
 
 ![Nodes separations on groups](/images/posts/2020-12-08-three-years-running-kubernetes/dedicated_admin_nodes.png)
-Our developers can only deploy on Worker nodes. An application’s pods can only be scheduled on 4 ASGs, including 2 on-demand backups.
+Developers only deploy to Worker nodes. An application’s pods can only be scheduled on 4 ASGs, including 2 on-demand backups.
 
-Those admin nodes are on-demand. Having an ASG of few nodes all Spot is a risk we didn’t want to take regarding the criticality of those pods.
+Our admin nodes are on-demand. Having an ASG of few nodes all Spot is a risk we didn’t want to take regarding the criticality of those pods.
 
 
 ### QOS Guaranteed Daemonsets
 
-All our Daemonsets have Requests and Limits set at the same value.
+All our Daemonsets have `Requests` and `Limits` set at the same value.
 We’ve found out that a lot of Daemonsets don’t define those values by default.
 Enforcing QOS Guaranteed Daemonsets:
 
-* ensures our daemonsets are Requesting all the resources they need, which is also important for the k8s scheduler to be more effective,
-* daemonsets bad behaviours can be contained through `Limits`, and will not mess up with pods,
-* it’s a good indicator of the overhead we add on each node and helps us choose our EC2 instance types better (E.g: 2x.large instances are too small),
-* it’s a reminder that a server with 16 CPUs has in fact only 80% of them usable by developer pods.
+* ensures our daemonsets request all the resources they need, which is also important for the k8s scheduler to be more effective
+* daemonsets bad behaviours can be contained through `Limits`, and will not mess up with pods
+* it’s a good indicator of the overhead we add on each node and helps us choose our EC2 instance types better (E.g: 2x.large instances are too small)
+* it’s a reminder that a server with 16 CPUs has in fact only 80% of them usable by application pods
 
 
 ## Scalability
@@ -293,7 +293,7 @@ We automatically scale our EC2 Instances with cluster-autoscaler.
 
 ![Autoscaling nodes](/images/posts/2020-12-08-three-years-running-kubernetes/overprovisioning-total-node-count.png)
 
-As mentioned before, we have several AutoScalingGroups per Cluster.
+As mentioned before, we have several AutoScalingGroups per cluster.
 We use the service discovery feature of cluster-autoscaler to find all ASGs to work with and to control them automatically.
 This is done in two steps:
 
@@ -314,7 +314,7 @@ command:
 
 #### Expander Priority
 
-We’re using cluster-autoscaler with the _expander: priority_.
+We use cluster-autoscaler with the _expander: priority_.
 ASGs will be chosen as:
 
 1. `spot-nodes-.*`
@@ -361,7 +361,7 @@ We chose to have big overprovisioning pods, bigger than any other pod in the clu
 
 ## PriorityClass
 
-We sacrifice some applications when it's crap.
+We sacrifice some applications when overprovisioning is not enough.
 
 The overprovisioning magic is based on `PriorityClass` objects.  
 We’re using the same logic for our other applications, using `PriorityClass`.  
@@ -401,15 +401,18 @@ Above, in green, the number of consumed CPUs for one specific application: +55% 
 Below, in blue, new pods are created in response to the peak.
 ![pods created in response to the peak](/images/posts/2020-12-08-three-years-running-kubernetes/Screenshot-from-2020-10-08-15-06-38_1.png)
 
-This is obviously not a good way of managing resources, as we waste them as soon as the load balances.
+This is obviously not a good way of managing resources, as we waste them as soon as the load balances.  
+This waste effect is amplified with the load: the more pods we have, the more we waste.
+
+You can see it in this graph that shows the number of CPU reserved but not consumed:
 ![](/images/posts/2020-12-08-three-years-running-kubernetes/Screenshot-from-2020-10-08-15-57-43.png)
 
-
-This waste effect is amplified with the load: the more pods we have, the more we waste.
+We consume more CPU during peaks and therefore, we use more efficiently the reservations that do not have time to move, because we do not yet have scale-up.  
+As soon as the new pods added in response to the peak are `Ready`, 40% of CPU are wasted again.
 
 We don’t have a viable solution to solve this.  
 
-We’re thinking about reducing scale-up duration, so we won’t need those spare resources while adding new pods. This is a challenge as the scaling mechanism is composed of several tools and changing only one of them can have catastrophic behavior on the cluster stability. This huge subject will need its own dedicated blogpost...
+We’re thinking about reducing scale-up duration to 10 seconds, so we won’t need these additional resources while we launch new pods. This is a challenge as the scaling mechanism is composed of several tools and changing only one of them can have catastrophic behavior on the cluster stability. This huge subject will need its own dedicated blogpost...
 
 
 ### Long downscale durations
