@@ -321,7 +321,7 @@ ASGs will be chosen as:
 
 Cluster-autoscaler will randomly add an EC2 instance in an ASG in the first group: `spot-nodes-*`. If a new instance hasn’t joined the cluster after the fallback timeout (`--max-node-provision-time`), it will try another ASG in the same group. He will try all the ASGs in this group before moving on to the next group: `on-demand-*`.
 
-With a dozen ASGs, most of them being Spot, we’ve already waited for 45mns to be actually able to successfully add an EC2 instance.
+With a dozen ASGs, most of them being Spot, we’ve already waited for 45 minutes to actually be able to successfully add an EC2 instance.
 
 EC2s are sometimes _InsufficientInstanceCapacity_, especially Spot instances. With the autoscaler recommendation to split ASGs by the same amount of CPU/RAM, there were just too many ASGs to try before falling back on-demand. We’ve reduced the cluster-autoscaler fallback timeout to 5mns and still are facing many scaling problems at Paris, where we lack Spot instances.
 
