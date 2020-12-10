@@ -196,7 +196,7 @@ Example of a dns configuration in prod:
   dnsPolicy: ClusterFirst
 ```
 
-`dnsPolicy: ClusterFirst` makes sure we’re using the node’s loop interface, so pods will send their DNS requests to dnsmasq installed locally on each node.
+`dnsPolicy: ClusterFirst` makes sure we’re using the node’s loopback interface, so pods will send their DNS requests to dnsmasq installed locally on each node.
 Dnsmasq forwards DNS queries to CoreDNS for certain domains and to the VPC’s DNS server for the rest.
 
 
