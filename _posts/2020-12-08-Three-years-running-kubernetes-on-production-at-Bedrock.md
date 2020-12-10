@@ -323,17 +323,17 @@ Cluster-autoscaler will randomly add an EC2 instance in an ASG in the first grou
 
 With a dozen ASGs, most of them being Spot, we’ve already waited for 45 minutes to actually be able to successfully add an EC2 instance.
 
-EC2s are sometimes _InsufficientInstanceCapacity_, especially Spot instances. With the autoscaler recommendation to split ASGs by the same amount of CPU/RAM, there were just too many ASGs to try before falling back on-demand. We’ve reduced the cluster-autoscaler fallback timeout to 5mns and still are facing many scaling problems at Paris, where we lack Spot instances.
+Launching an EC2 instance sometimes fails with _InsufficientInstanceCapacity_, especially for Spot instances. With the autoscaler recommendation to split ASGs by the same amount of CPU/RAM, there were just too many ASGs to try before falling back on-demand. We’ve reduced the cluster-autoscaler fallback timeout to 5 minutes and still are facing many scaling problems at Paris, where it seems there are not many Spot instances available.
 
 ![InsufficientInstanceCapacity](/images/posts/2020-12-08-three-years-running-kubernetes/Screenshot-from-2020-10-22-13-33-22.png)
 
-Expander priority is the more resilient way we chose to have automatic fallback from Spot to on-demand when there’s no Spot left.
-We have already faced, multiple times, a fallback to on-demand instances, even with a dozen different instance types. _InsufficientInstanceCapacity_ errors are not a myth. Even on-demand instances can be in _InsufficientInstanceCapacity_, which we may never face with expander priority, 10+ Spot instance types, 10+ on-demand instance types and low `--max-node-provision-time`.
+Expander priority allows us to have resilience through an automatic fall back to on-demand when there is no more Spot.
+We have already faced, multiple times, a fallback to on-demand instances even with a dozen different instance types. _InsufficientInstanceCapacity_ errors are not a myth. Even on-demand instances can be in _InsufficientInstanceCapacity_, which we may never face with expander priority, 10+ Spot instance types, 10+ on-demand instance types and low `--max-node-provision-time`.
 
 
 ### Overprovisioning
 
-We have overprovisioning pods inside the cluster.
+We have overprovisioning pods inside the cluster.  
 The objective is to trigger a node scale-up before a legitimate pod actually needs resources. Doing so, the pod doesn’t wait minutes to be scheduled, but a few seconds. This need for speed is linked to our business and sometimes the television audience brings us many viewers very quickly.
 
 This works using overprovisioning pods which request resources without doing anything (docker image: `k8s.gcr.io/pause`). Those pods are also using a low PriorityClass (-10), lower than our apps.
