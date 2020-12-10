@@ -214,7 +214,7 @@ As a result, we had ASGs like:
 
 **Lots of ASGs doesn’t work well**
 
-AZ rebalancing doesn’t work anymore when using more than one ASG. It becomes totally unpredictable and uncontrollable. It is even a total nightmare with a dozen ASGs.
+[AZ rebalancing](https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-benefits.html#AutoScalingBehavior.InstanceUsage) doesn’t work anymore when using more than one ASG. It becomes totally unpredictable and uncontrollable. It is even a total nightmare with a dozen ASGs.
 
 You can see the difference of outgoing traffic between our 3 NAT Gateway over 4 hours time range :
 ![difference of outgoing traffic between our 3 NAT Gateway](/images/posts/2020-12-08-three-years-running-kubernetes/Screenshot-from-2020-11-17-16-07-11.png)
