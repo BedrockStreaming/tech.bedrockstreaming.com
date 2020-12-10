@@ -328,7 +328,7 @@ Launching an EC2 instance sometimes fails with _InsufficientInstanceCapacity_, e
 ![InsufficientInstanceCapacity](/images/posts/2020-12-08-three-years-running-kubernetes/Screenshot-from-2020-10-22-13-33-22.png)
 
 Expander priority allows us to have resilience through an automatic fall back to on-demand when there is no more Spot.
-We have already faced, multiple times, a fallback to on-demand instances even with a dozen different instance types. _InsufficientInstanceCapacity_ errors are not a myth. Even on-demand instances can be in _InsufficientInstanceCapacity_, which we may never face with expander priority, 10+ Spot instance types, 10+ on-demand instance types and low `--max-node-provision-time`.
+We have already faced, multiple times, a fallback to on-demand instances even with a dozen different instance types. _InsufficientInstanceCapacity_ errors are not a myth. Even on-demand instances can be in _InsufficientInstanceCapacity_, which we hope to never face with expander priority, 10+ Spot instance types, 10+ on-demand instance types and low `--max-node-provision-time`.
 
 
 ### Overprovisioning
@@ -569,6 +569,8 @@ Launching on-demand instances on one account triggered reclaims on our other acc
 #### On-demand fallback
 
 We didn’t have on-demand fallback for a year and it went well.  
+There was enough spot capacity and there was no need for fallback. Therefore, we didn't prioritize automated on-demand fallbacks.
+
 Then, all our instance types (+10) went _InsufficientInstanceCapacity_ at the same time.
 We could only work around with a manual ASG we have from our first days on Kubernetes at AWS, on which we could launch on-demand instances.
 
