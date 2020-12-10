@@ -153,6 +153,7 @@ app/loki/.cloud/
 ├── charts
 │   ├── Chart.yaml
 │   ├── templates/
+│   ├── values.yaml
 │   ├── values.customerX.yaml
 │   └── values.customerY.yaml
 └── jenkins
