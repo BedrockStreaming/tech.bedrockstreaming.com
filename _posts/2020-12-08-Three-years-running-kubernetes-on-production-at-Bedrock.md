@@ -412,7 +412,7 @@ As soon as the new pods added in response to the peak are `Ready`, 40% of CPU ar
 
 We don’t have a viable solution to solve this.  
 
-We’re thinking about reducing scale-up duration to 10 seconds, so we won’t need these additional resources while we launch new pods. This is a challenge as the scaling mechanism is composed of several tools and changing only one of them can have catastrophic behavior on the cluster stability. This huge subject will need its own dedicated blogpost...
+We’re thinking about reducing scale-up duration to 10 seconds, so we won’t need these additional resources while we launch new pods. This is a challenge as the scaling mechanism is composed of several tools (metrics-server update frequency, autoscaler controller loop frequency, pod autoscaler initial readiness delay, probe launch times, etc.) and changing only one of them can have catastrophic behavior on the cluster stability. We need This huge subject will need its own dedicated blogpost...
 
 
 ### Long downscale durations
