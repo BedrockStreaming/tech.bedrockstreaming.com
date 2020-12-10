@@ -605,18 +605,19 @@ We can see on this graph, that we added automated on-demand fallback and we neve
 
 #### Spot Tips
 
-* You need to be in an “old” AWS region to have a large number of Spot available. I.E: Consider eu-west-1 instead of eu-west-3,
-* Use the maximum number of instance types possible. A dozen is barely enough,
-* Do not use Spot on a single AZ,
+* You need to be in an “old” AWS region to have a large number of Spot available. I.E. consider eu-west-1 instead of eu-west-3, even if it adds latency,
+* Use the maximum number of instance types possible. A dozen is barely enough. I.E. use all instance family letters regardless of what they're optimised for (compute, memory) as long as your workload can use it,
+* Use `CapacityOptimized` spot allocation strategy, to limit reclaims to the strict necessary,
+* Do not use Spot on a single AZ (this advice is not limited to spot), 
 * Prepare yourself to large reclaims, dozens at a time,
 * Configure and test your on-demand fallback
 
 
 ### Kube-downscaler
 
-[Open-source project](https://codeberg.org/hjacobs/kube-downscaler) from Zalando which allows us to scale down Kubernetes deployments after work hours.
+[Open-source project](https://codeberg.org/hjacobs/kube-downscaler) from Zalando which allows us to scale down Kubernetes deployments after work hours: nights and week-ends.
 
-We use it on our staging clusters. We save 12 hours a day of EC2 instances.
+We use it on all our staging clusters. We save 60% of EC2 instances.
 
 
 ### HAProxy Ingress Controller
@@ -627,6 +628,17 @@ We load-balance traffic to the correct pod through HAProxy, which uses Ingress r
 We explained the way HAProxy Ingress controller lives inside the cluster during a [talk at the HAProxy Conf in 2019](https://www.haproxy.com/user-spotlight-series/rtls-journey-to-kubernetes-with-haproxy/).
 
 Reducing the number of managed load balancers at AWS isn’t the only benefit of HAProxy: we have tons of metrics in a single Grafana dashboard. Requests number, errors, retries, response times, connect times, bad health checks, etc.
+
+
+## What's next
+
+A lot has been done to have scalability, resilience, observability and reasoned costs over the last 3 years.
+
+Using Kubernetes in production is not that simple.  
+It is necessary to be well equipped, to understand finely the workings of the kubernetes mechanics to find the balance that suits us. Avoid falling into the trap of adopting whatever tool everyone is talking about if you don't need it. There's a lot of hype around kubernetes and the cloud, it can be dangerous.
+
+The next step will be for us to increase resilience as much as possible, while at the same time reducing costs.
+Perhaps it will be by speeding up the start-up of pods. Maybe it won't work. Maybe we can make some modifications to cluster-autoscaler to make it more compatible with aws events (like _InsufficiantInstanceCapacity_). But we will certainly work around the costs.
 
 
 ---
