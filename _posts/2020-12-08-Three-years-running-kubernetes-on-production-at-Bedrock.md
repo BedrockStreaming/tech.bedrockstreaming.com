@@ -83,7 +83,7 @@ And used inside a generic template file:
 …
   mixedInstancesPolicy:
     instances:
-    '{{ if eq $index "4x_32Gb" }}'
+    {{ '{{ if eq $index "4x_32Gb" }}' }}
     {{ include "spot_4x_32Gb_machine_type.yaml" . | indent 4 }}
     {{ end }}
 …
