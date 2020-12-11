@@ -19,8 +19,8 @@ comments: true
 language: en
 ---
 
-We migrated our first application to a Kubernetes cluster at AWS in 2018 (a colleague even wrote [a book about it)](https://leanpub.com/tci/).
-Three years later, we manage a dozen clusters, to which we have added a lot of tools and we have a much better grasp of certain subtleties.
+We migrated our first application to a Kubernetes cluster at AWS in 2018 (a colleague even wrote [a book about it)](https://leanpub.com/tci/).  
+Three years later, we manage a dozen clusters, to which we have added a lot of tools and we have a much better grasp of certain subtleties.  
 Each cluster reaches, depending on the load, hundreds of nodes and thousands of pods.
 
 
@@ -56,12 +56,15 @@ Each cluster reaches, depending on the load, hundreds of nodes and thousands of 
     * HAProxy Ingress Controller
 
 
+---
+
+
 ## Base
 
 ### Kops and templates
 
-[EKS](https://aws.amazon.com/eks/) didn’t exist when we started to work on Kubernetes on AWS. So we use [Kops](https://github.com/kubernetes/kops) which, by the way, works very well.
-Kops creates, updates and deletes our clusters, but also associates resources on our AWS accounts: DNS zone + entries, AutoScalingGroups, SecurityGroups, etc.
+[EKS](https://aws.amazon.com/eks/) didn’t exist when we started to work on Kubernetes on AWS. So we use [Kops](https://github.com/kubernetes/kops) which, by the way, works very well.  
+Kops creates, updates and deletes our clusters, but also associates resources on our AWS accounts: DNS zone + entries, AutoScalingGroups, SecurityGroups, etc.  
 Our rolling updates and rolling upgrades are 100% handled by kops which never failed us.
 
 Because we have several clusters, we use `kops toolbox template` instead of having a single YAML file per cluster. We have mutualized resources definitions, like AutoScalingGroups, DNS options or namespaces list, inside common files and use a dedicated template file per cluster, referencing mutualized configs through variables.
@@ -80,7 +83,7 @@ And used inside a generic template file:
 …
   mixedInstancesPolicy:
     instances:
-    {{ if eq $index "4x_32Gb" }}
+    '{{ if eq $index "4x_32Gb" }}'
     {{ include "spot_4x_32Gb_machine_type.yaml" . | indent 4 }}
     {{ end }}
 …
