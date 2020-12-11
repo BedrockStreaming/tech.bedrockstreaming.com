@@ -232,7 +232,7 @@ We’ve rolled-back on the ASG number. We now have a maximum of 4 ASGs per appli
 For this reason, we no longer respect the recommendation to split AutoScalingGroups so that each ASG has the same amount of RAM and number of CPU cores, in order to reduce ASGs number.  
 
 Running PHP, the CPU is our bottleneck, not RAM. So we made the choice to have mixed ASG with the same number of CPUs, but not the same amount of RAM.  
-This means that our ASG `spot-8x` is composed of m5.8xlarge as well as r5.8xlarge
+This means that our ASG `spot-nodes-8x` is composed of m5.8xlarge as well as r5.8xlarge
 
 
 
@@ -366,7 +366,7 @@ data:
   ladder: '{"coresToReplicas":[[16,4],[100,10],[200,20]]}'
 ```
 
-We chose to have big overprovisioning pods, bigger than any other pod in the cluster, to ensure that expelling one of the overprovisioning pods is enough to schedule any _Pending_ pod.  
+We chose to have big overprovisioning pods, bigger than any other pod in the cluster, to ensure that expelling one of the overprovisioning pods is enough to schedule any `Pending` pod.  
 
 
 ## PriorityClass
@@ -422,7 +422,7 @@ As soon as the new pods added in response to the peak are `Ready`, 40% of CPU ar
 
 We don’t have a viable solution to solve this.  
 
-We’re thinking about reducing scale-up duration to 10 seconds, so we won’t need these additional resources while we launch new pods. This is a challenge as the scaling mechanism is composed of several tools (metrics-server update frequency, autoscaler controller loop frequency, pod autoscaler initial readiness delay, probe launch times, etc.) and changing only one of them can have catastrophic behavior on the cluster stability. We need This huge subject will need its own dedicated blogpost...  
+We’re thinking about reducing scale-up duration to 10 seconds, so we won’t need these additional resources while we launch new pods. This is a challenge as the scaling mechanism is composed of several tools (metrics-server update frequency, autoscaler controller loop frequency, pod autoscaler initial readiness delay, probe launch times, etc.) and changing only one of them can have catastrophic behavior on the cluster stability. This huge subject will need its own dedicated blogpost...  
 
 
 ### Long downscale durations
@@ -459,7 +459,8 @@ We’re using Victoria Metrics as long term storage. We found it really easy to 
 
 Details:
 
-* Prometheus scrapes metrics of pods having: 
+* Prometheus scrapes metrics of pods having:
+
 ```yaml
 annotations:
   prometheus.io/path: /metrics
@@ -468,6 +469,7 @@ annotations:
 ```
 
 * Then, inside prometheus jsonnet files, we define a remoteWrite pointing to VictoriaMetrics:
+
 ```yaml
 remote_write:
 - url: http://victoria-metrics-cluster-vminsert.monitoring.svc.cluster.local.:8480/insert/001/prometheus
