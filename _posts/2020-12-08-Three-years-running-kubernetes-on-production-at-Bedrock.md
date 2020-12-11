@@ -496,18 +496,18 @@ They have a really low retention (few hours, because of the WAL replay issue) an
 
 We have 2 Victoria Metrics pods per cluster (cluster version), each on separate nodes, separated of Prometheus pods through a `podAntiAffinity`
 ```yaml
-  affinity:
-    podAntiAffinity:
-      preferredDuringSchedulingIgnoredDuringExecution:
-      - weight: 100
-        podAffinityTerm:
-          labelSelector:
-            matchExpressions:
-            - key: app
-              operator: In
-              values:
-              - prometheus
-          topologyKey: "kubernetes.io/hostname"
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - weight: 100
+      podAffinityTerm:
+        labelSelector:
+          matchExpressions:
+          - key: app
+            operator: In
+            values:
+            - prometheus
+        topologyKey: "kubernetes.io/hostname"
 ```
 
 Each Victoria Metrics pod receives all metrics in duplicate, from the two prometheus pods.  
@@ -537,17 +537,17 @@ We mostly use alerts defined in [the official prometheus-operator repo](https://
 
 We also added some alerts of our own. E.g: an alert when our Ingress Controller can’t connect to a pod:
 ```yaml
-    - labels:
-        severity: critical
-        cluster_name: "{ { $externalLabels.cluster_name } }"
-      annotations:
-        alertmessage: '{ { $labels.proxy } } : { { printf "%.2f" $value } } requests in error per second'
-        description: 'HAProxy pods cannot send requests to this application. Connection errors may happen when one or more pods are failing or there''s no more healthy pods : Application is crashed !!'
-        summary: "{ { $externalLabels.cluster_name } } - Critical - K8S - HAProxy IC - Backend connection errors"
-      alert: Critical -K8S - HAProxy IC - Backend connection errors
-      expr: |
-        sum(rate(haproxy_backend_connection_errors_total[1m])) by (proxy) > 0
-      for: 1m
+- labels:
+    severity: critical
+    cluster_name: "{ { $externalLabels.cluster_name } }"
+  annotations:
+    alertmessage: '{ { $labels.proxy } } : { { printf "%.2f" $value } } requests in error per second'
+    description: 'HAProxy pods cannot send requests to this application. Connection errors may happen when one or more pods are failing or there''s no more healthy pods : Application is crashed !!'
+    summary: "{ { $externalLabels.cluster_name } } - Critical - K8S - HAProxy IC - Backend connection errors"
+  alert: Critical -K8S - HAProxy IC - Backend connection errors
+  expr: |
+    sum(rate(haproxy_backend_connection_errors_total[1m])) by (proxy) > 0
+  for: 1m
 ```
 
 Prometheus generates alerts that it sends to 2 redundant AlertManager instances, in a separate account that centralises alerts from all our clusters.  
@@ -571,7 +571,7 @@ Indeed, but that was only the first step.
 
 #### Inter accounts reclaims
 
-We created AWS accounts for salto.fr platform, for which we did a lot of load tests with on-demand servers.  
+We created AWS accounts for [salto.fr](https://www.salto.fr/) platform, for which we did a lot of load tests with on-demand servers.  
 That's when **we reclaimed our own instances** on our other accounts.  
 
 ![ec2 instances per cluster](/images/posts/2020-12-08-three-years-running-kubernetes/ec2-spot-instances-got-reclaims-across-accounts.gif)
@@ -588,7 +588,7 @@ There was enough spot capacity and there was no need for fallback. Therefore, we
 Then, all our instance types (+10) went _InsufficientInstanceCapacity_ at the same time.  
 We could only work around with a manual ASG we have from our first days on Kubernetes at AWS, on which we could launch on-demand instances as a last-resort fallback.  
 
-Now, we’re using cluster-autoscaler with the expander priority to automatically fallback on lower priority ASGs (see above Scalability/Cluster-autoscaler).  
+Now, we’re using **cluster-autoscaler** with the `expander: priority` to automatically fallback on lower priority ASGs (see above Scalability/Cluster-autoscaler).  
 
 It takes us around 10mn to start a node when all our instances are _InsufficientInstanceCapacity_.  
 There are other mechanisms that directly detect _InsufficientInstanceCapacity_ on an ASG, so we wouldn't have to wait 5mn before moving on to the next one. We’re thinking about implementing them, but they’re not really compatible with cluster-autoscaler right now.  
@@ -600,9 +600,9 @@ As of today, we have two ASGs per application group, as Spot, and also two ASGs 
 
 The problem came when downscaling : cluster-autoscaler removes the least used node, no matter if it’s a Spot or an on-demand instance.  
 
-We found ourselves with a lot of on-demand nodes after load peaks and they stayed on. And they cost a lot more than Spot instances
+We found ourselves with a lot of on-demand nodes after load peaks and they stayed on. And they cost a lot more than Spot instances.  
 
-We were already using node-problem-detector, so we added draino, to detect if an instance is on-demand and try to remove it when it is. Draino waits for 2h after the node is launched before trying to remove it.  
+We were already using **node-problem-detector**, so we added **draino**, to detect if an instance is on-demand and try to remove it when it is. Draino waits for 2h after the node is launched before trying to remove it.  
 
 Since then, we use on-demand only when there’s no Spot left and only for a few hours.  
 
