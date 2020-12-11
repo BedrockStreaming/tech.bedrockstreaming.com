@@ -313,6 +313,7 @@ k8s.io/cluster-autoscaler/{ { $cluster.name } }: "true"
 ```
 
 2. Then, inside the Chart, we add those two labels to the node-group-auto-discovery parameter:
+
 ```yaml
 command:
 - ./cluster-autoscaler
