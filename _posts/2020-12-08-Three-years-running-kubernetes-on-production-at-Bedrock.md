@@ -84,8 +84,8 @@ And used inside a generic template file:
   mixedInstancesPolicy:
     instances:
     { { if eq $index "4x_32Gb" } }
-    {{ include "spot_4x_32Gb_machine_type.yaml" . | indent 4 }}
-    {{ end }}
+    { { include "spot_4x_32Gb_machine_type.yaml" . | indent 4 } }
+    { { end } }
 …
 {% endhighlight %}
 
@@ -251,13 +251,13 @@ Now, we’re setting CPU limits, at least for all applications not using dedicat
 ```yaml
     - labels:
         severity: notice
-        cluster_name: "{{ $externalLabels.cluster_name }}"
+        cluster_name: "{ { $externalLabels.cluster_name } }"
       annotations:
-        alertmessage: '{{ $labels.namespace }}/{{ $labels.pod }}/{{ $labels.container
-            }} : {{ printf "%0.0f" $value }}%'
+        alertmessage: '{ { $labels.namespace } }/{ { $labels.pod } }/{ { $labels.container
+            } } : { { printf "%0.0f" $value } }%'
         description: Container using more CPU than expected.
           It will soon be throttled, which has a negative impact on performances.
-        summary: "{{ $externalLabels.cluster_name }} - Notice - K8S - Container using 90% CPU Limit"
+        summary: "{ { $externalLabels.cluster_name } } - Notice - K8S - Container using 90% CPU Limit"
       alert: Notice - K8S - Container getting close to its CPU Limit
       expr: |
         (
@@ -309,14 +309,14 @@ This is done in two steps:
 1. We add 2 tags on ASGs that the cluster-autoscaler should manage
 ```yaml
 k8s.io/cluster-autoscaler/enabled: "true"
-k8s.io/cluster-autoscaler/{{ $cluster.name }}: "true"
+k8s.io/cluster-autoscaler/{ { $cluster.name } }: "true"
 ```
 2. Then, inside the Chart, we add those two labels to the node-group-auto-discovery parameter:
 ```yaml
 command:
 - ./cluster-autoscaler
 - --cloud-provider=aws
-- --node-group-auto-discovery=asg:tag=k8s.io/cluster-autoscaler/enabled,k8s.io/cluster-autoscaler/{{ index .Values.nodes .Values.env "clusterName" }}
+- --node-group-auto-discovery=asg:tag=k8s.io/cluster-autoscaler/enabled,k8s.io/cluster-autoscaler/{ { index .Values.nodes .Values.env "clusterName" } }
 …
 ```
 
@@ -535,11 +535,11 @@ We also added some alerts of our own. E.g: an alert when our Ingress Controller 
 ```yaml
     - labels:
         severity: critical
-        cluster_name: "{{ $externalLabels.cluster_name }}"
+        cluster_name: "{ { $externalLabels.cluster_name } }"
       annotations:
-        alertmessage: '{{ $labels.proxy }} : {{ printf "%.2f" $value }} requests in error per second'
+        alertmessage: '{ { $labels.proxy } } : { { printf "%.2f" $value } } requests in error per second'
         description: 'HAProxy pods cannot send requests to this application. Connection errors may happen when one or more pods are failing or there''s no more healthy pods : Application is crashed !!'
-        summary: "{{ $externalLabels.cluster_name }} - Critical - K8S - HAProxy IC - Backend connection errors"
+        summary: "{ { $externalLabels.cluster_name } } - Critical - K8S - HAProxy IC - Backend connection errors"
       alert: Critical -K8S - HAProxy IC - Backend connection errors
       expr: |
         sum(rate(haproxy_backend_connection_errors_total[1m])) by (proxy) > 0
