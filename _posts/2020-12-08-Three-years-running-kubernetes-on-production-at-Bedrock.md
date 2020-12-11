@@ -101,7 +101,7 @@ spot_nodes:
 {% endhighlight %}
 
 
-A bash script makes the glue between all this, generating manifest files, creating/updating clusters and checking everything is operating normally.
+A bash script orchestrates all this. It generates manifest files, creates/updates clusters and checks everything is operating normally.
 
 All of the above lives as files in a git repository, ensuring we’re doing only Infrastructure as Code.
 
@@ -181,7 +181,7 @@ As of today:
 * We are using a local DNS cache on each worker node, with dnsmasq,
 * We use Fully Qualified Domain Names (trailing dot on curl calls) as much as possible,
 * We’ve defined [dnsConfig](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-dns-config) preferences for all our applications,
-* We use CoreDNS with autoscaling,
+* We use CoreDNS with autoscaling as a replacement for KubeDNS,
 * We forbid as much as possible musl/Alpine
 
 Example of a dns configuration in prod:
@@ -198,7 +198,7 @@ Example of a dns configuration in prod:
 ```
 
 `dnsPolicy: ClusterFirst` makes sure we’re using the node’s loopback interface, so pods will send their DNS requests to dnsmasq installed locally on each node.
-Dnsmasq forwards DNS queries to CoreDNS for certain domains and to the VPC’s DNS server for the rest.
+Dnsmasq forwards DNS queries to CoreDNS for `cluster.local.` sub-domains and to the VPC’s DNS server for the rest.
 
 
 ### Lots of AutoScalingGroups
@@ -237,7 +237,7 @@ This means that our ASG `spot-8x` is composed of m5.8xlarge as well as r5.8xlarg
 
 We started to dedicate AutoScalingGroups for some applications when Prometheus was eating all the memory of a node, ending up in OOM errors. Because Prometheus replays its WAL at startup and consumes a lot of memory doing so, adding a Limit over the memory was of no use. It was OOMKill during the WAL process, restarted, OOMKilled again, etc. . Therefore, we isolated Prometheus on nodes having a lot of memory so it could use up all of it.
 
-Then, one of our main API experienced a huge load, **60% IDLE CPU to 0% in a few seconds**. Because of the violence of such a peak, active pods started to consume all CPU available on nodes, depriving other pods. Getting rid of CPU Limits is [a recommendation](https://erickhun.com/posts/kubernetes-faster-services-no-cpu-limits/) that comes with drawbacks that we measured and chose to follow the recommendation to ensure performance. As a result, the entire cluster went down, lacking for available CPU.
+Then, one of our main API experienced a huge load, **60% IDLE CPU to 0% in a few seconds**. Because of the violence of such a peak, active pods started to consume all CPU available on nodes, depriving other pods. Getting rid of CPU Limits is [a recommendation](https://erickhun.com/posts/kubernetes-faster-services-no-cpu-limits/) that comes with drawbacks that we measured and chose to follow the recommendation to ensure performance. As a result, the entire cluster went down, lacking for available CPU. [Airbnb shared the same experience](https://thenewstack.io/kubernetes-performance-troublespots-airbnbs-take/): they removed CPU limits because of throttling, but the _noisy neighbors_ forced them to re-introduce `limits`.
 
 We tried to isolate this API on its own nodes, as such peaks can repeat in the future, because it’s uncacheable and userfacing. We added `Taints` on dedicated nodes and `Tolerations` on the selected API.
 
@@ -325,7 +325,7 @@ ASGs will be chosen as:
 1. `spot-nodes-.*`
 2. `on-demand-.*`
 
-Cluster-autoscaler will randomly add an EC2 instance in an ASG in the first group: `spot-nodes-*`. If a new instance hasn’t joined the cluster after the fallback timeout (`--max-node-provision-time`), it will try another ASG in the same group. He will try all the ASGs in this group before moving on to the next group: `on-demand-*`.
+Cluster-autoscaler will randomly add an EC2 instance in an ASG in the first group: `spot-nodes-*`. If a new instance hasn’t joined the cluster after the fallback timeout (`--max-node-provision-time`), it will try another ASG in the same group. It will try all the ASGs in this group before moving on to the next group: `on-demand-*`.
 
 With a dozen ASGs, most of them being Spot, we’ve already waited for 45 minutes to actually be able to successfully add an EC2 instance.
 
@@ -344,7 +344,7 @@ The objective is to trigger a node scale-up before a legitimate pod actually nee
 
 This works using overprovisioning pods which request resources without doing anything (docker image: `k8s.gcr.io/pause`). Those pods are also using a low PriorityClass (-10), lower than our apps.
 
-This trick is the whole magic of this overprovisioning: we reserve space until API needs it. When we need it, we free up this space by expelling overprovisioning pods (lower priority) and the expelled pods change their state to `Unschedulable`. Pods on `Unschedulable` state force the cluster-autoscaler to add nodes.
+This trick is the whole magic of this overprovisioning: we request space that can be reclaimed anytime and very quickly. When an app needs it, the Scheduler will free up this space by expelling overprovisioning pods (of lower priority) because the cluster doesn't have enough free space. The expelled pods then change their state to `Pending` with the `Reason: Unschedulable` because we just filled the cluster with higher priority pods from the app. Presence of `Pending` Pods with `Unschedulable` reason trigger the cluster-autoscaler to add nodes.
 
 
 We follow the efficiency of this overprovisioning with these Prometheus expressions:
@@ -396,7 +396,7 @@ Kubernetes takes time to scale-up pods.
 Without overprovisioning, we’ve measured that we wait up to 4 minutes when there’s no available node where pods can be scheduled.  
 Then, with overprovisioning, we mostly wait for 45seconds, between the moment the HorizontalPodAutoscaler changes the `Replicas` of a `Deployment` and for those pods to be ready and receive traffic.
 
-We can’t wait so long during our peaks, so we generally define HPA targets at 60%, 70% or 80% of the CPU `Request`. That gives us time to handle the load while new pods are being scheduled.
+We can’t wait so long during our peaks, so we generally define HPA targets at 60%, 70% or 80% of `Requests`. That gives us more time to handle the load while new pods are being scheduled.
 
 
 On the following graphs, we can see two nice peaks at 20h52 and 21h02:
@@ -422,7 +422,7 @@ We’re thinking about reducing scale-up duration to 10 seconds, so we won’t n
 
 ### Long downscale durations
 
-Recently, we have increased the downscale durations from 5 to 30 minutes.  
+Recently, we have increased the HPA's downscale durations from 5 to 30 minutes.  
 
 It’s done through Kops spec:
 ```yaml
@@ -449,7 +449,7 @@ We can observe on the graph above that it’s rather: “this duration specifies
 
 ### Metrics
 
-We scrap metrics via Prometheus.  
+We scrape application and system metrics via Prometheus.  
 We’re using Victoria Metrics as long term storage. We found it really easy to deploy and it needs really few time to administer on a daily basis, unlike Prometheus.
 
 Details:
@@ -643,4 +643,4 @@ Perhaps it will be by speeding up the start-up of pods. Maybe it won't work. May
 
 ---
 
-_Thanks to all the reviewers, for their good advices and their time_ ❤️ 
+_Thanks to all the reviewers, for their good advice and their time_ ❤️ 
