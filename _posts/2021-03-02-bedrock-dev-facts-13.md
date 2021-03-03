@@ -18,7 +18,7 @@ image:
 comments: true  
 ---
 
-Reprenons un rythme soutenu des [devfacts](http://tech.m6web.fr/tags.html#devfacts) !
+Reprenons un rythme soutenu des [devfacts](/tags.html#devfacts) !
 
 # Des branchements surprenants
 >  Ah tu test ta branche en prod ? Tu peux y aller, si tu touches pas au staging pas de soucis

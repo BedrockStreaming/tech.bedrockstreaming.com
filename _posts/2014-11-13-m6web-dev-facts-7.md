@@ -18,7 +18,7 @@ image:
 comments: true  
 ---
 
-Ça faisait un moment ! Voici le retour des [devfacts](http://tech.m6web.fr/tags.html#devfacts) !
+Ça faisait un moment ! Voici le retour des [devfacts](/tags.html#devfacts) !
 
 # Reproduction
 > Je ne sais pas si ça corrige le bug qu'on ne reproduit pas mais en tout cas je ne le reproduis toujours pas
