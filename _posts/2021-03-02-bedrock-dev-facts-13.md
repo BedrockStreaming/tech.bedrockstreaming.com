@@ -87,15 +87,15 @@ Trouvé dans l'historique
 
 > B: "Tu as insisté mais est-ce que tu as pensé au consentement de GraphQL et de postgre ?" 
 
-# 🦥
+# 🦥, moi paresseux ? 
 
 > Même ne rien faire c'est déjà pas mal de taf
 
-# ?
+# ? Question ? 
 
 ![screenshot d'une PR ou plusieurs personnes commentent avec juste un ?](/images/posts/dev-facts-13/question.png)
 
-# 🍗
+# 🍗 Mnom Mnom
 
 > A: "Ah mince j'ai pas mis mon texte en escalope"
 
@@ -113,7 +113,7 @@ En parlant de lignes supprimées.
 
 ![screenshot d'une PR](/images/posts/dev-facts-13/review.png)
 
-# Smart
+# Technique de sioux
 
 > Nan mais réécrit les status 404 en 200 et ça marchera !
 
@@ -141,7 +141,7 @@ En parlant de lignes supprimées.
 
 > Je ne veux pas remettre en cause toute l’architecture MAIS …
 
-# 🐒
+# 🐒 Singe ? 
 
 > Quand j'entends "Go/NoGo", mon cerveau comprend "Bonobo"
 
