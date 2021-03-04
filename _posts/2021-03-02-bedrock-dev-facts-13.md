@@ -29,7 +29,7 @@ Trouvé dans l'historique
 
 ![screenshot d'un commit nommé 'fix(fix):fix'](/images/posts/dev-facts-13/fix.png)
 
-# Time is relativ
+# Time is relative
 
 > Non mais c'est normal, ce sont des mois de 5 minutes
 
