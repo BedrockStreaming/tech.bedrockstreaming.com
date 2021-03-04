@@ -33,7 +33,7 @@ Trouvé dans l'historique
 
 > Non mais c'est normal, ce sont des mois de 5 minutes
 
-# Confinement à la campagne c'est parfois compliqué
+# Le confinement à la campagne, c'est parfois compliqué
 
 > Dédicace a tous ceux qui comme moi, vont passer une bonne semaine à batailler avec internet ! (au moins, j’ai assez de débit pour un mp3).
 > 320 Kbps
@@ -44,7 +44,7 @@ Trouvé dans l'historique
 
 # Le courage
 
-> Une MEP le vendredi avec la CI KO, vous êtes mes héros :heart_eyes:
+> Une MEP le vendredi avec la CI KO, vous êtes mes héros 😍
 
 # Note à moi-même
 
@@ -111,7 +111,7 @@ Trouvé dans l'historique
 
 En parlant de lignes supprimées.
 
-![screenshot d'une PR](/images/posts/dev-facts-13/review.png)
+![A: Where did this go? 🤔 B: In a black hole. 😞](/images/posts/dev-facts-13/review.png)
 
 # Technique de sioux
 
@@ -119,7 +119,7 @@ En parlant de lignes supprimées.
 
 # On peut revert une fois, mais pas quinze !
 
-![screenshot d'une PR](/images/posts/dev-facts-13/revert.png)
+![Screenshot d'un commit dont le titre commence par: "Revert "Revert "Revert ..."](/images/posts/dev-facts-13/revert.png)
 
 # Définition AWS
 
