@@ -103,6 +103,10 @@ Trouvé dans l'historique
 
 > A: "Entre quote"
 
+# La documentation éternelle
+
+> Les temps changent mais pas les readme
+
 # Les petits génies
 
 > Nan mais attendez vous à plein de commentaires disant que c’est codé avec les pieds, et que Jean-Kevin, 16 ans, aurait mieux fait en 2j pendant son week-end chez sa mamie Germaine, pendant qu’il faisait une pause dans le développement du nouveau Bitcoin.
