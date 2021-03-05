@@ -18,7 +18,7 @@ image:
 comments: true  
 ---
 
-Ça faisait un très très long moment ! Voici le retour des [devfacts](http://tech.m6web.fr/tags.html#devfacts) !
+Ça faisait un très très long moment ! Voici le retour des [devfacts](/tags.html#devfacts) !
 
 # L'erreur est humaine
 > Il faut mieux recevoir une erreur 500, que 500 erreurs

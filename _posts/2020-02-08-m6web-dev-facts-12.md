@@ -18,7 +18,7 @@ image:
 comments: true  
 ---
 
-Reprenons un rythme soutenu des [devfacts](http://tech.m6web.fr/tags.html#devfacts) !
+Reprenons un rythme soutenu des [devfacts](/tags.html#devfacts) !
 
 # En parlant de slack
 > stalker ou bosser il faut choisir

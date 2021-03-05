@@ -18,7 +18,7 @@ image:
 comments: true  
 ---
 
-Reprenons un rythme soutenu des [devfacts](http://tech.m6web.fr/tags.html#devfacts) !
+Reprenons un rythme soutenu des [devfacts](/tags.html#devfacts) !
 
 # La persuasion
 > L'important, c'est d'être convaincu qu't'es convaincu
