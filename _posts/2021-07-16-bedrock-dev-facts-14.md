@@ -43,7 +43,7 @@ Apportez vos [devfacts](/tags.html#devfacts) à la plage cet été!
 <blockquote class="twitter-tweet"><p lang="fr" dir="ltr">Quand tu fais du ménage dans ton compte AWS de tests et que tu te dis qu&#39;un collègue doit avoir l&#39;oreille musicale 🎶 <a href="https://t.co/yIINlboQBy">pic.twitter.com/yIINlboQBy</a></p>&mdash; Pascal MARTIN (@pascal_martin) <a href="https://twitter.com/pascal_martin/status/1370331336477659137?ref_src=twsrc%5Etfw">March 12, 2021</a></blockquote> 
 
 # Review in progress
-![screenshot d'une Pull request avec à la fois in review et in progress en label](/images/posts/dev-facts-14/in-porgress-review.png)
+![screenshot d'une Pull request avec à la fois in review et in progress en label](/images/posts/dev-facts-14/in-progress-review.png)
 
 # IPV6 c'est pas encore hyper clair
 > Oui mais c’est une grosse IP
