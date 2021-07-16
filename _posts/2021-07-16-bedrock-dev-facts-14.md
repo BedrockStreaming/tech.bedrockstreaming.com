@@ -58,7 +58,7 @@ Apportez vos [devfacts](/tags.html#devfacts) à la plage cet été!
 > L’Internet, c’était nous
 
 # Une API c'est pas si mal en fait
-> Quand je vois l'UX de la console AWS, je me demande si il y a pas un véritable volonté à nous pousser à faire de _l'infrastructure as code_
+> Quand je vois l'UX de la console AWS, je me demande s'il n'y a pas une véritable volonté à nous pousser à faire de _l'infrastructure as code_
 
 # De la part d'un dev backend Php 😱
 > J'aime mettre du javascript partout
