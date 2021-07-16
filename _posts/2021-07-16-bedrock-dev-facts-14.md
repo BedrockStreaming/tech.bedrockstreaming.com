@@ -110,7 +110,7 @@ _Une légende raconte qu'il faut déployer deux fois le deployer_
 > On était 80 stagiaires sur le projet
 
 # 🎰
-> La magie du chmod -R 777. Je te dirais pas que j'en ai réjouté dans mes 3 dernières PR pour fixer de la CI
+> La magie du chmod -R 777. Je te dirais pas que j'en ai rajouté dans mes 3 dernières PR pour fixer de la CI
 
 # Iterm 2 secret features
 Ma recherche Google:
