@@ -29,7 +29,7 @@ Apportez vos [devfacts](/tags.html#devfacts) à la plage cet été!
 > _ On ne pourrait pas attendre le RustNoRust ce serait plus performant
 
 # 1... 2... 3... extincteurs
-> Parlant au mec d'AWS
+> Parlant à un hébergeur cloud
 >
 > "Tu sais la petite boite française en trois lettres qui a eu chaud ce matin?"
 
