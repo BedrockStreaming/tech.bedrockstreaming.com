@@ -101,7 +101,7 @@ Apportez vos [devfacts](/tags.html#devfacts) à la plage cet été!
 > 
 > Le PO: "On ne sait rien faire nous"
 
-# Bouger pas
+# Bougez pas
 > Je déploie le deployer
 
 _Une légende raconte qu'il faut déployer deux fois le deployer_
