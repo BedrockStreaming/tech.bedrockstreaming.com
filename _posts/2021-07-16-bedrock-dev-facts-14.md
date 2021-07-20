@@ -90,9 +90,6 @@ Apportez vos [devfacts](/tags.html#devfacts) à la plage cet été!
 # Entendu juste après une grosse MEP
 > Oh! Il faut que je mette en place un mail de vacances.
 
-# En parlant de masturbation intellectuelle
-> La masturbation, c’est pour se faire du bien
-
 # Des frites 🍟
 > Mes critères de succès, c’est les grosses patates
 
