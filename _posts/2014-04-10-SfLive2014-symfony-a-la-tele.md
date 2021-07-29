@@ -31,4 +31,4 @@ L'enregistrement audio (avec les slides) est disponible ici :
 
 Je tiens à remercier toutes les personnes avec qui j'ai pu échanger autour des thématiques de la conférence. J'ai eu beaucoup de plaisir à m'apercevoir que de nombreux conférenciers citaient le travail de M6Web pendant leur talk !
 
-Rendez vous au [phptour](http://www.phptour.org) à Lyon pour les prochaines conférences techniques M6Web par Kenny Dits et Baptiste Dupain. (les meilleurs d'entre nous).
+Rendez vous au [phptour](http://www.phptour.org) à Lyon pour les prochaines conférences techniques M6Web.
