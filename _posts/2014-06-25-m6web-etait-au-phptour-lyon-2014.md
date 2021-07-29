@@ -19,22 +19,7 @@ comments: true
 ---
 
 Le Lundi 23 et Mardi 24 juin a eu lieu l'événement PHP de l'année à Lyon : le PHPTour Lyon.
-À cette occasion, les équipes d'M6Web ont présenté deux talks, dont voici les slides et vidéos :
-
-# Take a walk on the OPS side (par Baptiste D.)
-
-La première conférence de @techM6Web a été tenue par Baptiste D ([@bdu_p](https://twitter.com/bdu_p)) : "Take a walk on the OPS side".
-
-<iframe width="560" height="315" src="//www.youtube.com/embed/O03GflHG-WU?rel=0" frameborder="0" allowfullscreen></iframe>
-
-
-<iframe src="//www.slideshare.net/slideshow/embed_code/36209122" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-[Voir les commentaires sur Joind.in](https://joind.in/talk/view/11221)
-
-Baptiste a aussi fait sensation en offrant quelques gateaux spécialement réalisés pour cette occasion :
-
-<blockquote class="twitter-tweet" lang="fr"><p>Y&#39;a pas de mal à se faire une <a href="https://twitter.com/hashtag/elephpant?src=hash">#elephpant</a> de temps en temps... <a href="https://twitter.com/hashtag/phptour?src=hash">#phptour</a> // <a href="https://twitter.com/bdu_p">@bdu_p</a> <a href="http://t.co/frBpxu0vEq">pic.twitter.com/frBpxu0vEq</a></p>&mdash; Benoit Viguier (@b_viguier) <a href="https://twitter.com/b_viguier/statuses/481144326563827713">23 Juin 2014</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+À cette occasion, les équipes d'M6Web ont présenté un talk, dont voici les slides et vidéos :
 
 #Nouveau socle pour une nouvelle vie, chez M6Web (par Kenny Dits)
 
