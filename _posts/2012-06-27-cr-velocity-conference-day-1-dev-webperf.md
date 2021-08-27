@@ -46,7 +46,7 @@ Au menu :
 - Optimisation de l'affichage perçu utilisateur
 
 Les slides parlent d'elles même et sont disponibles ici :   
-[http://perf-metrics-velocity2012.appspot.com](http://perf-metrics-velocity2012.appspot.com) .
+[https://perf-metrics-velocity2012.appspot.com](https://perf-metrics-velocity2012.appspot.com) .
 
 Elles parcourent l'intégralité des notions de WebPerf existantes "à jour", dont certaines peu connues comme la Speculative loading, et permettent surtout de comprendre ce qu'elles signifient très précisément.
 
@@ -65,12 +65,12 @@ Cette fonctionnalité permet, comme son nom l'indique, de montrer le chemin crit
 
 
 
-<a href="http://www.flickr.com/photos/norby/7446201456/" title="Bryan McQuade de Norby, sur Flickr"><img src="http://farm9.staticflickr.com/8168/7446201456_b2cfe5aab5.jpg" width="400" height="500" alt="Bryan McQuade"></a>
+<a href="https://www.flickr.com/photos/norby/7446201456/" title="Bryan McQuade de Norby, sur Flickr"><img src="https://farm9.staticflickr.com/8168/7446201456_b2cfe5aab5.jpg" width="400" height="500" alt="Bryan McQuade"></a>
 
 Bryan McQuade (Google)
 
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/NTAi3ILOa1c?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/NTAi3ILOa1c?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 La Lightning Démo de Page Speed ayant eu lieu le lendemain
 
 
@@ -83,13 +83,13 @@ L'idée ici était de montrer en 90 minutes avec quels outils obtenir un dashboa
 Après une longue présentation orale d'outils plutôt connus désormais comme :
 
 - [Boomerang.Js](https://github.com/yahoo/boomerang)
-- [WebPageTest instance privée + API](http://www.webpagetest.org)
-- [Piwik](http://piwik.org/) (clone de Google Analytics)
+- [WebPageTest instance privée + API](https://www.webpagetest.org)
+- [Piwik](https://piwik.org/) (clone de Google Analytics)
 - [StatsD](https://github.com/etsy/statsd) (collecteur pour Graphite)
-- [Graphite](http://graphite.wikidot.com/)
-- [REDbot.org](http://redbot.org/)
+- [Graphite](https://graphite.wikidot.com/)
+- [REDbot.org](https://redbot.org/)
 - cUrl
-- [ShowSlow](http://www.showslow.com/)
+- [ShowSlow](https://www.showslow.com/)
 - …
 
 Les deux conférenciers nous présentent un site réalisé pour l'occasion : "Sally Squirrel’s Dance Emporium", hommage aux gifs animés d'écureuils dansant, et nous font une démo (un peu capricieuse) de leur dashboard basé sur Piwik, alternative Google Analytics avec un système de "plugin" visiblement pour aggréger un peu le tout.
@@ -103,9 +103,9 @@ Je doute aussi de la robustesse de Piwik que nous avions déjà étudier, et voi
 Pour l'anecdote, sur le wiki de Piwik, on lit cette phrase que je vous laisse apprécier : "If your website has more than a few hundreds visits per day (bravo!), waiting for Piwik to process your data may take a few minutes"
 
 Je vous invite tout de même à lire les slides :   
-[http://assets.en.oreilly.com/1/event/79/A%20Web%20Perf%20Dashboard_%20%20Up%20_%20Running%20in%2090%20Minutes%20Presentation.pptx](http://assets.en.oreilly.com/1/event/79/A%20Web%20Perf%20Dashboard_%20%20Up%20_%20Running%20in%2090%20Minutes%20Presentation.pptx)
+[https://assets.en.oreilly.com/1/event/79/A%20Web%20Perf%20Dashboard_%20%20Up%20_%20Running%20in%2090%20Minutes%20Presentation.pptx](https://assets.en.oreilly.com/1/event/79/A%20Web%20Perf%20Dashboard_%20%20Up%20_%20Running%20in%2090%20Minutes%20Presentation.pptx)
 
-Ainsi qu'à tester la VM mise à disposition, car le travail derrière est conséquent, et peut correspondre à certains, ou peut au moins donner des idées pour d'autres : [http://t.co/uLv1fX1A](http://t.co/uLv1fX1A)
+Ainsi qu'à tester la VM mise à disposition, car le travail derrière est conséquent, et peut correspondre à certains, ou peut au moins donner des idées pour d'autres : [https://t.co/uLv1fX1A](https://t.co/uLv1fX1A)
 
 **A retenir : **
 
@@ -122,7 +122,7 @@ A retenir aussi dans cette présentation, tout le bien qui a été dit de Graphi
 
 L'une des conférences que j'attendais beaucoup : le titre annonçait un talk sur la gestion d'incident avec un coté humoristique.
 
-Les deux conférenciers ont présentés des templates très complet de gestion d'incident qu'ils réalisent pour des posts-mortems qu'on peut retrouver ici : [http://www.teresadietrich.net/?page_id=37](http://www.teresadietrich.net/?page_id=37)
+Les deux conférenciers ont présentés des templates très complet de gestion d'incident qu'ils réalisent pour des posts-mortems qu'on peut retrouver ici : [https://www.teresadietrich.net/?page_id=37](https://www.teresadietrich.net/?page_id=37)
 
 Personnellement, il me parait très important de réaliser des posts mortems. Mais si c'est pour passer plus de temps à rédiger des rapports d'incidents trop complet qu'on ne relira jamais qu'a en tirer un quelconque bénéfice, cela me parait inutile.
 
@@ -130,10 +130,10 @@ Du coup, la première demi-heure a consisté à présenter ces templates, lire e
 
 J'ai, comme une bonne partie de la salle, fait l'impasse rapidement : entre le sujet dans lequel je ne suis jamais rentré ainsi que des slides avec beaucoup de texte illisible passés les premiers rangs de la très grande salle, je n'ai pas accroché.
 
-A revoir tête reposée : [http://velocityconf.com/velocity2012/public/schedule/detail/23615](http://velocityconf.com/velocity2012/public/schedule/detail/23615) (slides non dispo à l'heure actuelle)
+A revoir tête reposée : [https://velocityconf.com/velocity2012/public/schedule/detail/23615](https://velocityconf.com/velocity2012/public/schedule/detail/23615) (slides non dispo à l'heure actuelle)
 
 
-<a href="http://www.flickr.com/photos/norby/7446205242/" title="Teresa Dietrich and Derek Chang de Norby, sur Flickr"><img src="http://farm8.staticflickr.com/7256/7446205242_f5752167d7.jpg" width="500" height="333" alt="Teresa Dietrich and Derek Chang"></a>
+<a href="https://www.flickr.com/photos/norby/7446205242/" title="Teresa Dietrich and Derek Chang de Norby, sur Flickr"><img src="https://farm8.staticflickr.com/7256/7446205242_f5752167d7.jpg" width="500" height="333" alt="Teresa Dietrich and Derek Chang"></a>
 
 Teresa Dietrich (WebMD), Derek Chang (WebMD)
 
@@ -158,11 +158,11 @@ Des points ont été approfondis comme la gestion du cache, via LocalStorage, du
 Beaucoup d'outils ont aussi été mentionnés pour la WebPerf mobile :
 
 - Chrome remote debugging : [Http://developers.google.com/chrome/mobile/docs/debugging/](Http://developers.google.com/chrome/mobile/docs/debugging/)
-- iWebInspector for IOS simulator : [www.iwebinspector.com](http://www.iwebinspector.com)
-- Weinre : Remote debugging from the desktop for what the phone is doing : [http://people.apache.org/~pmuellr/weinre/](http://people.apache.org/~pmuellr/weinre/)
-- Aardwolf : Remote js debugging [lexandera.com/aardwolf](http://http://lexandera.com/aardwolf/)
-- Mobile Perf Bookmarklet : [stevesouders.com/mobileperf/mobileperfbkm.php](http://www.stevesouders.com/mobileperf/mobileperfbkm.php)
-- Pcap2har : Turn packet captures to waterfalls [http://pcapperf.appspot.com](http://pcapperf.appspot.com)
+- iWebInspector for IOS simulator : [www.iwebinspector.com](https://www.iwebinspector.com)
+- Weinre : Remote debugging from the desktop for what the phone is doing : [https://people.apache.org/~pmuellr/weinre/](https://people.apache.org/~pmuellr/weinre/)
+- Aardwolf : Remote js debugging [lexandera.com/aardwolf](https://https://lexandera.com/aardwolf/)
+- Mobile Perf Bookmarklet : [stevesouders.com/mobileperf/mobileperfbkm.php](https://www.stevesouders.com/mobileperf/mobileperfbkm.php)
+- Pcap2har : Turn packet captures to waterfalls [https://pcapperf.appspot.com](https://pcapperf.appspot.com)
 - …
 
 Bref, un très bon panorama pour la WebPerf mobile avec deux cas concret d'étude, chacun avec deux approches différentes :
@@ -170,13 +170,13 @@ Bref, un très bon panorama pour la WebPerf mobile avec deux cas concret d'étud
 - Améliorer les métriques de WebPerf pour le site d'Oreilly
 - Améliorer la perception utilisateur sans regarder les métriques pour le site mobile de la Vélocityconf
 
-Slides dispo ici : [http://www.strangeloopnetworks.com/blog/the-90-minute-mobile-optimization-life-cycle/](http://www.strangeloopnetworks.com/blog/the-90-minute-mobile-optimization-life-cycle/)
+Slides dispo ici : [https://www.strangeloopnetworks.com/blog/the-90-minute-mobile-optimization-life-cycle/](https://www.strangeloopnetworks.com/blog/the-90-minute-mobile-optimization-life-cycle/)
 
 Je vous invite aussi à regarder son interview ci dessous.
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/TpkxPEurk9M?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/TpkxPEurk9M?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
 ![CR Velocity Conference 2012 : Day 1 (Dev/Webperf)](/images/posts/velocityus-akamai-pool.jpg)
 
@@ -196,8 +196,8 @@ DevOps drinking session / @jstinson
 
 A 19h30 avait lieu les Ignite sessions, des confs "lightning talks" de 5 minutes sur des sujets divers, certains très intéressant comme :
 
-- le "Perceptual Diff" par un ingénieur de chez Google, pour être alerté (par l'intégration continue) lorsque la page du Service customers de chez Google change. [Photos de la présentation ici](http://www.onebigfluke.com/2012/06/i-showed-how-perceptual-diffs-are-core.html) + [http://pdiff.sourceforge.net/](http://pdiff.sourceforge.net/)
-- les #lolops, avec une série de Twitt orientée Devops à mourir de rire : Voir ici [http://www.slideshare.net/cwestin63/lolops-a-years-worth-of-humorous-engineering-tweets](http://www.slideshare.net/cwestin63/lolops-a-years-worth-of-humorous-engineering-tweets)
+- le "Perceptual Diff" par un ingénieur de chez Google, pour être alerté (par l'intégration continue) lorsque la page du Service customers de chez Google change. [Photos de la présentation ici](https://www.onebigfluke.com/2012/06/i-showed-how-perceptual-diffs-are-core.html) + [https://pdiff.sourceforge.net/](https://pdiff.sourceforge.net/)
+- les #lolops, avec une série de Twitt orientée Devops à mourir de rire : Voir ici [https://www.slideshare.net/cwestin63/lolops-a-years-worth-of-humorous-engineering-tweets](https://www.slideshare.net/cwestin63/lolops-a-years-worth-of-humorous-engineering-tweets)
 - ...
 
 Le concept est vraiment efficace avec des speakers ultra dynamique et pour la majorité très drôle.

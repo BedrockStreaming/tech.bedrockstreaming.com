@@ -14,7 +14,7 @@ tags: [code sniffing, coke, Symfony2]
 image:
   feature: posts/coke-et-symfony2/feature.png
   credit: Wikipedia
-  creditlink: http://upload.wikimedia.org/wikipedia/commons/3/36/Sus_scrofa_piglet.jpg
+  creditlink: https://upload.wikimedia.org/wikipedia/commons/3/36/Sus_scrofa_piglet.jpg
 comments: true
 ---
 
@@ -38,7 +38,7 @@ Depuis quelques mois, il est possible [d'installer coke via Composer](https://gi
 }
 {% endhighlight %}
 
-L'avantage de passer par Composer, c'est que coke va lui-même installer PHP_CodeSniffer en tant que dépendance Composer (dans le dossier `vendor`), permettant de ne pas avoir à suivre la [fastidieuse procédure d'installation via PEAR](http://pear.php.net/manual/en/guide.users.commandline.installing.php).
+L'avantage de passer par Composer, c'est que coke va lui-même installer PHP_CodeSniffer en tant que dépendance Composer (dans le dossier `vendor`), permettant de ne pas avoir à suivre la [fastidieuse procédure d'installation via PEAR](https://pear.php.net/manual/en/guide.users.commandline.installing.php).
 
 ## Installer un coding standard via Composer
 
@@ -46,7 +46,7 @@ Lorsque nous voulons utiliser un coding standard qui n'est pas inclus par défau
 
 ## Symfony2-coding-standard
 
-Chez M6Web, nous maintenons le standard [Symfony2-coding-standard](https://github.com/M6Web/Symfony2-coding-standard) qui permet de valider que le code d'un projet respecte les [coding standard de Symfony2](http://symfony.com/doc/current/contributing/code/standards.html).
+Chez M6Web, nous maintenons le standard [Symfony2-coding-standard](https://github.com/M6Web/Symfony2-coding-standard) qui permet de valider que le code d'un projet respecte les [coding standard de Symfony2](https://symfony.com/doc/current/contributing/code/standards.html).
 
 Pour rendre à César ce qui appartient à César, nous avons récupéré la base du standard telle que créé par [opensky](https://github.com/opensky).
 
@@ -90,7 +90,7 @@ Avec cette technique, il est très simple de valider le style de codage d'un pro
 
 ## Bonus
 
-L'idéal, pour ne jamais commiter un code ne respectant pas les conventions de codage, est d'utiliser les [hooks de commit](http://git-scm.com/book/en/Customizing-Git-Git-Hooks) pour que cette vérification soit faite automatiquement.
+L'idéal, pour ne jamais commiter un code ne respectant pas les conventions de codage, est d'utiliser les [hooks de commit](https://git-scm.com/book/en/Customizing-Git-Git-Hooks) pour que cette vérification soit faite automatiquement.
 
 La manière la plus simple de le faire est d'ajouter la ligne `./vendor/bin/coke` dans le fichier `.git/hooks/pre-commit`, mais cette méthode a le défaut de vérifier tout le projet, et pas uniquement le code modifié et à commiter.
 

@@ -23,11 +23,11 @@ language: en
 
 « Flux is the application architecture that Facebook uses for building client-side web applications. » That’s the definition of Flux on the [Facebook website](https://facebook.github.io/flux/). So Flux is just a pattern, not a framework, that goes well with React, but not only. The model is focused on user interactions. Its main strength is the unidirectional data flow that enforces developers to be careful and ensures code consistency when application grows up.
 
-Several libraries propose tools to implement Flux pattern easily. If no one stood out from the crowd at the beginning, now [Redux](http://redux.js.org/), created by [Dan Abramov](https://twitter.com/dan_abramov), is clearly the one that the community have chosen as you can see below. Most Flux based React start kits you can find are based on Redux.
+Several libraries propose tools to implement Flux pattern easily. If no one stood out from the crowd at the beginning, now [Redux](https://redux.js.org/), created by [Dan Abramov](https://twitter.com/dan_abramov), is clearly the one that the community have chosen as you can see below. Most Flux based React start kits you can find are based on Redux.
 
 ![Redux popularity](/images/posts/redux/redux-popularity.png)
 
-At M6Web, our [6play web application](/beta-nouveau-6play-react-isomorphic/) is not designed with Redux, but we use [Fluxible](http://fluxible.io/). Fluxible is another Flux library, developed by Yahoo. We chose it back in December 2014, when we started the project, because Fluxible was at the time one of the few tool designed for [isomorphic applications](/isomorphic-single-page-app-parfaite-react-flux/). Moreover it was already used in production by Yahoo.
+At M6Web, our [6play web application](/beta-nouveau-6play-react-isomorphic/) is not designed with Redux, but we use [Fluxible](https://fluxible.io/). Fluxible is another Flux library, developed by Yahoo. We chose it back in December 2014, when we started the project, because Fluxible was at the time one of the few tool designed for [isomorphic applications](/isomorphic-single-page-app-parfaite-react-flux/). Moreover it was already used in production by Yahoo.
 
 ## Why do we think Redux is a better choice
 
@@ -141,7 +141,7 @@ app.rehydrate(dehydratedState, (error, fluxibleContext) => {
 });
 {% endhighlight %}
 
-And that’s it! We can now use Redux in our component as usual, in combination with Fluxible. We can define actions and reducers for new features (instead of using Fluxible) but we can also transform progressively some Fluxible stores and actions into Redux flow, this is very easy. API requests stay in actions but data processing moves to reducers. Then data sorting and filtering logic in Fluxible stores moves to [selectors](http://redux.js.org/docs/recipes/ComputingDerivedData.html).
+And that’s it! We can now use Redux in our component as usual, in combination with Fluxible. We can define actions and reducers for new features (instead of using Fluxible) but we can also transform progressively some Fluxible stores and actions into Redux flow, this is very easy. API requests stay in actions but data processing moves to reducers. Then data sorting and filtering logic in Fluxible stores moves to [selectors](https://redux.js.org/docs/recipes/ComputingDerivedData.html).
 
 ## Components connection to stores
 

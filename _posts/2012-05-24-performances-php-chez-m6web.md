@@ -29,6 +29,6 @@ J’espère que certains points feront l’objet d’autres articles dans le fut
 
 
 
-**[Performances php chez M6Web](http://www.slideshare.net/kennydee/performances-php-chez-m6web "Performances php chez M6Web")**  
-<object height="355" id="__sse13060489" width="425"><param name="movie" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=performancephp-120524085541-phpapp02&stripped_title=performances-php-chez-m6web&userName=kennydee"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"></param><param name="wmode" value="transparent"></param></object>
+**[Performances php chez M6Web](https://www.slideshare.net/kennydee/performances-php-chez-m6web "Performances php chez M6Web")**  
+<object height="355" id="__sse13060489" width="425"><param name="movie" value="https://static.slidesharecdn.com/swf/ssplayer2.swf?doc=performancephp-120524085541-phpapp02&stripped_title=performances-php-chez-m6web&userName=kennydee"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"></param><param name="wmode" value="transparent"></param></object>
 

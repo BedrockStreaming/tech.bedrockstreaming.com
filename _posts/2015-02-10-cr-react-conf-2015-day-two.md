@@ -40,7 +40,7 @@ La dernière partie explique l’approche des équipes de Facebook sur la maniè
 
 C’est assez déstabilisant mais aussi ultra prometteur. Cela permet de résoudre quasiment tous les défauts de CSS (Global Namespace, Dependencies, Dead Code Elimination, Minification, Isolation …)
 
-Nous parcourons ensuite les manières de gérer du layout nativement dans iOS, que Christophe décrit comme « ultra-compliqué » ! Alors que coté web, nous avons le Box Model et [Flexbox](http://www.w3.org/TR/css3-flexbox/) qui résolvent tous ces problèmes assez facilement.
+Nous parcourons ensuite les manières de gérer du layout nativement dans iOS, que Christophe décrit comme « ultra-compliqué » ! Alors que coté web, nous avons le Box Model et [Flexbox](https://www.w3.org/TR/css3-flexbox/) qui résolvent tous ces problèmes assez facilement.
 
 Les équipes de Facebook ont donc décidé de re-coder Flexbox et le Box Model en JS avec une approche TDD, de manière à pouvoir utiliser la plupart des bases de Flexbox dans React Native pour faire du layout facilement sur iOS ! 
 
@@ -48,7 +48,7 @@ Vous pouvez retrouver le résultat « [Css-Layout](https://github.com/facebook/c
 
 La démonstration continue sur un « live coding » montrant le « live reload » entre la modification du JS et le rafraîchissement instantané du Simulator iOS. 
 
-Nous apprenons aussi que les modules ES6 ou Node comme [Underscore](http://underscorejs.org/), ou le SDK de [Parse](https://parse.com/) par exemple, fonctionneront sans problème du moment qu’ils n’ont pas de dépendance dans le browser ! 
+Nous apprenons aussi que les modules ES6 ou Node comme [Underscore](https://underscorejs.org/), ou le SDK de [Parse](https://parse.com/) par exemple, fonctionneront sans problème du moment qu’ils n’ont pas de dépendance dans le browser ! 
 C’est encore une fois très prometteur, et si React Native vous intéresse, la vidéo ci-dessous est une excellente introduction.
 
 J’ai, de mon coté, pu jouer quelques heures avec et c’est effectivement très sympa, intuitif et très rapide.
@@ -58,12 +58,12 @@ La version que nous avons ne contient pas encore tout ce que l’on voit dans la
 
 # The complementarity of React and Web Components
 
-Andrew Rota, [@AndrewRota](https://twitter.com/andrewrota), est de Boston, travaille pour [Wayfair.com](http://www.wayfair.com/) et explique comment utiliser des Web Components avec React, ou du React dans des Web Components.
+Andrew Rota, [@AndrewRota](https://twitter.com/andrewrota), est de Boston, travaille pour [Wayfair.com](https://www.wayfair.com/) et explique comment utiliser des Web Components avec React, ou du React dans des Web Components.
 Il nous montre un exemple d’un player html5 vidéo avec un shadow dom qui contient tous les contrôles du player (de simple input HTML).
 
 La communauté WebComponent a déjà partagé pas mal de WebComponents : 
 
- - [les x-](http://www.x-tags.org/)
+ - [les x-](https://www.x-tags.org/)
  - [les core-](https://www.polymer-project.org/docs/elements/core-elements.html#core-a11y-keys)
  - [google-](https://github.com/GoogleWebComponents)
  - [paper-](https://www.polymer-project.org/docs/elements/paper-elements.html#paper-button)
@@ -85,32 +85,32 @@ Pour en savoir plus sur les Web Components : [Polymer-Project](https://www.polym
 Lee Byron, [@leeb](https://twitter.com/leeb), enchaîne sur l’immuabilité !
 Concept passionnant que nous avons entendu dans presque l’intégralité des conférences.
 
-> Un objet immuable, en programmation orientée objet et fonctionnelle, est un objet dont l'état ne peut pas être modifié après sa création. Ce concept est à contraster avec celui d'objet variable. Source : [Wikipédia](http://fr.wikipedia.org/wiki/Objet_immuable)
+> Un objet immuable, en programmation orientée objet et fonctionnelle, est un objet dont l'état ne peut pas être modifié après sa création. Ce concept est à contraster avec celui d'objet variable. Source : [Wikipédia](https://fr.wikipedia.org/wiki/Objet_immuable)
 
-Lee Byron est donc le créateur de la librairie [Immutable-JS](http://facebook.github.io/immutable-js/) permettant de gérer facilement des collections immuable en JS.
+Lee Byron est donc le créateur de la librairie [Immutable-JS](https://facebook.github.io/immutable-js/) permettant de gérer facilement des collections immuable en JS.
 
-> Immutable data cannot be changed once created, leading to much simpler application development, no defensive copying, and enabling advanced memoization and change detection techniques with simple logic. Persistent data presents a mutative API which does not update the data in-place, but instead always yields new updated data. Source : [immutable-js](http://facebook.github.io/immutable-js/)
+> Immutable data cannot be changed once created, leading to much simpler application development, no defensive copying, and enabling advanced memoization and change detection techniques with simple logic. Persistent data presents a mutative API which does not update the data in-place, but instead always yields new updated data. Source : [immutable-js](https://facebook.github.io/immutable-js/)
 
 > React is the V in MVC. We don't need an M. We already have arrays and objects.
 
-D’ailleurs, on parle aussi d’objets immuables coté Angular 2 : [Change Detection in Angular 2](http://victorsavkin.com/post/110170125256/change-detection-in-angular-2)
+D’ailleurs, on parle aussi d’objets immuables coté Angular 2 : [Change Detection in Angular 2](https://victorsavkin.com/post/110170125256/change-detection-in-angular-2)
 
 <iframe width="720" height="405" src="https://www.youtube.com/embed/I7IdS-PbEgI" frameborder="0" allowfullscreen></iframe>
 
 # Beyond the DOM: How Netflix plans to enhance your television experience
 
 L’une des conférences que j’attendais le plus, par Jafar Husain, [@jhusain](https://twitter.com/jhusain), Technical Lead chez Netflix.
-Pour plusieurs raisons, déjà parce que Netflix … qui en a profité pour annoncer la veille que « Netflix aimait React » mais aussi parce que Jafar est connu pour pas mal de choses (différents blog posts ou présentations), ainsi qu’un [cours interactif sur la programmation fonctionnelle en Javascript](http://jhusain.github.io/learnrx/) sur lequel j’ai passé pas mal de temps.
+Pour plusieurs raisons, déjà parce que Netflix … qui en a profité pour annoncer la veille que « Netflix aimait React » mais aussi parce que Jafar est connu pour pas mal de choses (différents blog posts ou présentations), ainsi qu’un [cours interactif sur la programmation fonctionnelle en Javascript](https://jhusain.github.io/learnrx/) sur lequel j’ai passé pas mal de temps.
 
 Il nous a donc expliqué les plans de Netflix pour améliorer l’expérience Télé sur leurs services, et comment React les a grandement aidés à le faire.
 
-Pour connaître les raisons pour lesquels ils ont choisi React, je vous invite à lire l’article [Netflix like React](http://techblog.netflix.com/2015/01/netflix-likes-react.html) (Startup Speed et [Server Side Rendering](http://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/) \o/, Runtime Performance, Modularity).
+Pour connaître les raisons pour lesquels ils ont choisi React, je vous invite à lire l’article [Netflix like React](https://techblog.netflix.com/2015/01/netflix-likes-react.html) (Startup Speed et [Server Side Rendering](https://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/) \o/, Runtime Performance, Modularity).
 
 Aujourd’hui, Netflix développe majoritairement en Javascript et ont 3 UI en JS, une pour le mobile, une pour le web et une pour les télés.
 Ils ont vu assez vite que le DOM était très loin, c’est pourquoi ils ont créé et introduit Gibbon (une sorte de Webkit maison plus rapide et adapté à leur besoin sur les téléviseurs).
 Ils ont donc fait évoluer React (un fork au départ) pour permettre de sortir vers quelque chose d’autres que du DOM afin de correspondre à leur moteur Gibbon et vont donc continuer en 2015 le déploiement de leur nouvelle UI avec React sur tous les services y compris télés.
 
-Vous pouvez retrouver le [Netflix Open Source Software Center](http://netflix.github.io/) pour découvrir le grand nombre d’outils Open source de qualité qu’ils délivrent.
+Vous pouvez retrouver le [Netflix Open Source Software Center](https://netflix.github.io/) pour découvrir le grand nombre d’outils Open source de qualité qu’ils délivrent.
 
 <iframe width="720" height="405" src="https://www.youtube.com/embed/eNC0mRYGWgc" frameborder="0" allowfullscreen></iframe>
 
@@ -118,13 +118,13 @@ Vous pouvez retrouver le [Netflix Open Source Software Center](http://netflix.gi
 
 Zach Nation travaille chez [Dato](https://dato.com/products/create/open_source.html) (anciennement GraphLab) et doit traiter de très grandes quantités de données dans ses applications.
 
-Il démontre l’intérêt de React couplée à [d3.js](http://d3js.org/) (une librairie de visualisation exceptionnelle) pour représenter à l’écran des transactions Bitcoin (en parsant un fichier de 21G ! en live).
+Il démontre l’intérêt de React couplée à [d3.js](https://d3js.org/) (une librairie de visualisation exceptionnelle) pour représenter à l’écran des transactions Bitcoin (en parsant un fichier de 21G ! en live).
 
 <iframe width="720" height="405" src="https://www.youtube.com/embed/2ii1lEkIv1s" frameborder="0" allowfullscreen></iframe>
 
 # Refracting React
 
-Talk par David Nolen, [@swannodette](https://twitter.com/swannodette), personne très influente dans la communauté JS ([son blog](http://swannodette.github.io/)). Créateur de [Om](https://github.com/omcljs/om), [ClojureScript](https://github.com/clojure/clojurescript), il nous explique que React doit être vue comme une plateforme (plutôt que librairie ou framework). On apprend aussi les concepts à l’origine d’Om.
+Talk par David Nolen, [@swannodette](https://twitter.com/swannodette), personne très influente dans la communauté JS ([son blog](https://swannodette.github.io/)). Créateur de [Om](https://github.com/omcljs/om), [ClojureScript](https://github.com/clojure/clojurescript), il nous explique que React doit être vue comme une plateforme (plutôt que librairie ou framework). On apprend aussi les concepts à l’origine d’Om.
 
 <iframe width="720" height="405" src="https://www.youtube.com/embed/5hGHdETNteE" frameborder="0" allowfullscreen></iframe>
 
@@ -132,11 +132,11 @@ Talk par David Nolen, [@swannodette](https://twitter.com/swannodette), personne 
 
 Bill Fisher (Facebook) a rassemblé une partie des utilisateurs (voir des contributeurs) à React pour confronter les différentes approches sur l’utilisation de Flux, ainsi que sur la manière de gérer de l’isomorphisme.
 
-On parle notamment, via Michael Ridgway, [@theridgway](https://twitter.com/theridgway), de [Fluxible](http://www.fluxible.io), la librairie open source proposée par Yahoo (que nous utilisons), qui a annoncé le jour même la création de sa [documentation en ligne isomorphique](http://www.fluxible.io), elle-même [open source](https://github.com/yahoo/fluxible.io) et utilisant Fluxible.
+On parle notamment, via Michael Ridgway, [@theridgway](https://twitter.com/theridgway), de [Fluxible](https://www.fluxible.io), la librairie open source proposée par Yahoo (que nous utilisons), qui a annoncé le jour même la création de sa [documentation en ligne isomorphique](https://www.fluxible.io), elle-même [open source](https://github.com/yahoo/fluxible.io) et utilisant Fluxible.
 
-Spike Brehm est aussi intervenu pour AirBnb, qui fut la première société, je pense, à parler d’[isomorphisme](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/).
+Spike Brehm est aussi intervenu pour AirBnb, qui fut la première société, je pense, à parler d’[isomorphisme](https://nerds.airbnb.com/isomorphic-javascript-future-web-apps/).
 
-Andres Suarez a aussi présenté la manière de gérer l’isomorphisme chez Soundcloud. Vous pouvez avoir beaucoup plus d’infos de sa part dans cette [excellente vidéo](http://vimeo.com/108488724).
+Andres Suarez a aussi présenté la manière de gérer l’isomorphisme chez Soundcloud. Vous pouvez avoir beaucoup plus d’infos de sa part dans cette [excellente vidéo](https://vimeo.com/108488724).
 
 Si vous êtes intéressés par les différentes approches de Flux, vous pouvez comparez ici les implémentations : [Flux Comparison](https://github.com/voronianski/flux-comparison)
 
@@ -148,7 +148,7 @@ L’approche était intéressante mais le résultat un peu décevant car les suj
 
 # Codecademy's approach to component communication
 
-Bonnie Eisenman, [@brindelle](https://twitter.com/brindelle), travaille pour [CodeAcademy](http://www.codecademy.com/?locale_code=fr).
+Bonnie Eisenman, [@brindelle](https://twitter.com/brindelle), travaille pour [CodeAcademy](https://www.codecademy.com/?locale_code=fr).
 CodeAcademy est un service gratuit du secteur éducatif permettant d’apprendre à coder dans certains langages.
 
 Bonnie a partagé la manière dont son équipe a appréhendé React, et notamment la communication entre composant. Ces réflexions ont eu lieu avant qu’ils n’aient connaissance du pattern Flux.
@@ -164,7 +164,7 @@ James Brantly, de chez [AssureSign](https://www.assuresign.com/), commence avec 
 <blockquote class="twitter-tweet" lang="fr"><p>On the 1st day God created the web. On the 2nd day God wrote jQuery. Then God blacked out, 3 days later awoke &amp; invented React. <a href="https://twitter.com/hashtag/reactjsconf?src=hash">#reactjsconf</a></p>&mdash; Matt Huebert (@mhuebert) <a href="https://twitter.com/mhuebert/status/560823099055407105">29 Janvier 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-Il présente ensuite [TypeScript](http://www.typescriptlang.org/) et [Flow](http://flowtype.org/), deux outils pour améliorer et sécuriser la production de code.
+Il présente ensuite [TypeScript](https://www.typescriptlang.org/) et [Flow](https://flowtype.org/), deux outils pour améliorer et sécuriser la production de code.
 
 En partant d’une application React d’exemple, il nous montre comment on intégre TypeScript et comment il l’a “hacké” pour qu’il reconnaisse le JSX, puis comment il ajoute Flow.
 
@@ -186,8 +186,8 @@ Bref, une vraie belle réussite. Chapeau aux organisateurs (merci [@vjeux](https
 
 Il se passe réellement quelque chose de grand dans la communauté Front-End grâce à React. Il suffit de voir la vitesse à laquelle les tickets d’entrée sont partis (même chose au React Meetup parisien de Décembre 2014), de voir que tous les frameworks MVC tentent de s’en inspirer (pré-render, SSR, Virtual-Dom …).
 
-Pour finir, je voulais aussi partager le travail d’une des personnes présentes lors de cette conférence, ayant une façon très particulière de prendre des notes sur chacun des talks : [http://chantastic.io/2015-reactjs-conf/](http://chantastic.io/2015-reactjs-conf/)
+Pour finir, je voulais aussi partager le travail d’une des personnes présentes lors de cette conférence, ayant une façon très particulière de prendre des notes sur chacun des talks : [https://chantastic.io/2015-reactjs-conf/](https://chantastic.io/2015-reactjs-conf/)
 
-p.s: Retrouvez les [retours sur la première journée de la React conférence 2015](http://tech.m6web.fr/cr-react-conf-2015-day-one/).
+p.s: Retrouvez les [retours sur la première journée de la React conférence 2015](https://tech.m6web.fr/cr-react-conf-2015-day-one/).
 
 Enjoy !

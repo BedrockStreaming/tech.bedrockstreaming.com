@@ -42,7 +42,7 @@ On peut retenir :
  - utiliser les solutions de stockage coté client,
  - de très nombreux outils de simulation existent, il faut les maitriser.
 
-Il propose un site récapitulant toutes les informations délivrées : [http://firtman.github.io/velocity/](http://firtman.github.io/velocity/).
+Il propose un site récapitulant toutes les informations délivrées : [https://firtman.github.io/velocity/](https://firtman.github.io/velocity/).
 
 Slides :  
 
@@ -52,9 +52,9 @@ Slides :
 
 ## Zero Downtime Deployment with Ansible
 
-![ansible](http://www.ansible.com/hs-fs/hub/330046/file-764918161-png/Official_Logos/ansible_logo_black_square.png)
+![ansible](https://www.ansible.com/hs-fs/hub/330046/file-764918161-png/Official_Logos/ansible_logo_black_square.png)
 
-[Slides](http://cdn.oreillystatic.com/en/assets/1/event/121/Zero%20Downtime%20Deployment%20with%20Ansible%20Presentation.pdf)
+[Slides](https://cdn.oreillystatic.com/en/assets/1/event/121/Zero%20Downtime%20Deployment%20with%20Ansible%20Presentation.pdf)
 
 [Github Repo](https://github.com/steinim/zero-downtime-ansible)
 
@@ -78,33 +78,33 @@ Le déploiement avec zéro temps de panne peut être implémenté avec Ansible d
 
 Le nombre de machine traitées en parallèle est bien entendu configurable.
 
-![ansible_deploy](http://cdn2.hubspot.net/hub/330046/file-480404281-png/site_diagrams/app_deploy_diagram.png?t=1416582132229)
+![ansible_deploy](https://cdn2.hubspot.net/hub/330046/file-480404281-png/site_diagrams/app_deploy_diagram.png?t=1416582132229)
 
-Je suis Ansible depuis quelques mois déjà et j'ai été conforté dans l'idée que c'est un excellent produit: pas d'agent, basé sur une brique solide qu'est SSH, et développé en Python :) La gestion de l'inventaire peut être délicate, mais un CMDB comme [Collins de Tumblr](http://tumblr.github.io/collins/index.html) ou un taggage précis peuvent résoudre l'équation.
+Je suis Ansible depuis quelques mois déjà et j'ai été conforté dans l'idée que c'est un excellent produit: pas d'agent, basé sur une brique solide qu'est SSH, et développé en Python :) La gestion de l'inventaire peut être délicate, mais un CMDB comme [Collins de Tumblr](https://tumblr.github.io/collins/index.html) ou un taggage précis peuvent résoudre l'équation.
 
 Ansible facilite le déploiement d'infrastructure immuable, le blue/green, violet et canary deployment de par son modèle. C'est un atout qui en fait à mon sens le meilleur système de gestion de configuration aujourd'hui.
 
 Cependant je reste encore un peu dubitatif sur le déploiement et le rollback de code qui ne sont pas encore à la hauteur de Capistrano. Un aperçu du workflow et des schémas de développement auraient été aussi bienvenus.
 
 - [Ansible Galaxy](https://galaxy.ansible.com/)
-- [Ansible Docs](http://docs.ansible.com/index.html)
+- [Ansible Docs](https://docs.ansible.com/index.html)
 - [How Twitter use Ansible](https://www.youtube.com/watch?v=fwGrKXzocg4)
-- [Ansible Tower (Payant)](http://www.ansible.com/tower)
-- [Thoughts on deploying Symfony with Ansible](http://www.future500.nl/articles/2014/07/thoughts-on-deploying-with-ansible/)
+- [Ansible Tower (Payant)](https://www.ansible.com/tower)
+- [Thoughts on deploying Symfony with Ansible](https://www.future500.nl/articles/2014/07/thoughts-on-deploying-with-ansible/)
 
 ---
 
 ## Linux Containers from Scratch
 
-![container](http://image.slidesharecdn.com/linuxcontainersfromscratch-velocitybarcelona2014-141119031144-conversion-gate01/95/linux-containers-from-scratch-1-638.jpg)
+![container](https://image.slidesharecdn.com/linuxcontainersfromscratch-velocitybarcelona2014-141119031144-conversion-gate01/95/linux-containers-from-scratch-1-638.jpg)
 
-[Slides](http://fr.slideshare.net/joshuasoundcloud/linux-containers-from-scratch-velocity-barcelona-2014)
+[Slides](https://fr.slideshare.net/joshuasoundcloud/linux-containers-from-scratch-velocity-barcelona-2014)
 
 Quelle est la différence entre le cloud, les containers et un repas gratuit ? Aucun n'existe :)
 
 Joshua Hoffman (SoundCloud) est dans le top 5 de mes orateurs préféré. J'ai beaucoup apprécié ce tutorial car il fait clairement la part entre virtualisation, containers, LXC et Docker (nom qui ne sera prononcé qu'à la fin lors des questions, pas de buzzword, de hype ni de marketing, merci Joshua).
 
-![containers](http://cdn1.cloudtp.com/wp-content/uploads/sites/13/2014/06/Containers.jpg)
+![containers](https://cdn1.cloudtp.com/wp-content/uploads/sites/13/2014/06/Containers.jpg)
 
 Le tutorial vous aménera à créer plusieurs containers portable, du plus simple ou plus complexe, avec les outils de bases du noyau. Vous apprendrez aussi à vous servir des cgroups, des namespaces process, network, et mount, et serez amené à utiliser des systèmes de fichiers unis, ici AUFS.
 J’aurais bien aimé une démo avec le format de QEMU ou btrfs pour ce qui est des systèmes de fichiers unis au niveau bloc.
@@ -112,7 +112,7 @@ J’aurais bien aimé une démo avec le format de QEMU ou btrfs pour ce qui est 
 Ce tutorial est un must-do pour tout personne désirant s’initier aux architectures de containers. Le marketing relativement agressif de Docker ne doit pas faire oublier qu'il existe d'autres alternatives, et que Docker est un choix de design bien particulier pas forcement adapter à tous.
 Ex: un container en 3 lignes:
 
-![container](http://image.slidesharecdn.com/linuxcontainersfromscratch-velocitybarcelona2014-141119031144-conversion-gate01/95/linux-containers-from-scratch-26-638.jpg)
+![container](https://image.slidesharecdn.com/linuxcontainersfromscratch-velocitybarcelona2014-141119031144-conversion-gate01/95/linux-containers-from-scratch-26-638.jpg)
 
 Pour rappel:
 
@@ -150,7 +150,7 @@ Techniquement, CoreOS est un Linux + systemd + docker + etcd + fleet. CoreOS est
 
 La démonstration vous amènera à lancer 1 master et plusieurs machines "workers" et quelques containers Docker.
 
-![kubernetes](http://kubernetes.io/img/desktop/hero_logo.svg)
+![kubernetes](https://kubernetes.io/img/desktop/hero_logo.svg)
 
 Kubernetes est la réponse de Google à la question des gestionnaires de containers disitribués.
 
@@ -159,7 +159,7 @@ Constitué d'un certain nombre de composants qu'on ne détaillera pas ici, il pe
 Liens:
 
 - [CoreOS Doc](https://coreos.com/docs/)
-- [Kubernetes](http://kubernetes.io/)
+- [Kubernetes](https://kubernetes.io/)
 - [Introduction to Kubernetes](https://www.digitalocean.com/community/tutorials/an-introduction-to-kubernetes)
 
 --
@@ -169,7 +169,7 @@ Liens:
 Cette conférence est globalement une redite des autres sur l’optimisation côté front. Colin Bendell d’Akamai nous présente plusieurs outils comme webpagetest, mais aussi des astuces pour tester sur Device depuis chrome. Il nous rappelle qu’il faut faire attention aux conditions de tests avec certains facteurs comme la connexion. Il faut faire aussi attention à limiter le nombre d’images, de ressources (js, css …). Un des gros problèmes sur un site responsive, est celui des images. Pour éviter de charger des images trop importantes, il faut utiliser la balise <picture>. Cette nouvelle balise n’étant pas disponible sur tous les navigateurs, il nous conseille d’utiliser un composant Picturefill. En ce qui concerne les CSS, il conseille d'intégrer directement les css critiques dans le corps de la page et de ne charger, par la suite, que les css correspondants au device que l’on utilise. Pour conclure, l’utilisation d’un CDN avancé est hautement recommandée grâce à des options permettant de différencier navigateurs / devices.
 
 Liens :
-- [Slide de la présentation](http://fr.slideshare.net/AkamaiTechnologies/edge-2014-responsive-fast-iterating-live-on-modern-rwd-sites)
+- [Slide de la présentation](https://fr.slideshare.net/AkamaiTechnologies/edge-2014-responsive-fast-iterating-live-on-modern-rwd-sites)
 
 ---
 
@@ -194,7 +194,7 @@ Les sujets suivants ont été abordés :
 - le réseau
 - un retour complet sur l'expérience utilisateur
 
-Un site complet dédié à leur conférence est disponible : [http://larahogan.me/devicelab/](http://larahogan.me/devicelab/).
+Un site complet dédié à leur conférence est disponible : [https://larahogan.me/devicelab/](https://larahogan.me/devicelab/).
 
 Une vidéo de la même conférence à New York est également en ligne : 
  

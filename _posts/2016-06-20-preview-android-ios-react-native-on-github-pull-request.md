@@ -32,7 +32,7 @@ Here is the workflow we use for web development:
 When every step is ok, the PR is merged.
 
 The « Branch step », « PR step » and « Code Review step » are mostly related to our CVS (Github Enterprise) and are not a problem.
-The « Test step » is related to React Native. We already use [Jest](https://facebook.github.io/jest/) and [ESLint](http://eslint.org/), but we have to dig more for Integration test ([Appium](http://appium.io/) ?).
+The « Test step » is related to React Native. We already use [Jest](https://facebook.github.io/jest/) and [ESLint](https://eslint.org/), but we have to dig more for Integration test ([Appium](https://appium.io/) ?).
 
 The « Preview step » is more interesting. It was not the simplest thing to do on our web project, but this is probably one of the most useful feature we have on our stack.
 Having a staging environment for all open PR allows devs, PO, PM and scrum masters to play with this exact version of the code (on any browser they want), and really see if the bug is fixed, or if the feature correspond to the PO needs. It allows everyone to iterate and make feedbacks before the code lands on the master branch. It’s also a good way to be sure your app build didn’t fail.

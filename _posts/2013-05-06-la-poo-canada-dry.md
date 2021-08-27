@@ -19,7 +19,7 @@ comments: true
 permalink: la-poo-canada-dry
 ---
 
-Nous vous avions parlé, il y'a quelques mois, de nos conférences interne, [les Last Friday Talk](http://tech.m6web.fr/organiser-des-conferences-technique-en-interne).
+Nous vous avions parlé, il y'a quelques mois, de nos conférences interne, [les Last Friday Talk](https://tech.m6web.fr/organiser-des-conferences-technique-en-interne).
 
 Voici une première vidéo de l'une de ces sessions sur "la POO Canada Dry".
 

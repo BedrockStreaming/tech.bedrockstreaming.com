@@ -14,7 +14,7 @@ tags: [satis,composer,aws,s3,github,packagist, cloud]
 image:
   feature: posts/composer-installation-without-github/cloud.jpg
   credit: archangel 12
-  creditlink: http://www.flickr.com/photos/archangel12/
+  creditlink: https://www.flickr.com/photos/archangel12/
 comments: true
 permalink: composer-installation-without-github.html
 language: en
@@ -22,11 +22,11 @@ language: en
 
 ![github is down ! ok carry on](/images/posts/composer-installation-without-github/github_down.png)
 
-First a thought about [github](https://github.com/), [composer](http://getcomposer.org/doc/), [packagist](http://www.packagist.org) : we like / adore / thanks the contributors, for those great services and all the open source people dropping great software on it.
+First a thought about [github](https://github.com/), [composer](https://getcomposer.org/doc/), [packagist](https://www.packagist.org) : we like / adore / thanks the contributors, for those great services and all the open source people dropping great software on it.
 
 That said, picture yourself operating an online PHP service, generating hundreds euros per hour (cool isn’t it ?).
 
-If you use [Symfony2](http://symfony.com/) and other public packages, like us, you’re probably deploying your application using composer.
+If you use [Symfony2](https://symfony.com/) and other public packages, like us, you’re probably deploying your application using composer.
 
 ![basic composer usage](/images/posts/composer-installation-without-github/1.png)
 
@@ -46,7 +46,7 @@ This is our situation. So here how we deal with that.
 
 ![principles](/images/posts/composer-installation-without-github/3.png)
 
-We chose to use [Satis](http://getcomposer.org/doc/articles/handling-private-packages-with-satis.md) - a great tool provided by the Composer team. The main idea is, regulary download packages and their informations on our local servers. We (at M6Web) deployed services on our local infrastructure and on S3 servers in Amazon Web Services.
+We chose to use [Satis](https://getcomposer.org/doc/articles/handling-private-packages-with-satis.md) - a great tool provided by the Composer team. The main idea is, regulary download packages and their informations on our local servers. We (at M6Web) deployed services on our local infrastructure and on S3 servers in Amazon Web Services.
 
 # How to ? For your local network.
 
@@ -90,7 +90,7 @@ Satis for public package configuration (data/satis.json) :
             "absolute-directory" : "/srv/data/satis-public/dist"
         },
         "repositories": [
-            { "type": "composer", "url": "http://packagist.org" }
+            { "type": "composer", "url": "https://packagist.org" }
         ],
         "require": {
 
@@ -153,13 +153,13 @@ Remove your composer.lock and vendors then run ``composer update`` on the projec
 
 ![full system with s3 syncing](/images/posts/composer-installation-without-github/4.jpeg)
 
-On satis servers, use [s3cmd](http://s3tools.org/s3cmd) to keep in sync the S3 bucket. Let’s say : yourcloud-satis.
+On satis servers, use [s3cmd](https://s3tools.org/s3cmd) to keep in sync the S3 bucket. Let’s say : yourcloud-satis.
 
 Add some commands after the build script of satis :
 
     php -d memory_limit=xx bin/satis build data/satis.json web
     cd web
-    sed 's#http://satis-private\.yourcompany\.com#s3://yourcloud-satis/satis-private#' packages.json > packages-cloud.json
+    sed 's#https://satis-private\.yourcompany\.com#s3://yourcloud-satis/satis-private#' packages.json > packages-cloud.json
     s3cmd put index.html s3://yourcloud-satis/satis-private/index.html
     s3cmd put packages-cloud.json s3://yourcloud-satis/satis-private/packages.json
     cd /srv/data/satis-private/
@@ -210,7 +210,7 @@ You have to install the [S3 plugin for composer](https://github.com/naderman/com
     $ composer global require "naderman/composer-aws:~0.2.5"
 
 
-If you don't use [IAM roles](http://aws.amazon.com/iam/), add the following composer config on your EC2 servers (`~/.composer/config.json`) :
+If you don't use [IAM roles](https://aws.amazon.com/iam/), add the following composer config on your EC2 servers (`~/.composer/config.json`) :
 
     {
         "config": {

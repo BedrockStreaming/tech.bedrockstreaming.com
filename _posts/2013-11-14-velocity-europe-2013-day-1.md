@@ -40,7 +40,7 @@ Addy Osmani (Google Chrome) [@addyosmani](https://twitter.com/addyosmani)
 
 ![Velocity Europe 2013 - Day 1](/images/posts/imgob/0-00-30-83-201311-ob_69d331_10845977003-b429d75241-z-jpg.jpeg)
 
-[Addy](http://addyosmani.com/blog/) est une figure incontournable du web. Créateur de [TodoMVC](http://todomvc.com/), Lead dév de [Yeoman](http://yeoman.io/) et travail dans la Google Chrome Team sur les outils à destination des développeurs autour du navigateur.
+[Addy](https://addyosmani.com/blog/) est une figure incontournable du web. Créateur de [TodoMVC](https://todomvc.com/), Lead dév de [Yeoman](https://yeoman.io/) et travail dans la Google Chrome Team sur les outils à destination des développeurs autour du navigateur.
 
 Après la génération du code html par les serveurs et le transfert de ce code par les réseaux, le rendu graphique de la page par le navigateur est le dernier évènement significatif du chargement de la page lors de la consultation d’un site par un client.
 
@@ -53,7 +53,7 @@ Voici donc un résumé des bonnes pratiques permettant d’obtenir un meilleur f
 
 - les ombres,
 - les flous,
-- et les dégradés : ([Bootstrap](http://getbootstrap.com/) a supprimé tous les dégradés sur ses boutons : +100% de rapidité l’affichage).
+- et les dégradés : ([Bootstrap](https://getbootstrap.com/) a supprimé tous les dégradés sur ses boutons : +100% de rapidité l’affichage).
 
 Ensuite, il reste quelques conseils plus généraux :
 
@@ -65,13 +65,13 @@ Enfin, comme souvent, tous les outils pour comprendre et améliorer le rendu gra
 Les slides sont disponible ici : [https://speakerdeck.com/addyosmani/velocityconf-rendering-performance-case-studies](https://speakerdeck.com/addyosmani/velocityconf-rendering-performance-case-studies)
 
   
- La présentation de la conférence par l’auteur lui-même : [http://addyosmani.com/blog/making-a-site-jank-free/](http://addyosmani.com/blog/making-a-site-jank-free/)
+ La présentation de la conférence par l’auteur lui-même : [https://addyosmani.com/blog/making-a-site-jank-free/](https://addyosmani.com/blog/making-a-site-jank-free/)
 
 
 
 <script async="" class="speakerdeck-embed" data-id="76ff3a902e8b0131b9452adb14392f56" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
 
-<iframe allowfullscreen="" frameborder="0" height="720" mozallowfullscreen="" src="http://player.vimeo.com/video/75540354" title="Addy Osmani — Gone in 60 Frames Per Second (SmashingConf 2013)" webkitallowfullscreen="" width="1280"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="720" mozallowfullscreen="" src="https://player.vimeo.com/video/75540354" title="Addy Osmani — Gone in 60 Frames Per Second (SmashingConf 2013)" webkitallowfullscreen="" width="1280"></iframe>
 
 Vidéo de la même conférence (donnée à la Smashing Conf 2013)
 
@@ -82,13 +82,13 @@ Jon Cowie (Etsy) [@jonlives](https://twitter.com/jonlives)
 
 ![Velocity Europe 2013 - Day 1](/images/posts/imgob/0-00-30-83-201311-ob_83eb3a_10845796864-8dbb9f704e-z-jpg.jpeg)
 
-Jon est “Ops Engineer” chez [Etsy](http://etsy.com/) (Dont le VP, John Allspaw, co-organise avec Steve Souders, la Vélocity).
+Jon est “Ops Engineer” chez [Etsy](https://etsy.com/) (Dont le VP, John Allspaw, co-organise avec Steve Souders, la Vélocity).
 
 Quelques données sur Etsy :
 
 - Ils font du déploiement continu
 - 1.5 milliards de pages vues
-- 250 contributeurs (tout le monde déploie du code, [même les chiens](http://fr.slideshare.net/chaddickerson/optimizing-for-developer-happiness))
+- 250 contributeurs (tout le monde déploie du code, [même les chiens](https://fr.slideshare.net/chaddickerson/optimizing-for-developer-happiness))
 - ils utilisent Deployinator pour déployer leur code avec un unique “bouton”, et schemanator pour les migrations SQL
 - 60 déploiements par jour / 8 commit par deploiement
 - ¼ millions de métriques !
@@ -123,7 +123,7 @@ Leurs outils pour le monitoring :
 > "If it moves, graph it ! If it doesn’t move, graph it anyway" Jon Cowie
 
 
-La présentation s’axe ensuite plus particulièrement sur la stack “Kale”, qui englobe deux outils que l’on va détailler : Skyline et Oculus. Voir l’article sur le blog technique de Etsy [http://codeascraft.com/2013/06/11/introducing-kale/](http://codeascraft.com/2013/06/11/introducing-kale/)
+La présentation s’axe ensuite plus particulièrement sur la stack “Kale”, qui englobe deux outils que l’on va détailler : Skyline et Oculus. Voir l’article sur le blog technique de Etsy [https://codeascraft.com/2013/06/11/introducing-kale/](https://codeascraft.com/2013/06/11/introducing-kale/)
 
 L’objectif de Skyline, est de détecter les comportements anormaux (gros pics par exemple), avec pour principal challenge, la récupération des données (via le “relay agent” de Graphite, ils envoient en continue les données dans Redis via redis.append() ), le stockage de 250 000 métriques (dans Redis) au format MessagePack. Oculus quand lui permet de corréler les métriques, en utilisant les données brutes de l’api de Graphite, car il est bien plus efficace de comparer des chiffres, que des images …
 
@@ -141,17 +141,17 @@ La partie la plus intéressante est la simplification d’une métrique temporel
 
 Et ceci en fonction de la valeur en cours par rapport à la valeur précedente.
 
-Ils poussent toutes ces métriques normalisées dans [Elastic Search](http://www.elasticsearch.org/) dans un champ non tokenisé en réalisant des recherches de phrases afin de corréler les métriques ayant le même pattern et en scorant via un plugin codé par leurs soins (incluant une version “rapide” du DTW).
+Ils poussent toutes ces métriques normalisées dans [Elastic Search](https://www.elasticsearch.org/) dans un champ non tokenisé en réalisant des recherches de phrases afin de corréler les métriques ayant le même pattern et en scorant via un plugin codé par leurs soins (incluant une version “rapide” du DTW).
 
 Une fois les métriques corrélées affichées, il est possible de sauvegarder un snapshot de ces dernières et d’inclure des commentaires dans une “collection”. Cela permet notamment de construire une base de données de connaissance sur les incidents ou les comportements anormaux mais explicables.
 
 Skyline est visible par *tous* dans leur bureaux, sur l’un des 6 écrans de dashboards, devant lesquels on peut notamment lire le nombre de requêtes HTTP par seconde, le top 10 des pages, les temps de générations et d’affichage etc...
 
-Les slides sont disponible ici : [http://www.slideshare.net/jonlives/bring-the-noise](http://www.slideshare.net/jonlives/bring-the-noise)
+Les slides sont disponible ici : [https://www.slideshare.net/jonlives/bring-the-noise](https://www.slideshare.net/jonlives/bring-the-noise)
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://www.slideshare.net/slideshow/embed_code/24058352" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="https://www.slideshare.net/slideshow/embed_code/24058352" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 
 
 ### Responsive images Technique and Beyond
@@ -166,18 +166,18 @@ Le principal problème des images responsive, c’est de charger l’image corre
 
 72% des sites RWD servent les mêmes ressources entre les résolutions petites et grandes …
 
-On peut économiser 72% en taille d’image en compressant correctement (voir [http://timkadlec.com/2013/06/why-we-need-responsive-images/](http://timkadlec.com/2013/06/why-we-need-responsive-images/)).
+On peut économiser 72% en taille d’image en compressant correctement (voir [https://timkadlec.com/2013/06/why-we-need-responsive-images/](https://timkadlec.com/2013/06/why-we-need-responsive-images/)).
 
-Yoav a développé un outil utilisant PhantomJs, permettant de mesurer la différence entre les images chargées, et celle qui seraient correctement dimensionnées : [Sizer Soze](http://www.sizersoze.org)
+Yoav a développé un outil utilisant PhantomJs, permettant de mesurer la différence entre les images chargées, et celle qui seraient correctement dimensionnées : [Sizer Soze](https://www.sizersoze.org)
 
 On aborde ensuite les deux cas principaux gênant :
 
 - Servir une dimension différentes de l’image à différents support. (et les Retina uniquement aux devices le supportant)
 - et le “Art direction”, avoir une image qui correspond au layout
 
-Ainsi que l’intérêt du Pre-loader, souvent peu connu. Beaucoup plus d’infos sur cet article d’Andy Davies ([http://andydavies.me/blog/2013/10/22/how-the-browser-pre-loader-makes-pages-load-faster/](http://andydavies.me/blog/2013/10/22/how-the-browser-pre-loader-makes-pages-load-faster/))
+Ainsi que l’intérêt du Pre-loader, souvent peu connu. Beaucoup plus d’infos sur cet article d’Andy Davies ([https://andydavies.me/blog/2013/10/22/how-the-browser-pre-loader-makes-pages-load-faster/](https://andydavies.me/blog/2013/10/22/how-the-browser-pre-loader-makes-pages-load-faster/))
 
-Yoav parcours ensuite toutes les techniques des images responsive avec avantages/inconvénients et exemple pour chacune, que vous pouvez retrouvez dès la slide 57 de la présentation ci après : [http://yoavweiss.github.io/velocity-eu-13-presentation/#/](http://yoavweiss.github.io/velocity-eu-13-presentation/#/)
+Yoav parcours ensuite toutes les techniques des images responsive avec avantages/inconvénients et exemple pour chacune, que vous pouvez retrouvez dès la slide 57 de la présentation ci après : [https://yoavweiss.github.io/velocity-eu-13-presentation/#/](https://yoavweiss.github.io/velocity-eu-13-presentation/#/)
 
 L’étude et les retours sont extrêmement complet, et immanquable, si vous travaillez ou allez travaillez sur le sujet. Il aborde aussi une approche en cours d’étude, qui verra peut être le jour prochainement (Responsive Image Container).
 
@@ -216,7 +216,7 @@ Il a ensuite expliqué comment fonctionne le réseau radio 2G/3G/4G et les contr
 
 Le tutorial s'est achevé sur les défauts de HTTP 1.1 et les nouveautés (nombreuses et sexys) d'HTTP 2.0. Ce fut extrêmement plaisant d'assister à cette présentation, tant Ilya est pointu techniquement, précis et didactique dans ses démonstrations. Le livre est un MUST-READ !
 
-Il est d’ailleurs disponible gratuitement ici : [http://chimera.labs.oreilly.com/books/1230000000545](http://chimera.labs.oreilly.com/books/1230000000545)
+Il est d’ailleurs disponible gratuitement ici : [https://chimera.labs.oreilly.com/books/1230000000545](https://chimera.labs.oreilly.com/books/1230000000545)
 
   
 [Les slides sont disponible ici](https://docs.google.com/presentation/d/1f2J_HrzMNvVHhsB3f7DKJFPl2N0Q_QR2ZEECWQu6oV8/present#slide=id.p19)
@@ -237,7 +237,7 @@ Après une introduction un peu longue autour de la place de la “sécurité” 
 
 L’approche de Gauntlt est basée sur le “[Rugged Manifesto](https://www.ruggedsoftware.org/wp-content/uploads/2012/09/Rugged_Software_Development_20100205.pdf)”
 
-Gauntlt permet donc d’automatiser au sein de son système d’intégration continue, des tests autour de la sécurité de son applicatif et de son infra, basés sur [Cucumber](http://cukes.info/), utilisant le langage Gherkin (que certains connaissent peut être mieux dans le monde php via [Behat](http://behat.org/)), et interfaçant des outils tels que :
+Gauntlt permet donc d’automatiser au sein de son système d’intégration continue, des tests autour de la sécurité de son applicatif et de son infra, basés sur [Cucumber](https://cukes.info/), utilisant le langage Gherkin (que certains connaissent peut être mieux dans le monde php via [Behat](https://behat.org/)), et interfaçant des outils tels que :
 
 - Garmr
 - Nmap
@@ -245,13 +245,13 @@ Gauntlt permet donc d’automatiser au sein de son système d’intégration con
 - Sqlmap
 - ...
 
-Si vous voulez tester l’outil, qui à l’air très prometteur, vous pouvez suivre ce tutoriel : [http://bit.ly/gauntlt-demo-instructions](http://bit.ly/gauntlt-demo-instructions) qui vous fourni la Virtual Box, les consignes d’installations, et les exemples ayant été réalisés pendant la conférence, ainsi qu’une application de test en Ruby [Railsgoat](https://github.com/OWASP/railsgoat) pour servir de cible à vos tests.
+Si vous voulez tester l’outil, qui à l’air très prometteur, vous pouvez suivre ce tutoriel : [https://bit.ly/gauntlt-demo-instructions](https://bit.ly/gauntlt-demo-instructions) qui vous fourni la Virtual Box, les consignes d’installations, et les exemples ayant été réalisés pendant la conférence, ainsi qu’une application de test en Ruby [Railsgoat](https://github.com/OWASP/railsgoat) pour servir de cible à vos tests.
 
-[Les slides sont disponible ici](http://www.slideshare.net/wickett/gauntlt-velocity-eu2013)
+[Les slides sont disponible ici](https://www.slideshare.net/wickett/gauntlt-velocity-eu2013)
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://www.slideshare.net/slideshow/embed_code/28203152" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="https://www.slideshare.net/slideshow/embed_code/28203152" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 
 
 ### Hands-on Web Performance Optimization Workshop
@@ -262,16 +262,16 @@ Andy Davies (Asteno) [@andydavies](https://twitter.com/andydavies) , Tobias Bald
 
 Dernière session de la journée, avec Andy et Tobias, sur un workshop axé Performance Web.
 
-On commence par une présentation général d’un outil qu’on ne devrait plus présenter : [WebPageTest](http://www.webpagetest.org/), l’outil principal pour les problématiques de performances front-end.
+On commence par une présentation général d’un outil qu’on ne devrait plus présenter : [WebPageTest](https://www.webpagetest.org/), l’outil principal pour les problématiques de performances front-end.
 
 Andy aborde ensuite quelques autres outils :
 
-- [PhantomJs](http://phantomjs.org/) (un headless browser)
+- [PhantomJs](https://phantomjs.org/) (un headless browser)
 - [Simple Website Speed Test](https://github.com/technopagan/simple-website-speed-test)
 - et surtout [Phantomas](https://github.com/macbre/phantomas), un module PhantomJs pour collecter les métriques de Webperf.
 - le [wrapper Node.Js pour WebPageTest](https://github.com/marcelduran/webpagetest-api) de Marcel Duran
-- [SiteSpeed.io](http://sitespeed.io/ ) pour monitorer toutes les pages de son site, basé notamment sur Yslow
-- [HttpArchive](http://httparchive.org/), l’excellent service de Steve Souders qui tracke le web avec une multitude de stats intéressante, que vous pouvez d’ailleurs installer pour une instance privée afin de tracker vos sites : [http://bbinto.wordpress.com/2013/03/25/setup-your-own-http-archive-to-track-and-query-your-site-trends/](http://bbinto.wordpress.com/2013/03/25/setup-your-own-http-archive-to-track-and-query-your-site-trends/) \o/
+- [SiteSpeed.io](https://sitespeed.io/ ) pour monitorer toutes les pages de son site, basé notamment sur Yslow
+- [HttpArchive](https://httparchive.org/), l’excellent service de Steve Souders qui tracke le web avec une multitude de stats intéressante, que vous pouvez d’ailleurs installer pour une instance privée afin de tracker vos sites : [https://bbinto.wordpress.com/2013/03/25/setup-your-own-http-archive-to-track-and-query-your-site-trends/](https://bbinto.wordpress.com/2013/03/25/setup-your-own-http-archive-to-track-and-query-your-site-trends/) \o/
 
 La suite de la conférence consister a analyser en live certains sites dont quelques uns assez hilarant au niveau performance :
 
@@ -291,10 +291,10 @@ Bonne première journée avec ce format "Tutorials" un peu trop touffu (90 minut
 
 Retrouvez les autres CR :
 
-- [Compte rendu du jour 2 ](http://tech.m6web.fr/velocity-europe-2013-day-2.html)
-- [Compte rendu du jour 3 ](http://tech.m6web.fr/velocity-europe-2013-day-3.html)
+- [Compte rendu du jour 2 ](https://tech.m6web.fr/velocity-europe-2013-day-2.html)
+- [Compte rendu du jour 3 ](https://tech.m6web.fr/velocity-europe-2013-day-3.html)
 
-© des photos : [Flickr officiel O'Reilly](http://www.flickr.com/photos/oreillyconf/with/10845987613/)
+© des photos : [Flickr officiel O'Reilly](https://www.flickr.com/photos/oreillyconf/with/10845987613/)
 
 CR rédigé par Baptiste, Denis Roussel et Kenny Dits
 

@@ -69,13 +69,13 @@ Au cours de ce travail, nous avons construit 2 nouveaux bundle : [ElasticsearchB
 
 # Et la grosse donnée ?
 
-Si vous avez essayé la nouvelle version web de 6play, vous avez certainement remarqué que la personnalisation de votre compte est fortement mise en avant. Pour stocker ce fort volume de données, nous avons fait le choix d'utiliser [Cassandra](http://cassandra.apache.org/), pour son approche distribuée permettant une forte scalabilité, et un ratio rapidité/redondance optimal.
+Si vous avez essayé la nouvelle version web de 6play, vous avez certainement remarqué que la personnalisation de votre compte est fortement mise en avant. Pour stocker ce fort volume de données, nous avons fait le choix d'utiliser [Cassandra](https://cassandra.apache.org/), pour son approche distribuée permettant une forte scalabilité, et un ratio rapidité/redondance optimal.
 
 Comme pour le reste, nous avons là aussi créé un bundle Symfony2 permettant de configurer et manipuler simplement des clients Cassandra en tant que service : [CassandraBundle](https://github.com/M6Web/CassandraBundle)
 
 # Tout le reste
 
-Côté monitoring, pour respecter nos bonnes habitudes, [nous utilisons toujours Statsd à outrance](http://tech.m6web.fr/how-we-use-statsd/), surtout via notre bundle [StatsdBundle](https://github.com/M6Web/StatsdBundle).
+Côté monitoring, pour respecter nos bonnes habitudes, [nous utilisons toujours Statsd à outrance](https://tech.m6web.fr/how-we-use-statsd/), surtout via notre bundle [StatsdBundle](https://github.com/M6Web/StatsdBundle).
 
 Côté tests, tous les tests unitaires ont été écrits avec [atoum](https://github.com/atoum/atoum).
 

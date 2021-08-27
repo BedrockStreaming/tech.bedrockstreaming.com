@@ -54,7 +54,7 @@ Pour finir sa keynote d’entrée, il a voulu lister les frameworks JS qui ont �
 Brenton Simpsons d’Ebay, [@appsforartists](https://twitter.com/appsforartists), nous a montré comment coder en live du React de son mac, avec le rendu affiché en temps réel sans reload sur un ipad.
 
 L’avantage d’un iPad étant sa taille qui lui permet de représenter 3 écrans d’iPhone 5 sur sa largeur, soit 3 états de son application.
-Il utilise « [WebPack](http://webpack.github.io/) » et l’extension pour WebPack « [react-hot-loader](http://gaearon.github.io/react-hot-loader/) » de [Dan Abramov](https://twitter.com/dan_abramov).
+Il utilise « [WebPack](https://webpack.github.io/) » et l’extension pour WebPack « [react-hot-loader](https://gaearon.github.io/react-hot-loader/) » de [Dan Abramov](https://twitter.com/dan_abramov).
 
 Ebay a aussi open-sourcé un framework assez experimental (6 mois d’ancienneté) du nom d’Ambidex pour gérer du server side rendering avec React et Flux : [https://github.com/appsforartists/ambidex](https://github.com/appsforartists/ambidex)
 
@@ -76,7 +76,7 @@ Beaucoup plus d’infos sont disponibles ici : [https://gist.github.com/wincent/
 
 # Communicating with channels
 
-James Long, [@jlongster](https://twitter.com/jlongster), assez réputé via son blog [http://jlongster.com](http://jlongster.com/) et pour son travail chez Mozilla sur les Dev Tools de Firefox, a présenté une manière de communiquer entre composants via des « channels » en utilisant la librairie “ [js-scp](https://github.com/ubolonton/js-csp)”  permettant de coder à la manière des « goroutine » de Go ou des « [core.async](https://github.com/clojure/core.async) » de Clojurescript.
+James Long, [@jlongster](https://twitter.com/jlongster), assez réputé via son blog [https://jlongster.com](https://jlongster.com/) et pour son travail chez Mozilla sur les Dev Tools de Firefox, a présenté une manière de communiquer entre composants via des « channels » en utilisant la librairie “ [js-scp](https://github.com/ubolonton/js-csp)”  permettant de coder à la manière des « goroutine » de Go ou des « [core.async](https://github.com/clojure/core.async) » de Clojurescript.
 
 <iframe src="//www.slideshare.net/slideshow/embed_code/44054367" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
 
@@ -105,12 +105,12 @@ Pete Hunt, [@floydophone](https://twitter.com/floydophone), l’une des personne
 Jason Bonta, de l’équipe Facebook Ads, à l’origine de la création de React, a ciblé sa présentation sur les problèmes de performances que résout React.
 Coté Ads Manager, l’équipe doit faire des interfaces ultra complexes, avec notamment le besoin de présenter un nombre d’éléments très important dans un tableau.
 
-Un composant qui sera annoncé comme « open-sourcé » durant sa conférence : [FixedDataTable](http://facebook.github.io/fixed-data-table/)
-Vous pouvez aussi retrouver une « review » du composant ici : [http://www.reactbook.org/blog/fixed-data-table-reactjs.html](http://www.reactbook.org/blog/fixed-data-table-reactjs.html)
+Un composant qui sera annoncé comme « open-sourcé » durant sa conférence : [FixedDataTable](https://facebook.github.io/fixed-data-table/)
+Vous pouvez aussi retrouver une « review » du composant ici : [https://www.reactbook.org/blog/fixed-data-table-reactjs.html](https://www.reactbook.org/blog/fixed-data-table-reactjs.html)
 
 Ont été abordé :
 
-* le ReactAddons : [PureRenderMixin](http://facebook.github.io/react/docs/pure-render-mixin.html)
+* le ReactAddons : [PureRenderMixin](https://facebook.github.io/react/docs/pure-render-mixin.html)
 * l’utilisation du shallowEqual sur le shouldComponentUpdate
 * Ainsi qu’une bonne pratique pour la réalisation des composants, qui est revenue plusieurs fois pendant la conf, consistant à englober le composant, dans un autre composant de type container ne contenant aucune « props ».
 
@@ -121,10 +121,10 @@ En résumé :
 
 # Format data and strings in any language with FormatJS and react-intl
 
-Dernière conférence de la journée par Eric Ferraiuolo, [@ericf](http://twitter.com/ericf), sur l’internationalisation et la manière de la gérer dans React, grâce à [react-intl](https://github.com/yahoo/react-intl) (open-sourcé par Yahoo).
+Dernière conférence de la journée par Eric Ferraiuolo, [@ericf](https://twitter.com/ericf), sur l’internationalisation et la manière de la gérer dans React, grâce à [react-intl](https://github.com/yahoo/react-intl) (open-sourcé par Yahoo).
 
 Pour ceux qui douteraient encore de la complexité de gérer plusieurs langues, ainsi que les chiffres et pluralisations, et qui ont cette problématique sur un projet React, cette vidéo est un must-see.
-[Format.Js](http://formatjs.io/) a aussi été cité et s’apparente à une collection de module Js pour l’internationalisation.
+[Format.Js](https://formatjs.io/) a aussi été cité et s’apparente à une collection de module Js pour l’internationalisation.
 
 <iframe width="720" height="405" src="https://www.youtube.com/embed/Sla-DkvmIHY" frameborder="0" allowfullscreen></iframe>
 
@@ -145,4 +145,4 @@ Pour ceux qui douteraient encore des performances de React, je vous invite à re
 
 Bonne grosse claque sur cette première journée, notamment avec l’annonce de React Native. Nous avons eu le droit à une organisation absolument parfaite (snack, boisson chaude et froide à volonté) et des speakers de très grand talent (ce qui n’est pas toujours le cas de certaines conférences, surtout aussi ciblée que celle-là).
 
-p.s: Retrouvez les [retours sur la deuxième journée de la React conférence 2015](http://tech.m6web.fr/cr-react-conf-2015-day-two/).
+p.s: Retrouvez les [retours sur la deuxième journée de la React conférence 2015](https://tech.m6web.fr/cr-react-conf-2015-day-two/).

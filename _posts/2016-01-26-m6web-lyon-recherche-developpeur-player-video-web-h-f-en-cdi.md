@@ -20,7 +20,7 @@ comments: false
 
 Mise jour : Le poste n'est à plus pourvoir. Merci
 
-Au sein de la team Tube (équipe Lecteur Vidéo), en charge entre autre du lecteur de [6play](http://www.6play.fr) et des lecteurs vidéos des autres portails Internet d'M6 Web ([Clubic.com](http://www.clubic.com), [Deco.fr](http://www.deco.fr), ...), vous participez à la conception technique et au développement de nos lecteurs vidéos.
+Au sein de la team Tube (équipe Lecteur Vidéo), en charge entre autre du lecteur de [6play](https://www.6play.fr) et des lecteurs vidéos des autres portails Internet d'M6 Web ([Clubic.com](https://www.clubic.com), [Deco.fr](https://www.deco.fr), ...), vous participez à la conception technique et au développement de nos lecteurs vidéos.
 
 Vous maitrisez les problématiques et les technologies Web :
 
@@ -52,5 +52,5 @@ Le profil recherché se caractérise par :
 * Une aptitude à la prise d'initiatives, un grand dynamisme, une curiosité et une ouverture d'esprit
 * Une connaissance (idéalement validée par une première expérience) des Méthodes Agiles (Scrum), et une culture de l'amélioration continue 
 
-Pour postuler : [http://www.groupem6.fr/ressources-humaines/offres-emploi/developpeur-frontend-javascript-video-h-f-258357.html](http://www.groupem6.fr/ressources-humaines/offres-emploi/developpeur-frontend-javascript-video-h-f-258357.html)
+Pour postuler : [https://www.groupem6.fr/ressources-humaines/offres-emploi/developpeur-frontend-javascript-video-h-f-258357.html](https://www.groupem6.fr/ressources-humaines/offres-emploi/developpeur-frontend-javascript-video-h-f-258357.html)
 

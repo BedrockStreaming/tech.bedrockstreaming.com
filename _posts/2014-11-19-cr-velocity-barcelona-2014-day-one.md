@@ -46,7 +46,7 @@ Une présentation intéressante sur l’incident et l’erreur.
 Une présentation sponsorisée bien faite, montrant les difficultés de communication entre deux populations (IT et biz en l’occurence) et comment un outil performant et agréable peut aider à combler ce gap.  
 Chez M6Web nous utilisons grafana, et il est vrai que cet outil pourrait largement sortir du périmètre de l’IT. 
 
-Slides : [Maximize the Return of Your Digital Investments](http://cdn.oreillystatic.com/en/assets/1/event/121/Maximize%20the%20Return%20of%20Your%20Digital%20Investments%20Presentation.ppt)
+Slides : [Maximize the Return of Your Digital Investments](https://cdn.oreillystatic.com/en/assets/1/event/121/Maximize%20the%20Return%20of%20Your%20Digital%20Investments%20Presentation.ppt)
 
 <iframe width="853" height="480" src="//www.youtube.com/embed/en4ywZINQhI" frameborder="0" allowfullscreen></iframe>
 
@@ -55,7 +55,7 @@ Slides : [Maximize the Return of Your Digital Investments](http://cdn.oreillysta
 
 Une rapide démonstration d’un outil en javascript à installer sur les postes de vos développeurs et permettant d'afficher des alertes si un site en production (ou ailleurs) dépasse un certain seuil. 
 
-A découvrir : [PerfBar](http://lafikl.github.io/perfBar/) 
+A découvrir : [PerfBar](https://lafikl.github.io/perfBar/) 
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/xJogXOzmcSk" frameborder="0" allowfullscreen></iframe>
 
@@ -64,7 +64,7 @@ A découvrir : [PerfBar](http://lafikl.github.io/perfBar/)
 Il y a une génération on attendait 10 jours un échange de courrier postal, aujourd’hui un adolescent vérifie son téléphone toutes les 10 secondes ! Nous sommes moins attentifs, plus impatients.  
 De ce constat Monica Pal explique comment les backend web doivent s’adapter et servir de plus en plus d’informations contextualisées : *search, sort, recommand, personalize*.
 
-Slides : [The Impatience Economy](http://cdn.oreillystatic.com/en/assets/1/event/121/The%20Impatience%20Economy,%20Where%20Velocity%20Creates%20Value%20Presentation.pptx)
+Slides : [The Impatience Economy](https://cdn.oreillystatic.com/en/assets/1/event/121/The%20Impatience%20Economy,%20Where%20Velocity%20Creates%20Value%20Presentation.pptx)
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/mgnLVSSfols" frameborder="0" allowfullscreen></iframe>
 
@@ -72,7 +72,7 @@ Slides : [The Impatience Economy](http://cdn.oreillystatic.com/en/assets/1/event
 
 Un thème récurrent de la velocity de cette année. Laine explique comment l’ascenseur *méritocratique* est cassé et que seule une démarche volontaire permettra d’augmenter la diversité dans les entreprises. 
 
-Slides : [Recruiting for Diversity in Tech](http://cdn.oreillystatic.com/en/assets/1/event/121/Recruiting%20for%20Diversity%20in%20Tech%20Presentation.pptx)
+Slides : [Recruiting for Diversity in Tech](https://cdn.oreillystatic.com/en/assets/1/event/121/Recruiting%20for%20Diversity%20in%20Tech%20Presentation.pptx)
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/Hw8D0gW5rZA" frameborder="0" allowfullscreen></iframe>
 
@@ -116,7 +116,7 @@ Au final la purge du legacy a apporté :
  - un meilleur TTM
  - de substantiels retours sur investissement
 
-Slides : [IT Janitor - How to Tidy Up](http://cdn.oreillystatic.com/en/assets/1/event/121/IT%20Janitor%20-%20How%20to%20Tidy%20Up%20Presentation.pptx)
+Slides : [IT Janitor - How to Tidy Up](https://cdn.oreillystatic.com/en/assets/1/event/121/IT%20Janitor%20-%20How%20to%20Tidy%20Up%20Presentation.pptx)
 
 ---
 
@@ -142,9 +142,9 @@ Voici les scripts et les ressources qu’elle a présentés : [https://gitlab.co
 
 ## Building the FirefoxOS Homescreen - Kevin Grandon (Mozilla)
 
-![Firefox OS](http://zef.me/wp-content/uploads/2013/05/FirefoxOS-logo_610x385.png)
+![Firefox OS](https://zef.me/wp-content/uploads/2013/05/FirefoxOS-logo_610x385.png)
 
-Slides : [Building the FirefoxOS Homescreen](http://slidedeck.io/KevinGrandon/slides-fxos-home-screen-velocity-2014)
+Slides : [Building the FirefoxOS Homescreen](https://slidedeck.io/KevinGrandon/slides-fxos-home-screen-velocity-2014)
 
 Conférence de présentation de l'OS pour smartphone de Firefox.
 
@@ -167,7 +167,7 @@ Selon elle, il ne faut pas optimiser un site pour le mobile, mais l’optimiser 
 
 ## What are the Third-party Components Doing to Your Site’s Performance? - Andy Davies, Simon Hearne (NCC Group) 
 
-Slides : [Third-party components and site performance?](http://cdn.oreillystatic.com/en/assets/1/event/121/What%20are%20Third-party%20Components%20Doing%20to%20Your%20Site_s%20Performance_%20Presentation.pdf)
+Slides : [Third-party components and site performance?](https://cdn.oreillystatic.com/en/assets/1/event/121/What%20are%20Third-party%20Components%20Doing%20to%20Your%20Site_s%20Performance_%20Presentation.pdf)
 
  Nous utilisons tous des « Third-Party » sur nos sites, mais est-ce une bonne idée ?
 
@@ -180,7 +180,7 @@ Pour conclure, il faut trouver le bon compromis entre ce que nous apporte le Thi
 
 ## Guide to Survive a World Wide Event - Almudena Vivanco, Mateus Bartz (Telefónica
 
-Slides : [Survive a World Wide Event](http://cdn.oreillystatic.com/en/assets/1/event/121/Guide%20to%20Survive%20a%20World%20Wide%20Event%20%20Presentation.pdf)
+Slides : [Survive a World Wide Event](https://cdn.oreillystatic.com/en/assets/1/event/121/Guide%20to%20Survive%20a%20World%20Wide%20Event%20%20Presentation.pdf)
 
 Retour d’expérience de Movistar TV, une chaîne payante multi-support qui a diffusé la coupe du monde en Espagne, au Brésil et en Argentine. 
 
@@ -215,7 +215,7 @@ Une erreur fréquemment commise consiste à ne pas intégrer le certificat inter
 
 L'OSCP stappling permet lui d'inclure directement la réponse OCSP et ainsi éviter le même problème de blocage du rendu, connexion à un tiers etc... 
 
-L'utilisation hasardeuse de redirection 301 peut considérablement augmenter le Time To First Byte de votre site, il est donc fortement conseillé de bien analyser ses chaînes de redirections (ex: http://domain.com => http://www.domain.com => https://www.domain.com) et d'utiliser HSTS. Ce header émis par le serveur permettra au navigateur de mettre en cache la décision de redirection vers https.
+L'utilisation hasardeuse de redirection 301 peut considérablement augmenter le Time To First Byte de votre site, il est donc fortement conseillé de bien analyser ses chaînes de redirections (ex: https://domain.com => https://www.domain.com => https://www.domain.com) et d'utiliser HSTS. Ce header émis par le serveur permettra au navigateur de mettre en cache la décision de redirection vers https.
 
 Le talk s'est terminé par un tableau comparatif fort intéressant des serveurs HTTP et des CDNs concernant tous ces aspects.
 
@@ -236,13 +236,13 @@ Se baser sur un percentile, une moyenne ou une mediane uniquement ne permet pas 
 
 Théo nous a proposé une méthode de détection de ces dernières appelée "lurching windows". Sur des fenêtres de temps glissantes, on applique la méthode CUSUM (Cumulative Sum), qui somme les données en affectant un poids relatif (en réalité la probabilité que cette valeur existe).
 
-A voir: [http://en.wikipedia.org/wiki/CUSUM](http://en.wikipedia.org/wiki/CUSUM)
+A voir: [https://en.wikipedia.org/wiki/CUSUM](https://en.wikipedia.org/wiki/CUSUM)
 
 ---
 
 ## What ops can learn from design - Robert Treat (OmniTI) 
 
-Slides : [What ops can learn from design](http://cdn.oreillystatic.com/en/assets/1/event/121/What%20Ops%20Can%20Learn%20From%20Design%20Presentation.pdf)
+Slides : [What ops can learn from design](https://cdn.oreillystatic.com/en/assets/1/event/121/What%20Ops%20Can%20Learn%20From%20Design%20Presentation.pdf)
 
 "Un designer est quelqu'un qui design". 
 

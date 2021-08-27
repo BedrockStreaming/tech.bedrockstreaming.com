@@ -30,7 +30,7 @@ Les SPA se répandent de plus en plus, et deviennent un choix « commun » lorsq
 * maintenable et évolutif
 * ...
 
-Les Frameworks type [AngularJs](https://angularjs.org/) et [EmberJs](http://emberjs.com/) tiennent le haut du panier et ont largement fait leurs preuves, mais ils continuent à échouer sur deux sujets pourtant primordiaux dans beaucoup de cas :
+Les Frameworks type [AngularJs](https://angularjs.org/) et [EmberJs](https://emberjs.com/) tiennent le haut du panier et ont largement fait leurs preuves, mais ils continuent à échouer sur deux sujets pourtant primordiaux dans beaucoup de cas :
 
 * La performance (dont le rendu initial)
 * Le référencement
@@ -71,36 +71,36 @@ Autre sujet, qui peut être très problématique, si le site en question s’y p
 > Container qui servira à recevoir le HTML généré par votre appli JS une fois exécutée.
 
 De base, Google (et autres moteurs/crawler) ne verra donc rien, tout votre contenu allant être injecté via JS dans votre balise ng-view. 
-Excepté le fait **qu’il parait** que depuis des mois/années, [Google commence à réellement crawler du JS](http://googlewebmastercentral.blogspot.fr/2014/05/understanding-web-pages-better.html) ... Si le site est important, cette supposition ne devrait pas suffire à vous convaincre, et vous avez raison.
+Excepté le fait **qu’il parait** que depuis des mois/années, [Google commence à réellement crawler du JS](https://googlewebmastercentral.blogspot.fr/2014/05/understanding-web-pages-better.html) ... Si le site est important, cette supposition ne devrait pas suffire à vous convaincre, et vous avez raison.
 
 Rassurez vous, à ce stade, des solutions existent pour fournir spécifiquement à Google une version correspondante aux snapshots HTML générés par vos applications.
 Ces solutions sont accessibles soit en mode SAAS (payante et hébérgé), soit en mode Open-Source à héberger vous même. Je pense notamment à [Prerender.io](https://prerender.io/) qui fait plutôt bien le job, et vous propose d’indiquer aux moteurs que vous faites une application de type « Ajax » en respectant les recommandations de Google.
 
 Prerender est composée de plusieurs briques :
 Un middleware applicatif (Rails, Node, Varnish, Nginx, etc selon votre infrastructure), qui va intercepter les moteurs et les renvoyer sur votre service de Prerender 
-Un service de Prerender qui est une brique Node.js qui va lancer des HeadLess Browser ([PhantomJS](http://phantomjs.org/) ou [SlimerJs](http://slimerjs.org/) ...) pour executer votre appli JS et renvoyer un snapshot HTML une fois le rendu JS terminé.
+Un service de Prerender qui est une brique Node.js qui va lancer des HeadLess Browser ([PhantomJS](https://phantomjs.org/) ou [SlimerJs](https://slimerjs.org/) ...) pour executer votre appli JS et renvoyer un snapshot HTML une fois le rendu JS terminé.
 
 La solution permet à priori de faire le boulot, mais cela reste une gymnastique complexe, et beaucoup d'interrogations subsistent (pertinence, maintenance, stabilité, Page Rank, pondération vs sites classiques ...)
 
 # La lumière au fond du tunnel ?
 
 Vous l’avez donc compris, dans certains cas, les SPA basées sur des frameworks Js posent deux problèmes très gênants et difficilement résolvables.
-C’est là qu’entre en piste, une nouvelle façon de penser les SPA, grace à une librairie développée par Facebook : [React.JS](http://facebook.github.io/react/)
+C’est là qu’entre en piste, une nouvelle façon de penser les SPA, grace à une librairie développée par Facebook : [React.JS](https://facebook.github.io/react/)
 
-React fait parler de lui car il commence à être utilisé massivement par des très gros acteurs Web, Facebook bien entendu pour ses composants Chat, ou son [éditeur vidéo](http://facebook.com/lookback/edit), [Instagram](http://facebook.github.io/react/blog/2013/11/05/thinking-in-react.html) pour l’intégralité du site, [Yahoo Mail](http://www.slideshare.net/rmsguhan/react-meetup-mailonreact), [Github avec l’IDE Atom](http://blog.atom.io/2014/07/02/moving-atom-to-react.html), [Khan Academy](http://joelburget.com/backbone-to-react/), [NyTimes](http://www.nytimes.com/interactive/2014/02/02/fashion/red-carpet-project.html?_r=0), [Feed.ly](https://twitter.com/feedly/status/517163824206458880) ...
+React fait parler de lui car il commence à être utilisé massivement par des très gros acteurs Web, Facebook bien entendu pour ses composants Chat, ou son [éditeur vidéo](https://facebook.com/lookback/edit), [Instagram](https://facebook.github.io/react/blog/2013/11/05/thinking-in-react.html) pour l’intégralité du site, [Yahoo Mail](https://www.slideshare.net/rmsguhan/react-meetup-mailonreact), [Github avec l’IDE Atom](https://blog.atom.io/2014/07/02/moving-atom-to-react.html), [Khan Academy](https://joelburget.com/backbone-to-react/), [NyTimes](https://www.nytimes.com/interactive/2014/02/02/fashion/red-carpet-project.html?_r=0), [Feed.ly](https://twitter.com/feedly/status/517163824206458880) ...
 
 Au premier abord, React n’est qu’une librairie qu’on pourrait comparer à la partie Vue d’un Framework MVC (voir aux Directives d’Angular), mais il a la particularité d’être basé sur un Virtual DOM.
 Ce qui parait au départ simplement une bonne idée pour avoir des performances bien supérieures à celle d’un framework MVC basé sur le DOM, et éviter par exemple les Dirty checking du DOM (qui explique en partie le manque de perf d’Angular), permet aussi d’utiliser ces mêmes composants coté serveur !
 
 C’est ce qu’on appelle l’approche **« Isomorphic »** .
 
-Un composant React n’est finalement qu’un module CommonJs et peut donc aussi bien être utilisé coté browser sur le client, que coté server dans du [Node.Js](http://nodejs.org/) (ou [IO.js](https://github.com/iojs/io.js/issues/28) devrais-je dire maintenant ?).
+Un composant React n’est finalement qu’un module CommonJs et peut donc aussi bien être utilisé coté browser sur le client, que coté server dans du [Node.Js](https://nodejs.org/) (ou [IO.js](https://github.com/iojs/io.js/issues/28) devrais-je dire maintenant ?).
 L’idée de l’isomorphisme est aussi d’être capable de servir le premier rendu directement par le serveur.
 Exemple:
 
 * Vous accédez à votresite.com/votrepage.html
 * Votre serveur Node, construit votre page et sert le rendu HTML généré par votre appli au client
-* Il sert aussi votre application JS dans un Bundle (généré via du [Gulp](http://gulpjs.com/) ou [Grunt](http://gruntjs.com/) par [WebPack](http://webpack.github.io/) ou [Browserify](http://browserify.org/))
+* Il sert aussi votre application JS dans un Bundle (généré via du [Gulp](https://gulpjs.com/) ou [Grunt](https://gruntjs.com/) par [WebPack](https://webpack.github.io/) ou [Browserify](https://browserify.org/))
 * Le client reçoit un fichier statique et l’affiche (sans attendre le moindre JS)
 * Il reçoit aussi le bundle Js
 * Une fois affiché, React sait reprendre la main sur votre appli afin de continuer en mode SPA pour la suite de l’application.
@@ -138,12 +138,12 @@ Si malgré ces points, vous souhaitez tester cette approche, je vous conseille d
 
 Si vous souhaitez plus d’infos sur React et Flux, je vous conseille ces deux articles en anglais de [@andrewray](https://twitter.com/andrewray): 
 
-* [React for stupid people](http://blog.andrewray.me/reactjs-for-stupid-people/)
-* [Flux for stupid people](http://blog.andrewray.me/flux-for-stupid-people/)
+* [React for stupid people](https://blog.andrewray.me/reactjs-for-stupid-people/)
+* [Flux for stupid people](https://blog.andrewray.me/flux-for-stupid-people/)
 
-Ou ce tuto chez nos amis de Jolicode, pour [faire un Gifomatic avec React et Flux](http://jolicode.com/blog/flux-react-vers-un-nouveau-paradigme)
+Ou ce tuto chez nos amis de Jolicode, pour [faire un Gifomatic avec React et Flux](https://jolicode.com/blog/flux-react-vers-un-nouveau-paradigme)
 
-D'autres solutions existent aussi conservant la même approche, mais sur la base d'autres technos, notamment celle d'Airbnb: [RendR](http://nerds.airbnb.com/weve-open-sourced-rendr-run-your-backbonejs-a/), permettant d'utiliser du [Backbone coté client et serveur](http://nerds.airbnb.com/weve-launched-our-first-nodejs-app-to-product/).
+D'autres solutions existent aussi conservant la même approche, mais sur la base d'autres technos, notamment celle d'Airbnb: [RendR](https://nerds.airbnb.com/weve-open-sourced-rendr-run-your-backbonejs-a/), permettant d'utiliser du [Backbone coté client et serveur](https://nerds.airbnb.com/weve-launched-our-first-nodejs-app-to-product/).
 
 Et pour finir, si ces sujets vous passionnent tout comme nous, restez à l’écoute ici, d’autres posts pourraient arriver à l’avenir ;-)
 

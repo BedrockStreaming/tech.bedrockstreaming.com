@@ -13,7 +13,7 @@ category:
 tags: [outil, php, symfony, open-source]
 image:
   feature: posts/cytron/football.png
-  credit: http://www.flickr.com/photos/23959858@N03
+  credit: https://www.flickr.com/photos/23959858@N03
   creditlink:
 comments: true
 permalink: firewall-applicatif-php-et-bundle-symfony
@@ -24,7 +24,7 @@ Nous publions aujourd'hui notre firewall applicatif sur notre [compte GitHub](ht
 - d'un [composant PHP](https://github.com/M6Web/Firewall) (5.4+) gérant les IPs (V4 et V6), plages, wildcards, white/black lists, etc.
 - d'un [bundle Symfony](https://github.com/M6Web/FirewallBundle) permettant d'utiliser le composant [Firewall](https://github.com/M6Web/Firewall) dans les controllers à l'aide des annotations et de retourner une réponse HTTP personnalisée.
 
-Ils utilisent tous les deux [Composer](http://getcomposer.org/) et sont [disponibles sur Packagist](https://packagist.org/packages/m6web/).
+Ils utilisent tous les deux [Composer](https://getcomposer.org/) et sont [disponibles sur Packagist](https://packagist.org/packages/m6web/).
 
 #### Qu’est ce qu’un Firewall applicatif ?
 

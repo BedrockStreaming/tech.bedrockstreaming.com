@@ -23,15 +23,15 @@ Quand elles sont liées à des sites à fort trafic ou à une émission télé (
 
 C’est une problématique qu’on croit souvent liée uniquement aux backends (scripts serveurs, bases de données etc), en oubliant souvent que le front-end est aussi, voir tout autant concerné.
 
-C’est notamment le cas pour une "[Single Page Application](http://fr.wikipedia.org/wiki/Application_web_monopage)" [Angular.Js](https://angularjs.org/) que nous développons en ce moment.
+C’est notamment le cas pour une "[Single Page Application](https://fr.wikipedia.org/wiki/Application_web_monopage)" [Angular.Js](https://angularjs.org/) que nous développons en ce moment.
 
 L’objectif ici est d’avoir une application qui exécutera le moins de requêtes possible pour s’afficher, et qui ensuite sera quasiment autonome en ne faisant que le minimum de requêtes HTTP. Ceci afin de garantir, que lorsque quelqu’un charge l’application, l’expérience est quasi parfaite, même si entre temps, le CDN ou l'hébergement connaît une surcharge temporaire.
 
 L’autre avantage de diminuer le nombre d’appels HTTP, c’est aussi de limiter l’impact de la latence réseau, encore plus imposante dans notre cas, car notre cible est majoritairement mobile.
 
-Pour les applications "Client-Side", nous utilisons [Grunt.Js](http://gruntjs.com/) pour automatiser toutes les tâches de développement, build, déploiement … (Nul doute que la même chose existe avec [Gulp](http://gulpjs.com/) pour les plus Hipsters d’entre vous). Grunt regorge de plugins en tout genre pour automatiser énormément de choses coté WebPerf, commençons par le plus évident et le plus simple.
+Pour les applications "Client-Side", nous utilisons [Grunt.Js](https://gruntjs.com/) pour automatiser toutes les tâches de développement, build, déploiement … (Nul doute que la même chose existe avec [Gulp](https://gulpjs.com/) pour les plus Hipsters d’entre vous). Grunt regorge de plugins en tout genre pour automatiser énormément de choses coté WebPerf, commençons par le plus évident et le plus simple.
 
-P.S : Je passe volontairement l’[installation/initialisation de Grunt](http://gruntjs.com/getting-started) ainsi que de ses plugins. Le web regorgeant de ressources là dessus.
+P.S : Je passe volontairement l’[installation/initialisation de Grunt](https://gruntjs.com/getting-started) ainsi que de ses plugins. Le web regorgeant de ressources là dessus.
 
 ### Minification HTML
 
@@ -60,7 +60,7 @@ Afin d’éviter d’avoir des images « brutes » de taille trop importante, on
 
 Dans notre cas, où nous souhaitons réduire le nombre de requêtes HTTP superflues, nous avons opté pour l’inlining des images dites d’interface (boutons d’actions, picto etc).
 
-Nous utilisons aussi le pré-compilateur CSS [Less](http://lesscss.org/), par simplicité et pour éviter le [DRY](http://fr.wikipedia.org/wiki/Ne_vous_r%C3%A9p%C3%A9tez_pas) CSS.
+Nous utilisons aussi le pré-compilateur CSS [Less](https://lesscss.org/), par simplicité et pour éviter le [DRY](https://fr.wikipedia.org/wiki/Ne_vous_r%C3%A9p%C3%A9tez_pas) CSS.
 Nous avons donc un premier fichier `.less` qui va contenir toutes les images d’interface sous cette forme :
 `@facelessImg: url('images/faceless.jpg’);`
 
@@ -124,7 +124,7 @@ Attention toutefois, cela signifie que le poids du fichier HTML original va forc
 
 Comme vous avez pu le voir, nous avons grandement optimisé notre application, en utilisant simplement des plugins Grunt à notre disposition. Nous travaillons donc sur un espace de développement respectant toutes les bonnes pratiques (découpages des fichiers JS, CSS, HTML au maximum, code commenté …) et toutes les opérations d’optimisation sont automatiquement effectuées au build, fait avant chaque déploiement.
 
-Attention, cela signifie aussi que votre projet en production devient relativement différent de celui que vous testé en développement. Il devient donc important de mettre en place des tests fonctionnels sur le build de production (avec [Protractor](http://tech.m6web.fr/tests-e2e-application-angularjs-protractor.html) par exemple, ou même [Behat](http://docs.behat.org/en/latest/)), et de tester régulièrement la bonne génération et le bon fonctionnement du build de prod.
+Attention, cela signifie aussi que votre projet en production devient relativement différent de celui que vous testé en développement. Il devient donc important de mettre en place des tests fonctionnels sur le build de production (avec [Protractor](https://tech.m6web.fr/tests-e2e-application-angularjs-protractor.html) par exemple, ou même [Behat](https://docs.behat.org/en/latest/)), et de tester régulièrement la bonne génération et le bon fonctionnement du build de prod.
 
 
 

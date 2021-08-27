@@ -50,7 +50,7 @@ Like superagent, superagent-mock can be installed via npm, and be used by server
 npm install superagent-mock --save-dev
 {% endhighlight %}  
 
-Then, create the configuration file, where you will define which data will be mocked. Let's take for example a nonexistent API, the authors list on our technical blog: `http://tech.m6web.fr/api/authors`.
+Then, create the configuration file, where you will define which data will be mocked. Let's take for example a nonexistent API, the authors list on our technical blog: `https://tech.m6web.fr/api/authors`.
 
 Here is the file structure we need: 
 
@@ -58,7 +58,7 @@ Here is the file structure we need:
 // ./config.js file
 module.exports = [
   {
-    pattern: 'http://tech.m6web.fr/api/authors',
+    pattern: 'https://tech.m6web.fr/api/authors',
     fixtures: './authors.js',
     callback: function (match, data) {
       return { body : data };
@@ -109,14 +109,14 @@ Our app build itself the URLs of images retrieved via the API: it provides us an
 
 Projects [superagent-mock][superagent-mock] and [sprintf-mock][sprintf-mock] are open source. Very easy to use, they allow us to parallelize our developments with the backend team and to make our functional tests autonomous. So don't wait API completion to start your frontend developments!
 
-[react-website]: http://facebook.github.io/react/
+[react-website]: https://facebook.github.io/react/
 [flux-website]: https://facebook.github.io/flux/
-[isomorphic]: http://isomorphic.net/javascript
-[superagent]: http://visionmedia.github.io/superagent/
-[webpack]: http://webpack.github.io/
-[browserify]: http://browserify.org/
+[isomorphic]: https://isomorphic.net/javascript
+[superagent]: https://visionmedia.github.io/superagent/
+[webpack]: https://webpack.github.io/
+[browserify]: https://browserify.org/
 [superagent-mock]: https://github.com/M6Web/superagent-mock
 [superagent-mock-source]: https://github.com/M6Web/superagent-mock/blob/master/superagent-mock.js
 [sprintf-js]: https://github.com/alexei/sprintf.js
 [sprintf-mock]: https://github.com/M6Web/sprintf-mock
-[kenny-isomorphic-post]: http://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/
+[kenny-isomorphic-post]: https://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/

@@ -21,7 +21,7 @@ permalink: 2013/10/tester-fonctionnellement-une-api-rest-symfony-doctrine-atoum.
 
 Un des enjeux des tests fonctionnels est de pouvoir être joués dans un environnement complètement indépendant, dissocié de l'environnement de production, afin de ne pas être tributaires de données versatiles qui pourraient impacter leur résultat. Il faut, cependant, que cet environnement soit techniquement similaire à celui de production pour que les tests aient une réelle validité fonctionnelle.
 
-Avec la Team Cytron, nous sommes tombés face à cette problématique lorsque nous avons voulu tester fonctionnellement un service agnostique de contenu mettant à disposition une API REST et utilisant [Symfony2](http://symfony.com/), MySQL, Doctrine et [atoum](http://www.atoum.org).
+Avec la Team Cytron, nous sommes tombés face à cette problématique lorsque nous avons voulu tester fonctionnellement un service agnostique de contenu mettant à disposition une API REST et utilisant [Symfony2](https://symfony.com/), MySQL, Doctrine et [atoum](https://www.atoum.org).
 
 
 #### Monter un serveur de données dédié aux tests
@@ -65,7 +65,7 @@ Au début de chaque test, nous aurions ouvert une transaction mais qui n’aurai
 
 #### Remplacer MySQL par un autre SGBD uniquement pour les tests
 
-Finalement, nous sommes partis sur une autre piste, celle qui fait actuellement tourner nos tests fonctionnels sur ce projet. Nous utilisons [SQLite](http://www.sqlite.org/) dans notre environnement de test la place de MySQL. Ce SGBD est très léger et simple mettre en œuvre : pas besoin d’une installation sur un serveur dédié, il suffit simplement d’activer une extension de PHP. SQLite se base sur des fichiers physiques pour gérer le stockage des données. Ainsi, chaque build de test peut avoir ses propres fichiers de BDD dans son répertoire évitant toute collision dans le cas de tests concurrentiels.
+Finalement, nous sommes partis sur une autre piste, celle qui fait actuellement tourner nos tests fonctionnels sur ce projet. Nous utilisons [SQLite](https://www.sqlite.org/) dans notre environnement de test la place de MySQL. Ce SGBD est très léger et simple mettre en œuvre : pas besoin d’une installation sur un serveur dédié, il suffit simplement d’activer une extension de PHP. SQLite se base sur des fichiers physiques pour gérer le stockage des données. Ainsi, chaque build de test peut avoir ses propres fichiers de BDD dans son répertoire évitant toute collision dans le cas de tests concurrentiels.
 
 Nous avons donc configuré Doctrine, pour qu'il utilise SQLite lors de son exécution en environnement de test en modifiant le config_test.yml
 

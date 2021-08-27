@@ -14,11 +14,11 @@ tags: [outil, api, symfony, doctrine, cytron, open-source]
 image:
   feature: posts/cytron/domainuserbundle.png
   credit: ram reddy
-  creditlink: http://www.flickr.com/photos/rammorrison/with/4704353204/
+  creditlink: https://www.flickr.com/photos/rammorrison/with/4704353204/
 comments: true
 ---
 
-Après avoir travaillé pendant plusieurs mois sur la création et les [tests](http://tech.m6web.fr/redismock-qui-a-bouchonne-mon-redis.html) de nos API avec Symfony, le moment de leur publication est enfin arrivé !
+Après avoir travaillé pendant plusieurs mois sur la création et les [tests](https://tech.m6web.fr/redismock-qui-a-bouchonne-mon-redis.html) de nos API avec Symfony, le moment de leur publication est enfin arrivé !
 
 Or, les clients de nos API sont multiples : il peut s'agir d'applications mobiles, de sites web mais aussi d’un *back office* interne. Chacun de ces clients peut nécessiter des “vues” différentes de l’API.
 
@@ -26,20 +26,20 @@ Effectivement, alors que le BO devra pouvoir accéder à la totalité des ressou
 
 Nous avons opté pour l’utilisation d’un sous-domaine par client afin de l’identifier et ainsi de lui appliquer des configurations particulières. Ex :
 
-* http://bo.api.monservice.fr pour le BO,
-* http://mobile.api.monservice.fr pour l'application mobile.
+* https://bo.api.monservice.fr pour le BO,
+* https://mobile.api.monservice.fr pour l'application mobile.
 
 
 #### Authentification
 
-Nous utilisons le [composant sécurité](http://symfony.com/doc/current/components/security/introduction.html) de Symfony, qui permet de créer un utilisateur authentifié à la volée et de charger la configuration spécifique à celui-ci.
+Nous utilisons le [composant sécurité](https://symfony.com/doc/current/components/security/introduction.html) de Symfony, qui permet de créer un utilisateur authentifié à la volée et de charger la configuration spécifique à celui-ci.
 
 Nous avons tout d’abord besoin de créer une classe `User` implémentant `Symfony\Component\Security\Core\User\UserInterface`, et contenant les informations de configuration spécifique.
 
 Les différents `Users` sont ensuite créés à l’aide d’un fournisseur d'utilisateurs implémentant `Symfony\Component\Security\Core\User\UserProviderInterface`.
 Dans notre cas, chaque utilisateur possède son propre fichier de configuration yml. Le fournisseur d’utilisateur vérifie donc que l’utilisateur demandé possède un fichier de configuration et instancie un objet `User` avec cette configuration. Ce UserProvider est défini comme service dans notre bundle et configuré dans `security.yml`.
 
-Il faut ensuite créer notre propre fournisseur d’authentification pour avoir une authentification par nom de domaine. Pour cela nous avons suivi et adapté le [cookbook de Symfony](http://symfony.com/doc/current/cookbook/security/custom_authentication_provider.html). Cette authentification s’articule autour de 2 classes : un FirewallListener et un AuthenticationProvider. Pour que notre FirewallListener puisse facilement récupérer le client associé, nous avons ajouté un paramètre au routing Symfony :
+Il faut ensuite créer notre propre fournisseur d’authentification pour avoir une authentification par nom de domaine. Pour cela nous avons suivi et adapté le [cookbook de Symfony](https://symfony.com/doc/current/cookbook/security/custom_authentication_provider.html). Cette authentification s’articule autour de 2 classes : un FirewallListener et un AuthenticationProvider. Pour que notre FirewallListener puisse facilement récupérer le client associé, nous avons ajouté un paramètre au routing Symfony :
 
 {% highlight yaml %}
 host: {client}.api.monservice.fr
@@ -115,7 +115,7 @@ Grâce à l'utilisation du Bundle Security de Symfony, toute la configuration sp
 
 Afin d'implémenter facilement ce fonctionnement sur nos API, nous avons développé un bundle dédié. Il peut donc aussi vous permettre de gérer l'authentification et la configuration de vos API par nom de domaine.
 
-[DomainUserBundle](https://github.com/M6Web/DomainUserBundle) est disponible en [open-source](http://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur le [compte GitHub de M6Web](https://github.com/M6Web).
+[DomainUserBundle](https://github.com/M6Web/DomainUserBundle) est disponible en [open-source](https://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur le [compte GitHub de M6Web](https://github.com/M6Web).
 
 Enjoy !
 

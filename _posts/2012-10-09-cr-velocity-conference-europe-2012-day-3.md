@@ -31,7 +31,7 @@ On arrive déjà fatigué et gavé d'informations et idées en tout genre, mais 
 
 ### [Mobile] The Performance of Web Vs Apps, par Ben Galbraith et Dion Almaer (Walmart.com)
 
-Ben ([@bgalbs](https://twitter.com/bgalbs)) et Dion ([@dalmaer](https://twitter.com/dalmaer)) nous reprennent dans les grandes lignes, la conférence faite la Vélocity Us (voir le CR + la vidéo de ce talk : [http://tech.m6web.fr/cr-velocity-conference-2012-day-3-devops-webperf](http://tech.m6web.fr/cr-velocity-conference-2012-day-3-devops-webperf) )
+Ben ([@bgalbs](https://twitter.com/bgalbs)) et Dion ([@dalmaer](https://twitter.com/dalmaer)) nous reprennent dans les grandes lignes, la conférence faite la Vélocity Us (voir le CR + la vidéo de ce talk : [https://tech.m6web.fr/cr-velocity-conference-2012-day-3-devops-webperf](https://tech.m6web.fr/cr-velocity-conference-2012-day-3-devops-webperf) )
 
 L'idée est de comparer les experiences possibles sur WebApp et Apps Native, avec toujours cette comparaison très drôle entre le mode de distribution des apps natives ce que cela donnerait si les show tv devraient être distribués de la même manière en prenant l'exemple de la série Friends : Hilarant !
 
@@ -39,30 +39,30 @@ Voir la vidéo ci-dessous vers 17min 30 :
 
 
 
-![Ben Galbraith et Dion Almaer (Source : http://royal.pingdom.com/2012/10/05/report-from-velocity-europe-day-3/ )](/images/posts/imgob/0-00-30-83-201210-ob_217722ac6f1101dfc98f3303ee4ee09b_walmart-jpg.jpg)
+![Ben Galbraith et Dion Almaer (Source : https://royal.pingdom.com/2012/10/05/report-from-velocity-europe-day-3/ )](/images/posts/imgob/0-00-30-83-201210-ob_217722ac6f1101dfc98f3303ee4ee09b_walmart-jpg.jpg)
 
-Ben Galbraith et Dion Almaer (Source : http://royal.pingdom.com/2012/10/05/report-from-velocity-europe-day-3/ )
+Ben Galbraith et Dion Almaer (Source : https://royal.pingdom.com/2012/10/05/report-from-velocity-europe-day-3/ )
 
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/WrhNGlxzm_4?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/WrhNGlxzm_4?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
 
 
 ### [WebPerf] Lightning Démos, par Steve Souders et Patrick Meenan (Google)
 
-Patrick nous a montré les derniers ajouts intéressants de [WebPageTest.org](http://WebPageTest.org), avec notamment le "Block Ads Feature", l'onglet "SPOF" dans les paramètres avancés pour tester si nos scripts tiers sont des SPOF sur nos sites (j'y reviendrai) ... L'outil s'enrichit progressivement et reste toujours LA référence ultime du domaine !
+Patrick nous a montré les derniers ajouts intéressants de [WebPageTest.org](https://WebPageTest.org), avec notamment le "Block Ads Feature", l'onglet "SPOF" dans les paramètres avancés pour tester si nos scripts tiers sont des SPOF sur nos sites (j'y reviendrai) ... L'outil s'enrichit progressivement et reste toujours LA référence ultime du domaine !
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/X0npWAJ7xfM?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/X0npWAJ7xfM?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
 Steve Souders de son côté, est revenu sur un cas étudié la veille, à savoir l'implémentation d'un LazyLoader sur un caroussel, afin de déterminé via Browserscope.js si cela repoussait le OnLoad event, et c'est le cas !
 
-Petite parenthèse sur les caroussels, je vous invite lire cet article : [Don’t Use Automatic Image Sliders or Carousels, Ignore the Fad](http://conversionxl.com/dont-use-automatic-image-sliders-or-carousels-ignore-the-fad/)
+Petite parenthèse sur les caroussels, je vous invite lire cet article : [Don’t Use Automatic Image Sliders or Carousels, Ignore the Fad](https://conversionxl.com/dont-use-automatic-image-sliders-or-carousels-ignore-the-fad/)
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/jQEnc5OUu6o?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/jQEnc5OUu6o?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
 
 
@@ -72,7 +72,7 @@ Talk sponsorisé assez intéressant, qui étudie les données récoltées par Ip
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/-Ff5qhVG9Q4?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/-Ff5qhVG9Q4?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
 
 
@@ -84,7 +84,7 @@ Talk orienté "Culture" intéressant par l'un des créateurs de EC2. Mon moment 
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/veumR8l07uc?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/veumR8l07uc?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
 
 
@@ -96,7 +96,7 @@ Retour d'experience des gars de Lonelyplanet (sorte de Routard) très enrichissa
 
 > "Give your metrics a public presence"
 
-Les slides : [http://fr.slideshare.net/mbjenn/performance-and-metrics-at-lonely-planet-14589911](http://fr.slideshare.net/mbjenn/performance-and-metrics-at-lonely-planet-14589911)
+Les slides : [https://fr.slideshare.net/mbjenn/performance-and-metrics-at-lonely-planet-14589911](https://fr.slideshare.net/mbjenn/performance-and-metrics-at-lonely-planet-14589911)
 
 
 
@@ -105,7 +105,7 @@ Les slides : [http://fr.slideshare.net/mbjenn/performance-and-metrics-at-lonely-
 Mark Jennings et Dave Nolan (Source : https://twitter.com/smcinnes/status/253805752312033280/photo/1 )
 
 
-<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/14589911" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="https://fr.slideshare.net/slideshow/embed_code/14589911" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 
 
 ### [WebPerf] Third-Party Scripts and You, par Patrick Meenan (Google)
@@ -124,11 +124,11 @@ En surfant, vous saurez rapidement si un SPOF est présent sur votre site ou non
 
 Pour régler ces problèmes, plusieurs solutions : Script à charger dynamiquement via Js de manière asynchrone, script avec async et defer, ou au pire, script avant le /body.
 
-Les slides : [http://www.slideshare.net/patrickmeenan/velocity-eu-2012-third-party-scripts-and-you](http://www.slideshare.net/patrickmeenan/velocity-eu-2012-third-party-scripts-and-you)
+Les slides : [https://www.slideshare.net/patrickmeenan/velocity-eu-2012-third-party-scripts-and-you](https://www.slideshare.net/patrickmeenan/velocity-eu-2012-third-party-scripts-and-you)
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/14589629" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="https://fr.slideshare.net/slideshow/embed_code/14589629" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 
 
 ### [Ops] How Draw Something Absorbed 50 Million New Users, in 50 Days, with Zero Downtime, par J Chris Anderson (Couchbase)
@@ -156,38 +156,38 @@ Pas mal de conférences parlaient de WebPageTest, mais celle-ci promettait d'all
 
 Enormement d'informations et tips sont donc présents dans les slides de cette conférence.
 
-Pour rappel : instruction d'Andy pour monter une instance privée de WPT : [http://andydavies.me/blog/2012/09/18/how-to-create-an-all-in-one-webpagetest-private-instance/](http://andydavies.me/blog/2012/09/18/how-to-create-an-all-in-one-webpagetest-private-instance/)
+Pour rappel : instruction d'Andy pour monter une instance privée de WPT : [https://andydavies.me/blog/2012/09/18/how-to-create-an-all-in-one-webpagetest-private-instance/](https://andydavies.me/blog/2012/09/18/how-to-create-an-all-in-one-webpagetest-private-instance/)
 
-Les slides : [http://www.slideshare.net/AndyDavies/web-page-test-beyond-the-basics](http://www.slideshare.net/AndyDavies/web-page-test-beyond-the-basics)
-
-
-
-![Andy Davies et Aaron Peters (Source : http://royal.pingdom.com/2012/10/05/report-from-velocity-europe-day-3/ )](/images/posts/imgob/0-00-30-83-201210-ob_771b7ad15a983bd9a3c761e9fe264d64_webpagetest-jpg.jpg)
-
-Andy Davies et Aaron Peters (Source : http://royal.pingdom.com/2012/10/05/report-from-velocity-europe-day-3/ )
+Les slides : [https://www.slideshare.net/AndyDavies/web-page-test-beyond-the-basics](https://www.slideshare.net/AndyDavies/web-page-test-beyond-the-basics)
 
 
-<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/14589892?rel=0" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
+
+![Andy Davies et Aaron Peters (Source : https://royal.pingdom.com/2012/10/05/report-from-velocity-europe-day-3/ )](/images/posts/imgob/0-00-30-83-201210-ob_771b7ad15a983bd9a3c761e9fe264d64_webpagetest-jpg.jpg)
+
+Andy Davies et Aaron Peters (Source : https://royal.pingdom.com/2012/10/05/report-from-velocity-europe-day-3/ )
+
+
+<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="https://fr.slideshare.net/slideshow/embed_code/14589892?rel=0" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 
 
 ### [DevOps] What HTTP/2.0 Will* Do For You, par Mark Nottingham (Akamai)
 
 L'une des conférences les plus intéressantes de la Vélocity pour ma part avec notamment l'annonce que HTTP/2.0 sera basé sur SPDY déj...
 
-Mark Nottingham ( [@mnot](https://twitter.com/mnot) ), Chair of the [IETF HTTPbis Working Group](http://trac.tools.ietf.org/wg/httpbis/trac/wiki), excellent conférencier, nous explique donc ce que sera HTTP/2.0 :
+Mark Nottingham ( [@mnot](https://twitter.com/mnot) ), Chair of the [IETF HTTPbis Working Group](https://trac.tools.ietf.org/wg/httpbis/trac/wiki), excellent conférencier, nous explique donc ce que sera HTTP/2.0 :
 
 - Aucun changement la sémantique HTTP
 - Basé sur Speedy
 - Multiplexing (voir slide 22)
 - Header Compression, technique très intéressante, pour éviter de ré-envoyer les memes headers pour chaque requête HTTP
 
-Pas mal de ressources sont disponibles sur son site : [http://www.mnot.net/](http://www.mnot.net/)
+Pas mal de ressources sont disponibles sur son site : [https://www.mnot.net/](https://www.mnot.net/)
 
-Les slides sont un modèle du genre, simples et efficaces : [http://www.slideshare.net/mnot/what-http20-will-do-for-you](http://www.slideshare.net/mnot/what-http20-will-do-for-you)
+Les slides sont un modèle du genre, simples et efficaces : [https://www.slideshare.net/mnot/what-http20-will-do-for-you](https://www.slideshare.net/mnot/what-http20-will-do-for-you)
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/14590411" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="https://fr.slideshare.net/slideshow/embed_code/14590411" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 
 
 ### [DevOps] Web & Native Cross-Platform Multiplayer, par Ashraf Samy Hegab (Orange)
@@ -211,14 +211,14 @@ On regrette simplement que seule la grande salle ait été filmée, que la chass
 
 A la prochaine, et merci pour vos retours.
 
-P.s: Merci aussi aux équipes de Pingdom pour leurs Twitt Live et les chouettes photos prises ( [http://royal.pingdom.com/]( http://royal.pingdom.com/) )
+P.s: Merci aussi aux équipes de Pingdom pour leurs Twitt Live et les chouettes photos prises ( [https://royal.pingdom.com/]( https://royal.pingdom.com/) )
 
 
 
 Rappel : les CR des autres jours sont disponible :
 
-- Day 2 : [http://tech.m6web.fr/cr-velocity-conference-europe-2012-day-2](http://tech.m6web.fr/cr-velocity-conference-europe-2012-day-2)
-- Day 1 : [http://tech.m6web.fr/cr-velocity-conference-europe-2012-day-1](http://tech.m6web.fr/cr-velocity-conference-europe-2012-day-1)
+- Day 2 : [https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-2](https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-2)
+- Day 1 : [https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-1](https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-1)
 
 
 

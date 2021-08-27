@@ -32,7 +32,7 @@ Just add those lines in your ant build file (and adapt basedir) :
     <target name="sf2-security-checker">
      <exec executable="bash" dir="${basedir}/sources/bin" failonerror="true">
          <arg value="-c"/>
-         <arg value="curl -Os http://get.sensiolabs.org/security-checker.phar" />
+         <arg value="curl -Os https://get.sensiolabs.org/security-checker.phar" />
      </exec>
      <exec executable="php" dir="${basedir}/sources" failonerror="true">
          <arg line="${basedir}/sources/bin/security-checker.phar security:check composer.lock" />

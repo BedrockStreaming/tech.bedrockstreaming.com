@@ -14,7 +14,7 @@ tags: [tests fonctionnels, javascript, phantomjs, webdriver, Cytron]
 image:
   feature: posts/cytron/moon.jpg
   credit: hippowallpapers.com
-  creditlink: http://www.hippowallpapers.com/walk-the-moon-wallpapers
+  creditlink: https://www.hippowallpapers.com/walk-the-moon-wallpapers
 comments: true
 ---
 
@@ -24,13 +24,13 @@ L’utilité des tests fonctionnels pour les applications web n’est plus à d�
 
 Notre application est codée en JS isomorphique (ou [Universal JS](https://medium.com/@mjackson/universal-javascript-4761051b7ae9#.2srtfrqku)) grâce à [React et Node.js](/beta-nouveau-6play-react-isomorphic/).
 
-Pour les tests fonctionnels, nous utilisons le trio [Cucumber.js](https://github.com/cucumber/cucumber-js) + [WebdriverIO](http://webdriver.io/) + [PhantomJS](http://phantomjs.org/) :
+Pour les tests fonctionnels, nous utilisons le trio [Cucumber.js](https://github.com/cucumber/cucumber-js) + [WebdriverIO](https://webdriver.io/) + [PhantomJS](https://phantomjs.org/) :
 
 * **Cucumber.js** est l’outil qui permet de dérouler la suite de tests écrits dans la syntaxe [Gherkin](https://github.com/cucumber/cucumber/wiki/Gherkin),
 * **WebdriverIO** permet d’interfacer les tests traduits en JS avec un serveur Selenium (dialoguant grâce au protocole [WebDriver Wire](https://code.google.com/p/selenium/wiki/JsonWireProtocol) et permettant de contrôler un browser),
 * **PhantomJS** est le browser dans lequel les scénarios de tests seront exécutés, il embarque son propre serveur Webdriver, [Ghostdriver](https://github.com/detro/ghostdriver).
 
-Toutes [nos Pull Requests lancent les tests indépendamment via Jenkins](http://tech.m6web.fr/lache-moi-la-branch/) dans un environnement “dockerisé”, donc complètement autonome et isolé. De façon à respecter ce principe jusqu’au bout et à ne pas dépendre de données versatiles, nos API sont aussi mockées grâce à [superagent-mock](https://github.com/M6Web/superagent-mock).
+Toutes [nos Pull Requests lancent les tests indépendamment via Jenkins](https://tech.m6web.fr/lache-moi-la-branch/) dans un environnement “dockerisé”, donc complètement autonome et isolé. De façon à respecter ce principe jusqu’au bout et à ne pas dépendre de données versatiles, nos API sont aussi mockées grâce à [superagent-mock](https://github.com/M6Web/superagent-mock).
 
 ## Setup
 
@@ -212,7 +212,7 @@ module.exports = function () {
 {% endhighlight %}
 
 ### Design
-Nous n'avons pas mis en œuvre le [pattern Page Object](http://blog.josephwilk.net/cucumber/page-object-pattern.html). Ce n'était pas un choix délibéré mais le contexte et les enjeux du projet nous ont fait passer à côté, ou ce n'était peut être simplement pas le moment. Malgré tout, nous avons tenté de rationaliser au mieux l'organisation du code. Par exemple, afin de ne pas se retrouver avec des sélecteurs CSS éparpillés dans plusieurs fichiers de “features” ou de “step definitions”, nous avons choisi de les regrouper dans un fichier `constants.json` et d’utiliser seulement des labels ailleurs. Nous faisons le lien entre le label et le sélecteur CSS avec la méthode `getDOMSelector`, visible ci-dessus et définie dans le fichier `world.js`.
+Nous n'avons pas mis en œuvre le [pattern Page Object](https://blog.josephwilk.net/cucumber/page-object-pattern.html). Ce n'était pas un choix délibéré mais le contexte et les enjeux du projet nous ont fait passer à côté, ou ce n'était peut être simplement pas le moment. Malgré tout, nous avons tenté de rationaliser au mieux l'organisation du code. Par exemple, afin de ne pas se retrouver avec des sélecteurs CSS éparpillés dans plusieurs fichiers de “features” ou de “step definitions”, nous avons choisi de les regrouper dans un fichier `constants.json` et d’utiliser seulement des labels ailleurs. Nous faisons le lien entre le label et le sélecteur CSS avec la méthode `getDOMSelector`, visible ci-dessus et définie dans le fichier `world.js`.
 
 ### Run 
 Pour lancer les tests, il faut :
@@ -232,7 +232,7 @@ Il est bien sûr impossible d’être exhaustif. L’idée est d’abord de couv
 
 ## PhantomJS, la stabilité en question...
 
-Basé sur Webkit, PhantomJS est le plus connu des navigateurs headless, c’est-à-dire exécutables sans interface visuelle. D’autres navigateurs légers et créés pour les tests fonctionnels existent comme [SlimerJS](https://slimerjs.org/) (basé sur Gecko et pas vraiment headless) ou [Zombie.js](http://zombie.js.org/) (pas de moteur de rendu). Cependant aucun n’offre toutes les fonctionnalités de PhantomJS qui se rapprochent le plus d’un vrai browser. **Il émule de façon transparente tout le rendu graphique** avec la possibilité de réaliser des screenshots par exemple ou de tester la visibilité d’un élément du DOM (non opaque, dans le viewport, sur la couche z-index la plus haute...).
+Basé sur Webkit, PhantomJS est le plus connu des navigateurs headless, c’est-à-dire exécutables sans interface visuelle. D’autres navigateurs légers et créés pour les tests fonctionnels existent comme [SlimerJS](https://slimerjs.org/) (basé sur Gecko et pas vraiment headless) ou [Zombie.js](https://zombie.js.org/) (pas de moteur de rendu). Cependant aucun n’offre toutes les fonctionnalités de PhantomJS qui se rapprochent le plus d’un vrai browser. **Il émule de façon transparente tout le rendu graphique** avec la possibilité de réaliser des screenshots par exemple ou de tester la visibilité d’un élément du DOM (non opaque, dans le viewport, sur la couche z-index la plus haute...).
 
 Néanmoins celui-ci n'intègre pas toutes les dernières avancées en terme de JS et de CSS. Flexbox n’est par exemple pas pris en charge ce qui nous a posé quelques problèmes sur les vérifications liées à la visibilité des éléments. Sa version 2.0 qui date de début 2015, malgré la bonne volonté des contributeurs, n’a toujours pas de build officiel sous Linux, ce qui oblige à compiler les sources sur sa machine de tests ou à trouver sur le net un build officieux correspondant à sa distribution. C’est ce que nous avons fait via [M6Web/phantomjs2](https://github.com/M6Web/phantomjs2). Cependant, l’outil est assez instable (builds officiels ou pas) et nous avons rencontré beaucoup de crashs aléatoires ou reproductibles mais incompréhensibles (dus par exemple à l’ajout de quelques lignes de CSS anodines...).
 
@@ -240,13 +240,13 @@ En local, sur sa machine, PhantomJS est encore moins stable que sur Jenkins. Il 
 
 Pour régler temporairement ce problème, nous avons utilisé l’[image docker de Gabe Rosenhouse](https://github.com/rosenhouse/phantomjs2) pour le faire tourner dans un environnement indépendant mais ce n’est pas faciliter la vie des développeurs qui veulent juste lancer des tests sans avoir à mettre en œuvre une usine à gaz derrière.
 
-*Edit: hier, la version 2.1 de PhantomJS a (enfin) été publiée avec [un build pour chaque plateforme](http://phantomjs.org/download.html). Plusieurs de nos soucis pourraient être réglés avec cette nouvelle release, à suivre...*
+*Edit: hier, la version 2.1 de PhantomJS a (enfin) été publiée avec [un build pour chaque plateforme](https://phantomjs.org/download.html). Plusieurs de nos soucis pourraient être réglés avec cette nouvelle release, à suivre...*
 
 ## Chrome+ChromeDriver, une alternative ?
 
 Nous avons alors opté pour la solution Chrome+ChromeDriver. [ChromeDriver](https://code.google.com/p/selenium/wiki/ChromeDriver) a le rôle du serveur Selenium qui permet de faire communiquer WebriverIO avec Chrome. Les avantages de cette stack sont multiples. D’abord, l’ensemble est beaucoup **plus stable**, fini les crashs impromptus. Ensuite, le **debug des tests** en échec est bien plus aisé : on voit en effet la suite se jouer en temps réel dans son navigateur, on peut ainsi tout à fait mettre un point d’arrêt et utiliser la console de développement. Enfin, on utilise la version de Chrome que l’on souhaite, donc **plus de problème de CSS non supportés**.
 
-Alors pourquoi se cantonner à n’utiliser Chrome+ChromeDriver qu’en local et pas en intégration continue sur Jenkins ? Chrome n’est pas un browser headless et a besoin d’une interface visuelle qui n’est pas disponible sur Jenkins. Il existe des solutions pour simuler un affichage graphique avec [Xvfb](http://www.x.org/archive/X11R7.6/doc/man/man1/Xvfb.1.xhtml) par exemple. Nous avons tenté de mettre en place une telle stack sur l’image docker utilisée pour créer notre environnement de test sur Jenkins en se basant sur l’[image de Rob Cherry](https://github.com/RobCherry/docker-chromedriver). Malheureusement, après y avoir consacré un peu d’énergie, le résultat n’a pas été au rendez-vous car :
+Alors pourquoi se cantonner à n’utiliser Chrome+ChromeDriver qu’en local et pas en intégration continue sur Jenkins ? Chrome n’est pas un browser headless et a besoin d’une interface visuelle qui n’est pas disponible sur Jenkins. Il existe des solutions pour simuler un affichage graphique avec [Xvfb](https://www.x.org/archive/X11R7.6/doc/man/man1/Xvfb.1.xhtml) par exemple. Nous avons tenté de mettre en place une telle stack sur l’image docker utilisée pour créer notre environnement de test sur Jenkins en se basant sur l’[image de Rob Cherry](https://github.com/RobCherry/docker-chromedriver). Malheureusement, après y avoir consacré un peu d’énergie, le résultat n’a pas été au rendez-vous car :
 
 * l'exécution des tests dans Chrome est bien plus lente que sur PhantomJS (2 à 3 fois plus lent), notre intégration continue prenant déjà plus de 10 minutes sur ce projet,
 * il semble difficile d’obtenir ici aussi une stabilité du dispositif, les sessions Webdriver étaient souvent perdues, sans que nous en trouvions la cause.
@@ -258,10 +258,10 @@ Ces raisons nous ont conduit à abandonner cette piste.
 Nous avons continué d’espérer avoir une stack stable pour nos tests fonctionnels. Avec persévérance, nous pouvons dire qu’à l’heure actuelle grâce à ces quelques tips, nous avons une plateforme de test stable (à 99%) !
 
 ### waitUntil
-C’est la première chose à faire et la plus importante de notre point de vue. On ne sait jamais vraiment quand un élément s’affichera dans la page car son chargement dépend de trop de facteurs non prédictibles (la connexion, l’utilisation cpu, gpu, mémoire, etc.). Sur notre projet, nous avons par exemple beaucoup d’animations CSS qui retardent le timing d’apparition des pages et des éléments du DOM. Notre première approche a été de rajouter des `sleep` un peu de partout dans nos tests. Chose à ne pas faire. L’usage des `sleep` doit être cantonné à des cas très spécifiques. Pour tout le reste, il faut user et abuser du [`waitUntil`](http://webdriver.io/api/utility/waitUntil.html) de WebdriverIO, que ce soit pour des actions ou des vérifications dans la page, et en adaptant le timeout à votre projet (certaines de nos animations sont assez longues).
+C’est la première chose à faire et la plus importante de notre point de vue. On ne sait jamais vraiment quand un élément s’affichera dans la page car son chargement dépend de trop de facteurs non prédictibles (la connexion, l’utilisation cpu, gpu, mémoire, etc.). Sur notre projet, nous avons par exemple beaucoup d’animations CSS qui retardent le timing d’apparition des pages et des éléments du DOM. Notre première approche a été de rajouter des `sleep` un peu de partout dans nos tests. Chose à ne pas faire. L’usage des `sleep` doit être cantonné à des cas très spécifiques. Pour tout le reste, il faut user et abuser du [`waitUntil`](https://webdriver.io/api/utility/waitUntil.html) de WebdriverIO, que ce soit pour des actions ou des vérifications dans la page, et en adaptant le timeout à votre projet (certaines de nos animations sont assez longues).
 
 ### rollover
-Un autre problème que nous avons rencontré est la bonne exécution des rollovers. En utilisant la méthode [`moveToObject`](http://webdriver.io/api/action/moveToObject.html) pour pointer la souris sur un élément, il nous arrivait que le comportement “hover” ne soit pas déclenché, mettant en échec la suite du test. Nous avons donc changé notre manière d’effectuer le rollover : on répète l’action grâce au `waitUntil` tant que l’élement devant apparaître au hover n’est pas visible.
+Un autre problème que nous avons rencontré est la bonne exécution des rollovers. En utilisant la méthode [`moveToObject`](https://webdriver.io/api/action/moveToObject.html) pour pointer la souris sur un élément, il nous arrivait que le comportement “hover” ne soit pas déclenché, mettant en échec la suite du test. Nous avons donc changé notre manière d’effectuer le rollover : on répète l’action grâce au `waitUntil` tant que l’élement devant apparaître au hover n’est pas visible.
 
 Nous n’écrivons plus
 {% highlight bash %}
@@ -276,6 +276,6 @@ I rollover the "Header login icon" to make "Submenu" appear
 [“Rerun”](https://github.com/cucumber/cucumber-js#formatters) est une fonctionnalité existante sur d’autres frameworks de tests fonctionnels tel que Behat et créée pour les tests récalcitrants encore instables. Elle permet de stocker dans un fichier texte la liste des scénarios en échec pour les relancer ensuite afin de vérifier qu’ils le sont réellement. Nous avons mis en place ce process sur Jenkins, bien qu’il y ait [quelques subtilités qui ne facilitent pas la tâche](https://github.com/cucumber/cucumber-js/issues/499) (mais qui devraient être bientôt corrigées), et nous en sommes satisfaits.
 
 ### isVisible
-A nos débuts, nous avons eu quelques problèmes avec la fonction [`isVisible`](http://webdriver.io/api/state/isVisible.html) de WebdriverIO car les éléments opaques ou en dehors du viewport étaient considérés comme visibles. Nous avons alors choisi d’utiliser [une fonction custom](http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport/7557433#7557433) injectée via [`execute`](http://webdriver.io/api/protocol/execute.html). Récemment, dans la version 3 de WebdriverIO, la fonction [isVisibleWithinViewport](http://webdriver.io/api/state/isVisibleWithinViewport.html) a fait son apparition mais nous n'avons pas encore tenté de l'utiliser dans nos tests.
+A nos débuts, nous avons eu quelques problèmes avec la fonction [`isVisible`](https://webdriver.io/api/state/isVisible.html) de WebdriverIO car les éléments opaques ou en dehors du viewport étaient considérés comme visibles. Nous avons alors choisi d’utiliser [une fonction custom](https://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport/7557433#7557433) injectée via [`execute`](https://webdriver.io/api/protocol/execute.html). Récemment, dans la version 3 de WebdriverIO, la fonction [isVisibleWithinViewport](https://webdriver.io/api/state/isVisibleWithinViewport.html) a fait son apparition mais nous n'avons pas encore tenté de l'utiliser dans nos tests.
 
 Cet article est un retour d’expérience sur notre usage des tests fonctionnels sur un projet précis mais il est loin d’exposer des vérités absolues. Si vous avez des remarques ou n’êtes pas d’accord avec certaines choses, n’hésitez pas à nous le faire savoir !

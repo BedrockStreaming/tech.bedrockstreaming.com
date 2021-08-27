@@ -14,12 +14,12 @@ tags: [qualite, outil, redis, cytron, open-source]
 image:
   feature: posts/cytron/redismock.jpg
   credit: Sam Howzit
-  creditlink: http://www.flickr.com/photos/aloha75/4182769957/
+  creditlink: https://www.flickr.com/photos/aloha75/4182769957/
 comments: true
 permalink: redismock-qui-a-bouchonne-mon-redis.html
 ---
 
-Les tests fonctionnels tiennent un rôle majeur dans la réussite et la pérennité d’un projet web, d’autant plus s’il est déployé continuellement. Nous nous étions donc déjà intéressés à cette problématique dans [le cas d’un service proposant une API REST et utilisant MySQL et Doctrine](http://tech.m6web.fr/2013/10/tester-fonctionnellement-une-api-rest-symfony-doctrine-atoum.html). Mais nous développons aussi des services du même type utilisant d’autres systèmes de stockage de données comme [Redis](http://redis.io/).
+Les tests fonctionnels tiennent un rôle majeur dans la réussite et la pérennité d’un projet web, d’autant plus s’il est déployé continuellement. Nous nous étions donc déjà intéressés à cette problématique dans [le cas d’un service proposant une API REST et utilisant MySQL et Doctrine](https://tech.m6web.fr/2013/10/tester-fonctionnellement-une-api-rest-symfony-doctrine-atoum.html). Mais nous développons aussi des services du même type utilisant d’autres systèmes de stockage de données comme [Redis](https://redis.io/).
 
 Afin de tester fonctionnellement ces services, nous avons d’abord eu l’idée d’installer une instance Redis sur nos serveurs de tests. Mais nous allions inéluctablement retomber sur les mêmes obstacles qu’avec MySQL :
 
@@ -30,9 +30,9 @@ Afin de tester fonctionnellement ces services, nous avons d’abord eu l’idée
 
 Nous nous sommes alors penchés sur la possibilité de bouchonner Redis, chose qui parait au premier abord plus aisée que de bouchonner Doctrine : Redis propose une API simple et bien documenté (même si abondante). Nous pensions trouver une librairie PHP déjà existante mais nos recherches sont restées vaines.
 
-Nous avons donc créé la librairie [RedisMock](https://github.com/M6Web/RedisMock) qui reprend simplement [les commandes de l’API de Redis](http://redis.io/commands) et simule leur comportement grâce aux fonctions natives de PHP. Évidemment, toutes les commandes Redis n’ont pas encore été implémentées, seules celles qui sont utilisées dans nos tests sont présentes. Vous pouvez nous proposer l’implémentation de nouvelles fonctions Redis, selon vos besoins, via des Pull Requests sur le projet.
+Nous avons donc créé la librairie [RedisMock](https://github.com/M6Web/RedisMock) qui reprend simplement [les commandes de l’API de Redis](https://redis.io/commands) et simule leur comportement grâce aux fonctions natives de PHP. Évidemment, toutes les commandes Redis n’ont pas encore été implémentées, seules celles qui sont utilisées dans nos tests sont présentes. Vous pouvez nous proposer l’implémentation de nouvelles fonctions Redis, selon vos besoins, via des Pull Requests sur le projet.
 
-Toutes les commandes exposées par le mock sont testées unitairement via [atoum](http://www.atoum.org/) en reprenant pour chaque cas les spécifications énoncées dans la documentation Redis.
+Toutes les commandes exposées par le mock sont testées unitairement via [atoum](https://www.atoum.org/) en reprenant pour chaque cas les spécifications énoncées dans la documentation Redis.
 
 #### Utiliser RedisMock dans vos tests sur Symfony
 
@@ -50,6 +50,6 @@ Pour simplifier la création de l'adapteur et son injection dans l'application v
 
 Et voilà, le tour est joué ! Les tests utilisent maintenant le mock à la place du véritable Redis. Attention cependant, si votre librairie utilise des fonctionnalités non implémentées dans RedisMock, vous pourriez faire face à des comportements aléatoires indésirables.
 
-[RedisMock ](https://github.com/M6Web/RedisMock) est disponible en [open-source](http://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur [le compte GitHub de M6Web](https://github.com/M6Web).
+[RedisMock ](https://github.com/M6Web/RedisMock) est disponible en [open-source](https://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur [le compte GitHub de M6Web](https://github.com/M6Web).
 
 Enjoy !
