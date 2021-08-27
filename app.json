@@ -1,5 +1,5 @@
 {
-  "name": "m6web.github.io",
+  "name": "tech.bedrockstreaming.com",
   "scripts": {
     "postdeploy": "bin/setup"
   },
