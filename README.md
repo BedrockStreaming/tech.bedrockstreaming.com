@@ -1,13 +1,13 @@
-m6web.github.io
-===============
+tech.bedrockstreaming.com
+=========================
 
-M6Web Tech Blog
+Bedrock Tech Blog
 
 #### Installation
 
 ```shell
-git clone https://github.com/M6Web/m6web.github.io.git
-cd m6web.github.io
+git clone https://github.com/BedrockStreaming/tech.bedrockstreaming.com.git
+cd tech.bedrockstreaming.com
 sudo gem install jekyll bundler
 bundle install
 npm install
@@ -19,8 +19,8 @@ jekyll serve --watch --config \_config.yml,\_config_dev.yml
 #### or via Vagrant
 
 ```shell
-git clone https://github.com/M6Web/m6web.github.io.git
-cd m6web.github.io/vagrant
+git clone https://github.com/BedrockStreaming/tech.bedrockstreaming.com.git
+cd tech.bedrockstreaming.com/vagrant
 vagrant up
 vagrant ssh
 cd jekyll

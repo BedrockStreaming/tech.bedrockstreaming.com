@@ -20,47 +20,47 @@ We use open source on a daily basis. For production servers or on our workstatio
 
 Here some projects open sourced:
 
-* [Coke](https://github.com/M6Web/Coke) is a Shell/Bash command using PHP Code Sniffer allowing rules management per project
-* [Babitch](https://github.com/M6Web/Babitch) and [BabitchClient](https://github.com/M6Web/BabitchClient) is a project to record foosball scores, archive them, and make them easily accessible
-* [GitHubEnterpriseArchive](https://github.com/M6Web/GitHubEnterpriseArchive) allows to archive and graph your GithubEnterprise timeline
-* [GitHubTeamReviewer](https://github.com/M6Web/GitHubTeamReviewer) is a monitoring tool that allows you to quickly view all Github pull requests of your teams and their statuses
-* [HttpToGelf](https://github.com/M6Web/HttpToGelf) is a node.js http to gelf logger 
-* [HttpToStatsd](https://github.com/M6Web/HttpToStatsd) is a node.js http to statsd logger
-* [JenkinsLight](https://github.com/M6Web/JenkinsLight) is a build monitoring tool (buildwall) that allows you to quickly detect failing projects for Jenkins
-* [JenkinsTerminalColors](https://github.com/M6Web/JenkinsTerminalColors) is a very lightweight Chrome extension that provides terminal colors in all console panels of Jenkins. It uses black Solarized theme
-* [SeyrenLight](https://github.com/M6Web/SeyrenLight) is an other monitoring tool (buildwall) that allow to quickly show failing [Seyren](https://github.com/scobal/seyren) checks
-* [VigoJS](https://github.com/M6Web/VigoJS) is a (small) Javascript tool using CasperJS and PhantomJS to make easily functional tests on web applications
+* [Coke](https://github.com/BedrockStreaming/Coke) is a Shell/Bash command using PHP Code Sniffer allowing rules management per project
+* [Babitch](https://github.com/BedrockStreaming/Babitch) and [BabitchClient](https://github.com/BedrockStreaming/BabitchClient) is a project to record foosball scores, archive them, and make them easily accessible
+* [GitHubEnterpriseArchive](https://github.com/BedrockStreaming/GitHubEnterpriseArchive) allows to archive and graph your GithubEnterprise timeline
+* [GitHubTeamReviewer](https://github.com/BedrockStreaming/GitHubTeamReviewer) is a monitoring tool that allows you to quickly view all Github pull requests of your teams and their statuses
+* [HttpToGelf](https://github.com/BedrockStreaming/HttpToGelf) is a node.js http to gelf logger 
+* [HttpToStatsd](https://github.com/BedrockStreaming/HttpToStatsd) is a node.js http to statsd logger
+* [JenkinsLight](https://github.com/BedrockStreaming/JenkinsLight) is a build monitoring tool (buildwall) that allows you to quickly detect failing projects for Jenkins
+* [JenkinsTerminalColors](https://github.com/BedrockStreaming/JenkinsTerminalColors) is a very lightweight Chrome extension that provides terminal colors in all console panels of Jenkins. It uses black Solarized theme
+* [SeyrenLight](https://github.com/BedrockStreaming/SeyrenLight) is an other monitoring tool (buildwall) that allow to quickly show failing [Seyren](https://github.com/scobal/seyren) checks
+* [VigoJS](https://github.com/BedrockStreaming/VigoJS) is a (small) Javascript tool using CasperJS and PhantomJS to make easily functional tests on web applications
 
 # Bundle and libs
     
-* [AmqpBundle](https://github.com/M6Web/AmqpBundle): The AmqpBundle incorporates messaging in your application using the php-amqp extension.
-* [ApiExceptionBundle](https://github.com/M6Web/ApiExceptionBundle): The ApiExceptionBundle manages exceptions for your API and return a clean json.
-* [AwsBundle](https://github.com/M6Web/AwsBundle): [AWS SDK](https://aws.amazon.com/sdkforphp/) as a Symfony2 service, with WSClientBundle functionnality (cache, logging, ...)
-* [behat-seo-extension](https://github.com/M6Web/behat-seo-extension): Behat extension provinding specific features for testing the SEO of a website
-* [DaemonBundle](https://github.com/M6Web/DaemonBundle) Bundle easing the creation of daemon sf2 commands
-* [DomainUserBundle](https://github.com/M6Web/DomainUserBundle): User authentication by domain
-* [ElasticsearchBundle](https://github.com/M6Web/ElasticsearchBundle): Integration of the Elasticsearch official PHP client within a Symfony Project
-* [Firewall](https://github.com/M6Web/Firewall) and [FireWallBundle](https://github.com/M6Web/FirewallBundle): Symfony2 bundle providing IP filtering features for your Symfony 2 applications
-* [FOSRestExtraBundle](https://github.com/M6Web/FOSRestExtraBundle): Extra features for the FOSRestBundle
-* [GuzzleHttpBundle](https://github.com/M6Web/GuzzleHttpBundle): Bundle on top of HttpGuzzle
-* [HttpKernelBundle](https://github.com/M6Web/HttpKernelBundle): Custom sf2 HttpKernel with additional events
-* [KafkaBundle](https://github.com/M6Web/KafkaBundle): Bundle on top of rdkafka PHP extension
-* [LogBridgeBundle](https://github.com/M6Web/LogBridgeBundle): Symfony Bundle to log Request/Response with Monolog.
-* [MonologExtraBundle](https://github.com/M6Web/MonologExtraBundle): Provide extra features for Monolog.
-* [RateLimitBundle](https://github.com/M6Web/RateLimitBundle): This bundle provides an easy way to protect your project by limiting access to your controllers.
-* [Redis](https://github.com/M6Web/Redis): PHP component used to access Redis throught predis
-* [RedisBundle](https://github.com/M6Web/RedisBundle): Bundle over Redis component
-* [RedisMessageBroker](https://github.com/M6Web/RedisMessageBroker): PHP Component to deal with message in Redis 
-* [RedisMock](https://github.com/M6Web/RedisMock): A simple PHP Redis mock
-* [RequestHeadersForwarderGuzzleBundle](https://github.com/M6Web/RequestHeadersForwarderGuzzleBundle): Fetch HTTP headers from current request and reuse them in Guzzle clients sub-requests.
-* [roboxt](https://github.com/M6Web/roboxt): PHP lib parsing a robots.txt
-* [sprintf-mock](https://github.com/M6Web/sprintf-mock): [sprintf-js](https://github.com/alexei/sprintf.js) plugin allowing to mock sprintf behaviour
-* [StatsdBundle](https://github.com/M6Web/StatsdBundle): Symfony2 Bundle easing the statsd usage
-* [superagent-mock](https://github.com/M6Web/superagent-mock): [superagent](https://github.com/visionmedia/superagent) plugin allowing to simulate HTTP calls
-* [Tornado](https://github.com/M6Web/Tornado): A library for asynchronous programming in Php
-* [websocket-bench](https://github.com/M6Web/websocket-bench): Nodejs cli tool for benchmark web socket server, currently support (socket.io, faye)
-* [XRequestUidBundle](https://github.com/M6Web/XRequestUidBundle): Generating call traces in the microservices hell 
-* [RateLimitBundle](https://github.com/M6Web/RateLimitBundle): Manage limitation for your routes 
+* [AmqpBundle](https://github.com/BedrockStreaming/AmqpBundle): The AmqpBundle incorporates messaging in your application using the php-amqp extension.
+* [ApiExceptionBundle](https://github.com/BedrockStreaming/ApiExceptionBundle): The ApiExceptionBundle manages exceptions for your API and return a clean json.
+* [AwsBundle](https://github.com/BedrockStreaming/AwsBundle): [AWS SDK](https://aws.amazon.com/sdkforphp/) as a Symfony2 service, with WSClientBundle functionnality (cache, logging, ...)
+* [behat-seo-extension](https://github.com/BedrockStreaming/behat-seo-extension): Behat extension provinding specific features for testing the SEO of a website
+* [DaemonBundle](https://github.com/BedrockStreaming/DaemonBundle) Bundle easing the creation of daemon sf2 commands
+* [DomainUserBundle](https://github.com/BedrockStreaming/DomainUserBundle): User authentication by domain
+* [ElasticsearchBundle](https://github.com/BedrockStreaming/ElasticsearchBundle): Integration of the Elasticsearch official PHP client within a Symfony Project
+* [Firewall](https://github.com/BedrockStreaming/Firewall) and [FireWallBundle](https://github.com/BedrockStreaming/FirewallBundle): Symfony2 bundle providing IP filtering features for your Symfony 2 applications
+* [FOSRestExtraBundle](https://github.com/BedrockStreaming/FOSRestExtraBundle): Extra features for the FOSRestBundle
+* [GuzzleHttpBundle](https://github.com/BedrockStreaming/GuzzleHttpBundle): Bundle on top of HttpGuzzle
+* [HttpKernelBundle](https://github.com/BedrockStreaming/HttpKernelBundle): Custom sf2 HttpKernel with additional events
+* [KafkaBundle](https://github.com/BedrockStreaming/KafkaBundle): Bundle on top of rdkafka PHP extension
+* [LogBridgeBundle](https://github.com/BedrockStreaming/LogBridgeBundle): Symfony Bundle to log Request/Response with Monolog.
+* [MonologExtraBundle](https://github.com/BedrockStreaming/MonologExtraBundle): Provide extra features for Monolog.
+* [RateLimitBundle](https://github.com/BedrockStreaming/RateLimitBundle): This bundle provides an easy way to protect your project by limiting access to your controllers.
+* [Redis](https://github.com/BedrockStreaming/Redis): PHP component used to access Redis throught predis
+* [RedisBundle](https://github.com/BedrockStreaming/RedisBundle): Bundle over Redis component
+* [RedisMessageBroker](https://github.com/BedrockStreaming/RedisMessageBroker): PHP Component to deal with message in Redis 
+* [RedisMock](https://github.com/BedrockStreaming/RedisMock): A simple PHP Redis mock
+* [RequestHeadersForwarderGuzzleBundle](https://github.com/BedrockStreaming/RequestHeadersForwarderGuzzleBundle): Fetch HTTP headers from current request and reuse them in Guzzle clients sub-requests.
+* [roboxt](https://github.com/BedrockStreaming/roboxt): PHP lib parsing a robots.txt
+* [sprintf-mock](https://github.com/BedrockStreaming/sprintf-mock): [sprintf-js](https://github.com/alexei/sprintf.js) plugin allowing to mock sprintf behaviour
+* [StatsdBundle](https://github.com/BedrockStreaming/StatsdBundle): Symfony2 Bundle easing the statsd usage
+* [superagent-mock](https://github.com/BedrockStreaming/superagent-mock): [superagent](https://github.com/visionmedia/superagent) plugin allowing to simulate HTTP calls
+* [Tornado](https://github.com/BedrockStreaming/Tornado): A library for asynchronous programming in Php
+* [websocket-bench](https://github.com/BedrockStreaming/websocket-bench): Nodejs cli tool for benchmark web socket server, currently support (socket.io, faye)
+* [XRequestUidBundle](https://github.com/BedrockStreaming/XRequestUidBundle): Generating call traces in the microservices hell 
+* [RateLimitBundle](https://github.com/BedrockStreaming/RateLimitBundle): Manage limitation for your routes 
 
 # Contribution to open source projects
 
