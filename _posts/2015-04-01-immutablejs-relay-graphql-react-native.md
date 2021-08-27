@@ -17,7 +17,7 @@ image:
   creditlink: https://code.facebook.com/posts/1014532261909640/react-native-bringing-modern-web-techniques-to-mobile/
 comments: true
 ---
-Voici un petit compte rendu vidéo, filmé lors de notre [Last Friday Talk](http://tech.m6web.fr/organiser-des-conferences-technique-en-interne/) de Mars, d'un retour de veille techno suite à la [React Conférence](http://conf.reactjs.com/).
+Voici un petit compte rendu vidéo, filmé lors de notre [Last Friday Talk](https://tech.m6web.fr/organiser-des-conferences-technique-en-interne/) de Mars, d'un retour de veille techno suite à la [React Conférence](https://conf.reactjs.com/).
 
 Le retour est une introduction sur 3 des sujets qui m'ont paru les plus importants lors de cette conférence :
 
@@ -35,8 +35,8 @@ Les slides :
 
 Pour plus d'informations sur la React Conférence, nos CR sont disponibles ici : 
 
-* [Compte rendu React Conférence Jour 1](http://tech.m6web.fr/cr-react-conf-2015-day-one)
-* [Compte rendu React Conférence Jour 2](http://tech.m6web.fr/cr-react-conf-2015-day-two)
+* [Compte rendu React Conférence Jour 1](https://tech.m6web.fr/cr-react-conf-2015-day-one)
+* [Compte rendu React Conférence Jour 2](https://tech.m6web.fr/cr-react-conf-2015-day-two)
 
 Enjoy
 

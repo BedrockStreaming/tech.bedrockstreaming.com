@@ -49,7 +49,7 @@ Comme superagent, superagent-mock s’installe via npm et peut être utilisé su
 npm install superagent-mock --save-dev
 {% endhighlight %}
 
-Il faut ensuite créer le fichier de configuration. C’est ici que vous allez décider des routes à bouchonner. Prenons l’exemple d’une route qui n’existe pas et qui devra nous retourner la liste des auteurs du blog technique de M6Web : `http://tech.m6web.fr/api/authors`.
+Il faut ensuite créer le fichier de configuration. C’est ici que vous allez décider des routes à bouchonner. Prenons l’exemple d’une route qui n’existe pas et qui devra nous retourner la liste des auteurs du blog technique de M6Web : `https://tech.m6web.fr/api/authors`.
 
 Voici la structure du fichier de configuration à mettre en place :
 
@@ -57,7 +57,7 @@ Voici la structure du fichier de configuration à mettre en place :
 // ./config.js file
 module.exports = [
   {
-    pattern: 'http://tech.m6web.fr/api/authors',
+    pattern: 'https://tech.m6web.fr/api/authors',
     fixtures: './authors.js',
     callback: function (match, data) {
       return { body : data };
@@ -109,14 +109,14 @@ Notre application forge elle-même l'URL des images récupérées via l'API : el
 Les projets [superagent-mock][superagent-mock] et [sprintf-mock][sprintf-mock] sont open source. Très simple d’utilisation, ils nous permettent de paralléliser nos développements avec l’équipe backend et de rendre autonomes nos tests fonctionnels. Alors n’attendez plus la finalisation de vos API pour commencer vos développements front !
 
 
-[react-website]: http://facebook.github.io/react/
+[react-website]: https://facebook.github.io/react/
 [flux-website]: https://facebook.github.io/flux/
-[isomorphic]: http://isomorphic.net/javascript
-[superagent]: http://visionmedia.github.io/superagent/
-[webpack]: http://webpack.github.io/
-[browserify]: http://browserify.org/
+[isomorphic]: https://isomorphic.net/javascript
+[superagent]: https://visionmedia.github.io/superagent/
+[webpack]: https://webpack.github.io/
+[browserify]: https://browserify.org/
 [superagent-mock]: https://github.com/M6Web/superagent-mock
 [superagent-mock-source]: https://github.com/M6Web/superagent-mock/blob/master/superagent-mock.js
 [sprintf-js]: https://github.com/alexei/sprintf.js
 [sprintf-mock]: https://github.com/M6Web/sprintf-mock
-[kenny-isomorphic-post]: http://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/
+[kenny-isomorphic-post]: https://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/

@@ -21,13 +21,13 @@ permalink: tentative-d-explication-des-fast-forward-sous-git
 
 ![Tentative d'explication des Fast-Forward sous Git](/images/posts/git-ff.png)
 
-Tous les projets M6Web sont passés récemment sous le système de gestion de contenu [Git.](http://fr.wikipedia.org/wiki/Git)
+Tous les projets M6Web sont passés récemment sous le système de gestion de contenu [Git.](https://fr.wikipedia.org/wiki/Git)
 
 Git, c'est super cool ! On peut faire facilement des branches, les "merger" les unes aux autres et "switcher" d'une branche une autre. Pratique donc (dans l'idée) !
 
 Il a été finalement assez facile de se faire au vocabulaire et au fonctionnement de git. Je ne dis pas que je ne fais pas non plus mes commit sur la bonne branche chaque fois, mais on arrive tout de même assez facilement à s'en sortir ("*git reset --help*" si vous êtes dans ce cas) !
 
-Le très intéressant article "[A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)" a mis en avant la gestion des **fast-forward**, cela dit l'utilité m'est resté assez floue et ne couvrait pas l'ensemble de mes questions.
+Le très intéressant article "[A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)" a mis en avant la gestion des **fast-forward**, cela dit l'utilité m'est resté assez floue et ne couvrait pas l'ensemble de mes questions.
 
 J'ai donc fouillé la documentation de Git afin de débroussailler les "fast-forward".
 
@@ -114,7 +114,7 @@ A vous de l'utiliser de manière intelligente !
 
 #### Sources
 
-- nvie.com : [A successful Git Branching Model](http://nvie.com/posts/a-successful-git-branching-model/)
+- nvie.com : [A successful Git Branching Model](https://nvie.com/posts/a-successful-git-branching-model/)
 - *git push --help*
 
 

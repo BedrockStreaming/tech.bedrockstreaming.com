@@ -39,9 +39,9 @@ La rencontre se déroulait dans les locaux de France Télévision à Paris et pr
 
 
 ### Présentation de 6play.fr
-Dans la première partie, nous avons présenté le contexte technique de [6play.fr](http://www.6play.fr), autour de [React](https://facebook.github.io/react/), ainsi que les chiffres clés du site.
+Dans la première partie, nous avons présenté le contexte technique de [6play.fr](https://www.6play.fr), autour de [React](https://facebook.github.io/react/), ainsi que les chiffres clés du site.
 
-Après un rappel de l'historique des players du site de Replay des [chaînes du Groupe M6](http://www.groupem6.fr/le-groupe/activites/antenne/), nous avons présenté les enjeux de la refonte de notre précédent player et évoqué nos contraintes.
+Après un rappel de l'historique des players du site de Replay des [chaînes du Groupe M6](https://www.groupem6.fr/le-groupe/activites/antenne/), nous avons présenté les enjeux de la refonte de notre précédent player et évoqué nos contraintes.
 
 ![Slide Historique Techno Player](/images/posts/retour-de-paris-video-tech/slide-techno-player.png)
 
@@ -52,13 +52,13 @@ Après un rappel de l'historique des players du site de Replay des [chaînes du 
 ![Logo React](/images/posts/retour-de-paris-video-tech/logo-react.png)
 ![Logo Redux](/images/posts/retour-de-paris-video-tech/logo-redux.png)
 
-En octobre 2015 sortait [le nouveau 6play.fr](http://www.6play.fr), une [Single Page App développée en React-Redux et Isomorphique](/isomorphic-single-page-app-parfaite-react-flux/). Le succès de cette refonte nous a poussé à étudier le refonte du player 6play sur la même stack technique, historiquement en Video.js.
+En octobre 2015 sortait [le nouveau 6play.fr](https://www.6play.fr), une [Single Page App développée en React-Redux et Isomorphique](/isomorphic-single-page-app-parfaite-react-flux/). Le succès de cette refonte nous a poussé à étudier le refonte du player 6play sur la même stack technique, historiquement en Video.js.
 
-En complément de l'approche composant proposée par React, [Redux](http://redux.js.org/) nous a apporté la solution à la gestion de l'état du player dans le temps. En effet, son fonctionnement par événements et actions était parfaitement adapté aux événements de la balise `<video>`.
+En complément de l'approche composant proposée par React, [Redux](https://redux.js.org/) nous a apporté la solution à la gestion de l'état du player dans le temps. En effet, son fonctionnement par événements et actions était parfaitement adapté aux événements de la balise `<video>`.
 
 
 ### Media Engines
-Inspiré du système [multi-techs de Video.js](https://github.com/videojs/video.js/blob/master/docs/guides/tech.md), nous avons développé notre propre système de *Bridge* pilotant les différents SDK Video du marché : [hls.js](https://github.com/dailymotion/hls.js), [dash.js](https://github.com/Dash-Industry-Forum/dash.js), [Adobe Primetime Browser TVSDK](http://www.adobe.com/marketing-cloud/primetime-tv-platform/video-player-sdk.html), et HTML5.
+Inspiré du système [multi-techs de Video.js](https://github.com/videojs/video.js/blob/master/docs/guides/tech.md), nous avons développé notre propre système de *Bridge* pilotant les différents SDK Video du marché : [hls.js](https://github.com/dailymotion/hls.js), [dash.js](https://github.com/Dash-Industry-Forum/dash.js), [Adobe Primetime Browser TVSDK](https://www.adobe.com/marketing-cloud/primetime-tv-platform/video-player-sdk.html), et HTML5.
 
 Tous les *Bridges* communiquent ainsi de la même manière avec notre player React au travers des [MediaEvents HTML5](https://developer.mozilla.org/fr/docs/Web/API/HTMLMediaElement).
 

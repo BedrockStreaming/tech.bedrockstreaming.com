@@ -28,7 +28,7 @@ La matinée offrait un track unique dans une salle gigantesque.
 
 Vidéo d'intro à la Vélocity !
 
- <iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/Vxq9yj2pVWk?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+ <iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/Vxq9yj2pVWk?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
 
 L'ouverture officielle est donc présentée par Steve Souders (Google) et John Allspaw (Etsy), toujours dans un show l'américaine, et même déguisés. 
@@ -36,7 +36,7 @@ L'ouverture officielle est donc présentée par Steve Souders (Google) et John A
 
 S'enchaine ensuite un condensé de session plutôt courte par des acteurs très prestigieux du web.
 
-*(Crédit photo : http://instagr.am/p/MV5xAAJLSt/ )*
+*(Crédit photo : https://instagr.am/p/MV5xAAJLSt/ )*
 
 
 
@@ -73,7 +73,7 @@ Bref, une conférence intéressante, mais très dense, dont je vous conseille de
 > "Fix More, Whine less." Jay Parikh
 
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/oodS71YtkGU?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/oodS71YtkGU?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
 
 
@@ -95,7 +95,7 @@ La vidéo ci dessus est un "must-see" de la Vélocity.
 > "Look at the extremes and you'll find things that are broken" John Rauser
 
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/-3dw09N5_Aw?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/-3dw09N5_Aw?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
 
 
@@ -103,11 +103,11 @@ La vidéo ci dessus est un "must-see" de la Vélocity.
 
 Le message autour de cette présentation, est que votre application DOIT s'adapter aux incidents. Si possible faire en sorte que cela ne soit même pas percu par la plupart de vos internautes. En découpant chacune des fonctionnalités de votre site, vous devez pouvoir ne pas afficher celle qui ne fonctionne pas correctement sans que cela impact vos utilisateurs (Graceful Degradation).
 
-Les slides sont disponible ici : [http://www.slideshare.net/mikebrittain/building-resilient-user-experiences-13461063](http://www.slideshare.net/mikebrittain/building-resilient-user-experiences-13461063)
+Les slides sont disponible ici : [https://www.slideshare.net/mikebrittain/building-resilient-user-experiences-13461063](https://www.slideshare.net/mikebrittain/building-resilient-user-experiences-13461063)
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/bM0yL0eQ9EM?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/bM0yL0eQ9EM?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
 
 
@@ -120,7 +120,7 @@ La présentation commence avec un rappel sur "How Fast is the web today".
 - Google Analytics ~2.9s/6.9s page load time (median/mean)
 - Mobile ~4.3s/10.2s page load time (median/mean)
 
- D'autres infos sont partagées venant du très utile [HttpArchive](http://httparchive.org/) ...
+ D'autres infos sont partagées venant du très utile [HttpArchive](https://httparchive.org/) ...
 
 On assiste ensuite la présentation des fonctionnalités de "Prefetch" de google et du Prerendering en place dans la barre de recherche de Chrome : "Omnibox", ceci ayant pour but de rendre le web encore plus rapide.
 
@@ -128,7 +128,7 @@ Tout cela donne des idéées sur la façon de prédire ce que vont faire les int
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/RnMI-dCWgec?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/RnMI-dCWgec?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
 ![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](/images/posts/velocityus2012-jason.jpg)
 
@@ -142,11 +142,11 @@ Les slides ici : [https://speakerdeck.com/u/grigs/p/performance-implications-of-
 
 La conférence n'étant pas disponible en vidéo, vous pouvez déjécouter Jason Grisby lors d'une interview suite sa conférence en vidéo si dessous.
 
-*(Crédit photo : [http://www.flickr.com/photos/stuart-dootson/4024407198/](http://www.flickr.com/photos/stuart-dootson/4024407198/) )*
+*(Crédit photo : [https://www.flickr.com/photos/stuart-dootson/4024407198/](https://www.flickr.com/photos/stuart-dootson/4024407198/) )*
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/jsAVpYJMGIc?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/jsAVpYJMGIc?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 Jason Grigsby interview la Vélocity Conf 2012
 
 
@@ -154,11 +154,11 @@ Jason Grigsby interview la Vélocity Conf 2012
 
 #### [WebPerf] RUM for Breakfast - Distilling Insights From the Noise, par Buddy Brewer (LogNormal), Philip Tellis (LogNormal, Inc) & Carlos Bueno (Facebook)
 
-RUM aka Real User Monitoring est un terme qui est revenu très régulièrement durant cette Velocity. Nous avions pour cette conférence notamment, deux personnes de LogNormal dont le créateur de Boomerang.js : [http://yahoo.github.com/boomerang/doc/ ]( http://yahoo.github.com/boomerang/doc/)et Carlos Bueno de Facebook.
+RUM aka Real User Monitoring est un terme qui est revenu très régulièrement durant cette Velocity. Nous avions pour cette conférence notamment, deux personnes de LogNormal dont le créateur de Boomerang.js : [https://yahoo.github.com/boomerang/doc/ ]( https://yahoo.github.com/boomerang/doc/)et Carlos Bueno de Facebook.
 
 La présentation expliquait comment mesurer des métriques de performances venant d'utilisateurs réel, comment analyser toutes les données, en filtrer le "bruit", et quoi en tirer. Le tout était très instructif, surtout sur la partie filtrage de données (Band Pass Filtering, IQR Filtering ..).
 
-Slides : [http://www.slideshare.net/buddybrewer/rum-for-breakfast-distilling-insights-from-the-noise](http://www.slideshare.net/buddybrewer/rum-for-breakfast-distilling-insights-from-the-noise)
+Slides : [https://www.slideshare.net/buddybrewer/rum-for-breakfast-distilling-insights-from-the-noise](https://www.slideshare.net/buddybrewer/rum-for-breakfast-distilling-insights-from-the-noise)
 
 
 
@@ -192,11 +192,11 @@ Dan et Rob nous parle performances coté client chez Twitter, et la réecriture 
 
 La notion de Time To First Tweet, correspond au temps de navigation jusqu'a l'affichage du premier twiit sur la Timeline. Cette mesure est prise grace à la Navigation Timing Api, supportée dans IE>=9, Firefox & Chrome notamment.
 
-Twitter à aussi abandonné progressivement, l'utilisation des hashbangs (les #! dans l'url), pour utiliser la PushState Api, ainsi que le templating coté client ([Mustache.js](http://mustache.github.com/) et [Hogan.js](http://twitter.github.com/hogan.js/)) pour repasser sur un templating serveur avec leur migration de Ruby vers Java, avec au final 75% de temps client gagné sur le 95th Percentile !
+Twitter à aussi abandonné progressivement, l'utilisation des hashbangs (les #! dans l'url), pour utiliser la PushState Api, ainsi que le templating coté client ([Mustache.js](https://mustache.github.com/) et [Hogan.js](https://twitter.github.com/hogan.js/)) pour repasser sur un templating serveur avec leur migration de Ruby vers Java, avec au final 75% de temps client gagné sur le 95th Percentile !
 
 Conférence très intéressante, notamment sur la manière de charger les Javascripts.
 
-Plus de détail sur le blog technique de Twitter : [http://engineering.twitter.com/2012/05/improving-performance-on-twittercom.html](http://engineering.twitter.com/2012/05/improving-performance-on-twittercom.html)
+Plus de détail sur le blog technique de Twitter : [https://engineering.twitter.com/2012/05/improving-performance-on-twittercom.html](https://engineering.twitter.com/2012/05/improving-performance-on-twittercom.html)
 
 Les slides sont disponible : [https://speakerdeck.com/u/danwrong/p/time-to-first-tweet](https://speakerdeck.com/u/danwrong/p/time-to-first-tweet)
 
@@ -209,13 +209,13 @@ Les slides sont disponible : [https://speakerdeck.com/u/danwrong/p/time-to-first
 Encore une journée riche en informations et idées. Le rythme étant beaucoup plus soutenu, et la fatigue s'accumulant, il n'était pas évident d'être à 100% dans chaque talk :-)
 
 En attendant le CR Ops, et celui du Day 3, vous pouvez relire le CR du Day 1 :   
-[http://tech.m6web.fr/cr-velocity-conference-day-1-dev-webperf](http://tech.m6web.fr/cr-velocity-conference-day-1-dev-webperf)
+[https://tech.m6web.fr/cr-velocity-conference-day-1-dev-webperf](https://tech.m6web.fr/cr-velocity-conference-day-1-dev-webperf)
 
 P.S : Retrouvez moi sur twitter : [@kenny_dee](https://twitter.com/#!/kenny_dee)
 
 
 
-[Playlist Youtube Velocity US 2012](http://www.youtube.com/playlist?list=PL80D9129677893FD8)
+[Playlist Youtube Velocity US 2012](https://www.youtube.com/playlist?list=PL80D9129677893FD8)
 
 
 

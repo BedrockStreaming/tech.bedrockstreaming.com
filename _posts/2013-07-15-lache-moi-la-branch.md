@@ -25,7 +25,7 @@ Maintenant que nous [utilisons GitHub Enterprise](https://twitter.com/kenny_dee/
 
 ![Lâche moi la branch !](/images/posts/imgob/0-00-30-83-201307-ob_b6e0b1_capture-d-e-cran-2013-07-12-a-15-03-58.png)
 
-Pour ce faire, nous avons utilisé le plugin [GitHub Pull Request Builder](https://wiki.jenkins-ci.org/display/JENKINS/GitHub+pull+request+builder+plugin) de [Jenkins](http://jenkins-ci.org/), qui après une [configuration assez simple](http://buddylindsey.com/jenkins-and-github-pull-requests/), nous a permis de créer un job qui lance automatiquement un build lorsqu'une Pull Request est modifiée. Ce build se positionne sur la branch pointée par la Pull Request et exécute les tests.
+Pour ce faire, nous avons utilisé le plugin [GitHub Pull Request Builder](https://wiki.jenkins-ci.org/display/JENKINS/GitHub+pull+request+builder+plugin) de [Jenkins](https://jenkins-ci.org/), qui après une [configuration assez simple](https://buddylindsey.com/jenkins-and-github-pull-requests/), nous a permis de créer un job qui lance automatiquement un build lorsqu'une Pull Request est modifiée. Ce build se positionne sur la branch pointée par la Pull Request et exécute les tests.
 
 
 ![Lâche moi la branch !](/images/posts/imgob/0-00-30-83-201307-ob_e753d81cd5875809e61c474bcc6b8609_liste-des-builds.png)
@@ -49,4 +49,4 @@ Nous avons donc, pour chaque projet, un second job qui lance l'ensemble des test
 
 #### Déploiement
 
-Avant de déployer à l'aide de [Capistrano](http://www.capistranorb.com/), nous vérifions que les tests passent (résultat de l'intégration continue + lancement manuel des tests). Le manque d'automatisation concernant ces mises en production fait apparaitre une faille assez large. Pour la résorber, nous pourrions par exemple accepter le déploiement d'un service, uniquement si ses tests sont passés et si aucun autre n'est en cours ou en attente. Même si cela ajoute une dépendance aux serveurs d'intégration continue, cela sécurise les déploiements.
+Avant de déployer à l'aide de [Capistrano](https://www.capistranorb.com/), nous vérifions que les tests passent (résultat de l'intégration continue + lancement manuel des tests). Le manque d'automatisation concernant ces mises en production fait apparaitre une faille assez large. Pour la résorber, nous pourrions par exemple accepter le déploiement d'un service, uniquement si ses tests sont passés et si aucun autre n'est en cours ou en attente. Même si cela ajoute une dépendance aux serveurs d'intégration continue, cela sécurise les déploiements.

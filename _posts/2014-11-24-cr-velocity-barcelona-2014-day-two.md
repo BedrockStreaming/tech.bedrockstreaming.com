@@ -27,16 +27,16 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
 
 ### Upgrading the Web: Polyfills, Components and the Future of Web Development at Scale - Andrew Betts (FT Labs)
 
- L'orateur fait remarquer que de nombreux systèmes existent pour packager et gérer les dépendances des applications backends, mais rien n'est disponible pour les composants webs. Il nous a présenté le projet [Origami](http://origami.ft.com/) qui permet de réutiliser massivement des composants HTML.
+ L'orateur fait remarquer que de nombreux systèmes existent pour packager et gérer les dépendances des applications backends, mais rien n'est disponible pour les composants webs. Il nous a présenté le projet [Origami](https://origami.ft.com/) qui permet de réutiliser massivement des composants HTML.
 
  <iframe width="560" height="315" src="//www.youtube.com/embed/oHB74_vQPrU" frameborder="0" allowfullscreen></iframe>
 
- Slides : [the Future of Web Development at Scale](http://cdn.oreillystatic.com/en/assets/1/event/121/Upgrading%20the%20Web_%20Polyfills,%20Components%20and%20the%20Future%20of%20Web%20Development%20at%20Scale%20Presentation.pdf)
+ Slides : [the Future of Web Development at Scale](https://cdn.oreillystatic.com/en/assets/1/event/121/Upgrading%20the%20Web_%20Polyfills,%20Components%20and%20the%20Future%20of%20Web%20Development%20at%20Scale%20Presentation.pdf)
 
 
 ### Troubleshooting Using HTTP Headers - Steve Miller-Jones (Limelight Networks)
 
- Slides : [Troubleshooting Using HTTP Headers](http://cdn.oreillystatic.com/en/assets/1/event/121/Troubleshooting%20Using%20HTTP%20Headers%20Presentation.pptx)
+ Slides : [Troubleshooting Using HTTP Headers](https://cdn.oreillystatic.com/en/assets/1/event/121/Troubleshooting%20Using%20HTTP%20Headers%20Presentation.pptx)
 
   Un employé de Limelight nous a présenté comment l'ajout de headers dans une requête pouvait renvoyer des headers supplémentaires dans la réponse HTTP. Cela peut être utile pour débugguer et analyser un incident.
   Cette présentation nous a rappelé, qu'en interne, [nos gentils ops](https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/40462/467784/bB5W31POypiBcuF/LSpC0ZX.gif) nous permettent déjà de faire ce genre chose sur nos proxy cache.
@@ -51,13 +51,13 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
 
 ### Lowering the Barrier to Programming - Pamela Fox (Khan Academy)
 
- Pamela Fox nous a présenté l'initiative [code.org](http://code.org/promote), dont le but est de promouvoir l'enseignement de l'informatique (bon, apparement seulement aux US).
+ Pamela Fox nous a présenté l'initiative [code.org](https://code.org/promote), dont le but est de promouvoir l'enseignement de l'informatique (bon, apparement seulement aux US).
 
   Elle a également donné quelques conseils si on veut s'investir dans l'enseignement de l'informatique à destination des plus jeunes. Par exemple créer un *code club*.
 
  <iframe width="560" height="315" src="//www.youtube.com/embed/CZTywncF_EQ" frameborder="0" allowfullscreen></iframe>
 
- Slides : [Lowering the Barrier to Programming](http://cdn.oreillystatic.com/en/assets/1/event/121/Lowering%20the%20Barrier%20to%20Programming%20Presentation.pdf)
+ Slides : [Lowering the Barrier to Programming](https://cdn.oreillystatic.com/en/assets/1/event/121/Lowering%20the%20Barrier%20to%20Programming%20Presentation.pdf)
 
 ### Velocity at GitHub - Brian Doll (GitHub)
 
@@ -67,15 +67,15 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
 
  <iframe width="560" height="315" src="//www.youtube.com/embed/AYlfEtP0rmc" frameborder="0" allowfullscreen></iframe>
 
- J'ai profité d'un instant avec lui pour lui présenter [GitHubTeamReviewer](http://tech.m6web.fr/github-team-reviewer-pull-requests.html) (un outil interne open-sourcé). Il était enchanté de découvrir ce qui avait été fait avec l'API de Github. Il a indiqué que l'entreprise travaillait actuellement sur des vues permettant de pallier aux problèmes résolus par GitHubTeamReviewer.
+ J'ai profité d'un instant avec lui pour lui présenter [GitHubTeamReviewer](https://tech.m6web.fr/github-team-reviewer-pull-requests.html) (un outil interne open-sourcé). Il était enchanté de découvrir ce qui avait été fait avec l'API de Github. Il a indiqué que l'entreprise travaillait actuellement sur des vues permettant de pallier aux problèmes résolus par GitHubTeamReviewer.
 
 ## HTTP Archive and Google Cloud Dataflow - Ilya Grigorik (Google)
 
- Ilya Grigorik a présenté [http://bigqueri.es/](http://bigqueri.es/), un outil permettant d'interroger [HTTP archive](http://httparchive.org/). La nouveauté est que le *body* des requêtes est maintenant conservé et que l'on peut l'analyser. Un *engine* Javascript a été intégré au SQL de bigqueries permettant de faire des requêtes très puissantes.
+ Ilya Grigorik a présenté [https://bigqueri.es/](https://bigqueri.es/), un outil permettant d'interroger [HTTP archive](https://httparchive.org/). La nouveauté est que le *body* des requêtes est maintenant conservé et que l'on peut l'analyser. Un *engine* Javascript a été intégré au SQL de bigqueries permettant de faire des requêtes très puissantes.
 
  <iframe width="560" height="315" src="//www.youtube.com/embed/_CMcaYnBt-g" frameborder="0" allowfullscreen></iframe>
 
- Pour ceux qui ne voudraient pas se plonger dedans, beaucoup de recherches faites par d'autres utilisateurs sont disponibles et abondamment discutées ([exemple](http://bigqueri.es/t/are-popular-websites-faster/162)).
+ Pour ceux qui ne voudraient pas se plonger dedans, beaucoup de recherches faites par d'autres utilisateurs sont disponibles et abondamment discutées ([exemple](https://bigqueri.es/t/are-popular-websites-faster/162)).
 
  ![bigqueries](/images/posts/velocity2014/bigqueries.jpg)
 
@@ -133,7 +133,7 @@ Colin Blendel nous encourage à utiliser les mêmes recettes que pour les naviga
 
 Une présentation dense et vraiment intéressante !
 
-Slides : [Why the Web is Slowing Your Mobile App](http://www.slideshare.net/colinbendell/velocity-eu-2014-recycling-the-web-why)
+Slides : [Why the Web is Slowing Your Mobile App](https://www.slideshare.net/colinbendell/velocity-eu-2014-recycling-the-web-why)
 
 ---
 
@@ -167,7 +167,7 @@ Matt Andrews nous présente comment rendre une application web disponible Offlin
 
 Plusieurs contraintes peuvent nous pousser à avoir besoin d’une app (signet d’accueil) disponible même sans connexion. Que ce soit un article dans le métro ou une carte au milieu de nulle part sans connexion, il y a une réelle attente utilisateur.
 
-Premièrement, il faut activer [AppCache](http://www.w3schools.com/html/html5_app_cache.asp) en précisant qu’il faut faire un petit Hack pour qu’il soit vraiment utile (voir slide).
+Premièrement, il faut activer [AppCache](https://www.w3schools.com/html/html5_app_cache.asp) en précisant qu’il faut faire un petit Hack pour qu’il soit vraiment utile (voir slide).
 
 Ensuite l’utilisation de plusieurs outils nous permet d’arriver à nos fins :
 * Utilisation de [FetchApi](https://github.com/github/fetch) : Il permet de remplacer nos appels Ajax avec une fonction succès , d’erreur et les Promises pour charger le contenu, ou lire le cache en cas d’absence de connexion.
@@ -176,7 +176,7 @@ Ensuite l’utilisation de plusieurs outils nous permet d’arriver à nos fins 
 
 Toutes ces optimisations nous permettent d’accéder au site en Offline. Mais ces optimisations nous permettent aussi d’optimiser le chargement de nos pages puisqu’on limite le nombre d’appels HTTP avec la mise en cache de certaines ressources.
 
-[Slide de la présentation](http://fr.slideshare.net/andrewsmatt/velocity-eu-2014)
+[Slide de la présentation](https://fr.slideshare.net/andrewsmatt/velocity-eu-2014)
 
 ---
 
@@ -190,7 +190,7 @@ Deuxième astuce, mettre les images dans les css en base 64.
 A noter qu’il existe des outils javascript qui effectuent la conversion dans les css à l’aide d’un petit commentaire en bout de ligne (voir les slides de présentation).
 
 Troisième solution : Les Fonts ! 
-Pour remplacer les petites images et surtout pour remplacer les sprites qui ne sont pas forcément adaptés, vous pouvez utiliser des Fonts. L'avantage des fonts est qu'elles peuvent s’adapter facilement en taille et en couleur … Des outils existent déjà pour les générer : [Font Awesome](http://fortawesome.github.io/Font-Awesome/).
+Pour remplacer les petites images et surtout pour remplacer les sprites qui ne sont pas forcément adaptés, vous pouvez utiliser des Fonts. L'avantage des fonts est qu'elles peuvent s’adapter facilement en taille et en couleur … Des outils existent déjà pour les générer : [Font Awesome](https://fortawesome.github.io/Font-Awesome/).
 
 Autre astuce, le differ de chargement des images. Pamela nous propose [son outils javascript](https://gist.github.com/pamelafox/8705015), qui va permettre de vous simplifier les chargements. Il est aussi possible de ne charger que les images présentes à l’écran et de charger les suivantes lors du scroll. (lazyload).
 
@@ -209,7 +209,7 @@ Slides: [Microservices - What an Ops Team Needs to Know](https://speakerdeck.com
 Le buzzword est lâché. Le propos n'était pas ici de troller autour de la notion de micro-services, de l'implémentation ou de leur utilisation, mais plutôt du changement que cela implique pour les équipes d'exploitation.
 
 Souvent considéré comme le goulot d'étranglement de la chaîne de mise en prod, l'exploit' regarde les architectures de micro-services avec circonspection : en plus d’avoir des dépendances entre eux, les composants sont mis à jour indépendamment et régulièrement, on peut donc vite tout casser en prod.
-Pourtant en fournissant des [services de bases](http://fr.wikipedia.org/wiki/Pyramide_des_besoins) et des outils aux équipes de développement, on peut augmenter leur autonomie et la disponibilité des infras.
+Pourtant en fournissant des [services de bases](https://fr.wikipedia.org/wiki/Pyramide_des_besoins) et des outils aux équipes de développement, on peut augmenter leur autonomie et la disponibilité des infras.
 
 Cela passe par:
 
@@ -220,7 +220,7 @@ Cela passe par:
 
 Ces outils et services ainsi fournis vont permettre à l'exploitation de se concentrer sur des problématiques plus complexes. En effet les microservices ont besoin d'outils de diagnostics plus poussés (on citera au passage Zipkin), d'alerting et de monitoring spécialisés par exemple.
 
-![microservices](http://www.tigerteam.dk/wp-content/uploads/2014/05/monolith-sliced-up-into-microservices.png)
+![microservices](https://www.tigerteam.dk/wp-content/uploads/2014/05/monolith-sliced-up-into-microservices.png)
 
 Qui dit droits, dit devoirs, et là je paraphraserai notre orateur Michael Brunton-Spall:
 
@@ -258,9 +258,9 @@ Pour ma part je préfère Sensu qui intègre de base ce type de mécanisme. On p
 
 ## Customizing Chef for Fun and Profit
 
-![chef](http://b-i.forbesimg.com/benkepes/files/2013/12/Chef_Vertical_CCan_Reg.png)
+![chef](https://b-i.forbesimg.com/benkepes/files/2013/12/Chef_Vertical_CCan_Reg.png)
 
-Slides: [Customizing Chef for Fun and Profit](http://fr.slideshare.net/jonlives/chefconf-2014)
+Slides: [Customizing Chef for Fun and Profit](https://fr.slideshare.net/jonlives/chefconf-2014)
 
 En suivant les étapes d'application d'une recette Chef, Jon Cowie a distillé son savoir sur la personnalisation de Chef.
 
@@ -269,7 +269,7 @@ Il nous a par exemple démontré qu'il était très simple de développer son pr
 J'ai apprécié le passage sur la gestion des événements Chef, en effet la sortie en ligne de commande n'est qu'une des façons de récupérer les logs, les événements sont basés sur un système de pub/sub, on pourrait très bien imaginer la publication en live stream dans un redis ou autre.
 
 Par ailleurs Jon vient de publier un livre sur le sujet:
-[O'Reilly - Customizing Chef](http://shop.oreilly.com/product/0636920032984.do)
+[O'Reilly - Customizing Chef](https://shop.oreilly.com/product/0636920032984.do)
 
 
 ---

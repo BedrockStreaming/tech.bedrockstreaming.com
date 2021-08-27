@@ -23,9 +23,9 @@ Nous voici de retour pour une Vélocity Conference, le paradis de la WebPerf et 
 
 Après l'excellente moisson de la Vélocity US de Santa Clara, dont voici nos 3 CR :
 
-- Day 1 : [http://tech.m6web.fr/cr-velocity-conference-day-1-dev-webperf](http://tech.m6web.fr/cr-velocity-conference-day-1-dev-webperf)
-- Day 2 : [http://tech.m6web.fr/cr-velocity-conference-2012-day-2-devops-webperf](http://tech.m6web.fr/cr-velocity-conference-2012-day-2-devops-webperf)
-- Day 3 : [http://tech.m6web.fr/cr-velocity-conference-2012-day-3-devops-webperf](http://tech.m6web.fr/cr-velocity-conference-2012-day-3-devops-webperf)
+- Day 1 : [https://tech.m6web.fr/cr-velocity-conference-day-1-dev-webperf](https://tech.m6web.fr/cr-velocity-conference-day-1-dev-webperf)
+- Day 2 : [https://tech.m6web.fr/cr-velocity-conference-2012-day-2-devops-webperf](https://tech.m6web.fr/cr-velocity-conference-2012-day-2-devops-webperf)
+- Day 3 : [https://tech.m6web.fr/cr-velocity-conference-2012-day-3-devops-webperf](https://tech.m6web.fr/cr-velocity-conference-2012-day-3-devops-webperf)
 
 Et après la session de l'année dernière qui avait lieu à Berlin, nous nous retrouvons cette fois dans la capitale anglaise Londres, au Hilton hôtel.
 
@@ -37,7 +37,7 @@ Voici le compte rendu des conférences de la première journée, journée un peu
 
 ### [OPS] Monitoring and Observability in complex architecture, par Theo Schlossnagle (OmniTI)
 
-Première conférence de la journée, avec Theo, habitué des Velocity, et plutôt expert dans les domaines "infra" et "monitoring". Créateur de [Omniti](http://omniti.com/), MessageSystems et [Circonus.](http://circonus.com/)
+Première conférence de la journée, avec Theo, habitué des Velocity, et plutôt expert dans les domaines "infra" et "monitoring". Créateur de [Omniti](https://omniti.com/), MessageSystems et [Circonus.](https://circonus.com/)
 
 Son twitter : [@postwait](https://twitter.com/postwait)
 
@@ -46,18 +46,18 @@ Theo nous explique comment monitorer et observer des archi complexes avec une pr
 Les outils de collectes de statistiques qu'il cite :
 
 - Metrics.js : [https://github.com/mikejihbe/metrics](https://github.com/mikejihbe/metrics)
-- Resmon : [http://labs.omniti.com/labs/resmon](http://labs.omniti.com/labs/resmon)
+- Resmon : [https://labs.omniti.com/labs/resmon](https://labs.omniti.com/labs/resmon)
 - Folsom : [https://github.com/boundary/folsom](https://github.com/boundary/folsom)
-- Metrics : [http://metrics.codahale.com/](http://metrics.codahale.com/)
+- Metrics : [https://metrics.codahale.com/](https://metrics.codahale.com/)
 - Metrics-net : [https://github.com/danielcrenna/metrics-net](https://github.com/danielcrenna/metrics-net)
 - StatsD : [https://github.com/etsy/statsd](https://github.com/etsy/statsd)
 
 Et pour le stockage :
 
-- Reconnoiter : [http://labs.omniti.com/labs/reconnoiter](http://labs.omniti.com/labs/reconnoiter)
-- Graphite : [http://graphite.wikidot.com/](http://graphite.wikidot.com/)
-- OpenTSDB : [http://opentsdb.net/](http://opentsdb.net/)
-- Circonus : [http://circonus.com/](http://circonus.com/)
+- Reconnoiter : [https://labs.omniti.com/labs/reconnoiter](https://labs.omniti.com/labs/reconnoiter)
+- Graphite : [https://graphite.wikidot.com/](https://graphite.wikidot.com/)
+- OpenTSDB : [https://opentsdb.net/](https://opentsdb.net/)
+- Circonus : [https://circonus.com/](https://circonus.com/)
 - Librato : [https://metrics.librato.com/](https://metrics.librato.com/)
 
 Ont suivi ensuite des démos tcpdump assez poussées plutôt intéressante :  
@@ -67,18 +67,18 @@ Ont suivi ensuite des démos tcpdump assez poussées plutôt intéressante :
 
 Bref, ca commence très (trop?) fort, surtout pour nous, pas forcément de nature très "OPS" !
 
-Les slides sont disponible ici et plutôt parlantes pour ceux qui voudraient creuser le sujet : [http://www.slideshare.net/postwait/monitoring-and-observability](http://www.slideshare.net/postwait/monitoring-and-observability)
+Les slides sont disponible ici et plutôt parlantes pour ceux qui voudraient creuser le sujet : [https://www.slideshare.net/postwait/monitoring-and-observability](https://www.slideshare.net/postwait/monitoring-and-observability)
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/14556223" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="https://fr.slideshare.net/slideshow/embed_code/14556223" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 
 > "You cannot correct what you cannot measure" Theo Schlossnagle
 
 
-![Theo Schlossnagle (Source : http://img.ly/o0Ht )](/images/posts/imgob/0-00-30-83-201210-ob_e5890eb4c00194f155cbb70dadf2df1e_large-jpg.jpg)
+![Theo Schlossnagle (Source : https://img.ly/o0Ht )](/images/posts/imgob/0-00-30-83-201210-ob_e5890eb4c00194f155cbb70dadf2df1e_large-jpg.jpg)
 
-Theo Schlossnagle (Source : http://img.ly/o0Ht )
+Theo Schlossnagle (Source : https://img.ly/o0Ht )
 
 
 
@@ -89,7 +89,7 @@ On prend toujours autant de plaisir écouter John Allspaw, VP d'Esty et Co-organ
 
 Son Twitter : [@allspaw](https://twitter.com/allspaw)
 
-Beaucoup de parallèles sont faits avec des incidents dans l'aviation, l'industrie, voir l'armée, avec des références aussi au PostMortem d'appolo 13 ... Un joli condensé de bouquins "Must Read" d'après Allspaw comme : [Normal Accidents](http://www.amazon.co.uk/Normal-Accidents-Technologies-Princeton-Paperbacks/dp/0691004129) ou encore [Naturalistic Decision Making](http://www.amazon.fr/Naturalistic-Decision-Making-Caroline-Zsambok/dp/080581874X/ref=sr_1_1?ie=UTF8&qid=1349212572&sr=8-1), nous sont présentés.
+Beaucoup de parallèles sont faits avec des incidents dans l'aviation, l'industrie, voir l'armée, avec des références aussi au PostMortem d'appolo 13 ... Un joli condensé de bouquins "Must Read" d'après Allspaw comme : [Normal Accidents](https://www.amazon.co.uk/Normal-Accidents-Technologies-Princeton-Paperbacks/dp/0691004129) ou encore [Naturalistic Decision Making](https://www.amazon.fr/Naturalistic-Decision-Making-Caroline-Zsambok/dp/080581874X/ref=sr_1_1?ie=UTF8&qid=1349212572&sr=8-1), nous sont présentés.
 
 Difficile d'en faire un résumé, tellement la conférence était bourrée d'informations, graphiques et anecdotes en tout genre ! Malgré tout, dans les "choses" retenir, en vrac :
 
@@ -98,11 +98,11 @@ Difficile d'en faire un résumé, tellement la conférence était bourrée d'inf
 - Ne pas hésiter à demander des "pre-mortem". Dire à l'auteur du projet par exemple, que cela va planter dans plusieurs mois, et lui demander d'essayer de trouver la ou les raisons qui pourraient amener le projet au plantage.
 - ...
 
-Je vous invite encore consulter les slides pour plus d'informations et de références : [http://fr.slideshare.net/jallspaw/velocity-eu-2012-escalating-scenarios-outage-handling-pitfalls](http://fr.slideshare.net/jallspaw/velocity-eu-2012-escalating-scenarios-outage-handling-pitfalls)
+Je vous invite encore consulter les slides pour plus d'informations et de références : [https://fr.slideshare.net/jallspaw/velocity-eu-2012-escalating-scenarios-outage-handling-pitfalls](https://fr.slideshare.net/jallspaw/velocity-eu-2012-escalating-scenarios-outage-handling-pitfalls)
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/14567676?rel=0" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="https://fr.slideshare.net/slideshow/embed_code/14567676?rel=0" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 
 ![John Allspaw (Source : https://twitter.com/lozzd/status/253074489540239360 )](/images/posts/imgob/0-00-30-83-201210-ob_dc94ca_1de339480c7911e2a04e123138141145-7-jpg.jpg)
 
@@ -117,21 +117,21 @@ Son twitter : [@jeroentjepkema](https://twitter.com/jeroentjepkema)
 
 L'objectif de cette conférence était de proposer en 90 minutes, les étapes nécessaire pour monter un dashboard orienté WebPerf.
 
-On re-parcourt du coup un peu tout le classique de la performance web, en présentant déjà quelques exemples de Dashboard (rien de très sexy ..., hormis peut-être [celui de Nrc.nl](http://www.nrc.nl/apps/bigboard/) orienté "audience éditoriale" plutot intéressant), la pertinence de certains types de "graphs" comme les "heatmap" et aussi en comparant les différentes solutions pour mesurer la performance web, avec avantages et inconvénients :
+On re-parcourt du coup un peu tout le classique de la performance web, en présentant déjà quelques exemples de Dashboard (rien de très sexy ..., hormis peut-être [celui de Nrc.nl](https://www.nrc.nl/apps/bigboard/) orienté "audience éditoriale" plutot intéressant), la pertinence de certains types de "graphs" comme les "heatmap" et aussi en comparant les différentes solutions pour mesurer la performance web, avec avantages et inconvénients :
 
 - Synthetic Monitoring (Gomez, Keynote, IpLabel, Pingdom etc) (slide 104-105)
-- Real User Monitoring ([LogNormal](http://lognormal.com/) dont [l'acquisition par Soasta](http://lognormal.com/blog/2012/10/01/lognormal-acquired-by-soasta/) a aussi été annoncé ce jour, [Boomerang.js](http://lognormal.github.com/boomerang/doc/), Torbit, Google Analytics ...) (slide 121-122)
-- Real User Benchmarking ([WebPageTest](http://www.webpagetest.org)) (slide 134)
+- Real User Monitoring ([LogNormal](https://lognormal.com/) dont [l'acquisition par Soasta](https://lognormal.com/blog/2012/10/01/lognormal-acquired-by-soasta/) a aussi été annoncé ce jour, [Boomerang.js](https://lognormal.github.com/boomerang/doc/), Torbit, Google Analytics ...) (slide 121-122)
+- Real User Benchmarking ([WebPageTest](https://www.webpagetest.org)) (slide 134)
 
 Quelques idées sympa de design sont disséminées tout au long de cette longue présentation, on regrette simplement de survoler toujours un peu tous les concepts, mais malgrés tout, cela reste l'une des rares tentatives de faire un dashboard WebPerf accessible à des "non-techniciens". Chapeau pour cela.
 
 Une démo du dashboard est testable ici : [https://app.measureworks.nl/secured/dashboard](https://app.measureworks.nl/secured/dashboard) (Login : demo@measureworks.nl , password: performance )
 
-Les slides sont disponibles ici : [http://www.slideshare.net/MeasureWorks/measureworks-velocity-conference-europe-2012-a-web-performance-dashboard-final](http://www.slideshare.net/MeasureWorks/measureworks-velocity-conference-europe-2012-a-web-performance-dashboard-final)
+Les slides sont disponibles ici : [https://www.slideshare.net/MeasureWorks/measureworks-velocity-conference-europe-2012-a-web-performance-dashboard-final](https://www.slideshare.net/MeasureWorks/measureworks-velocity-conference-europe-2012-a-web-performance-dashboard-final)
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/14559201?rel=0" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="https://fr.slideshare.net/slideshow/embed_code/14559201?rel=0" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 
 ![Jeroen Tjepkema (Source : https://twitter.com/pingdom/status/253135289327951872 )](/images/posts/imgob/0-00-30-83-201210-ob_de570da1ddb751e35f1a96d2eadf7c9d_scaled-php.jpg)
 
@@ -150,17 +150,17 @@ Histoire de s'adapter au public Anglais, les deux compères ont décidés de s'a
 
 Comme imaginé, ca n'est pas "folichon", et on étudiera en profondeur en live les sites de Chelsea et Tottenham, qui chacun enchaine un nombre d'aberrations plus grandes les une que les autres !
 
-Le tableur utilisé pendant la présentation avec les liens vers les tests WebPageTest : [goo.gl/YfbRn](http://goo.gl/YfbRn)
+Le tableur utilisé pendant la présentation avec les liens vers les tests WebPageTest : [goo.gl/YfbRn](https://goo.gl/YfbRn)
 
-Quelques exemples sur le site de Chelsea : [http://www.chelseafc.com/](http://www.chelseafc.com/)
+Quelques exemples sur le site de Chelsea : [https://www.chelseafc.com/](https://www.chelseafc.com/)
 
 Les tests WPT annoncent un Load Time 21 secondes, 203 requêtes HTTP et 3mo4 téléchargés !
 
-Le [Waterfall que vous pouvez voir ici](http://velocity.webpagetest.org/result/120925_0_13/2/details/), est on ne peut plus parlant, avec une mention spéciale pour la liste des images présentes sur la HP : [http://velocity.webpagetest.org/pageimages.php?test=120925_0_13&run=2&cached=0](http://velocity.webpagetest.org/pageimages.php?test=120925_0_13&run=2&cached=0)
+Le [Waterfall que vous pouvez voir ici](https://velocity.webpagetest.org/result/120925_0_13/2/details/), est on ne peut plus parlant, avec une mention spéciale pour la liste des images présentes sur la HP : [https://velocity.webpagetest.org/pageimages.php?test=120925_0_13&run=2&cached=0](https://velocity.webpagetest.org/pageimages.php?test=120925_0_13&run=2&cached=0)
 
 J'imagine que le problème va vous sauter aux yeux, entre les fonds énormissimes et images non compréssées, les images de chacun des joueurs de l'équipe (oui, le pauvre carroussel en bas de page ...), et le nombre incroyable de logo et ou picto en tout genre, on voit vite comment améliorer la page :-)
 
-Le carroussel du haut donne aussi un effet assez comique sur le "[FilmStrip View](http://velocity.webpagetest.org/video/compare.php?tests=120925_0_13-r:2-c:0)" où l'ont voit vers les 10 secondes, un début d'image se charger, pour s'effacer car le carroussel passe déja au panel suivant ... Merci au passage au jCaroussel qui charge bêtement toutes les images ...
+Le carroussel du haut donne aussi un effet assez comique sur le "[FilmStrip View](https://velocity.webpagetest.org/video/compare.php?tests=120925_0_13-r:2-c:0)" où l'ont voit vers les 10 secondes, un début d'image se charger, pour s'effacer car le carroussel passe déja au panel suivant ... Merci au passage au jCaroussel qui charge bêtement toutes les images ...
 
 On remarque aussi un nombre conséquent de JS qui retarde grandement le Start Render. Optez autant que possible pour les positionner juste avant le /body, ou les charger en async/defer ou via un chargement asynchrone en Js.
 
@@ -194,26 +194,26 @@ Nous suivrons une série de 7 ou 8 Ignite Talk dont le concept est de présenter
 
 Pas mal de sujets tournaient autour de l'Open Data ou Big Data, les DataViz ...
 
-Voici par exemple un talk sympa sur les "Dataviz as interface" par [@makoto_inoue](https://twitter.com/makoto_inoue) : [http://fr.slideshare.net/inouemak/data-viz-asinterfacemakotoinoue](http://fr.slideshare.net/inouemak/data-viz-asinterfacemakotoinoue)
+Voici par exemple un talk sympa sur les "Dataviz as interface" par [@makoto_inoue](https://twitter.com/makoto_inoue) : [https://fr.slideshare.net/inouemak/data-viz-asinterfacemakotoinoue](https://fr.slideshare.net/inouemak/data-viz-asinterfacemakotoinoue)
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/14559951" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="https://fr.slideshare.net/slideshow/embed_code/14559951" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 
-![Makoto Inoue, de l'énergie, de la danse, et de la bière ! (Source: http://royal.pingdom.com/2012/10/02/velocity-europe-1/ )](/images/posts/imgob/0-00-30-83-201210-ob_8823f9b6bfed28f4d280b3f4ca99689e_ignite-jpg.jpg)
+![Makoto Inoue, de l'énergie, de la danse, et de la bière ! (Source: https://royal.pingdom.com/2012/10/02/velocity-europe-1/ )](/images/posts/imgob/0-00-30-83-201210-ob_8823f9b6bfed28f4d280b3f4ca99689e_ignite-jpg.jpg)
 
-Makoto Inoue, de l'énergie, de la danse, et de la bière ! (Source: http://royal.pingdom.com/2012/10/02/velocity-europe-1/ )
+Makoto Inoue, de l'énergie, de la danse, et de la bière ! (Source: https://royal.pingdom.com/2012/10/02/velocity-europe-1/ )
 
 
 
 
 ### [WebPerf] Step by Step Mobile Optimization, par Guy Podjamy (Akamai)
 
-Conférence auquelle je n'ai pas pu assisté : [http://fr.slideshare.net/guypod/step-by-step-mobile-optimization](http://fr.slideshare.net/guypod/step-by-step-mobile-optimization)
+Conférence auquelle je n'ai pas pu assisté : [https://fr.slideshare.net/guypod/step-by-step-mobile-optimization](https://fr.slideshare.net/guypod/step-by-step-mobile-optimization)
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/14569754" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="https://fr.slideshare.net/slideshow/embed_code/14569754" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 
 
 ### Conclusion :
@@ -232,8 +232,8 @@ P.s : N'hésitez pas nous faire des retours sur ce CR ! :)
 
 Rappel : les CR des autres jours sont disponible :
 
-- Day 2 : [http://tech.m6web.fr/cr-velocity-conference-europe-2012-day-2](http://tech.m6web.fr/cr-velocity-conference-europe-2012-day-2)
-- Day 3 : [http://tech.m6web.fr/cr-velocity-conference-europe-2012-day-3](http://tech.m6web.fr/cr-velocity-conference-europe-2012-day-3)
+- Day 2 : [https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-2](https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-2)
+- Day 3 : [https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-3](https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-3)
 
 
 

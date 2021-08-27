@@ -43,7 +43,7 @@ One of the goals of Chaos Engineering being to *break stuff*, the talk started b
 
 Chaos Engineering follows a continuous loop. Start with a steady state (a baseline that comes from objective observation, which means you need business metrics and to collect data), formulate an hypothesis (not necessarily business oriented), and define an experimental method (the things we vary to prove / disprove the hypothesis). Warning: don't vary too many things at once.
 
-The talk finished with a few words about the [Chaos Toolkit](http://chaostoolkit.org/), which aims to be simpler than the famous [Chaos Monkey](https://github.com/Netflix/chaosmonkey).
+The talk finished with a few words about the [Chaos Toolkit](https://chaostoolkit.org/), which aims to be simpler than the famous [Chaos Monkey](https://github.com/Netflix/chaosmonkey).
 
 
 # Istio - The Weather Company's Journey - Nick Nellis & Fabio Oliveira, IBM
@@ -87,7 +87,7 @@ That might not be everyone's problem, but still interesting to hear about. If yo
 
 # Operating a Global-Scale FaaS on Top of Kubernetes - Chad Arimura & Matt Stephenson, Oracle
 
-This was about the [Fn project](http://fnproject.io/). A couples of problems related to multitenancy: network isolation on Kubernetes, noisy neighbors (I/O being the bottleneck). Helm has a few limits, worked around with shell scripts.
+This was about the [Fn project](https://fnproject.io/). A couples of problems related to multitenancy: network isolation on Kubernetes, noisy neighbors (I/O being the bottleneck). Helm has a few limits, worked around with shell scripts.
 
 
 # Inside Kubernetes Resource Management (QoS) – Mechanics and Lessons from the Field - Michael Gasch, VMware

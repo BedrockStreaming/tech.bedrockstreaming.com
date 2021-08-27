@@ -33,7 +33,7 @@ La seconde conférence de [@techM6Web](https://twitter.com/TechM6Web) a été te
 
 Nous avons aussi retrouvé une bonne partie des développeurs de l'équipe (anciens ou actuels) qui ont joué le jeu de la borne photo Pixiway mise à disposition :
 
-![M6Web @PHPTour 2014](http://cdn.pixiway.com/p/h/p/ltm/7a9d9fe51bd81cdbe396e46740f53a3ede204e47.gif)
+![M6Web @PHPTour 2014](https://cdn.pixiway.com/p/h/p/ltm/7a9d9fe51bd81cdbe396e46740f53a3ede204e47.gif)
 
 #Conclusion
 

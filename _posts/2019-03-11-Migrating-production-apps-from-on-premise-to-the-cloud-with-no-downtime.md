@@ -254,7 +254,7 @@ replicate_traffic() {
     -http-disallow-url /v2/critical/sensible_datas/payments/ \
     -http-allow-url /v2 \
     -input-raw-bpf-filter "dst host 127.0.0.72" \
-    -output-http "http://application-02.6play.fr/|${REPLICATION_PERCENTAGE}" \
+    -output-http "https://application-02.6play.fr/|${REPLICATION_PERCENTAGE}" \
     -http-original-host \
     2>/dev/null
 }
@@ -286,7 +286,7 @@ To achieve a path-by-path migration of an application, we used this HAProxy conf
 frontend application-02
     ...
     # Defined with a "map" style, from file /etc/haproxy/domain2backend.map
-    # CF http://blog.haproxy.com/2015/01/26/web-application-name-to-backend-mapping-in-haproxy/
+    # CF https://blog.haproxy.com/2015/01/26/web-application-name-to-backend-mapping-in-haproxy/
     use_backend %[base,map_reg(/etc/haproxy/domain2backend.map,bk_default)]
 
 backend application-02-on-prem

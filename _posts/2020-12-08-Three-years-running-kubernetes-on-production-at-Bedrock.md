@@ -472,7 +472,7 @@ annotations:
 
 ```yaml
 remote_write:
-- url: http://victoria-metrics-cluster-vminsert.monitoring.svc.cluster.local.:8480/insert/001/prometheus
+- url: https://victoria-metrics-cluster-vminsert.monitoring.svc.cluster.local.:8480/insert/001/prometheus
   remote_timeout: 30s
   write_relabel_configs:
   - separator: ;

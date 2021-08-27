@@ -18,7 +18,7 @@ image:
 comments: true
 ---
 
-Après une [première journée pleine de nouveautés et d'annonces](http://tech.m6web.fr/cr-react-europe-2015-day-one/), voici la suite du compte rendu avec un programme encore très chargé pour cette deuxième journée de la React Europe.
+Après une [première journée pleine de nouveautés et d'annonces](https://tech.m6web.fr/cr-react-europe-2015-day-one/), voici la suite du compte rendu avec un programme encore très chargé pour cette deuxième journée de la React Europe.
 
 # Improving Your Workflow With Code Transformation
 
@@ -40,7 +40,7 @@ Le talk se finit sur le futur de Babel, qui sera à chercher du côté de :
 * constant folding/static evaluation
 * static analysis / linting
 
-Steven Lusher, l’un des dev Facebook travaillant sur Relay vient de mettre un blog post sur le site Babel concernant [l’utilisation ES6 de React](http://babeljs.io/blog/2015/06/07/react-on-es6-plus/)
+Steven Lusher, l’un des dev Facebook travaillant sur Relay vient de mettre un blog post sur le site Babel concernant [l’utilisation ES6 de React](https://babeljs.io/blog/2015/06/07/react-on-es6-plus/)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/OFuDvqZmUrE" frameborder="0" allowfullscreen></iframe>
 
@@ -87,7 +87,7 @@ On reste un peu sur notre faim en ne pouvant pas aller jouer “concrètement”
 ![Jed Watson](https://scontent-fra3-1.xx.fbcdn.net/hphotos-xtp1/t31.0-8/11696380_1634481350144860_1142691694641390511_o.jpg)
 (crédits : [Fabien Champigny - React Europe](https://www.facebook.com/media/set/?set=a.1634468596812802.1073741829.1541044122821917&type=3))
 
-Jed Watson, créateur du framework [TouchStone JS](http://touchstonejs.io/), un framework JS (basé sur React) permettant de faire des applications mobiles hybride (à base de Webview via Apache Cordova), nous explique comment réaliser des applis hybride grâce à React.
+Jed Watson, créateur du framework [TouchStone JS](https://touchstonejs.io/), un framework JS (basé sur React) permettant de faire des applications mobiles hybride (à base de Webview via Apache Cordova), nous explique comment réaliser des applis hybride grâce à React.
 
 Le débat ici est plutôt de démontrer qu’on peut malgré les dires de certains et en connaissant quelques astuces, faire une appli mobile hybride qui ressemblera à une appli native. Pour nous prouver cela, Jed annonce que l’appli de la React Europe, dispo sur iOS et Android, et que nous avons tous utilisé a été faite avec TouchStone JS !
 
@@ -111,9 +111,9 @@ Les points les plus importants pour qu’une application hybride fonctionne sont
 
 > You should not do everything in a webview, but you can
 
-La [démo](http://demo.touchstonejs.io/) présente l'ensemble des composants et des transitions disponibles. En plus de React, Touchstone.js utilise [cordova](https://cordova.apache.org/), une bibliothèque d'APIs permettant d'accéder en Javascript aux fonctions natives du mobile, comme l'accéléromètre, le GPS ou l'appareil photo.
+La [démo](https://demo.touchstonejs.io/) présente l'ensemble des composants et des transitions disponibles. En plus de React, Touchstone.js utilise [cordova](https://cordova.apache.org/), une bibliothèque d'APIs permettant d'accéder en Javascript aux fonctions natives du mobile, comme l'accéléromètre, le GPS ou l'appareil photo.
 
-Le code de l’application React Europe sera rendu open-source à la fin de la démo : [Sketch & Code de l’app React Europe](http://thinkmill.com.au/react-europe)
+Le code de l’application React Europe sera rendu open-source à la fin de la démo : [Sketch & Code de l’app React Europe](https://thinkmill.com.au/react-europe)
 
 ![Notes de @chantastic](https://pbs.twimg.com/media/CI_hYErUcAAan_P.jpg:large)
 
@@ -161,14 +161,14 @@ Facebook utilise maintenant intensivement GraphQL. Par contre, ils n’utilisent
 On manque malheureusement de retours sur des questions de mise en oeuvre comme le cache ou la gestion des droits par exemple.
 Espérons que des “early-adopters” puissent nous faire des retours là-dessus dans les semaines/mois à venir.
 
-Pour en savoir plus, un bon article sur le sujet : [GraphQL overview : Getting start with GraphQL and Node.JS](http://blog.risingstack.com/graphql-overview-getting-started-with-graphql-and-nodejs/)
+Pour en savoir plus, un bon article sur le sujet : [GraphQL overview : Getting start with GraphQL and Node.JS](https://blog.risingstack.com/graphql-overview-getting-started-with-graphql-and-nodejs/)
 
 # Isomorphic Flux
 
 ![Michael Ridgway](https://scontent-fra3-1.xx.fbcdn.net/hphotos-xat1/t31.0-8/11157524_1634483346811327_5314578204448681932_o.jpg)
 (crédits : [Fabien Champigny - React Europe](https://www.facebook.com/media/set/?set=a.1634468596812802.1073741829.1541044122821917&type=3))
 
-Michael Ridgway ([@theridgway](https://twitter.com/theridgway)) aborde une notion souvent abordée ces 2 jours et sur laquelle nous avions fait un [article en décembre dernier]( http://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/).
+Michael Ridgway ([@theridgway](https://twitter.com/theridgway)) aborde une notion souvent abordée ces 2 jours et sur laquelle nous avions fait un [article en décembre dernier]( https://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/).
 
 Selon Michael, les avantages du “server rendering” sont multiples :
 
@@ -185,9 +185,9 @@ La stack proposée par Michael est la suivante :
 * pour le data fetching, superagent (https://github.com/visionmedia/superagent)
 * pour la logique applicative, un pattern léger et célèbre : Flux
 
-Pour la mise en oeuvre de Flux côté serveur, nous avons déjà vu au cours de ces 2 journées : [Redux](https://github.com/gaearon/redux) et [React Nexus](https://github.com/elierotenberg/react-nexus). Il en existe d’autres comme [marty.js](http://martyjs.org/), [flummox](http://acdlite.github.io/flummox) ou [alt](http://alt.js.org/). Michael nous propose [Fluxible](http://fluxible.io/), la librairie développée par Yahoo.
+Pour la mise en oeuvre de Flux côté serveur, nous avons déjà vu au cours de ces 2 journées : [Redux](https://github.com/gaearon/redux) et [React Nexus](https://github.com/elierotenberg/react-nexus). Il en existe d’autres comme [marty.js](https://martyjs.org/), [flummox](https://acdlite.github.io/flummox) ou [alt](https://alt.js.org/). Michael nous propose [Fluxible](https://fluxible.io/), la librairie développée par Yahoo.
 
-[Fluxible](http://fluxible.io) crée un contexte pour chaque requête côté serveur avec un dispatcher custom optimisé pour cette opération. L’état de l’application est transmis du serveur vers le client grâce à un mécanisme de déshydratation/réhydratation des stores.
+[Fluxible](https://fluxible.io) crée un contexte pour chaque requête côté serveur avec un dispatcher custom optimisé pour cette opération. L’état de l’application est transmis du serveur vers le client grâce à un mécanisme de déshydratation/réhydratation des stores.
 
 Michael précise que Fluxible force les développeurs à utiliser Flux de manière conforme sans transgresser les pratiques définies par le modèle. La librairie fournit des composants de haut niveau permettant une parfaite intégration avec React. Enfin, la particularité de Fluxible est son système de plugins permettant de faciliter l’ajout de nouvelles fonctionnalités.
 
@@ -222,4 +222,4 @@ GraphQL + Relay parait vraiment être la solution idéale pour réaliser simplem
 
 Nous avons donc hâte d’être à la prochaine React Conférence ou React Europe pour voir la suite de l’évolution de React.
 
-[Vous pouvez retrouvez le compte rendu de la première journée ici](http://tech.m6web.fr/cr-react-europe-2015-day-one/)
+[Vous pouvez retrouvez le compte rendu de la première journée ici](https://tech.m6web.fr/cr-react-europe-2015-day-one/)

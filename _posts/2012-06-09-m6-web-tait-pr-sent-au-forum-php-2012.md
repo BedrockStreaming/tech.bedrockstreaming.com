@@ -31,9 +31,9 @@ Martin, notre CTO, a participé une table ronde.
 
 ![Martin, notre CTO, a participé à une table ronde.](/images/posts/martin-table-ronde.jpg)
 
-Olivier était également présent en tant que membre de l'[Afup](http://www.afup.org "Site de l'afup")
+Olivier était également présent en tant que membre de l'[Afup](https://www.afup.org "Site de l'afup")
 
-![Olivier était également présent en tant que membre de l'<a href='http://www.afup.org' title="Site de l'afup">Afup</a>](/images/posts/olivier-superman.jpg)
+![Olivier était également présent en tant que membre de l'<a href='https://www.afup.org' title="Site de l'afup">Afup</a>](/images/posts/olivier-superman.jpg)
 
 
 

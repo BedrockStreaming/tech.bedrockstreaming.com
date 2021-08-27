@@ -25,7 +25,7 @@ M6Web était présent en force avec 5 collaborateurs présent à l’évènement
 
 Cette session avait pour objectif de nous présenter la méthodologie du “twelve-factor app”, à travers des exemples concrets pour PHP à l’aide de Symfony et Docker.
 
-[“The twelve-factor app”](http://12factor.net/) est une suite de recommandations, indépendante d’un langage de programmation particulier et pouvant s’appliquer à toutes sortes de logiciels développés en tant que service.
+[“The twelve-factor app”](https://12factor.net/) est une suite de recommandations, indépendante d’un langage de programmation particulier et pouvant s’appliquer à toutes sortes de logiciels développés en tant que service.
 
 Sans revenir sur l’ensemble de la présentation, voici un retour sur les 12 facteurs :
 
@@ -65,7 +65,7 @@ Enfin pour appliquer ces mesures, une présentation des outils a disposition a �
 
 ## PHP dans les distributions RPM
 
-[Slides](http://blog.famillecollet.com/public/Docs/PHPRPM.pdf)
+[Slides](https://blog.famillecollet.com/public/Docs/PHPRPM.pdf)
 
 Cette session avait comme objectif de faire un état de PHP dans les distributions RPM RHEL/Centos/Fedora.
 
@@ -130,7 +130,7 @@ Son programme :
 
 ## Retour d'expérience ARTE GEIE : développement d’API
 
-Une conférence donnée par un de nos confrères d’ARTE sur des problématiques très actuelles pour nous. [François Dume](https://twitter.com/_franek_) a expliqué la stratégie de mise en place d’une API autour de [JSON API](http://jsonapi.org/) et des microservices. L’utilisation de OpenResty et du langage Lua couplé à un serveur oAuth en Symfony2 gérant la validation des tokens et le throttling.
+Une conférence donnée par un de nos confrères d’ARTE sur des problématiques très actuelles pour nous. [François Dume](https://twitter.com/_franek_) a expliqué la stratégie de mise en place d’une API autour de [JSON API](https://jsonapi.org/) et des microservices. L’utilisation de OpenResty et du langage Lua couplé à un serveur oAuth en Symfony2 gérant la validation des tokens et le throttling.
 
 Il a ensuite expliqué en détail l’implémentation de {json:api} dans Symfony2, en mettant en avant de nombreuses contributions open-source.
 
@@ -155,7 +155,7 @@ De vrai qualité d'orateur pour Maxime et une conf très rafraichissante. Une d�
 
 ## An introduction to the Laravel Framework for PHP.
 
-Bien que Symfony soit très largement majoritaire en Europe, [Laravel](http://laravel.com/) est très populaire en Amérique du Nord, c'est donc avec curiosité que nous avons assisté à cette présentation du framework faite par [Dayle Rees](https://twitter.com/daylerees), core developer.
+Bien que Symfony soit très largement majoritaire en Europe, [Laravel](https://laravel.com/) est très populaire en Amérique du Nord, c'est donc avec curiosité que nous avons assisté à cette présentation du framework faite par [Dayle Rees](https://twitter.com/daylerees), core developer.
 
 Une fois passé la très longue présentation des livres et autres activités du conférencier, nous avons eu droit à une présentation générale du framework qui nous as fortement rappelé Symfony1 : utilisation de singleton à outrance, MagicBox (équivalent du sfContext), beaucoup de magie pour réduire la configuration (nom des contrôleurs).
 
@@ -169,7 +169,7 @@ Au final, Laravel est sûrement une alternative intéressante pour les nostalgiq
 
 ![Olivier on stage](/images/posts/forumphp2014/dolbeau.jpg)  
 
-Il nous as donc présenté la solution qu'il utilise, à savoir la stack ELK, pour [ElasticSearch](http://www.elasticsearch.org/)/[LogStash](http://logstash.net/)/[Kibana](http://www.elasticsearch.org/overview/kibana/), qui permet à chaque serveur d'envoyer ses logs vers un serveur central, qui a pour charge de les agréger, et de permettre leur utilisation avancée.
+Il nous as donc présenté la solution qu'il utilise, à savoir la stack ELK, pour [ElasticSearch](https://www.elasticsearch.org/)/[LogStash](https://logstash.net/)/[Kibana](https://www.elasticsearch.org/overview/kibana/), qui permet à chaque serveur d'envoyer ses logs vers un serveur central, qui a pour charge de les agréger, et de permettre leur utilisation avancée.
 Fini la recherche dans des fichiers textes plats qu'il faut commencer par comprendre, désormais vos applicatifs peuvent enrichir leurs logs, les envoyer sur un système dédié à la gestion des logs disposant de vraies interfaces de recherche et de consultation.
 
 Nous avons été confortés dans notre idée, puisque nous mettons également en oeuvre cette solution. 
@@ -191,4 +191,4 @@ Une honte ! En plus les slides n’avaient aucun sens ! :) Bravo à [Mc Kenny](h
 
 ![Les participants au karaoké](/images/posts/forumphp2014/ss_karaoke.jpg)   
    
-Un grand merci à l’AFUP pour ce joli évènement ! Retrouvez pas mal de ressources partagés pendant l'event sur [eventifier](http://eventifier.com/event/frmphp/).
+Un grand merci à l’AFUP pour ce joli évènement ! Retrouvez pas mal de ressources partagés pendant l'event sur [eventifier](https://eventifier.com/event/frmphp/).

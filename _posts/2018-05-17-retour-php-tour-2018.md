@@ -45,7 +45,7 @@ Cette conférence nous a permis d'aborder un sujet assez peu connu dans l'univer
 Dès qu'un projet commence à être complexe, il est souvent possible de réaliser des tâches en parallèle, non bloquantes, permettant d'optimiser les temps de réponse.
 
 Pour répondre à ce besoin, Joel nous a présenté le concept de l'asynchrone : `l'event loop`.
-Via cette boucle, Joel nous a expliqué comment les évènements sont "dispatchés" au travers de [générateurs](http://php.net/manual/en/language.generators.overview.php).
+Via cette boucle, Joel nous a expliqué comment les évènements sont "dispatchés" au travers de [générateurs](https://php.net/manual/en/language.generators.overview.php).
 
 Pour aller plus loin, Joel nous a aussi parlé des outils existants qui implémentent cette logique d'event loop : [AMP](https://github.com/amphp/amp).
 

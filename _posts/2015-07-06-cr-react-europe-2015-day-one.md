@@ -18,7 +18,7 @@ image:
 comments: true
 ---
 
-Après la première conférence officielle sur React, que nous avons déjà couvert en janvier ([Jour 1](http://tech.m6web.fr/cr-react-conf-2015-day-one) et [Jour 2](http://tech.m6web.fr/cr-react-conf-2015-day-two)), nous nous sommes rendus les 2 et 3 juillet à Paris sous une chaleur infernale pour cette première édition de la [React Europe](https://www.react-europe.org/) avec l’envie de voir et de mesurer les évolutions autour de ReactJS.
+Après la première conférence officielle sur React, que nous avons déjà couvert en janvier ([Jour 1](https://tech.m6web.fr/cr-react-conf-2015-day-one) et [Jour 2](https://tech.m6web.fr/cr-react-conf-2015-day-two)), nous nous sommes rendus les 2 et 3 juillet à Paris sous une chaleur infernale pour cette première édition de la [React Europe](https://www.react-europe.org/) avec l’envie de voir et de mesurer les évolutions autour de ReactJS.
 
 # Keynote
 
@@ -40,7 +40,7 @@ Depuis l’annonce de Flux ont fleuri beaucoup d’autres implémentations du pa
 * [Barracks](https://github.com/yoshuawuyts/barracks)
 * [Reflux](https://github.com/spoike/refluxjs)
 * [Fluxy](https://github.com/jmreidy/fluxy)
-* [Fluxxor](http://fluxxor.com/documentation/flux.html)
+* [Fluxxor](https://fluxxor.com/documentation/flux.html)
 * [Redux](https://github.com/gaearon/redux)
 
 D'après Christopher, certaines vont mourir dans les prochains mois laissant seulement la place aux implémentations les plus pertinentes (et Redux a fait un buzz sans pareil lors de ces 2 jours, voir plus bas).
@@ -61,14 +61,14 @@ Le langage JS a énormement évolué avec CoffeeScript, [jsTransform](https://gi
 
 > “think of js as a compile target”
 
-Il y a eu [Traceur](https://github.com/google/traceur-compiler) et [Recast](https://github.com/benjamn/recast), et désormais [Babel](http://babeljs.io) qui a tout ecrasé sur son passage. Facebook convertit en ce moment tout son code Front JS à Babel.
+Il y a eu [Traceur](https://github.com/google/traceur-compiler) et [Recast](https://github.com/benjamn/recast), et désormais [Babel](https://babeljs.io) qui a tout ecrasé sur son passage. Facebook convertit en ce moment tout son code Front JS à Babel.
 
-On retrouve aussi [ESLint](http://eslint.org/), un “linter” de code, et du typage de données avec [TypeScript](http://www.typescriptlang.org/) et [Flow](http://flowtype.org/).
+On retrouve aussi [ESLint](https://eslint.org/), un “linter” de code, et du typage de données avec [TypeScript](https://www.typescriptlang.org/) et [Flow](https://flowtype.org/).
 
 ### 3) Packager
 
 Nous retrouvons Node.js, CommonJS, npm. 
-Dans le browser : [Browserify](http://browserify.org/) et [Webpack](http://webpack.github.io/).
+Dans le browser : [Browserify](https://browserify.org/) et [Webpack](https://webpack.github.io/).
 Même s'il y a encore du travail à faire pour avoir de bonnes performances, et ne pas attendre une compilation via les mises à jour incrémentales, ou [React Hot Loader](https://github.com/gaearon/react-hot-loader) sur lequel nous reviendrons.
 
 ### 4) Targets : 
@@ -120,7 +120,7 @@ Avec le web interactif actuel, l’état de l’application est noyé entre ces 
 
 ## No more CSS
 
-Michael nous montre enfin comment aller plus loin en gérant variables de style, pseudo-classes et pseudo-elements en inline dans le composant, et sans trop de difficultés. La gestion des hovers et des media queries est beaucoup plus ardue et n’est clairement pas recommandé. L’utilisation d’une librairie comme [Radium](http://projects.formidablelabs.com/radium/) (mais il en existe d’autres) permet de surmonter cet obstacle et d’écrire du style inline très clairement. On aborde quelques conseils pour gérer au mieux les couleurs et le layout. Pour voir un exemple illustrant tous les concepts abordés par Michael, vous pouvez explorer son projet [React Soundplayer](http://labs.voronianski.com/react-soundplayer/).
+Michael nous montre enfin comment aller plus loin en gérant variables de style, pseudo-classes et pseudo-elements en inline dans le composant, et sans trop de difficultés. La gestion des hovers et des media queries est beaucoup plus ardue et n’est clairement pas recommandé. L’utilisation d’une librairie comme [Radium](https://projects.formidablelabs.com/radium/) (mais il en existe d’autres) permet de surmonter cet obstacle et d’écrire du style inline très clairement. On aborde quelques conseils pour gérer au mieux les couleurs et le layout. Pour voir un exemple illustrant tous les concepts abordés par Michael, vous pouvez explorer son projet [React Soundplayer](https://labs.voronianski.com/react-soundplayer/).
 
 Pour conclure sa conf, Michael cite Sandi Metz [@sandimetz](https://twitter.com/sandimetz), designeuse Ruby, défendant l’idée que l’objectif du design est de permettre de (re-)designer plus tard son application et donc de réduire les coûts du changement. Le composant React est l’interface, il se suffit à lui-même.
 
@@ -250,7 +250,7 @@ L’un des messages à retenir de sa présentation est l’importance de travail
 
 Quelques outils pour accélérer le workflow de développement : 
 
-* [amok](http://amokjs.com/)
+* [amok](https://amokjs.com/)
 * [figwheel](https://github.com/bhauman/lein-figwheel)
 * [livereactload](https://github.com/milankinen/livereactload)
 * [React Hot Loader](https://github.com/gaearon/react-hot-loader)
@@ -269,7 +269,7 @@ C’est très impressionnant en Live démo !
 Rajouter à ça le Redux Dev Tools qui permet de suivre en temps réel les actions lancées, ainsi que l’état des states, de pouvoir revenir en arrière dans les actions “à la git”, mais aussi d’avoir un error handler très quali en live (inspiré j’imagine de la gestion d’erreur de React Native).
 
 L’idée derrière Redux (son implémentation du pattern Flux) est de faire un Store immuable. On peut résumer une action à une fonction prenant en entrée un état du store et donnant en sortie un nouvel état du Store (sans toucher au premier). En partant de ce principe, appliquer une série d’actions revient simplement à effectuer une réduction (un “reduce”). 
-On applique ici les principes d’[Event Sourcing](http://martinfowler.com/eaaDev/EventSourcing.html).
+On applique ici les principes d’[Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html).
 L’immuabilité permet de stocker les différents états intermédiaires du store et donc de naviguer extrêmement facilement dans les différentes versions pendant le développement.
 
 Plus d’infos ici : [The evolution of flux](https://medium.com/@dan_abramov/the-evolution-of-flux-frameworks-6c16ad26bb31)
@@ -283,7 +283,7 @@ Plus d’infos ici : [The evolution of flux](https://medium.com/@dan_abramov/the
 Mikhail Davydov [@azproduction](https://twitter.com/azproduction) a eu l’idée folle de créer une interface texte pour le terminal avec les outils web : HTML, CSS, JS et donc React.
 C’est complétement fou, assez impressionnant, mais on se demande quand même pourquoi ?
 
-[Voir les slides](http://azproduction.ru/talk-back-to-text-ui/)
+[Voir les slides](https://azproduction.ru/talk-back-to-text-ui/)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ee_U2t-8L48" frameborder="0" allowfullscreen></iframe>
 
@@ -296,4 +296,4 @@ Pour finir la journée, nous avons eu le droit à quelques Lightning Talk de qua
 Excellente organisation (et on ne dit pas ca seulement pour les bières à volonté), un line-up du tonnerre et de belles annonces (React Native Android en Août, GraphQL etc).
 C’est déjà avec plein d’idées et de pistes d’améliorations pour nos projets React que nous sortons de ce premier jour très complet.
 
-[Vous pouvez retrouvez le compte rendu de la deuxième journée ici](http://tech.m6web.fr/cr-react-europe-2015-day-two/)
+[Vous pouvez retrouvez le compte rendu de la deuxième journée ici](https://tech.m6web.fr/cr-react-europe-2015-day-two/)

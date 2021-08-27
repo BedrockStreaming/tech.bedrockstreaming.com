@@ -23,13 +23,13 @@ permalink: 2013/10/distribuez-votre-video-partout-avec-3-euros-en-poche-et-deven
 
 Une présentation de Ludovic Bostral, notre ex valeureux responsable R&D en charge - jusqu'il y a peu de temps - de la fabrication de toutes nos vidéos et du SI associé.
 
-Si vous vous posez des questions ce sujet, n'hésitez pas à venir lui [faire un petit coucou virtuel, ou sur Nantes](http://digibos.com/). Ca marche aussi pour discuter zombie ou nanar. Ou mieux, un nanar avec des zombies !
+Si vous vous posez des questions ce sujet, n'hésitez pas à venir lui [faire un petit coucou virtuel, ou sur Nantes](https://digibos.com/). Ca marche aussi pour discuter zombie ou nanar. Ou mieux, un nanar avec des zombies !
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/uGTF44yjoPg?wmode=transparent&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="480" src="https://www.youtube.com/embed/uGTF44yjoPg?wmode=transparent&feature=oembed" width="640"></iframe>
 
-Retrouvez Ludovic sur son site : [http://digibos.com](http://digibos.com/).
+Retrouvez Ludovic sur son site : [https://digibos.com](https://digibos.com/).
 
 
 

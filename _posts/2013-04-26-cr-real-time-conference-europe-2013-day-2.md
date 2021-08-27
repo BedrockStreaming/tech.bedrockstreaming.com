@@ -19,12 +19,12 @@ comments: true
 permalink: cr-real-time-conference-europe-2013-day-2
 ---
 
-![Crédit : http://www.flickr.com/photos/andyet-photos/8679275805/in/set-72157633306379029](/images/posts/imgob/0-00-30-83-201304-ob_9cf041_8679275805-4983128ec8-c-jpg.jpeg)
+![Crédit : https://www.flickr.com/photos/andyet-photos/8679275805/in/set-72157633306379029](/images/posts/imgob/0-00-30-83-201304-ob_9cf041_8679275805-4983128ec8-c-jpg.jpeg)
 
-Crédit : http://www.flickr.com/photos/andyet-photos/8679275805/in/set-72157633306379029
+Crédit : https://www.flickr.com/photos/andyet-photos/8679275805/in/set-72157633306379029
 
 
-[Après la première journée](http://tech.m6web.fr/cr-real-time-conference-europe-2013-day-1), on continue avec la deuxième journée de conférence. Toujours sur le format de 20 minutes pour présenter le sujet.
+[Après la première journée](https://tech.m6web.fr/cr-real-time-conference-europe-2013-day-1), on continue avec la deuxième journée de conférence. Toujours sur le format de 20 minutes pour présenter le sujet.
 
 
 
@@ -37,15 +37,15 @@ Crédit : http://www.flickr.com/photos/andyet-photos/8679275805/in/set-721576333
 Crédit : https://twitter.com/OriPekelman/status/326600103475425281/photo/1
 
 
-[@aral](https://twitter.com/vgholkar/status/326602313823318016) a travaillé sur une solution d'édition partagée de contenu, une solution sans transformation opérationnelle ([OT sur Wikipedia](http://en.wikipedia.org/wiki/Operational_transformation)) : WOOT qui signifie Without Operational Transformation.
+[@aral](https://twitter.com/vgholkar/status/326602313823318016) a travaillé sur une solution d'édition partagée de contenu, une solution sans transformation opérationnelle ([OT sur Wikipedia](https://en.wikipedia.org/wiki/Operational_transformation)) : WOOT qui signifie Without Operational Transformation.
 
 Le concept exposé est de ne pas faire de suppression des caractères d'une chaîne, mais plutôt de travailler sur la notion de visible / invisible et de position du caractère au sein de la chaîne. L'objectif étant de garder la convergence et de préserver les intentions des utilisateurs.
 
 Il nous indique différentes ressources pour approfondir le sujet :
 
-- une vidéo de Google Tech Talk :[Issues and Experiences in Designing Real-time Collaborative Editing Systems](http://www.youtube.com/watch?v=84zqbXUQIHc)
-- une librairie JS : [ShareJS](http://sharejs.org/)
-- pour aller plus loin dans la gestion du travail collaboratif, l'[Inria rend disponible différents travaux de recherches](http://hal.inria.fr/inria-00432368/en/) sur le sujet
+- une vidéo de Google Tech Talk :[Issues and Experiences in Designing Real-time Collaborative Editing Systems](https://www.youtube.com/watch?v=84zqbXUQIHc)
+- une librairie JS : [ShareJS](https://sharejs.org/)
+- pour aller plus loin dans la gestion du travail collaboratif, l'[Inria rend disponible différents travaux de recherches](https://hal.inria.fr/inria-00432368/en/) sur le sujet
 
 
 
@@ -74,7 +74,7 @@ En résumé, il recommande de passer par un outil de serialisation des données 
 
 ### Realtime vs Real world, Tyler Mac Mullen
 
-[@tbmcmullen](http://twitter.com/tbmcmullen) travaille pour [Fastly](http://www.fastly.com/). Sa société propose des solutions d'optimisation au sein des infrastructures de type CDN.
+[@tbmcmullen](https://twitter.com/tbmcmullen) travaille pour [Fastly](https://www.fastly.com/). Sa société propose des solutions d'optimisation au sein des infrastructures de type CDN.
 
 
 
@@ -104,18 +104,18 @@ La société a déjà fait d'autres sessions lors d'autres conférences tel que 
 
 
 
-![Crédit : http://www.flickr.com/photos/andyet-photos/8680450402/in/set-72157633306379029](/images/posts/imgob/0-00-30-83-201304-ob_637fb3_8680450402-4048e3b2df-jpg.jpeg)
+![Crédit : https://www.flickr.com/photos/andyet-photos/8680450402/in/set-72157633306379029](/images/posts/imgob/0-00-30-83-201304-ob_637fb3_8680450402-4048e3b2df-jpg.jpeg)
 
-Crédit : http://www.flickr.com/photos/andyet-photos/8680450402/in/set-72157633306379029
+Crédit : https://www.flickr.com/photos/andyet-photos/8680450402/in/set-72157633306379029
 
 
-<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" mozallowfullscreen="" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/19960673" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" webkitallowfullscreen="" width="427"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" mozallowfullscreen="" scrolling="no" src="https://fr.slideshare.net/slideshow/embed_code/19960673" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" webkitallowfullscreen="" width="427"></iframe>
 
 [@utstikkar](https://twitter.com/utstikkar) est une française qui travaille pour Soundcloud en tant que MIR Software Engineer.
 
 Elle nous a expliqué l'évolution effectuée au sein de leur moteur de recherche : Discorank. Ce système peut être assimilé au PageRank de Google.
 
-Ils utilisent pour cela : MySQL puis HDFS et enfin tout est re-manipulé dans [ElasticSearch](http://www.elasticsearch.org/)
+Ils utilisent pour cela : MySQL puis HDFS et enfin tout est re-manipulé dans [ElasticSearch](https://www.elasticsearch.org/)
 
 
 
@@ -142,19 +142,19 @@ N'hésitez pas à fouiller dans leur source sur [Github](https://github.com/budd
 
 ### Realtime at Microsoft, Pierre Couzy
 
-Pierre Couzy travaille depuis plus de 10 ans chez Microsoft. Il nous présente un projet réalisé par des développeurs US : [SerialR](http://signalr.net/) ([Github](https://github.com/SignalR)). Le projet utilise les Websockets.
+Pierre Couzy travaille depuis plus de 10 ans chez Microsoft. Il nous présente un projet réalisé par des développeurs US : [SerialR](https://signalr.net/) ([Github](https://github.com/SignalR)). Le projet utilise les Websockets.
 
 
 
-![Crédit : http://www.flickr.com/photos/andyet-photos/8679336549/in/set-72157633306379029](/images/posts/imgob/0-00-30-83-201304-ob_045020_8679336549-cc73704704-jpg.jpeg)
+![Crédit : https://www.flickr.com/photos/andyet-photos/8679336549/in/set-72157633306379029](/images/posts/imgob/0-00-30-83-201304-ob_045020_8679336549-cc73704704-jpg.jpeg)
 
-Crédit : http://www.flickr.com/photos/andyet-photos/8679336549/in/set-72157633306379029
+Crédit : https://www.flickr.com/photos/andyet-photos/8679336549/in/set-72157633306379029
 
 
 Le projet possède deux dépendances principales :
 
-- [Json.net](http://james.newtonking.com/projects/json-net.aspx) côté serveur
-- [Jquery](http://jquery.com/) côté client
+- [Json.net](https://james.newtonking.com/projects/json-net.aspx) côté serveur
+- [Jquery](https://jquery.com/) côté client
 
 Il est noter que la négociation exacte entre le client et le serveur dépend du navigateur utilisé.
 
@@ -195,12 +195,12 @@ Vous pouvez retrouver l'ensemble des slides sur [Github](https://github.com/crea
 
 
 
-![Crédit : http://www.flickr.com/photos/andyet-photos/8680421388/in/set-72157633306379029](/images/posts/imgob/0-00-30-83-201304-ob_05a059_8680421388-75c8b026cc-jpg.jpeg)
+![Crédit : https://www.flickr.com/photos/andyet-photos/8680421388/in/set-72157633306379029](/images/posts/imgob/0-00-30-83-201304-ob_05a059_8680421388-75c8b026cc-jpg.jpeg)
 
-Crédit : http://www.flickr.com/photos/andyet-photos/8680421388/in/set-72157633306379029
+Crédit : https://www.flickr.com/photos/andyet-photos/8680421388/in/set-72157633306379029
 
 
-[@dscape](https://twitter.com/dscape) nous propose un bon article sur [le load balancing avec nodejs](http://blog.3rd-eden.com/post/47477879421/finding-balance).  
+[@dscape](https://twitter.com/dscape) nous propose un bon article sur [le load balancing avec nodejs](https://blog.3rd-eden.com/post/47477879421/finding-balance).  
  Pour le speaker nodejs c'est : **net protocols && libuv && v8 && npm**
 
 Vous pourrez retrouver l'ensemble des slides sur [Github](https://github.com/dscape/realtimeeu)
@@ -209,7 +209,7 @@ Vous pourrez retrouver l'ensemble des slides sur [Github](https://github.com/dsc
 
 ### Learning How To Let Go, par Kyle Drake
 
-[@kyledrake](http://twitter.com/kyledrake) introduit d'autres solutions en remplacement de JSON : basés sur des données en binaire.
+[@kyledrake](https://twitter.com/kyledrake) introduit d'autres solutions en remplacement de JSON : basés sur des données en binaire.
 
 
 
@@ -218,7 +218,7 @@ Vous pourrez retrouver l'ensemble des slides sur [Github](https://github.com/dsc
 Crédit : https://twitter.com/OriPekelman/status/326684373090963456/photo/1
 
 
-Cependant, tout le monde n'utilise pas correctement les échanges binaires. Le speaker nous fait un très bon résumé de la situation pour effectuer des pushs sur la plateforme d'Apple ([Apple Push Notification Service](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/CommunicatingWIthAPS.html#//apple_ref/doc/uid/TP40008194-CH101-SW1)) et des types de retours effectués par Apple. Ceci résume assez bien la situation.
+Cependant, tout le monde n'utilise pas correctement les échanges binaires. Le speaker nous fait un très bon résumé de la situation pour effectuer des pushs sur la plateforme d'Apple ([Apple Push Notification Service](https://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/CommunicatingWIthAPS.html#//apple_ref/doc/uid/TP40008194-CH101-SW1)) et des types de retours effectués par Apple. Ceci résume assez bien la situation.
 
 
 
@@ -227,11 +227,11 @@ Cependant, tout le monde n'utilise pas correctement les échanges binaires. Le s
 Crédit : https://twitter.com/noel_olivier/status/326686457257406464
 
 
-JS ne propose pas d'API "native" mais un projet permet de traiter du binaire : [binaryjs](http://binaryjs.com/) (du binaire via websockets).
+JS ne propose pas d'API "native" mais un projet permet de traiter du binaire : [binaryjs](https://binaryjs.com/) (du binaire via websockets).
 
 Kyle effectue différents benchs sur la taille des contenus envoyés : l'un en JSON, l'autre en Binary JSON et le dernier via MessagePack. Bien entendu, ce sont les contenus en binaire qui sont les plus légers, mais il reste voir l'impact du téléchargement du JS associé et du traitement côté client.
 
-Un sujet donc à étudier qui rappelle [AMF](http://en.wikipedia.org/wiki/AmfPHP) pour échanger des informations au format binaire entre PHP et Flash.
+Un sujet donc à étudier qui rappelle [AMF](https://en.wikipedia.org/wiki/AmfPHP) pour échanger des informations au format binaire entre PHP et Flash.
 
 
 
@@ -246,7 +246,7 @@ Dans un premier temps, [@jcoglan](https://twitter.com/jcoglan) nous indique que 
 
 
 
-Pour répondre aux différentes problématiques, il nous présente [Faye](http://faye.jcoglan.com/) un système simple de message pub/sub pour le web. [Ses slides sont disponibles](http://slides.jcoglan.com/security-realtime#1).
+Pour répondre aux différentes problématiques, il nous présente [Faye](https://faye.jcoglan.com/) un système simple de message pub/sub pour le web. [Ses slides sont disponibles](https://slides.jcoglan.com/security-realtime#1).
 
 
 
@@ -281,7 +281,7 @@ En résumé, l'interface et le design sont importants également pour s'approche
 Pour les plus courageux, le livestream est également disponible.
 
 
-<iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/iq9bSo-lEGs?wmode=transparent&feature=oembed" width="854"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="480" src="https://www.youtube.com/embed/iq9bSo-lEGs?wmode=transparent&feature=oembed" width="854"></iframe>
 
 Cet événement était très intéressant :
 

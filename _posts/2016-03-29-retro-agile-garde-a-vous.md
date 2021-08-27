@@ -24,7 +24,7 @@ Au delà des rituels “classiques”, l’équipe des scrum master cherche de t
 
 Nous souhaitons aujourd’hui au travers de ce blog, partager avec vous ces jeux et surtout vous permettre de les reproduire. Ainsi chaque jeu s’accompagnera de règles et d’un « kit » vous permettant d’imprimer le matériel nécessaire au bon déroulement. 
 
-Au menu de ce premier jeu, nous avions choisi de profiter de l’arrivée de [l’émission “Garde à vous”](http://www.6play.fr/garde-a-vous-p_5614) sur M6 afin de proposer une rétrospective pas comme les autres. 
+Au menu de ce premier jeu, nous avions choisi de profiter de l’arrivée de [l’émission “Garde à vous”](https://www.6play.fr/garde-a-vous-p_5614) sur M6 afin de proposer une rétrospective pas comme les autres. 
 
 * Nom : La rétro Garde à vous ! 
 * Type : Rétrospective d’équipe.

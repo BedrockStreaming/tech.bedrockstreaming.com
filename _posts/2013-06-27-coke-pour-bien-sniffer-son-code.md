@@ -35,8 +35,8 @@ Ainsi, lorsque le fichier est paramétré et que le [script coke](https://raw.gi
 
 #### Le fix
 
-Dans l’optique d’[automatiser le plus possible](http://zachholman.com/talk/how-to-build-a-github/) nos processus, nous avons inséré la vérification des coding styles à l’aide de [Coke](https://github.com/M6Web/Coke), dans un [hook git de pre-commit](https://gist.github.com/JJK801/5867810).
+Dans l’optique d’[automatiser le plus possible](https://zachholman.com/talk/how-to-build-a-github/) nos processus, nous avons inséré la vérification des coding styles à l’aide de [Coke](https://github.com/M6Web/Coke), dans un [hook git de pre-commit](https://gist.github.com/JJK801/5867810).
 
-[Coke](https://github.com/M6Web/Coke) est disponible en [open-source](http://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur [le compte GitHub de M6Web](https://github.com/M6Web).
+[Coke](https://github.com/M6Web/Coke) est disponible en [open-source](https://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur [le compte GitHub de M6Web](https://github.com/M6Web).
 
 Enjoy !

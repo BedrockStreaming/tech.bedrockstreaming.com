@@ -33,7 +33,7 @@ Pour les besoins de ce tutoriel, nous allons prendre comme configuration, un Mac
 
 ### CharlesProxy
 
-Nous allons donc utiliser le logiciel payant [CharlesProxy](http://www.charlesproxy.com/), qui est un proxy HTTP ou Reverse Proxy permettant de capturer le traffic HTTP de son ordinateur. Il existe une version d'essai sans limite de 30 jours. Il y a peut être des alternatives libres, mais Charles étant plutôt une référence, c'est l'outil que nous utilisons.
+Nous allons donc utiliser le logiciel payant [CharlesProxy](https://www.charlesproxy.com/), qui est un proxy HTTP ou Reverse Proxy permettant de capturer le traffic HTTP de son ordinateur. Il existe une version d'essai sans limite de 30 jours. Il y a peut être des alternatives libres, mais Charles étant plutôt une référence, c'est l'outil que nous utilisons.
 
 Commencez donc par aller sur le site et installez CharlesProxy.
 
@@ -110,7 +110,7 @@ Toujours sous Charles, avec toutes les structures sélectionnées, Fichier / Exp
 
 Nous allons ensuite utiliser l'outil harviewer, pour visualiser le waterfall sous une forme plus complète que dans Charles.
 
-Rendez vous ici (avec Firefox, plutôt que Chrome dont le rendu est buggé sur cet outil) : [http://www.softwareishard.com/har/viewer/](http://www.softwareishard.com/har/viewer/)
+Rendez vous ici (avec Firefox, plutôt que Chrome dont le rendu est buggé sur cet outil) : [https://www.softwareishard.com/har/viewer/](https://www.softwareishard.com/har/viewer/)
 
 Décochez la case "Validate data before processing?" pour être moins embêté par des problèmes de compatibilité surement liés à l'export de Charles.
 
@@ -146,15 +146,15 @@ Ensuite, toujours dans le menu "Proxy", activé l'option "Throttle" et vous pour
 
 ### Disaster Case ?
 
-Comment savoir comment se comporte votre application si vos Webservices sont injoignables ? ou si l'un des services tiers que vous utilisez est down ? Comment trouver les [SPOF](http://blog.patrickmeenan.com/2011/10/testing-for-frontend-spof.html) (Single Point Of Failure) de vos apps ?
+Comment savoir comment se comporte votre application si vos Webservices sont injoignables ? ou si l'un des services tiers que vous utilisez est down ? Comment trouver les [SPOF](https://blog.patrickmeenan.com/2011/10/testing-for-frontend-spof.html) (Single Point Of Failure) de vos apps ?
 
 Toujours dans Charles, Allez dans "Tools", puis "Map Remote".
 
 Ici, vous allez pouvoir rediriger les domaines de vos choix, vers un domaine de type Blackhole.
 
-C'est à dire que le domaine choisi réagira comme si votre serveur web était dans un état de mort cérébrale ! Pas celui où il rejette la connexion immédiatement (trop facile), celui où il végète sans arriver à acquitter la réponse (le fameux "en attente de http:// ....")
+C'est à dire que le domaine choisi réagira comme si votre serveur web était dans un état de mort cérébrale ! Pas celui où il rejette la connexion immédiatement (trop facile), celui où il végète sans arriver à acquitter la réponse (le fameux "en attente de https:// ....")
 
-Pour ce besoin, nous allons utiliser le Blackhole fourni par [Patrick Meenan](https://twitter.com/patmeenan) pour l'outil de mesure de performance web : [WebPageTest](http://www.webpagetest.org) : http://blackhole.webpagetest.org
+Pour ce besoin, nous allons utiliser le Blackhole fourni par [Patrick Meenan](https://twitter.com/patmeenan) pour l'outil de mesure de performance web : [WebPageTest](https://www.webpagetest.org) : https://blackhole.webpagetest.org
 
 
 
@@ -174,7 +174,7 @@ Si vous avez d'autres méthodes, plus simples ou plus complètes, ou tout autre 
 
 Merci.
 
-P.s: pour complément, n'hésitez pas à creuser le blogpost de Steve Souders sur les waterfall mobile, qui utilise une méthode très différente avec tcpdump et pcapperf [http://www.stevesouders.com/blog/2013/03/26/mobile-waterfalls/](http://www.stevesouders.com/blog/2013/03/26/mobile-waterfalls/)
+P.s: pour complément, n'hésitez pas à creuser le blogpost de Steve Souders sur les waterfall mobile, qui utilise une méthode très différente avec tcpdump et pcapperf [https://www.stevesouders.com/blog/2013/03/26/mobile-waterfalls/](https://www.stevesouders.com/blog/2013/03/26/mobile-waterfalls/)
 
 
 

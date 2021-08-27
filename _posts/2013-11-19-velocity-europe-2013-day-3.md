@@ -25,14 +25,14 @@ Dernière journée de cette Velocity Europe, avec en plus du track Performance e
 
 Pour rappel, si vous les avez ratés, les CR des journées précédentes sont à retrouver ici :
 
-- [CR Velocity Europe 2013 - Day 1](http://tech.m6web.fr/velocity-europe-2013-day-1.html)
-- [CR Velocity Europe 2013 - Day 2](http://tech.m6web.fr/velocity-europe-2013-day-2.html)
+- [CR Velocity Europe 2013 - Day 1](https://tech.m6web.fr/velocity-europe-2013-day-1.html)
+- [CR Velocity Europe 2013 - Day 2](https://tech.m6web.fr/velocity-europe-2013-day-2.html)
 
 Pour ce "Day 3", nous nous retrouvons tous dans la grande salle avec la vidéo "Slow Motion Water Balloon Fight" en guise d'introduction :
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/Xz5z1hBxejg?wmode=transparent&feature=oembed" width="854"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="480" src="https://www.youtube.com/embed/Xz5z1hBxejg?wmode=transparent&feature=oembed" width="854"></iframe>
 
 ### Extreme Image Optimisation: WebP & JPEG XR
 
@@ -69,15 +69,15 @@ Le support de ces formats reste toutefois minime :
 - WebP : Chrome >= 23, Opera >= 12, …
 - Jpeg XR : IE => 10, …
 
-JXR, gère notamment le progressive, ce que ne gère pas encore date WebP. [Plus d’infos sur les "progressives Jpeg" sur le blog de Patrick Meenan](http://blog.patrickmeenan.com/2013/06/progressive-jpegs-ftw.html) (Créateur de WebPageTest).
+JXR, gère notamment le progressive, ce que ne gère pas encore date WebP. [Plus d’infos sur les "progressives Jpeg" sur le blog de Patrick Meenan](https://blog.patrickmeenan.com/2013/06/progressive-jpegs-ftw.html) (Créateur de WebPageTest).
 
-Une petite anecdote intéressante sur WebP aussi. [Facebook avait mis en place WebP mais est revenu en arrière car les utilisateurs râlaient !](http://news.cnet.com/8301-1023_3-57580664-93/facebook-tries-googles-webp-image-format-users-squawk/) Quand ils enregistraient ou partageait une photo de Chrome (donc en WebP), les utilisateurs IE notamment, ne pouvaient pas la consulter …
+Une petite anecdote intéressante sur WebP aussi. [Facebook avait mis en place WebP mais est revenu en arrière car les utilisateurs râlaient !](https://news.cnet.com/8301-1023_3-57580664-93/facebook-tries-googles-webp-image-format-users-squawk/) Quand ils enregistraient ou partageait une photo de Chrome (donc en WebP), les utilisateurs IE notamment, ne pouvaient pas la consulter …
 
-Ido fera un article sur l’incontournable calendrier de l’avant sur le sujet : [Performance Calendar](http://calendar.perfplanet.com/) en décembre 2013 !
+Ido fera un article sur l’incontournable calendrier de l’avant sur le sujet : [Performance Calendar](https://calendar.perfplanet.com/) en décembre 2013 !
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/Y5ZOogjHpbk?wmode=transparent&feature=oembed" width="854"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="480" src="https://www.youtube.com/embed/Y5ZOogjHpbk?wmode=transparent&feature=oembed" width="854"></iframe>
 
 ### SLOWING DOWN TO GO FASTER: Responsive Web Design And The Problem Of Agility vs Robustness
 
@@ -100,7 +100,7 @@ Bref, une excellente conférence avec un très bon speaker (très drôle sur la 
 > "Don’t do whoopsies on other people things" Tom Maslen
 
 
-<iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/2U3joc9NaY4?wmode=transparent&feature=oembed" width="854"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="480" src="https://www.youtube.com/embed/2U3joc9NaY4?wmode=transparent&feature=oembed" width="854"></iframe>
 
 ### An Introduction to Code Club
 
@@ -110,13 +110,13 @@ John Wards (White October)
 
 Code Club est un projet leadé par des bénévoles pour créer des clubs de coding dans les écoles, pour des enfants entre 9 et 11 ans. Plus de 1400 clubs ont déjété créés en Angleterre !
 
-Les enfants utilisent le projet [Scratch](http://scratch.mit.edu/), et qui permet via un langage de programmation assez simple, de programmer des jeux.
+Les enfants utilisent le projet [Scratch](https://scratch.mit.edu/), et qui permet via un langage de programmation assez simple, de programmer des jeux.
 
 Leurs vidéos de présentation sont de plus assez fun, notamment celle ci, qui nous à été montrée, à 6mn50 dans la vidéo ci dessous :
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/NkowNBKEwIc?wmode=transparent&feature=oembed" width="854"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="480" src="https://www.youtube.com/embed/NkowNBKEwIc?wmode=transparent&feature=oembed" width="854"></iframe>
 
 ### Lightning Demo: Automating WebPagetest with wpt-script
 
@@ -130,7 +130,7 @@ L'outil est dispo sur Github : [Wpt-Script](https://github.com/etsy/wpt-script)
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/RjHh6ULFHiM?wmode=transparent&feature=oembed" width="854"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="480" src="https://www.youtube.com/embed/RjHh6ULFHiM?wmode=transparent&feature=oembed" width="854"></iframe>
 
 ### Lightning Demo: Introducing a New RUM Resource From SOASTA
 
@@ -140,11 +140,11 @@ Buddy Brewer (SOASTA)
 
 SOASTA, société connue notamment pour avoir racheté LogNormal (outil de R.U.M. l’année dernière), propose aujourd’hui un outil de R.U.M. nommé : mPulse.
 
-Ils ont publié de nombreuses statistiques sur leur site, sur les performances, suivant le navigateur, la localité etc : [http://www.soasta.com/summary/](http://www.soasta.com/summary/)
+Ils ont publié de nombreuses statistiques sur leur site, sur les performances, suivant le navigateur, la localité etc : [https://www.soasta.com/summary/](https://www.soasta.com/summary/)
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/OnB_u8ups-M?wmode=transparent&feature=oembed" width="854"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="480" src="https://www.youtube.com/embed/OnB_u8ups-M?wmode=transparent&feature=oembed" width="854"></iframe>
 
 ### Lightning Demo: Automating The Removal Of Unused CSS
 
@@ -161,7 +161,7 @@ Addy présente des solutions qu’on peut retrouver :
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="480" src="http://www.youtube.com/embed/833xr1MyE30?wmode=transparent&feature=oembed" width="854"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="480" src="https://www.youtube.com/embed/833xr1MyE30?wmode=transparent&feature=oembed" width="854"></iframe>
 
 ### Learning from the Worst of WebPagetest
 
@@ -175,7 +175,7 @@ Sa passion, se moquer des mauvais résultats sur les historiques du WPT public :
 
 C’est d’ailleurs pour lui, l’une des bonnes sources pour découvrir les “anti-patterns” de la perf, et les choses à ne pas faire.
 
-Il présente une Pull Request en cours sur WebPageTest avec le Multi Variate Testing, permettant de tester tout un site, sur plusieurs localités. Plus d’infos sur l’article de son blog sur le sujet : [http://jrvis.com/blog/wpt-mvt/](http://jrvis.com/blog/wpt-mvt/)
+Il présente une Pull Request en cours sur WebPageTest avec le Multi Variate Testing, permettant de tester tout un site, sur plusieurs localités. Plus d’infos sur l’article de son blog sur le sujet : [https://jrvis.com/blog/wpt-mvt/](https://jrvis.com/blog/wpt-mvt/)
 
 
 
@@ -191,7 +191,7 @@ Les réponses ne sont pas aussi simples, et nous “développeurs” nous devons
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://www.slideshare.net/slideshow/embed_code/28286548" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="https://www.slideshare.net/slideshow/embed_code/28286548" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 
 
 ### Provisioning the Future - Building and Managing High Performance Compute Clusters in the Cloud
@@ -208,7 +208,7 @@ Marc et Mandy nous ont présenté le Google Cloud, alternative AWS. Basé sur du
 
 Gareth Rushgrove (Government Digital Service)
 
-Combien d'entre nous testent la sécurité de leur applicatif en continu ? Elle devrait pourtant faire partie de l'assurance qualité du développement d'un logiciel. Gareth propose donc d'ajouter des tests de sécurité via Jenkins et des tests unitaires dans notre pipeline de développement. Parmis la liste d'outils (rkhunter, naxsi, logstash, fail2ban, auditd, la distrib BackTrack, clamav, Arachni) certains sont aisément intégrables au workflow. A tester le très bon [OWASP ZAP](https://code.google.com/p/zaproxy/) (et [http://www.dvwa.co.uk/](http://www.dvwa.co.uk/) pour se faire la main !).
+Combien d'entre nous testent la sécurité de leur applicatif en continu ? Elle devrait pourtant faire partie de l'assurance qualité du développement d'un logiciel. Gareth propose donc d'ajouter des tests de sécurité via Jenkins et des tests unitaires dans notre pipeline de développement. Parmis la liste d'outils (rkhunter, naxsi, logstash, fail2ban, auditd, la distrib BackTrack, clamav, Arachni) certains sont aisément intégrables au workflow. A tester le très bon [OWASP ZAP](https://code.google.com/p/zaproxy/) (et [https://www.dvwa.co.uk/](https://www.dvwa.co.uk/) pour se faire la main !).
 
 Les slides :
 
@@ -227,7 +227,7 @@ Les slides :
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://www.slideshare.net/slideshow/embed_code/28310872" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="https://www.slideshare.net/slideshow/embed_code/28310872" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 
 
 ### Automated Multi-Platform Golden Image Creation, Unlocking New Potential
@@ -236,7 +236,7 @@ Mitchell Hashimoto (HashiCorp) [@mitchellh](https://twitter.com/mitchellh)
 
 Avoir un environnement stable, clonable depuis la dev vers la prod est le rêve conjoint des développeurs et sysadmins. L'utilisation des images pour le déploiement de machines et de code peut être fastidieux, au moindre changement de version il faut instancier l'image, faire la modification, recréer l'image etc...Ce qui n'est pas forcement adapté au cloud computing et la virtualisation. A l'inverse n'utiliser que des logiciels de gestion de la configuration (Cfengine, Puppet, Chef) ne certifie pas qu'un serveur vierge aura le même comportement qu'un serveur sur lequel on aura passé 10.000 modifications. Il m’arrive régulièrement d'avoir des erreurs de run puppet cause d'une dépendance non satisfaite (packages) ou de problèmes réseau, (le plus souvent on souffre de la lenteur d'application d'un profil puppet).
 
-De plus passé du [VMWare](http://www.vmware.com/fr/) du [AWS](http://aws.amazon.com/fr/) ou [Vagrant](http://www.vagrantup.com/) demande d'avoir autant d'images que de plateforme ! Ce saint graal du "serveur immuable" et agnostique de la plateforme est possible en utilisant une méthode intermédiaire : Packer permet de créer des images (Aws, Virtualbox, VMWare) partir d'une source et avec l'aide d'un chef/puppet/cfengine. Le workflow proposé est le suivant: commit dans le repository => build avec [Packer](http://www.packer.io/) => CI (Jenkins) => Image ready !
+De plus passé du [VMWare](https://www.vmware.com/fr/) du [AWS](https://aws.amazon.com/fr/) ou [Vagrant](https://www.vagrantup.com/) demande d'avoir autant d'images que de plateforme ! Ce saint graal du "serveur immuable" et agnostique de la plateforme est possible en utilisant une méthode intermédiaire : Packer permet de créer des images (Aws, Virtualbox, VMWare) partir d'une source et avec l'aide d'un chef/puppet/cfengine. Le workflow proposé est le suivant: commit dans le repository => build avec [Packer](https://www.packer.io/) => CI (Jenkins) => Image ready !
 
 Cela permet de garder la flexibilité d'un Puppet avec l'idempotence des images et leur facilité, rapidité de déploiement.
 
@@ -256,7 +256,7 @@ Paul Lewis explique quelques principes mis en oeuvre lors du rendu graphique dan
 
 Pour bien appréhender cette présentation, il m'a semblé nécessaire d'avoir un petit background dans la programmation graphique : savoir, par exemple, pourquoi une ombre ou un flou sont couteux pour le rendu (cause des calculs entre les différentes zones de mémoire contenant les informations graphiques superposer).
 
-Paul présente ensuite en détail l'[outil de debug du rendu](http://www.youtube.com/watch?v=Vp524yo0p44) dans les WebTools : comment enregistrer en temps réel les différentes frames affichées par Chrome et visualiser les différents temps de calculs.
+Paul présente ensuite en détail l'[outil de debug du rendu](https://www.youtube.com/watch?v=Vp524yo0p44) dans les WebTools : comment enregistrer en temps réel les différentes frames affichées par Chrome et visualiser les différents temps de calculs.
 
 Cette présentation, bien que très intéressante par son contenu fut aussi mise en valeur par l'interprétation de Paul Lewis : toujours précise mais simple, sérieuse et fun la fois.  
  Ce fût pour moi, la meilleure présentation (show!) de la Vélocity.  
@@ -283,8 +283,8 @@ Merci.
 Vous pouvez retrouver :
 
 - [quelques vidéos de la conférence sur Youtube](https://www.youtube.com/playlist?list=PL055Epbe6d5bfvFqHGHroAAbzHerXNQC4)
-- [les slides sur le site d'Oreilly](http://velocityconf.com/velocityeu2013/public/schedule/proceedings)
-- et les photos ici sur Flickr : http://www.flickr.com/photos/oreillyconf/sets/72157637657689424/
+- [les slides sur le site d'Oreilly](https://velocityconf.com/velocityeu2013/public/schedule/proceedings)
+- et les photos ici sur Flickr : https://www.flickr.com/photos/oreillyconf/sets/72157637657689424/
 
 
 

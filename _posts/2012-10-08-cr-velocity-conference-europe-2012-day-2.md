@@ -27,7 +27,7 @@ Pour bien démarrer, on commence avec en quelque sorte l'hymne de la Vélocity :
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/DRb5PSxJerM?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/DRb5PSxJerM?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
 
 
@@ -45,16 +45,16 @@ On a eu le droit une présentation de GateKeeper, outil interne, permettant de f
 
 Aujourd'hui, Facebook cherche trouver le moyen de scaler de plus de 1000 développeurs à 10000, et d'évoluer sur ce système de "Move Fast" dans le mobile natif.
 
-Pour ceux que ça intéresse, en plus de la vidéo çi dessous, Quora est une mine d'or d'infos sur FB : [http://www.quora.com/Girish-Patangay](http://www.quora.com/Girish-Patangay)
+Pour ceux que ça intéresse, en plus de la vidéo çi dessous, Quora est une mine d'or d'infos sur FB : [https://www.quora.com/Girish-Patangay](https://www.quora.com/Girish-Patangay)
 
 
 
-![(Source http://royal.pingdom.com/2012/10/03/report-from-velocity-europe-day-2/ )](/images/posts/imgob/0-00-30-83-201210-ob_8bcd544ab91083c4cc3c838a8fef5cff_facebook-jpg.jpg)
+![(Source https://royal.pingdom.com/2012/10/03/report-from-velocity-europe-day-2/ )](/images/posts/imgob/0-00-30-83-201210-ob_8bcd544ab91083c4cc3c838a8fef5cff_facebook-jpg.jpg)
 
-(Source http://royal.pingdom.com/2012/10/03/report-from-velocity-europe-day-2/ )
+(Source https://royal.pingdom.com/2012/10/03/report-from-velocity-europe-day-2/ )
 
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/rSlLB_kI1mw?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/rSlLB_kI1mw?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
 
 
@@ -62,16 +62,16 @@ Pour ceux que ça intéresse, en plus de la vidéo çi dessous, Quora est une mi
 
 Vient ensuite la conférence de Keynote (Sponsorisée), qui nous présente deux outils intéressant :
 
-- KITE pour Keynote Internet Testing Environnement : [http://kite.keynote.com/](http://kite.keynote.com/)
-- MITE pour Mobile Internet Testing Environnement : [http://mite.keynote.com/](http://mite.keynote.com/)
+- KITE pour Keynote Internet Testing Environnement : [https://kite.keynote.com/](https://kite.keynote.com/)
+- MITE pour Mobile Internet Testing Environnement : [https://mite.keynote.com/](https://mite.keynote.com/)
 
-MITE est d'ailleurs utilisé par le site de Google [Howtogomo.com](http://Howtogomo.com)
+MITE est d'ailleurs utilisé par le site de Google [Howtogomo.com](https://Howtogomo.com)
 
 Bref, si vous êtes sur Windows (...), jetez y un oeil. Plus d'infos en vidéo :
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/amFQKjk1eao?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/amFQKjk1eao?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
 
 
@@ -79,17 +79,17 @@ Bref, si vous êtes sur Windows (...), jetez y un oeil. Plus d'infos en vidéo :
 
 **Démo 1 : Chrome Dev Tools :**
 
-Première démo de Iliya Grigorik ( [@igrigorik](http://twitter.com/igrigorik)) sur les capacités avancées de la chrome Dev Toolbar.
+Première démo de Iliya Grigorik ( [@igrigorik](https://twitter.com/igrigorik)) sur les capacités avancées de la chrome Dev Toolbar.
 
-On peut par exemple faire un clic droit sur l'onglet Network pour récupérer le har (voir le format [HTTP Archive](http://www.softwareishard.com/blog/har-12-spec/)) en json, et utiliser d'autres outils avec ce har, notamment Yslow dont je parlais [dans le compte rendu suivant](http://tech.m6web.fr/cr-velocity-conference-2012-day-3-devops-webperf), qui permet d'ajouter les régressions possible WebPerf dans votre CI Jenkins.
+On peut par exemple faire un clic droit sur l'onglet Network pour récupérer le har (voir le format [HTTP Archive](https://www.softwareishard.com/blog/har-12-spec/)) en json, et utiliser d'autres outils avec ce har, notamment Yslow dont je parlais [dans le compte rendu suivant](https://tech.m6web.fr/cr-velocity-conference-2012-day-3-devops-webperf), qui permet d'ajouter les régressions possible WebPerf dans votre CI Jenkins.
 
 On parle aussi du chrome://tracing , du débugger mobile, que la devtools est une WebApp avec une url propre et scriptable, du Chrome Benchmarking (extension) ...
 
-Voir la présentation suivante pour plus d'infos, bien plus compléte : [http://www.igvita.com/slides/2012/devtools-tips-and-tricks/](http://www.igvita.com/slides/2012/devtools-tips-and-tricks/)
+Voir la présentation suivante pour plus d'infos, bien plus compléte : [https://www.igvita.com/slides/2012/devtools-tips-and-tricks/](https://www.igvita.com/slides/2012/devtools-tips-and-tricks/)
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/h3UPtKwQbZc?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/h3UPtKwQbZc?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
 **Démo 2 : Box Anemometer :**
 
@@ -103,7 +103,7 @@ Voici la démo en vidéo :
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/YZEA00bQsq8?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/YZEA00bQsq8?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
 
 
@@ -117,7 +117,7 @@ Après des études d'Eye Tracking View, on remarque aussi entre la population ch
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/nccRoCZ7ooA?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/nccRoCZ7ooA?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
 
 
@@ -127,12 +127,12 @@ Son twitter : [@timmorrow](https://twitter.com/timmorrow)
 
 Ancien de ShopZilla, et déja présent Berlin l'année dernière, Tim a partagé son retour d'expérience sur la refonte de BetFair (très gros site de pari en ligne). Les gens se plaignaient d'une mauvaise expérience (alors que les pages refondues étaient plus rapides), mais nécessitaient à priori beaucoup plus de temps pour parvenir au pari final que dans l'ancienne version. En gros, le temps de chargement de vos pages n'est pas suffisant, il faut aussi regarder les scénarios fonctionnels de vos sites. Ils sont passés sur une navigation typée Ajax pour ne pas rafraîchir dans certains cas l'intégralité de la page.
 
-Voir les slides et la vidéo : [http://fr.slideshare.net/timmorrow/why-page-speed-isnt-enough-tim-morrow-velocity-europe-2012](http://fr.slideshare.net/timmorrow/why-page-speed-isnt-enough-tim-morrow-velocity-europe-2012)
+Voir les slides et la vidéo : [https://fr.slideshare.net/timmorrow/why-page-speed-isnt-enough-tim-morrow-velocity-europe-2012](https://fr.slideshare.net/timmorrow/why-page-speed-isnt-enough-tim-morrow-velocity-europe-2012)
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/14570266" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/PcNlJ9eXTDo?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="https://fr.slideshare.net/slideshow/embed_code/14570266" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/PcNlJ9eXTDo?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
 
 
@@ -146,7 +146,7 @@ Plus d'infos dans la vidéo ci dessous :
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/crrz5uw4yoM?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/crrz5uw4yoM?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
 
 
@@ -156,15 +156,15 @@ Son twitter : [@bluesmoon](https://twitter.com/bluesmoon)
 
 Le transcript et détail complet de la présentation est présent sur un blogPost très complet de Philip Tellis, créateur de Log Normal (racheté par SOASTA) :
 
-[http://www.lognormal.com/blog/2012/10/03/the-3.5s-dash-for-attention/](http://www.lognormal.com/blog/2012/10/03/the-3.5s-dash-for-attention/)
+[https://www.lognormal.com/blog/2012/10/03/the-3.5s-dash-for-attention/](https://www.lognormal.com/blog/2012/10/03/the-3.5s-dash-for-attention/)
 
 Beaucoup de chiffres et d'infos intéressantes autour de la WebPerf, avec notamment cette métrique basée sur un Bounce Rate >= 50%
 
-Les slides sont disponibles : [http://fr.slideshare.net/bluesmoon/the-35s-dash-for-user-attention-and-other-things-we-found-in-rum](http://fr.slideshare.net/bluesmoon/the-35s-dash-for-user-attention-and-other-things-we-found-in-rum)
+Les slides sont disponibles : [https://fr.slideshare.net/bluesmoon/the-35s-dash-for-user-attention-and-other-things-we-found-in-rum](https://fr.slideshare.net/bluesmoon/the-35s-dash-for-user-attention-and-other-things-we-found-in-rum)
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/14580792" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="https://fr.slideshare.net/slideshow/embed_code/14580792" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 
 
 ### [Mobile] Escaping the uncanny valley, par Andrew Betts (FT Labs)
@@ -187,13 +187,13 @@ Son twitter : [@sw12](https://twitter.com/sw12)
 
 Sam Dutton, Developers Advocate (?) chez Google, nous fait un parcours assez complet des bases d'optimisations WebPerf pour le mobile. Un peu de redondance versus d'autres confs vues plus tôt, mais le sujet est bien maîtrisé et bien couvert.
 
-Quelques petits outils intéressants, notamment le Multires pour la gestion des images Retina : [http://fhtr.org/multires/](http://fhtr.org/multires/ )
+Quelques petits outils intéressants, notamment le Multires pour la gestion des images Retina : [https://fhtr.org/multires/](https://fhtr.org/multires/ )
 
 A noter aussi une phrase que j'ai beaucoup aimé sur l'ergnonomie mobile, et la position des boutons de contrôle :
 
 > "Controls should be beneath content: think calculator"
 
-Les slides : [http://www.samdutton.com/velocity2012/ ](http://www.samdutton.com/velocity2012/)
+Les slides : [https://www.samdutton.com/velocity2012/ ](https://www.samdutton.com/velocity2012/)
 
 
 
@@ -207,16 +207,16 @@ Petit debrief orienté Ops de la success story d'Instragram. Le rythme de la pr�
 
 En plus d'avoir l'impression de voir un demi milliard bouger sur scène, nous avons quand même appris certaines choses sur la Stack Instagram : EC2, Python Django, Postgres, Gearman, RabbitMQ ...
 
-La présentation n'étant pas nouvelle, est disponible ici : [http://fr.slideshare.net/iammutex/scaling-instagram](http://fr.slideshare.net/iammutex/scaling-instagram)
+La présentation n'étant pas nouvelle, est disponible ici : [https://fr.slideshare.net/iammutex/scaling-instagram](https://fr.slideshare.net/iammutex/scaling-instagram)
 
 
 
-![Mike Krieger (Source : http://royal.pingdom.com/2012/10/03/report-from-velocity-europe-day-2/ )](/images/posts/imgob/0-00-30-83-201210-ob_f78dbded1ddadf9aa2dfa65ce69cf5b4_instagram-jpg.jpg)
+![Mike Krieger (Source : https://royal.pingdom.com/2012/10/03/report-from-velocity-europe-day-2/ )](/images/posts/imgob/0-00-30-83-201210-ob_f78dbded1ddadf9aa2dfa65ce69cf5b4_instagram-jpg.jpg)
 
-Mike Krieger (Source : http://royal.pingdom.com/2012/10/03/report-from-velocity-europe-day-2/ )
+Mike Krieger (Source : https://royal.pingdom.com/2012/10/03/report-from-velocity-europe-day-2/ )
 
 
-<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/12522335" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="https://fr.slideshare.net/slideshow/embed_code/12522335" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 
 
 ### [WebPerf] Bringing HTML5 into Nativelandia: A Tale of Caution, par Jackson Gabbard (Facebook)
@@ -245,18 +245,18 @@ Pour finir, voici quelques vidéos diffusées pendant les breaks la Vélocity :
 
 
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/c6PQ49B5Gpw?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/c6PQ49B5Gpw?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 Hot Wheels World Record: Double Loop Dare at the 2012 X Games Los Angeles
 
 
-<iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/TWfph3iNC-k?wmode=transparent&fs=1&feature=oembed&start=38" width="640"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/TWfph3iNC-k?wmode=transparent&fs=1&feature=oembed&start=38" width="640"></iframe>
 Jeb Corliss " Grinding The Crack"
 
 
 Rappel : les CR des autres jours sont disponible :
 
-- Day 3 : [http://tech.m6web.fr/cr-velocity-conference-europe-2012-day-3](http://tech.m6web.fr/cr-velocity-conference-europe-2012-day-3)
-- Day 1 : [http://tech.m6web.fr/cr-velocity-conference-europe-2012-day-1](http://tech.m6web.fr/cr-velocity-conference-europe-2012-day-1)
+- Day 3 : [https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-3](https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-3)
+- Day 1 : [https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-1](https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-1)
 
 
 

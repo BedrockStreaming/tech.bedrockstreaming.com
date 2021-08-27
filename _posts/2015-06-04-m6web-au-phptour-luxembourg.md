@@ -27,16 +27,16 @@ Le voyage fut un peu épique, surtout les quelques kilomètres en plus quand le 
 
 ![m6web car](/images/posts/phptourlux/m6web_car.jpg)
 
-Et on n'a pas pu battre la team [Blablacar](https://twitter.com/BlaBlaCarTech) et [Jolicode](http://jolicode.com/) au concours de levé de coudes - on est forfait les gars !
+Et on n'a pas pu battre la team [Blablacar](https://twitter.com/BlaBlaCarTech) et [Jolicode](https://jolicode.com/) au concours de levé de coudes - on est forfait les gars !
 
 Plutôt qu'un retour exhaustif (et parce qu'avec les aqueducs de Mai on cherche un peu le temps), voici quelque chose de plus informel, sur notre ressenti des tendances communautaires (forcément subjectif).
 
 # Radio moquette !
 
 
-Il y a une bonne maturité autour des tests et du CI dans la communauté PHP. On commence aussi à voir de plus en plus des pratiques autour du partage de la responsabilité du provisionning entre ops et dev (avec [Ansible](http://www.ansible.com/home) et [Vagrant](https://www.vagrantup.com/) notamment) mais, comme chez M6Web, c’est très balbutiant - et chacun a sa façon de faire. On voit des infras de dev qui passent dans le cloud (variabilisation des coûts, flexibilité, possibilité d'expérimenter). Les services managés n’ont pas la cote, on reste sur du IAAS, principalement chez AWS.
+Il y a une bonne maturité autour des tests et du CI dans la communauté PHP. On commence aussi à voir de plus en plus des pratiques autour du partage de la responsabilité du provisionning entre ops et dev (avec [Ansible](https://www.ansible.com/home) et [Vagrant](https://www.vagrantup.com/) notamment) mais, comme chez M6Web, c’est très balbutiant - et chacun a sa façon de faire. On voit des infras de dev qui passent dans le cloud (variabilisation des coûts, flexibilité, possibilité d'expérimenter). Les services managés n’ont pas la cote, on reste sur du IAAS, principalement chez AWS.
 
-Des solutions pour faire du PHP async se dessinent. Cela reste à expérimenter ([libevent](http://libevent.org/), [ReactPHP](http://reactphp.org/), le tradeoff vitesse, consommation CPU étant inconnu. C’est à creuser, car cela peut sortir à moindre coût de quelques situations difficiles. L'intégration avec certaines librairies comme Guzzle est très intéressante. 
+Des solutions pour faire du PHP async se dessinent. Cela reste à expérimenter ([libevent](https://libevent.org/), [ReactPHP](https://reactphp.org/), le tradeoff vitesse, consommation CPU étant inconnu. C’est à creuser, car cela peut sortir à moindre coût de quelques situations difficiles. L'intégration avec certaines librairies comme Guzzle est très intéressante. 
 
 MySQL 5.7 est annoncé par Oracle avec pleins de features + 2x plus rapide que 5.6 et 3x que 5.5 (query) et encore plus sur le connection time. Ils annoncent une meilleur intégration avec FusionIO et ils semblent pousser des solutions de cluster multi-master (via [Fabric](https://www.mysql.com/products/enterprise/fabric.html)) alors que c’était considéré expérimental avant, c’est maintenant annoncé stable.
 
