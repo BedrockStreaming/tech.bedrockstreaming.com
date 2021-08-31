@@ -11,9 +11,7 @@ github: slashgear
 category:
 tags: [js, react, web, frontend]
 image:
-feature: posts/react-redux/redux.jpg
-credit:
-creditlink:
+  feature: posts/bonnes-pratiques-web/bedrock.jpg
 comments: true
 canonical: "https://slashgear.github.io/fr/comment-ne-pas-jeter-son-application-au-bout-de-deux-ans/"
 language: fr
