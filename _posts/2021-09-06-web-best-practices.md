@@ -110,7 +110,7 @@ But if the rule we want to impose on ourselves is not available in Eslint or oth
 
 ![Our continuous integration workflow](/images/posts/bonnes-pratiques-web/ci-workflow.png)
 
-- The file format is tracked managed by [Editorconfig](https://editorconfig.org/), [prettier](https://prettier.io/) and [Eslint](https://eslint.org/).
+- The file format is managed by [Editorconfig](https://editorconfig.org/), [prettier](https://prettier.io/) and [Eslint](https://eslint.org/).
   We have opensourced [our own configuration](https://github.com/M6Web/eslint-tools), if it is of any use to you.
 - We use a [specific commit name](https://www.conventionalcommits.org/en/v1.0.0/) to generate our changelog.
   To make sure devs follow it, a simple step in our CI checks it.
