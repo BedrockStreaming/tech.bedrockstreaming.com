@@ -25,7 +25,7 @@ Feedback based on best practices applied to the web platform developed at _[Bedr
 ## A bit of context
 
 At Bedrock Streaming many teams develop and maintain _frontend_ applications for our customers and users.
-Some of those application are not very young.
+Some of those applications are not very young.
 In fact, the application I'm mainly working on is a website whose developments started in 2014.
 I have already mentioned it in different articles of [this blog](https://slashgear.github.io/).
 
@@ -37,7 +37,7 @@ Don't worry, it's not the case!
 I have worked on projects that are much less old but where the development of new features was much more painful.
 
 Today the project is technically up to date, we must be on the latest version of React while it had started on a version _0.x.x_.
-In this world of web technologies often criticized (eg: the many articles on the _Javascript Fatigue_) whose tools and practices are constantly evolving, keeping a project "up to date" remains a real challenge.
+In this world of often criticized web technologies where tools and practices are constantly evolving (eg: the many articles on the _Javascript Fatigue_), to keep a project "up to date" remains a real challenge.
 
 ![number of versions of the application 1445](/images/posts/bonnes-pratiques-web/releases.png)
 
@@ -47,10 +47,10 @@ How can we keep the maximum knowledge on "How we do things and how it works?" in
 
 ![list of the 100 contributors of the project](/images/posts/bonnes-pratiques-web/contributors.png)
 
-This is what I would like to present you.
+This is what I would like to demonstrate in this post.
 
 With the help of my colleagues, I have collected the list of good practices that still allow us to maintain this project today.
-With [Florent Dubost](https://twitter.com/fooragnak), we often thought that it would be interesting to publish it.
+With [Florent Dubost](https://twitter.com/fooragnak), we have often thought that it would be interesting to publish it.
 We hope you will find it useful.
 
 ## Set rules and automate them
@@ -115,7 +115,7 @@ But if the rule we want to impose on ourselves is not available in Eslint or oth
 - We use a [specific commit name](https://www.conventionalcommits.org/en/v1.0.0/) to generate our changelog.
   To make sure devs follow it, a simple step in our CI checks it.
 - We don't want a dev to make our JS bundles very big in production, so we track and measure their size in the CI.
-  We use an in-house tool but we can recommend the [BuildTracker] tool (https://buildtracker.dev/).
+  We use an in-house tool but we recommend to use the [BuildTracker tool](https://buildtracker.dev/).
 - Test coverage is not an indicator for the team, not all lines have the same need for us to be tested.
   Some teams at Bedrock however follow this indicator which at least has the interest to give a trend.
 - Our unit tests obviously run on the CI, these must pass.
@@ -127,7 +127,7 @@ But if the rule we want to impose on ourselves is not available in Eslint or oth
 - We perform some [accessibility checks with Axe](https://www.deque.com/axe/) during our E2E tests.
 - We check some rules on the CSS with [Stylelint](https://stylelint.io/) and [bemlinter](https://github.com/M6Web/bemlinter) (we don't use BEM anymore but there is still some style managed in SCSS that we migrate little by little in StyledComponent)
 - The project is a monorepo on which we try to maintain the same dependencies versions for each package.
-  For that we have developed a tool that allows to do this check _[monorepo-dependencies-check](https://www.npmjs.com/package/monorepo-dependencies-check)_
+  We developed a tool which automates this check: _[monorepo-dependencies-check](https://www.npmjs.com/package/monorepo-dependencies-check)_
 - We check that our `yarn.lock` file has not been inadvertently modified or that it has been updated with respect to the modifications of the `package.json`.
 - [Terraform](https://www.terraform.io/) is used to manage our cloud resources, we check that the file format is correct.
 
@@ -263,7 +263,7 @@ Today there are more than 6000 unit tests that cover the application and allow t
 - [Jest] is really a great library, fast, complete, well documented.
 - Unit tests help us a lot to understand _several years later_ how it all works.
 - We always manage to unit test our code, and it complements our E2E tests well.
-- The `automock` is really handy for breaking down tests by modules.
+- The `automock` feature is really handy for breaking down tests by modules.
 
 👎
 
@@ -353,7 +353,7 @@ We regularly had the need to activate features at ~~very~~ early hours in the fu
 For that we had to be connected at a precise time on our computer to modify the configuration on the fly.
 
 To avoid forgetting to do this, or doing it late, we made sure that a configuration key could be activated from a certain date.
-To do this, we evolved our _selector redux_ which indicated if a feature was activated so that it could handle date formats and compare them to the current time.
+To do this, we evolved our _Redux selector_ which indicated if a feature was activated so that it could handle date formats and compare them to the current time.
 
 ```js
 const featureFlipping = {
@@ -368,14 +368,14 @@ const featureFlipping = {
 
 ## Monitor, Measure, Alert
 
-To maintain a project as long as bedrock's web application, testing, documentation and rigor are not enough.
+To maintain a project as long as Bedrock's web application, testing, documentation and rigor are not enough.
 You also need visibility on what works in production.
 
 > "How do you know that the application you have in production right now is working as expected?"
 
 We assume that no functionality works until it is monitored.
 Today, monitoring in Bedrock on the frontend side takes the form of different tools and different stacks.
-I could quote [NewRelic](https://newrelic.com/), a [Statsd](https://github.com/statsd/statsd), a [ELK](https://www.elastic.co/fr/what-is/elk-stack) stack or even [Youbora](https://youbora.nicepeopleatwork.com/) for the video.
+We rely on [NewRelic](https://newrelic.com), [Statsd](https://github.com/statsd/statsd), a [ELK](https://www.elastic.co/fr/what-is/elk-stack) stack and even [Youbora](https://youbora.nicepeopleatwork.com) for the video streaming part.
 
 To give you an example, each time a user starts a browsing session we send an anonymous monitoring _Hit_ to increment a counter in Statsd.
 We then have to define a dashboard that displays the evolution of this number in a graph.
@@ -400,7 +400,7 @@ Sounding alerts that do not require immediate human action generates noise and w
 
 ## Limit, monitor and update your dependencies
 
-What goes out of date faster than your shadow in a web project based on javascript technologies are your dependencies.
+What goes out of date faster than your shadow in a web project based on Javascript technologies are your dependencies.
 The ecosystem evolves rapidly and your dependencies can quickly become unmaintained, out of fashion or completely overhauled with big _breaking changes_.
 
 We therefore try as much as possible to limit our dependencies and avoid adding them unnecessarily.
