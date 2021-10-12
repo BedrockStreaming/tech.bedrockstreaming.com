@@ -16,7 +16,7 @@ comments: true
 language: en
 ---
 
-At Bedrock, the last Friday of every other month[^lft-history] is "Last Friday Talk" -- or "LFT".
+At Bedrock, the last Friday of every other month[^lft-history] is *Last Friday Talk* -- or *LFT*.
 
 [^lft-history]: Historically, it was the afternoon of the last Friday of every month. We revised the format in 2019 to make it a full day every other month.
 
