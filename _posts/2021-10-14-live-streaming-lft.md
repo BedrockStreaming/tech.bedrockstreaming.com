@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How did we live stream out Last Friday Talks?"
+title: "How did we live stream our Last Friday Talks?"
 description: "Discover how we live streamed our Last Friday Talks of September 2021 to 150+ remote employees."
 author:
     name: Pascal MARTIN
@@ -24,7 +24,7 @@ This event encourages sharing: technical topics, less technical topics, cross-te
 We also take the opportunity to meet and talk with colleagues we don't work with daily. And the post-LFT snack, put aside during COVID but which I hope will come back, is also meant for that!
 Finally, these LFTs are an excellent opportunity for beginner speakers to practice in front of a friendly audience. We also use them to rehearse and validate talks we will give in public later.
 
-During the COVID full-remote period, we moved our LFTs to Google Live Stream, where each speaker shared their screen and showed their face through the camera.
+During the COVID full-remote period, we moved our LFTs to *Google Live Stream*, where each speaker shared their screen and showed their face through the camera.
 With the return to the office[^return-to-office] and partial telecommuting, a new problem arose: how can we broadcast the talks given in our auditorium to 150+ remote colleagues? In good quality, to encourage people to attend several talks in a row? While remaining enjoyable and lively on-site?
 
 [^return-to-office]: In France, some companies -- including ours -- started returning to the office, full-time or not, in June 2021, following recommendations from the government.
@@ -39,7 +39,7 @@ We can seat up to 70 people in our amphitheater, where most of our speakers were
 
 For the broadcast, we worked with one of our usual tools: the organizers and speakers broadcast in a Google Meet, and the audience follows the stream via Google Live Stream[^google-live-stream]. This solution supports a large number of participants, and access is filtered through our SSO, ensuring that only our colleagues have access to the stream.
 
-[^google-live-stream]: Google Live Stream, https://support.google.com/meet/answer/9308630. We use this solution because Google Meet alone does not support enough people in a call.
+[^google-live-stream]: [Google Live Stream](https://support.google.com/meet/answer/9308630). We use this solution because Google Meet alone does not support enough people in a call.
 
 We thought we were going to do this in a bit of an ugly way, like when we were all telecommuting: each speaker joins the Google Meet, shares their screen, and speaks into their microphone, often the headset provided by the company. But, still... We decided to make an effort and try to provide a better experience for our colleagues attending LFT remotely!
 
@@ -62,7 +62,7 @@ You can see the room below. This photo is taken[^photo-front-room] from the firs
 So, the configuration of the room:
 
  * a speaker;
- * a lectern to put his or her PC ;
+ * a lectern to put his or her PC;
  * from the HDMI output of this PC (possibly via a USB-C to HDMI adapter), we connect an HDMI cable that goes to the two projectors in the room;
  * these two projectors project (the same thing) on two screens, on the left and on the right of the speaker.
 
@@ -75,8 +75,8 @@ Behind a screen, we placed a table for the capture and broadcast computer[^photo
 Equipment: 
 
  * speaker's laptop, placed on the lectern;
- * USB-C to HDMI adapter ;
- * HDMI cable ;
+ * USB-C to HDMI adapter;
+ * HDMI cable;
  * two projectors (fixed to the ceiling of the room);
  * two screens (fixed to the ceiling of the room).
 
@@ -105,7 +105,7 @@ We want to broadcast to the live stream what the speaker is projecting in the ro
 
 ![An HDMI capture box, view from the room](/images/posts/lft/live-streaming/schema-04-hdmi-capture.jpg)
 
-This capture box has an HDMI input (= the cable coming out of the speaker's PC), an HDMI output (= the cable going to the projector) and a USB-C output (= the cable going to the control / broadcast PC).
+This capture box has an HDMI input *(= the cable coming out of the speaker's PC)*, an HDMI output *(= the cable going to the projector)* and a USB-C output *(= the cable going to the control / broadcast PC)*.
 
 ![An HDMI capture box, close-up view](/images/posts/lft/live-streaming/schema-05-hdmi-capture.jpg)
 
@@ -114,7 +114,7 @@ On the control / broadcast PC, the capture box connected via USB is recognized a
 Hardware: 
 
  * additional HDMI cable;
- * capture device + passthrough: Elgato HD60 S+ (https://www.elgato.com/en/game-capture-hd60-s-plus);
+ * capture device + passthrough: [Elgato HD60 S+](https://www.elgato.com/en/game-capture-hd60-s-plus);
  * usb-c to usb-a cable;
  * usb-a extension cable (because the control desk is a bit far).
 
@@ -134,7 +134,7 @@ We did not have a real camera at hand. So we used an iPhone 11 Pro Max[^iphone-g
 
 [^clean-hdmi]: Clean HDMI: the filmed video, in real time, without the decorations of the application interface.
 
-To capture the HDMI signal from the iPhone to the PC, we used a second capture box, simpler than the previous one: it has an HDMI input (= to connect the iPhone) and a USB output (= connected to the PC):
+To capture the HDMI signal from the iPhone to the PC, we used a second capture box, simpler than the previous one: it has an HDMI input *(= to connect the iPhone)* and a USB output *(= connected to the PC)*:
 
 ![A camera to film the presenter, close-up view](/images/posts/lft/live-streaming/schema-06-camera.jpg)
 
@@ -144,13 +144,13 @@ Fearing the iPhone's battery wouldn't last all day while filming, we powered it 
 
 Hardware: 
 
- * iPhone 11 Pro Max (another high-end model less than four or five years old would have done the trick as well);
+ * iPhone 11 Pro Max *(another high-end model less than four or five years old would have done the trick as well)*;
  * [lightning to HDMI adapter](https://www.apple.com/fr/shop/product/MD826ZM/A/adaptateur-lightning-av-num%C3%A9rique), with Lightning input for power supply; 
- * 10m HDMI cable (to reach the control PC);
+ * 10m HDMI cable *(to reach the control PC)*;
  * external battery;
  * HDMI capture box: [Elgato Camlink 4K](https://www.elgato.com/en/cam-link-4k);
- * USB cable (between camlink and PC);
- * USB to lightning cable (between the battery and the adapter connected to the iPhone).
+ * USB cable *(between camlink and PC)*;
+ * USB to lightning cable *(between the battery and the adapter connected to the iPhone)*.
 
 The capture box is recognized as a USB webcam. We use it as a video input device in OBS.
 
@@ -170,9 +170,9 @@ We didn't have a wireless mic, but we had something that could act as such, and 
 Equipment: 
 
  * Lapel microphone with TRRS Jack 3.5 port: [RODE SmartLav+](http://www.rode.com/microphones/smartlav-plus);
- * TRRS female to TRS male adapter (between the microphone and the transmitter box);
- * wireless transmitter + receiver kit (TRS 3.5 jack input on transmitter, TRS 3.5 jack output on receiver): [RODE Wireless Go (1st generation)](https://www.rode.com/wirelessgo#home_hero_banner_1);
- * TRS 3.5 male to male cable (between the receiver box and the PC).
+ * TRRS female to TRS male adapter *(between the microphone and the transmitter box)*;
+ * wireless transmitter + receiver kit *(TRS 3.5 jack input on transmitter, TRS 3.5 jack output on receiver)*: [RODE Wireless Go (1st generation)](https://www.rode.com/wirelessgo#home_hero_banner_1);
+ * TRS 3.5 male to male cable *(between the receiver box and the PC)*.
 
 ### Some other points and nice "bonuses"
 
@@ -193,8 +193,8 @@ For the live stream, another organizer made the same transition by joining the G
 #### Some useful, or even essential, utilities
 
 Of course, in a large room with few electrical outlets that are not always well placed, you need to bring extension cords and power strips.
-Also, to avoid someone getting their feet caught in the extension cords or cables (USB, HDMI), bring a roll of duct tape to secure everything to the floor.
-And depending on where the lapel microphone is attached (shirt collar, shirt buttonhole...) and where its cable goes (above the shirt in front, under the shirt / under the shirt, on the shoulder and in the back...), more delicate tape[^delicate-tape] is very handy.
+Also, to avoid someone getting their feet caught in the extension cords or cables *(USB, HDMI)*, bring a roll of duct tape to secure everything to the floor.
+And depending on where the lapel microphone is attached *(shirt collar, shirt buttonhole...)* and where its cable goes *(above the shirt in front, under the shirt / under the shirt, on the shoulder and in the back...)*, more delicate tape[^delicate-tape] is very handy.
 
 [^delicate-tape]: I use medical tape, which is easy to cut, sticks well and comes off easily too; and is not too aggressive with clothes and skin.
 
@@ -228,7 +228,7 @@ Only the speaker's video, framed to include one of the two screens. We used this
 
 #### For the practical aspects of managing the live stream
 
-Changing scenes in OBS can be done with the mouse (but it's not convenient) or with keyboard shortcuts (but you have to remember the shortcuts and the scenes they correspond to).
+Changing scenes in OBS can be done with the mouse *(but it's not convenient)* or with keyboard shortcuts *(but you have to remember the shortcuts and the scenes they correspond to)*.
 
 But it's much more fun with a Stream Deck: a command pad with big buttons, which you can customize! Yes, it's a bit gimmicky and not at all essential, but it's also very cool to use ;-)
 
@@ -251,7 +251,7 @@ A lot of unorganized cables... Here is what the table looked like with the contr
 
 Of course, not everything was perfect... Still, for less than an hour and a half of installation and testing that morning, we were quite happy with the result!
 
-First of all, Google Live Stream: the solution, integrated to Google Workspace, is very practical. Including the aspect of "limiting access to our employees"[^private-talks]. However, the video quality, in 720p too compressed, is not optimal :-/. 
+First of all, Google Live Stream: the solution, integrated to Google Workspace, is very practical. Including the aspect of *"limiting access to our employees"[^private-talks]*. However, the video quality, in 720p too compressed, is not optimal :-/. 
 
 [^private-talks]: We may broadcast some talks in public in the future... But it was not a topic for this time and we know that some topics will remain internal no matter what.
 
