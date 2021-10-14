@@ -11,7 +11,7 @@ github: pmartin
 category:
 tags: [lft, talks, live, stream, obs]
 image:
-  feature: /images/posts/lft/live-streaming/header.jpg
+  feature: /posts/lft/live-streaming/header.jpg
 comments: true
 language: en
 ---
