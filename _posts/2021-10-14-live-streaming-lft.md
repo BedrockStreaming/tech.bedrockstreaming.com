@@ -47,7 +47,7 @@ We thought we were going to do this in a bit of an ugly way, like when we were a
 
 How did we capture and stream slides (or even code and video!), audio, and video of each speaker?
 
-### We start from our amphitheater
+### First step: our amphitheater
 
 Let's start from the room where we broadcast: our amphitheater.
 
@@ -115,8 +115,8 @@ Hardware:
 
  * additional HDMI cable;
  * capture device + passthrough: [Elgato HD60 S+](https://www.elgato.com/en/game-capture-hd60-s-plus);
- * usb-c to usb-a cable;
- * usb-a extension cable (because the control desk is a bit far).
+ * USB-C to USB-A cable;
+ * USB-A extension cable (because the control desk is a bit far).
 
 ### The video recording of the room
 
@@ -235,7 +235,7 @@ But it's much more fun with a Stream Deck: a command pad with big buttons, which
 Hardware: 
 
  * [Elgato Stream Deck](https://www.elgato.com/en/stream-deck);
- * since it connects to USB-A: an adapter or a usb hub.
+ * since it connects to USB-A: an adapter or a USB hub.
 
 ![An Elgato Stream Deck](/images/posts/lft/live-streaming/stream-deck.jpg)
 
