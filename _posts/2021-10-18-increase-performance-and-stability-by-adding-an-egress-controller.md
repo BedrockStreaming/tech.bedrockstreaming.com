@@ -46,7 +46,7 @@ As you can read in this post, PHP applications aren’t able to reuse tcp connec
 
 ## Egress Controller
 
-We thought that Envoy (presented in previous blogpost) may be a little overkill in our case, so we tried to add HAProxy as Kubernetes Egress Controller in our clusters. 
+We thought that a service mesh may be a little overkill in our case, so we tried to add HAProxy as Kubernetes Egress Controller in our clusters. 
 
 ![Outgoing Traffic with Egress Controller](/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/outgoing-traffic-with-egress-schema.png)
 
