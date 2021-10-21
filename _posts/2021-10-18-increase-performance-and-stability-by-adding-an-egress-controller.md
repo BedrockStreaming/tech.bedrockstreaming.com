@@ -33,7 +33,7 @@ In AWS, NAT Gateways are endpoints allowing us to go outside our VPC. They have 
 > A NAT gateway can support up to 55,000 simultaneous connections [...]. If the destination IP address, the destination port, or the protocol (TCP/UDP/ICMP) changes, you can create an additional 55,000 connections. For more than 55,000 connections, there is an increased chance of connection errors due to port allocation errors. [...]
 [AWS Documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-limits)
 
-Our applications always request the same endpoints : other APIs CDN. Destination port or ip or protocol doesn’t change that much, so we start hitting max connection, resulting in ErrorPortAllocation.
+Our applications always request the same endpoints : other APIs CDN. Destination port, ip or protocol doesn’t change that much, so we start hitting max connections, resulting in ErrorPortAllocation.
 
 At the same time, we found a very interesting blogpost : [Impact of using HTTP connection pooling for PHP applications at scale](https://techblog.wikimedia.org/2020/10/26/impact-of-using-http-connection-pooling-for-php-applications-at-scale/), which was a very good coincidence.
 
