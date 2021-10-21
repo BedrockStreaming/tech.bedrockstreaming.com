@@ -109,15 +109,13 @@ spec:
 ```
 
 
-
-
 When everything is in ready, you will be able to send requests like :
 
 ```yaml
 curl -H “host: app1.example.com” https://haproxy-egress.default.svc.cluster.local/health
 ```
 
-⚠️ HAProxy Kubernetes Ingress Controller resolves domain names only when it reloads, but it can be fixed by adding a config snippet :
+⚠️ HAProxy Kubernetes Ingress Controller resolves domain names only when it reloads, but it can be fixed by adding a [config snippet](https://www.haproxy.com/documentation/kubernetes/latest/configuration/configmap/#global-config-snippet) :
 
 ```yaml
 global-config-snippet: |
