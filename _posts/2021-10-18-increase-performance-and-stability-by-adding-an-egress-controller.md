@@ -9,7 +9,7 @@ email:
 twitter: 
 github: tfalconnet
 category:
-tags: [AWS, Kubernetes, PHP, HAProxy]
+tags: [php, aws, cloud, performance, sysadmin, kubernetes, HAProxy]
 image:
   feature: /posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/.jpg
 comments: true
