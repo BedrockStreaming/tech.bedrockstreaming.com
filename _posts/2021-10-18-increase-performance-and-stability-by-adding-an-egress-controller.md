@@ -29,7 +29,7 @@ After a few investigations, we saw that tcp connection errors were correlated wi
 ![Some loadtesting on our plateform, which you may see as "no traffic | huge traffic | no traffic"](/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/error-port-allocation.png)
 
 
-In AWS, NAT Gateways are endpoints allowing us to go outside our AWS network. They have hard limits that can’t be modified :
+In AWS, NAT Gateways are endpoints allowing us to go outside our VPC. They have hard limits that can’t be modified :
 > A NAT gateway can support up to 55,000 simultaneous connections [...]. If the destination IP address, the destination port, or the protocol (TCP/UDP/ICMP) changes, you can create an additional 55,000 connections. For more than 55,000 connections, there is an increased chance of connection errors due to port allocation errors. [...]
 [AWS Documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-limits)
 
