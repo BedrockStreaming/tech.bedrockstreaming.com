@@ -10,9 +10,9 @@ twitter:
 github: tfalconnet
 category:
 tags: [php, aws, cloud, performance, sysadmin, kubernetes, HAProxy]
-image:
-  feature: /posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/.jpg
 comments: true
+image:
+  feature: posts/bonnes-pratiques-web/bedrock.jpg
 language: en
 ---
 
@@ -26,11 +26,12 @@ BedRock is gradually migrating from onprem infrastructure to cloud infrastructur
 
 After a few investigations, we saw that tcp connection errors were correlated with NAT Gateways ErrorPortAllocation.
 
-![Some loadtesting on our plateform, which you may see as "no traffic | huge traffic | no traffic"](/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/error-port-allocation.png)
+![Some loadtesting on our plateform, which you may see as : no traffic, huge traffic, then no traffic again](/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/error-port-allocation.png)
 
 
 In AWS, NAT Gateways are endpoints allowing us to go outside our VPC. They have hard limits that can’t be modified :
 > A NAT gateway can support up to 55,000 simultaneous connections [...]. If the destination IP address, the destination port, or the protocol (TCP/UDP/ICMP) changes, you can create an additional 55,000 connections. For more than 55,000 connections, there is an increased chance of connection errors due to port allocation errors. [...]
+
 [AWS Documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-limits)
 
 Our applications always request the same endpoints : other APIs CDN. Destination port, ip or protocol doesn’t change that much, so we start hitting max connections, resulting in ErrorPortAllocation.
@@ -39,7 +40,7 @@ At the same time, we found a very interesting blogpost : [Impact of using HTTP c
 
 As you can read in Wikimedia's post, PHP applications aren’t able to reuse tcp connections, as PHP processes are not sharing information from a request to another. Recreating new connections on the same endpoints is inefficient: adds latency, wastes CPU (TLS negotiation and TCP connection lifecycle) but also overconsumes tcp connections.
 
-![Outgoing Traffic without Egress Controller](/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/outgoing-traffic-without-egress-schema.png)
+![Outgoing Traffic without Egress Controller](/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/outgoing-traffic-without-egress-schema.png)
 
 # Outgoing requests optimization
 
@@ -47,7 +48,7 @@ As you can read in Wikimedia's post, PHP applications aren’t able to reuse tcp
 
 We thought that a service mesh may be a little overkill in our case, so we tried to add HAProxy as Kubernetes Egress Controller in our clusters. 
 
-![Outgoing Traffic with Egress Controller](/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/outgoing-traffic-with-egress-schema.png)
+![Outgoing Traffic with Egress Controller](/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/outgoing-traffic-with-egress-schema.png)
 
 We configured some apps to send a few outgoing requests to Egress Controller. The latter was configured to do tcp re-use and to forward to desired endpoints.
 
@@ -55,16 +56,15 @@ We configured some apps to send a few outgoing requests to Egress Controller. Th
 
 With this optimization, we don’t encounter ErrorPortAllocation anymore. Requests duration are reduced by 20 to 30%, and apps are consuming less CPU.
 
-![CPU consumption of an app configured to use Egress Controller for DynamoDB requests](/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/cpu-metrics.png)
+![CPU consumption of an app configured to use Egress Controller for DynamoDB requests](/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/cpu-metrics.png)
 
 # Detailed configuration
-
 
 We generally prefer to use what already exists rather than starting from scratch, so we tried to see if [HAProxy Kubernetes Ingress Controller](https://www.haproxy.com/documentation/kubernetes/latest/installation/community/) could be used as egress.
 
 HAProxy Ingress Controller loads its frontend domains in [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) ressource, and loads backend servers in the associated [Service](https://kubernetes.io/docs/concepts/services-networking/service/) ressource. To inject an external domain as a backend server, we have to use [Service ExternalName](https://kubernetes.io/docs/concepts/services-networking/service/#externalname).
 
-![Detailed Configuration Schema](/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/detailed-configuration.png)
+![Detailed Configuration Schema](/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/detailed-configuration.png)
 
 
 ```yaml
@@ -106,7 +106,7 @@ spec:
 ```
 
 
-When everything is in ready, you will be able to send requests like :
+When everything is ready, you will be able to send requests like :
 
 ```yaml
 curl -H “host: app1.example.com” https://haproxy-egress.default.svc.cluster.local/health
@@ -121,6 +121,7 @@ global-config-snippet: |
 ```
 
 # Conclusions
+
 It seems unusual to gain in requests latency by adding a hop in a network. 
 
 The main problem with this approach is the fact that we are effectively creating a Single Point of Failure in our clusters if we choose to send all our egress traffic through it. Instead, we are carefully selecting applications that should use an egress controller, in order to refine the configuration little by little. Some applications are tightly tied to external services and would massively gain from this and others would only be less resilient.
