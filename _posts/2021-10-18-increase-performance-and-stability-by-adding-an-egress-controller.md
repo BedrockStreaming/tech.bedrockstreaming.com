@@ -37,7 +37,7 @@ Our applications always request the same endpoints : other APIs CDN. Destination
 
 At the same time, we found a very interesting blogpost : [Impact of using HTTP connection pooling for PHP applications at scale](https://techblog.wikimedia.org/2020/10/26/impact-of-using-http-connection-pooling-for-php-applications-at-scale/), which was a very good coincidence.
 
-As you can read in this post, PHP applications aren’t able to reuse tcp connections, as PHP processes are continuously dying. This creates latency and CPU waste (TLS negotiation and TCP connection lifecycle) but also overconsumption of tcp connections.
+As you can read in Wikimedia's post, PHP applications aren’t able to reuse tcp connections, as PHP processes are not sharing information from a request to another. Recreating new connections on the same endpoints is inefficient: adds latency, wastes CPU (TLS negotiation and TCP connection lifecycle) but also overconsumes tcp connections.
 
 ![Outgoing Traffic without Egress Controller](/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/outgoing-traffic-without-egress-schema.png)
 
@@ -59,7 +59,6 @@ With this optimization, we don’t encounter ErrorPortAllocation anymore. Reques
 
 # Detailed configuration
 
-Keep in mind that HAProxy is unable to define backend servers by itself. You must define each needed domain in a frontend and map it with a backend containing one or more servers.
 
 We generally prefer to use what already exists rather than starting from scratch, so we tried to see if [HAProxy Kubernetes Ingress Controller](https://www.haproxy.com/documentation/kubernetes/latest/installation/community/) could be used as egress.
 
@@ -67,7 +66,6 @@ HAProxy Ingress Controller loads its frontend domains in [Ingress](https://kuber
 
 ![Detailed Configuration Schema](/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/detailed-configuration.png)
 
-In our case, it was important that frontend domain match the external domains. HAProxy does not replace host header when forwarding the request, and it causes issues with CDNs if host header does not match with requested API.
 
 ```yaml
 ---
@@ -93,7 +91,7 @@ annotations:
     haproxy.org/backend-config-snippet: |
       # See this article for the deep reasons of both parameters: https://www.haproxy.com/fr/blog/http-keep-alive-pipelining-multiplexing-and-connection-pooling/
       # enforce sni with the Host string instead of the 'Host' header, because HAProxy cannot reuse connections with a non-fixed Host SNI value.
-      default-server check-sni <HOST> sni str(<HOST>) resolvers mydns resolve-prefer ipv4
+      default-server check-sni app1.example.com sni str(app1.example.com) resolvers mydns resolve-prefer ipv4
       # make HAProxy reuse connections, because the default safe mode reuses connections only for the same source.ip
       http-reuse always
 
@@ -114,7 +112,7 @@ When everything is in ready, you will be able to send requests like :
 curl -H “host: app1.example.com” https://haproxy-egress.default.svc.cluster.local/health
 ```
 
-⚠️ HAProxy Kubernetes Ingress Controller resolves domain names only when it reloads, but it can be fixed by adding a [config snippet](https://www.haproxy.com/documentation/kubernetes/latest/configuration/configmap/#global-config-snippet) :
+⚠️ HAProxy Kubernetes Ingress Controller resolves domain names only when it reloads, but it can be fixed by adding a [config snippet to Egress Controller configuration](https://www.haproxy.com/documentation/kubernetes/latest/configuration/configmap/#global-config-snippet) :
 
 ```yaml
 global-config-snippet: |
@@ -125,4 +123,4 @@ global-config-snippet: |
 # Conclusions
 It seems unusual to gain in requests latency by adding a hop in a network. 
 
-The main problem with this approach is the fact that we are effectively creating a new SPOF (Single Point of Failure) in our clusters if we choose to send all our egress traffic through it. Instead, we are carefully selecting applications that use it, in order to avoid a giant outage of the platform. Some applications are tightly tied to external services and would massively gain from this and others would only be less resilient.
+The main problem with this approach is the fact that we are effectively creating a Single Point of Failure in our clusters if we choose to send all our egress traffic through it. Instead, we are carefully selecting applications that should use an egress controller, in order to refine the configuration little by little. Some applications are tightly tied to external services and would massively gain from this and others would only be less resilient.
