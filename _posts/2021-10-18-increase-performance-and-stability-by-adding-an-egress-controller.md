@@ -18,7 +18,7 @@ language: en
 
 # Context
 
-BedRock is using PHP for almost all of the backend API of our streaming platforms (6Play, RTLMost, Salto, …). We have deployed our applications in AWS on our kops-managed Kubernetes cluster. Each of our applications are behind a CDN for caching purposes (CloudFront, Fastly). Which means every time an application needs to access another API, requests go on the internet to access the latter through CDN.
+Bedrock is using PHP for almost all of the backend API of our streaming platforms (6Play, RTLMost, Salto, …). We have deployed our applications in AWS on our kops-managed Kubernetes cluster. Each of our applications are behind a CDN for caching purposes (CloudFront, Fastly). Which means every time an application needs to access another API, requests go on the internet to access the latter through CDN.
 
 BedRock is gradually migrating from onprem infrastructure to cloud infrastructure since 2 years and users activity is continuously growing. Furthemore, we started to see tcp connection errors in our applications.
 
