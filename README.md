@@ -3,7 +3,7 @@ tech.bedrockstreaming.com
 
 Bedrock Tech Blog
 
-THIS IS A TEST, DO NOT MERGE. ANOTHER.
+THIS IS A TEST, DO NOT MERGE. ANOTHER. AGAIN.
 
 #### Installation
 
