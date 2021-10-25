@@ -52,7 +52,7 @@ HAproxy is fast and reliable. We use it often and know it well. We already have 
 
 ![Outgoing Traffic with Egress Controller](/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/outgoing-traffic-with-egress-schema.png)
 
-We configured some apps to send a few outgoing requests to Egress Controller. The latter was configured to do TCP re-use and to forward to desired endpoints.
+We configured some applications to send a few outgoing requests to Egress Controller. The latter was configured to do TCP re-use and to forward to desired endpoints. 
 
 ## Effects
 
@@ -68,6 +68,7 @@ HAProxy Ingress Controller loads its frontend domains in [Ingress](https://kuber
 
 ![Detailed Configuration Schema](/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/detailed-configuration.png)
 
+To use HAProxy Kubernetes Ingress Controller as an Egress Controller, we will use Ingress Kubernetes ressource as Egress to define domains handled by the Controller.
 
 ```yaml
 ---
