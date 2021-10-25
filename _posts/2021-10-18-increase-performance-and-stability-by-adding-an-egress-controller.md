@@ -20,11 +20,11 @@ language: en
 
 Bedrock is using PHP for almost all of the backend API of our streaming platforms (6Play, RTLMost, Salto, …). We have deployed our applications in AWS on our kops-managed Kubernetes cluster. Each of our applications are behind a CDN for caching purposes (CloudFront, Fastly). Which means every time an application needs to access another API, requests go on the internet to access the latter through CDN.
 
-BedRock is gradually migrating from onprem infrastructure to cloud infrastructure since 2 years and users activity is continuously growing. Furthemore, we started to see tcp connection errors in our applications.
+BedRock is gradually migrating from onprem infrastructure to cloud infrastructure since 2 years and users activity is continuously growing. Furthemore, we started to see TCP connection errors in our applications.
 
 # ErrorPortAllocation source
 
-After a few investigations, we saw that tcp connection errors were correlated with NAT Gateways ErrorPortAllocation.
+After a few investigations, we saw that TCP connection errors were correlated with NAT Gateways ErrorPortAllocation.
 
 ![Some loadtesting on our plateform, which you may see as : no traffic, huge traffic, then no traffic again](/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/error-port-allocation.png)
 
@@ -38,7 +38,7 @@ Our applications always request the same endpoints : other APIs CDN. Destination
 
 At the same time, we found a very interesting blogpost : [Impact of using HTTP connection pooling for PHP applications at scale](https://techblog.wikimedia.org/2020/10/26/impact-of-using-http-connection-pooling-for-php-applications-at-scale/), which was a very good coincidence.
 
-As you can read in Wikimedia's post, PHP applications aren’t able to reuse tcp connections, as PHP processes are not sharing information from a request to another. Recreating new connections on the same endpoints is inefficient: adds latency, wastes CPU (TLS negotiation and TCP connection lifecycle) but also overconsumes tcp connections.
+As you can read in Wikimedia's post, PHP applications aren’t able to reuse TCP connections, as PHP processes are not sharing information from a request to another. Recreating new connections on the same endpoints is inefficient: adds latency, wastes CPU (TLS negotiation and TCP connection lifecycle) but also overconsumes TCP connections.
 
 ![Outgoing Traffic without Egress Controller](/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/outgoing-traffic-without-egress-schema.png)
 
@@ -50,7 +50,7 @@ We thought that a service mesh may be a little overkill in our case, so we tried
 
 ![Outgoing Traffic with Egress Controller](/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/outgoing-traffic-with-egress-schema.png)
 
-We configured some apps to send a few outgoing requests to Egress Controller. The latter was configured to do tcp re-use and to forward to desired endpoints.
+We configured some apps to send a few outgoing requests to Egress Controller. The latter was configured to do TCP re-use and to forward to desired endpoints.
 
 ## Effects
 
