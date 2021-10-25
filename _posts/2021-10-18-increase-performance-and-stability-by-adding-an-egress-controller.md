@@ -44,7 +44,7 @@ As you can read in Wikimedia's post, PHP applications aren’t able to reuse tcp
 
 # Outgoing requests optimization
 
-## Egress Controller
+## Egress Controller 
 
 We thought that a service mesh may be a little overkill in our case, so we tried to add HAProxy as Kubernetes Egress Controller in our clusters. 
 
