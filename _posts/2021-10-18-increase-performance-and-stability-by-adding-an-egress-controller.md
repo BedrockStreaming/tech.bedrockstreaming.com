@@ -34,9 +34,7 @@ After a few investigations, we saw that TCP connection errors were correlated wi
 
 
 In AWS, NAT Gateways are endpoints allowing us to go outside our VPC. They have hard limits that can’t be modified:
-> A NAT gateway can support up to 55,000 simultaneous connections [...]. If the destination IP address, the destination port, or the protocol (TCP/UDP/ICMP) changes, you can create an additional 55,000 connections. For more than 55,000 connections, there is an increased chance of connection errors due to port allocation errors. [...]
-
-[AWS Documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-limits)
+> A NAT gateway can support up to 55,000 simultaneous connections [...]. If the destination IP address, the destination port, or the protocol (TCP/UDP/ICMP) changes, you can create an additional 55,000 connections. For more than 55,000 connections, there is an increased chance of connection errors due to port allocation errors. [AWS Documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-limits)
 
 Our applications always request the same endpoints: other APIs CDN. Destination port, ip or protocol doesn’t change that much, so we start hitting max connections, resulting in ErrorPortAllocation.
 
@@ -50,7 +48,7 @@ As you can read in Wikimedia's post, PHP applications aren’t able to reuse TCP
 
 ## Egress Controller 
 
-We thought that a service mesh may be a little overkill in our case, so we tried to add HAProxy as Kubernetes Egress Controller in our clusters. 
+HAproxy is fast and reliable. We use it often and know it well. We already have it as Ingress Controller in our clusters and we know service mesh needs time to be production ready. So we thought a service mesh might be overkill in our case and we tried to add HAProxy as Kubernetes Egress Controller in our clusters. 
 
 ![Outgoing Traffic with Egress Controller](/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/outgoing-traffic-with-egress-schema.png)
 
