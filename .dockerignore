@@ -1,0 +1,9 @@
+/_includes/
+/_layouts/
+/_posts/
+/.github/
+/assets/
+/images/
+/nodes_modules/
+/vagrant/
+/vendor/
