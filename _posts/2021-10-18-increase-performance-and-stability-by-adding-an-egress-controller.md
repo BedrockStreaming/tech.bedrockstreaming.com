@@ -30,7 +30,8 @@ During special events with huge loads on our platforms, we started to see TCP co
 
 After a few investigations, we saw that TCP connection errors were correlated with NAT Gateways ErrorPortAllocation.
 
-![Some loadtesting on our platform, which you may see as no traffic, huge traffic, then no traffic again](/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/error-port-allocation.png)
+![Error Port Allocation Graph](/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/error-port-allocation.png)
+<center><ins>Some loadtesting on our platform, which you may see as no traffic, huge traffic, then no traffic again</ins></center>
 
 
 In AWS, NAT Gateways are endpoints allowing us to go outside our VPC. They have hard limits that can’t be modified:
@@ -43,7 +44,7 @@ At the same time, we found a very interesting blog post: [Impact of using HTTP c
 As you can read in Wikimedia's post, PHP applications aren’t able to reuse TCP connections, as PHP processes are not sharing information from a request to another. Recreating new connections on the same endpoints is inefficient: adds latency, wastes CPU (TLS negotiation and TCP connection lifecycle) but also overconsumes TCP connections.
 
 ![Outgoing Traffic without Egress Controller](/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/outgoing-traffic-without-egress-schema.png)
-PHP application call another API on internet through the NAT gateway.
+<center><ins>PHP application calls another API on internet through the NAT gateway</ins></center>
 
 # Outgoing requests optimization
 
@@ -52,7 +53,7 @@ PHP application call another API on internet through the NAT gateway.
 HAproxy is fast and reliable. We use it often and know it well. We already have it as Ingress Controller in our clusters and we know service mesh needs time to be production-ready. So we thought a service mesh might be overkill in our case and we tried to add HAProxy as Kubernetes Egress Controller in our clusters. 
 
 ![Outgoing Traffic with Egress Controller](/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/outgoing-traffic-with-egress-schema.png)
-All outgoing requests now go through the Egress Controller, which pools and maintains TCP and TLS connections.
+<center><ins>Outgoing requests go through the Egress Controller, which pools and maintains TCP and TLS connections</ins></center>
 
 
 We configured some applications to send a few outgoing requests to Egress Controller. The latter was configured to do TCP re-use and to forward to desired endpoints. 
@@ -62,7 +63,7 @@ We configured some applications to send a few outgoing requests to Egress Contro
 With this optimization, we don’t encounter ErrorPortAllocation anymore. Requests duration are reduced by 20 to 30%, and apps are consuming less CPU. Ressources were spent to instantiate a new TLS connection, which is now handled by Egress Controller.
 
 ![CPU consumption of an app configured to use Egress Controller for DynamoDB requests](/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/cpu-metrics.png)
-Application consumes less CPU, because Egress Controller is responsible of TLS and TCP connections to the outside world, which consumes a lot of resources.
+<center><ins>Application consumes less CPU, because Egress Controller is responsible of TLS and TCP connections to the outside world, which consumes a lot of resources</ins></center>
 
 # Detailed configuration
 
@@ -71,7 +72,6 @@ We generally prefer to use what already exists rather than starting from scratch
 HAProxy Ingress Controller loads its frontend domains in [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource, and loads backend servers in the associated [Service](https://kubernetes.io/docs/concepts/services-networking/service/) resource. To inject an external domain as a backend server, we have to use [Service ExternalName](https://kubernetes.io/docs/concepts/services-networking/service/#externalname).
 
 ![Detailed Configuration Schema](/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/detailed-configuration.png)
-Application consumes less CPU, because Egress Controller is responsible of TLS and TCP connections to the outside world, which consumes a lot of resources.
 
 To use HAProxy Kubernetes Ingress Controller as an Egress Controller, we will use Ingress Kubernetes resource as Egress to define domains handled by the Controller.
 
