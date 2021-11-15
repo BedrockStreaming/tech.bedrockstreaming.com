@@ -117,7 +117,7 @@ spec:
 When everything is ready, you will be able to send requests:
 
 ```yaml
-curl -H “host: app1.example.com” https://haproxy-egress.default.svc.cluster.local/health
+curl -H "host: app1.example.com" https://haproxy-egress.default.svc.cluster.local/health
 ```
 
 By default, HAProxy resolves domain names only at bootime. But it can be configured to resolves during runtime by adding a [config snippet to Egress Controller configuration](https://www.haproxy.com/documentation/kubernetes/latest/configuration/configmap/#global-config-snippet):
