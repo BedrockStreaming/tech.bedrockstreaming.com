@@ -97,3 +97,4 @@ Throught GitHub we participated to the improvement (we hope so) of many open sou
 * [willdurand/BazingaHateoasBundle](https://github.com/willdurand/BazingaHateoasBundle): [#9](https://github.com/willdurand/BazingaHateoasBundle/pull/9)
 * [Versent/saml2aws](https://github.com/Versent/saml2aws): [#272](https://github.com/Versent/saml2aws/pull/272)
 * [Lusitaniae/phpfpm_exporter](https://github.com/Lusitaniae/phpfpm_exporter): [#15](https://github.com/Lusitaniae/phpfpm_exporter/pull/15)
+* [haya14busa/action-bumpr](https://github.com/haya14busa/action-bumpr): [#29](https://github.com/haya14busa/action-bumpr/pull/29)
