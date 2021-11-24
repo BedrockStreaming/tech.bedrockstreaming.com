@@ -95,3 +95,5 @@ Throught GitHub we participated to the improvement (we hope so) of many open sou
 * [webpack/webpack](https://github.com/webpack/webpack): [#5862](https://github.com/webpack/webpack/pull/5862)
 * [webonyx/graphql-php](https://github.com/webonyx/graphql-php): [#631](https://github.com/webonyx/graphql-php/pull/631)
 * [willdurand/BazingaHateoasBundle](https://github.com/willdurand/BazingaHateoasBundle): [#9](https://github.com/willdurand/BazingaHateoasBundle/pull/9)
+* [Versent/saml2aws](https://github.com/Versent/saml2aws): [#272](https://github.com/Versent/saml2aws/pull/272)
+* [Lusitaniae/phpfpm_exporter](https://github.com/Lusitaniae/phpfpm_exporter): [#15](https://github.com/Lusitaniae/phpfpm_exporter/pull/15)
