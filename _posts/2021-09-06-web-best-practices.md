@@ -103,7 +103,7 @@ Whereas a rule (even a very strict one) that can auto-fix itself at commit time 
 
 This question may seem thorny, take for example the case of `<tab>` / `<space>` in files.
 For this, we try to avoid the endless debates and follow the trend and rules of the community.
-For example, [our Eslint configuration base](https://github.com/M6Web/eslint-tools) is based on Airbnb's which seems to have some success in the JS community.
+For example, [our Eslint configuration base](https://github.com/BedrockStreaming/eslint-tools) is based on Airbnb's which seems to have some success in the JS community.
 But if the rule we want to impose on ourselves is not available in Eslint or other tools, we sometimes prefer not to follow the rule rather than say "We'll do it without a checking CI".
 
 ### The _almost_ exhaustive list 🤞
@@ -111,7 +111,7 @@ But if the rule we want to impose on ourselves is not available in Eslint or oth
 ![Our continuous integration workflow](/images/posts/bonnes-pratiques-web/ci-workflow.png)
 
 - The file format is managed by [Editorconfig](https://editorconfig.org/), [prettier](https://prettier.io/) and [Eslint](https://eslint.org/).
-  We have opensourced [our own configuration](https://github.com/M6Web/eslint-tools), if it is of any use to you.
+  We have opensourced [our own configuration](https://github.com/BedrockStreaming/eslint-tools), if it is of any use to you.
 - We use a [specific commit name](https://www.conventionalcommits.org/en/v1.0.0/) to generate our changelog.
   To make sure devs follow it, a simple step in our CI checks it.
 - We don't want a dev to make our JS bundles very big in production, so we track and measure their size in the CI.
@@ -125,7 +125,7 @@ But if the rule we want to impose on ourselves is not available in Eslint or oth
   We make sure that our tests do not depend on a non mocked API that could slow down their execution.
 - During the E2E tests we check that no image request has generated a 404.
 - We perform some [accessibility checks with Axe](https://www.deque.com/axe/) during our E2E tests.
-- We check some rules on the CSS with [Stylelint](https://stylelint.io/) and [bemlinter](https://github.com/M6Web/bemlinter) (we don't use BEM anymore but there is still some style managed in SCSS that we migrate little by little in StyledComponent)
+- We check some rules on the CSS with [Stylelint](https://stylelint.io/) and [bemlinter](https://github.com/BedrockStreaming/bemlinter) (we don't use BEM anymore but there is still some style managed in SCSS that we migrate little by little in StyledComponent)
 - The project is a monorepo on which we try to maintain the same dependencies versions for each package.
   We developed a tool which automates this check: _[monorepo-dependencies-check](https://www.npmjs.com/package/monorepo-dependencies-check)_
 - We check that our `yarn.lock` file has not been inadvertently modified or that it has been updated with respect to the modifications of the `package.json`.

@@ -34,7 +34,7 @@ Notre stack technique habituelle côté backend étant Symfony2, nous sommes don
 * [BazingaHateoasBundle](https://github.com/willdurand/BazingaHateoasBundle) pour intégrer les liens entres les différents endpoints directement dans les différentes réponses. 
 * [NelmioApiDocBundle](https://github.com/nelmio/NelmioApiDocBundle) pour proposer une documentation complète et auto-générée depuis le code
 
-Pour sécuriser tout ça, nous utilisons toujours notre bundle [DomainUserBundle](https://github.com/M6Web/DomainUserBundle) permettant de sécuriser et contextualiser les données par sous-domaine (voir notre [article dédié](/api-a-consommer-avec-moderation/) à ce bundle).
+Pour sécuriser tout ça, nous utilisons toujours notre bundle [DomainUserBundle](https://github.com/BedrockStreaming/DomainUserBundle) permettant de sécuriser et contextualiser les données par sous-domaine (voir notre [article dédié](/api-a-consommer-avec-moderation/) à ce bundle).
 
 # ... mais pas que
 
@@ -57,7 +57,7 @@ Pour maintenir les données à jour dans cet index Elasticsearch, nous avons mut
 * **Scalabilité** : il est facilement possible de multiplier les process qui traitent les données, et donc d'augmenter la capacité de traitement 
 * **Rapidité** : le fait d'avoir des daemons qui tournent en continue permet de traiter les demandes dès leur arrivée, et pas lors de la minute suivante. Cela permet aussi de lisser au maximum les traitements sans créer de piles d'attente inutiles.
 
-Nous nous sommes donc appuyés sur notre [DaemonBundle](https://github.com/M6Web/DaemonBundle) pour mettre en place un double système d'indexation : 
+Nous nous sommes donc appuyés sur notre [DaemonBundle](https://github.com/BedrockStreaming/DaemonBundle) pour mettre en place un double système d'indexation : 
 
 * une fois par jour, l'index est complétement reconstruit
 * un daemon tourne en continue pour détecter les modifications en base de données, et envoyer des messages dans une file [RabbitMQ](https://www.rabbitmq.com/)
@@ -65,17 +65,17 @@ Nous nous sommes donc appuyés sur notre [DaemonBundle](https://github.com/M6Web
 
 Ainsi, nous assurons une fraicheur des données quasi-immédiate et optimale.
 
-Au cours de ce travail, nous avons construit 2 nouveaux bundle : [ElasticsearchBundle](https://github.com/M6Web/ElasticsearchBundle) et [AmqpBundle](https://github.com/M6Web/AmqpBundle). L'un comme l'autre sont des bundles permettant de faciliter la configuration et l'utilisation des clients natifs dans Symfony2, en tant que service.
+Au cours de ce travail, nous avons construit 2 nouveaux bundle : [ElasticsearchBundle](https://github.com/BedrockStreaming/ElasticsearchBundle) et [AmqpBundle](https://github.com/BedrockStreaming/AmqpBundle). L'un comme l'autre sont des bundles permettant de faciliter la configuration et l'utilisation des clients natifs dans Symfony2, en tant que service.
 
 # Et la grosse donnée ?
 
 Si vous avez essayé la nouvelle version web de 6play, vous avez certainement remarqué que la personnalisation de votre compte est fortement mise en avant. Pour stocker ce fort volume de données, nous avons fait le choix d'utiliser [Cassandra](https://cassandra.apache.org/), pour son approche distribuée permettant une forte scalabilité, et un ratio rapidité/redondance optimal.
 
-Comme pour le reste, nous avons là aussi créé un bundle Symfony2 permettant de configurer et manipuler simplement des clients Cassandra en tant que service : [CassandraBundle](https://github.com/M6Web/CassandraBundle)
+Comme pour le reste, nous avons là aussi créé un bundle Symfony2 permettant de configurer et manipuler simplement des clients Cassandra en tant que service : [CassandraBundle](https://github.com/BedrockStreaming/CassandraBundle)
 
 # Tout le reste
 
-Côté monitoring, pour respecter nos bonnes habitudes, [nous utilisons toujours Statsd à outrance](https://tech.m6web.fr/how-we-use-statsd/), surtout via notre bundle [StatsdBundle](https://github.com/M6Web/StatsdBundle).
+Côté monitoring, pour respecter nos bonnes habitudes, [nous utilisons toujours Statsd à outrance](https://tech.m6web.fr/how-we-use-statsd/), surtout via notre bundle [StatsdBundle](https://github.com/BedrockStreaming/StatsdBundle).
 
 Côté tests, tous les tests unitaires ont été écrits avec [atoum](https://github.com/atoum/atoum).
 

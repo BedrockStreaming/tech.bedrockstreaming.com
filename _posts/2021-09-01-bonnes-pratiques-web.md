@@ -102,7 +102,7 @@ Alors qu'une règle (même très stricte) qui peut s'autofixer automatiquement a
 
 Cette question peut paraitre épineuse, prenons par exemple le cas des `<tab>` / `<space>` dans les fichiers.
 Pour cela, on essaie d'éviter les débats sempiternels et on se plie à la tendance et aux règles de la communauté.
-Par exemple, [notre base de configuration Eslint](https://github.com/M6Web/eslint-tools)) est basée sur celle d'Airbnb qui semble avoir un certain succès dans la communauté JS.
+Par exemple, [notre base de configuration Eslint](https://github.com/BedrockStreaming/eslint-tools)) est basée sur celle d'Airbnb qui semble avoir un certain succès dans la communauté JS.
 Mais si la règle qu'on souhaite s'imposer n'est pas disponible dans Eslint ou d'autres outils, il nous arrive de préférer ne pas suivre la règle plutôt que de se dire "On le fait sans CI qui vérifie".
 
 ### La liste _presque_ exhaustive 🤞
@@ -110,7 +110,7 @@ Mais si la règle qu'on souhaite s'imposer n'est pas disponible dans Eslint ou d
 ![Notre workflow d'intégration continue](/images/posts/bonnes-pratiques-web/ci-workflow.png)
 
 - Le format des fichiers est suivi géré par [Editorconfig](https://editorconfig.org/), [prettier](https://prettier.io/) et [Eslint](https://eslint.org/).
-  Nous avons opensourcé [notre propre configuration](https://github.com/M6Web/eslint-tools), si jamais celle-ci peut vous être utile.
+  Nous avons opensourcé [notre propre configuration](https://github.com/BedrockStreaming/eslint-tools), si jamais celle-ci peut vous être utile.
 - Nous utilisons un [nommage de commit bien spécifique](https://www.conventionalcommits.org/en/v1.0.0/) pour générer nos changelog.
   Pour s'assurer que les devs le respectent, une simple étape de notre CI le vérifie.
 - On ne souhaite pas qu'un dev fasse grossir énormément nos bundles JS en production, c'est pourquoi nous suivons et mesurons leur taille dans la CI.
@@ -124,7 +124,7 @@ Mais si la règle qu'on souhaite s'imposer n'est pas disponible dans Eslint ou d
   Nous surveillons que nos tests ne dépendent pas d'une API non mockée qui pourrait ralentir leur exécution.
 - Durant les tests E2E nous vérifions qu'aucune requête d'image n'a généré une 404.
 - On réalise quelques [vérifications d'accessibilité avec Axe](https://www.deque.com/axe/) durant nos tests E2E.
-- On vérifie quelques règles sur le CSS avec [Stylelint](https://stylelint.io/) et [bemlinter](https://github.com/M6Web/bemlinter) (on n'utilise plus BEM aujourd'hui mais il reste encore un peu de style géré en SCSS qu'on migre petit à petit en StyledComponent)
+- On vérifie quelques règles sur le CSS avec [Stylelint](https://stylelint.io/) et [bemlinter](https://github.com/BedrockStreaming/bemlinter) (on n'utilise plus BEM aujourd'hui mais il reste encore un peu de style géré en SCSS qu'on migre petit à petit en StyledComponent)
 - Le projet est un monorepo sur lequel nous essayons de maintenir les mêmes versions de dépendances pour chaque package.
   Pour cela nous avons développé un outil qui permet de faire cette vérification _[monorepo-dependencies-check](https://www.npmjs.com/package/monorepo-dependencies-check)_
 - On vérifie que notre fichier `yarn.lock` n'a pas été modifié par inadvertance ou bien qu'il a été mis à jour par rapport aux modifications du `package.json`.

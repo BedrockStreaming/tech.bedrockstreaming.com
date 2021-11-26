@@ -45,7 +45,7 @@ Il faut ensuite créer notre propre fournisseur d’authentification pour avoir 
 host: {client}.api.monservice.fr
 {% endhighlight %}
 
-Le FirewallListener utilise donc ce paramètre du routing comme nom d’utilisateur et le transmet à notre AuthenticationProvider. Celui-ci récupère le `User` grâce au `UserProvider` et profite de cette phase pour vérifier que l’adresse IP du client est bien autorisée dans sa configuration grâce au [FirewallBundle](https://github.com/M6Web/FirewallBundle).
+Le FirewallListener utilise donc ce paramètre du routing comme nom d’utilisateur et le transmet à notre AuthenticationProvider. Celui-ci récupère le `User` grâce au `UserProvider` et profite de cette phase pour vérifier que l’adresse IP du client est bien autorisée dans sa configuration grâce au [FirewallBundle](https://github.com/BedrockStreaming/FirewallBundle).
 
 Effectivement, nous avons ajouté un filtrage initial (mais optionnel) sur les IPs pour chaque client, dans le fichiers `app/config/users/{username}.yml` :
 
@@ -62,7 +62,7 @@ firewall:
             m6_public: true
 {% endhighlight %}
 
-Pour plus de précisions, voir la [documentation du FirewallBundle](https://github.com/M6Web/FirewallBundle#firewall-bundle-).
+Pour plus de précisions, voir la [documentation du FirewallBundle](https://github.com/BedrockStreaming/FirewallBundle#firewall-bundle-).
 
 #### Autorisation
 
@@ -115,7 +115,7 @@ Grâce à l'utilisation du Bundle Security de Symfony, toute la configuration sp
 
 Afin d'implémenter facilement ce fonctionnement sur nos API, nous avons développé un bundle dédié. Il peut donc aussi vous permettre de gérer l'authentification et la configuration de vos API par nom de domaine.
 
-[DomainUserBundle](https://github.com/M6Web/DomainUserBundle) est disponible en [open-source](https://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur le [compte GitHub de M6Web](https://github.com/M6Web).
+[DomainUserBundle](https://github.com/BedrockStreaming/DomainUserBundle) est disponible en [open-source](https://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur le [compte GitHub de M6Web](https://github.com/BedrockStreaming).
 
 Enjoy !
 

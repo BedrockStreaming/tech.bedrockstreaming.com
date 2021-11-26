@@ -115,8 +115,8 @@ Les projets [superagent-mock][superagent-mock] et [sprintf-mock][sprintf-mock] s
 [superagent]: https://visionmedia.github.io/superagent/
 [webpack]: https://webpack.github.io/
 [browserify]: https://browserify.org/
-[superagent-mock]: https://github.com/M6Web/superagent-mock
-[superagent-mock-source]: https://github.com/M6Web/superagent-mock/blob/master/superagent-mock.js
+[superagent-mock]: https://github.com/BedrockStreaming/superagent-mock
+[superagent-mock-source]: https://github.com/BedrockStreaming/superagent-mock/blob/master/superagent-mock.js
 [sprintf-js]: https://github.com/alexei/sprintf.js
-[sprintf-mock]: https://github.com/M6Web/sprintf-mock
+[sprintf-mock]: https://github.com/BedrockStreaming/sprintf-mock
 [kenny-isomorphic-post]: https://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/

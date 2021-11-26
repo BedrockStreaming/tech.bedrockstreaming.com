@@ -19,7 +19,7 @@ comments: true
 permalink: symfony-expression-language.html
 ---
 
-Grâce à notre bundle [MonologExtra](https://github.com/M6Web/MonologExtraBundle), nous avons la possibilité d'inclure des informations statiques dans le contexte de nos logs.
+Grâce à notre bundle [MonologExtra](https://github.com/BedrockStreaming/MonologExtraBundle), nous avons la possibilité d'inclure des informations statiques dans le contexte de nos logs.
 Nous souhaiterions maintenant avoir aussi d'autres informations plus dynamiques comme le nom de l'utilisateur.
 
 Pour cela, nous avons donc ajouté la possibilité de configurer une expression qui sera évaluée par le composant [ExpressionLanguage](https://symfony.com/doc/current/components/expression_language/index.html) de Symfony de cette manière :
@@ -98,4 +98,4 @@ protected function evaluateValue($value)
 
 Avec la configuration présentée au début, nous récupérons ainsi l'environnement et l'utilisateur connecté dans le contexte de nos logs.
 
-[MonologExtraBundle](https://github.com/M6Web/MonologExtraBundle) est disponible en [open-source](https://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur le [compte GitHub de M6Web](https://github.com/M6Web).
+[MonologExtraBundle](https://github.com/BedrockStreaming/MonologExtraBundle) est disponible en [open-source](https://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur le [compte GitHub de M6Web](https://github.com/BedrockStreaming).

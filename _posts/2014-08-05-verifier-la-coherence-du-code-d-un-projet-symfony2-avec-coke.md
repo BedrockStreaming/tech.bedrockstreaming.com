@@ -28,7 +28,7 @@ Avec Symfony2, c'est d'autant plus facile que l'architecture des bundles est tr�
 
 Il y a un peu plus d'un an, chez M6Web, nous avons développé [coke](/coke-pour-bien-sniffer-son-code) pour configurer simplement l'exécution de PHP_CodeSniffer.
 
-Depuis quelques mois, il est possible [d'installer coke via Composer](https://github.com/M6Web/Coke/pull/4) :
+Depuis quelques mois, il est possible [d'installer coke via Composer](https://github.com/BedrockStreaming/Coke/pull/4) :
 
 {% highlight json %}
 {
@@ -46,7 +46,7 @@ Lorsque nous voulons utiliser un coding standard qui n'est pas inclus par défau
 
 ## Symfony2-coding-standard
 
-Chez M6Web, nous maintenons le standard [Symfony2-coding-standard](https://github.com/M6Web/Symfony2-coding-standard) qui permet de valider que le code d'un projet respecte les [coding standard de Symfony2](https://symfony.com/doc/current/contributing/code/standards.html).
+Chez M6Web, nous maintenons le standard [Symfony2-coding-standard](https://github.com/BedrockStreaming/Symfony2-coding-standard) qui permet de valider que le code d'un projet respecte les [coding standard de Symfony2](https://symfony.com/doc/current/contributing/code/standards.html).
 
 Pour rendre à César ce qui appartient à César, nous avons récupéré la base du standard telle que créé par [opensky](https://github.com/opensky).
 
