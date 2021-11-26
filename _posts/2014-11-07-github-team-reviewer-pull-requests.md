@@ -31,7 +31,7 @@ Il y a bien le nouveau [Pull Requests Dashboard](https://github.com/blog/1901-ma
 
 #### GTR !
 
-Nous avons donc développé [Github Team Reviewer](https://github.com/M6Web/GithubTeamReviewer), un outil ultra simple mais efficace qui permet en un coup d'œil de voir toutes les PR de ses équipes et leur statut, qu'elles soient sur un Github Entreprise interne ou sur Github. Le projet utilise [AngularJS](https://angularjs.org/) et l'[API fournit par Github](https://developer.github.com/v3/). L’installation se fait sur n’importe quel serveur web et requiert npm (via [Node.js](https://nodejs.org/)) pour *builder* l'application grâce à [Bower](https://bower.io/) et [Gulp.js](https://gulpjs.com/).
+Nous avons donc développé [Github Team Reviewer](https://github.com/BedrockStreaming/GithubTeamReviewer), un outil ultra simple mais efficace qui permet en un coup d'œil de voir toutes les PR de ses équipes et leur statut, qu'elles soient sur un Github Entreprise interne ou sur Github. Le projet utilise [AngularJS](https://angularjs.org/) et l'[API fournit par Github](https://developer.github.com/v3/). L’installation se fait sur n’importe quel serveur web et requiert npm (via [Node.js](https://nodejs.org/)) pour *builder* l'application grâce à [Bower](https://bower.io/) et [Gulp.js](https://gulpjs.com/).
 
 L'application propose volontairement un nombre limité de paramètres de configuration éditables dans le fichier `config/config.json`:
 
@@ -45,6 +45,6 @@ L'application propose volontairement un nombre limité de paramètres de configu
 
 Une *select box* permet de basculer d'une équipe à une autre très facilement. Vous pouvez voir GTR en action sur [le site de démonstration](https://tech.m6web.fr/GithubTeamReviewer/dist/index.html).
 
-[Github Team Reviewer](https://github.com/M6Web/GithubTeamReviewer) est disponible en [open-source](https://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur [le compte Github de M6Web](https://github.com/M6Web).
+[Github Team Reviewer](https://github.com/BedrockStreaming/GithubTeamReviewer) est disponible en [open-source](https://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur [le compte Github de M6Web](https://github.com/BedrockStreaming).
 
 Enjoy !

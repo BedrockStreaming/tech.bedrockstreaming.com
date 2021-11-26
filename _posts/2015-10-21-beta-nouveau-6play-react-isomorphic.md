@@ -33,7 +33,7 @@ Au niveau tests, et parce que nous ne concevons plus de développer de tels proj
 * [ESLint](https://eslint.org/) pour le respect des conventions de codage
 * [Jest](https://facebook.github.io/jest/) pour les tests unitaires
 * [Cucumber.js](https://cucumber.io/docs/reference/javascript), [WebdriverIO](https://webdriver.io/) et [PhantomJS](https://phantomjs.org/) pour les tests fonctionnels
-* [superagent-mock](https://github.com/M6Web/superagent-mock) (\o/) pour mocker les requêtes HTTP des services externes
+* [superagent-mock](https://github.com/BedrockStreaming/superagent-mock) (\o/) pour mocker les requêtes HTTP des services externes
 * [Jenkins](https://jenkins-ci.org/) pour l'intégration continue
 * [React Hot Loader](https://github.com/gaearon/react-hot-loader) pour améliorer la DX (Developer eXperience)
 

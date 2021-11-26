@@ -30,7 +30,7 @@ Afin de tester fonctionnellement ces services, nous avons d’abord eu l’idée
 
 Nous nous sommes alors penchés sur la possibilité de bouchonner Redis, chose qui parait au premier abord plus aisée que de bouchonner Doctrine : Redis propose une API simple et bien documenté (même si abondante). Nous pensions trouver une librairie PHP déjà existante mais nos recherches sont restées vaines.
 
-Nous avons donc créé la librairie [RedisMock](https://github.com/M6Web/RedisMock) qui reprend simplement [les commandes de l’API de Redis](https://redis.io/commands) et simule leur comportement grâce aux fonctions natives de PHP. Évidemment, toutes les commandes Redis n’ont pas encore été implémentées, seules celles qui sont utilisées dans nos tests sont présentes. Vous pouvez nous proposer l’implémentation de nouvelles fonctions Redis, selon vos besoins, via des Pull Requests sur le projet.
+Nous avons donc créé la librairie [RedisMock](https://github.com/BedrockStreaming/RedisMock) qui reprend simplement [les commandes de l’API de Redis](https://redis.io/commands) et simule leur comportement grâce aux fonctions natives de PHP. Évidemment, toutes les commandes Redis n’ont pas encore été implémentées, seules celles qui sont utilisées dans nos tests sont présentes. Vous pouvez nous proposer l’implémentation de nouvelles fonctions Redis, selon vos besoins, via des Pull Requests sur le projet.
 
 Toutes les commandes exposées par le mock sont testées unitairement via [atoum](https://www.atoum.org/) en reprenant pour chaque cas les spécifications énoncées dans la documentation Redis.
 
@@ -40,7 +40,7 @@ Tout d’abord, il faut rajouter la dépendance à la librairie dans le `compose
 
 <script src="https://gist.github.com/fdubost/7893309.js"></script>
 
-L’utilisation du mock reste très simple dans un projet Symfony. Chez M6Web, nous utilisons [notre propre composant Redis](https://github.com/M6Web/Redis), lui même basé sur [Predis](https://github.com/nrk/predis). Afin que le mock puisse complètement se faire passer pour la librairie Redis lors de l'execution des tests, nous avons implémenté une factory qui crée à la volée un adapteur héritant de la classe à bouchonner. La méthode `getAdpaterClass` permet de récupérer le nom de la classe à instancier.
+L’utilisation du mock reste très simple dans un projet Symfony. Chez M6Web, nous utilisons [notre propre composant Redis](https://github.com/BedrockStreaming/Redis), lui même basé sur [Predis](https://github.com/nrk/predis). Afin que le mock puisse complètement se faire passer pour la librairie Redis lors de l'execution des tests, nous avons implémenté une factory qui crée à la volée un adapteur héritant de la classe à bouchonner. La méthode `getAdpaterClass` permet de récupérer le nom de la classe à instancier.
 
 <script src="https://gist.github.com/fdubost/8025392.js"></script>
 
@@ -50,6 +50,6 @@ Pour simplifier la création de l'adapteur et son injection dans l'application v
 
 Et voilà, le tour est joué ! Les tests utilisent maintenant le mock à la place du véritable Redis. Attention cependant, si votre librairie utilise des fonctionnalités non implémentées dans RedisMock, vous pourriez faire face à des comportements aléatoires indésirables.
 
-[RedisMock ](https://github.com/M6Web/RedisMock) est disponible en [open-source](https://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur [le compte GitHub de M6Web](https://github.com/M6Web).
+[RedisMock ](https://github.com/BedrockStreaming/RedisMock) est disponible en [open-source](https://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur [le compte GitHub de M6Web](https://github.com/BedrockStreaming).
 
 Enjoy !

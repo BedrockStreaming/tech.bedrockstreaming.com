@@ -56,7 +56,7 @@ Websocket-bench
 ---------------
 
 
-Nous avons donc décidé de développer notre propre outil de benchmark de websocket ([Socket.io](https://socket.io/) ou [Faye](https://faye.jcoglan.com/)), au nom très original : [websocket-bench](https://github.com/M6Web/websocket-bench).
+Nous avons donc décidé de développer notre propre outil de benchmark de websocket ([Socket.io](https://socket.io/) ou [Faye](https://faye.jcoglan.com/)), au nom très original : [websocket-bench](https://github.com/BedrockStreaming/websocket-bench).
 
 Cet outil se base sur les clients Node que proposent [Faye](https://faye.jcoglan.com/) et [Socket.io](https://socket.io/). Il peut être facilement étendu à l'aide de "generator" (module Node), afin de rajouter la logique de votre application. Par exemple dans le cas de notre application, en se connectant, un client doit envoyer un message au serveur pour valider la connexion.
 
@@ -94,7 +94,7 @@ Surveillez votre [conntrack](https://conntrack-tools.netfilter.org/) (si firewal
 
 ##### Comment contribuer au projet ?
 
-N’hésitez pas à remonter d’éventuels bug via les issues ou à contribuer au projet l'aide de pull request github ([https://github.com/M6Web/websocket-bench](https://github.com/M6Web/websocket-bench))
+N’hésitez pas à remonter d’éventuels bug via les issues ou à contribuer au projet l'aide de pull request github ([https://github.com/BedrockStreaming/websocket-bench](https://github.com/BedrockStreaming/websocket-bench))
 
 
 
