@@ -28,32 +28,32 @@ To stream video, we cut each video file in 6 seconds chunks. The video player lo
 ![Pictorial explanation of video streaming](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/pictorial-explanation-of-video-streaming.png)
 <center><ins>Pictorial explanation of video streaming</ins></center>
 
-A video is composed of several chunks.
+A video is composed of several chunks.  
 For example, a 90 minutes movie, with a duration of 6 seconds per chunk, means 90×60÷6=900 video chunks called from the player plus another 900 audio chunks. A total of 1800 different chunks for a single video.
 
 
 # Just In Time Packaging
 
-A client calls a manifest and chunks to play a video.
+A client calls a manifest and chunks to play a video.  
 These calls are specific to the client using the Dash, HLS or Smooth formats.
 
 The [Unified Streaming](https://www.unified-streaming.com/) software is used to receive these calls. Unified Origin (which we call USP) fetches the associated video from the S3 bucket. It relies on a server manifest (.Ism files), stored with the video, to respond specifically to the client: in Dash, HLS, etc.
 
 So we store on the S3 side a complete video and its server manifest and USP provides the client with a client manifest and specific chunks: this is JIT packaging.
 
-Another way is to compute all the chunks and manifests in advance and write them to S3: this is offline packaging.
+Another way is to compute all the chunks and manifests in advance and write them to S3: this is offline packaging.  
 Once the packaging is done, there is no need to do these calculations anymore: it lightens the architecture and avoids the availability problems of doing real-time calculations.
 
 ![Comparing Just-In-Time packaging with Offline Packaging](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/jit-versus-offline-packaging.png)
 <center><ins>Comparing Just-In-Time packaging with Offline Packaging</ins></center>
 
-This poses a big cost problem. On AWS S3, you pay for data access (GET requests), as well as storage. The more you store, the more you pay and the more you access, the more you pay.
+This poses a big cost problem. On AWS S3, you pay for data access (GET requests), as well as storage. The more you store, the more you pay and the more you access, the more you pay.  
 I.E: a 90mn video, played in Dash, is cut into 900 chunks plus a single Dash manifest. The same video in HLS, it's 900 different chunks and another manifest: 1802 files written on S3. Add the Smooth Streaming format and you get 2703 files stored on S3, for a single video.
 
 Offline packaging is interesting, but incompatible with our need to manage a large number of equipments and vast catalogs: tens of thousands of program hours per customer.
 
 Another approach, which uses the best of the two above solutions, is possible: the CMAF (Common Media Application Format) standard.
-The player is able to chunk the video itself by adding the HTTP header `Range: Bytes`.
+The player is able to chunk the video itself by adding the HTTP header `Range: Bytes`.  
 Many devices, especially connected TVs or old Android versions, are not compatible with CMAF, which is why the rest of this article will focus on Dash/HLS in JITP.
 
 
@@ -68,8 +68,8 @@ Let’s detail the components of this V1.
 ![v1 of our VOD platform](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/vod-usp-v1.png)
 <center><ins>v1 of our VOD platform</ins></center>
 
-Players send their requests to a CDN.
-The CDN uses a network load balancer as its origin.
+Players send their requests to a CDN.  
+The CDN uses a network load balancer as its origin.  
 The network load balancer forwards requests using a Round Robin algorithm, to multiple AWS EC2 instances that we call "USP Origin". These EC2 instances are controlled by an AutoScalingGroup and are dynamically scaled based on their network or CPU usage.
 
 
@@ -78,12 +78,13 @@ The network load balancer forwards requests using a Round Robin algorithm, to mu
 On EC2 instances, USP runs as a module of Apache HTTPD.
 
 When a player requests a specific video chunk, it sends an HTTP request to HTTPD. The USP module it embeds will:
+
 * load the according .Ism file from s3 (the server manifest)
 * load the video metadatas, stored in the first 65KB and the last 15B of a .mp4 file on s3
 * load the specific chunk in the video according to the player’s information: bitrate, language, etc. (still on s3)
 
-For each video chunk called from a player, the USP module will make a new call to the S3 bucket, loading the same .Ism manifest and the same metadatas (first 65K and latest 15B).
-To avoid these calls and reduce S3 costs by 60%, we added Nginx on these EC2s, between HTTPD and s3, to cache the manifest .Ism files and metadatas of .mp4 video files.
+For each video chunk called from a player, the USP module will make a new call to the S3 bucket, loading the same .Ism manifest and the same metadatas (first 65K and latest 15B).  
+To avoid these calls and reduce S3 costs by 60%, we added Nginx on these EC2s, between HTTPD and s3, to cache the manifest .Ism files and metadatas of .mp4 video files.  
 We’re using **LUA** in the Nginx vhost, to cache these 65KB and 15B requests made by USP to the S3 bucket.
 
 ![Details on the composition of a USP origin](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/usp-origin-instance-detailed.png)
@@ -98,7 +99,7 @@ I recommend to read [the article published by unified streaming](https://www.uni
 
 We’re using Network Load Balancers, as they’re able to offload TLS and are cheaper than Application Load Balancers that we don’t need.
 
-The major advantage of NLBs is a single entry point (a CNAME domain name), which distributes the load over n EC2 instances. This is essential for auto-scaling: nothing to configure at the CDN level, the load balancer will distribute the load among all Ready instances, whether there are 2 or 1000.
+The major advantage of NLBs is a single entry point (a CNAME domain name), which distributes the load over n EC2 instances. This is essential for auto-scaling: nothing to configure at the CDN level, the load balancer will distribute the load among all Ready instances, whether there are 2 or 1000.  
 AWS managed load balancers are also interesting because certificates are auto-renewed. Another advantage is that they are distributed over all the availability zones, which was one of our prerequisites in our multi-AZ strategy.
 
 
@@ -143,14 +144,14 @@ HAProxy is running on EC2 instances, in a dedicated AutoScalingGroup. As with th
 ![v2 of our VOD platform](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/vod-usp-v2.png)
 <center><ins>v2 of our VOD platform</ins></center>
 
-To send requests to USP origin, HAProxy needs to know all the healthy ec2 instances running in their AutoScalingGroup.
-We started by using Consul, to automatically populate our haproxy backend with these USP servers.
+To send requests to USP origin, HAProxy needs to know all the healthy ec2 instances running in their AutoScalingGroup.  
+We started by using Consul, to automatically populate our haproxy backend with these USP servers.  
 See the [dedicated blog post](https://tech.bedrockstreaming.com/hsdo/) to know why we preferred to develop a tool dedicated to this task, which we called HAProxy Service Discovery Operator (HSDO).
 
 
 ## EC2 costs are reduced by using only Spot instances
 
-In addition, HSDO is very responsive to movements in the AutoScalingGroup, which allowed us to replace all ec2 On Demand instances with Spot instances.
+In addition, HSDO is very responsive to movements in the AutoScalingGroup, which allowed us to replace all ec2 On Demand instances with Spot instances.  
 And by all instances, I mean all USP servers (with cache), as well as HAProxy servers: 70% reduction in server costs.
 
 Note that replacing USP origins with Spot instances has almost no impact on the cache, as we follow the [AWS best practices for Spot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html): use many different instance types, be multi-AZ and use the "Capacity Optimized" strategy. We observe very few reclaims and in any case, they impact few servers among the great variety we use.
@@ -188,7 +189,7 @@ The idea is to do as well for half the price.
 
 ## Be multi-AZ without inter-AZ traffic
 
-HSDO has been updated so that each HAProxy only sends requests to USP origins of the same AZ.
+HSDO has been updated so that each HAProxy only sends requests to USP origins of the same AZ.  
 It is still the Network Load Balancers that send traffic to the HAProxys, on multiple AZs.
 
 Removing inter-AZ traffic was not that much work to do and we quickly saw the difference: 45% cost savings.
