@@ -21,7 +21,29 @@ Here's our journey to migrate tens of thousands of videos accessed by millions o
 The purpose of this article is to show you the evolution of this cloud video delivery platform, from the first draft to the current version.
 
 
-## Streaming
+## Table of Contents
+
+* What Streaming is
+* Just In Time Packaging
+* Version 1: The quest for self
+    * Local cache with Nginx
+    * Network Load Balancer: manages TLS and helps with scaling
+    * Content Delivery Network: Keep it Simple and Stupid
+    * A first conclusion: V2 needs Consistent Hashing
+* Version 2: Let the requests flow
+    * HAProxy to make Consistent Hashing
+    * EC2 costs are reduced by using only Spot instances
+    * Production launch on this V2
+    * EC2-other: the financial abyss
+* Version 3: Cost Explorer Driven Development
+    * Be multi-AZ without inter-AZ traffic
+    * Mono-AZs AutoScalingGroups
+* Optimizations
+    * Adapt HAProxy config for EC2 bandwidth throttling
+    * Adjust the hash balance factor so that the scaling is triggered correctly
+* Conclusion
+
+## What Streaming is
 
 To stream video, we cut each video file in 6 seconds chunks. The video player loads the associated manifest, which lists these pieces and in which order it must read them. It then downloads the first video chunk, plays it, then loads the second chunk, etc.
 
@@ -138,7 +160,7 @@ According to our strong experience with HAProxy, we know that it is able to do [
 We started by adding haproxy servers between the load balancer and the USP servers.
 
 
-### HAProxy to make Consistent Hashing with Bounded Loads
+### HAProxy to make Consistent Hashing
 
 HAProxy is running on EC2 instances, in a dedicated AutoScalingGroup. As with the USP AutoScalingGroup, this one scales with AWS scaling policies: network bandwidth or CPU consumption. We can launch hundreds of HAProxy servers if we need to with independent scaling (but often linked) to USP servers.
 
