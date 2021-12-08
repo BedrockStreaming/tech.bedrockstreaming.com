@@ -343,4 +343,4 @@ In parallel, we also invest time on CMAF which is for us, the long-term objectiv
 
 ---
 
-_Special thanks to all my colleagues at Bedrock Streaming for re-re-re-and-rereading this blog post._ ❤️
+_Special thanks to all my colleagues at Bedrock Streaming and members of Unified-streaming, for re-re-re-and-rereading this blog post._ ❤️
