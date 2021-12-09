@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Scaling Bedrock video delivery to 50 million users"
-description: "Here's our journey to migrate tens of thousands of videos accessed by millions of users to the cloud. How we minimized our costs without losing the biggest benefit of the cloud: scaling."
+description: "Here's our journey to migrate tens of thousands of videos accessed by millions of users to the cloud. How we minimized our costs without losing the biggest benefit of the cloud: scalability."
 author:
     name: Vincent Gallissot
 avatar:
