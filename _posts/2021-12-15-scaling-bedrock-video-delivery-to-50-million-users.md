@@ -272,7 +272,7 @@ defaults
    timeout connect     20ms
    retries     2
     # We do not use "all-retryable-errors" because we don't want to retry on 500,
-    #which is an USP expected error code when it goes wrongly
+    # which is an USP expected error code when it goes wrongly
    retry-on     502 503 504 0rtt-rejected conn-failure empty-response response-timeout
    option     redispatch
    timeout server     2s
