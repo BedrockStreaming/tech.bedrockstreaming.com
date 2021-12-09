@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Scaling bedrock video delivery to 50 million users"
+title: "Scaling Bedrock video delivery to 50 million users"
 description: "Here's our journey to migrate tens of thousands of videos accessed by millions of users to the cloud. How we minimized our costs without losing the biggest benefit of the cloud: scaling."
 author:
     name: Vincent Gallissot
@@ -23,7 +23,7 @@ The purpose of this article is to show you the evolution of this cloud video del
 
 ## Table of Contents
 
-* [How we do streaming](#WhatStreamingIs)
+* [How we do streaming](#HowWeDoStreaming)
 * Just In Time Packaging
 * Version 1: The quest for self
     * Local cache with Nginx
@@ -43,7 +43,7 @@ The purpose of this article is to show you the evolution of this cloud video del
     * Adjust the hash balance factor so that the scaling is triggered correctly
 * Conclusion
 
-## How we do streaming <a name="WhatStreamingIs"></a>
+## How we do streaming <a name="HowWeDoStreaming"></a>
 
 To stream video, we cut each video file in 6 seconds chunks. The video player loads the associated manifest, which lists these pieces and in which order it must read them. It then downloads the first video chunk, plays it, then loads the second chunk, etc.
 
