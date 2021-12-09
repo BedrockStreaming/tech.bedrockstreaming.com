@@ -54,7 +54,7 @@ A video is composed of several chunks.
 For example, a 90 minutes movie, with a duration of 6 seconds per chunk, means 90×60÷6=900 video chunks called from the player plus another 900 audio chunks. A total of 1800 different chunks for a single video.
 
 
-## Just In Time Packaging
+## Just In Time Packaging <a name="jit"></a>
 
 A client calls a manifest and chunks to play a video.  
 These calls are specific to the client using the Dash, HLS or Smooth formats.
