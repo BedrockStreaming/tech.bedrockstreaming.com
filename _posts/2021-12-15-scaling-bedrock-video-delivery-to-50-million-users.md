@@ -37,7 +37,7 @@ The purpose of this article is to show you the evolution of this cloud video del
     * [EC2-other: the financial abyss](#EC2Other)
 * [Version 3: Cost Explorer Driven Development](#version3)
     * [Be multi-AZ without inter-AZ traffic](#NoInterAZTraffic)
-    * [Mono-AZs AutoScalingGroups](#MonoAZASGs)
+    * [Mono-AZ AutoScalingGroups](#MonoAZASGs)
 * [Optimizations](#Optimizations)
     * [Adapt HAProxy config for EC2 bandwidth throttling](#AdaptHaproxyForEC2Throttling)
     * [Adjust the hash balance factor to correctly trigger scaling](#AdjustHashBalanceFactor)
@@ -202,7 +202,7 @@ The private network between two data centers (AZs) at AWS is re-billed and accou
 ![AWS Cost Explorer, October 2020](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/aws-cost-explorer-oct-2020.png)
 <center><i>AWS Cost Explorer, October 2020</i></center>
 
-When HAProxy servers sent/received traffic from USP servers, the latter may not be in the same Availability Zone and the traffic between both was billed full price.
+When HAProxy servers sent/received traffic from USP servers, the latter might not be in the same Availability Zone and the traffic between the two was charged at full price.
 
 It was necessary to quickly find a solution for these costs which torpedoed the project. We started the creation of version 3 as soon as we had these metrics from version 2, at the beginning of our cloud migration.
 
@@ -216,7 +216,7 @@ The idea is to do as well for half the price.
 We have updated HSDO so each HAProxy only sends requests to USP origins of the same AZ.  
 And the Network Load Balancers still send traffic to the HAProxys, on multiple AZs.
 
-Removing inter-AZ traffic was not that much work to do and we quickly saw the difference: **45% cost savings**.
+Removing inter-AZ traffic was not that much work and we quickly saw the difference: **45% cost savings**.
 
 ![The costs of this platform, where v3 was deployed in mid-November 2020](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/aws-cost-explorer-oct-to-dec-2020.png)
 <center><i>The costs of this platform, where v3 was deployed in mid-November 2020</i></center>
@@ -225,7 +225,7 @@ The work on version 3 began shortly after the start of our cloud migration.
 We were still migrating on-prem to the cloud when we put V3 on prod. That’s why you can see all costs have increased from October to December: we’ve doubled the number of viewers during the period.
 
 
-### Mono-AZs AutoScalingGroups <a name="MonoAZASGs"></a>
+### Mono-AZ AutoScalingGroups <a name="MonoAZASGs"></a>
 
 We have also replaced the multi-AZ AutoScalingGroups by several mono-AZ ones. It gives us a finer scaling that corresponds to the real needs in each AZ. The randomness of the round robin and client requests means that, from time to time, one AZ receives a significantly higher load than another.
 
@@ -250,15 +250,12 @@ The **Burst capacity** is what you may be able to consume temporarily before bei
 [Less visible in the EC2 documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/compute-optimized-instances.html#compute-network-performance), one can find the **baseline capacity** for each instance type.  
 For example, `c5.large` instances have a network bandwidth <ins>Up to 10Gbps</ins> (burst) but only <ins>0.75Gbps</ins> baseline bandwidth.
 
-The onset of problems occurs when HAProxy sends a little more traffic to one instance than to the others.  
-The bandwidth of the USP origin may be throttled at some point.  
-We will observe poor performance or even service interruptions of this server.
+Troubles start when HAProxy sends a little more traffic to one instance than to the others: USP origin's bandwidth may be throttled at some point… And we will observe poor performance or even service interruptions of this server.
 
 ![A server whose bandwidth is throttled (seen from CloudWatch)](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/a-server-whose-bandwidth-is-throttled.png)
 <center><i>A server whose bandwidth is throttled (seen from CloudWatch)</i></center>
 
-We added `observe layer7` to the `default-server` in our HAProxy backends.
-It allows to remove from load balancing a server that returns an HTTP error code (50x).
+We added `observe layer7` to the `default-server` in our HAProxy backends, to remove servers returning HTTP error codes (5xx) from its load-balancing.
 
 We also added the `retry` and `redispatch` options, which allow to retry a request sent to an unhealthy server on a healthy server. It's not optimal for the cache, but what matters is that a client's request is successfully answered.
 
@@ -284,7 +281,7 @@ Now, if a USP origin throttles on its network bandwidth or if there is a degrada
 We are working on adding an `agent-check`, so that the weight of the servers in HAProxy can be directly defined by an USP origin, if it detects that its bandwidth is throttled.
 
 
-### Adjust the hash balance factor so that the scaling is triggered correctly <a name="AdjustHashBalanceFactor"></a>
+### Adjust the hash balance factor to correctly trigger scaling <a name="AdjustHashBalanceFactor"></a>
 
 Our scaling depends on the average server utilization in an AutoScalingGroup. If a few servers are overloaded but the majority is not doing anything, <ins>we don't scale</ins>.
 
