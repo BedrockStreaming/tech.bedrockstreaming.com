@@ -113,7 +113,7 @@ We’re using **LUA** in the Nginx vhost, to cache these 65KB and 15B requests m
 ![Details on the composition of a USP origin](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/usp-origin-instance-detailed.png)
 <center><i>Details on the composition of a USP origin</i></center>
 
-We use Nginx for caching because we have a solid experience with it, under heavy load, on our on-prem edge servers, which each delivers up to 200Gbps of video traffic. We want to capitalize on this expertise and avoid spreading ourselves thin on multiple tools (eg. Apache Cache module).
+We use Nginx for caching because we have a solid experience with it, under heavy load, on our on-prem edge servers, which each delivers up to 200Gbps of video traffic. We want to capitalize on this expertise and avoid spreading ourselves thin on multiple tools (e.g, Apache Cache module).
 
 I recommend reading [the article published by unified streaming](https://www.unified-streaming.com/blog/part-2-optimizing-remote-object-storage-based-vod), which uses a similar method: caching via httpd directly.
 
@@ -248,7 +248,7 @@ Baseline capacity is the network bandwidth you can consume all the time.
 The **Burst capacity** is what you may be able to consume temporarily before being throttled to the baseline capacity.  
 [In the EC2 presentation](https://aws.amazon.com/ec2/instance-types/#Compute_Optimized), the value “Up to” refers to the burst.  
 [Less visible in the EC2 documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/compute-optimized-instances.html#compute-network-performance), one can find the **baseline capacity** for each instance type.  
-I.E: c5.large have a network bandwidth <ins>Up to 10Gbps</ins> (burst) but <ins>0.75Gbps</ins> baseline bandwidth.
+For example, `c5.large` instances have a network bandwidth <ins>Up to 10Gbps</ins> (burst) but only <ins>0.75Gbps</ins> baseline bandwidth.
 
 The onset of problems occurs when HAProxy sends a little more traffic to one instance than to the others.  
 The bandwidth of the USP origin may be throttled at some point.  
