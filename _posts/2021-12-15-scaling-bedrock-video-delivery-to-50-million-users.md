@@ -248,7 +248,7 @@ Baseline capacity is the network bandwidth you can consume all the time.
 The **Burst capacity** is what you may be able to consume temporarily before being throttled to the baseline capacity.  
 [In the EC2 presentation](https://aws.amazon.com/ec2/instance-types/#Compute_Optimized), the value “Up to” refers to the burst.  
 [Less visible in the EC2 documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/compute-optimized-instances.html#compute-network-performance), one can find the **baseline capacity** for each instance type.  
-I.E: c5.large have a network bandwidth __Up to 10Gbps__ (burst) but __0.75Gbps__ baseline bandwidth.  
+I.E: c5.large have a network bandwidth <ins>Up to 10Gbps</ins> (burst) but <ins>0.75Gbps</ins> baseline bandwidth.
 
 The onset of problems occurs when HAProxy sends a little more traffic to one instance than to the others.  
 The bandwidth of the USP origin may be throttled at some point.  
@@ -286,7 +286,7 @@ We have in the works the addition of an `agent-check`, so that the weight of the
 
 ### Adjust the hash balance factor so that the scaling is triggered correctly <a name="AdjustHashBalanceFactor"></a>
 
-Our scaling depends on the average server utilization in an AutoScalingGroup. If a few servers are overloaded but the majority is not doing anything, __we don't scale__.
+Our scaling depends on the average server utilization in an AutoScalingGroup. If a few servers are overloaded but the majority is not doing anything, <ins>we don't scale</ins>.
 
 But all content is not equally popular on our platforms. This affects Consistent Hashing which would result in few servers receiving way more traffic than others. Few servers would be overloaded and the majority would not do much.
 
