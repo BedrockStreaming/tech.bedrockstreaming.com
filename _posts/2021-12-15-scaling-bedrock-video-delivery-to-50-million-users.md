@@ -23,7 +23,7 @@ The purpose of this article is to show you the evolution of this cloud video del
 
 ## Table of Contents
 
-* What Streaming is
+* How we do streaming
 * Just In Time Packaging
 * Version 1: The quest for self
     * Local cache with Nginx
@@ -43,7 +43,7 @@ The purpose of this article is to show you the evolution of this cloud video del
     * Adjust the hash balance factor so that the scaling is triggered correctly
 * Conclusion
 
-## What Streaming is
+## How we do streaming
 
 To stream video, we cut each video file in 6 seconds chunks. The video player loads the associated manifest, which lists these pieces and in which order it must read them. It then downloads the first video chunk, plays it, then loads the second chunk, etc.
 
@@ -70,6 +70,7 @@ Once the packaging is done, there is no need to do these calculations anymore: i
 <center><i>Comparing Just-In-Time packaging with Offline Packaging</i></center>
 
 This poses a big cost problem. On AWS S3, you pay for data access (GET requests), as well as storage. The more you store, the more you pay and the more you access, the more you pay.  
+
 I.E: a 90mn video, played in Dash, is cut into 900 chunks plus a single Dash manifest. The same video in HLS, it's 900 different chunks and another manifest: 1802 files written on S3. Add the Smooth Streaming format and you get 2703 files stored on S3, for a single video.
 
 Offline packaging is interesting, but incompatible with our need to manage a large number of equipments and vast catalogs: tens of thousands of program hours per customer.
@@ -106,7 +107,7 @@ When a player requests a specific video chunk, it sends an HTTP request to HTTPD
 * load the specific chunk in the video according to the player’s information: bitrate, language, etc. (still on s3)
 
 For each video chunk called from a player, the USP module will make a new call to the S3 bucket, loading the same .Ism manifest and the same metadatas (first 65K and latest 15B).  
-To avoid these calls and reduce S3 costs by 60%, we added Nginx on these EC2s, between HTTPD and s3, to cache the manifest .Ism files and metadatas of .mp4 video files.  
+To avoid these calls and **reduce S3 costs by 60%**, we added Nginx on these EC2s, between HTTPD and s3, to cache the manifest .Ism files and metadatas of .mp4 video files.  
 We’re using **LUA** in the Nginx vhost, to cache these 65KB and 15B requests made by USP to the S3 bucket.
 
 ![Details on the composition of a USP origin](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/usp-origin-instance-detailed.png)
@@ -168,14 +169,15 @@ HAProxy is running on EC2 instances, in a dedicated AutoScalingGroup. As with th
 <center><i>v2 of our VOD platform</i></center>
 
 To send requests to USP origin, HAProxy needs to know all the healthy ec2 instances running in their AutoScalingGroup.  
-We started by using Consul, to automatically populate our haproxy backend with these USP servers.  
+We started by using Consul, to automatically populate our haproxy backend with these USP servers.
+
 See the [dedicated blog post](https://tech.bedrockstreaming.com/hsdo/) to know why we preferred to develop a tool dedicated to this task, which we called HAProxy Service Discovery Operator (HSDO).
 
 
 ### EC2 costs are reduced by using only Spot instances
 
 In addition, HSDO is very responsive to movements in the AutoScalingGroup, which allowed us to replace all ec2 On Demand instances with Spot instances.  
-And by all instances, I mean all USP servers (with cache), as well as HAProxy servers: 70% reduction in server costs.
+And by all instances, I mean all USP servers (with cache), as well as HAProxy servers: **70% reduction in server costs**.
 
 Note that replacing USP origins with Spot instances has almost no impact on the cache, as we follow the [AWS best practices for Spot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html): use many different instance types, be multi-AZ and use the "Capacity Optimized" strategy. We observe very few reclaims and in any case, they impact few servers among the great variety we use.
 
@@ -195,7 +197,7 @@ In addition, the cache speeds up the video packaging and we have reduced the ove
 ### EC2-other: the financial abyss
 
 EC2-other, in this case, means network traffic between Availability Zones.  
-The private network between two data centers (AZs) at AWS is re-billed and accounted for 48% of the bill for our VOD platforms at the time.
+The private network between two data centers (AZs) at AWS is re-billed and accounted for **48% of the bill** for our VOD platforms at the time.
 
 ![AWS Cost Explorer Octobre 2020](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/aws-cost-explorer-oct-2020.png)
 <center><i>AWS Cost Explorer Octobre 2020</i></center>
@@ -214,7 +216,7 @@ The idea is to do as well for half the price.
 HSDO has been updated so that each HAProxy only sends requests to USP origins of the same AZ.  
 It is still the Network Load Balancers that send traffic to the HAProxys, on multiple AZs.
 
-Removing inter-AZ traffic was not that much work to do and we quickly saw the difference: 45% cost savings.
+Removing inter-AZ traffic was not that much work to do and we quickly saw the difference: **45% cost savings**.
 
 ![The costs of this platform, where v3 was deployed in mid-November 2020](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/aws-cost-explorer-oct-to-dec-2020.png)
 <center><i>The costs of this platform, where v3 was deployed in mid-November 2020</i></center>
@@ -243,10 +245,10 @@ Since V3, we have not made any major changes. However, some optimizations were n
 On AWS, an EC2 instance has a baseline network capacity and a burst capacity ([see UserGuide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth)).  
 Baseline capacity is the network bandwidth you can consume all the time.
 
-The Burst capacity is what you may be able to consume temporarily before being throttled to the baseline capacity.  
+The **Burst capacity** is what you may be able to consume temporarily before being throttled to the baseline capacity.  
 [In the EC2 presentation](https://aws.amazon.com/ec2/instance-types/#Compute_Optimized), the value “Up to” refers to the burst.  
-[Less visible in the EC2 documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/compute-optimized-instances.html#compute-network-performance), one can find the baseline capacity for each instance type.  
-I.E: c5.large have a network bandwidth Up to 10Gbps (burst) but 0.75Gbps baseline bandwidth.  
+[Less visible in the EC2 documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/compute-optimized-instances.html#compute-network-performance), one can find the **baseline capacity** for each instance type.  
+I.E: c5.large have a network bandwidth __Up to 10Gbps__ (burst) but __0.75Gbps__ baseline bandwidth.  
 
 The onset of problems occurs when HAProxy sends a little more traffic to one instance than to the others.  
 The bandwidth of the USP origin may be throttled at some point.  
@@ -284,7 +286,7 @@ We have in the works the addition of an `agent-check`, so that the weight of the
 
 ### Adjust the hash balance factor so that the scaling is triggered correctly
 
-Our scaling depends on the average server utilization in an AutoScalingGroup. If a few servers are overloaded but the majority is not doing anything, we don't scale.
+Our scaling depends on the average server utilization in an AutoScalingGroup. If a few servers are overloaded but the majority is not doing anything, __we don't scale__.
 
 But all content is not equally popular on our platforms. This affects Consistent Hashing which would result in few servers receiving way more traffic than others. Few servers would be overloaded and the majority would not do much.
 
@@ -294,7 +296,7 @@ But all content is not equally popular on our platforms. This affects Consistent
 We want to benefit from Consistent Hashing while being able to scale on average consumption.
 This is what the Consistent Hashing with Bounded Loads allows: to benefit from the Consistent Hashing while balancing the load.
 
-The Bounded Loads are controlled by the hash-balance-factor option in HAProxy.  
+The Bounded Loads are controlled by the `hash-balance-factor` option in HAProxy.  
 [Given to the doc](http://cbonte.github.io/haproxy-dconv/2.3/snapshot/configuration.html#hash-balance-factor):  
 ```
 <factor> is the control for the maximum number of concurrent requests to
