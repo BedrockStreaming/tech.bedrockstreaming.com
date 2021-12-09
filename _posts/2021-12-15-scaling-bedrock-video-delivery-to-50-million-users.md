@@ -59,7 +59,7 @@ For example, a 90 minutes movie, with a duration of 6 seconds per chunk, means 9
 A client calls a manifest and chunks to play a video.  
 Depending on the format (Dash, HLS, Smooth) a client supports, it will request one of three kinds of manifests+chunks.
 
-The [Unified Streaming](https://www.unified-streaming.com/) software handles these calls. Unified Origin (which we call USP) fetches the associated video from the S3 bucket. It relies on a server manifest (.Ism file), stored with the video, to respond with the video format the client requested: Dash, HLS, etc.
+The [Unified Streaming](https://www.unified-streaming.com/) software handles these calls. Unified Origin (which we call USP) fetches the associated video from a AWS S3 bucket. It relies on a server manifest (.Ism file), stored with the video, to respond with the video format the client requested: Dash, HLS, etc.
 
 So, we store a complete video and its server manifest on S3, and USP provides the client with a client manifest and specific chunks: this is JIT packaging.
 
