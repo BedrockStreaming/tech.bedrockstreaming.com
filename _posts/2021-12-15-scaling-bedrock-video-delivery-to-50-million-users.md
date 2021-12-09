@@ -64,7 +64,7 @@ The [Unified Streaming](https://www.unified-streaming.com/) software handles the
 So, we store a complete video and its server manifest on S3, and USP provides the client with a client manifest and specific chunks: this is JIT packaging.
 
 Another way is to compute all the chunks and manifests in advance and write them to S3: this is offline packaging.  
-In this case, once packaging is done, there is no need to do these calculations anymore: it lightens the architecture and avoids the availability challenges of doing real-time calculations.
+In this case, once packaging is done, there is no need to do these calculations anymore: it lightens the architecture and avoids the availability challenges of doing real-time computing.
 
 ![Comparing Just-In-Time Packaging with Offline Packaging](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/jit-versus-offline-packaging.png)
 <center><i>Comparing Just-In-Time Packaging with Offline Packaging</i></center>
@@ -106,7 +106,7 @@ When a player requests a specific video chunk, it sends an HTTP request to HTTPD
 * load the video metadata, stored in the first 65KB and the last 15B of a .mp4 file on S3
 * load the specific chunk in the video, according to the player’s information: bitrate, language, etc. (still on S3)
 
-For each video chunk called from a player, the USP module does another call to the S3 bucket, loading the same .Ism manifest and the same metadata (first 65K and latest 15B).  
+For each video chunk called from a player, the USP module does another call to the S3 bucket, loading the same .ism manifest and the same metadata (first 65K and latest 15B).  
 To avoid these calls and **reduce S3 costs by 60%**, we added Nginx on these EC2s. It goes between HTTPD and S3, to cache the manifest .Ism files and metadata of .mp4 video files.  
 We’re using LUA in the Nginx vhost, to cache these 65KB and 15B requests made by USP to the S3 bucket.
 
@@ -179,7 +179,7 @@ See the [dedicated blog post](https://tech.bedrockstreaming.com/hsdo/) to know w
 In addition, HSDO is very responsive to movements in the AutoScalingGroup, which allowed us to replace all EC2 On Demand instances with Spot instances.  
 And by all instances, I mean all USP servers (with cache), as well as HAProxy servers: **70% reduction in server costs**.
 
-Note that replacing USP origins with Spot instances has almost no impact on the cache, as we follow the [AWS best practices for Spot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html): use many different instance types, be multi-AZ and use the "Capacity Optimized" strategy. We observe very few reclaims and in any case, they impact few servers among the great variety we use.
+Note that replacing USP origins with Spot instances has almost no impact on the cache, as we follow the [AWS best practices for Spot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html): use many different instance types, be multi-AZ and use the "Capacity Optimized" strategy. We observe very few reclaims and in any case, they impact just a few servers among the great variety we use.
 
 
 ### Production launch on this V2 <a name="ProductionLaunchOnV2"></a>
@@ -335,7 +335,7 @@ We had the opportunity to review our architecture three times, within a few week
 
 The v3 is not perfect, but it is quite well optimized, reliable and scalable.
 
-We are thinking about V4 and saving 20% of the costs by removing the NLB. We also identified some possible improvements, adding cache on HAProxy for example, or using HAProxy Agent Check so that the weight of the servers in HAProxy is driven directly by the servers, using the Amazon metrics on network performances. The performance of HAProxy on ARM is very promising, it will be worth testing.
+We are thinking about V4 and saving 20% of the costs by removing the NLB. We also identified some possible improvements, adding cache on HAProxy for example, or using HAProxy Agent Check so that the weight of the servers in HAProxy is driven directly by the servers, using the Amazon metrics on network performances. Another promising performance improvement could be to use HAProxy on ARM, it will be worth testing.
 
 In parallel, we also invest time on CMAF which is for us, the long-term objective.
 
