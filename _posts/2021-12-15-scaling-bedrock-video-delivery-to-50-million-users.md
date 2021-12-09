@@ -57,7 +57,7 @@ For example, a 90 minutes movie, with a duration of 6 seconds per chunk, means 9
 ## Just In Time Packaging <a name="JITP"></a>
 
 A client calls a manifest and chunks to play a video.  
-These calls are specific to the client using the Dash, HLS or Smooth formats.
+Depending on the format (Dash, HLS, Smooth) a client supports, it will request one of three kinds of manifests+chunks.
 
 The [Unified Streaming](https://www.unified-streaming.com/) software handles these calls. Unified Origin (which we call USP) fetches the associated video from the S3 bucket. It relies on a server manifest (.Ism file), stored with the video, to respond with the video format the client requested: Dash, HLS, etc.
 
@@ -66,12 +66,12 @@ So, we store a complete video and its server manifest on S3, and USP provides th
 Another way is to compute all the chunks and manifests in advance and write them to S3: this is offline packaging.  
 In this case, once packaging is done, there is no need to do these calculations anymore: it lightens the architecture and avoids the availability challenges of doing real-time calculations.
 
-![Comparing Just-In-Time packaging with Offline Packaging](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/jit-versus-offline-packaging.png)
-<center><i>Comparing Just-In-Time packaging with Offline Packaging</i></center>
+![Comparing Just-In-Time Packaging with Offline Packaging](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/jit-versus-offline-packaging.png)
+<center><i>Comparing Just-In-Time Packaging with Offline Packaging</i></center>
 
 Still, this causes a big cost problem. On AWS S3, you pay for data access (GET requests), as well as storage. The more you store, the more you pay and the more you access, the more you pay.  
 
-I.E: a 90mn video, played in Dash, is cut into 900 chunks plus a single Dash manifest. The same video in HLS, it's 900 different chunks and another manifest: 1802 files written on S3. Add the Smooth Streaming format and you get 2703 files stored on S3, for a single video.
+i.e, a 90mn video, played in Dash, is cut into 900 chunks plus a single Dash manifest. The same video in HLS, it's 900 different chunks and another manifest: 1802 files written on S3. Add the Smooth Streaming format and you get 2703 files stored on S3, for a single video.
 
 Offline packaging is interesting, but incompatible with our need to manage a large number of equipments and vast catalogs: tens of thousands of program hours per customer.
 
@@ -102,13 +102,13 @@ On EC2 instances, USP runs as a module of Apache HTTPD.
 
 When a player requests a specific video chunk, it sends an HTTP request to HTTPD. The USP module it embeds will:
 
-* load the according .Ism file from s3 (the server manifest)
-* load the video metadatas, stored in the first 65KB and the last 15B of a .mp4 file on s3
+* load the according .Ism file from S3 (the server manifest)
+* load the video metadata, stored in the first 65KB and the last 15B of a .mp4 file on S3
 * load the specific chunk in the video, according to the player’s information: bitrate, language, etc. (still on S3)
 
 For each video chunk called from a player, the USP module does another call to the S3 bucket, loading the same .Ism manifest and the same metadata (first 65K and latest 15B).  
-To avoid these calls and **reduce S3 costs by 60%**, we added Nginx on these EC2s, between HTTPD and s3, to cache the manifest .Ism files and metadatas of .mp4 video files.  
-We’re using **LUA** in the Nginx vhost, to cache these 65KB and 15B requests made by USP to the S3 bucket.
+To avoid these calls and **reduce S3 costs by 60%**, we added Nginx on these EC2s. It goes between HTTPD and S3, to cache the manifest .Ism files and metadata of .mp4 video files.  
+We’re using LUA in the Nginx vhost, to cache these 65KB and 15B requests made by USP to the S3 bucket.
 
 ![Details on the composition of a USP origin](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/usp-origin-instance-detailed.png)
 <center><i>Details on the composition of a USP origin</i></center>
@@ -120,7 +120,7 @@ I recommend reading [the article published by unified streaming](https://www.uni
 
 ### Network Load Balancer: manages TLS and helps with scaling <a name="NLB"></a>
 
-We’re using Network Load Balancers to offload TLS. And they are cheaper than Application Load Balancers that we don’t need.
+We’re using Network Load Balancers to offload TLS. They are cheaper than Application Load Balancers and we don't need to interact with the HTTP layer: this is not the role of the load balancer, we prefer to keep a [KISS principle](https://en.wikipedia.org/wiki/KISS_principle).
 
 The major advantage of NLBs is a single entry point (a CNAME domain name), which distributes the load over n EC2 instances. This is essential for auto-scaling: nothing to configure at the CDN level, the load balancer will distribute the load among all Ready instances, whether there are 2 or 1000.
 
@@ -136,14 +136,14 @@ We’re also using our on-prem Edge servers and other CDNs. Same, they all respe
 
 ### A first conclusion: V2 needs Consistent Hashing <a name="ConclusionOfV1"></a>
 
-V1 of this platform allowed our video teams to work quickly on new features and new software versions compared to on-prem. It was also new for infra teams: we wanted to understand how to scale the platform on AWS to meet our load requirements, making the best use of managed services and auto-scaling, which we did not have on-prem.
+V1 of this platform allowed our video teams to work on new features and new software versions quicker, compared to on-prem. It was also new for infra teams: we wanted to understand how to scale the platform on AWS to meet our load requirements, making the best use of managed services and auto-scaling, which we did not have on-prem.
 
 We have identified the problem of version 1 during our tests: the cache is ineffective under heavy loads. The Round Robin algorithm (used by the NLB) is not adequate in front of cache servers because each server will try to cache all the data and will not be specialized to a part of the data. The more requests we have, the more servers we will add and the less each server will have a relevant cache.
 
 ![Inefficiency of a Round Robin algorithm in front of cache servers](/images/posts/2021-11-18-hsdo/image5.png)
 <center><i>Inefficiency of a Round Robin algorithm in front of cache servers</i></center>
 
-To use the cache as much as possible, we need an adapted load balancing method: [consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing).
+To use the cache as much as possible, we need an adapted load balancing method: [Consistent Hashing](https://en.wikipedia.org/wiki/Consistent_hashing).
 
 ![Consistent Hashing is an ideal method for caches](/images/posts/2021-11-18-hsdo/image10.png)
 <center><i>Consistent Hashing is an ideal method for caches</i></center>
@@ -290,8 +290,8 @@ Our scaling depends on the average server utilization in an AutoScalingGroup. If
 
 But all contents on our platforms are not equally popular. This affects Consistent Hashing which would result in few servers receiving way more traffic than others. Few servers would be overloaded and the majority would not do much.
 
-![Graph showing few overloaded servers, using classic consistent hashing](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/consistent-hashing-inegality-legends.png)
-<center><i>Graph showing few overloaded servers, using classic consistent hashing</i></center>
+![Graph showing few overloaded servers, using classic Consistent Hashing](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/consistent-hashing-inegality-legends.png)
+<center><i>Graph showing few overloaded servers, using classic Consistent Hashing</i></center>
 
 We want to benefit from Consistent Hashing while being able to scale on average consumption.
 This is what Consistent Hashing with Bounded Loads allows: to benefit from Consistent Hashing, while balancing load.
