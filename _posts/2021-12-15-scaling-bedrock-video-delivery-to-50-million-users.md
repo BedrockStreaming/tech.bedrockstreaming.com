@@ -91,9 +91,10 @@ Let’s detail the components of this V1.
 ![v1 of our VOD platform](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/vod-usp-v1.png)
 <center><i>v1 of our VOD platform</i></center>
 
-Players send their requests to a CDN.  
-The CDN uses a network load balancer as its origin.  
-The network load balancer forwards requests using a Round Robin algorithm, to multiple AWS EC2 instances we call "USP Origin". These EC2 instances are controlled by an AutoScalingGroup and are dynamically scaled based on their network or CPU usage.
+1. Players send their requests to a CDN.
+2. The CDN uses a network load balancer as its origin.
+3. The network load balancer forwards requests using a Round Robin algorithm, to multiple AWS EC2 instances we call "USP Origin". These EC2 instances are controlled by an AutoScalingGroup and are dynamically scaled based on their network or CPU usage.
+4. EC2s retrieve files from the S3 bucket.
 
 
 ### Local cache with Nginx <a name="LocalCacheWithNginx"></a>
