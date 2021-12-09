@@ -59,7 +59,7 @@ For example, a 90 minutes movie, with a duration of 6 seconds per chunk, means 9
 A client calls a manifest and chunks to play a video.  
 Depending on the format (Dash, HLS, Smooth) a client supports, it will request one of three kinds of manifests+chunks.
 
-The [Unified Streaming](https://www.unified-streaming.com/) software handles these calls. Unified Origin (which we call USP) fetches the associated video from a AWS S3 bucket. It relies on a server manifest (.Ism file), stored with the video, to respond with the video format the client requested: Dash, HLS, etc.
+The [Unified Streaming](https://www.unified-streaming.com/) software handles these calls. Unified Origin (which we call USP) fetches the associated video from a AWS S3 bucket. It relies on a server manifest (.ism file), stored with the video, to respond with the video format the client requested: Dash, HLS, etc.
 
 So, we store a complete video and its server manifest on S3, and USP provides the client with a client manifest and specific chunks: this is JIT packaging.
 
@@ -102,12 +102,12 @@ On EC2 instances, USP runs as a module of Apache HTTPD.
 
 When a player requests a specific video chunk, it sends an HTTP request to HTTPD. The USP module it embeds will:
 
-* load the according .Ism file from S3 (the server manifest)
+* load the according .ism file from S3 (the server manifest)
 * load the video metadata, stored in the first 65KB and the last 15B of a .mp4 file on S3
 * load the specific chunk in the video, according to the player’s information: bitrate, language, etc. (still on S3)
 
 For each video chunk called from a player, the USP module does another call to the S3 bucket, loading the same .ism manifest and the same metadata (first 65K and latest 15B).  
-To avoid these calls and **reduce S3 costs by 60%**, we added Nginx on these EC2s. It goes between HTTPD and S3, to cache the manifest .Ism files and metadata of .mp4 video files.  
+To avoid these calls and **reduce S3 costs by 60%**, we added Nginx on these EC2s. It goes between HTTPD and S3, to cache the manifest .ism files and metadata of .mp4 video files.  
 We’re using LUA in the Nginx vhost, to cache these 65KB and 15B requests made by USP to the S3 bucket.
 
 ![Details on the composition of a USP origin](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/usp-origin-instance-detailed.png)
