@@ -23,7 +23,7 @@ The purpose of this article is to show you the evolution of this cloud video del
 
 ## Table of Contents
 
-* How we do streaming
+* [How we do streaming](#WhatStreamingIs)
 * Just In Time Packaging
 * Version 1: The quest for self
     * Local cache with Nginx
@@ -43,7 +43,7 @@ The purpose of this article is to show you the evolution of this cloud video del
     * Adjust the hash balance factor so that the scaling is triggered correctly
 * Conclusion
 
-## How we do streaming
+## How we do streaming <a name="WhatStreamingIs"></a>
 
 To stream video, we cut each video file in 6 seconds chunks. The video player loads the associated manifest, which lists these pieces and in which order it must read them. It then downloads the first video chunk, plays it, then loads the second chunk, etc.
 
