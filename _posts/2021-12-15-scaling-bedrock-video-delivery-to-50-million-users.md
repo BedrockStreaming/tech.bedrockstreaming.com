@@ -158,7 +158,7 @@ With Consistent Hashing, we can send all requests for the same video to the same
 V2 will be used in production, with thousands of requests per second: we need it to handle the load, to be reliable and robust.  
 According to our strong experience with HAProxy, we know that it is able to do [Consistent Hashing with Bounded Loads](https://www.haproxy.com/user-spotlight-series/haproxy-load-balancing-at-vimeo/), which is exactly what we need.
 
-We started by adding haproxy servers between the load balancer and the USP servers.
+We started by adding HAProxy servers between the load balancer and the USP servers.
 
 
 ### HAProxy to make Consistent Hashing <a name="HaproxyConsistentHashing"></a>
@@ -169,14 +169,14 @@ HAProxy is running on EC2 instances, in a dedicated AutoScalingGroup. As with th
 <center><i>v2 of our VOD platform</i></center>
 
 To send requests to USP origin, HAProxy needs to know all the healthy EC2 instances running in their AutoScalingGroup.  
-We started by using Consul, to automatically populate our haproxy backend with these USP servers.
+We started by using Consul, to automatically populate our HAProxy backend with these USP servers.
 
 See the [dedicated blog post](https://tech.bedrockstreaming.com/hsdo/) to know why we preferred to develop a tool dedicated to this task, which we called HAProxy Service Discovery Operator (HSDO).
 
 
 ### EC2 costs are reduced by using only Spot instances <a name="EC2SpotInstances"></a>
 
-In addition, HSDO is very responsive to movements in the AutoScalingGroup, which allowed us to replace all ec2 On Demand instances with Spot instances.  
+In addition, HSDO is very responsive to movements in the AutoScalingGroup, which allowed us to replace all EC2 On Demand instances with Spot instances.  
 And by all instances, I mean all USP servers (with cache), as well as HAProxy servers: **70% reduction in server costs**.
 
 Note that replacing USP origins with Spot instances has almost no impact on the cache, as we follow the [AWS best practices for Spot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html): use many different instance types, be multi-AZ and use the "Capacity Optimized" strategy. We observe very few reclaims and in any case, they impact few servers among the great variety we use.
@@ -279,7 +279,7 @@ defaults
    default-server     inter 1s fall 1 rise 10 observe layer7
 ```
 
-Now, if a USP origin throttles on its network bandwidth or if there is a degradation of service, haproxy will immediately redispatch the request to another server.
+Now, if a USP origin throttles on its network bandwidth or if there is a degradation of service, HAProxy will immediately redispatch the request to another server.
 
 We are working on adding an `agent-check`, so that the weight of the servers in HAProxy can be directly defined by an USP origin, if it detects that its bandwidth is throttled.
 
