@@ -40,7 +40,7 @@ The purpose of this article is to show you the evolution of this cloud video del
     * Mono-AZs AutoScalingGroups
 * Optimizations
     * Adapt HAProxy config for EC2 bandwidth throttling
-    * Adjust the hash balance factor so that the scaling is triggered correctly
+    * Adjust the hash balance factor to correctly trigger scaling
 * Conclusion
 
 ## How we do streaming <a name="HowWeDoStreaming"></a>
