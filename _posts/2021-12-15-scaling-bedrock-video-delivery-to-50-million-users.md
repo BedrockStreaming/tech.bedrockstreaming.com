@@ -330,7 +330,7 @@ There may be contents much more solicited than others, the load will be balanced
 
 ## Conclusion <a name="conclusion"></a>
 
-We migrated our VOD to the cloud, moving from static servers to an end-to-end auto-scaling and multi-AZ infrastructure. We are now able to handle very high loads, which we could not do on-premise.  
+We migrated our video delivery to the cloud, moving from static servers to an end-to-end auto-scaling and multi-AZ infrastructure. We are now able to handle very high loads, which we could not do on-premise.  
 We had the opportunity to review our architecture three times, within a few weeks of each other, even though the migration had begun.
 
 The v3 is not perfect, but it is quite well optimized, reliable and scalable.
