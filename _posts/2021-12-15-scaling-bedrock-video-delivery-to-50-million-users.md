@@ -80,7 +80,7 @@ The player is able to chunk the video itself by adding the HTTP header `Range: B
 Many devices, especially connected TVs or old Android versions, are not compatible with CMAF, which is why the rest of this article will focus on Dash/HLS in JITP.
 
 
-## Version 1: The quest for self
+## Version 1: The quest for self <a name="version1"></a>
 
 We were using USP on-prem. We decided to migrate it to the AWS cloud.
 
