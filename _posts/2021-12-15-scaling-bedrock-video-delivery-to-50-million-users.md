@@ -16,7 +16,7 @@ image:
 language: en
 ---
 
-Here's our journey to migrate tens of thousands of videos accessed by millions of users to the cloud. How we minimized our costs without losing the biggest benefit of the cloud: scaling.
+Here's our journey to migrate tens of thousands of videos, accessed by millions of users, to the cloud. How we minimized our costs without losing the biggest benefit of the cloud: scaling.
 
 The purpose of this article is to show you the evolution of this cloud video delivery platform, from the first draft to the current version.
 
@@ -59,17 +59,17 @@ For example, a 90 minutes movie, with a duration of 6 seconds per chunk, means 9
 A client calls a manifest and chunks to play a video.  
 These calls are specific to the client using the Dash, HLS or Smooth formats.
 
-The [Unified Streaming](https://www.unified-streaming.com/) software is used to receive these calls. Unified Origin (which we call USP) fetches the associated video from the S3 bucket. It relies on a server manifest (.Ism files), stored with the video, to respond specifically to the client: in Dash, HLS, etc.
+The [Unified Streaming](https://www.unified-streaming.com/) software handles these calls. Unified Origin (which we call USP) fetches the associated video from the S3 bucket. It relies on a server manifest (.Ism file), stored with the video, to respond with the video format the client requested: Dash, HLS, etc.
 
-So we store on the S3 side a complete video and its server manifest and USP provides the client with a client manifest and specific chunks: this is JIT packaging.
+So, we store a complete video and its server manifest on S3, and USP provides the client with a client manifest and specific chunks: this is JIT packaging.
 
 Another way is to compute all the chunks and manifests in advance and write them to S3: this is offline packaging.  
-Once the packaging is done, there is no need to do these calculations anymore: it lightens the architecture and avoids the availability problems of doing real-time calculations.
+In this case, once packaging is done, there is no need to do these calculations anymore: it lightens the architecture and avoids the availability challenges of doing real-time calculations.
 
 ![Comparing Just-In-Time packaging with Offline Packaging](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/jit-versus-offline-packaging.png)
 <center><i>Comparing Just-In-Time packaging with Offline Packaging</i></center>
 
-This poses a big cost problem. On AWS S3, you pay for data access (GET requests), as well as storage. The more you store, the more you pay and the more you access, the more you pay.  
+Still, this causes a big cost problem. On AWS S3, you pay for data access (GET requests), as well as storage. The more you store, the more you pay and the more you access, the more you pay.  
 
 I.E: a 90mn video, played in Dash, is cut into 900 chunks plus a single Dash manifest. The same video in HLS, it's 900 different chunks and another manifest: 1802 files written on S3. Add the Smooth Streaming format and you get 2703 files stored on S3, for a single video.
 
@@ -93,7 +93,7 @@ Let’s detail the components of this V1.
 
 Players send their requests to a CDN.  
 The CDN uses a network load balancer as its origin.  
-The network load balancer forwards requests using a Round Robin algorithm, to multiple AWS EC2 instances that we call "USP Origin". These EC2 instances are controlled by an AutoScalingGroup and are dynamically scaled based on their network or CPU usage.
+The network load balancer forwards requests using a Round Robin algorithm, to multiple AWS EC2 instances we call "USP Origin". These EC2 instances are controlled by an AutoScalingGroup and are dynamically scaled based on their network or CPU usage.
 
 
 ### Local cache with Nginx <a name="LocalCacheWithNginx"></a>
@@ -104,23 +104,23 @@ When a player requests a specific video chunk, it sends an HTTP request to HTTPD
 
 * load the according .Ism file from s3 (the server manifest)
 * load the video metadatas, stored in the first 65KB and the last 15B of a .mp4 file on s3
-* load the specific chunk in the video according to the player’s information: bitrate, language, etc. (still on s3)
+* load the specific chunk in the video, according to the player’s information: bitrate, language, etc. (still on S3)
 
-For each video chunk called from a player, the USP module will make a new call to the S3 bucket, loading the same .Ism manifest and the same metadatas (first 65K and latest 15B).  
+For each video chunk called from a player, the USP module does another call to the S3 bucket, loading the same .Ism manifest and the same metadata (first 65K and latest 15B).  
 To avoid these calls and **reduce S3 costs by 60%**, we added Nginx on these EC2s, between HTTPD and s3, to cache the manifest .Ism files and metadatas of .mp4 video files.  
 We’re using **LUA** in the Nginx vhost, to cache these 65KB and 15B requests made by USP to the S3 bucket.
 
 ![Details on the composition of a USP origin](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/usp-origin-instance-detailed.png)
 <center><i>Details on the composition of a USP origin</i></center>
 
-We use Nginx for caching because we have a solid experience with Nginx under heavy loads on our on-prem edge servers, each delivering up to 200Gbps of video traffic. We want to capitalize on this expertise and avoid spreading ourselves thin on multiple tools (eg. Apache Cache module).
+We use Nginx for caching because we have a solid experience with it, under heavy load, on our on-prem edge servers, which each delivers up to 200Gbps of video traffic. We want to capitalize on this expertise and avoid spreading ourselves thin on multiple tools (eg. Apache Cache module).
 
-I recommend to read [the article published by unified streaming](https://www.unified-streaming.com/blog/part-2-optimizing-remote-object-storage-based-vod), which uses a similar method: caching via httpd directly.
+I recommend reading [the article published by unified streaming](https://www.unified-streaming.com/blog/part-2-optimizing-remote-object-storage-based-vod), which uses a similar method: caching via httpd directly.
 
 
 ### Network Load Balancer: manages TLS and helps with scaling <a name="NLB"></a>
 
-We’re using Network Load Balancers, as they’re able to offload TLS and are cheaper than Application Load Balancers that we don’t need.
+We’re using Network Load Balancers to offload TLS. And they are cheaper than Application Load Balancers that we don’t need.
 
 The major advantage of NLBs is a single entry point (a CNAME domain name), which distributes the load over n EC2 instances. This is essential for auto-scaling: nothing to configure at the CDN level, the load balancer will distribute the load among all Ready instances, whether there are 2 or 1000.
 
@@ -129,16 +129,16 @@ AWS managed load balancers are also interesting because certificates are auto-re
 
 ### Content Delivery Network: Keep It Simple and Stupid <a name="CDN"></a>
 
-We’re using Cloudfront CDN with a basic configuration: we respect standards and use Cache-Control header.
+We’re using Cloudfront CDN with a basic configuration: we respect standards and use `Cache-Control` header.
 
-We’re also using our on-prem Edge servers and other CDNs. Same, they all respect the RFCs on the HTTP protocol and we provide a valid Cache-Control header to be CDN agnostic.
+We’re also using our on-prem Edge servers and other CDNs. Same, they all respect the HTTP protocol RFCs and we provide a valid `Cache-Control` header to be CDN agnostic.
 
 
 ### A first conclusion: V2 needs Consistent Hashing <a name="ConclusionOfV1"></a>
 
 V1 of this platform allowed our video teams to work quickly on new features and new software versions compared to on-prem. It was also new for infra teams: we wanted to understand how to scale the platform on AWS to meet our load requirements, making the best use of managed services and auto-scaling, which we did not have on-prem.
 
-We have identified the problem of version 1 during our tests: the cache is ineffective under heavy loads. The Round Robin algorithm (used by the NLB) is not adequate in front of cache servers because each server will try to cache all the data and will not be specialized to a part of the data. The more requests we will have, the more servers we will add and the less each server will have a relevant cache.
+We have identified the problem of version 1 during our tests: the cache is ineffective under heavy loads. The Round Robin algorithm (used by the NLB) is not adequate in front of cache servers because each server will try to cache all the data and will not be specialized to a part of the data. The more requests we have, the more servers we will add and the less each server will have a relevant cache.
 
 ![Inefficiency of a Round Robin algorithm in front of cache servers](/images/posts/2021-11-18-hsdo/image5.png)
 <center><i>Inefficiency of a Round Robin algorithm in front of cache servers</i></center>
@@ -163,12 +163,12 @@ We started by adding haproxy servers between the load balancer and the USP serve
 
 ### HAProxy to make Consistent Hashing <a name="HaproxyConsistentHashing"></a>
 
-HAProxy is running on EC2 instances, in a dedicated AutoScalingGroup. As with the USP AutoScalingGroup, this one scales with AWS scaling policies: network bandwidth or CPU consumption. We can launch hundreds of HAProxy servers if we need to with independent scaling (but often linked) to USP servers.
+HAProxy is running on EC2 instances, in a dedicated AutoScalingGroup. As with the USP AutoScalingGroup, this one scales with AWS scaling policies: network bandwidth or CPU consumption. We can launch hundreds of HAProxy servers if we need to, and their scaling is independent from the number of USP servers (but they are often linked).
 
 ![v2 of our VOD platform](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/vod-usp-v2.png)
 <center><i>v2 of our VOD platform</i></center>
 
-To send requests to USP origin, HAProxy needs to know all the healthy ec2 instances running in their AutoScalingGroup.  
+To send requests to USP origin, HAProxy needs to know all the healthy EC2 instances running in their AutoScalingGroup.  
 We started by using Consul, to automatically populate our haproxy backend with these USP servers.
 
 See the [dedicated blog post](https://tech.bedrockstreaming.com/hsdo/) to know why we preferred to develop a tool dedicated to this task, which we called HAProxy Service Discovery Operator (HSDO).
@@ -199,8 +199,8 @@ In addition, the cache speeds up the video packaging and we have reduced the ove
 EC2-other, in this case, means network traffic between Availability Zones.  
 The private network between two data centers (AZs) at AWS is re-billed and accounted for **48% of the bill** for our VOD platforms at the time.
 
-![AWS Cost Explorer Octobre 2020](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/aws-cost-explorer-oct-2020.png)
-<center><i>AWS Cost Explorer Octobre 2020</i></center>
+![AWS Cost Explorer, October 2020](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/aws-cost-explorer-oct-2020.png)
+<center><i>AWS Cost Explorer, October 2020</i></center>
 
 When HAProxy servers sent/received traffic from USP servers, the latter may not be in the same Availability Zone and the traffic between both was billed full price.
 
@@ -213,8 +213,8 @@ The idea is to do as well for half the price.
 
 ### Be multi-AZ without inter-AZ traffic <a name="NoInterAZTraffic"></a>
 
-HSDO has been updated so that each HAProxy only sends requests to USP origins of the same AZ.  
-It is still the Network Load Balancers that send traffic to the HAProxys, on multiple AZs.
+We have updated HSDO so each HAProxy only sends requests to USP origins of the same AZ.  
+And the Network Load Balancers still send traffic to the HAProxys, on multiple AZs.
 
 Removing inter-AZ traffic was not that much work to do and we quickly saw the difference: **45% cost savings**.
 
@@ -227,7 +227,7 @@ We were still migrating on-prem to the cloud when we put V3 on prod. That’s wh
 
 ### Mono-AZs AutoScalingGroups <a name="MonoAZASGs"></a>
 
-We have also replaced the multi-AZ AutoScalingGroups by several mono-AZs. It brings us a finer scaling that corresponds to the real needs in each AZ. The randomness of the round robin and client requests means that, from time to time, one AZ receives a significantly higher load than another.
+We have also replaced the multi-AZ AutoScalingGroups by several mono-AZ ones. It gives us a finer scaling that corresponds to the real needs in each AZ. The randomness of the round robin and client requests means that, from time to time, one AZ receives a significantly higher load than another.
 
 ![v3 of our VOD platform](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/vod-usp-v3.png)
 <center><i>v3 of our VOD platform</i></center>
@@ -238,7 +238,7 @@ It makes us all the more resilient to an AZ failure.
 
 ## Optimizations <a name="Optimizations"></a>
 
-Since V3, we have not made any major changes. However, some optimizations were necessary.
+Since V3, we have not made any major architectural changes. However, some optimizations were necessary.
 
 ### Adapt HAProxy config for EC2 bandwidth throttling <a name="AdaptHaproxyForEC2Throttling"></a>
 
@@ -260,7 +260,7 @@ We will observe poor performance or even service interruptions of this server.
 We added `observe layer7` to the `default-server` in our HAProxy backends.
 It allows to remove from load balancing a server that returns an HTTP error code (50x).
 
-We also added the `retry` and `redispatch` options, which allows to retry a request sent to an unhealthy server on a healthy server. It's not optimal for the cache, but the important thing is that a client's request is successfully answered.
+We also added the `retry` and `redispatch` options, which allow to retry a request sent to an unhealthy server on a healthy server. It's not optimal for the cache, but what matters is that a client's request is successfully answered.
 
 We observed that with throttled bandwidth, the connection time from HAProxy to a USP server increases dramatically.
 So we’ve also reduced `timeout connect` to 20 milliseconds.
@@ -279,22 +279,22 @@ defaults
    default-server     inter 1s fall 1 rise 10 observe layer7
 ```
 
-From there, if a USP origin throttles on its network bandwidth or if there is a degradation of service, haproxy will immediately redispatch the request to another server.
+Now, if a USP origin throttles on its network bandwidth or if there is a degradation of service, haproxy will immediately redispatch the request to another server.
 
-We have in the works the addition of an `agent-check`, so that the weight of the servers in HAProxy can be directly defined by an USP origin, if it detects that its bandwidth is throttled.
+We are working on adding an `agent-check`, so that the weight of the servers in HAProxy can be directly defined by an USP origin, if it detects that its bandwidth is throttled.
 
 
 ### Adjust the hash balance factor so that the scaling is triggered correctly <a name="AdjustHashBalanceFactor"></a>
 
 Our scaling depends on the average server utilization in an AutoScalingGroup. If a few servers are overloaded but the majority is not doing anything, <ins>we don't scale</ins>.
 
-But all content is not equally popular on our platforms. This affects Consistent Hashing which would result in few servers receiving way more traffic than others. Few servers would be overloaded and the majority would not do much.
+But all contents on our platforms are not equally popular. This affects Consistent Hashing which would result in few servers receiving way more traffic than others. Few servers would be overloaded and the majority would not do much.
 
 ![Graph showing few overloaded servers, using classic consistent hashing](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/consistent-hashing-inegality-legends.png)
 <center><i>Graph showing few overloaded servers, using classic consistent hashing</i></center>
 
 We want to benefit from Consistent Hashing while being able to scale on average consumption.
-This is what the Consistent Hashing with Bounded Loads allows: to benefit from the Consistent Hashing while balancing the load.
+This is what Consistent Hashing with Bounded Loads allows: to benefit from Consistent Hashing, while balancing load.
 
 The Bounded Loads are controlled by the `hash-balance-factor` option in HAProxy.  
 [Given to the doc](http://cbonte.github.io/haproxy-dconv/2.3/snapshot/configuration.html#hash-balance-factor):  
@@ -310,7 +310,7 @@ We played the same load test, once using classic Consistent Hashing, a second ti
 <center><i>Graph showing the effects of Bounded Loads over Consistent Hashing</i></center>
 
 We did dozens of load tests before finding the best value for our use: 140.  
-For each load test, we looked at the evolution of :
+For each load test, we looked at the evolution of:
 
 * Nginx Cache Hit Ratio
 * Number of requests to S3
@@ -334,7 +334,7 @@ There may be contents much more solicited than others, the load will be balanced
 ## Conclusion <a name="conclusion"></a>
 
 We migrated our VOD to the cloud, moving from static servers to an end-to-end auto-scaling and multi-AZ infrastructure. We are now able to handle very high loads, which we could not do on-premise.  
-We had the opportunity to review our architecture 3 times, within a few weeks of each other, even though the migration had begun.
+We had the opportunity to review our architecture three times, within a few weeks of each other, even though the migration had begun.
 
 The v3 is not perfect, but it is quite well optimized, reliable and scalable.
 
