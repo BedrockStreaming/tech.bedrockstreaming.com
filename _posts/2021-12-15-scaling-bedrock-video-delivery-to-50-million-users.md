@@ -24,24 +24,24 @@ The purpose of this article is to show you the evolution of this cloud video del
 ## Table of Contents
 
 * [How we do streaming](#HowWeDoStreaming)
-* Just In Time Packaging
-* Version 1: The quest for self
-    * Local cache with Nginx
-    * Network Load Balancer: manages TLS and helps with scaling
-    * Content Delivery Network: Keep it Simple and Stupid
-    * A first conclusion: V2 needs Consistent Hashing
-* Version 2: Let the requests flow
-    * HAProxy to make Consistent Hashing
-    * EC2 costs are reduced by using only Spot instances
-    * Production launch on this V2
-    * EC2-other: the financial abyss
-* Version 3: Cost Explorer Driven Development
-    * Be multi-AZ without inter-AZ traffic
-    * Mono-AZs AutoScalingGroups
-* Optimizations
-    * Adapt HAProxy config for EC2 bandwidth throttling
-    * Adjust the hash balance factor to correctly trigger scaling
-* Conclusion
+* [Just In Time Packaging](#JITP)
+* [Version 1: The quest for self](#version1)
+    * [Local cache with Nginx](#LocalCacheWithNginx)
+    * [Network Load Balancer: manages TLS and helps with scaling](#NLB)
+    * [Content Delivery Network: Keep it Simple and Stupid](#CDN)
+    * [A first conclusion: V2 needs Consistent Hashing](#ConclusionOfV1)
+* [Version 2: Let the requests flow](#version2)
+    * [HAProxy to make Consistent Hashing](#HaproxyConsistentHashing)
+    * [EC2 costs are reduced by using only Spot instances](#EC2SpotInstances)
+    * [Production launch on this V2](#ProductionLaunchOnV2)
+    * [EC2-other: the financial abyss](#EC2Other)
+* [Version 3: Cost Explorer Driven Development](#version3)
+    * [Be multi-AZ without inter-AZ traffic](#NoInterAZTraffic)
+    * [Mono-AZs AutoScalingGroups](#MonoAZASGs)
+* [Optimizations](#Optimizations)
+    * [Adapt HAProxy config for EC2 bandwidth throttling](#AdaptHaproxyForEC2Throttling)
+    * [Adjust the hash balance factor to correctly trigger scaling](#AdjustHashBalanceFactor)
+* [Conclusion](#conclusion)
 
 ## How we do streaming <a name="HowWeDoStreaming"></a>
 
@@ -54,7 +54,7 @@ A video is composed of several chunks.
 For example, a 90 minutes movie, with a duration of 6 seconds per chunk, means 90×60÷6=900 video chunks called from the player plus another 900 audio chunks. A total of 1800 different chunks for a single video.
 
 
-## Just In Time Packaging <a name="jit"></a>
+## Just In Time Packaging <a name="JITP"></a>
 
 A client calls a manifest and chunks to play a video.  
 These calls are specific to the client using the Dash, HLS or Smooth formats.
@@ -96,7 +96,7 @@ The CDN uses a network load balancer as its origin.
 The network load balancer forwards requests using a Round Robin algorithm, to multiple AWS EC2 instances that we call "USP Origin". These EC2 instances are controlled by an AutoScalingGroup and are dynamically scaled based on their network or CPU usage.
 
 
-### Local cache with Nginx <a name="localCache"></a>
+### Local cache with Nginx <a name="LocalCacheWithNginx"></a>
 
 On EC2 instances, USP runs as a module of Apache HTTPD.
 
@@ -118,7 +118,7 @@ We use Nginx for caching because we have a solid experience with Nginx under hea
 I recommend to read [the article published by unified streaming](https://www.unified-streaming.com/blog/part-2-optimizing-remote-object-storage-based-vod), which uses a similar method: caching via httpd directly.
 
 
-### Network Load Balancer: manages TLS and helps with scaling <a name="nlb"></a>
+### Network Load Balancer: manages TLS and helps with scaling <a name="NLB"></a>
 
 We’re using Network Load Balancers, as they’re able to offload TLS and are cheaper than Application Load Balancers that we don’t need.
 
@@ -127,14 +127,14 @@ The major advantage of NLBs is a single entry point (a CNAME domain name), which
 AWS managed load balancers are also interesting because certificates are auto-renewed. Another advantage is that they are distributed over all the availability zones, which was one of our prerequisites in our multi-AZ strategy.
 
 
-### Content Delivery Network: Keep It Simple and Stupid <a name="cdn"></a>
+### Content Delivery Network: Keep It Simple and Stupid <a name="CDN"></a>
 
 We’re using Cloudfront CDN with a basic configuration: we respect standards and use Cache-Control header.
 
 We’re also using our on-prem Edge servers and other CDNs. Same, they all respect the RFCs on the HTTP protocol and we provide a valid Cache-Control header to be CDN agnostic.
 
 
-### A first conclusion: V2 needs Consistent Hashing <a name="firstConclusion"></a>
+### A first conclusion: V2 needs Consistent Hashing <a name="ConclusionOfV1"></a>
 
 V1 of this platform allowed our video teams to work quickly on new features and new software versions compared to on-prem. It was also new for infra teams: we wanted to understand how to scale the platform on AWS to meet our load requirements, making the best use of managed services and auto-scaling, which we did not have on-prem.
 
@@ -161,7 +161,7 @@ According to our strong experience with HAProxy, we know that it is able to do [
 We started by adding haproxy servers between the load balancer and the USP servers.
 
 
-### HAProxy to make Consistent Hashing <a name="haproxy"></a>
+### HAProxy to make Consistent Hashing <a name="HaproxyConsistentHashing"></a>
 
 HAProxy is running on EC2 instances, in a dedicated AutoScalingGroup. As with the USP AutoScalingGroup, this one scales with AWS scaling policies: network bandwidth or CPU consumption. We can launch hundreds of HAProxy servers if we need to with independent scaling (but often linked) to USP servers.
 
@@ -174,7 +174,7 @@ We started by using Consul, to automatically populate our haproxy backend with t
 See the [dedicated blog post](https://tech.bedrockstreaming.com/hsdo/) to know why we preferred to develop a tool dedicated to this task, which we called HAProxy Service Discovery Operator (HSDO).
 
 
-### EC2 costs are reduced by using only Spot instances <a name="spotInstance"></a>
+### EC2 costs are reduced by using only Spot instances <a name="EC2SpotInstances"></a>
 
 In addition, HSDO is very responsive to movements in the AutoScalingGroup, which allowed us to replace all ec2 On Demand instances with Spot instances.  
 And by all instances, I mean all USP servers (with cache), as well as HAProxy servers: **70% reduction in server costs**.
@@ -182,7 +182,7 @@ And by all instances, I mean all USP servers (with cache), as well as HAProxy se
 Note that replacing USP origins with Spot instances has almost no impact on the cache, as we follow the [AWS best practices for Spot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html): use many different instance types, be multi-AZ and use the "Capacity Optimized" strategy. We observe very few reclaims and in any case, they impact few servers among the great variety we use.
 
 
-### Production launch on this V2 <a name="productionLaunch"></a>
+### Production launch on this V2 <a name="ProductionLaunchOnV2"></a>
 
 The production launch of this V2 has confirmed the stability and performance of the platform. We were happy to see that our objectives were met, so we started migrating all our VOD content from on-prem to the cloud, video by video, client by client.
 
@@ -194,7 +194,7 @@ With Consistent Hashing, the cache becomes quite efficient and we saved 62% of c
 In addition, the cache speeds up the video packaging and we have reduced the overall origin response time. Win-win.
 
 
-### EC2-other: the financial abyss <a name="ec2Other"></a>
+### EC2-other: the financial abyss <a name="EC2Other"></a>
 
 EC2-other, in this case, means network traffic between Availability Zones.  
 The private network between two data centers (AZs) at AWS is re-billed and accounted for **48% of the bill** for our VOD platforms at the time.
@@ -211,7 +211,7 @@ It was necessary to quickly find a solution for these costs which torpedoed the 
 
 The idea is to do as well for half the price.
 
-### Be multi-AZ without inter-AZ traffic <a name="multiAZ"></a>
+### Be multi-AZ without inter-AZ traffic <a name="NoInterAZTraffic"></a>
 
 HSDO has been updated so that each HAProxy only sends requests to USP origins of the same AZ.  
 It is still the Network Load Balancers that send traffic to the HAProxys, on multiple AZs.
@@ -225,7 +225,7 @@ The work on version 3 began shortly after the start of our cloud migration.
 We were still migrating on-prem to the cloud when we put V3 on prod. That’s why you can see all costs have increased from October to December: we’ve doubled the number of viewers during the period.
 
 
-### Mono-AZs AutoScalingGroups <a name="monoAZ"></a>
+### Mono-AZs AutoScalingGroups <a name="MonoAZASGs"></a>
 
 We have also replaced the multi-AZ AutoScalingGroups by several mono-AZs. It brings us a finer scaling that corresponds to the real needs in each AZ. The randomness of the round robin and client requests means that, from time to time, one AZ receives a significantly higher load than another.
 
@@ -236,11 +236,11 @@ Since the NLBs are using a Round Robin algorithm, each HAProxy can receive traff
 It makes us all the more resilient to an AZ failure.
 
 
-## Optimizations <a name="optimization"></a>
+## Optimizations <a name="Optimizations"></a>
 
 Since V3, we have not made any major changes. However, some optimizations were necessary.
 
-### Adapt HAProxy config for EC2 bandwidth throttling <a name="adapHAProxy"></a>
+### Adapt HAProxy config for EC2 bandwidth throttling <a name="AdaptHaproxyForEC2Throttling"></a>
 
 On AWS, an EC2 instance has a baseline network capacity and a burst capacity ([see UserGuide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth)).  
 Baseline capacity is the network bandwidth you can consume all the time.
@@ -284,7 +284,7 @@ From there, if a USP origin throttles on its network bandwidth or if there is a 
 We have in the works the addition of an `agent-check`, so that the weight of the servers in HAProxy can be directly defined by an USP origin, if it detects that its bandwidth is throttled.
 
 
-### Adjust the hash balance factor so that the scaling is triggered correctly <a name="balanceFactor"></a>
+### Adjust the hash balance factor so that the scaling is triggered correctly <a name="AdjustHashBalanceFactor"></a>
 
 Our scaling depends on the average server utilization in an AutoScalingGroup. If a few servers are overloaded but the majority is not doing anything, __we don't scale__.
 
