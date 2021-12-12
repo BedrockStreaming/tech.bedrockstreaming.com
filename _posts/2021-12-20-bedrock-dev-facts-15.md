@@ -28,9 +28,7 @@ Le père noël 🎅🏻 vous apporte en avance une hotte pleine de [devfacts](/t
 
 > Un test de charge c'est comme un test PCR, c'est valable 3h
 
-# Les dangers de l'aléatoire
-
-Alors que deux devs sont en train de travailler en pair sur le même clavier.
+# Un pair programming un peu trop random
 
 > _ "Tu peux aller sur un site web random pour vérifier un truc ?"
 >
@@ -60,9 +58,7 @@ Quand tu envisages de refacto un bout de code, que tu regardes la PR à l’orig
 
 ![liste de commit affichés dans Github avec une série de fixup qui marquent un certain échec](/images/posts/dev-facts-15/first-try.png)
 
-# La fuite est envisageable
-
-En parlant d’un bug: :thinking_face: :sweat_smile:
+# Un bug ? Où ça un bug ?
 
 > Comme j’ai pas réussi à le résoudre, on peut le mettre en terminé
 
@@ -70,9 +66,7 @@ En parlant d’un bug: :thinking_face: :sweat_smile:
 
 > Est-ce que vous savez si on peut abort un `git rebase --abort` ?
 
-# Le retour compliqué
-
-Après 3 semaines et demi de congés
+# Retour de congés compliqué
 
 > Possible de m'unlock mon compte Okta ?
 
@@ -96,7 +90,7 @@ Après 3 semaines et demi de congés
 
 > On lui a demandé “qu’est-ce qu’on en fait ?“, ils nous a répondu “rien”
 
-# 🦜
+# Mon nom est Paco 🦜
 
 > il répète tout ce que tu dis ... mais en faux !
 
@@ -110,22 +104,20 @@ Après 3 semaines et demi de congés
 >
 > - Ne confond pas le hasard avec une compétence!
 
-# Difficulty driver design
+# Difficulty Driven Design
 
 > Sommes nous convaincus par le DDD ou des cons vaincus par le DDD ?
 
-# En y repensant
+# L'importance de se relire
 
-Dans une review de PR:
 > After more reflection I said bullshit.
 
 # Vers l'infini et l'au-delà
 
 > L'engineering manager m'a confirmé que l'on pourrait aller bien au delà, voire un peu plus...
 
-# C'est plus simple
+# Un env de dev ? Pourquoi faire ?
 
-En debuggant du code en staging:
 > -  Tu as testé en local ?
 > - Bien sûr que non. AH ça ne fonctionne pas en local
 
@@ -147,7 +139,7 @@ En parlant de monitoring:
 
 > Gris c'est bien parce que c'est ni vert ni rouge !
 
-# Ça troll sec !
+# La concurrence est rude
 
 > - (P.O. Mobile) : "C'est moche"
 > - (Tech Lead Android) : "C'est Android"
@@ -157,9 +149,7 @@ En parlant de monitoring:
 
 > La customiseration
 
-# C'est si grave ?
-
-Un collègue qui répond à une question étonnées d’une autre collègue nouvellement arrivée :
+# Le crime parfait
 
 > Ah oui, y’a des voyous ici qui mettent des espaces insécables dans les noms de fonctions.
 
@@ -204,11 +194,9 @@ Quand les lumières du bureaux s'allument par détecteur de mouvement:
 
 > Quand c'est rouge c'est que c'est OK.
 
-En parlant de la machine à café.
-
 # DEL
 
-Quand on supprime du code et on explique comment on l’ a fait dans la PR.
+Quand on supprime du code et qu'on explique comment on l'a fait dans la PR.
 
 > How?
 >
