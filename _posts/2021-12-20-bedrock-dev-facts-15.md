@@ -135,8 +135,6 @@ Quand tu envisages de refacto un bout de code, que tu regardes la PR à l’orig
 
 # Sa vision est basée sur le mouvement
 
-En parlant de monitoring:
-
 > Gris c'est bien parce que c'est ni vert ni rouge !
 
 # La concurrence est rude
@@ -176,8 +174,6 @@ Montre un raccourci clavier dans un outil de gestion de tickets
 > T'inquiète pas, j'ai roulé ma bosse, je gère !
 
 # Les geeks no-life
-
-Quand les lumières du bureaux s'allument par détecteur de mouvement:
 
 > - tu peux bouger stp pour la lumière
 > - pfff, j’ai bougé il y a pas 5mn
