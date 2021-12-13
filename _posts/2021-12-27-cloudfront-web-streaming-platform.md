@@ -29,10 +29,10 @@ Cela signifie qu'en prod aujourd'hui nous avons des server NodeJS Express qui to
 On a fait le choix du SSR il y a plusieurs années maintenant, pour deux besoins: la SEO et l'amélioration du temps de premier affichage sur des devices un peu lent.
 En plus des pages HTML, la plateforme web c'est aussi une collection immense d'assets qui permettent au site web de fonctionner: des bundles Javascript, du CSS, des images, des manifests.
 
-TODO => Afficher un graphe d'un pic de traffic important
+![Schema of our cloudfront origin architecture simplified](/images/posts/2022-01-03-cloudfront-web-streaming-platform/web-archi.png)
 
 Aujourd'hui nos clients ont des utilisateurs dans le monde entier, même si basés en Europe de l'ouest.
-On peut principalement penser à nos utilisteurs français ultra marins qui ont accès à nos services.
+On peut principalement penser à nos utilisateurs français ultra marins qui ont accès à nos services.
 
 **Pour répondre à ces problématiques, l'usage d'un CDN nous a semblé nécessaire.**
 
@@ -87,15 +87,36 @@ Cette bonne gestion du cache par niveau nous a même permis de faire une invalid
 
 ## Configuration used at Bedrock
 
-Dire qu'on a mis en place quelques pattern d'usage de Cloudfront depuis la migration dans le cloud.
-Dire qu'on en est content et que cela s'est montré très efficace lors d'events importants
+Après maintenant plusieurs années en prod avec Cloudfront, nous avons pu mettre en place quelques pattern d'utilisation qui nous ont bien aidés.
+Entre gain de stabilité, économies et amélioration de l'expérience utilisateur, vous y verrez différents avantages.
 
 ### Static fallback
 
-SSR to static si l'origin ne marche pas
-Par URL
-Cela donne une seconde chance à l'utilisateur
-Facile à mettre en place
+Notre application web React est rendue coté server par plusieurs pod NodeJs dans un cluster Kubernetes.
+Parfois, il peut arriver que ces pod crash ou bien que le cluster soit indisponible.
+
+> Que faire dans ce cas ? Sans serverside rendering pas de site.
+
+Nous avons donc défini une stratégie de fallback en cas de non-disponibilté de notre cluster ou de nos server nodejs.
+On possédait déjà cette feature avant que l'on migre ce projet dans le cloud AWS comme décrit [dans cet article](https://tech.bedrockstreaming.com/spa-mode-isomorphism-js/).
+
+Comme nous utilisons terraform pour gérer nos ressources AWS, il nous a suffit de générer une `custom_error_response` pour les code HTTP d'indispo du Cluster.
+
+```hcl
+// ... (inside cloudfront definition)
+custom_error_response {
+    error_code            = 504
+    error_caching_min_ttl = 300
+    response_code         = 200
+    response_page_path    = "/static-index.html"
+}
+// ...
+```
+
+Cela signifie donc que si le cluster nous retourne une _504 Gateway Timeout_ pour l'accès à une page du site rendue coté server, alors cloudfront va retourner le fichier `static_index.html` pour cette URL pendant `error_caching_min_ttl`.
+Tout repose sur le fait que nous déposons une version statique (Single page app statique) de notre application dans le bucket S3 de notre infrastructure.
+
+L'avantage de cette technique: uniquement les URL qui posent problèmes coté server vont passer en static.
 
 ### Keeping previous assets
 
@@ -127,6 +148,8 @@ Analyse SEO, suivi de metrics
 
 ## Conclusion
 
-Très content de ce service qui fait le job.
-Merci à Achraf Souk pour les bons conseils sur la mise en place de Cloudfront.
-Ouvrir sur le fait qu'on utilise pas que Cloudfront mais également Fastly
+Après plus de deux ans d'usage de Cloudfront pour distribuer l'application web, clairement nous ne sommes pas déçu.
+Stabilité, performance, permissivité des policy custom de cache, Cloudfront possède pas mal d'avantages.
+On se doit de remercier Achraf Souk qui nous a plusieurs fois conseillé sur notre usage de ce service afin d'en tirer le plus partie.
+
+N'arrive pas à trouver une phrase de fin pour ouvrir sur les CDN en disant qu'on utilise aussi fastly à Bedrock pour d'autre services.
