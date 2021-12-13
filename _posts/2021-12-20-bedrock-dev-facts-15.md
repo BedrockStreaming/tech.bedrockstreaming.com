@@ -38,7 +38,7 @@ Le père noël 🎅🏻 vous apporte en avance une hotte pleine de [devfacts](/t
 
 > Alors, pour X, tu as un gros tas d’éléments, pour Y un tas d’éléments, et pour Z, un petit tas d’éléments.
 
-# On est pas sortie du sable
+# On n'est pas sorti du sable
 
 > "stdout n'existe plus"
 
@@ -106,7 +106,7 @@ Quand tu envisages de refacto un bout de code, que tu regardes la PR à l’orig
 
 # Difficulty Driven Design
 
-> Sommes nous convaincus par le DDD ou des cons vaincus par le DDD ?
+> Sommes-nous convaincus par le DDD ou des cons vaincus par le DDD ?
 
 # L'importance de se relire
 
@@ -118,7 +118,7 @@ Quand tu envisages de refacto un bout de code, que tu regardes la PR à l’orig
 
 # Un env de dev ? Pourquoi faire ?
 
-> -  Tu as testé en local ?
+> - Tu as testé en local ?
 > - Bien sûr que non. AH ça ne fonctionne pas en local
 
 # Quand on vient annoncer une bonne nouvelle
