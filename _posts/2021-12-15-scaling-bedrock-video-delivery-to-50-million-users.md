@@ -222,6 +222,8 @@ Removing inter-AZ traffic was not that much work and we quickly saw the differen
 ![The costs of this platform, where v3 was deployed in mid-November 2020](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/aws-cost-explorer-oct-to-dec-2020.png)
 <center><i>The costs of this platform, where v3 was deployed in mid-November 2020</i></center>
 
+We can see on the picture above that the EC2-other costs (in orange) have disappeared in December.
+
 The work on version 3 began shortly after the start of our cloud migration.  
 We were still migrating on-prem to the cloud when we put V3 on prod. That’s why you can see all costs have increased from October to December: we’ve doubled the number of viewers during the period.
 
@@ -248,7 +250,8 @@ Baseline capacity is the network bandwidth you can consume all the time.
 
 The **Burst capacity** is what you may be able to consume temporarily before being throttled to the baseline capacity.  
 [In the EC2 presentation](https://aws.amazon.com/ec2/instance-types/#Compute_Optimized), the value “Up to” refers to the burst.  
-[Less visible in the EC2 documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/compute-optimized-instances.html#compute-network-performance), one can find the **baseline capacity** for each instance type (it is a public knowledge [since July 2021](https://github.com/awsdocs/amazon-ec2-user-guide/commit/918c7af6ffd07f7a6ee9820b769193baa2d11a5e#diff-6781907a81d73dd77e3aa2c749ff75e7dd434a71cbe570f548c498575ac4d5ddR159-R195)).  
+[Less visible in the EC2 documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/compute-optimized-instances.html#compute-network-performance), one can find the **baseline capacity** for each instance type (which is public knowledge [since July 2021](https://github.com/awsdocs/amazon-ec2-user-guide/commit/918c7af6ffd07f7a6ee9820b769193baa2d11a5e#diff-6781907a81d73dd77e3aa2c749ff75e7dd434a71cbe570f548c498575ac4d5ddR159-R195)).
+
 For example, `c5.large` instances have a network bandwidth <u>Up to 10Gbps</u> (burst) but only <u>0.75Gbps</u> baseline bandwidth.
 
 Troubles start when HAProxy sends a little more traffic to one instance than to the others: USP origin's bandwidth may be throttled at some point… And we will observe poor performance or even service interruptions of this server.
