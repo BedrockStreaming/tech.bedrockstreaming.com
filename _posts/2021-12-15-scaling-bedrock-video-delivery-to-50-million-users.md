@@ -132,12 +132,12 @@ AWS managed load balancers are also interesting because certificates are auto-re
 
 We’re using Cloudfront CDN with a basic configuration: we respect standards and use `Cache-Control` header.
 
-We’re also using our on-prem Edge servers and other CDNs. Same, they all respect the HTTP protocol RFCs and we provide a valid `Cache-Control` header to be CDN agnostic.
+We’re also using our on-prem Edge servers and other CDNs. Likewise, they all respect the HTTP protocol RFCs and we provide a valid `Cache-Control` header to be CDN agnostic.
 
 
 ### A first conclusion: V2 needs Consistent Hashing <a name="ConclusionOfV1"></a>
 
-V1 of this platform allowed our video teams to work on new features and new software versions quicker, compared to on-prem. It was also new for infra teams: we wanted to understand how to scale the platform on AWS to meet our load requirements, making the best use of managed services and auto-scaling, which we did not have on-prem.
+V1 of this platform allowed our video teams to work on new features and new software versions quicker, compared to on-prem. It was also new for Infra teams: we wanted to understand how to scale the platform on AWS to meet our load requirements, making the best use of managed services and auto-scaling, which we did not have on-prem.
 
 We have identified the problem of version 1 during our tests: the cache is ineffective under heavy loads. The Round Robin algorithm (used by the NLB) is not adequate in front of cache servers because each server will try to cache all the data and will not be specialized to a part of the data. The more requests we have, the more servers we will add and the less each server will have a relevant cache.
 
@@ -172,7 +172,7 @@ HAProxy is running on EC2 instances, in a dedicated AutoScalingGroup. As with th
 To send requests to USP origin, HAProxy needs to know all the healthy EC2 instances running in their AutoScalingGroup.  
 We started by using Consul, to automatically populate our HAProxy backend with these USP servers.
 
-See the [dedicated blog post](https://tech.bedrockstreaming.com/hsdo/) to know why we preferred to develop a tool dedicated to this task, which we called HAProxy Service Discovery Operator (HSDO).
+See the [dedicated blog post](https://tech.bedrockstreaming.com/hsdo/) to know why we preferred to develop a tool dedicated to this task, which we called HAProxy Service Discovery Orchestrator (HSDO).
 
 
 ### EC2 costs are reduced by using only Spot instances <a name="EC2SpotInstances"></a>
