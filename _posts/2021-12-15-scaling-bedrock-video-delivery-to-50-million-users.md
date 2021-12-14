@@ -205,7 +205,7 @@ The private network between two data centers (AZs) at AWS is re-billed and accou
 
 When HAProxy servers sent/received traffic from USP servers, the latter might not be in the same Availability Zone and the traffic between the two was charged at full price.
 
-It was necessary to quickly find a solution for these costs which torpedoed the project. We started the creation of version 3 as soon as we had these metrics from version 2, at the beginning of our cloud migration.
+It was necessary to quickly find a solution for these costs which torpedoed the project. We started the creation of version 3 as soon as we had these metrics from version 2, at the beginning of our VOD content migration.
 
 
 ## Version 3: Cost Explorer Driven Development <a name="version3"></a>
@@ -336,7 +336,7 @@ We had the opportunity to review our architecture three times, within a few week
 
 The v3 is not perfect, but it is quite well optimized, reliable and scalable.
 
-We are thinking about V4 and saving 20% of the costs by removing the NLB. We also identified some possible improvements, adding cache on HAProxy for example, or using HAProxy Agent Check so that the weight of the servers in HAProxy is driven directly by the servers, using the Amazon metrics on network performances. Another promising performance improvement could be to use HAProxy on ARM, it will be worth testing.
+We are thinking about V4 and saving 20% of the costs by removing the NLB. We also identified some possible improvements, adding cache on HAProxy for example, or using HAProxy Agent Check so that the weight of the servers in HAProxy is driven directly by the servers, using the Amazon metrics on network performances. Another promising performance improvement could be to use HAProxy on ARM as Graviton type instances offer significant discounts, it will be worth testing.
 
 In parallel, we also invest time on CMAF which is for us, the long-term objective.
 
