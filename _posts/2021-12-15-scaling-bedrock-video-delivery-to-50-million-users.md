@@ -61,7 +61,7 @@ Depending on the format (Dash, HLS, Smooth) a client supports, it will request o
 
 The [Unified Streaming](https://www.unified-streaming.com/) software handles these calls. Unified Origin (which we call USP) fetches the associated video from a AWS S3 bucket. It relies on a server manifest (.ism file), stored with the video, to respond with the video format the client requested: Dash, HLS, etc.
 
-So, we store a complete video and its server manifest on S3, and USP provides the client with a client manifest and specific chunks: this is JIT packaging.
+So, we store a complete video and its server manifest on S3, and USP provides the client with a client manifest and specific chunks: this is Just In Time Packaging (JITP).
 
 Another way is to compute all the chunks and manifests in advance and write them to S3: this is offline packaging.  
 In this case, once packaging is done, there is no need to do these calculations anymore: it lightens the architecture and avoids the availability challenges of doing real-time computing.
