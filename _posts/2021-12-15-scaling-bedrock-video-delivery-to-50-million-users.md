@@ -284,7 +284,7 @@ We are working on adding an `agent-check`, so that the weight of the servers in 
 
 ### Adjust the hash balance factor to correctly trigger scaling <a name="AdjustHashBalanceFactor"></a>
 
-Our scaling depends on the average server utilization in an AutoScalingGroup. If a few servers are overloaded but the majority is not doing anything, <ins>we don't scale</ins>.
+Our scaling depends on the average server utilization in an AutoScalingGroup. If a few servers are overloaded but the majority is not doing anything, <u>we don't scale</u>.
 
 But all contents on our platforms are not equally popular. This affects Consistent Hashing which would result in few servers receiving way more traffic than others. Few servers would be overloaded and the majority would not do much.
 
