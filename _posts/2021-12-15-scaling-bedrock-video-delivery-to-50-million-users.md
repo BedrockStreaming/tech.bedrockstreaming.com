@@ -84,7 +84,7 @@ Many devices, especially connected TVs or old Android versions, are not compatib
 
 We were using USP on-prem. We decided to migrate it to the AWS cloud.
 
-The goal of the V1 was to quickly provide a platform to our video teams to work on and certify the video players. For ops, it was a first stepping stone building this platform.
+The goal of the V1 was to quickly provide a platform to our video teams to work on and certify the video players. For Bedrock Ops team, it was a first stepping stone building this platform.
 
 Let’s detail the components of this V1.
 
@@ -105,7 +105,7 @@ When a player requests a specific video chunk, it sends an HTTP request to HTTPD
 
 * load the according .ism file from S3 (the server manifest)
 * load the video metadata, stored in the first 65KB and the last 15B of a .mp4 file on S3
-* load the specific chunk in the video, according to the player’s information: bitrate, language, etc. (still on S3)
+* load the specific chunk from the mp4 container, according to the player’s information: bitrate, language, etc. (still on S3)
 
 For each video chunk called from a player, the USP module does another call to the S3 bucket, loading the same .ism manifest and the same metadata (first 65K and latest 15B).  
 To avoid these calls and **reduce S3 costs by 60%**, we added Nginx on these EC2s. It goes between HTTPD and S3, to cache the manifest .ism files and metadata of .mp4 video files.  
