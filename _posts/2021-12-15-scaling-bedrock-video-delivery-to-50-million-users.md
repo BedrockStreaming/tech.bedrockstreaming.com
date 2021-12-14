@@ -249,7 +249,7 @@ Baseline capacity is the network bandwidth you can consume all the time.
 The **Burst capacity** is what you may be able to consume temporarily before being throttled to the baseline capacity.  
 [In the EC2 presentation](https://aws.amazon.com/ec2/instance-types/#Compute_Optimized), the value “Up to” refers to the burst.  
 [Less visible in the EC2 documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/compute-optimized-instances.html#compute-network-performance), one can find the **baseline capacity** for each instance type.  
-For example, `c5.large` instances have a network bandwidth <ins>Up to 10Gbps</ins> (burst) but only <ins>0.75Gbps</ins> baseline bandwidth.
+For example, `c5.large` instances have a network bandwidth <u>Up to 10Gbps</u> (burst) but only <u>0.75Gbps</u> baseline bandwidth.
 
 Troubles start when HAProxy sends a little more traffic to one instance than to the others: USP origin's bandwidth may be throttled at some point… And we will observe poor performance or even service interruptions of this server.
 
