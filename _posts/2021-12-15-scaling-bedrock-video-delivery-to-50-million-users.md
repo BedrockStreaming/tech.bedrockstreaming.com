@@ -279,7 +279,7 @@ defaults
 
 Now, if a USP origin throttles on its network bandwidth or if there is a degradation of service, HAProxy will immediately redispatch the request to another server.
 
-We are working on adding an `agent-check`, so that the weight of the servers in HAProxy can be directly defined by an USP origin, if it detects that its bandwidth is throttled.
+We are working on adding an `agent-check`, so that the weight of the servers in HAProxy can be directly defined by an USP origin, if it detects that [its bandwidth is throttled](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-network-performance-ena.html#network-performance-metrics).
 
 
 ### Adjust the hash balance factor to correctly trigger scaling <a name="AdjustHashBalanceFactor"></a>
@@ -288,6 +288,8 @@ Our scaling depends on the average server utilization in an AutoScalingGroup. If
 
 But all contents on our platforms are not equally popular. This affects Consistent Hashing which would result in few servers receiving way more traffic than others. Few servers would be overloaded and the majority would not do much.
 
+Here is an example in a load test:
+
 ![Graph showing few overloaded servers, using classic Consistent Hashing](/images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/consistent-hashing-inegality-legends.png)
 <center><i>Graph showing few overloaded servers, using classic Consistent Hashing</i></center>
 
@@ -295,7 +297,7 @@ We want to benefit from Consistent Hashing while being able to scale on average 
 This is what Consistent Hashing with Bounded Loads allows: to benefit from Consistent Hashing, while balancing load.
 
 The Bounded Loads are controlled by the `hash-balance-factor` option in HAProxy.  
-[Given to the doc](http://cbonte.github.io/haproxy-dconv/2.3/snapshot/configuration.html#hash-balance-factor):  
+[According to the doc](http://cbonte.github.io/haproxy-dconv/2.3/snapshot/configuration.html#hash-balance-factor):  
 ```
 <factor> is the control for the maximum number of concurrent requests to
          send to a server, expressed as a percentage of the average number
