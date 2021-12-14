@@ -249,7 +249,8 @@ On AWS, an EC2 instance has a baseline network capacity and a burst capacity ([s
 Baseline capacity is the network bandwidth you can consume all the time.
 
 The **Burst capacity** is what you may be able to consume temporarily before being throttled to the baseline capacity.  
-[In the EC2 presentation](https://aws.amazon.com/ec2/instance-types/#Compute_Optimized), the value “Up to” refers to the burst.  
+[In the EC2 presentation](https://aws.amazon.com/ec2/instance-types/#Compute_Optimized), the value “Up to” refers to the burst.
+
 [Less visible in the EC2 documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/compute-optimized-instances.html#compute-network-performance), one can find the **baseline capacity** for each instance type (which is public knowledge [since July 2021](https://github.com/awsdocs/amazon-ec2-user-guide/commit/918c7af6ffd07f7a6ee9820b769193baa2d11a5e#diff-6781907a81d73dd77e3aa2c749ff75e7dd434a71cbe570f548c498575ac4d5ddR159-R195)).
 
 For example, `c5.large` instances have a network bandwidth <u>Up to 10Gbps</u> (burst) but only <u>0.75Gbps</u> baseline bandwidth.
