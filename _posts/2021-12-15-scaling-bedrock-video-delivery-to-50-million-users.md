@@ -180,7 +180,7 @@ See the [dedicated blog post](https://tech.bedrockstreaming.com/hsdo/) to know w
 In addition, HSDO is very responsive to movements in the AutoScalingGroup, which allowed us to replace all EC2 On Demand instances with Spot instances.  
 And by all instances, I mean all USP servers (with cache), as well as HAProxy servers: **70% reduction in server costs**.
 
-Note that replacing USP origins with Spot instances has almost no impact on the cache, as we follow the [AWS best practices for Spot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html): use many different instance types, be multi-AZ and use the "Capacity Optimized" strategy. We observe very few reclaims and in any case, they impact just a few servers among the great variety we use.
+Note that replacing USP origins with Spot instances has almost no impact on the cache, as we follow the [AWS best practices for Spot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html): use many different instance types, be multi-AZ and use the "Capacity Optimized" strategy. This way we observe very few reclaims, which translates to a longer cache life.
 
 
 ### Production launch on this V2 <a name="ProductionLaunchOnV2"></a>
