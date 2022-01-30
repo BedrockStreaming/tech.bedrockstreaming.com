@@ -16,8 +16,8 @@ image:
 language: en
 ---
 
-- [Part 1 - What is a CDN, how is it useful for us?](/)
-- [Part 2 - How do we use a CDN to improve our service? Some examples and patterns (in construction 🚧)](#)
+- [Part 1 - What is a CDN, how is it useful for us?](/cloudfront-web-streaming-platform-part-1/)
+- [Part 2 - How do we use a CDN to improve our service? Some examples and patterns (in construction 🚧)](/)
 
 ## A bit of context
 
@@ -30,7 +30,7 @@ This means that in production today we have NodeJS Express servers running in pr
 We made [this choice several years ago](https://tech.bedrockstreaming.com/spa-mode-isomorphism-js/), for two reasons: SEO and to improve the first display time on slow devices.
 In addition to the HTML pages, the web platform is also a huge collection of assets that allow the website to function: Javascript bundles, CSS, images, manifests.
 
-![Schema of our cloudfront origin architecture simplified](/images/posts/2022-01-31-cloudfront-web-streaming-platform/web-archi.png)
+[![Schema of our cloudfront origin architecture simplified](/images/posts/2022-01-31-cloudfront-web-streaming-platform/web-archi.png)](/images/posts/2022-01-31-cloudfront-web-streaming-platform/web-archi.png)
 
 Today our customers have users distributed over a large part of the globe.
 
@@ -83,7 +83,7 @@ Lambda at edge (on regional edges servers), Cloudfront function (function that r
 Finally, by using regional Edge, hundreds of end server edges do not contact your origin (your application) when the cache is invalidated or exceeded.
 You can even activate the [Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) feature that allows you to further limit the load on your origins.
 
-![regional edge usage with Cloudfront](/images/posts/2022-01-31-cloudfront-web-streaming-platform/regional.png)
+[![regional edge usage with Cloudfront](/images/posts/2022-01-31-cloudfront-web-streaming-platform/regional.png)](/images/posts/2022-01-31-cloudfront-web-streaming-platform/regional.png)
 
 Good per-level cache management even allowed us to completely invalidate the cache of a Cloudfront distribution a few minutes before the start of an event without generating huge traffic on our servers.
 
