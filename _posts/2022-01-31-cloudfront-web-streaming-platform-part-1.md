@@ -38,22 +38,22 @@ Today our customers have users distributed over a large part of the globe.
 
 ## What is a CDN then ?
 
-CDN for Content Delevery Network is a service allowing the delivery of content to users across the internet (here our HTML pages and assets).
+CDN for Content Delivery Network is a service allowing the delivery of content to users across the internet (here our HTML pages and assets).
 Wherever the user is in the world.
 To all users, even if they are very numerous.
 
 Cloudfront is the CDN service of AWS.
-By making available a large number of Pops around the world, it allows us to provide a response to a user as close as possible to their location.
+By making available a large number of POPs around the world, it allows us to provide a response to a user as close as possible to their location.
 This allows us to significantly reduce the time to first byte of our responses.
 Different [price classes](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html) allow you to choose the global "zone" in which your application should be available in order to achieve savings.
 
 ![Worldmap of AWS cloudfront edges](/images/posts/2022-01-31-cloudfront-web-streaming-platform/edges.png)
 
-Being in Lyon, we sometimes get answers from the Pop de Milan.
+Being in Lyon (France), we sometimes get answers from the POP (Point Of Presence) of Milan (Italia).
 Indeed, Milan is relatively much closer than Paris.
 
-Note that it is very easy to know which cloudfront pop answered you (default setting).
-Each pop is identified by a three letter code that corresponds to the code of the nearest international airport (here: CDG corresponds to Paris Charles de Gaulle airport).
+Note that it is very easy to know which Cloudfront POP answered you (default setting).
+Each POP is identified by a three letter code that corresponds to the code of the nearest international airport (here: CDG corresponds to Paris Charles de Gaulle airport).
 
 ```
 x-amz-cf-pop: CDG50-C1
@@ -70,15 +70,15 @@ The best solution for load problems is the cache.
 
 Cloudfront service makes it easy to cache responses at the server edge.
 If we take the example of sports broadcasting, users arrive in large numbers in a very short period of time.
-Caching (telling Cloudfront to cache a web page) takes a lot of the load off our node servers because they are not called.
+Caching (telling Cloudfront to cache a web page) takes a lot of the load off our Node servers because they are not called.
 
 Caching objects in Cloudfront is also about improving response times.
 No need to wait for our servers, the user receives the cached object directly.
 Cloudfront even takes advantage of this to apply more powerful compression algorithms like Brotli on these cached objects.
 These compressions, performed directly by the CDN, allow you to drastically reduce the size of your objects on the network.
 
-Cloudfront also allows you to do "Edge computing": run code directly in Amazon edges and pops instead of doing it in our applications.
-Lambda at edge (on regional edges servers), Cloudfront function (function that runs on pop servers)), Web Application Firewall, here are some very cool features that will allow you to do usual manipulations on your requests/responses.
+Cloudfront also allows you to do "Edge computing": run code directly in Amazon edges and POPs instead of doing it in our applications.
+Lambda at edge (on regional edges servers), Cloudfront function (function that runs on POP servers)), Web Application Firewall, here are some very cool features that will allow you to do usual manipulations on your requests/responses.
 
 Finally, by using regional Edge, hundreds of end server edges do not contact your origin (your application) when the cache is invalidated or exceeded.
 You can even activate the [Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) feature that allows you to further limit the load on your origins.
