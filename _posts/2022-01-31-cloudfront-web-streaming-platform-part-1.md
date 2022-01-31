@@ -30,8 +30,6 @@ This means that in production today we have NodeJS Express servers running in pr
 We made [this choice several years ago](https://tech.bedrockstreaming.com/spa-mode-isomorphism-js/), for two reasons: SEO and to improve the first display time on slow devices.
 In addition to the HTML pages, the web platform is also a huge collection of assets that allow the website to function: Javascript bundles, CSS, images, manifests.
 
-[![Schema of our cloudfront origin architecture simplified](/images/posts/2022-01-31-cloudfront-web-streaming-platform/web-archi.png)](/images/posts/2022-01-31-cloudfront-web-streaming-platform/web-archi.png)
-
 Today our customers have users distributed over a large part of the globe.
 
 **To answer these problems, the use of a CDN seemed necessary to us.**
