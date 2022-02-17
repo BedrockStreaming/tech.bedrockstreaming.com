@@ -1,7 +1,6 @@
 title:            Bedrock Tech
 description:      Blog technique de Bedrock
 logo:             br-site-logo.jpg
-disqus_shortname: m6webtechblog
 search:           true
 #Change url to your domain. Leave localhost server or blank when working locally.
 url:              https://tech.bedrockstreaming.com
@@ -26,7 +25,7 @@ owner:
   google_plus:
 
 # Analytics and webmaster tools stuff goes here
-google_analytics: UA-32126501-1
+google_analytics:
 google_verify:
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:
