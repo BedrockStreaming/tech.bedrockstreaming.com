@@ -2,13 +2,7 @@
 layout: post
 title: "Lâche moi la branch !"
 description: ""
-author:
-  name: Team Cytron
-  avatar: cytron.png
-  email:
-  twitter: techM6Web
-  facebook:
-  github:
+author: cytron
 category:
 tags: [qualite, jenkins, github]
 image:

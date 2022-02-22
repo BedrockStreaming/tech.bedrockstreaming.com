@@ -2,13 +2,7 @@
 layout: post
 title: "Introduction à Drupal par Claire Roubey (Clever Age)"
 description: ""
-author:
-  name:           Olivier Mansour
-  avatar:         oliviermansour.jpg
-  email:          
-  twitter:  omansour      
-  facebook:       
-  github:    
+author: oliviermansour 
 category: 
 tags: [lft,drupal,video]
 image:

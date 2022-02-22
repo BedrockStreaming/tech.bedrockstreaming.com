@@ -11,10 +11,7 @@ author:
   github: slashgear
 category:
 tags: [js, webpack]
-image:
-  feature: posts/hunting-webpack-performances/julian-hochgesang-0Y_YNPW5qds-unsplash.jpg
-  credit: Team Data
-  creditlink: 
+feature-img: "images/posts/hunting-webpack-performances/julian-hochgesang-0Y_YNPW5qds-unsplash.jpg"
 comments: true
 canonical: "https://slashgear.github.io/hunting-webpack-performances/"
 language: en

@@ -11,10 +11,8 @@ author:
   github:
 category:
 tags: [scalaio, scala, lyon, 2019]
-image:
-  feature: posts/scalaio2019/header.jpg
-  credit: Team Data
-  creditlink: 
+feature-img: "images/posts/scalaio2019/header.jpg"
+thumbnail: "images/posts/scalaio2019/header.jpg"
 comments: true
 language: fr
 ---

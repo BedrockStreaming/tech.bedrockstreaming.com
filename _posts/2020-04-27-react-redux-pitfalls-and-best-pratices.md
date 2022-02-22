@@ -11,10 +11,7 @@ author:
   github: slashgear
 category:
 tags: [js, react, redux, frontend]
-image:
-  feature: posts/react-redux/redux.jpg
-  credit:
-  creditlink: 
+feature-img: "images/posts/react-redux/redux.jpg"
 comments: true
 canonical: "https://slashgear.github.io/react-redux-pitfalls-and-best-pratices/"
 language: en

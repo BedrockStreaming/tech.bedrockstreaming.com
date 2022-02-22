@@ -2,13 +2,7 @@
 layout: post
 title: "Redis on fire !"
 description: ""
-author:
-  name:           Olivier Mansour
-  avatar:         oliviermansour.jpg
-  email:          
-  twitter:  omansour      
-  facebook:       
-  github:    
+author: oliviermansour 
 category: 
 tags: [redis,nosql,lft,video]
 image:

@@ -11,10 +11,8 @@ author:
   github:    
 category: 
 tags: [conference, video]
-image:
-  feature: posts/6play/logo.jpg
-  credit: 
-  creditlink: 
+feature-img: "images/posts/6play/logo.jpg"
+thumbnail: "images/posts/6play/logo.jpg"
 comments: true  
 ---
 

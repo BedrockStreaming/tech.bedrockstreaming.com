@@ -2,13 +2,7 @@
 layout: post
 title: "M6Web au banquet de la cuisine du web"
 description: ""
-author:
-  name:           Olivier Mansour
-  avatar:         oliviermansour.jpg
-  email:          
-  twitter:  omansour      
-  facebook:       
-  github:    
+author: oliviermansour
 category: 
 tags: [conference,lcdw]
 image:

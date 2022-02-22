@@ -2,13 +2,7 @@
 layout: post
 title: "M6Web Dev Facts #1"
 description: ""
-author:
-  name:           M6Web
-  avatar:         
-  email:          
-  twitter:  techM6Web      
-  facebook:       
-  github:    
+author: bedrock
 category: 
 tags: [humour,devfacts]
 image:

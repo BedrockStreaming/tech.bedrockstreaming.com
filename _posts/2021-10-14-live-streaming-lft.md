@@ -10,8 +10,7 @@ twitter: pascal_martin
 github: pmartin
 category:
 tags: [lft, talks, live, stream, obs]
-image:
-  feature: /posts/lft/live-streaming/header.jpg
+feature-img: "images/posts/lft/live-streaming/header.jpg"
 comments: true
 language: en
 ---

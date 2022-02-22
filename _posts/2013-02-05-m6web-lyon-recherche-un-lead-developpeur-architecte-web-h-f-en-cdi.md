@@ -2,13 +2,7 @@
 layout: post
 title: "M6Web Lyon recherche un Lead Developpeur / Architecte web (H/F) en CDI"
 description: ""
-author:
-  name:           M6Web
-  avatar:         
-  email:          
-  twitter:  techM6Web      
-  facebook:       
-  github:    
+author: bedrock
 category: 
 tags: [recrutement]
 image:

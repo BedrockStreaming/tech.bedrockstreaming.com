@@ -2,13 +2,7 @@
 layout: post
 title: "Retrouvez l'intervention du CTO de M6 Web, Martin Boronski, à la table ronde du Forum PHP 2012"
 description: ""
-author:
-  name:           Olivier Mansour
-  avatar:         oliviermansour.jpg
-  email:          
-  twitter:  omansour      
-  facebook:       
-  github:    
+author: oliviermansour
 category: 
 tags: [forumphp,afup,video,php]
 image:

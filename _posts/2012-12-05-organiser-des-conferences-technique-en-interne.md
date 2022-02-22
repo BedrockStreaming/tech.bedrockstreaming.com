@@ -2,13 +2,7 @@
 layout: post
 title: "Organiser des conférences technique en interne"
 description: ""
-author:
-  name:           Kenny Dits
-  avatar:         kenny.jpg
-  email:          
-  twitter:  kenny_dee      
-  facebook:       
-  github:    
+author: kenny 
 category: 
 tags: [conference,culture,lft]
 image:

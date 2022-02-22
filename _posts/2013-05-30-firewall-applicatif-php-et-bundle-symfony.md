@@ -2,13 +2,7 @@
 layout: post
 title: "Firewall applicatif PHP et bundle Symfony"
 description: ""
-author:
-  name: Team Cytron
-  avatar: cytron.png
-  email:
-  twitter: techM6Web
-  facebook:
-  github:
+author: cytron
 category:
 tags: [outil, php, symfony, open-source]
 image:

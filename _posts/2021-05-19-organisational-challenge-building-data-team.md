@@ -11,8 +11,8 @@ author:
   github: corychaplin
 category: Data
 tags: [Data,Data Science,Data Engineering,Agile,BigData,Organization]
-image:
-  feature: posts/data-org-challenge/team.jpg
+feature-img: "images/posts/data-org-challenge/team.jpg"
+thumbnail: "images/posts/data-org-challenge/team.jpg"
 comments: true
 language: en
 ---

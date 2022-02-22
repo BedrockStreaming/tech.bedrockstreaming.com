@@ -11,10 +11,7 @@ author:
   github:
 category:
 tags: [Infrastructure, Cloud, Kubernetes, Kops, AWS, HAProxy]
-image:
-  feature: posts/2020-12-08-three-years-running-kubernetes/ihor-dvoretskyi-UGKfiS5CcZI-unsplash.jpg
-  credit: Ihor Dvoretskyi
-  creditlink: https://unsplash.com/photos/UGKfiS5CcZI
+feature-img: "images/posts/2020-12-08-three-years-running-kubernetes/ihor-dvoretskyi-UGKfiS5CcZI-unsplash.jpg"
 comments: true
 language: en
 ---

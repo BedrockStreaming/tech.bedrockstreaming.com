@@ -11,8 +11,8 @@ github: taufort
 category:
 tags: [kubernetes, scaling, high availability, aws, cloud]
 comments: false
-image:
-  feature: posts/2022-02-03-prescaling/prescaling_wall.jpg
+feature-img: "images/posts/2022-02-03-prescaling/prescaling_wall.jpg"
+thumbnail: "images/posts/2022-02-03-prescaling/prescaling_wall.jpg"
 language: en
 ---
 

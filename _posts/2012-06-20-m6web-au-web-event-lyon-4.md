@@ -2,13 +2,7 @@
 layout: post
 title: "M6Web au Web Event Lyon #4"
 description: ""
-author:
-  name:           Olivier Mansour
-  avatar:         oliviermansour.jpg
-  email:          
-  twitter:  omansour      
-  facebook:       
-  github:    
+author: oliviermansour
 category: 
 tags: [webevent]
 image:

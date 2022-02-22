@@ -2,13 +2,6 @@
 layout: post
 title: "Tentative d'explication des Fast-Forward sous Git"
 description: ""
-author:
-  name:           Julien Deniau
-  avatar:         
-  email:          
-  twitter:  j_deniau      
-  facebook:       
-  github:    
 category: 
 tags: [git]
 image:

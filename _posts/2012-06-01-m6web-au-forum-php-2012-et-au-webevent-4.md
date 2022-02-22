@@ -2,13 +2,7 @@
 layout: post
 title: "M6Web au Forum PHP 2012 et au WebEvent #4"
 description: ""
-author:
-  name:           Kenny Dits
-  avatar:         kenny.jpg
-  email:          
-  twitter:  kenny_dee      
-  facebook:       
-  github:    
+author: kenny
 category: 
 tags: [php,afup,monitoring,conference]
 image:

@@ -11,8 +11,7 @@ github: tfalconnet
 category:
 tags: [php, aws, cloud, performance, sysadmin, kubernetes, HAProxy]
 comments: true
-image:
-  feature: posts/bonnes-pratiques-web/bedrock.jpg
+feature-img: "images/posts/bonnes-pratiques-web/bedrock.jpg"
 language: en
 ---
 

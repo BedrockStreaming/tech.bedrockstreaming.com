@@ -2,13 +2,7 @@
 layout: post
 title: "Introduction à la qualité logicielle avec Node.js"
 description: ""
-author:
-  name:           M6Web
-  avatar:         
-  email:          
-  twitter:  techM6Web      
-  facebook:       
-  github:    
+author: bedrock 
 category: 
 tags: [nodejs,javascript,qualite]
 image:
