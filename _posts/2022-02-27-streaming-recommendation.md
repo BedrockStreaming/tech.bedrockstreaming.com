@@ -57,10 +57,22 @@ During the load tests, we had a bug. We discovered that by default, the limit of
 
 We asked Amazon to help us and they changed the option for us.
 
+## The results
+
+If you're a big fan of reality TV shows, you will see that:
+
+![recommendations of reality TV shows](/images/posts/2022-02-27-streaming-recommendation/tv_reality_show.png)
+
+If you prefer reports, you will see that instead:
+
+![recommendations of reports](/images/posts/2022-02-27-streaming-recommendation/header.png)
+
 ## What now?
 
 We’ve deployed an AB test for our first recommender system built with machine learning. 
 
+We don't have the results of the AB test yet. But, we've noticed that many users interact with the recommendations.
+
 **After different challenges, we nailed it.** 
 
-But, Personalize is expensive and a black box that we can’t integrate with Terraform. It doesn’t suit our context. That’s why we’ve started to develop our first models.
+But, Personalize is expensive and a black box that we can’t integrate with Terraform easily (we'll have to develop something for that, at least). It doesn’t suit our context. That’s why we’ve started to develop our first models.
