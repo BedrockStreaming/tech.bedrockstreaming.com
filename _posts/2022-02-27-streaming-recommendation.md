@@ -41,7 +41,11 @@ We have millions of users. Releasing a recommender system to all our users is de
 
 ## How to release a recommender system?
 
-First of all, check offline metrics. They’re still a valuable hint. Then, analyse the recommendations with people from the editorialist team. Finally, deliver the functionality to a small portion of your users.
+First of all, check offline metrics. They’re still a valuable hint. Then, analyse the recommendations with people from the editorialist team.
+
+*Note that this kind of analysis is very subjective.*
+
+Finally, deliver the functionality to a small portion of your users.
 
 **We configured an AB test that gives recommendations to 5% of users. With dashboards, we study the impacts.**
 
