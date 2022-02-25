@@ -5,10 +5,6 @@ description: ""
 author: kenny 
 category: 
 tags: [php,poo,lft,video]
-image:
-  feature: 
-  credit: 
-  creditlink: 
 comments: true  
 permalink: la-poo-canada-dry
 ---

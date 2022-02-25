@@ -2,13 +2,7 @@
 layout: post
 title: "How to boost the speed of your webpack build?"
 description: "A story of performance optimization and application of the Pareto principle to a webpack build that has become far too long."
-author:
-  name: Antoine Caron
-  avatar:
-  email:
-  twitter: Slashgear_
-  facebook:
-  github: slashgear
+author: a_caron
 category:
 tags: [js, webpack]
 feature-img: "images/posts/hunting-webpack-performances/julian-hochgesang-0Y_YNPW5qds-unsplash.jpg"

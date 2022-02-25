@@ -1,24 +1,54 @@
-bedrock: # author-id
-  name: "Bedrock"
+bedrock:
+  name: Bedrock
+a_caron:
+  name: Antoine Caron
+  avatar: https://pbs.twimg.com/profile_images/1404702215302942728/wXNUuuP6_400x400.jpg
+  url: https://blog.slashgear.dev/
 b_viguier:
   name: Benoit Viguier
+  avatar: /images/avatar/b_viguier.png
+  url: https://twitter.com/b_viguier
 c_chaplin:
   name: Cory Chaplin
+  avatar: /images/avatar/c_chaplin.jpg
+  url: https://twitter.com/corychaplin
 cytron:
   name: Cytron Team
+  avatar: /images/avatar/cytron.png
 denis:
   name: Denis
+  avatar: /images/avatar/denis.jpg
 florent:
   name: Florent Dubost
+  avatar: /images/avatar/florent.jpg
+  url: https://twitter.com/fooragnak
 front:
   name: Front teams
+  avatar: /images/avatar/front.jpg
 kenny:
   name: Kenny Dits
+  avatar: /images/avatar/kenny.jpg
+  url: https://twitter.com/kenny_dee
 mikaelrandy:
   name: Mikael Randy
+  avatar: /images/avatar/mikaelrandy.png
+  url: https://twitter.com/mikaelrandy
 oliviermansour:
   name: Olivier Mansour
+  avatar: /images/avatar/oliviermansour.jpg
+  url: https://twitter.com/omansour
 oliviernoel:
   name: Olivier Noel
+  avatar: /images/avatar/oliviernoel.jpg
+p_martin:
+  name: Pascal Martin
+  url: https://twitter.com/pascal_martin
+t_aufort:
+  name: Timothée Aufort
+  url: https://twitter.com/TimAufort
+t_falconnet:
+  name: Tanguy Falconnet
+  url: https://twitter.com/TanguyFalconnet
 v_gallissot:
-  name:  Vincent Gallissot
+  name: Vincent Gallissot
+  url: https://twitter.com/vgallissot

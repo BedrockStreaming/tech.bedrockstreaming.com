@@ -2,13 +2,7 @@
 layout: post
 title: "M6Web Dev Facts #10"
 description: "Les plus belles phrases de nos équipes technique"
-author:
-  name:           M6Web
-  avatar:         
-  email:          
-  twitter:  techM6Web      
-  facebook:       
-  github:    
+author: bedrock 
 category: 
 tags: [devfacts, humour]
 image:

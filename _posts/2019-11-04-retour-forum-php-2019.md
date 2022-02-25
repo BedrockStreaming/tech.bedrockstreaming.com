@@ -2,13 +2,7 @@
 layout: post
 title: "Forum PHP Paris 2019"
 description: "Nos retours du Forum PHP à Paris, les 24 et 25 octobre 2019"
-author:
-  name: Pascal Martin, Benoit Viguier
-  avatar:
-  email:
-  twitter:
-  facebook:
-  github:
+author: p_martin
 category:
 tags: [forumphp, php, afup, 2019]
 image:

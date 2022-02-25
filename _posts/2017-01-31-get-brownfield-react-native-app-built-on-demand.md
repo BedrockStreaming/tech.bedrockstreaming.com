@@ -2,13 +2,7 @@
 layout: post
 title: "Get your brownfield React Native app built on demand"
 description: "Get your brownfield React Native app built on demand"
-author:
-  name: Kenny Dits
-  avatar:   
-  email:
-  twitter:  kenny_dee      
-  facebook:       
-  github:    
+author: kenny 
 category:
 tags: [mobile, github, ci, react-native]
 image:

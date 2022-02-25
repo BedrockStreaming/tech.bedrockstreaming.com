@@ -2,13 +2,7 @@
 layout: post
 title: "Monitoring applicatif : Pourquoi et comment ?"
 description: ""
-author:
-  name:           Kenny Dits
-  avatar:         kenny.jpg
-  email:          
-  twitter:  kenny_dee      
-  facebook:       
-  github:    
+author: kenny 
 category: 
 tags: [monitoring,graphite,statsd,conference]
 image:

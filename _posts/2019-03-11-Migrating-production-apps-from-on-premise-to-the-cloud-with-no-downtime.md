@@ -2,13 +2,7 @@
 layout: post
 title: "Migrating production applications from on-premise to the cloud with no downtime"
 description: "How did we proceed, what lessons we learned and what tools we used"
-author:
-  name: Vincent Gallissot
-  avatar:
-  email:
-  twitter: vgallissot
-  facebook:
-  github:
+author: v_gallissot
 category:
 tags: [Cloud, AWS, Kubernetes, Kops, HAProxy, GOReplay]
 image:

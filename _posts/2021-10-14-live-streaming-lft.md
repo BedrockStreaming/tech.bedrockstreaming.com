@@ -2,12 +2,7 @@
 layout: post
 title: "How did we live stream our Last Friday Talks?"
 description: "Discover how we live streamed our Last Friday Talks of September 2021 to 150+ remote employees."
-author:
-    name: Pascal MARTIN
-avatar:
-email:
-twitter: pascal_martin
-github: pmartin
+author: p_martin
 category:
 tags: [lft, talks, live, stream, obs]
 feature-img: "images/posts/lft/live-streaming/header.jpg"
