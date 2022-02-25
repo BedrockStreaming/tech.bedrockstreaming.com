@@ -5,10 +5,8 @@ description: ""
 author: cytron
 category:
 tags: [qualite, jenkins, github]
-image:
-  feature: posts/cytron/branche.png
-  credit: dlna.be
-  creditlink:
+feature-img: "images/posts/cytron/branche.png"
+thumbnail: "images/posts/cytron/branche.png"
 comments: true
 permalink: lache-moi-la-branch
 ---

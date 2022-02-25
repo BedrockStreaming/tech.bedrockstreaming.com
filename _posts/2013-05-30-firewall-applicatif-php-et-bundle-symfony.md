@@ -5,10 +5,8 @@ description: ""
 author: cytron
 category:
 tags: [outil, php, symfony, open-source]
-image:
-  feature: posts/cytron/football.png
-  credit: https://www.flickr.com/photos/23959858@N03
-  creditlink:
+feature-img: "images/posts/cytron/football.png"
+thumbnail: "images/posts/cytron/football.png"
 comments: true
 permalink: firewall-applicatif-php-et-bundle-symfony
 ---

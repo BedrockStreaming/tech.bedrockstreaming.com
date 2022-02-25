@@ -2,13 +2,7 @@
 layout: post
 title: "CR Real Time Conférence Europe 2013 - Day 1"
 description: ""
-author:
-  name:           Kenny Dits
-  avatar:         kenny.jpg
-  email:          
-  twitter:  kenny_dee      
-  facebook:       
-  github:    
+author: kenny
 category: 
 tags: [conference,nodejs,zeromq,rabbitmq,realtime]
 image:

@@ -5,10 +5,6 @@ description: ""
 author: kenny
 category: 
 tags: [velocity,conference,webperf,devops,mobile]
-image:
-  feature: 
-  credit: 
-  creditlink: 
 comments: true  
 permalink: cr-velocity-conference-2012-day-3-devops-webperf
 ---

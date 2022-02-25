@@ -2,19 +2,11 @@
 layout: post
 title: "Refonte de notre système de vote"
 description: "Création d'un nouveau service de vote communiquant avec une API REST"
-author:
-  name: Denis Roussel
-  avatar: denis.jpg
-  email:
-  twitter: dondouny
-  facebook:
-  github: kuikui
+author: denis
 category:
 tags: [api, symfony, redis, monitoring, qualite, cytron]
-image:
-  feature: posts/cytron/polls.png
-  credit: Refuge de Gève
-  creditlink: 
+thumbnail: "images/posts/cytron/polls.png"
+feature-img: "images/posts/cytron/polls.png"
 comments: true
 ---
 

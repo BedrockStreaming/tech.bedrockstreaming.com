@@ -2,19 +2,11 @@
 layout: post
 title: "CR React Conférence 2015 - Day 1"
 description: "Compte rendu de la conférence React - Facebook HQ - Menlo Park - Day 1"
-author:
-  name: Kenny DITS
-  avatar:
-  email:
-  twitter:  kenny_dee
-  facebook:
-  github:
+author: kenny
 category:
 tags: [javascript, react, flux, isomorphic, conference]
-image:
-  feature: posts/reactconf/reactconf.png
-  credit: irvine broque
-  creditlink: https://twitter.com/irvinebroque/status/560503653966942208
+feature-img: "images/posts/reactconf/reactconf.png"
+thumbnail: "images/posts/reactconf/reactconf.png"
 comments: true
 ---
 

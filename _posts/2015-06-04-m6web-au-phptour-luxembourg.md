@@ -11,10 +11,8 @@ author:
   github:
 category:
 tags: [conference,afup,phptour]
-image:
-  feature: posts/phptourlux/inphinity.jpg
-  credit: Olivier
-  creditlink: 
+feature-img: "images/posts/phptourlux/inphinity.jpg"
+thumbnail: "images/posts/phptourlux/inphinity.jpg"
 comments: true
 permalink: 
 ---

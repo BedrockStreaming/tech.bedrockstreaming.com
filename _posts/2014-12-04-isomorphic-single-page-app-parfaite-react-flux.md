@@ -2,19 +2,11 @@
 layout: post
 title: "App Isomorphic: la Single Page App parfaite ?"
 description: "Développer une SPA référencable et performante avec React.Js et Flux"
-author:
-  name: Kenny DITS
-  avatar:
-  email:
-  twitter:  kenny_dee
-  facebook:
-  github:
+author: kenny
 category:
 tags: [javascript, webperf, angular, react, flux, isomorphic]
-image:
-  feature: posts/reflection.jpg
-  credit: Jianwei Yang
-  creditlink: https://www.flickr.com/photos/jianweiyang/6091704355/
+feature-img: "images/posts/reflection.jpg"
+thumbnail: "images/posts/reflection.jpg"
 comments: true
 ---
 

@@ -6,8 +6,7 @@ author: v_gallissot
 category:
 tags: [aws, cloud, sysadmin, HAProxy, video, high availability, Unified Streaming, VOD, OTT, video delivery]
 comments: false
-
-feature-img: "images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/Visuel-BR-Devices-HD-6V2-BRLogo.jpg"
+thumbnail: "images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/Visuel-BR-Devices-HD-6V2-BRLogo.jpg"
 language: en
 ---
 

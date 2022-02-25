@@ -5,10 +5,6 @@ description: ""
 author: oliviernoel
 category: 
 tags: [conference,nodejs,realtime]
-image:
-  feature: 
-  credit: 
-  creditlink: 
 comments: true  
 permalink: cr-real-time-conference-europe-2013-day-2
 ---

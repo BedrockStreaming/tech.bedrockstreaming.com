@@ -5,10 +5,6 @@ description: ""
 author: bedrock
 category: 
 tags: [recrutement]
-image:
-  feature: 
-  credit: 
-  creditlink: 
 comments: false  
 permalink: m6web-lyon-recherche-un-lead-developpeur-architecte-web-h-f-en-cdi
 ---

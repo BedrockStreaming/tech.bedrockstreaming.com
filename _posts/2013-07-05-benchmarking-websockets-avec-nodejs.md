@@ -2,13 +2,7 @@
 layout: post
 title: "Benchmarking WebSockets avec NodeJs"
 description: ""
-author:
-  name:           M6Web
-  avatar:         
-  email:          
-  twitter:  techM6Web      
-  facebook:       
-  github:    
+author: bedrock 
 category: 
 tags: [nodejs,websockets,benchmark,open-source]
 image:

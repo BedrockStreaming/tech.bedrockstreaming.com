@@ -2,17 +2,11 @@
 layout: post
 title: "Genesis of M6's Datalake"
 description: "From using a market DMP to creating our second Hadoop platform"
-author:
-  name:  Cory Chaplin
-  avatar: c_chaplin.png
-  email:
-  twitter:  corychaplin
-  facebook:
-  github: corychaplin
+author: c_chaplin
 category: Data
 tags: [Data,Hadoop,BigData,Airflow,Hive,Spark,DMP]
-image:
-  feature: posts/cerebro/data-lake.jpg
+feature-img: "/images/posts/cerebro/data-lake.jpg"
+thumbnail: "/images/posts/cerebro/data-lake.jpg"
 comments: true
 language: en
 ---

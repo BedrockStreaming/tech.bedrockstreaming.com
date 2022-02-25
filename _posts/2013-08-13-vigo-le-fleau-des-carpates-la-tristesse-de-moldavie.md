@@ -2,19 +2,11 @@
 layout: post
 title: "Vigo, le fléau des Carpates"
 description: ""
-author:
-  name: Team Cytron
-  avatar: cytron.png
-  email:
-  twitter: techM6Web
-  facebook:
-  github:
+author: cytron
 category:
 tags: [outil, qualite, javascript, tests fonctionnels]
-image:
-  feature: posts/cytron/vigo.jpg
-  credit: Columbia Pictures
-  creditlink:
+feature-img: "images/posts/cytron/vigo.jpg"
+thumbnail: "images/posts/cytron/vigo.jpg"
 comments: true
 permalink: vigo-le-fleau-des-carpates-la-tristesse-de-moldavie
 ---

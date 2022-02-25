@@ -2,19 +2,11 @@
 layout: post
 title: "Elasticsearch: la grande migration"
 description: "Migration de Elasticsearch 1.7 à 5.2 sans interruption de service"
-author:
-  name:  Benoit Viguier
-  avatar: b_viguier.png
-  email:
-  twitter:  b_viguier
-  facebook:
-  github: b-viguier
+author: b_viguier
 category:
 tags: [Elasticsearch, Php]
-image:
-  feature: posts/migration-es/migration.jpg
-  credit: Alex Berger
-  creditlink: https://www.flickr.com/photos/virtualwayfarer/33668972511
+feature-img: "images/posts/migration-es/migration.jpg"
+thumbnail: "images/posts/migration-es/migration.jpg"
 comments: true
 language: fr
 ---

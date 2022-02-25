@@ -2,19 +2,11 @@
 layout: post
 title: "Une donnée presque parfaite sur 6play"
 description: "La gestion de la mise à disposition des données sur 6play"
-author:
-  name:     Olivier Mansour
-  avatar:   
-  email:
-  twitter:  omansour      
-  facebook:       
-  github:    
+author: oliviermansour 
 category:
 tags: [lyon, conference, elasticsearch, video]
-image:
-  feature: posts/conf-afup-viguier/6play.jpg
-  credit: 
-  creditlink: 
+thumbnail: "images/posts/conf-afup-viguier/6play.jpg"
+color: rgb(42, 153, 213)
 comments: true
 ---
 

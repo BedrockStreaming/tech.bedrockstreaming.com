@@ -18,10 +18,16 @@ cytron:
 denis:
   name: Denis
   avatar: /images/avatar/denis.jpg
+fvieudrin:
+  name: Frederic Vieudrin
+  url: https://twitter.com/fvieudrin
 florent:
   name: Florent Dubost
   avatar: /images/avatar/florent.jpg
   url: https://twitter.com/fooragnak
+f_lepretre:
+  name: Florent Leprêtre
+  url: https://twitter.com/SuperFlaw
 front:
   name: Front teams
   avatar: /images/avatar/front.jpg
@@ -33,6 +39,9 @@ mikaelrandy:
   name: Mikael Randy
   avatar: /images/avatar/mikaelrandy.png
   url: https://twitter.com/mikaelrandy
+n_saby:
+  name: Nastasia Saby
+  url: https://twitter.com/saby_nastasia
 oliviermansour:
   name: Olivier Mansour
   avatar: /images/avatar/oliviermansour.jpg

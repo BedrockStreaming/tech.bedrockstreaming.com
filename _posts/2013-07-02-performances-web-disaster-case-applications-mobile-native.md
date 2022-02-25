@@ -2,13 +2,7 @@
 layout: post
 title: "Performances web et \"Disaster case\" sur applications mobile native"
 description: ""
-author:
-  name:           Kenny Dits
-  avatar:         kenny.jpg
-  email:          
-  twitter:  kenny_dee      
-  facebook:       
-  github:    
+author: kenny 
 category: 
 tags: [webperf,mobile]
 image:

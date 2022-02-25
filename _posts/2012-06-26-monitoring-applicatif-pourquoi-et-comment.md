@@ -5,10 +5,6 @@ description: ""
 author: kenny 
 category: 
 tags: [monitoring,graphite,statsd,conference]
-image:
-  feature: 
-  credit: 
-  creditlink: 
 comments: true  
 permalink: monitoring-applicatif-pourquoi-et-comment
 ---

@@ -4,10 +4,6 @@ title: "Tentative d'explication des Fast-Forward sous Git"
 description: ""
 category: 
 tags: [git]
-image:
-  feature: 
-  credit: 
-  creditlink: 
 comments: true  
 permalink: tentative-d-explication-des-fast-forward-sous-git
 ---

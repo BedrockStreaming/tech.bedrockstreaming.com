@@ -2,19 +2,10 @@
 layout: post
 title: "L'équipe Player de 6play.fr au Paris Video Tech"
 description: "Paris Video Tech : La plus grande rencontre des ingénieurs de la vidéo à Paris"
-author:
-  name: Frederic Vieudrin
-  avatar:
-  email:
-  twitter: fvieudrin
-  facebook:       
-  github:    
+author: fvieudrin 
 category:
 tags: [video, ott, react, dash, hls, mse, cmaf, 6play, html5]
-image:
-  feature: posts/retour-de-paris-video-tech/banner-paris-video-tech.jpg
-  credit: Paris Video Tech
-  creditlink: https://parisvideotech.com/
+feature-img: "images/posts/retour-de-paris-video-tech/banner-paris-video-tech.jpg"
 comments: true
 language: fr
 ---

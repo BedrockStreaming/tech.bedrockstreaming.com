@@ -5,10 +5,6 @@ description: ""
 author: oliviermansour
 category: 
 tags: [conference,lcdw]
-image:
-  feature: 
-  credit: 
-  creditlink: 
 comments: true  
 permalink: m6web-au-banquet-de-la-cuisine-du-web
 ---

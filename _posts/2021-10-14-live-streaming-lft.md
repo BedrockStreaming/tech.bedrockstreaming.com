@@ -6,6 +6,7 @@ author: p_martin
 category:
 tags: [lft, talks, live, stream, obs]
 feature-img: "images/posts/lft/live-streaming/header.jpg"
+thumbnail: "images/posts/lft/live-streaming/header.jpg"
 comments: true
 language: en
 ---

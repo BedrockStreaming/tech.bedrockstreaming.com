@@ -11,10 +11,7 @@ author:
   github:
 category:
 tags: [kubernetes, KubeCon]
-image:
-  feature: posts/kubecon-2018/title-kubecon.jpg
-  credit: Pascal Martin
-  creditlink:
+feature-img: "images/posts/kubecon-2018/title-kubecon.jpg"
 comments: true
 language: en
 ---

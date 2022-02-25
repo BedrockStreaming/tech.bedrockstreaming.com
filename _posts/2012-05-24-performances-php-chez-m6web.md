@@ -5,10 +5,7 @@ description: ""
 author: kenny
 category: 
 tags: [graphite,monitoring,nodejs,php,varnish,webperf,conference]
-image:
-  feature: 
-  credit: 
-  creditlink: 
+
 comments: true  
 permalink: post/23671071384/performances-php-chez-m6web
 ---

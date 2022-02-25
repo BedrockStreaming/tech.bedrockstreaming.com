@@ -2,19 +2,11 @@
 layout: post
 title: "Qui a bouchonné mon Redis ?"
 description: "Présentation de la librairie RedisMock, un mock PHP open-source de Redis à utiliser dans vos tests fonctionnels."
-author:
-  name: Team Cytron
-  avatar: cytron.png
-  email:
-  twitter: techM6Web
-  facebook:
-  github:
+author: cytron
 category:
 tags: [qualite, outil, redis, cytron, open-source]
-image:
-  feature: posts/cytron/redismock.jpg
-  credit: Sam Howzit
-  creditlink: https://www.flickr.com/photos/aloha75/4182769957/
+thumbnail: "images/posts/cytron/redismock.jpg"
+feature-img: "images/posts/cytron/redismock.jpg"
 comments: true
 permalink: redismock-qui-a-bouchonne-mon-redis.html
 ---

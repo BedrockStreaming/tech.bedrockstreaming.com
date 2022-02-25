@@ -2,19 +2,11 @@
 layout: post
 title: "Contrôlez facilement votre cohérence de code sur votre projet Symfony2 avec coke"
 description: "Voici comment facilement et rapidement mettre en place un système de contrôle de la cohérence du code d'un projet Symfony2 avec coke"
-author:
-  name:     Mikael Randy
-  avatar:   mikaelrandy.png
-  email:
-  twitter:  mikaelrandy
-  facebook:
-  github:
+author: mikaelrandy
 category:
 tags: [code sniffing, coke, Symfony2]
-image:
-  feature: posts/coke-et-symfony2/feature.png
-  credit: Wikipedia
-  creditlink: https://upload.wikimedia.org/wikipedia/commons/3/36/Sus_scrofa_piglet.jpg
+feature-img: "images/posts/coke-et-symfony2/feature.png"
+thumbnail: "images/posts/coke-et-symfony2/feature.png"
 comments: true
 ---
 

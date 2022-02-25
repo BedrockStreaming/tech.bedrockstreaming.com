@@ -5,10 +5,7 @@ description: "How did we proceed, what lessons we learned and what tools we used
 author: v_gallissot
 category:
 tags: [Cloud, AWS, Kubernetes, Kops, HAProxy, GOReplay]
-image:
-  feature: posts/migrating-production-apps-to-the-cloud/kaushik-panchal-37070-unsplash.jpg
-  credit: Kaushik Panchal
-  creditlink: https://unsplash.com/photos/0juC5JIhPks
+feature-img: "images/posts/migrating-production-apps-to-the-cloud/kaushik-panchal-37070-unsplash.jpg"
 comments: true
 language: en
 ---

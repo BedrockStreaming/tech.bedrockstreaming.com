@@ -2,19 +2,11 @@
 layout: post
 title: "Tester fonctionnellement une API REST"
 description: ""
-author:
-  name: Team Cytron
-  avatar: cytron.png
-  email:
-  twitter: techM6Web
-  facebook:
-  github:
+author: cytron
 category:
 tags: [qualite, symfony, atoum, tests fonctionnels]
-image:
-  feature: posts/cytron/husky.png
-  credit: Nick Ellis
-  creditlink:
+feature-img: "images/posts/cytron/husky.png"
+thumbnail: "images/posts/cytron/husky.png"
 comments: true
 permalink: 2013/10/tester-fonctionnellement-une-api-rest-symfony-doctrine-atoum.html
 ---

@@ -10,7 +10,7 @@ favicon: assets/favicon.png                             # Icon displayed in the 
 
 # Header and footer text
 header_text: Creating Streaming Champions  # Change Blog header text
-header_feature_image: images/bedrock-devices.jpg
+header_feature_image: images/banner_xl.jpeg
 header_feature_image_responsive: true
 footer_text: >
   Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>

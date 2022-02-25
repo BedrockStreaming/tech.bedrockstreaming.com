@@ -2,19 +2,11 @@
 layout: post
 title: "La bêta du nouveau 6play est disponible"
 description: "La bêta du nouveau 6play est disponible"
-author:
-  name:     TechM6Web
-  avatar:   
-  email:
-  twitter:  techM6Web      
-  facebook:       
-  github:    
+author: bedrock 
 category:
 tags: [6play, react, isomorphic, javascript, flux]
-image:
-  feature: posts/6play/logo.jpg
-  credit: 
-  creditlink: 
+feature-img: "images/posts/6play/logo.jpg"
+thumbnail: "images/posts/6play/logo.jpg"
 comments: true
 ---
 

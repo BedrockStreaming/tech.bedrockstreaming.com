@@ -2,18 +2,10 @@
 layout: post
 title: "Useful (or not) M6Web OSS stuff"
 description: "Yeah, we are still open sourcing code !"
-author:
-  name:  Olivier Mansour
-  avatar: oliviermansour.jpg
-  email:
-  twitter:  omansour
-  facebook:
-  github: omansour
+author: oliviermansour
 category: OSS
 tags: [OSS, Open source, php, js]
-image:
-  feature: opensource.png
-  credit: opensourceway
+color: rgb(255, 255, 255)
 comments: true
 language: en
 ---

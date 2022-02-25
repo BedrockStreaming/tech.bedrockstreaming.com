@@ -2,19 +2,11 @@
 layout: post
 title: "L'envers du décor du nouveau 6play"
 description: "Présentation du backend derrière les nouvelles applications 6play"
-author:
-  name:     TechM6Web
-  avatar:   
-  email:
-  twitter:  techM6Web      
-  facebook:       
-  github:    
+author: bedrock   
 category:
 tags: [6play, REST, Symfony, Elasticsearch, Cassandra]
-image:
-  feature: posts/6play/logo.jpg
-  credit: 
-  creditlink: 
+feature-img: "images/posts/6play/logo.jpg"
+thumbnail: "images/posts/6play/logo.jpg"
 comments: true
 ---
 

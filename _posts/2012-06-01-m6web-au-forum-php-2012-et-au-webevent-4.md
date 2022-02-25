@@ -5,10 +5,6 @@ description: ""
 author: kenny
 category: 
 tags: [php,afup,monitoring,conference]
-image:
-  feature: 
-  credit: 
-  creditlink: 
 comments: true  
 permalink: post/24184111542/m6web-au-forum-php-2012-et-au-webevent-4
 ---

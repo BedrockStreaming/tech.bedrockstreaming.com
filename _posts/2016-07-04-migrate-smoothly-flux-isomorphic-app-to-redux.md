@@ -2,19 +2,11 @@
 layout: post
 title: "Migrate smoothly your Flux isomorphic app to Redux"
 description: "How we upgraded your big isomorphic web app from Fluxible to Redux, examples and tips."
-author:
-  name:  Florent DUBOST
-  avatar: florent.jpg
-  email:
-  twitter:  fooragnak
-  facebook:
-  github:
+author: florent
 category:
 tags: [react, flux, redux, fluxible, isomorphic, javascript]
-image:
-  feature: /posts/redux.jpg
-  credit: 
-  creditlink: https://websmp102.sap-ag.de/~sapidp/012002523100002079152015E/Frame/images/272068.jpg
+feature-img: "images/posts/redux.jpg"
+thumbnail: "images/posts/redux.jpg"
 comments: true
 language: en
 ---

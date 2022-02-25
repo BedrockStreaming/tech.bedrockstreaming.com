@@ -5,10 +5,6 @@ description: ""
 author: oliviermansour
 category: 
 tags: [webevent]
-image:
-  feature: 
-  credit: 
-  creditlink: 
 comments: true  
 permalink: m6web-au-web-event-lyon-4
 ---

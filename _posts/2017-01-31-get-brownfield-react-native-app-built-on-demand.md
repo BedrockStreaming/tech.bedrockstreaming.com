@@ -5,10 +5,8 @@ description: "Get your brownfield React Native app built on demand"
 author: kenny 
 category:
 tags: [mobile, github, ci, react-native]
-image:
-  feature: /posts/rn-brownfield/feature.jpg
-  credit: Lucia Martinez
-  creditlink: https://flic.kr/p/cuZLGb
+feature-img: "images/posts/rn-brownfield/feature.jpg"
+thumbnail: "images/posts/rn-brownfield/feature.jpg"
 comments: true
 language: en
 ---

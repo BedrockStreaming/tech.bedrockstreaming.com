@@ -5,10 +5,6 @@ description: ""
 author: bedrock
 category:
 tags: [devfacts,humour]
-image:
-  feature: posts/devfacts.jpg
-  credit: Game Of Thrones
-  creditlink:
 comments: true
 permalink: m6web-dev-facts-4
 ---

@@ -11,10 +11,8 @@ author:
   github:
 category:
 tags: [conference,velocity,webperf]
-image:
-  feature: posts/velocity2014/velocity_banner.jpg
-  credit: oreillyconf
-  creditlink: https://www.flickr.com/photos/oreillyconf/15790152366/in/set-72157649351412705
+feature-img: "images/posts/velocity2014/velocity_banner.jpg"
+thumbnail: "images/posts/velocity2014/velocity_banner.jpg"
 comments: true
 permalink: velocity-europe-2014-day-1.html
 ---

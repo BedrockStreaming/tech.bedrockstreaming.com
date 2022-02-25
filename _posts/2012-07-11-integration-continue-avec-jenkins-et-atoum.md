@@ -5,10 +5,6 @@ description: ""
 author: oliviermansour
 category: 
 tags: [php,atoum,jenkins,ci]
-image:
-  feature: 
-  credit: 
-  creditlink: 
 comments: true  
 permalink: integration-continue-avec-jenkins-et-atoum
 ---

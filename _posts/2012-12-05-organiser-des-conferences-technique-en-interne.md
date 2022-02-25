@@ -5,10 +5,6 @@ description: ""
 author: kenny 
 category: 
 tags: [conference,culture,lft]
-image:
-  feature: 
-  credit: 
-  creditlink: 
 comments: true  
 permalink: organiser-des-conferences-technique-en-interne
 ---

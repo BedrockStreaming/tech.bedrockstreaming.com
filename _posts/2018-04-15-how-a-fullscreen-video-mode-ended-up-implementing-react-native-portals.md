@@ -11,9 +11,7 @@ author:
   github: M6Web
 category: 6play
 tags: [React,ReactNative,mobile]
-image:
-  feature:
-  credit:
+color: rgb(95, 103, 155)
 comments: true
 language: en
 ---

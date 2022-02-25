@@ -11,10 +11,7 @@ author:
   github:
 category:
 tags: [conference]
-image:
-  feature: posts/blend2016.jpg
-  credit: Olivier Mansour
-  creditlink: 
+feature-img: "images/posts/blend2016.jpg"
 comments: true
 ---
 

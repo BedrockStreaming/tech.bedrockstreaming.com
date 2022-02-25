@@ -2,19 +2,10 @@
 layout: post
 title: "On a testé fonctionnellement notre app JS"
 description: "Faire des tests fonctionnels avec Cucumber.js, WebdriverIO et PhantomJS sur une app JS isomorphique."
-author:
-  name:     Florent DUBOST
-  avatar:   florent.jpg
-  email:
-  twitter:  fooragnak
-  facebook:       
-  github:    
+author: florent 
 category:
 tags: [tests fonctionnels, javascript, phantomjs, webdriver, Cytron]
-image:
-  feature: posts/cytron/moon.jpg
-  credit: hippowallpapers.com
-  creditlink: https://www.hippowallpapers.com/walk-the-moon-wallpapers
+feature-img: "images/posts/cytron/moon.jpg"
 comments: true
 ---
 

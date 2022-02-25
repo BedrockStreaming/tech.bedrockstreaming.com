@@ -11,10 +11,7 @@ author:
   github:
 category:
 tags: [afup, phptour]
-image:
-  feature: posts/phptour/PHPTourLyon2014_megaban.jpg
-  credit: AFUP
-  creditlink: https://afup.org/pages/phptourlyon2014/banners/
+thumbnail: "images/posts/phptour/PHPTourLyon2014_megaban.jpg"
 comments: true
 ---
 
