@@ -2,13 +2,7 @@
 layout: post
 title: "Le NoSQL, Focus sur MongoDB par Cédric Derue (Altran)"
 description: ""
-author:
-  name:           M6Web
-  avatar:         
-  email:          
-  twitter:  techM6Web      
-  facebook:       
-  github:    
+author: bedrock
 category: 
 tags: [lft,nosql,mongodb,video]
 image:

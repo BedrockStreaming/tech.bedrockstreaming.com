@@ -2,17 +2,10 @@
 layout: post
 title: "Increase performance and stability by adding an Egress Controller in a Kubernetes cluster at AWS"
 description: "How to avoid ErrorPortAllocation on AWS NAT Gateways, with PHP applications, at scale"
-author:
-    name: Tanguy Falconnet
-avatar:
-email:
-twitter: 
-github: tfalconnet
-category:
+author: t_falconnet
 tags: [php, aws, cloud, performance, sysadmin, kubernetes, HAProxy]
 comments: true
-image:
-  feature: posts/bonnes-pratiques-web/bedrock.jpg
+feature-img: "images/posts/bonnes-pratiques-web/bedrock.jpg"
 language: en
 ---
 

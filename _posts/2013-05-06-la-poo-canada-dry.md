@@ -2,19 +2,9 @@
 layout: post
 title: "La POO Canada Dry"
 description: ""
-author:
-  name:           Kenny Dits
-  avatar:         kenny.jpg
-  email:          
-  twitter:  kenny_dee      
-  facebook:       
-  github:    
+author: kenny 
 category: 
 tags: [php,poo,lft,video]
-image:
-  feature: 
-  credit: 
-  creditlink: 
 comments: true  
 permalink: la-poo-canada-dry
 ---

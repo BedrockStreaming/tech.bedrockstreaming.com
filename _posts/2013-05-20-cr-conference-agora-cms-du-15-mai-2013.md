@@ -2,13 +2,7 @@
 layout: post
 title: "CR Conférence Agora Cms du 15 mai 2013"
 description: ""
-author:
-  name:           Denis Roussel (@dondouny) & Kenny Dits (@kenny_dee)
-  avatar:         
-  email:          
-  twitter:  techM6Web      
-  facebook:       
-  github:    
+author: denis 
 category: 
 tags: [conference,cms]
 image:

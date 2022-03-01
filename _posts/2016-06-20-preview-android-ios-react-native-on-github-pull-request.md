@@ -2,19 +2,11 @@
 layout: post
 title: "Preview your Android & iOS React Native apps on your Github Pull Request"
 description: "Staging environment for your Android and iOS React Native apps on your Github Pull Request with Jenkins, Fastlane & Appetize"
-author:
-  name:  Kenny Dits
-  avatar:
-  email:
-  twitter:  kenny_dee
-  facebook:
-  github:
+author: kenny
 category:
 tags: [reactnative, react, mobile, github, jenkins, fastlane, appetize]
-image:
-  feature: posts/reactnative/nighttrain.jpg
-  credit: Sascha Haase
-  creditlink: https://www.flickr.com/photos/100955334@N06/with/15991008931/
+feature-img: "images/posts/reactnative/nighttrain.jpg"
+thumbnail: "images/posts/reactnative/nighttrain.jpg"
 comments: true
 language: en
 ---

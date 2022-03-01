@@ -2,19 +2,9 @@
 layout: post
 title: "CR Velocity Conference 2012 : Day 1 (Dev/Webperf)"
 description: ""
-author:
-  name:           Kenny Dits
-  avatar:         kenny.jpg
-  email:          
-  twitter:  kenny_dee      
-  facebook:       
-  github:    
+author: kenny 
 category: 
 tags: [velocity,conference,webperf,mobile]
-image:
-  feature: 
-  credit: 
-  creditlink: 
 comments: true  
 permalink: cr-velocity-conference-day-1-dev-webperf
 ---

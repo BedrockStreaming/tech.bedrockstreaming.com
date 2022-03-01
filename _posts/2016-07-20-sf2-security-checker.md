@@ -11,10 +11,7 @@ author:
   github:    
 category:
 tags: [6tech, lyon, symfony, security, php, jenkins]
-image:
-  feature:
-  credit: 
-  creditlink: 
+
 comments: true
 language: en
 ---
@@ -25,7 +22,7 @@ Numerous vulnerabilities are detected every day. That's a good thing and a key b
  
 Just add those lines in your ant build file (and adapt basedir) :  
  
- {% highlight xml %}
+```xml
     <!-- =================================================================== -->
     <!-- Security checker                                                    -->
     <!-- =================================================================== -->
@@ -38,7 +35,7 @@ Just add those lines in your ant build file (and adapt basedir) :
          <arg line="${basedir}/sources/bin/security-checker.phar security:check composer.lock" />
      </exec>
     </target>
-{% endhighlight %}
+```
 
 And automatically check your `composer.lock` againts vulnerabilities. Your build will fail if something wrong is detected. 
 

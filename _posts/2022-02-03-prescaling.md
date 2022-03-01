@@ -2,17 +2,12 @@
 layout: post
 title: "Tonight's football time, let's prescale Kubernetes to avoid a crash!"
 description: "Are you experiencing peak loads on your Kubernetes-hosted platform? At Bedrock, we have developed a prescaling solution. It allows us to handle sudden and abrupt, but predictable, traffic spikes."
-author:
-    name: Timothée Aufort
-avatar:
-email:
-twitter: TimAufort
-github: taufort
+author: t_aufort
 category:
 tags: [kubernetes, scaling, high availability, aws, cloud]
 comments: false
-image:
-  feature: posts/2022-02-03-prescaling/prescaling_wall.jpg
+feature-img: "images/posts/2022-02-03-prescaling/prescaling_wall.jpg"
+thumbnail: "images/posts/2022-02-03-prescaling/prescaling_wall.jpg"
 language: en
 ---
 

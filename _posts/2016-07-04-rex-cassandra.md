@@ -2,19 +2,9 @@
 layout: post
 title: "Retour d'expérience sur l'utilisation de Cassandra sur 6play en vidéo"
 description: "Retour d'expérience sur l'utilisation de Cassandra sur 6play en vidéo"
-author:
-  name:     Olivier Mansour
-  avatar:   
-  email:
-  twitter:  omansour      
-  facebook:       
-  github:    
+author: oliviermansour 
 category:
 tags: [6tech, lyon, conference, cassandra, video]
-image:
-  feature: posts/6play/logo.jpg
-  credit: 
-  creditlink: 
 comments: true
 ---
 

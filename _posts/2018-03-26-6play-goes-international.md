@@ -3,17 +3,10 @@ layout: post
 title: "The 6play platform goes international"
 description: ""
 author:
-  name:  TechM6Web
-  avatar:
-  email:
-  twitter:  techM6Web
-  facebook:
-  github: M6Web
 category: 6play
 tags: [6play, intl]
-image:
-  feature: posts/6play-intl/feature.png
-  credit: m6web
+color: rgb(45, 76, 141)
+thumbnail: "images/posts/6play-intl/feature.png"
 comments: true
 language: en
 ---

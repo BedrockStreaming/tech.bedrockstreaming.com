@@ -2,16 +2,10 @@
 layout: post
 title: "Bonnes pratiques pour la maintenance d'une application web"
 description: "Comment ne pas jeter son projet au bout de 2 ans ? Retour d'expérience basé sur les bonnes pratiques appliquées à la plateforme web développée chez Bedrock Streaming."
-author:
-    name: Antoine Caron
-avatar:
-email:
-twitter: Slashgear_
-github: slashgear
+author: a_caron
 category:
 tags: [js, react, web, frontend]
-image:
-  feature: posts/bonnes-pratiques-web/bedrock.jpg
+feature-img: "images/posts/bonnes-pratiques-web/bedrock.jpg"
 comments: true
 canonical: "https://slashgear.github.io/fr/comment-ne-pas-jeter-son-application-au-bout-de-deux-ans/"
 language: fr

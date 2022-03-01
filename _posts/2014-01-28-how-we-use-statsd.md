@@ -2,19 +2,10 @@
 layout: post
 title: "How we use StatsD"
 description: "How we use statsd to monitor our applications"
-author:
-  name:           Olivier Mansour
-  avatar:         oliviermansour.jpg
-  email:
-  twitter:  omansour
-  facebook:
-  github: omansour
+author: oliviermansour
 category:
 tags: [statsd, graphite, php, nodejs, monitoring]
-image:
-  feature: posts/statsd/header_pourri.jpg
-  credit: les internets
-  creditlink:
+thumbnail: "images/posts/statsd/header_pourri.jpg"
 comments: true
 language: en
 ---

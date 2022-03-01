@@ -2,19 +2,11 @@
 layout: post
 title: "Last night isomorphic JS saved our life!"
 description: "How we use isomorphism to ensure a high availability of our app."
-author:
-  name:  Florent DUBOST
-  avatar: florent.jpg
-  email:
-  twitter:  fooragnak
-  facebook:
-  github:
+author: florent
 category:
 tags: [SPA, SSR, isomorphic, javascript, node.js, high availability]
-image:
-  feature: posts/spamode/spamode.jpg
-  credit: TREES-asso
-  creditlink: https://www.flickr.com/photos/trees-asso/30942363902/
+feature-img: "images/posts/spamode/spamode.jpg"
+thumbnail: "images/posts/spamode/spamode.jpg"
 comments: true
 language: en
 ---

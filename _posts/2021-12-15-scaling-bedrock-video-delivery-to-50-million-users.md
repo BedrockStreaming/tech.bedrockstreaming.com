@@ -2,17 +2,11 @@
 layout: post
 title: "Scaling Bedrock video delivery to 50 million users"
 description: "Here's our journey to migrate tens of thousands of videos accessed by millions of users to the cloud. How we minimized our costs without losing the biggest benefit of the cloud: scalability."
-author:
-    name: Vincent Gallissot
-avatar:
-email:
-twitter: vgallissot
-github: vgallissot
+author: v_gallissot
 category:
 tags: [aws, cloud, sysadmin, HAProxy, video, high availability, Unified Streaming, VOD, OTT, video delivery]
 comments: false
-image:
-  feature: posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/Visuel-BR-Devices-HD-6V2-BRLogo.jpg
+thumbnail: "images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/Visuel-BR-Devices-HD-6V2-BRLogo.jpg"
 language: en
 ---
 

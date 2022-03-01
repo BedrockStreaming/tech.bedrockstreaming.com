@@ -2,19 +2,9 @@
 layout: post
 title: "CR Real Time Conférence Europe 2013 - Day 2"
 description: ""
-author:
-  name:           Olivier Noel
-  avatar:         oliviernoel.jpg
-  email:          
-  twitter:  noel_olivier      
-  facebook:       
-  github:    
+author: oliviernoel
 category: 
 tags: [conference,nodejs,realtime]
-image:
-  feature: 
-  credit: 
-  creditlink: 
 comments: true  
 permalink: cr-real-time-conference-europe-2013-day-2
 ---

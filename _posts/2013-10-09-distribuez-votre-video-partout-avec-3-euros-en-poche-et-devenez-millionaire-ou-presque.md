@@ -2,13 +2,7 @@
 layout: post
 title: "Distribuez votre vidéo partout avec 3 euros en poche et devenez millionaire. Ou presque."
 description: ""
-author:
-  name:           Olivier Mansour
-  avatar:         oliviermansour.jpg
-  email:          
-  twitter:  omansour      
-  facebook:       
-  github:    
+author: oliviermansour 
 category: 
 tags: [lft,video]
 image:

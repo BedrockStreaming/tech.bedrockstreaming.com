@@ -2,19 +2,11 @@
 layout: post
 title: "JenkinsLight, mettez en lumière vos jobs Jenkins"
 description:
-author:
-  name: Team Cytron
-  avatar: cytron.png
-  email:
-  twitter: techM6Web
-  facebook:
-  github:
+author: cytron
 category:
 tags: [outil, jenkins, ci, cytron, open-source]
-image:
-  feature: posts/cytron/jenkinslight.png
-  credit:
-  creditlink:
+thumbnail: "images/posts/cytron/jenkinslight.png"
+feature-img: "images/posts/cytron/jenkinslight.png"
 comments: true
 permalink: jenkinslight-mettez-en-lumiere-vos-jobs-jenkins.html
 ---

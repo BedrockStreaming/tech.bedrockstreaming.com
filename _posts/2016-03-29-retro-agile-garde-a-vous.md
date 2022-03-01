@@ -11,10 +11,8 @@ author:
   github:    
 category: 
 tags: [agile, scrum]
-image:
-  feature: posts/retro/retroagile.png
-  credit: 
-  creditlink:  
+feature-img: "images/posts/retro/retroagile.png"
+thumbnail: "images/posts/retro/retroagile.png"
 comments: true
 ---
 

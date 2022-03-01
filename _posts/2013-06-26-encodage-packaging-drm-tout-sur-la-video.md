@@ -2,13 +2,7 @@
 layout: post
 title: "Encodage - packaging - DRM - tout sur la vidéo"
 description: ""
-author:
-  name:           Olivier Noel
-  avatar:         oliviernoel.jpg
-  email:          
-  twitter:  noel_olivier      
-  facebook:       
-  github:    
+author: oliviernoel 
 category: 
 tags: [video,codec,drm,lft]
 image:

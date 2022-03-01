@@ -11,10 +11,7 @@ author:
   github:    
 category:
 tags: [6tech, lille, sfpot, conference]
-image:
-  feature: posts/sfpot-lille/sfpot_juin.jpg
-  credit: 
-  creditlink: 
+thumbnail: "images/posts/sfpot-lille/sfpot_juin.jpg"
 comments: true
 ---
 

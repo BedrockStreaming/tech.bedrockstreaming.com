@@ -11,10 +11,7 @@ author:
   github:
 category:
 tags: [phptour, php, afup, 2018]
-image:
-  feature: posts/phptour2018/team.jpg
-  credit: Julien Pauli
-  creditlink: https://www.flickr.com/photos/julienpauli/42218396201/in/pool-4527758@N23/
+feature-img: "images/posts/phptour2018/team.jpg"
 comments: true
 language: fr
 ---

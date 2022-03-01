@@ -11,10 +11,8 @@ author:
   github:
 category:
 tags: [afup, php, forumphp, conference]
-image:
-  feature: posts/forumphp2014/cover.jpg
-  credit: Olivier Mansour
-  creditlink: 
+thumbnail: "images/posts/forumphp2014/cover.jpg"
+feature-img: "images/posts/forumphp2014/cover.jpg"
 comments: true
 permalink: 
 ---

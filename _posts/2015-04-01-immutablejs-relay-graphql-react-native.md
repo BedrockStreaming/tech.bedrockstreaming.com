@@ -2,19 +2,11 @@
 layout: post
 title: "Introduction à Immutable.Js, Relay + GraphQL et React Native"
 description: "Compte rendu de la React Conférence ciblé sur 3 sujets : Immutable.Js, Relay + GraphQL et React Native"
-author:
-  name: Kenny DITS
-  avatar: kenny.jpg
-  email:
-  twitter: kenny_dee
-  facebook:
-  github:
+author: kenny
 category:
 tags: [javascript, react, reactnative, lft, video]
-image:
-  feature: posts/reactconf/reactnative.png
-  credit: Facebook
-  creditlink: https://code.facebook.com/posts/1014532261909640/react-native-bringing-modern-web-techniques-to-mobile/
+feature-img: "images/posts/reactconf/reactnative.png"
+thumbnail: "images/posts/reactconf/reactnative.png"
 comments: true
 ---
 Voici un petit compte rendu vidéo, filmé lors de notre [Last Friday Talk](https://tech.m6web.fr/organiser-des-conferences-technique-en-interne/) de Mars, d'un retour de veille techno suite à la [React Conférence](https://conf.reactjs.com/).

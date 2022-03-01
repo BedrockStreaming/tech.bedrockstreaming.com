@@ -2,19 +2,11 @@
 layout: post
 title: "Github Team Reviewer pour gagner la course aux Pull Requests"
 description: "Voir toutes les pull requests de ses équipes en un seul endroit"
-author:
-  name: Team Cytron
-  avatar: cytron.png
-  email:
-  twitter: techM6Web
-  facebook:
-  github:
+author: cytron
 category:
 tags: [outil, github, pull-requests, cytron, open-source]
-image:
-  feature: posts/cytron/gtr.png
-  credit: 
-  creditlink: 
+feature-img: "images/posts/cytron/gtr.png"
+thumbnail: "images/posts/cytron/gtr.png"
 comments: true
 permalink: github-team-reviewer-pull-requests.html
 ---

@@ -2,19 +2,9 @@
 layout: post
 title: "Bedrock Dev Facts #13"
 description: "Les plus belles phrases de nos équipes techniques"
-author:
-  name: Bedrock
-  avatar:         
-  email:          
-  twitter: Bedrock_Tech      
-  facebook:       
-  github:    
+author: bedrock
 category: 
 tags: [devfacts, humour]
-image:
-  feature: posts/devfacts.jpg
-  credit: Game Of Thrones
-  creditlink: 
 comments: true  
 ---
 

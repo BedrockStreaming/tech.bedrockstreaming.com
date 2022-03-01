@@ -11,10 +11,8 @@ author:
   github:
 category:
 tags: [javascript, react, reactnative, video, graphql]
-image:
-  feature: posts/reacteurope/reacteurope1.png
-  credit: Fred V.
-  creditlink: 
+feature-img: "images/posts/reacteurope/reacteurope1.png"
+thumbnail: "images/posts/reacteurope/reacteurope1.png"
 comments: true
 ---
 

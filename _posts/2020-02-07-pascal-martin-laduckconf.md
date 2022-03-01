@@ -2,19 +2,11 @@
 layout: post
 title: "Video : \"Migration de 6PLAY - l'amour est dans le cloud\""
 description: "Vidéo de la conférence de Pascal Martin à la Duck Conf"
-author:
-  name:           M6Web
-  avatar:         
-  email:          
-  twitter:  techM6Web      
-  facebook:       
-  github:    
+author: p_martin 
 category: 
 tags: [conference, video]
-image:
-  feature: posts/6play/logo.jpg
-  credit: 
-  creditlink: 
+feature-img: "images/posts/6play/logo.jpg"
+thumbnail: "images/posts/6play/logo.jpg"
 comments: true  
 ---
 

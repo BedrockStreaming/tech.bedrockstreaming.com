@@ -2,19 +2,11 @@
 layout: post
 title: "Comment a-t-on bouchonné les développeurs backend ?"
 description: "Présentation de la librairie superagent-mock, un plugin superagent open-source à utiliser pour mocker le retour de vos requêtes HTTP."
-author:
-  name: Team Cytron
-  avatar: cytron.png
-  email:
-  twitter: techM6Web
-  facebook:
-  github:
+author: cytron
 category:
 tags: [javascript, superagent, mock, isomorphic, cytron, open-source]
-image:
-  feature: posts/cytron/superagent-mock.jpg
-  credit: Jeff R. Clow
-  creditlink: https://www.flickr.com/photos/jeffclow/3503587957/
+feature-img: "images/posts/cytron/superagent-mock.jpg"
+thumbnail: "images/posts/cytron/superagent-mock.jpg"
 comments: true
 permalink: comment-a-t-on-bouchonne-les-developpeurs-backend.html
 other_language: how-did-we-mock-the-backend-developers.html

@@ -11,10 +11,6 @@ author:
   github:    
 category:
 tags: [6tech, lyon, conference]
-image:
-  feature: posts/6play/logo.jpg
-  credit: 
-  creditlink: 
 comments: true
 ---
 

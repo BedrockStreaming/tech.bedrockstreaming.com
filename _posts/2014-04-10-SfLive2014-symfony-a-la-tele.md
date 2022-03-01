@@ -2,19 +2,10 @@
 layout: post
 title: "Conférence au Symfony Live 2014 : Symfony à la télé"
 description: "M6Web était présent au Symfony Live 2014"
-author:
-  name:           Olivier Mansour
-  avatar:         oliviermansour.jpg
-  email:
-  twitter:  omansour
-  facebook:
-  github: omansour
+author: oliviermansour
 category:
 tags: [symfony, conference]
-image:
-  feature: posts/sflive2014/header_sflive2014.jpg
-  credit: mes petites mains
-  creditlink:
+thumbnail: "images/posts/sflive2014/header_sflive2014.jpg"
 comments: true
 ---
 

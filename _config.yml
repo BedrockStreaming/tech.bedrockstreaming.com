@@ -1,85 +1,51 @@
-title:            Bedrock Tech
-description:      Blog technique de Bedrock
-logo:             br-site-logo.jpg
-search:           true
-#Change url to your domain. Leave localhost server or blank when working locally.
-url:              https://tech.bedrockstreaming.com
+# SITE CONFIGURATION
+baseurl: ""
+url: "https://tech.bedrockstreaming.com"
 
-rss_path: /rss
+# THEME-SPECIFIC CONFIGURATION
+title: Bedrock Tech Blog                                    # site's title
+description: "Blog technique de Bedrock"      # used by search engines
+avatar: images/br-site-logo.jpg                  # Empty for no avatar in navbar
+favicon: assets/favicon.png                             # Icon displayed in the tab
 
-# Owner/author information
-owner:
-  name:           Bedrock
-  avatar:         bio-photo.jpg
-  email:          opensource@bedrockstreaming.com
-  # Social networking links used in footer. Update and remove as you like.
-  twitter:  Bedrock_Tech
-  facebook: BedrockStreamingTech
-  github: BedrockStreaming
-  stackexchange:
-  linkedin:
-  instagram:
-  flickr:
-  tumblr:
-  # For Google Authorship https://plus.google.com/authorship
-  google_plus:
+# Header and footer text
+header_text: Creating Streaming Champions  # Change Blog header text
+header_feature_image: images/banner_xl.jpeg
+header_feature_image_responsive: true
+footer_text: >
+  Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
 
-# Analytics and webmaster tools stuff goes here
-google_analytics:
-google_verify:
-# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:
+# Blog
+excerpt: true                                           # Or "truncate" (first 250 characters), "false" to disable
+post_navigation: true
+color_image: /assets/img/lineart.png                    # A bit transparent for color posts.
 
-# Links to include in top navigation
-# For external links add external: true
-links:
-  - title: home
-    url: /
-  - title: About
-    url: /about
-  - title: Jobs
-    url: /jobs
-  - title: OSS
-    url: /oss
-  - title: Tags
-    url: /tags.html
-#  - title: Theme Setup
-#    url: /theme-setup
-#  - title: Made Mistakes
-#    url: http://mademistakes.com
-#    external: true
+# Features
+# More in the _data folder for share buttons, author and language
+# For layout customization, go to the "_sass > base" folder, and check "_variables.scss"
+katex: true                                             # Enable if using math markup
+mermaid: true                                           # Enable mermaid-js for sequence and diagrams
+google_analytics:                                       # Tracking ID, e.g. "UA-000000-01"
+cookie_consent: false                                   # To respect the usage of cookies
+color_theme: auto                                       # auto, dark or light
 
-# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    Europe/Paris
-future:      true
-highlighter: rouge
-markdown:    kramdown
+# Comments
+comments:
+  disqus_shortname:                                     # Your discus shortname for comments
+  cusdis_app_id:                                        # Your cusdis data-app-id
+  utterances:                                           # Enable by filling below information. For more info, go to https://utteranc.es
+    repo:                                               # your public comments repository (e.g. owner/repo)
+    issue-term:                                         # Issue term (e.g. "comment" consider issues with this word in the title as comments)
 
-# https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink:   /:categories/:title/
+# PAGINATION
+paginate: 5
+paginate_path: "/blog/page:num"
 
-# Split posts over multiple subdirectories called “page2”, “page3”, … “pageN”
-paginate: 20
-paginate_path: 'page:num'
+# BUILD SETTINGS
+sass:
+  style: compressed
+plugins: [jekyll-paginate, jekyll-seo-tag, jekyll-feed]
+exclude: [".jekyll-cache", ".jekyll-metadata", ".idea", "vendor/*", "assets/node_modules/*"]
 
-plugins:
-  - jekyll-paginate
-
-kramdown:
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  use_coderay: false
-
-  coderay:
-    coderay_line_numbers:
-    coderay_line_numbers_start: 1
-    coderay_tab_width: 4
-    coderay_bold_every: 10
-    coderay_css: class
-
-include: [".htaccess"]
-exclude: ["lib", "config.rb", "Gemfile", "Capfile", "Gemfile.lock", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules"]
-
-gems: ["jekyll-paginate", "jekyll-gist"]
+# theme: type-on-strap                                  # if using the theme as a jekyll theme gem
+remote_theme: sylhare/Type-on-Strap                     # If using as a remote_theme in github

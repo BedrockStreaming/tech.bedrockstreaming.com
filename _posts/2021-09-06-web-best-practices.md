@@ -2,16 +2,10 @@
 layout: post
 title: "Best practices for Web application maintenance"
 description: "How not to throw away your project after 2 years? Feedback based on best practices applied to the web platform developed at Bedrock Streaming."
-author:
-    name: Antoine Caron
-avatar:
-email:
-twitter: Slashgear_
-github: slashgear
+author: a_caron
 category:
 tags: [js, react, web, frontend]
-image:
-  feature: posts/bonnes-pratiques-web/bedrock.jpg
+feature-img: "images/posts/bonnes-pratiques-web/bedrock.jpg"
 comments: true
 canonical: "https://slashgear.github.io/how-not-to-throw-away-your-web-application-after-two-years/"
 language: en

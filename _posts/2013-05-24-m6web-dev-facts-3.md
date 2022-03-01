@@ -2,13 +2,7 @@
 layout: post
 title: "M6Web Dev Facts #3"
 description: ""
-author:
-  name:           Olivier Mansour
-  avatar:         oliviermansour.jpg
-  email:          
-  twitter:  omansour      
-  facebook:       
-  github:    
+author: oliviermansour 
 category: 
 tags: [devfacts,humour]
 image:

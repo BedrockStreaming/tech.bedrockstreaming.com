@@ -2,19 +2,9 @@
 layout: post
 title: "Intégration continue avec Jenkins et Atoum"
 description: ""
-author:
-  name:           Olivier Mansour
-  avatar:         oliviermansour.jpg
-  email:          
-  twitter:  omansour      
-  facebook:       
-  github:    
+author: oliviermansour
 category: 
 tags: [php,atoum,jenkins,ci]
-image:
-  feature: 
-  credit: 
-  creditlink: 
 comments: true  
 permalink: integration-continue-avec-jenkins-et-atoum
 ---

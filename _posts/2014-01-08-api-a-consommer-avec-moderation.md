@@ -2,19 +2,11 @@
 layout: post
 title: "API à consommer avec modération"
 description: "Authentification des API par nom de domaine"
-author:
-  name: Team Cytron
-  avatar: cytron.png
-  email:
-  twitter: techM6Web
-  facebook:
-  github:
+author: cytron
 category:
 tags: [outil, api, symfony, doctrine, cytron, open-source]
-image:
-  feature: posts/cytron/domainuserbundle.png
-  credit: ram reddy
-  creditlink: https://www.flickr.com/photos/rammorrison/with/4704353204/
+feature-img: "images/posts/cytron/domainuserbundle.png"
+thumbnail: "images/posts/cytron/domainuserbundle.png"
 comments: true
 ---
 

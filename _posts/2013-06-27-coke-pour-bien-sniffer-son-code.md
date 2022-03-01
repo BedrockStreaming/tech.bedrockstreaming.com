@@ -2,19 +2,11 @@
 layout: post
 title: "Coke, pour bien sniffer son code"
 description: ""
-author:
-  name: Team Cytron
-  avatar: cytron.png
-  email:
-  twitter: techM6Web
-  facebook:
-  github:
+author: cytron
 category:
 tags: [outil, qualite, php, open-source]
-image:
-  feature: posts/cytron/sniff.jpg
-  credit: iPad Wallpapers free
-  creditlink:
+feature-img: "images/posts/cytron/sniff.jpg"
+thumbnail: "images/posts/cytron/sniff.jpg"
 comments: true
 permalink: coke-pour-bien-sniffer-son-code
 ---

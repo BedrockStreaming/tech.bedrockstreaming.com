@@ -11,10 +11,8 @@ author:
   github: M6Web
 category:
 tags: [opensource, babyfoot, angularjs, d3js, symfony]
-image:
-  feature: posts/babitch/tablesoccer.jpg
-  credit: Japrisner @ Flickr
-  creditlink: https://www.flickr.com/photos/58141828@N05/5362632590/sizes/m/in/photolist-9aSTQA-aaApJn-7XhiQ1-9mm8iR-aDDtjQ-9x39H5-dUWFva-9W6hXa-bfbkqp-dtY159-8vS35Z-ctJMJY-9hvrus-7EBXJJ-8hZDrs-8ECAcX-8EFKL9-bceqjn-8erzXx-8hy4fP-bvuRWY-8BhKgz-8vV58N-9dMBVt-9W97P9-9ciEma-7Riztb-7Cr2Y8-88bzzS-bBZoUQ-dVoiY4-ds7Tb4-8EvLBp-8HMkVg-8HMkXF-8HQtR9-8HQu1j-8HQtNN-8HQu6w-8HMm88-8HQtVd-dUg7yj-9QddPr-9eb3WU-8HQtXU-dLHHqu-dLCauB-ds8cwQ-ds8fvG-89CvbS-ds82e4/
+feature-img: "images/posts/babitch/tablesoccer.jpg"
+thumbnail: "images/posts/babitch/tablesoccer.jpg"
 comments: true
 language: en
 ---

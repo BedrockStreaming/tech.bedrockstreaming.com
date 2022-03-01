@@ -11,10 +11,8 @@ author:
   github:
 category:
 tags: [afup, phptour, conference, video]
-image:
-  feature: posts/phptour2014/elephant.jpg
-  credit: Vagner Rodrigues
-  creditlink: https://www.flickr.com/photos/50760626@N03/
+feature-img: "images/posts/phptour2014/elephant.jpg"
+thumbnail: "images/posts/phptour2014/elephant.jpg"
 comments: true
 ---
 

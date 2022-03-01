@@ -1,12 +1,2 @@
-source 'https://rubygems.org'
-
-gem 'json'
-gem 'jekyll', '3.9.0'
-gem 'coderay'
-gem 'rake'
-gem 'thor'
-gem 'kramdown', '2.3.1'
-gem 'kramdown-parser-gfm', '1.1.0'
-gem 'jekyll-paginate'
-gem 'jekyll-gist'
-gem 'pygments.rb'
+source "https://rubygems.org"
+gemspec
