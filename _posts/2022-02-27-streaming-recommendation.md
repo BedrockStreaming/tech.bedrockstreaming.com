@@ -2,7 +2,7 @@
 layout: post
 title: "Streaming recommendations at Bedrock"
 description: "The first streaming recommendations with machine learning at Bedrock"
-author: saby_nastasia
+author: n_saby
 twitter: Bedrock_Tech
 category:
 tags: [recommender systems, machine learning, data, data science]
