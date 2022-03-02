@@ -6,7 +6,7 @@ author: n_saby
 twitter: Bedrock_Tech
 category:
 tags: [recommender systems, machine learning, data, data science]
-feature-img: "images/posts/2022-02-27-streaming-recommendation/header.png"
+color: rgb(12,4,38)
 thumbnail: "images/posts/2022-02-27-streaming-recommendation/header.png"
 language: en
 ---
