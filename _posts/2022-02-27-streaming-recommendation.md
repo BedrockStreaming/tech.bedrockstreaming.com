@@ -2,17 +2,12 @@
 layout: post
 title: "Streaming recommendations at Bedrock"
 description: "The first streaming recommendations with machine learning at Bedrock"
-author:
-    name: Nastasia Saby
-avatar:
-email:
+author: Nastasia Saby
 twitter: Bedrock_Tech
-github: 
 category:
 tags: [recommender systems, machine learning, data, data science]
-image:
-  feature: posts/2022-02-27-streaming-recommendation/header.png
-comments: true
+feature-img: "images/posts/2022-02-27-streaming-recommendation/header.png"
+thumbnail: "images/posts/2022-02-27-streaming-recommendation/header.png"
 language: en
 ---
 
