@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How AWS Cloudfront is helping us deliver our Web streaming platform ? - Part 1"
+title: "How AWS Cloudfront is helping us deliver our Web streaming platform? - Part 1"
 description: "What is a CDN, how is it useful for us? Feedback on the use of the AWS Cloudfront service for the deployment of high traffic web applications. Configuration example, best practices."
 author:
     name: Antoine Caron
@@ -22,10 +22,10 @@ language: en
 ## A bit of context
 
 The web is a major platform for the distribution of our customers' content at Bedrock.
-Millions of users connect every year to watch their live, replay or directly the series and movies of their choice.
+Millions of users connect every month to watch their live, replay or the series and movies of their choice.
 The broadcasting of sports events such as the Euro 2020 soccer tournament represents a real technical challenge when it comes to maintaining the stability and performance of such a platform.
 
-The web application works today in SSR (Server Side Rendering) mode.
+The web application works in SSR (Server Side Rendering) mode.
 This means that in production today we have NodeJS Express servers running in production to return pre-rendered HTML pages on the server side.
 We made [this choice several years ago](https://tech.bedrockstreaming.com/spa-mode-isomorphism-js/), for two reasons: SEO and to improve the first display time on slow devices.
 In addition to the HTML pages, the web platform is also a huge collection of assets that allow the website to function: Javascript bundles, CSS, images, manifests.
@@ -36,19 +36,19 @@ Today our customers have users distributed over a large part of the globe.
 
 ## What is a CDN then ?
 
-CDN for Content Delivery Network is a service allowing the delivery of content to users across the internet (here our HTML pages and assets).
+CDN for Content Delivery Network is a service delivering content to users across the internet (here our HTML pages and assets).
 Wherever the user is in the world.
 To all users, even if they are very numerous.
 
 Cloudfront is the CDN service of AWS.
-By making available a large number of POPs around the world, it allows us to provide a response to a user as close as possible to their location.
+With a large number of POPs around the world, it helps us provide a response to each user as close as possible to their location.
 This allows us to significantly reduce the time to first byte of our responses.
 Different [price classes](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html) allow you to choose the global "zone" in which your application should be available in order to achieve savings.
 
 ![Worldmap of AWS cloudfront edges](/images/posts/2022-01-31-cloudfront-web-streaming-platform/edges.png)
 
 Being in Lyon (France), we sometimes get answers from the POP (Point Of Presence) of Milan (Italia).
-Indeed, Milan is relatively much closer than Paris.
+Indeed, Lyon <-> Milan is almost as closer as Lyon <-> Paris.
 
 Note that it is very easy to know which Cloudfront POP answered you (default setting).
 Each POP is identified by a three letter code that corresponds to the code of the nearest international airport (here: CDG corresponds to Paris Charles de Gaulle airport).
@@ -76,7 +76,7 @@ Cloudfront even takes advantage of this to apply more powerful compression algor
 These compressions, performed directly by the CDN, allow you to drastically reduce the size of your objects on the network.
 
 Cloudfront also allows you to do "Edge computing": run code directly in Amazon edges and POPs instead of doing it in our applications.
-Lambda at edge (on regional edges servers), Cloudfront function (function that runs on POP servers)), Web Application Firewall, here are some very cool features that will allow you to do usual manipulations on your requests/responses.
+Lambda at edge (on regional edges servers), Cloudfront function (function that runs on POP servers), Web Application Firewall, here are some very cool features that will allow you to do usual manipulations on your requests/responses.
 
 Finally, by using regional Edge, hundreds of end server edges do not contact your origin (your application) when the cache is invalidated or exceeded.
 You can even activate the [Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) feature that allows you to further limit the load on your origins.
