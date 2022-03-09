@@ -90,5 +90,5 @@ And that's it for this first article, in the next part (and normally the last on
 
 In the meantime, feel free to have a look at other articles available on this blog:
 
-- [More efficient Load Balancing and Caching at AWS, using Consistent Hashing and HAProxy](https://tech.bedrockstreaming.com/hsdo/)
-- [Scaling Bedrock video delivery to 50 million users](https://tech.bedrockstreaming.com/scaling-bedrock-video-delivery-to-50-million-users/)
+- [More efficient Load Balancing and Caching at AWS, using Consistent Hashing and HAProxy](https://tech.bedrockstreaming.com/2021/11/18/hsdo.html)
+- [Scaling Bedrock video delivery to 50 million users](https://tech.bedrockstreaming.com/2021/12/15/scaling-bedrock-video-delivery-to-50-million-users.html)
