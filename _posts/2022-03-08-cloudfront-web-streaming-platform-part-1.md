@@ -9,9 +9,6 @@ color: rgb(255,99,71)
 language: en
 ---
 
-- [Part 1 - What is a CDN, how is it useful for us?](/cloudfront-web-streaming-platform-part-1/)
-- [Part 2 - How do we use a CDN to improve our service? Some examples and patterns (in construction 🚧)](/)
-
 ## A bit of context
 
 The web is a major platform for the distribution of our customers' content at [Bedrock](https://www.bedrockstreaming.com/).
