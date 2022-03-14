@@ -40,7 +40,7 @@ Different [price classes](https://docs.aws.amazon.com/AmazonCloudFront/latest/De
 ![Worldmap of AWS cloudfront edges from Cloudfront official documentation](/images/posts/cloudfront-web-streaming-platform/edges.png)
 
 Being in Lyon (France), we sometimes get answers from the POP of Milan (Italia).
-Indeed, Lyon <-> Milan is almost as closer as Lyon <-> Paris.
+Indeed, Lyon ↔ Milan is almost as closer as Lyon ↔ Paris.
 
 Note that it is very easy to know which Cloudfront POP answered you.
 Each POP is identified by a three letter code that corresponds to the code of the nearest international airport (here: CDG corresponds to Paris Charles de Gaulle airport).
