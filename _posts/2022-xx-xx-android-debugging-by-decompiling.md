@@ -24,6 +24,19 @@ To put it simply, your source files (Kotlin and Java) are compiled to Dalvik byt
 <!-- TODO use Mermaid instead -->
 ![Android build process. Kotlin and Java files get compiled into dex files, which are packaged into an APK file.](/images/posts/2022-xx-xx-android-debugging-by-decompiling/android-build-1.webp)
 
+{% mermaid %}
+flowchart LR
+    kt[.kt files] -- kotlinc --> dex[.dex files] --> packaging[[packaging]]
+    java[.java files] -- javac --> dex
+    res[resource files] -- aapt --> resc[compiled resource files] --> packaging --> APK
+    subgraph APK
+    direction TB
+    dex1[.dex] -.- dex2[.dex] -.- dex3[.dex] -.- dex4[.dex]
+    res1[res] -.- res2[res] -.- res3[res] -.- res4[res]
+    signature -.- manifest
+    end
+{% endmermaid %}
+
 ## Understanding bytecode instrumentation
 
 Now, let's say you want to take an existing application with its untouched source code, and automatically inject calls to *your* SDK every time a network call is made, to log whether it was successful or not. How would you achieve this?
