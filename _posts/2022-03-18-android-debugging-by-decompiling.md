@@ -6,8 +6,6 @@ author: b_candellier
 category:
 tags: [android, apktool, instrumentation, debugging, productivity]
 comments: true
-image:
-  feature: posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/Visuel-BR-Devices-HD-6V2-BRLogo.jpg
 language: en
 ---
 
