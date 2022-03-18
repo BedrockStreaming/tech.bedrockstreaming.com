@@ -22,7 +22,7 @@ To put it simply, your source files (Kotlin and Java) are compiled to Dalvik byt
 <!-- TODO use Mermaid instead -->
 ![Android build process. Kotlin and Java files get compiled into dex files, which are packaged into an APK file.](/images/posts/2022-xx-xx-android-debugging-by-decompiling/android-build-1.webp)
 
-{% mermaid %}
+```mermaid
 flowchart LR
     kt[.kt files] -- kotlinc --> dex[.dex files] --> packaging[[packaging]]
     java[.java files] -- javac --> dex
@@ -33,7 +33,7 @@ flowchart LR
     res1[res] -.- res2[res] -.- res3[res] -.- res4[res]
     signature -.- manifest
     end
-{% endmermaid %}
+```
 
 ## Understanding bytecode instrumentation
 
