@@ -16,7 +16,7 @@ Millions of users connect every month to watch their live, replay or the series 
 The broadcasting of sports events such as the Euro 2020 soccer tournament represents a real technical challenge when it comes to maintaining the stability and performance of such a platform.
 
 The web application works in SSR (Server Side Rendering) mode: we have NodeJS Express servers returning pre-rendered HTML pages.
-We made [this choice several years ago](https://tech.bedrockstreaming.com/spa-mode-isomorphism-js/), for two reasons: SEO and to improve the first display time on slow devices.
+We made [this choice several years ago](https://tech.bedrockstreaming.com/2017/05/17/spa-mode-isomorphism-js.html), for two reasons: SEO and to improve the first display time on slow devices.
 In addition to the HTML pages, the web platform is also a huge collection of assets that allow the website to function: Javascript bundles, CSS, images, manifests.
 
 Today our customers have users distributed over a large part of the globe.
