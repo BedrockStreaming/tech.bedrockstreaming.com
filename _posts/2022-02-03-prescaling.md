@@ -6,8 +6,8 @@ author: t_aufort
 category:
 tags: [kubernetes, scaling, high availability, aws, cloud]
 comments: false
-feature-img: "images/posts/2022-02-03-prescaling/prescaling_wall.jpg"
-thumbnail: "images/posts/2022-02-03-prescaling/prescaling_wall.jpg"
+feature-img: "images/posts/2022-02-03-prescaling/davide_ragusa_unsplash.jpg"
+thumbnail: "images/posts/2022-02-03-prescaling/davide_ragusa_unsplash.jpg"
 language: en
 ---
 
@@ -55,10 +55,14 @@ adjusts the size of a Kubernetes cluster by adding/removing nodes.
 pods (and new “useless” nodes, as a consequence), so the cluster has available capacity that will be used to start 
 applications pods quicker.
 
+> If you wish to know more about which tools we use and why we use them in our Kubernetes clusters, I advise you to 
+check out another dedicated blog post named 
+["Three years running Kubernetes on production at Bedrock"](https://tech.bedrockstreaming.com/2020/12/08/Three-years-running-kubernetes-on-production-at-Bedrock.html).
+
 Unfortunately, all those tools are not sufficient to deal with heavy and sudden traffic spikes on some special 
-evenings such as the finale of a successful show. During this kind of events, users arrive massively, all at the 
-same time. On some evenings, some of our applications see their load rise by 5 in 2 minutes, others even see theirs 
-multiplied by 10 in 2 minutes!
+evenings such as the final of a football game or a successful show. During this kind of events, users arrive massively, 
+all at the same time. On some evenings, some of our applications see their load rise by 5 in 2 minutes, others even 
+see theirs multiplied by 10 in 2 minutes!
 
 The predictable aspect of those arrivals is very important because it means we are able to prepare our platform 
 beforehand. That’s why our prescaling solution was born.
