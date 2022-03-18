@@ -15,24 +15,27 @@ If you maintain an Android application, you might be relying on performance moni
 
 These plugins usually have a light setup process, and manage to collect statistics about every network call and database query in your app automatically. If you have ever wondered how this is achieved and, most importantly, how to debug the issues this might be causing—read on!
 
-## Understanding the Android build process
+# Diving into the Android build process
 
 To understand what instrumentation really is and how it works, we first need to know a little about the Android app build process. Don't worry, we'll only need to cover the basics.
 
 To put it simply, your source files (Kotlin and Java) are compiled to Dalvik bytecode, into `.dex` files. These files are then packaged into an APK file, which is basically just a ZIP file with all your code and resources.
 
+<!-- TODO use Mermaid instead -->
 ![Android build process. Kotlin and Java files get compiled into dex files, which are packaged into an APK file.](/images/posts/2022-xx-xx-android-debugging-by-decompiling/android-build-1.webp)
 
-## Instrumenting an app
+## Understanding bytecode instrumentation
 
 Now, let's say you want to take an existing application with its untouched source code, and automatically inject calls to *your* SDK every time a network call is made, to log whether it was successful or not. How would you achieve this?
 
 The easiest way is to plug yourself into the build, right after the code is compiled into bytecode, and **modify the bytecode** to your will.
 
+<!-- TODO use Mermaid instead -->
 ![Android build process, with an instrumentation plugin. Dex files are intercepted before they're packaged into the APK.](/images/posts/2022-xx-xx-android-debugging-by-decompiling/android-build-2.webp)
 
 The Android Gradle Plugin (AGP) offers APIs to do this, so SDK vendors can just provide a Gradle plugin and ta-da! Your app is instrumented.
 
+<!-- TODO remove M6 mentions -->
 ```
 .method private final getContent()Lfr/m6/m6replay/feature/home/presentation/viewmodel/HomeViewModel$State$Content;
 
@@ -64,6 +67,18 @@ The Android Gradle Plugin (AGP) offers APIs to do this, so SDK vendors can just 
 .end method
 ```
 
+## Reverse-engineering a built APK
+
+## Understanding Dalvik bytecode
+
+https://source.android.com/devices/tech/dalvik/dalvik-bytecode
+
+# Using a decompiled APK as a debugging tool
+
+## Inspecting suspicious code
+
+## Debugging by iteration
+
 ```sh
 #!/bin/sh
 apktool --use-aapt2 b <your-decompiled-apk> \                     # path to your previously decompiled APK
@@ -73,3 +88,10 @@ apktool --use-aapt2 b <your-decompiled-apk> \                     # path to your
         <your-decompiled-apk>/dist/*.apk \
     && adb install <your-decompiled-apk>/dist/*.apk
 ```
+
+
+## Finding the right fix
+
+# Conclusion
+
+
