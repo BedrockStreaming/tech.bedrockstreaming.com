@@ -143,7 +143,7 @@ To use the cache as much as possible, we need an adapted load balancing method: 
 ![Consistent Hashing is an ideal method for caches](/images/posts/2021-11-18-hsdo/image10.png)
 <center><i>Consistent Hashing is an ideal method for caches</i></center>
 
-Last two images are from [our recent blog post about doing advanced load balancing at AWS](https://tech.bedrockstreaming.com/hsdo/).
+Last two images are from [our recent blog post about doing advanced load balancing at AWS](https://tech.bedrockstreaming.com/2021/11/18/hsdo.html).
 
 With Consistent Hashing, we can send all requests for the same video to the same cache server. This would optimize the local Nginx cache and reduce S3 costs.
 
@@ -166,7 +166,7 @@ HAProxy is running on EC2 instances, in a dedicated AutoScalingGroup. As with th
 To send requests to USP origin, HAProxy needs to know all the healthy EC2 instances running in their AutoScalingGroup.  
 We started by using Consul, to automatically populate our HAProxy backend with these USP servers.
 
-See the [dedicated blog post](https://tech.bedrockstreaming.com/hsdo/) to know why we preferred to develop a tool dedicated to this task, which we called HAProxy Service Discovery Orchestrator (HSDO).
+See the [dedicated blog post](https://tech.bedrockstreaming.com/2021/11/18/hsdo.html) to know why we preferred to develop a tool dedicated to this task, which we called HAProxy Service Discovery Orchestrator (HSDO).
 
 
 ### EC2 costs are reduced by using only Spot instances <a name="EC2SpotInstances"></a>
