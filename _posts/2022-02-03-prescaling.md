@@ -9,6 +9,8 @@ comments: false
 feature-img: "images/posts/2022-02-03-prescaling/davide_ragusa_unsplash.jpg"
 thumbnail: "images/posts/2022-02-03-prescaling/davide_ragusa_unsplash.jpg"
 language: en
+redirect_from:
+  - /prescaling/
 ---
 
 Are you experiencing peak loads on your Kubernetes-hosted platform? Rest assured, you are not alone.

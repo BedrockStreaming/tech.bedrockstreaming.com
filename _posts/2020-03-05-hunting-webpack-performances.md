@@ -9,6 +9,8 @@ feature-img: "images/posts/hunting-webpack-performances/julian-hochgesang-0Y_YNP
 comments: true
 canonical: "https://slashgear.github.io/hunting-webpack-performances/"
 language: en
+redirect_from:
+  - /hunting-webpack-performances/
 ---
 
 ## How did I cut in half my project's webpack build time ?

@@ -7,6 +7,8 @@ tags: [php, aws, cloud, performance, sysadmin, kubernetes, HAProxy]
 comments: true
 feature-img: "images/posts/bonnes-pratiques-web/bedrock.jpg"
 language: en
+redirect_from:
+  - /increase-performance-and-stability-by-adding-an-egress-controller/
 ---
 
 # Introduction

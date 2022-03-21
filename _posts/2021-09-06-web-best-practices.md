@@ -9,6 +9,8 @@ feature-img: "images/posts/bonnes-pratiques-web/bedrock.jpg"
 comments: true
 canonical: "https://slashgear.github.io/how-not-to-throw-away-your-web-application-after-two-years/"
 language: en
+redirect_from:
+  - /web-best-practices/
 ---
 
 

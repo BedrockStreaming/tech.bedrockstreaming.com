@@ -9,6 +9,8 @@ feature-img: "images/posts/react-redux/redux.jpg"
 comments: true
 canonical: "https://slashgear.github.io/react-redux-pitfalls-and-best-pratices/"
 language: en
+redirect_from:
+  - /react-redux-pitfalls-and-best-practices/
 ---
 
 After 2 years using React with Redux for the video platform [6play](https://6play.fr), I was able to identify good practices and pitfalls to avoid at all costs.

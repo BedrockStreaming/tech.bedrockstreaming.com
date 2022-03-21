@@ -9,6 +9,8 @@ feature-img: "images/posts/lft/live-streaming/header.jpg"
 thumbnail: "images/posts/lft/live-streaming/header.jpg"
 comments: true
 language: en
+redirect_from:
+  - /live-streaming-lft/
 ---
 
 At Bedrock, the last Friday of every other month[^lft-history] is *Last Friday Talk* -- or *LFT*.

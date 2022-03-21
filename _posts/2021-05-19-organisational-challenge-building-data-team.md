@@ -9,6 +9,8 @@ feature-img: "images/posts/data-org-challenge/team.jpg"
 thumbnail: "images/posts/data-org-challenge/team.jpg"
 comments: true
 language: en
+redirect_from:
+  - /organisational-challenge-building-data-team/
 ---
 
 
