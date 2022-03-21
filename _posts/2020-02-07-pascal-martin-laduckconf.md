@@ -7,7 +7,9 @@ category:
 tags: [conference, video]
 feature-img: "images/posts/6play/logo.jpg"
 thumbnail: "images/posts/6play/logo.jpg"
-comments: true  
+comments: true
+redirect_from:
+  - /pascal-martin-laduckconf/
 ---
 
 [Pascal Martin](https://twitter.com/pascal_martin) a eu le plaisir d'être invité par [Octo](https://www.octo.com/) pour un REX sur la migration de notre architecture dans *le cloud*.

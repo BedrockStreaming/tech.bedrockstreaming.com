@@ -6,6 +6,8 @@ author: bedrock
 category: 
 tags: [devfacts, humour]
 comments: true  
+redirect_from:
+  - /bedrock-dev-facts-15/
 ---
 
 Le père noël 🎅🏻 vous apporte en avance une hotte pleine de [devfacts](/tags.html#devfacts) !

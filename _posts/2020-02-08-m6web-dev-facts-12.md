@@ -5,7 +5,9 @@ description: "Les plus belles phrases de nos équipes techniques"
 author: bedrock 
 category: 
 tags: [devfacts, humour]
-comments: true  
+comments: true
+redirect_from:
+  - /m6web-dev-facts-12/
 ---
 
 Reprenons un rythme soutenu des [devfacts](/tags.html#devfacts) !

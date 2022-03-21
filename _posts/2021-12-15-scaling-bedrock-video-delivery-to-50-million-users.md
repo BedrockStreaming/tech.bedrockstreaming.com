@@ -8,6 +8,8 @@ tags: [aws, cloud, sysadmin, HAProxy, video, high availability, Unified Streamin
 comments: false
 thumbnail: "images/posts/2021-12-15-scaling-bedrock-video-delivery-to-50-million-users/Visuel-BR-Devices-HD-6V2-BRLogo.jpg"
 language: en
+redirect_from:
+  - /scaling-bedrock-video-delivery-to-50-million-users/
 ---
 
 Here's our journey to migrate tens of thousands of videos, accessed by millions of users, to the cloud. How we minimized our costs without losing the biggest benefit of the cloud: scaling.

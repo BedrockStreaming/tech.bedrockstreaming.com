@@ -8,6 +8,8 @@ tags: [Infrastructure, Cloud, Kubernetes, Kops, AWS, HAProxy]
 feature-img: "images/posts/2020-12-08-three-years-running-kubernetes/ihor-dvoretskyi-UGKfiS5CcZI-unsplash.jpg"
 comments: true
 language: en
+redirect_from:
+  - /Three-years-running-kubernetes-on-production-at-Bedrock/
 ---
 
 We migrated our first application to a Kubernetes cluster at AWS in 2018 (a colleague even wrote [a book about it)](https://leanpub.com/tci/).  
