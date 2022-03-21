@@ -2,7 +2,7 @@
 layout: post
 title: "Tonight's football time, let's prescale Kubernetes to avoid a crash!"
 redirect_from:
-  - /
+  - /prescaling
 description: "Are you experiencing peak loads on your Kubernetes-hosted platform? At Bedrock, we have developed a prescaling solution. It allows us to handle sudden and abrupt, but predictable, traffic spikes."
 author: t_aufort
 category:
