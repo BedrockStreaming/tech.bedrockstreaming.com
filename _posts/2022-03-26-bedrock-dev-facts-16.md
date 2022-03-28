@@ -85,7 +85,7 @@ Did you forget a "use" statement for another namespace?
 > 
 > Ah bah heureusement que je suis la pour tester
 > 
-> B: Le plus étonnant c'est que 'A' est le droit de push non ?
+> B: Le plus étonnant c'est que 'A' ait le droit de push non ?
 > 
 > A: Le plus étonnant c'est que j'ai quelque chose à push non ? 
 > 
@@ -110,13 +110,17 @@ Did you forget a "use" statement for another namespace?
 # La PRO-crastination
 
 > Lead: C'était qui le chargé du monitoring hier ?
+> 
 > A: C'était moi mais j'ai rien fait, mais si vous voulez je peux le refaire aujourd'hui.
+> 
 > B: Si tu veux je peux même t'aider à rien refaire.
 
 # Ça sent un peu la poussière ici
 
 > A: Eh eh, là on a effectivement sur-gonflé l'estim ... (mais le côté pas dans l'inconnu l'explique)
+> 
 > B: Ouais c'était carrément la peur de toucher à un projet legacy de chez legacy, qu'on ne connait pas, pas dans notre scope...
+> 
 > A: Mais pas de souci majeur pour un développeur qui pratiquait Symfony sous Pompidou (le code date de cette époque)
 
 # Un nouveau mot
