@@ -58,7 +58,7 @@ Did you forget a "use" statement for another namespace?
 
 > Qui c'est qui a déplacé la terre ?
 
-# Traquilou bilou
+# Tranquilou bilou
 
 > Le pair programming n’est pas du programming pépère
 
