@@ -8,7 +8,7 @@ tags: [devfacts, humour]
 color: rgb(251,87,66)
 ---
 
-Sur ce début d'année les équipes de Bedrock se sont lachées ça promet pour le reste de l'année.
+Sur ce début 2022 les équipes de Bedrock se sont lachées ça promet pour le reste de l'année.
 [Les autres articles de cette série sont disponibles ici.](/tags/#devfacts)
 
 # Promis !
@@ -83,7 +83,7 @@ Did you forget a "use" statement for another namespace?
 > 
 > ...
 > 
-> Ah bah heureusement que je suis la pour tester
+> Ah bah heureusement que je suis là pour tester
 > 
 > B: Le plus étonnant c'est que 'A' ait le droit de push non ?
 > 
