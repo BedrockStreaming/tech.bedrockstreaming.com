@@ -13,13 +13,13 @@ Sur ce début d'année les équipes de Bedrock se sont lachées ça promet pour 
 
 # Promis !
 
-![Screenshot montrant un échange de message slack indiquant qu'une personne notifie qu'un de ses collègue à indiqué dans un message épinglé agé d'un ans que cela n'était pas encore fait. Et l'individu rajouta "Demain promis"](/images/posts/dev-facts-16/slack-screenshot.png)
+![Screenshot montrant un échange de message slack : une personne notifie qu’un de ses collègues a indiqué dans un message épinglé il y a un an que cela n’était pas encore fait. Et l'individu rajouta « Demain promis »](/images/posts/dev-facts-16/slack-screenshot.png)
 
 # L'arbre qui cache la forêt
 
 > Quand c'est la couleur des noms de fichiers qui te permet de te repérer dans l'arborescence du projet… 
 
-![Screenshot d'une arborescence de fichiers ou trois fichiers ont le même nom dans trois doissiers imbriqués](/images/posts/dev-facts-16/arbo-fichiers.png)
+![Screenshot d'une arborescence de fichiers où trois fichiers ont le même nom dans trois doissiers imbriqués](/images/posts/dev-facts-16/arbo-fichiers.png)
 
 # La boucle a bouclé
 
@@ -93,7 +93,7 @@ Did you forget a "use" statement for another namespace?
 >
 > On a résolu une faille de sécurité sur le projet, grâce à mon investigation.
 > 
-> C: Le mec c'est inspecteur gadget enfaîte, on sait pas comment mais il finit par être utile. 
+> C: Le mec c'est inspecteur gadget en fait, on sait pas comment mais il finit par être utile. 
 
 # 🕯
 
