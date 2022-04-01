@@ -73,10 +73,6 @@ Did you forget a "use" statement for another namespace?
 > Pourquoi vous vous faites chier à mettre les secrets dans SOPS. 
 > Vous l'auriez mis dans votre doc, personne ne les aurait trouvé.
 
-# Une trouvaille de twitter
-
-{% twitter https://twitter.com/maxime/status/1483392747667136514 %}
-
 # Voilà qui voilà !
 
 > A: Je crois que la branche master elle est pas protégée.

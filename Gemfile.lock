@@ -80,6 +80,7 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll-redirect-from (~> 0.16.0)
+  jekyll-twitter-plugin (~> 2.1.0)
   type-on-strap!
 
 BUNDLED WITH
