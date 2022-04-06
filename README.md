@@ -1,23 +1,14 @@
-tech.bedrockstreaming.com
-=========================
+<h1 align="center">Welcome to tech.bedrockstreaming.com 👋</h1>
 
-Bedrock Tech Blog
+[![Continous Integration](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/actions/workflows/integration.yml/badge.svg)](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/actions/workflows/integration.yml)
+[![pages-build-deployment](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/actions/workflows/pages/pages-build-deployment)
 
-#### Installation
+> This repository contains the source code of the technical blog of the Bedrock teams. You will find all the articles published since 2012.
 
-```shell
-git clone https://github.com/BedrockStreaming/tech.bedrockstreaming.com.git
-cd tech.bedrockstreaming.com
-sudo gem install jekyll bundler
-bundle install
-bundle exec jekyll serve
-```
+### 🏠 [Homepage](https://tech.bedrockstreaming.com/)
 
-#### local
-http://localhost:4000/
+### ✍️ [How to contribute ?](/CONTRIBUTING.md)
 
-enjoy
+## Show your support
 
-# GH dependencies
-
-https://pages.github.com/versions/
+Give a ⭐️ if this project helped you!
