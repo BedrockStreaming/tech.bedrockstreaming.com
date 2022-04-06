@@ -1,6 +1,6 @@
 # Contributing
 
-## How to install the project ?
+## How to install the project?
 
 ### With Ruby and Gem
 
@@ -27,13 +27,13 @@ docker build -t tech-blog .
 docker run -p 8080:8080 tech-blog 
 ```
 
-## How to add an article to the blog ?
+## How to add an article to the blog?
  
 All articles are listed in the `_posts` folder.
-Each article is a Markdown file name like this `YYYY-MM-DD-article-slug.md` where date is the date of publication.
+Each article is a Markdown file named like this `YYYY-MM-DD-article-slug.md` where date is the date of publication.
 :information: If you put a future date of publication, your article won't be visible until this date is passed.
 
-Make sure ton complete the _frontmatter_ part of your Markdown file in order to define at least those attirbutes:
+Make sure to complete the _frontmatter_ part of your Markdown file in order to define at least those attributes:
 
 ```markdown
 ---
@@ -61,7 +61,7 @@ We are using a community theme for Jekyll for this blog, you may find some usefu
   Author could have a name, an URL and an avatar (which could be a distant file or an image hosted in _images/author_ directory).
   Then use the author id in the post frontmatter configuration key named `author`.
 
-In order to add new article, you should open a Pull Request on this repository.
+In order to add a new article, you should open a Pull Request on this repository.
 A preview will automatically be deployed on AWS thanks to AWS Amplify service.
 
 Don't hesitate to share your new post of **#proj-blog-tech-bedrock** slack room to ask for reviews from Bedrockers.
