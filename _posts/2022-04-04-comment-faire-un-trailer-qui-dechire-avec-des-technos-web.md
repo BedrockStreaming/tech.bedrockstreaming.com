@@ -4,7 +4,7 @@ title: "Comment faire un trailer vidéo qui déchire avec des technos web ?"
 description: "Présentation donnée au Lyon JS n°71, pour montrer comment générer des vidéos avec Remotion"
 author: m_alves
 category:
-tags: [remotion, react, video]
+tags: [remotion, react, video, js, frontend, conference, lyonjs]
 color: rgb(12,225,235)
 thumbnail: "images/posts/2022-04-04-comment-faire-un-trailer-qui-dechire-avec-des-technos-web/main-image.png"
 ---
