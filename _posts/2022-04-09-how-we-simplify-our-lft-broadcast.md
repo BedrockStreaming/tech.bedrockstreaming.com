@@ -8,7 +8,7 @@ tags: [lft, talks, live, stream, obs, streamyard, conference]
 color: rgb(251,87,66)
 thumbnail: images/posts/lft-streamyard/head.png
 ---
-{% include aligner.html images="images/posts/lft-streamyard/head.png" %}
+![LFT logo](/images/posts/lft-streamyard/head.png)
 
 Some time ago, we shared with you [an article explaining how we managed to capture and broadcast our conferences in the Bedrock auditorium](/2021/10/14/live-streaming-lft.html). 
 We must admit, it worked great, but we wanted to make it simpler.
@@ -50,7 +50,9 @@ This solution allows Bedrock employees to manage the LFT from any computer.
 
 Here are some sample images and overviews of the Streamyard UI:
 
-{% include aligner.html images="images/posts/lft-streamyard/streamyard.png,images/posts/lft-streamyard/comment-from-chat.png" %}
+![Stream yard screenshot](/images/posts/lft-streamyard/streamyard.png)
+
+![Stream yard screenshot with comment from chat](/images/posts/lft-streamyard/comment-from-chat.png)
 
 The positive points of Streamyard:
 
@@ -85,7 +87,9 @@ Just pass him/her the Streamyard link and he/she can use his/her webcam and his/
 
 This is what our Stream setup now looks like with the cabling:
 
-{% include aligner.html images="images/posts/lft-streamyard/setup.jpg,images/posts/lft-streamyard/setup-desk.png" %}
+![Speaker setup schema](/images/posts/lft-streamyard/setup.jpg)
+
+![Control desk setup](/images/posts/lft-streamyard/setup-desk.jpg)
 
 ### What we achieved?
 
@@ -105,7 +109,7 @@ Also, by going through the youtube chat, we can share questions directly on the 
 
 The LFT replays are also available on Bedrock's Youtube channel in a private way accessible to all employees.
 
-{% include aligner.html images="images/posts/lft-streamyard/replay.png" %}
+![Youtube video replay screenshot](/images/posts/lft-streamyard/replay.png)
 
 ## Next steps
 
