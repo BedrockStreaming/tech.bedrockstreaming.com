@@ -69,7 +69,11 @@ As a reminder, here is the organization of our auditorium during the live broadc
 The room is large enough to accommodate all Bedrockers who wish to attend in person the presentations of their colleagues. 
 The remote speakers have their conference broadcasted on the two screens of the room.
 
-{% include aligner.html images="images/posts/lft-streamyard/plan.jpg,images/posts/lft-streamyard/control-desk.png,images/posts/lft-streamyard/amphi-bedrock.png" %}
+![Auditorium plan](/images/posts/lft-streamyard/plan.jpg)
+
+![Control desk](/images/posts/lft-streamyard/control-desk.jpg)
+
+![Auditorium room](/images/posts/lft-streamyard/amphi-bedrock.png)
 
 What has changed since we switched to Streamyard in our setup is mainly related to the way we capture the image and sound of what is displayed on the screen.
 Previously we were using an Elgato capture block, to intercept the HDMI cable from the speaker broadcast. 
