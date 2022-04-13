@@ -25,7 +25,7 @@ If you read [this part of the article](/2021/10/14/live-streaming-lft.html#Some%
 In the previous version, you could see that a very important quantity of material was necessary (meters of various cables, multi plugs, a camera, a computer under windows, etc...)
 A large part of this material was kindly lent by Pascal (and we thank him for that), but we could not decently borrow it for each LFT.
 
-Moreover, this very specific equipment did not allow **each Bedrock employee to be able to take over the role of the control room** at a glance with his own machine.
+Moreover, this very specific equipment did not allow **each Bedrock employee to manage the control room**, quickly and with his or her own machine.
 Finally, as you can imagine, setting up and putting away such a large amount of equipment **takes a lot of time**. 
 _There were no less than four of us setting up and tidying up._
 
@@ -95,7 +95,7 @@ This is what our Stream setup now looks like with the cabling:
 
 ![Control desk setup](/images/posts/lft-streamyard/setup-desk.jpg)
 
-### What we achieved?
+### What did we achieve?
 
 The LFT is also a group of volunteers who give their energy to offer the best event possible.
 To propose to all the people of Bedrock a space of expression allowing them to share their passion, technical subjects and others.
