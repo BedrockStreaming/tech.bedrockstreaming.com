@@ -71,9 +71,9 @@ The remote speakers have their conference broadcasted on the two screens of the 
 
 ![Auditorium plan](/images/posts/lft-streamyard/plan.jpg)
 
-![Control desk](/images/posts/lft-streamyard/control-desk.jpg)
+![Control desk](/images/posts/lft-streamyard/control-desk.png)
 
-![Auditorium room](/images/posts/lft-streamyard/amphi-bedrock.png)
+![Auditorium room](/images/posts/lft-streamyard/amphi-bedrock.jpg)
 
 What has changed since we switched to Streamyard is mainly related to the way we capture the image and sound of what is displayed on the screen.
 Previously, we were using an Elgato HD60S+ device, to capture the HDMI output from the speaker broadcast. 
