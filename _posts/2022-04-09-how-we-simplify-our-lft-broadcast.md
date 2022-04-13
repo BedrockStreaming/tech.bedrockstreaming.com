@@ -16,14 +16,14 @@ We must admit, it worked great, but we wanted to make it simpler.
 As a reminder, our internal conferences or meetups are called **LFT**. 
 If you want to know more about our _Last Friday Talk_ and the motivations that push us to do it, we invite you to read the above-mentioned article.
 
-Strong of the success of this broadcasting, the voluntary team of organization wished for the next one to succeed in making as well in simpler. 
+After the success of this broadcasting, the (voluntary) organization team started thinking about how to make it simpler. 
 _It was already a challenge in itself!_
 If you read [this part of the article](/2021/10/14/live-streaming-lft.html#Some%20things%20to%20improve), you can see that we already had some ideas for improvements.
 
 ## Improvement areas
 
 In the previous version, you could see that a very important quantity of material was necessary (meters of various cables, multi plugs, a camera, a computer under windows, etc...)
-A large part of this material was kindly lent by Pascal Martin (and we thank him for that), but we could not decently borrow it for each LFT.
+A large part of this material was kindly lent by Pascal (and we thank him for that), but we could not decently borrow it for each LFT.
 
 Moreover, this very specific equipment did not allow **each Bedrock employee to be able to take over the role of the control room** at a glance with his own machine.
 Finally, as you can imagine, setting up and putting away such a large amount of equipment **takes a lot of time**. 
@@ -32,20 +32,20 @@ _There were no less than four of us setting up and tidying up._
 In another topic, let's talk about video quality. We used to use _Google Live Stream_ before, but the 720p broadcast, with its very low bitrate and aggressive compression, sometimes made it difficult to follow.
 _Text and images were often very pixelated._
 
-We finally wanted to be able to more easily handle a _hybrid_ mode to our LFTs. $
-Because of the pandemic, telecommuting and the fact that some of Bedrock's employees are located in Paris, we need to be able to broadcast and capture the LFT both in person and remotely.
-By _hybrid_ mode we also meant that during the same event, we wanted to be able to host speakers from the location of their choice.
+Also, we wanted to, easily, handle a _hybrid_ mode to our LFTs.
+Because of the pandemic, telecommuting and the fact that some of Bedrock's employees are located in Paris, we need to broadcast and capture the LFT both in person and remotely.
+By _hybrid_ mode we also meant that during the same event, we need to host speakers from the location of their choice.
 
 ## What we did? 
 
 After a few exchanges with other conference organizations, we decided to give [Streamyard](https://streamyard.com/) a chance.
-With some quick tests, we took a license and started the new version of the LFT.
+After some quick tests, we bought a license and started the new version of the LFT.
 
 ### What is Streamyard?
 
-Streamyard is a live streaming platform directly in the browser.
+Streamyard is a live streaming platform that runs directly in the browser.
 
-It does not have all the customization and possibilities of OBS but the huge advantage of streamyard is its portability.
+It does not have all the customization and possibilities of OBS, but its huge advantage is its portability.
 This solution allows Bedrock employees to manage the LFT from any computer.
 
 Here are some sample images and overviews of the Streamyard UI:
@@ -57,11 +57,11 @@ Here are some sample images and overviews of the Streamyard UI:
 The positive points of Streamyard:
 
 - Allows us to have several people in the control room at the same time
-- Stream 1080p
+- Streams in 1080p
 - Personalization: manage banners, chat questions, music on hold,...
-- Manage multi-speaker
+- Handles multi-speakers management
 - Multi stream Youtube / Facebook / Twitter / Linkedin / Video recording
-- There is a free mode that allows you to test it before taking out the credit card.
+- A free mode allows one to test it before taking out their credit card.
 
 ### New setup
 
@@ -75,15 +75,15 @@ The remote speakers have their conference broadcasted on the two screens of the 
 
 ![Auditorium room](/images/posts/lft-streamyard/amphi-bedrock.png)
 
-What has changed since we switched to Streamyard in our setup is mainly related to the way we capture the image and sound of what is displayed on the screen.
-Previously we were using an Elgato capture block, to intercept the HDMI cable from the speaker broadcast. 
+What has changed since we switched to Streamyard is mainly related to the way we capture the image and sound of what is displayed on the screen.
+Previously, we were using an Elgato HD60S+ device, to capture the HDMI output from the speaker broadcast. 
 However, we had to try several times to get it to work each time we switched speakers. Not fun at all.
 
-Now with Streamyard, at every speaker change, we just need to:
+Now, with Streamyard, every time we switch speaker, we just need to:
 - share the link of the "Streamyard broadcast"
-- The speaker joins the stream by switching off his microphone and webcam
+- The speaker joins the stream (and switches off her microphone and webcam)
 - Connect the HDMI cable of the speaker's computer
-- The speaker shares his browser tab or his streamed screen on the room's screens
+- The speaker displays her screen via the room's projectors
 - The control room puts the RF microphone on the speaker(s)
 
 For a remote speaker, it's even easier.
@@ -99,7 +99,7 @@ This is what our Stream setup now looks like with the cabling:
 
 The LFT is also a group of volunteers who give their energy to offer the best event possible.
 To propose to all the people of Bedrock a space of expression allowing them to share their passion, technical subjects and others.
-From the proposal of the subject, to the rehearsals and until the broadcast, the team is there to accompany the speakers beginners as confirmed.
+From the proposal of their subject, through rehearsals and during the broadcast, the team is there to help speakers -- either beginners or confirmed.
 
 The switch to 720p and then to 1080p has been a real positive point for the quality of the live show, but also for the recording and the replay.
 More than 200 participants during the last LFT on the day, the organizing team is delighted.
@@ -121,8 +121,8 @@ We don't want to stop there.
 Every two months, we organize a LFT day at Bedrock: our Last Friday Talks.
 
 For the next editions, we will try to do even better.
-We are working on the subject of replaying our LFT in public on the Youtube channel in order to offer it to everyone.
+We are working on the matter of sharing some talks in public on our Youtube channel, so more people in our communities can learn from them.
 In order to simplify the setup, we will try to put in place a more fixed table to avoid wiring and moving furniture.
 We also wish to propose and train our employees to the use of this setup in order to allow us to host meetups and conferences in the best conditions.
 
-Your company or association also proposes this kind of conferences, how do you manage broadcasting and recording?
+Now, it's your turn: if your company or user-group does this kind of talks, how do you manage broadcasting and recording?
