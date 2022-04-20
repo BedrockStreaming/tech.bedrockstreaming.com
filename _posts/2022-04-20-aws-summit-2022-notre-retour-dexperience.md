@@ -28,8 +28,10 @@ thumbnail: "images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/mai
 
 Deux années se sont écoulées depuis le dernier AWS Summit à Paris, il a fait son retour ce 12 avril !  
 Cet évènement, qui a lieu au printemps dans plusieurs pays, est l’occasion de rencontrer la communauté AWS française, d’assister à de nombreuses conférences et de bénéficier de retours d’expérience d’autres clients.  C’était aussi pour nous, comme en 2019, l’occasion de partager les nôtres !  
+
 Depuis notre migration vers le Cloud, AWS et Kubernetes entre 2018 et 2021 (plus d’informations dans [Le Plan Copenhague](https://leanpub.com/6cloud/){:target="_blank"}), nous sommes plusieurs centaines à travailler au quotidien avec AWS.  
-Cette année, cinq de nos DevOps, Ops et Développeurs ont eu la chance de se rendre à l’AWS Summit.  
+Cette année, cinq de nos DevOps, Ops et Développeurs ont eu la chance de se rendre à l’AWS Summit.
+
 Nous partageons quelques notes que nous avons prises lors de cette journée, sur des sujets qui nous ont marqués et qui vont sans doute nous occuper une partie de l’année à venir.
 
 ### Rendez vos équipes de Data Science 10x plus productives avec SageMaker <a name="SageMaker"></a>
