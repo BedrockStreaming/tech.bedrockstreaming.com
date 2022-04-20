@@ -27,7 +27,7 @@ thumbnail: "images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/mai
 ## Retour au AWS Summit <a name="BackToSummit"></a>
 
 Deux années se sont écoulées depuis le dernier AWS Summit à Paris, il a fait son retour ce 12 avril !  
-Cet évènement, qui a lieu au printemps dans plusieurs pays, est l’occasion de rencontrer la communauté AWS française, d’assister à de nombreuses conférences et de bénéficier de retours d’expérience d’autres clients.  C’était aussi pour nous, comme en 2019, l’occasion de partager les nôtres !  
+Cet évènement, qui a lieu au printemps dans plusieurs pays, est l’occasion de rencontrer la communauté AWS française, d’assister à de nombreuses conférences et de bénéficier de retours d’expérience d’autres clients.  C’était aussi pour nous, comme en 2019, l’occasion de [partager les nôtres !](#AussiIntervenants)
 
 Depuis notre migration vers le Cloud, AWS et Kubernetes entre 2018 et 2021 (plus d’informations dans [Le Plan Copenhague](https://leanpub.com/6cloud/){:target="_blank"}), nous sommes plusieurs centaines à travailler au quotidien avec AWS.  
 Cette année, cinq de nos DevOps, Ops et Développeurs ont eu la chance de se rendre à l’AWS Summit.
@@ -97,7 +97,7 @@ A l’instar de Treezor, Bedrock possède également de nombreuses Lambda dével
 
 L’approche “full serverless” est intéressante car elle permet de s’abstraire de la gestion de l’infrastructure sous-jacente et donc de se concentrer sur des problématiques intrinsèques au métier.  
 En sus, les services AWS serverless apportent souvent nativement de la haute disponibilité ainsi que de l’auto-scaling, deux problématiques très importantes pour garantir un service de qualité à nos utilisateurs finaux. C’est pour ces raisons que Bedrock utilise de nombreux services AWS serverless : Athena, CloudWatch, DynamoDB, Lambda, S3, SNS, SQS, Kinesis, …  
-Le pôle infrastructure de Bedrock étant relativement “petit” par rapport au nombre total de développeurs (environ 30 devops/sysops pour 250 fullstack en date du 15 avril 2022), l’utilisation du serverless est un réel enjeu business.
+Le pôle infrastructure de Bedrock étant relativement “petit” par rapport au nombre total de développeurs (23 devops/sysops pour 250 fullstack en date du 15 avril 2022), l’utilisation du serverless est un réel enjeu business.
 
 Résumé par [Timothée AUFORT](https://twitter.com/TimAufort){:target="_blank"} - Devops
 
@@ -200,7 +200,7 @@ Il est maintenant très simple et peu coûteux de créer des applications HTTP e
 **Un exemple concret :**
 
 * CloudFront CDN délivre les assets JS/CSS/image depuis S3 ;
-* il transmet également les retour d’API Gateway ;
+* il transmet également les retours d’API Gateway ;
 * et API Gateway communique avec la/les Lambdas.
 
 Ajoutons une base de données DynamoDB ou Aurora et nous voilà avec une application full Serverless.
@@ -223,13 +223,13 @@ Quoi de plus contraignant que de gérer la communication de plusieurs services ?
 
 * les erreurs : que faire si plusieurs microservices partent en timeout ou échouent dans un workflow ?
 * le couplage : lors de la création d'un nouveau microservice, il doit être lui aussi appelé dans les chaines d’appels.
-* m'authentification entre les différents services.
+* l'authentification entre les différents services.
 * et la latence : les appels de services en cascade augmentent la durée totale d’exécution.
 
 De ce constat, Matthieu propose une solution que nous avons déjà mise en place chez Bedrock depuis plusieurs années : communiquer avec des évènements.  
 Pour cela, AWS fournit EventBridge : un service serverless de routage d'évènements sans stockage.
 Ainsi, si un microservice doit en informer d'autres, il lui suffit d'envoyer un événement dans EventBridge. Les autres services n’auront qu’à “écouter” l'événement.  
-SNS, plus ancien, permettrait la même approche, mais EventBridge propose de créer des règles de filtrage sur la totalité du message d’un événement.
+SNS, plus ancien, permettait la même approche, mais EventBridge propose de créer des règles de filtrage sur la totalité du message d’un événement.
 
 #### Construire des applications serverless orientées événements
 
@@ -253,7 +253,7 @@ Cette année, nous avons eu la chance d’intervenir et de partager avec notre c
 
 Vincent Gallissot [@vgallissot](https://twitter.com/vgallissot){:target="_blank"}, Lead Cloud Architect, a expliqué comment Bedrock a amélioré le Load Balancing chez AWS, pour optimiser le cache de sa diffusion de vidéos, avec comme objectif 50 million d’utilisateurs (image):
 
-Guillaume Marchand, Senior Solutions Architect chez AWS a débuté notre talk en parlant de Load Balancing chez AWS, des différentes solutions et des bonnes pratiques, ainsi que des exemples d’architectures possibles. J’ai ensuite expliqué notre besoin de scaler des serveurs de cache et comment nous avons relevé ce challenge, en développant notamment [Haproxy Service Discovery Operator](https://github.com/BedrockStreaming/hsdo){:target="_blank"}. Ce talk n’a pas été enregistré, mais les slides sont disponibles sur [ce lien](https://www.dropbox.com/s/thvtayaltp0d6s5/IN-02_AWS_SUMMIT_BedrockStreaming_2022-full.pdf?dl=0){:target="_blank"}
+Guillaume Marchand, Senior Solutions Architect chez AWS a débuté notre talk en parlant de Load Balancing chez AWS, des différentes solutions et des bonnes pratiques, ainsi que des exemples d’architectures possibles. J’ai ensuite expliqué notre besoin de scaler des serveurs de cache et comment nous avons relevé ce challenge, en développant notamment [Haproxy Service Discovery Orchestrator](https://github.com/BedrockStreaming/hsdo){:target="_blank"}. Ce talk n’a pas été enregistré, mais les slides sont disponibles sur [ce lien](https://www.dropbox.com/s/thvtayaltp0d6s5/IN-02_AWS_SUMMIT_BedrockStreaming_2022-full.pdf?dl=0){:target="_blank"}
 
 
 ### Etes-vous bien architecturé ? <a name="WellArchitected"></a>
