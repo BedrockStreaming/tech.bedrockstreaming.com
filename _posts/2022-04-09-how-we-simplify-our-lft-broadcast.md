@@ -22,7 +22,7 @@ If you read [this part of the article](/2021/10/14/live-streaming-lft.html#Some%
 
 ## Improvement areas
 
-In the previous version, you could see that a very important quantity of material was necessary (meters of various cables, multi plugs, a camera, a computer under windows, etc...)
+In the previous version, you could see that a very important quantity of material was necessary (meters of various cables, multi plugs, a camera, etc...)
 A large part of this material was kindly lent by Pascal (and we thank him for that), but we could not decently borrow it for each LFT.
 
 Moreover, this very specific equipment did not allow **each Bedrock employee to manage the control room**, quickly and with his or her own machine.
@@ -87,7 +87,7 @@ Now, with Streamyard, every time we switch speaker, we just need to:
 - The control room puts the RF microphone on the speaker(s)
 
 For a remote speaker, it's even easier.
-Just pass him/her the Streamyard link and he/she can use his/her webcam and his/her own microphone.
+Just pass them the Streamyard link and they can use their webcam and their own microphone.
 
 This is what our Stream setup now looks like with the cabling:
 
@@ -97,8 +97,7 @@ This is what our Stream setup now looks like with the cabling:
 
 ### What did we achieve?
 
-The LFT is also a group of volunteers who give their energy to offer the best event possible.
-To propose to all the people of Bedrock a space of expression allowing them to share their passion, technical subjects and others.
+LFT is also a group of volunteers who give their energy to offer the best event possible, to offer to all Bedrock members a space where they can share their passion, technical subjects and others.
 From the proposal of their subject, through rehearsals and during the broadcast, the team is there to help speakers -- either beginners or confirmed.
 
 The switch to 720p and then to 1080p has been a real positive point for the quality of the live show, but also for the recording and the replay.
