@@ -165,7 +165,7 @@ Conférence présentée par :
 * Sébastien Allamand - AWS Solution Architect Specialist Container
 * Patrick Chatain - CTO Contentsquare
 
-Contentsquare, analyste de l'expérience numérique, est venu nous parler de son utilisation d’[EKS](https://aws.amazon.com/eks/){:target="_blank"} Blueprint avec [AWS CDK](https://aws.amazon.com/cdk/){:target="_blank"} (Cloud Development Kit) pour la configuration et le déploiement de leurs infrastructures Kubernetes. Cet outil leur a permis de rapidement migrer leur infrastructures dans le Cloud.
+Contentsquare, analyste de l'expérience numérique, est venu nous parler de son utilisation d’[EKS Blueprint](https://aws-quickstart.github.io/cdk-eks-blueprints/#what-is-eks-blueprints){:target="_blank"} avec [AWS CDK](https://aws.amazon.com/cdk/){:target="_blank"} (Cloud Development Kit) pour la configuration et le déploiement de leurs infrastructures Kubernetes. Cet outil leur a permis de rapidement migrer leur infrastructures dans le Cloud.
 
 À l’occasion de cette conférence, un début de comparatif a été amorcé entre les solutions de passage à l’échelle automatique : [Cluster Auto Scaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler){:target="_blank"} et [Karpenter](https://karpenter.sh/){:target="_blank"}.
 
