@@ -5,7 +5,7 @@ description: "Présentation donnée au Lyon JS n°71, pour montrer comment gén�
 author: m_alves
 category:
 tags: [remotion, react, video, js, frontend, conference, lyonjs]
-color: rgb(12,225,235)
+color: rgb(251,87,66)
 thumbnail: "images/posts/2022-04-04-comment-faire-un-trailer-qui-dechire-avec-des-technos-web/main-image.png"
 ---
 
