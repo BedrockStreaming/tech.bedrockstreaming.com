@@ -4,7 +4,7 @@ title: Bedrock au AWS Summit 2022
 description: Cinq de nos DevOps, Ops et Développeurs ont pu se rendre au AWS Summit, en voici un retour d'expérience.
 author: bedrock
 tags: [aws, summit, cloud, sysadmin, conference, kubernetes]
-color: rgb(251,87,66
+color: rgb(251,87,66)
 thumbnail: "images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/main-image.png"
 ---
 ## Sommaire
