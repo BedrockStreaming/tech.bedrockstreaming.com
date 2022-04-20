@@ -192,7 +192,7 @@ Matthieu Napoli (Hero AWS Serverless) a présenté trois designs patterns pour b
 
 Il est maintenant très simple et peu coûteux de créer des applications HTTP en Serverless, en combinant différents services AWS :
 
-* Lambda function et Lambda function URL (nouvelle fonctionnalité sortie il y a une semaine)
+* Lambda function et [Lambda function URL](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html){:target="_blank"} (nouvelle fonctionnalité sortie une semaine avant le Summit)
 * CloudFront CDN
 * API Gateway
 * S3
