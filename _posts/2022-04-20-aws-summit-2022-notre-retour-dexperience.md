@@ -70,7 +70,7 @@ Conférence présentée par :
 * Matthieu Parmentier - Responsable de l'Al factory, France Télévisions
 * Nicolas Pierre - Al factory Lead Tech, France Télévisions
 
-!["Live subtitling diagram"](/images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/live-subtitling.png)
+!["Live subtitling diagram"](/images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/live-subtitling.jpg)
 
 Nous avons assisté à une conférence présentée par les responsables Média et AI de France Télévisions et Raphaël Goldwaser Solutions Architect chez AWS. Ils nous ont parlé de l’évolution de leur usage du cloud dans la diffusion de vidéo en direct et des différentes étapes de la construction d’un système de sous-titrage automatique en direct.
 
