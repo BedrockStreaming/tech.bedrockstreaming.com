@@ -55,7 +55,7 @@ Chez Bedrock, nous avons aussi rencontré ces problématiques, nous avons réali
 
 En effet, Databricks répond à nos besoins de fine-tuning des paramètres des clusters Spark et d’intégration avec Terraform (ce qui est important pour nous car nous utilisons exclusivement de l’Infra-as-Code). Nous avons également automatisé le déploiement en production de nos modèles d’apprentissage, de la même manière que SageMaker.
 
-Cette session nous a conforté dans l’approche et l’utilisation que nous avons de nos outils actuels, tout en nous confrontant à d’autres solutions techniques et d’autres cas d’usages au sein de notre industrie.
+Cette conférence nous a conforté dans l’approche et l’utilisation que nous avons de nos outils actuels, tout en nous confrontant à d’autres solutions techniques et d’autres cas d’usages au sein de notre industrie.
 
 Résumé par Gabriel FORIEN - Devops
 
