@@ -255,7 +255,6 @@ Vincent Gallissot [@vgallissot](https://twitter.com/vgallissot){:target="_blank"
 
 Guillaume Marchand, Senior Solutions Architect chez AWS a débuté notre talk en parlant de Load Balancing chez AWS, des différentes solutions et des bonnes pratiques, ainsi que des exemples d’architectures possibles. J’ai ensuite expliqué notre besoin de scaler des serveurs de cache et comment nous avons relevé ce challenge, en développant notamment [Haproxy Service Discovery Orchestrator](https://github.com/BedrockStreaming/hsdo){:target="_blank"}. Ce talk n’a pas été enregistré, mais les slides sont disponibles sur [ce lien](https://www.dropbox.com/s/thvtayaltp0d6s5/IN-02_AWS_SUMMIT_BedrockStreaming_2022-full.pdf?dl=0){:target="_blank"}
 
-
 ### Etes-vous bien architecturé ? <a name="WellArchitected"></a>
 
 Pascal Martin [@pascal_martin](https://twitter.com/pascal_martin){:target="_blank"}, Principal Engineer, est intervenu pour partager notre retour d’expérience client pendant une conférence de présentation du Well-Architected Framework :
@@ -267,7 +266,7 @@ Si vous commencez à travailler sur AWS, le Well-Architected Framework et ses re
 
 ### Préparez et donnez votre premier talk <a name="PreparerPremierTalk"></a>
 
-Pascal est aussi intervenu, en tant que AWS Hero cette fois, pour une conférence intitulée *« Préparez et donnez votre premier talk »* :
+Pascal est aussi intervenu, cette fois en tant qu'AWS Hero pour guider la préparation de vos talks :
 
 Pour cette seconde intervention, j’ai choisi de parler d’un sujet qui n’est pas lié à AWS.
 J’aime assister à des conférences : je le fais depuis très longtemps et j’apprends beaucoup ainsi.
