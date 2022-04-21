@@ -186,7 +186,7 @@ Cette année, plusieurs conférences étaient consacrées à ces sujets.
 
 #### 3 designs patterns pour bien démarrer avec Serverless
 
-Matthieu Napoli (Hero AWS Serverless) a présenté trois designs patterns pour bien démarrer avec Serverless.
+Matthieu Napoli, Hero AWS Serverless et créateur de la librairie [Bref](https://bref.sh/){:target="_blank"}, a présenté trois designs patterns pour bien démarrer avec Serverless.
 
 ##### Application HTTP
 
