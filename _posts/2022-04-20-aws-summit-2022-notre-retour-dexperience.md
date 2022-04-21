@@ -240,7 +240,7 @@ SNS, plus ancien, permettait la même approche, mais EventBridge propose de cré
 
 Nicolas Moutschen, Solution Architect AWS et Guillaume Lannebere de chez Betclic ont fait un retour d’expérience sur la mise en place de différents services serverless AWS orientés événements.
 
-Betclic absorbe à chaque match/course, une quantité énorme de données (plusieurs millions) en quelques minutes.
+Betclic absorbe à chaque match/course, une quantité énorme de données (plusieurs millions d'événements) en quelques minutes.
 Par exemple, lors d’un match de football, les paris sont effectués à tout instant : avant le match, à la mi-temps, dans les dernières minutes…
 Leur SI est donc soumis, fréquemment, à de très forts pics de charge pendant des laps de temps très courts.
 
