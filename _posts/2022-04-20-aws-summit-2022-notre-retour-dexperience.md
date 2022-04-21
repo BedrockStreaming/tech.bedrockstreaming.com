@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Bedrock au AWS Summit 2022
-description: Cinq de nos DevOps, Ops et Développeurs étaient à AWS Summit Paris 2022, voici leur retour d'expérience.
+title: Bedrock à l'AWS Summit 2022
+description: Cinq de nos DevOps, Ops et Développeurs étaient à l'AWS Summit Paris 2022, voici leur retour d'expérience.
 author: bedrock
 tags: [aws, summit, cloud, sysadmin, conference, kubernetes]
 color: rgb(251,87,66)
@@ -10,7 +10,7 @@ thumbnail: "images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/mai
 
 !["AWS Summit Paris 2022"](/images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/main-image.jpg)
 
-## Retour au AWS Summit <a name="BackToSummit"></a>
+## Retour à l'AWS Summit <a name="BackToSummit"></a>
 
 Deux années se sont écoulées depuis le dernier AWS Summit à Paris, il a fait son retour ce 12 avril !  
 Cet évènement, qui a lieu au printemps dans plusieurs pays, est l’occasion de rencontrer la communauté AWS française, d’assister à de nombreuses conférences et de bénéficier de retours d’expérience d’autres clients.  
@@ -23,7 +23,7 @@ Nous partageons quelques notes que nous avons prises lors de cette journée, sur
 
 ## Sommaire
 
-* [Retour au AWS Summit](#BackToSummit)
+* [Retour à l'AWS Summit](#BackToSummit)
     * [Rendez vos équipes de Data Science 10x plus productives avec SageMaker](#SageMaker)
     * [Comment le cloud permet à France Télévisions d’innover dans la diffusion de contenu live](#FranceTV)
     * [Découvrez comment Treezor utilise AWS comme moteur de sa plateforme de Banking-as-a-service](#Treezor)
