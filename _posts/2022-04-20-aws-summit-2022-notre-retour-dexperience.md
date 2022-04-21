@@ -255,6 +255,8 @@ Cette année, nous avons eu la chance d’intervenir et de partager avec notre c
 
 Vincent Gallissot [@vgallissot](https://twitter.com/vgallissot){:target="_blank"}, Lead Cloud Architect, a expliqué comment Bedrock a amélioré le Load Balancing chez AWS, pour optimiser le cache de sa diffusion de vidéos, avec comme objectif 50 million d’utilisateurs (image):
 
+<blockquote class="twitter-tweet"><p lang="fr" dir="ltr">Démarrage des conférences à l’<a href="https://twitter.com/hashtag/AWSSummit?src=hash&amp;ref_src=twsrc%5Etfw">#AWSSummit</a>. Et voici un REX intéressant pour partager l’une des problématiques intéressantes <a href="https://t.co/kuKGZZyE2A">pic.twitter.com/kuKGZZyE2A</a></p>&mdash; Akram BLOUZA (@akram_Blouza) <a href="https://twitter.com/akram_Blouza/status/1513809149565575176?ref_src=twsrc%5Etfw">April 12, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 Guillaume Marchand, Senior Solutions Architect chez AWS a débuté notre talk en parlant de Load Balancing chez AWS, des différentes solutions et des bonnes pratiques, ainsi que des exemples d’architectures possibles. J’ai ensuite expliqué notre besoin de scaler des serveurs de cache et comment nous avons relevé ce challenge, en développant notamment [Haproxy Service Discovery Orchestrator](https://github.com/BedrockStreaming/hsdo){:target="_blank"}. Ce talk n’a pas été enregistré, mais les slides sont disponibles sur [ce lien](https://www.dropbox.com/s/thvtayaltp0d6s5/IN-02_AWS_SUMMIT_BedrockStreaming_2022-full.pdf?dl=0){:target="_blank"}
 
 ### Etes-vous bien architecturé ? <a name="WellArchitected"></a>
