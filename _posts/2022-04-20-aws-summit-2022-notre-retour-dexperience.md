@@ -41,6 +41,8 @@ Conférence présentée par :
 * Olivier Sutter - AWS Solution Architect
 * Yoann Grondin - IA Team Leader Canal+
 
+!["SageMaker"](/images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/sagemaker.jpg)
+
 Cette conférence présentait le produit [Amazon SageMaker](https://aws.amazon.com/sagemaker/){:target="_blank"}, d’abord dans sa globalité, puis appliqué au cas des équipes de Data Scientist chez Canal+.
 
 SageMaker a été lancé fin 2017 pour créer, entraîner et déployer des modèles de machine learning. C’est une solution tout-en-un, avec une interface graphique intuitive et un accent porté sur l’automatisation. Amazon promet également de gagner en performance sur SageMaker via l’implémentation de nombreux algorithmes d’apprentissage supervisés ou non-supervisés (XGBoost, kNN, PCA…).
