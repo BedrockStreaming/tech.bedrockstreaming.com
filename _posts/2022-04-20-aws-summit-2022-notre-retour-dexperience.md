@@ -5,8 +5,11 @@ description: Cinq de nos DevOps, Ops et Développeurs étaient à AWS Summit Par
 author: bedrock
 tags: [aws, summit, cloud, sysadmin, conference, kubernetes]
 color: rgb(251,87,66)
-thumbnail: "images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/main-image.png"
+thumbnail: "images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/main-image.jpg"
 ---
+
+!["AWS Summit Paris 2022"](/images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/main-image.jpg)
+
 ## Retour au AWS Summit <a name="BackToSummit"></a>
 
 Deux années se sont écoulées depuis le dernier AWS Summit à Paris, il a fait son retour ce 12 avril !  
