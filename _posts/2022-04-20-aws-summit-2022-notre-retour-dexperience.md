@@ -13,7 +13,8 @@ thumbnail: "images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/mai
 ## Retour au AWS Summit <a name="BackToSummit"></a>
 
 Deux années se sont écoulées depuis le dernier AWS Summit à Paris, il a fait son retour ce 12 avril !  
-Cet évènement, qui a lieu au printemps dans plusieurs pays, est l’occasion de rencontrer la communauté AWS française, d’assister à de nombreuses conférences et de bénéficier de retours d’expérience d’autres clients.  C’était aussi pour nous, comme en 2019, l’occasion de [partager les nôtres !](#AussiIntervenants)
+Cet évènement, qui a lieu au printemps dans plusieurs pays, est l’occasion de rencontrer la communauté AWS française, d’assister à de nombreuses conférences et de bénéficier de retours d’expérience d’autres clients.  
+C’était aussi pour nous, comme en 2019, l’occasion de [partager les nôtres !](#AussiIntervenants)
 
 Depuis notre migration vers le Cloud, AWS et Kubernetes entre 2018 et 2021 (plus d’informations dans [Le Plan Copenhague](https://leanpub.com/6cloud/){:target="_blank"}), nous sommes plusieurs centaines à travailler au quotidien avec AWS.  
 Cette année, cinq de nos DevOps, Ops et Développeurs ont eu la chance de se rendre à l’AWS Summit.
@@ -102,7 +103,8 @@ A l'instar de Treezor, Bedrock possède également de nombreuses Lambda dévelop
 
 L’approche “full serverless” est intéressante car elle permet de s’abstraire de la gestion de l’infrastructure sous-jacente et donc de se concentrer sur des problématiques intrinsèques au métier.  
 En sus, les services AWS serverless apportent souvent nativement de la haute disponibilité ainsi que de l’auto-scaling, deux problématiques très importantes pour garantir un service de qualité à nos utilisateurs finaux. C’est pour ces raisons que Bedrock utilise de nombreux services AWS serverless : Athena, CloudWatch, DynamoDB, Lambda, S3, SNS, SQS, Kinesis, …  
-Le pôle infrastructure de Bedrock étant relativement “petit” par rapport au nombre total de développeurs (23 devops/sysops pour 250 fullstack en date du 15 avril 2022), l’utilisation du serverless est un réel enjeu business. Serverless ne répond pas à tous les besoins non plus, particulièrement sur de très forts pics de charge où nous préférons utiliser Kubernetes.
+Le pôle infrastructure de Bedrock étant relativement “petit” par rapport au nombre total de développeurs (23 devops/sysops pour 250 fullstack en date du 15 avril 2022), l’utilisation du serverless est un réel enjeu business.  
+Serverless ne répond pas à tous les besoins non plus, particulièrement sur de très forts pics de charge où nous préférons utiliser Kubernetes.
 
 Résumé par [Timothée AUFORT](https://twitter.com/TimAufort){:target="_blank"} - Devops
 
