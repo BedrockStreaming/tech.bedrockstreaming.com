@@ -17,7 +17,7 @@ Cet évènement, qui a lieu au printemps dans plusieurs pays, est l’occasion d
 C’était aussi pour nous, comme en 2019, l’occasion de [partager les nôtres !](#AussiIntervenants)
 
 Depuis notre migration vers le Cloud, AWS et Kubernetes entre 2018 et 2021 (plus d’informations dans [Le Plan Copenhague](https://leanpub.com/6cloud/){:target="_blank"}), nous sommes plusieurs centaines à travailler au quotidien avec AWS.  
-Cette année, cinq de nos DevOps, Ops et Développeurs ont eu la chance de se rendre à l’AWS Summit.
+Cette année, cinq de nos DevOps, SysOps et Développeurs ont eu la chance de se rendre à l’AWS Summit.
 
 Nous partageons quelques notes que nous avons prises lors de cette journée, sur des sujets qui nous ont marqués et qui vont sans doute nous occuper une partie de l’année à venir.
 
@@ -65,7 +65,7 @@ En effet, Databricks répond à nos besoins de fine-tuning des paramètres des c
 
 Cette conférence nous a conforté dans l’approche et l’utilisation que nous avons de nos outils actuels, tout en nous confrontant à d’autres solutions techniques et d’autres cas d’usages au sein de notre industrie.
 
-Résumé par Gabriel FORIEN - Devops
+Résumé par Gabriel FORIEN - DevOps
 
 ### Comment le cloud permet à France Télévisions d’innover dans la diffusion de contenu live <a name="FranceTV"></a>
 
@@ -82,7 +82,7 @@ Nous avons assisté à une conférence présentée par les responsables Média e
 
 Pour ce système de sous-titrage, ils utilisent les services [Media & Entertainment](https://aws.amazon.com/media-services){:target="_blank"} fournis par AWS.  
 
-Les flux de vidéo sont envoyés directement dans le cloud via Elemental MediaConnect pour générer des sous-titres automatiquement en utilisant Media-Cloud AI et [Speechmatics](https://www.speechmatics.com/){:target="_blank"}. Une fois les fichiers de sous-titres générés, ils sont insérés et synchronisés sur le flux en direct.
+Les flux vidéo sont envoyés directement dans le cloud via Elemental MediaConnect pour générer des sous-titres automatiquement en utilisant Media-Cloud AI et [Speechmatics](https://www.speechmatics.com/){:target="_blank"}. Une fois les fichiers de sous-titres générés, ils sont insérés et synchronisés sur le flux en direct.
 
 Ces outils peuvent également être utilisés pour analyser des vidéos afin de contextualiser les publicités affichées et/ou choisir le meilleur moment pour les afficher.
 
@@ -106,7 +106,7 @@ En sus, les services AWS serverless apportent souvent nativement de la haute dis
 Le pôle infrastructure de Bedrock étant relativement “petit” par rapport au nombre total de développeurs (23 devops/sysops pour 250 fullstack en date du 15 avril 2022), l’utilisation du serverless est un réel enjeu business.  
 Serverless ne répond pas à tous les besoins non plus, particulièrement sur de très forts pics de charge où nous préférons utiliser Kubernetes.
 
-Résumé par [Timothée AUFORT](https://twitter.com/TimAufort){:target="_blank"} - Devops
+Résumé par [Timothée AUFORT](https://twitter.com/TimAufort){:target="_blank"} - DevOps
 
 ### Tracer votre chemin vers le Modern DevOps en utilisant les services AWS d’apprentissage machine <a name="ModernDevops"></a>
 
@@ -131,9 +131,9 @@ Chez Bedrock, les langages utilisés étant principalement Javascript, PHP et Py
 
 Une analyse au runtime effectuée par DevOps Guru pourrait permettre de venir compléter la liste de services AWS que nous utilisons déjà et qui vérifient la configuration de notre infrastructure comme : Config, Trusted Advisor, CloudWatch,  …
 
-Les outils du Modern Devops d’AWS pourraient venir en complément d’outils de qualité actuellement utilisés chez nous. À tester en complément de KICS pendant une de nos journées R&D (journées organisées le dernier vendredi du mois, un mois sur deux).
+Les outils du Modern DevOps d’AWS pourraient venir en complément d’outils de qualité actuellement utilisés chez nous. À tester en complément de KICS pendant une de nos journées R&D (journées organisées le dernier vendredi du mois, un mois sur deux).
 
-Résumé par Valentin CHABRIER & [Mickaël VILLERS](https://twitter.com/villersm){:target="_blank"} - Devops
+Résumé par Valentin CHABRIER & [Mickaël VILLERS](https://twitter.com/villersm){:target="_blank"} - DevOps
 
 ### Innover plus rapidement en choisissant le bon service de stockage dans le cloud <a name="ChoixStockageCloud"></a>
 
@@ -160,7 +160,7 @@ Conférence présentée par :
 Pendant cette présentation, Meriem Belhadj est revenue sur les classes de stockage disponibles sur S3, en mettant une attention particulière à Glacier Instant Retrieval et à Intelligent-Tiering. Le second permet d’appliquer une politique de stockage basée sur la fréquence d’accès aux données au cours des 30 derniers jours.  
 En effet, pour déterminer la “bonne” classe à utiliser, il faut notamment connaître la disponibilité des données. Les autres points à prendre en compte sont la fréquence d’accès, les performances recherchées, la taille des objets à stocker et enfin la durée de rétention.
 
-Nous appliquons, chez Bedrock, ces pratiques, depuis plusieurs années. Toutefois, il serait judicieux de mettre en place des règles, type AWS Config, pour s’assurer que ces recommandations soient bien appliquées sur tous nos buckets S3.
+Nous appliquons ces pratiques chez Bedrock depuis plusieurs années. Toutefois, il serait judicieux de mettre en place des règles, type AWS Config, pour s’assurer que ces recommandations soient bien appliquées sur tous nos buckets S3.
 
 Résumé par [Coraline PETIT](https://twitter.com/_CoralinePetit){:target="_blank"} - SysOps
 
@@ -172,11 +172,11 @@ Conférence présentée par :
 * Sébastien Allamand - AWS Solution Architect Specialist Container
 * Patrick Chatain - CTO Contentsquare
 
-Contentsquare, analyste de l'expérience numérique, est venu nous parler de son utilisation d’[EKS Blueprint](https://aws-quickstart.github.io/cdk-eks-blueprints/#what-is-eks-blueprints){:target="_blank"} avec [AWS CDK](https://aws.amazon.com/cdk/){:target="_blank"} (Cloud Development Kit) pour la configuration et le déploiement de leurs infrastructures Kubernetes. Cet outil leur a permis de rapidement migrer leur infrastructures dans le Cloud.
+Contentsquare, analyste de l'expérience numérique, est venu nous parler de son utilisation d’[EKS Blueprint](https://aws-quickstart.github.io/cdk-eks-blueprints/#what-is-eks-blueprints){:target="_blank"} avec [AWS CDK](https://aws.amazon.com/cdk/){:target="_blank"} (Cloud Development Kit) pour la configuration et le déploiement de leurs infrastructures Kubernetes. Cet outil leur a permis de rapidement migrer leurs infrastructures dans le Cloud.
 
-À l’occasion de cette conférence, un début de comparatif a été amorcé entre les solutions de passage à l’échelle automatique : [Cluster Auto Scaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler){:target="_blank"} et [Karpenter](https://karpenter.sh/){:target="_blank"}.
+À l’occasion de cette conférence, un début de comparatif a été amorcé entre les solutions de passage à l’échelle automatique : [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler){:target="_blank"} et [Karpenter](https://karpenter.sh/){:target="_blank"}.
 
-Cette analyse a particulièrement attiré notre attention : nous souhaitons migrer nos clusters Kubernetes, actuellement déployé par [Kops](https://kops.sigs.k8s.io/){:target="_blank"} vers des clusters EKS, pour gagner en maintenabilité et en rapidité de scaling. Karpenter est l'une des solutions que nous étudions dans le cadre de ce projet, afin de tirer partie de cet outil qui a été développé par AWS et qui semble mieux tirer profit des fonctionnalités spécifiques d’AWS que Cluster Auto Scaler.
+Cette analyse a particulièrement attiré notre attention : nous souhaitons migrer nos clusters Kubernetes, actuellement déployé par [Kops](https://kops.sigs.k8s.io/){:target="_blank"} vers des clusters EKS, pour gagner en maintenabilité et en rapidité de scaling. Karpenter est l'une des solutions que nous étudions dans le cadre de ce projet, afin de tirer partie de cet outil qui a été développé par AWS et qui semble mieux tirer profit des fonctionnalités spécifiques d’AWS que Cluster Autoscaler.
 
 Contentsquare a mentionné son besoin de développer un outil de passage à l'échelle basé non pas sur la consommation CPU et mémoire mais sur des métriques custom. C’est un besoin que nous avons également chez Bedrock, nous avons donc développé un outil pour y répondre, vous trouverez plus de détails dans l'[article de blog](https://tech.bedrockstreaming.com/2022/02/03/prescaling.html){:target="_blank"} dédié à cet outil. Cette remarque nous a conforté dans notre volonté de continuer à open-sourcer les [outils que nous développons](https://github.com/BedrockStreaming){:target="_blank"}, pour qu’ils bénéficient à la communauté.
 
@@ -199,10 +199,10 @@ Matthieu Napoli, Hero AWS Serverless et créateur de la librairie [Bref](https:/
 
 Il est maintenant très simple et peu coûteux de créer des applications HTTP en Serverless, en combinant différents services AWS :
 
-* Lambda function et [Lambda function URL](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html){:target="_blank"} (nouvelle fonctionnalité sortie une semaine avant le Summit)
-* CloudFront CDN
-* API Gateway
-* S3
+* Lambda function et [Lambda function URL](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html){:target="_blank"} (nouvelle fonctionnalité sortie une semaine avant le Summit) ;
+* CloudFront CDN ;
+* API Gateway ;
+* S3.
 
 **Un exemple concret :**
 
@@ -216,21 +216,21 @@ Ajoutons une base de données DynamoDB ou Aurora et nous voilà avec une applica
 
 Lorsqu'on met en place ce type de pattern, nous déployons :
 
-* un projet qui pousse un message dans une file : "*producer*"
-* une file de messages (SQS/SNS/MQ)
-* un second projet qui lit les messages depuis la file : "*consumer*"
+* un projet qui pousse un message dans une file "*producer*" ;
+* une file de messages (SQS/SNS/MQ) ;
+* un second projet qui lit les messages depuis la file "*consumer*".
 
 Dans cette architecture, le “*consumer*” se connecte à la file de messages, lit les messages et se charge de toute la gestion d'erreur et de retry.
 
-En utilisant une Lambda comme "*consumer*", AWS a mis en place une intégration spécifique entre les files de messages et les lambdas. C'est maintenant la file de messages qui appelle directement la Lambda en lui donnant le message et qui gère également le retry : votre code applicatif est déchargé d’autant de responsabilités sans valeur métier.
+En utilisant une Lambda comme "*consumer*", AWS a mis en place une intégration spécifique entre les files de messages et les Lambdas. C'est maintenant la file de messages qui appelle directement la Lambda en lui donnant le message et qui gère également le retry : votre code applicatif est déchargé d’autant de responsabilités sans valeur métier.
 
 ##### Communication entre microservices
 
 Quoi de plus contraignant que de gérer la communication de plusieurs services ? Il faut gérer :
 
 * les erreurs : que faire si plusieurs microservices partent en timeout ou échouent dans un workflow ?
-* le couplage : lors de la création d'un nouveau microservice, il doit être lui aussi appelé dans les chaines d’appels.
-* l'authentification entre les différents services.
+* le couplage : lors de la création d'un nouveau microservice, il doit être lui aussi appelé dans les chaines d’appels ;
+* l'authentification entre les différents services ;
 * et la latence : les appels de services en cascade augmentent la durée totale d’exécution.
 
 De ce constat, Matthieu propose une solution que nous avons déjà mise en place chez Bedrock depuis plusieurs années : communiquer avec des évènements.  
@@ -248,11 +248,11 @@ Leur SI est donc soumis, fréquemment, à de très forts pics de charge pendant 
 
 Afin d’éviter de provisionner énormément de machines pour se mettre à l’échelle, Betclic à fait le choix du full serverless. Les applications de paris et de paiement communiquent par des messages d’événements envoyés dans le service AWS SNS : les Lambdas reçoivent les messages et les traitent avec une mise à l’échelle quasi immédiate en fonction du trafic.
 
-Résumé par [Fabien LALANNE](https://twitter.com/F4b3X){:target="_blank"}
+Résumé par [Fabien LALANNE](https://twitter.com/F4b3X){:target="_blank"} - Développeur
 
 ## Nous étions aussi intervenants <a name="AussiIntervenants"></a>
 
-Nous aimons tout particulièrement apprendre en lisant des articles écrits par d’autres membres de notre communauté ou en assistant à des conférences présentées par d’autres clients. Il est donc normal, et important pour nous, de partager aussi notre expérience, ce que nous faisons régulièrement, y compris sur ce blog.
+Nous aimons tout particulièrement apprendre en lisant des articles écrits par d’autres membres de notre communauté ou en assistant à des conférences présentées par d’autres clients. Il est donc normal et important pour nous, de partager aussi notre expérience, ce que nous faisons régulièrement, y compris sur ce blog.
 
 Cette année, nous avons eu la chance d’intervenir et de partager avec notre communauté lors de trois conférences. Merci à AWS pour la confiance qui nous a été accordée !
 
@@ -262,7 +262,7 @@ Vincent Gallissot [@vgallissot](https://twitter.com/vgallissot){:target="_blank"
 
 <blockquote class="twitter-tweet"><p lang="fr" dir="ltr">Démarrage des conférences à l’<a href="https://twitter.com/hashtag/AWSSummit?src=hash&amp;ref_src=twsrc%5Etfw">#AWSSummit</a>. Et voici un REX intéressant pour partager l’une des problématiques intéressantes <a href="https://t.co/kuKGZZyE2A">pic.twitter.com/kuKGZZyE2A</a></p>&mdash; Akram BLOUZA (@akram_Blouza) <a href="https://twitter.com/akram_Blouza/status/1513809149565575176?ref_src=twsrc%5Etfw">April 12, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-Guillaume Marchand, Senior Solutions Architect chez AWS a débuté notre talk en parlant de Load Balancing chez AWS, des différentes solutions et des bonnes pratiques, ainsi que des exemples d’architectures possibles. J’ai ensuite expliqué notre besoin de scaler des serveurs de cache et comment nous avons relevé ce challenge, en développant notamment [Haproxy Service Discovery Orchestrator](https://github.com/BedrockStreaming/hsdo){:target="_blank"}. Ce talk n’a pas été enregistré, mais les slides sont disponibles sur [ce lien](https://www.dropbox.com/s/thvtayaltp0d6s5/IN-02_AWS_SUMMIT_BedrockStreaming_2022-full.pdf?dl=0){:target="_blank"}
+Guillaume Marchand, Senior Solutions Architect chez AWS a débuté notre talk en parlant de Load Balancing chez AWS, des différentes solutions et des bonnes pratiques, ainsi que des exemples d’architectures possibles. J’ai ensuite expliqué notre besoin de scaler des serveurs de cache et comment nous avons relevé ce challenge, en développant notamment [Haproxy Service Discovery Orchestrator](https://github.com/BedrockStreaming/hsdo){:target="_blank"}. Ce talk n’a pas été enregistré, mais les slides sont disponibles sur [ce lien](https://www.dropbox.com/s/thvtayaltp0d6s5/IN-02_AWS_SUMMIT_BedrockStreaming_2022-full.pdf?dl=0){:target="_blank"}.
 
 ### Etes-vous bien architecturé ? <a name="WellArchitected"></a>
 
@@ -290,4 +290,4 @@ Et j’ai hâte, l’année prochaine, de vous voir monter sur scène et partage
 Avec des milliers de participants et participantes, l’AWS Summit est toujours une excellente occasion d’échanger et d’apprendre. Nous étions également très heureux de pouvoir, cette année encore, partager notre expérience lors de trois interventions.  
 Cet événement était aussi le premier pour certains et certaines d’entre nous, une très bonne découverte !
 
-Comme beaucoup d’autres speakers et entreprises rencontrés mardi, nous recrutons : des ops, des devops, des développeurs et des développeuses, une ou un finops. Vous voulez nous aider à construire et à faire grandir notre plateforme ? Nous avons encore de super projets et challenges, [faites nous signe](https://www.bedrockstreaming.com/career){:target="_blank"} !
+Comme beaucoup d’autres speakers et entreprises rencontrés mardi, nous recrutons : des SysOps, des DevOps, des développeurs et des développeuses, une ou un FinOps. Vous voulez nous aider à construire et à faire grandir notre plateforme ? Nous avons encore de super projets et challenges, [faites-nous signe](https://www.bedrockstreaming.com/career){:target="_blank"} !
