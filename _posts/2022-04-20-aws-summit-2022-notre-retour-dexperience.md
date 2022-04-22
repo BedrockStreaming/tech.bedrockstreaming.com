@@ -82,7 +82,7 @@ Nous avons assisté à une conférence présentée par les responsables Média e
 
 Pour ce système de sous-titrage, ils utilisent les services [Media & Entertainment](https://aws.amazon.com/media-services){:target="_blank"} fournis par AWS.  
 
-Les flux de vidéo sont envoyés directement dans le cloud via Elemental MediaConnect pour générer des sous-titres automatiquement en utilisant Media-Cloud AI et [Speechmatics](https://www.speechmatics.com/){:target="_blank"}. Une fois les fichiers de sous-titres générés, ils sont insérés et synchronisés sur le flux en direct.
+Les flux vidéo sont envoyés directement dans le cloud via Elemental MediaConnect pour générer des sous-titres automatiquement en utilisant Media-Cloud AI et [Speechmatics](https://www.speechmatics.com/){:target="_blank"}. Une fois les fichiers de sous-titres générés, ils sont insérés et synchronisés sur le flux en direct.
 
 Ces outils peuvent également être utilisés pour analyser des vidéos afin de contextualiser les publicités affichées et/ou choisir le meilleur moment pour les afficher.
 
@@ -160,7 +160,7 @@ Conférence présentée par :
 Pendant cette présentation, Meriem Belhadj est revenue sur les classes de stockage disponibles sur S3, en mettant une attention particulière à Glacier Instant Retrieval et à Intelligent-Tiering. Le second permet d’appliquer une politique de stockage basée sur la fréquence d’accès aux données au cours des 30 derniers jours.  
 En effet, pour déterminer la “bonne” classe à utiliser, il faut notamment connaître la disponibilité des données. Les autres points à prendre en compte sont la fréquence d’accès, les performances recherchées, la taille des objets à stocker et enfin la durée de rétention.
 
-Nous appliquons, chez Bedrock, ces pratiques, depuis plusieurs années. Toutefois, il serait judicieux de mettre en place des règles, type AWS Config, pour s’assurer que ces recommandations soient bien appliquées sur tous nos buckets S3.
+Nous appliquons ces pratiques chez Bedrock depuis plusieurs années. Toutefois, il serait judicieux de mettre en place des règles, type AWS Config, pour s’assurer que ces recommandations soient bien appliquées sur tous nos buckets S3.
 
 Résumé par [Coraline PETIT](https://twitter.com/_CoralinePetit){:target="_blank"} - SysOps
 
@@ -252,7 +252,7 @@ Résumé par [Fabien LALANNE](https://twitter.com/F4b3X){:target="_blank"} - Dé
 
 ## Nous étions aussi intervenants <a name="AussiIntervenants"></a>
 
-Nous aimons tout particulièrement apprendre en lisant des articles écrits par d’autres membres de notre communauté ou en assistant à des conférences présentées par d’autres clients. Il est donc normal, et important pour nous, de partager aussi notre expérience, ce que nous faisons régulièrement, y compris sur ce blog.
+Nous aimons tout particulièrement apprendre en lisant des articles écrits par d’autres membres de notre communauté ou en assistant à des conférences présentées par d’autres clients. Il est donc normal et important pour nous, de partager aussi notre expérience, ce que nous faisons régulièrement, y compris sur ce blog.
 
 Cette année, nous avons eu la chance d’intervenir et de partager avec notre communauté lors de trois conférences. Merci à AWS pour la confiance qui nous a été accordée !
 
@@ -290,4 +290,4 @@ Et j’ai hâte, l’année prochaine, de vous voir monter sur scène et partage
 Avec des milliers de participants et participantes, l’AWS Summit est toujours une excellente occasion d’échanger et d’apprendre. Nous étions également très heureux de pouvoir, cette année encore, partager notre expérience lors de trois interventions.  
 Cet événement était aussi le premier pour certains et certaines d’entre nous, une très bonne découverte !
 
-Comme beaucoup d’autres speakers et entreprises rencontrés mardi, nous recrutons : des SysOps, des DevOps, des développeurs et des développeuses, une ou un FinOps. Vous voulez nous aider à construire et à faire grandir notre plateforme ? Nous avons encore de super projets et challenges, [faites nous signe](https://www.bedrockstreaming.com/career){:target="_blank"} !
+Comme beaucoup d’autres speakers et entreprises rencontrés mardi, nous recrutons : des SysOps, des DevOps, des développeurs et des développeuses, une ou un FinOps. Vous voulez nous aider à construire et à faire grandir notre plateforme ? Nous avons encore de super projets et challenges, [faites-nous signe](https://www.bedrockstreaming.com/career){:target="_blank"} !
