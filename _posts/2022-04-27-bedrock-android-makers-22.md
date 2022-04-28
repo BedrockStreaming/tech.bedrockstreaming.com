@@ -5,7 +5,7 @@ description: Notre équipe de développeurs Android était à l'Android Makers 2
 author: rpanoyan
 tags: [android, mobile, conference, makers]
 color: rgb(251,87,66)
-thumbnail: "images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/main-image.jpg"
+thumbnail: "/images/posts/2022-04-27-bedrock-android-makers-2022/am2022.jpg"
 ---
 
 ## Que c'est bon de se retrouver !
