@@ -9,6 +9,12 @@ comments: true
 language: en
 ---
 
+<style>
+.transformed > rect {
+    fill: #ff0000;
+}
+</style>
+
 If you maintain an Android application, you might be relying on performance monitoring SDKs like Firebase Performance or New Relic, to name a couple.
 
 These plugins usually have a light setup process, and manage to collect statistics about every network call and database query in your app automatically. If you have ever wondered how this is achieved and, most importantly, how to debug the issues this might be causing—read on!
@@ -18,9 +24,6 @@ These plugins usually have a light setup process, and manage to collect statisti
 To understand what instrumentation really is and how it works, we first need to know a little about the Android app build process. Don't worry, we'll only need to cover the basics.
 
 To put it simply, your source files (Kotlin and Java) are compiled to Dalvik bytecode, into `.dex` files. These files are then packaged into an APK file, which is basically just a ZIP file with all your code and resources.
-
-<!-- TODO use Mermaid instead -->
-![Android build process. Kotlin and Java files get compiled into dex files, which are packaged into an APK file.](/images/posts/2022-xx-xx-android-debugging-by-decompiling/android-build-1.webp)
 
 <div class="mermaid">
 flowchart LR
@@ -32,7 +35,7 @@ flowchart LR
     dex1[.dex] -.- dex2[.dex] -.- dex3[.dex] -.- dex4[.dex]
     res1[res] -.- res2[res] -.- res3[res] -.- res4[res]
     signature -.- manifest
-    end
+end
 </div>
 
 ## Understanding bytecode instrumentation
@@ -43,6 +46,20 @@ The easiest way is to plug yourself into the build, right after the code is comp
 
 <!-- TODO use Mermaid instead -->
 ![Android build process, with an instrumentation plugin. Dex files are intercepted before they're packaged into the APK.](/images/posts/2022-xx-xx-android-debugging-by-decompiling/android-build-2.webp)
+
+<div class="mermaid">
+flowchart LR
+    kt[.kt files] -- kotlinc --> dex[.dex files] --> transform[[transform]] --> packaging[[packaging]]
+    java[.java files] -- javac --> dex
+    res[resource files] -- aapt --> resc[compiled resource files] --> packaging --> APK
+    cssClass "transform" transformed;
+    subgraph APK
+    direction TB
+    dex1[.dex] -.- dex2[.dex] -.- dex3[.dex] -.- dex4[.dex]
+    res1[res] -.- res2[res] -.- res3[res] -.- res4[res]
+    signature -.- manifest
+end
+</div>
 
 The Android Gradle Plugin (AGP) offers APIs to do this, so SDK vendors can just provide a Gradle plugin and ta-da! Your app is instrumented.
 
