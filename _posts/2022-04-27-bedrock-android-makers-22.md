@@ -66,29 +66,36 @@ Deux développeurs de chez Google nous ont plongé dans les entrailles du `Windo
 
 #### Tester les coroutines <a name="Coroutines"></a>
 
-Márton Braun, aussi développeur chez Google, a présenté les nouveautés de la bibliothèque *kotlinx-coroutines-test* en version 1.6+. Exit `runBlockingTest`, place au `runTest` qui permet, grâce à son `TestCoroutineScheduler`, de gérer les délais et l'ordre d'execution de toutes les coroutines lancés dans un test.  
-L'ancienne version des API de test étant maintenant dépréciée, cette nouvelle version est encore en experimental mais vouée à passer en état stable, tant elle parait plus mature que la précédente.  
-Les `Flow` et `StateFlow` n'ont pas été oublié puisqu'ils ont aussi leurs spécifités en matière de tests.
+Márton Braun, aussi développeur chez Google, a présenté les nouveautés de la bibliothèque *kotlinx-coroutines-test* en version 1.6+. Exit `runBlockingTest`, place au `runTest` qui permet, grâce à son `TestCoroutineScheduler`, de gérer les délais et l'ordre d'execution de toutes les coroutines lancées dans un test.  
+L'ancienne version des API de test étant maintenant dépréciée, cette nouvelle version est encore experimentale mais vouée à passer en état stable, tant elle parait plus mature que la précédente.  
+Les `Flow` et `StateFlow` n'ont pas été oubliés puisqu'ils ont aussi leurs spécifités en matière de tests.
 
 ### Optimiser <a name="Optimiser"></a>
 
 #### Toujours plus de CI <a name="CI"></a>
 
-Chez Bedrock, la CI tient une place particulière dans nos process de release, et il est toujours intéressant de voir comment d'autres entreprises se saisissent de cet outils et améliorent leur process.  
-Après les rappels toujours pertinent sur l'importance de déléguer le maximum de tâches répétitives à nos environnement de CI, plusieurs outils ont été présentés par Xavier F. Gouchet, développeur chez Datadog : [Detekt](https://github.com/detekt/detekt), [Kotlin Poet](https://square.github.io/kotlinpoet/), 
+Chez Bedrock, la CI tient une place particulière dans nos process de release, et il est toujours intéressant de voir comment d'autres entreprises se saisissent de cet outil et améliorent leur process.  
+Après les rappels toujours pertinent sur l'importance de déléguer le maximum de tâches répétitives à nos environnement de CI, Xavier F. Gouchet, développeur chez Datadog, a présenté divers outils pour y parvenir.  
+
+[Detekt](https://github.com/detekt/detekt), un plugin Gradle permet d'aller encore plus loin qu'Android Lint en offrant l'analyse statique de n'importe quel code Kotlin. Son extensibilité nous est exposée *via* une API sur le pattern visiteur, redoutablement efficace pour parcourir le PSI (*Program Structure Interface*) de Kotlin. D'autres outils sont efficaces pour parcourir cette interface.  
+
+Xavier Gouchet présente également [KSP (*Kotlin Symbol Processor*)](https://github.com/google/ksp), le projet sponsorisé par Google voué à remplacer KAPT, son ancêtre basé sur Java. Combiné avec [Kotlin Poet](https://square.github.io/kotlinpoet/), cet outil permet d'automatiser la génération de code Kotlin à partir d'un code source annoté dans le projet.  
+
+Pour aider au développement autour du PSI Kotlin, Xavier Gouchet recommande l'excellent plugin [PSIViewer](https://plugins.jetbrains.com/plugin/227-psiviewer) pour IDE Jetbrains.
 
 #### Optimisation du temps de build <a name="BuildOptim"></a>
 
-Zac Sweers, est venu nous présenter la manière dont Slack, où il travaille, optimise les builds Gradle. Avec toujours plus de code et de modules, les projets ont tendances à se complexifier et il est facile de perdre de plus en plus de temps lors des builds.  
+Zac Sweers est venu nous présenter la manière dont Slack, entreprise pour laquelle il travaille, optimise les builds Gradle. Les projets se complexifiant avec toujours plus de code et de modules, les temps de build ont tendance a augmenter.  
 
 Cette conférence a mis en lumière diverses optimisations pour tirer pleinement parti de Gradle et de ses nouvelles fonctionnalités : 
 - désactiver les fonctionnalités non utilisées du plugin Android
-- tirer parti du cache, y compris sur serveur
+- profiter du cache, y compris sur serveur
 - éviter d'utiliser `buildSrc` pour factoriser du code
 - écrire son propre plugin de convention gradle
+- avoir un compte Gradle Entreprises pour profiter des Gradle Build Scans afin de déterminer quels sont les points de friction du projet, que ce soit pour l'utilisation du cache, la parallélisation, l'invalidation des builds, l'optimisation des arguments de la JVM...
 - parfois même, acheter du nouveau matériel ! (Apple Silicon)
 
-Réduire le temps de build est un enjeux constant, et participe au confort du développeur au quotidien.
+Réduire le temps de build est un enjeu constant, et participe au confort du développeur au quotidien.
 
 ### Extras <a name="Extras"></a>
 
