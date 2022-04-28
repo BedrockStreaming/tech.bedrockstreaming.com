@@ -46,7 +46,7 @@ flowchart LR
     kt[.kt files] -- kotlinc --> dex[.dex files] --> transform[[transform]] --> packaging[[packaging]]
     java[.java files] -- javac --> dex
     res[resource files] -- aapt --> resc[compiled resource files] --> packaging --> APK
-    classDef transformed fill#ff0000
+    classDef transformed fill:#ff0000
     class transform transformed
 
     subgraph APK
