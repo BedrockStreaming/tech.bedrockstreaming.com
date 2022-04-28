@@ -10,7 +10,7 @@ thumbnail: "/images/posts/2022-04-27-bedrock-android-makers-2022/am2022.jpg"
 
 ## Que c'est bon de se retrouver !
 
-Après deux ans sans conférence en présentielle, l'Android Makers a fait son grand retour les 25 et 26 avril 2022, pour le plus grand bonheur de la communauté Android. 
+Après deux ans sans conférence en présentiel, l'Android Makers a fait son grand retour les 25 et 26 avril 2022, pour le plus grand bonheur de la communauté Android. 
 L'équipe de développeurs Android de Bedrock (dont je fais parti) a partagé ce bonheur en assistant à ce rendez-vous incontournable. Jetpack Compose, accéssibilité, optimisation de build et autres sont autant de sujets en maturation constante : essayons d'en faire le tour ensemble.
 
 !["Android Makers 2022"](/images/posts/2022-04-27-bedrock-android-makers-2022/am2022.jpg)
@@ -40,8 +40,8 @@ Parallèlement, il nous a aussi invité à réflechir sur la nécessité d'inté
 
 #### Accessibilité <a name="Accessibilité"></a>
 
-Voilà un sujet qu'il est important d'évoquer, tant il est facile d'oublier d'adresser une application à un public le plus large possible. Cette édition de l'Android Makers a eu la chance d'accueillir une très belle conférence de Fanny Demey et Gerard Paligot sur le sujet de l'accessibilité. Dans une séance de Live Coding teinté d'un jeu de rôle sur le thème de l'émission **C'est pas sorcier !**, nous avons pu faire le tour de plusieurs points d'attention afin d'inclure au mieux les handicaps de nos utilisateurs :
-- ne pas donner d'informations inutiles via TalkBack, comme les *contentDescription* des icônes
+Voilà un sujet qu'il est important d'évoquer, tant il est facile d'oublier d'adresser une application à tous. Cette édition de l'Android Makers a eu la chance d'accueillir une très belle conférence de Fanny Demey et Gerard Paligot sur le sujet de l'accessibilité. Dans une séance de Live Coding teinté d'un jeu de rôle sur le thème de l'émission **C'est pas sorcier !**, nous avons pu faire le tour de plusieurs points d'attention afin d'inclure au mieux nos utilisateurs porteurs de handicaps :
+- ne pas donner d'informations inutiles via TalkBack, comme les *contentDescription* des icônes décoratives
 - penser à la manière dont TalkBack va décrire une information qui a été éclatée en plusieurs vues distinctes
 - donner un retour d'action sur les clics de boutons et mieux placer ces actions lorsque le mode accessibilité est activé
 - et bien d'autres !  
@@ -54,8 +54,8 @@ Jean-Baptiste Vincey, développeur chez Deezer, a partagé l'expérience de son 
 
 #### Support de ChromeOS <a name="ChromeOS"></a>
 
-Frédéric Torcheux et Pierre Issartel, lors de leur conférence sur l'adaptation ChromeOS des application Android, ont fait un constat intéressant : le nombre de Chromebook vendu a explosé récemment pour [dépasser le nombre de Mac vendu](https://9to5google.com/2021/02/16/chrome-os-2020-sales/). Sachant qu'un nombre grandissant de Chromebook a accès au Play Store, il est de plus en plus important d'adapter ses applications pour cet usage.  
-En vrac : exploiter le potentiel du curseur de la souris, naviguer dans l'application sans jamais quitter le clavier, supporter l'environnement multi-fenêtré et le redimensionnement de celles-ci, autant de point d'améliorations comportant pièges à éviter et bonnes pratiques.
+Frédéric Torcheux et Pierre Issartel, lors de leur conférence sur l'adaptation ChromeOS des applications Android, ont fait un constat intéressant : le nombre de Chromebook vendu a explosé récemment pour [dépasser le nombre de Mac vendu](https://9to5google.com/2021/02/16/chrome-os-2020-sales/). Sachant qu'un nombre grandissant de Chromebook a accès au Play Store, il est de plus en plus important d'adapter ses applications pour cet usage.  
+En vrac : exploiter le potentiel du curseur de la souris, naviguer dans l'application sans jamais quitter le clavier, supporter l'environnement multi-fenêtré et le redimensionnement de celles-ci, autant de points d'améliorations comportant pièges à éviter et bonnes pratiques.
 
 ### Développer <a name="Développer"></a>
 
@@ -97,7 +97,7 @@ Réduire le temps de build est un enjeux constant, et participe au confort du d�
 Une conférence très intéressante a vu Romain Guy et Chet Haase nous présenter un projet experimental d'UI Toolkit maison, [Apex](https://github.com/romainguy/experiment-apex), très proche de *Jetpack Compose* dans son API. 
 Cet exercice original a été un moyen de faire valoir le concept d'[Entity component system](https://en.wikipedia.org/wiki/Entity_component_system), un pattern se basant sur la composition pour enrichir les comportements des entités d'un système.  
 
-Leur présentation a mis en lumière la philosophie d'un UI Toolkit mais a aussi et surtout souligné la quantité de travail à accomplir pour passer d'un projet experimental à un toolkit utilisable en production. Enrichir sa boite à outils avec le maximum de widgets différents, permettre une personnalisation minimale aux développeurs, rendre le moteur de rendu multi-plateforme, autant de tâches nécessaires pour que les développeurs prennent la peine de considérer votre Toolkit.
+Leur présentation a mis en lumière la philosophie d'un UI Toolkit mais a aussi et surtout souligné la quantité de travail à accomplir pour passer d'un projet experimental à un toolkit utilisable en production. Enrichir sa boite à outils avec le maximum de widgets différents, permettre une personnalisation maximale aux développeurs, rendre le moteur de rendu multi-plateforme, autant de tâches nécessaires pour que les développeurs prennent la peine de considérer votre Toolkit.
 
 ### En conclusion <a name="Conclusion"></a>
 
