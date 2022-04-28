@@ -7,6 +7,7 @@ category:
 tags: [android, apktool, instrumentation, debugging, productivity]
 comments: true
 language: en
+mermaid: true
 ---
 
 If you maintain an Android application, you might be relying on performance monitoring SDKs like Firebase Performance or New Relic, to name a couple.
