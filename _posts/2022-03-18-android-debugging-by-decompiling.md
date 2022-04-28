@@ -9,12 +9,6 @@ comments: true
 language: en
 ---
 
-<style>
-.transformed > rect {
-    fill: #ff0000;
-}
-</style>
-
 If you maintain an Android application, you might be relying on performance monitoring SDKs like Firebase Performance or New Relic, to name a couple.
 
 These plugins usually have a light setup process, and manage to collect statistics about every network call and database query in your app automatically. If you have ever wondered how this is achieved and, most importantly, how to debug the issues this might be causing—read on!
@@ -52,12 +46,15 @@ flowchart LR
     kt[.kt files] -- kotlinc --> dex[.dex files] --> transform[[transform]] --> packaging[[packaging]]
     java[.java files] -- javac --> dex
     res[resource files] -- aapt --> resc[compiled resource files] --> packaging --> APK
-    cssClass "transform" transformed;
+    classDef transformed fill#ff0000
+    class transform transformed
+
     subgraph APK
     direction TB
     dex1[.dex] -.- dex2[.dex] -.- dex3[.dex] -.- dex4[.dex]
     res1[res] -.- res2[res] -.- res3[res] -.- res4[res]
     signature -.- manifest
+    class dex1,dex2,dex3,dex4 transformed
 end
 </div>
 
