@@ -10,15 +10,17 @@ comments: true
 language: en
 ---
 
-If you maintain an Android application, you might be relying on performance monitoring SDKs like Firebase Performance or New Relic, to name a couple.
+If you maintain an Android application, you might be relying on performance monitoring SDKs like Firebase Performance or New Relic, to name a couple. These plugins usually have a light setup process—just apply a Gradle plugin, and they provide the ability to collect statistics about every network call and database query in your app automatically.
 
-These plugins usually have a light setup process, and manage to collect statistics about every network call and database query in your app automatically. If you have ever wondered how this is achieved and, most importantly, how to debug the issues this might be causing—read on!
+To do this however, they use a very powerful feature of the Android Gradle Plugin. And with great power comes great responsibility; in our case, a simple bug-fix update caused a production bug that left one of our core features crippled.
+
+To understand what was going on, what went wrong, how to fix it and how to take measures so that it never happens again, we had to do some investigation.
 
 # Diving into the Android build process
 
-To understand what instrumentation really is and how it works, we first need to know a little about the Android app build process. Don't worry, we'll only need to cover the basics.
+To understand what instrumentation is and how it works, we first need to know a little about the Android app build process. Don't worry, we won't need to dive too deep into the details.
 
-To put it simply, your source files (Kotlin and Java) are compiled to Dalvik bytecode, into `.dex` files. These files are then packaged into an APK file, which is basically just a ZIP file with all your code and resources.
+To put it simply, during the build process, your source files (Kotlin and Java) are compiled to Dalvik bytecode, which is stored in `.dex` files. These files are then packaged into an APK file, which is basically just a ZIP file with all your code and resources.
 
 <div class="mermaid">
 flowchart LR
@@ -56,7 +58,33 @@ flowchart LR
 end
 </div>
 
-The Android Gradle Plugin (AGP) offers APIs to do this, so SDK vendors can just provide a Gradle plugin and ta-da! Your app is instrumented.
+The Android Gradle Plugin (AGP) offers APIs to do this, so SDK vendors can just provide a Gradle plugin and—ta-da! once you apply it, your app is automatically instrumented.
+
+Note that there are other ways to achieve this without the AGP. Notably, Kotlin now uses an Intermediate Representation (IR), before it gets compiled down to a target-specific format. You can now write a Kotlin IR compiler plugin to transform the IR code and add your own hooks in an Android-agnostic way.
+
+## Reverse-engineering a built APK
+
+Now, this is great. But when you open an APK file, what do you get?
+
+Let's unzip one and look inside.
+
+![A list of files, containing classes.dex, classes2.dex, classes3.dex, classes4.dex](/images/posts/2022-04-29-android-debugging-by-decompiling/inside-an-apk.png)
+
+A bunch of noise, and four interesting `.dex` files. That's where the app's code is stored, but unfortunately, these files are not human-readable.
+
+To turn them into low-level but understandable code, some tooling will be necessary. The easiest to use for this task is [`apktool`](https://ibotpeaches.github.io/Apktool/), which is free and open-source.
+
+Let's run `apktool` on our APK, and see what happens:
+
+<script id="asciicast-4LIhYW8Kixp6n5tUIRu8efbNB" src="https://asciinema.org/a/4LIhYW8Kixp6n5tUIRu8efbNB.js" async></script>
+
+There we go! In our case, we can ignore the warnings. `apktool` created a new directory with a bunch of `.smali` files, ordered by package name: one per class, containing their Dalvik bytecode.
+
+If you see files with mangled names and contents, make sure that you run `apktool` on an APK with R8 obfuscation disabled, or you'll have a hard time figuring things out.
+
+## Understanding Dalvik bytecode
+
+Now, if you open one of these files, it will contain code that looks like the snippet below. It will look unfamiliar; that's normal. 
 
 ```
 .method private final getContent()Lcom/bedrockstreaming/example/HomeViewModel$State$Content;
@@ -89,11 +117,21 @@ The Android Gradle Plugin (AGP) offers APIs to do this, so SDK vendors can just 
 .end method
 ```
 
-## Reverse-engineering a built APK
+If you've ever worked with assembly code before, you might notice similarities in the way the code is written. Each line begins with an instruction, which can take comma-separated parameters. To work out what these instructions and their parameters mean, you **will** need to refer to the [Dalvik bytecode documentation](https://source.android.com/devices/tech/dalvik/dalvik-bytecode) provided by Google.
 
-## Understanding Dalvik bytecode
+Let's take an example line from the snippet and decode it together. Looking at the table in the documentation, we can see deduce this:
 
-https://source.android.com/devices/tech/dalvik/dalvik-bytecode
+```
+invoke-virtual {v0}, Landroidx/lifecycle/LiveData;->getValue()Ljava/lang/Object;
+
+invoke-virtual                                                                   # We're calling a virtual method
+               {v0},                                                             # We're calling the method on the object referenced in register v0
+                     Landroidx/lifecycle/LiveData;                               # The method we're calling is defined by androidx.lifecycle.LiveData
+                                                  ->getValue()                   # We're calling a method called getValue()
+                                                              Ljava/lang/Object; # This method returns an Object
+```
+
+With some determination and some deduction, we can guess figure out what the snippet does. Here, we're defining a `getContent()` method that tries to cast a `LiveData`'s value to `State.Content` and returns it, or null otherwise.
 
 # Using a decompiled APK as a debugging tool
 
@@ -119,5 +157,5 @@ apktool --use-aapt2 b "$DECOMPILED_APK_PATH" \
 
 # Conclusion
 
-Looking forward, we know that we need to be careful with Gradle plugins that rewrite our code to add their own hooks.
+Looking forward, we know that we need to be careful with plugins that rewrite our code to add their own hooks.
 Diffing our APKs before and after applying an update to a plugin, or adding a new plugin, seems to be a good way to review what that plugin actually does and the possible impacts on production. This can give our QA process the opportunity to focus on flows we might identify as more likely to be affected, or to give us the assurance that no code was actually affected, in the event of a minor update.
