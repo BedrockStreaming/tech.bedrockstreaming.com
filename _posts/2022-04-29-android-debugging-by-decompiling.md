@@ -76,7 +76,7 @@ To turn them into low-level but understandable code, some tooling will be necess
 
 Let's run `apktool` on our APK, and see what happens:
 
-<script id="asciicast-4LIhYW8Kixp6n5tUIRu8efbNB" src="https://asciinema.org/a/4LIhYW8Kixp6n5tUIRu8efbNB.js" async></script>
+<script id="asciicast-76V1BUhMvoz2TAsBWHmmDAkpV" src="https://asciinema.org/a/76V1BUhMvoz2TAsBWHmmDAkpV.js" async></script>
 
 There we go! In our case, we can ignore the warnings. `apktool` created a new directory with a bunch of `.smali` files, ordered by package name: one per class, containing their Dalvik bytecode.
 
