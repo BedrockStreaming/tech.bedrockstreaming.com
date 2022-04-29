@@ -4,7 +4,7 @@ title: "Debugging low-level Android app issues with apktool"
 description: "How decompiling your Android app using apktool can help you find the source of instrumentation issues at the bytecode level."
 author: b_candellier
 category:
-color: rgb(143,212,143)
+color: rgb(19,174,19)
 tags: [android, apktool, instrumentation, debugging, productivity]
 comments: true
 language: en
