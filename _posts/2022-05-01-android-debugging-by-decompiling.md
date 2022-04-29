@@ -38,9 +38,6 @@ Now, let's say you want to take an existing application with its untouched sourc
 
 The easiest way is to plug yourself into the build, right after the code is compiled into bytecode, and **modify the bytecode** to your will.
 
-<!-- TODO use Mermaid instead -->
-![Android build process, with an instrumentation plugin. Dex files are intercepted before they're packaged into the APK.](/images/posts/2022-xx-xx-android-debugging-by-decompiling/android-build-2.webp)
-
 <div class="mermaid">
 flowchart LR
     kt[.kt files] -- kotlinc --> dex[.dex files] --> transform[[transform]] --> packaging[[packaging]]
