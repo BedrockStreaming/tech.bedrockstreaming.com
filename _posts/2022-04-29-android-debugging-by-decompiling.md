@@ -78,6 +78,44 @@ Let's run `apktool` on our APK, and see what happens:
 
 <script id="asciicast-76V1BUhMvoz2TAsBWHmmDAkpV" src="https://asciinema.org/a/76V1BUhMvoz2TAsBWHmmDAkpV.js" async></script>
 
+<noscript>
+<pre>
+~/Downloads
+❯ apktool d bedrock-sample-release.apk
+I: Using Apktool 2.6.1 on bedrock-sample-release.apk
+I: Loading resource table...
+I: Decoding AndroidManifest.xml with resources...
+I: Loading resource table from file: /Users/bcandellier/Library/apktool/framework/1.apk
+I: Regular manifest package...
+I: Decoding file-resources...
+W: Cant find 9patch chunk in file: "drawable-xxhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-mdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-mdpi-v4/common_google_signin_btn_text_light_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-xhdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-xhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-xhdpi-v4/common_google_signin_btn_text_light_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-xxhdpi-v4/common_google_signin_btn_text_light_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-hdpi-v4/common_google_signin_btn_text_light_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-xhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-hdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-mdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-xxhdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-xxhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-mdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-hdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-hdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png". Renaming it to *.png.
+I: Decoding values */* XMLs...
+I: Baksmaling classes.dex...
+I: Baksmaling classes2.dex...
+I: Baksmaling classes3.dex...
+I: Baksmaling classes4.dex...
+I: Copying assets and libs...
+I: Copying unknown files...
+I: Copying original files...
+I: Copying META-INF/services directory
+</pre>
+</noscript>
+
 There we go! In our case, we can ignore the warnings. `apktool` created a new directory with a bunch of `.smali` files, ordered by package name: one per class, containing their Dalvik bytecode.
 
 If you see files with mangled names and contents, make sure that you run `apktool` on an APK with R8 obfuscation disabled, or you'll have a hard time figuring things out.
