@@ -217,7 +217,7 @@ The snippet below shows a class belonging to Picasso, that shows its HTTP calls 
  .end method
 ```
 
-## Debugging by iteration
+## Finding the source of the issue by iteration
 
 I haven't told you yet about `apktool`'s greatest strength: its ability to **recompile** an APK from the `smali` sources it has decompiled! This means we can effectively decompile an APK, make modifications to its low-level code, recompile and run it.
 
@@ -346,7 +346,7 @@ The body is being read into memory!
 
 When correlating this discovery with the source code from Exoplayer, we could verify that, indeed, our player was expecting that the time it takes reading the reponse body would be the time it took to download the entire video segment. But since it has been buffered into memory by some SDK, the read was always almost-instantaneous, no matter the speed of the connection. Additionally, it messed with the overall performance since requests were no longer properly streamed by their rightful owners.
 
-# Conclusion
+# Using a decompiled APK as a review tool
 
 It's no secret to developers in any software ecosystem that library updates can be a source of problems - security vulnerabilities, bugs, incompatibilities, and so on. It's hard to vet them properly, especially in compiled form, like libraries distributed in the Java ecosystem. It gets even harder when arbitrary Gradle plugins start rewriting our own code!
 
