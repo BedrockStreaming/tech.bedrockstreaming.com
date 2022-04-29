@@ -10,7 +10,7 @@ comments: true
 language: en
 ---
 
-If you maintain an Android application, you might be relying on performance monitoring SDKs like Firebase Performance or New Relic, to name a couple. These plugins usually have a light setup process—just apply a Gradle plugin, and they provide the ability to collect statistics about every network call and database query in your app automatically.
+If you maintain an Android application, you might be relying on performance monitoring SDKs like [Firebase Performance](https://firebase.google.com/docs/perf-mon) or [New Relic](https://newrelic.com/products/mobile-monitoring), to name a couple. These plugins usually have a light setup process—just apply a Gradle plugin, and they provide the ability to collect statistics about every network call and database query in your app automatically.
 
 To do this however, they use a very powerful feature of the Android Gradle Plugin. And with great power comes great responsibility; in our case, a simple bug-fix update caused a production bug that left one of our core features crippled.
 
@@ -160,6 +160,7 @@ If you've ever worked with assembly code before, you might notice similarities i
 Let's take an example line from the snippet and decode it together. Looking at the table in the documentation, we can see deduce this:
 
 ```
+# We'll decode this line:
 invoke-virtual {v0}, Landroidx/lifecycle/LiveData;->getValue()Ljava/lang/Object;
 
 invoke-virtual                                                                   # We're calling a virtual method
@@ -176,6 +177,10 @@ With some determination and some deduction, we can guess figure out what the sni
 ## Inspecting suspicious code
 
 ## Debugging by iteration
+
+I haven't told you yet about `apktool`'s greatest strength: its ability to **recompile** an APK from the `smali` sources it has decompiled! This means we can effectively decompile an APK, make modifications to its low-level code, recompile and run it.
+
+This proved really useful during our investigation. Since we have one directory with our APK in a bad state, and one directory with our APK in a good state, we can process by elimination to point out exactly which **single class**, when modified, causes our bug.
 
 ```sh
 #!/bin/sh
