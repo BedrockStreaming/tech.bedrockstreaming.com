@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Debugging low-level Android app issues with apktool"
-description: "How decompiling your Android app using apktool can help you find the source of instrumentation issues at the bytecode level."
+title: "Debugging and reviewing your Android dependencies with apktool"
+description: "How decompiling your Android app using apktool can help you find the source of instrumentation issues at the bytecode level, as well as improve your review process."
 author: b_candellier
 category:
 color: rgb(19,174,19)
@@ -323,7 +323,7 @@ invoke-static {v8, v14}, Lcom/vendor/instrumentation/okhttp3/OkHttp3Instrumentat
 
 And what does this method do, you ask? Let's take a look at the roughly decompiled source in Android Studio so that it's a bit easier to read:
 
-```
+```java
 public Builder body(ResponseBody body) {
     try {
         if (body != null) {
