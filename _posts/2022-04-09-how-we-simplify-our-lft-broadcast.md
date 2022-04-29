@@ -22,7 +22,7 @@ If you read [this part of the article](/2021/10/14/live-streaming-lft.html#Some%
 
 ## Improvement areas
 
-In the previous version, you could see that a very important quantity of material was necessary (meters of various cables, multi plugs, a camera, etc...)
+In the previous version, you could see that a very important quantity of material was necessary (meters of various cables, multi outlets, a camera, etc...)
 A large part of this material was kindly lent by Pascal (and we thank him for that), but we could not decently borrow it for each LFT.
 
 Moreover, this very specific equipment did not allow **each Bedrock employee to manage the control room**, quickly and with his or her own machine.
@@ -45,7 +45,7 @@ After some quick tests, we bought a license and started the new version of the L
 
 Streamyard is a live streaming platform that runs directly in the browser.
 
-It does not have all the customization and possibilities of OBS, but its huge advantage is its portability.
+It does not have all the customization and possibilities of OBS, but its huge advantage is its versatility.
 This solution allows Bedrock employees to manage the LFT from any computer.
 
 Here are some sample images and overviews of the Streamyard UI:
@@ -60,8 +60,8 @@ The positive points of Streamyard:
 - Streams in 1080p
 - Personalization: manage banners, chat questions, music on hold,...
 - Handles multi-speakers management
-- Multi stream Youtube / Facebook / Twitter / Linkedin / Video recording
-- A free mode allows one to test it before taking out their credit card.
+- Re-stream to Youtube / Facebook / Twitter / Linkedin / Video recording
+- A free trial mode allows one to test it before taking out their credit card.
 
 ### New setup
 
@@ -84,7 +84,7 @@ Now, with Streamyard, every time we switch speaker, we just need to:
 - The speaker joins the stream (and switches off her microphone and webcam)
 - Connect the HDMI cable of the speaker's computer
 - The speaker displays her screen via the room's projectors
-- The control room puts the RF microphone on the speaker(s)
+- The control room operator puts the RF microphone on the speaker(s)
 
 For a remote speaker, it's even easier.
 Just pass them the Streamyard link and they can use their webcam and their own microphone.
@@ -117,8 +117,6 @@ The LFT replays are also available on Bedrock's Youtube channel in a private way
 ## Next steps
 
 We don't want to stop there.
-Every two months, we organize a LFT day at Bedrock: our Last Friday Talks.
-
 For the next editions, we will try to do even better.
 We are working on the matter of sharing some talks in public on our Youtube channel, so more people in our communities can learn from them.
 In order to simplify the setup, we will try to put in place a more fixed table to avoid wiring and moving furniture.
