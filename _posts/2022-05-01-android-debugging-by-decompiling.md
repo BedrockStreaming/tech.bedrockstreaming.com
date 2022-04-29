@@ -57,24 +57,23 @@ end
 
 The Android Gradle Plugin (AGP) offers APIs to do this, so SDK vendors can just provide a Gradle plugin and ta-da! Your app is instrumented.
 
-<!-- TODO remove M6 mentions -->
 ```
-.method private final getContent()Lfr/m6/m6replay/feature/home/presentation/viewmodel/HomeViewModel$State$Content;
+.method private final getContent()Lcom/bedrockstreaming/example/HomeViewModel$State$Content;
 
     .locals 2
     .line 119
 
-    iget-object v0, p0, Lfr/m6/m6replay/feature/home/presentation/viewmodel/HomeViewModel;->state:Landroidx/lifecycle/LiveData;
+    iget-object v0, p0, Lcom/bedrockstreaming/example/HomeViewModel;->state:Landroidx/lifecycle/LiveData;
 
     invoke-virtual {v0}, Landroidx/lifecycle/LiveData;->getValue()Ljava/lang/Object;
 
     move-result-object v0
 
-    instance-of v1, v0, Lfr/m6/m6replay/feature/home/presentation/viewmodel/HomeViewModel$State$Content;
+    instance-of v1, v0, Lcom/bedrockstreaming/example/HomeViewModel$State$Content;
 
     if-eqz v1, :cond_0
 
-    check-cast v0, Lfr/m6/m6replay/feature/home/presentation/viewmodel/HomeViewModel$State$Content;
+    check-cast v0, Lcom/bedrockstreaming/example/HomeViewModel$State$Content;
 
     goto :goto_0
 
@@ -103,17 +102,21 @@ https://source.android.com/devices/tech/dalvik/dalvik-bytecode
 
 ```sh
 #!/bin/sh
-apktool --use-aapt2 b <your-decompiled-apk> \                     # path to your previously decompiled APK
-    && ~/Library/Android/sdk/build-tools/30.0.2/apksigner sign \  # path to your Android SDK
-        -ks ~/debug.keystore \                                    # path to a debug keystore
-        --ks-pass “pass:<password>" \                             # your keystore password
-        <your-decompiled-apk>/dist/*.apk \
-    && adb install <your-decompiled-apk>/dist/*.apk
-```
 
+# Inputs:
+# DECOMPILED_APK_PATH: path to your previously decompiled APK directory
+# ANDROID_SDK: path to the Android SDK
+# KEYSTORE_PATH: path to your debug keystore
+# KEYSTORE_PASSWORD: your debug keystore password
+
+apktool --use-aapt2 b "$DECOMPILED_APK_PATH" \
+    && "$ANDROID_SDK/build-tools/30.0.2/apksigner" sign -ks "$KEYSTORE_PATH" --ks-pass “pass:$KEYSTORE_PASSWORD" "$DECOMPILED_APK_PATH/dist/*.apk" \
+    && adb install "$DECOMPILED_APK_PATH/dist/*.apk"
+```
 
 ## Finding the right fix
 
 # Conclusion
 
-
+Looking forward, we know that we need to be careful with Gradle plugins that rewrite our code to add their own hooks.
+Diffing our APKs before and after applying an update to a plugin, or adding a new plugin, seems to be a good way to review what that plugin actually does and the possible impacts on production. This can give our QA process the opportunity to focus on flows we might identify as more likely to be affected, or to give us the assurance that no code was actually affected, in the event of a minor update.
