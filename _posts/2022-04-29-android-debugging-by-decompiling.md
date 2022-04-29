@@ -14,6 +14,8 @@ If you maintain an Android application, you might be relying on performance moni
 
 To do this however, they use a very powerful feature of the Android Gradle Plugin. And with great power comes great responsibility; in our case, a simple bug-fix update caused a production bug that left one of our core features crippled.
 
+The visible cause of our bug, from a developer's point of view, was that the video player saw the network requests as always being extremely fast, no matter the network quality. Therefore, it assumed the device had access to a very high bandwidth, and tried loading video segments with a very high bitrate. This did **not** go well for users with slower network speeds.
+
 To understand what was going on, what went wrong, how to fix it and how to take measures so that it never happens again, we had to do some investigation.
 
 # Diving into the Android build process
@@ -176,6 +178,45 @@ With some determination and some deduction, we can guess figure out what the sni
 
 ## Inspecting suspicious code
 
+Before doing anything else, we can already start looking at the generated code to identify patterns that could cause issues. Problem is… there's a *lot* of code to look through, at least in our case.
+
+Before going this deep in the rabbit hole, we already determined our issue was, somehow, related to instrumentation. Disabling it fixed this issue. Downgrading to the previous release of the SDK also fixed it. This means that if we want to get a clear look at **what** needs to change to go from a working APK from a broken one, we could just compare an APK instrumented by the previous SDK version with an APK instrumented by the current one!
+
+It also proved useful to compare an instrumented APK with an uninstrumented one to understand what the instrumentation was meant to add. In our case, most of it was to notify the SDK of every HTTP request, along with its result.
+
+The snippet below shows a class belonging to Picasso, that shows its HTTP calls are being intercepted by the SDK.
+
+```diff
+--- normal/smali/com/squareup/picasso/NetworkRequestHandler.smali	2022-01-05 11:09:22.000000000 +0100
++++ instrumented/smali/com/squareup/picasso/NetworkRequestHandler.smali	2022-01-05 11:08:34.000000000 +0100
+@@ -128,10 +128,26 @@
+
+     .line 103
+     :cond_4
++    instance-of v2, v1, Lokhttp3/Request$Builder;
++
++    if-nez v2, :cond_5
++
+     invoke-virtual {v1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+
+     move-result-object v2
+
++    goto :goto_1
++
++    :cond_5
++    move-object v2, v1
++
++    check-cast v2, Lokhttp3/Request$Builder;
++
++    invoke-static {v2}, Lcom/vendor/instrumentation/okhttp3/OkHttp3Instrumentation;->build(Lokhttp3/Request$Builder;)Lokhttp3/Request;
++
++    move-result-object v2
++
++    :goto_1
+     return-object v2
+ .end method
+```
+
 ## Debugging by iteration
 
 I haven't told you yet about `apktool`'s greatest strength: its ability to **recompile** an APK from the `smali` sources it has decompiled! This means we can effectively decompile an APK, make modifications to its low-level code, recompile and run it.
@@ -191,6 +232,26 @@ In our case, a useful workflow was to start with a suspect—let's say we think 
     - If it doesn't, revert the OkHttp classes and try again with another suspect.
 
 This process can be accelerated with a very simple script, to iterate faster. The recompilation step occurs incrementally, and so only takes a few seconds.
+
+```sh
+#!/bin/sh
+
+# rebuild-and-run.sh
+# Rebuild, sign and install an APK from its decompiled source.
+# (c) 2022 Bedrock Streaming
+
+# Inputs:
+# ANDROID_SDK_PATH: path to the Android SDK
+# DECOMPILED_APK_PATH: path to your previously decompiled APK directory
+# KEYSTORE_PATH: path to your debug keystore
+# KEYSTORE_PASSWORD: your debug keystore password
+
+apktool --use-aapt2 b "$DECOMPILED_APK_PATH" \
+    && "$ANDROID_SDK_PATH/build-tools/30.0.2/apksigner" sign -ks "$KEYSTORE_PATH" --ks-pass "pass:$KEYSTORE_PASSWORD" "$DECOMPILED_APK_PATH/dist/*.apk" \
+    && adb install "$DECOMPILED_APK_PATH/dist/*.apk"
+```
+
+Here's what it looks like in action:
 
 <script id="asciicast-Fo5kvDcQLPFTJHrsrCMFLulyf" src="https://asciinema.org/a/Fo5kvDcQLPFTJHrsrCMFLulyf.js" async></script>
 
@@ -221,27 +282,74 @@ Install command complete in 445 ms
 </pre>
 </noscript>
 
-```sh
-#!/bin/sh
+In our case, we narrowed down the issue to the instrumentation of a single class: `okhttp3.internal.http.CallServerInterceptor`: once it was reverted, the bug disappeared.
 
-# rebuild-and-run.sh
-# Rebuild, sign and install an APK from its decompiled source.
-# (c) 2022 Bedrock Streaming
+In fact, we narrowed it down to a very small patch with which the app runs fine:
 
-# Inputs:
-# ANDROID_SDK_PATH: path to the Android SDK
-# DECOMPILED_APK_PATH: path to your previously decompiled APK directory
-# KEYSTORE_PATH: path to your debug keystore
-# KEYSTORE_PASSWORD: your debug keystore password
+```diff
+ .../okhttp3/internal/http/CallServerInterceptor.smali         | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-apktool --use-aapt2 b "$DECOMPILED_APK_PATH" \
-    && "$ANDROID_SDK_PATH/build-tools/30.0.2/apksigner" sign -ks "$KEYSTORE_PATH" --ks-pass "pass:$KEYSTORE_PASSWORD" "$DECOMPILED_APK_PATH/dist/*.apk" \
-    && adb install "$DECOMPILED_APK_PATH/dist/*.apk"
+diff --git a/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali b/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali
+index c916149f..c26eab15 100644
+--- a/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali
++++ b/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali
+@@ -510,7 +510,7 @@
+ 
+     instance-of v8, v14, Lokhttp3/Response$Builder;
+ 
+-    if-nez v8, :cond_b
++    #if-nez v8, :cond_b
+ 
+     invoke-virtual {v14, v15}, Lokhttp3/Response$Builder;->body(Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
+ 
+@@ -574,7 +574,7 @@
+ 
+     instance-of v15, v8, Lokhttp3/Response$Builder;
+ 
+-    if-nez v15, :cond_e
++    #if-nez v15, :cond_e
+ 
+     invoke-virtual {v8, v14}, Lokhttp3/Response$Builder;->body(Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
+ 
+-- 
 ```
 
-## Finding the right fix
+Basically, when the code went through this `if` statement, our request got wrapped by `com.vendor.instrumentation.okhttp3.OkHttp3Instrumentation`:
+
+```
+invoke-static {v8, v14}, Lcom/vendor/instrumentation/okhttp3/OkHttp3Instrumentation;->body(Lokhttp3/Response$Builder;Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
+```
+
+And what does this method do, you ask? Let's take a look at the roughly decompiled source in Android Studio so that it's a bit easier to read:
+
+```
+public Builder body(ResponseBody body) {
+    try {
+        if (body != null) {
+            BufferedSource source = body.source();
+            Buffer buffer = new Buffer();
+            source.readAll(buffer);
+            return this.impl.body(ResponseBody.create(body.contentType(), buffer.size(), buffer));
+        }
+    } catch (IOException var4) {
+        log.error("IOException reading from source: ", var4);
+    } catch (IllegalStateException var5) {
+        log.error("IllegalStateException reading from source: ", var5);
+    }
+
+    return this.impl.body(body);
+}
+```
+
+The body is being read into memory!
+
+When correlating this discovery with the source code from Exoplayer, we could verify that, indeed, our player was expecting that the time it takes reading the reponse body would be the time it took to download the entire video segment. But since it has been buffered into memory by some SDK, the read was always almost-instantaneous, no matter the speed of the connection. Additionally, it messed with the overall performance since requests were no longer properly streamed by their rightful owners.
 
 # Conclusion
 
-Looking forward, we know that we need to be careful with plugins that rewrite our code to add their own hooks.
-Diffing our APKs before and after applying an update to a plugin, or adding a new plugin, seems to be a good way to review what that plugin actually does and the possible impacts on production. This can give our QA process the opportunity to focus on flows we might identify as more likely to be affected, or to give us the assurance that no code was actually affected, in the event of a minor update.
+It's no secret to developers in any software ecosystem that library updates can be a source of problems - security vulnerabilities, bugs, incompatibilities, and so on. It's hard to vet them properly, especially in compiled form, like libraries distributed in the Java ecosystem. It gets even harder when arbitrary Gradle plugins start rewriting our own code!
+
+The tooling needed to decompile an APK is free, fast, and easy to automate. It's a really helpful tool to investigate obscure bugs in places your debugger won't let you place a breakpoint, and it's also really useful to be able to see a human-readable diff between two binaries.
+
+Generating a diff of the effects of a library upgrade can seem overkill and hard to do in practice, but at least in the case of bug-fix releases with hopefully few changes, it can be very helpful to have an actual report of what changed. You review the code your team checks in; why not review the code of others, since it ends up in the exact same artifact?
