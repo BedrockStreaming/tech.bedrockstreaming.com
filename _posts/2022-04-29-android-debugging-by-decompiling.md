@@ -180,19 +180,33 @@ With some determination and some deduction, we can guess figure out what the sni
 
 I haven't told you yet about `apktool`'s greatest strength: its ability to **recompile** an APK from the `smali` sources it has decompiled! This means we can effectively decompile an APK, make modifications to its low-level code, recompile and run it.
 
-This proved really useful during our investigation. Since we have one directory with our APK in a bad state, and one directory with our APK in a good state, we can process by elimination to point out exactly which **single class**, when modified, causes our bug.
+This proved really useful during our investigation. Since we have one directory with our APK in a bad state, and one directory with our APK in a good state, we can process by elimination to point out exactly which **single class**, when modified, causes our bug. 
+
+In our case, a useful workflow was to start with a suspect—let's say we think instrumenting the OkHttp classes might have caused the bug. 
+
+1. Copy the OkHttp classes from the "bad" APK, and only those, to our "good" APK.
+2. Recompile and run the app. 
+3. Does the bug occur?
+    - If it does, then that means it is caused by the instrumentation of at least one of the OkHttp classes. We can go through this process again, this time by selecting only a subset of OkHttp's classes, and check if the bug still occurs, etc.
+    - If it doesn't, revert the OkHttp classes and try again with another suspect.
+
+This process can be accelerated with a very simple script, to iterate faster. The recompilation step only takes about a couple of seconds.
 
 ```sh
 #!/bin/sh
 
+# rebuild-and-run.sh
+# Rebuild, sign and install an APK from its decompiled source.
+# (c) 2022 Bedrock Streaming
+
 # Inputs:
+# ANDROID_SDK_PATH: path to the Android SDK
 # DECOMPILED_APK_PATH: path to your previously decompiled APK directory
-# ANDROID_SDK: path to the Android SDK
 # KEYSTORE_PATH: path to your debug keystore
 # KEYSTORE_PASSWORD: your debug keystore password
 
 apktool --use-aapt2 b "$DECOMPILED_APK_PATH" \
-    && "$ANDROID_SDK/build-tools/30.0.2/apksigner" sign -ks "$KEYSTORE_PATH" --ks-pass “pass:$KEYSTORE_PASSWORD" "$DECOMPILED_APK_PATH/dist/*.apk" \
+    && "$ANDROID_SDK_PATH/build-tools/30.0.2/apksigner" sign -ks "$KEYSTORE_PATH" --ks-pass "pass:$KEYSTORE_PASSWORD" "$DECOMPILED_APK_PATH/dist/*.apk" \
     && adb install "$DECOMPILED_APK_PATH/dist/*.apk"
 ```
 
