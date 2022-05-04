@@ -15,21 +15,8 @@ L'équipe de développeurs Android de Bedrock (dont je fais parti) a partagé ce
 
 !["Android Makers 2022"](/images/posts/2022-04-27-bedrock-android-makers-2022/am2022.jpg)
 
-## Sommaire
-* [Penser](#Penser)
-    * [Design System et Jetpack Compose](#DesignSystem)
-    * [Accessibilité](#Accessibilité)
-    * [Modularisation](#Modularisation)
-    * [Support de Chrome OS](#ChromeOS)
-* [Développer](#Développer)
-    * [Splashscreen Android 12](#Splashscreen)
-    * [Tester les coroutines](#Coroutines)
-* [Optimiser](#Optimiser)
-    * [Toujours plus de CI](#CI)
-    * [Optimisation du temps de build](#Build)
-* [Extras](#Extras)
-    * [UI Toolkit - Entity / Component](#UIToolkit)
-* [En conclusion](#Conclusion)
+* TOC
+{:toc}
 
 ### Penser <a name="Penser"></a>
 
