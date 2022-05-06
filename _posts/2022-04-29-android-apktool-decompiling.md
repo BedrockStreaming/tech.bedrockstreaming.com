@@ -12,15 +12,15 @@ language: en
 
 If you maintain an Android application, you might be relying on performance monitoring SDKs like [Firebase Performance](https://firebase.google.com/docs/perf-mon) or [New Relic](https://newrelic.com/products/mobile-monitoring), to name a couple. These plugins usually have a light setup process—just apply a Gradle plugin, and they provide the ability to collect statistics about every network call and database query in your app automatically.
 
-To do this however, they use a very powerful feature of the Android Gradle Plugin. And with great power comes great responsibility; in our case, a simple bug-fix update caused a production bug that left one of our core features crippled.
+To achieve this, they use a very powerful feature of the Android Gradle Plugin. And with great power comes great responsibility; in our case, a simple bug-fix update caused a production bug that left one of our core features crippled.
 
-The visible cause of our bug, from a developer's point of view, was that the video player saw the network requests as always being extremely fast, no matter the network quality. Therefore, it assumed the device had access to a very high bandwidth, and tried loading video segments with a very high bitrate. This did **not** go well for users with slower network speeds.
+The visible cause of our bug, from a developer's point of view, was that the video player saw the network requests as always being extremely fast, no matter the network quality. Therefore, it assumed the device had access to a very high bandwidth, and tried loading video segments with a very high bit rate. This did **not** go well for users with slower network speeds.
 
 To understand what was going on, what went wrong, how to fix it and how to take measures so that it never happens again, we had to do some investigation.
 
 # Diving into the Android build process
 
-To understand what instrumentation is and how it works, we first need to know a little about the Android app build process. Don't worry, we won't need to dive too deep into the details.
+Before we get to the topic of instrumentation, we first need to know a little about the Android app build process. Don't worry, we won't need to dive too deep into the details.
 
 To put it simply, during the build process, your source files (Kotlin and Java) are compiled to Dalvik bytecode, which is stored in `.dex` files. These files are then packaged into an APK file, which is basically just a ZIP file with all your code and resources.
 
@@ -60,9 +60,9 @@ flowchart LR
 end
 </div>
 
-The Android Gradle Plugin (AGP) offers APIs to do this, so SDK vendors can just provide a Gradle plugin and—ta-da! once you apply it, your app is automatically instrumented.
+The Android Gradle Plugin (AGP) offers APIs to do this, so SDK vendors can just provide a Gradle plugin and—ta-da! Once you apply it, your app is automatically instrumented.
 
-Note that there are other ways to achieve this without the AGP. Notably, Kotlin now uses an Intermediate Representation (IR), before it gets compiled down to a target-specific format. You can now write a Kotlin IR compiler plugin to transform the IR code and add your own hooks in an Android-agnostic way.
+Note that there are other ways to achieve this without the AGP. Notably, Kotlin now uses an Intermediate Representation (IR), before it gets compiled down to a target-specific format. You can write a Kotlin IR compiler plugin to transform the IR code and add your own hooks in an Android-agnostic way.
 
 ## Reverse-engineering a built APK
 
@@ -118,7 +118,7 @@ I: Copying META-INF/services directory
 </pre>
 </noscript>
 
-There we go! In our case, we can ignore the warnings. `apktool` created a new directory with a bunch of `.smali` files, ordered by package name: one per class, containing their Dalvik bytecode.
+There we go! In our case, we can ignore the warnings. `apktool` created a new directory with a bunch of `.smali` files, organized by package: one file per class, containing their Dalvik bytecode.
 
 If you see files with mangled names and contents, make sure that you run `apktool` on an APK with R8 obfuscation disabled, or you'll have a hard time figuring things out.
 
@@ -172,19 +172,19 @@ invoke-virtual                                                                  
                                                               Ljava/lang/Object; # This method returns an Object
 ```
 
-With some determination and some deduction, we can guess figure out what the snippet does. Here, we're defining a `getContent()` method that tries to cast a `LiveData`'s value to `State.Content` and returns it, or null otherwise.
+With some determination, we can guess figure out what the snippet does. Here, we're defining a `getContent()` method that tries to cast a `LiveData`'s value to `State.Content` and returns it, or `null` otherwise.
 
 # Using a decompiled APK as a debugging tool
 
 ## Inspecting suspicious code
 
-Before doing anything else, we can already start looking at the generated code to identify patterns that could cause issues. Problem is… there's a *lot* of code to look through, at least in our case.
+Before doing anything else, we can already start looking at the generated code to identify patterns that could cause issues. Problem is… there can be a *lot* of code to look through.
 
-Before going this deep in the rabbit hole, we already determined our issue was, somehow, related to instrumentation. Disabling it fixed this issue. Downgrading to the previous release of the SDK also fixed it. This means that if we want to get a clear look at **what** needs to change to go from a working APK from a broken one, we could just compare an APK instrumented by the previous SDK version with an APK instrumented by the current one!
+Before going this deep in the rabbit hole, we already figured our issue was, somehow, related to instrumentation. Disabling it fixed this issue. Downgrading to the previous release of the SDK also fixed it. This means that if we want to get a clear look at **what** needs to change to go from a working APK from a broken one, we could just compare an APK instrumented by the previous SDK version with an APK instrumented by the current one!
 
-It also proved useful to compare an instrumented APK with an uninstrumented one to understand what the instrumentation was meant to add. In our case, most of it was to notify the SDK of every HTTP request, along with its result.
+It also proved useful to compare an APK that has been instrumented with one that hasn't, to understand what that instrumentation is meant to achieve. In our case, most of it was to notify the SDK of every HTTP request, along with its result.
 
-The snippet below shows a class belonging to Picasso, that shows its HTTP calls are being intercepted by the SDK.
+The snippet below shows a class belonging to Picasso. We can see the HTTP calls it makes are being intercepted by the SDK.
 
 ```diff
 --- normal/smali/com/squareup/picasso/NetworkRequestHandler.smali	2022-01-05 11:09:22.000000000 +0100
@@ -219,14 +219,14 @@ The snippet below shows a class belonging to Picasso, that shows its HTTP calls 
 
 ## Finding the source of the issue by iteration
 
-I haven't told you yet about `apktool`'s greatest strength: its ability to **recompile** an APK from the `smali` sources it has decompiled! This means we can effectively decompile an APK, make modifications to its low-level code, recompile and run it.
+We haven't talked about `apktool`'s greatest strength yet: its ability to **recompile** an APK from the `smali` sources it has decompiled! This means we can effectively decompile an APK, make modifications to its low-level code, recompile and run it.
 
 This proved really useful during our investigation. Since we have one directory with our APK in a bad state, and one directory with our APK in a good state, we can process by elimination to point out exactly which **single class**, when modified, causes our bug. 
 
-In our case, a useful workflow was to start with a suspect—let's say we think instrumenting the OkHttp classes might have caused the bug. 
+In our case, a useful workflow was to start with a suspect—let's say we think instrumenting the OkHttp classes might have caused the bug.
 
 1. Copy the OkHttp classes from the "bad" APK, and only those, to our "good" APK.
-2. Recompile and run the app. 
+2. Recompile and run the app.
 3. Does the bug occur?
     - If it does, then that means it is caused by the instrumentation of at least one of the OkHttp classes. We can go through this process again, this time by selecting only a subset of OkHttp's classes, and check if the bug still occurs, etc.
     - If it doesn't, revert the OkHttp classes and try again with another suspect.
@@ -321,7 +321,7 @@ Basically, when the code went through this `if` statement, our request got wrapp
 invoke-static {v8, v14}, Lcom/vendor/instrumentation/okhttp3/OkHttp3Instrumentation;->body(Lokhttp3/Response$Builder;Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
 ```
 
-And what does this method do, you ask? Let's take a look at the roughly decompiled source in Android Studio so that it's a bit easier to read:
+And what does this method do, you ask? Let's take a look at the decompiled source in Android Studio, so that it's a bit easier to read:
 
 ```java
 public Builder body(ResponseBody body) {
@@ -344,12 +344,12 @@ public Builder body(ResponseBody body) {
 
 The body is being read into memory!
 
-When correlating this discovery with the source code from Exoplayer, we could verify that, indeed, our player was expecting that the time it takes reading the reponse body would be the time it took to download the entire video segment. But since it has been buffered into memory by some SDK, the read was always almost-instantaneous, no matter the speed of the connection. Additionally, it messed with the overall performance since requests were no longer properly streamed by their rightful owners.
+When correlating this discovery with the source code from ExoPlayer, we could verify that, indeed, our player was expecting that the time it takes reading the response body would be the time it took to download the entire video segment. But since it has been buffered into memory by some SDK, the read was always almost-instantaneous, no matter the speed of the connection. Additionally, it messed with the overall performance since requests were no longer properly streamed by their rightful users.
 
 # Using a decompiled APK as a review tool
 
-It's no secret to developers in any software ecosystem that library updates can be a source of problems - security vulnerabilities, bugs, incompatibilities, and so on. It's hard to vet them properly, especially in compiled form, like libraries distributed in the Java ecosystem. It gets even harder when arbitrary Gradle plugins start rewriting our own code!
+It's no secret to developers in any software ecosystem that library updates can be a source of problems - security vulnerabilities, bugs, incompatibilities, and so on. It's hard to vet them properly, especially in compiled form, like libraries distributed in the Java ecosystem. Things get even harder when arbitrary Gradle plugins start rewriting our own code!
 
 The tooling needed to decompile an APK is free, fast, and easy to automate. It's a really helpful tool to investigate obscure bugs in places your debugger won't let you place a breakpoint, and it's also really useful to be able to see a human-readable diff between two binaries.
 
-Generating a diff of the effects of a library upgrade can seem overkill and hard to do in practice, but at least in the case of bug-fix releases with hopefully few changes, it can be very helpful to have an actual report of what changed. You review the code your team checks in; why not review the code of others, since it ends up in the exact same artifact?
+Generating a diff of the effects of a library upgrade can seem overkill and hard to do in practice, but at least in the case of bug-fix releases with hopefully few changes, it can be very helpful to have an actual report of what changed. It's an accepted practice to review the code your team checks in; why not review the code of others, since it ends up in the exact same artifact?
