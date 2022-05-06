@@ -11,7 +11,7 @@ thumbnail: "/images/posts/2022-04-27-bedrock-android-makers-2022/am2022.jpg"
 ## Que c'est bon de se retrouver !
 
 Après deux ans sans conférence en présentiel, l'Android Makers a fait son grand retour les 25 et 26 avril 2022, pour le plus grand bonheur de la communauté Android. 
-L'équipe de développeurs Android de Bedrock (dont je fais parti) a partagé ce bonheur en assistant à ce rendez-vous incontournable. Jetpack Compose, accéssibilité, optimisation de build et autres sont autant de sujets en maturation constante : essayons d'en faire le tour ensemble.
+L'équipe de développeurs Android de Bedrock (dont je fais partie) a partagé ce bonheur en assistant à ce rendez-vous incontournable. Jetpack Compose, accessibilité, optimisation de build et autres sont autant de sujets en maturation constante : essayons d'en faire le tour ensemble.
 
 !["Android Makers 2022"](/images/posts/2022-04-27-bedrock-android-makers-2022/am2022.jpg)
 
@@ -27,7 +27,7 @@ Parallèlement, il nous a aussi invité à réflechir sur la nécessité d'inté
 
 #### Accessibilité <a name="Accessibilité"></a>
 
-Voilà un sujet qu'il est important d'évoquer, tant il est facile d'oublier d'adresser une application à tous. Cette édition de l'Android Makers a eu la chance d'accueillir une très belle conférence de [Fanny Demey](https://twitter.com/FannyDemey) et [Gerard Paligot](https://twitter.com/GerardPaligot) sur le sujet de l'accessibilité. Dans une séance de Live Coding teinté d'un jeu de rôle sur le thème de l'émission **C'est pas sorcier !**, nous avons pu faire le tour de plusieurs points d'attention afin d'inclure au mieux nos utilisateurs porteurs de handicaps :
+Voilà un sujet qu'il est important d'évoquer, tant il est facile d'oublier d'adresser une application à tous. Cette édition de l'Android Makers a eu la chance d'accueillir une très belle conférence de [Fanny Demey](https://twitter.com/FannyDemey) et [Gerard Paligot](https://twitter.com/GerardPaligot) sur le sujet de l'accessibilité. Dans une séance de Live Coding teintée d'un jeu de rôle sur le thème de l'émission **C'est pas sorcier !**, nous avons pu faire le tour de plusieurs points d'attention afin d'inclure au mieux nos utilisateurs porteurs de handicaps :
 - ne pas donner d'informations inutiles via TalkBack, comme les *contentDescription* des icônes décoratives
 - penser à la manière dont TalkBack va assembler les informations provenant de plusieurs vues distinctes
 - donner un retour d'action sur les clics de boutons et mieux placer ces actions lorsque le mode accessibilité est activé
@@ -37,7 +37,7 @@ Le Live Coding a pu également démontrer à quel point *Jetpack Compose* consid
 
 #### Modularisation <a name="Modularisation"></a>
 
-[Jean-Baptiste Vincey](https://twitter.com/JBVincey), développeur chez Deezer, a partagé l'expérience de son équipe concernant la modularisation de leur code pour gérer le nombre grandissant d'applications dans leur catalogue. Basé sur la création de bibliothèques internes, plusieurs stratégies ont été explorées avec leurs bons et mauvais côtés. Lancés dans un chantier similaire, il est important pour Bedrock de voir comment d'autres acteurs du milieu ont répondu à ces questions, sans oublier que chaque entreprise a sa propre réponse qui doit s'adapter à ses process, son organisation et son produit.
+[Jean-Baptiste Vincey](https://twitter.com/JBVincey), développeur chez Deezer, a partagé l'expérience de son équipe concernant la modularisation de leur code pour gérer le nombre grandissant d'applications dans leur catalogue. Basé sur la création de bibliothèques internes, plusieurs stratégies ont été explorées avec leurs bons et mauvais côtés. Lancé dans un chantier similaire, il est important pour Bedrock de voir comment d'autres acteurs du milieu ont répondu à ces questions, sans oublier que chaque entreprise a sa propre réponse qui doit s'adapter à ses process, son organisation et son produit.
 
 #### Support de Chrome OS <a name="ChromeOS"></a>
 
@@ -48,8 +48,10 @@ En vrac : exploiter le potentiel du curseur de la souris, naviguer dans l'applic
 
 #### Splashscreen Android 12 <a name="Splashscreen"></a>
 
-Deux développeurs de chez Google nous ont plongé dans les entrailles du `WindowManager` d'Android, ce composant qui est chargé d'orchestrer les applications que nous utilisons tous les jours : charger une application, la placer à l'écran puis la déssiner, la déplacer et gérer son cycle de vie, autant de responsabilités pour un `WindowManager` complexe à maitriser.  
+Deux développeurs de chez Google nous ont plongé dans les entrailles du `WindowManager` d'Android, ce composant qui est chargé d'orchestrer les applications que nous utilisons tous les jours : charger une application, la placer à l'écran puis la dessiner, la déplacer et gérer son cycle de vie, autant de responsabilités pour un `WindowManager` complexe à maitriser.  
 À travers cette conférence pointue, [Vadim Caen](https://twitter.com/vadimcaen) et [Pablo Gamito](https://twitter.com/Pablo_Gamito) ont rebondi sur le nouveau système de SplashScreen d'Android 12 pour nous expliquer quel problème il doit résoudre (essentiellement le ressenti de lenteur au lancement d'une application) et comment en tirer parti. À ce titre, la documentation de Google sur la [migration vers le SplashScreen d'Android 12](https://developer.android.com/guide/topics/ui/splash-screen/migrate) est incontournable.
+
+Le nouveau Splashscreen pour Android 12 comporte son lot de challenges, notamment pour tenir compte des animations. Chez Bedrock, les reflexions à ce sujet ont démarré, et nous comptons partager un retour d'expérience sur notre propre migration !
 
 #### Tester les coroutines <a name="Coroutines"></a>
 
@@ -64,7 +66,7 @@ Les `Flow` et `StateFlow` n'ont pas été oubliés puisqu'ils ont aussi leurs sp
 Chez Bedrock, la CI tient une place particulière dans nos process de release, et il est toujours intéressant de voir comment d'autres entreprises se saisissent de cet outil et améliorent leur process.  
 Après les rappels toujours pertinent sur l'importance de déléguer le maximum de tâches répétitives à nos environnement de CI, [Xavier F. Gouchet](https://twitter.com/xgouchet), développeur chez Datadog, a présenté divers outils pour y parvenir.  
 
-[Detekt](https://github.com/detekt/detekt), un plugin Gradle permet d'aller encore plus loin qu'Android Lint en offrant l'analyse statique de n'importe quel code Kotlin. Son extensibilité nous est exposée *via* une API sur le pattern visiteur, redoutablement efficace pour parcourir le PSI (*Program Structure Interface*) de Kotlin. D'autres outils sont efficaces pour parcourir cette interface.  
+[Detekt](https://github.com/detekt/detekt), un plugin Gradle permet d'aller encore plus loin qu'Android Lint en offrant l'analyse statique de n'importe quel code Kotlin. Son extensibilité nous est exposée *via* une API sur le pattern visiteur, redoutablement efficace pour parcourir le PSI (*Program Structure Interface*) de Kotlin. D'autres outils peuvent également être efficaces pour parcourir cette interface.  
 
 Xavier Gouchet présente également [KSP (*Kotlin Symbol Processor*)](https://github.com/google/ksp), le projet sponsorisé par Google voué à remplacer KAPT, son ancêtre basé sur Java. Combiné avec [Kotlin Poet](https://square.github.io/kotlinpoet/), cet outil permet d'automatiser la génération de code Kotlin à partir d'un code source annoté dans le projet.  
 
