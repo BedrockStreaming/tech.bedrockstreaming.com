@@ -12,7 +12,7 @@ language: en
 
 If you maintain an Android application, you might be relying on performance monitoring SDKs like [Firebase Performance](https://firebase.google.com/docs/perf-mon) or [New Relic](https://newrelic.com/products/mobile-monitoring), to name a couple. These plugins usually have a light setup process—just apply a Gradle plugin, and they provide the ability to collect statistics about every network call and database query in your app automatically.
 
-To achieve this, they use a very powerful feature of the Android Gradle Plugin. And with great power comes great responsibility; in our case, a simple bug-fix update caused a production bug that left one of our core features crippled.
+To achieve this, they use a very powerful feature of the Android Gradle Plugin: the [Transform API](https://developer.android.com/reference/tools/gradle-api/7.2/com/android/build/api/transform/Transform), or its successor, the [Instrumentation API](https://developer.android.com/studio/releases/gradle-plugin-api-updates#transform-removed). And with great power comes great responsibility; in our case, a simple bug-fix update caused a production bug that left one of our core features crippled.
 
 The visible cause of our bug, from a developer's point of view, was that the video player saw the network requests as always being extremely fast, no matter the network quality. Therefore, it assumed the device had access to a very high bandwidth, and tried loading video segments with a very high bit rate. This did **not** go well for users with slower network speeds.
 
