@@ -78,7 +78,7 @@ To turn them into low-level but understandable code, some tooling will be necess
 
 Let's run `apktool` on our APK, and see what happens:
 
-<script id="asciicast-76V1BUhMvoz2TAsBWHmmDAkpV" src="https://asciinema.org/a/76V1BUhMvoz2TAsBWHmmDAkpV.js" async></script>
+<script id="asciicast-1RozUUMJwPlMjS0ea1R6GNwuj" src="https://asciinema.org/a/1RozUUMJwPlMjS0ea1R6GNwuj.js" async></script>
 
 <noscript>
 <pre>
@@ -253,7 +253,7 @@ apktool --use-aapt2 b "$DECOMPILED_APK_PATH" \
 
 Here's what it looks like in action:
 
-<script id="asciicast-Fo5kvDcQLPFTJHrsrCMFLulyf" src="https://asciinema.org/a/Fo5kvDcQLPFTJHrsrCMFLulyf.js" async></script>
+<script id="asciicast-HCdekIJOEwSdARnP2bUnWWipo" src="https://asciinema.org/a/HCdekIJOEwSdARnP2bUnWWipo.js" async></script>
 
 <noscript>
 <pre>
