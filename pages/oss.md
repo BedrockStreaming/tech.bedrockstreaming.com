@@ -62,8 +62,10 @@ Here some projects open sourced:
 
 Throught GitHub we participated to the improvement (we hope so) of many open source projects:
 
+* [actions-runner-controller/actions-runner-controller](https://github.com/actions-runner-controller/actions-runner-controller): [#1237](https://github.com/actions-runner-controller/actions-runner-controller/pull/1237)
 * [atoum/atoum](https://github.com/atoum/atoum): [#200](https://github.com/atoum/atoum/pull/200) - [#210](https://github.com/atoum/atoum/pull/210)
 * [atoum/AtoumBundle](https://github.com/atoum/AtoumBundle): [#16](https://github.com/atoum/AtoumBundle/pull/16) - [#27](https://github.com/atoum/AtoumBundle/pull/27) - [#34](https://github.com/atoum/AtoumBundle/pull/34) - [#35](https://github.com/atoum/AtoumBundle/pull/35) - [#44](https://github.com/atoum/AtoumBundle/pull/44) - [#47](https://github.com/atoum/AtoumBundle/pull/47) - [#48](https://github.com/atoum/AtoumBundle/pull/48) - [#52](https://github.com/atoum/AtoumBundle/pull/52) - [#53](https://github.com/atoum/AtoumBundle/pull/53) - [#56](https://github.com/atoum/AtoumBundle/pull/56)
+* [Checkmarx/kics](https://github.com/Checkmarx/kics): [#5036](https://github.com/Checkmarx/kics/pull/5036) - [#4984](https://github.com/Checkmarx/kics/pull/4984) - [#4839](https://github.com/Checkmarx/kics/pull/4839)
 * [composer/composer](https://github.com/composer/composer): [#2434](https://github.com/composer/composer/pull/2434) - [#2446](https://github.com/composer/composer/pull/2446) - [#2482](https://github.com/composer/composer/pull/2482)
 * [composer/satis](https://github.com/composer/satis): [#101](https://github.com/composer/satis/pull/101) - [#60](https://github.com/composer/satis/pull/60)
 * [Dash-Industry-Forum/dash.js](https://github.com/Dash-Industry-Forum/dash.js): [#2866](https://github.com/Dash-Industry-Forum/dash.js/pull/2866)
@@ -84,10 +86,12 @@ Throught GitHub we participated to the improvement (we hope so) of many open sou
 * [nelmio/NelmioCorsBundle](https://github.com/nelmio/NelmioCorsBundle): [#67](https://github.com/nelmio/NelmioCorsBundle/pull/67) - [#72](https://github.com/nelmio/NelmioCorsBundle/pull/72)
 * [n1k0/casperjs](https://github.com/n1k0/casperjs): [#605](https://github.com/n1k0/casperjs/pull/605)
 * [PolishSymfonyCommunity/Symfony2MockerExtension](https://github.com/PolishSymfonyCommunity/Symfony2MockerExtension): [#9](https://github.com/PolishSymfonyCommunity/Symfony2MockerExtension/pull/9)
+* [renovatebot/renovate](https://github.com/renovatebot/renovate): [#15432](https://github.com/renovatebot/renovate/pull/15432)
 * [reviewdog/action-tfsec](https://github.com/reviewdog/action-tfsec): [#26](https://github.com/reviewdog/action-tfsec/pull/26)
 * [sensiolabs/SensioFrameworkExtraBundle](https://github.com/sensiolabs/SensioFrameworkExtraBundle): [#260](https://github.com/sensiolabs/SensioFrameworkExtraBundle/pull/260)
 * [sindresorhus/globals](https://github.com/sindresorhus/globals): [#21](https://github.com/sindresorhus/globals/pull/21)
 * [symfony/symfony-docs](https://github.com/symfony/symfony-docs): [#4300](https://github.com/symfony/symfony-docs/pull/4300)
+* [variantdev/chartify](https://github.com/variantdev/chartify): [#17](https://github.com/variantdev/chartify/pull/17)
 * [Versent/saml2aws](https://github.com/Versent/saml2aws): [#272](https://github.com/Versent/saml2aws/pull/272)
 * [video-dev/hls.js](https://github.com/video-dev/hls.js): [#1907](https://github.com/video-dev/hls.js/pull/1907) - [#2606](https://github.com/video-dev/hls.js/pull/2606)
 * [vuejs/vue-router](https://github.com/vuejs/vue-router): [#2411](https://github.com/vuejs/vue-router/pull/2411)
