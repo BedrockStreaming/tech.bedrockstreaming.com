@@ -62,7 +62,6 @@ Here some projects open sourced:
 
 Throught GitHub we participated to the improvement (we hope so) of many open source projects:
 
-
 * [actions-runner-controller/actions-runner-controller](https://github.com/actions-runner-controller/actions-runner-controller): [#1237](https://github.com/actions-runner-controller/actions-runner-controller/pull/1237)
 * [atoum/atoum](https://github.com/atoum/atoum): [#200](https://github.com/atoum/atoum/pull/200) - [#210](https://github.com/atoum/atoum/pull/210)
 * [atoum/AtoumBundle](https://github.com/atoum/AtoumBundle): [#16](https://github.com/atoum/AtoumBundle/pull/16) - [#27](https://github.com/atoum/AtoumBundle/pull/27) - [#34](https://github.com/atoum/AtoumBundle/pull/34) - [#35](https://github.com/atoum/AtoumBundle/pull/35) - [#44](https://github.com/atoum/AtoumBundle/pull/44) - [#47](https://github.com/atoum/AtoumBundle/pull/47) - [#48](https://github.com/atoum/AtoumBundle/pull/48) - [#52](https://github.com/atoum/AtoumBundle/pull/52) - [#53](https://github.com/atoum/AtoumBundle/pull/53) - [#56](https://github.com/atoum/AtoumBundle/pull/56)
