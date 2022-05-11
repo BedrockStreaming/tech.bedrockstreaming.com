@@ -421,7 +421,59 @@ The body is being read into memory!
 source.readAll(buffer);
 ```
 
-When correlating this discovery with the source code from ExoPlayer, we could verify that, indeed, our player was expecting that the time it takes reading the response body would be the time it took to download the entire video segment. But since it has been buffered into memory by some SDK, the read was always almost-instantaneous, no matter the speed of the connection. Additionally, it messed with the overall performance since requests were no longer properly streamed by their rightful users.
+When correlating this discovery with the source code from ExoPlayer, we could verify that, indeed, our player was expecting that the time it takes reading the response body would be the time it took to download the entire video segment. Here's what this flow looks like in a functional app:
+
+<div class="mermaid">
+sequenceDiagram
+    participant exo as OkHttpDataSource
+    participant nr as OkHttp3Instrumentation
+    participant okhttp as OkHttpClient
+    participant server as Server Endpoint
+
+    exo->>nr: body()
+    nr->>okhttp: body()
+    activate server
+    okhttp->>server: 
+    server->>okhttp: 
+    okhttp->>nr: ResponseBody (length=0)
+    activate exo
+    nr->>exo: ResponseBody (length=0)
+    server->>exo: length=512
+    server->>exo: length=1024
+    server->>exo: length=1536
+    server->>exo: length=2048
+    server->>exo: length=2560
+    deactivate server
+    deactivate exo
+</div>
+
+But with this bug in the SDK, since the HTTP response has been buffered into memory by some SDK, the read was always almost-instantaneous, no matter the speed of the connection. Additionally, it messed with the overall performance since requests were no longer properly streamed by their rightful users.
+
+<div class="mermaid">
+sequenceDiagram
+    participant exo as OkHttpDataSource
+    participant nr as OkHttp3Instrumentation
+    participant okhttp as OkHttpClient
+    participant server as Server Endpoint
+
+    exo->>nr: body()
+    nr->>okhttp: body()
+    activate server
+    okhttp->>server: 
+    server->>okhttp: 
+    activate nr
+    okhttp->>nr: 
+    server->>nr: length=512
+    server->>nr: length=1024
+    server->>nr: length=1536
+    server->>nr: length=2048
+    server->>nr: length=2560
+    deactivate nr
+    activate exo
+    nr->>exo: ResponseBody (length=2560)
+    deactivate server
+    deactivate exo
+</div>
 
 # Using a decompiled APK as a review tool
 
