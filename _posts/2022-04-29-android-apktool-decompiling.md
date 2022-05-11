@@ -12,7 +12,7 @@ language: en
 
 If you maintain an Android application, you might be relying on performance monitoring SDKs like [Firebase Performance](https://firebase.google.com/docs/perf-mon) or [New Relic](https://newrelic.com/products/mobile-monitoring), to name a couple. These plugins usually have a light setup process—just apply a Gradle plugin, and they provide the ability to collect statistics about every network call and database query in your app automatically.
 
-To achieve this, they use a very powerful feature of the Android Gradle Plugin: the [Transform API](https://developer.android.com/reference/tools/gradle-api/7.2/com/android/build/api/transform/Transform), or its successor, the [Instrumentation API](https://developer.android.com/studio/releases/gradle-plugin-api-updates#transform-removed). And with great power comes great responsibility; in our case, a simple bug-fix update caused a production bug that left one of our core features crippled.
+The usual way to achieve this is to rely on a process called **instrumentation**, which is supported *via* the Android Gradle Plugin's [Transform API](https://developer.android.com/reference/tools/gradle-api/7.2/com/android/build/api/transform/Transform), or its successor, the [Instrumentation API](https://developer.android.com/studio/releases/gradle-plugin-api-updates#transform-removed). This feature is very powerful, and potentially dangerous; in our case, a minor patch of one of these SDKs caused a production bug that left one of our core features crippled.
 
 The visible cause of our bug, from a developer's point of view, was that the video player saw the network requests as always being extremely fast, no matter the network quality. Therefore, it assumed the device had access to a very high bandwidth, and tried loading video segments with a very high bit rate. This did **not** go well for users with slower network speeds.
 
@@ -60,9 +60,9 @@ flowchart LR
 end
 </div>
 
-The Android Gradle Plugin (AGP) offers APIs to do this, so SDK vendors can just provide a Gradle plugin and—ta-da! Once you apply it, your app is automatically instrumented.
+The Android Gradle Plugin (AGP) offers APIs to do this, so SDK vendors can just develop a Gradle plugin and ta-da! Once you apply it, your app is automatically instrumented.
 
-Note that there are other ways to achieve this without the AGP. Notably, Kotlin now uses an Intermediate Representation (IR), before it gets compiled down to a target-specific format. You can write a Kotlin IR compiler plugin to transform the IR code and add your own hooks in an Android-agnostic way.
+Note that there are other ways to achieve this without the AGP. Notably, Kotlin now uses an Intermediate Representation (IR), before it gets compiled down to a target-specific format. [You can write a Kotlin IR compiler plugin](https://blog.bnorm.dev/writing-your-second-compiler-plugin-part-1) to transform the IR code and add your own hooks in an Android-agnostic way, although this API is still experimental at the time of writing.
 
 ## Reverse-engineering a built APK
 
@@ -120,6 +120,56 @@ I: Copying META-INF/services directory
 
 There we go! In our case, we can ignore the warnings. `apktool` created a new directory with a bunch of `.smali` files, organized by package: one file per class, containing their Dalvik bytecode.
 
+```
+.
+├── AndroidManifest.xml
+├── res
+│   ├── values
+│   │   ├── strings.xml
+│   │   └── ...
+│   ├── layout
+│   │   ├── layout_home.xml
+│   │   └── ...
+│   └── ...
+├── smali
+│   ├── com
+│       ├── bedrockstreaming
+│       │   ├── app
+│       │   │   ├── mobile
+│       │   │   │   ├── R$anim.smali
+│       │   │   │   ├── R$layout.smali
+│       │   │   │   ├── R$string.smali
+│       │   │   │   ├── R$style.smali
+│       │   │   │   └── ...
+│       │   │   └── ...
+│       │   └── ...
+│       └── google
+│           ├── android
+│           │   ├── exoplayer2
+│           │   │   ├── AbstractConcatenatedTimeline.smali
+│           │   │   ├── AudioBecomingNoisyManager.smali
+│           │   │   ├── AudioFocusManager$AudioFocusListener$$ExternalSyntheticLambda0.smali
+│           │   │   ├── AudioFocusManager$AudioFocusListener.smali
+│           │   │   ├── AudioFocusManager.smali
+│           │   │   ├── BasePlayer.smali
+│           │   │   ├── BaseRenderer.smali
+│           │   │   ├── BuildConfig.smali
+│           │   │   └── ...
+│           │   └── ...
+│           └── ...
+├── smali_classes2
+│   ├── com
+│   │   └── bedrockstreaming
+│   │       ├── app
+│   │       │   ├── mobile
+│   │       │   │   ├── MobileApplication.smali
+│   │       │   │   └── ...
+│   │       │   └── ...
+│   │       └── ...
+│   └── ...
+└── ...
+```
+
 If you see files with mangled names and contents, make sure that you run `apktool` on an APK with R8 obfuscation disabled, or you'll have a hard time figuring things out.
 
 ## Understanding Dalvik bytecode
@@ -172,7 +222,7 @@ invoke-virtual                                                                  
                                                               Ljava/lang/Object; # This method returns an Object
 ```
 
-With some determination, we can guess figure out what the snippet does. Here, we're defining a `getContent()` method that tries to cast a `LiveData`'s value to `State.Content` and returns it, or `null` otherwise.
+With some determination, we can figure out what the snippet does. Here, we're defining a `getContent()` method that tries to cast a `LiveData`'s value to `State.Content` and returns it, or `null` otherwise.
 
 # Using a decompiled APK as a debugging tool
 
@@ -180,7 +230,7 @@ With some determination, we can guess figure out what the snippet does. Here, we
 
 Before doing anything else, we can already start looking at the generated code to identify patterns that could cause issues. Problem is… there can be a *lot* of code to look through.
 
-Before going this deep in the rabbit hole, we already figured our issue was, somehow, related to instrumentation. Disabling it fixed this issue. Downgrading to the previous release of the SDK also fixed it. This means that if we want to get a clear look at **what** needs to change to go from a working APK from a broken one, we could just compare an APK instrumented by the previous SDK version with an APK instrumented by the current one!
+Before going this deep in the rabbit hole, we already figured our issue was, somehow, related to instrumentation: disabling it fixed this issue; downgrading to the previous release of the SDK also fixed it. This means that if we want to get a clear look at **what** needs to change to go from a working APK from a broken one, we could just compare an APK instrumented by the previous SDK version with an APK instrumented by the current one!
 
 It also proved useful to compare an APK that has been instrumented with one that hasn't, to understand what that instrumentation is meant to achieve. In our case, most of it was to notify the SDK of every HTTP request, along with its result.
 
@@ -343,6 +393,10 @@ public Builder body(ResponseBody body) {
 ```
 
 The body is being read into memory!
+
+```java
+source.readAll(buffer);
+```
 
 When correlating this discovery with the source code from ExoPlayer, we could verify that, indeed, our player was expecting that the time it takes reading the response body would be the time it took to download the entire video segment. But since it has been buffered into memory by some SDK, the read was always almost-instantaneous, no matter the speed of the connection. Additionally, it messed with the overall performance since requests were no longer properly streamed by their rightful users.
 
