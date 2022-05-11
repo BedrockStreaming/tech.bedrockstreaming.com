@@ -70,7 +70,24 @@ Now, this is great. But when you open an APK file, what do you get?
 
 Let's unzip one and look inside.
 
-![A list of files, containing classes.dex, classes2.dex, classes3.dex, classes4.dex](/images/posts/2022-04-29-android-debugging-by-decompiling/inside-an-apk.png)
+```
+.
+├── META-INF
+├── assets
+├── google
+├── okhttp3
+├── res
+├── AndroidManifest.xml
+├── classes.dex
+├── classes2.dex
+├── classes3.dex
+├── classes4.dex
+├── firebase-common.properties
+├── firebase-crashlytics.properties
+├── play-services-base.properties
+├── ...
+├── resources.arsc
+```
 
 A bunch of noise, and four interesting `.dex` files. That's where the app's code is stored, but unfortunately, these files are not human-readable.
 
