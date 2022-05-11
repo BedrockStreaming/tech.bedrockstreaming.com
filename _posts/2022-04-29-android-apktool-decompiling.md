@@ -249,7 +249,13 @@ Before doing anything else, we can already start looking at the generated code t
 
 Before going this deep in the rabbit hole, we already figured our issue was, somehow, related to instrumentation: disabling it fixed this issue; downgrading to the previous release of the SDK also fixed it. This means that if we want to get a clear look at **what** needs to change to go from a working APK from a broken one, we could just compare an APK instrumented by the previous SDK version with an APK instrumented by the current one!
 
-It also proved useful to compare an APK that has been instrumented with one that hasn't, to understand what that instrumentation is meant to achieve. In our case, most of it was to notify the SDK of every HTTP request, along with its result.
+Of course, we want to do this on the human-readable `smali` files, not the raw `dex` files. We can generate a full diff with the help of the `diff` tool:
+
+```sh
+diff -bur normal/ instrumented/
+```
+
+In our case, it also proved useful to compare an APK that has been instrumented with one that hasn't, to understand what that instrumentation is meant to achieve. In our case, most of it was to notify the SDK of every HTTP request, along with its result.
 
 The snippet below shows a class belonging to Picasso. We can see the HTTP calls it makes are being intercepted by the SDK.
 
