@@ -86,7 +86,7 @@ Let's unzip one and look inside.
 ├── firebase-crashlytics.properties
 ├── play-services-base.properties
 ├── ...
-├── resources.arsc
+└── resources.arsc
 ```
 
 A bunch of noise, and four interesting `.dex` files. That's where the app's code is stored, but unfortunately, these files are not human-readable.
