@@ -443,6 +443,7 @@ sequenceDiagram
     server->>exo: length=1536
     server->>exo: length=2048
     server->>exo: length=2560
+    note right of exo: OkHttpDataSource controls the body reads <br> and can measure the time it took <br> to read the whole response
     deactivate server
     deactivate exo
 </div>
@@ -470,6 +471,7 @@ sequenceDiagram
     server->>nr: length=2560
     deactivate nr
     activate exo
+    note right of exo: OkHttpDataSource is only notified <br> after everything is downloaded
     nr->>exo: ResponseBody (length=2560)
     deactivate server
     deactivate exo
