@@ -255,9 +255,9 @@ Of course, we want to do this on the human-readable `smali` files, not the raw `
 diff -bur normal/ instrumented/
 ```
 
-In our case, it also proved useful to compare an APK that has been instrumented with one that hasn't, to understand what that instrumentation is meant to achieve. In our case, most of it was to notify the SDK of every HTTP request, along with its result.
+In our case, it also proved useful to compare an APK that has been instrumented with one that hasn't, to understand what that instrumentation is meant to achieve. Most of it was to notify the SDK of every HTTP request, along with its result.
 
-The snippet below shows a class belonging to Picasso. We can see the HTTP calls it makes are being intercepted by the SDK.
+As a simple example, the snippet below shows a class belonging to Picasso. We can see the HTTP calls it makes are being intercepted by the SDK.
 
 ```diff
 --- normal/smali/com/squareup/picasso/NetworkRequestHandler.smali	2022-01-05 11:09:22.000000000 +0100
