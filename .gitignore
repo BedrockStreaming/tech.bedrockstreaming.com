@@ -6,3 +6,4 @@ codekit-config.json
 node_modules
 vagrant/.vagrant/
 .jekyll-cache
+.jekyll-metadata

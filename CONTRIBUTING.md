@@ -2,6 +2,13 @@
 
 ## How to install the project?
 
+### Using VS Code and dev containers
+
+1. Install Docker or Podman on your machine
+2. Open the project in Visual Studio Code
+3. When it asks you, agree to "Reopen in Container"
+4. Run the "Jekyll Serve" VS Code task
+
 ### With Ruby and Gem
 
 ```shell

@@ -1,0 +1,14 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Jekyll Serve",
+            "command": "/root/.rbenv/shims/bundle exec jekyll serve -w --drafts --destination /var/_site/ --port 8080 --incremental --livereload --livereload-port 35729",
+            "type": "shell",
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "isBackground": true
+        }
+    ]
+}
