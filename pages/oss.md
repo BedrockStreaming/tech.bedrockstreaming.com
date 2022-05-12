@@ -26,6 +26,7 @@ Here some projects open sourced:
 * [JenkinsTerminalColors](https://github.com/BedrockStreaming/JenkinsTerminalColors) is a very lightweight Chrome extension that provides terminal colors in all console panels of Jenkins. It uses black Solarized theme
 * [SeyrenLight](https://github.com/BedrockStreaming/SeyrenLight) is an other monitoring tool (buildwall) that allow to quickly show failing [Seyren](https://github.com/scobal/seyren) checks
 * [VigoJS](https://github.com/BedrockStreaming/VigoJS) is a (small) Javascript tool using CasperJS and PhantomJS to make easily functional tests on web applications
+* [BedrockStreaming/pr-size-labeler](https://github.com/marketplace/actions/pull-request-auto-size-labeler) is a configurable Github action that dynamically adds size labels to _Pull Requests_ based on the size of the diff and the number of modified files.
 
 # Bundle and libs
 
