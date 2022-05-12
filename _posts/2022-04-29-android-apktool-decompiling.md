@@ -314,13 +314,12 @@ This process can be accelerated with a very simple script, to iterate faster. Th
 # (c) 2022 Bedrock Streaming
 
 # Inputs:
-# ANDROID_SDK_PATH: path to the Android SDK
 # DECOMPILED_APK_PATH: path to your previously decompiled APK directory
 # KEYSTORE_PATH: path to your debug keystore
 # KEYSTORE_PASSWORD: your debug keystore password
 
 apktool --use-aapt2 b "$DECOMPILED_APK_PATH" \
-    && "$ANDROID_SDK_PATH/build-tools/30.0.2/apksigner" sign -ks "$KEYSTORE_PATH" --ks-pass "pass:$KEYSTORE_PASSWORD" "$DECOMPILED_APK_PATH/dist/*.apk" \
+    && apksigner sign -ks "$KEYSTORE_PATH" --ks-pass "pass:$KEYSTORE_PASSWORD" "$DECOMPILED_APK_PATH/dist/*.apk" \
     && adb install "$DECOMPILED_APK_PATH/dist/*.apk"
 ```
 
