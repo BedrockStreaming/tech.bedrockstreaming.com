@@ -80,7 +80,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Label the PR size
     steps:
-      - uses: BedrockStreaming/pr-size-labeler@v1
+      - uses: BedrockStreaming/pr-size-labeler@v1.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           exclude_files: .lock # RegExp of your excluded file pattern
