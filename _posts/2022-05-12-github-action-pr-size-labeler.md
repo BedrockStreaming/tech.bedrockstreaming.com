@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Announcing _BedrockStreaming/pr-size-labeler_ 🎉
+title: Announcing BedrockStreaming/pr-size-labeler github action 🎉
 description: We have just published a github action that dynamically adds size labels to _Pull Requests_ based on the size of the diff and the number of modified files.
 author: a_caron
 lang: en
