@@ -3,7 +3,7 @@
 {
     "name": "Jekyll Dev Environment",
     "context": "..",
-    "dockerFile": "Dockerfile",
+    "dockerFile": "../Dockerfile",
     "settings": {},
     "extensions": [],
     "forwardPorts": [
