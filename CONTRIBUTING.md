@@ -7,7 +7,8 @@
 1. Install Docker or Podman on your machine
 2. Open the project in Visual Studio Code
 3. When it asks you, agree to "Reopen in Container"
-4. Run the "Jekyll Serve" VS Code task
+4. The blog should be built, refreshed and opened in a preview tab automagically. ✨
+    - If not, you can run the "Jekyll Serve" VS Code task manually.
 
 ### With Ruby and Gem
 
