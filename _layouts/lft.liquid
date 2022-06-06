@@ -1,0 +1,17 @@
+---
+layout: page
+---
+
+<div class="home">
+    {% for post in site.posts %}
+        {% if post.tags contains "lft" %}
+            <h2 class="tag-title">
+                <a href="{{ post.url | relative_url }}">
+                    <i class="far fa-file-alt" aria-hidden="true"></i>
+                    {{ post.title }}
+                </a>
+                {% include blog/post_info.liquid date=post.date %}
+            </h2>
+        {% endif %}
+    {% endfor %}
+</div>
