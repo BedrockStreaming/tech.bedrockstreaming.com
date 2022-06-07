@@ -14,14 +14,16 @@ layout: default
   </header>
 
   <section class="post-content">
-    <iframe width="100%" height="auto" style="aspect-ratio: 16/9" src="https://www.youtube-nocookie.com/embed/{{ page.youtubeId }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
     {% if page.bootstrap %}
       <div class="bootstrap-iso">
       {% endif %}
         {{ content }}
       {% if page.bootstrap %}
       </div>
+    {% endif %}
+
+    {% if page.youtubeId %}
+      <iframe width="100%" height="auto" style="aspect-ratio: 16/9" src="https://www.youtube-nocookie.com/embed/{{ page.youtubeId }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     {% endif %}
   </section>
 

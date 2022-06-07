@@ -1,0 +1,65 @@
+---
+layout: page
+---
+
+
+
+<main class="home">
+    <style scoped>
+        .video-list {
+            display: grid;
+            justify-content: center;
+            align-content: center;
+            gap: 16px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+
+        .card {
+            width: 300px;
+        }
+
+        .card-title {
+            text-overflow:ellipsis;
+            overflow:hidden;
+            display: -webkit-box !important;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            white-space: normal;
+        }
+
+        .card img {
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            padding: 0;
+        }
+
+        .tag-list {
+            text-overflow:ellipsis;
+            white-space:nowrap;
+            overflow:hidden;
+        }
+
+        .tag {
+            color: var(--link);
+        }
+    </style>
+    {{ content }}
+
+    <section class="video-list">
+    {% for post in site.posts %}
+        {% if post.tags contains page.filter_tag and post.youtubeId%}
+            <div class="card">
+                <img src="https://img.youtube.com/vi/{{ post.youtubeId }}/hqdefault.jpg" alt="">
+                <div class="card-body">
+                    <a href="{{ post.url | relative_url }}"><h5 class="card-title">{{ post.title }}</h5></a>
+                    <div class="tag-list">
+                        {% for tag in post.tags %}
+                            <span class="tag">#{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+    </section>
+</main>
