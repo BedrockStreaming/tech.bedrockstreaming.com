@@ -2,7 +2,7 @@ bedrock:
   name: Bedrock
 a_caron:
   name: Antoine Caron
-  avatar: https://pbs.twimg.com/profile_images/1404702215302942728/wXNUuuP6_400x400.jpg
+  avatar: /images/avatar/acaron.jpeg
   url: https://blog.slashgear.dev/
 b_viguier:
   name: Benoit Viguier
