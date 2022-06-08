@@ -49,7 +49,7 @@ layout: page
     {% for post in site.posts %}
         {% if post.tags contains page.filter_tag and post.youtubeId%}
             <div class="card">
-                <img src="https://img.youtube.com/vi/{{ post.youtubeId }}/hqdefault.jpg" alt="">
+                <a href="{{ post.url | relative_url }}"><img loading="lazy" src="https://img.youtube.com/vi/{{ post.youtubeId }}/hqdefault.jpg" alt=""></a>
                 <div class="card-body">
                     <a href="{{ post.url | relative_url }}"><h5 class="card-title">{{ post.title }}</h5></a>
                     <div class="tag-list">

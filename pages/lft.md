@@ -7,7 +7,7 @@ feature-img: "images/travel.jpg"
 ---
 
 Last friday talks were at first internal technical conferences at the end of each month given by Bedrock employees about various subjects.
-[This article presented the concept of this event.]({% post_url 2012-12-05-organiser-des-conferences-technique-en-interne %})
+[The concept of LFT has been introduced in this article 🇫🇷.]({% post_url 2012-12-05-organiser-des-conferences-technique-en-interne %})
 
 Since this article, the event has evolved to include non-technical talks. Everyone can share their passion.
 
