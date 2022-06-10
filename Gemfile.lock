@@ -78,6 +78,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   jekyll-redirect-from (~> 0.16.0)

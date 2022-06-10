@@ -58,6 +58,10 @@ t_aufort:
 t_falconnet:
   name: Tanguy Falconnet
   url: https://twitter.com/TanguyFalconnet
+v_claras:
+  name: Valentin CLARAS
+  url: https://twitter.com/LarsVanCiental
+  avatar: /images/avatar/v_claras.jpg
 v_gallissot:
   name: Vincent Gallissot
   url: https://twitter.com/vgallissot
