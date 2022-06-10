@@ -132,7 +132,7 @@ In the next part we will talk about handling the failures of the dependencies th
 
 ## From the same series
 
-1. [What's a BFF](https://tech.bedrockstreaming.com/2022/06/10/backend-bff.html)
+1. [What's a BFF](https://tech.bedrockstreaming.com/2022/06/10/backend-bff-intro.html)
 
 ---
 In the meantime, feel free to have a look at other articles available on this blog:
