@@ -10,19 +10,29 @@ layout: page
             display: grid;
             justify-content: center;
             align-content: center;
-            gap: 16px;
+            gap: 32px;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         }
 
         .card {
-            width: 300px;
+            width: 100%;
+        }
+
+        .card img {
+            width: 100%;
+        }
+
+        .card-content {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8em;
         }
 
         .card-title {
             text-overflow:ellipsis;
             overflow:hidden;
             display: -webkit-box !important;
-            -webkit-line-clamp: 1;
+            -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             white-space: normal;
         }
@@ -34,12 +44,13 @@ layout: page
         }
 
         .tag-list {
+            font-style: italic;
             text-overflow:ellipsis;
-            white-space:nowrap;
             overflow:hidden;
-        }
-
-        .tag {
+            display: -webkit-box !important;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            white-space: normal;
             color: var(--link);
         }
     </style>
@@ -48,14 +59,22 @@ layout: page
     <section class="video-list">
     {% for post in site.posts %}
         {% if post.tags contains page.filter_tag and post.youtubeId%}
+            {% assign author = site.data.authors[post.author] %}
+            {% assign date = post.date | default: "today" | date: "%B %-d, %Y" %}
             <div class="card">
                 <a href="{{ post.url | relative_url }}"><img loading="lazy" src="https://img.youtube.com/vi/{{ post.youtubeId }}/hqdefault.jpg" alt=""></a>
                 <div class="card-body">
                     <a href="{{ post.url | relative_url }}"><h5 class="card-title">{{ post.title }}</h5></a>
                     <div class="tag-list">
                         {% for tag in post.tags %}
-                            <span class="tag">#{{ tag }}</span>
+                            #{{ tag }}
                         {% endfor %}
+                    </div>
+                    <div class="card-content">
+                        {% if author.name %}
+                          <div>{{ author.name }}</div>
+                        {% endif %}
+                        <div>{{ site.data.language.str_months[x] | default: date | date: "%B" }} {{ date | date: "%d, %Y" }}</div>
                     </div>
                 </div>
             </div>
