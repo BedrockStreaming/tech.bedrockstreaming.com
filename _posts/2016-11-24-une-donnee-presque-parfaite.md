@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: video
 title: "Une donnée presque parfaite sur 6play"
 description: "La gestion de la mise à disposition des données sur 6play"
 author: oliviermansour 
@@ -8,6 +8,7 @@ tags: [lyon, conference, elasticsearch, video]
 thumbnail: "images/posts/conf-afup-viguier/6play.jpg"
 color: rgb(42, 153, 213)
 comments: true
+youtubeId: kSlYXpezjIQ
 ---
 
 [Benoit Viguier](https://twitter.com/b_viguier), prestataire de la société [Elao](https://www.elao.com) pour M6Web, a fait un retour d'expérience au Forum PHP de l'[AFUP](https://www.afup.org) sur l'architecture technique mise en place autour de la mise à  disposition des données nécessaires à 6play.

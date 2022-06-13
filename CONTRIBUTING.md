@@ -67,3 +67,30 @@ A preview will automatically be deployed on AWS thanks to AWS Amplify service.
 Don't hesitate to share your new post of **#proj-blog-tech-bedrock** slack room to ask for reviews from Bedrockers.
 When you have 2 approves and no change requested, you can merge your Pull Request.
 
+
+## How to add the replay of your conference, meetup or LFT ? 
+
+
+1. Create a file in `__post` folder name matching this format `YYYY-MM-DD-slug-of-your-article.md`
+   Use the date the talk was first given in public.
+2. Add the configuration of metadatas at the begining of this file
+
+```markdown
+---
+layout: video
+# Unique Id of the youtube video clip
+youtubeId: $$$$$$$ 
+# Title of the article
+title: Title of your article
+# Description of the page (for SEO and context purpose
+description: Description of your article visible in search page results
+author: author_of_your_article 
+# Use tags for grouping content in the blog. Use at least `lft` to group with other lft talks or `conference` for meetup or conferences
+tags: [example, of, tags]
+# this is Bedrock color here
+color: rgb(251,87,66) 
+---
+```
+
+3. Add content to the markdown file in order to add context to the video you are sharing.
+
