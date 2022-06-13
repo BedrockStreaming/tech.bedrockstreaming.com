@@ -112,6 +112,13 @@ header {
     padding-bottom: 0;
   }
 
+  .figure {
+    font-style: italic;
+    text-align:center;
+    color : rgb(128, 128, 128);
+    font-size: 0.9em;
+  }
+
   footer {
     @extend %padding-post;
     padding-top: 0;
