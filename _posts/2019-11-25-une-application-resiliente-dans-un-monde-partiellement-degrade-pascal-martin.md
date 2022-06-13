@@ -3,7 +3,7 @@ layout: video
 youtubeId: U7wuMyv8YzA
 title: "Une application résiliente, dans un monde partiellement dégradé"
 description: "Dans un monde en perpétuelle évolution, pouvons-nous toujours atteindre « four-nines » de disponibilité ? Cloud et Kubernetes. APIs et Microservices… Nos architectures s’enrichissent et se complexifient. Au prix d’une certaine fragilité ?"
-author: Pascal MARTIN
+author: p_martin
 lang: fr
 tags: [conference, architecture, resilience, afup, cloud]
 color: rgb(251,87,66)

@@ -3,7 +3,7 @@ layout: video
 youtubeId: mMRVCtYjzLo
 title: "Comment nous réduisons l’augmentation de nos coûts AWS"
 description: "Malgré les promesses du Cloud, votre facture AWS vous fait peur ? Je vous comprends !"
-author: Pascal MARTIN
+author: p_martin
 lang: fr
 tags: [conference, aws, costs]
 color: rgb(251,87,66)

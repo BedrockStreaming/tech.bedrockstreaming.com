@@ -3,7 +3,7 @@ layout: video
 youtubeId: mMRVCtYjzLo
 title: "No-code, ou le développement d’applications ouvert à d’autres métiers ! AFUP Day 2021"
 description: "Construire une application sans coder ? C’est une idée que j’entends depuis le début de mes études… Et c’est la promesse de no-code !"
-author: Pascal MARTIN
+author: p_martin
 lang: fr
 tags: [conference, nocode, lowcode, afup]
 color: rgb(251,87,66)

@@ -3,7 +3,7 @@ layout: video
 youtubeId: bGklD-ZxIjI
 title: "PHP, c’est vous ! Et vous pouvez contribuer ! Forum PHP 2020"
 description: "Quand nous posons la question « qui contribue à PHP ? » lors des évènements que nous organisons ou auxquels nous participons, nous n’obtenons que très peu de réponses. Est-ce parce que peu d’entre nous savent ou aiment coder en C ? Pourtant, participer et contribuer ne se limite pas à des lignes de code, loin de là !"
-author: Pascal MARTIN
+author: p_martin
 lang: fr
 tags: [conference, php, open-source, afup]
 color: rgb(251,87,66)

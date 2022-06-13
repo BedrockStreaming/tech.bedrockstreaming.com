@@ -3,7 +3,7 @@ layout: video
 youtubeId: xZep9iv6tLY
 title: "Migration de 6play vers Le Cloud, retour d’expérience. Cloud Sud 2021"
 description: "En 2018, nous avons entamé la migration de la plateforme 6play vers Le Cloud. À présent, nous pilotons notre infrastructure AWS avec Terraform, utilisons des services managés et déployons nos applications sous Kubernetes."
-author: Pascal MARTIN
+author: p_martin
 lang: fr
 tags: [conference, cloud, migration, cloudsud]
 color: rgb(251,87,66)
