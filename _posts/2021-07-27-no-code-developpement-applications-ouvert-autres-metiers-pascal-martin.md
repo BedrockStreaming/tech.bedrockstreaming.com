@@ -1,6 +1,6 @@
 ---
 layout: video
-youtubeId: mMRVCtYjzLo
+youtubeId: 9OM2gdMpCg0
 title: "No-code, ou le développement d’applications ouvert à d’autres métiers ! AFUP Day 2021"
 description: "Construire une application sans coder ? C’est une idée que j’entends depuis le début de mes études… Et c’est la promesse de no-code !"
 author: p_martin
