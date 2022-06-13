@@ -5,6 +5,7 @@ description: "Les créateurs de Redux ont créé Redux Toolkit, une série d'uti
 author: m_blanc
 tags: [redux, react, javascript]
 comments: true
-color: rgb(255,128,0)
+color: rgb(251,87,66)
 language: fr
+youtubeId: YsHiH7qCjKM
 ---
