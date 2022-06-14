@@ -178,14 +178,12 @@ Et pour ceux que ca intéresse, sachez que Oreilly mettra disposition un pack co
 
 Merci tous !
 
-- CR Vélocity Day 1 : [https://tech.m6web.fr/cr-velocity-conference-day-1-dev-webperf](https://tech.m6web.fr/cr-velocity-conference-day-1-dev-webperf)
-- CR Vélocity Day 2 : [https://tech.m6web.fr/cr-velocity-conference-2012-day-2-devops-webperf](https://https://tech.m6web.fr/cr-velocity-conference-2012-day-2-devops-webperf)
+- CR Vélocity Day 1 : [https://tech.bedrockstreaming.com/cr-velocity-conference-day-1-dev-webperf](/cr-velocity-conference-day-1-dev-webperf)
+- CR Vélocity Day 2 : [https://tech.bedrockstreaming.com/cr-velocity-conference-2012-day-2-devops-webperf](/cr-velocity-conference-2012-day-2-devops-webperf)
 
-*(Crédit photo : [https://www.flickr.com/photos/oreillyconf/sets/72157630300659948/](https://https://www.flickr.com/photos/oreillyconf/sets/72157630300659948/))*
+*(Crédit photo : [https://www.flickr.com/photos/oreillyconf/sets/72157630300659948/](https://www.flickr.com/photos/oreillyconf/sets/72157630300659948/))*
 
 
 
 ![Le Job Board assez hallucinant !](/images/posts/velocityus2012-jobboard.jpg)
 Le Job Board assez hallucinant !
-
-

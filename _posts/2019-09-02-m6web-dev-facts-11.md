@@ -12,7 +12,7 @@ image:
 comments: true  
 ---
 
-Reprenons un rythme soutenu des [devfacts](/tags.html#devfacts) !
+Reprenons un rythme soutenu des [devfacts](/tags/#devfacts) !
 
 # La persuasion
 > L'important, c'est d'être convaincu qu't'es convaincu

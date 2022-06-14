@@ -16,7 +16,7 @@ thumbnail: "images/posts/reacteurope/reacteurope1.png"
 comments: true
 ---
 
-Après la première conférence officielle sur React, que nous avons déjà couvert en janvier ([Jour 1](https://tech.m6web.fr/cr-react-conf-2015-day-one) et [Jour 2](https://tech.m6web.fr/cr-react-conf-2015-day-two)), nous nous sommes rendus les 2 et 3 juillet à Paris sous une chaleur infernale pour cette première édition de la [React Europe](https://www.react-europe.org/) avec l’envie de voir et de mesurer les évolutions autour de ReactJS.
+Après la première conférence officielle sur React, que nous avons déjà couvert en janvier ([Jour 1](/2015/02/04/cr-react-conf-2015-day-one) et [Jour 2](/2015/02/10/cr-react-conf-2015-day-two)), nous nous sommes rendus les 2 et 3 juillet à Paris sous une chaleur infernale pour cette première édition de la [React Europe](https://www.react-europe.org/) avec l’envie de voir et de mesurer les évolutions autour de ReactJS.
 
 # Keynote
 
@@ -294,4 +294,4 @@ Pour finir la journée, nous avons eu le droit à quelques Lightning Talk de qua
 Excellente organisation (et on ne dit pas ca seulement pour les bières à volonté), un line-up du tonnerre et de belles annonces (React Native Android en Août, GraphQL etc).
 C’est déjà avec plein d’idées et de pistes d’améliorations pour nos projets React que nous sortons de ce premier jour très complet.
 
-[Vous pouvez retrouvez le compte rendu de la deuxième journée ici](https://tech.m6web.fr/cr-react-europe-2015-day-two/)
+[Vous pouvez retrouvez le compte rendu de la deuxième journée ici](/2015/02/10/cr-react-conf-2015-day-two)

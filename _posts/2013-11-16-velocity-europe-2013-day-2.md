@@ -16,7 +16,7 @@ image:
   credit: 
   creditlink: 
 comments: true  
-permalink: velocity-europe-2013-day-2.html
+permalink: velocity-europe-2013-day-2
 ---
 
 ![Velocity Europe 2013 - Day 2](/images/posts/imgob/0-00-30-83-201311-ob_9ce448_10859879244-aef165bef0-z-jpg.jpeg)
@@ -331,13 +331,10 @@ Avant de conclure, petit hommage [Natalia Talkowska](https://twitter.com/NatiTal
 
 C'est complètement lessivé que nous sortons de cette journée, avec une quantité d'idées / projets tester incroyable.
 
-Vous pouvez retrouver [le compte rendu de la première journée](https://tech.m6web.fr/velocity-europe-2013-day-1.html) ainsi [que de la dernière](https://tech.m6web.fr/velocity-europe-2013-day-3.html) sur notre Blog.
+Vous pouvez retrouver [le compte rendu de la première journée](/velocity-europe-2013-day-1) ainsi [que de la dernière](/velocity-europe-2013-day-3) sur notre Blog.
 
 N'hésites pas donner vos retours (positifs ou négatifs en commentaire). Merci :-)
 
 © des photos : [Flickr officiel O'Reilly](https://www.flickr.com/photos/oreillyconf/with/10845987613/)
 
 CR rédigé par Baptiste, Denis Roussel et Kenny Dits
-
-
-

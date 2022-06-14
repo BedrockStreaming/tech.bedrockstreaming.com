@@ -47,9 +47,9 @@ Lorsque l'architecture mise en place permet de répartir la charge sur un nombre
 
 ## Développement
 
-Le service Polls a été développé en PHP avec [Symfony](https://symfony.com/) et le [FOSRestBundle](https://github.com/FriendsOfSymfony/FOSRestBundle#fosrestbundle). Nous avons d'abord suivi certaines [références](https://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/), puis nous avons ensuite développé un micro ORM maison pour faire persister nos données dans Redis et enfin [nous avons monitoré](https://tech.m6web.fr/how-we-use-statsd/) tous ce que l'on pouvait à l'aide de notre [bundle dédié](https://github.com/BedrockStreaming/StatsdBundle).
+Le service Polls a été développé en PHP avec [Symfony](https://symfony.com/) et le [FOSRestBundle](https://github.com/FriendsOfSymfony/FOSRestBundle#fosrestbundle). Nous avons d'abord suivi certaines [références](https://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/), puis nous avons ensuite développé un micro ORM maison pour faire persister nos données dans Redis et enfin [nous avons monitoré](/2014/01/28/how-we-use-statsd) tous ce que l'on pouvait à l'aide de notre [bundle dédié](https://github.com/BedrockStreaming/StatsdBundle).
 
-Une attention toute particulière a été portée à la qualité avec des tests unitaires couvrant un maximum de code et des [tests fonctionnels](https://tech.m6web.fr/redismock-qui-a-bouchonne-mon-redis.html) couvrant la plupart des cas d'utilisation des clients. Les nombreuses mises en production journalières pendant la phase d'optimisation ont ainsi été grandement facilitées, notamment grâce à la sérénité apportée par l'intégration continue.
+Une attention toute particulière a été portée à la qualité avec des tests unitaires couvrant un maximum de code et des [tests fonctionnels](/redismock-qui-a-bouchonne-mon-redis) couvrant la plupart des cas d'utilisation des clients. Les nombreuses mises en production journalières pendant la phase d'optimisation ont ainsi été grandement facilitées, notamment grâce à la sérénité apportée par l'intégration continue.
 
 ## Mise en production
 

@@ -14,7 +14,7 @@ permalink: cr-real-time-conference-europe-2013-day-2
 Crédit : https://www.flickr.com/photos/andyet-photos/8679275805/in/set-72157633306379029
 
 
-[Après la première journée](https://tech.m6web.fr/cr-real-time-conference-europe-2013-day-1), on continue avec la deuxième journée de conférence. Toujours sur le format de 20 minutes pour présenter le sujet.
+[Après la première journée](/cr-real-time-conference-europe-2013-day-1), on continue avec la deuxième journée de conférence. Toujours sur le format de 20 minutes pour présenter le sujet.
 
 
 
@@ -284,6 +284,3 @@ On peut en revanche peut être un peu regretter le nombre de français (la fois 
 Pour terminer, un grand merci Julien Genestoux qui a organisé l'événement.
 
 Rendez-vous pour la prochaine édition.
-
-
-

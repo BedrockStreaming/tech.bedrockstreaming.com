@@ -340,7 +340,7 @@ Et faire voler un drone dans un bateau … on avait jamais vu ça !
 
 Une première journée très sympathique, bourrée d'idées et d'outils en tout genre. L'organisation est vraiment au poil, et on repart en voulant refaire le monde techniquement :-)
 
-Le compte rendu de la deuxième journée est ici : [https://tech.m6web.fr/cr-real-time-conference-europe-2013-day-2](https://tech.m6web.fr/cr-real-time-conference-europe-2013-day-2)
+Le compte rendu de la deuxième journée est ici : [https://tech.bedrockstreaming.com/cr-real-time-conference-europe-2013-day-2](/cr-real-time-conference-europe-2013-day-2)
 
 P.s : Merci &Yet pour la plupart des photos présentes ici : [https://www.flickr.com/photos/andyet-photos/sets/72157633306379029/](https://www.flickr.com/photos/andyet-photos/sets/72157633306379029/)
 
@@ -350,5 +350,3 @@ Pour les plus motivés, la conférence été enregistrée en vidéo :
 
 <iframe allowfullscreen="" frameborder="0" height="480" src="https://www.youtube.com/embed/rzXN4Nleayw?wmode=transparent&feature=oembed" width="854"></iframe>
 Vidéo de la première journée de la RealTime Conf Europe
-
-

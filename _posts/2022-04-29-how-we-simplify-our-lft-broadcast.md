@@ -10,7 +10,7 @@ thumbnail: images/posts/lft-streamyard/head.png
 ---
 ![LFT logo](/images/posts/lft-streamyard/head.png)
 
-Some time ago, we shared with you [an article explaining how we managed to capture and broadcast our conferences in the Bedrock auditorium](/2021/10/14/live-streaming-lft.html). 
+Some time ago, we shared with you [an article explaining how we managed to capture and broadcast our conferences in the Bedrock auditorium](/2021/10/14/live-streaming-lft). 
 We must admit, it worked great, but we wanted to make it simpler.
 
 As a reminder, our internal conferences or meetups are called **LFT**. 
@@ -18,7 +18,7 @@ If you want to know more about our _Last Friday Talk_ and the motivations that p
 
 After the success of this broadcasting, the (voluntary) organization team started thinking about how to make it simpler. 
 _It was already a challenge in itself!_
-If you read [this part of the article](/2021/10/14/live-streaming-lft.html#Some%20things%20to%20improve), you can see that we already had some ideas for improvements.
+If you read [this part of the article](/2021/10/14/live-streaming-lft#some-things-to-improve), you can see that we already had some ideas for improvements.
 
 ## Improvement areas
 

@@ -96,7 +96,7 @@ Pour plusieurs raisons, déjà parce que Netflix … qui en a profité pour anno
 
 Il nous a donc expliqué les plans de Netflix pour améliorer l’expérience Télé sur leurs services, et comment React les a grandement aidés à le faire.
 
-Pour connaître les raisons pour lesquels ils ont choisi React, je vous invite à lire l’article [Netflix like React](https://techblog.netflix.com/2015/01/netflix-likes-react.html) (Startup Speed et [Server Side Rendering](https://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/) \o/, Runtime Performance, Modularity).
+Pour connaître les raisons pour lesquels ils ont choisi React, je vous invite à lire l’article [Netflix like React](https://techblog.netflix.com/2015/01/netflix-likes-react.html) (Startup Speed et [Server Side Rendering](/2014/12/04/isomorphic-single-page-app-parfaite-react-flux) \o/, Runtime Performance, Modularity).
 
 Aujourd’hui, Netflix développe majoritairement en Javascript et ont 3 UI en JS, une pour le mobile, une pour le web et une pour les télés.
 Ils ont vu assez vite que le DOM était très loin, c’est pourquoi ils ont créé et introduit Gibbon (une sorte de Webkit maison plus rapide et adapté à leur besoin sur les téléviseurs).
@@ -180,6 +180,6 @@ Il se passe réellement quelque chose de grand dans la communauté Front-End gr�
 
 Pour finir, je voulais aussi partager le travail d’une des personnes présentes lors de cette conférence, ayant une façon très particulière de prendre des notes sur chacun des talks : [https://chantastic.io/2015-reactjs-conf/](https://chantastic.io/2015-reactjs-conf/)
 
-p.s: Retrouvez les [retours sur la première journée de la React conférence 2015](https://tech.m6web.fr/cr-react-conf-2015-day-one/).
+p.s: Retrouvez les [retours sur la première journée de la React conférence 2015](/2015/02/04/cr-react-conf-2015-day-one).
 
 Enjoy !

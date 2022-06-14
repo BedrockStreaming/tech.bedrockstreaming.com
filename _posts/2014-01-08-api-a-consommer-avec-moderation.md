@@ -10,7 +10,7 @@ thumbnail: "images/posts/cytron/domainuserbundle.png"
 comments: true
 ---
 
-Après avoir travaillé pendant plusieurs mois sur la création et les [tests](https://tech.m6web.fr/redismock-qui-a-bouchonne-mon-redis.html) de nos API avec Symfony, le moment de leur publication est enfin arrivé !
+Après avoir travaillé pendant plusieurs mois sur la création et les [tests](/redismock-qui-a-bouchonne-mon-redis) de nos API avec Symfony, le moment de leur publication est enfin arrivé !
 
 Or, les clients de nos API sont multiples : il peut s'agir d'applications mobiles, de sites web mais aussi d’un *back office* interne. Chacun de ces clients peut nécessiter des “vues” différentes de l’API.
 
@@ -110,4 +110,3 @@ Afin d'implémenter facilement ce fonctionnement sur nos API, nous avons dévelo
 [DomainUserBundle](https://github.com/BedrockStreaming/DomainUserBundle) est disponible en [open-source](https://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur le [compte GitHub de M6Web](https://github.com/BedrockStreaming).
 
 Enjoy !
-

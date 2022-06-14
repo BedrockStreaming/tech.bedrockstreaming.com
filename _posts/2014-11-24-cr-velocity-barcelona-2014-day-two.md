@@ -14,7 +14,7 @@ tags: [conference,velocity,webperf]
 feature-img: "images/posts/velocity2014/velocity_banner2.jpg"
 thumbnail: "images/posts/velocity2014/velocity_banner2.jpg"
 comments: true
-permalink: velocity-europe-2014-day-2.html
+permalink: velocity-europe-2014-day-2
 ---
 
 # Velocity Barcelone, seconde journée
@@ -65,7 +65,7 @@ Deuxième jour de conférence avec un programme encore plus chargé et quelques 
 
  <iframe width="560" height="315" src="//www.youtube.com/embed/AYlfEtP0rmc" frameborder="0" allowfullscreen></iframe>
 
- J'ai profité d'un instant avec lui pour lui présenter [GitHubTeamReviewer](https://tech.m6web.fr/github-team-reviewer-pull-requests.html) (un outil interne open-sourcé). Il était enchanté de découvrir ce qui avait été fait avec l'API de Github. Il a indiqué que l'entreprise travaillait actuellement sur des vues permettant de pallier aux problèmes résolus par GitHubTeamReviewer.
+ J'ai profité d'un instant avec lui pour lui présenter [GitHubTeamReviewer](/github-team-reviewer-pull-requests) (un outil interne open-sourcé). Il était enchanté de découvrir ce qui avait été fait avec l'API de Github. Il a indiqué que l'entreprise travaillait actuellement sur des vues permettant de pallier aux problèmes résolus par GitHubTeamReviewer.
 
 ## HTTP Archive and Google Cloud Dataflow - Ilya Grigorik (Google)
 

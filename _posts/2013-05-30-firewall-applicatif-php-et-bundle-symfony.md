@@ -30,7 +30,7 @@ Nous souhaitions éviter de redéfinir l’ensemble des IPs chaque point de rest
 
 Si notre firewall applicatif répond certaines de vos problématiques, mais que vous souhaitez le voir évoluer, n'hésitez pas participer son développement :
 
-- forkez les projets sur [GitHub](https://github.com/m6web),
+- forkez les projets sur [GitHub](https://github.com/BedrockStreaming/),
 - faites une branche par fonctionnalité,
 - proposez-nous vos évolutions et optimisations via les [Pull Requests](https://github.com/blog/712-pull-requests-2-0).
 

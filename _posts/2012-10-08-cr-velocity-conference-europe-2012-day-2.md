@@ -71,7 +71,7 @@ Bref, si vous êtes sur Windows (...), jetez y un oeil. Plus d'infos en vidéo :
 
 Première démo de Iliya Grigorik ( [@igrigorik](https://twitter.com/igrigorik)) sur les capacités avancées de la chrome Dev Toolbar.
 
-On peut par exemple faire un clic droit sur l'onglet Network pour récupérer le har (voir le format [HTTP Archive](https://www.softwareishard.com/blog/har-12-spec/)) en json, et utiliser d'autres outils avec ce har, notamment Yslow dont je parlais [dans le compte rendu suivant](https://tech.m6web.fr/cr-velocity-conference-2012-day-3-devops-webperf), qui permet d'ajouter les régressions possible WebPerf dans votre CI Jenkins.
+On peut par exemple faire un clic droit sur l'onglet Network pour récupérer le har (voir le format [HTTP Archive](https://www.softwareishard.com/blog/har-12-spec/)) en json, et utiliser d'autres outils avec ce har, notamment Yslow dont je parlais [dans le compte rendu suivant](/cr-velocity-conference-2012-day-3-devops-webperf), qui permet d'ajouter les régressions possible WebPerf dans votre CI Jenkins.
 
 On parle aussi du chrome://tracing , du débugger mobile, que la devtools est une WebApp avec une url propre et scriptable, du Chrome Benchmarking (extension) ...
 
@@ -245,8 +245,5 @@ Jeb Corliss " Grinding The Crack"
 
 Rappel : les CR des autres jours sont disponible :
 
-- Day 3 : [https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-3](https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-3)
-- Day 1 : [https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-1](https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-1)
-
-
-
+- Day 3 : [https://tech.bedrockstreaming.com/cr-velocity-conference-europe-2012-day-3](/cr-velocity-conference-europe-2012-day-3)
+- Day 1 : [https://tech.bedrockstreaming.com/cr-velocity-conference-europe-2012-day-1](/cr-velocity-conference-europe-2012-day-1)

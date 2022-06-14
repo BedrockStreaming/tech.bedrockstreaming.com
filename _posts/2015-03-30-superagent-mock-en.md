@@ -8,8 +8,8 @@ tags: [javascript, superagent, mock, isomorphic, cytron, open-source]
 feature-img: "images/posts/cytron/superagent-mock.jpg"
 thumbnail: "images/posts/cytron/superagent-mock.jpg"
 comments: true
-permalink: how-did-we-mock-the-backend-developers.html
-other_language: comment-a-t-on-bouchonne-les-developpeurs-backend.html
+permalink: how-did-we-mock-the-backend-developers
+other_language: comment-a-t-on-bouchonne-les-developpeurs-backend
 language: en
 ---
 
@@ -42,7 +42,7 @@ Like superagent, superagent-mock can be installed via npm, and be used by server
 npm install superagent-mock --save-dev
 {% endhighlight %}  
 
-Then, create the configuration file, where you will define which data will be mocked. Let's take for example a nonexistent API, the authors list on our technical blog: `https://tech.m6web.fr/api/authors`.
+Then, create the configuration file, where you will define which data will be mocked. Let's take for example a nonexistent API, the authors list on our technical blog: `https://tech.bedrockstreaming.com/api/authors`.
 
 Here is the file structure we need: 
 
@@ -50,7 +50,7 @@ Here is the file structure we need:
 // ./config.js file
 module.exports = [
   {
-    pattern: 'https://tech.m6web.fr/api/authors',
+    pattern: 'https://tech.bedrockstreaming.com/api/authors',
     fixtures: './authors.js',
     callback: function (match, data) {
       return { body : data };
@@ -58,7 +58,7 @@ module.exports = [
 ];
 {% endhighlight %}
 
-* The `pattern` attribute should be a regular expression, in case of a route containing variable parameters (ie: `https://tech.m6web.fr/api/authors/(\\d+)`).
+* The `pattern` attribute should be a regular expression, in case of a route containing variable parameters (ie: `https://tech.bedrockstreaming.com/api/authors/(\\d+)`).
 * The `fixtures` attribute represents the link to a file or a callback.
 * The `callback` attribute is a function with two arguments: `match` is the result of the regular expression and `data` the fixtures. `match` allows to use some call parameters (ie: the author id) to return relevant data (ie: the author in the fixture).
 
@@ -101,14 +101,11 @@ Our app build itself the URLs of images retrieved via the API: it provides us an
 
 Projects [superagent-mock][superagent-mock] and [sprintf-mock][sprintf-mock] are open source. Very easy to use, they allow us to parallelize our developments with the backend team and to make our functional tests autonomous. So don't wait API completion to start your frontend developments!
 
-[react-website]: https://facebook.github.io/react/
+[react-website]: https://reactjs.org/
 [flux-website]: https://facebook.github.io/flux/
 [isomorphic]: https://isomorphic.net/javascript
 [superagent]: https://visionmedia.github.io/superagent/
-[webpack]: https://webpack.github.io/
-[browserify]: https://browserify.org/
 [superagent-mock]: https://github.com/BedrockStreaming/superagent-mock
 [superagent-mock-source]: https://github.com/BedrockStreaming/superagent-mock/blob/master/superagent-mock.js
 [sprintf-js]: https://github.com/alexei/sprintf.js
 [sprintf-mock]: https://github.com/BedrockStreaming/sprintf-mock
-[kenny-isomorphic-post]: https://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/

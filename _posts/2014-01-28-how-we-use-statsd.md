@@ -14,7 +14,7 @@ language: en
 
 As developers, we (M6Web) want to keep our eyes open on what is going on in production.
 
-Our [local CMO](https://twitter.com/kenny_dee) (chief monitoring officier ;) ) did a [nice presentation about this](https://tech.m6web.fr/monitoring-applicatif-pourquoi-et-comment/) (in french).
+Our [local CMO](https://twitter.com/kenny_dee) (chief monitoring officier ;) ) did a [nice presentation about this](/monitoring-applicatif-pourquoi-et-comment) (in french).
 
 As someone very wise (Theo Schlossnagle) said: "*It's not in production unless it's monitored*". Another cool mantra is: "*I am wondering what to monitor ? everything dude !*". Finally "*if you can not measure it, you can not improve it.*" ([Lord Kelvin](https://en.wikipedia.org/wiki/William_Thomson,_1st_Baron_Kelvin)).
 
@@ -107,4 +107,4 @@ For alerting purpose, [a tool based on Graphite JSON output has been developed](
 
 If you use such a tool, and you're happy with it, please let us know in the comments.
 
-Found a typo or bad english langage, just propose a [pull request](https://github.com/BedrockStreaming/m6web.github.io/blob/master/_posts/2014-01-28-how-we-use-statsd.md).
+Found a typo or bad english langage, just propose a [pull request](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/blob/master/_posts/2014-01-28-how-we-use-statsd.md).

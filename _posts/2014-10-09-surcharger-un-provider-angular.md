@@ -8,7 +8,7 @@ tags: [configuration, angular, cytron]
 feature-img: "images/posts/cytron/providersangular.jpg"
 thumbnail: "images/posts/cytron/providersangular.jpg"
 comments: true
-permalink: surcharger-un-provider-angular.html
+permalink: surcharger-un-provider-angular
 ---
 
 Nous avons eu besoin de surcharger un [provider AngularJS](https://docs.angularjs.org/guide/providers) – [AnalyticsProvider](https://github.com/revolunet/angular-google-analytics) – pour le rendre configurable dynamiquement en fonction d'un paramètre de la route. Le service `$route` n'étant pas disponible dans la phase de configuration d'AngularJS, il a fallu ruser...
@@ -56,4 +56,3 @@ $get[$get.length] = function () {
 On peut noter l'utilisation de l'objet [`arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) qui permet de rester générique et de garder la compatibilité en cas de changement des dépendances du module surchargé.
 
 Grâce à cette astuce, notre service `Analytics` est maintenant configuré dynamiquement selon nos souhaits avant son utilisation.
-

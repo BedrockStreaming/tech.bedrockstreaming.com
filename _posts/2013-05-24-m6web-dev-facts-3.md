@@ -13,7 +13,7 @@ comments: true
 permalink: m6web-dev-facts-3
 ---
 
-Episode 3 des [devfacts](https://tech.m6web.fr/tag/devfacts/) ! Parce qu'on ne s'en lasse pas.
+Episode 3 des [devfacts](/tags/#devfacts) ! Parce qu'on ne s'en lasse pas.
 
 
 # Fort Boyaux
@@ -69,6 +69,3 @@ Episode 3 des [devfacts](https://tech.m6web.fr/tag/devfacts/) ! Parce qu'on ne s
 #  le choix dans la date
 
 > Date de sortie (jj/dd/yyyy)
-
-
-

@@ -8,7 +8,7 @@ tags: [qualite, symfony, atoum, tests fonctionnels]
 feature-img: "images/posts/cytron/husky.png"
 thumbnail: "images/posts/cytron/husky.png"
 comments: true
-permalink: 2013/10/tester-fonctionnellement-une-api-rest-symfony-doctrine-atoum.html
+permalink: 2013/10/tester-fonctionnellement-une-api-rest-symfony-doctrine-atoum
 ---
 
 Un des enjeux des tests fonctionnels est de pouvoir être joués dans un environnement complètement indépendant, dissocié de l'environnement de production, afin de ne pas être tributaires de données versatiles qui pourraient impacter leur résultat. Il faut, cependant, que cet environnement soit techniquement similaire à celui de production pour que les tests aient une réelle validité fonctionnelle.

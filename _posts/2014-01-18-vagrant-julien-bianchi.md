@@ -11,6 +11,6 @@ comments: true
 youtubeId: SvP9Dl87j0s
 ---
 
-Un grand merci à Julien Bianchi qui, à notre demande, est venu nous parler un peu de vagrant lors d'un de nos fameux [Last Friday Talk](https://tech.m6web.fr/tags.html#lft).
+Un grand merci à Julien Bianchi qui, à notre demande, est venu nous parler un peu de vagrant lors d'un de nos fameux [Last Friday Talk](/tags/#lft).
 
 Ses slides : [https://speakerdeck.com/jubianchi/vagrant-and-cie-du-dev-a-la-prod](https://speakerdeck.com/jubianchi/vagrant-and-cie-du-dev-a-la-prod).

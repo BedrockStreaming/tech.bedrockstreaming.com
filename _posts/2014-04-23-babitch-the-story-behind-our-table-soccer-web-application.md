@@ -6,9 +6,9 @@ author:
   name:           M6Web
   avatar:
   email:
-  twitter:  techm6web
+  twitter: Bedrock_Stream
   facebook:
-  github: M6Web
+  github: BedrockStreaming
 category:
 tags: [opensource, babyfoot, angularjs, d3js, symfony]
 feature-img: "images/posts/babitch/tablesoccer.jpg"
@@ -25,7 +25,7 @@ The soccer table in enterprise is awesome for a lot of things:
 * Team building between each players,
 * Don’t think about work (almost) when we are playing,
 * Fun! a lot of!
-* [Attract good people](https://tech.m6web.fr/m6web-lyon-recherche-un-lead-developpeur-architecte-web-h-f-en-cdi) …
+* [Attract good people](/m6web-lyon-recherche-un-lead-developpeur-architecte-web-h-f-en-cdi) …
 
 Our rules are simple : Doubles (4 players) only, and the first team at ten win.
 
