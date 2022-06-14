@@ -75,6 +75,8 @@ When you have 2 approves and no change requested, you can merge your Pull Reques
    Use the date the talk was first given in public.
 2. Add the configuration of metadatas at the begining of this file
 
+> :warning: **To make your videos appear in either `Last Friday Talks` or `Meetup & Conferences` pages, tag your post with `lft` or `conference`, respectively.**
+
 ```markdown
 ---
 layout: video
@@ -93,4 +95,6 @@ color: rgb(251,87,66)
 ```
 
 3. Add content to the markdown file in order to add context to the video you are sharing.
+
+
 
