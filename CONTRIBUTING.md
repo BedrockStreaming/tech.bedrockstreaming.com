@@ -75,7 +75,7 @@ When you have 2 approves and no change requested, you can merge your Pull Reques
    Use the date the talk was first given in public.
 2. Add the configuration of metadatas at the begining of this file
 
-> :warning: **If you want to make your video visible in the `Meetup & Conferences` page, usage of tag `conference` is mandatory.**
+> :warning: **To make your videos appear in either `Last Friday Talks` or `Meetup & Conferences` pages, tag your post with `lft` or `conference`, respectively.**
 
 ```markdown
 ---
