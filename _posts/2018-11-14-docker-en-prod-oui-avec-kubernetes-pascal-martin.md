@@ -5,7 +5,7 @@ title: "Docker en prod ? Oui, avec Kubernetes ! Forum PHP 2018"
 description: "Kubernetes. À en croire certains articles, c’est une solution miracle. Développeurs, vous avez peut-être entendu ce mot ? C’est l’outil qui vous permettra de déployer du Docker en production ! Parce qu’autant utiliser Docker en dev c’est facile, autant en prod…"
 author: p_martin
 lang: fr
-tags: [conference, php, open-source, afup]
+tags: [conference, php, open-source, afup, docker, kubernetes]
 color: rgb(251,87,66)
 ---
 
