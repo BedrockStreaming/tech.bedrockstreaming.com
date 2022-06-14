@@ -8,7 +8,7 @@ tags: [configuration, symfony, cytron]
 feature-img: "images/posts/cytron/symfonyexpressionlanguage.jpg"
 thumbnail: "images/posts/cytron/symfonyexpressionlanguage.jpg"
 comments: true
-permalink: symfony-expression-language.html
+permalink: symfony-expression-language
 ---
 
 Grâce à notre bundle [MonologExtra](https://github.com/BedrockStreaming/MonologExtraBundle), nous avons la possibilité d'inclure des informations statiques dans le contexte de nos logs.

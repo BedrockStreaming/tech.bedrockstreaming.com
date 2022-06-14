@@ -8,10 +8,10 @@ tags: [qualite, outil, redis, cytron, open-source]
 thumbnail: "images/posts/cytron/redismock.jpg"
 feature-img: "images/posts/cytron/redismock.jpg"
 comments: true
-permalink: redismock-qui-a-bouchonne-mon-redis.html
+permalink: redismock-qui-a-bouchonne-mon-redis
 ---
 
-Les tests fonctionnels tiennent un rôle majeur dans la réussite et la pérennité d’un projet web, d’autant plus s’il est déployé continuellement. Nous nous étions donc déjà intéressés à cette problématique dans [le cas d’un service proposant une API REST et utilisant MySQL et Doctrine](https://tech.bedrockstreaming.com/2013/10/tester-fonctionnellement-une-api-rest-symfony-doctrine-atoum.html). Mais nous développons aussi des services du même type utilisant d’autres systèmes de stockage de données comme [Redis](https://redis.io/).
+Les tests fonctionnels tiennent un rôle majeur dans la réussite et la pérennité d’un projet web, d’autant plus s’il est déployé continuellement. Nous nous étions donc déjà intéressés à cette problématique dans [le cas d’un service proposant une API REST et utilisant MySQL et Doctrine](https://tech.bedrockstreaming.com/2013/10/tester-fonctionnellement-une-api-rest-symfony-doctrine-atoum). Mais nous développons aussi des services du même type utilisant d’autres systèmes de stockage de données comme [Redis](https://redis.io/).
 
 Afin de tester fonctionnellement ces services, nous avons d’abord eu l’idée d’installer une instance Redis sur nos serveurs de tests. Mais nous allions inéluctablement retomber sur les mêmes obstacles qu’avec MySQL :
 

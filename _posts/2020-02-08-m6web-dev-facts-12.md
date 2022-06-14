@@ -10,7 +10,7 @@ redirect_from:
   - /m6web-dev-facts-12/
 ---
 
-Reprenons un rythme soutenu des [devfacts](/tags.html#devfacts) !
+Reprenons un rythme soutenu des [devfacts](/tags/#devfacts) !
 
 # En parlant de slack
 > stalker ou bosser il faut choisir

@@ -16,7 +16,7 @@ image:
   credit: 
   creditlink: 
 comments: true  
-permalink: velocity-europe-2013-day-3.html
+permalink: velocity-europe-2013-day-3
 ---
 
 ![Velocity Europe 2013 - Day 3](/images/posts/imgob/0-00-30-83-201311-ob_7a35dd_10859619405-c7d5058073-z-jpg.jpeg)
@@ -25,8 +25,8 @@ Dernière journée de cette Velocity Europe, avec en plus du track Performance e
 
 Pour rappel, si vous les avez ratés, les CR des journées précédentes sont à retrouver ici :
 
-- [CR Velocity Europe 2013 - Day 1](https://tech.bedrockstreaming.com/velocity-europe-2013-day-1.html)
-- [CR Velocity Europe 2013 - Day 2](https://tech.bedrockstreaming.com/velocity-europe-2013-day-2.html)
+- [CR Velocity Europe 2013 - Day 1](https://tech.bedrockstreaming.com/velocity-europe-2013-day-1)
+- [CR Velocity Europe 2013 - Day 2](https://tech.bedrockstreaming.com/velocity-europe-2013-day-2)
 
 Pour ce "Day 3", nous nous retrouvons tous dans la grande salle avec la vidéo "Slow Motion Water Balloon Fight" en guise d'introduction :
 

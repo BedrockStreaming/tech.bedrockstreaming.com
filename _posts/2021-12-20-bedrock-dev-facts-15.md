@@ -10,7 +10,7 @@ redirect_from:
   - /bedrock-dev-facts-15/
 ---
 
-Le père noël 🎅🏻 vous apporte en avance une hotte pleine de [devfacts](/tags.html#devfacts) !
+Le père noël 🎅🏻 vous apporte en avance une hotte pleine de [devfacts](/tags/#devfacts) !
 
 # Tempora mori, tempora mundis recorda
 

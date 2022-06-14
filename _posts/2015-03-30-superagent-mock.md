@@ -8,8 +8,8 @@ tags: [javascript, superagent, mock, isomorphic, cytron, open-source]
 feature-img: "images/posts/cytron/superagent-mock.jpg"
 thumbnail: "images/posts/cytron/superagent-mock.jpg"
 comments: true
-permalink: comment-a-t-on-bouchonne-les-developpeurs-backend.html
-other_language: how-did-we-mock-the-backend-developers.html
+permalink: comment-a-t-on-bouchonne-les-developpeurs-backend
+other_language: how-did-we-mock-the-backend-developers
 ---
 
 Chez M6Web, nous travaillons actuellement sur la nouvelle version d’un site web pour lequel sont dédiées deux teams :

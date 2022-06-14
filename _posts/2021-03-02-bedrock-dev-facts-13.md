@@ -10,7 +10,7 @@ redirect_from:
   - /bedrock-dev-facts-13/
 ---
 
-Reprenons un rythme soutenu des [devfacts](/tags.html#devfacts) !
+Reprenons un rythme soutenu des [devfacts](/tags/#devfacts) !
 
 # Des branchements surprenants
 >  Ah tu test ta branche en prod ? Tu peux y aller, si tu touches pas au staging pas de soucis

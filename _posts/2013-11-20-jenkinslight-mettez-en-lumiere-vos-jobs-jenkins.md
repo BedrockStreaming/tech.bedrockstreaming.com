@@ -8,7 +8,7 @@ tags: [outil, jenkins, ci, cytron, open-source]
 thumbnail: "images/posts/cytron/jenkinslight.png"
 feature-img: "images/posts/cytron/jenkinslight.png"
 comments: true
-permalink: jenkinslight-mettez-en-lumiere-vos-jobs-jenkins.html
+permalink: jenkinslight-mettez-en-lumiere-vos-jobs-jenkins
 ---
 
 L’idée de [JenkinsLight](https://github.com/BedrockStreaming/JenkinsLight) a germé lorsque nous nous sommes fait taper sur les doigts pour la troisième fois (à juste titre) parce que l’on avait désactivé la publicité sur nos sites de chaîne lors d’une mise en production. Or la publicité est un point critique car directement reliée au chiffre d’affaires. Le pire est que nous testions déjà le bon fonctionnement de la publicité en intégration continue sur nos serveurs de preprod, avant la mise en production. Mais une configuration légèrement différente sur les serveurs de prod rendait le nouveau code instable. Cette situation rend donc impossible la détection de certaines anomalies avant la mise en production…

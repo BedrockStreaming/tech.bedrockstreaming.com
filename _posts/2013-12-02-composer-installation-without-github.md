@@ -8,7 +8,7 @@ tags: [satis,composer,aws,s3,github,packagist, cloud]
 feature-img: "images/posts/composer-installation-without-github/cloud.jpg"
 thumbnail: "images/posts/composer-installation-without-github/cloud.jpg"
 comments: true
-permalink: composer-installation-without-github.html
+permalink: composer-installation-without-github
 language: en
 ---
 

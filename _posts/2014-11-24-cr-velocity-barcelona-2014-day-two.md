@@ -14,7 +14,7 @@ tags: [conference,velocity,webperf]
 feature-img: "images/posts/velocity2014/velocity_banner2.jpg"
 thumbnail: "images/posts/velocity2014/velocity_banner2.jpg"
 comments: true
-permalink: velocity-europe-2014-day-2.html
+permalink: velocity-europe-2014-day-2
 ---
 
 # Velocity Barcelone, seconde journée

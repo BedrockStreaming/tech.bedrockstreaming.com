@@ -14,7 +14,7 @@ tags: [conference,velocity,webperf,devops,sysadmin]
 feature-img: "images/posts/velocity2014/velocity_banner3.jpg"
 thumbnail: "images/posts/velocity2014/velocity_banner3.jpg"
 comments: true
-permalink: velocity-europe-2014-day-3.html
+permalink: velocity-europe-2014-day-3
 ---
 
 # Velocity Barcelone, troisième journée
