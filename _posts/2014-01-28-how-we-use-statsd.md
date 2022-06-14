@@ -14,7 +14,7 @@ language: en
 
 As developers, we (M6Web) want to keep our eyes open on what is going on in production.
 
-Our [local CMO](https://twitter.com/kenny_dee) (chief monitoring officier ;) ) did a [nice presentation about this](https://tech.bedrockstreaming.com/monitoring-applicatif-pourquoi-et-comment) (in french).
+Our [local CMO](https://twitter.com/kenny_dee) (chief monitoring officier ;) ) did a [nice presentation about this](/monitoring-applicatif-pourquoi-et-comment) (in french).
 
 As someone very wise (Theo Schlossnagle) said: "*It's not in production unless it's monitored*". Another cool mantra is: "*I am wondering what to monitor ? everything dude !*". Finally "*if you can not measure it, you can not improve it.*" ([Lord Kelvin](https://en.wikipedia.org/wiki/William_Thomson,_1st_Baron_Kelvin)).
 

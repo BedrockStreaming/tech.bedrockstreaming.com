@@ -59,7 +59,7 @@ applications pods quicker.
 
 > If you wish to know more about which tools we use and why we use them in our Kubernetes clusters, I advise you to 
 check out another dedicated blog post named 
-["Three years running Kubernetes on production at Bedrock"](https://tech.bedrockstreaming.com/2020/12/08/Three-years-running-kubernetes-on-production-at-Bedrock.html).
+["Three years running Kubernetes on production at Bedrock"](/2020/12/08/Three-years-running-kubernetes-on-production-at-Bedrock).
 
 Unfortunately, all those tools are not sufficient to deal with heavy and sudden traffic spikes on some special 
 evenings such as the final of a football game or a successful show. During this kind of events, users arrive massively, 

@@ -101,14 +101,11 @@ Our app build itself the URLs of images retrieved via the API: it provides us an
 
 Projects [superagent-mock][superagent-mock] and [sprintf-mock][sprintf-mock] are open source. Very easy to use, they allow us to parallelize our developments with the backend team and to make our functional tests autonomous. So don't wait API completion to start your frontend developments!
 
-[react-website]: https://facebook.github.io/react/
+[react-website]: https://reactjs.org/
 [flux-website]: https://facebook.github.io/flux/
 [isomorphic]: https://isomorphic.net/javascript
 [superagent]: https://visionmedia.github.io/superagent/
-[webpack]: https://webpack.github.io/
-[browserify]: https://browserify.org/
 [superagent-mock]: https://github.com/BedrockStreaming/superagent-mock
 [superagent-mock-source]: https://github.com/BedrockStreaming/superagent-mock/blob/master/superagent-mock.js
 [sprintf-js]: https://github.com/alexei/sprintf.js
 [sprintf-mock]: https://github.com/BedrockStreaming/sprintf-mock
-[kenny-isomorphic-post]: https://tech.bedrockstreaming.com/2014/12/04/isomorphic-single-page-app-parfaite-react-flux

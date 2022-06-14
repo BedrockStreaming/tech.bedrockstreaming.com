@@ -132,10 +132,10 @@ In the next part we will talk about handling the failures of the dependencies th
 
 ## From the same series
 
-1. [What's a BFF](https://tech.bedrockstreaming.com/2022/06/10/backend-bff-intro.html)
+1. [What's a BFF](/2022/06/10/backend-bff-intro)
 
 ---
 In the meantime, feel free to have a look at other articles available on this blog:
 
-- 🇺🇸 [Announcing BedrockStreaming/pr-size-labeler github action](https://tech.bedrockstreaming.com/2022/05/31/github-action-pr-size-labeler.html)
-- 🇫🇷 [Retour sur l'AFUP Day Lille 2022](https://tech.bedrockstreaming.com/2022/05/30/afup-day-lille-2022.html)
+- 🇺🇸 [Announcing BedrockStreaming/pr-size-labeler github action](/2022/05/31/github-action-pr-size-labeler)
+- 🇫🇷 [Retour sur l'AFUP Day Lille 2022](/2022/05/30/afup-day-lille-2022)

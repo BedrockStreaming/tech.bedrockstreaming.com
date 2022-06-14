@@ -14,7 +14,7 @@ permalink: cr-real-time-conference-europe-2013-day-2
 Crédit : https://www.flickr.com/photos/andyet-photos/8679275805/in/set-72157633306379029
 
 
-[Après la première journée](https://tech.bedrockstreaming.com/cr-real-time-conference-europe-2013-day-1), on continue avec la deuxième journée de conférence. Toujours sur le format de 20 minutes pour présenter le sujet.
+[Après la première journée](/cr-real-time-conference-europe-2013-day-1), on continue avec la deuxième journée de conférence. Toujours sur le format de 20 minutes pour présenter le sujet.
 
 
 

@@ -331,7 +331,7 @@ Avant de conclure, petit hommage [Natalia Talkowska](https://twitter.com/NatiTal
 
 C'est complètement lessivé que nous sortons de cette journée, avec une quantité d'idées / projets tester incroyable.
 
-Vous pouvez retrouver [le compte rendu de la première journée](https://tech.bedrockstreaming.com/velocity-europe-2013-day-1) ainsi [que de la dernière](https://tech.bedrockstreaming.com/velocity-europe-2013-day-3.html) sur notre Blog.
+Vous pouvez retrouver [le compte rendu de la première journée](/velocity-europe-2013-day-1) ainsi [que de la dernière](/velocity-europe-2013-day-3) sur notre Blog.
 
 N'hésites pas donner vos retours (positifs ou négatifs en commentaire). Merci :-)
 

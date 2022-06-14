@@ -199,7 +199,7 @@ Les slides sont disponible : [https://speakerdeck.com/u/danwrong/p/time-to-first
 Encore une journée riche en informations et idées. Le rythme étant beaucoup plus soutenu, et la fatigue s'accumulant, il n'était pas évident d'être à 100% dans chaque talk :-)
 
 En attendant le CR Ops, et celui du Day 3, vous pouvez relire le CR du Day 1 :   
-[https://tech.bedrockstreaming.com/cr-velocity-conference-day-1-dev-webperf](https://tech.bedrockstreaming.com/cr-velocity-conference-day-1-dev-webperf)
+[https://tech.bedrockstreaming.com/cr-velocity-conference-day-1-dev-webperf](/cr-velocity-conference-day-1-dev-webperf)
 
 P.S : Retrouvez moi sur twitter : [@kenny_dee](https://twitter.com/#!/kenny_dee)
 

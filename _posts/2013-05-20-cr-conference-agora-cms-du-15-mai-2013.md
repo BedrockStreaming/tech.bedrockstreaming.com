@@ -71,7 +71,7 @@ Mais aussi la difficulté à traiter des logs de formats différents, pas forcé
   
  Pour la recherche dans ses logs, on a des solutions comme [SolR](https://lucene.apache.org/solr/) ou les différents produits basés sur Lucene comme [ElasticSearch](https://www.elasticsearch.org/) (je rajouterais aussi le couple [LogStash](https://logstash.net/) + [Kibana](https://kibana.org/) utilisant aussi ElasticSearch)  
   
- Bref, une excellente présentation, dans la veine de celles que nous avions pu présenter [chez m6web au niveau du Monitoring](https://tech.bedrockstreaming.com/monitoring-applicatif-pourquoi-et-comment), un sujet très complémentaire avec le Logging.  
+ Bref, une excellente présentation, dans la veine de celles que nous avions pu présenter [chez m6web au niveau du Monitoring](/monitoring-applicatif-pourquoi-et-comment), un sujet très complémentaire avec le Logging.  
   
  Pour plus d'informations, [belogik.com](https://www.belogik.com/), ou sur leur compte twitter : [@belogikCom](https://twitter.com/belogikCom).
 

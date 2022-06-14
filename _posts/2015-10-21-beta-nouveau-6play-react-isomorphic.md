@@ -10,7 +10,7 @@ thumbnail: "images/posts/6play/logo.jpg"
 comments: true
 ---
 
-Nous vous parlions en fin d'année dernière sur ce blog, de notre vision de [la Single Page App parfaite](https://tech.bedrockstreaming.com/2014/12/04/isomorphic-single-page-app-parfaite-react-flux).
+Nous vous parlions en fin d'année dernière sur ce blog, de notre vision de [la Single Page App parfaite](/2014/12/04/isomorphic-single-page-app-parfaite-react-flux).
 
 Nous avons donc travaillé depuis le début d'année à la mise en place du nouveau 6play sur cette stack technologique :
 

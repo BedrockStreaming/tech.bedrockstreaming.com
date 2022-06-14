@@ -17,7 +17,7 @@ On continue la série des Dév Facts, phrases oh combien cultes prononcées par 
 
 
 
-Pour ceux qui avaient raté la première série, c'est ici : [https://tech.bedrockstreaming.com/m6web-dev-facts-1](https://tech.bedrockstreaming.com/m6web-dev-facts-1)
+Pour ceux qui avaient raté la première série, c'est ici : [https://tech.bedrockstreaming.com/m6web-dev-facts-1](/m6web-dev-facts-1)
 
 Enjoy
 

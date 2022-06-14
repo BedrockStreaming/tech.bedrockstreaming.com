@@ -178,8 +178,8 @@ Et pour ceux que ca intéresse, sachez que Oreilly mettra disposition un pack co
 
 Merci tous !
 
-- CR Vélocity Day 1 : [https://tech.bedrockstreaming.com/cr-velocity-conference-day-1-dev-webperf](https://tech.bedrockstreaming.com/cr-velocity-conference-day-1-dev-webperf)
-- CR Vélocity Day 2 : [https://tech.bedrockstreaming.com/cr-velocity-conference-2012-day-2-devops-webperf](https://tech.bedrockstreaming.com/cr-velocity-conference-2012-day-2-devops-webperf)
+- CR Vélocity Day 1 : [https://tech.bedrockstreaming.com/cr-velocity-conference-day-1-dev-webperf](/cr-velocity-conference-day-1-dev-webperf)
+- CR Vélocity Day 2 : [https://tech.bedrockstreaming.com/cr-velocity-conference-2012-day-2-devops-webperf](/cr-velocity-conference-2012-day-2-devops-webperf)
 
 *(Crédit photo : [https://www.flickr.com/photos/oreillyconf/sets/72157630300659948/](https://www.flickr.com/photos/oreillyconf/sets/72157630300659948/))*
 

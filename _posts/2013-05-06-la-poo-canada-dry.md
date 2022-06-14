@@ -10,7 +10,7 @@ permalink: la-poo-canada-dry
 youtubeId: vS2hk4MfOds
 ---
 
-Nous vous avions parlé, il y'a quelques mois, de nos conférences interne, [les Last Friday Talk](https://tech.bedrockstreaming.com/organiser-des-conferences-technique-en-interne).
+Nous vous avions parlé, il y'a quelques mois, de nos conférences interne, [les Last Friday Talk](/organiser-des-conferences-technique-en-interne).
 
 Voici une première vidéo de l'une de ces sessions sur "la POO Canada Dry".
 
