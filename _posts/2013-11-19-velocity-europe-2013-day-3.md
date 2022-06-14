@@ -25,8 +25,8 @@ Dernière journée de cette Velocity Europe, avec en plus du track Performance e
 
 Pour rappel, si vous les avez ratés, les CR des journées précédentes sont à retrouver ici :
 
-- [CR Velocity Europe 2013 - Day 1](https://tech.m6web.fr/velocity-europe-2013-day-1.html)
-- [CR Velocity Europe 2013 - Day 2](https://tech.m6web.fr/velocity-europe-2013-day-2.html)
+- [CR Velocity Europe 2013 - Day 1](https://tech.bedrockstreaming.com/velocity-europe-2013-day-1.html)
+- [CR Velocity Europe 2013 - Day 2](https://tech.bedrockstreaming.com/velocity-europe-2013-day-2.html)
 
 Pour ce "Day 3", nous nous retrouvons tous dans la grande salle avec la vidéo "Slow Motion Water Balloon Fight" en guise d'introduction :
 
@@ -285,6 +285,3 @@ Vous pouvez retrouver :
 - [quelques vidéos de la conférence sur Youtube](https://www.youtube.com/playlist?list=PL055Epbe6d5bfvFqHGHroAAbzHerXNQC4)
 - [les slides sur le site d'Oreilly](https://velocityconf.com/velocityeu2013/public/schedule/proceedings)
 - et les photos ici sur Flickr : https://www.flickr.com/photos/oreillyconf/sets/72157637657689424/
-
-
-

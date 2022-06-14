@@ -11,7 +11,7 @@ comments: true
 language: fr
 ---
 
-Pour assurer la scalabilité des performances de l'API 6play, les données suivent tout [un *workflow*](https://tech.m6web.fr/une-donnee-presque-parfaite/) pour être dénormalisées et stockées dans [Elasticsearch](https://www.elastic.co/products/elasticsearch).
+Pour assurer la scalabilité des performances de l'API 6play, les données suivent tout [un *workflow*](https://tech.bedrockstreaming.com/2016/11/24/une-donnee-presque-parfaite) pour être dénormalisées et stockées dans [Elasticsearch](https://www.elastic.co/products/elasticsearch).
 Mi-2016, nous avons identifié des dysfonctionnements majeurs sur nos serveurs, entrainant parfois des interruptions de service.
 Suite à quelques mesures d'urgences pour stabiliser l'existant, nous avons entrepris de mettre à jour notre version d'Elasticsearch pour bénéficier des dernières améliorations.
 Nous étions alors sur la [version 1.7](https://www.elastic.co/downloads/past-releases/elasticsearch-1-7-0), et souhaitions passer en [version 2.0](https://www.elastic.co/downloads/past-releases/elasticsearch-2-0-0).
@@ -34,7 +34,7 @@ ainsi que de surveiller attentivement le *monitoring* pendant quelques jours pou
 
 ## Écritures en *Y*
 
-Nous utilisons [des *workers* Php](https://tech.m6web.fr/video-phptour-worker-php/) pour détecter les changements dans notre BDD,
+Nous utilisons [des *workers* Php](https://tech.bedrockstreaming.com/2016/06/23/video-phptour-worker-php) pour détecter les changements dans notre BDD,
 suite à quoi un message est publié dans une file d'attente pour être traité par un autre *worker* qui se chargera de synchroniser les entités entre MySQL et Elasticsearch.
 Il était primordial que le cluster de production ne soit pas impacté par les éventuelles erreurs rencontrées sur le nouveau cluster.
 Une de nos premières intentions était de publier le message de mise à jour dans une deuxième file d'attente, consommée par des workers dédiés eux aussi au nouveau cluster.

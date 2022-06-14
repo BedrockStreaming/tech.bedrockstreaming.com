@@ -41,7 +41,7 @@ Comme superagent, superagent-mock s’installe via npm et peut être utilisé su
 npm install superagent-mock --save-dev
 {% endhighlight %}
 
-Il faut ensuite créer le fichier de configuration. C’est ici que vous allez décider des routes à bouchonner. Prenons l’exemple d’une route qui n’existe pas et qui devra nous retourner la liste des auteurs du blog technique de M6Web : `https://tech.m6web.fr/api/authors`.
+Il faut ensuite créer le fichier de configuration. C’est ici que vous allez décider des routes à bouchonner. Prenons l’exemple d’une route qui n’existe pas et qui devra nous retourner la liste des auteurs du blog technique de M6Web : `https://tech.bedrockstreaming.com/api/authors`.
 
 Voici la structure du fichier de configuration à mettre en place :
 
@@ -49,7 +49,7 @@ Voici la structure du fichier de configuration à mettre en place :
 // ./config.js file
 module.exports = [
   {
-    pattern: 'https://tech.m6web.fr/api/authors',
+    pattern: 'https://tech.bedrockstreaming.com/api/authors',
     fixtures: './authors.js',
     callback: function (match, data) {
       return { body : data };
@@ -57,7 +57,7 @@ module.exports = [
 ];
 {% endhighlight %}
 
-* L’attribut `pattern` peut être une expression régulière, dans le cas d’une route qui contiendrait des paramètres variables (ex : `https://tech.m6web.fr/api/authors/(\\d+)`).
+* L’attribut `pattern` peut être une expression régulière, dans le cas d’une route qui contiendrait des paramètres variables (ex : `https://tech.bedrockstreaming.com/api/authors/(\\d+)`).
 * L’attribut `fixtures` représente le lien vers le fichier de fixtures ou une callback.
 * L’attribut `callback` est une fonction à deux arguments. `match` est le résultat de la résolution de l’expression régulière et `data` correspond aux données retournées par les fixtures. `match` permet d’utiliser certains paramètres de l’appel (ex : l’id de l’auteur) pour retourner des données ciblées (ex : l’auteur dans le fichier de fixtures correspondant à cette id).
 
@@ -111,4 +111,4 @@ Les projets [superagent-mock][superagent-mock] et [sprintf-mock][sprintf-mock] s
 [superagent-mock-source]: https://github.com/BedrockStreaming/superagent-mock/blob/master/superagent-mock.js
 [sprintf-js]: https://github.com/alexei/sprintf.js
 [sprintf-mock]: https://github.com/BedrockStreaming/sprintf-mock
-[kenny-isomorphic-post]: https://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/
+[kenny-isomorphic-post]: https://tech.bedrockstreaming.com/2014/12/04/isomorphic-single-page-app-parfaite-react-flux

@@ -44,7 +44,7 @@ Le chemin dans lequel est généré le rapport est configurable par l’option *
 
 <script src="https://gist.github.com/KuiKui/6122091.js"></script>
 
-Il suffit ensuite de configurer le job Jenkins pour qu'il récupère le rapport de test dans ce dossier. Sans oublier de [faire un job pour tester les Pull Requests](https://tech.m6web.fr/lache-moi-la-branch) de votre projet.
+Il suffit ensuite de configurer le job Jenkins pour qu'il récupère le rapport de test dans ce dossier. Sans oublier de [faire un job pour tester les Pull Requests](https://tech.bedrockstreaming.com/lache-moi-la-branch) de votre projet.
 
 [VigoJS](https://github.com/BedrockStreaming/VigoJS) est disponible en [open-source](https://tom.preston-werner.com/2011/11/22/open-source-everything.html) sur [le compte GitHub de M6Web](https://github.com/BedrockStreaming).
 

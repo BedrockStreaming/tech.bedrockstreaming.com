@@ -10,11 +10,11 @@ thumbnail: "images/posts/6play/logo.jpg"
 comments: true
 ---
 
-Nous vous parlions en fin d'année dernière sur ce blog, de notre vision de [la Single Page App parfaite](https://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/).
+Nous vous parlions en fin d'année dernière sur ce blog, de notre vision de [la Single Page App parfaite](https://tech.bedrockstreaming.com/2014/12/04/isomorphic-single-page-app-parfaite-react-flux).
 
 Nous avons donc travaillé depuis le début d'année à la mise en place du nouveau 6play sur cette stack technologique :
 
-* [React](https://facebook.github.io/react/)(isomorphic/[universal](https://medium.com/@mjackson/universal-javascript-4761051b7ae9)) avec du Node.js en backend
+* [React](https://reactjs.org)(isomorphic/[universal](https://medium.com/@mjackson/universal-javascript-4761051b7ae9)) avec du Node.js en backend
 * [Fluxible](https://fluxible.io/) pour la gestion de Flux client et serveur
 * [webpack](https://webpack.github.io/) pour la gestion du build js coté client
 * [React Router](https://github.com/rackt/react-router) pour le routing

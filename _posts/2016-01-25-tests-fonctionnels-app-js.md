@@ -21,7 +21,7 @@ Pour les tests fonctionnels, nous utilisons le trio [Cucumber.js](https://github
 * **WebdriverIO** permet d’interfacer les tests traduits en JS avec un serveur Selenium (dialoguant grâce au protocole [WebDriver Wire](https://code.google.com/p/selenium/wiki/JsonWireProtocol) et permettant de contrôler un browser),
 * **PhantomJS** est le browser dans lequel les scénarios de tests seront exécutés, il embarque son propre serveur Webdriver, [Ghostdriver](https://github.com/detro/ghostdriver).
 
-Toutes [nos Pull Requests lancent les tests indépendamment via Jenkins](https://tech.m6web.fr/lache-moi-la-branch/) dans un environnement “dockerisé”, donc complètement autonome et isolé. De façon à respecter ce principe jusqu’au bout et à ne pas dépendre de données versatiles, nos API sont aussi mockées grâce à [superagent-mock](https://github.com/BedrockStreaming/superagent-mock).
+Toutes [nos Pull Requests lancent les tests indépendamment via Jenkins](https://tech.bedrockstreaming.com/lache-moi-la-branch) dans un environnement “dockerisé”, donc complètement autonome et isolé. De façon à respecter ce principe jusqu’au bout et à ne pas dépendre de données versatiles, nos API sont aussi mockées grâce à [superagent-mock](https://github.com/BedrockStreaming/superagent-mock).
 
 ## Setup
 

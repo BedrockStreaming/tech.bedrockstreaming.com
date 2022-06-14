@@ -11,7 +11,7 @@ comments: true
 language: en
 ---
 
-Within less than a year m6web and [techm6web](https://twitter.com/TechM6Web) managed to launch websites, android apps and ios apps for three RTL TV channels in Europe, all based on the [6play](https://www.6play.fr) technology. 
+Within less than a year m6web and [techm6web](https://twitter.com/Bedrock_Stream) managed to launch websites, android apps and ios apps for three RTL TV channels in Europe, all based on the [6play](https://www.6play.fr) technology. 
 
 These deployments include: 
 

@@ -291,12 +291,9 @@ Bonne première journée avec ce format "Tutorials" un peu trop touffu (90 minut
 
 Retrouvez les autres CR :
 
-- [Compte rendu du jour 2 ](https://tech.m6web.fr/velocity-europe-2013-day-2.html)
-- [Compte rendu du jour 3 ](https://tech.m6web.fr/velocity-europe-2013-day-3.html)
+- [Compte rendu du jour 2 ](https://tech.bedrockstreaming.com/velocity-europe-2013-day-2.html)
+- [Compte rendu du jour 3 ](https://tech.bedrockstreaming.com/velocity-europe-2013-day-3.html)
 
 © des photos : [Flickr officiel O'Reilly](https://www.flickr.com/photos/oreillyconf/with/10845987613/)
 
 CR rédigé par Baptiste, Denis Roussel et Kenny Dits
-
-
-

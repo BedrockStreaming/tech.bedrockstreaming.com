@@ -116,10 +116,4 @@ Attention toutefois, cela signifie que le poids du fichier HTML original va forc
 
 Comme vous avez pu le voir, nous avons grandement optimisé notre application, en utilisant simplement des plugins Grunt à notre disposition. Nous travaillons donc sur un espace de développement respectant toutes les bonnes pratiques (découpages des fichiers JS, CSS, HTML au maximum, code commenté …) et toutes les opérations d’optimisation sont automatiquement effectuées au build, fait avant chaque déploiement.
 
-Attention, cela signifie aussi que votre projet en production devient relativement différent de celui que vous testé en développement. Il devient donc important de mettre en place des tests fonctionnels sur le build de production (avec [Protractor](https://tech.m6web.fr/tests-e2e-application-angularjs-protractor.html) par exemple, ou même [Behat](https://docs.behat.org/en/latest/)), et de tester régulièrement la bonne génération et le bon fonctionnement du build de prod.
-
-
-
-
-
-
+Attention, cela signifie aussi que votre projet en production devient relativement différent de celui que vous testé en développement. Il devient donc important de mettre en place des tests fonctionnels sur le build de production (avec [Protractor](https://tech.bedrockstreaming.com/tests-e2e-application-angularjs-protractor) par exemple, ou même [Behat](https://docs.behat.org/en/latest/)), et de tester régulièrement la bonne génération et le bon fonctionnement du build de prod.

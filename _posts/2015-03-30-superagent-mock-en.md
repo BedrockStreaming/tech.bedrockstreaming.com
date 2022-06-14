@@ -42,7 +42,7 @@ Like superagent, superagent-mock can be installed via npm, and be used by server
 npm install superagent-mock --save-dev
 {% endhighlight %}  
 
-Then, create the configuration file, where you will define which data will be mocked. Let's take for example a nonexistent API, the authors list on our technical blog: `https://tech.m6web.fr/api/authors`.
+Then, create the configuration file, where you will define which data will be mocked. Let's take for example a nonexistent API, the authors list on our technical blog: `https://tech.bedrockstreaming.com/api/authors`.
 
 Here is the file structure we need: 
 
@@ -50,7 +50,7 @@ Here is the file structure we need:
 // ./config.js file
 module.exports = [
   {
-    pattern: 'https://tech.m6web.fr/api/authors',
+    pattern: 'https://tech.bedrockstreaming.com/api/authors',
     fixtures: './authors.js',
     callback: function (match, data) {
       return { body : data };
@@ -58,7 +58,7 @@ module.exports = [
 ];
 {% endhighlight %}
 
-* The `pattern` attribute should be a regular expression, in case of a route containing variable parameters (ie: `https://tech.m6web.fr/api/authors/(\\d+)`).
+* The `pattern` attribute should be a regular expression, in case of a route containing variable parameters (ie: `https://tech.bedrockstreaming.com/api/authors/(\\d+)`).
 * The `fixtures` attribute represents the link to a file or a callback.
 * The `callback` attribute is a function with two arguments: `match` is the result of the regular expression and `data` the fixtures. `match` allows to use some call parameters (ie: the author id) to return relevant data (ie: the author in the fixture).
 
@@ -111,4 +111,4 @@ Projects [superagent-mock][superagent-mock] and [sprintf-mock][sprintf-mock] are
 [superagent-mock-source]: https://github.com/BedrockStreaming/superagent-mock/blob/master/superagent-mock.js
 [sprintf-js]: https://github.com/alexei/sprintf.js
 [sprintf-mock]: https://github.com/BedrockStreaming/sprintf-mock
-[kenny-isomorphic-post]: https://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/
+[kenny-isomorphic-post]: https://tech.bedrockstreaming.com/2014/12/04/isomorphic-single-page-app-parfaite-react-flux

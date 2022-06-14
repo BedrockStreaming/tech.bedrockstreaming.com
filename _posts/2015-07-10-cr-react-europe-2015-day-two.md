@@ -16,7 +16,7 @@ thumbnail: "images/posts/reacteurope/reacteurope2.png"
 comments: true
 ---
 
-Après une [première journée pleine de nouveautés et d'annonces](https://tech.m6web.fr/cr-react-europe-2015-day-one/), voici la suite du compte rendu avec un programme encore très chargé pour cette deuxième journée de la React Europe.
+Après une [première journée pleine de nouveautés et d'annonces](https://tech.bedrockstreaming.com/2015/02/04/cr-react-conf-2015-day-one), voici la suite du compte rendu avec un programme encore très chargé pour cette deuxième journée de la React Europe.
 
 # Improving Your Workflow With Code Transformation
 
@@ -166,7 +166,7 @@ Pour en savoir plus, un bon article sur le sujet : [GraphQL overview : Getting s
 ![Michael Ridgway](https://scontent-fra3-1.xx.fbcdn.net/hphotos-xat1/t31.0-8/11157524_1634483346811327_5314578204448681932_o.jpg)
 (crédits : [Fabien Champigny - React Europe](https://www.facebook.com/media/set/?set=a.1634468596812802.1073741829.1541044122821917&type=3))
 
-Michael Ridgway ([@theridgway](https://twitter.com/theridgway)) aborde une notion souvent abordée ces 2 jours et sur laquelle nous avions fait un [article en décembre dernier]( https://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/).
+Michael Ridgway ([@theridgway](https://twitter.com/theridgway)) aborde une notion souvent abordée ces 2 jours et sur laquelle nous avions fait un [article en décembre dernier](https://tech.bedrockstreaming.com/2014/12/04/isomorphic-single-page-app-parfaite-react-flux).
 
 Selon Michael, les avantages du “server rendering” sont multiples :
 
@@ -220,4 +220,4 @@ GraphQL + Relay parait vraiment être la solution idéale pour réaliser simplem
 
 Nous avons donc hâte d’être à la prochaine React Conférence ou React Europe pour voir la suite de l’évolution de React.
 
-[Vous pouvez retrouvez le compte rendu de la première journée ici](https://tech.m6web.fr/cr-react-europe-2015-day-one/)
+[Vous pouvez retrouvez le compte rendu de la première journée ici](https://tech.bedrockstreaming.com/2015/02/04/cr-react-conf-2015-day-one)

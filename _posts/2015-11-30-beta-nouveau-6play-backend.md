@@ -67,7 +67,7 @@ Comme pour le reste, nous avons là aussi créé un bundle Symfony2 permettant d
 
 # Tout le reste
 
-Côté monitoring, pour respecter nos bonnes habitudes, [nous utilisons toujours Statsd à outrance](https://tech.m6web.fr/how-we-use-statsd/), surtout via notre bundle [StatsdBundle](https://github.com/BedrockStreaming/StatsdBundle).
+Côté monitoring, pour respecter nos bonnes habitudes, [nous utilisons toujours Statsd à outrance](https://tech.bedrockstreaming.com/2014/01/28/how-we-use-statsd), surtout via notre bundle [StatsdBundle](https://github.com/BedrockStreaming/StatsdBundle).
 
 Côté tests, tous les tests unitaires ont été écrits avec [atoum](https://github.com/atoum/atoum).
 

@@ -13,9 +13,9 @@ Nous voici de retour pour une Vélocity Conference, le paradis de la WebPerf et 
 
 Après l'excellente moisson de la Vélocity US de Santa Clara, dont voici nos 3 CR :
 
-- Day 1 : [https://tech.m6web.fr/cr-velocity-conference-day-1-dev-webperf](https://tech.m6web.fr/cr-velocity-conference-day-1-dev-webperf)
-- Day 2 : [https://tech.m6web.fr/cr-velocity-conference-2012-day-2-devops-webperf](https://tech.m6web.fr/cr-velocity-conference-2012-day-2-devops-webperf)
-- Day 3 : [https://tech.m6web.fr/cr-velocity-conference-2012-day-3-devops-webperf](https://tech.m6web.fr/cr-velocity-conference-2012-day-3-devops-webperf)
+- Day 1 : [https://tech.bedrockstreaming.com/cr-velocity-conference-day-1-dev-webperf](https://tech.bedrockstreaming.com/cr-velocity-conference-day-1-dev-webperf)
+- Day 2 : [https://tech.bedrockstreaming.com/cr-velocity-conference-2012-day-2-devops-webperf](https://tech.bedrockstreaming.com/cr-velocity-conference-2012-day-2-devops-webperf)
+- Day 3 : [https://tech.bedrockstreaming.com/cr-velocity-conference-2012-day-3-devops-webperf](https://tech.bedrockstreaming.com/cr-velocity-conference-2012-day-3-devops-webperf)
 
 Et après la session de l'année dernière qui avait lieu à Berlin, nous nous retrouvons cette fois dans la capitale anglaise Londres, au Hilton hôtel.
 
@@ -222,8 +222,5 @@ P.s : N'hésitez pas nous faire des retours sur ce CR ! :)
 
 Rappel : les CR des autres jours sont disponible :
 
-- Day 2 : [https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-2](https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-2)
-- Day 3 : [https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-3](https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-3)
-
-
-
+- Day 2 : [https://tech.bedrockstreaming.com/cr-velocity-conference-europe-2012-day-2](https://tech.bedrockstreaming.com/cr-velocity-conference-europe-2012-day-2)
+- Day 3 : [https://tech.bedrockstreaming.com/cr-velocity-conference-europe-2012-day-3](https://tech.bedrockstreaming.com/cr-velocity-conference-europe-2012-day-3)

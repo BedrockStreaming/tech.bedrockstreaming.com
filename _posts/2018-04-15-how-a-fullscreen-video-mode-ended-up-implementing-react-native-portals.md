@@ -18,7 +18,7 @@ language: en
 
 This story introduces a declarative native side portal implementation module called rn-reparentable.
 
-My teammate ([Laetitia BONANNI](https://medium.com/@LaetitiaBonanni)) and I are working on a React Native module embedded in the [6Play application](https://itunes.apple.com/fr/app/6play/id369692259?mt=8) that aims to provide best moments of different TV shows from the [M6](https://tech.m6web.fr/) channel.
+My teammate ([Laetitia BONANNI](https://medium.com/@LaetitiaBonanni)) and I are working on a React Native module embedded in the [6Play application](https://itunes.apple.com/fr/app/6play/id369692259?mt=8) that aims to provide best moments of different TV shows from the [M6](https://www.6play.fr/m6) channel.
 
 The module, called Refresh, is a list of videos that are playing while the user is scrolling. It also provides a “theater mode” which is a way to create an immersive user experience by obscuring the cards that are not focused:
 

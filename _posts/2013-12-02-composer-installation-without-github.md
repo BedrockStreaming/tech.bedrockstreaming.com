@@ -221,4 +221,4 @@ If you don't use [IAM roles](https://aws.amazon.com/iam/), add the following com
 
 Thanks to [Pierre](https://twitter.com/peikk00) and [Jeremy](https://twitter.com/JJourdin) for their help.
 
-Found a typo or bad english langage, just propose a [pull request](https://github.com/BedrockStreaming/m6web.github.io/blob/master/_posts/2013-12-02-composer-installation-without-github.md).
+Found a typo or bad english langage, just propose a [pull request](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/blob/master/_posts/2013-12-02-composer-installation-without-github.md).

@@ -10,7 +10,7 @@ thumbnail: "images/posts/reactconf/reactnative.png"
 comments: true
 youtubeId: -TjG0nMbQ2k
 ---
-Voici un petit compte rendu vidéo, filmé lors de notre [Last Friday Talk](https://tech.m6web.fr/organiser-des-conferences-technique-en-interne/) de Mars, d'un retour de veille techno suite à la [React Conférence](https://conf.reactjs.com/).
+Voici un petit compte rendu vidéo, filmé lors de notre [Last Friday Talk](https://tech.bedrockstreaming.com/organiser-des-conferences-technique-en-interne) de Mars, d'un retour de veille techno suite à la [React Conférence](https://conf.reactjs.com/).
 
 Le retour est une introduction sur 3 des sujets qui m'ont paru les plus importants lors de cette conférence :
 
@@ -24,7 +24,7 @@ Les slides :
 
 Pour plus d'informations sur la React Conférence, nos CR sont disponibles ici : 
 
-* [Compte rendu React Conférence Jour 1](https://tech.m6web.fr/cr-react-conf-2015-day-one)
-* [Compte rendu React Conférence Jour 2](https://tech.m6web.fr/cr-react-conf-2015-day-two)
+* [Compte rendu React Conférence Jour 1](https://tech.bedrockstreaming.com/2015/02/04/cr-react-conf-2015-day-one)
+* [Compte rendu React Conférence Jour 2](https://tech.bedrockstreaming.com/2015/02/10/cr-react-conf-2015-day-two)
 
 Enjoy !

@@ -21,7 +21,7 @@ On arrive déjà fatigué et gavé d'informations et idées en tout genre, mais 
 
 ### [Mobile] The Performance of Web Vs Apps, par Ben Galbraith et Dion Almaer (Walmart.com)
 
-Ben ([@bgalbs](https://twitter.com/bgalbs)) et Dion ([@dalmaer](https://twitter.com/dalmaer)) nous reprennent dans les grandes lignes, la conférence faite la Vélocity Us (voir le CR + la vidéo de ce talk : [https://tech.m6web.fr/cr-velocity-conference-2012-day-3-devops-webperf](https://tech.m6web.fr/cr-velocity-conference-2012-day-3-devops-webperf) )
+Ben ([@bgalbs](https://twitter.com/bgalbs)) et Dion ([@dalmaer](https://twitter.com/dalmaer)) nous reprennent dans les grandes lignes, la conférence faite la Vélocity Us (voir le CR + la vidéo de ce talk : [https://tech.bedrockstreaming.com/cr-velocity-conference-2012-day-3-devops-webperf](https://tech.bedrockstreaming.com/cr-velocity-conference-2012-day-3-devops-webperf) )
 
 L'idée est de comparer les experiences possibles sur WebApp et Apps Native, avec toujours cette comparaison très drôle entre le mode de distribution des apps natives ce que cela donnerait si les show tv devraient être distribués de la même manière en prenant l'exemple de la série Friends : Hilarant !
 
@@ -207,8 +207,5 @@ P.s: Merci aussi aux équipes de Pingdom pour leurs Twitt Live et les chouettes 
 
 Rappel : les CR des autres jours sont disponible :
 
-- Day 2 : [https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-2](https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-2)
-- Day 1 : [https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-1](https://tech.m6web.fr/cr-velocity-conference-europe-2012-day-1)
-
-
-
+- Day 2 : [https://tech.bedrockstreaming.com/cr-velocity-conference-europe-2012-day-2](https://tech.bedrockstreaming.com/cr-velocity-conference-europe-2012-day-2)
+- Day 1 : [https://tech.bedrockstreaming.com/cr-velocity-conference-europe-2012-day-1](https://tech.bedrockstreaming.com/cr-velocity-conference-europe-2012-day-1)
