@@ -75,6 +75,8 @@ When you have 2 approves and no change requested, you can merge your Pull Reques
    Use the date the talk was first given in public.
 2. Add the configuration of metadatas at the begining of this file
 
+> :warning: **If you want to make your video visible in the `Meetup & Conferences` page, usage of tag `conference` is mandatory.**
+
 ```markdown
 ---
 layout: video
@@ -93,4 +95,6 @@ color: rgb(251,87,66)
 ```
 
 3. Add content to the markdown file in order to add context to the video you are sharing.
+
+
 
