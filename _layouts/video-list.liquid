@@ -42,17 +42,6 @@ layout: page
             object-fit: cover;
             padding: 0;
         }
-
-        .tag-list {
-            font-style: italic;
-            text-overflow:ellipsis;
-            overflow:hidden;
-            display: -webkit-box !important;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            white-space: normal;
-            color: var(--link);
-        }
     </style>
     {{ content }}
 
@@ -65,11 +54,6 @@ layout: page
                 <a href="{{ post.url | relative_url }}"><img loading="lazy" src="https://img.youtube.com/vi/{{ post.youtubeId }}/hqdefault.jpg" alt=""></a>
                 <div class="card-body">
                     <a href="{{ post.url | relative_url }}"><h5 class="card-title">{{ post.title }}</h5></a>
-                    <div class="tag-list">
-                        {% for tag in post.tags %}
-                            #{{ tag }}
-                        {% endfor %}
-                    </div>
                     <div class="card-content">
                         {% if author.name %}
                           <div>{{ author.name }}</div>
