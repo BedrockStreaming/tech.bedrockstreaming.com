@@ -27,7 +27,7 @@ hacker-news:
 keybase:
   pre: "https://keybase.io/"
 linkedin:
-  pre: "https://www.linkedin.com/in/"
+  pre: "https://www.linkedin.com/company/"
 mail:
   pre: "mailto:"
   icon: "fas fa-envelope"
