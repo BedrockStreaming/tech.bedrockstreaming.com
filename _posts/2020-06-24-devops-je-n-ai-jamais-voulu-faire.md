@@ -4,7 +4,7 @@ youtubeId: dNUIFe7S1A0
 title: "DevOps ? Je n'ai jamais voulu faire ça, et pourtant …"
 author: s_lescano
 lang: fr
-tags: [conference, afup, php]
+tags: [conference, afup, php, devops]
 color: rgb(251,87,66)
 ---
 
