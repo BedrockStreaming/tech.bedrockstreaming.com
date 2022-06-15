@@ -3,7 +3,7 @@ layout: video
 youtubeId: riPzJ-IMs6k 
 title: L'open source, ce n'est pas que pour le web - Forum PHP 2020
 description: Un tour d’horizon des initiatives open source dans d’autres domaines que l’informatique, pour en apprendre un peu plus sur la culture du libre.
-author: sarah-haim 
+author: s_haim 
 tags: [conference, afup, open-source]
 color: rgb(251,87,66) 
 ---
