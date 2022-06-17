@@ -26,6 +26,24 @@ _🏠 hosted by Bedrock_
   - Préparez et donnez votre premier talk [Pascal MARTIN](https://twitter.com/pascal_martin)
 - 04/04: [LyonJS Meetup](https://www.meetup.com/fr-FR/lyonjs/events/284549533/)
   - Comment faire un trailer vidéo qui déchire avec des technos web ? [Mickaël Alves](https://twitter.com/CruuzAzul), [Antoine Caron](https://twitter.com/Slashgear_)
+- 05/02: [Snowcamp 2022](https://snowcamp.io/fr/)
+  - Comment ne pas jeter son application Frontend tous les deux ans ? [Florent Dubost](https://twitter.com/fooragnak), [Antoine Caron](https://twitter.com/Slashgear_)
+
+### 2021
+
+- 10/11: [Devfest Nantes](https://devfest2021.gdgnantes.com/sessions/_%EF%B8%8F_vite_%EF%B8%8Fthe_webpack_killer/)
+  - ⚡️ Vite ⚡️ the Webpack killer [Mathieu Mure](https://twitter.com/mathieumure), [Antoine Caron](https://twitter.com/Slashgear_)
+- 08/09: [JUG Summer Camp](https://www.jugsummercamp.org/edition/12/presentations/QYeD36ff9h4A8v243Hu3)
+  - ⚡️ Vite ⚡️ the Webpack killer [Mathieu Mure](https://twitter.com/mathieumure), [Antoine Caron](https://twitter.com/Slashgear_)
+
+### 2020
+
+- 07/09: [Paris Web](https://www.paris-web.fr/2019/ateliers/webpack-workshop.php)
+  - Webpack Workshop [Antoine Caron](https://twitter.com/Slashgear_)
+- 10/06: [LyonJS Meetup](https://www.meetup.com/fr-FR/LyonJS/events/278441866/)
+  - ⚡️ Vite ⚡️ the Webpack killer [Mathieu Mure](https://twitter.com/mathieumure), [Antoine Caron](https://twitter.com/Slashgear_)
+- 22/01: [Snowcamp 2020](https://snowcamp.io/)
+  - Webpack Workshop [Antoine Caron](https://twitter.com/Slashgear_)
 
 ## Replays
 
