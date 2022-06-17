@@ -16,7 +16,7 @@ _🏠 hosted by Bedrock_
   - Migration progressive vers Redux Toolkit [Maxime Blanc](https://maximeblanc.fr)
   - Comment ne pas jeter son application Frontend tous les deux ans ? [Florent Dubost](https://twitter.com/fooragnak), [Antoine Caron](https://twitter.com/Slashgear_) 
 - 15/05: ⭐️ 🏠 [Docker meetup](https://www.meetup.com/fr-FR/docker-lyon/events/285057478/)
-  - Open Policy Agent avec KICS de chez Checkmarx Jean-Yves Camier
+  - Open Policy Agent avec KICS de chez Checkmarx [Jean-Yves Camier](https://twitter.com/Saaraahka)
   - You build it, you run it - [Jerome Foray](https://twitter.com/meroje01)
 - 21/04: [Devoxx France](https://www.devoxx.fr/)
   - ⚡️ Vite ⚡️ the Webpack killer [Mathieu Mure](https://twitter.com/mathieumure), [Antoine Caron](https://twitter.com/Slashgear_)
