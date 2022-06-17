@@ -20,6 +20,10 @@ _🏠 hosted by Bedrock_
   - You build it, you run it - [Jerome Foray](https://twitter.com/meroje01)
 - 21/04: [Devoxx France](https://www.devoxx.fr/)
   - ⚡️ Vite ⚡️ the Webpack killer [Mathieu Mure](https://twitter.com/mathieumure), [Antoine Caron](https://twitter.com/Slashgear_)
+- 12/04: [AWS Summit Paris](https://aws.amazon.com/fr/events/summits/paris/)
+  - Transformer le load balancing pour optimiser le cache : objectif 50 millions d'utilisateurs [Vincent GALLISSOT](https://twitter.com/vgallissot)
+  - Êtes-vous bien architecturé ? [Pascal MARTIN](https://twitter.com/pascal_martin)
+  - Préparez et donnez votre premier talk [Pascal MARTIN](https://twitter.com/pascal_martin)
 - 04/04: [LyonJS Meetup](https://www.meetup.com/fr-FR/lyonjs/events/284549533/)
   - Comment faire un trailer vidéo qui déchire avec des technos web ? [Mickaël Alves](https://twitter.com/CruuzAzul), [Antoine Caron](https://twitter.com/Slashgear_)
 
