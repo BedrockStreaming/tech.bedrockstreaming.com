@@ -56,10 +56,13 @@ oliviernoel:
 p_martin:
   name: Pascal Martin
   url: https://twitter.com/pascal_martin
+s_haim:
+  name: Sarah Haïm-Lubczanski
+  url: https://twitter.com/sarahhaim
 s_lescano:
   name: Sofia Lescano
   url: https://twitter.com/SofLesc
-  avatar: /images/avatar/s_lescano.jpeg
+  avatar: /images/avatar/s_lescano.jpeg  
 t_aufort:
   name: Timothée Aufort
   url: https://twitter.com/TimAufort
@@ -79,3 +82,5 @@ m_alves:
   url: https://twitter.com/CruuzAzul
 rpanoyan:
   name: Rafi Panoyan
+jerome_foray:
+  name: Jérome Foray
