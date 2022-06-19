@@ -59,6 +59,10 @@ p_martin:
 s_haim:
   name: Sarah Haïm-Lubczanski
   url: https://twitter.com/sarahhaim
+s_lescano:
+  name: Sofia Lescano
+  url: https://twitter.com/SofLesc
+  avatar: /images/avatar/s_lescano.jpeg  
 t_aufort:
   name: Timothée Aufort
   url: https://twitter.com/TimAufort
