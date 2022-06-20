@@ -1,0 +1,19 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.234.0/containers/docker-existing-dockerfile
+{
+    "name": "Jekyll Dev Environment",
+    "context": "..",
+    "dockerFile": "../Dockerfile",
+    "settings": {},
+    "extensions": [],
+    "forwardPorts": [
+        8080,
+        35729
+    ],
+    "portsAttributes": {
+        "8080": {
+            "label": "Jekyll Preview",
+            "onAutoForward": "openPreview"
+        }
+    }
+}
