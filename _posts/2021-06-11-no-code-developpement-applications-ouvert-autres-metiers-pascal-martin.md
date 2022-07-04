@@ -1,9 +1,13 @@
 ---
-layout: video
-youtubeId: 9OM2gdMpCg0
-title: "No-code, ou le développement d’applications ouvert à d’autres métiers ! AFUP Day 2021"
+layout: conference
+
+title: "No-code, ou le développement d’applications ouvert à d’autres métiers !"
 description: "Construire une application sans coder ? C’est une idée que j’entends depuis le début de mes études… Et c’est la promesse de no-code !"
 author: p_martin
+eventName: AFUP Day Toulouse 2021
+eventUrl: https://event.afup.org/afup-day-2021/
+youtubeId: 9OM2gdMpCg0
+
 lang: fr
 tags: [conference, nocode, lowcode, afup]
 color: rgb(251,87,66)

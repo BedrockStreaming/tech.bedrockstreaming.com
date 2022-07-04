@@ -1,11 +1,15 @@
 ---
-layout: video
+layout: conference
+
 title: "Arrêtons de perdre du temps à débuguer !"
 author: n_saby
+eventName: PHPTour Clermont‑Ferrand 2016
+eventUrl: https://event.afup.org/php-tour-2016/home-phptour-2016/
+youtubeId: iuod3e6e7FM
+
 tags: [afup, php, debug, conference]
 color: rgb(251,87,66)
 language: fr
-youtubeId: iuod3e6e7FM
 ---
 
 Arrêtons de perdre du temps à débuguer ! Débuguer peut se révéler long et fastidieux. 

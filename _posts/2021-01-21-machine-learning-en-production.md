@@ -1,11 +1,15 @@
 ---
-layout: video
+layout: conference
+
 title: "Machine Learning en production"
 author: n_saby
+eventName: Lyon Data Science Meetup
+eventUrl: http://www.lyondata.science/
+youtubeId: f93yCPq-VMc
+
 tags: [machine learning, Lyon Data Science, conference]
 color: rgb(251,87,66)
 language: fr
-youtubeId: f93yCPq-VMc
 ---
 
 Une fois passée la phase de prototype, comment va-t-on en production quand on fait du machine learning ?

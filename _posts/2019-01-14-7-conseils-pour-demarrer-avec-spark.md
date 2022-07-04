@@ -1,11 +1,15 @@
 ---
-layout: video
+layout: conference
+
 title: "7 conseils pour démarrer avec Spark"
 author: n_saby
+eventName: Scala IO
+eventUrl: https://scala.io/
+youtubeId: QCFnjpUL95I
+
 tags: [spark, scalaio, conference]
 color: rgb(251,87,66)
 language: fr
-youtubeId: QCFnjpUL95I
 ---
 
 Je suis entrée dans le monde de la data avec Spark. 

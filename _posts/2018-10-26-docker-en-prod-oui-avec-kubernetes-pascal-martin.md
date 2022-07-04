@@ -1,9 +1,13 @@
 ---
-layout: video
-youtubeId: Cq1sR005B2E
-title: "Docker en prod ? Oui, avec Kubernetes ! Forum PHP 2018"
+layout: conference
+
+title: "Docker en prod ? Oui, avec Kubernetes !"
 description: "Kubernetes. À en croire certains articles, c’est une solution miracle. Développeurs, vous avez peut-être entendu ce mot ? C’est l’outil qui vous permettra de déployer du Docker en production ! Parce qu’autant utiliser Docker en dev c’est facile, autant en prod…"
 author: p_martin
+eventName: ForumPHP 2018
+eventUrl: https://event.afup.org/forumphp2018/
+youtubeId: Cq1sR005B2E
+
 lang: fr
 tags: [conference, php, open-source, afup, docker, kubernetes]
 color: rgb(251,87,66)

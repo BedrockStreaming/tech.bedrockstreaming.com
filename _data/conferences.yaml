@@ -1,0 +1,100 @@
+- title: "Le second écran chez M6Web, another (php) brick in the wall !"
+  date: 2015-05-13
+  author: oliviermansour
+  eventName: PHPTour Luxembourg 2015
+  eventUrl: https://event.afup.org/phptourluxembourg2015__programme/
+  youtubeId: VPYFnaX_5Tg
+
+- title: "Retour d’expérience : réaliser des Workers en PHP"
+  date: 2016-05-23
+  author: f_dspern
+  eventName: PHPTour Clermont‑Ferrand 2016
+  eventUrl: https://event.afup.org/php-tour-2016/home-phptour-2016/
+  youtubeId: 0A5tbrMarGA
+
+- title: "Machine learning sans magie et sans s'arracher les cheveux"
+  date: 2019-11-14
+  author: n_saby
+  description: Comprendre le machine learning en prenant l'exemple d'un barbecue.
+  youtubeId: 5c120IGLHk8
+
+- title: "Webpack Workshop"
+  date: 2020-01-22
+  author: a_caron
+  eventName: Snowcamp 2020
+  eventUrl: https://snowcamp.io/fr/
+
+- title: "Apache Spark et le machine learning : rêves et réalités"
+  date: 2020-02-10
+  author: n_saby
+  eventName: Scala IO
+  eventUrl: https://scala.io/
+  youtubeId: 8e2TOelpqds
+
+- title: "⚡️ Vite ⚡️ the Webpack killer"
+  date: 2020-06-10
+  author: [a_caron, m_mure]
+  eventName: LyonJS Meetup
+  eventUrl: https://www.meetup.com/fr-FR/LyonJS/events/278441866/
+
+- title: "Webpack Workshop"
+  date: 2020-09-07
+  author: a_caron
+  eventName: Paris Web
+  eventUrl: https://www.paris-web.fr/2019/ateliers/webpack-workshop.php
+
+- title: "Productionizing ML Systems without Fear nor Heroism"
+  author: n_saby
+  date: 2021-05-25
+  eventName: DataTalks.Club
+  eventUrl: https://datatalks.club/
+  youtubeId: KkOGMaz4Xws
+
+- title: "⚡️ Vite ⚡️ the Webpack killer"
+  date: 2021-09-08
+  author: [a_caron, m_mure]
+  eventName: JUG Summer Camp
+  eventUrl: https://www.jugsummercamp.org/edition/12/presentations/QYeD36ff9h4A8v243Hu3
+
+- title: "⚡️ Vite ⚡️ the Webpack killer"
+  date: 2021-11-10
+  author: [a_caron, m_mure]
+  eventName: Devfest Nantes
+  eventUrl: https://devfest2021.gdgnantes.com/sessions/_%EF%B8%8F_vite_%EF%B8%8Fthe_webpack_killer/
+
+- title: Comment ne pas jeter son application Frontend tous les deux ans ? 
+  date: 2022-02-05
+  author: [florent, a_caron]
+  eventName: Snowcamp 2022
+  eventUrl: https://snowcamp.io/fr/
+
+- title: "Transformer le load balancing pour optimiser le cache : objectif 50 millions d’utilisateurs"
+  date: 2022-04-12
+  author: v_gallissot
+  eventName: AWS Summit Paris
+  eventUrl: https://aws.amazon.com/fr/events/summits/paris/
+
+- title: "Préparez et donnez votre premier talk"
+  date: 2022-04-12
+  author: p_martin
+  eventName: AWS Summit Paris
+  eventUrl: https://aws.amazon.com/fr/events/summits/paris/
+
+- title: "Êtes-vous bien architecturé ?"
+  date: 2022-04-12
+  author: p_martin
+  eventName: AWS Summit Paris
+  eventUrl: https://aws.amazon.com/fr/events/summits/paris/
+
+- title: "Open Policy Agent avec KICS de chez Checkmarx"
+  date: 2022-05-13
+  author: jy_camier
+  description: |
+    Chez Bedrock Streaming, tous le monde est responsable de son infrastructure Cloud : les développeurs backend et frontend, les data analyst, les ingénieurs vidéo et même les Ops et les DevOps ! De ce fait, une part considérable de notre travail consiste à accompagner les développeurs, de la montée en compétence sur l'usage de nos outils jusqu'à la conception d'architecture cloud résilliente. Il s'avère que dans le cadre d'une revue de code, en tant que DevOps, nous répétons souvent les mêmes choses. En mettant en place de l'analyse statique avec KICS et OPA, nous parions sur l'avenir d'un outil et d'une communauté jeune pour nous aider à réduire le temps entre la revue de code et la mise en production:
+    - en augmentant la qualité de nos infrastructures cloud
+    - en réduisant les coûts de cette infrastructure
+  eventName: Docker meetup
+  eventUrl: https://www.meetup.com/fr-FR/docker-lyon/events/285057478/
+  sponsored: true
+  hosted: true
+

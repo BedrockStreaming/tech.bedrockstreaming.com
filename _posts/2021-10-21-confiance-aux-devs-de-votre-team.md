@@ -1,8 +1,13 @@
 ---
-layout: video
-youtubeId: tuGpNiy6e9s 
+layout: conference
+
 title: "Faites confiance aux développeurs.euses de votre équipe : voyez plus loin que les fonctionnalités"
 author: s_lescano
+eventName: ForumPHP 2021
+eventUrl: https://event.afup.org/forum-php-2021/
+youtubeId: tuGpNiy6e9s 
+
+
 lang: fr
 tags: [conference, afup, php]
 color: rgb(251,87,66) 
