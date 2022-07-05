@@ -106,3 +106,8 @@ This is why we decided to disable encryption for all new EBS volume on our build
 Doing all the previous configuration took us several weeks. We are now more conscious that doing security just for the beauty of it can be really counterproductive.
 
 If your AMIs contain sensitive data, a better way to handle encrypted AMI may be to stop creating privately shared AMIs. Instead, copy and encrypt a private AMI in each of your “user” accounts with a dedicated KMS Key per account. In result, there will be a larger amount of AMI to handle (one AMI per account per region), KMS Key permissions will still be complex, but security should be way better.
+
+#### Logo used in thumbnail
+##### Death by Imogen Oh from NounProject.com
+##### Key by Baboon designs from NounProject.com
+##### Gears by Aybige from NounProject.com
