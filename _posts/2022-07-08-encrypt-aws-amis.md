@@ -18,7 +18,7 @@ We didn't expect it, but this decision impacted our AMI creation process. We thu
 
 You will have in this blog post multiple tips that may help you handle your AMIs encryption, but also why you shouldn’t handle it our way.
 
-# Build an encrypted AMI
+## Build an encrypted AMI
 
 To build our AMI, Packer launches an EC2 in a "builder" account, then a snapshot is created and copied in needed regions. To use this AMI, "user" accounts are listed in the [AMI allowed users](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-explicit.html).
 
@@ -43,7 +43,7 @@ And it worked ! We had our beautiful encrypted AMI, ready to use in all our acco
 <center><ins>How we build our encrypted AMIs</ins></center>
 
 
-# Run an encrypted AMI
+## Run an encrypted AMI
 
 This is where it gets complex.
 
@@ -61,7 +61,7 @@ There are two methods to do that, for two different needs.
 
 ---
 
-## Policy method
+### Policy method
 
 To authorize an external customer managed role (ours), we had to authorize our role in KMS Key dedicated policy to use it, then authorize KMS Key in our role policy to be used.  It is some kind of symmetric reference hard to correctly maintain with IaC (Terraform). And we had to do the same for KMS Key replicas in other regions, because they have a dedicated policy.
 
@@ -71,7 +71,7 @@ To authorize an external customer managed role (ours), we had to authorize our r
 
 One important thing to know here: some KMS Key permissions aren't available for external account sharing. It means that when we try to add the permission `kms:*` to our role policy (for debug purposes only, we follow least privileges principles), it failed. You can find which permission is accessible in cross account use and which is not [here](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html). 
 
-## Grant method
+### Grant method
 
 To authorize an AWS managed role, like `AWSServiceRoleForAutoScaling` (to launch our EC2), we also needed to allow it to use our key. It is impossible to add a new policy on an AWS Managed role. So instead of using a policy method like before, we had to create a grant on that role to use our key. We tried to create that grant from the source account (where the key is created), but it didn't work. We had to create that grant from the destination account (where `AWSServiceRoleForAutoScaling` is), using a role in the destination account that is allowed to create a grant... So we had to allow a role from the destination account to create a grant with Policy method, then use the previous role to allow an AWS Managed Role to use our KMS Key with Grant method. Pretty fun, right ?
 
@@ -88,12 +88,12 @@ Once all needed roles were allowed, we tried to launch an EC2 with the allowed r
 
 But there was a big security vulnerability: instead of using one KMS key per account to encrypt our EBS volume, we were now using the same KMS key on all our accounts because of our encrypted AMI.
 
-# KMS Key rotation
+## KMS Key rotation
 
 A short word about [Key rotation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#kms-key-rotation): it can easily be enabled to automatically rotate key materials each year. All new AMIs will be encrypted with new key material and nothing has to be changed to run encrypted AMIs.
 But in case of a manual rotation: if a key is leaked for example, you will need to recreate a new KMS Key, its replicas, and all permissions and grants seen before.
 
-# Conclusion
+## Conclusion
 
 Using privately shared encrypted AMI caused us multiple problems:
 - higher complexity to maintain.
