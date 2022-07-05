@@ -5,10 +5,8 @@ description: ""
 author: t_falconnet
 tags: [cloud, aws]
 color: rgb(251,87,66)
-thumbnail: ""
+thumbnail: "images/posts/2022-07-08-encrypt-aws-amis/encrypt-aws-amis.png"
 ---
-
-# Introduction
 
 At Bedrock, we build our own privately shared AMIs ([Amazon Machine Images](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) for different  parts of our stack : kubernetes platform, vod platform, etc. We build them to do kernel optimizations, embed some tools, and more. To do that, we have been using Packer for a couple of years, and everything has been working just fine. 
 
