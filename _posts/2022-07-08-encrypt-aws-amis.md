@@ -22,13 +22,13 @@ You will have in this blog post multiple tips that may help you handle your AMIs
 
 To build our AMI, Packer launches an EC2 in a "builder" account, then a snapshot is created and copied in needed regions. To use this AMI, "user" accounts are listed in the [AMI allowed users](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-explicit.html).
 
-With account EBS encryption enabled, snapshots are now encrypted. The default behavior is to use the account’s default KMS Key. Our first “easy” drawback while trying to build new AMI with Packer was the following error message:r :
+With account EBS encryption enabled, snapshots are now encrypted. The default behavior is to use the account’s default KMS Key. Our first “easy” drawback while trying to build new AMI with Packer was the following error message :
 
 ```
 Error Copying AMI (ami-xxxxxx) to region (xx-xxx-x): InvalidRequest: Snapshot snap-xxxxxxx is encrypted. Creating an unencrypted copy from an encrypted snapshot is not supported.
 ```
 
-To avoid that, we enabled AMI encryption with Packer, but It resulted in another error :
+To avoid that, we enabled AMI encryption with Packer, but it resulted in another error :
 
 ```
 Error modify AMI attributes: InvalidParameter: Snapshots encrypted with the AWS Managed CMK can't be shared.
@@ -36,7 +36,7 @@ Error modify AMI attributes: InvalidParameter: Snapshots encrypted with the AWS 
 
 As our AMI has to be shared to other accounts, it was impossible to encrypt our AMI with the account default KMS Key. So we created a dedicated KMS Key for Packer encryption.
 
-And it worked ! We had our beautiful encrypted AMI, ready to use in all our accounts.
+And it worked! We had our beautiful encrypted AMI, ready to use in all our accounts.
 
 ![How we build our encrypted AMIs](/images/posts/2022-07-08-encrypt-aws-amis/build_encrypted_amis.png)
 
@@ -73,7 +73,7 @@ One important thing to know here: some KMS Key permissions aren't available for 
 
 ### Grant method
 
-To authorize an AWS managed role, like `AWSServiceRoleForAutoScaling` (to launch our EC2), we also needed to allow it to use our key. It is impossible to add a new policy on an AWS Managed role. So instead of using a policy method like before, we had to create a grant on that role to use our key. We tried to create that grant from the source account (where the key is created), but it didn't work. We had to create that grant from the destination account (where `AWSServiceRoleForAutoScaling` is), using a role in the destination account that is allowed to create a grant... So we had to allow a role from the destination account to create a grant with Policy method, then use the previous role to allow an AWS Managed Role to use our KMS Key with Grant method. Pretty fun, right ?
+To authorize an AWS managed role, like `AWSServiceRoleForAutoScaling` (to launch our EC2), we also needed to allow it to use our key. It is impossible to add a new policy on an AWS Managed role. So instead of using a policy method like before, we had to create a grant on that role to use our key. We tried to create that grant from the source account (where the key is created), but it didn't work. We had to create that grant from the destination account (where `AWSServiceRoleForAutoScaling` is), using a role in the destination account that is allowed to create a grant... So we had to allow a role from the destination account to create a grant with Policy method, then use the previous role to allow an AWS Managed Role to use our KMS Key with Grant method. Pretty fun, right?
 
 
 ![Grant method](/images/posts/2022-07-08-encrypt-aws-amis/grant_method.png)
