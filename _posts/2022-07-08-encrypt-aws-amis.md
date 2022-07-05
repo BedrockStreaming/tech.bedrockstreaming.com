@@ -1,11 +1,13 @@
 ---
 layout: post
 title: "Encrypt AWS AMIs: one way to do it badly"
-description: ""
+description: "You will have in this blog post multiple tips that may help you handle your AMIs encryption, but also why you shouldn’t handle it our way."
 author: t_falconnet
 tags: [cloud, aws]
 color: rgb(251,87,66)
 thumbnail: "images/posts/2022-07-08-encrypt-aws-amis/encrypt-aws-amis.png"
+language: en
+comments: true
 ---
 
 At Bedrock, we build our own privately shared AMIs ([Amazon Machine Images](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) for different  parts of our stack : kubernetes platform, vod platform, etc. We build them to do kernel optimizations, embed some tools, and more. To do that, we have been using Packer for a couple of years, and everything has been working just fine. 
