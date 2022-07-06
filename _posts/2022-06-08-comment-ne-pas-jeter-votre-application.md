@@ -1,8 +1,14 @@
 ---
-layout: video
-youtubeId: t36UqNSmybM
+layout: conference
+
 title: "Comment ne pas jeter son application Frontend tous les deux ans ?"
-author: a_caron
+author: [a_caron, florent]
+eventName: LyonJS Meetup
+eventUrl: https://www.meetup.com/fr-FR/lyonjs/events/285497869/
+youtubeId: t36UqNSmybM
+sponsored: true
+hosted: true
+
 lang: fr
 tags: [conference, js, react, lyonjs, meetup]
 color: rgb(251,87,66)
@@ -16,8 +22,6 @@ Rassurez-vous, ce n’est pas le cas ! Nous avons tous travaillé sur des projet
 Quel est notre secret ? C’est ce que vous allez découvrir pendant ce talk !
 Automatisation des tâches courantes, gestion de la dette, testing et architecture seront des sujets abordés.
 Ce talk propose des thématiques qui ne concernent pas que le frontend !
-
-_Par [Florent Dubost](https://twitter.com/fooragnak) et [Antoine Caron](https://twitter.com/Slashgear_)._
 
 [Plus de détails dans l'article suivant.]({% post_url 2021-09-01-bonnes-pratiques-web %})
 

@@ -1,0 +1,117 @@
+---
+layout: page
+---
+
+<main class="home">
+    <style scoped>
+        .video-list {
+            display: grid;
+            justify-content: center;
+            align-content: center;
+            gap: 32px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+
+        .card {
+            width: 100%;
+        }
+
+        .card img {
+            width: 100%;
+        }
+
+        .card-content {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8em;
+        }
+
+        .card-title {
+            text-overflow:ellipsis;
+            overflow:hidden;
+            display: -webkit-box !important;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            white-space: normal;
+        }
+
+        .card img {
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            padding: 0;
+        }
+    </style>
+
+    {{ content }}
+    
+    {% assign postConferences = site.posts | where: 'layout', 'conference' %}
+    {% assign allConferences = site.data.conferences | concat: postConferences | sort: 'date' | reverse %}
+
+    {% assign conferencesByYear = allConferences | group_by_exp: "conference", "conference.date | date: '%Y'" %}
+
+    {% for conferenceYear in conferencesByYear %}
+        {% assign conferencesByEvent = conferenceYear.items | group_by_exp: "conference", "conference.eventName" %}
+        <h3>{{ conferenceYear.name }}</h3>
+        <ul>
+            {% for conferenceEvent in conferencesByEvent %}
+                {% assign conference = conferenceEvent.items.first %}
+                <li>
+                    {{ conference.date | date: "%d/%m" }} : 
+                    {% if conference.eventUrl %}
+                        <a href="{{ conference.eventUrl }}" target="_blank">
+                    {% endif %}
+                        {{ conference.eventName }}
+                    {% if conference.eventUrl %}
+                        </a>
+                    {% endif %}
+                    {% if conference.hosted %}🏠{% endif %}
+                    {% if conference.sponsored %}⭐️{% endif %}
+                    
+                    <ul>
+                        {% for conference in conferenceEvent.items %}
+                            <li>
+                                {% if conference.url %}<a href="{{ conference.url }}">{% endif %}
+                                {{ conference.title }}
+                                {% if conference.url %}</a>{% endif %}
+                                - 
+                                {% for author in conference.author %}
+                                    {% assign authorDetail = site.data.authors[author] %}
+                                    {% if authorDetail.url %}<a href="{{ authorDetail.url }}">{% endif %}
+                                        {{ authorDetail.name }}
+                                    {% if authorDetail.url %}</a>{% endif %}
+                                    {% unless forloop.last %}, {% endunless %}
+                                {% endfor %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+
+    <h2>Replays</h2>
+
+    <p>Here is the list of the replay of talks given during these events:</p>
+
+    <section class="video-list">
+        {% assign videoPosts = allConferences | where_exp: 'conference', 'conference.youtubeId' %}
+        {% for post in videoPosts %}
+                {% assign author = site.data.authors[post.author] %}
+                {% assign date = post.date | default: "today" | date: "%B %-d, %Y" %}
+                {% if post.url %}{% assign url = post.url %}{% else %}{% assign url = "https://www.youtube.com/watch?v=" | append: post.youtubeId %}{% endif %}
+
+                <div class="card">
+                    <a href="{{ url | relative_url }}"><img loading="lazy" src="https://img.youtube.com/vi/{{ post.youtubeId }}/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="{{ url | relative_url }}"><h5 class="card-title">{{ post.title }}</h5></a>
+                        <div class="card-content">
+                            {% if author.name %}
+                            <div>{{ author.name }}</div>
+                            {% endif %}
+                            <div>{{ site.data.language.str_months[x] | default: date | date: "%B" }} {{ date | date: "%d, %Y" }}</div>
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+    </section>
+</main>

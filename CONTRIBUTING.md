@@ -77,14 +77,13 @@ Don't hesitate to share your new post of **#proj-blog-tech-bedrock** slack room 
 When you have 2 approves and no change requested, you can merge your Pull Request.
 
 
-## How to add the replay of your conference, meetup or LFT ? 
-
+## Add an LFT replay
 
 1. Create a file in `__post` folder name matching this format `YYYY-MM-DD-slug-of-your-article.md`
    Use the date the talk was first given in public.
 2. Add the configuration of metadatas at the begining of this file
 
-> :warning: **To make your videos appear in either `Last Friday Talks` or `Meetup & Conferences` pages, tag your post with `lft` or `conference`, respectively.**
+> :warning: **To make your videos appear in either `Last Friday Talks`page, tag your post with `lft`.**
 
 ```markdown
 ---
@@ -96,7 +95,7 @@ title: Title of your article
 # Description of the page (for SEO and context purpose
 description: Description of your article visible in search page results
 author: author_of_your_article 
-# Use tags for grouping content in the blog. Use at least `lft` to group with other lft talks or `conference` for meetup or conferences
+# Use tags for grouping content in the blog. Use at least `lft` to group with other lft talks
 tags: [example, of, tags]
 # this is Bedrock color here
 color: rgb(251,87,66) 
@@ -105,5 +104,69 @@ color: rgb(251,87,66)
 
 3. Add content to the markdown file in order to add context to the video you are sharing.
 
+
+## Add a conference
+
+There are two ways to publish a conference where you were a speaker.
+Please note that creating a post is more likely to help our external communication.
+
+### Publish informations about the conference
+
+If you just want to add a conference presentation to the listed ones, you can add your presentation in `_data/conferences.yaml`.
+
+Here is metadatas allowed to add a new conference :
+
+```markdown
+- title: "Title of the conference"
+  # Conference date
+  date: 1970-01-01
+  # from _data/authors.yaml
+  author: conference_speaker 
+  # Public event name
+  eventName: ******
+  # Url to redirect to event site (optionnal)
+  eventUrl: ******
+  # Youtube video id (optionnal)
+  youtubeId: ******
+  # Slideshare presentation key (from iframe integration) (optionnal)
+  slideshareKey: ******
+```
+
+It's all folks ! Your conference will be displayed in "Meetups & Conferences" page, and if there is a `youtubeId` key, the video will be added to "Replay" section.
+
+
+### Create a post to present the conference
+
+1. Create a file in `__post` folder name matching this format `YYYY-MM-DD-slug-of-your-article.md`
+   Use the date the talk was first given in public.
+2. Add the configuration of metadatas at the begining of this file
+
+```markdown
+---
+layout: conference
+
+# Title of the conference
+title: Title of your conference
+# Description of the page (for SEO and context purpose)
+description: Description of your article visible in search page results
+# from _data/authors.yaml
+author: conference_speaker
+# Public event name
+eventName: ******
+# Url to redirect to event site (optionnal)
+eventUrl: ******
+# Youtube video id (optionnal)
+youtubeId: ******
+# Slideshare presentation key (from iframe integration) (optionnal)
+slideshareKey: ******
+
+# Use tags for grouping content in the blog.
+tags: [example, of, tags]
+# this is Bedrock color here
+color: rgb(251,87,66) 
+---
+```
+
+3. Add content to the markdown file in order to add context to the presentation you are sharing.
 
 

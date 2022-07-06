@@ -1,8 +1,12 @@
 ---
-layout: video
-youtubeId: Q6N7DoCNfAE
+layout: conference
+
 title: "⚡️ Vite ⚡️ the Webpack killer"
-author: a_caron
+author: [a_caron, m_mure]
+eventName: Devoxx France
+eventUrl: https://www.devoxx.fr/
+youtubeId: Q6N7DoCNfAE
+
 lang: fr
 tags: [conference, js, webpack, vite, devoxx]
 color: rgb(251,87,66)
@@ -15,5 +19,3 @@ On ne va pas se le cacher, si vous avez mis les mains dans une configuration web
 Ça n'a pas échappé à Evan You, le créateur de Vue.JS, qui voulait répondre à ces problématiques avec une nouvelle façon de procéder, avec des idées novatrices, reposant sur les dernières fonctionnalités des navigateurs : Vite.
 
 Quelles sont ces idées novatrices à la base de Vite ? En quoi concurrence-t-il Webpack ? C'est ce que nous allons voir dans ce talk et live coding!
-
-_Par [Mathieu Mure](https://twitter.com/mathieumure) et [Antoine Caron](https://twitter.com/Slashgear_)._

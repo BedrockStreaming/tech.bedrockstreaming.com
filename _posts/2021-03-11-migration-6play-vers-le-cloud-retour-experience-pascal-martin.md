@@ -1,9 +1,13 @@
 ---
-layout: video
-youtubeId: xZep9iv6tLY
-title: "Migration de 6play vers Le Cloud, retour d’expérience. Cloud Sud 2021"
+layout: conference
+
+title: "Migration de 6play vers Le Cloud, retour d’expérience."
 description: "En 2018, nous avons entamé la migration de la plateforme 6play vers Le Cloud. À présent, nous pilotons notre infrastructure AWS avec Terraform, utilisons des services managés et déployons nos applications sous Kubernetes."
 author: p_martin
+eventName: Cloudsud
+eventUrl: https://cloudsud.fr/
+youtubeId: xZep9iv6tLY
+
 lang: fr
 tags: [conference, cloud, migration, cloudsud]
 color: rgb(251,87,66)

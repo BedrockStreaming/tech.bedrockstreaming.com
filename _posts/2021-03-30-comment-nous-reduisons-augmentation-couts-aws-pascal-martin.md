@@ -1,9 +1,13 @@
 ---
-layout: video
-youtubeId: mMRVCtYjzLo
+layout: conference
+
 title: "Comment nous réduisons l’augmentation de nos coûts AWS"
 description: "Malgré les promesses du Cloud, votre facture AWS vous fait peur ? Je vous comprends !"
 author: p_martin
+eventName: AWS Community Day France
+eventUrl: https://www.meetup.com/fr-FR/AWS-User-Group-Strasbourg/events/277030691/
+youtubeId: mMRVCtYjzLo
+
 lang: fr
 tags: [conference, aws, costs]
 color: rgb(251,87,66)

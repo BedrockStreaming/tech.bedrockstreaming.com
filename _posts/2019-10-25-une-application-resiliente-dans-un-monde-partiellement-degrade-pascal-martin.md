@@ -1,9 +1,13 @@
 ---
-layout: video
-youtubeId: U7wuMyv8YzA
+layout: conference
+
 title: "Une application résiliente, dans un monde partiellement dégradé"
 description: "Dans un monde en perpétuelle évolution, pouvons-nous toujours atteindre « four-nines » de disponibilité ? Cloud et Kubernetes. APIs et Microservices… Nos architectures s’enrichissent et se complexifient. Au prix d’une certaine fragilité ?"
 author: p_martin
+eventName: ForumPHP 2019
+eventUrl: https://event.afup.org/forumphp2019/
+youtubeId: U7wuMyv8YzA
+
 lang: fr
 tags: [conference, architecture, resilience, afup, cloud]
 color: rgb(251,87,66)

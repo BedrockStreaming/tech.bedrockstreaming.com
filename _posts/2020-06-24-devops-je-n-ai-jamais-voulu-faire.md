@@ -1,8 +1,12 @@
 ---
-layout: video
-youtubeId: dNUIFe7S1A0
+layout: conference
+
 title: "DevOps ? Je n'ai jamais voulu faire ça, et pourtant …"
 author: s_lescano
+eventName: AFUP Day 2021
+eventUrl: https://event.afup.org/afup-day-2021/
+youtubeId: dNUIFe7S1A0
+
 lang: fr
 tags: [conference, afup, php, devops]
 color: rgb(251,87,66)

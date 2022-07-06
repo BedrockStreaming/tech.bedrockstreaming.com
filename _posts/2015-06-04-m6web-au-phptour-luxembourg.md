@@ -15,7 +15,6 @@ feature-img: "images/posts/phptourlux/inphinity.jpg"
 thumbnail: "images/posts/phptourlux/inphinity.jpg"
 comments: true
 permalink: 
-youtubeId: VPYFnaX_5Tg
 ---
 
 # On était au PHP Tour et c'était bien !

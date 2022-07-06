@@ -12,7 +12,6 @@ author:
 category:
 tags: [6tech, lyon, conference]
 comments: true
-youtubeId: 0A5tbrMarGA
 ---
 
 
