@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Encrypt AWS AMIs: one way to do it badly"
-description: "You will have in this blog post multiple tips that may help you handle your AMIs encryption, but also why you shouldn’t handle it our way."
+description: "By encrypting our AMIs, we wanted to overzealously increase our security. In the end, we reduced it and lost time. Here is the REX of this failure that we had to rollback."
 author: t_falconnet
 tags: [cloud, aws]
 color: rgb(251,87,66)
@@ -10,19 +10,19 @@ language: en
 comments: true
 ---
 
-At Bedrock, we build our own privately shared AMIs ([Amazon Machine Images](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) for different  parts of our stack : kubernetes platform, vod platform, etc. We build them to do kernel optimizations, embed some tools, and more. To do that, we have been using Packer for a couple of years, and everything has been working just fine. 
+At Bedrock, we build our own privately shared AMIs ([Amazon Machine Images](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) for different parts of our stack: kubernetes platform, vod platform, etc. We build those AMI to optimize  kernel parameters,to embed some tools, and more. We have been using Packer for a couple of years, and everything has been working just fine. 
 
-Concerned about following AWS best-practices, we recently added [encryption by default to all new EBS volumes](https://aws.amazon.com/fr/premiumsupport/knowledge-center/ebs-automatic-encryption/) in all our accounts.
+Concerned about following AWS best-practices, we recently added [encryption by default to all new EBS volumes](https://aws.amazon.com/premiumsupport/knowledge-center/ebs-automatic-encryption/) in all our accounts.
 
-We didn't expect it, but this decision impacted our AMI creation process. We thus began to update our packer workflow to integrate this new constraint. We were telling ourselves that more security was for the best and we didn’t take enough steps back to analyze drawbacks.
+We didn't expect it, but this decision impacted our AMI creation process. We thus began to update our Packer workflow to integrate this new constraint. We were telling ourselves that more security was for the best and we didn’t take enough steps back to analyze drawbacks.
 
-You will have in this blog post multiple tips that may help you handle your AMIs encryption, but also why you shouldn’t handle it our way.
+You will find in this blog post multiple tips that may help you handle your AMIs encryption, but also why you shouldn’t handle it our way.
 
 ## Build an encrypted AMI
 
 To build our AMI, Packer launches an EC2 in a "builder" account, then a snapshot is created and copied in needed regions. To use this AMI, "user" accounts are listed in the [AMI allowed users](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-explicit.html).
 
-With account EBS encryption enabled, snapshots are now encrypted. The default behavior is to use the account’s default KMS Key. Our first “easy” drawback while trying to build new AMI with Packer was the following error message :
+With account EBS encryption enabled, snapshots are now encrypted. The default behavior is to use the account’s default KMS Key. Our first “easy” problem while trying to build new AMI with Packer was the following error message:
 
 ```
 Error Copying AMI (ami-xxxxxx) to region (xx-xxx-x): InvalidRequest: Snapshot snap-xxxxxxx is encrypted. Creating an unencrypted copy from an encrypted snapshot is not supported.
@@ -36,7 +36,7 @@ Error modify AMI attributes: InvalidParameter: Snapshots encrypted with the AWS 
 
 As our AMI has to be shared to other accounts, it was impossible to encrypt our AMI with the account default KMS Key. So we created a dedicated KMS Key for Packer encryption.
 
-And it worked! We had our beautiful encrypted AMI, ready to use in all our accounts.
+And it worked! We had our beautiful encrypted AMI, ready to be used in all our accounts.
 
 ![How we build our encrypted AMIs](/images/posts/2022-07-08-encrypt-aws-amis/build_encrypted_amis.png)
 
@@ -63,7 +63,7 @@ There are two methods to do that, for two different needs.
 
 ### Policy method
 
-To authorize an external customer managed role (ours), we had to authorize our role in KMS Key dedicated policy to use it, then authorize KMS Key in our role policy to be used.  It is some kind of symmetric reference hard to correctly maintain with IaC (Terraform). And we had to do the same for KMS Key replicas in other regions, because they have a dedicated policy.
+To authorize an external customer managed role (ours), we had to authorize our role in KMS Key dedicated policy to use it, then authorize KMS Key in our role policy to be used. It is some kind of symmetric reference hard to correctly maintain with IaC (Terraform). And we had to do the same for KMS Key replicas in other regions, because they have a dedicated policy.
 
 ![Policy method](/images/posts/2022-07-08-encrypt-aws-amis/policy_method.png)
 
@@ -99,13 +99,13 @@ Using privately shared encrypted AMI caused us multiple problems:
 - higher complexity to maintain.
 - lower security in cross-account configuration.
 
-Furthermore, we checked all our AMIs to see if it contained sensitive data. It wasn’t the case : all sensitive data is uploaded at startup by [Launch Template](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-launch-template.html). We had no interest in continuing to use encrypted AMI, and we would have spared so much time if we had seen that sooner.
+Furthermore, we checked all our AMIs to see if they contain sensitive data. It isn’t the case : all sensitive data is uploaded at startup by [Launch Template](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-launch-template.html). We had no interest in continuing to use encrypted AMI, and we would have spared so much time if we had seen that sooner.
 
 This is why we decided to disable encryption for all new EBS volume on our builder account and stop building encrypted AMI.
 
-Doing all the previous configuration took us several weeks. We are now more conscious that doing security just for the beauty of it can be really counterproductive.
+Doing all the previous configuration took us several weeks. We are now more aware that doing security just for the beauty of it can be really counterproductive.
 
-If your AMIs contain sensitive data, a better way to handle encrypted AMI may be to stop creating privately shared AMIs. Instead, copy and encrypt a private AMI in each of your “user” accounts with a dedicated KMS Key per account. In result, there will be a larger amount of AMI to handle (one AMI per account per region), KMS Key permissions will still be complex, but security should be way better.
+If your AMIs contain sensitive data, a better way to handle encrypted AMI may be to stop creating privately shared AMIs. Instead, copy and encrypt a private AMI in each of your “user” accounts with a dedicated KMS Key per account. As a result, there will be a larger amount of AMI to handle (one AMI per account per region), KMS Key permissions will still be complex, but security should improved.
 
 #### Logo used in thumbnail
 ##### Death by Imogen Oh from NounProject.com
