@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/babitch/tablesoccer.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Babitch, the story behind our table soccer web application | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Babitch, the story behind our table soccer web application" />
+<meta name="author" content="M6Web" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Babitch, the story behind our table soccer/foosball web application" />
+<meta property="og:description" content="Babitch, the story behind our table soccer/foosball web application" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2014/04/23/babitch-the-story-behind-our-table-soccer-web-application.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2014/04/23/babitch-the-story-behind-our-table-soccer-web-application.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-04-23T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Babitch, the story behind our table soccer web application" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2014/04/23/babitch-the-story-behind-our-table-soccer-web-application.html"},"url":"https://tech.bedrockstreaming.com/2014/04/23/babitch-the-story-behind-our-table-soccer-web-application.html","author":{"@type":"Person","name":"M6Web"},"description":"Babitch, the story behind our table soccer/foosball web application","dateModified":"2014-04-23T00:00:00+02:00","datePublished":"2014-04-23T00:00:00+02:00","headline":"Babitch, the story behind our table soccer web application","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Babitch, the story behind our table soccer web application">
+    <meta name="twitter:description" content="At M6Web, we love playing foosball!We have one old (incredibly strong) soccer table in our « fun room », and at lunch time, a part of us enjoy playing it.The...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/babitch/tablesoccer.jpg">
+    <meta name="twitter:image:alt" content="Babitch, the story behind our table soccer web application">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Babitch, the story behind our table soccer web application " aria-label="Babitch, the story behind our table soccer web application" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Babitch%2C+the+story+behind+our+table+soccer+web+application" class="title">Babitch, the story behind our table soccer web application</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      April 23, 2014
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>At M6Web, we love playing foosball!
+We have one old (incredibly strong) soccer table in our « fun room », and at lunch time, a part of us enjoy playing it.</p>
+
+<p>The soccer table in enterprise is awesome for a lot of things:</p>
+
+<ul>
+  <li>Team building between each players,</li>
+  <li>Don’t think about work (almost) when we are playing,</li>
+  <li>Fun! a lot of!</li>
+  <li><a href="/m6web-lyon-recherche-un-lead-developpeur-architecte-web-h-f-en-cdi">Attract good people</a> …</li>
+</ul>
+
+<p>Our rules are simple : Doubles (4 players) only, and the first team at ten win.</p>
+
+<p>So, as programmers, we tend to have software ideas for each questions in our life ! and the questions we had with foosball were:</p>
+
+<ul>
+  <li>Who is the best player?</li>
+  <li>How many goals did I score ?</li>
+  <li>Who won the most games?</li>
+  <li>…</li>
+</ul>
+
+<p>So, we begin to talk several months ago about a foosball app, allowing us to record each games, and each goals, to compute lot of stats about our games.
+Everyone had good ideas about it, but someone had many more than us. Even more that it ruined all motivation of the other folks wanting to do work on this webapp, because the first steps to begin the app with all the features we had in mind was too big for all of us …</p>
+
+<p>So before having started the project, it was over !</p>
+
+<p>Few months later, an undercover part of the team began the development of a more simple and stupid foosball application : it just allowed to select 4 players, and to register matches by telling who scored and what kind of goal it was (normal or own goal).
+This was ugly as possible, but it worked ! And it was an awesome start for improving it and giving back all the motivation developpers had lost before !</p>
+
+<p>Babitch was born :)</p>
+
+<h1 id="architecture">Architecture</h1>
+
+<p>At the beggining, there was only one project, with the server API, and the client part.
+This was bad. It was a good way to start fast, but a bad way to allow each project to evolve on its own side.
+So we decided to divide the Babitch Project into two parts, Babitch, the server API, and BabitchClient, a client to consume Babitch Api data.</p>
+
+<h1 id="babitch-the-api">Babitch, the API</h1>
+
+<p>The <a href="https://github.com/BedrockStreaming/Babitch">Babitch API</a> is a simple PHP/MySQL project, based on Symfony2, Doctrine, <a href="https://github.com/FriendsOfSymfony/FOSRest">FosRestBundle</a>, and <a href="https://github.com/nelmio/NelmioApiDocBundle">NelmioApiDocBundle</a>.
+The documentation generated by the NelmioApiDocBundle is available at /api/doc and allows to view each Route of the API, and to send requests on them with the Sandbox menu.
+The API is functionnaly tested by <a href="https://behat.org/">Behat</a>.
+A <a href="https://www.vagrantup.com/">Vagrant</a> file is available if you want to try it easily. (More information in the <a href="https://github.com/BedrockStreaming/Babitch">Readme.md</a>)</p>
+
+<h1 id="babitch-the-client">Babitch, the Client</h1>
+
+<p>The <a href="https://github.com/BedrockStreaming/BabitchClient">Babitch Client</a>, is the “official” client for the API.
+The client side doesn’t require any webserver, it’s just an <a href="https://angularjs.org/">Angular.js</a> app, doing REST queries to the Babitch API thanks to Restangular.</p>
+
+<p>We used <a href="https://yeoman.io/">Yeoman</a> to bootstrap the project because it helps in many ways:</p>
+
+<ul>
+  <li>adds grunt configuration and support for serving, building and testing the project,</li>
+  <li>have generators for controllers, service, etc …</li>
+</ul>
+
+<p>For development on this client, we are heavily using <a href="https://gruntjs.com/">Grunt</a>, <a href="https://karma-runner.github.io/0.10/index.html">Karma</a> for Unit Testing, and the new <a href="https://github.com/angular/protractor">Protactor</a> for E2E testing.</p>
+
+<p>The client is divided into four major parts:</p>
+
+<h2 id="new-game">New Game</h2>
+
+<p><img src="/images/posts/babitch/mainview.png" alt="Main View" /></p>
+
+<p>This is the main feature, it allows to begin a new game, choose 4 players, and assign each goals to the right players.
+The game is saved only when the last goal is made.
+Each player is represented by his <a href="https://fr.gravatar.com/">Gravatar</a> for a nicer UI :)</p>
+
+<h2 id="live">Live</h2>
+
+<p><img src="/images/posts/babitch/liveview.png" alt="Live View" /></p>
+
+<p>The table soccer is not at the same floor than we are, so we are using our monitoring screen to show at lunch time the live state of the table score !</p>
+
+<p>With a screen on this feature, we could see:</p>
+
+<ul>
+  <li>if a game is played right now,</li>
+  <li>who’s playing,</li>
+  <li>the live score,</li>
+  <li>for each goal, in live, who scored, and on which side :)</li>
+</ul>
+
+<p>The live part use a <a href="https://faye.jcoglan.com/">Faye</a> server, which you can host freely on <a href="https://www.heroku.com/">Heroku</a> (more information on Readme.md). You configure a channel name, and all actions done on the new game view are forwarded to the Faye server, forwarded back to the client listening on the Live view. It just rocks !</p>
+
+<h2 id="stats">Stats</h2>
+
+<p><img src="/images/posts/babitch/statsview.png" alt="Stats View" /></p>
+
+<p>All of this would be useless if you don’t have any way to compare your … stats to others competitors, right ?
+So stats section is here for that purpose.
+It shows you :</p>
+
+<ul>
+  <li>the last played match,</li>
+  <li>a sortable table by each stat of each player,</li>
+  <li>data visualization on each type of stats,</li>
+  <li>an individual card by player,</li>
+  <li>a sortable table by each stat of each team.</li>
+</ul>
+
+<p>And for each player and team, you have access to a lot of stats:</p>
+
+<ul>
+  <li>Elo Ranking (According to the <a href="https://www.bonziniusa.com/foosball/tournament/TournamentRankingSystem.html">Bonzini Usa Player Ranking/Rating System</a>),</li>
+  <li>Percentage of goals per ball played,</li>
+  <li>Percentage of victory/loose per game,</li>
+  <li>Number of games played,</li>
+  <li>Team Goalaverage,</li>
+  <li>…</li>
+</ul>
+
+<p>There was some long debate about how stats have to be computed : on the server side ? (not really the goal of a REST Api …), or on the client side ?
+After some successfull tries, we decided to compute stats on the client side, in an Angular.Js Service.
+The service loads the last 300 games, and computes team and player stats fastly.
+We also use the awesome <a href="https://d3js.org/">D3.Js</a> framework for data visualization.</p>
+
+<h2 id="admin">Admin</h2>
+
+<p>Probably the first screen you will need, for a simple way to add, modify, or delete players.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>Working on our free (or lunch) time on a side-project like this is awesome!
+It allows us to use several technologies or tools we don’t use often, to improve our knowledge on tons of other things, to view the project on the product owner side and to mix teams who don’t work a lot together.</p>
+
+<p>One other thing interesting to remember about that project: Keep things as simple and small as possible (according to KISS principles) ! And only when your simple project is done, iterate by adding more and more features.</p>
+
+<h1 id="try-and-contribute">Try and contribute?</h1>
+
+<p>So, if like us, you love foosball and play at work, give it a try, and give us feedback if you use it :)</p>
+
+<p>Also, it’s open-source, so you’re welcome to contribute on <a href="https://github.com/BedrockStreaming/BabitchClient">BabitchClient</a> and <a href="https://github.com/BedrockStreaming/Babitch">BabitchService</a>, by posting/reading/commenting issue and PR.</p>
+
+<p>Thanks ! :)</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Babitch%2C+the+story+behind+our+table+soccer+web+application%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2014%2F04%2F23%2Fbabitch-the-story-behind-our-table-soccer-web-application.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2014/04/23/babitch-the-story-behind-our-table-soccer-web-application.html&title=Babitch%2C+the+story+behind+our+table+soccer+web+application%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2014/04/23/babitch-the-story-behind-our-table-soccer-web-application.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Babitch, the story behind our table soccer web application%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2014/04/23/babitch-the-story-behind-our-table-soccer-web-application.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#angularjs">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> angularjs</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#babyfoot">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> babyfoot</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#d3js">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> d3js</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#opensource">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> opensource</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#symfony">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> symfony</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="M6Web sera présent au PHPTour Lyon 2014" href="/2014/05/15/m6web-sera-present-au-phptour-lyon-2014.html">
+            <p>Previous post</p>
+            M6Web sera présent au PHPTour Lyon 2014
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="M6Web Lyon recherche un Lead Developpeur / Architecte web (H/F) en CDI" href="/2014/04/11/m6web-lyon-recherche-un-lead-developpeur-architecte-web-h-f-en-cdi.html">
+            <p>Next post</p>
+            M6Web Lyon recherche un Lead Developpeur / Architecte web (H/F) en CDI
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/babitch/tablesoccer.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

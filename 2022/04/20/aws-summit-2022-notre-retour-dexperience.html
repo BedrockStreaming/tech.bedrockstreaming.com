@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/main-image.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Bedrock à l’AWS Summit 2022 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Bedrock à l’AWS Summit 2022" />
+<meta name="author" content="Bedrock" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Cinq de nos DevOps, Ops et Développeurs étaient à l’AWS Summit Paris 2022, voici leur retour d’expérience." />
+<meta property="og:description" content="Cinq de nos DevOps, Ops et Développeurs étaient à l’AWS Summit Paris 2022, voici leur retour d’expérience." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2022/04/20/aws-summit-2022-notre-retour-dexperience.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2022/04/20/aws-summit-2022-notre-retour-dexperience.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-20T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Bedrock à l’AWS Summit 2022" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/04/20/aws-summit-2022-notre-retour-dexperience.html"},"url":"https://tech.bedrockstreaming.com/2022/04/20/aws-summit-2022-notre-retour-dexperience.html","author":{"@type":"Person","name":"Bedrock"},"description":"Cinq de nos DevOps, Ops et Développeurs étaient à l’AWS Summit Paris 2022, voici leur retour d’expérience.","dateModified":"2022-04-20T00:00:00+02:00","datePublished":"2022-04-20T00:00:00+02:00","headline":"Bedrock à l’AWS Summit 2022","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Bedrock à l'AWS Summit 2022">
+    <meta name="twitter:description" content="Retour à l’AWS Summit Deux années se sont écoulées depuis le dernier AWS Summit à Paris, il a fait son retour ce 12 avril !Cet évènement, qui a lieu au print...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/main-image.jpg">
+    <meta name="twitter:image:alt" content="Bedrock à l'AWS Summit 2022">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Bedrock à l'AWS Summit 2022 " aria-label="Bedrock à l'AWS Summit 2022" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Bedrock+%C3%A0+l%27AWS+Summit+2022" class="title">Bedrock à l'AWS Summit 2022</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      Bedrock - 
+      
+      April 20, 2022
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p><img src="/images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/main-image.jpg" alt="&quot;AWS Summit Paris 2022&quot;" /></p>
+
+<h2 id="retour-à-laws-summit-">Retour à l’AWS Summit <a name="BackToSummit"></a></h2>
+
+<p>Deux années se sont écoulées depuis le dernier AWS Summit à Paris, il a fait son retour ce 12 avril !<br />
+Cet évènement, qui a lieu au printemps dans plusieurs pays, est l’occasion de rencontrer la communauté AWS française, d’assister à de nombreuses conférences et de bénéficier de retours d’expérience d’autres clients.<br />
+C’était aussi pour nous, comme en 2019, l’occasion de <a href="#AussiIntervenants">partager les nôtres !</a></p>
+
+<p>Depuis notre migration vers le Cloud, AWS et Kubernetes entre 2018 et 2021 (plus d’informations dans <a href="https://leanpub.com/6cloud/" target="_blank">Le Plan Copenhague</a>), nous sommes plusieurs centaines à travailler au quotidien avec AWS.<br />
+Cette année, cinq de nos DevOps, SysOps et Développeurs ont eu la chance de se rendre à l’AWS Summit.</p>
+
+<p>Nous partageons quelques notes que nous avons prises lors de cette journée, sur des sujets qui nous ont marqués et qui vont sans doute nous occuper une partie de l’année à venir.</p>
+
+<h2 id="sommaire">Sommaire</h2>
+
+<ul>
+  <li><a href="#BackToSummit">Retour à l’AWS Summit</a>
+    <ul>
+      <li><a href="#SageMaker">Rendez vos équipes de Data Science 10x plus productives avec SageMaker</a></li>
+      <li><a href="#FranceTV">Comment le cloud permet à France Télévisions d’innover dans la diffusion de contenu live</a></li>
+      <li><a href="#Treezor">Découvrez comment Treezor utilise AWS comme moteur de sa plateforme de Banking-as-a-service</a></li>
+      <li><a href="#ModernDevops">Tracer votre chemin vers le Modern DevOps en utilisant les services AWS d’apprentissage machine</a></li>
+      <li><a href="#ChoixStockageCloud">Innover plus rapidement en choisissant le bon service de stockage dans le cloud</a></li>
+      <li><a href="#OptimiserS3">Sécuriser vos données et optimiser leurs coûts de stockage avec Amazon S3</a></li>
+      <li><a href="#MinimiserEffortsKubernetes">Minimiser vos efforts pour déployer et administrer vos cluster Kubernetes</a></li>
+      <li><a href="#Serverless">Serverless et évènement, les nouvelles architectures</a></li>
+    </ul>
+  </li>
+  <li><a href="#AussiIntervenants">Nous étions aussi intervenants</a>
+    <ul>
+      <li><a href="#Objectif50Million">Transformer le load balancing pour optimiser le cache : objectif 50 millions d’utilisateurs</a></li>
+      <li><a href="#WellArchitected">Etes-vous bien architecturé ?</a></li>
+      <li><a href="#PreparerPremierTalk">Préparez et donnez votre premier talk</a></li>
+    </ul>
+  </li>
+  <li><a href="#Conclusion">Conclusion de l’article</a></li>
+</ul>
+
+<h3 id="rendez-vos-équipes-de-data-science-10x-plus-productives-avec-sagemaker-">Rendez vos équipes de Data Science 10x plus productives avec SageMaker <a name="SageMaker"></a></h3>
+
+<p>Conférence présentée par :</p>
+
+<ul>
+  <li>Olivier Sutter - AWS Solution Architect</li>
+  <li>Yoann Grondin - IA Team Leader Canal+</li>
+</ul>
+
+<p><img src="/images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/sagemaker.jpg" alt="&quot;SageMaker&quot;" /></p>
+
+<p>Cette conférence présentait le produit <a href="https://aws.amazon.com/sagemaker/" target="_blank">Amazon SageMaker</a>, d’abord dans sa globalité, puis appliqué au cas des équipes de Data Scientist chez Canal+.</p>
+
+<p>SageMaker a été lancé fin 2017 pour créer, entraîner et déployer des modèles de machine learning. C’est une solution tout-en-un, avec une interface graphique intuitive et un accent porté sur l’automatisation. Amazon promet également de gagner en performance sur SageMaker via l’implémentation de nombreux algorithmes d’apprentissage supervisés ou non-supervisés (XGBoost, kNN, PCA…).</p>
+
+<p>De manière générale, les équipes de Canal+ utilisent des solutions d’apprentissage pour différents cas d’usages :</p>
+
+<ul>
+  <li>Personnaliser l’expérience utilisateur et proposer du contenu ciblé</li>
+  <li>Mieux connaître, labelliser, classifier leurs contenus vidéo</li>
+  <li>Anticiper les besoins des abonnés ou des prospects</li>
+</ul>
+
+<p>Ils se sont tournés vers SageMaker pour diminuer le temps passé dans les étapes de preprocessing, data cleaning et déploiement en production.</p>
+
+<p>Chez Bedrock, nous avons aussi rencontré ces problématiques, nous avons réalisé des PoC de différentes solutions (dont SageMaker) et nous avons retenu la plateforme <a href="https://databricks.com" target="_blank">Databricks</a>.</p>
+
+<p>En effet, Databricks répond à nos besoins de fine-tuning des paramètres des clusters Spark et d’intégration avec Terraform (ce qui est important pour nous car nous utilisons exclusivement de l’Infra-as-Code). Nous avons également automatisé le déploiement en production de nos modèles d’apprentissage, de la même manière que SageMaker.</p>
+
+<p>Cette conférence nous a conforté dans l’approche et l’utilisation que nous avons de nos outils actuels, tout en nous confrontant à d’autres solutions techniques et d’autres cas d’usages au sein de notre industrie.</p>
+
+<p>Résumé par Gabriel FORIEN - DevOps</p>
+
+<h3 id="comment-le-cloud-permet-à-france-télévisions-dinnover-dans-la-diffusion-de-contenu-live-">Comment le cloud permet à France Télévisions d’innover dans la diffusion de contenu live <a name="FranceTV"></a></h3>
+
+<p>Conférence présentée par :</p>
+
+<ul>
+  <li>Raphaël Goldwaser - AWS Solution Architect</li>
+  <li>Guillaume Postaire - Directeur de la Media Factory, France Télévisions</li>
+  <li>Matthieu Parmentier - Responsable de l’Al factory, France Télévisions</li>
+  <li>Nicolas Pierre - Al factory Lead Tech, France Télévisions</li>
+</ul>
+
+<p><img src="/images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/live-subtitling.jpg" alt="&quot;Live subtitling diagram&quot;" /></p>
+
+<p>Nous avons assisté à une conférence présentée par les responsables Média et AI de France Télévisions et Raphaël Goldwaser Solutions Architect chez AWS. Ils nous ont parlé de l’évolution de leur usage du cloud dans la diffusion de vidéo en direct et des différentes étapes de la construction d’un système de sous-titrage automatique en direct.</p>
+
+<p>Pour ce système de sous-titrage, ils utilisent les services <a href="https://aws.amazon.com/media-services" target="_blank">Media &amp; Entertainment</a> fournis par AWS.</p>
+
+<p>Les flux vidéo sont envoyés directement dans le cloud via Elemental MediaConnect pour générer des sous-titres automatiquement en utilisant Media-Cloud AI et <a href="https://www.speechmatics.com/" target="_blank">Speechmatics</a>. Une fois les fichiers de sous-titres générés, ils sont insérés et synchronisés sur le flux en direct.</p>
+
+<p>Ces outils peuvent également être utilisés pour analyser des vidéos afin de contextualiser les publicités affichées et/ou choisir le meilleur moment pour les afficher.</p>
+
+<p>Chez Bedrock comme chez France Télévisions, nous challengeons régulièrement les solutions Médias proposées par AWS pour améliorer nos infrastructures et apporter de nouvelles fonctionnalités à nos produits.</p>
+
+<p>Résumé par <a href="https://twitter.com/christianvdz" target="_blank">Christian VAN DER ZWAARD</a> - SysOps</p>
+
+<h3 id="découvrez-comment-treezor-utilise-aws-comme-moteur-de-sa-plateforme-de-banking-as-a-service-">Découvrez comment Treezor utilise AWS comme moteur de sa plateforme de Banking-as-a-service <a name="Treezor"></a></h3>
+
+<p>Conférence présentée par :</p>
+
+<ul>
+  <li>Armel Negret - AWS Central Sales Representative</li>
+  <li>Nicolas Bordes - Technical Lead and AWS Sponsor, Société Générale</li>
+</ul>
+
+<p>Treezor, une filiale du groupe Société Générale, fournit une plateforme complètement APIsée qui permet aux fintechs et plus généralement aux acteurs de la finance d’accéder à leurs services bancaires. Cette plateforme est hébergée sur AWS et utilise une stack de services entièrement serverless : API Gateway, CloudWatch, Lambda, SNS et SQS entre autres. Les Lambdas sont développées en PHP grâce au framework <a href="https://bref.sh/" target="_blank">Bref</a>.</p>
+
+<p>A l’instar de Treezor, Bedrock possède également de nombreuses Lambda développées en PHP avec Bref. Ces Lambdas sont majoritairement déployées via le <a href="https://www.serverless.com/" target="_blank">framework serverless</a> et maintenues par le pôle backend. Au pôle infrastructure, nous essayons d’utiliser d’autres langages comme Python ou Go avec lesquels nous sommes plus à l’aise et qui sont nativement supportés par Lambda.</p>
+
+<p>L’approche “full serverless” est intéressante car elle permet de s’abstraire de la gestion de l’infrastructure sous-jacente et donc de se concentrer sur des problématiques intrinsèques au métier.<br />
+En sus, les services AWS serverless apportent souvent nativement de la haute disponibilité ainsi que de l’auto-scaling, deux problématiques très importantes pour garantir un service de qualité à nos utilisateurs finaux. C’est pour ces raisons que Bedrock utilise de nombreux services AWS serverless : Athena, CloudWatch, DynamoDB, Lambda, S3, SNS, SQS, Kinesis, …<br />
+Le pôle infrastructure de Bedrock étant relativement “petit” par rapport au nombre total de développeurs (23 devops/sysops pour 250 fullstack en date du 15 avril 2022), l’utilisation du serverless est un réel enjeu business.<br />
+Serverless ne répond pas à tous les besoins non plus, particulièrement sur de très forts pics de charge où nous préférons utiliser Kubernetes.</p>
+
+<p>Résumé par <a href="https://twitter.com/TimAufort" target="_blank">Timothée AUFORT</a> - DevOps</p>
+
+<h3 id="tracer-votre-chemin-vers-le-modern-devops-en-utilisant-les-services-aws-dapprentissage-machine-">Tracer votre chemin vers le Modern DevOps en utilisant les services AWS d’apprentissage machine <a name="ModernDevops"></a></h3>
+
+<p>Conférence présentée par :</p>
+
+<ul>
+  <li>Patrick Lamplé - AWS Principal Specialist SA</li>
+</ul>
+
+<p>La conférence nous proposait d’en apprendre un peu plus sur les nouveaux produits AWS Code Guru et DevOps Guru.</p>
+
+<p><a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/welcome.html" target="_blank">Code Guru</a>
+se découpe en deux parties :</p>
+
+<ul>
+  <li><em>Reviewer</em>, qui a pour ambition d’accélérer la revue de code ;</li>
+  <li><em>Profiler</em>, qui peut aider à optimiser les performances d’une application.
+A ce jour, ces services ne supportent que les langages Python et Java.</li>
+</ul>
+
+<p><a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html" target="_blank">DevOps Guru</a>
+permet d’identifier les comportements anormaux des applications au runtime.<br />
+Par exemple, si une application utilise une table DynamoDB qui n’est pas suffisamment provisionnée, une alerte va être déclenchée. Cette dernière pourrait permettre d’identifier un souci de configuration avant même que l’application ne soit déployée en production.</p>
+
+<p>Chez Bedrock, les langages utilisés étant principalement Javascript, PHP et Python, Code Guru ne sera pas une solution adéquate dans toutes les situations. Nous avons donc mis en place la solution <a href="https://kics.io/" target="_blank">KICS</a> qui nous permet, à l’aide de règles <a href="https://www.openpolicyagent.org/" target="_blank">Open Policy Agent</a>, d’effectuer automatiquement de nombreuses validations sur le code infrastructure (Terraform, Docker, YAML, …). KICS est utilisé au travers de <a href="https://github.com/features/actions" target="_blank">GitHub Actions</a> pour ajouter des commentaires sur les pull requests comme Code Guru est capable de le faire.</p>
+
+<p>Une analyse au runtime effectuée par DevOps Guru pourrait permettre de venir compléter la liste de services AWS que nous utilisons déjà et qui vérifient la configuration de notre infrastructure comme : Config, Trusted Advisor, CloudWatch,  …</p>
+
+<p>Les outils du Modern DevOps d’AWS pourraient venir en complément d’outils de qualité actuellement utilisés chez nous. À tester en complément de KICS pendant une de nos journées R&amp;D (journées organisées le dernier vendredi du mois, un mois sur deux).</p>
+
+<p>Résumé par Valentin CHABRIER &amp; <a href="https://twitter.com/villersm" target="_blank">Mickaël VILLERS</a> - DevOps</p>
+
+<h3 id="innover-plus-rapidement-en-choisissant-le-bon-service-de-stockage-dans-le-cloud-">Innover plus rapidement en choisissant le bon service de stockage dans le cloud <a name="ChoixStockageCloud"></a></h3>
+
+<p>Conférence présentée par :</p>
+
+<ul>
+  <li>Thomas Barandon - AWS Enterprise Support Manager</li>
+  <li>Laurent Dirson - Directeur des Solutions Business et des Technologies, Nexity</li>
+</ul>
+
+<p>Thomas Barandon a rappelé les solutions de stockage d’AWS : S3 pour du stockage objet, EBS pour le stockage bloc et EFS/FSx pour le stockage fichier.
+Il a par la suite présenté Storage Gateway, qui permet d’utiliser les services de stockage AWS dans une infrastructure on-prem via un montage NFS/Samba ou iSCSI.</p>
+
+<p>Laurent Dirson de chez Nexity a ensuite partagé la stratégie adoptée pour concevoir leur SI comme un service. Tous leurs documents sont désormais stockés dans un bucket S3 mis à disposition des agences via un montage NFS opéré par l’outil Storage Gateway. Une politique d’Object Lock permet d’utiliser le modèle WORM (write-once-read-many).</p>
+
+<p>Chez Bedrock, nous stockons déjà la grande majorité de nos données dans des buckets S3. Nous aimerions aussi bénéficier des avantages de ce service pour le stockage de nos métriques. Mais, comme nous utilisons <a href="https://docs.victoriametrics.com/Cluster-VictoriaMetrics.html" target="_blank">VictoriaMetrics</a>, ce mode de stockage n’est pas disponible et ces données sont stockées dans EBS. Peut-être que Storage Gateway nous permettrait d’écrire nos métriques directement sur un bucket S3 ?</p>
+
+<p>Résumé par <a href="https://twitter.com/_CoralinePetit" target="_blank">Coraline PETIT</a> - SysOps</p>
+
+<h3 id="sécuriser-vos-données-et-optimiser-leurs-coûts-de-stockage-avec-amazon-s3-">Sécuriser vos données et optimiser leurs coûts de stockage avec Amazon S3 <a name="OptimiserS3"></a></h3>
+
+<p>Conférence présentée par :</p>
+
+<ul>
+  <li>Meriem Belhadj - AWS Storage Specialist Solutions Architect</li>
+</ul>
+
+<p>Pendant cette présentation, Meriem Belhadj est revenue sur les classes de stockage disponibles sur S3, en mettant une attention particulière à Glacier Instant Retrieval et à Intelligent-Tiering. Le second permet d’appliquer une politique de stockage basée sur la fréquence d’accès aux données au cours des 30 derniers jours.<br />
+En effet, pour déterminer la “bonne” classe à utiliser, il faut notamment connaître la disponibilité des données. Les autres points à prendre en compte sont la fréquence d’accès, les performances recherchées, la taille des objets à stocker et enfin la durée de rétention.</p>
+
+<p>Nous appliquons ces pratiques chez Bedrock depuis plusieurs années. Toutefois, il serait judicieux de mettre en place des règles, type AWS Config, pour s’assurer que ces recommandations soient bien appliquées sur tous nos buckets S3.</p>
+
+<p>Résumé par <a href="https://twitter.com/_CoralinePetit" target="_blank">Coraline PETIT</a> - SysOps</p>
+
+<h3 id="minimiser-vos-efforts-pour-déployer-et-administrer-vos-cluster-kubernetes-">Minimiser vos efforts pour déployer et administrer vos cluster Kubernetes <a name="MinimiserEffortsKubernetes"></a></h3>
+
+<p>Conférence présentée par :</p>
+
+<ul>
+  <li>Abass Safouatou - AWS Lead Solution Architect</li>
+  <li>Sébastien Allamand - AWS Solution Architect Specialist Container</li>
+  <li>Patrick Chatain - CTO Contentsquare</li>
+</ul>
+
+<p>Contentsquare, analyste de l’expérience numérique, est venu nous parler de son utilisation d’<a href="https://aws-quickstart.github.io/cdk-eks-blueprints/#what-is-eks-blueprints" target="_blank">EKS Blueprint</a> avec <a href="https://aws.amazon.com/cdk/" target="_blank">AWS CDK</a> (Cloud Development Kit) pour la configuration et le déploiement de leurs infrastructures Kubernetes. Cet outil leur a permis de rapidement migrer leurs infrastructures dans le Cloud.</p>
+
+<p>À l’occasion de cette conférence, un début de comparatif a été amorcé entre les solutions de passage à l’échelle automatique : <a href="https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler" target="_blank">Cluster Autoscaler</a> et <a href="https://karpenter.sh/" target="_blank">Karpenter</a>.</p>
+
+<p>Cette analyse a particulièrement attiré notre attention : nous souhaitons migrer nos clusters Kubernetes, actuellement déployé par <a href="https://kops.sigs.k8s.io/" target="_blank">Kops</a> vers des clusters EKS, pour gagner en maintenabilité et en rapidité de scaling. Karpenter est l’une des solutions que nous étudions dans le cadre de ce projet, afin de tirer partie de cet outil qui a été développé par AWS et qui semble mieux tirer profit des fonctionnalités spécifiques d’AWS que Cluster Autoscaler.</p>
+
+<p>Contentsquare a mentionné son besoin de développer un outil de passage à l’échelle basé non pas sur la consommation CPU et mémoire mais sur des métriques custom. C’est un besoin que nous avons également chez Bedrock, nous avons donc développé un outil pour y répondre, vous trouverez plus de détails dans l’<a href="/2022/02/03/prescaling" target="_blank">article de blog</a> dédié à cet outil. Cette remarque nous a conforté dans notre volonté de continuer à open-sourcer les <a href="https://github.com/BedrockStreaming" target="_blank">outils que nous développons</a>, pour qu’ils bénéficient à la communauté.</p>
+
+<p>Résumé par <a href="https://twitter.com/_CoralinePetit" target="_blank">Coraline PETIT</a> &amp; <a href="https://twitter.com/christianvdz" target="_blank">Christian VAN DER ZWAARD</a> - SysOps</p>
+
+<h3 id="serverless-et-évènement-les-nouvelles-architectures-">Serverless et évènement, les nouvelles architectures <a name="Serverless"></a></h3>
+
+<p>Mainframe, monolithe, système distribué, microservices, la conception d’un SI ou d’un projet est en constante évolution.</p>
+
+<p>Ceci dit, depuis plusieurs années, beaucoup d’entreprises font la transition sur des architectures orientées évènements pour limiter les couplages forts entre les microservices.<br />
+À cela s’ajoute l’essor du tout Serverless : fini le temps où on gérait nous-mêmes le dimensionnement de nos serveurs.</p>
+
+<p>Cette année, plusieurs conférences étaient consacrées à ces sujets.</p>
+
+<h4 id="3-designs-patterns-pour-bien-démarrer-avec-serverless">3 designs patterns pour bien démarrer avec Serverless</h4>
+
+<p>Matthieu Napoli, Hero AWS Serverless et créateur de la librairie <a href="https://bref.sh/" target="_blank">Bref</a>, a présenté trois designs patterns pour bien démarrer avec Serverless.</p>
+
+<h5 id="application-http">Application HTTP</h5>
+
+<p>Il est maintenant très simple et peu coûteux de créer des applications HTTP en Serverless, en combinant différents services AWS :</p>
+
+<ul>
+  <li>Lambda function et <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html" target="_blank">Lambda function URL</a> (nouvelle fonctionnalité sortie une semaine avant le Summit) ;</li>
+  <li>CloudFront CDN ;</li>
+  <li>API Gateway ;</li>
+  <li>S3.</li>
+</ul>
+
+<p><strong>Un exemple concret :</strong></p>
+
+<ul>
+  <li>CloudFront CDN délivre les assets JS/CSS/image depuis S3 ;</li>
+  <li>il transmet également les retours d’API Gateway ;</li>
+  <li>et API Gateway communique avec la/les Lambdas.</li>
+</ul>
+
+<p>Ajoutons une base de données DynamoDB ou Aurora et nous voilà avec une application full Serverless.</p>
+
+<h5 id="file-de-messages-avec-worker">File de messages avec worker</h5>
+
+<p>Lorsqu’on met en place ce type de pattern, nous déployons :</p>
+
+<ul>
+  <li>un projet qui pousse un message dans une file “<em>producer</em>” ;</li>
+  <li>une file de messages (SQS/SNS/MQ) ;</li>
+  <li>un second projet qui lit les messages depuis la file “<em>consumer</em>”.</li>
+</ul>
+
+<p>Dans cette architecture, le “<em>consumer</em>” se connecte à la file de messages, lit les messages et se charge de toute la gestion d’erreur et de retry.</p>
+
+<p>En utilisant une Lambda comme “<em>consumer</em>”, AWS a mis en place une intégration spécifique entre les files de messages et les Lambdas. C’est maintenant la file de messages qui appelle directement la Lambda en lui donnant le message et qui gère également le retry : votre code applicatif est déchargé d’autant de responsabilités sans valeur métier.</p>
+
+<h5 id="communication-entre-microservices">Communication entre microservices</h5>
+
+<p>Quoi de plus contraignant que de gérer la communication de plusieurs services ? Il faut gérer :</p>
+
+<ul>
+  <li>les erreurs : que faire si plusieurs microservices partent en timeout ou échouent dans un workflow ?</li>
+  <li>le couplage : lors de la création d’un nouveau microservice, il doit être lui aussi appelé dans les chaines d’appels ;</li>
+  <li>l’authentification entre les différents services ;</li>
+  <li>et la latence : les appels de services en cascade augmentent la durée totale d’exécution.</li>
+</ul>
+
+<p>De ce constat, Matthieu propose une solution que nous avons déjà mise en place chez Bedrock depuis plusieurs années : communiquer avec des évènements.<br />
+Pour cela, AWS fournit EventBridge : un service serverless de routage d’évènements sans stockage.
+Ainsi, si un microservice doit en informer d’autres, il lui suffit d’envoyer un événement dans EventBridge. Les autres services n’auront qu’à “écouter” l’événement.<br />
+SNS, plus ancien, permettait la même approche, mais EventBridge propose de créer des règles de filtrage sur la totalité du message d’un événement.</p>
+
+<h4 id="construire-des-applications-serverless-orientées-événements">Construire des applications serverless orientées événements</h4>
+
+<p>Nicolas Moutschen, Solution Architect AWS et Guillaume Lannebere de chez Betclic ont fait un retour d’expérience sur la mise en place de différents services serverless AWS orientés événements.</p>
+
+<p>Betclic absorbe à chaque match/course, une quantité énorme de données (plusieurs millions d’événements) en quelques minutes.
+Par exemple, lors d’un match de football, les paris sont effectués à tout instant : avant le match, à la mi-temps, dans les dernières minutes…
+Leur SI est donc soumis, fréquemment, à de très forts pics de charge pendant des laps de temps très courts.</p>
+
+<p>Afin d’éviter de provisionner énormément de machines pour se mettre à l’échelle, Betclic à fait le choix du full serverless. Les applications de paris et de paiement communiquent par des messages d’événements envoyés dans le service AWS SNS : les Lambdas reçoivent les messages et les traitent avec une mise à l’échelle quasi immédiate en fonction du trafic.</p>
+
+<p>Résumé par <a href="https://twitter.com/F4b3X" target="_blank">Fabien LALANNE</a> - Développeur</p>
+
+<h2 id="nous-étions-aussi-intervenants-">Nous étions aussi intervenants <a name="AussiIntervenants"></a></h2>
+
+<p>Nous aimons tout particulièrement apprendre en lisant des articles écrits par d’autres membres de notre communauté ou en assistant à des conférences présentées par d’autres clients. Il est donc normal et important pour nous, de partager aussi notre expérience, ce que nous faisons régulièrement, y compris sur ce blog.</p>
+
+<p>Cette année, nous avons eu la chance d’intervenir et de partager avec notre communauté lors de trois conférences. Merci à AWS pour la confiance qui nous a été accordée !</p>
+
+<h3 id="transformer-le-load-balancing-pour-optimiser-le-cache--objectif-50-millions-dutilisateurs-">Transformer le load balancing pour optimiser le cache : objectif 50 millions d’utilisateurs <a name="Objectif50Million"></a></h3>
+
+<p>Vincent Gallissot <a href="https://twitter.com/vgallissot" target="_blank">@vgallissot</a>, Lead Cloud Architect, a expliqué comment Bedrock a amélioré le Load Balancing chez AWS, pour optimiser le cache de sa diffusion de vidéos, avec comme objectif 50 million d’utilisateurs :</p>
+
+<blockquote class="twitter-tweet"><p lang="fr" dir="ltr">Démarrage des conférences à l’<a href="https://twitter.com/hashtag/AWSSummit?src=hash&amp;ref_src=twsrc%5Etfw">#AWSSummit</a>. Et voici un REX intéressant pour partager l’une des problématiques intéressantes <a href="https://t.co/kuKGZZyE2A">pic.twitter.com/kuKGZZyE2A</a></p>&mdash; Akram BLOUZA (@akram_Blouza) <a href="https://twitter.com/akram_Blouza/status/1513809149565575176?ref_src=twsrc%5Etfw">April 12, 2022</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>Guillaume Marchand, Senior Solutions Architect chez AWS a débuté notre talk en parlant de Load Balancing chez AWS, des différentes solutions et des bonnes pratiques, ainsi que des exemples d’architectures possibles. J’ai ensuite expliqué notre besoin de scaler des serveurs de cache et comment nous avons relevé ce challenge, en développant notamment <a href="https://github.com/BedrockStreaming/hsdo" target="_blank">Haproxy Service Discovery Orchestrator</a>. Ce talk n’a pas été enregistré, mais les slides sont disponibles sur <a href="https://www.dropbox.com/s/thvtayaltp0d6s5/IN-02_AWS_SUMMIT_BedrockStreaming_2022-full.pdf?dl=0" target="_blank">ce lien</a>.</p>
+
+<h3 id="etes-vous-bien-architecturé--">Etes-vous bien architecturé ? <a name="WellArchitected"></a></h3>
+
+<p>Pascal Martin <a href="https://twitter.com/pascal_martin" target="_blank">@pascal_martin</a>, Principal Engineer, est intervenu pour partager notre retour d’expérience client pendant une conférence de présentation du Well-Architected Framework :</p>
+
+<p>Pour cette conférence, Rémi Retureau, Partner Management SA Lead chez AWS, a commencé par présenter les pratiques Well-Architected. Un ensemble de recommandations basées sur 10 ans d’expertise de Solutions Architects AWS.<br />
+Je suis ensuite intervenu pour partager un retour d’expérience : comment nous utilisons Well-Architected Framework chez Bedrock pour nous aider à valider l’architecture de composants de notre plateforme, à prioriser des évolutions ou même, à en identifier de nouvelles.<br />
+En quelques mots : nous passons une revue Well-Architected une fois par an et, si nous ne nous posons pas explicitement l’ensemble des questions du Framework à chaque nouveau projet, nous l’intégrons de plus en plus à nos pratiques et habitudes.<br />
+Si vous commencez à travailler sur AWS, le Well-Architected Framework et ses recommandations, bien que peut-être effrayantes au premier abord, sont un ensemble de bonnes pratiques qui vous aideront à concevoir et à construire une plateforme plus solide, plus résiliente et moins coûteuse.</p>
+
+<h3 id="préparez-et-donnez-votre-premier-talk-">Préparez et donnez votre premier talk <a name="PreparerPremierTalk"></a></h3>
+
+<p>Pascal est aussi intervenu, cette fois en tant qu’AWS Hero pour guider la préparation de vos talks :</p>
+
+<p>Pour cette seconde intervention, j’ai choisi de parler d’un sujet qui n’est pas lié à AWS.
+J’aime assister à des conférences : je le fais depuis très longtemps et j’apprends beaucoup ainsi.
+Je suis aussi toujours très content de voir d’autres speakers monter sur scène et partager leur expérience. Je sais que beaucoup de personnes, dans notre communauté, ont des connaissances et des idées géniales et j’aimerais qu’elles les partagent plus souvent !</p>
+
+<p>Je sais toutefois que cet exercice est effrayant et que se lancer sur scène pour la première fois est difficile. J’espérais donc, à travers ce talk déjà donné chez Bedrock lors d’un Last Friday Talks <em>(une journée de conférences internes le dernier vendredi du mois, un mois sur deux)</em> aider de nouvelles personnes à se lancer.
+L’idée vous intéresse mais vous n’avez pas pu assister à cette conférence ? Et bien, j’ai aussi écrit un livre pour vous accompagner : <a href="https://votre-premiere-conference.fr/" target="_blank">« Préparez et donnez votre première conférence (quand ce n’est pas votre métier) »</a>
+Et j’ai hâte, l’année prochaine, de vous voir monter sur scène et partager avec notre communauté !</p>
+
+<h2 id="conclusion-de-larticle-">Conclusion de l’article <a name="Conclusion"></a></h2>
+
+<p>Avec des milliers de participants et participantes, l’AWS Summit est toujours une excellente occasion d’échanger et d’apprendre. Nous étions également très heureux de pouvoir, cette année encore, partager notre expérience lors de trois interventions.<br />
+Cet événement était aussi le premier pour certains et certaines d’entre nous, une très bonne découverte !</p>
+
+<p>Comme beaucoup d’autres speakers et entreprises rencontrés mardi, nous recrutons : des SysOps, des DevOps, des développeurs et des développeuses, une ou un FinOps. Vous voulez nous aider à construire et à faire grandir notre plateforme ? Nous avons encore de super projets et challenges, <a href="https://www.bedrockstreaming.com/career" target="_blank">faites-nous signe</a> !</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Bedrock+%C3%A0+l%27AWS+Summit+2022%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F04%2F20%2Faws-summit-2022-notre-retour-dexperience.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/04/20/aws-summit-2022-notre-retour-dexperience.html&title=Bedrock+%C3%A0+l%27AWS+Summit+2022%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/04/20/aws-summit-2022-notre-retour-dexperience.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Bedrock à l'AWS Summit 2022%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/04/20/aws-summit-2022-notre-retour-dexperience.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#aws">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> aws</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#cloud">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#kubernetes">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> kubernetes</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#summit">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> summit</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#sysadmin">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> sysadmin</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="⚡️ Vite ⚡️ the Webpack killer" href="/2022/04/21/vite-the-webpack-killer.html">
+            <p>Previous post</p>
+            ⚡️ Vite ⚡️ the Webpack killer
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Comment faire un trailer vidéo qui déchire avec des technos web ?" href="/2022/04/04/comment-faire-un-trailer-qui-dechire-avec-des-technos-web.html">
+            <p>Next post</p>
+            Comment faire un trailer vidéo qui déchire avec des technos web ?
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

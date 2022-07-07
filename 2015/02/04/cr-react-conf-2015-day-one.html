@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/reactconf/reactconf.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>CR React Conférence 2015 - Day 1 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="CR React Conférence 2015 - Day 1" />
+<meta name="author" content="Kenny Dits" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Compte rendu de la conférence React - Facebook HQ - Menlo Park - Day 1" />
+<meta property="og:description" content="Compte rendu de la conférence React - Facebook HQ - Menlo Park - Day 1" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2015/02/04/cr-react-conf-2015-day-one.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2015/02/04/cr-react-conf-2015-day-one.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-02-04T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CR React Conférence 2015 - Day 1" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2015/02/04/cr-react-conf-2015-day-one.html"},"url":"https://tech.bedrockstreaming.com/2015/02/04/cr-react-conf-2015-day-one.html","author":{"@type":"Person","name":"Kenny Dits"},"description":"Compte rendu de la conférence React - Facebook HQ - Menlo Park - Day 1","dateModified":"2015-02-04T00:00:00+01:00","datePublished":"2015-02-04T00:00:00+01:00","headline":"CR React Conférence 2015 - Day 1","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="CR React Conférence 2015 - Day 1">
+    <meta name="twitter:description" content="Les 28 et 29 janvier 2015, sur le campus de Facebook (à Menlo Park), avait lieu la première conférence officielle sur la librairie open-source React (créée p...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/reactconf/reactconf.png">
+    <meta name="twitter:image:alt" content="CR React Conférence 2015 - Day 1">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="CR React Conférence 2015 - Day 1 " aria-label="CR React Conférence 2015 - Day 1" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="CR+React+Conf%C3%A9rence+2015+-+Day+1" class="title">CR React Conférence 2015 - Day 1</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/kenny_dee" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="/images/avatar/kenny.jpg">
+    
+    <p class="meta">
+      Kenny Dits - 
+      
+      February 04, 2015
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Les 28 et 29 janvier 2015, sur le campus de Facebook (à Menlo Park), avait lieu la première conférence officielle sur la librairie open-source React (créée par les équipes de Facebook).</p>
+
+<p>2 jours de conférences riches en talks et en annonces dont voici un petit compte-rendu, pour ceux n’ayant pas eu la chance de pouvoir y assister ou de suivre les différents LT sur Twitter, en commençant par la première journée.</p>
+
+<h1 id="louverture-de-la-conférence-par-tom-occhino">L’ouverture de la conférence par Tom Occhino</h1>
+
+<p>Tom Occhino, <a href="https://twitter.com/tomocchino">@tomocchino</a>, a permis de rétablir la vérité sur l’origine de React.
+Ce sont les équipes de Facebook Ads qui sont à la genèse de ce projet.</p>
+
+<p>A l’époque, sur des applis MVC côté client, plus les applications et le nombre de développeurs grandissaient, plus elles étaient difficiles à maintenir et devenaient lentes !
+Le « Two Way Data Binding » rendait les mises à jour en cascade trop compliquées (tout l’écran devait être rafraîchi) et le code devenait vraiment non prévisible. Mais malgré tout, cela “marchait” ! L’appli de Chat Facebook fonctionnait aussi de la même manière.</p>
+
+<p>C’est ainsi que React a été créé pour améliorer le rendu, l’organisation et les performances de ces applications.</p>
+
+<p>Instagram a ensuite rejoint Facebook et les équipes ont voulu utiliser React pour refondre le site, mais React était à l’époque trop couplé à Facebook. 
+Pete Hunt a donc re-factoré l’ensemble pour créer le React “open-source” que l’on connaît aujourd’hui.</p>
+
+<p>Après cette introduction sur React, Tom a expliqué que l’un des problèmes de React est qu’il n’est utilisé que pour le Web.
+Aujourd’hui, tout le monde tente de créer des composants web ressemblant aux composants natifs, mais à chaque fois, le résultat est mauvais, l’environnement natif étant plus performant que celui d’un browser. Un exemple donné d’application native plutôt sexy est celui de “Facebook Paper”.</p>
+
+<p>Il a ensuite révélé l’annonce certainement la plus importante de ces 2 jours, l’arrivée prochaine sur Github de « React Native », permettant de développer en Js via React des composants entièrement natifs, avec comme exemple, l’application Facebook Groups présente sur l’App Store iOs ! 
+La conférence est lancée !</p>
+
+<p>Avec React Native, ils ne veulent pas faire du “write once, run anywhere », mais du “learn once, write anywhere » de manière à optimiser les composants et usages suivant les devices.</p>
+
+<p>Le code sera fourni sur un dépot privé à tous les participants de la conférence lors de la Keynote de clôture !</p>
+
+<p>Pour finir sa keynote d’entrée, il a voulu lister les frameworks JS qui ont été influencés par React ces derniers mois : Tous !</p>
+
+<iframe width="720" height="405" src="https://www.youtube.com/embed/KVZ-P-ZI6W4" frameborder="0" allowfullscreen=""></iframe>
+
+<h1 id="ebay--tweak-your-page-in-real-time-without-leaving-the-comfort-of-your-editor">Ebay : Tweak your page in real time, without leaving the comfort of your editor</h1>
+
+<p>Brenton Simpsons d’Ebay, <a href="https://twitter.com/appsforartists">@appsforartists</a>, nous a montré comment coder en live du React de son mac, avec le rendu affiché en temps réel sans reload sur un ipad.</p>
+
+<p>L’avantage d’un iPad étant sa taille qui lui permet de représenter 3 écrans d’iPhone 5 sur sa largeur, soit 3 états de son application.
+Il utilise « <a href="https://webpack.github.io/">WebPack</a> » et l’extension pour WebPack « <a href="https://gaearon.github.io/react-hot-loader/">react-hot-loader</a> » de <a href="https://twitter.com/dan_abramov">Dan Abramov</a>.</p>
+
+<p>Ebay a aussi open-sourcé un framework assez experimental (6 mois d’ancienneté) du nom d’Ambidex pour gérer du server side rendering avec React et Flux : <a href="https://github.com/appsforartists/ambidex">https://github.com/appsforartists/ambidex</a></p>
+
+<iframe width="720" height="405" src="https://www.youtube.com/embed/yaymfLj5tjA" frameborder="0" allowfullscreen=""></iframe>
+
+<h1 id="data-fetching-for-react-applications-at-facebook">Data fetching for React Applications at Facebook</h1>
+
+<p>Jing Chen, <a href="https://twitter.com/jingc">@jingc</a>, et Daniel Schafer, <a href="https://twitter.com/dlschafer">@dlschafer</a>, nous ont présenté Relay, une nouvelle approche au pattern Flux orienté Data Fetching, permettant grâce à GraphQL de définir au niveau de son composant les data nécessaires.
+Relay se chargeant ensuite de générer les bons appels HTTP grâce à GraphQL.</p>
+
+<p>Une approche intéressante, mais qui parait très couplée au fonctionnement de Facebook et soulève pas mal de questions : dois-je modifier toutes mes API pour supporter GraphQL ? Quid de l’optimisation du cache coté API ? …</p>
+
+<p>Relay sera open-sourcé prochainement (ainsi que GraphQL j’imagine ?).</p>
+
+<p>Beaucoup plus d’infos sont disponibles ici : <a href="https://gist.github.com/wincent/598fa75e22bdfa44cf47">https://gist.github.com/wincent/598fa75e22bdfa44cf47</a></p>
+
+<iframe width="720" height="405" src="https://www.youtube.com/embed/9sc8Pyc51uU" frameborder="0" allowfullscreen=""></iframe>
+
+<h1 id="communicating-with-channels">Communicating with channels</h1>
+
+<p>James Long, <a href="https://twitter.com/jlongster">@jlongster</a>, assez réputé via son blog <a href="https://jlongster.com/">https://jlongster.com</a> et pour son travail chez Mozilla sur les Dev Tools de Firefox, a présenté une manière de communiquer entre composants via des « channels » en utilisant la librairie “ <a href="https://github.com/ubolonton/js-csp">js-scp</a>”  permettant de coder à la manière des « goroutine » de Go ou des « <a href="https://github.com/clojure/core.async">core.async</a> » de Clojurescript.</p>
+
+<iframe src="//www.slideshare.net/slideshow/embed_code/44054367" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen=""> </iframe>
+
+<iframe width="720" height="405" src="https://www.youtube.com/embed/W2DgDNQZOwo" frameborder="0" allowfullscreen=""></iframe>
+
+<h1 id="react-router-increases-your-productivity">React-router increases your productivity</h1>
+
+<p>Michael Jackson, <a href="https://twitter.com/mjackson">@mjackson</a>, co-créateur du routeur le plus populaire de React “<a href="https://github.com/rackt/react-router">react router</a>”, est venu avec Ryan Florence (l’autre co-créateur), nous expliquer les origines du routeur, l’inspiration très forte du router d’Ember.Js, ainsi que quelques techniques avancées d’utilisations (transitions, etc). Un excellent speaker et une introduction très drôle sur les origines de React-Router.</p>
+
+<blockquote>
+  <p>“Url should be part of your design process”</p>
+</blockquote>
+
+<script async="" class="speakerdeck-embed" data-id="1e95aa158d6643788ecaceb07c2d23b8" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
+<iframe width="720" height="405" src="https://www.youtube.com/embed/XZfvW1a8Xac" frameborder="0" allowfullscreen=""></iframe>
+
+<h1 id="full-stack-flux">Full Stack Flux</h1>
+
+<p>Pete Hunt, <a href="https://twitter.com/floydophone">@floydophone</a>, l’une des personnes responsable des origines de React et de son « open-sourcage », ancien Lead-Dev d’Instagram chez Facebook, a présenté un talk un peu particulier expliquant comment on pouvait, coté architecture serveur, reproduire le pattern Flux.</p>
+
+<blockquote>
+  <p>“shared mutable state is the root of all evil.”</p>
+</blockquote>
+
+<iframe width="720" height="405" src="https://www.youtube.com/embed/KtmjkCuV-EU" frameborder="0" allowfullscreen=""></iframe>
+
+<h1 id="making-your-app-fast-with-high-performance-components">Making your app fast with high-performance components</h1>
+
+<p>Jason Bonta, de l’équipe Facebook Ads, à l’origine de la création de React, a ciblé sa présentation sur les problèmes de performances que résout React.
+Coté Ads Manager, l’équipe doit faire des interfaces ultra complexes, avec notamment le besoin de présenter un nombre d’éléments très important dans un tableau.</p>
+
+<p>Un composant qui sera annoncé comme « open-sourcé » durant sa conférence : <a href="https://facebook.github.io/fixed-data-table/">FixedDataTable</a>
+Vous pouvez aussi retrouver une « review » du composant ici : <a href="https://www.reactbook.org/blog/fixed-data-table-reactjs.html">https://www.reactbook.org/blog/fixed-data-table-reactjs.html</a></p>
+
+<p>Ont été abordé :</p>
+
+<ul>
+  <li>le ReactAddons : <a href="https://facebook.github.io/react/docs/pure-render-mixin.html">PureRenderMixin</a></li>
+  <li>l’utilisation du shallowEqual sur le shouldComponentUpdate</li>
+  <li>Ainsi qu’une bonne pratique pour la réalisation des composants, qui est revenue plusieurs fois pendant la conf, consistant à englober le composant, dans un autre composant de type container ne contenant aucune « props ».</li>
+</ul>
+
+<p>En résumé : 
+<img src="/images/posts/reactconf/react-basic-concept-optim.png" alt="React Basic concepts for optimization" /></p>
+
+<iframe width="720" height="405" src="https://www.youtube.com/embed/KYzlpRvWZ6c" frameborder="0" allowfullscreen=""></iframe>
+
+<h1 id="format-data-and-strings-in-any-language-with-formatjs-and-react-intl">Format data and strings in any language with FormatJS and react-intl</h1>
+
+<p>Dernière conférence de la journée par Eric Ferraiuolo, <a href="https://twitter.com/ericf">@ericf</a>, sur l’internationalisation et la manière de la gérer dans React, grâce à <a href="https://github.com/yahoo/react-intl">react-intl</a> (open-sourcé par Yahoo).</p>
+
+<p>Pour ceux qui douteraient encore de la complexité de gérer plusieurs langues, ainsi que les chiffres et pluralisations, et qui ont cette problématique sur un projet React, cette vidéo est un must-see.
+<a href="https://formatjs.io/">Format.Js</a> a aussi été cité et s’apparente à une collection de module Js pour l’internationalisation.</p>
+
+<iframe width="720" height="405" src="https://www.youtube.com/embed/Sla-DkvmIHY" frameborder="0" allowfullscreen=""></iframe>
+
+<h1 id="hype">Hype</h1>
+
+<p>Ryan Florence a fini la journée sur un showcase d’exemple très intéressant. 
+Il nous a aussi raconté son histoire, et comment il est devenu développeur : principalement, parce qu’il voulait toujours répondre “oui” quand on lui demandait si il pouvait faire quelque chose.</p>
+
+<p>Bref, une excellente manière de finir la journée de manière fun avec quelques exemples très intéressants, notamment autour des “portals”.</p>
+
+<p>Vous pouvez retrouver toutes les démos ici : <a href="https://github.com/ryanflorence/reactconf-2015-HYPE">https://github.com/ryanflorence/reactconf-2015-HYPE</a></p>
+
+<p>Pour ceux qui douteraient encore des performances de React, je vous invite à regarder les 5-6 premières minutes de la vidéo.</p>
+
+<iframe width="720" height="405" src="https://www.youtube.com/embed/z5e7kWSHWTg" frameborder="0" allowfullscreen=""></iframe>
+
+<h1 id="conclusion-du-premier-jour">Conclusion du premier jour</h1>
+
+<p>Bonne grosse claque sur cette première journée, notamment avec l’annonce de React Native. Nous avons eu le droit à une organisation absolument parfaite (snack, boisson chaude et froide à volonté) et des speakers de très grand talent (ce qui n’est pas toujours le cas de certaines conférences, surtout aussi ciblée que celle-là).</p>
+
+<p>p.s: Retrouvez les <a href="/2015/02/10/cr-react-conf-2015-day-two">retours sur la deuxième journée de la React conférence 2015</a>.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=CR+React+Conf%C3%A9rence+2015+-+Day+1%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2015%2F02%2F04%2Fcr-react-conf-2015-day-one.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2015/02/04/cr-react-conf-2015-day-one.html&title=CR+React+Conf%C3%A9rence+2015+-+Day+1%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2015/02/04/cr-react-conf-2015-day-one.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=CR React Conférence 2015 - Day 1%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2015/02/04/cr-react-conf-2015-day-one.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#flux">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> flux</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#isomorphic">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> isomorphic</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#javascript">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#react">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> react</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="CR React Conférence 2015 - Day 2" href="/2015/02/10/cr-react-conf-2015-day-two.html">
+            <p>Previous post</p>
+            CR React Conférence 2015 - Day 2
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="App Isomorphic: la Single Page App parfaite ?" href="/2014/12/04/isomorphic-single-page-app-parfaite-react-flux.html">
+            <p>Next post</p>
+            App Isomorphic: la Single Page App parfaite ?
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/reactconf/reactconf.png'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

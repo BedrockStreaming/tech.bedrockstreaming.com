@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/cytron/branche.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Lâche moi la branch ! | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Lâche moi la branch !" />
+<meta name="author" content="Cytron Team" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Blog technique de Bedrock" />
+<meta property="og:description" content="Blog technique de Bedrock" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/lache-moi-la-branch" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/lache-moi-la-branch" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-07-15T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Lâche moi la branch !" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/lache-moi-la-branch"},"url":"https://tech.bedrockstreaming.com/lache-moi-la-branch","author":{"@type":"Person","name":"Cytron Team"},"description":"Blog technique de Bedrock","dateModified":"2013-07-15T00:00:00+02:00","datePublished":"2013-07-15T00:00:00+02:00","headline":"Lâche moi la branch !","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Lâche moi la branch !">
+    <meta name="twitter:description" content="Test continu des Pull RequestsMaintenant que nous utilisons GitHub Enterprise chez M6Web, nous avons la joie de pouvoir utiliser les Pull Requests de façon a...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/cytron/branche.png">
+    <meta name="twitter:image:alt" content="Lâche moi la branch !">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Lâche moi la branch ! " aria-label="Lâche moi la branch !" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="L%C3%A2che+moi+la+branch+%21" class="title">Lâche moi la branch !</h1>
+      
+
+
+<div class="post-info">
+      <img alt="Author's avatar" src="/images/avatar/cytron.png">
+    
+    <p class="meta">
+      Cytron Team - 
+      
+      July 15, 2013
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <h4 id="test-continu-des-pull-requests">Test continu des Pull Requests</h4>
+
+<p>Maintenant que nous <a href="https://twitter.com/kenny_dee/status/352003224506605569">utilisons GitHub Enterprise</a> chez M6Web, nous avons la joie de pouvoir utiliser les Pull Requests de façon abusive. Mais leur puissance n’est maximale que lorsqu’elles peuvent être <a href="https://github.com/blog/1227-commit-status-api">testées individuellement</a> avant d’être mergées sur le <em>master</em>.</p>
+
+<p><img src="/images/posts/imgob/0-00-30-83-201307-ob_b6e0b1_capture-d-e-cran-2013-07-12-a-15-03-58.png" alt="Lâche moi la branch !" /></p>
+
+<p>Pour ce faire, nous avons utilisé le plugin <a href="https://wiki.jenkins-ci.org/display/JENKINS/GitHub+pull+request+builder+plugin">GitHub Pull Request Builder</a> de <a href="https://jenkins-ci.org/">Jenkins</a>, qui après une <a href="https://buddylindsey.com/jenkins-and-github-pull-requests/">configuration assez simple</a>, nous a permis de créer un job qui lance automatiquement un build lorsqu’une Pull Request est modifiée. Ce build se positionne sur la branch pointée par la Pull Request et exécute les tests.</p>
+
+<p><img src="/images/posts/imgob/0-00-30-83-201307-ob_e753d81cd5875809e61c474bcc6b8609_liste-des-builds.png" alt="Lâche moi la branch !" /></p>
+
+<p>Il est donc nécessaire de créer un job dédié au test des Pull Requests pour chaque projet dont nous souhaitons voir les Pull Request automatiquement testées. Ça peut paraître évident, mais lorsqu’on a plus de 200 repositories, c’est tout de suite moins trivial.</p>
+
+<h4 id="configuration-du-plugin">Configuration du plugin</h4>
+
+<p>Le fonctionnement par défaut du plugin GitHub Pull Request Builder est assez restrictif. Il nécessite qu’un contributeur ajoute un commentaire sur la Pull Request en demandant un test puis qu’un admin (parmi une liste à configurer) réponde avec un deuxième commentaire acceptant de lancer les tests (le tout avec des phrases types configurables). C’est uniquement ensuite que Jenkins lancera un build.</p>
+
+<p>Or dans notre contexte d’entreprise, nous souhaitons que l’automatisation soit totale, comme dans <a href="https://travis-ci.org/">Travis</a> : chaque modification d’une Pull Request lance l’ensemble des tests. Pour arriver ce fonctionnement, il suffit de cocher “<em>Build every pull request automatically without asking (Dangerous!)</em>” dans la section “<em>Avancée</em>” des options de lancement de build par “<em>Github pull requests builder</em>”.</p>
+
+<h4 id="test-continu-du-master">Test continu du master</h4>
+
+<p>Nous essayons tant que possible de suivre le <a href="https://github.com/blog/1557-github-flow-in-the-browser">workflow de déploiement de GitHub</a> : on développe une fonctionnalité par branch, on fait une Pull Request sur le <em>master</em> et on ne merge que lorsque tout le monde est d’accord et que les tests sont passés. Cela nous permet de garder le <em>master</em> toujours déployable.</p>
+
+<p>Nous avons donc, pour chaque projet, un second job qui lance l’ensemble des tests lors de chaque modification du <em>master</em>. Cela n’arrive normalement que lors du merge des nouvelles fonctionnalités contenues dans les Pull Requests, qui ont déjà été individuellement testées. Nous sommes donc sereins sur l’intégration croisée de toutes les nouvelles fonctionnalités sur le <em>master</em>.</p>
+
+<h4 id="déploiement">Déploiement</h4>
+
+<p>Avant de déployer à l’aide de <a href="https://www.capistranorb.com/">Capistrano</a>, nous vérifions que les tests passent (résultat de l’intégration continue + lancement manuel des tests). Le manque d’automatisation concernant ces mises en production fait apparaitre une faille assez large. Pour la résorber, nous pourrions par exemple accepter le déploiement d’un service, uniquement si ses tests sont passés et si aucun autre n’est en cours ou en attente. Même si cela ajoute une dépendance aux serveurs d’intégration continue, cela sécurise les déploiements.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=L%C3%A2che+moi+la+branch+%21%20https%3A%2F%2Ftech.bedrockstreaming.com%2Flache-moi-la-branch"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/lache-moi-la-branch&title=L%C3%A2che+moi+la+branch+%21%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/lache-moi-la-branch"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Lâche moi la branch !%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/lache-moi-la-branch"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#github">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> github</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#jenkins">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> jenkins</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#qualite">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> qualite</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Introduction à Drupal par Claire Roubey (Clever Age)" href="/introduction-%C3%A0-drupal-par-claire-roubey-clever-age">
+            <p>Previous post</p>
+            Introduction à Drupal par Claire Roubey (Clever Age)
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="M6Web Dev Facts #5" href="/m6web-dev-facts-5">
+            <p>Next post</p>
+            M6Web Dev Facts #5
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/cytron/branche.png'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

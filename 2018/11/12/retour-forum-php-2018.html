@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/forumphp2018/header.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Forum PHP Paris 2018 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Forum PHP Paris 2018" />
+<meta name="author" content="Olivier Mansour, Fabien De Saint Pern, Francois-Xavier Gaberan, Héléna Hiraux, Pascal Martin, Benoit Viguier, Guillaume Bouyge" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Nos retours du Forum PHP à Paris, les 25 et 26 octobre 2018" />
+<meta property="og:description" content="Nos retours du Forum PHP à Paris, les 25 et 26 octobre 2018" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2018/11/12/retour-forum-php-2018.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2018/11/12/retour-forum-php-2018.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-11-12T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Forum PHP Paris 2018" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2018/11/12/retour-forum-php-2018.html"},"url":"https://tech.bedrockstreaming.com/2018/11/12/retour-forum-php-2018.html","author":{"@type":"Person","name":"Olivier Mansour, Fabien De Saint Pern, Francois-Xavier Gaberan, Héléna Hiraux, Pascal Martin, Benoit Viguier, Guillaume Bouyge"},"description":"Nos retours du Forum PHP à Paris, les 25 et 26 octobre 2018","dateModified":"2018-11-12T00:00:00+01:00","datePublished":"2018-11-12T00:00:00+01:00","headline":"Forum PHP Paris 2018","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Forum PHP Paris 2018">
+    <meta name="twitter:description" content="Comme tous les ans, nous étions au Forum PHP 2018 organisé par l’AFUP ! Encore une fois, nous avons pu assister à plusieurs conférences et échanger avec gran...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/forumphp2018/header.jpg">
+    <meta name="twitter:image:alt" content="Forum PHP Paris 2018">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Forum PHP Paris 2018 " aria-label="Forum PHP Paris 2018" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Forum+PHP+Paris+2018" class="title">Forum PHP Paris 2018</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      November 12, 2018
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Comme tous les ans, nous étions au <a href="https://event.afup.org/forumphp2018/">Forum PHP 2018</a> organisé par l’AFUP ! Encore une fois, nous avons pu assister à plusieurs conférences et échanger avec grand nombre d’entre vous. Voici quelques mots sur celles qui nous ont le plus marqué.</p>
+
+<h3 id="boostez-vos-applications-avec-http2">“Boostez vos applications avec HTTP/2”</h3>
+
+<p>Nous connaissons et utilisons tous HTTP au quotidien. Mais que se cache-t-il derrière ce protocole ?
+<a href="https://twitter.com/dunglas">Kévin Dunglas</a> nous à présenté les nouvelles fonctionnalités apportées par HTTP/2.
+Il nous a d’abord fait un rappel sur les concepts HTTP et sur l’évolution de ce protocole conçu pour échanger des données documentaires.
+Après plus de 20 ans en version 1, HTTP évolue et passe en version 2 !</p>
+
+<p>HTTP/2 était initialement propulsé par Google. Première bonne nouvelle, pas de changement nécessaire du côté de nos applications PHP. La version 2 introduit de nouvelles fonctionnalités intéressantes :</p>
+
+<ul>
+  <li>Priorisation des requêtes</li>
+  <li>Passage au binaire (optimisation de la taille des messages)</li>
+  <li>Notifications push</li>
+  <li>Et bien d’autre</li>
+</ul>
+
+<p>Kévin nous a aussi présenté le protocole <a href="https://github.com/dunglas/mercure">Mercure</a>. Il permet de faire des notifications push server side vers différents clients. Mercure semble simplifier grandement les échanges push client / serveur. Toutes les parties dialoguent au travers d’un hub (rôle primaire de Mercure) et se synchronisent entre elles. Une petite démo à confirmé l’effet <em>“whaou”</em> de cette nouvelle solution.</p>
+
+<h3 id="beyond-the-design-patterns-and-principles---writing-good-oo-code-et-how-i-started-to-love-what-they-call-design-patterns">“Beyond the design patterns and principles - writing good OO code” et “How I started to love what they call Design Patterns”</h3>
+
+<p>Ce Forum a aussi été l’occasion de voir (ou revoir) quelques principes fondamentaux autour des Design Patterns, avec <a href="https://twitter.com/matthiasnoback">Matthias Noback</a> et <a href="https://twitter.com/samuelroze">Samuel Roze</a>.</p>
+
+<p>Ils ont présenté des exemples concrets, des mises en application de certains <em>Design Patterns</em> incontournables, toujours dans l’optique de découpler notre logique métier, de mieux réutiliser notre code et en améliorer la maintenabilité. Le <em>Domain Driven Design</em> a donc logiquement été mis à l’honneur, ainsi que le typage fort pour donner du sens au code et favoriser sa bonne utilisation. Pour éviter la dette technique, il faut <em>“acheter en avance la capacité de changer”</em>.</p>
+
+<p><img src="/images/posts/forumphp2018/Create-better-object.jpg" alt="Create better object" /></p>
+
+<h3 id="we-got-rid-of-management">“We got rid of management”</h3>
+
+<p><a href="https://twitter.com/michellesanver">Michelle Sanver</a> nous a présenté l’holacratie : un système d’organisation basé sur l’intelligence collective, utilisé chez Liip. Elle a démarré la conférence en expliquant les défauts de la hiérarchie pyramidale (la photo de la slide parle d’elle-même ;-)) :</p>
+
+<p><img src="/images/posts/forumphp2018/We-got-rif-of-management.jpg" alt="Create better object" /></p>
+
+<p>En holacratie, la société s’organise en cercles et sous cercles de responsabilité et chaque collaborateur se voit donner des rôles et les moyens de l’assumer. Les décisions sont prises collectivement et le pouvoir n’est pas centralisé dans les mains de quelques personnes. Tout est basé sur la transparence, en particulier la rémunération et les budgets. Le but principal est d’assurer des conditions de travail bienveillantes et que chacun se sente en sécurité pour exprimer au mieux ses talents et réduire les tensions. Notamment, toutes les réunions sont facultatives :-D</p>
+
+<p>Liip a développé un outil communautaire en SAS (<a href="https://www.holaspirit.com">www.holaspirit.com</a>) qui simplifie l’organisation en gérant les cercles, les prises de décisions et la remontée des propositions d’améliorations (ou “tensions”). Cette outil paraît indispensable, car central dans l’organisation.</p>
+
+<p>On voit très bien comment une holacratie peut se mettre en place dans une nouvelle organisation ou de taille réduite mais la conférencière n’aborde pas trop cet aspect pour les entreprises de taille conséquente.</p>
+
+<h3 id="vous-navez-pas-besoin-de-ça">“Vous n’avez pas besoin de ça”</h3>
+
+<p>Le début de la conférence était volontairement critique sur l’utilisation des nouvelles technos puis peu à peu se dirigeait sur du bon sens dans le choix des technos avec de bonnes raisons (et non pas car elles sont “à la mode”).</p>
+
+<p>Pour cela (<a href="https://twitter.com/Selrahcd">Charles Desneuf</a>) nous a cité les avantages et inconvénients de différents outils (micro-services, GraphQL, SinglePageApp, Microservices, GraphQL,…)</p>
+
+<p>Le but était vraiment de pousser à la réflexion dans ce type de choix en prenant bien en compte le contexte (utilisateurs, équipe, qualités attendues,…) et de ne pas apporter de la complexité inutilement (optimisation/abstraction prématurée, modélisation inadapté,..).</p>
+
+<p>Une conférence bien dirigée en concluant par :
+<em>“Vous n’avez (peut-être) pas besoin de ça (maintenant).”</em></p>
+
+<h3 id="cessons-les-estimations">“Cessons les estimations”</h3>
+
+<p><a href="https://twitter.com/f_leguedois">Frédéric Leguédois</a> nous a livré une conférence proche du one man show sur les estimations et les deadlines. Il nous a rappelé un point important que l’on oublie parfois : Les estimations ne sont QUE des estimations, on ne peut pas les prendre comme des engagements de la part de celui qui les fait. Ses exemples humoristiques sur les différentes façons dont sont faites les estimations provoquaient fréquemment l’hilarité de l’audience qui répondait par des applaudissements généreux.</p>
+
+<p>Même si le trait était forcément grossi pour le « spectacle » on a passé un très bon moment et ça fait réfléchir, notamment sur le fait que le changement est normal.</p>
+
+<h4 id="en-vrac">“En vrac”</h4>
+
+<p><strong>Quelques autres conférences</strong> que vous pouvez visionner sur <a href="https://afup.org/talks/">le site de l’AFUP</a> :</p>
+
+<ul>
+  <li>« Serverless et PHP » : Matthieu Napoli nous a montré comment déployer des fonctions Lambda chez AWS en PHP – et pourquoi.</li>
+  <li>« Développeurs de jeux vidéo: les rois de la combine » : Laurent Victorino nous a complètement <em>enfumé</em> avec sa présentation <em>interactive</em> !</li>
+  <li>« Voyage au centre du cerveau humain, ou comment manipuler les données binaires » : un retour d’expérience enrichissant de Thomas Jarrand, parlant d’IRM, de binaire, ou encore de voxels.</li>
+</ul>
+
+<p>Nous avons aussi présenté trois conférences, autour de sujets que nous pratiquons au quotidien chez M6 Web :</p>
+
+<ul>
+  <li><a href="https://twitter.com/b_viguier">Benoit Viguier</a> a parlé de programmation asynchrone avec les générateurs de PHP : une fonctionnalité extrêmement puissante, mais encore trop peu connue. Il a d’ailleurs annoncé la sortie de la bibliothèque <a href="https://github.com/BedrockStreaming/Tornado">Tornado</a>. <a href="https://afup.org/talks/2752-generateurs-et-programmation-asynchrone-mode-d-emploi">(vidéo de la conférence)</a></li>
+  <li><a href="https://twitter.com/BouygeGuillaume">Guillaume Bouyge</a> nous a raconté l’histoire de la migration à l’international de la plate-forme 6play : comment, en partant d’un produit développé pour M6, nous sommes arrivés à un produit en marque-blanche vendue à d’autres clients d’autres pays. <a href="https://afup.org/talks/2776-de-6play-fr-a-une-plate-forme-internationale-retour-d-experience">(vidéo de la conférence)</a></li>
+  <li>Et <a href="https://twitter.com/pascal_martin">Pascal Martin</a> a présenté Kubernetes, l’outil que nous utilisons pour piloter des conteneurs Docker dans Le Cloud. Il a enchaîné avec plus de détails sur le processus que nous suivons pour migrer nos projets vers cet hébergement ; vous pourrez en apprendre plus en lisant <a href="https://leanpub.com/6cloud/">Le Plan Copenhague</a>. <a href="https://afup.org/talks/2816-docker-en-prod-oui-avec-kubernetes">(vidéo de la conférence)</a></li>
+</ul>
+
+<p>Vivement l’AFUP Day Lyon 2019, où nous aurons sans doute le plaisir de vous rencontrer à nouveau ?</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Forum+PHP+Paris+2018%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2018%2F11%2F12%2Fretour-forum-php-2018.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2018/11/12/retour-forum-php-2018.html&title=Forum+PHP+Paris+2018%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2018/11/12/retour-forum-php-2018.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Forum PHP Paris 2018%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2018/11/12/retour-forum-php-2018.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#2018">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> 2018</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#afup">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> afup</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#forumphp">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> forumphp</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#php">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> php</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Le Plan Copenhague : notre migration vers Le Cloud, retour d’expérience" href="/2018/12/20/le-plan-copenhague.html">
+            <p>Previous post</p>
+            Le Plan Copenhague : notre migration vers Le Cloud, retour d’expérience
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Generators for Asynchronous Programming: User Manual" href="/2018/10/26/generators-for-async-programming-user-manual.html">
+            <p>Next post</p>
+            Generators for Asynchronous Programming: User Manual
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/forumphp2018/header.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

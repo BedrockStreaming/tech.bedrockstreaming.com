@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/banner_xl.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>M6Web Dev Facts #1 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="M6Web Dev Facts #1" />
+<meta name="author" content="Bedrock" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Blog technique de Bedrock" />
+<meta property="og:description" content="Blog technique de Bedrock" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/m6web-dev-facts-1" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/m6web-dev-facts-1" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-03-21T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="M6Web Dev Facts #1" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/m6web-dev-facts-1"},"url":"https://tech.bedrockstreaming.com/m6web-dev-facts-1","author":{"@type":"Person","name":"Bedrock"},"description":"Blog technique de Bedrock","dateModified":"2013-03-21T00:00:00+01:00","datePublished":"2013-03-21T00:00:00+01:00","headline":"M6Web Dev Facts #1","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="M6Web Dev Facts #1">
+    <meta name="twitter:description" content="Depuis de nombreuses années, toutes les “phrases chocs” dites par les équipes techniques de M6Web sont archivées, loggées, historisées. Pas moyen de sortir u...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/banner_xl.jpg">
+    <meta name="twitter:image:alt" content="M6Web Dev Facts #1">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="M6Web Dev Facts #1 " aria-label="M6Web Dev Facts #1" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="M6Web+Dev+Facts+%231" class="title">M6Web Dev Facts #1</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      Bedrock - 
+      
+      March 21, 2013
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Depuis de nombreuses années, toutes les “phrases chocs” dites par les équipes techniques de M6Web sont archivées, loggées, historisées. Pas moyen de sortir une ânerie sans qu’elle soit gravée dans le marbre.</p>
+
+<p>Du coup, nous avons décidé de profiter de cette période très calme sur le blog pour vous faire partager une petite sélection en vrac de quelques Dev Facts entendus dans les locaux d’M6Web Lyon :</p>
+
+<h1 id="invalider-le-cache-nommer-les-choses-">invalider le cache, nommer les choses …</h1>
+
+<blockquote>
+  <ul>
+    <li>On purge le cache infini tous les jours.</li>
+    <li>Non c’est le cache 7 jours qu’on purge tous les jours !</li>
+  </ul>
+</blockquote>
+
+<h1 id="jajoute--2">J’ajoute -2</h1>
+
+<blockquote>
+  <p>J’ai réduit de fois 10</p>
+</blockquote>
+
+<h1 id="work---not---flow">work - not - flow</h1>
+
+<blockquote>
+  <p>On a des workflows, on a aussi des worknotflows</p>
+</blockquote>
+
+<h1 id="la-bonne-affaire">La bonne affaire</h1>
+
+<blockquote>
+  <p>Pour le même prix, t’as bien moins cher ailleurs !</p>
+</blockquote>
+
+<h1 id="et-pour-arrêter--tu-cliques-sur-démarrer-">Et pour arrêter ? tu cliques sur démarrer !</h1>
+
+<blockquote>
+  <p>La vidéo a été mise en erreur avec succès.</p>
+</blockquote>
+
+<h1 id="big-or-what-">Big or what ?</h1>
+
+<blockquote>
+  <p>Il y a une librairie Rennes, elle est énorme! Tu y rentres, c’est tout petit… !</p>
+</blockquote>
+
+<h1 id="niveau-ce2">Niveau CE2</h1>
+
+<blockquote>
+  <p>je fais un mail de réponse avec une explication niveau CE2</p>
+</blockquote>
+
+<h1 id="bref">Bref</h1>
+
+<blockquote>
+  <ul>
+    <li>
+      <p>J’ai demandé Pierre, qui m’a dit qu’il ne savait pas mais que si j’avais l’info, il la voulait bien. Du coup, j’ai demandé Kenny, qui m’a dit de demander a Antony… qui ne savait pas et m’a dit de demander Pierre</p>
+    </li>
+    <li>
+      <p>Bref, j’ai posé une question un admin</p>
+    </li>
+  </ul>
+</blockquote>
+
+<h1 id="cdp-junior">CDP Junior</h1>
+
+<blockquote>
+  <p>Raa mais chui un cdp junior moi je sais rien faire de mes 10 doigts :(</p>
+</blockquote>
+
+<p>La suite dans un prochain épisode ;-)</p>
+
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=M6Web+Dev+Facts+%231%20https%3A%2F%2Ftech.bedrockstreaming.com%2Fm6web-dev-facts-1"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/m6web-dev-facts-1&title=M6Web+Dev+Facts+%231%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/m6web-dev-facts-1"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=M6Web Dev Facts #1%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/m6web-dev-facts-1"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#devfacts">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> devfacts</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#humour">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> humour</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="M6Web Dev Facts #2" href="/m6web-dev-facts-2">
+            <p>Previous post</p>
+            M6Web Dev Facts #2
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="M6Web Lyon recherche un Lead Developpeur / Architecte web (H/F) en CDI" href="/m6web-lyon-recherche-un-lead-developpeur-architecte-web-h-f-en-cdi">
+            <p>Next post</p>
+            M6Web Lyon recherche un Lead Developpeur / Architecte web (H/F) en CDI
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

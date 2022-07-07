@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/git-hooks.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Simplifiez vous la vie avec les hooks Git | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Simplifiez vous la vie avec les hooks Git" />
+<meta name="author" content="Mikael Randy" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Comment simplifier son quotidien de développeur Symfony2 avec nos hooks Git" />
+<meta property="og:description" content="Comment simplifier son quotidien de développeur Symfony2 avec nos hooks Git" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2015/09/09/hooks-git.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2015/09/09/hooks-git.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-09-09T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Simplifiez vous la vie avec les hooks Git" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2015/09/09/hooks-git.html"},"url":"https://tech.bedrockstreaming.com/2015/09/09/hooks-git.html","author":{"@type":"Person","name":"Mikael Randy"},"description":"Comment simplifier son quotidien de développeur Symfony2 avec nos hooks Git","dateModified":"2015-09-09T00:00:00+02:00","datePublished":"2015-09-09T00:00:00+02:00","headline":"Simplifiez vous la vie avec les hooks Git","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Simplifiez vous la vie avec les hooks Git">
+    <meta name="twitter:description" content="La stack de base de tout projet un minimum sérieux à tendance à devenir de plus en plus lourde.Chez M6Web, et particulièrement dans la team Burton, nous déve...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/git-hooks.png">
+    <meta name="twitter:image:alt" content="Simplifiez vous la vie avec les hooks Git">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Simplifiez vous la vie avec les hooks Git " aria-label="Simplifiez vous la vie avec les hooks Git" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Simplifiez+vous+la+vie+avec+les+hooks+Git" class="title">Simplifiez vous la vie avec les hooks Git</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/mikaelrandy" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="/images/avatar/mikaelrandy.png">
+    
+    <p class="meta">
+      Mikael Randy - 
+      
+      September 09, 2015
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>La stack de base de tout projet un minimum sérieux à tendance à devenir de plus en plus lourde.</p>
+
+<p>Chez M6Web, et particulièrement dans la <a href="https://twitter.com/teamburtonM6Web">team Burton</a>, nous développons principalement des projets Symfony2.
+Cette stack est donc composée, entre autre de <a href="https://github.com/BedrockStreaming/Coke">coke</a> et de <a href="https://getcomposer.org/">composer</a>.</p>
+
+<p>Concernant coke, l’idée est de ne jamais versionner de code qui ne respecte pas les standards de développements.
+Interdit les commits “fix standards” ou autre “fix coke” qui alimentent une PR avant d’être rebasés !</p>
+
+<p>Concernant composer, il s’agit de toujours travailler sur la “bonne version” des dépendances. 
+Certes, composer (via le composer.lock) permet d’être sûr que toute personne qui lance un <code class="language-plaintext highlighter-rouge">composer install</code> aura la même version des dépendances.
+Toutefois, il faut encore penser à lancer cette commande, surtout lorsque l’on récupère du code depuis le repository central où le composer.lock peut avoir évolué.</p>
+
+<p>Pour répondre à ces besoins, nous nous sommes basés sur l’excellent <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">système de hooks de git</a> et nous avons développé <a href="https://github.com/BedrockStreaming/git-hooks">2 petits scripts</a>.</p>
+
+<h3 id="check-cokesh">check-coke.sh</h3>
+
+<p>Coke est un petit utilitaire qui facilite le lancement de PHP_CodeSniffer sur son projet.
+Toutefois, ce dernier est relativement lent, surtout sur les projets composés d’un grand nombre de fichiers.
+Pour optimiser son exécution, le script “check-code.sh” se charge de lancer coke uniquement sur les fichiers en cours de modification d’un point de vue Git.
+Ainsi, son exécution est extrêment rapide, ce qui permet de l’exécuter en <code class="language-plaintext highlighter-rouge">pre-commit</code> pour ne jamais commiter un code ne respectant pas les standards de développement</p>
+
+<h3 id="check-composer">check-composer</h3>
+
+<p>Comme indiqué plus haut, le soucis avec composer est qu’il faut penser à lancer la commande <code class="language-plaintext highlighter-rouge">composer install</code> pour s’assurer que les dépendances sont à jour.
+Non seulement cette commande prend un certains temps, mais il faut surtout penser à la lancer, même pour des actions qui semblent anodines, comme changer de branche.</p>
+
+<p>Partant de ce constat, nous avons créé le script “check-composer.sh”, qui vérifie s’il y a une différence entre la version de départ et d’arrivée du fichier <code class="language-plaintext highlighter-rouge">composer.lock</code>, et qui lance la commande <code class="language-plaintext highlighter-rouge">composer install</code> si nécessaire.</p>
+
+<p>N’hésitez pas à les essayer et nous faire part de vos retours, voir de proposer vos hooks.
+Le but de ce repository partagé est de nous simplifier la vie en nous permettant de ne plus penser aux outils qui sont autour de notre code, mais de nous concentrer sur ce que nous avons à faire.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Simplifiez+vous+la+vie+avec+les+hooks+Git%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2015%2F09%2F09%2Fhooks-git.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2015/09/09/hooks-git.html&title=Simplifiez+vous+la+vie+avec+les+hooks+Git%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2015/09/09/hooks-git.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Simplifiez vous la vie avec les hooks Git%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2015/09/09/hooks-git.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#coke">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> coke</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#composer">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> composer</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#git">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> git</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#hooks">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> hooks</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#workflow">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> workflow</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="La bêta du nouveau 6play est disponible" href="/2015/10/21/beta-nouveau-6play-react-isomorphic.html">
+            <p>Previous post</p>
+            La bêta du nouveau 6play est disponible
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="CR React Europe Conférence 2015 - Day 2" href="/2015/07/10/cr-react-europe-2015-day-two.html">
+            <p>Next post</p>
+            CR React Europe Conférence 2015 - Day 2
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/git-hooks.png'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

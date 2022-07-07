@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/composer-installation-without-github/cloud.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Composer installation without github.com (nor packagist) dependency - like a boss ! | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Composer installation without github.com (nor packagist) dependency - like a boss !" />
+<meta name="author" content="Olivier Mansour" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Blog technique de Bedrock" />
+<meta property="og:description" content="Blog technique de Bedrock" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/composer-installation-without-github" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/composer-installation-without-github" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-12-02T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Composer installation without github.com (nor packagist) dependency - like a boss !" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/composer-installation-without-github"},"url":"https://tech.bedrockstreaming.com/composer-installation-without-github","author":{"@type":"Person","name":"Olivier Mansour"},"description":"Blog technique de Bedrock","dateModified":"2013-12-02T00:00:00+01:00","datePublished":"2013-12-02T00:00:00+01:00","headline":"Composer installation without github.com (nor packagist) dependency - like a boss !","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Composer installation without github.com (nor packagist) dependency - like a boss !">
+    <meta name="twitter:description" content="First a thought about github, composer, packagist : we like / adore / thanks the contributors, for those great services and all the open source people droppi...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/composer-installation-without-github/cloud.jpg">
+    <meta name="twitter:image:alt" content="Composer installation without github.com (nor packagist) dependency - like a boss !">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Composer installation without github.com (nor packagist) dependency - like a boss ! " aria-label="Composer installation without github.com (nor packagist) dependency - like a boss !" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Composer+installation+without+github.com+%28nor+packagist%29+dependency+-+like+a+boss+%21" class="title">Composer installation without github.com (nor packagist) dependency - like a boss !</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/omansour" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="/images/avatar/oliviermansour.jpg">
+    
+    <p class="meta">
+      Olivier Mansour - 
+      
+      December 02, 2013
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p><img src="/images/posts/composer-installation-without-github/github_down.png" alt="github is down ! ok carry on" /></p>
+
+<p>First a thought about <a href="https://github.com/">github</a>, <a href="https://getcomposer.org/doc/">composer</a>, <a href="https://www.packagist.org">packagist</a> : we like / adore / thanks the contributors, for those great services and all the open source people dropping great software on it.</p>
+
+<p>That said, picture yourself operating an online PHP service, generating hundreds euros per hour (cool isn’t it ?).</p>
+
+<p>If you use <a href="https://symfony.com/">Symfony2</a> and other public packages, like us, you’re probably deploying your application using composer.</p>
+
+<p><img src="/images/posts/composer-installation-without-github/1.png" alt="basic composer usage" /></p>
+
+<p>Suddenly the service is dealing with more and more and more traffic (maybe someone talk about on national tv … or Justin Bieber tweet something … maybe :) ). No problem, says the system administrator (yes our sysadmins are cool), lets pop more virtual machines and deploy more instance of the service !</p>
+
+<p>And then :</p>
+
+<p><img src="/images/posts/composer-installation-without-github/2.png" alt="github is down" /></p>
+
+<p>boum ! =&gt;<code class="language-plaintext highlighter-rouge">composer install</code> command can’t download distant packages on api.github.com (website is down, or the network connection or whatever).</p>
+
+<p>Good luck explaining to your boss that you rely on free hosting service to deploy your business critical website !</p>
+
+<p>This is our situation. So here how we deal with that.</p>
+
+<h1 id="principles">Principles.</h1>
+
+<p><img src="/images/posts/composer-installation-without-github/3.png" alt="principles" /></p>
+
+<p>We chose to use <a href="https://getcomposer.org/doc/articles/handling-private-packages-with-satis.md">Satis</a> - a great tool provided by the Composer team. The main idea is, regulary download packages and their informations on our local servers. We (at M6Web) deployed services on our local infrastructure and on S3 servers in Amazon Web Services.</p>
+
+<h1 id="how-to--for-your-local-network">How to ? For your local network.</h1>
+
+<p>We set 2 different satis instance. One for our private packages, and another for all the dependencies we use (basically around Symfony2). The first one (satis-private) will build every 5 minutes, the second (satis-public) every half hour.</p>
+
+<p>for example :</p>
+
+<ul>
+  <li>satis-private.yourcompany.com</li>
+  <li>satis-public.youcompany.com</li>
+</ul>
+
+<p>Satis for private package configuration (data/satis.json) :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "name": “satis-private",
+    "homepage": "https://satis-private.yourcompany.com",
+    "archive": {
+        "directory": "dist",
+        "absolute-directory" : "/srv/data/satis-private/dist",
+        "format": "zip",
+        "skip-dev": true
+    },
+    "repositories": [
+        { "type": "git", "url": "git://git.youcompany.com/great-bundle" },
+        { "type": "git", "url": "git://git.youcompany.com/great-component" },
+        { "type": "git", "url": "git://git.youcompany.com/awesomelib" },
+        { "type": "git", "url": "git://git.youcompany.com/raoul" },
+…
+    ],
+    "require-all": true
+}
+</code></pre></div></div>
+
+<p>Satis for public package configuration (data/satis.json) :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "name": “satis-public",
+    "homepage": "https://satis-public.yourcompany.com",
+    "archive": {
+        "directory": "dist",
+        "format": "zip",
+        "skip-dev": false,
+        "absolute-directory" : "/srv/data/satis-public/dist"
+    },
+    "repositories": [
+        { "type": "composer", "url": "https://packagist.org" }
+    ],
+    "require": {
+
+        "m6web/firewall-bundle" : "*",
+        "m6web/statsd-bundle"   : "*",
+
+        "doctrine/orm"               : "~2.3",
+        "doctrine/common"            : "~2.4",
+        "doctrine/dbal"              : "~2.3",
+        "doctrine/doctrine-bundle"   : "~1.2",
+
+        "naderman/composer-aws"      : "~0.2.3",
+…
+    },
+    "require-dependencies": true
+}
+</code></pre></div></div>
+
+<p>On the crontab, add this command for each satis instance :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php -d memory_limit=xx bin/satis build data/satis.json web
+</code></pre></div></div>
+
+<p>(increasing memory_limit was mandatory for us with satis-public).</p>
+
+<p>Please note the require-dependencies directive. It tell satis to digg on sub-dependencies on the required packages. And yes, it can take a while. You will probably hit the Github API rate limit. To increase it, add a Github key on your composer configuration file on the satis servers.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat .composer/config.json
+{
+    "config": {
+        "github-oauth": {
+            "github.com": “xxxxxx"
+        }
+    }
+
+}
+</code></pre></div></div>
+
+<p>In your projects, edit the composer.json and replace the repositories entry by</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"repositories": [
+    {
+        "type": "composer",
+        "url": "https://satis-private.yourcompany.com"
+    },
+    {
+        "type": "composer",
+        "url": "https://satis-public.yourcompany.com"
+    },
+    {
+        "packagist": false
+    }
+],
+</code></pre></div></div>
+
+<p>Remove your composer.lock and vendors then run <code class="language-plaintext highlighter-rouge">composer update</code> on the project.
+<code class="language-plaintext highlighter-rouge">"packagist": false"</code> mean : “do not search missing packages on packagist.com”. If a package is missing during install, you have to add it in satis-public configuration file then try again.</p>
+
+<p><em>that’s it :)</em></p>
+
+<h1 id="how-to--for-aws">How to ? For AWS.</h1>
+
+<h2 id="sync-our-2-satis-servers-with-an-s3-bucket">Sync our 2 satis servers with an S3 bucket.</h2>
+
+<p><img src="/images/posts/composer-installation-without-github/4.jpeg" alt="full system with s3 syncing" /></p>
+
+<p>On satis servers, use <a href="https://s3tools.org/s3cmd">s3cmd</a> to keep in sync the S3 bucket. Let’s say : yourcloud-satis.</p>
+
+<p>Add some commands after the build script of satis :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php -d memory_limit=xx bin/satis build data/satis.json web
+cd web
+sed 's#https://satis-private\.yourcompany\.com#s3://yourcloud-satis/satis-private#' packages.json &gt; packages-cloud.json
+s3cmd put index.html s3://yourcloud-satis/satis-private/index.html
+s3cmd put packages-cloud.json s3://yourcloud-satis/satis-private/packages.json
+cd /srv/data/satis-private/
+s3cmd sync ./dist s3://6cloud-satis/satis-private/
+</code></pre></div></div>
+
+<p>(do the same for satis-public).</p>
+
+<h2 id="update-your-projects">update your projects</h2>
+
+<p>In your projects, edit the composer.json and replace the repositories entry by</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"repositories": [
+    {
+        "type": "composer",
+        "url": "https://s3-eu-west-1.amazonaws.com/yourcloud-satis/satis-private/"
+    },
+    {
+        "type": "composer",
+        "url": "https://s3-eu-west-1.amazonaws.com/yourcloud-satis/satis-public/"
+    },
+    {
+        "packagist": false
+    }
+],
+</code></pre></div></div>
+
+<h2 id="enable-the-aws-plugin-in-ec2-servers">Enable the AWS plugin in EC2 servers</h2>
+
+<p>Add our repositories in <code class="language-plaintext highlighter-rouge">~./composer/composer.json</code> file of the user used to deploy your code.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"repositories": [
+    {
+        "type": "composer",
+        "url": "https://s3-eu-west-1.amazonaws.com/yourcloud-satis/satis-private/"
+    },
+    {
+        "type": "composer",
+        "url": "https://s3-eu-west-1.amazonaws.com/yourcloud-satis/satis-public/"
+    },
+    {
+        "packagist": false
+    }
+],
+</code></pre></div></div>
+
+<p>You have to install the <a href="https://github.com/naderman/composer-aws">S3 plugin for composer</a> on your EC2 instance.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ composer global require "naderman/composer-aws:~0.2.5"
+</code></pre></div></div>
+
+<p>If you don’t use <a href="https://aws.amazon.com/iam/">IAM roles</a>, add the following composer config on your EC2 servers (<code class="language-plaintext highlighter-rouge">~/.composer/config.json</code>) :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "config": {
+        "amazon-aws": {
+            "key":    "KEYYYYYY",
+            "secret": "seeeeecret"
+        }
+    }
+}
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">composer install --prefer-dist</code> command will now download all the packages files from S3 !</p>
+
+<p>Thanks to <a href="https://twitter.com/peikk00">Pierre</a> and <a href="https://twitter.com/JJourdin">Jeremy</a> for their help.</p>
+
+<p>Found a typo or bad english langage, just propose a <a href="https://github.com/BedrockStreaming/tech.bedrockstreaming.com/blob/master/_posts/2013-12-02-composer-installation-without-github.md">pull request</a>.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Composer+installation+without+github.com+%28nor+packagist%29+dependency+-+like+a+boss+%21%20https%3A%2F%2Ftech.bedrockstreaming.com%2Fcomposer-installation-without-github"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/composer-installation-without-github&title=Composer+installation+without+github.com+%28nor+packagist%29+dependency+-+like+a+boss+%21%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/composer-installation-without-github"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Composer installation without github.com (nor packagist) dependency - like a boss !%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/composer-installation-without-github"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#aws">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> aws</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#cloud">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#composer">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> composer</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#github">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> github</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#packagist">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> packagist</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#s3">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> s3</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#satis">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> satis</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Qui a bouchonné mon Redis ?" href="/redismock-qui-a-bouchonne-mon-redis">
+            <p>Previous post</p>
+            Qui a bouchonné mon Redis ?
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="JenkinsLight, mettez en lumière vos jobs Jenkins" href="/jenkinslight-mettez-en-lumiere-vos-jobs-jenkins">
+            <p>Next post</p>
+            JenkinsLight, mettez en lumière vos jobs Jenkins
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/composer-installation-without-github/cloud.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

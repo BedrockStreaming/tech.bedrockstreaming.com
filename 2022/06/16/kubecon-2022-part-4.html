@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/2022-06-13-kubecon-2022/part4.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Bedrock à la Kubecon 2022, 4ème partie : chaos, résilience, ressenti global et conclusion générale… | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Bedrock à la Kubecon 2022, 4ème partie : chaos, résilience, ressenti global et conclusion générale…" />
+<meta name="author" content="Bedrock" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Une partie des équipes infra Bedrock étaient à la KubeCon 2022, voici leur retour d’expérience." />
+<meta property="og:description" content="Une partie des équipes infra Bedrock étaient à la KubeCon 2022, voici leur retour d’expérience." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2022/06/16/kubecon-2022-part-4.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2022/06/16/kubecon-2022-part-4.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-06-16T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Bedrock à la Kubecon 2022, 4ème partie : chaos, résilience, ressenti global et conclusion générale…" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/06/16/kubecon-2022-part-4.html"},"url":"https://tech.bedrockstreaming.com/2022/06/16/kubecon-2022-part-4.html","author":{"@type":"Person","name":"Bedrock"},"description":"Une partie des équipes infra Bedrock étaient à la KubeCon 2022, voici leur retour d’expérience.","dateModified":"2022-06-16T00:00:00+02:00","datePublished":"2022-06-16T00:00:00+02:00","headline":"Bedrock à la Kubecon 2022, 4ème partie : chaos, résilience, ressenti global et conclusion générale…","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Bedrock à la Kubecon 2022, 4ème partie : chaos, résilience, ressenti global et conclusion générale…">
+    <meta name="twitter:description" content="Pour terminer cette série, un ou deux sujets divers que nous n’avons pas regroupé dans les trois articles précédents(les performances applicatives et la scal...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/2022-06-13-kubecon-2022/part4.jpg">
+    <meta name="twitter:image:alt" content="Bedrock à la Kubecon 2022, 4ème partie : chaos, résilience, ressenti global et conclusion générale…">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Bedrock à la Kubecon 2022, 4ème partie : chaos, résilience, ressenti global et conclusion générale… " aria-label="Bedrock à la Kubecon 2022, 4ème partie : chaos, résilience, ressenti global et conclusion générale…" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Bedrock+%C3%A0+la+Kubecon+2022%2C+4%C3%A8me+partie%C2%A0%3A+chaos%2C+r%C3%A9silience%2C+ressenti+global+et+conclusion+g%C3%A9n%C3%A9rale%E2%80%A6" class="title">Bedrock à la Kubecon 2022, 4ème partie : chaos, résilience, ressenti global et conclusion générale…</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      Bedrock - 
+      
+      June 16, 2022
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Pour terminer cette série, un ou deux sujets divers que nous n’avons pas regroupé dans les trois articles précédents
+(<a href="/2022/06/13/kubecon-2022-part-1.html">les performances applicatives et la scalabilité</a>, 
+<a href="/2022/06/14/kubecon-2022-part-2.html">les performances bas niveau, le système et le réseau</a>,
+<a href="/2022/06/15/kubecon-2022-part-3.html">la dev XP, l’outillage, la CI/CD et l’observabilité</a>), 
+puis une conclusion globale avec ce que nous avons retenu de cette KubeCon Europe 2022.</p>
+
+<p><img src="/images/posts/2022-06-13-kubecon-2022/part4.jpg" alt="&quot;KubeCon 2022 part4&quot;" /></p>
+<center><i>La conclusion, @ KubeCon 2022 !</i></center>
+
+<h2 id="chaos-engineering--chaos-testing-pour-une-meilleur-résilience-aux-pannes">Chaos Engineering / Chaos Testing pour une meilleur résilience aux pannes</h2>
+
+<p>C’est un des sujets sur lesquels nous avons commencé à travailler activement cette année : <em>casser des choses</em> dans nos clusters, dans notre plateforme, entre nos microservices.<br />
+L’idée sous-jacente est, bien sûr, que tout va casser un jour ou l’autre, donc autant provoquer du chaos nous-même, en environnement contrôlé. Nous identifierons ainsi des points sensibles de notre plateforme et pourrons les corriger, évitant ainsi des incidents, parfois majeurs, au mauvais moment.</p>
+
+<p>Ce thème du <em>Chaos Engineering</em> est régulièrement abordé en conférences et nous étions contents de voir que nous ne sommes pas les seuls à nous interroger sur <em>“comment”</em> en mettre en place.<br />
+Nous sommes repartis avec quelques pistes d’outils, comme <a href="https://chaos-mesh.org/">chaos mesh</a> ou <a href="https://litmuschaos.io/">Litmus Chaos</a>, que nous allons peut-être prototyper pour les comparer à <a href="https://github.com/DataDog/chaos-controller">chaos-controller</a> que nous avons récemment expérimenté.</p>
+
+<p>Au cours de la conférence, <em>“Case Study: Bringing Chaos Engineering to the Cloud Native Developers”</em> (<a href="https://www.youtube.com/watch?v=KSl-oKk6TPA">vidéo</a>) par Uma Mukkara, Litmus et Ramiro Berelleza, Okteto, nous avons pu avoir un aperçu de l’outil de chaos Litmus, sa force semblant résider dans le partage des scripts de chaos au sein la communauté.<br />
+Puis, il a été décrit une approche CI des tests de chaos visant à intégrer certains tests de chaos dans le flux de développement plutôt qu’à la fin.</p>
+
+<p>Enfin, toujours sur des questions de résilience en cas d’interruption de service, dans sa conférence <em>“Building for the (inevitable) Next Cloud Outage”</em> (<a href="https://www.youtube.com/watch?v=02a8VB__UQ4">vidéo</a>), Pavel Nikolov de <a href="https://www.section.io/">Section</a> nous a questionnés sur la manière d’être plus robuste à une catastrophe.<br />
+La question n’est pas de savoir si une catastrophe se produira, mais quand elle se produira. C’est pourquoi il est aussi préférable de disposer d’un plan de reprise après sinistre mais surtout de prévoir en amont un système d’auto-guérison permettant d’être plus résilient aux catastrophes.<br />
+Il nous a ensuite présenté un <em>use case</em> spécifique au réseau, nous invitant à préférer au traditionnel “DNS à la rescousse”, la mise en place de BGP (Border Gateway Protocol).</p>
+
+<h2 id="quelques-sujets-divers">Quelques sujets divers</h2>
+
+<p>À travers quelques talks, nous avons jeté des coups d’œil sur des sujets sur lesquels nous ne travaillons pas réellement au quotidien – appelez ça de la curiosité intellectuelle si vous le voulez ;-)</p>
+
+<ul>
+  <li>Nous avons vu un ensemble de design patterns pour le développement de controllers Kubernetes (<a href="https://www.youtube.com/watch?v=I1-s7AxD1Ls">vidéo</a>), approche qui devient petit à petit un moyen répandu de répondre à des problématiques, en codant directement dans Kubernetes.</li>
+  <li>La conférence <em>“A treasure map of hacking (and defending) K8s”</em> (<a href="https://www.youtube.com/watch?v=1HbwfpE4XKY">vidéo</a>) était très sympathique, elle montrait à quel point il peut être <em>“facile”</em> de prendre le contrôle d’une infrastructure. Une façon de montrer que patcher est obligatoire !</li>
+  <li>Et dans un registre hors-technique, <em>“Composability is to software as compounding interest is to finance”</em> (<a href="https://www.youtube.com/watch?v=25aVkm89ZT8">vidéo</a>) mettait en évidence à quel point, en construisant des outils, puis des projets, puis un écosystème, les uns profitent aux autres, on construit donc plus grand et plus gros. Il suffit de voir le landscape CNCF aujourd’hui par rapport à 4 ans en arrière.</li>
+</ul>
+
+<h2 id="conclusion-kubecon-europe-2022">Conclusion, KubeCon Europe 2022</h2>
+
+<p>Nous avons commencé à migrer vers Le Cloud, vers AWS et Kubernetes, il y a plus de quatre ans. Notre première KubeCon était à Copenhague, en 2018. Que dire, en conclusion de cette conférence annuelle ? Comment conclure ces articles ?</p>
+
+<p>Aujourd’hui, les grandes idées que nous avons retenues de cette KubeCon Europe 2022, en résumant, sont les suivantes :</p>
+
+<ul>
+  <li>Les problématiques d’auto-scaling sont bien cernées, les outils sont plutôt matures. Comme beaucoup d’autres entreprises, nous arrivons sur l’étape suivante, qui est de dimensionner en tenant mieux compte des couts et pas uniquement des performances et/ou de la disponibilité.</li>
+  <li>La gestion des coûts dans Kubernetes n’est toujours pas simple. À la fois pour les suivre et les répartir, mais aussi pour décider du bon compromis entre performances / disponibilité / souplesse / autonomie des équipes / couts.</li>
+  <li>Service Mesh : nous n’avons toujours pas franchi le pas et Istio, qui était un sujet très à la mode il y a quatre ans, nous semble désormais presque oublié. Aujourd’hui, Cilium semble être la nouvelle approche qui s’impose, et il se pourrait que nous jouions avec <em>“pour voir”</em> prochainement…</li>
+  <li>L’observabilité, plus vraiment un problème.</li>
+  <li>Le chaos engineering / chaos testing : toujours une idée séduisante, mais pas encore réellement industrialisée ?</li>
+  <li>L’outillage autour de la CI/CD, le déploiement progressif, le rollback (possiblement automatisé) progresse, et ça fait plaisir !</li>
+  <li>L’écosystème progresse, mûrit, et on parle de sujets de plus haut niveau que quelques années en arrière. Par exemple, nous avons entendu plusieurs fois parler de base de données magiquement scalable hébergée dans Kubernetes, alors que l’époque où nous évitions de stocker quelque état que ce soit dans un cluster ne nous semble pas si lointaine !</li>
+</ul>
+
+<p>Et, pour finir, quelques points dont nous n’avons pas du tout ou très peu entendu parler :</p>
+
+<ul>
+  <li>Nous avons peut-être loupé des choses en créant nos programmes, mais nous n’avons vu aucun talk autour de <em>“comment nous développons des applications cloud-native”</em>. Pourtant, la problématique de l’environnement de développement, avec des services managés, des déploiements vers Kubernetes et des plateformes distribuées, ne nous parait pas encore réglée !</li>
+  <li>L’approche “FaaS” (Function as a Service) nous paraît encore moins répandue que quelques années en arrière ?</li>
+  <li>Nous n’avons pas entendu parler une seule fois de <em>Fédération</em>, alors que le terme revenait encore et encore il y a quatre ans. Nous avons bien fait de ne même pas essayer, on dirait ;-)</li>
+</ul>
+
+<p><img src="/images/posts/2022-06-13-kubecon-2022/end-part4.jpg" alt="&quot;La fin d'une aventure !&quot;" /></p>
+<center><i>Rejoignez-nos équipes et venez vivre les prochaines conférences avec nous l’an prochain</i></center>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Bedrock+%C3%A0+la+Kubecon+2022%2C+4%C3%A8me+partie%C2%A0%3A+chaos%2C+r%C3%A9silience%2C+ressenti+global+et+conclusion+g%C3%A9n%C3%A9rale%E2%80%A6%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F06%2F16%2Fkubecon-2022-part-4.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/06/16/kubecon-2022-part-4.html&title=Bedrock+%C3%A0+la+Kubecon+2022%2C+4%C3%A8me+partie%C2%A0%3A+chaos%2C+r%C3%A9silience%2C+ressenti+global+et+conclusion+g%C3%A9n%C3%A9rale%E2%80%A6%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/06/16/kubecon-2022-part-4.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Bedrock à la Kubecon 2022, 4ème partie : chaos, résilience, ressenti global et conclusion générale…%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/06/16/kubecon-2022-part-4.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#cloud">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#k8s">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> k8s</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#kubecon">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> kubecon</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#kubernetes">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> kubernetes</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Debugging and reviewing your Android dependencies with apktool" href="/2022/06/20/android-apktool-decompiling.html">
+            <p>Previous post</p>
+            Debugging and reviewing your Android dependencies with apktool
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Bedrock à la Kubecon 2022, 3ème partie : Dev XP, outillage, CI/CD, observabilité…" href="/2022/06/15/kubecon-2022-part-3.html">
+            <p>Next post</p>
+            Bedrock à la Kubecon 2022, 3ème partie : Dev XP, outillage, CI/CD, observabilité…
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

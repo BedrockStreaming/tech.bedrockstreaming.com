@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/cytron/protractor.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Tests E2E sur son application AngularJS avec Protractor | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Tests E2E sur son application AngularJS avec Protractor" />
+<meta name="author" content="Cytron Team" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Comment mettre en place des tests E2E sur son application AngularJS : outils et problématiques." />
+<meta property="og:description" content="Comment mettre en place des tests E2E sur son application AngularJS : outils et problématiques." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/tests-e2e-application-angularjs-protractor.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/tests-e2e-application-angularjs-protractor.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-09-24T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Tests E2E sur son application AngularJS avec Protractor" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/tests-e2e-application-angularjs-protractor.html"},"url":"https://tech.bedrockstreaming.com/tests-e2e-application-angularjs-protractor.html","author":{"@type":"Person","name":"Cytron Team"},"description":"Comment mettre en place des tests E2E sur son application AngularJS : outils et problématiques.","dateModified":"2014-09-24T00:00:00+02:00","datePublished":"2014-09-24T00:00:00+02:00","headline":"Tests E2E sur son application AngularJS avec Protractor","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Tests E2E sur son application AngularJS avec Protractor">
+    <meta name="twitter:description" content="Familier des tests fonctionnels avec Behat et Atoum pour des applications majoritairement PHP, nous l’étions beaucoup moins avec les tests end-to-end pour de...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/cytron/protractor.jpg">
+    <meta name="twitter:image:alt" content="Tests E2E sur son application AngularJS avec Protractor">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Tests E2E sur son application AngularJS avec Protractor " aria-label="Tests E2E sur son application AngularJS avec Protractor" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Tests+E2E+sur+son+application+AngularJS+avec+Protractor" class="title">Tests E2E sur son application AngularJS avec Protractor</h1>
+      
+
+
+<div class="post-info">
+      <img alt="Author's avatar" src="/images/avatar/cytron.png">
+    
+    <p class="meta">
+      Cytron Team - 
+      
+      September 24, 2014
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Familier des tests fonctionnels avec Behat et Atoum pour des applications majoritairement PHP, nous l’étions beaucoup moins avec les tests end-to-end pour des applications pures Javascript, qui plus est, sous <a href="https://angularjs.org/">AngularJS</a>. Les tests end-to-end ou tests e2e ne sont autres que des tests fonctionnels dans la domaine du Javascript. L’objectif de cet article est de montrer le cheminement que nous avons emprunté pour mettre en place ces tests sur une de nos applications et pour gérer les difficultés qui en ont découlé.</p>
+
+<h3 id="le-contexte">Le contexte</h3>
+
+<p>Il s’agit d’une application web présentant des écrans différents à l’utilisateur en fonction des données contenues dans un fichier distant requêté à intervalle régulier court (quelques secondes). L’utilisateur est invité ou non à agir avec les vues, principalement en appuyant sur des boutons, qui changent l’état interne de l’application et peut, a posteriori, influer sur les écrans suivants.</p>
+
+<h3 id="mettre-en-place-protractor">Mettre en place Protractor</h3>
+
+<p>La première étape consiste à installer <a href="https://angular.github.io/protractor/#/">Protractor</a>, framework de tests e2e dédié à AngularJS et utilisant Node.js. Si vous utilisez Grunt pour gérer les tâches de build de votre projet, il suffit d’exécuter la commande :</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">npm <span class="nb">install </span>grunt-protractor-runner <span class="nt">--save-dev</span></code></pre></figure>
+
+<p>Puis on crée le fichier de configuration dans le projet :</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="cm">/* protractor-local.conf.js */</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">config</span> <span class="o">=</span>  <span class="p">{</span>
+  <span class="na">specs</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">app/**/*.e2e.js</span><span class="dl">'</span><span class="p">],</span>
+  <span class="na">baseUrl</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://localhost:9000/</span><span class="dl">'</span>
+<span class="p">};</span></code></pre></figure>
+
+<p>Tous les tests e2e de notre application sont écrits dans des fichiers javascript dont le nom est suffixé par <code class="language-plaintext highlighter-rouge">.e2e.js</code>. Nous avons en effet fait le choix d’une architecture modulaire se retrouvant dans l’organisation des dossiers de notre projet : les fichiers de tests e2e se trouvent dans les mêmes répertoires que les controllers auxquels ils sont rattachés <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
+
+<h3 id="un-navigateur-pour-mes-tests">Un navigateur pour mes tests</h3>
+
+<p>Pour exécuter ses tests dans les conditions réelles de son application, il faut un navigateur. Nous développons sur un serveur distant en SSH. Le seul navigateur utilisable est donc un browser headless, le plus connu et utilisé étant <a href="https://phantomjs.org/">PhantomJS</a>. Cependant, combiné à Protractor, ce dernier est particulièrement instable pour le moment et il n’est pas recommandé de l’utiliser. Nous optons donc pour Chrome (via le plugin chromedriver). Nécessitant une interface graphique, nous ne pourrons donc pas lancer nos tests sur le serveur de développement mais nous devrons le faire en local sur nos machines.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="cm">/* protractor-local.conf.js */</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">config</span> <span class="o">=</span>  <span class="p">{</span>
+  <span class="na">specs</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">app/**/*.e2e.js</span><span class="dl">'</span><span class="p">],</span>
+  <span class="na">baseUrl</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://localhost:9000/</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">maxSessions</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="na">multiCapabilities</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="na">browserName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">chrome</span><span class="dl">'</span> <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">};</span></code></pre></figure>
+
+<p>On installe les binaires nécessaires au lancement de Chrome via Protractor :</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">./node_modules/grunt-protractor-runner/node_modules/.bin/webdriver-manager update</code></pre></figure>
+
+<p>Puis on ajoute les tâches Grunt :</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="cm">/* Gruntfile.js */</span>
+<span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+  <span class="na">connect</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">dist</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">port</span><span class="p">:</span> <span class="mi">9000</span><span class="p">,</span>
+        <span class="na">hostname</span><span class="p">:</span> <span class="dl">'</span><span class="s1">localhost</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">base</span><span class="p">:</span> <span class="dl">'</span><span class="s1">dist</span><span class="dl">'</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="na">protractor</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">local</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">configFile</span><span class="p">:</span> <span class="dl">"</span><span class="s2">protractor-local.conf.js</span><span class="dl">"</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="dl">'</span><span class="s1">test</span><span class="dl">'</span><span class="p">,</span> <span class="p">[</span>
+  <span class="dl">'</span><span class="s1">build</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">connect:dist</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">protractor:local</span><span class="dl">'</span>
+<span class="p">]);</span></code></pre></figure>
+
+<h3 id="intégration-continue">Intégration continue</h3>
+
+<p>L’ensemble de nos projets joue automatiquement leurs tests sur un serveur Jenkins commun qui ne dispose pas de navigateurs graphiques. Nous aurions pu mettre en place au sein de notre infrastructure un serveur Selenium pour répondre à cette problèmatique. Mais les contraintes du projet ne nous autorisaient pas à y consacrer le temps nécessaire. Nous avons donc opté pour une solution tiers plus rapide à mettre en œuvre : <a href="https://saucelabs.com/">SauceLabs</a>, plateforme de tests hébergée dans le “cloud”.</p>
+
+<p>Une fois enregistré sur le site, on crée un nouveau fichier de configuration Protractor :</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="cm">/* protractor-saucelabs.conf.js */</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">config</span> <span class="o">=</span>  <span class="p">{</span>
+  <span class="na">specs</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">app/**/*.e2e.js</span><span class="dl">'</span><span class="p">],</span>
+  <span class="na">baseUrl</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://localhost:9000/</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">allScriptsTimeout</span><span class="p">:</span> <span class="mi">30000</span><span class="p">,</span>
+  <span class="na">jasmineNodeOpts</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">defaultTimeoutInterval</span><span class="p">:</span> <span class="mi">60000</span>
+  <span class="p">},</span>
+  <span class="na">maxSessions</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="na">sauceUser</span><span class="p">:</span> <span class="dl">'</span><span class="s1">mySauceUser</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">sauceKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">mySauceKey</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">multiCapabilities</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="na">browserName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">chrome</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">platform</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Linux</span><span class="dl">'</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="na">browserName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">firefox</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">platform</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Linux</span><span class="dl">'</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="na">browserName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">safari</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">platform</span><span class="p">:</span> <span class="dl">'</span><span class="s1">OS X 10.9</span><span class="dl">'</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="na">browserName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">chrome</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">platform</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Windows 8.1</span><span class="dl">'</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">};</span></code></pre></figure>
+
+<p>Notons que l’on peut lancer ses tests sur autant de couples OS/navigateurs que l’on souhaite en remplissant le tableau <code class="language-plaintext highlighter-rouge">multiCapabilities</code>. Le fichier de configuartion Grunt doit être adapté pour lancer <em>SauceConnect</em>, l’interface entre SauceLabs et l’application, avant le démarrage des tests :</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="cm">/* Gruntfile.js */</span>
+<span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+  <span class="na">connect</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">dist</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">port</span><span class="p">:</span> <span class="mi">9000</span><span class="p">,</span>
+        <span class="na">hostname</span><span class="p">:</span> <span class="dl">'</span><span class="s1">localhost</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">base</span><span class="p">:</span> <span class="dl">'</span><span class="s1">dist</span><span class="dl">'</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="na">protractor</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">local</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">configFile</span><span class="p">:</span> <span class="dl">'</span><span class="s1">protractor-local.conf.js</span><span class="dl">'</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="na">saucelabs</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">configFile</span><span class="p">:</span> <span class="dl">'</span><span class="s1">protractor-saucelabs.conf.js</span><span class="dl">'</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="na">run</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">installsc</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">wait</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">},</span>
+      <span class="na">cmd</span><span class="p">:</span> <span class="dl">'</span><span class="s1">bash</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">args</span><span class="p">:</span> <span class="p">[</span>
+        <span class="dl">'</span><span class="s1">-c</span><span class="dl">'</span><span class="p">,</span>
+        <span class="dl">'</span><span class="s1">test -d sc-4.2-linux || (wget https://saucelabs.com/downloads/sc-4.2-linux.tar.gz &amp;&amp; tar xvf sc-4.2-linux.tar.gz)</span><span class="dl">'</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="na">sauceconnect</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">wait</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="na">quiet</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">ready</span><span class="p">:</span> <span class="sr">/Sauce Connect is up/</span>
+      <span class="p">},</span>
+      <span class="na">cmd</span><span class="p">:</span> <span class="dl">'</span><span class="s1">./sc-4.2-linux/bin/sc</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">args</span><span class="p">:</span> <span class="p">[</span>
+        <span class="dl">'</span><span class="s1">-u</span><span class="dl">'</span><span class="p">,</span>
+        <span class="dl">'</span><span class="s1">mySauceUser</span><span class="dl">'</span><span class="p">,</span>
+        <span class="dl">'</span><span class="s1">-k</span><span class="dl">'</span><span class="p">,</span>
+        <span class="dl">'</span><span class="s1">mySauceKey</span><span class="dl">'</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+  
+
+<span class="nx">grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="dl">'</span><span class="s1">test-e2e</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">tasks</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="dl">'</span><span class="s1">build</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">connect:dist</span><span class="dl">'</span>
+  <span class="p">];</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">target</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">local</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">tasks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">protractor:local</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">tasks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">run:installsc</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">tasks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">run:sauceconnect</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">tasks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">protractor:saucelabs</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">tasks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">stop:sauceconnect</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">grunt</span><span class="p">.</span><span class="nx">task</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">tasks</span><span class="p">);</span>
+<span class="p">});</span></code></pre></figure>
+
+<p>Avec cette configuration, nous lançons les tests en local sur notre machine avec la commande <code class="language-plaintext highlighter-rouge">grunt test-e2e:local</code> ou à distance sur SauceLabs avec <code class="language-plaintext highlighter-rouge">grunt test-e2e</code>.</p>
+
+<h3 id="notre-premier-test">Notre premier test</h3>
+
+<p>Le premier test que nous avons écrit pour valider l’architecture est plutôt basique :</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">Controller: MainCtrl</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">should work</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">browser</span><span class="p">.</span><span class="nx">baseUrl</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+  <span class="p">})</span>
+<span class="p">});</span></code></pre></figure>
+
+<p>On remarque que l’écriture d’un test e2e utilise, comme les tests unitaires, la syntaxe du framework <a href="https://jasmine.github.io/">Jasmine</a> : un bloc <code class="language-plaintext highlighter-rouge">describe</code> regroupe une suite de tests définis dans des blocs <code class="language-plaintext highlighter-rouge">it</code>. Les variables de configuration définies dans les fichiers de configuration Protractor sont utilisables via la variable globale <code class="language-plaintext highlighter-rouge">browser</code>, variable qui nous permettra d’entretenir le lien entre nos tests et le code exécuté dans le navigateur. Pour mieux appréhender les étapes du processus et les erreurs qui se produisent, il est en effet très important de bien comprendre la séparation entre le code Javascript exécuté dans Node.js via Protractor, qui correspond au déroulement des tests, et le code Javascript de notre application qui lui est exécuté dans le browser et avec lequel on ne peut interagir depuis les tests que par certaines fonctions du framework (<code class="language-plaintext highlighter-rouge">element</code>, <code class="language-plaintext highlighter-rouge">executeScript</code>, <code class="language-plaintext highlighter-rouge">addMockModule</code>, etc.)<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>. Ce sont deux univers d’exécution bien distincts.</p>
+
+<h3 id="débugger-avec-protractor">Débugger avec Protractor</h3>
+
+<p>Lorsque vous lancerez les tests en local, vous remarquerez que Chrome est réellement exécuté mais vous ne verrez pas grand chose car l’affichage est bien trop rapide. Il est possible de mettre des points d’arrêt dans ses tests pour y voir plus clair et pour, par exemple, consulter la console Javascript du navigateur. Pour cela, il faut utiliser la fonction <code class="language-plaintext highlighter-rouge">browser.debugger()</code> comme point d’arrêt et ajouter l’option <code class="language-plaintext highlighter-rouge">debug</code> dans la configuration Grunt :</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="cm">/* Gruntfile.js */</span>
+<span class="nx">protractor</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nl">local</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">configFile</span><span class="p">:</span> <span class="dl">'</span><span class="s1">protractor-local.conf.js</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">debug</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Pour passer d’un point d’arrêt à l’autre, on saisit <code class="language-plaintext highlighter-rouge">c</code> comme <em>continue</em>. Notez que cela ne fonctionnera pas si vous avez plus d’un navigateur dans le tableau <code class="language-plaintext highlighter-rouge">multiCapabilities</code> de votre configuration.</p>
+
+<p>On peut également ajouter l’option <code class="language-plaintext highlighter-rouge">--debug</code> à la commande <code class="language-plaintext highlighter-rouge">grunt test-e2e:local</code> pour afficher l’ensemble des requêtes lancées par l’application.</p>
+
+<h3 id="mocker-sa-config">Mocker sa config</h3>
+
+<p>Comme souvent dans les projets AngularJS, nous utilisons un module pour définir nos variables de configuration :</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="dl">"</span><span class="s2">config</span><span class="dl">"</span><span class="p">,</span> <span class="p">[])</span>
+  <span class="p">.</span><span class="nx">constant</span><span class="p">(</span><span class="dl">"</span><span class="s2">config</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">ma_variable</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">une_valeur</span><span class="dl">'</span>
+  <span class="p">});</span></code></pre></figure>
+
+<p>Dans les tests e2e, on veut tout tester, en particulier les comportements qui diffèrent en fonction des valeurs de configuration. Comment faire puisque ce module est chargé une fois pour toute au lancement de l’application ? Protractor introduit la fonction <code class="language-plaintext highlighter-rouge">addMockModule</code> qui permet de bouchonner à la volée un module Angular.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">comportement avec une autre valeur</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">browser</span><span class="p">.</span><span class="nx">addMockModule</span><span class="p">(</span><span class="dl">'</span><span class="s1">config</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  	<span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="dl">'</span><span class="s1">config</span><span class="dl">'</span><span class="p">,</span> <span class="p">[]).</span><span class="nx">constant</span><span class="p">(</span><span class="dl">'</span><span class="s1">config</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+    		<span class="dl">'</span><span class="s1">ma_variable</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">une_autre_valeur</span><span class="dl">'</span>
+  	<span class="p">});</span>
+  <span class="p">});</span>
+
+  <span class="c1">// mon test</span>
+  
+  <span class="nx">browser</span><span class="p">.</span><span class="nx">removeMockModule</span><span class="p">(</span><span class="dl">'</span><span class="s1">config</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">});</span></code></pre></figure>
+
+<h3 id="mocker-le-service-http">Mocker le service <code class="language-plaintext highlighter-rouge">$http</code></h3>
+
+<p>Dans notre application, un fichier externe est requêté régulièrement via le service Angular <code class="language-plaintext highlighter-rouge">$http</code>. AngularJS fournit déjà un mock complet de ce service nommé <a href="https://docs.angularjs.org/api/ngMock/service/$httpBackend"><code class="language-plaintext highlighter-rouge">$httpBackend</code></a>. Pour y avoir accès, il faut ajouter la dépendance <code class="language-plaintext highlighter-rouge">angular-mocks</code> en <code class="language-plaintext highlighter-rouge">devDependencies</code> dans son fichier <code class="language-plaintext highlighter-rouge">bower.json</code> et inclure le fichier <code class="language-plaintext highlighter-rouge">bower_components/angular-mocks/angular-mocks.js</code> dans l’application en développement. <code class="language-plaintext highlighter-rouge">$httpBackend</code> permet de définir quels appels HTTP doivent être interceptés et quelles réponses doivent être renvoyées.</p>
+
+<p>La difficulté dans notre cas réside dans le fait de pouvoir simuler le changement d’état du fichier distant dans un même test pour pouvoir vérifier les changements de vue qui en découlent. Il est possible de le faire directement via <code class="language-plaintext highlighter-rouge">$httpBackend</code> moyennant quelques acrobaties, mais la librairie <a href="https://github.com/nchaulet/httpbackend">HttpBackend</a> simplifie grandement son utilisation pour ce type de tests <sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">HttpBackend</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">httpbackend</span><span class="dl">'</span><span class="p">);</span>  
+<span class="kd">var</span> <span class="nx">backend</span><span class="p">;</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">Test workflow</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>  
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">backend</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpBackend</span><span class="p">(</span><span class="nx">browser</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">afterEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">backend</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">should display result when status is changed to RESULT</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">backend</span><span class="p">.</span><span class="nx">whenJSONP</span><span class="p">(</span><span class="sr">/status.json/</span><span class="p">).</span><span class="nx">respond</span><span class="p">({</span><span class="na">status</span><span class="p">:</span> <span class="dl">'</span><span class="s1">initial</span><span class="dl">'</span><span class="p">});</span>
+
+    <span class="nx">browser</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">element</span><span class="p">(</span><span class="nx">by</span><span class="p">.</span><span class="nx">binding</span><span class="p">(</span><span class="dl">'</span><span class="s1">result</span><span class="dl">'</span><span class="p">));</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">getText</span><span class="p">()).</span><span class="nx">toEqual</span><span class="p">(</span><span class="dl">'</span><span class="s1">no result</span><span class="dl">'</span><span class="p">);</span>
+    
+    <span class="nx">backend</span><span class="p">.</span><span class="nx">whenJSONP</span><span class="p">(</span><span class="sr">/status.json/</span><span class="p">).</span><span class="nx">respond</span><span class="p">({</span><span class="na">status</span><span class="p">:</span> <span class="dl">'</span><span class="s1">result</span><span class="dl">'</span><span class="p">,</span> <span class="na">percentage</span><span class="p">:</span> <span class="mi">70</span><span class="p">});</span>
+    
+    <span class="nx">browser</span><span class="p">.</span><span class="nx">wait</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">browser</span><span class="p">.</span><span class="nx">getLocationAbsUrl</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">currentUrl</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">currentUrl</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">https://localhost:9000/#/result</span><span class="dl">'</span><span class="p">;</span>
+      <span class="p">});</span>
+    <span class="p">},</span> <span class="mi">5000</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">getText</span><span class="p">()).</span><span class="nx">toEqual</span><span class="p">(</span><span class="dl">'</span><span class="s1">70 %</span><span class="dl">'</span><span class="p">);</span>
+      <span class="nx">done</span><span class="p">();</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">});</span></code></pre></figure>
+
+<h3 id="oui-mais">Oui, mais…</h3>
+<p>Protractor nous a été indispensable pour implémenter les tests fonctionnels sur notre application car son intégration avec AngularJS offre des possibilités que les autres frameworks de tests fonctionnels n’ont pas. On pense principalement à la synchronisation qui est mise en œuvre entre les tests et l’initialisation d’Angular dans la page (“wait for angular”). Cependant, avec le recul que l’on peut avoir sur notre projet :</p>
+
+<ul>
+  <li>il faut l’avouer, Protractor n’est pas aussi simple à mettre en place que <a href="https://docs.behat.org/">Behat</a> par exemple,</li>
+  <li>le debuggage est assez pénible car les messages d’erreur sont souvent peu verbeux et, c’est l’inconvénénient de tester du javascript avec du javascript, on ne sait pas toujours où se situe l’erreur (dans les tests ou dans le code applicatif ?),</li>
+  <li>Protractor est parfois instable avec les webdrivers utilisés, ce qui nous oblige à relancer les tests manuellement,</li>
+  <li>nos tests dans SauceLabs sont (très) lents, ce qui nous a contraint à la longue à réduire le nombre de navigateurs testés (améliorant par la même occasion la stabilité des tests).</li>
+</ul>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><a href="https://medium.com/opinionated-angularjs/scalable-code-organization-in-angularjs-9f01b594bf06">Scalable code organization in AngularJS</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="https://angular.github.io/protractor/#/api">Protractor API</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p><a href="https://blog.nchaulet.fr/test-angularjs-app-mock-backend/">Angular e2e tests, Mock your backend</a>. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Tests+E2E+sur+son+application+AngularJS+avec+Protractor%20https%3A%2F%2Ftech.bedrockstreaming.com%2Ftests-e2e-application-angularjs-protractor.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/tests-e2e-application-angularjs-protractor.html&title=Tests+E2E+sur+son+application+AngularJS+avec+Protractor%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/tests-e2e-application-angularjs-protractor.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Tests E2E sur son application AngularJS avec Protractor%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/tests-e2e-application-angularjs-protractor.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#angular">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> angular</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#cytron">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> cytron</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#javascript">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#protractor">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> protractor</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#qualite">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> qualite</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#tests">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> tests</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Améliorer la webperf de son application JS avec GruntJs" href="/2014/09/30/ameliorer-la-webperf-de-son-application-js-avec-gruntjs.html">
+            <p>Previous post</p>
+            Améliorer la webperf de son application JS avec GruntJs
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Contrôlez facilement votre cohérence de code sur votre projet Symfony2 avec coke" href="/2014/08/05/verifier-la-coherence-du-code-d-un-projet-symfony2-avec-coke.html">
+            <p>Next post</p>
+            Contrôlez facilement votre cohérence de code sur votre projet Symfony2 avec coke
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/cytron/protractor.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

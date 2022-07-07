@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/2022-02-27-streaming-recommendation/header.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Streaming recommendations at Bedrock | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Streaming recommendations at Bedrock" />
+<meta name="author" content="Nastasia Saby" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The first streaming recommendations with machine learning at Bedrock" />
+<meta property="og:description" content="The first streaming recommendations with machine learning at Bedrock" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2022/02/27/streaming-recommendation.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2022/02/27/streaming-recommendation.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-02-27T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Streaming recommendations at Bedrock" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/02/27/streaming-recommendation.html"},"url":"https://tech.bedrockstreaming.com/2022/02/27/streaming-recommendation.html","author":{"@type":"Person","name":"Nastasia Saby"},"description":"The first streaming recommendations with machine learning at Bedrock","dateModified":"2022-02-27T00:00:00+01:00","datePublished":"2022-02-27T00:00:00+01:00","headline":"Streaming recommendations at Bedrock","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Streaming recommendations at Bedrock">
+    <meta name="twitter:description" content="Personalised recommendations are everywhere. No exception for the streaming world. To improve user experience, recommender systems with machine learning are ...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/2022-02-27-streaming-recommendation/header.png">
+    <meta name="twitter:image:alt" content="Streaming recommendations at Bedrock">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Streaming recommendations at Bedrock " aria-label="Streaming recommendations at Bedrock" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Streaming+recommendations+at+Bedrock" class="title">Streaming recommendations at Bedrock</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/saby_nastasia" target="_blank" rel="noopener">
+    <p class="meta">
+      Nastasia Saby - 
+      
+      February 27, 2022
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Personalised recommendations are everywhere. No exception for the streaming world. To improve user experience, recommender systems with machine learning are uplifting.
+At Bedrock, until recently, there was no recommendation shaped this way.</p>
+
+<p><strong>But we are writing a new story.</strong></p>
+
+<h2 id="a-quick-win-solution">A quick win solution</h2>
+
+<p>We wanted to find a way to get a solution that would be quick to integrate.</p>
+
+<p><strong>We chose to use Amazon Personalize. This service aims to construct recommender systems with machine learning. The promise is to <em>Create real-time personalized user experiences faster at scale</em>. Perfect! It was exactly what we were looking for.</strong></p>
+
+<p>Rapidly, we encountered an obstacle. You can’t deploy Personalize with Terraform. Yet, Terraform is the tool we use to manage our infrastructure.</p>
+
+<h2 id="how-to-deploy-amazon-personalize">How to deploy Amazon Personalize?</h2>
+
+<p>As Personalize is supposed to be a temporary solution in our stack, for once, we accepted not using Terraform. We developed a Python script to interact with Personalize. Apache Airflow schedules and monitors the script.</p>
+
+<p>Personalize is a black box. You can’t have access to explanations about the generated models. But, with Personalize, you have different ways to evaluate your recommendations.</p>
+
+<p><strong>With recommender systems, using the offline metrics to judge your model is not enough. It’s better than nothing! But to check that a recommender system works, you need to evaluate it online with real users.</strong></p>
+
+<p>We have millions of users. Releasing a recommender system to all our users is definitely not the best idea ever.</p>
+
+<h2 id="how-to-release-a-recommender-system">How to release a recommender system?</h2>
+
+<p>First of all, check offline metrics. They’re still a valuable hint. Then, analyse the recommendations with people from the editorialist team.</p>
+
+<p><em>Note that this kind of analysis is very subjective.</em></p>
+
+<p>Finally, deliver the functionality to a small portion of your users.</p>
+
+<p><strong>We configured an AB test that gives recommendations to 5% of users. With dashboards, we study the impacts.</strong></p>
+
+<p>Perfect! We have a way to check the success of a full broadcast.</p>
+
+<p>But how to be sure that the new product will support the load? We have millions of users. It means that 5% of users still represent a lot of people.</p>
+
+<h2 id="how-to-assess-the-performance-of-a-recommender-system">How to assess the performance of a recommender system?</h2>
+
+<p><strong>Launch load tests. Today you have a myriad of tools to do that. At Bedrock, we use Artillery.</strong></p>
+
+<p>During the load tests, we had a bug. We discovered that by default, the limit of requests per second with Personalize is 500. In our context, that’s not acceptable.</p>
+
+<p>We asked Amazon to help us and they changed the option for us.</p>
+
+<h2 id="the-results">The results</h2>
+
+<p>If you’re a big fan of reality TV shows, you will see that:</p>
+
+<p><img src="/images/posts/2022-02-27-streaming-recommendation/tv_reality_show.png" alt="recommendations of reality TV shows" /></p>
+
+<p>If you prefer reports, you will see that instead:</p>
+
+<p><img src="/images/posts/2022-02-27-streaming-recommendation/header.png" alt="recommendations of reports" /></p>
+
+<h2 id="what-now">What now?</h2>
+
+<p>We’ve deployed an AB test for our first recommender system built with machine learning.</p>
+
+<p>We don’t have the results of the AB test yet. But, we’ve noticed that many users interact with the recommendations.</p>
+
+<p><strong>After different challenges, we nailed it.</strong></p>
+
+<p>But, Personalize is expensive and a black box that we can’t integrate with Terraform easily (we’ll have to develop something for that, at least). It doesn’t suit our context. That’s why we’ve started to develop our first models.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Streaming+recommendations+at+Bedrock%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F02%2F27%2Fstreaming-recommendation.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/02/27/streaming-recommendation.html&title=Streaming+recommendations+at+Bedrock%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/02/27/streaming-recommendation.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Streaming recommendations at Bedrock%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/02/27/streaming-recommendation.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#data">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> data</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#data+science">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> data science</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#machine+learning">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> machine learning</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#recommender+systems">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> recommender systems</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="How AWS Cloudfront is helping us deliver our Web streaming platform? - Part 1" href="/2022/03/08/cloudfront-web-streaming-platform-part-1.html">
+            <p>Previous post</p>
+            How AWS Cloudfront is helping us deliver our Web streaming platform? - Part 1
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Tonight's football time, let's prescale Kubernetes to avoid a crash!" href="/2022/02/03/prescaling.html">
+            <p>Next post</p>
+            Tonight's football time, let's prescale Kubernetes to avoid a crash!
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(12,4,38) !important; }
+  .share-buttons a { color: rgb(12,4,38) !important; }
+  .tag-list a:not(:hover) { color: rgb(12,4,38) !important; }
+  div#post-nav a { color: rgb(12,4,38) !important; }
+  footer a { color: rgb(12,4,38) !important; }
+  .site-header nav a:hover {  color: rgb(12,4,38) !important; }
+  a.button:hover {
+    background: rgb(12,4,38) !important;
+    border: 1px solid rgb(12,4,38) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(12,4,38) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

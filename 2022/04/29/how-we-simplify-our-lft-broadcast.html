@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/lft-streamyard/head.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>How did we streamline the delivery of our internal conferences aka LFTs? | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="How did we streamline the delivery of our internal conferences aka LFTs?" />
+<meta name="author" content="Antoine Caron" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Some time ago, we shared with you an article explaining how we managed to capture and broadcast our conferences in the Bedrock auditorium. We must admit, it worked great but we wanted to make it simpler." />
+<meta property="og:description" content="Some time ago, we shared with you an article explaining how we managed to capture and broadcast our conferences in the Bedrock auditorium. We must admit, it worked great but we wanted to make it simpler." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2022/04/29/how-we-simplify-our-lft-broadcast.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2022/04/29/how-we-simplify-our-lft-broadcast.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-29T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How did we streamline the delivery of our internal conferences aka LFTs?" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/04/29/how-we-simplify-our-lft-broadcast.html"},"url":"https://tech.bedrockstreaming.com/2022/04/29/how-we-simplify-our-lft-broadcast.html","author":{"@type":"Person","name":"Antoine Caron"},"description":"Some time ago, we shared with you an article explaining how we managed to capture and broadcast our conferences in the Bedrock auditorium. We must admit, it worked great but we wanted to make it simpler.","dateModified":"2022-04-29T00:00:00+02:00","datePublished":"2022-04-29T00:00:00+02:00","headline":"How did we streamline the delivery of our internal conferences aka LFTs?","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="How did we streamline the delivery of our internal conferences aka LFTs?">
+    <meta name="twitter:description" content="Some time ago, we shared with you an article explaining how we managed to capture and broadcast our conferences in the Bedrock auditorium. We must admit, it ...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/lft-streamyard/head.png">
+    <meta name="twitter:image:alt" content="How did we streamline the delivery of our internal conferences aka LFTs?">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="How did we streamline the delivery of our internal conferences aka LFTs? " aria-label="How did we streamline the delivery of our internal conferences aka LFTs?" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="How+did+we+streamline+the+delivery+of+our+internal+conferences+aka+LFTs%3F" class="title">How did we streamline the delivery of our internal conferences aka LFTs?</h1>
+      
+
+
+<div class="post-info"><a href="https://blog.slashgear.dev/" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="/images/avatar/acaron.jpeg">
+    
+    <p class="meta">
+      Antoine Caron - 
+      
+      April 29, 2022
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p><img src="/images/posts/lft-streamyard/head.png" alt="LFT logo" /></p>
+
+<p>Some time ago, we shared with you <a href="/2021/10/14/live-streaming-lft">an article explaining how we managed to capture and broadcast our conferences in the Bedrock auditorium</a>. 
+We must admit, it worked great, but we wanted to make it simpler.</p>
+
+<p>As a reminder, our internal conferences or meetups are called <strong>LFT</strong>. 
+If you want to know more about our <em>Last Friday Talk</em> and the motivations that push us to do it, we invite you to read the above-mentioned article.</p>
+
+<p>After the success of this broadcasting, the (voluntary) organization team started thinking about how to make it simpler. 
+<em>It was already a challenge in itself!</em>
+If you read <a href="/2021/10/14/live-streaming-lft#some-things-to-improve">this part of the article</a>, you can see that we already had some ideas for improvements.</p>
+
+<h2 id="improvement-areas">Improvement areas</h2>
+
+<p>In the previous version, you could see that a very important quantity of material was necessary (meters of various cables, multi outlets, a camera, etc…)
+A large part of this material was kindly lent by Pascal (and we thank him for that), but we could not decently borrow it for each LFT.</p>
+
+<p>Moreover, this very specific equipment did not allow <strong>each Bedrock employee to manage the control room</strong>, quickly and with his or her own machine.
+Finally, as you can imagine, setting up and putting away such a large amount of equipment <strong>takes a lot of time</strong>. 
+<em>There were no less than four of us setting up and tidying up.</em></p>
+
+<p>In another topic, let’s talk about video quality. We used to use <em>Google Live Stream</em> before, but the 720p broadcast, with its very low bitrate and aggressive compression, sometimes made it difficult to follow.
+<em>Text and images were often very pixelated.</em></p>
+
+<p>Also, we wanted to, easily, handle a <em>hybrid</em> mode to our LFTs.
+Because of the pandemic, telecommuting and the fact that some of Bedrock’s employees are located in Paris, we need to broadcast and capture the LFT both in person and remotely.
+By <em>hybrid</em> mode we also meant that during the same event, we need to host speakers from the location of their choice.</p>
+
+<h2 id="what-we-did">What we did?</h2>
+
+<p>After a few exchanges with other conference organizations, we decided to give <a href="https://streamyard.com/">Streamyard</a> a chance.
+After some quick tests, we bought a license and started the new version of the LFT.</p>
+
+<h3 id="what-is-streamyard">What is Streamyard?</h3>
+
+<p>Streamyard is a live streaming platform that runs directly in the browser.</p>
+
+<p>It does not have all the customization and possibilities of OBS, but its huge advantage is its versatility.
+This solution allows Bedrock employees to manage the LFT from any computer.</p>
+
+<p>Here are some sample images and overviews of the Streamyard UI:</p>
+
+<p><img src="/images/posts/lft-streamyard/streamyard.png" alt="Stream yard screenshot" /></p>
+
+<p><img src="/images/posts/lft-streamyard/comment-from-chat.png" alt="Stream yard screenshot with comment from chat" /></p>
+
+<p>The positive points of Streamyard:</p>
+
+<ul>
+  <li>Allows us to have several people in the control room at the same time</li>
+  <li>Streams in 1080p</li>
+  <li>Personalization: manage banners, chat questions, music on hold,…</li>
+  <li>Handles multi-speakers management</li>
+  <li>Re-stream to Youtube / Facebook / Twitter / Linkedin / Video recording</li>
+  <li>A free trial mode allows one to test it before taking out their credit card.</li>
+</ul>
+
+<h3 id="new-setup">New setup</h3>
+
+<p>As a reminder, here is the organization of our auditorium during the live broadcast of our LFT.
+The room is large enough to accommodate all Bedrockers who wish to attend in person the presentations of their colleagues. 
+The remote speakers have their conference broadcasted on the two screens of the room.</p>
+
+<p><img src="/images/posts/lft-streamyard/plan.jpg" alt="Auditorium plan" /></p>
+
+<p><img src="/images/posts/lft-streamyard/control-desk.png" alt="Control desk" /></p>
+
+<p><img src="/images/posts/lft-streamyard/amphi-bedrock.jpg" alt="Auditorium room" /></p>
+
+<p>What has changed since we switched to Streamyard is mainly related to the way we capture the image and sound of what is displayed on the screen.
+Previously, we were using an Elgato HD60S+ device, to capture the HDMI output from the speaker broadcast. 
+However, we had to try several times to get it to work each time we switched speakers. Not fun at all.</p>
+
+<p>Now, with Streamyard, every time we switch speaker, we just need to:</p>
+<ul>
+  <li>share the link of the “Streamyard broadcast”</li>
+  <li>The speaker joins the stream (and switches off her microphone and webcam)</li>
+  <li>Connect the HDMI cable of the speaker’s computer</li>
+  <li>The speaker displays her screen via the room’s projectors</li>
+  <li>The control room operator puts the RF microphone on the speaker(s)</li>
+</ul>
+
+<p>For a remote speaker, it’s even easier.
+Just pass them the Streamyard link and they can use their webcam and their own microphone.</p>
+
+<p>This is what our Stream setup now looks like with the cabling:</p>
+
+<p><img src="/images/posts/lft-streamyard/setup.jpg" alt="Speaker setup schema" /></p>
+
+<p><img src="/images/posts/lft-streamyard/setup-desk.jpg" alt="Control desk setup" /></p>
+
+<h3 id="what-did-we-achieve">What did we achieve?</h3>
+
+<p>LFT is also a group of volunteers who give their energy to offer the best event possible, to offer to all Bedrock members a space where they can share their passion, technical subjects and others.
+From the proposal of their subject, through rehearsals and during the broadcast, the team is there to help speakers – either beginners or confirmed.</p>
+
+<p>The switch to 720p and then to 1080p has been a real positive point for the quality of the live show, but also for the recording and the replay.
+More than 200 participants during the last LFT on the day, the organizing team is delighted.</p>
+
+<p>The simplification of the broadcasting setup since the switch to Streamyard has also made it easier to set up the room.
+Switching from one speaker to another is less complex and can be done in just a few minutes.</p>
+
+<p>The youtube lives allow participants to pause and rewind the broadcast.
+This is really convenient for them.
+Also, by going through the youtube chat, we can share questions directly on the screen and on the replay.</p>
+
+<p>The LFT replays are also available on Bedrock’s Youtube channel in a private way accessible to all employees.</p>
+
+<p><img src="/images/posts/lft-streamyard/replay.png" alt="Youtube video replay screenshot" /></p>
+
+<h2 id="next-steps">Next steps</h2>
+
+<p>We don’t want to stop there.
+For the next editions, we will try to do even better.
+We are working on the matter of sharing some talks in public on our Youtube channel, so more people in our communities can learn from them.
+In order to simplify the setup, we will try to put in place a more fixed table to avoid wiring and moving furniture.
+We also wish to propose and train our employees to the use of this setup in order to allow us to host meetups and conferences in the best conditions.</p>
+
+<p>Now, it’s your turn: if your company or user-group does this kind of talks, how do you manage broadcasting and recording?</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=How+did+we+streamline+the+delivery+of+our+internal+conferences+aka+LFTs%3F%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F04%2F29%2Fhow-we-simplify-our-lft-broadcast.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/04/29/how-we-simplify-our-lft-broadcast.html&title=How+did+we+streamline+the+delivery+of+our+internal+conferences+aka+LFTs%3F%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/04/29/how-we-simplify-our-lft-broadcast.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=How did we streamline the delivery of our internal conferences aka LFTs?%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/04/29/how-we-simplify-our-lft-broadcast.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#lft">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> lft</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#live">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> live</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#obs">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> obs</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#stream">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> stream</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#streamyard">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> streamyard</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#talks">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> talks</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Retour sur l'Android Makers 2022" href="/2022/05/09/bedrock-android-makers-22.html">
+            <p>Previous post</p>
+            Retour sur l'Android Makers 2022
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="⚡️ Vite ⚡️ the Webpack killer" href="/2022/04/21/vite-the-webpack-killer.html">
+            <p>Next post</p>
+            ⚡️ Vite ⚡️ the Webpack killer
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

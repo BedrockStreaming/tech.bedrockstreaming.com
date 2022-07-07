@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/bonnes-pratiques-web/bedrock.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Best practices for Web application maintenance | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Best practices for Web application maintenance" />
+<meta name="author" content="Antoine Caron" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="How not to throw away your project after 2 years? Feedback based on best practices applied to the web platform developed at Bedrock Streaming." />
+<meta property="og:description" content="How not to throw away your project after 2 years? Feedback based on best practices applied to the web platform developed at Bedrock Streaming." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-09-06T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Best practices for Web application maintenance" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html"},"url":"https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html","author":{"@type":"Person","name":"Antoine Caron"},"description":"How not to throw away your project after 2 years? Feedback based on best practices applied to the web platform developed at Bedrock Streaming.","dateModified":"2021-09-06T00:00:00+02:00","datePublished":"2021-09-06T00:00:00+02:00","headline":"Best practices for Web application maintenance","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Best practices for Web application maintenance">
+    <meta name="twitter:description" content="  How not to throw away your application every two years?Feedback based on best practices applied to the web platform developed at Bedrock StreamingA bit of ...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/bonnes-pratiques-web/bedrock.jpg">
+    <meta name="twitter:image:alt" content="Best practices for Web application maintenance">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Best practices for Web application maintenance " aria-label="Best practices for Web application maintenance" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Best+practices+for+Web+application+maintenance" class="title">Best practices for Web application maintenance</h1>
+      
+
+
+<div class="post-info"><a href="https://blog.slashgear.dev/" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="/images/avatar/acaron.jpeg">
+    
+    <p class="meta">
+      Antoine Caron - 
+      
+      September 06, 2021
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <blockquote>
+  <p>How not to throw away your application every two years?</p>
+</blockquote>
+
+<p>Feedback based on best practices applied to the web platform developed at <em><a href="https://www.bedrockstreaming.com/">Bedrock Streaming</a></em></p>
+
+<h2 id="a-bit-of-context">A bit of context</h2>
+
+<p>At Bedrock Streaming many teams develop and maintain <em>frontend</em> applications for our customers and users.
+Some of those applications are not very young.
+In fact, the application I’m mainly working on is a website whose developments started in 2014.
+I have already mentioned it in different articles of <a href="https://slashgear.github.io/">this blog</a>.</p>
+
+<p><img src="/images/posts/bonnes-pratiques-web/commit-count.png" alt="screenshot of the number of commits on master of our project 15668" /></p>
+
+<p>You might think: “Oh poor people, maintaining an almost 10 year old application must be hell!”</p>
+
+<p>Don’t worry, it’s not the case!
+I have worked on projects that are much less old but where the development of new features was much more painful.</p>
+
+<p>Today the project is technically up to date, we must be on the latest version of React while it had started on a version <em>0.x.x</em>.
+In this world of often criticized web technologies where tools and practices are constantly evolving (eg: the many articles on the <em>Javascript Fatigue</em>), to keep a project “up to date” remains a real challenge.</p>
+
+<p><img src="/images/posts/bonnes-pratiques-web/releases.png" alt="number of versions of the application 1445" /></p>
+
+<p>Moreover, in the context of this project, in almost 10 years, we have had about 100 contributors.
+Some have only stayed a few months/years.
+How can we keep the maximum knowledge on “How we do things and how it works?” in such a moving human context?</p>
+
+<p><img src="/images/posts/bonnes-pratiques-web/contributors.png" alt="list of the 100 contributors of the project" /></p>
+
+<p>This is what I would like to demonstrate in this post.</p>
+
+<p>With the help of my colleagues, I have collected the list of good practices that still allow us to maintain this project today.
+With <a href="https://twitter.com/fooragnak">Florent Dubost</a>, we have often thought that it would be interesting to publish it.
+We hope you will find it useful.</p>
+
+<h2 id="set-rules-and-automate-them">Set rules and automate them</h2>
+
+<p>A project that stands the test of time is first and foremost a set of knowledge that is stacked one on top of the other.
+It’s like the Kapla tower you used to build as a child, trying to get as high as possible.
+A solid base on which we hope to add as much as possible before a potential fall.</p>
+
+<p>From the beginning of a project, we have to make important decisions about “How do we want to do things?
+We think for example about “What format for our files? How do we name this or that thing?”
+Writing accurate documentation of “How we do things” might seem like a good idea.</p>
+
+<p>However, documentation is cool, but it tends to get outdated very quickly.
+Our decisions evolve, but documentation does not.</p>
+
+<blockquote>
+  <p>“Times change but not READMEs.”</p>
+
+  <p><a href="https://twitter.com/omansour"><em>Olivier Mansour (deputy CTO at Bedrock)</em></a></p>
+</blockquote>
+
+<p>Automating the checking of each of the rules we impose on ourselves (on our codebase or our processes) is much more durable.
+To make it simple, we avoid as much as possible to say “We should do things like that”, and we prefer “we’ll code something that checks it for us”.
+On top of that, on the JS side we are really well equipped with tools like <a href="https://eslint.org/">Eslint</a> that allow us to implement our own rules.</p>
+
+<p>So the reflex we try to adopt is the following:</p>
+
+<ul>
+  <li>“We should try to do it like this now!”</li>
+  <li>“Ok that’s interesting, but how can we make sure we do it like that automatically with our CI (Continuous Integration)?”</li>
+</ul>
+
+<p>Continuous Integration of a project is the perfect solution to not miss anything on every <em>Pull Request</em> we provide.
+Reviews are only easier because you don’t have to worry about all the rules that are already automated.
+In this model, the review is more for knowledge sharing than for typo copying and other non-compliance with the project conventions.</p>
+
+<p>In this principle, we must therefore try to banish oral rules.
+The time of the druids is over, if all the good practices of a project have to be transmitted orally, it will only take longer to guide new developers into your team.</p>
+
+<p><img src="/images/posts/bonnes-pratiques-web/panoramix.gif" alt="the recipe of the magic potion of panoramix is lost because secret" /></p>
+
+<p>A project is not set in stone. These rules evolve with time.
+It is therefore preferable to add rules that have a script that will <em>autofix</em> the whole codebase intelligently.
+Many Eslint rules offer this, and it is a very important selection criteria when choosing new conventions.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eslint <span class="nt">--fix</span>
+</code></pre></div></div>
+
+<p>A very strict rule that will force you to modify your code manually before each push is annoying in the long run and will annoy your teams.
+Whereas a rule (even a very strict one) that can auto-fix itself at commit time will not be seen as annoying.</p>
+
+<p><strong>How to decide to add new rules ?</strong></p>
+
+<p>This question may seem thorny, take for example the case of <code class="language-plaintext highlighter-rouge">&lt;tab&gt;</code> / <code class="language-plaintext highlighter-rouge">&lt;space&gt;</code> in files.
+For this, we try to avoid the endless debates and follow the trend and rules of the community.
+For example, <a href="https://github.com/BedrockStreaming/eslint-tools">our Eslint configuration base</a> is based on Airbnb’s which seems to have some success in the JS community.
+But if the rule we want to impose on ourselves is not available in Eslint or other tools, we sometimes prefer not to follow the rule rather than say “We’ll do it without a checking CI”.</p>
+
+<h3 id="the-almost-exhaustive-list-">The <em>almost</em> exhaustive list 🤞</h3>
+
+<p><img src="/images/posts/bonnes-pratiques-web/ci-workflow.png" alt="Our continuous integration workflow" /></p>
+
+<ul>
+  <li>The file format is managed by <a href="https://editorconfig.org/">Editorconfig</a>, <a href="https://prettier.io/">prettier</a> and <a href="https://eslint.org/">Eslint</a>.
+We have opensourced <a href="https://github.com/BedrockStreaming/eslint-tools">our own configuration</a>, if it is of any use to you.</li>
+  <li>We use a <a href="https://www.conventionalcommits.org/en/v1.0.0/">specific commit name</a> to generate our changelog.
+To make sure devs follow it, a simple step in our CI checks it.</li>
+  <li>We don’t want a dev to make our JS bundles very big in production, so we track and measure their size in the CI.
+We use an in-house tool but we recommend to use the <a href="https://buildtracker.dev/">BuildTracker tool</a>.</li>
+  <li>Test coverage is not an indicator for the team, not all lines have the same need for us to be tested.
+Some teams at Bedrock however follow this indicator which at least has the interest to give a trend.</li>
+  <li>Our unit tests obviously run on the CI, these must pass.</li>
+  <li>Our functional tests (End to end: E2E) run on Chrome Headless, they must be green.</li>
+  <li>The logs of our E2E tests are retrieved and parsed to avoid errors or React warnings (the parsing script is however complicated to maintain)</li>
+  <li>Functional tests run in a <em>sandbox</em> where the whole network is proxied.
+We make sure that our tests do not depend on a non mocked API that could slow down their execution.</li>
+  <li>During the E2E tests we check that no image request has generated a 404.</li>
+  <li>We perform some <a href="https://www.deque.com/axe/">accessibility checks with Axe</a> during our E2E tests.</li>
+  <li>We check some rules on the CSS with <a href="https://stylelint.io/">Stylelint</a> and <a href="https://github.com/BedrockStreaming/bemlinter">bemlinter</a> (we don’t use BEM anymore but there is still some style managed in SCSS that we migrate little by little in StyledComponent)</li>
+  <li>The project is a monorepo on which we try to maintain the same dependencies versions for each package.
+We developed a tool which automates this check: <em><a href="https://www.npmjs.com/package/monorepo-dependencies-check">monorepo-dependencies-check</a></em></li>
+  <li>We check that our <code class="language-plaintext highlighter-rouge">yarn.lock</code> file has not been inadvertently modified or that it has been updated with respect to the modifications of the <code class="language-plaintext highlighter-rouge">package.json</code>.</li>
+  <li><a href="https://www.terraform.io/">Terraform</a> is used to manage our cloud resources, we check that the file format is correct.</li>
+</ul>
+
+<h2 id="test-test-test">Test, test, test</h2>
+
+<p>I hope that in 2021 it is no longer necessary to explain why automatic testing of your application is essential to make it sustainable.
+In JS, we are rather well equipped in terms of testing tools today.
+However, the eternal question remains:</p>
+
+<blockquote>
+  <p>“What do we want to test?”</p>
+</blockquote>
+
+<p>Globally if we search on the internet this question, we see that different needs make emerge very different practices and testing tools.
+It would be very presumptuous to think that there is a good way to automatically test your application.
+This is why it is preferable to define one or more test strategies that meet defined and limited needs.</p>
+
+<p>Our test strategies are based on two distinct goals:</p>
+
+<ul>
+  <li>To automate the verification of the functionalities proposed to the users by putting ourselves in their place.</li>
+  <li>To provide us with efficient solutions to specify the way we implement our technical solutions to allow us to make them evolve more easily.</li>
+</ul>
+
+<p>To do this, we perform two “types of tests” that I propose to present here.</p>
+
+<h3 id="our-e2e-tests">Our E2E tests</h3>
+
+<p>We call them “functional tests”, they are End-to-end (E2E) tests on a very efficient technical stack composed of <a href="https://cucumber.io/docs/installation/javascript/">CucumberJS</a>, <a href="https://webdriver.io/">WebdriverIO</a> with <a href="https://developers.google.com/web/updates/2017/04/headless-chrome">ChromeHeadless</a>
+This is a technical stack set up at the beginning of the project (at the time with <a href="https://phantomjs.org/">PhantomJS</a> for the oldest among you)</p>
+
+<p>This stack allows us to automate the piloting of tests that control a browser.
+This browser will perform actions that are as close as possible to what our real users can do while checking how the site reacts.</p>
+
+<p>A few years ago, this technical stack was rather complicated to set up, but today it is rather simple to do.
+<a href="https://github.com/Slashgear/slashgear.github.io">The site that hosts this blog post</a> is itself proof of this.
+It only took me about ten minutes to set up this stack with <a href="https://webdriver.io/docs/gettingstarted">the WebdriverIo CLI</a> to verify that my blog is working as expected.</p>
+
+<p>I recently published <a href="https://slashgear.github.io/how-to-setup-e2e-tests-with-webdriverio/">an article presenting the implementation of this stack</a>.</p>
+
+<p>So here is an example of an E2E test file to give you an idea:</p>
+
+<div class="language-gherkin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">Feature</span><span class="p">:</span> Playground
+
+  <span class="kn">Background</span><span class="p">:</span> Playground context
+    <span class="nf">Given </span>I use <span class="s">"playground"</span> test context
+
+  <span class="kn">Scenario</span><span class="p">:</span> Check if playground is reachable
+    <span class="nf">When </span>As user <span class="s">"toto@toto.fr"</span> I visit the <span class="s">"playground"</span> page
+    <span class="nf">And </span>I click on <span class="s">"playground trigger"</span>
+    <span class="nf">Then </span>I should see a <span class="s">"visible playground"</span>
+    <span class="nf">And </span>I should see 4 <span class="s">"playground tab"</span> in <span class="s">"playground"</span>
+
+    <span class="nf">When </span>I click on <span class="s">"playground trigger"</span>
+    <span class="nf">Then </span>I should not see a <span class="s">"visible playground"</span>
+
+    <span class="c"># ...</span>
+</code></pre></div></div>
+
+<p>And it looks like this in local with my Chrome browser!</p>
+
+<p><img src="/images/posts/bonnes-pratiques-web/e2e-example.gif" alt="Example of functional test execution" /></p>
+
+<p>Here is a diagram that explains how this stack works:</p>
+
+<p><img src="/images/posts/bonnes-pratiques-web/e2e-archi.png" alt="diagram that explains how our stack works" /></p>
+
+<p>Today, Bedrock’s web application has over 800 E2E test cases running on each of our <em>Pull Request</em> and the <code class="language-plaintext highlighter-rouge">master</code> branch.
+They assure us that we are not introducing any functional regression and that’s just great!</p>
+
+<p>👍 The positives</p>
+
+<ul>
+  <li>WebdriverIO also allows us to run these same tests on real devices on a daily basis through the paid SAAS service <a href="https://www.browserstack.com/">Browserstack</a>.
+So we have every day a <em>job</em> that makes sure that our site works correctly on a Chrome last version on Windows 10 and Safari on MacOs.</li>
+  <li>These tests allow us to easily document the functionality of the application using the Gherkin language.</li>
+  <li>They allow us to reproduce cases that are far from nominal.
+In a <em>TDD</em> logic, they allow us to advance on the development without having to click for hours.</li>
+  <li>These tests allowed us not to break the old version of the site which is still in production for some customers while our efforts are concentrated on the new one.</li>
+  <li>They give us real confidence.</li>
+  <li>Thanks to our library <a href="https://www.npmjs.com/package/superagent-mock"><em>superagent-mock</em></a>, we can <em>fixturer</em> (plug, mock) all the APIs we depend on and thus even check the error cases.
+Also, mocking the browser’s XHR layer allows for a significant improvement in test execution time. 🚀</li>
+  <li>They give us access to extended uses like:
+    <ul>
+      <li>checking accessibility rules</li>
+      <li>check the browser console logs (to avoid introducing errors or React Warning for example)</li>
+      <li>monitoring all network calls of the site through a proxy</li>
+      <li>and so on…</li>
+    </ul>
+  </li>
+</ul>
+
+<p>👎 The complications</p>
+
+<ul>
+  <li>Maintaining this stack is complicated and expensive.
+Since few resources are published on this domain, we sometimes find ourselves digging for days to fix them 😅.
+Sometimes we feel quite alone in having these worries.</li>
+  <li>It is very easy to code a so-called <em>flaky</em> E2E test (ie: a test that can fail randomly).
+They make us think that something is broken.
+They sometimes take us a long time to stabilize.
+It is still <strong>much better to remove a test that will not give you a stable result.</strong></li>
+  <li>Running all the tests takes a lot of time on our continuous integration.
+We must regularly work on their optimization so that the feedback they provide you is as fast as possible.
+These important times also cost money, because we have to run these tests on machines.
+For your information, the infrastructure of the website (just the hosting of our Node servers + static files + CDN) cost much less than our continuous integration.
+This obviously makes our Ops team smile! 😊</li>
+  <li>The new recruits in our teams have often never done this kind of testing, so there is a <del>struggle</del> phase of learning…</li>
+  <li>Some features are sometimes too complicated to test with our E2E stack (for example, payment paths that depend on third parties).
+So we sometimes fall back on other techniques with Jest, especially with a less unitary scope.</li>
+</ul>
+
+<h3 id="our-unit-tests">Our “unit” tests</h3>
+
+<p>To complete our functional tests we also have a stack of tests written with <a href="https://jestjs.io/en/">Jest</a>.
+We call these tests unit tests because we have as a principle to try to always test our JS modules independently from the others.</p>
+
+<p>Let’s not debate here about “Are these real unit tests?”, there are enough articles on the internet about this topic.</p>
+
+<p>We use these tests for different reasons that cover needs that our functional tests do not cover:</p>
+
+<ul>
+  <li>to help us develop our JS modules with TDD practices.</li>
+  <li>to document and describe how a JS module works.</li>
+  <li>test very/too complicated edge cases with our E2E tests.</li>
+  <li>facilitate the refactoring of our application by showing us the technical impacts of our modifications.</li>
+</ul>
+
+<p>With these tests, we put ourselves at the level of a utility function, a Redux action, a reducer, a React component.
+We rely mainly on <a href="https://slashgear.github.io/discover-jest-hidden-feature-automock/">the <code class="language-plaintext highlighter-rouge">automock</code> functionality of Jest</a> which allows us to isolate our JS modules when we test.</p>
+
+<p><img src="/images/posts/bonnes-pratiques-web/mocked-modules.jpg" alt="visual representation of the automock" /></p>
+
+<p>The previous image represents the metaphor that allows us to explain our unit testing strategy to newcomers.</p>
+
+<blockquote>
+  <p>You have to imagine that the application is a wall made of unit bricks (our ecmascript modules), our unit tests must test one by one the bricks in total independence from the others.
+Our functional tests are there to test the cement between the bricks.</p>
+</blockquote>
+
+<p><strong>To summarize, we could say that our E2E tests test <em>what our application should do</em>, and our unit tests make sure to check <em>how it works.</em></strong></p>
+
+<p>Today there are more than 6000 unit tests that cover the application and allow to limit regressions.</p>
+
+<p>👍</p>
+
+<ul>
+  <li><a href="https://jestjs.io/en/">Jest</a> is really a great library, fast, complete, well documented.</li>
+  <li>Unit tests help us a lot to understand <em>several years later</em> how it all works.</li>
+  <li>We always manage to unit test our code, and it complements our E2E tests well.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">automock</code> feature is really handy for breaking down tests by modules.</li>
+</ul>
+
+<p>👎</p>
+
+<ul>
+  <li>Sometimes we found ourselves limited by our E2E test stack and couldn’t rely solely on unit tests.
+We were missing something to be able to make sure that the <em>cement between the bricks</em> worked as we wanted it to.
+For this, a second test stack <a href="https://jestjs.io/en/">Jest</a> was set up called “integration test” where the <code class="language-plaintext highlighter-rouge">automock</code> is disabled.</li>
+  <li>The abuse of <a href="https://jestjs.io/docs/snapshot-testing"><em>Snapshot</em></a> is dangerous for your health.
+The use of <em>“Snapshot testing”</em> can save time on the implementation of your tests but can reduce the quality.
+Having to review a 50 line object in <em>Snapshot</em> is neither easy nor relevant.</li>
+  <li>With the depreciation of <a href="https://enzymejs.github.io/enzyme/">EnzymeJS</a>, we are forced to migrate to <a href="https://testing-library.com/docs/react-testing-library/intro/">React Testing Library</a>.
+It is of course possible to unit test components with this new library.
+Unfortunately, this is not really the spirit and the way to do it.
+<a href="https://testing-library.com/docs/react-testing-library/intro/">React Testing Library</a> pushes us <a href="https://kentcdodds.com/blog/why-i-never-use-shallow-rendering">not to play with <em>shallow rendering</em></a>.</li>
+</ul>
+
+<h3 id="our-principles">Our principles</h3>
+
+<p>We try to always follow the following rules when asking the question “Should I add tests?”.</p>
+
+<ol>
+  <li>If our <em>Pull Request</em> introduces new user features, we need to integrate E2E test scenarios.
+Unit tests with Jest can complete / replace them accordingly.</li>
+  <li>If our <em>Pull Request</em> aims to fix a bug, it means that we are missing a test case.
+We must therefore try to add an E2E test or, failing that, a unit test.</li>
+</ol>
+
+<p><em>It is while writing these lines that I think that these principles could very well be automated.</em> 🤣</p>
+
+<h2 id="the-project-stays-the-features-dont">The project stays, the features don’t</h2>
+
+<blockquote>
+  <p>“The second evolution of a feature is very often its removal.”</p>
+</blockquote>
+
+<p>As a matter of principle, we want to make sure that every new feature in the application does not base its activation on simply being in the codebase.
+Typically, the lifecycle of a feature in a project can be as follows (in a <a href="https://guides.github.com/introduction/flow/">Github Flow</a>):</p>
+
+<ul>
+  <li>a person implements on a branch</li>
+  <li>the feature is <em>merged</em> on master</li>
+  <li>it is deployed in production</li>
+  <li>lives its feature life (sometimes with bugs and fixes)</li>
+  <li>the feature is not needed anymore</li>
+  <li>a person unravels the code and removes it</li>
+  <li>new deployment</li>
+</ul>
+
+<p>To simplify some steps, we have implemented <em>feature flipping</em> on the project.</p>
+
+<p><strong>How does it work?</strong></p>
+
+<p>In our config there is a <em>map</em> key/value that lists all the features of the application associated with their activation status.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">featureFlipping</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">myAwesomeFeature</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="na">anotherOne</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In our code, we have implemented conditional treatments that say “If this feature is activated then…”.
+This can change the rendering of a component, change the implementation of a Redux action or disable a route in our <em>react-router</em>.</p>
+
+<p><strong>But what’s the point?</strong></p>
+
+<ul>
+  <li>We can develop new evolutions progressively by hiding them behind a configuration key.
+We deliver features in production without activating them.</li>
+  <li>In a test environment, we can overload this config to test features that are not yet activated in production.</li>
+  <li>In the case of a white label site, we can propose these features to our customers as possible options.</li>
+  <li>Before deleting code of a feature, we deactivate it and clean it up without risk.</li>
+  <li>Thanks to an in-house tool called <em>Applaunch</em>, this feature flipping config can be overloaded on time in a GUI without deployment.
+This allows us to activate features without putting the code into production.
+In the event of an incident, we can deactivate features that have been degraded.</li>
+</ul>
+
+<p>To give you a more concrete example, between 2018 and 2020 we completely overhauled the application’s interface.
+This graphical evolution was just a featureFlipping key.
+The graphical redesign was not a reset of the project, we still live with both versions (as long as the switchover of all our customers is not completed).</p>
+
+<p><img src="/images/posts/bonnes-pratiques-web/compare-v4-v5.jpg" alt="screenshot comparing v4 / v5 on 6play" /></p>
+
+<h3 id="ab-testing">A/B testing</h3>
+
+<p>Thanks to the great work of the backend and data teams, we were even able to extend the use of <em>feature flipping</em> by making this configuration modifiable for sub-groups of users.</p>
+
+<p>This allows us to deploy new features on a smaller portion of users in order to compare our <a href="https://en.wikipedia.org/wiki/Performance_indicator">KPI</a>.</p>
+
+<p>Decision making, technical or product performance improvement, experimentation, the possibilities are numerous and we exploit them more and more.</p>
+
+<h3 id="the-future-flipping">The <em>future flipping</em>.</h3>
+
+<blockquote>
+  <p>Based on an original idea by <a href="https://twitter.com/SuperFlaw">Florent Lepretre</a>.</p>
+</blockquote>
+
+<p>We regularly had the need to activate features at <del>very</del> early hours in the future.
+For that we had to be connected at a precise time on our computer to modify the configuration on the fly.</p>
+
+<p>To avoid forgetting to do this, or doing it late, we made sure that a configuration key could be activated from a certain date.
+To do this, we evolved our <em>Redux selector</em> which indicated if a feature was activated so that it could handle date formats and compare them to the current time.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">featureFlipping</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">myAwesomeFeature</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">offDate</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2021-07-12 20:30:00</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">onDate</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2021-07-12 19:30:00</span><span class="dl">'</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Many coffees ☕️ at 9am have been saved by <em>future flipping</em>.</p>
+</blockquote>
+
+<h2 id="monitor-measure-alert">Monitor, Measure, Alert</h2>
+
+<p>To maintain a project as long as Bedrock’s web application, testing, documentation and rigor are not enough.
+You also need visibility on what works in production.</p>
+
+<blockquote>
+  <p>“How do you know that the application you have in production right now is working as expected?”</p>
+</blockquote>
+
+<p>We assume that no functionality works until it is monitored.
+Today, monitoring in Bedrock on the frontend side takes the form of different tools and different stacks.
+We rely on <a href="https://newrelic.com">NewRelic</a>, <a href="https://github.com/statsd/statsd">Statsd</a>, a <a href="https://www.elastic.co/fr/what-is/elk-stack">ELK</a> stack and even <a href="https://youbora.nicepeopleatwork.com">Youbora</a> for the video streaming part.</p>
+
+<p>To give you an example, each time a user starts a browsing session we send an anonymous monitoring <em>Hit</em> to increment a counter in Statsd.
+We then have to define a dashboard that displays the evolution of this number in a graph.
+If we observe a too important variation, it can allow us to detect an incident.</p>
+
+<p><img src="/images/posts/bonnes-pratiques-web/grafana-monitoring-example.png" alt="example of monitoring dashboard" /></p>
+
+<p>Monitoring also offers us solutions to understand and analyze a bug that occurred in the past.
+Understanding an incident, explaining it, finding its root cause are the possibilities that are open to you if you monitor your application.
+Monitoring can also allow you to better communicate with your customers about the impact of an incident and also to estimate the number of impacted users.</p>
+
+<p>With the multiplication of our customers, monitoring our platforms well is not enough.
+Too much data, too many dashboards to monitor, it becomes very easy to miss something.
+So we started to complement our metrics monitoring with automatic <em>alerting</em>.
+Once we have enough confidence in the metrics, we can easily set up alerts that will warn us if there is an inconsistent value.</p>
+
+<p>However, we try to always trigger alerts only when it is actionable.
+In other words, if an alert sounds, we have something to do.
+Sounding alerts that do not require immediate human action generates noise and wastes time.</p>
+
+<p><img src="/images/posts/bonnes-pratiques-web/alerte-taxi.gif" alt="general alert" /></p>
+
+<h2 id="limit-monitor-and-update-your-dependencies">Limit, monitor and update your dependencies</h2>
+
+<p>What goes out of date faster than your shadow in a web project based on Javascript technologies are your dependencies.
+The ecosystem evolves rapidly and your dependencies can quickly become unmaintained, out of fashion or completely overhauled with big <em>breaking changes</em>.</p>
+
+<p>We therefore try as much as possible to limit our dependencies and avoid adding them unnecessarily.
+A dependency is often very easy to add but it can become a real headache to remove.</p>
+
+<p>The graphic component libraries (e.g. React bootstrap, Material Design) are a good example of dependencies that we do not want to introduce.
+They can make integration easier at first, but they often freeze the version of your component library later on.
+You don’t want to freeze the React version in your application for two form components.</p>
+
+<p>Monitoring is also part of our dependency management routines.
+Since the addition of <a href="https://docs.npmjs.com/auditing-package-dependencies-for-security-vulnerabilities">reporting security flaws in an NPM package</a>, it is possible to know if a project has a dependency that contains a known security flaw with a simple command.
+So we have daily jobs on our projects that run the <code class="language-plaintext highlighter-rouge">yarn audit</code> command to force us to apply patches.</p>
+
+<blockquote>
+  <p>Dependency maintenance is greatly facilitated by our E2E test stack which sounds the alarm if the version upgrade generates a regression.</p>
+</blockquote>
+
+<p>Today, except for security flaws, we update our dependencies “when we have time”, often at the end of <em>sprint</em>.
+We are not satisfied with this because some dependencies can be forgotten.
+I personally use tools like <a href="https://classic.yarnpkg.com/en/docs/cli/outdated/"><code class="language-plaintext highlighter-rouge">yarn outdated</code></a> and <a href="https://dependabot.com/">Dependabot</a> on my personal projects to automate the update of my dependencies.</p>
+
+<h2 id="accepting-your-technical-debt">Accepting your technical debt</h2>
+
+<p>A project will always accumulate technical debt.
+<strong>This is a fact.</strong>
+Whether it is voluntary or involuntary debt, a project that resists the years will inevitably accumulate debt.
+Even more so, if during all these years you keep adding features.</p>
+
+<p>Since 2014, our best practices, our ways of doing things have evolved well.
+Sometimes we decided these changes but sometimes we underwent them (an example, the arrival of functional components with React and the Hooks api).</p>
+
+<p><strong>Our project is not completely <em>“state of art”</em> and we assume it.</strong></p>
+
+<p><img src="/images/posts/bonnes-pratiques-web/leak.gif" alt="It will hold!" /></p>
+
+<p>We try to prioritize our <em>refactoring</em> topics on the parts of the application on which we have the most concern, the most pain.
+We consider that a part of the application that we don’t like but on which we don’t need to work (bring evolutions) doesn’t deserve that we refactor it.</p>
+
+<p>I could name many features of our application that have not evolved functionally for several years.
+But since we have covered these features with E2E tests since the beginning, we didn’t really have to touch them.</p>
+
+<p>As said above, the next evolution of a code feature is sometimes its deactivation.
+So why spend time rewriting the whole application?</p>
+
+<ul>
+  <li>In any case, the code becomes “legacy”.</li>
+  <li>As long as the features are tested, nothing obliges us to refactor everything permanently so that our entire codebase is <em>state of art</em>.</li>
+  <li>We focus on our <em>pain points</em>, we re-factor what we really need to evolve.</li>
+</ul>
+
+<h2 id="to-summarize">To summarize</h2>
+
+<p>The best practices presented here are obviously subjective and will not be perfectly/directly applicable in your contexts.
+However, I am convinced that they can probably help you identify what can make your project go from fun to stale.
+At Bedrock we have other practices in place that I haven’t listed here but that will be the occasion for a new article sometime.</p>
+
+<p>Finally, if you want me to go into more detail on some of the chapters presented here, don’t hesitate to tell me, I could try to dedicate a specific article to it.</p>
+
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Best+practices+for+Web+application+maintenance%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2021%2F09%2F06%2Fweb-best-practices.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html&title=Best+practices+for+Web+application+maintenance%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Best practices for Web application maintenance%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#frontend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#js">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> js</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#react">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> react</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#web">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> web</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="How did we live stream our Last Friday Talks?" href="/2021/10/14/live-streaming-lft.html">
+            <p>Previous post</p>
+            How did we live stream our Last Friday Talks?
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Bonnes pratiques pour la maintenance d'une application web" href="/2021/09/01/bonnes-pratiques-web.html">
+            <p>Next post</p>
+            Bonnes pratiques pour la maintenance d'une application web
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/bonnes-pratiques-web/bedrock.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

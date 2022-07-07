@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/lft/live-streaming/header.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>How did we live stream our Last Friday Talks? | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="How did we live stream our Last Friday Talks?" />
+<meta name="author" content="Pascal Martin" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Discover how we live streamed our Last Friday Talks of September 2021 to 150+ remote employees." />
+<meta property="og:description" content="Discover how we live streamed our Last Friday Talks of September 2021 to 150+ remote employees." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2021/10/14/live-streaming-lft.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2021/10/14/live-streaming-lft.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-10-14T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How did we live stream our Last Friday Talks?" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2021/10/14/live-streaming-lft.html"},"url":"https://tech.bedrockstreaming.com/2021/10/14/live-streaming-lft.html","author":{"@type":"Person","name":"Pascal Martin"},"description":"Discover how we live streamed our Last Friday Talks of September 2021 to 150+ remote employees.","dateModified":"2021-10-14T00:00:00+02:00","datePublished":"2021-10-14T00:00:00+02:00","headline":"How did we live stream our Last Friday Talks?","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="How did we live stream our Last Friday Talks?">
+    <meta name="twitter:description" content="At Bedrock, the last Friday of every other month1 is Last Friday Talk – or LFT.This event encourages sharing: technical topics, less technical topics, cross-...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/lft/live-streaming/header.jpg">
+    <meta name="twitter:image:alt" content="How did we live stream our Last Friday Talks?">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="How did we live stream our Last Friday Talks? " aria-label="How did we live stream our Last Friday Talks?" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="How+did+we+live+stream+our+Last+Friday+Talks%3F" class="title">How did we live stream our Last Friday Talks?</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/pascal_martin" target="_blank" rel="noopener">
+    <p class="meta">
+      Pascal Martin - 
+      
+      October 14, 2021
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>At Bedrock, the last Friday of every other month<sup id="fnref:lft-history" role="doc-noteref"><a href="#fn:lft-history" class="footnote" rel="footnote">1</a></sup> is <em>Last Friday Talk</em> – or <em>LFT</em>.</p>
+
+<p>This event encourages sharing: technical topics, less technical topics, cross-team topics…
+We also take the opportunity to meet and talk with colleagues we don’t work with daily. And the post-LFT snack, put aside during COVID but which I hope will come back, is also meant for that!
+Finally, these LFTs are an excellent opportunity for beginner speakers to practice in front of a friendly audience. We also use them to rehearse and validate talks we will give in public later.</p>
+
+<p>During the COVID full-remote period, we moved our LFTs to <em>Google Live Stream</em>, where each speaker shared their screen and showed their face through the camera.
+With the return to the office<sup id="fnref:return-to-office" role="doc-noteref"><a href="#fn:return-to-office" class="footnote" rel="footnote">2</a></sup> and partial telecommuting, a new problem arose: how can we broadcast the talks given in our auditorium to 150+ remote colleagues? In good quality, to encourage people to attend several talks in a row? While remaining enjoyable and lively on-site?</p>
+
+<h2 id="the-goal-to-broadcast-live">The goal: to broadcast live</h2>
+
+<p>We can seat up to 70 people in our amphitheater, where most of our speakers were giving their talks<sup id="fnref:talk-remote-speaker" role="doc-noteref"><a href="#fn:talk-remote-speaker" class="footnote" rel="footnote">3</a></sup>. And we were aiming for 100 to 200 people remotely, for whom we wanted to broadcast live<sup id="fnref:remote-audience-count" role="doc-noteref"><a href="#fn:remote-audience-count" class="footnote" rel="footnote">4</a></sup>.</p>
+
+<p>For the broadcast, we worked with one of our usual tools: the organizers and speakers broadcast in a Google Meet, and the audience follows the stream via Google Live Stream<sup id="fnref:google-live-stream" role="doc-noteref"><a href="#fn:google-live-stream" class="footnote" rel="footnote">5</a></sup>. This solution supports a large number of participants, and access is filtered through our SSO, ensuring that only our colleagues have access to the stream.</p>
+
+<p>We thought we were going to do this in a bit of an ugly way, like when we were all telecommuting: each speaker joins the Google Meet, shares their screen, and speaks into their microphone, often the headset provided by the company. But, still… We decided to make an effort and try to provide a better experience for our colleagues attending LFT remotely!</p>
+
+<h2 id="so-how-we-did-it-this-time">So, how we did it, this time</h2>
+
+<p>How did we capture and stream slides (or even code and video!), audio, and video of each speaker?</p>
+
+<h3 id="first-step-our-amphitheater">First step: our amphitheater</h3>
+
+<p>Let’s start from the room where we broadcast: our amphitheater.</p>
+
+<p><img src="/images/posts/lft/live-streaming/schema-01-amphi.jpg" alt="Our amphitheater, top view" /></p>
+
+<p>You can see the room below. This photo is taken<sup id="fnref:photo-front-room" role="doc-noteref"><a href="#fn:photo-front-room" class="footnote" rel="footnote">6</a></sup> from the first row of the bleachers, on the right on the picture above:</p>
+
+<p><img src="/images/posts/lft/live-streaming/amphi-bedrock.jpg" alt="Photo of the room, from a first row seat" /></p>
+
+<p>So, the configuration of the room:</p>
+
+<ul>
+  <li>a speaker;</li>
+  <li>a lectern to put his or her PC;</li>
+  <li>from the HDMI output of this PC (possibly via a USB-C to HDMI adapter), we connect an HDMI cable that goes to the two projectors in the room;</li>
+  <li>these two projectors project (the same thing) on two screens, on the left and on the right of the speaker.</li>
+</ul>
+
+<p>Behind a screen, we placed a table for the capture and broadcast computer<sup id="fnref:photo-hidden-table" role="doc-noteref"><a href="#fn:photo-hidden-table" class="footnote" rel="footnote">7</a></sup>. This way, it is not too far from the speaker<sup id="fnref:orga-tap-shoulder" role="doc-noteref"><a href="#fn:orga-tap-shoulder" class="footnote" rel="footnote">8</a></sup>, without being visible from the audience.</p>
+
+<p>Equipment:</p>
+
+<ul>
+  <li>speaker’s laptop, placed on the lectern;</li>
+  <li>USB-C to HDMI adapter;</li>
+  <li>HDMI cable;</li>
+  <li>two projectors (fixed to the ceiling of the room);</li>
+  <li>two screens (fixed to the ceiling of the room).</li>
+</ul>
+
+<p>This setup allows for efficient presentation in the room… But we haven’t started working on the live stream yet.</p>
+
+<h3 id="a-pc-to-manage-the-video-and-audio">A PC to manage the video and audio</h3>
+
+<p>To broadcast live, the speaker could join the Google Meet and share their screen. That’s what we were doing during the COVID… But we can also do much better!</p>
+
+<p>Let’s install a PC on the table behind the screen. It will broadcast, to the Google Meet, the video generated by <a href="https://obsproject.com/">OBS</a>’ virtual camera – a free and open-source video recording and streaming software.</p>
+
+<p>A second PC, also placed on this table, is used to watch the Google Live Stream watched by all our remote colleagues. This feedback helps us validate that everything is working well, even if we suffer from a few dozen seconds of lag.</p>
+
+<p>Equipment:</p>
+
+<ul>
+  <li>a table, not too visible from the room;</li>
+  <li>a PC (laptop) – the one used this time had two USB-A ports and one USB-C port, which affects the cables/adapters required later on;</li>
+  <li>its charger and, perhaps, an extension cord;</li>
+  <li>a good quality internet connection;</li>
+  <li>a second PC (laptop) to view the live stream;</li>
+  <li>and a headset to listen to the live stream.</li>
+</ul>
+
+<h3 id="video-capture-of-the-speakers-slides--screen">Video capture of the speaker’s slides / screen</h3>
+
+<p>We want to broadcast to the live stream what the speaker is projecting in the room. To do this, we place an HDMI capture box between her PC and the projector:</p>
+
+<p><img src="/images/posts/lft/live-streaming/schema-04-hdmi-capture.jpg" alt="An HDMI capture box, view from the room" /></p>
+
+<p>This capture box has an HDMI input <em>(= the cable coming out of the speaker’s PC)</em>, an HDMI output <em>(= the cable going to the projector)</em> and a USB-C output <em>(= the cable going to the control / broadcast PC)</em>.</p>
+
+<p><img src="/images/posts/lft/live-streaming/schema-05-hdmi-capture.jpg" alt="An HDMI capture box, close-up view" /></p>
+
+<p>On the control / broadcast PC, the capture box connected via USB is recognized as a webcam. It is then used as a video input device in OBS.</p>
+
+<p>Hardware:</p>
+
+<ul>
+  <li>additional HDMI cable;</li>
+  <li>capture device + passthrough: <a href="https://www.elgato.com/en/game-capture-hd60-s-plus">Elgato HD60 S+</a>;</li>
+  <li>USB-C to USB-A cable;</li>
+  <li>USB-A extension cable (because the control desk is a bit far).</li>
+</ul>
+
+<h3 id="the-video-recording-of-the-room">The video recording of the room</h3>
+
+<p>It would be even cooler if the remote audience could see the speaker! As a matter of fact, part of the message of each talk is transmitted by the speaker’s gestures.</p>
+
+<p>So let’s position a camera in the room, at the level of the audience sitting in the stands, to give the impression the speakers are looking at the camera when they are looking at the audience.</p>
+
+<p><img src="/images/posts/lft/live-streaming/schema-03-camera.jpg" alt="A camera to film the speaker, seen from the audience" /></p>
+
+<p>We did not have a real camera at hand. So we used an iPhone 11 Pro Max<sup id="fnref:iphone-good-enough" role="doc-noteref"><a href="#fn:iphone-good-enough" class="footnote" rel="footnote">9</a></sup>. It has only a Lightning port… And, with an adapter, we can connect an HDMI cable. And the <em>Filmic Pro<sup id="fnref:filmic-pro" role="doc-noteref"><a href="#fn:filmic-pro" class="footnote" rel="footnote">10</a></sup></em> application knows how to stream a <em>clean HDMI<sup id="fnref:clean-hdmi" role="doc-noteref"><a href="#fn:clean-hdmi" class="footnote" rel="footnote">11</a></sup></em> video.</p>
+
+<p>To capture the HDMI signal from the iPhone to the PC, we used a second capture box, simpler than the previous one: it has an HDMI input <em>(= to connect the iPhone)</em> and a USB output <em>(= connected to the PC)</em>:</p>
+
+<p><img src="/images/posts/lft/live-streaming/schema-06-camera.jpg" alt="A camera to film the presenter, close-up view" /></p>
+
+<p>Fearing the iPhone’s battery wouldn’t last all day while filming, we powered it via an external battery<sup id="fnref:external-battery" role="doc-noteref"><a href="#fn:external-battery" class="footnote" rel="footnote">12</a></sup>. The Lightning-to-HDMI adapter happens to include a lightning plug for power.</p>
+
+<p>Hardware:</p>
+
+<ul>
+  <li>iPhone 11 Pro Max <em>(another high-end model less than four or five years old would have done the trick as well)</em>;</li>
+  <li><a href="https://www.apple.com/fr/shop/product/MD826ZM/A/adaptateur-lightning-av-num%C3%A9rique">lightning to HDMI adapter</a>, with Lightning input for power supply;</li>
+  <li>10m HDMI cable <em>(to reach the control PC)</em>;</li>
+  <li>external battery;</li>
+  <li>HDMI capture box: <a href="https://www.elgato.com/en/cam-link-4k">Elgato Camlink 4K</a>;</li>
+  <li>USB cable <em>(between camlink and PC)</em>;</li>
+  <li>USB to lightning cable <em>(between the battery and the adapter connected to the iPhone)</em>.</li>
+</ul>
+
+<p>The capture box is recognized as a USB webcam. We use it as a video input device in OBS.</p>
+
+<p>We first put the camera on the side of the room, to not disturb. But the speakers never looked in its direction, and it was not very nice for the remote audience, which felt less <em>included</em>. So we moved the camera almost in front of the speaker. This way, the remote audience feels more like the person speaking is looking in their direction.
+Also, the camera that films the speaker also films a screen, including when the speaker wants to point to a part of what they are presenting.</p>
+
+<h3 id="audio-recording-of-the-speaker">Audio recording of the speaker</h3>
+
+<p>Our amphitheater is equipped with microphones and speakers, but we don’t yet know how to get the sound from this audio system to inject it into a live stream.</p>
+
+<p>With the resources and time we had, the best we could do for the speakers was a wireless lapel mic:</p>
+
+<p><img src="/images/posts/lft/live-streaming/schema-07-microphone.jpg" alt="A microphone, wireless" /></p>
+
+<p>We didn’t have a wireless mic, but we had something that could act as such, and we ended up with a 3.5” jack to plug into the microphone port of the control PC. This microphone is then used as an audio source in the Google Meet.</p>
+
+<p>Equipment:</p>
+
+<ul>
+  <li>Lapel microphone with TRRS Jack 3.5 port: <a href="http://www.rode.com/microphones/smartlav-plus">RODE SmartLav+</a>;</li>
+  <li>TRRS female to TRS male adapter <em>(between the microphone and the transmitter box)</em>;</li>
+  <li>wireless transmitter + receiver kit <em>(TRS 3.5 jack input on transmitter, TRS 3.5 jack output on receiver)</em>: <a href="https://www.rode.com/wirelessgo#home_hero_banner_1">RODE Wireless Go (1st generation)</a>;</li>
+  <li>TRS 3.5 male to male cable <em>(between the receiver box and the PC)</em>.</li>
+</ul>
+
+<h3 id="some-other-points-and-nice-bonuses">Some other points and nice “bonuses”</h3>
+
+<p>Of course, we didn’t stop at these main points, and lots of other little things came into play throughout the day.</p>
+
+<h4 id="remote-speakers">Remote speakers?</h4>
+
+<p>I wrote above that I wouldn’t talk about it, and I lied a bit: one of the talks that day was given by a colleague who was working from home.
+He joined the organizers’ Google Meet, shared his screen, activated his camera, and presented, exactly as many of us have done during more than a year of forced telecommuting because of COVID.
+For those in the auditorium, one of the organizers plugged in his computer to the two screens in the room and its sound system.</p>
+
+<h4 id="transitions-between-sessions">Transitions between sessions</h4>
+
+<p>At the end of each talk, we quickly took over the speaker’s desk and microphone. We wanted to set up the next person, plug in their PC and position the mic so as not to interfere with them, explain how we were broadcasting and validate the setup and configuration.
+An organizer was in charge of managing the transition, indicating at what time we would resume. But this transition, in the room, was done without a microphone – and therefore, without being broadcast to the live stream.
+For the live stream, another organizer made the same transition by joining the Google Meet of organizers and speakers. This way, our remote colleagues were not left in the dark and knew when the next talk would resume.</p>
+
+<h4 id="some-useful-or-even-essential-utilities">Some useful, or even essential, utilities</h4>
+
+<p>Of course, in a large room with few electrical outlets that are not always well placed, you need to bring extension cords and power strips.
+Also, to avoid someone getting their feet caught in the extension cords or cables <em>(USB, HDMI)</em>, bring a roll of duct tape to secure everything to the floor.
+And depending on where the lapel microphone is attached <em>(shirt collar, shirt buttonhole…)</em> and where its cable goes <em>(above the shirt in front, under the shirt / under the shirt, on the shoulder and in the back…)</em>, more delicate tape<sup id="fnref:delicate-tape" role="doc-noteref"><a href="#fn:delicate-tape" class="footnote" rel="footnote">13</a></sup> is very handy.</p>
+
+<h4 id="at-obs-level">At OBS level</h4>
+
+<p>On the control PC, in OBS, we configured several scenes to highlight the speakers or their slides. The images below are screenshots from the live stream, so in 720p maximum and much too compressed…</p>
+
+<h5 id="screen-only">Screen only</h5>
+
+<p>To display large code examples, videos…</p>
+
+<p><img src="/images/posts/lft/live-streaming/live-stream-screen-only.png" alt="Screen only, live-stream screenshot" /></p>
+
+<h5 id="large-screen">Large screen</h5>
+
+<p>With speaker overlay in the bottom right corner: for slides written small, while reflecting an idea of the gestures. And we also had the same thing with the speaker inlay in another corner, for slides with important texts in the bottom right of the screen.</p>
+
+<p><img src="/images/posts/lft/live-streaming/live-stream-incrustation.png" alt="Incrustation, live-stream screenshot" /></p>
+
+<h5 id="mosaiq">Mosaiq</h5>
+
+<p>Screen on the left half of the screen, video of the speaker on the right half: for large written slides and to allow people at a distance to see the speaker clearly. We used this view a lot when the camera was on the side of the room – and we didn’t use it anymore once the camera was in front of the speaker.</p>
+
+<p><img src="/images/posts/lft/live-streaming/live-stream-mosaiq.png" alt="Mosaiq, live-stream screenshot" /></p>
+
+<h5 id="speaker-only">Speaker only</h5>
+
+<p>Only the speaker’s video, framed to include one of the two screens. We used this view “as if the person watching the stream was sitting in the stands” for much of the afternoon, when the camera was placed in the middle of the audience.</p>
+
+<p><img src="/images/posts/lft/live-streaming/live-stream-speaker-only.png" alt="Speaker only, live-stream screenshot" /></p>
+
+<h4 id="for-the-practical-aspects-of-managing-the-live-stream">For the practical aspects of managing the live stream</h4>
+
+<p>Changing scenes in OBS can be done with the mouse <em>(but it’s not convenient)</em> or with keyboard shortcuts <em>(but you have to remember the shortcuts and the scenes they correspond to)</em>.</p>
+
+<p>But it’s much more fun with a Stream Deck: a command pad with big buttons, which you can customize! Yes, it’s a bit gimmicky and not at all essential, but it’s also very cool to use ;-)</p>
+
+<p>Hardware:</p>
+
+<ul>
+  <li><a href="https://www.elgato.com/en/stream-deck">Elgato Stream Deck</a>;</li>
+  <li>since it connects to USB-A: an adapter or a USB hub.</li>
+</ul>
+
+<p><img src="/images/posts/lft/live-streaming/stream-deck.jpg" alt="An Elgato Stream Deck" /></p>
+
+<h4 id="the-control-desk-in-photo">The control desk, in photo</h4>
+
+<p>A lot of unorganized cables… Here is what the table looked like with the control PC<sup id="fnref:control-pc-mess" role="doc-noteref"><a href="#fn:control-pc-mess" class="footnote" rel="footnote">14</a></sup>:</p>
+
+<p><img src="/images/posts/lft/live-streaming/control-table.jpg" alt="The control table" /></p>
+
+<h2 id="some-things-to-improve">Some things to improve</h2>
+
+<p>Of course, not everything was perfect… Still, for less than an hour and a half of installation and testing that morning, we were quite happy with the result!</p>
+
+<p>First of all, Google Live Stream: the solution, integrated to Google Workspace, is very practical. Including the aspect of <em>“limiting access to our employees”<sup id="fnref:private-talks" role="doc-noteref"><a href="#fn:private-talks" class="footnote" rel="footnote">15</a></sup></em>. However, the video quality, in 720p too compressed, is not optimal :-/.</p>
+
+<p>Our auditorium has two cameras fixed to the ceiling. Today, they are not yet functional<sup id="fnref:recent-move" role="doc-noteref"><a href="#fn:recent-move" class="footnote" rel="footnote">16</a></sup>, but we hope they will soon replace the iPhone – and allow us to get a view of the audience for questions.</p>
+
+<p>Also, having only one microphone is problematic when two speakers are speaking for a talk. It happened once during the day, and we put the lapel mic on the lectern and asked the speakers to move closer to it when it was their turn to speak. The RODE SmartLav+ being omni-directional and of good quality, it was just about right… Without being optimal. Also, we didn’t have a microphone for the questions, so the speakers had to repeat them<sup id="fnref:repeat-questions" role="doc-noteref"><a href="#fn:repeat-questions" class="footnote" rel="footnote">17</a></sup>.
+We have two wireless microphones in the auditorium. Currently, they are used to amplify the sound in the room and we didn’t have time in the morning when we were setting up to figure out how to capture their output and integrate it into the live stream. Maybe an improvement for next time, because they seem to be pretty good ;-)
+Also, we didn’t have the time<sup id="fnref:prepare-in-advance" role="doc-noteref"><a href="#fn:prepare-in-advance" class="footnote" rel="footnote">18</a></sup> to talk with our colleagues who were managing the sound of these events before the COVID: somewhere in a closet, we have a physical mixer, which could have been useful! Another area for improvement!</p>
+
+<p>That said, now that we’ve seen that it is possible, we want to do even better next time, in two months ;-). And, clearly, a prototype in 1h30 of setup, which worked that well all day long and which improved the experience of 150 or more remote colleagues, is a big success which will push us to do better - and we know we will be able to do so!
+And then, with time and successive improvements, we may spend less time each time installing and configuring!
+Also, a more turnkey solution – like Streamyard<sup id="fnref:streamyeard" role="doc-noteref"><a href="#fn:streamyeard" class="footnote" rel="footnote">19</a></sup> – might make our lives easier, compared to OBS…</p>
+
+<p>Every two months, we organize a LFT day at Bedrock: our Last Friday Talks.
+After COVID and with the partial return to the office, we wanted our remote colleagues to experience this LFT as best as they could.
+For this iteration, we did with what we had. It’s up to us to iterate and do even better next time!
+And you, how do you share these kinds of events with your remote colleagues?</p>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:lft-history" role="doc-endnote">
+      <p>Historically, it was the afternoon of the last Friday of every month. We revised the format in 2019 to make it a full day every other month. <a href="#fnref:lft-history" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:return-to-office" role="doc-endnote">
+      <p>In France, some companies – including ours – started returning to the office, full-time or not, in June 2021, following recommendations from the government. <a href="#fnref:return-to-office" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:talk-remote-speaker" role="doc-endnote">
+      <p>One of the talks was given by a remote speaker, I will not talk much about it in this article: he joined the Google Meet of the organizers and shared his camera and screen. An organizer then projected the Google Meet into the auditorium for the live audience. <a href="#fnref:talk-remote-speaker" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:remote-audience-count" role="doc-endnote">
+      <p>We went up to 150 people watching the stream simultaneously. <a href="#fnref:remote-audience-count" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:google-live-stream" role="doc-endnote">
+      <p><a href="https://support.google.com/meet/answer/9308630">Google Live Stream</a>. We use this solution because Google Meet alone does not support enough people in a call. <a href="#fnref:google-live-stream" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:photo-front-room" role="doc-endnote">
+      <p>Photo taken while projecting talks of the Demuxed conference, for those who wanted to see them on a big screen and together… <a href="#fnref:photo-front-room" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:photo-hidden-table" role="doc-endnote">
+      <p>In the photo above, we see the legs of the table and high chairs placed around it. Yes, this space also serves as a break room. <a href="#fnref:photo-hidden-table" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:orga-tap-shoulder" role="doc-endnote">
+      <p>And the organizers can tap them on the shoulder, to tell them to start their talk or ask them to take a break in case of technical problems… <a href="#fnref:orga-tap-shoulder" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:iphone-good-enough" role="doc-endnote">
+      <p>High-end smartphones have had very good quality cameras for several years. An iPhone 11 is more than enough to film and broadcast a live conference. <a href="#fnref:iphone-good-enough" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:filmic-pro" role="doc-endnote">
+      <p>Filmic Pro: a not cheap application, but very good when it comes to filming with an iPhone. <a href="#fnref:filmic-pro" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:clean-hdmi" role="doc-endnote">
+      <p>Clean HDMI: the filmed video, in real time, without the decorations of the application interface. <a href="#fnref:clean-hdmi" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:external-battery" role="doc-endnote">
+      <p>External battery: because there are no electrical outlet in this part of the room and we didn’t want to add more cables and extension cords. <a href="#fnref:external-battery" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:delicate-tape" role="doc-endnote">
+      <p>I use medical tape, which is easy to cut, sticks well and comes off easily too; and is not too aggressive with clothes and skin. <a href="#fnref:delicate-tape" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:control-pc-mess" role="doc-endnote">
+      <p>Yes, it’s a bit of a mess… And, no, you can’t see everything: when we took this picture, we didn’t think we would post it ^^ <a href="#fnref:control-pc-mess" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:private-talks" role="doc-endnote">
+      <p>We may broadcast some talks in public in the future… But it was not a topic for this time and we know that some topics will remain internal no matter what. <a href="#fnref:private-talks" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:recent-move" role="doc-endnote">
+      <p>We moved in recently and other more important items were configured first. <a href="#fnref:recent-move" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:repeat-questions" role="doc-endnote">
+      <p>A person in the control room tapped the speakers on the shoulder when they forgot to repeat the questions… <a href="#fnref:repeat-questions" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:prepare-in-advance" role="doc-endnote">
+      <p>We should have done it a few days in advance, not the morning itself… <a href="#fnref:prepare-in-advance" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:streamyeard" role="doc-endnote">
+      <p>Which we’ve already used at conferences, both as organizers and speakers. <a href="#fnref:streamyeard" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=How+did+we+live+stream+our+Last+Friday+Talks%3F%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2021%2F10%2F14%2Flive-streaming-lft.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2021/10/14/live-streaming-lft.html&title=How+did+we+live+stream+our+Last+Friday+Talks%3F%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2021/10/14/live-streaming-lft.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=How did we live stream our Last Friday Talks?%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2021/10/14/live-streaming-lft.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#lft">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> lft</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#live">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> live</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#obs">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> obs</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#stream">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> stream</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#talks">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> talks</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Increase performance and stability by adding an Egress Controller in a Kubernetes cluster at AWS" href="/2021/10/18/increase-performance-and-stability-by-adding-an-egress-controller.html">
+            <p>Previous post</p>
+            Increase performance and stability by adding an Egress Controller in a Kubernetes cluster at AWS
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Best practices for Web application maintenance" href="/2021/09/06/web-best-practices.html">
+            <p>Next post</p>
+            Best practices for Web application maintenance
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/lft/live-streaming/header.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

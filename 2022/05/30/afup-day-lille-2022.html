@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/2022-05-30-afup-day-2022/team.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Retour sur l’AFUP Day Lille 2022 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Retour sur l’AFUP Day Lille 2022" />
+<meta name="author" content="backend" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Une partie de notre équipe backend s’est rendue à l’AFUP Day Lille 2022" />
+<meta property="og:description" content="Une partie de notre équipe backend s’est rendue à l’AFUP Day Lille 2022" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2022/05/30/afup-day-lille-2022.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2022/05/30/afup-day-lille-2022.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-05-30T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Retour sur l’AFUP Day Lille 2022" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/05/30/afup-day-lille-2022.html"},"url":"https://tech.bedrockstreaming.com/2022/05/30/afup-day-lille-2022.html","author":{"@type":"Person","name":"backend"},"description":"Une partie de notre équipe backend s’est rendue à l’AFUP Day Lille 2022","dateModified":"2022-05-30T00:00:00+02:00","datePublished":"2022-05-30T00:00:00+02:00","headline":"Retour sur l’AFUP Day Lille 2022","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Retour sur l'AFUP Day Lille 2022">
+    <meta name="twitter:description" content="Cette année encore, Bedrock participait à l’AFUP Day 2022, nous avons eu la chance de profiter de conférences de qualité et aux sujets variés.PHP 8.1 en déta...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/2022-05-30-afup-day-2022/team.jpg">
+    <meta name="twitter:image:alt" content="Retour sur l'AFUP Day Lille 2022">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Retour sur l'AFUP Day Lille 2022 " aria-label="Retour sur l'AFUP Day Lille 2022" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Retour+sur+l%27AFUP+Day+Lille+2022" class="title">Retour sur l'AFUP Day Lille 2022</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      May 30, 2022
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p><img src="/images/posts/2022-05-30-afup-day-2022/team.jpg" alt="&quot;L'équipe à l'AFUP Day Lille 2022&quot;" /></p>
+
+<p>Cette année encore, Bedrock participait à l’<a href="https://event.afup.org/afup-day-2022/"><em>AFUP Day 2022</em></a>, nous avons eu la chance de profiter de conférences de qualité et aux sujets variés.</p>
+
+<h2 id="php-81-en-détail">PHP 8.1 en détail</h2>
+
+<p><a href="https://twitter.com/faguo"><em>Damien Seguy</em></a> nous a parlé des nouveautés de PHP 8.1 mais aussi de celles de PHP 8.2 qui arriveront prochainement.</p>
+
+<p>Damien nous a parlé en vrac :</p>
+
+<ul>
+  <li>de l’ajout du format <a href="https://www.php.net/manual/fr/function.imagecreatefromavif.php"><em>AVIF</em></a> dans <a href="https://www.php.net/manual/fr/book.image.php"><em>GD</em></a></li>
+  <li>l’ajout des fonctions <a href="https://www.php.net/manual/fr/function.fsync.php"><em>fsync</em></a> et <a href="https://www.php.net/manual/fr/function.fdatasync.php"><em>fdatasync</em></a> qui permettent de synchroniser les données d’un fichier sur l’OS. Cela veut dire que le fichier sera bien écrit sur le disque.</li>
+  <li>l’arrivée de la prise en compte du format ristreto255 avec le libsodium</li>
+  <li>de la fonction <a href="https://www.php.net/manual/en/function.array-is-list.php"><em>array_is_list</em></a></li>
+</ul>
+
+<p>Le conférencier a insisté sur le fait de ne pas hésiter à monter de version régulièrement. Il est possible d’utiliser les polyfills déjà existants (pour la <a href="https://github.com/symfony/polyfill-php81"><em>8.1</em></a> et même la <a href="https://github.com/symfony/polyfill-php82"><em>8.2</em></a>) ou d’ajouter ses propres fonctions, mais de bien faire attention d’utiliser <a href="https://www.php.net/manual/fr/function.function-exists.php"><em>function_exists</em></a> pour préparer les migrations.</p>
+
+<p>Une des nouveautés phare de la version 8.1 est l’ajout de la gestion des <a href="https://www.php.net/manual/en/language.types.enumerations.php"><em>enums</em></a>. Une énumération est un <a href="https://www.php.net/manual/en/class.unitenum.php"><em>objet</em></a> et non un type scalaire. Il est donc possible de l’étendre (<a href="https://www.php.net/manual/en/language.enumerations.methods.php"><em>via des interfaces</em></a>, …). Cela veut aussi dire que nous ne pouvons pas les utiliser comme clefs de tableau par exemple. Il est par contre possible d’utiliser la propriété $myEnum-&gt;value. Attention, les énumérations et les classes partagent le même espace de nom, nous ne pouvons donc pas avoir une enum et une classe s’appelant pareil dans le même namespace.</p>
+
+<p>Les Fibers, solution pour rendre les programmes interruptibles, a été rapidement introduite, mais nous vous conseillons de regarder la <a href="https://afup.org/talks/3794-fiber-la-porte-ouverte-sur-l-asynchrone"><em>conférence sur ce sujet</em></a> de notre cher et estimé collègue <a href="https://twitter.com/b_viguier"><em>Benoit Viguier</em></a>.</p>
+
+<p>Dans la dernière version, à ce jour, a été introduit le type de retour <a href="https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.never"><em>never</em></a>. Une fonction ou méthode qui retourne ce type ne pourra pas faire de return (même vide) ni même un yield. Il sera, par contre, possible d’appeler <a href="https://www.php.net/manual/en/function.die.php"><em>die</em></a>, <a href="https://www.php.net/manual/en/function.exit.php"><em>exit</em></a>, <a href="https://www.php.net/manual/en/language.exceptions.php"><em>throw</em></a> ou <a href="https://www.php.net/manual/en/fiber.suspend.php"><em>suspend</em></a>.</p>
+
+<p>Les <a href="https://www.php.net/manual/en/language.oop5.constants.php"><em>constantes</em></a> peuvent maintenant être finales, cela bloquera la possibilité de surcharger leurs valeurs par héritage.</p>
+
+<p>Il est désormais possible de faire des propriétés <a href="https://www.php.net/manual/en/language.oop5.properties.php#language.oop5.properties.readonly-properties"><em>readonly</em></a>. Cette propriété devra forcément être typée, et ne pourra pas avoir de valeur par défaut. <em>readonly</em> ne peut pas être utilisé avec <em>static</em>. Si la propriété est un objet, l’instance pourra être modifiée (par exemple avec des setters), mais pas remplacée.</p>
+
+<p>Il est maintenant possible d’instancier des valeurs par défaut. Par exemple :</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="n">serialize</span><span class="p">(</span>
+    <span class="kt">string</span> <span class="err">\</span><span class="nv">$data</span><span class="p">,</span> 
+    <span class="nc">Formatter</span> <span class="err">\</span><span class="nv">$formatter</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultFormatter</span><span class="p">()</span>
+<span class="p">)</span> <span class="p">{</span> <span class="mf">...</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Cette instanciation est possible dans les arguments de fonction ou de méthode, les variables statiques ou encore les constantes globales. Par contre, ce n’est pas compatible avec les constantes de classes ou les propriétés de classes (sauf si ces dernières sont des propriétés promues).</p>
+
+<p>Dans sa version 8.1, PHP apporte aussi les <a href="https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.composite.intersection"><em>types d’intersections</em></a>. Un exemple présenté serait de vouloir une instance de type Traversable ET Countable. Les types scalaires ne sont pas acceptés, c’est uniquement avec plusieurs classes.</p>
+
+<h2 id="de-lhumain-à-lordinateur-ou-découvrir-le-sens-dun-texte-avec-elasticsearch">De l’humain à l’ordinateur, ou découvrir le sens d’un texte avec ElasticSearch</h2>
+
+<p><a href="https://twitter.com/matarld"><em>Mathias ARLAUD</em></a> nous a ensuite parlé d’ElasticSearch et de comment il est possible d'attribuer un score de corrélation entre un texte donné et une multitude d'autres.</p>
+
+<p><img src="/images/posts/2022-05-30-afup-day-2022/formula.png" alt="&quot;Formule de scoring d'ElasticSearch&quot;" /><br />
+Il a décortiqué cette équation (déjà simplifiée) en nous expliquant les mécanismes en place pour calculer ce score.<br />
+Il nous a parlé de <strong><em>Term Frequency</em></strong> (la fréquence à laquelle un mot apparaît dans un document), d’<strong><em>Inverse Document Frequency</em></strong> (la pertinence des mots) ainsi que de <strong><em>Coordination Factor</em></strong> (le fait de valoriser un document avec le plus haut pourcentage de mots présents dans la requête).<br />
+Avec un exemple simple (<strong><em>Les Développeurs 🥰 développer avec,VIM&amp;excl;</em></strong>), il nous a montré comment les filtres de caractères tels que <em>html_strip</em>, le <em>mapping</em>, les générateurs de tokens (<em>whitespace</em> -&gt; 1 token = 1 mot) ou bien encore les filtres de tokens (<em>phonetic</em>, <em>stopwords</em>) permettent d’enlever le bruit des phrases humaines pour ne récupérer que les informations les plus pertinentes pour calculer ce score de corrélation. Après application de ces différentes étapes, son exemple se transforme en <strong>[developp] [aim] [developp] [vim]</strong>, ce qui permet alors à ElasticSearch d’éliminer des documents non pertinents et qui seraient remontés si ces filtres n’avaient pas été appliqués.<br />
+Pour plus d’informations, Mathias a mis à disposition <a href="https://slides.com/mathiasarlaud/elasticsearch"><em>les slides de son
+talk</em></a>.</p>
+
+<h2 id="guide-pratique-dune-méthodologie-ux-pour-la-conception-de-features">Guide pratique d'une méthodologie UX pour la conception de features</h2>
+
+<p><a href="https://twitter.com/jess_m_martel"><em>Jessica Martel</em></a> nous a présenté une méthodologie UX pour la conception de features qu’elle a mise en place et suivie lors d’une expérience chez Decitre et maintenant chez Unow.<br />
+Elle nous a parlé de l’importance de la constitution d’une équipe projet regroupant tous les acteurs (PO, devs, le pôle Design et les équipes métier). Diversifier les acteurs permet d'accroître l’adhésion du projet, d’apporter différentes cultures et de cibler le besoin.</p>
+
+<p>S'ensuivent plusieurs étapes :</p>
+
+<ul>
+  <li><strong><em>Product concept</em></strong> : évaluation du besoin, de la criticité</li>
+  <li><strong><em>UX Research et audit</em></strong> : bench global, entretiens</li>
+  <li><strong><em>User journey</em></strong> : identification des différentes étapes (déterminées suite au bench et entretiens), mise en place du workflow</li>
+  <li><strong><em>Specs fonctionnelles et design</em></strong> : cas d’usages, règles métier, versions, KPI / création de wireframes, maquettes UI et prototypes</li>
+</ul>
+
+<p>Cette méthodologie comprend cependant des limites ! Elle prend beaucoup de temps et est soumise au contexte, aux priorisations d’autres features, au downsizer…</p>
+
+<h2 id="le-prométhée-moderne--embarquer-php-dans-go">Le Prométhée moderne : embarquer PHP dans Go</h2>
+
+<p><a href="https://twitter.com/dunglas"><em>Kévin Dunglas</em></a> nous a parlé de comment embarquer PHP dans du Go. Après avoir listé les différentes SAPI (Module Apache, FPM, …) et nous avoir expliqué brièvement le langage Go et sa librairie standard net/http, Kévin nous a présenté <strong>FrankenPHP</strong> et toute la réflexion et les contraintes rencontrées pour le créer. Ce projet est un nouveau serveur Web en Go qui est capable d’appeler l’interpréteur PHP et donc de faire tourner nos applications Web. Le projet est bien avancé, mais pas terminé. N’hésitez pas à le contacter si vous voulez essayer avec vos applications, les retours lui seront utiles. En tout cas, chez Bedrock, on va suivre ça de près !</p>
+
+<h2 id="les-subtilités-du-e-commerce-à-la-française">Les subtilités du e-commerce à la française</h2>
+
+<p>Après nous avoir présenté les différentes taxes françaises et chez quelques-uns de nos voisins européens, <a href="https://twitter.com/lanfisis"><em>David Buros</em></a> nous a résenté les différents problèmes qu’il a rencontrés avec Sylius:</p>
+
+<ul>
+  <li>l’affichage du prix HT et du prix TTC</li>
+  <li>la gestion des réductions avec ce double affichage</li>
+  <li>la gestion des écotaxes</li>
+  <li>le paiement par mandat administratif</li>
+</ul>
+
+<h2 id="comment-on-est-passé-de-1-800-emails-à-70-000-par-jour-chez-trustt-en-1-mois-avec-rabbitmq">Comment on est passé de 1 800 emails à 70 000 par jour chez Trustt en 1 mois avec RabbitMQ</h2>
+
+<p>Cédric Driaux nous a expliqué comment ils ont mis en place RabbitMQ chez Trustt pour gérer l’envoi de plus de 70 000 mails par jour, afin de remplacer une ancienne solution qui lançait un CRON toutes les 15 minutes dans le but de faire les calculs et la distribution. Il y avait également des appels API à des outils externes, causant des ralentissements. De plus, certains reliquats de mail n'étaient pas envoyés.</p>
+
+<p>Pour répondre à ce problème, l’idée était de mettre les mails dans une file ou queue en anglais, permettant une mise en attente de l’envoi des messages, puis utiliser un consumer pour traiter les messages.</p>
+
+<p>Cédric a décidé de choisir et de mettre en place (en à peine un mois !) RabbitMQ comme solution à cette problématique. Cela a permis : une baisse de charge des serveurs, notamment due à la suppression des CRON, une augmentation des mails envoyés, dont ces derniers peuvent désormais tous être traités dans la journée. Les erreurs sont mises de côté pour être traitées plus tard et ne pas ralentir le processus. Enfin, il est dorénavant possible pour eux d’ajouter d’autres mails dans la queue dans la journée.</p>
+
+<p>Grâce à RabbitMQ, ils ont pu fortement augmenter leurs capacités d’envoi de mails tout en soulageant les serveurs.</p>
+
+<h2 id="cecil-mon-générateur-de-site-statique">Cecil, mon générateur de site statique</h2>
+
+<p><a href="https://twitter.com/ArnaudLigny"><em>Arnaud Ligny</em></a> nous a présenté son projet perso de générateurs de sites statiques en archive phar : <a href="https://cecil.app/"><em>Cecil</em></a>. Il voulait une solution rapide à prendre en main, intuitive et avec une séparation entre le contenu et la mise en forme. Ce side project avait pour but de remettre ses connaissances à jour en appliquant les bonnes pratiques. L’application est automatisée, le paquet .phar est automatiquement généré par GitHub Action lors de la création d’une release, scrutinizer qui fait des corrections, des previews sont réalisables avec netlify.</p>
+
+<h2 id="et-si-on-étendait-sql-avec-du-php">Et si on étendait SQL avec du PHP</h2>
+
+<p><a href="https://twitter.com/s0yuka"><em>Antoine BLUCHET</em></a> nous a présenté plus en détail les projets Doctrine et principalement l’ORM. Cet outil est extensible, mais a quelques limites. Comment pouvons-nous faire des requêtes complexes avec Doctrine ? Peut-on utiliser des Common Table Expression ? La réponse à ces questions, proposée, est <a href="https://github.com/soyuka/esql"><em>ESQL</em></a>. Cet outil permet de construire des requêtes SQL complexes facilement sans se soucier des noms des tables ou des colonnes, car il permet d’utiliser ces métadonnées depuis Doctrine.</p>
+
+<h2 id="pourquoi-vous-nattirerez-et-ne-retiendrez-pas-les-femmes-dans-vos-équipes-tech">Pourquoi vous n’attirerez et ne retiendrez pas les femmes dans vos équipes tech.</h2>
+
+<p><a href="https://fr.linkedin.com/in/marcy-ericka-charollois-1604"><em>Marcy Charollois</em></a> fait un constat sur le monde du travail dans le numérique, dominé largement par les hommes et ne laissant que trop peu de place aux femmes. Marcy commence par introduire la notion d’habitus, qui désigne un système de préférences, de style de vie particulier à chacun, qui influence les pratiques des individus au quotidien. Ces pratiques sont intériorisées inconsciemment, car l’individu s’adapte et s'intègre à son environnement social. Cela crée un groupe majoritaire qui devient décisionnaire. Se met alors en place un statu quo qui va soit inclure ou exclure et qui est fortement dominé par la pensée masculine. Marcy nous dévoile que sur 100 % de freins ressentis par les femmes dans la tech, 30% proviennent des biais d'oppression de groupe, une part donc assez conséquente.</p>
+
+<p>Le constat est réel, les femmes dans la tech vivent mal leur condition de femmes, il faut changer ce sentiment, mais les attitudes face au changement sont variées. 15% de personnes sont réfractaires, il sera donc difficile de faire évoluer les choses avec eux, 15% sont déjà partantes et 70% sont neutres, potentiellement pour ce changement, mais ne savent pas comment le faire.</p>
+
+<p>Marcy nous donne alors des clés qui permettront d’attirer les femmes dans nos équipes en mettant en avant les freins ressentis par celles-ci : une expression du genre, une légitimité face au métier exercé, des a priori sur la provenance des profils féminins qui sont souvent reconvertis et donc potentiellement juniors :</p>
+
+<ul>
+  <li>féminiser les postes et en particulier sur les offres d’emploi, une femme est développeuse, pas développeur.</li>
+  <li>mettre en avant les témoignages de femmes qui montent dans votre entreprise pour donner des exemples concrets de ce qu’elles pourraient trouver en venant chez vous</li>
+  <li>s’intéresser réellement à elles et non pas de voir en vous ce qu’elles mettent en avant</li>
+</ul>
+
+<p>La conférence continue sur les actions à mener pour garder les femmes dans nos équipes :</p>
+
+<ul>
+  <li>parler d’égal à égal pour éviter la posture sachant(e)/ignorante</li>
+  <li>soyez clair, transparent sur les salaires, les évolutions de poste</li>
+  <li>mettez en place des moments conviviaux plus portés sur des préférences féminines</li>
+  <li>minimiser les interruptions pendant les prises de parole</li>
+  <li>écoutez des besoins spécifiques inhérents aux femmes et accommodez-les en offrant des ressources sans juger : parentalité, menstruation, assistance psychologique, adaptation à l’emploi du temps</li>
+  <li>encouragez les femmes à prendre la parole, à devenir un rôle modèle parce que compétente</li>
+</ul>
+
+<p>Marcy termine sa conférence par la présentation de quelques chiffres sur l’évolution de carrière des femmes et des enjeux psychosociaux résultant
+de cette évolution et conclut en montrant les bienfaits de l’inclusion des femmes au sein des entreprises et en nous donnant quelques noms de femmes célèbres dans ce combat.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Encore une fois, l’AFUP a réussi à faire un événement chaleureux, intéressant et diversifié</p>
+
+<p>Nous sommes ravis d’avoir pu participer à cette manifestation qui nous a permis de rencontrer les membres de la communauté ainsi que de visiter rapidement la ville de Lille et manger des Welsh.</p>
+
+<p><img src="/images/posts/2022-05-30-afup-day-2022/welsh.jpeg" alt="&quot;Welsh&quot;" /><img src="/images/posts/2022-05-30-afup-day-2022/rues_de_lille.jpg" alt="&quot;Visite nocturne de Lilles&quot;" /></p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Retour+sur+l%27AFUP+Day+Lille+2022%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F05%2F30%2Fafup-day-lille-2022.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/05/30/afup-day-lille-2022.html&title=Retour+sur+l%27AFUP+Day+Lille+2022%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/05/30/afup-day-lille-2022.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Retour sur l'AFUP Day Lille 2022%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/05/30/afup-day-lille-2022.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#backend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#php">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> php</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Announcing BedrockStreaming/pr-size-labeler github action 🎉" href="/2022/05/31/github-action-pr-size-labeler.html">
+            <p>Previous post</p>
+            Announcing BedrockStreaming/pr-size-labeler github action 🎉
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="You Build it, you run it" href="/2022/05/13/docker-meetup-you-build-it-you-run-it.html">
+            <p>Next post</p>
+            You Build it, you run it
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/kubecon-2018/title-kubecon.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>KubeCon 2018 Copenhagen, day 1 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="KubeCon 2018 Copenhagen, day 1" />
+<meta name="author" content="Vincent Gallissot, Pascal Martin" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Our notes for the conferences we saw during the first day of KubeCon 2018 in Copenhagen" />
+<meta property="og:description" content="Our notes for the conferences we saw during the first day of KubeCon 2018 in Copenhagen" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2018/05/21/kubecon-2018-copenhaguen-day-1.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2018/05/21/kubecon-2018-copenhaguen-day-1.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-05-21T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="KubeCon 2018 Copenhagen, day 1" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2018/05/21/kubecon-2018-copenhaguen-day-1.html"},"url":"https://tech.bedrockstreaming.com/2018/05/21/kubecon-2018-copenhaguen-day-1.html","author":{"@type":"Person","name":"Vincent Gallissot, Pascal Martin"},"description":"Our notes for the conferences we saw during the first day of KubeCon 2018 in Copenhagen","dateModified":"2018-05-21T00:00:00+02:00","datePublished":"2018-05-21T00:00:00+02:00","headline":"KubeCon 2018 Copenhagen, day 1","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="KubeCon 2018 Copenhagen, day 1">
+    <meta name="twitter:description" content="At the very beginning of May, we (Pascal and Vincent) went to KubeCon 2018. It was a three-days long event, with more than 300 conferences. 4300 people met a...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/kubecon-2018/title-kubecon.jpg">
+    <meta name="twitter:image:alt" content="KubeCon 2018 Copenhagen, day 1">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="KubeCon 2018 Copenhagen, day 1 " aria-label="KubeCon 2018 Copenhagen, day 1" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="KubeCon+2018+Copenhagen%2C+day+1" class="title">KubeCon 2018 Copenhagen, day 1</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      May 21, 2018
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>At the very beginning of May, we (Pascal and Vincent) went to KubeCon 2018. It was a three-days long event, with more than 300 conferences. 4300 people met at Bella Center, a huge conference place close to Copenhagen in Denmark. Here are some of our notes about some talks we saw.</p>
+
+<h1 id="keynotes">Keynotes</h1>
+
+<h2 id="cncf-project-update---liz-rice-technology-evangelist-aqua-security-sugu-sougoumarane-cto-planetscale-data-colin-sullivan-product-manager-synadia-communications-inc--andrew-jessup-co-founder-scytale-inc">CNCF Project Update - Liz Rice, Technology Evangelist, Aqua Security; Sugu Sougoumarane, CTO, PlanetScale Data; Colin Sullivan, Product Manager, Synadia Communications, Inc. &amp; Andrew Jessup, Co-founder, Scytale Inc.</h2>
+
+<p>During this keynote, I realized the CNCF is helping a lot more projects than I thought it was: it’s not just Kubernetes. I will take a closer look to some of them in the future – they are all listed on <a href="https://landscape.cncf.io/">l.cncf.io</a>.</p>
+
+<h2 id="cern-experiences-with-multi-cloud-federated-kubernetes---ricardo-rocha-staff-member-cern--clenimar-filemon-software-engineer-federal-university-of-campina-grande">CERN Experiences with Multi-Cloud Federated Kubernetes - Ricardo Rocha, Staff Member, CERN &amp; Clenimar Filemon, Software Engineer, Federal University of Campina Grande</h2>
+
+<p>OK, so, sometimes, it actually is <em>rocket-science</em> (or pretty close to it). It’s nice seeing Kubernetes used for science and research, on a federation of around 400 clusters!</p>
+
+<p><img src="/images/posts/kubecon-2018/boat.jpg" alt="Waiting for the Keynotes to start" /></p>
+
+<h1 id="whats-up-with-all-the-different-container-runtimes---ricardo-aravena-branch-metrics">Whats Up With All The Different Container Runtimes? - Ricardo Aravena, Branch Metrics</h1>
+
+<p>Overview of the different containers runtimes, starting with OpenVZ in 2006 (still maintained, but the last 2.7 version is not as stable as the previous one, and it doesn’t support Kubernetes), and LXC (Kubernetes support is low-priority WIP and LXC uses a specific image format) in 2011. Docker (initially based on LXC) arrived in 2013 and things have gone insane since then. With libcontainer and <code class="language-plaintext highlighter-rouge">rkt</code> in 2014, OCI in 2015 and CRI in 2016. Today, Kubernetes supports several runtimes.</p>
+
+<p><code class="language-plaintext highlighter-rouge">rkt</code> could be interesting from a security point of view (supports TPM and VMs). With Kubernetes 1.10, the default runtime is <a href="https://github.com/opencontainers/runc"><code class="language-plaintext highlighter-rouge">runc</code></a>. <a href="https://github.com/giuseppe/crun"><code class="language-plaintext highlighter-rouge">crun</code></a> is the most interesting runtime for performances, but is WIP and isn’t currently used much. Kata, released in 2018 has the best security (it runs containers in VMs) and is OCI compliant, but is slower and more heavyweight. Other very specific runtimes include nvidia, railcar, pouch, lmctfy, systemd-nspawn…</p>
+
+<p>Basically, today and for most workloads, you should go with the standard docker/containerd runtime. There is a convergence towards OCI, it’s the default for Kubernetes and docker is going to adopt the CRI plugin.</p>
+
+<h1 id="introduction-to-istio-configuration---joy-zhang-google">Introduction to Istio Configuration - Joy Zhang, Google</h1>
+
+<p>An introduction to the <a href="https://istio.io/">Istio Service Mesh</a>. All Istio components are CRDs. CRDs are becoming a standard when it comes to kubernetes customizations, here requests proxying.</p>
+
+<p>This talk described Istio components, notably:</p>
+
+<ul>
+  <li>Mesh config - global Istio config</li>
+  <li>Service config - Istio operators config</li>
+  <li>Consumer config - overrides config model</li>
+  <li>Galley - Istio config per cluster</li>
+</ul>
+
+<p>FYI: you need as much <code class="language-plaintext highlighter-rouge">Galleys</code> as you have clusters + environments.</p>
+
+<h1 id="continuous-delivery-meets-custom-kubernetes-controller-a-declarative-configuration-approach-to-cicd---suneeta-mall--simon-cochrane-nearmap">Continuous Delivery Meets Custom Kubernetes Controller: A Declarative Configuration Approach to CI/CD - Suneeta Mall &amp; Simon Cochrane, Nearmap</h1>
+
+<p>Kubernetes is great but, CI/CD is not really its job – and CI/CD depends a lot on the company you work at and its culture. Here, they started deploying their applications with <code class="language-plaintext highlighter-rouge">kubectl</code> and YAML files, and even if CI usually doesn’t cause much troubles, CD is not that easy. And using a managed CI (CircleCI, shippable, AWS Codepipeline…) means exposing Kubernetes’s control plane on the Internet, which is not great. Also, the <em>Gitops</em> approach with its <em>git is the source of truth</em> mindset is OK, but committing version numbers again and again <em>pollutes</em> the history with a lot of noise – when this history could be kept in the cluster itself.</p>
+
+<p>So, they went with some kind of CD <em>lite</em>: a service running in the cluster, which monitors the registry and deploys the new version of an image when it sees it. This means the cluster doesn’t need to access git and the CI chain doesn’t need to access the cluster, making the configuration simpler.</p>
+
+<p>The tool they developed for this is <a href="https://github.com/nearmap/cvmanager"><code class="language-plaintext highlighter-rouge">nearmap/cvmanager</code></a>. It seems relatively easy to install and configure. And I like the idea of having a gap between Git/CI and CD. I may have to test this, especially to see what it can do when it comes to canary or blue/green deployments, but this is one of the things I saw at KubeCon I will discuss with my colleagues!</p>
+
+<h1 id="practical-and-useful-latency-analysis-using-istio-and-opencensus---varun-talwar-stealth-startup--morgan-mclean-google">Practical and Useful Latency Analysis using Istio and OpenCensus - Varun Talwar, Stealth Startup &amp; Morgan McLean, Google</h1>
+
+<p>OpenCensus (distributed tracing metrics system) + Istio is the combo provided for this talk to let devs debug the most of their apps.</p>
+
+<p>OpenCensus is a tracing tool, like the CNCF’s project Opentracing. It can be implemented in many languages, starting with those we use: PHP and javascript.</p>
+
+<p>OpenCensus can trace RPC and http APIs calls.</p>
+
+<p>You can install a dedicated dashboard that gives a lot of metrics out of the box (like 90th percentiles, etc.) and allows customizable ones.</p>
+
+<p>Mixer (Istio tool) makes the aggregation between those metrics from what is gathered by OpenCensus.</p>
+
+<p>This definitely need to be tested, but not sure it is worth migrating from OpenTracing to OpenCensus.</p>
+
+<h1 id="habitat-builder-cloud-native-application-automation---elliott-davis--fletcher-nichol-chefio-habitatsh">Habitat Builder: Cloud Native Application Automation - Elliott Davis &amp; Fletcher Nichol, Chef.io (Habitat.sh)</h1>
+
+<p>I had never heard of <a href="https://www.habitat.sh/">Habitat</a> before, so I was kind of curious what this was about. This idea of platform-independent build artifacts (with exporters for docker, Kubernetes, Helm) could be interesting for some teams, but it’s not a need I currently have. The automated deployments might be interesting though, but we are already looking at other tools.</p>
+
+<h1 id="kubernetes-and-taxes-lessons-learned-at-the-norwegian-tax-administration---a-production-case-study---bjarte-s-karlsen-the-norwegian-tax-administration">Kubernetes and Taxes: Lessons Learned at the Norwegian Tax Administration - A Production Case Study - Bjarte S. Karlsen, The Norwegian Tax Administration</h1>
+
+<p>Really nice production case study from the Norwegian Tax Administration about their k8s platform. They are currently using Rancher 2.0 + OpenShift + CodeFresh on top of k8s. All their Docker images are alpine based. They develop Java applications.</p>
+
+<p>One idea kept my attention is the tagging of their containers:</p>
+
+<ul>
+  <li>Pushing docker image tag 1.2.3 also pushes tag 1.2 and tag 1.</li>
+  <li>So going to v2 and rolling back to v1 effectively rolls out 2.0.0 to 1.2.3 without knowing the exact subversions.</li>
+  <li>You are assured that the tag of the major version always points to the latest subversion.</li>
+</ul>
+
+<p>It’s not clear to me how to implement that. Maybe a codefresh hack. But still, I found the approach interesting.</p>
+
+<p>Another lesson for those who want to migrate from on-premise to the cloud is to keep things that work on-premise and simply migrate them on cloud as it is. That will ease the migration. You can rethink all afterward if needed, but the first step is to migrate, not rebuild from scratch plus migrating.</p>
+
+<p>As they use CodeFresh for CI/CD, it’s easy for them to automate their pipelines. That’s another lesson: automate everything. To automate, you need to standardize.</p>
+
+<p>Another lesson is to use what is rock-solid. We all see a lot of tools and startups around the cloud nebula. A lot of them won’t last and some will, like Kubernetes. This is the tip: use what will last. Don’t build your whole infrastructure on something unstable or with poor pro/community support.</p>
+
+<p>The final point I kept from this really good rex, is to create a predictable infrastructure. You cannot guess what will happen. You have to know and use the right tools/annotations to make it behave the way you want, predictably and repeatedly.</p>
+
+<h1 id="how-to-export-prometheus-metrics-from-just-about-anything---matt-layher-digitalocean">How to Export Prometheus Metrics from Just About Anything - Matt Layher, DigitalOcean</h1>
+
+<p>This presentation was about a few good practices to follow when it comes to exposing Prometheus metrics from a Go application. Basically, you should use the Go client library, be really careful about concurrency, build reusable packages, write unit-tests, use <code class="language-plaintext highlighter-rouge">promtool check-metrics</code>, and read and follow the Prometheus metrics best practices.</p>
+
+<h1 id="continuously-deliver-your-kubernetes-infrastructure---mikkel-larsen-zalando-se">Continuously Deliver your Kubernetes Infrastructure - Mikkel Larsen, Zalando SE</h1>
+
+<p>Another really good rex from Zalando from their utilization of k8s in prod and lessons learned.</p>
+
+<p>They talked of Stups, a Zalando toolset around AWS. That definitely needs to be tested.</p>
+
+<p>From their experience of managing a k8s cluster on AWS EC2s, they gave us few tips:</p>
+
+<ul>
+  <li>Always upgrade to the latest k8s version</li>
+  <li>Manage the smallest possible number of clusters</li>
+  <li>Automate all the things. The only manual step should be merging PRs. This is a base <em>GitOps</em> principle.</li>
+  <li>Define an AWS HA control plane setup behind ELBs. That can be debated but this is a good first step.</li>
+  <li>All cluster config files must be git versioned (another <em>GitOps</em> principle). An upgrade is then only a git branch merge at some point.</li>
+</ul>
+
+<p>Some of the points above can be achieved via a CD tool. I remember they use Jenkins for that, but not 100% sure. Alongside this CD tool, there should be a CI tool (or one tool for both).</p>
+
+<p>They gave us some points on CI tests too:</p>
+
+<ul>
+  <li>Run <a href="https://github.com/kubernetes/community/blob/master/contributors/devel/e2e-tests.md">e2e conformance tests for k8s config files</a></li>
+  <li>Run statefulSet tests</li>
+  <li>Run any additional homemade tests</li>
+</ul>
+
+<p>For those who are using AWS, keep in mind the following: volumes cannot be mounted across several AZ.</p>
+
+<p>Keep yourself away from unavailability by always setting <code class="language-plaintext highlighter-rouge">minAvailable</code>.</p>
+
+<p>Final tip: If you go for a self-managed k8s cluster (not EKS, GKE, etc.), check that nodes are up and running before continuing upgrade.</p>
+
+<p>I really enjoyed this rex that was full of good prod-ready advices.</p>
+
+<p>I recommend you take a look at <a href="https://schd.ws/hosted_files/kccnceu18/18/2018-05-02%20Continuously%20Deliver%20your%20Kubernetes%20Infrastructure%20-%20KubeCon%202018%20Copenhagen.pdf">the slides</a></p>
+
+<h1 id="seamless-development-environments-on-kubernetes-using-telepresence---ara-pulido-bitnami">Seamless Development Environments on Kubernetes using Telepresence - Ara Pulido, Bitnami</h1>
+
+<p>Kubernetes is a great production environment, but it feels like development environment is kind of an afterthought: even for a simple application, if you want to develop (locally?), things are not easy. People are currently using two distinct ways: using docker compose to replicate the production environment (but compose doesn’t do everything: rbac, job, ingress… and having to maintain everything twice is not fun), or build/push/deploy-to-k8s and wait many seconds everytime one wants to F5 on a page, which is unberably slow (I wouldn’t ask my developer colleagues to do this for even half a day!).</p>
+
+<p>The solution proposed during this conference is <a href="https://www.telepresence.io/">Telepresence</a>. It allows a developer to swap out a pod from a cluster and <em>inject</em> her own pod, running locally, at its place. Some sort of VPN is established between her computer and the cluster, which means the pod running locally behaves just like if it was still in the cluster (including DNS, service discovery, access to non-Kubernetes managed services and all).</p>
+
+<p>There are still limitations and constraints (if two developers want to work on the same service, they’ll each need their own namespace in the cluster, as two people cannot swap out the same pod), but plans for this project are interesting and I will definitely take a closer look at it in a couple of months, when I start thinking more about our development stack!</p>
+
+<p>We went to Datawire’s booth and saw a nice demo. And also learnt about other tools, such as Forge and Ambassador that can <a href="https://www.getambassador.io/reference/shadowing">duplicate production requests to a local pod</a>. We found that this feature is ultra dope!</p>
+
+<h1 id="performance-and-scale--istio-service-mesh---fawad-khaliq-vmware-inc-laurent-demailly-google--surya-v-duggirala-ibm">Performance and Scale @ Istio Service Mesh - Fawad Khaliq, VMware Inc, Laurent Demailly, Google &amp; Surya V Duggirala, IBM</h1>
+
+<p>Return of Istio devs on project’s recent updates: closed PRs, enhancements, etc.</p>
+
+<p>That was not really what I was looking for so I went to some bootcamps to say hi, especially the HAProxy bootcamp one that is always a good moment. Special thanks to Baptiste for his time and the awesome talk we had!
+For the record: HAProxy has it’s own <a href="https://www.haproxy.com/fr/blog/haproxy_ingress_controller_for_kubernetes/">Ingress Controller</a></p>
+
+<h1 id="from-data-centers-to-cloud-native---dave-zolotusky--james-wen-spotify">From Data Centers to Cloud Native - Dave Zolotusky &amp; James Wen, Spotify</h1>
+
+<p>This last conference of the first day was about Spotify’s migration from their on-premise datacenters to <em>the cloud</em>. For many years, they were doing everything on-prem (including a 3000 nodes Hadoop cluster – the largest in Europe, at the time), often developing their own proprietary software (like custom monitoring, proprietary messaging framework, custom Java service framework, custom container orchestrator, … Some have been open-sourced). The first step for them has been to get out of their own datacenters, moving everything to <em>another datacenter</em> (but still using their proprietary stuff). It took them three years and a half, trying to make this migration as seamless as possible for the development teams.</p>
+
+<p>Next step is to become <em>cloud native</em>, especially moving to Kubernetes. They did this in several steps, starting small by sending production traffic to one service deployed to one cluster for one hour (allowed them to validate DNS, logging, service discovery, metrics system, networking). Then, three services on one cluster (permissions, namespaces, quotas for each namespace, developers documentation). After that, services on a <em>volunteer</em> basis (clusters, scripted clusters creation, secrets, deployment tooling based on a wrapper around <code class="language-plaintext highlighter-rouge">kubectl</code>, CI integration =&gt; a lot of learning for a lot of people). Then, two high-traffic services, including a service receiving 1.5 million requests per second (horizontal auto-scaling, network setup, confidence, reference for other projects). And, finally, self-service migration, with teams migrating when they want, following the docs, and ops not always knowing what’s running in the cluster (reliability, alerts, on-call, disaster recovery, backups, sustainable deploy). Everything going pretty much fine by now, it’s time to investigate on a few <em>odd things</em> and specific needs, with a temporary ops team assembled to help.</p>
+
+<p>The most important idea here is you don’t have to do everything right from the start. For example, they waited quite a long time before setting up a sustainable deployment method, which might seem odd to many of us. But it allowed them to move forward and validate a lot of things one after the other. That’s something I will keep in mind: if it worked for them (4000 employees, including 500 techies), it could work for many other companies!</p>
+
+<h1 id="jenkins-x-easy-cicd-for-kubernetes---james-strachan-cloudbees">Jenkins X: Easy CI/CD for Kubernetes - James Strachan, CloudBees</h1>
+
+<p>This might be one of the hottest project of this early 2018.</p>
+
+<p>We already saw this project that was created in February, and we are using it for testing purposes. We hope to use it in production very soon.</p>
+
+<p>For those of you who don’t know Jenkins-X:</p>
+
+<ul>
+  <li>It’s piloted by <code class="language-plaintext highlighter-rouge">jx</code>, a command line tool (Mac/Linux)</li>
+  <li>It drives a Jenkins instance + Docker Registry + Nexus + Chartmuseum + Monocular</li>
+  <li>It allows you to manage your app’s deployments via Jenkins blueocean’s pipelines with k8s endpoints</li>
+  <li>That means Jenkins will be able to run CI tests, Continuously Deploy your project to preview, staging, prod and so on with Skaffold/Helm to k8s</li>
+  <li>Jenkins will run pipelines from the <code class="language-plaintext highlighter-rouge">Jenkinsfile</code> in the repo to do that CI/CD part</li>
+  <li>In the provided pipelines given with <code class="language-plaintext highlighter-rouge">jx import</code>, you will use provided docker images that embed <code class="language-plaintext highlighter-rouge">jx</code> cli and other tools to manage the deployments of your app.</li>
+  <li>That allows you to promote your app between stages, build your docker image, etc. in your pipeline steps.</li>
+  <li>Those deployments are based on Helm Charts in the repo.</li>
+  <li>Jenkins-x follows <em>GitOps</em> strategy, that means anything useful is stored in each app’s repo: it is versioned and git events will trigger pipelines.</li>
+</ul>
+
+<p>Jenkins-X brings this CI/CD part that was missing for k8s users. Gitlab + gitlab-ci were already doing that for some years now, but nothing was that fancy for GH users.</p>
+
+<p>We are very excited about Jenkins-X, as it answers a lot of problematics and brings in gitops as core concept. We’re actively adopting it and we hope to give feedback asap.</p>
+
+<h1 id="keynote-anatomy-of-a-production-kubernetes-outage---oliver-beattie-head-of-engineering-monzo-bank">Keynote: Anatomy of a Production Kubernetes Outage - Oliver Beattie, Head of Engineering, Monzo Bank</h1>
+
+<p>This keynote was about  major outage at Monzo. You can read more about it in the <a href="https://community.monzo.com/t/resolved-current-account-payments-may-fail-major-outage-27-10-2017/26296/94">post-mortem</a> they posted after it happened. Basically, even when you are careful, an outage can still happen: several causes combined with a very specific bug happening with specific versions in a specific case and voilà. Nice talk, and nice to hear a bank being so open!</p>
+
+<h1 id="keynote-prometheus-20--the-next-scale-of-cloud-native-monitoring---fabian-reinartz-software-engineer-google">Keynote: Prometheus 2.0 – The Next Scale of Cloud Native Monitoring - Fabian Reinartz, Software Engineer, Google</h1>
+
+<p>Prometheus is <em>the</em> monitoring stack everyone seems to be using now. This keynote presented how much faster Prometheus 2.x is, compared to Prometheus 1.x. Having never used the 1.x versions, I have to admit I never suffered from it. It is still nice noting 2.x scales much better (requires less RAM/CPU and its performances don’t degrade much with a huge number of metrics).</p>
+
+<h1 id="welcome-reception">Welcome reception</h1>
+
+<p>This first day ended with a nice buffet at Bella Center, next to the sponsor booths. As we each one went to see different talks, it allowed us to chat about what we saw and heard, even if we didn’t stick around too long, after such a long day – especially knowing there would be two more just after!</p>
+
+<p><img src="/images/posts/kubecon-2018/windy-in-copenhagen.jpg" alt="There is so much wind in Copenhagen there was a sign at the corner of the conference center!" /></p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=KubeCon+2018+Copenhagen%2C+day+1%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2018%2F05%2F21%2Fkubecon-2018-copenhaguen-day-1.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2018/05/21/kubecon-2018-copenhaguen-day-1.html&title=KubeCon+2018+Copenhagen%2C+day+1%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2018/05/21/kubecon-2018-copenhaguen-day-1.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=KubeCon 2018 Copenhagen, day 1%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2018/05/21/kubecon-2018-copenhaguen-day-1.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#KubeCon">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> KubeCon</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#kubernetes">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> kubernetes</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="KubeCon 2018 Copenhagen, day 2" href="/2018/05/22/kubecon-2018-copenhaguen-day-2.html">
+            <p>Previous post</p>
+            KubeCon 2018 Copenhagen, day 2
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="PHP Tour Montpellier 2018" href="/2018/05/17/retour-php-tour-2018.html">
+            <p>Next post</p>
+            PHP Tour Montpellier 2018
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/kubecon-2018/title-kubecon.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

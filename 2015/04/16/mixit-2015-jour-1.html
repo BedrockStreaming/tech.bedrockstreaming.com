@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/mixit2015/logo-mixit.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Mix-IT 2015 - Jour 1 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Mix-IT 2015 - Jour 1" />
+<meta name="author" content="Mikael Randy" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Retour des conférences vues lors du jour 1 du Mix-IT 2015" />
+<meta property="og:description" content="Retour des conférences vues lors du jour 1 du Mix-IT 2015" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2015/04/16/mixit-2015-jour-1.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2015/04/16/mixit-2015-jour-1.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-04-16T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Mix-IT 2015 - Jour 1" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2015/04/16/mixit-2015-jour-1.html"},"url":"https://tech.bedrockstreaming.com/2015/04/16/mixit-2015-jour-1.html","author":{"@type":"Person","name":"Mikael Randy"},"description":"Retour des conférences vues lors du jour 1 du Mix-IT 2015","dateModified":"2015-04-16T00:00:00+02:00","datePublished":"2015-04-16T00:00:00+02:00","headline":"Mix-IT 2015 - Jour 1","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Mix-IT 2015 - Jour 1">
+    <meta name="twitter:description" content="Il est tout naturel que M6Web soit présent à une conférence qui mêle sujet technique d’avant-garde et agilité, 2 sujets qui nous sont chers, surtout lorsqu’e...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/mixit2015/logo-mixit.png">
+    <meta name="twitter:image:alt" content="Mix-IT 2015 - Jour 1">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Mix-IT 2015 - Jour 1 " aria-label="Mix-IT 2015 - Jour 1" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Mix-IT+2015+-+Jour+1" class="title">Mix-IT 2015 - Jour 1</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/mikaelrandy" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="/images/avatar/mikaelrandy.png">
+    
+    <p class="meta">
+      Mikael Randy - 
+      
+      April 16, 2015
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Il est tout naturel que M6Web soit présent à une conférence qui mêle sujet technique d’avant-garde et agilité, 2 sujets qui nous sont chers, surtout lorsqu’elle se déroule à Lyon.</p>
+
+<p>J’ai donc eu la chance de participer au <a href="https://www.mix-it.fr/">Mix-IT 2015</a> qui se tenait les 16 et 17 avril derniers au <a href="https://www.cpe.fr/">CPE Lyon</a>.</p>
+
+<p>Cet article est découpé en 2 parties. Dans l’article que vous êtes en train de lire, vous trouverez les retours des conférences que j’ai suivies le premier jour, mais vous pourrez également trouver le <a href="/mixit-2015-jour-2/">retour des conférences suivies lors du second jour</a>.</p>
+
+<h1 id="the-three-ages-of-innovation">The three ages of innovation</h1>
+<p>— <a href="https://twitter.com/tastapod">Dan North</a> - [<a href="https://speakerdeck.com/tastapod/the-three-ages-of-innovation">Slides</a>]</p>
+
+<p>Dan nous a partagé sa vision de l’innovation à travers l’évolution d’une technologie.</p>
+
+<p>Selon lui, il existe donc 3 âges dans l’évolution :</p>
+
+<blockquote>
+  <p>Explore (Maximize discovery)</p>
+</blockquote>
+
+<p>Il s’agit de la phase initiale, celle de la découverte, de l’expérimentation.
+Dans cette phase, on essaye, on se trompe, on apprend.</p>
+
+<blockquote>
+  <p>Stabilize (Minimize variance)</p>
+</blockquote>
+
+<p>Il s’agit de la phase où on fait le tri sur tout ce qu’on a testé, initié, et qu’on essaye de catégoriser, stabiliser tout ça, voir retirer ce qui n’est pas une bonne idée.</p>
+
+<p>C’est le moment où on est capable de reproduire ces créations, et donc de les apprendre (repeatability, predictability, teachability).</p>
+
+<p>Dans cette phase, nous apprenons à réduire l’incertitude autour de la manière de réaliser un code.</p>
+
+<blockquote>
+  <p>Commoditize (Maximize efficiency)</p>
+</blockquote>
+
+<p>Cette phase est celle de l’industrialisation, celle où on essaye de réduire les coûts pour augmenter l’efficacité.</p>
+
+<p>Et même si ces 3 phases sont conflictuelles, l’innovation existe dans chacune de ces 3 phases, et il faut savoir les respecter et s’impliquer dans chacune.</p>
+
+<h1 id="le-pourquoi-du-pourquoi-de-lagilité">Le pourquoi du pourquoi de l’agilité</h1>
+<p>— <a href="https://twitter.com/cedricbodin">Cédric Bodin</a> - [<a href="https://www.youtube.com/watch?v=HruQWrUTFIw&amp;noredirect=1">Screencast de la même conférence, mais à Nantes</a>]</p>
+
+<p>Au cours de cette présentation, Cédric nous a poussé à réfléchir sur la raison profonde du succès de l’agilité.</p>
+
+<p>Nous le savons, l’agilité est une solution efficace contre les plannings qui glissent, les cahiers des charges non tenables, le syndrome de la tour de cristal et autres dysfonctionnement organisationnels.</p>
+
+<p>Depuis 1994, le Chaos Manifesto publie un rapport indiquant le pourcentage de projets qui échouent ou réussissent, et il y a 2 fois plus de projets qui échouent que de projets qui réussissent. Il est courant que des projets qui s’éternisent, dérapent, … soient finalement abandonnés.</p>
+
+<p>De même, il est courant que le produit fini ne corresponde pas à ce que l’utilisateur attend, à cause de la distance entre eux et les équipes qui développent le produit.</p>
+
+<p>Mais pourquoi est-ce que nous avons besoin de l’agilité ? Pourquoi en sommes nous arrivés à cette situation où tout ces syndromes apparaissent ?</p>
+
+<p>Tout simplement parce que nous avons construit l’Entreprise d’aujourd’hui sur la base du <a href="https://www.wikiwand.com/fr/Taylorisme">Taylorisme</a> qui permet d’être le plus rentable possible en prévoyant tout les cas pour réduire le hasard et donc l’échec. Le socle de base de cette théorie est que rien ne change et que tout est prévisible.</p>
+
+<p>Or, la société actuelle va plus vite, veut pouvoir être très réactive, et notre branche en particulier.</p>
+
+<p>À partir de là, le modèle qui veux que certaines personnes pensent, prévoient, organisent, pour que les techniciens n’aient “que” à exécuter est dépassée. Et cela se voit ! Combien de “j’ai fait ce que le cahier des charges demandait”, combien de discussions stérile autour d’un changement de périmètre pour recalculer des délais ?</p>
+
+<p>Voici 2 exemples de phrases qui montrent le décalage entre la vision du Taylorisme dans l’informatique et la réalité :</p>
+
+<blockquote>
+  <p>En informatique, la production, c’est la compilation. Et elle est tellement efficace qu’on ne la facture plus.</p>
+</blockquote>
+
+<blockquote>
+  <p>Nos métiers de services ne sont pas des métiers de production, mais des métiers de conception.</p>
+</blockquote>
+
+<p>À partir de là, il faut considérer le travail du développeur comme du côté “pensant” et pas du côté “exécutant” : ne pas essayer de maximiser sa productivité en réduisant sa réflexion. Bien s’assurer de sa compréhension du besoin au lieu de lui lister des tâches à accomplir sans réflexion.</p>
+
+<p>Les principes mis en avant par l’agilité vont en ce sens : rapprocher l’utilisateur et le développeur, laisser l’équipe décider du planning, permettre l’imprévu.</p>
+
+<p>Toutefois, l’agilité n’est pas un déclencheur. Une société qui passe à l’agilité sans modifier son fonctionnement va à l’échec. L’agilité n’est qu’un moyen de changer.</p>
+
+<p>N’oublions pas la <a href="https://en.wikipedia.org/wiki/Conway%27s_law">loi de Conway</a> :</p>
+
+<blockquote>
+  <p>Tout logiciel reflète l’organisation qui l’a créé.</p>
+</blockquote>
+
+<h1 id="solution-focus-in-team">Solution focus in team</h1>
+<p>— <a href="https://twitter.com/vincentdaviet">Vincent Daviet</a> et <a href="https://twitter.com/gery7">Géry Derbier</a></p>
+
+<p>Cet atelier destiné plutôt aux managers donnait des pistes et des exemples pour réussir à relancer de la synergie dans des équipes qui ont tendance à se bloquer lors de la mise en place de l’agilité.</p>
+
+<p>Le principal ressort de l’agilité est la communication. Si cette communication est brisée, tout est en péril, et c’est souvent la principale cause d’échec de son adoption.</p>
+
+<p>Nous avons réalisé des mises en condition pour voir comment la communication peut être un véritable frein ou un formidable moteur pour avancer. En posant une même question de plusieurs manières, nous avons constaté qu’il est tout aussi possible de bloquer un échange qui était intéressant, que d’aller voir plus loin que les explications qui nous étaient proposées.</p>
+
+<h1 id="si-le-tdd-est-mort-alors-pratiquons-une-autopsie">Si le TDD est mort, alors pratiquons une autopsie</h1>
+<p>— <a href="https://twitter.com/tpierrain">Thomas Pierrain</a> et <a href="https://brunoboucard.com/">Bruno Boucard</a> - [<a href="https://fr.slideshare.net/brunoboucard/si-le-tdd-est-mort-alors-mix-it">Slides</a>]</p>
+
+<p>Derrière ce titre un peu provocateur, Thomas et Bruno voulaient faire une analyse à date du <a href="https://www.wikiwand.com/fr/Test_driven_development">TDD</a>, pour voir comment il est utilisé, et pourquoi il a tendance à être délaissé.</p>
+
+<p>Comme il est un peu facile de dire que les développeurs peuvent avoir du mal à changer leurs habitudes, nous sommes allés voir un peu plus loin :</p>
+
+<p>Le développeur qui est habitué à écrire du code, voir s’il marche, l’éditer, voir s’il marche, … fonctionne selon un principe d’expérimentation. Il ne sait pas très bien où il va, il essaye du code jusqu’à ce qu’il fonctionne. Et une fois qu’il maitrise le code, il va continuer à travailler de la même manière, même si le code fonctionne beaucoup plus rapidement qu’avant.</p>
+
+<p>Mais cette manière de travailler reste fortement exposée à 2 limitations :</p>
+<ul>
+  <li>perte de vue de l’objectif réel;</li>
+  <li>sur-architecture.</li>
+</ul>
+
+<p>Avec le TDD, le fonctionnement est de décrire ce qu’on veut faire d’abord (se fixer un objectif) en l’éclaircissant au maximum, au plus tôt.</p>
+
+<p>Pour être efficace en TDD, il faut commencer par creuser son sujet et s’assurer de comprendre ce qu’on veut, comment, avec quelles limites (<a href="https://www.wikiwand.com/fr/Cinq_pourquoi">les 5 pourquois</a>). Ensuite, il faut le formuler, de préférence à haute voix pour bien s’assurer de comprendre ce qu’on est en train de dire (<a href="https://www.wikiwand.com/fr/M%C3%A9thode_du_canard_en_plastique">méthode du canard en plastique</a>), puis finalement lister une série de phrases en “mon code devrait” indiquant le fonctionnement nominal et les cas limites.</p>
+
+<p>Une fois que tout ça est respecté, il est possible de démarrer le TDD proprement dit, à savoir d’écrire les tests, de le voir échouer, puis de réaliser le code qui permet à ces tests de fonctionner. Ainsi, il est possible de dégager son esprit du fonctionnel pour se concentrer sur le technique, jusqu’à voir le code réussir à atteindre le but fixé.</p>
+
+<p>Rappel : cet article est découpé en 2 parties. N’oubliez pas de consulter le <a href="/mixit-2015-jour-2/">retour des conférences suivies lors du second jour</a>.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Mix-IT+2015+-+Jour+1%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2015%2F04%2F16%2Fmixit-2015-jour-1.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2015/04/16/mixit-2015-jour-1.html&title=Mix-IT+2015+-+Jour+1%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2015/04/16/mixit-2015-jour-1.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Mix-IT 2015 - Jour 1%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2015/04/16/mixit-2015-jour-1.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#mixit">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> mixit</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#video">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> video</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Mix-IT 2015 - Jour 2" href="/2015/04/17/mixit-2015-jour-2.html">
+            <p>Previous post</p>
+            Mix-IT 2015 - Jour 2
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Introduction à Immutable.Js, Relay + GraphQL et React Native" href="/2015/04/01/immutablejs-relay-graphql-react-native.html">
+            <p>Next post</p>
+            Introduction à Immutable.Js, Relay + GraphQL et React Native
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/mixit2015/logo-mixit.png'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

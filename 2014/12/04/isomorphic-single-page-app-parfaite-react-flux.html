@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/reflection.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>App Isomorphic: la Single Page App parfaite ? | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="App Isomorphic: la Single Page App parfaite ?" />
+<meta name="author" content="Kenny Dits" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Développer une SPA référencable et performante avec React.Js et Flux" />
+<meta property="og:description" content="Développer une SPA référencable et performante avec React.Js et Flux" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2014/12/04/isomorphic-single-page-app-parfaite-react-flux.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2014/12/04/isomorphic-single-page-app-parfaite-react-flux.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-12-04T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="App Isomorphic: la Single Page App parfaite ?" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2014/12/04/isomorphic-single-page-app-parfaite-react-flux.html"},"url":"https://tech.bedrockstreaming.com/2014/12/04/isomorphic-single-page-app-parfaite-react-flux.html","author":{"@type":"Person","name":"Kenny Dits"},"description":"Développer une SPA référencable et performante avec React.Js et Flux","dateModified":"2014-12-04T00:00:00+01:00","datePublished":"2014-12-04T00:00:00+01:00","headline":"App Isomorphic: la Single Page App parfaite ?","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="App Isomorphic: la Single Page App parfaite ?">
+    <meta name="twitter:description" content="Qu’est ce qu’une Single Page App (SPA) ?  « As rich and responsive as a desktop app but built with HTML5, CSS and Javascript »Les SPA se répandent de plus en...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/reflection.jpg">
+    <meta name="twitter:image:alt" content="App Isomorphic: la Single Page App parfaite ?">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="App Isomorphic: la Single Page App parfaite ? " aria-label="App Isomorphic: la Single Page App parfaite ?" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="App+Isomorphic%3A+la+Single+Page+App+parfaite+%3F" class="title">App Isomorphic: la Single Page App parfaite ?</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/kenny_dee" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="/images/avatar/kenny.jpg">
+    
+    <p class="meta">
+      Kenny Dits - 
+      
+      December 04, 2014
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Qu’est ce qu’une Single Page App (SPA) ?</p>
+
+<blockquote>
+  <p>« As rich and responsive as a desktop app but built with HTML5, CSS and Javascript »</p>
+</blockquote>
+
+<p>Les SPA se répandent de plus en plus, et deviennent un choix « commun » lorsque l’on veut développer un Front riche (souvent câblé sur des API REST) que l’on souhaite :</p>
+
+<ul>
+  <li>testable (unitairement et fonctionnellement)</li>
+  <li>fluide (pas de rechargement d’url etc)</li>
+  <li>bien organisé</li>
+  <li>maintenable et évolutif</li>
+  <li>…</li>
+</ul>
+
+<p>Les Frameworks type <a href="https://angularjs.org/">AngularJs</a> et <a href="https://emberjs.com/">EmberJs</a> tiennent le haut du panier et ont largement fait leurs preuves, mais ils continuent à échouer sur deux sujets pourtant primordiaux dans beaucoup de cas :</p>
+
+<ul>
+  <li>La performance (dont le rendu initial)</li>
+  <li>Le référencement</li>
+</ul>
+
+<h1 id="la-performance">La performance</h1>
+
+<p>Aujourd’hui, quand vous chargez une SPA, voici grossièrement ce qui se passe coté client :</p>
+
+<ul>
+  <li>Chargement du fichier HTML</li>
+  <li>Chargement des différents Assets (Css, image, scripts JS externe comme Angular et Jquery par exemple)</li>
+  <li>Ainsi que de l’intégralité du code JS de votre application (sauf si vous <a href="https://github.com/ocombe/ocLazyLoad">lazyloadez</a>)</li>
+  <li>Execution de tout ce petit monde, qui va devoir savoir où vous êtes dans l’application afin de générer le HTML correspondant à l’état demandé.</li>
+</ul>
+
+<p>Avoir ces quelques secondes à attendre avant de se retrouver dans un état fonctionnel est peut être acceptable pour un backoffice. Mais ça l’est beaucoup moins pour un front riche.Et ce temps aura tendance à augmenter fortement, parallèlement à l’enrichissement de votre application.</p>
+
+<p>Si l’on se soucie un minimum des aspects de performances Web, c’est forcément dérangeant.
+Et d’un point de vue plus global, tout le monde sait aujourd’hui que la performance brute n’est pas le point fort de ces frameworks.</p>
+
+<h1 id="le-référencement">Le référencement</h1>
+
+<p>Autre sujet, qui peut être très problématique, si le site en question s’y prête. Ces applications vont fournir comme « source HTML » quelque chose de ce style (pour du Angular) :</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">class=</span><span class="s">"no-js"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    ...
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body</span> <span class="na">ng-app=</span><span class="s">"myApp"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ng-view&gt;&lt;/ng-view&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"scripts/vendor.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"scripts/main.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+
+<blockquote>
+  <p>Container qui servira à recevoir le HTML généré par votre appli JS une fois exécutée.</p>
+</blockquote>
+
+<p>De base, Google (et autres moteurs/crawler) ne verra donc rien, tout votre contenu allant être injecté via JS dans votre balise ng-view. 
+Excepté le fait <strong>qu’il parait</strong> que depuis des mois/années, <a href="https://googlewebmastercentral.blogspot.fr/2014/05/understanding-web-pages-better.html">Google commence à réellement crawler du JS</a> … Si le site est important, cette supposition ne devrait pas suffire à vous convaincre, et vous avez raison.</p>
+
+<p>Rassurez vous, à ce stade, des solutions existent pour fournir spécifiquement à Google une version correspondante aux snapshots HTML générés par vos applications.
+Ces solutions sont accessibles soit en mode SAAS (payante et hébérgé), soit en mode Open-Source à héberger vous même. Je pense notamment à <a href="https://prerender.io/">Prerender.io</a> qui fait plutôt bien le job, et vous propose d’indiquer aux moteurs que vous faites une application de type « Ajax » en respectant les recommandations de Google.</p>
+
+<p>Prerender est composée de plusieurs briques :
+Un middleware applicatif (Rails, Node, Varnish, Nginx, etc selon votre infrastructure), qui va intercepter les moteurs et les renvoyer sur votre service de Prerender 
+Un service de Prerender qui est une brique Node.js qui va lancer des HeadLess Browser (<a href="https://phantomjs.org/">PhantomJS</a> ou <a href="https://slimerjs.org/">SlimerJs</a> …) pour executer votre appli JS et renvoyer un snapshot HTML une fois le rendu JS terminé.</p>
+
+<p>La solution permet à priori de faire le boulot, mais cela reste une gymnastique complexe, et beaucoup d’interrogations subsistent (pertinence, maintenance, stabilité, Page Rank, pondération vs sites classiques …)</p>
+
+<h1 id="la-lumière-au-fond-du-tunnel-">La lumière au fond du tunnel ?</h1>
+
+<p>Vous l’avez donc compris, dans certains cas, les SPA basées sur des frameworks Js posent deux problèmes très gênants et difficilement résolvables.
+C’est là qu’entre en piste, une nouvelle façon de penser les SPA, grace à une librairie développée par Facebook : <a href="https://facebook.github.io/react/">React.JS</a></p>
+
+<p>React fait parler de lui car il commence à être utilisé massivement par des très gros acteurs Web, Facebook bien entendu pour ses composants Chat, ou son <a href="https://facebook.com/lookback/edit">éditeur vidéo</a>, <a href="https://facebook.github.io/react/blog/2013/11/05/thinking-in-react.html">Instagram</a> pour l’intégralité du site, <a href="https://www.slideshare.net/rmsguhan/react-meetup-mailonreact">Yahoo Mail</a>, <a href="https://blog.atom.io/2014/07/02/moving-atom-to-react.html">Github avec l’IDE Atom</a>, <a href="https://joelburget.com/backbone-to-react/">Khan Academy</a>, <a href="https://www.nytimes.com/interactive/2014/02/02/fashion/red-carpet-project.html?_r=0">NyTimes</a>, <a href="https://twitter.com/feedly/status/517163824206458880">Feed.ly</a> …</p>
+
+<p>Au premier abord, React n’est qu’une librairie qu’on pourrait comparer à la partie Vue d’un Framework MVC (voir aux Directives d’Angular), mais il a la particularité d’être basé sur un Virtual DOM.
+Ce qui parait au départ simplement une bonne idée pour avoir des performances bien supérieures à celle d’un framework MVC basé sur le DOM, et éviter par exemple les Dirty checking du DOM (qui explique en partie le manque de perf d’Angular), permet aussi d’utiliser ces mêmes composants coté serveur !</p>
+
+<p>C’est ce qu’on appelle l’approche <strong>« Isomorphic »</strong> .</p>
+
+<p>Un composant React n’est finalement qu’un module CommonJs et peut donc aussi bien être utilisé coté browser sur le client, que coté server dans du <a href="https://nodejs.org/">Node.Js</a> (ou <a href="https://github.com/iojs/io.js/issues/28">IO.js</a> devrais-je dire maintenant ?).
+L’idée de l’isomorphisme est aussi d’être capable de servir le premier rendu directement par le serveur.
+Exemple:</p>
+
+<ul>
+  <li>Vous accédez à votresite.com/votrepage.html</li>
+  <li>Votre serveur Node, construit votre page et sert le rendu HTML généré par votre appli au client</li>
+  <li>Il sert aussi votre application JS dans un Bundle (généré via du <a href="https://gulpjs.com/">Gulp</a> ou <a href="https://gruntjs.com/">Grunt</a> par <a href="https://webpack.github.io/">WebPack</a> ou <a href="https://browserify.org/">Browserify</a>)</li>
+  <li>Le client reçoit un fichier statique et l’affiche (sans attendre le moindre JS)</li>
+  <li>Il reçoit aussi le bundle Js</li>
+  <li>Une fois affiché, React sait reprendre la main sur votre appli afin de continuer en mode SPA pour la suite de l’application.</li>
+</ul>
+
+<p>Et là, vous répondez de manière parfaite aux deux points problématiques.
+Google n’y verra que du feu, et pourra crawler votre site entièrement comme si il n’était composé que de fichiers statiques. 
+La performance du premier rendu sera quasi imbattable, car ne nécessitant aucun JS !</p>
+
+<p>Sur le papier, c’est juste le rêve ultime de tout développeur Front-end : tous les avantages d’une SPA sans les inconvénients !</p>
+
+<p><em>Facebook propose aussi sur son Github, une solution pour ceux ayant déjà un applicatif dans un autre language (ici PHP) : <a href="https://github.com/facebook/react/blob/master/examples/server-rendering/README.md">Server side rendering</a></em></p>
+
+<h1 id="la-solution-parfaite-">La solution parfaite ?</h1>
+
+<p>Presque.
+React n’est au final que la partie <strong>Vue</strong> de votre application, il va falloir encore organiser tout ça. C’est ici qu’entre en compte <a href="https://facebook.github.io/flux/">Flux</a>, un pattern d’architecture unidirectionnel proposé aussi par Facebook, à priori plus scalable que ne l’est le pattern MVC.</p>
+
+<p>Mais là encore, l’approche de Flux est plutôt prometteuse, alors quel est le problème ?</p>
+
+<ul>
+  <li>Finalement c’est encore peu mature (déjà React et Flux, mais encore plus l’approche Isomorphic)</li>
+  <li>La montée en compétence n’est pas négligeable</li>
+  <li>Il n’y a pas vraiment de Framework comparable à date, et vous allez surement devoir réinventer la roue à certains moments (à suivre l’arrivée imminente de React Nexus notamment)</li>
+  <li>La documentation est très faiblarde encore</li>
+  <li>Les ressources très difficiles à trouver et de qualités très différentes</li>
+  <li>Pas vraiment de starter-kit ou générateur digne de ce nom</li>
+  <li>Le coté Isomorphic va aussi engendrer une certaine complexité :
+    <ul>
+      <li>Est-ce que mon client reçoit bien le même état que celui qu’avait mon serveur au moment du rendu initial</li>
+      <li>Obligation de n’utiliser que des composants Isomorphic, typiquement un router qui fonctionne aussi bien coté client que serveur (<a href="https://github.com/rackt/react-router">React-Router</a> ou <a href="https://github.com/flatiron/director">Director</a>), même chose pour les requêtes HTTP (<a href="https://github.com/visionmedia/superagent">Superagent</a> par exemple) …</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Si malgré ces points, vous souhaitez tester cette approche, je vous conseille de regarder du coté de Yahoo, qui après avoir annoncé la migration de Yahoo Mail de PHP/YUI vers React/Flux Isomorphic a aussi publié quelques packages Open-Source très intéressants, pouvant constituer une bonne base de départ pour un projet isomorphic :</p>
+
+<ul>
+  <li><a href="https://github.com/yahoo/fluxible-app">Fluxible-App</a></li>
+  <li><a href="https://github.com/yahoo/flux-examples">Flux-examples</a></li>
+  <li>ou cet exemple utilisant Fluxible-app : <a href="https://github.com/alexaivars/isomorphic-react">Isomorphic-React</a></li>
+</ul>
+
+<p>Si vous souhaitez plus d’infos sur React et Flux, je vous conseille ces deux articles en anglais de <a href="https://twitter.com/andrewray">@andrewray</a>:</p>
+
+<ul>
+  <li><a href="https://blog.andrewray.me/reactjs-for-stupid-people/">React for stupid people</a></li>
+  <li><a href="https://blog.andrewray.me/flux-for-stupid-people/">Flux for stupid people</a></li>
+</ul>
+
+<p>Ou ce tuto chez nos amis de Jolicode, pour <a href="https://jolicode.com/blog/flux-react-vers-un-nouveau-paradigme">faire un Gifomatic avec React et Flux</a></p>
+
+<p>D’autres solutions existent aussi conservant la même approche, mais sur la base d’autres technos, notamment celle d’Airbnb: <a href="https://nerds.airbnb.com/weve-open-sourced-rendr-run-your-backbonejs-a/">RendR</a>, permettant d’utiliser du <a href="https://nerds.airbnb.com/weve-launched-our-first-nodejs-app-to-product/">Backbone coté client et serveur</a>.</p>
+
+<p>Et pour finir, si ces sujets vous passionnent tout comme nous, restez à l’écoute ici, d’autres posts pourraient arriver à l’avenir ;-)</p>
+
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=App+Isomorphic%3A+la+Single+Page+App+parfaite+%3F%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2014%2F12%2F04%2Fisomorphic-single-page-app-parfaite-react-flux.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2014/12/04/isomorphic-single-page-app-parfaite-react-flux.html&title=App+Isomorphic%3A+la+Single+Page+App+parfaite+%3F%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2014/12/04/isomorphic-single-page-app-parfaite-react-flux.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=App Isomorphic: la Single Page App parfaite ?%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2014/12/04/isomorphic-single-page-app-parfaite-react-flux.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#angular">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> angular</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#flux">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> flux</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#isomorphic">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> isomorphic</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#javascript">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#react">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> react</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#webperf">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> webperf</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="CR React Conférence 2015 - Day 1" href="/2015/02/04/cr-react-conf-2015-day-one.html">
+            <p>Previous post</p>
+            CR React Conférence 2015 - Day 1
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Retour sur la Velocity Barcelone - troisième journée" href="/velocity-europe-2014-day-3">
+            <p>Next post</p>
+            Retour sur la Velocity Barcelone - troisième journée
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/reflection.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

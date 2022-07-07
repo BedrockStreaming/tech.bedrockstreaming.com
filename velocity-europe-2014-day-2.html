@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/velocity2014/velocity_banner2.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Retour sur la Velocity Barcelone - seconde journée | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Retour sur la Velocity Barcelone - seconde journée" />
+<meta name="author" content="Baptiste, François Verron et Olivier Mansour" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Blog technique de Bedrock" />
+<meta property="og:description" content="Blog technique de Bedrock" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/velocity-europe-2014-day-2" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/velocity-europe-2014-day-2" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-11-24T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Retour sur la Velocity Barcelone - seconde journée" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/velocity-europe-2014-day-2"},"url":"https://tech.bedrockstreaming.com/velocity-europe-2014-day-2","author":{"@type":"Person","name":"Baptiste, François Verron et Olivier Mansour"},"description":"Blog technique de Bedrock","dateModified":"2014-11-24T00:00:00+01:00","datePublished":"2014-11-24T00:00:00+01:00","headline":"Retour sur la Velocity Barcelone - seconde journée","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Retour sur la Velocity Barcelone - seconde journée">
+    <meta name="twitter:description" content="Velocity Barcelone, seconde journéeDeuxième jour de conférence avec un programme encore plus chargé et quelques conférences alléchantes repérées au préalable...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/velocity2014/velocity_banner2.jpg">
+    <meta name="twitter:image:alt" content="Retour sur la Velocity Barcelone - seconde journée">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Retour sur la Velocity Barcelone - seconde journée " aria-label="Retour sur la Velocity Barcelone - seconde journée" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Retour+sur+la+Velocity+Barcelone+-+seconde+journ%C3%A9e" class="title">Retour sur la Velocity Barcelone - seconde journée</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      November 24, 2014
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <h1 id="velocity-barcelone-seconde-journée">Velocity Barcelone, seconde journée</h1>
+
+<p>Deuxième jour de conférence avec un programme encore plus chargé et quelques conférences alléchantes repérées au préalable.</p>
+
+<h2 id="morning-keynotes">Morning Keynotes</h2>
+
+<h3 id="upgrading-the-web-polyfills-components-and-the-future-of-web-development-at-scale---andrew-betts-ft-labs">Upgrading the Web: Polyfills, Components and the Future of Web Development at Scale - Andrew Betts (FT Labs)</h3>
+
+<p>L’orateur fait remarquer que de nombreux systèmes existent pour packager et gérer les dépendances des applications backends, mais rien n’est disponible pour les composants webs. Il nous a présenté le projet <a href="https://origami.ft.com/">Origami</a> qui permet de réutiliser massivement des composants HTML.</p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/oHB74_vQPrU" frameborder="0" allowfullscreen=""></iframe>
+
+<p>Slides : <a href="https://cdn.oreillystatic.com/en/assets/1/event/121/Upgrading%20the%20Web_%20Polyfills,%20Components%20and%20the%20Future%20of%20Web%20Development%20at%20Scale%20Presentation.pdf">the Future of Web Development at Scale</a></p>
+
+<h3 id="troubleshooting-using-http-headers---steve-miller-jones-limelight-networks">Troubleshooting Using HTTP Headers - Steve Miller-Jones (Limelight Networks)</h3>
+
+<p>Slides : <a href="https://cdn.oreillystatic.com/en/assets/1/event/121/Troubleshooting%20Using%20HTTP%20Headers%20Presentation.pptx">Troubleshooting Using HTTP Headers</a></p>
+
+<p>Un employé de Limelight nous a présenté comment l’ajout de headers dans une requête pouvait renvoyer des headers supplémentaires dans la réponse HTTP. Cela peut être utile pour débugguer et analyser un incident.
+  Cette présentation nous a rappelé, qu’en interne, <a href="https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/40462/467784/bB5W31POypiBcuF/LSpC0ZX.gif">nos gentils ops</a> nous permettent déjà de faire ce genre chose sur nos proxy cache.</p>
+
+<h3 id="monitoring-without-alerts---and-why-it-makes-way-more-sense-than-you-might-think---alois-reitbauer-ruxitcom">Monitoring without Alerts - and Why it Makes Way More Sense than You Might Think - Alois Reitbauer (ruxit.com)</h3>
+
+<p>Alois Reitbauer a évoqué la solution <a href="https://ruxit.com/">Ruxit</a> développée depuis plus de trois ans. Cette solution consiste à installer un agent sur vos serveurs qui va automatiquement détecter des anomalies statistiques et corréler cette information avec d’autres déviations dans le but de trouver la <em>root cause</em> d’un incident.</p>
+
+<p>Beaucoup d’autres solutions de ce genre existent (et la plupart étaient dans le salon des sponsors). Nous n’avons pas été totalement convaincu de leurs capacités à détecter des <em>root cause</em>, mais elles sont toutes assez intéressantes et matures.</p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/j0kh5u_NewA" frameborder="0" allowfullscreen=""></iframe>
+
+<h3 id="lowering-the-barrier-to-programming---pamela-fox-khan-academy">Lowering the Barrier to Programming - Pamela Fox (Khan Academy)</h3>
+
+<p>Pamela Fox nous a présenté l’initiative <a href="https://code.org/promote">code.org</a>, dont le but est de promouvoir l’enseignement de l’informatique (bon, apparement seulement aux US).</p>
+
+<p>Elle a également donné quelques conseils si on veut s’investir dans l’enseignement de l’informatique à destination des plus jeunes. Par exemple créer un <em>code club</em>.</p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/CZTywncF_EQ" frameborder="0" allowfullscreen=""></iframe>
+
+<p>Slides : <a href="https://cdn.oreillystatic.com/en/assets/1/event/121/Lowering%20the%20Barrier%20to%20Programming%20Presentation.pdf">Lowering the Barrier to Programming</a></p>
+
+<h3 id="velocity-at-github---brian-doll-github">Velocity at GitHub - Brian Doll (GitHub)</h3>
+
+<p>Brian a fait une présentation très … minimaliste. Il est revenu rapidement sur 7 ans de développement à GitHub et comment ils sont venus à développer l’Enterprise Edition. Il a évoqué différents problèmes que certains de leurs clients avaient et notamment avec l’utilisation de GE en environnement cloud.</p>
+
+<p>Il a donc annoncé le lancement de GitHub Enterprise 2.0 qui fonctionne maintenant sur AWS (et un changement de la grille tarifaire) !</p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/AYlfEtP0rmc" frameborder="0" allowfullscreen=""></iframe>
+
+<p>J’ai profité d’un instant avec lui pour lui présenter <a href="/github-team-reviewer-pull-requests">GitHubTeamReviewer</a> (un outil interne open-sourcé). Il était enchanté de découvrir ce qui avait été fait avec l’API de Github. Il a indiqué que l’entreprise travaillait actuellement sur des vues permettant de pallier aux problèmes résolus par GitHubTeamReviewer.</p>
+
+<h2 id="http-archive-and-google-cloud-dataflow---ilya-grigorik-google">HTTP Archive and Google Cloud Dataflow - Ilya Grigorik (Google)</h2>
+
+<p>Ilya Grigorik a présenté <a href="https://bigqueri.es/">https://bigqueri.es/</a>, un outil permettant d’interroger <a href="https://httparchive.org/">HTTP archive</a>. La nouveauté est que le <em>body</em> des requêtes est maintenant conservé et que l’on peut l’analyser. Un <em>engine</em> Javascript a été intégré au SQL de bigqueries permettant de faire des requêtes très puissantes.</p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/_CMcaYnBt-g" frameborder="0" allowfullscreen=""></iframe>
+
+<p>Pour ceux qui ne voudraient pas se plonger dedans, beaucoup de recherches faites par d’autres utilisateurs sont disponibles et abondamment discutées (<a href="https://bigqueri.es/t/are-popular-websites-faster/162">exemple</a>).</p>
+
+<p><img src="/images/posts/velocity2014/bigqueries.jpg" alt="bigqueries" /></p>
+
+<h3 id="webpagetest-automation-20---nils-kuhn-iteratec-gmbh-uwe-beßle-iteratec-gmbh">Webpagetest-automation 2.0 - Nils Kuhn (iteratec GmbH), Uwe Beßle (iteratec GmbH)</h3>
+
+<p>Webpagetest est un outil formidable mais il est difficile à automatiser. Les orateurs ont présentés un outil pour le faire, permettant donc de réaliser une mesure continuelle de la webperf avec un parcours utilisateur complet - démonstration à l’appui.</p>
+
+<p>Leur travail est disponible sur GitHub sous licence Apache : <a href="https://github.com/IteraSpeed/OpenSpeedMonitor">https://github.com/IteraSpeed/OpenSpeedMonitor</a>. Un grand merci &lt;3 ! (à 10 minutes sur la vidéo).</p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/_CMcaYnBt-g#t=627" frameborder="0" allowfullscreen=""></iframe>
+
+<p><img src="/images/posts/velocity2014/openspeed.jpg" alt="openspeed" /></p>
+
+<hr />
+
+<h2 id="etsys-journey-to-building-a-continuous-integration-infrastructure-for-mobile-apps---nassim-kammah-etsy">Etsy’s Journey to Building a Continuous Integration Infrastructure for Mobile Apps - Nassim Kammah (Etsy)</h2>
+
+<p>Une parmi les très nombreuses conférences Etsy sur la Vélocity (le moment de renouveller les conférenciers ?). Nassim Kammah nous a expliqué comment Etsy délivrait ses applications iOS.</p>
+
+<p>La livraison des applications sous iOS est au même stade que la diffusion des logiciels via CD-ROMs. Partant de ce constat un système de build (avec 25 mac-minis derrière) a été mis en place à chaque commit sur le <em>master</em>. On ne peut pas délivrer une version de l’application tous les jours aux clients, mais on peut le faire pour les employés (and <em>eat your own dog food</em>) !</p>
+
+<p>Il y a également <a href="https://github.com/etsy/BugHunt-iOS">un système de gamification</a>, autour de l’application livrée journalièrement, afin de motiver tout le monde à trouver des bugs.</p>
+
+<p><img src="/images/posts/velocity2014/esty-devbuild.jpg" alt="esty-devbuild" /></p>
+
+<p>Des tests unitaires sont mis en place, ainsi que des tests fonctionnels avec <a href="https://appthwack.com/">AppThwack</a>. Il est intéressant de constater qu’ils n’attendent pas, pour les tests fonctionnels, une réussite à 100% de la suite mais une tendance positive.</p>
+
+<p>Les équipes ont également mis en place des <em>testing dojos</em> dans lesquels les ingénieurs QA encadrent des salariés d’Etsy et testent à fond les applications.</p>
+
+<p>On peut retrouver tous les éléments de cette conférence sur le <a href="https://codeascraft.com/2014/02/28/etsys-journey-to-continuous-integration-for-mobile-apps/">blog technique d’Etsy</a>.</p>
+
+<hr />
+
+<h2 id="recycling-why-the-web-is-slowing-your-mobile-app---colin-bendell-akamai">Recycling: Why the Web is Slowing Your Mobile App - Colin Bendell (Akamai)</h2>
+
+<p>Pourquoi recycler nos contenus pour les applications mobiles ?</p>
+
+<ul>
+  <li>accélérer le <em>time to market</em>.</li>
+  <li>réduire le risque</li>
+</ul>
+
+<p>Les APIs encouragent le recyclage.</p>
+
+<p><img src="/images/posts/velocity2014/recycling.jpg" alt="recycling" /></p>
+
+<p>Colin Blendel nous encourage à utiliser les mêmes recettes que pour les navigateurs web et à en ajouter d’autres :</p>
+
+<ul>
+  <li>gérer le pool de connexions en groupant les appels par domaine (quitte à les passer séquentiellement, par exemple, si des cookies sont utilisés),</li>
+  <li>surveiller les <em>packet eaters</em> (headers inutiles, <em>Set-Cookies</em> répétés),</li>
+  <li>setter correctement <em>Content-Type</em> sur des types standard (les exemples de content-type tirés des logs d’Akamai sont assez drôles, comme par exemple test/binary ^^ !),</li>
+  <li>faire un minimum de redirections,</li>
+  <li>fragmenter son cache au minumum (quitte à calculer des clés plus consistantes coté client),</li>
+  <li>ajouter du cache (Max-Age: 30s c’est à peu près du temps réel et ça change tout pour un CDN),</li>
+  <li>préfetcher les urls présentes dans les retours d’API, car on va surement en avoir besoin immédiatement après,</li>
+  <li>ne pas hésiter à mettre CRUD au placard et merger plusieurs appels API en un seul ; il faut trouver une balance efficace pour bien gérer la webperf.</li>
+</ul>
+
+<p>Une présentation dense et vraiment intéressante !</p>
+
+<p>Slides : <a href="https://www.slideshare.net/colinbendell/velocity-eu-2014-recycling-the-web-why">Why the Web is Slowing Your Mobile App</a></p>
+
+<hr />
+
+<h2 id="breaking-news-at-1000ms">Breaking News at 1000ms</h2>
+
+<p>Le Guardian est un journal Anglais présent sur le web et sur tout type de device. Ils ont récemment fait une refonte de leur site pour passer à une version Responsive avec pour challenge d’afficher son contenu en moins d’une seconde.</p>
+
+<p>Le Guardian c’est 110 000 utilisateurs, 7000 différents devices. L’ancien site avait un début de rendu en 8 secondes pour un affichage complet en 12. Avec la nouvelle version le site s’affiche en 1 seconde et le chargement complet au bout de 3. Quelles sont les principales optimisations ?</p>
+
+<p>Pour commencer, il faut charge le contenu important pour l’utilisateur en premier, à savoir le menu, l’article, et le widget d’article populaire. Le reste du contenu sera chargé dynamiquement en JS.</p>
+
+<p>En ce qui concerne le css, c’est la même chose. Les CSS importantes (critiques) qui concernent l’article et le rendu global sont intégrées <em>inline</em>. Ainsi, nous n’avons pas de blocage du rendu de la page. Le reste des css est chargé via Javascript. Avec ce système, on gagne au moins une demi-seconde sur le début d’affichage du contenu.
+Pour gagner en fluidité pour les prochains affichages, le css est stocké en localStorage. On gagne ainsi des ressources pour les prochains chargements.</p>
+
+<p>Pour les fonts ? C’est la même chose, elles sont mises en cache dans le localStorage pour supprimer de nouveaux chargements.</p>
+
+<p>Enfin le gros morceau : les images ! Elles sont chargées de façon asynchrone en lazyloading. Cela permet de ne pas bloquer le rendu principal de la page.</p>
+
+<p>En complément, ils ont mis en place des outils, notamment pour monitorer dans Github la taille des Assets afin de vérifier qu’il n’y a pas de grosses variations.</p>
+
+<p>Avec ces optimisations et un système de Proxy qui va gérer les données mises en localStorage, le site peut même être accessible en mode offline.</p>
+
+<ul>
+  <li><a href="https://github.com/guardian/frontend">Github du Front</a></li>
+  <li><a href="https://speakerdeck.com/patrickhamann/breaking-news-at-1000ms-velocity-eu-2014">Slide de la présentation</a></li>
+</ul>
+
+<hr />
+
+<h2 id="offline-first-web-apps">Offline-first Web Apps</h2>
+
+<p>Matt Andrews nous présente comment rendre une application web disponible Offline.</p>
+
+<p>Plusieurs contraintes peuvent nous pousser à avoir besoin d’une app (signet d’accueil) disponible même sans connexion. Que ce soit un article dans le métro ou une carte au milieu de nulle part sans connexion, il y a une réelle attente utilisateur.</p>
+
+<p>Premièrement, il faut activer <a href="https://www.w3schools.com/html/html5_app_cache.asp">AppCache</a> en précisant qu’il faut faire un petit Hack pour qu’il soit vraiment utile (voir slide).</p>
+
+<p>Ensuite l’utilisation de plusieurs outils nous permet d’arriver à nos fins :</p>
+<ul>
+  <li>Utilisation de <a href="https://github.com/github/fetch">FetchApi</a> : Il permet de remplacer nos appels Ajax avec une fonction succès , d’erreur et les Promises pour charger le contenu, ou lire le cache en cas d’absence de connexion.</li>
+  <li>Cache API : Il permet de choisir des Url a mettre en cache. Ainsi que de forcer le contenu de ces urls dans le code.</li>
+  <li>Service Worker : Il permet d’intercepter les events de chargement pour ensuite appeler le système de Cache API.</li>
+</ul>
+
+<p>Toutes ces optimisations nous permettent d’accéder au site en Offline. Mais ces optimisations nous permettent aussi d’optimiser le chargement de nos pages puisqu’on limite le nombre d’appels HTTP avec la mise en cache de certaines ressources.</p>
+
+<p><a href="https://fr.slideshare.net/andrewsmatt/velocity-eu-2014">Slide de la présentation</a></p>
+
+<hr />
+
+<h2 id="look-ma-no-image-requests">Look, Ma, No Image Requests!</h2>
+
+<p>Pamela Fox nous présente comment elle a optimisé les images d’un site internet.</p>
+
+<p>La première astuce est de compresser ces images au maximum. Il existe des outils online comme le site <a href="https://tinypng.com/">TinyPng</a> qui compresse vos images et vous permet de les télécharger directement.</p>
+
+<p>Deuxième astuce, mettre les images dans les css en base 64. 
+A noter qu’il existe des outils javascript qui effectuent la conversion dans les css à l’aide d’un petit commentaire en bout de ligne (voir les slides de présentation).</p>
+
+<p>Troisième solution : Les Fonts ! 
+Pour remplacer les petites images et surtout pour remplacer les sprites qui ne sont pas forcément adaptés, vous pouvez utiliser des Fonts. L’avantage des fonts est qu’elles peuvent s’adapter facilement en taille et en couleur … Des outils existent déjà pour les générer : <a href="https://fortawesome.github.io/Font-Awesome/">Font Awesome</a>.</p>
+
+<p>Autre astuce, le differ de chargement des images. Pamela nous propose <a href="https://gist.github.com/pamelafox/8705015">son outils javascript</a>, qui va permettre de vous simplifier les chargements. Il est aussi possible de ne charger que les images présentes à l’écran et de charger les suivantes lors du scroll. (lazyload).</p>
+
+<p>Pour les vidéos la même astuce est possible. Puisque les vidéos sont à présent chargées dans des iFrame, leur contenu peut être chargé de façon différé. Attention, il ne faut pas remplir le href par une url blank, sinon on perd en temps de chargement.</p>
+
+<p><a href="https://speakerdeck.com/pamelafox/look-ma-no-image-requests">Slide de la présentation</a></p>
+
+<hr />
+
+<h2 id="microservices---what-an-ops-team-needs-to-know">Microservices - What an Ops Team Needs to Know</h2>
+
+<p>Slides: <a href="https://speakerdeck.com/bruntonspall/microservices-what-an-ops-team-needs-to-know">Microservices - What an Ops Team Needs to Know</a></p>
+
+<p><img src="https://www.gov.uk/service-manual/assets/govuk_template/images/opengraph-image.png" alt="govuk" /></p>
+
+<p>Le buzzword est lâché. Le propos n’était pas ici de troller autour de la notion de micro-services, de l’implémentation ou de leur utilisation, mais plutôt du changement que cela implique pour les équipes d’exploitation.</p>
+
+<p>Souvent considéré comme le goulot d’étranglement de la chaîne de mise en prod, l’exploit’ regarde les architectures de micro-services avec circonspection : en plus d’avoir des dépendances entre eux, les composants sont mis à jour indépendamment et régulièrement, on peut donc vite tout casser en prod.
+Pourtant en fournissant des <a href="https://fr.wikipedia.org/wiki/Pyramide_des_besoins">services de bases</a> et des outils aux équipes de développement, on peut augmenter leur autonomie et la disponibilité des infras.</p>
+
+<p>Cela passe par:</p>
+
+<ul>
+  <li>automatiser les VMs ou les containers en prod comme en dev</li>
+  <li>un système de métriques “As a Service” (similaire à graphite / statsd)</li>
+  <li>un service de log central (logstash/heka/fluentd)</li>
+  <li>un outil de déploiement (capistrano/deployinator)</li>
+</ul>
+
+<p>Ces outils et services ainsi fournis vont permettre à l’exploitation de se concentrer sur des problématiques plus complexes. En effet les microservices ont besoin d’outils de diagnostics plus poussés (on citera au passage Zipkin), d’alerting et de monitoring spécialisés par exemple.</p>
+
+<p><img src="https://www.tigerteam.dk/wp-content/uploads/2014/05/monolith-sliced-up-into-microservices.png" alt="microservices" /></p>
+
+<p>Qui dit droits, dit devoirs, et là je paraphraserai notre orateur Michael Brunton-Spall:</p>
+
+<blockquote>
+  <p>Give developers pagers too !</p>
+</blockquote>
+
+<blockquote>
+  <p>Developers should be exposed to the pain they cause</p>
+</blockquote>
+
+<p>Cela s’inscrit totalement dans le mouvement “You build it, you run it”, où les équipes de développement sont responsables de leur code depuis la conception jusqu’à la maintenance en production.</p>
+
+<hr />
+
+<h2 id="its-3am-do-you-know-why-you-got-paged-">It’s 3AM, Do You Know Why You Got Paged ?</h2>
+
+<p>Slides: <a href="https://speakerdeck.com/ryanfrantz/its-3am-do-you-know-why-you-got-paged">It’s 3AM, Do You Know Why You Got Paged ?</a></p>
+
+<p>Ryan Frantz nous a rappellé quelques éléments de bon sens concernant les alertes:</p>
+
+<ul>
+  <li>un contexte: quel hôte ? serveur ? service ? l’impact front / back ?</li>
+  <li>l’historique de l’alerte <strong>et</strong> de la métrique: état de la métrique il y a 5min, 15min, 1 jour, 1 semaine, combien de fois a sonné l’alerte aujourd’hui ?</li>
+  <li>la raison d’être du check (rédigée par le créateur du check)</li>
+  <li>des couleurs et mise en forme permettant de trouver visuellement l’information le plus rapidement possible (rappel il est 3 heure du matin, et peut être daltonien, pensez donc bien à vos codes couleurs)</li>
+</ul>
+
+<p><img src="https://pbs.twimg.com/media/B2uhL8fCUAER0dO.jpg:large" alt="alerting" />
+<img src="https://pbs.twimg.com/media/B2ugOnFCAAAEdgN.jpg:large" alt="alerting" /></p>
+
+<p>Seule une alerte critique doit vous faire lever à 3H du matin, un volume disque à 80% plein n’est pas réellement grave, cependant si son taux de remplissage est passé de 1% par heure à 300% par heure, cela peut devenir problématique.</p>
+
+<p>Ryan nous a ensuite présenté nagios-herald. Ce plugin nagios permet de multiplexer une alerte dans différent services (cf schéma) ci dessous.</p>
+
+<p><img src="https://speakerd.s3.amazonaws.com/presentations/1c7b165020ce01328c621a1ab62a9337/slide_26.jpg?1410982160" alt="nagios herald" /></p>
+
+<p>Pour ma part je préfère Sensu qui intègre de base ce type de mécanisme. On peut affecter à une alerte un groupe de handlers (alerte hipchat + graphite + logstash par exemple)</p>
+
+<hr />
+
+<h2 id="customizing-chef-for-fun-and-profit">Customizing Chef for Fun and Profit</h2>
+
+<p><img src="https://b-i.forbesimg.com/benkepes/files/2013/12/Chef_Vertical_CCan_Reg.png" alt="chef" /></p>
+
+<p>Slides: <a href="https://fr.slideshare.net/jonlives/chefconf-2014">Customizing Chef for Fun and Profit</a></p>
+
+<p>En suivant les étapes d’application d’une recette Chef, Jon Cowie a distillé son savoir sur la personnalisation de Chef.</p>
+
+<p>Il nous a par exemple démontré qu’il était très simple de développer son propre plugin ohai et ses propres handlers.</p>
+
+<p>J’ai apprécié le passage sur la gestion des événements Chef, en effet la sortie en ligne de commande n’est qu’une des façons de récupérer les logs, les événements sont basés sur un système de pub/sub, on pourrait très bien imaginer la publication en live stream dans un redis ou autre.</p>
+
+<p>Par ailleurs Jon vient de publier un livre sur le sujet:
+<a href="https://shop.oreilly.com/product/0636920032984.do">O’Reilly - Customizing Chef</a></p>
+
+<hr />
+
+<h2 id="mega-quiz-velocity">Mega quiz Velocity</h2>
+
+<p>Perry Dyball et Stephen Thair avaient préparé un quiz interactif avec les participants à la conférence. Des questions diverses et variées défilaient sur le grand écran et une application web permettaient à chacun d’y répondre. Un moment fun animé par deux animateurs survoltés.
+ Malheuresement il semble que l’application n’aient pas tenu la charge et personne n’a pu voté après la seconde question (la prochaine fois ils devraient nous confier le projet :) ), mais un système de fallback a été prévu, basé sur des feuilles de papier de couleur à brandir bien haut pour répondre aux questions.</p>
+
+<blockquote>
+  <p>merci le papier ! :)</p>
+</blockquote>
+
+<p><img src="/images/posts/velocity2014/quizz.jpg" alt="quizz" /></p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Fin des conférences et direction les soirées offertes par Facebook (où nous avons pu discuter avec Santosh Janardhan, responsable des infrastructures de Facebook ^^ !) et Dyn.</p>
+
+<p>Le résumé de <a href="/velocity-europe-2014-day-1">la première journée</a> est également disponible.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Retour+sur+la+Velocity+Barcelone+-+seconde+journ%C3%A9e%20https%3A%2F%2Ftech.bedrockstreaming.com%2Fvelocity-europe-2014-day-2"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/velocity-europe-2014-day-2&title=Retour+sur+la+Velocity+Barcelone+-+seconde+journ%C3%A9e%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/velocity-europe-2014-day-2"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Retour sur la Velocity Barcelone - seconde journée%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/velocity-europe-2014-day-2"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#velocity">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> velocity</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#webperf">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> webperf</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Retour sur la Velocity Barcelone - troisième journée" href="/velocity-europe-2014-day-3">
+            <p>Previous post</p>
+            Retour sur la Velocity Barcelone - troisième journée
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Retour sur la Velocity Barcelone - premier jour" href="/velocity-europe-2014-day-1">
+            <p>Next post</p>
+            Retour sur la Velocity Barcelone - premier jour
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/velocity2014/velocity_banner2.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/rn-brownfield/feature.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Get your brownfield React Native app built on demand | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Get your brownfield React Native app built on demand" />
+<meta name="author" content="Kenny Dits" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Get your brownfield React Native app built on demand" />
+<meta property="og:description" content="Get your brownfield React Native app built on demand" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2017/01/31/get-brownfield-react-native-app-built-on-demand.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2017/01/31/get-brownfield-react-native-app-built-on-demand.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-01-31T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Get your brownfield React Native app built on demand" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2017/01/31/get-brownfield-react-native-app-built-on-demand.html"},"url":"https://tech.bedrockstreaming.com/2017/01/31/get-brownfield-react-native-app-built-on-demand.html","author":{"@type":"Person","name":"Kenny Dits"},"description":"Get your brownfield React Native app built on demand","dateModified":"2017-01-31T00:00:00+01:00","datePublished":"2017-01-31T00:00:00+01:00","headline":"Get your brownfield React Native app built on demand","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Get your brownfield React Native app built on demand">
+    <meta name="twitter:description" content="As you may know, at M6Web we decided to embrace React Native a few months ago.It’s a really exciting piece of software that adds a lot of value in the mobile...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/rn-brownfield/feature.jpg">
+    <meta name="twitter:image:alt" content="Get your brownfield React Native app built on demand">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Get your brownfield React Native app built on demand " aria-label="Get your brownfield React Native app built on demand" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Get+your+brownfield+React+Native+app+built+on+demand" class="title">Get your brownfield React Native app built on demand</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/kenny_dee" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="/images/avatar/kenny.jpg">
+    
+    <p class="meta">
+      Kenny Dits - 
+      
+      January 31, 2017
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>As you may know, at M6Web we decided to embrace <a href="https://facebook.github.io/react-native/">React Native</a> a few months ago.
+It’s a really exciting piece of software that adds a lot of value in the mobile development ecosystem.</p>
+
+<p>We already use it for a side project on a standalone app (not public yet, stay tuned!) to record table soccer games, that’s why, we (mostly <a href="https://twitter.com/ncuillery">@ncuillery</a> 😏) decided to improve the upgrade process for apps made with the embedded generator. See Nicolas’ blog post on it: <a href="https://facebook.github.io/react-native/blog/2016/12/05/easier-upgrades.html">Easier Upgrades with React Native</a>.</p>
+
+<p>As a result, we wanted to start using React Native for our most popular app: 6Play (<a href="https://itunes.apple.com/app/6play/id369692259?mt=8">6play iOS</a>, <a href="https://play.google.com/store/apps/details?id=fr.m6.m6replay">6play Android</a>).
+So they would become what <a href="https://facebook.github.io/react-native/blog/2016/08/12/react-native-meetup-san-francisco.html#bridging-the-gap-using-react-native-in-existing-codebases">Leland Richardson from Airbnb calls “brownfield” apps</a>.
+6play is the <a href="https://en.wikipedia.org/wiki/Video_on_demand#Catch-up_TV">catchup TV</a> platform for the French TV group M6. It offers live-streaming and full episodes for web, mobile and set-top box. Since the apps launched in 2016, there have been over 1.5 billion videos streamed. Our iOS (mostly Swift) and Android native applications, both important parts of the 6play platform, were exclusively developed externally until now.</p>
+
+<p>We wanted to use React Native to develop this project in-house and to take advantage of the benefits this hybrid technology could bring into our native apps. Here are just some of the benefits we found when using React Native:</p>
+
+<ul>
+  <li><strong>JavaScript development for mobile</strong>. We have a lot of awesome JavaScript developers internally who develop the <a href="https://www.6play.fr/">6play website</a> using React. We love React &amp; Redux and want to mutualize this piece of technology we use on most of the frontends of the 6play platform.</li>
+  <li><strong>Hot fixing with <a href="https://microsoft.github.io/code-push/">CodePush</a></strong>. For our mobile apps, we want to accomplish the same continuous delivery process we have for the website. CodePush helps us to keep the same flexibility by allowing us to make deployments on a weekly or even daily basis.</li>
+  <li><strong>Knowledge sharing</strong>. We would like to be closer to the external development of our mobile apps, which was difficult without native knowledge and without any Android or Swift internal developers. React Native allows us to be part of that, we started working closely with the native team, sharing all developments between the two teams and bringing the best of both worlds (native and web) into the same project.</li>
+  <li><strong>Code Sharing</strong>. We also want to share major parts of the mobile code base between apps (Android &amp; iOS). Today, the code bases for each app are completely separate and are managed by two separate teams. With React Native, we could have one common code base while being able to implement specificities for a particular platform if needed. We have also imagined some ways to share code with the 6play website.</li>
+</ul>
+
+<p>As we mentioned in a previous <a href="/2016/06/20/preview-android-ios-react-native-on-github-pull-request">blog post</a>, we use Github pull requests extensively in our development process, especially for testing (automatically and manually) each new commits before merging them into the <code class="language-plaintext highlighter-rouge">master</code> branch.</p>
+
+<p>In the past, we tried to use <a href="https://appetize.io/">Appetize</a> to preview  our apps in the browser. It was a first shot, but the functionality was quite limited: animations felt janky, some features wouldn’t work (in-app purchase, video with DRM, …), user identification was painful. We needed a better solution, and as a result we decided to rethink the way we develop the 6play apps.</p>
+
+<p>For the second iteration of our development process, we had a few simple requirements:</p>
+
+<ul>
+  <li>Test each pull request in conditions as close to the reality as possible,</li>
+  <li>Use the same testing workflow for both iOS and Android apps.</li>
+</ul>
+
+<p>This post outlines our new mobile development process for the 6play apps. We’ll walk through how we manage the environment of a brownfield React Native app, our Git repository structure, our build and release workflows, and how we’ve created a CI environment that mirrors our production environment.</p>
+
+<h1 id="mono-repository--multi-repositories">Mono Repository / Multi Repositories?</h1>
+
+<p>The first thing we had to do, was to decide how we wanted to organize our Git repositories.</p>
+
+<p>For this, we looked into how <a href="https://youtu.be/tUfgQtmG3R0?t=109">the AirBnb team work with their brownfield app</a>.</p>
+
+<p>We soon realized we had two options here:</p>
+
+<p><strong>Multi-repositories</strong>:</p>
+
+<ul>
+  <li>the iOS one</li>
+  <li>the Android one</li>
+  <li>and one for React Native code</li>
+</ul>
+
+<p><strong>Mono-repository</strong>:</p>
+
+<ul>
+  <li>One giant repository that has iOS, Android, and React Native folders inside.</li>
+</ul>
+
+<p>Let’s take a look at the pros and cons of both solutions.</p>
+
+<h2 id="the-mono-repository">The Mono Repository</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── app-6play/
+│   ├── app-android/
+│   ├── app-ios/
+│   ├── react-native-views/
+</code></pre></div></div>
+
+<p>At first glance, this solution seems like the Holy Grail:</p>
+
+<ul>
+  <li>(+) Everything is in the same place</li>
+  <li>(+) If a modification needs both native &amp; React Native developments, changes can be contained in a unique pull request.</li>
+  <li>(-) Code, Documentation, Setup, are more difficult at the beginning (For example, how can we keep Git history of each existing repository?).</li>
+  <li>(-) For our workflow, we need to have everyone working the same way, with the same git workflow, and the same review process. Remember that our native team is an external team (in Belgium), the Android &amp; iOS teams are two different teams (located in the same place) and the React Native one is an internal team (in France). If we succeed, we’ll have synchronous development between teams, this is a really positive point, but it may be difficult to reach.</li>
+  <li>(-) Android, iOS and Javascript CI environments are very different (different tools, different needs), so it is really complex to setup.</li>
+</ul>
+
+<p>Ultimately, the initial cost of setup and maintenance outweighed the benefits of a mono-repository.</p>
+
+<h2 id="the-multi-repositories">The Multi Repositories</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── app-android/
+├── app-ios/
+├── react-native-views/
+</code></pre></div></div>
+
+<ul>
+  <li>(+) Each team could have its own Git workflow, branching model, review process,</li>
+  <li>(+) Each platform has its own CI, code conventions,</li>
+  <li>(-) Building the native apps including the React Native bundle is complicated,</li>
+  <li>(-) Three pull requests (one on each repository) are needed if the functionality includes a native bridge and React Native development.</li>
+</ul>
+
+<p>Neither approach was perfect. So we decided to choose the safest one, and create multiple repositories. Also, this choice doesn’t forbid any change of direction toward the mono repository in the future… The reverse seems much more complicated.</p>
+
+<h1 id="development-workflow">Development workflow</h1>
+
+<p>Each native developer is now forced to have the <code class="language-plaintext highlighter-rouge">react-native-views</code> to be able to work on the native app.
+You need to know that the native apps need <code class="language-plaintext highlighter-rouge">node_modules</code> dependencies of the React Native project, because they also contain the native part of React Native, and maybe some native code for React Native 3rd party you use.
+So, we will need to clone the native app and the React Native repository.</p>
+
+<h2 id="for-android">For Android</h2>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone app-android
+git clone react-native-views</code></pre></figure>
+
+<p>So we will have two sibling folders:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── app-android/
+├── react-native-views/
+</code></pre></div></div>
+
+<p>We decided to use symlink to have a cleaner structure (and that will make the CI configuration easy later, see Continuous Integration), so the setup for the Android project will look like this:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>app-android
+<span class="nb">ln</span> <span class="nt">-s</span> ../react-native-views ./react-native-views
+<span class="nb">cd</span> ../react-native-views
+npm <span class="nb">install</span></code></pre></figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── app-android/
+│   ├── react-native-views -&gt; ../react-native-views
+├── react-native-views/
+│   ├── node_modules/
+│   ├── package.json
+</code></pre></div></div>
+
+<h2 id="for-ios">For iOS</h2>
+
+<p>Similar steps to the Android process, but it seems that Xcode has difficulty following package with a symlink … so we have to be a little smarter:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone app-ios
+git clone react-native-views
+
+<span class="nb">cd </span>app-ios
+<span class="nb">mkdir</span> <span class="nt">-p</span> react-native-views/node_modules
+<span class="nb">cd</span> ../react-native-views
+<span class="nb">ln</span> <span class="nt">-s</span> ../app-ios/react-native-views/node_modules ./node_modules
+npm <span class="nb">install</span></code></pre></figure>
+
+<p>With this method, the <code class="language-plaintext highlighter-rouge">node_modules</code> files will be written in the symlink. So those files will be located in the source of the symlink, the <code class="language-plaintext highlighter-rouge">app-ios/react-native-views/node_modules</code> directory (This is pretty twisted, we had to admit).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── app-ios/
+│   ├── react-native-views/
+│   │   ├── node_modules/
+├── react-native-views/
+│   ├── node_modules -&gt; ../app-ios/react-native-views/node_modules
+│   ├── package.json
+</code></pre></div></div>
+
+<h2 id="react-native">React Native</h2>
+
+<p>Now we can choose: JavaScript developers are able to develop on any native app with the React Native <code class="language-plaintext highlighter-rouge">packager</code> (<code class="language-plaintext highlighter-rouge">npm start</code> in the <code class="language-plaintext highlighter-rouge">react-native-views</code> directory) and native developers can develop either with the <code class="language-plaintext highlighter-rouge">packager</code> started or with a pre-built React Native bundle (if their developments don’t concern React Native) by switching a Scheme (iOS) or a flavour (Android).</p>
+
+<h1 id="continuous-integration">Continuous integration</h1>
+
+<p>The next step was to find a way to improve the mobile development workflow.
+During our research, we found a SAAS tool named <a href="https://www.buddybuild.com">buddybuild</a> that’s able to build the iOS &amp; Android apps on each pull request. The setup for the native apps (before the React Native integration) or the React Native side project was really straightforward. It just magically works!</p>
+
+<p>With the 3 Git repositories of our brownfield apps, it’s a bit more complicated than that. For this, buddybuild provides two useful hooks during the CI process. We just have to add a shell file in the repository:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">buddybuild_postclone.sh</code>: This is the hook that happens just after the cloning of the current repository by buddybuild</li>
+  <li><code class="language-plaintext highlighter-rouge">buddybuild_prebuild.sh</code>: This hook is called after postclone and after buddybuild gets all dependencies (npm, Pod, Gradle …), but just before the build starts</li>
+</ul>
+
+<p>To allow our Product Owners to test the app’s functionality, whether it’s related to React Native or not, we’d need:</p>
+
+<ul>
+  <li>An iOS build on each pull request on the iOS repository</li>
+  <li>An Android build on each pull request on the Android repository</li>
+  <li>An iOS &amp; Android build on each pull request on the React Native repository</li>
+</ul>
+
+<p>To meet the specific needs of our app development, we required:</p>
+
+<ul>
+  <li>For iOS &amp; Android, we need a way to include the React Native code which lies in another repository.</li>
+  <li>For the React Native repository, we need a way to build the iOS &amp; Android apps which lie in other repositories as well, and including the React Native code in it.</li>
+  <li>Our iOS and Android apps up-to-date with both the master branch of the native app, and the master branch of the React Native repository.</li>
+  <li>If a feature needs modifications on both the native code and the React Native code (multiple pull requests, one on each concerned repositories), we want an app synchronized with all repositories.</li>
+</ul>
+
+<p>So let’s dig in these 4 points.</p>
+
+<h2 id="build-the-ios--android-apps-including-the-react-native-bundle">Build the iOS &amp; Android apps including the React Native bundle</h2>
+
+<p>The key here is to clone the React Native repository in the <code class="language-plaintext highlighter-rouge">postclone</code> buddybuild hook and reproduce the directory structure we have in development mode.</p>
+
+<h3 id="for-ios-1">for iOS</h3>
+
+<p>buddybuild_postclone.sh:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone react-native-views
+
+<span class="c"># Create the symbolic link of the package.json at the root to make buddybuild triggering the `npm install`</span>
+<span class="nb">ln</span> <span class="nt">-s</span> react-native-views/package.json package.json
+<span class="c"># Make Xcode able to access to the node dependencies</span>
+<span class="nb">ln</span> <span class="nt">-s</span> react-native-views/node_modules node_modules</code></pre></figure>
+
+<p>buddybuild_prebuild.sh:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># export React Native bundle:</span>
+node_modules/.bin/react-native bundle <span class="nt">--platform</span> ios <span class="nt">--entry-file</span> index.ios.js <span class="nt">--bundle-output</span> ../&lt;appFolder&gt;/main.ios.jsbundle <span class="nt">--dev</span> <span class="nb">false</span></code></pre></figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── buddybuild workspace/ (app-ios inside)
+│   ├── react-native-views/
+│   │   ├── package.json
+│   │   ├── node_modules/
+│   ├── package.json -&gt; react-native-views/package.json
+│   ├── node_modules -&gt; react-native-views/node_modules
+</code></pre></div></div>
+
+<h3 id="for-android-1">for Android</h3>
+
+<p>buddybuild_postclone.sh:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone react-native-views
+
+<span class="c"># Create the symbolic link of the package.json at the root to make buddybuild triggering the `npm install`</span>
+<span class="nb">ln</span> <span class="nt">-s</span> react-native-views/package.json package.json
+<span class="c"># When buddybuild will run `npm install`, the node dependencies will be at the right place</span>
+<span class="nb">ln</span> <span class="nt">-s</span> react-native-views/node_modules node_modules</code></pre></figure>
+
+<p>buddybuild_prebuild.sh:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># export React Native bundle:</span>
+node_modules/.bin/react-native bundle <span class="nt">--platform</span> android <span class="nt">--entry-file</span> index.android.js <span class="nt">--bundle-output</span> ../&lt;appFolder&gt;/main.android.jsbundle <span class="nt">--dev</span> <span class="nb">false</span></code></pre></figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── buddybuild workspace/ (app-android inside)
+│   ├── react-native-views/
+│   │   ├── package.json
+│   │   ├── node_modules/
+│   ├── package.json -&gt; react-native-views/package.json
+│   ├── node_modules -&gt; react-native-views/node_modules
+</code></pre></div></div>
+
+<p>The only thing you have to do in the buddybuild dashboard is to create the app for each platform and activate the build on pull request only (see screenshot below). Buddybuild will automatically trigger an iOS &amp; Android build on each pull request for the native repositories.</p>
+
+<p><img src="/images/posts/rn-brownfield/buddybuild-branch.png" alt="buddybuild branch configuration" /></p>
+
+<h2 id="build-the-ios--android-apps-on-each-pull-request-from-the-react-native-repository">Build the iOS &amp; Android apps on each pull request from the React Native repository</h2>
+
+<p>Now, we’d like to easily test each <code class="language-plaintext highlighter-rouge">react-native-views</code> pull request on both iOS and Android apps.</p>
+
+<p>For that purpose, we used the buddybuild hook again. Here is the <code class="language-plaintext highlighter-rouge">buddybuild_postclone.sh</code>:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Create a react-native-views folder</span>
+<span class="nb">mkdir </span>react-native-views
+<span class="c"># Move everything in it</span>
+<span class="nb">mv</span> <span class="k">*</span> react-native-views
+
+<span class="c"># The postclone hook is ran by buddybuild for both iOS and Android builds. We distinguish the platform here, thanks to the env variable BUDDYBUILD_APP_ID (set by buddybuild)..</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$BUDDYBUILD_APP_ID</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"&lt;buddybuildAndroidAppID&gt;"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+</span>git clone app-android
+<span class="nb">cd </span>app-android
+<span class="k">else
+</span>git clone app-ios
+<span class="nb">cd </span>app-ios
+<span class="k">fi</span>
+
+<span class="c"># Move the native app to the root of the workspace</span>
+<span class="nb">mv</span> <span class="k">*</span> ..
+<span class="nb">cd</span> ..
+
+<span class="c"># Create the future node_modules location folder</span>
+<span class="nb">mkdir</span> <span class="nt">-p</span> react-native-views/node_modules
+<span class="c"># Create the symbolic link for the app to be able to found the node_modules at the good place</span>
+<span class="nb">ln</span> <span class="nt">-s</span> react-native-views/node_modules node_modules
+<span class="c"># Create the symbolic link of the package.json at the root to make buddybuild triggering the `npm install`</span>
+<span class="nb">ln</span> <span class="nt">-s</span> react-native-views/package.json package.json</code></pre></figure>
+
+<p>For iOS, you’ll have:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── buddybuild workspace/ (app-ios inside)
+│   ├── react-native-views/
+│   │   ├── package.json
+│   │   ├── node_modules/
+│   ├── package.json -&gt; react-native-views/package.json
+│   ├── node_modules -&gt; react-native-views/node_modules
+</code></pre></div></div>
+
+<p>For Android, you’ll have:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── buddybuild workspace/ (app-android inside)
+│   ├── react-native-views/
+│   │   ├── package.json
+│   │   ├── node_modules/
+│   ├── package.json -&gt; react-native-views/package.json
+│   ├── node_modules -&gt; react-native-views/node_modules
+</code></pre></div></div>
+
+<p>By doing that, buddybuild will automatically install the npm dependencies, then launch the same <code class="language-plaintext highlighter-rouge">prebuild</code> hook as the native repository to build the React Native bundle.</p>
+
+<p>Using buddybuild, you can create the app for each platform, and trigger new builds only when pull requests are opened, or when commits are added to existing pull requests. Buddybuild also builds both apps when React Native pull requests are opened as well.</p>
+
+<h2 id="when-master-of-react-native-change-update-the-master-ios--android-apps">When master of React Native change, update the master iOS &amp; Android apps</h2>
+
+<p>Buddybuild makes it very easy to trigger a build programmatically via the API. We also use Jenkins for unit tests and lint, so we have a job triggered every time a push is made on the <code class="language-plaintext highlighter-rouge">master</code> branch of <code class="language-plaintext highlighter-rouge">react-native-views</code>. We have reused this job and append the following:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Our credentials</span>
+<span class="nv">ACCESS_TOKEN_BB</span><span class="o">=</span>&lt;AccessToken&gt;
+<span class="nv">APP_ID_BB_IOS</span><span class="o">=</span>&lt;buddybuildiOSAppID&gt;
+<span class="nv">APP_ID_BB_ANDROID</span><span class="o">=</span>&lt;buddybuildAndroidAppID&gt;
+
+<span class="c"># Build iOS</span>
+curl <span class="nt">-X</span> POST <span class="nt">-H</span>  <span class="s1">'Authorization: Bearer '</span><span class="nv">$ACCESS_TOKEN_BB</span>” <span class="nt">-d</span> <span class="s1">'branch=master’ '</span>https://api.buddybuild.com/v1/apps/<span class="s1">'$APP_ID_BB_IOS'</span>/build<span class="s1">'
+
+# Build Android
+curl -X POST -H  '</span>Authorization: Bearer <span class="s1">'$ACCESS_TOKEN_BB” -d '</span><span class="nv">branch</span><span class="o">=</span>master’ <span class="s1">'https://api.buddybuild.com/v1/apps/'</span><span class="nv">$APP_ID_BB_ANDROID</span><span class="s1">'/build'</span></code></pre></figure>
+
+<p>Now, you can activate the <code class="language-plaintext highlighter-rouge">master</code> build on the native iOS &amp; Android buddybuild build, and you’ll have those apps up-to-date with the master branch.</p>
+
+<p><img src="/images/posts/rn-brownfield/buddybuild-master.png" alt="buddybuild master configuration" /></p>
+
+<h2 id="cross-platform-feature-both-native--react-native">Cross platform feature (both native &amp; React Native)</h2>
+
+<p>At this point, this is not enough, because if you develop a feature that needs native and React Native modifications, you will not have the corresponding app before merging everything.</p>
+
+<p>We have decided here to add a rule: for a “cross platform feature” (like a bridge for a native component for example), we have to define the same name for the branches in each repositories.</p>
+
+<p>A bridge for a native component (the authentication bridge as an example) would have three Git branches with the same name, and three pull requests (one on each repository).</p>
+
+<p>By following this convention, we only have to checkout that branch when we clone the external repository in our <code class="language-plaintext highlighter-rouge">postclone</code> hooks:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">{</span>
+  <span class="c"># Detect with the env variable BUDDYBUILD_BRANCH (given by buddybuild) the branch we are on.</span>
+  <span class="nb">echo</span> <span class="s2">"Git checkout branch: </span><span class="nv">$BUDDYBUILD_BRANCH</span><span class="s2">"</span>
+  git checkout <span class="nv">$BUDDYBUILD_BRANCH</span>
+<span class="o">}</span> <span class="o">||</span> <span class="o">{</span>
+  <span class="nb">echo</span> <span class="s2">"Git default branch: master"</span>
+  git checkout master <span class="c"># if master is the name of your default branch</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>We do that branch name checking on the three repositories. This way, the four buddybuild projects (app-ios, app-android, react-native-views-ios, and react-native-views-android) can build native applications with modification on both sides.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>Thanks to React Native and buddybuild, we now have a complete workflow as powerful as we have on the website. Being able to review either React Native or native code, and testing a real app before the code lands on the <code class="language-plaintext highlighter-rouge">master</code> branch is a big improvement for code quality and a huge step forward towards more agility.</p>
+
+<p>Big up to <a href="https://tapptic.com/">Tapptic Team</a>, M6Web React Native team for this work, to the buddybuild support team for the help when needed.</p>
+
+<p>Special thanks to Nicolas Cuillery and Alysha for their proofreading!</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Get+your+brownfield+React+Native+app+built+on+demand%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2017%2F01%2F31%2Fget-brownfield-react-native-app-built-on-demand.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2017/01/31/get-brownfield-react-native-app-built-on-demand.html&title=Get+your+brownfield+React+Native+app+built+on+demand%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2017/01/31/get-brownfield-react-native-app-built-on-demand.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Get your brownfield React Native app built on demand%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2017/01/31/get-brownfield-react-native-app-built-on-demand.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#ci">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> ci</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#github">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> github</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#mobile">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> mobile</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#react-native">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> react-native</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="L'équipe Player de 6play.fr au Paris Video Tech" href="/2017/02/20/retour-de-paris-video-tech.html">
+            <p>Previous post</p>
+            L'équipe Player de 6play.fr au Paris Video Tech
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Une donnée presque parfaite sur 6play" href="/2016/11/24/une-donnee-presque-parfaite.html">
+            <p>Next post</p>
+            Une donnée presque parfaite sur 6play
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/rn-brownfield/feature.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

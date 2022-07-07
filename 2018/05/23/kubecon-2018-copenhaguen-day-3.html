@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/kubecon-2018/title-kubecon.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>KubeCon 2018 Copenhagen, day 3 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="KubeCon 2018 Copenhagen, day 3" />
+<meta name="author" content="Vincent Gallissot, Pascal Martin" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Our notes for the conferences we saw during the third day of KubeCon 2018 in Copenhagen" />
+<meta property="og:description" content="Our notes for the conferences we saw during the third day of KubeCon 2018 in Copenhagen" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2018/05/23/kubecon-2018-copenhaguen-day-3.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2018/05/23/kubecon-2018-copenhaguen-day-3.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-05-23T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="KubeCon 2018 Copenhagen, day 3" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2018/05/23/kubecon-2018-copenhaguen-day-3.html"},"url":"https://tech.bedrockstreaming.com/2018/05/23/kubecon-2018-copenhaguen-day-3.html","author":{"@type":"Person","name":"Vincent Gallissot, Pascal Martin"},"description":"Our notes for the conferences we saw during the third day of KubeCon 2018 in Copenhagen","dateModified":"2018-05-23T00:00:00+02:00","datePublished":"2018-05-23T00:00:00+02:00","headline":"KubeCon 2018 Copenhagen, day 3","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="KubeCon 2018 Copenhagen, day 3">
+    <meta name="twitter:description" content="Back to KubeCon 2018 in Copenhagen, for the third and last day! You can read about our first day here and about our second day there.KeynotesCloud Native ML ...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/kubecon-2018/title-kubecon.jpg">
+    <meta name="twitter:image:alt" content="KubeCon 2018 Copenhagen, day 3">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="KubeCon 2018 Copenhagen, day 3 " aria-label="KubeCon 2018 Copenhagen, day 3" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="KubeCon+2018+Copenhagen%2C+day+3" class="title">KubeCon 2018 Copenhagen, day 3</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      May 23, 2018
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Back to KubeCon 2018 in Copenhagen, for the third and last day! You can read about <a href="/kubecon-2018-copenhaguen-day-1/">our first day here</a> and <a href="/kubecon-2018-copenhaguen-day-2/">about our second day there</a>.</p>
+
+<h1 id="keynotes">Keynotes</h1>
+
+<h2 id="cloud-native-ml-on-kubernetes---david-aronchick-product-manager-cloud-ai-and-co-founder-of-kubeflow-google--vishnu-kannan-sr-software-engineer-google">Cloud Native ML on Kubernetes - David Aronchick, Product Manager, Cloud AI and Co-Founder of Kubeflow, Google &amp; Vishnu Kannan, Sr. Software Engineer, Google</h2>
+
+<p>Trying to run Machine Learning on Kubernetes? Working with Jupyter and Tensorflow? <a href="https://github.com/kubeflow/kubeflow">Kuebeflow</a> could be of interest to you.</p>
+
+<h2 id="running-with-scissors---liz-rice-technology-evangelist-aqua-security">Running with Scissors - Liz Rice, Technology Evangelist, Aqua Security</h2>
+
+<p>Even if we <em>never fall</em>, running with scissors could be dangerous. We wouldn’t run with scissors, would we? Then, why do we keep running containers with privileges they should not need? And why do we mount more directories than needed as volumes?</p>
+
+<p><img src="/images/posts/kubecon-2018/pascal-and-vincent-at-kubecon.jpg" alt="Just before the Keynotes" /></p>
+
+<h1 id="chaos-engineering-wg-deep-dive--sylvain-hellegouarch-chaosiq">Chaos Engineering WG Deep Dive – Sylvain Hellegouarch, ChaosIQ</h1>
+
+<p>One of the goals of Chaos Engineering being to <em>break stuff</em>, the talk started by a word about mindset: one must love supporting the team, and not try to save the day herself. Also, one must nurture empathy (including for the system), be assertive but not arrogant, not blame / be snarky (many of us are not great on that point).</p>
+
+<p>Chaos Engineering follows a continuous loop. Start with a steady state (a baseline that comes from objective observation, which means you need business metrics and to collect data), formulate an hypothesis (not necessarily business oriented), and define an experimental method (the things we vary to prove / disprove the hypothesis). Warning: don’t vary too many things at once.</p>
+
+<p>The talk finished with a few words about the <a href="https://chaostoolkit.org/">Chaos Toolkit</a>, which aims to be simpler than the famous <a href="https://github.com/Netflix/chaosmonkey">Chaos Monkey</a>.</p>
+
+<h1 id="istio---the-weather-companys-journey---nick-nellis--fabio-oliveira-ibm">Istio - The Weather Company’s Journey - Nick Nellis &amp; Fabio Oliveira, IBM</h1>
+
+<p>Several istio talks weren’t enough for me, I wanted more. I didn’t learn much more on this new one, except those tips:</p>
+<ul>
+  <li>You can define route specific retries with Istio</li>
+  <li>They use vistio to visualize istio traffic. That tool seems based on Netflix’s Vizceral. Unfortunately, I couldn’t find any GH repo nor blog talking about vistio.</li>
+  <li>If you want to implement Istio: start small</li>
+</ul>
+
+<h1 id="are-you-ready-to-be-edgy--bringing-cloud-native-applications-to-the-edge-of-the-network---megan-okeefe--steve-louie-cisco">Are You Ready to Be Edgy? — Bringing Cloud-Native Applications to the Edge of the Network - Megan O’Keefe &amp; Steve Louie, Cisco</h1>
+
+<p>There are a few common problems in a <em>cloud computing</em> setting. Many devices (with IoT for instance) can mean a bottleneck on the network side of things, <em>the cloud</em> being far away can cause latency problems. Edge computing, moving apps (or parts of apps) from a centralized cloud, could help with those problems. Think AR/VR for latency, Video for high bandwidth, facial recognition for temporary/secure data.</p>
+
+<p>The talk introduced the idea of deploying Kubernetes in edge locations – like in cell towers – and pointing users to the closest location. Those Kubernetes clusters would only host APIs or applications with specific needs, while the main parts would remain in a centralized cloud, which means we would have to develop edge-ready applications, keeping in mind problems such as network splits, data synchronization, deployment, …</p>
+
+<h1 id="integrating-prometheus-and-influxdb---paul-dix-influxdata">Integrating Prometheus and InfluxDB - Paul Dix, InfluxData</h1>
+
+<p>I was a lot surprised in this talk as we were like 30 in a room for 300.
+I guess people don’t need to keep metrics more than 15days with the Prometheus engine, or maybe people are already using InfluxDB as a guaranteed long term storage.
+Because we are in the second case, we are testing influxDB with Prometheus, so this talk came at the right time.
+I didn’t learn much on InfluxDB + Prometheus, nor on federated queries that comes with HA.</p>
+
+<p>Paul then questioned why not use a single query language for all query engines? That would be more practical and maintainable. The question is still open, even if Paul proposes IFQL to rule them all. The main idea is for all query engines to coordinate and stop creating a new language on each new engine.</p>
+
+<h1 id="a-hackers-guide-to-kubernetes-and-the-cloud---rory-mccune-ncc-group-plc">A Hackers Guide to Kubernetes and the Cloud - Rory McCune, NCC Group PLC</h1>
+
+<p>First, a word about threat models. Pretty much everyone will see random Internet hackers looking for easy preys. Some of us will be specifically targeted by attackers. Only a few will be targeted by nation states. You should think about your threat model, which may or may not be the same as your neighbour’s.</p>
+
+<p>Then, time to think about your attack surface. Attackers will find the weakest point, which is not always where your might think. What about the cloud around your Kubernetes cluster? Github is a great way of getting accesses (many commit their credentials and/or do not remove them from history – bots are crawling this!). Developers’ laptop are generally full of interesting data, and are not necessarily protected enough.</p>
+
+<p>On Kubernetes, external attackers will try to access the API server and etcd, the kubelets, or maybe inject malicious containers. You should turn off the <em>insecure port</em>, control access to kubelet and etcd, retrict the use of service tokens, restrict privileged containers, enable authentication and authorization on the API server, set pod security and network policies, and do regular upgrades. Also, don’t forget about cloud permissions.</p>
+
+<h1 id="cloudbursting-with-kubernetes---irfan-ur-rehman--quinton-hoole-huawei-technologies">Cloudbursting with Kubernetes - Irfan Ur Rehman &amp; Quinton Hoole, Huawei Technologies</h1>
+
+<p>That might not be everyone’s problem, but still interesting to hear about. If you have multiple cloud providers with different pricings, you might want to optimize your costs by using the most expensive only on load peaks. That is exactly what they did, using Kubernetes clusters federation and specific annotations. We won’t go over this approach because we’ll stick with one cloud provider, but that may be interesting for some people.</p>
+
+<h1 id="operating-a-global-scale-faas-on-top-of-kubernetes---chad-arimura--matt-stephenson-oracle">Operating a Global-Scale FaaS on Top of Kubernetes - Chad Arimura &amp; Matt Stephenson, Oracle</h1>
+
+<p>This was about the <a href="https://fnproject.io/">Fn project</a>. A couples of problems related to multitenancy: network isolation on Kubernetes, noisy neighbors (I/O being the bottleneck). Helm has a few limits, worked around with shell scripts.</p>
+
+<h1 id="inside-kubernetes-resource-management-qos--mechanics-and-lessons-from-the-field---michael-gasch-vmware">Inside Kubernetes Resource Management (QoS) – Mechanics and Lessons from the Field - Michael Gasch, VMware</h1>
+
+<p>Resource management goes through cgroups. With containers, we see all the CPU/RAM, but this doesn’t mean we’ll be able to use them all: we may have to share with other containers. Works with requests. For now, cpu and memory are stable resources, but others (hugepages, ephemeral storage, device plugins) are in beta. You should align Kubernetes’ QoS with the underlying infrastructure, enable quotas in the cluster, and protect critical system pods.</p>
+
+<p>I have to admit I didn’t take much notes during this talk, but noted <a href="https://schd.ws/hosted_files/kccnceu18/33/Inside%20Kubernetes%20QoS%20M.%20Gasch%20KubeCon%20EU%20FINAL.pdf">the slides</a> contain a lot of informations – for more, go read them ;-)</p>
+
+<h1 id="observing-and-troubleshooting-your-microservices-with-istio---isaiah-snell-feikema-ibm--douglas-reid-google">Observing and Troubleshooting your Microservices with Istio - Isaiah Snell-feikema, IBM &amp; Douglas Reid, Google</h1>
+
+<p>I promise, this is the last Istio conf I went to.
+In case that wasn’t obvious, Istio is becoming the default service mesh, like Prometheus is for metrics. I couldn’t work much on it so I wanted to learn the most possible from it during this KubeCon. I can say this talk was one of the best for Istio discovery and even advanced skill. I won’t be able to summarize everything, so here are few tips I kept from it:</p>
+<ul>
+  <li>Envoy’s <code class="language-plaintext highlighter-rouge">/stats</code> route gives a lot of infos of servers</li>
+  <li>Istio system logs gives also traffic spikes</li>
+  <li>Istio’s access logs can be uploaded to fluentd/elk</li>
+  <li>Canary testing / blue-green deployments can be done via RouteRule CRD.</li>
+</ul>
+
+<p>If you are considering using Istio, you <strong>must</strong> see <a href="https://schd.ws/hosted_files/kccnceu18/99/Observing%20and%20Troubleshooting%20your%20Microservices%20with%20Istio.pdf">the slides</a></p>
+
+<h1 id="vitess-and-a-kubernetes-operator---sugu-sougoumarane-youtube">Vitess and a Kubernetes Operator - Sugu Sougoumarane, YouTube</h1>
+
+<p>I heard about <a href="https://vitess.io/">Vitess</a> for the first time during this KubeCon, even though it’s an <em>old</em> project. It’s a middleware for MySQL, sitting between the database and our applications. It helps scale it through sharding – the goal being to answer the common pain points for databases: scalability, cloud and making DBAs happy. It’s also one of the CNCF project I noted a few days ago I should take a closer look at.</p>
+
+<h1 id="final-words">Final words?</h1>
+
+<p>The weather was nice and our plane was only on Saturday, so we finished the day with a walk in the City.</p>
+
+<p><img src="/images/posts/kubecon-2018/a-boat-in-the-city.jpg" alt="Doing some sightseeing in the city after KubeCon" /></p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=KubeCon+2018+Copenhagen%2C+day+3%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2018%2F05%2F23%2Fkubecon-2018-copenhaguen-day-3.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2018/05/23/kubecon-2018-copenhaguen-day-3.html&title=KubeCon+2018+Copenhagen%2C+day+3%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2018/05/23/kubecon-2018-copenhaguen-day-3.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=KubeCon 2018 Copenhagen, day 3%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2018/05/23/kubecon-2018-copenhaguen-day-3.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#KubeCon">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> KubeCon</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#kubernetes">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> kubernetes</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="KubeCon 2018 Copenhagen, global review" href="/2018/05/24/kubecon-2018-copenhaguen-global-review.html">
+            <p>Previous post</p>
+            KubeCon 2018 Copenhagen, global review
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="KubeCon 2018 Copenhagen, day 2" href="/2018/05/22/kubecon-2018-copenhaguen-day-2.html">
+            <p>Next post</p>
+            KubeCon 2018 Copenhagen, day 2
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/kubecon-2018/title-kubecon.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

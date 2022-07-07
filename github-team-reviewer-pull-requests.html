@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/cytron/gtr.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Github Team Reviewer pour gagner la course aux Pull Requests | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Github Team Reviewer pour gagner la course aux Pull Requests" />
+<meta name="author" content="Cytron Team" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Voir toutes les pull requests de ses équipes en un seul endroit" />
+<meta property="og:description" content="Voir toutes les pull requests de ses équipes en un seul endroit" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/github-team-reviewer-pull-requests.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/github-team-reviewer-pull-requests.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-11-07T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Github Team Reviewer pour gagner la course aux Pull Requests" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/github-team-reviewer-pull-requests.html"},"url":"https://tech.bedrockstreaming.com/github-team-reviewer-pull-requests.html","author":{"@type":"Person","name":"Cytron Team"},"description":"Voir toutes les pull requests de ses équipes en un seul endroit","dateModified":"2014-11-07T00:00:00+01:00","datePublished":"2014-11-07T00:00:00+01:00","headline":"Github Team Reviewer pour gagner la course aux Pull Requests","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Github Team Reviewer pour gagner la course aux Pull Requests">
+    <meta name="twitter:description" content="Les PR, c’est le bienChez M6Web, nous utilisons Github Enterprise en interne pour nos projets privés et Github pour nos projets open-source. Grâce à ces outi...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/cytron/gtr.png">
+    <meta name="twitter:image:alt" content="Github Team Reviewer pour gagner la course aux Pull Requests">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Github Team Reviewer pour gagner la course aux Pull Requests " aria-label="Github Team Reviewer pour gagner la course aux Pull Requests" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Github+Team+Reviewer+pour+gagner+la+course+aux+Pull+Requests" class="title">Github Team Reviewer pour gagner la course aux Pull Requests</h1>
+      
+
+
+<div class="post-info">
+      <img alt="Author's avatar" src="/images/avatar/cytron.png">
+    
+    <p class="meta">
+      Cytron Team - 
+      
+      November 07, 2014
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <h4 id="les-pr-cest-le-bien">Les PR, c’est le bien</h4>
+
+<p>Chez M6Web, nous utilisons <a href="https://enterprise.github.com/">Github Enterprise</a> en interne pour nos projets privés et <a href="https://github.com/">Github</a> pour nos projets open-source. Grâce à ces outils, nous avons adopté de manière systématique l’usage des Pull Requests pour faire relire et valider notre code par nos collaborateurs. La qualité de nos développements a ainsi été grandement améliorée au fil du temps.</p>
+
+<h4 id="oui-mais">Oui, mais…</h4>
+
+<p>Nous utilisons aussi <a href="https://www.hipchat.com/">HipChat</a> pour communiquer au quotidien et rapidemment au sein de nos équipes. Chaque création de Pull Request émet une notification sur HipChat. Cependant, le nombre de pull requests initiées augmente avec le temps et chacun tend à ignorer peu à peu les notifications ou y fait moins attention. Les Pull Requests s’accumulent sur certains projets et nous n’avions, jusqu’à présent, pas vraiment de moyen pour lister par équipe toutes les PR en cours. Cela nous permettrait d’avoir une vue globale et d’être plus réactifs et rigoureux.</p>
+
+<p>Il y a bien le nouveau <a href="https://github.com/blog/1901-managing-issues-and-pull-requests-across-repositories">Pull Requests Dashboard</a> de Github avec ses filtres de recherche avancée qui permet de répertorier toutes ses PR ou celles d’une organisation. Cette mise à jour n’est pas encore entrée en application dans Github Enterprise. Mais surtout, nous avons plusieurs équipes au sein d’une même organisation et nous voulons pouvoir les gérer de manière indépendante : cette fonctionnalité ne résoud pas notre problématique.</p>
+
+<h4 id="gtr-">GTR !</h4>
+
+<p>Nous avons donc développé <a href="https://github.com/BedrockStreaming/GithubTeamReviewer">Github Team Reviewer</a>, un outil ultra simple mais efficace qui permet en un coup d’œil de voir toutes les PR de ses équipes et leur statut, qu’elles soient sur un Github Entreprise interne ou sur Github. Le projet utilise <a href="https://angularjs.org/">AngularJS</a> et l’<a href="https://developer.github.com/v3/">API fournit par Github</a>. L’installation se fait sur n’importe quel serveur web et requiert npm (via <a href="https://nodejs.org/">Node.js</a>) pour <em>builder</em> l’application grâce à <a href="https://bower.io/">Bower</a> et <a href="https://gulpjs.com/">Gulp.js</a>.</p>
+
+<p>L’application propose volontairement un nombre limité de paramètres de configuration éditables dans le fichier <code class="language-plaintext highlighter-rouge">config/config.json</code>:</p>
+
+<ul>
+  <li>l’intervalle de rafraichissement de la liste des PR,</li>
+  <li>la liste des équipes en définissant pour chacune :
+    <ul>
+      <li>son nom,</li>
+      <li>les utilisateurs Github concernés,</li>
+      <li>les organisations Github concernées,</li>
+      <li>l’url de l’API à interroger (pour Github Enterprise, par défaut l’url de l’API public de Github est utilisée),</li>
+      <li>un <a href="https://help.github.com/articles/creating-an-access-token-for-command-line-use/">token utilisateur</a> (utile pour augmenter le <em>rate limit</em> de l’API public).</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Une <em>select box</em> permet de basculer d’une équipe à une autre très facilement.</p>
+
+<p><a href="https://github.com/BedrockStreaming/GithubTeamReviewer">Github Team Reviewer</a> est disponible en <a href="https://tom.preston-werner.com/2011/11/22/open-source-everything.html">open-source</a> sur <a href="https://github.com/BedrockStreaming">le compte Github de M6Web</a>.</p>
+
+<p>Enjoy !</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Github+Team+Reviewer+pour+gagner+la+course+aux+Pull+Requests%20https%3A%2F%2Ftech.bedrockstreaming.com%2Fgithub-team-reviewer-pull-requests.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/github-team-reviewer-pull-requests.html&title=Github+Team+Reviewer+pour+gagner+la+course+aux+Pull+Requests%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/github-team-reviewer-pull-requests.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Github Team Reviewer pour gagner la course aux Pull Requests%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/github-team-reviewer-pull-requests.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#cytron">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> cytron</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#github">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> github</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#open-source">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> open-source</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#outil">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> outil</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#pull-requests">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> pull-requests</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Retour sur le forum PHP 2014 organisé par l'AFUP" href="/2014/11/12/retour-sur-le-forumphp2014.html">
+            <p>Previous post</p>
+            Retour sur le forum PHP 2014 organisé par l'AFUP
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Providers AngularJS et configuration dynamique" href="/surcharger-un-provider-angular">
+            <p>Next post</p>
+            Providers AngularJS et configuration dynamique
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/cytron/gtr.png'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

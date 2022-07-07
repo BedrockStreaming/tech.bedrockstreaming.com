@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/cerebro/data-lake.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Genesis of M6’s Datalake | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Genesis of M6’s Datalake" />
+<meta name="author" content="Cory Chaplin" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="From using a market DMP to creating our second Hadoop platform" />
+<meta property="og:description" content="From using a market DMP to creating our second Hadoop platform" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/data/2017/10/23/genesis-of-m6-datalake.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/data/2017/10/23/genesis-of-m6-datalake.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-10-23T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Genesis of M6’s Datalake" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/data/2017/10/23/genesis-of-m6-datalake.html"},"url":"https://tech.bedrockstreaming.com/data/2017/10/23/genesis-of-m6-datalake.html","author":{"@type":"Person","name":"Cory Chaplin"},"description":"From using a market DMP to creating our second Hadoop platform","dateModified":"2017-10-23T00:00:00+02:00","datePublished":"2017-10-23T00:00:00+02:00","headline":"Genesis of M6’s Datalake","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Genesis of M6's Datalake">
+    <meta name="twitter:description" content="At M6 we work hard to leverage Data to help our ad sales team, our CRM teams and our product innovation process.Over the past 2 years, we have gone from usin...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/cerebro/data-lake.jpg">
+    <meta name="twitter:image:alt" content="Genesis of M6's Datalake">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Genesis of M6's Datalake " aria-label="Genesis of M6's Datalake" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Genesis+of+M6%27s+Datalake" class="title">Genesis of M6's Datalake</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/corychaplin" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="/images/avatar/c_chaplin.jpg">
+    
+    <p class="meta">
+      Cory Chaplin - 
+      
+      October 23, 2017
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>At M6 we work hard to leverage Data to help our ad sales team, our CRM teams and our product innovation process.
+Over the past 2 years, we have gone from using a market DMP to creating our second Hadoop platform. We now feel that our stack is stable, reliable and scalable so it feels like the right time to share our experience with the community.</p>
+
+<p><img src="/images/posts/cerebro/logo_cerebro.png" alt="Cerebro" /></p>
+
+<h1 id="step-1-embracing-the-dmp">Step 1: embracing the DMP</h1>
+
+<p>Our first use case was to monetize data through targeted publicity.
+We decided to start by installing a DMP (Data Management Platform) because it was a very fast solution to deliver our major needs, in particular :</p>
+
+<ul>
+  <li>Collect data from all our services and combine it with our user
+knowledge =&gt; DMPs offer that off the shelf</li>
+  <li>Create segments for audience targeting =&gt; The segmentation approach offered by DMPs was well adapted to the ads market</li>
+  <li>Activate our Data, both in house via our adservers and in the outer market =&gt; DMPs generally offer simple integration with most adservers, and a very straight forward third party integration</li>
+</ul>
+
+<p>The match seemed quite obvious and there’s a good reason for that: DMPs are designed for this use case above all others.</p>
+
+<p>We chose Krux (now Salesforce) and deployed it over our ~30 sites and applications. Installing Krux on our network and plugging it to our video and display adservers ended up taking a few months and a decent effort. Convincing all our teams that the increase in ad revenue would make it worth the development time and the negative impact on webperf wasn’t trivial, but got through thanks to our top management sponsoring. Once on the job, the deployment was quite smooth on the web and mobile apps, but validating the quality of the ingested data turned out to be an endless project.</p>
+
+<p>At the end of the day, Krux’s DMP did the job. In November 2015 we launched Smart6tem, our Data platform &amp; advertisement offer based on segments (announcement <a href="https://m6pub.fr/innovation-smart-6tem-lecosysteme-data-du-groupe-m6/">here</a>, articles <a href="https://www.airofmelty.fr/groupe-m6-lancement-de-la-plateforme-data-smart-6-tem-strategie-pub-renforcee-a468873.html">here</a> <a href="https://www.offremedia.com/le-groupe-m6-lance-son-ecosysteme-data-avec-smart-6tem">here</a> or <a href="https://www.cbnews.fr/digital/le-groupe-m6-lance-sa-plateforme-data-a1023616">here</a>). This move had a very positive effect on our advertisement market, and allowed to start making Data mean something at M6.
+To give some detail of our use of the DMP, it turned out building our own segments was very successful, but we didn’t use any 3rd party interconnection because we didn’t find any valuable Data to buy and didn’t want to reduce the value of our own Data by sharing it out.</p>
+
+<p><img src="/images/posts/cerebro/krux-segment-builder.png" alt="Krux’s segment builder" /></p>
+
+<p>Krux’s segment builder</p>
+
+<p>Once the Advertisement use case was out in the market, we moved our efforts towards leveraging the DMP for our CRM teams. The rationale was simple: targeted emails are more efficient than newsletters. We were hoping to reduce the email pressure on our users while increasing the performance both for revenue and traffic.</p>
+
+<h1 id="step-2-first-round-testing-hadoop">Step 2: first round testing Hadoop</h1>
+
+<p>Having a DMP is both a great accomplishment and frustrating.
+It’s great because you can start to combine the use of your service with the user profiles to produce segments and activate use cases to address them.
+But for CRM, the workflows to plug segments into our emailing systems weren’t native and we needed to build some custom workflows. No rocket science, but when we first received a 2 Billion line file for the user/segment map that we needed to filter and convert into another format, our developers went grumpy.
+We also got frustrated very fast because we wanted to start to extract some unpreceded analytics insights combining our user knowledge (our major service, 6play had just switched to fully logged-in users) with usage stats or with external sources like our adserver logs. Advanced analytics was clearly not the field of Krux.
+Last but not least came some limitations (either due to the design of Krux or the pricing):</p>
+
+<ul>
+  <li>We could only work on 3 months of history if we wanted to keep the price reasonable (on 6play we have a lot of TV shows that run for 3 months per year, and segmenting the users who watched the show last year is important).</li>
+  <li>It’s based on cookies + device ids on mobile (it’s the best solution for most use cases, but if your users are logged in, it introduces quite a lot of risk to make mistakes).</li>
+  <li>We never managed to convince our users that the amount of cookies or users inside segments was correct. Every single study we made on this point led to doubt, and our DMP support team never came up with serious answers.</li>
+</ul>
+
+<p>At this point, Hadoop came in as an evidence, so we created our first cluster.
+The process of creating this proof of concept cluster was pretty much a black box for us since we charged a partner with the job. We ended up with the following setup, all hosted by AWS :</p>
+
+<ul>
+  <li>2 name nodes with 16 VCPUs and 30G RAM each</li>
+  <li>4 data nodes adding up to 64 vcpu’s and 120G RAM</li>
+  <li>Cloudera Enterprise with Hive, Impala, Hue, Python, R and a kinky crontab</li>
+  <li>Tableau Desktop + Tableau Server</li>
+</ul>
+
+<p>Nothing crazy but that brought us into the world of Hadoop, and that was a major move. We also staffed our first Data Scientist to start to explore our Data and imagine use cases.</p>
+
+<p>Our first steps in Hadoop were hesitant, but within a few months, we had created our first Data Lake, our targeted CRM was live and we had produced a few dozen dashboards providing unpreceded insights throughout the company. From the business perspective, it was a success.
+For the people who got their hands on a Data Lake for the first time the experience was ground breaking. For the first time, we could connect information from half a dozen different tools seamlessly.
+An example: finding how many ads were seen by women from 25 to 49 years old during the NCIS TV show.
+Before the Data Lake, this would have been impossible. The closest we could get would take the following process :</p>
+
+<ul>
+  <li>Extract the amount of ads viewed on NCIS from our adserver stats to a text file</li>
+  <li>Extract the NCIS traffic from our video consumption tracking tool (in Cassandra) to a text file</li>
+  <li>Extract our users Database with age and gender (in a third party tool named Gigya) to a text file</li>
+  <li>Load all this up into an Excel spreadsheet</li>
+  <li>Write a bunch of Excel formulas to produce the percentage of the traffic on NCIS that’s generated by women between 25 and 49 years old</li>
+  <li>Apply that percentage to the adserver stats</li>
+</ul>
+
+<p>As you can see, combining information between our ecosystems involved some very manual processes and could only lead to approximations, so basically we never did them.</p>
+
+<p>With our Data in Hadoop, all this turns out to be a simple SQL query in Hue (a PhpMyAdmin style interface for Hadoop):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT COUNT(*) FROM adserver_logs A
+   JOIN users U ON A.uid = U.uid
+   JOIN programs P on A.pid = P.id
+WHERE A.type = 'impression'
+   AND U.age &gt;= '25'
+   AND U.age &lt;= '49'
+   AND U.gender = 'F'
+   AND P.name = 'NCIS'
+</code></pre></div></div>
+
+<p>Hadoop and our Data Lake, we could just jump over the barriers between tools and ecosystems within seconds. Combined with the ability to code in various languages, we could instantly start to industrialize such insights and start going further.</p>
+
+<p>We convinced our top management very fast about the value of having our own Hadoop cluster, and since it was very (VERY) expensive, we decided to internalize it.</p>
+
+<h1 id="step-3-building-our-internal-hadoop-cluster">Step 3: building our internal Hadoop cluster</h1>
+
+<p>So there we were with a quite simple roadmap: replace our v1 Hadoop cluster to reduce costs and improve performance as much as possible. We managed to divide the price by 3 while multiplying the resources by 8.</p>
+
+<p>The first step on this road was to staff a tech team to design and create our platform. That ended up being very tricky and finally took us 10 months to complete.</p>
+
+<p>Once the team was staffed, we got onto the job. We had 5 steps :</p>
+
+<ul>
+  <li>Choose the hosting platform (4 months)</li>
+  <li>Choose the hardware</li>
+  <li>Choose the software stack (2 months, done in parallel)</li>
+  <li>Set up the cluster (2 months)</li>
+  <li>Migrate all our projects to the new platform (3 months)</li>
+  <li>Check to be sure everything was done (1 month)</li>
+</ul>
+
+<h2 id="a-hosting-platform">a) Hosting platform</h2>
+
+<p>This stage of the project was a very religious one. Many people at M6 had a very strong desire to go towards cloud and managed services, others were totally in favor of Hadoop and have full in house control over the platform. The major options were:</p>
+
+<ul>
+  <li>AWS
+    <ul>
+      <li>Amazon EMR + S3</li>
+      <li>Amazon EC2 + S3</li>
+    </ul>
+  </li>
+  <li>Google Cloud Platform
+    <ul>
+      <li>Managed services (Dataflow, BigQuery, Compute engine, Pub/Sub…) + Cloud storage</li>
+      <li>Dataproc + Cloud storage</li>
+    </ul>
+  </li>
+  <li>On premise
+    <ul>
+      <li>Add servers to our 6play platform at Equinix</li>
+      <li>Work with our hosting subsidiary, Odiso</li>
+    </ul>
+  </li>
+</ul>
+
+<p>We spent 3 months talking to the different vendors and considering options.</p>
+
+<p>The first decision we took was to use Hadoop instead of managed services.
+The AWS and Google sales teams were very convincing, but we finally declined for 2 main reasons:</p>
+
+<ul>
+  <li>People in our company were starting to learn how to use Hadoop, changing the stack would have forced everyone to re-learn what they were just starting to dominate. Not very efficient while building up expertise.</li>
+  <li>Using proprietary solutions like Big Query involves a strong locking risk. If we developped all our projets to leverage a specific platform, changing providers in a few years would involve a lot of reworking on all our code base.</li>
+</ul>
+
+<p>The next step was to choose between the 3 hosting options. On a side note, we compared the price for x4 and x10 resources compared to our v1 platform.
+At the end of the process we wrote up an evaluation grid. Here is the summary version.</p>
+
+<p><img src="/images/posts/cerebro/comparison-grid.png" alt="Hosing platform comparison" /></p>
+
+<p>The decision was there, we went for a fully on premise stack with Odiso.
+To detail some of that evaluation, here’s a few insights on what it came down to.</p>
+
+<ul>
+  <li>AWS is cool, but ultra expensive. I mean it’s 10 times more than our on premise option! We would have gone full AWS if the price was reasonable. The possibility to pop clusters up and down is very interesting and reduces costs, but our v1 platform was using our 4 EC2 Data Nodes at ~80% 24/7, so we could never go down to 0 servers.</li>
+  <li>Google feels better on the service side of things, but it involved taking chances because the commercial product is young and support + community experience seemed weak.</li>
+  <li>On premise was clearly much cheaper, and felt more secure for our low experience on Hadoop since we’re used to managing servers and our team had managed serious Hadoop before.</li>
+</ul>
+
+<h2 id="b-hardware">b) Hardware</h2>
+
+<p>Going on premise means buying physical servers and building them.
+Our goal here was to massively upgrade our current platform to scale with the company’s usage of Big Data. Since the price was very reasonable, we settled down to x8 on CPU, RAM and storage compared to our initial Hadoop cluster. Here’s the stack we bought:</p>
+
+<p>4 KVM servers:</p>
+
+<ul>
+  <li>DELL PowerEdge R630</li>
+  <li>OS Disks: 2x 400GB ssd, RAID 1</li>
+  <li>Data disks: 8 * 2To</li>
+  <li>RAM: 256Go (8*32G)</li>
+  <li>CPU: 2x12 Cores (3.0Ghz)</li>
+</ul>
+
+<p>15 Data Nodes:</p>
+
+<ul>
+  <li>DELL PowerEdge R630</li>
+  <li>OS: 2x 400GB ssd, RAID 1</li>
+  <li>Data disks: 8 * 2To</li>
+  <li>RAM: 384Go (24*16G)</li>
+  <li>CPU: 2x12 Cores (3.0Ghz)</li>
+</ul>
+
+<p>Building and racking the servers was quite straight forward, there’s nothing special about Hadoop in this process except the high quality network connectivity.</p>
+
+<h2 id="c-software-stack">c) Software stack</h2>
+
+<p>Designing the software stack was very straight forward.
+We had the desire to stay as close as possible to the stack our users were getting used to, and it was pretty much a standard Cloudera stack. That suited us very well because our first priority was to avoid any regression, both for the projects (during this period, they had massively multiplied as we’ll detail in the migration part below) and for the users.
+Another early choice was to use virtual machines with Proxmox and not dive into the Kubernetes + Docker adventure. Although that was tempting and will probably be an option in future, we considered mastering the Hadoop stack was enough on our plate for the moment, we needed to reduce risk.</p>
+
+<p>Here’s the stack we chose:</p>
+
+<ul>
+  <li>Puppet</li>
+  <li>Centos 7</li>
+  <li>Proxmox</li>
+  <li>Cloudera Hadoop 5.11 (free version)</li>
+  <li>Hadoop 2.6</li>
+  <li>Hive 1.1</li>
+  <li>Spark 1.6 and 2.1 (we had 1.6 before but our Data Scientists really wanted to use new features)</li>
+  <li>Supervisord</li>
+  <li>MariaDB</li>
+  <li>LDAP</li>
+  <li>Ansible</li>
+  <li>OpenVPN</li>
+  <li>Python 2.7 and 3.6 with Anaconda</li>
+  <li>Java 8</li>
+  <li>R 3.3</li>
+  <li>Scala</li>
+  <li>Airflow 1.8 (this is out of the Cloudera stack, an important and epic part of our toolkit that we’ll surely talk about in more detail in a future post)</li>
+  <li>Sqoop</li>
+  <li>Hue 3 with Hive on Spark as default</li>
+  <li>Tableau Desktop + Tableau Online</li>
+  <li>Jupyter</li>
+</ul>
+
+<h2 id="d-install-hadoop-and-all-our-tools">d) Install Hadoop and all our tools</h2>
+
+<p>One of the fun parts of our design process was to choose a name for our new cluster. We called it Cerebro (in reference to X-Men and the global view of Professor Xavier), and created a logo :)</p>
+
+<p><img src="/images/posts/cerebro/logo_cerebro.png" alt="Cerebro" /></p>
+
+<p>Setting this stack up felt very simple from my perspective, but that’s surely because our awesome team overcame the issues silently.
+On the timeline, the biggest part of the setup was receiving the physical servers. That took about 3 months because some parts (SSD disks) were out of stock for a long time.
+We received a first part of the Data Nodes a couple of months before the rest of the servers, so we decided to start building the cluster with temporary Name Nodes and services, and migrate them after.</p>
+
+<p>We deployed Cloudera Hadoop via KVM servers (managed with Puppet) and the Cloudera Manager. Very straightforward.
+We used Ansible to install our stack, manage all our configuration files and user access.</p>
+
+<h2 id="e-migrate-our-projects-and-data">e) Migrate our projects and Data</h2>
+
+<p>Migration was a project in the project.
+Between the day we decided to build our internal platform and the day we delivered, 20 months had gone by. During all that time, Big Data had been going through high pace growth inside M6. We scaled from ~1 to ~25 users, from 0 to ~200 Dashboards and ~60 projects. All of this relying on our “Proof Of Concept” platform created with a partner.
+To be honest, it was an utter mess in any Software Engineer’s eye. Imagine: no version control, a unique user hosting all the projects and executing 6000 crontab lines each day. No job optimisation whatsoever. Moreover, most of our users had no developpement process knowledge, so they didn’t see any problem with all this and weren’t all in favour of any change. The context was challenging.</p>
+
+<p>The first step of our migration project was to bring all this back into a “migratable” state. To do that, we went through the following steps :</p>
+
+<ul>
+  <li>Put all the code base in Git</li>
+  <li>Create a code deployment process</li>
+  <li>Split the production jobs down to a 1 user per project approach, both for code execution and data storage</li>
+  <li>Make all paths to data relative</li>
+  <li>Switch from crontab to Airflow</li>
+  <li>Add backups on S3</li>
+</ul>
+
+<p>We reached this milestone after 4 months of a large rework of all our projects by all our teams. The collective investment in this process was a real team success.</p>
+
+<p>The second step was to rebuild all the projects and databases on the new platform.
+Thanks to our new backup system that copied all our Data to S3, rebuilding databases was easy. Basically it took creating a script to restore the backup in the new platform, and we could start checking integrity by querying the datasets. Rebuilding projects was a similar process, we just had to deploy each project and it was ready to test. Everything went fast and easy, proving that all the preparation moves we made were very valuable.</p>
+
+<p>The third step was to double run all our projects so we could be sure everything worked on the new platform while not breaking production.
+There’s a tricky part to this because a fair amount of our projects include an output towards external servers (either other teams within M6 or 3rd parties). For this we had to add an “only run on” logic. That lead us to create a unified configuration and a library for exports.
+We also had to distinguish all our code execution monitoring so we could keep an eye on what each workflow was producing, both in production and on the new platform. For this we added the platform name to all our Graphite nodes and updated all our dashboards to filter by platform.
+With those 2 moves, most projects managed to run “out of the box”. Some needed some refactoring, mostly for parts that had been forgotten in the first step.</p>
+
+<p>The fourth step was validating that our double run was working well.
+The theory of this validation was quite elaborate. For each table or output job we would count the number of lines in each partition produced, run checksums, dive into the details of the monitoring, and run manual tests.
+In practice, that part cracked up quite fast because our v1 platform was being totally outscaled and therefore all our users really didn’t want to look back. We checked that the backups were good with file sizes and line counts, and for the rest we relied on our monitoring to be sure that the jobs runned and produced the same output volumes. For the most critical production jobs we went into some detailed manual checking, but we took the jump very fast.</p>
+
+<p>The fifth and last step was migrating all our Tableau Dashboards to Tableau online.
+We needed all our ingestion and treatment jobs to be up and running before we could migrate our 200+ Dashboards. Once that was done, most dashboards took nothing more that being opened in Tableau Desktop and published to Tableau Online. The only exceptions were the bunch of users who had missed some tables out in step 1. Those had to run through the whole process at fast speed… Not very pleasant for them.</p>
+
+<p>So there we are, we now have our 2 feet in our second Hadoop platform. Now we’re looking forwards, both on how we make this platform evolve to empower our future use cases, and to raise our innovation pace for Big Data to count much more within M6.
+By all means stay posted, we’ll update you on some of the awesome projects we’ve been working on!</p>
+
+<h1 id="take-away">Take away</h1>
+
+<ul>
+  <li>Deciding to create an internal Hadoop platform took time and a few previous steps for our organisation to start to understand what Big Data was about and the way to go around it.</li>
+  <li>Choosing our hosting solution was hard and very conviction driven.</li>
+  <li>On premise hosting is cheaper than cloud solutions, but obviously less flexible.</li>
+  <li>No surprise for tech people and it’s valid way beyond Big Data, migrating projects developed without any engineering good practices was hard and risky work.</li>
+</ul>
+
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Genesis+of+M6%27s+Datalake%20https%3A%2F%2Ftech.bedrockstreaming.com%2Fdata%2F2017%2F10%2F23%2Fgenesis-of-m6-datalake.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/data/2017/10/23/genesis-of-m6-datalake.html&title=Genesis+of+M6%27s+Datalake%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/data/2017/10/23/genesis-of-m6-datalake.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Genesis of M6's Datalake%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/data/2017/10/23/genesis-of-m6-datalake.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#Airflow">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Airflow</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#BigData">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> BigData</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#DMP">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> DMP</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#Data">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Data</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#Hadoop">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Hadoop</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#Hive">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Hive</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#Spark">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Spark</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Forum PHP AFUP 2017" href="/2017/11/07/forum-php-2017.html">
+            <p>Previous post</p>
+            Forum PHP AFUP 2017
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Elasticsearch: la grande migration" href="/2017/06/01/migration-elasticsearch.html">
+            <p>Next post</p>
+            Elasticsearch: la grande migration
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/cerebro/data-lake.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

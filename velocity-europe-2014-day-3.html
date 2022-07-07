@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/velocity2014/velocity_banner3.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Retour sur la Velocity Barcelone - troisième journée | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Retour sur la Velocity Barcelone - troisième journée" />
+<meta name="author" content="Baptiste, François Verron et Olivier Mansour" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Retour sur la Vélocity Europe 2014 à Barcelone - Troisième journée" />
+<meta property="og:description" content="Retour sur la Vélocity Europe 2014 à Barcelone - Troisième journée" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/velocity-europe-2014-day-3" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/velocity-europe-2014-day-3" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-12-03T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Retour sur la Velocity Barcelone - troisième journée" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/velocity-europe-2014-day-3"},"url":"https://tech.bedrockstreaming.com/velocity-europe-2014-day-3","author":{"@type":"Person","name":"Baptiste, François Verron et Olivier Mansour"},"description":"Retour sur la Vélocity Europe 2014 à Barcelone - Troisième journée","dateModified":"2014-12-03T00:00:00+01:00","datePublished":"2014-12-03T00:00:00+01:00","headline":"Retour sur la Velocity Barcelone - troisième journée","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Retour sur la Velocity Barcelone - troisième journée">
+    <meta name="twitter:description" content="Velocity Barcelone, troisième journéeLe troisième jour étant dédié aux tutoriaux, on passe de conférence de 45min à des ateliers de 1h30.Extreme Web Performa...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/velocity2014/velocity_banner3.jpg">
+    <meta name="twitter:image:alt" content="Retour sur la Velocity Barcelone - troisième journée">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Retour sur la Velocity Barcelone - troisième journée " aria-label="Retour sur la Velocity Barcelone - troisième journée" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Retour+sur+la+Velocity+Barcelone+-+troisi%C3%A8me+journ%C3%A9e" class="title">Retour sur la Velocity Barcelone - troisième journée</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      December 03, 2014
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <h1 id="velocity-barcelone-troisième-journée">Velocity Barcelone, troisième journée</h1>
+
+<p>Le troisième jour étant dédié aux tutoriaux, on passe de conférence de 45min à des ateliers de 1h30.</p>
+
+<h2 id="extreme-web-performance-for-mobile-devices">Extreme Web Performance for Mobile Devices</h2>
+
+<p>Maximiliano Firtman nous a dressé un portrait vraiment exhaustif du web mobile et de l’état actuel des navigateurs.</p>
+
+<p><img src="/images/posts/velocity2014/browser_mess.jpg" alt="browser_mess" /></p>
+
+<p>En gros c’est compliqué. Le marché est très fragmenté, certains constructeurs comme Samsung ajoute du bruit en diffusant massivement un navigateur modifié. L’usage des sites en webview depuis une application native n’arrange pas les choses (par exemple, l’application Facebook).</p>
+
+<p>Après un rappel sur l’importance de la performance, l’orateur a distillé de nombreuses pratiques permettant de faire un web mobile plus performant.</p>
+
+<p>On peut retenir :</p>
+
+<ul>
+  <li>Le RWD est un outil, pas une fin en soi,</li>
+  <li>il faut s’imposer de tester sur du hardware <em>cheap</em> avec une connection faible,</li>
+  <li>ne pas oublier le temps perdu sur le réseau (<em>600ms mandatory network overhead</em>),</li>
+  <li>ne pas oublier l’impact que le parsing du JS et le rendu CSS est bloquant,</li>
+  <li>utiliser les solutions de stockage coté client,</li>
+  <li>de très nombreux outils de simulation existent, il faut les maitriser.</li>
+</ul>
+
+<p>Il propose un site récapitulant toutes les informations délivrées : <a href="https://firtman.github.io/velocity/">https://firtman.github.io/velocity/</a>.</p>
+
+<p>Slides :</p>
+
+<iframe src="//www.slideshare.net/slideshow/embed_code/41739320" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen=""> </iframe>
+<div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/firt/extreme-web-performance-for-mobile-devices-velocity-barcelona-2014" title="Extreme Web Performance for Mobile Devices - Velocity Barcelona 2014" target="_blank">Extreme Web Performance for Mobile Devices - Velocity Barcelona 2014</a> </strong> from <strong><a href="//www.slideshare.net/firt" target="_blank">Maximiliano Firtman</a></strong> </div>
+
+<hr />
+
+<h2 id="zero-downtime-deployment-with-ansible">Zero Downtime Deployment with Ansible</h2>
+
+<p><img src="https://www.ansible.com/hs-fs/hub/330046/file-764918161-png/Official_Logos/ansible_logo_black_square.png" alt="ansible" /></p>
+
+<p><a href="https://cdn.oreillystatic.com/en/assets/1/event/121/Zero%20Downtime%20Deployment%20with%20Ansible%20Presentation.pdf">Slides</a></p>
+
+<p><a href="https://github.com/steinim/zero-downtime-ansible">Github Repo</a></p>
+
+<p>Tutorial intéressant conduit par un développeur (sur un sujet à priori plus opérationnel) qui démontre bien la flexibilité et la simplicité d’Ansible.</p>
+
+<p>Après avoir mener le tutorial à son terme vous aurez deployé deux machines avec du code Java, un load balancer NGINX, et une base de données PostgreSQL (utilisateur + base).</p>
+
+<p>A contre courant des systèmes de gestion de configurations comme SaltStack, Puppet ou Chef, Ansible est basé sur le modèle push et ne nécessite aucun agent, il repose entièrement sur SSH. D’autre part il mixe gestion de configuration <strong>et</strong> orchestration, ce que qu’on doit bien souvent faire via des outils tiers comme MCollective.</p>
+
+<p>La simplicité de ce modèle en fait sa plus grande force. Ansible est capable de gérer dynamiquement les inventaires (de base c’est une liste statique contenue dans un fichier). Par exemple il est capable d’interroger les APIs Amazon, Google Cloud ou RackSpace pour récupérer la liste de vos machines, celles de votre Cluster VMWare ou n’importe quel script qui sortira une liste en JSON.</p>
+
+<p>Alors que Chef et Puppet offrent une DSL pour décrire votre infrastructure sous forme de code, Ansible a opté pour une description au format YAML. Sur l’Ansible Galaxy vous retrouverez tout les modules disponibles (quelques milliers) comme Nginx, PHP etc… Développés en Python, il est évidemment possible de faire soit même ses modules.</p>
+
+<p>Le déploiement avec zéro temps de panne peut être implémenté avec Ansible de la façon suivante:</p>
+
+<ul>
+  <li>récupération de la liste des machines</li>
+  <li>sortie du load balancer d’une machine (Ansible est compatible GCE et AWS)</li>
+  <li>mise à jour de la configuration (code et/ou logiciel)</li>
+  <li>période d’attente: vous spécifiez si un port TCP doit être disponible, un fichier, etc…</li>
+  <li>itération sur la machine suivante</li>
+</ul>
+
+<p>Le nombre de machine traitées en parallèle est bien entendu configurable.</p>
+
+<p><img src="https://cdn2.hubspot.net/hub/330046/file-480404281-png/site_diagrams/app_deploy_diagram.png?t=1416582132229" alt="ansible_deploy" /></p>
+
+<p>Je suis Ansible depuis quelques mois déjà et j’ai été conforté dans l’idée que c’est un excellent produit: pas d’agent, basé sur une brique solide qu’est SSH, et développé en Python :) La gestion de l’inventaire peut être délicate, mais un CMDB comme <a href="https://tumblr.github.io/collins/index.html">Collins de Tumblr</a> ou un taggage précis peuvent résoudre l’équation.</p>
+
+<p>Ansible facilite le déploiement d’infrastructure immuable, le blue/green, violet et canary deployment de par son modèle. C’est un atout qui en fait à mon sens le meilleur système de gestion de configuration aujourd’hui.</p>
+
+<p>Cependant je reste encore un peu dubitatif sur le déploiement et le rollback de code qui ne sont pas encore à la hauteur de Capistrano. Un aperçu du workflow et des schémas de développement auraient été aussi bienvenus.</p>
+
+<ul>
+  <li><a href="https://galaxy.ansible.com/">Ansible Galaxy</a></li>
+  <li><a href="https://docs.ansible.com/index.html">Ansible Docs</a></li>
+  <li><a href="https://www.youtube.com/watch?v=fwGrKXzocg4">How Twitter use Ansible</a></li>
+  <li><a href="https://www.ansible.com/tower">Ansible Tower (Payant)</a></li>
+  <li><a href="https://www.future500.nl/articles/2014/07/thoughts-on-deploying-with-ansible/">Thoughts on deploying Symfony with Ansible</a></li>
+</ul>
+
+<hr />
+
+<h2 id="linux-containers-from-scratch">Linux Containers from Scratch</h2>
+
+<p><img src="https://image.slidesharecdn.com/linuxcontainersfromscratch-velocitybarcelona2014-141119031144-conversion-gate01/95/linux-containers-from-scratch-1-638.jpg" alt="container" /></p>
+
+<p><a href="https://fr.slideshare.net/joshuasoundcloud/linux-containers-from-scratch-velocity-barcelona-2014">Slides</a></p>
+
+<p>Quelle est la différence entre le cloud, les containers et un repas gratuit ? Aucun n’existe :)</p>
+
+<p>Joshua Hoffman (SoundCloud) est dans le top 5 de mes orateurs préféré. J’ai beaucoup apprécié ce tutorial car il fait clairement la part entre virtualisation, containers, LXC et Docker (nom qui ne sera prononcé qu’à la fin lors des questions, pas de buzzword, de hype ni de marketing, merci Joshua).</p>
+
+<p><img src="https://cdn1.cloudtp.com/wp-content/uploads/sites/13/2014/06/Containers.jpg" alt="containers" /></p>
+
+<p>Le tutorial vous aménera à créer plusieurs containers portable, du plus simple ou plus complexe, avec les outils de bases du noyau. Vous apprendrez aussi à vous servir des cgroups, des namespaces process, network, et mount, et serez amené à utiliser des systèmes de fichiers unis, ici AUFS.
+J’aurais bien aimé une démo avec le format de QEMU ou btrfs pour ce qui est des systèmes de fichiers unis au niveau bloc.</p>
+
+<p>Ce tutorial est un must-do pour tout personne désirant s’initier aux architectures de containers. Le marketing relativement agressif de Docker ne doit pas faire oublier qu’il existe d’autres alternatives, et que Docker est un choix de design bien particulier pas forcement adapter à tous.
+Ex: un container en 3 lignes:</p>
+
+<p><img src="https://image.slidesharecdn.com/linuxcontainersfromscratch-velocitybarcelona2014-141119031144-conversion-gate01/95/linux-containers-from-scratch-26-638.jpg" alt="container" /></p>
+
+<p>Pour rappel:</p>
+
+<p>LXC/LXD = Ensemble d’APIs et d’outils dans l’espace utilisateur linux exposant les capacités d’isolation du noyau (cgroups, chroot, namespaces, selinux, iptables etc…), alternative légère à la virtualisation telle qu’on la connaît (avec Vmware par exemple)</p>
+
+<p>Docker = un des cas d’usage des containers, application unique, statique, immuable, single app delivery plateform</p>
+
+<p><a href="https://linuxcontainers.org/">LXC</a></p>
+
+<p><a href="https://docs.docker.com/faq/">Docker F.A.Q</a></p>
+
+<hr />
+
+<h2 id="coreops---coreos-for-sysadmins">CoreOps - CoreOS for Sysadmins</h2>
+
+<p><img src="https://coreos.com/assets/images/brand/coreos-wordmark-horiz-color.png" alt="coreOs" /></p>
+
+<p><a href="https://github.com/kelseyhightower/coreos-ops-tutorial">Github</a></p>
+
+<p>Tutorial très attendu par beaucoup, Kelsey Hightower (CoreOS Inc.) nous a présenté l’écosystème de CoreOs et les problèmes qu’il tente de résoudre. Suite à la demande générale il nous a aussi fait une démonstration de Kubernetes, l’outil de gestion de containers de Google.</p>
+
+<p>CoreOS est distribution Linux accompagnée d’outils qui vise à penser le datacentre comme une seule machine (voir Mesos/Yarn). En d’autres termes, vous n’avez que faire de savoir quelle application tourne sur quel serveur. Le datacentre apparaît comme une entité unique où l’on déploie des applications.</p>
+
+<p>Techniquement, CoreOS est un Linux + systemd + docker + etcd + fleet. CoreOS est basé sur Chrome OS, épuré et léger, il bénéficie du système d’update en arrière plan bien connu de Chrome. On oublie donc le gestionnaire de paquets, les outils de debug (tcpdump etc..) et tout ce qui fait un Linux en mode serveur tel qu’on le connaît.</p>
+
+<ul>
+  <li><strong>gentoo</strong>: parfum de distribution Linux (ex: Ubuntu, Debian, Centos)</li>
+  <li><strong>systemd</strong>: alternative à SysV Init, le gestionnaire des démons, le premier programme lancé au démarrage (PID: 1)</li>
+  <li><strong>docker</strong>: Système de containers légers, ensemble d’apis et librairies centrés sur le déploiement et la gestion d’application isolée du kernel.</li>
+  <li><strong>etcd</strong>: base de données clé/valeur distribuée, utilisée pour centraliser la configuration et la découverte de service, fondée sur le protocole de consensus Raft.</li>
+  <li><strong>fleet</strong>: SysV Init distribué (c’est la glue entre systemd et etcd), votre programme doit au minimum avoir 3 instances ? fleet s’en assurera !</li>
+</ul>
+
+<p><img src="https://coreos.com/assets/images/media/Host-Diagram.png" alt="core_os_archi" /></p>
+
+<p><img src="https://coreos.com/assets/images/media/5-Machine-Cluster.png" alt="core_os_archi2" /></p>
+
+<p>La démonstration vous amènera à lancer 1 master et plusieurs machines “workers” et quelques containers Docker.</p>
+
+<p><img src="https://kubernetes.io/img/desktop/hero_logo.svg" alt="kubernetes" /></p>
+
+<p>Kubernetes est la réponse de Google à la question des gestionnaires de containers disitribués.</p>
+
+<p>Constitué d’un certain nombre de composants qu’on ne détaillera pas ici, il permet de gérer des pods (un ou plusieurs containers qui doivent fonctionner localement sur le même host). Il intervient dans la répartition des applications dans le cluster, la distribution et l’ordonnancement des containers Docker.</p>
+
+<p>Liens:</p>
+
+<ul>
+  <li><a href="https://coreos.com/docs/">CoreOS Doc</a></li>
+  <li><a href="https://kubernetes.io/">Kubernetes</a></li>
+  <li><a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-kubernetes">Introduction to Kubernetes</a></li>
+</ul>
+
+<p>–</p>
+
+<h2 id="responsive-and-fast-iterating-live-on-a-rwd-site">Responsive and Fast: Iterating Live on a RWD Site</h2>
+
+<p>Cette conférence est globalement une redite des autres sur l’optimisation côté front. Colin Bendell d’Akamai nous présente plusieurs outils comme webpagetest, mais aussi des astuces pour tester sur Device depuis chrome. Il nous rappelle qu’il faut faire attention aux conditions de tests avec certains facteurs comme la connexion. Il faut faire aussi attention à limiter le nombre d’images, de ressources (js, css …). Un des gros problèmes sur un site responsive, est celui des images. Pour éviter de charger des images trop importantes, il faut utiliser la balise <picture>. Cette nouvelle balise n’étant pas disponible sur tous les navigateurs, il nous conseille d’utiliser un composant Picturefill. En ce qui concerne les CSS, il conseille d'intégrer directement les css critiques dans le corps de la page et de ne charger, par la suite, que les css correspondants au device que l’on utilise. Pour conclure, l’utilisation d’un CDN avancé est hautement recommandée grâce à des options permettant de différencier navigateurs / devices.</picture></p>
+
+<p>Liens :</p>
+<ul>
+  <li><a href="https://fr.slideshare.net/AkamaiTechnologies/edge-2014-responsive-fast-iterating-live-on-modern-rwd-sites">Slide de la présentation</a></li>
+</ul>
+
+<hr />
+
+<h2 id="build-a-device-lab">Build a device lab</h2>
+
+<ul>
+  <li>“Qui a un placard avec pleins de devices en vrac qui n’ont ni câble, ni batterie et dont vous ne connaissez plus le mot de passe ?”</li>
+</ul>
+
+<p>J’ai levé la main ;) .</p>
+
+<p>Lara Hogan et Destiny Montague nous ont expliqué comment Etsy avait construit un <em>device lab</em>, permettant à leurs collaborateurs d’emprunter des appareils mobiles pour tester leurs applications, sites mobiles et newsletters.</p>
+
+<p>L’idée est d’outiller puissamment les équipes et de leur donner un accès extrêmement simple à un parc complet (même un chromebook pixel !) - afin d’assurer un maximum de tests sur les différents équipements.</p>
+
+<p>Bien sûr il y a un <em>device lab</em> pour les équipes techniques et un autre pour le produit / marketing.</p>
+
+<p>Les sujets suivants ont été abordés :</p>
+
+<ul>
+  <li>choix des appareils</li>
+  <li>consommation électrique</li>
+  <li>le setup des devices (à l’aide d’un Mobile Device Management)</li>
+  <li>les tests</li>
+  <li>le réseau</li>
+  <li>un retour complet sur l’expérience utilisateur</li>
+</ul>
+
+<p>Un site complet dédié à leur conférence est disponible : <a href="https://larahogan.me/devicelab/">https://larahogan.me/devicelab/</a>.</p>
+
+<p>Une vidéo de la même conférence à New York est également en ligne :</p>
+
+<iframe width="853" height="480" src="//www.youtube.com/embed/QOatJD_3bTM" frameborder="0" allowfullscreen=""></iframe>
+
+<iframe width="853" height="480" src="//www.youtube.com/embed/YBn_bQrdVRI" frameborder="0" allowfullscreen=""></iframe>
+
+<p>Une conférence un peu #old car déjà faite, mais toujours d’actualité concernant la problématique. Je suis bluffé par la capacité d’Etsy à mettre en oeuvre des moyens et des compétences sur des sujets qu’ils estiment importants. C’est sûrement en lien avec le succès que la société rencontre actuellement.</p>
+
+<hr />
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Une conférence dense et intéressante, qui nous a donné l’opportunité de rencontrer pleins de gens intéressants et même de visiter (un peu) Barcelone !</p>
+
+<p><img src="/images/posts/velocity2014/sagrada.jpg" alt="sagrada" /></p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Retour+sur+la+Velocity+Barcelone+-+troisi%C3%A8me+journ%C3%A9e%20https%3A%2F%2Ftech.bedrockstreaming.com%2Fvelocity-europe-2014-day-3"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/velocity-europe-2014-day-3&title=Retour+sur+la+Velocity+Barcelone+-+troisi%C3%A8me+journ%C3%A9e%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/velocity-europe-2014-day-3"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Retour sur la Velocity Barcelone - troisième journée%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/velocity-europe-2014-day-3"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#devops">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> devops</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#sysadmin">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> sysadmin</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#velocity">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> velocity</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#webperf">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> webperf</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="App Isomorphic: la Single Page App parfaite ?" href="/2014/12/04/isomorphic-single-page-app-parfaite-react-flux.html">
+            <p>Previous post</p>
+            App Isomorphic: la Single Page App parfaite ?
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Retour sur la Velocity Barcelone - seconde journée" href="/velocity-europe-2014-day-2">
+            <p>Next post</p>
+            Retour sur la Velocity Barcelone - seconde journée
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/velocity2014/velocity_banner3.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

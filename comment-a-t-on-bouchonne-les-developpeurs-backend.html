@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/cytron/superagent-mock.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Comment a-t-on bouchonné les développeurs backend ? | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Comment a-t-on bouchonné les développeurs backend ?" />
+<meta name="author" content="Cytron Team" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Présentation de la librairie superagent-mock, un plugin superagent open-source à utiliser pour mocker le retour de vos requêtes HTTP." />
+<meta property="og:description" content="Présentation de la librairie superagent-mock, un plugin superagent open-source à utiliser pour mocker le retour de vos requêtes HTTP." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/comment-a-t-on-bouchonne-les-developpeurs-backend" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/comment-a-t-on-bouchonne-les-developpeurs-backend" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-03-30T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Comment a-t-on bouchonné les développeurs backend ?" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/comment-a-t-on-bouchonne-les-developpeurs-backend"},"url":"https://tech.bedrockstreaming.com/comment-a-t-on-bouchonne-les-developpeurs-backend","author":{"@type":"Person","name":"Cytron Team"},"description":"Présentation de la librairie superagent-mock, un plugin superagent open-source à utiliser pour mocker le retour de vos requêtes HTTP.","dateModified":"2015-03-30T00:00:00+02:00","datePublished":"2015-03-30T00:00:00+02:00","headline":"Comment a-t-on bouchonné les développeurs backend ?","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Comment a-t-on bouchonné les développeurs backend ?">
+    <meta name="twitter:description" content="Chez M6Web, nous travaillons actuellement sur la nouvelle version d’un site web pour lequel sont dédiées deux teams :  l’équipe backend fournit l’accès aux d...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/cytron/superagent-mock.jpg">
+    <meta name="twitter:image:alt" content="Comment a-t-on bouchonné les développeurs backend ?">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Comment a-t-on bouchonné les développeurs backend ? " aria-label="Comment a-t-on bouchonné les développeurs backend ?" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Comment+a-t-on+bouchonn%C3%A9+les+d%C3%A9veloppeurs+backend+%3F" class="title">Comment a-t-on bouchonné les développeurs backend ?</h1>
+      
+
+
+<div class="post-info">
+      <img alt="Author's avatar" src="/images/avatar/cytron.png">
+    
+    <p class="meta">
+      Cytron Team - 
+      
+      March 30, 2015
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Chez M6Web, nous travaillons actuellement sur la nouvelle version d’un site web pour lequel sont dédiées deux teams :</p>
+
+<ul>
+  <li>l’équipe backend fournit l’accès aux données via des API sous Symfony2,</li>
+  <li>nous, l’équipe frontend, développons une application SPA <a href="https://isomorphic.net/javascript">isomorphe</a> utilisant <a href="https://reactjs.org/">React.JS</a> et le <a href="https://facebook.github.io/flux/">pattern Flux</a>.</li>
+</ul>
+
+<h1 id="développer-le-front-avant-les-api">Développer le front avant les API…</h1>
+
+<p>Nous avons démarré le projet au même moment que l’équipe backend, donc sans avoir accès aux API qui nous fournissent les données nécessaires au fonctionnement de l’application. Nous nous sommes alors interrogé sur la meilleure façon de développer notre front sans dépendre des API tout en impactant un minimum le code cible.</p>
+
+<h1 id="le-contrat-dinterface">Le contrat d’interface</h1>
+
+<p>Le choix technique pour notre SPA a été guidé par <a href="/2014/12/04/isomorphic-single-page-app-parfaite-react-flux">une réflexion poussée sur les app isomorphique</a>. Cette approche, React, Flux et tout l’environnement qui tourne autour nous étaient alors totalement inconnu. Nous avons eu une phase importante en amont pour poser les bases de l’architecture du site, démontrer la faisabilité du projet et documenter l’ensemble.</p>
+
+<p>Ce petit délai a permis à l’équipe backend d’établir des contrats d’interface pour les principales routes de l’API. À partir de ces informations, plus ou moins précises, nous avons établi des fichiers de fixtures. L’idée était donc de retourner les données bouchonnées pour chaque appel à une route d’API non existante.</p>
+
+<h1 id="superagent-et-superagent-mock">Superagent et superagent-mock</h1>
+
+<p>Pour réaliser les requêtes aux API, nous utilisons la librairie <a href="https://visionmedia.github.io/superagent/">superagent</a>, un client HTTP javascript facilement extensible. Il est isomorphe, c’est-à-dire qu’il fonctionne aussi bien sur un serveur node.js via npm que côté browser dans une application packagée via un bundler (<a href="https://webpack.github.io/">webpack</a>, <a href="https://browserify.org/">browserify</a>).</p>
+
+<p>Nous avons développé <a href="https://github.com/BedrockStreaming/superagent-mock">superagent-mock</a>, un plugin pour superagent, dont le rôle est de simuler les appels HTTP lancés par superagent en retournant des données de fixtures en fonction de l’URL appelée.</p>
+
+<h1 id="en-pratique">En pratique</h1>
+
+<p>Comme superagent, superagent-mock s’installe via npm et peut être utilisé sur des applications serveurs ou clientes (via un bundler). Tout d’abord, il faut rajouter la dépendance à la librairie dans son  <code class="language-plaintext highlighter-rouge">package.json</code>.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">npm <span class="nb">install </span>superagent-mock <span class="nt">--save-dev</span></code></pre></figure>
+
+<p>Il faut ensuite créer le fichier de configuration. C’est ici que vous allez décider des routes à bouchonner. Prenons l’exemple d’une route qui n’existe pas et qui devra nous retourner la liste des auteurs du blog technique de M6Web : <code class="language-plaintext highlighter-rouge">https://tech.bedrockstreaming.com/api/authors</code>.</p>
+
+<p>Voici la structure du fichier de configuration à mettre en place :</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// ./config.js file</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="na">pattern</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://tech.bedrockstreaming.com/api/authors</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">fixtures</span><span class="p">:</span> <span class="dl">'</span><span class="s1">./authors.js</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">callback</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">match</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span> <span class="na">body</span> <span class="p">:</span> <span class="nx">data</span> <span class="p">};</span>
+    <span class="p">}</span>
+<span class="p">];</span></code></pre></figure>
+
+<ul>
+  <li>L’attribut <code class="language-plaintext highlighter-rouge">pattern</code> peut être une expression régulière, dans le cas d’une route qui contiendrait des paramètres variables (ex : <code class="language-plaintext highlighter-rouge">https://tech.bedrockstreaming.com/api/authors/(\\d+)</code>).</li>
+  <li>L’attribut <code class="language-plaintext highlighter-rouge">fixtures</code> représente le lien vers le fichier de fixtures ou une callback.</li>
+  <li>L’attribut <code class="language-plaintext highlighter-rouge">callback</code> est une fonction à deux arguments. <code class="language-plaintext highlighter-rouge">match</code> est le résultat de la résolution de l’expression régulière et <code class="language-plaintext highlighter-rouge">data</code> correspond aux données retournées par les fixtures. <code class="language-plaintext highlighter-rouge">match</code> permet d’utiliser certains paramètres de l’appel (ex : l’id de l’auteur) pour retourner des données ciblées (ex : l’auteur dans le fichier de fixtures correspondant à cette id).</li>
+</ul>
+
+<p>Ensuite, il faut créer le fichier de fixtures. C’est un fichier JS qui exporte une fonction retournant les données bouchonnées.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// ./authors.js file</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="na">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John Doe</span><span class="dl">"</span><span class="p">,</span>
+      <span class="na">description</span><span class="p">:</span> <span class="dl">"</span><span class="s2">unidentified person</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="p">...</span>
+  <span class="p">];</span>
+<span class="p">};</span></code></pre></figure>
+
+<p>Pour finir, au début du fichier JS appelé par node, il suffit de patcher <a href="https://visionmedia.github.io/superagent/">superagent</a> avec le plugin <a href="https://github.com/BedrockStreaming/superagent-mock">superagent-mock</a> de cette manière :</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// ./server.js file</span>
+<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">superagent</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./config.js</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">superagent-mock</span><span class="dl">'</span><span class="p">)(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">config</span><span class="p">);</span></code></pre></figure>
+
+<p>Ces quelques lignes permettent de surcharger certaines méthodes de <a href="https://visionmedia.github.io/superagent/">superagent</a> pour lui appliquer la configuration et simuler les requêtes bouchonnées. Pour comprendre plus en détail le fonctionnement, <a href="https://github.com/BedrockStreaming/superagent-mock/blob/master/superagent-mock.js">c’est par ici</a>.</p>
+
+<h1 id="et-après-">Et après ?</h1>
+
+<p>Avec cette astuce, vous pouvez développer votre front sans qu’aucune API en face ne soit accessible. C’est très pratique pour travailler en local, sans accès au net, ou pour rendre les tests fonctionnels de son application complètement indépendants d’un service tiers externe.</p>
+
+<p>La partie délicate de cette approche intervient lorsque l’on câble son application avec la vraie API… et que l’on s’aperçoit que le contrat d’interface n’a pas été respecté ! Nous avons souvent des corrections à réaliser dans notre code lors de cette étape, mais les changements sont généralement mineurs et le gain de temps apporté par l’utilisation du bouchon en amont n’est pas remis en cause. La partie fastidieuse reste de maintenir ses fichiers de fixtures avec l’évolution de l’API, particulièrement nécessaire si on s’en sert dans ses tests fonctionnels.</p>
+
+<h1 id="toujours-plus">Toujours plus</h1>
+
+<p>Notre application forge elle-même l’URL des images récupérées via l’API : elle nous fournit un id et nous reconstituons l’URL finale grâce à un paramètre de configuration. Ce n’est pas REST compliant mais nous avons de bonnes raisons de le faire. Cette génération d’URL utilise la librairie <a href="https://github.com/alexei/sprintf.js">sprintf-js</a>. Pour avoir une application complètement indépendante de toute requête externe, nous avons dû également bouchonner ces appels sur des images locales. Dans cette optique, nous avons développé <a href="https://github.com/BedrockStreaming/sprintf-mock">sprintf-mock</a> dont le mode de fonctionnement est étrangement similaire à celui de superagent-mock.</p>
+
+<p>Les projets <a href="https://github.com/BedrockStreaming/superagent-mock">superagent-mock</a> et <a href="https://github.com/BedrockStreaming/sprintf-mock">sprintf-mock</a> sont open source. Très simple d’utilisation, ils nous permettent de paralléliser nos développements avec l’équipe backend et de rendre autonomes nos tests fonctionnels. Alors n’attendez plus la finalisation de vos API pour commencer vos développements front !</p>
+
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Comment+a-t-on+bouchonn%C3%A9+les+d%C3%A9veloppeurs+backend+%3F%20https%3A%2F%2Ftech.bedrockstreaming.com%2Fcomment-a-t-on-bouchonne-les-developpeurs-backend"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/comment-a-t-on-bouchonne-les-developpeurs-backend&title=Comment+a-t-on+bouchonn%C3%A9+les+d%C3%A9veloppeurs+backend+%3F%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/comment-a-t-on-bouchonne-les-developpeurs-backend"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Comment a-t-on bouchonné les développeurs backend ?%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/comment-a-t-on-bouchonne-les-developpeurs-backend"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#cytron">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> cytron</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#isomorphic">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> isomorphic</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#javascript">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#mock">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> mock</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#open-source">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> open-source</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#superagent">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> superagent</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Introduction à Immutable.Js, Relay + GraphQL et React Native" href="/2015/04/01/immutablejs-relay-graphql-react-native.html">
+            <p>Previous post</p>
+            Introduction à Immutable.Js, Relay + GraphQL et React Native
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="How did we mock the backend developers?" href="/how-did-we-mock-the-backend-developers">
+            <p>Next post</p>
+            How did we mock the backend developers?
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/cytron/superagent-mock.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/react-redux/redux.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>React/Redux: pitfalls and best practices | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="React/Redux: pitfalls and best practices" />
+<meta name="author" content="Antoine Caron" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="We use React and Redux for almost 4 years at Bedrock on our video platform named 6play.Good practices and mistakes to be avoided have been gathered in this article." />
+<meta property="og:description" content="We use React and Redux for almost 4 years at Bedrock on our video platform named 6play.Good practices and mistakes to be avoided have been gathered in this article." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-04-27T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="React/Redux: pitfalls and best practices" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html"},"url":"https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html","author":{"@type":"Person","name":"Antoine Caron"},"description":"We use React and Redux for almost 4 years at Bedrock on our video platform named 6play.Good practices and mistakes to be avoided have been gathered in this article.","dateModified":"2020-04-27T00:00:00+02:00","datePublished":"2020-04-27T00:00:00+02:00","headline":"React/Redux: pitfalls and best practices","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="React/Redux: pitfalls and best practices">
+    <meta name="twitter:description" content="After 2 years using React with Redux for the video platform 6play, I was able to identify good practices and pitfalls to avoid at all costs.The Bedrock team ...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/react-redux/redux.jpg">
+    <meta name="twitter:image:alt" content="React/Redux: pitfalls and best practices">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="React/Redux: pitfalls and best practices " aria-label="React/Redux: pitfalls and best practices" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="React%2FRedux%3A+pitfalls+and+best+practices" class="title">React/Redux: pitfalls and best practices</h1>
+      
+
+
+<div class="post-info"><a href="https://blog.slashgear.dev/" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="/images/avatar/acaron.jpeg">
+    
+    <p class="meta">
+      Antoine Caron - 
+      
+      April 27, 2020
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>After 2 years using React with Redux for the video platform <a href="https://6play.fr">6play</a>, I was able to identify good practices and pitfalls to avoid at all costs.
+The <a href="https://www.bedrockstreaming.com/">Bedrock</a> team kept the technical stack of the project up to date to take advantage of the new features of <code class="language-plaintext highlighter-rouge">react</code>, <code class="language-plaintext highlighter-rouge">react-redux</code> and <code class="language-plaintext highlighter-rouge">redux</code>.</p>
+
+<p>So here are my tips for maintaining and using React and Redux in your application without going mad.</p>
+
+<p><em>This article is not an introduction to React or Redux. I recommend <a href="https://redux.js.org/basics/usage-with-react">this documentation</a> if you want to see how to implement it in your applications.</em></p>
+
+<p>You could also take a look at <a href="https://redux.js.org/style-guide/style-guide">Redux offical style guide</a> in which you could find some of those tips and others.
+Note that if you use the <a href="https://redux-toolkit.js.org/">Redux Toolkit</a>, some of the tips/practices presented in this article are already integrated directly into the API.</p>
+
+<h2 id="avoid-having-only-one-reducer">Avoid having only one reducer</h2>
+
+<p>The <a href="https://redux.js.org/basics/reducers">reducer</a> is the function that is in charge of building a new state at each <code class="language-plaintext highlighter-rouge">action</code>.
+One might be tempted to manipulate only one reducer.
+In the case of a small application, this is not a problem.
+For applications expressing a complex and evolving business, it is better to opt in for the <a href="https://redux.js.org/api/combinereducers">combineReducers</a> solution.</p>
+
+<p>This feature of <code class="language-plaintext highlighter-rouge">redux</code> allows to manipulate not one but several <a href="https://redux.js.org/basics/reducers">reducer</a>s which act respectively on the state.</p>
+
+<blockquote>
+  <p>When and how to split its application?</p>
+</blockquote>
+
+<p>What we recommend at Bedrock is a functional splitting of the application.
+In my approach, we would tend to represent the business of the application more than the technical stuff implied.
+Some very good articles explain it notably through the use of <a href="https://en.wikipedia.org/wiki/Domain-driven_design">DDD principles</a>.</p>
+
+<p>In Bedrock, we use a folder named <em>modules</em> which groups together the different folders associated with the feature of your application.</p>
+
+<pre><code class="language-txt">app/
+  modules/
+    user/
+      __tests__/
+        user.reducer.spec.js
+      components/
+      user.reducer.js
+    product/
+      __tests__/
+        product.reducer.spec.js
+      components/
+      product.reducer.js
+    account/
+      __tests__/
+      account.reducer.spec.js
+      components/
+      account.reducer.js
+  store.js
+  index.js
+</code></pre>
+
+<p>So in <code class="language-plaintext highlighter-rouge">store.js</code> all you need to do is combine your different reducers.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">createStore</span><span class="p">,</span> <span class="nx">combineReducers</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">redux</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">user</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./modules/user/user.reducer.js</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">product</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./modules/user/product.reducer.js</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">account</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./modules/user/account.reducer.js</span><span class="dl">'</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span><span class="nx">combineReducers</span><span class="p">({</span> <span class="nx">user</span><span class="p">,</span> <span class="nx">product</span><span class="p">,</span> <span class="nx">account</span> <span class="p">}))</span>
+</code></pre></div></div>
+
+<p>By following this principle, you will:</p>
+
+<ul>
+  <li>keep reducers readable because they have a limited scope</li>
+  <li>structure and define the functionalities of your application</li>
+  <li>facilitate the testing</li>
+</ul>
+
+<p>Historically, this segmentation has allowed us to remove complete application areas without having impacts on the entire codebase, just by deleting the <code class="language-plaintext highlighter-rouge">module</code> folder associated with the feature.</p>
+
+<h3 id="proxy-access-to-the-state">Proxy access to the state</h3>
+
+<p>Now that your reducers have been placed in the functional <code class="language-plaintext highlighter-rouge">module</code>, you need to allow your components to access the state via <code class="language-plaintext highlighter-rouge">selector</code>.
+A <code class="language-plaintext highlighter-rouge">selector</code> is a function that has the <code class="language-plaintext highlighter-rouge">state</code> as a parameter, and retrieves its information.
+This can also allow you to select only the props needed for the component by decoupling from the state structure.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">getUserName</span> <span class="o">=</span> <span class="p">({</span> <span class="na">user</span><span class="p">:</span> <span class="p">{</span> <span class="nx">lastName</span> <span class="p">}</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="nx">lastName</span>
+</code></pre></div></div>
+
+<p>You can also pass parameters to a <code class="language-plaintext highlighter-rouge">selector</code> by wrapping it with a function.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">getProduct</span> <span class="o">=</span> <span class="nx">productId</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="na">product</span><span class="p">:</span> <span class="p">{</span> <span class="nx">list</span> <span class="p">}</span> <span class="p">})</span> <span class="o">=&gt;</span>
+  <span class="nx">list</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">product</span> <span class="o">=&gt;</span> <span class="nx">product</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nx">productId</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This will allow you to use them in your components using the <a href="https://redux.js.org/recipes/usage-with-typescript#typing-the-useselector-hook">useSelector</a> hook.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">MyComponent</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">product</span> <span class="o">=</span> <span class="nx">useSelector</span><span class="p">(</span><span class="nx">getProduct</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span>
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">product</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>It is specified in the <code class="language-plaintext highlighter-rouge">react-redux</code> doc that the <em>selector</em> is called for each render of the component.
+If the <code class="language-plaintext highlighter-rouge">selector</code> function reference does not change, a cached version of the object can be returned directly.</p>
+
+<pre><code class="language-txt">app/
+  modules/
+    user/
+      __tests__/
+        user.reducer.spec.js
+      components/
+      user.reducer.js
+      user.selectors.js &lt;--- This is where all module selectors are exported
+</code></pre>
+
+<h3 id="prefix-the-name-of-your-actions">Prefix the name of your actions</h3>
+
+<blockquote>
+  <p>I really advise you to define naming rules for your actions and if possible check them with an <code class="language-plaintext highlighter-rouge">eslint</code> rule.</p>
+</blockquote>
+
+<p>Actions are in uppercase letters separated by ‘_’.
+Here an example with this action: <code class="language-plaintext highlighter-rouge">SET_USERS</code>.</p>
+
+<pre><code class="language-txt">app/
+  modules/
+    user/
+      __tests__/
+        user.reducer.spec.js
+      components/
+      user.actions.js &lt;--- This is where all module action creators are exported
+      user.reducer.js
+      user.selectors.js
+</code></pre>
+
+<p>Action names are prefixed by the name of the <code class="language-plaintext highlighter-rouge">module</code> in which it is located.
+This gives a full name: <code class="language-plaintext highlighter-rouge">user/SET_USERS</code>.
+A big advantage of this naming rule is that you can easily filter the action in <a href="https://github.com/reduxjs/redux-devtools">redux-devtools</a>.</p>
+
+<p><img src="/images/posts/react-redux/redux-devtools.png" alt="redux devtools screenshot" /></p>
+
+<h3 id="always-test-your-reducers">Always test your reducers</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">reducers</code> are the holders of your application’s business.
+They manipulate the state of your application.</p>
+
+<p><strong>This code is therefore <em>sensitive</em>.</strong></p>
+
+<p>➡️ A modification can have a lot of impact on your application.</p>
+
+<p><strong>This code is rich in business rules</strong></p>
+
+<p>➡️ You must be confident that these are correctly implemented.</p>
+
+<p>The good news is that this code is relatively easy to test.
+A <a href="https://redux.js.org/basics/reducers">reducer</a> is a single function that takes 2 parameters.
+This function will return a new <code class="language-plaintext highlighter-rouge">state</code> depending on the type of action and its parameters.</p>
+
+<p>This is the standard structure for testing <a href="https://redux.js.org/basics/reducers">reducer</a>s with <a href="https://jestjs.io/">Jest</a>:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">ReducerName</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">beforeEach</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Init a new state</span>
+  <span class="p">})</span>
+  <span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">ACTION</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Group tests by action type</span>
+    <span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">should test action with some params</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{})</span>
+    <span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">should test action with other params</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{})</span>
+  <span class="p">})</span>
+  <span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">SECOND_ACTION</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">should test action with some params</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{})</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>I also recommend that you use the <a href="https://www.npmjs.com/package/deep-freeze">deep-freeze</a> package on your <code class="language-plaintext highlighter-rouge">state</code> to ensure that all actions return new references.</p>
+
+<p>Ultimately, testing your <a href="https://redux.js.org/basics/reducers">reducer</a>s will allow you to easily refactor the internal structure of their state without the risk of introducing regressions.</p>
+
+<h2 id="keep-the-immutability-and-readability-of-your-reducers">Keep the immutability and readability of your reducers</h2>
+
+<p>A <a href="https://redux.js.org/basics/reducers">reducer</a> is a function that must return a new version of the state containing its new values while keeping the same references of the objects that have not changed.
+This allows you to take full advantage of <em>Structural sharing</em> and avoid exploding your memory usage.
+The use of the <em>spread operator</em> is thus more than recommended.</p>
+
+<p>However, in the case where the state has a complicated and deep structure, it can be verbose to change the state without destroying the references that should not change.</p>
+
+<p>For example, here we want to override the <code class="language-plaintext highlighter-rouge">Rhone.Villeurbanne.postal</code> value of the state while keeping the objects that don’t change.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">Rhone</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Lyon</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">postal</span><span class="p">:</span> <span class="dl">'</span><span class="s1">69000</span><span class="dl">'</span> <span class="p">,</span>
+    <span class="p">},</span>
+    <span class="na">Villeurbanne</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">postal</span><span class="p">:</span> <span class="dl">''</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+  <span class="na">Isère</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Grenoble</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">postal</span><span class="p">:</span> <span class="dl">'</span><span class="s1">39000</span><span class="dl">'</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="c1">// When you want to change nested state value and use immutability</span>
+<span class="kd">const</span> <span class="nx">newState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">...</span><span class="nx">state</span><span class="p">,</span>
+  <span class="na">Rhone</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">...</span><span class="nx">state</span><span class="p">.</span><span class="nx">Lyon</span><span class="p">,</span>
+    <span class="na">Villeurbanne</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">postal</span><span class="p">:</span> <span class="dl">'</span><span class="s1">69100</span><span class="dl">'</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>To avoid this, <a href="https://github.com/flepretre">a member of the Bedrock team</a> released a package that allows to <code class="language-plaintext highlighter-rouge">set</code> nested attribute while ensuring immutability: <a href="https://www.npmjs.com/package/immutable-set">immutable-set</a>
+This package is much easier to use than tools like <a href="https://immutable-js.github.io/immutable-js/">immutable.js</a> because it does not use Object prototype.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="kd">set</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">immutable-set</span><span class="dl">'</span>
+
+<span class="kd">const</span> <span class="nx">newState</span> <span class="o">=</span> <span class="kd">set</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="s2">`Rhone.Villeurbanne.postal`</span><span class="p">,</span> <span class="dl">'</span><span class="s1">69100</span><span class="dl">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="do-not-use-the-default-case">Do not use the default case</h2>
+
+<p>The implementation of a <code class="language-plaintext highlighter-rouge">redux</code> <a href="https://redux.js.org/basics/reducers">reducer</a> very often consists of a <code class="language-plaintext highlighter-rouge">switch</code> where each <code class="language-plaintext highlighter-rouge">case</code> corresponds to an <code class="language-plaintext highlighter-rouge">action</code>.
+A <code class="language-plaintext highlighter-rouge">switch</code> must always define the <code class="language-plaintext highlighter-rouge">default</code> case if you follow so basic <code class="language-plaintext highlighter-rouge">eslint</code> rules.</p>
+
+<p>Let’s imagine the following <a href="https://redux.js.org/basics/reducers">reducer</a>:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">initialState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">bar</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">index</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">reducer</span><span class="p">(</span><span class="nx">initialState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="dl">'</span><span class="s1">FOO</span><span class="dl">'</span><span class="p">:</span>
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">foo</span><span class="dl">'</span><span class="p">,</span>
+      <span class="p">}</span>
+    <span class="nl">default</span><span class="p">:</span>
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">bar</span><span class="dl">'</span><span class="p">,</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>We can naively say that this <a href="https://redux.js.org/basics/reducers">reducer</a> manages two different actions. It’s okay.
+If we isolate this <a href="https://redux.js.org/basics/reducers">reducer</a> there are only two types of action that can change this state; the <code class="language-plaintext highlighter-rouge">FOO</code> action and any other action.</p>
+
+<p>However, if you have followed the advice to cut out your reducers, you don’t have only one reducer acting on your blind.</p>
+
+<p>That’s where the previous <a href="https://redux.js.org/basics/reducers">reducer</a> is a problem.
+Indeed, any other action will change this state to a <code class="language-plaintext highlighter-rouge">default</code> state.
+A <code class="language-plaintext highlighter-rouge">dispatch</code> action will pass through each of the reducers associated with this one.
+An action at the other end of your application could affect this state without being expressed in the code.
+This should be avoided.</p>
+
+<p><img src="/images/posts/react-redux/combineReducer.png" alt="combine reducer schema" /></p>
+
+<p>If you want to modify the state with an action from another module, you can do so by adding a <code class="language-plaintext highlighter-rouge">case</code> on that action.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">reducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">initialState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="dl">'</span><span class="s1">FOO</span><span class="dl">'</span><span class="p">:</span>
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">foo</span><span class="dl">'</span><span class="p">,</span>
+      <span class="p">}</span>
+    <span class="k">case</span> <span class="dl">'</span><span class="s1">otherModule/BAR</span><span class="dl">'</span><span class="p">:</span>
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">bar</span><span class="dl">'</span><span class="p">,</span>
+      <span class="p">}</span>
+    <span class="nl">default</span><span class="p">:</span>
+      <span class="k">return</span> <span class="nx">state</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="use-custom-middlewares">Use custom middlewares</h2>
+
+<p>I’ve often seen <code class="language-plaintext highlighter-rouge">action</code> behaviors being copied and pasted, from action to action.
+When you’re a developer, “copy-paste” is never the right way.</p>
+
+<p>The most common example is handling HTTP calls during an action that uses <code class="language-plaintext highlighter-rouge">redux-thunk</code>.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span>
+  <span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://example.com/api/foo</span><span class="dl">'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">FOO</span><span class="dl">'</span><span class="p">,</span> <span class="nx">data</span> <span class="p">}))</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// Do something</span>
+    <span class="p">})</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">bar</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span>
+  <span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://example.com/api/bar</span><span class="dl">'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">BAR</span><span class="dl">'</span><span class="p">,</span> <span class="nx">data</span> <span class="p">}))</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// Do something</span>
+    <span class="p">})</span>
+</code></pre></div></div>
+
+<p>These two actions are basically the same thing, we could very well make a factory that would do the code in common.</p>
+
+<p>Basically the <em>meta</em> action we want to represent here when it is <code class="language-plaintext highlighter-rouge">dispatched</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Fetch something
+-- return action with the result
+-- in case or error, do something
+</code></pre></div></div>
+
+<p>We could very well define a middleware that would take care of this behavior.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">store</span> <span class="o">=&gt;</span> <span class="nx">next</span> <span class="o">=&gt;</span> <span class="k">async</span> <span class="nx">action</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">http</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="nx">action</span><span class="p">.</span><span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">http</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// Do something</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">next</span><span class="p">(</span><span class="nx">action</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// in redux store init</span>
+<span class="kd">const</span> <span class="nx">exampleApp</span> <span class="o">=</span> <span class="nx">combineReducers</span><span class="p">(</span><span class="nx">reducers</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span><span class="nx">exampleApp</span><span class="p">,</span> <span class="nx">applyMiddleware</span><span class="p">(</span><span class="nx">http</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Thus the two preceding actions could be written much more simpler:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">FOO</span><span class="dl">'</span><span class="p">,</span> <span class="na">http</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://example.com/api/foo</span><span class="dl">'</span> <span class="p">})</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">bar</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">BAR</span><span class="dl">'</span><span class="p">,</span> <span class="na">http</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://example.com/api/bar</span><span class="dl">'</span> <span class="p">})</span>
+</code></pre></div></div>
+
+<p>The big advantages of using middleware in a complex application:</p>
+
+<ul>
+  <li>avoids code duplication</li>
+  <li>allows you to define common behaviors between your actions</li>
+  <li>standardize redux <em>meta</em> action types</li>
+</ul>
+
+<h2 id="avoid-redux-related-rerender">Avoid redux related rerender</h2>
+
+<p>The trick when using redux is to trigger component re-render when you connect them to the state.
+Even if <a href="https://kentcdodds.com/blog/fix-the-slow-render-before-you-fix-the-re-render">rerenders are not always a problem</a>, re-render caused by the use of redux really has to be prevented.
+Just beware of the following traps.</p>
+
+<h3 id="do-not-create-a-reference-in-the-selector">Do not create a reference in the <em>selector</em></h3>
+
+<p>Let’s imagine the next <em>selector</em>:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">getUserById</span> <span class="o">=</span> <span class="nx">userId</span> <span class="o">=&gt;</span> <span class="nx">state</span> <span class="o">=&gt;</span>
+  <span class="nx">state</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">user</span> <span class="o">=&gt;</span> <span class="nx">user</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nx">userId</span><span class="p">)</span> <span class="o">||</span> <span class="p">{}</span>
+</code></pre></div></div>
+
+<p>The developer here wanted to ensure that its <em>selector</em> is null safe and always returns an <em>object</em>.
+This is something we see quite often.</p>
+
+<p>Each time this selector will be called for a <code class="language-plaintext highlighter-rouge">user</code> not present in the state, it will return a new object, a new reference.</p>
+
+<blockquote>
+  <p>With <a href="">useSelector</a>, returning a new object every time will always force a re-render by default.
+<a href="https://react-redux.js.org/api/hooks#equality-comparisons-and-updates">Doc of react-redux</a></p>
+</blockquote>
+
+<p>However in the case of an object, as in the example above (or an array), the reference of this default value is new each time the selector is executed.
+Similarly for the default values in destructuring, you should never do this :</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">getUsers</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="na">users</span><span class="p">:</span> <span class="p">[]</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="nx">users</span>
+</code></pre></div></div>
+
+<p>What to do then?
+Whenever possible, the default values should be stored in the reducer.
+Otherwise, the default value must be extracted into a constant so that the reference remains the same.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">defaultUser</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="kd">const</span> <span class="nx">getUserById</span> <span class="o">=</span> <span class="nx">userId</span> <span class="o">=&gt;</span> <span class="nx">state</span> <span class="o">=&gt;</span>
+  <span class="nx">state</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">user</span> <span class="o">=&gt;</span> <span class="nx">user</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nx">userId</span><span class="p">)</span> <span class="o">||</span> <span class="nx">defaultUser</span>
+</code></pre></div></div>
+
+<p>The same goes for the selector usage that returns a new ref at each call.
+The use of the <code class="language-plaintext highlighter-rouge">filter</code> function returns a new array each time a new reference even if the filter conditions have not changed.</p>
+
+<p>To continue, it is important that <a href="https://redux.js.org/recipes/usage-with-typescript#typing-the-useselector-hook">useSelector</a> does not return a function.
+Basically you should never do this:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">getUserById</span> <span class="o">=</span> <span class="nx">state</span> <span class="o">=&gt;</span> <span class="nx">userId</span> <span class="o">=&gt;</span>
+  <span class="nx">state</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">user</span> <span class="o">=&gt;</span> <span class="nx">user</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nx">userId</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">uider</span> <span class="o">=</span> <span class="nx">useSelector</span><span class="p">(</span><span class="nx">getUserById</span><span class="p">)(</span><span class="nx">userId</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>A selector should not return a <em>view</em> (a copy) of the state but directly what it contains.
+By respecting this principle, your components will rerender only if an action modifies the state.
+Utilities such as <a href="https://www.npmjs.com/package/reselect">reselect</a> can be used to implement selectors with a memory system.</p>
+
+<h3 id="do-not-transform-your-data-in-the-components">Do not transform your data in the components</h3>
+
+<p>Sometimes the data contained in the <code class="language-plaintext highlighter-rouge">state</code> is not in the correct display format.
+We would quickly tend to generate it in the component directly.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">MyComponent</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">useSelector</span><span class="p">(</span><span class="nx">getUser</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="s2">`https://profil-pic.com/</span><span class="p">${</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="s2">`</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Here, the url of the image is dynamically computed in the component, and thus at each render.
+We prefer to modify our reducers in order to include a <code class="language-plaintext highlighter-rouge">profileUrl</code> attribute so that this information is directly accessible.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">case</span> <span class="s2">`user/SET_USER`</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="p">...</span><span class="nx">state</span><span class="p">,</span>
+      <span class="na">user</span><span class="p">:</span> <span class="p">{</span>
+        <span class="p">...</span><span class="nx">action</span><span class="p">.</span><span class="nx">user</span><span class="p">,</span>
+        <span class="na">profileUrl</span><span class="p">:</span> <span class="s2">`https://profil-pic.com/</span><span class="p">${</span><span class="nx">action</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+      <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This information is then calculated once per action and not every time it is rendered.</p>
+
+<h2 id="dont-use-usereducer-for-your-business-data">Don’t use <em>useReducer</em> for your business data</h2>
+
+<p>Since the arrival of hooks, we have many more tools provided directly by React to manage the state of our components.
+The <a href="https://fr.reactjs.org/docs/hooks-reference.html#usereducer">useReducer</a> hook allows to set a state that can be modified through actions.
+We’re really very very close to a redux state that we can associate to a component, it’s great.</p>
+
+<p>However, if you use redux in your application, it seems quite strange to have to use <a href="https://fr.reactjs.org/docs/hooks-reference.html#usereducer">useReducer</a>.
+You already have everything you need to manipulate a complex state.</p>
+
+<p>Moreover, by using redux instead of the <a href="https://fr.reactjs.org/docs/hooks-reference.html#usereducer">useReducer</a> hook you can take advantage of really efficient devtools and middlewares.</p>
+
+<hr />
+
+<h2 id="useful-resources">Useful resources</h2>
+
+<ul>
+  <li><a href="https://redux.js.org/basics/usage-with-react">Use react with redux doc</a></li>
+  <li><a href="https://github.com/reduxjs/redux/issues/653#issuecomment-216844781">redux flow animated by Dan Abramov</a>
+<img src="/images/posts/react-redux/redux-flow.gif" alt="redux flow animated by Dan Abramov" /></li>
+  <li><a href="https://redux.js.org/api/applymiddleware">redux documentation about middlewares</a></li>
+  <li><a href="https://www.npmjs.com/package/immutable-set">immutable-set</a></li>
+</ul>
+
+<p><em>Thanks to the reviewers: 
+<a href="https://github.com/flepretre">@flepretre</a>, 
+<a href="https://github.com/mfrachet">@mfrachet</a>, 
+<a href="https://github.com/fdubost">@fdubost</a>,
+<a href="https://github.com/ncuillery">@ncuillery</a>,
+<a href="https://github.com/renaudAmsellem">@renaudAmsellem</a></em></p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=React%2FRedux%3A+pitfalls+and+best+practices%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2020%2F04%2F27%2Freact-redux-pitfalls-and-best-pratices.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html&title=React%2FRedux%3A+pitfalls+and+best+practices%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=React/Redux: pitfalls and best practices%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#frontend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#js">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> js</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#react">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> react</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#redux">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> redux</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="6play_API-v2-Final(1).doc" href="/2020/06/24/6play_API-v2-Final(1).html">
+            <p>Previous post</p>
+            6play_API-v2-Final(1).doc
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="How to boost the speed of your webpack build?" href="/2020/03/05/hunting-webpack-performances.html">
+            <p>Next post</p>
+            How to boost the speed of your webpack build?
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/react-redux/redux.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

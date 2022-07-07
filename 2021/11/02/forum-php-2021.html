@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/forumphp2021/header.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Forum PHP 2021 - L’édition des retrouvailles | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Forum PHP 2021 - L’édition des retrouvailles" />
+<meta name="author" content="Bedrock" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Nos retours du Forum PHP à Paris, les 21 et 22 octobre 2021" />
+<meta property="og:description" content="Nos retours du Forum PHP à Paris, les 21 et 22 octobre 2021" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2021/11/02/forum-php-2021.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2021/11/02/forum-php-2021.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-11-02T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Forum PHP 2021 - L’édition des retrouvailles" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2021/11/02/forum-php-2021.html"},"url":"https://tech.bedrockstreaming.com/2021/11/02/forum-php-2021.html","author":{"@type":"Person","name":"Bedrock"},"description":"Nos retours du Forum PHP à Paris, les 21 et 22 octobre 2021","dateModified":"2021-11-02T00:00:00+01:00","datePublished":"2021-11-02T00:00:00+01:00","headline":"Forum PHP 2021 - L’édition des retrouvailles","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Forum PHP 2021 - L'édition des retrouvailles">
+    <meta name="twitter:description" content="Cette année encore, Bedrock participait au Forum PHP où était proposé une grande diversité de conférences.Des sujets techniques et d’autres, plus génériques,...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/forumphp2021/header.jpg">
+    <meta name="twitter:image:alt" content="Forum PHP 2021 - L'édition des retrouvailles">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Forum PHP 2021 - L'édition des retrouvailles " aria-label="Forum PHP 2021 - L'édition des retrouvailles" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Forum+PHP+2021+-+L%27%C3%A9dition+des+retrouvailles" class="title">Forum PHP 2021 - L'édition des retrouvailles</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      Bedrock - 
+      
+      November 02, 2021
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Cette année encore, Bedrock participait au Forum PHP où était proposé une grande diversité de conférences.
+Des sujets techniques et d’autres, plus génériques, étaient abordés : Symfony 6, Git, environnement, sous-représentation des femmes dans l’informatique…
+Avec <a href="https://twitter.com/SofLesc">Sofia LESCANO</a>, <a href="https://twitter.com/b_viguier">Benoit VIGUIER</a> sur les planches et une quinzaine de participantes et participants dans le publique, l’occasion de rencontrer à nouveau la communauté PHP en chair et en os a été saisie avec une certaine impatience.</p>
+
+<p>Plusieurs conférences ont retenu notre attention et auront un impact à court terme sur nos projets :</p>
+
+<p>Suite à la conférence “<a href="https://www.youtube.com/watch?v=YfoLM0vWALM">Les exceptions : le trou dans la raquette du typage</a>” de <a href="https://twitter.com/Baptouuuu">Baptiste LANGLADE</a>, la bonne gestion des exceptions nous semble primordiale. Nos équipes sont donc en train de tester le bundle <a href="https://github.com/Innmind/Immutable">Innmind/Immutable</a> pour mettre en place le pattern Monad (Maybe et Either) afin d’améliorer la gestion d’absence de données à différents niveaux de nos outils.</p>
+
+<p>La conférence “<a href="https://www.youtube.com/watch?v=PB3NWOwBCyQ">Des tests unitaires pour nos règles de conception</a>” de <a href="https://twitter.com/FredBouchery">Frédéric BOUCHERY</a> mettait en lumière l’importance de documenter, expliciter et tester les règles de conception d’un projet. La mise en place d’ADR (Architectural Decision Records) et des tests unitaires associés est une bonne pratique que nous souhaitons développer au sein des équipes. Nous attendons avec impatience le bundle que Klaxoon devrait bientôt open-sourcer: il permettra de tester facilement nos règles de conceptions avec PHPUnit et d’automatiser une partie de la revue technique.</p>
+
+<p><a href="https://twitter.com/AnneLaure2B">Anne-Laure DE BOISSIEU</a> et <a href="https://twitter.com/amelie_defrance">Amélie DEFRANCE</a> ont rappelé quelques règles fondamentales d’accessibilité pour nos sites Internet pendant “<a href="https://www.youtube.com/watch?v=vvLoYCq9uPw">Accessibilité et SEO : et si on relevait le niveau ?</a>”. Nous espérons désormais améliorer l’accessibilité de notre back-office. Par exemple : retravailler le contraste couleur de certains écrans ou ajouter du contenu dans nos balises HTML pour faciliter la compréhension.</p>
+
+<p>Pendant leur conférence “<a href="https://www.youtube.com/watch?v=Sis1Q_ON_QY">Kairoi, et PHP se réconcilie avec les tâches planifiées</a>”,  <a href="https://twitter.com/emerick42">Emeric KASBARIAN</a> et <a href="https://twitter.com/JamesJrmy">Jérémy JAMES</a> nous ont expliqué que leurs clients ont un même besoin : <em>“Déclencher une action automatique à un moment précis, sans aucune limite dans le temps”</em>. Par exemple : <em>“supprimer, automatiquement, un panier d’achat au bout de 15 minutes”</em>.
+Après de longues recherches, il n’existe rien sur le marché pour répondre à un tel besoin. Et nous, BedRock, confirmons : nous avons le même besoin et n’avons rien trouvé non plus.
+Kairoi est donc né. C’est une application serveur Rust de planification de tâches, avec son propre protocole <em>(inspiré de celui de Redis)</em> qui permet de :</p>
+<ul>
+  <li>Récupérer des évènements à planifier</li>
+  <li>Connaître l’état d’un l’évènement</li>
+  <li>Le déclencher au moment opportun
+    <ul>
+      <li>soit sur un protocole AMQP</li>
+      <li>soit sur un shell</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Le Forum PHP est l’occasion de parler de sujets pointus techniquement, mais aussi une occasion d’échange et de partage autour de sujets plus transversaux.
+Notre domaine, l’IT, comme bien d’autres, est sensible au sujet de l’écologie. Deux axes de réflexion ont été évoqués pendant deux conférences.</p>
+
+<p>En ouverture, <a href="https://twitter.com/francoisz">François ZANIOTTO</a> nous a partagé avec entrain sa recherche de mesures fiables des dépenses énergétiques. Elle l’a menée à développer  <a href="https://greenframe.io/">GreenFrame</a>, un outil en cours de construction chez Marmelab, qui a pour but de cibler au plus près la consommation énergétique afin de tendre “<a href="https://www.youtube.com/watch?v=bBaXxMFMGbA">Vers la sobriété numérique</a>”.</p>
+
+<p><a href="https://twitter.com/helenemaitre">Hélène MAITRE-MARCHOIS</a> a sû mettre en perspective le rôle de chaque développeuse et développeur en insistant sur le fait que la responsabilité du dérèglement climatique n’est pas forcément là où on l’attend. Avec “<a href="https://www.youtube.com/watch?v=BNVwYAlE9XA">Comment sauver la planète en ne faisant rien</a>”, elle entend faire prendre conscience que si, la production et consommation de contenu représentent des pôles sur lesquels en tant que tech, nous pouvons agir. Le renouvellement du parc reste une cause prépondérante dans l’impact écologique.
+Le renouvellement accéléré par le foisonnement de nouvelles fonctionnalités, trop souvent inutiles, est une obsolescence programmée.
+Utile, Accessible, Durable. Voilà trois notions simples qui peuvent, pourtant, nous permettre de faire la différence.</p>
+
+<p><a href="https://twitter.com/nicolasgrekas">Nicolas GREKAS</a>, principal engineer Symfony, nous a parlé de l’écosystème de ce framework à travers de sa conférence “<a href="https://www.youtube.com/watch?v=fLXDRQBbh3E">Symfony 6 : le choix de l’innovation et de la performance</a>”. Il nous a présenté le <a href="https://symfony.com/releases">calendrier de livraisons</a> et de maintenance des différentes versions, avec la sortie d’une nouvelle majeure prévue tous les deux ans. Chaque majeure voit la suppression du code déprécié dans la version précédente. Par exemple, Symfony 6 est un Symfony 5.4 sans ses dépréciations. Les dernières versions avant une majeure (comme la 4.4 ou 5.4) sont assurées d’avoir un support à long terme.
+Pour les prochaines versions de Symfony, l’accent est mis sur la compatibilité avec PHP8. Puisque la majorité du travail consiste à remplacer les annotations <code class="language-plaintext highlighter-rouge">@return</code> par un typage natif, Nicolas a parlé de l’outil <a href="https://symfony.com/doc/5.4/setup/upgrade_major.html#upgrading-to-symfony-6-add-native-return-types">patch-type-declarations</a> qui automatise cette tâche.</p>
+
+<p>Pour finir cette série de conférences, nous avons suivi l’incroyable histoire de WorkAdventure, lors de “<a href="https://www.youtube.com/watch?v=YKNqngG-c-w">WorkAdventure de la genèse à aujourd’hui : Retour d’expérience sur 1 an d’univers virtuels</a>” présenté par <a href="https://twitter.com/david_negrier">David NÉGRIER</a>) : le résultat d’un hackathon fait pour pallier l’ennui des confinements, qui est devenu le support d’événements majeurs l’année dernière.</p>
+
+<p><img src="/images/posts/forumphp2021/bedrock_team.jpg" alt="Photo de l'équipe Bedrock" /></p>
+
+<h2 id="les-speakers-bedrock">Les speakers Bedrock</h2>
+<p>Lors de cette édition, deux Bedrockers ont eu l’opportunité de présenter un sujet, l’occasion pour nous de demander à <a href="https://twitter.com/SofLesc">Sofia LESCANO</a> “<a href="https://www.youtube.com/watch?v=tuGpNiy6e9s">Faites confiance aux développeurs.euses de votre équipe : voyez plus loin que les fonctionnalités</a>” et <a href="https://twitter.com/b_viguier">Benoit VIGUIER</a> “<a href="https://www.youtube.com/watch?v=KkRo7fAC28s">Fiber : la porte ouverte sur l’asynchrone</a>” comment ils ont vécu cet événement.</p>
+
+<p><strong><em>Comment vous est venue l’idée de soumettre un sujet de conférence, et comment avez-vous abordé sa préparation ?</em></strong></p>
+
+<p><strong>Sofia</strong>: Cela faisait longtemps que j’avais ce sujet en tête, et l’idée de refaire des événements en présentiel m’a fait me lancer. Pour moi les tech meetings étaient une grande découverte et un rituel que j’apprécie vraiment et je voulais partager cela avec la communauté. Pour la préparation, j’ai été accompagnée par Matthieu Napoli avec le programme de mentoring de l’AFUP et par mes collègues de Bedrock.
+<img src="/images/posts/forumphp2021/sofia_speaker.jpg" alt="Photo de Sofia" />
+<strong>Benoit</strong>: Le PHP asynchrone est un sujet qui m’occupe beaucoup à Bedrock, j’ai donc suivi attentivement la RFC Fiber. L’idée d’en faire un sujet de conférence est venue en me rendant compte que, même au sein de nos équipes, il n’était pas évident pour tout le monde de comprendre tout ce que cet outil pouvait changer. Et puis, refaire un événement en présentiel me manquait vraiment ! La préparation de ce format court était nouveau pour moi, heureusement j’ai pu faire quelques répétitions à Bedrock et à l’AFUP Lyon pour bien ajuster mon timing.</p>
+
+<p><strong><em>Maintenant que l’événement est derrière nous, que retenez-vous de cette expérience ?</em></strong></p>
+
+<p><strong>Sofia</strong>: C’était une très belle expérience et les échanges que j’ai pu avoir suite à ma conférence ont été très intéressants. C’est très enrichissant d’échanger avec la communauté et de voir que des pratiques similaires ont lieu ailleurs et pouvoir les enrichir dans les deux sens.
+<img src="/images/posts/forumphp2021/benoit_speaker.jpg" alt="Photo de Benoit" />
+<strong>Benoit</strong>: C’était un vrai plaisir de pouvoir échanger avec de vraies personnes, sans écrans interposés ! Côté speaker, l’organisation était au top et j’ai eu pleins d’échanges prometteurs sur le potentiel des Fibers. Côté conférences, j’ai vu plein de choses intéressantes, ça donne toujours matière à réfléchir, que l’on partage le point de vue exposé ou non. Merci encore à l’AFUP pour avoir mis toute cette énergie au service d’un si bel événement.</p>
+
+<p>Le forum, particulièrement cette édition en présentiel, c’est retrouver toute une communauté qui partage la même passion. Encore merci aux conférencières et conférenciers, merci aux organisatrices et organisateurs… Et à l’année prochaine !</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Forum+PHP+2021+-+L%27%C3%A9dition+des+retrouvailles%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2021%2F11%2F02%2Fforum-php-2021.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2021/11/02/forum-php-2021.html&title=Forum+PHP+2021+-+L%27%C3%A9dition+des+retrouvailles%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2021/11/02/forum-php-2021.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Forum PHP 2021 - L'édition des retrouvailles%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2021/11/02/forum-php-2021.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#afup">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> afup</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#forumphp">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> forumphp</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#php">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> php</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="More efficient Load Balancing and Caching at AWS, using Consistent Hashing and HAProxy" href="/2021/11/18/hsdo.html">
+            <p>Previous post</p>
+            More efficient Load Balancing and Caching at AWS, using Consistent Hashing and HAProxy
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Fiber: the open door to asynchronous" href="/2021/10/21/fiber-the-open-door-to-async.html">
+            <p>Next post</p>
+            Fiber: the open door to asynchronous
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

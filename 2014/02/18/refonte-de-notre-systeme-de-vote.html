@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/cytron/polls.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Refonte de notre système de vote | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Refonte de notre système de vote" />
+<meta name="author" content="Denis" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Création d’un nouveau service de vote communiquant avec une API REST" />
+<meta property="og:description" content="Création d’un nouveau service de vote communiquant avec une API REST" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2014/02/18/refonte-de-notre-systeme-de-vote.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2014/02/18/refonte-de-notre-systeme-de-vote.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-02-18T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Refonte de notre système de vote" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2014/02/18/refonte-de-notre-systeme-de-vote.html"},"url":"https://tech.bedrockstreaming.com/2014/02/18/refonte-de-notre-systeme-de-vote.html","author":{"@type":"Person","name":"Denis"},"description":"Création d’un nouveau service de vote communiquant avec une API REST","dateModified":"2014-02-18T00:00:00+01:00","datePublished":"2014-02-18T00:00:00+01:00","headline":"Refonte de notre système de vote","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Refonte de notre système de vote">
+    <meta name="twitter:description" content="Notre système de vote est utilisé d’une part pour gérer l’ensemble des questions et des réponses associées utilisées dans nos quizz et d’autre part pour réco...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/cytron/polls.png">
+    <meta name="twitter:image:alt" content="Refonte de notre système de vote">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Refonte de notre système de vote " aria-label="Refonte de notre système de vote" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Refonte+de+notre+syst%C3%A8me+de+vote" class="title">Refonte de notre système de vote</h1>
+      
+
+
+<div class="post-info">
+      <img alt="Author's avatar" src="/images/avatar/denis.jpg">
+    
+    <p class="meta">
+      Denis - 
+      
+      February 18, 2014
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Notre système de vote est utilisé d’une part pour gérer l’ensemble des questions et des réponses associées utilisées dans nos <a href="https://www.m6.fr/emission-top_chef/jeux.html">quizz</a> et d’autre part pour récolter le nombre de votes des internautes lors des <a href="https://www.m6.fr/jeux-concours.html">jeux concours</a>.</p>
+
+<p>Actuellement, le trafic généré par cette fonctionnalité varie entre quelques votes par minute la nuit à quelques dizaines de votes par seconde lors des premières parties de soirée.</p>
+
+<h2 id="historique">Historique</h2>
+
+<p>Comme souvent, les besoins ont régulièrement évolué depuis la mise en place initiale du système en 2009, faisant parfois prendre des chemins tortueux à l’implémentation technique. Au fil des demandes, notre système a par exemple dû stocker ses données dans nos forums pour une fonctionnalité qui a ensuite été rapidement abandonnée.</p>
+
+<p>L’année 2012 a vu l’arrivée du <em>second écran</em> : à l’aide de l’application gratuite adéquate, les périphériques mobiles peuvent désormais se synchroniser avec l’émission en cours de visionnage, en direct ou en différé, sur la TV ou sur le web (la synchronisation se fait par la bande son). Cette synchronisation nous permet de <em>pusher</em> instantanément sur les périphériques mobiles du contenu adapté à ce que le téléspectateur regarde : le détail de la recette que le cuisinier prépare dans Top Chef ou un sondage concernant la dernière trouvaille linguistique d’un ch’tit face à sa ch’tite.</p>
+
+<p>Le <em>second écran</em> s’annonçait alors comme une source importante de trafic supplémentaire pour notre système de vote. Effectivement, en plus du trafic historique généré par les sites web, nous allions aussi recevoir tous les votes provenant des périphériques mobiles.</p>
+
+<p>Ce nouveau trafic a une saisonnalité très marquée : il est principalement présent en début de soirée et reste très dépendant du programme diffusé et de la contribution apportée.</p>
+
+<h2 id="problématique">Problématique</h2>
+
+<p>La principale problématique venait de l’architecture des bases de données MySQL. Étant fortement couplées sur l’ensemble de la plateforme, la moindre défaillance de l’une d’elles, due à une surcharge sur un sondage, risquait de pénaliser les internautes de tous nos autres sites (un sondage du <em>second écran</em> pouvait donc impacter l’expérience utilisateur de <a href="https://www.clubic.com/">Clubic</a>).</p>
+
+<p>Le code était aussi fortement couplé entre nos différentes applications : l’action PHP d’un vote était exécutée sur la même plateforme que notre BO permettant à tous nos web services de fonctionner ainsi qu’aux contributeurs d’ajouter du contenu. Une surchage sur les votes aurait donc pu entrainer des perturbations sur le fonctionnement global du site <a href="https://www.m6.fr/">m6.fr</a> et de ses web services, donc de beaucoup de produits par extension.</p>
+
+<p>Pour résumer, l’imbrication du code et des bases de données dans l’usine logiciel ne permettait pas de calibrer le système de vote pour qu’il puisse recevoir la charge attendue par le <em>second écran</em>.</p>
+
+<p>C’est donc début 2013 que <a href="https://twitter.com/kenny_dee">Kenny Dits</a> m’a contacté pour que nous trouvions une solution permettant de découpler le système de vote tout en faisant évoluer son architecture interne afin qu’il puisse facilement s’adapter à la charge inconstante du <em>second écran</em>.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>Nous avons alors conçu un nouveau service dédié uniquement à la gestion des questions, réponses et votes des utilisateurs. Ce nouveau <em>service Polls</em> est autonome, ce qui nous permet de le découpler complètement de notre usine logicielle avec laquelle il communique via une API REST.</p>
+
+<p>Concernant le stockage des données, nous avons simplement choisi un moteur très performant qui supporterait la charge sur une seule machine bien calibrée. Cela nous évitait alors les problématiques complexes de <em>clustering</em>. Mais nous devions tout de même stocker quelques informations relationnelles : il fallait donc avoir accès à quelques primitives nous permettant d’émuler les relations minimum entre nos données. <a href="https://redis.io/">Redis</a> s’est donc imposé comme la <a href="https://stackoverflow.com/questions/10558465/memcache-vs-redis">solution adéquate</a>. Cela reste malgré tout une solution théoriquement insatisfaisante, car non réellement scalable. Mais en pratique, les très bonnes performances de Redis permettent de répondre à (bien plus que) nos attentes.</p>
+
+<p>Le code se trouve, pour sa part, complètement isolé sur son propre serveur.
+Comme ce service est complètement <a href="https://en.wikipedia.org/wiki/Stateless_protocol">stateless</a> et que notre base de donnée est centralisée et suffisamment performante, nous pouvons donc facilement ajouter ou supprimer des serveurs web selon la charge attendue : on peut dire qu’en pratique le service Polls est <a href="https://fr.wikipedia.org/wiki/Exigences_d'architecture_technique#Scalabilit.C3.A9">scalable horizontalement</a>.</p>
+
+<p>Lorsque l’architecture mise en place permet de répartir la charge sur un nombre variable de machines, le contrat est rempli : ce n’est plus qu’une question d’argent pour supporter n’importe quelle charge. Et comme tout le monde le sait : l’argent n’est pas un problème, c’est une solution.</p>
+
+<h2 id="développement">Développement</h2>
+
+<p>Le service Polls a été développé en PHP avec <a href="https://symfony.com/">Symfony</a> et le <a href="https://github.com/FriendsOfSymfony/FOSRestBundle#fosrestbundle">FOSRestBundle</a>. Nous avons d’abord suivi certaines <a href="https://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/">références</a>, puis nous avons ensuite développé un micro ORM maison pour faire persister nos données dans Redis et enfin <a href="/2014/01/28/how-we-use-statsd">nous avons monitoré</a> tous ce que l’on pouvait à l’aide de notre <a href="https://github.com/BedrockStreaming/StatsdBundle">bundle dédié</a>.</p>
+
+<p>Une attention toute particulière a été portée à la qualité avec des tests unitaires couvrant un maximum de code et des <a href="/redismock-qui-a-bouchonne-mon-redis">tests fonctionnels</a> couvrant la plupart des cas d’utilisation des clients. Les nombreuses mises en production journalières pendant la phase d’optimisation ont ainsi été grandement facilitées, notamment grâce à la sérénité apportée par l’intégration continue.</p>
+
+<h2 id="mise-en-production">Mise en production</h2>
+
+<p>L’intégration de ce nouveau service Polls a cependant été bien plus longue que son développement. Nous l’avons d’abord mis en production en doublon de l’ancien système : toutes les écritures étaient faites sur les deux systèmes, mais l’ancien était encore la référence lors de la lecture des résultats par les clients.</p>
+
+<p>Puis après deux semaines, lorsque nous avons validé l’exacte corrélation entre les deux courbes du nombre de votes par minute à l’aide de <a href="https://graphite.wikidot.com/">Graphite</a>, nous avons alors changé les clients pour qu’ils viennent lire les résultats sur le service Polls.</p>
+
+<p>Encore deux semaines plus tard, lorsque tout était validé et que nous avions développé et exécuté un script d’import de l’historique, nous avons débranché l’ancien système.</p>
+
+<p>L’intégration a donc été au moins trois fois plus longue, et donc couteuse, que le développement du service en lui-même.</p>
+
+<h2 id="optimisation">Optimisation</h2>
+
+<p>La première optimisation est simplement conceptuelle : nous avons concentré la criticité sur une seule route, celle qui est utilisée par chaque client pour voter. Il est ainsi plus simple de mesurer et donc d’améliorer les performances du service Polls. Cette route est critique parce qu’elle est utilisée par tous les clients, qu’elle ne peut pas être cachée et qu’il faut écrire des données en base lors de chaque appel.</p>
+
+<p>Il existait plusieurs pistes d’optimisation connues (système de queue, node.js, etc.) mais dans une optique <a href="https://fr.wikipedia.org/wiki/Principe_KISS">KISS</a>, nous avons d’abord opté pour l’utilisation des technologies en place pour ensuite interpréter les résultats récupérés lors des tests de charge et s’adapter si besoin.</p>
+
+<p>Dans un premier temps, nous avons légèrement ajusté notre modèle de données pour limiter le nombre d’action à réaliser sur la base de données : nous avons seulement deux instructions Redis de <a href="https://fr.wikipedia.org/wiki/Analyse_de_la_complexit%C3%A9_des_algorithmes#Complexit.C3.A9.2C_comparatif">complexité constante O(1)</a> à réaliser pour chaque vote. Puis nous avons utilisé les transactions pour grouper ces deux instructions et éviter la latence d’une connexion supplémentaire vers notre serveur Redis.</p>
+
+<p>Nous avons enfin supprimé la vérification de deux contraintes d’intégrité sans importance. Le code retour en cas d’erreur est juste un peu moins cohérent (<code class="language-plaintext highlighter-rouge">400</code> au lieu de <code class="language-plaintext highlighter-rouge">422</code>) mais cela n’impacte ni l’intégrité des votes ni la sécurité du service.</p>
+
+<p><img src="/images/posts/cytron/polls/contrainte1.png" alt="Suppression de la première contrainte" /></p>
+
+<p><img src="/images/posts/cytron/polls/contrainte2-transaction.png" alt="Suppression de la deuxieme contrainte et transaction Redis" /></p>
+
+<p>Afin de savoir si nous n’avions pas complètement pris une mauvaise direction dans notre utilisation de Symfony, nous avons alors fait appel à <a href="https://twitter.com/alexandresalome">Alexandre Salomé</a>, consultant SensioLabs, pour auditer notre code.</p>
+
+<p>Lors de cette journée, durant laquelle nous avons beaucoup appris, nous avons simplement désactivé tous les bundles que nous n’utilisions pas réellement en production : principalement Twig. Cela a occasionné une légère modification de notre code car le FOSRestBundle nécessite Twig pour afficher les erreurs même lorsque celles-ci sont en JSON.</p>
+
+<p>Une fois cette modification apportée, nous avons gagné les ultimes millisecondes nous permettant de passer sous la barre symbolique des 10ms de temps de réponse sur notre route critique.</p>
+
+<p><img src="/images/posts/cytron/polls/bundles.png" alt="Suppression des bundles superflus" /></p>
+
+<p>Vous remarquerez que nous avons d’abord déployé le système en production avant de chercher à l’optimiser : nous pouvions ainsi mesurer en temps réel l’impact de nos développements sur une multitude d’indicateurs dont le temps de réponse.</p>
+
+<h2 id="mise-en-pratique">Mise en pratique</h2>
+
+<p>Le service Polls a facilement tenu la charge pour la première émission mettant en avant le <em>second écran</em> : un épisode de Hawaï 5-0 durant lequel les internautes pouvaient <a href="https://www.programme-tv.net/news/series-tv/39233-hawaii-5-0-m6-ce-soir-vous-decidez-fin-episode/">choisir le coupable</a> avec un sondage (sur leur téléphone, tablette ou PC).</p>
+
+<p><img src="/images/posts/cytron/polls/hawai50.png" alt="Nombre de votes pour Hawai 5-0" /></p>
+
+<p>Plus précisément, nous sommes montés à 150 requêtes par secondes (ce qui est évidemment bien moins que nos tests de charge), mais nous savons que nous pourrons maintenant nous adapter très simplement à une charge beaucoup plus forte en ajoutant des serveurs web. Notamment lors d’émissions faisant grandement appel au <em>second écran</em>.</p>
+
+<p>Dans le pire des cas, si le service Polls devient indisponible, aucune autre partie de notre infrastructure ne sera compromise.</p>
+
+<h2 id="leçons">Leçons</h2>
+
+<p>Au cours du développement, de la mise en production et de la maintenance de ce service, j’ai appris plusieurs choses que j’essaierai de ne pas oublier trop vite :</p>
+
+<ul>
+  <li>Yes we can! Il est possible de combler petit à petit <a href="https://blog.octo.com/maitriser-sa-dette-technique">la dette technique</a>, mais uniquement si c’est <a href="https://twitter.com/mbohlende/status/431446680874258433">la volonté des décideurs</a>,</li>
+  <li>la sérénité apportée par les tests automatisés est sans égale pour le confort de développement,</li>
+  <li>Redis est très performant.</li>
+</ul>
+
+<p>Ha ? Attendez ! On me dit dans l’oreillette que certains doutaient encore qu’il était possible de faire du code performant avec un framework <em>full stack</em> comme Symfony.</p>
+
+<p>Pas moi :-)</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Refonte+de+notre+syst%C3%A8me+de+vote%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2014%2F02%2F18%2Frefonte-de-notre-systeme-de-vote.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2014/02/18/refonte-de-notre-systeme-de-vote.html&title=Refonte+de+notre+syst%C3%A8me+de+vote%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2014/02/18/refonte-de-notre-systeme-de-vote.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Refonte de notre système de vote%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2014/02/18/refonte-de-notre-systeme-de-vote.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#api">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> api</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#cytron">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> cytron</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#monitoring">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> monitoring</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#qualite">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> qualite</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#redis">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> redis</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#symfony">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> symfony</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Utilisation du StatsdBundle avec le composant Console" href="/2014/03/04/utilisation-du-statsdbundle-avec-la-console.html">
+            <p>Previous post</p>
+            Utilisation du StatsdBundle avec le composant Console
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="How we use StatsD" href="/2014/01/28/how-we-use-statsd.html">
+            <p>Next post</p>
+            How we use StatsD
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/cytron/polls.png'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

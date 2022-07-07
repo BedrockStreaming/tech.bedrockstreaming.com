@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/migrating-production-apps-to-the-cloud/kaushik-panchal-37070-unsplash.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Migrating production applications from on-premise to the cloud with no downtime | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Migrating production applications from on-premise to the cloud with no downtime" />
+<meta name="author" content="Vincent Gallissot" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="How did we proceed, what lessons we learned and what tools we used" />
+<meta property="og:description" content="How did we proceed, what lessons we learned and what tools we used" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2019/03/11/Migrating-production-apps-from-on-premise-to-the-cloud-with-no-downtime.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2019/03/11/Migrating-production-apps-from-on-premise-to-the-cloud-with-no-downtime.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-03-11T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Migrating production applications from on-premise to the cloud with no downtime" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2019/03/11/Migrating-production-apps-from-on-premise-to-the-cloud-with-no-downtime.html"},"url":"https://tech.bedrockstreaming.com/2019/03/11/Migrating-production-apps-from-on-premise-to-the-cloud-with-no-downtime.html","author":{"@type":"Person","name":"Vincent Gallissot"},"description":"How did we proceed, what lessons we learned and what tools we used","dateModified":"2019-03-11T00:00:00+01:00","datePublished":"2019-03-11T00:00:00+01:00","headline":"Migrating production applications from on-premise to the cloud with no downtime","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Migrating production applications from on-premise to the cloud with no downtime">
+    <meta name="twitter:description" content="We are migrating all our on-premise applications to AWS cloud.Most of them are/will be migrated to Kops-managed Kubernetes clusters, and some are/will be mig...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/migrating-production-apps-to-the-cloud/kaushik-panchal-37070-unsplash.jpg">
+    <meta name="twitter:image:alt" content="Migrating production applications from on-premise to the cloud with no downtime">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Migrating production applications from on-premise to the cloud with no downtime " aria-label="Migrating production applications from on-premise to the cloud with no downtime" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Migrating+production+applications+from+on-premise+to+the+cloud+with+no+downtime" class="title">Migrating production applications from on-premise to the cloud with no downtime</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/vgallissot" target="_blank" rel="noopener">
+    <p class="meta">
+      Vincent Gallissot - 
+      
+      March 11, 2019
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>We are migrating all our on-premise applications to AWS cloud.
+Most of them are/will be migrated to Kops-managed Kubernetes clusters, and some are/will be migrated as lambdas.
+To secure this migration, we are using HAProxy in front of both on-prem and on-AWS deployments (first only sending 1% of each application’s requests to AWS, then 5%, then 25% and so on).
+Disclaimer: This article describes a feedback from production environment. We have changed the name of applications mentioned here, but everything else is true within the limits of our knowledge.</p>
+
+<p>You can find the content of this blogpost (and more) in a 25mn talk at the HAProxy conf given in Amsterdam in 2019 :</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NmStcGBkXmQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<h2 id="the-first-migrated-application">The first migrated application</h2>
+
+<p>It’s an API written in PHP. It has no external dependency (database, redis…), except for another API, called over HTTP.
+We have migrated this application to the cloud like we’ve done with other applications since.</p>
+
+<p>The first step was to deploy this application to a kubernetes cluster and expose it over an ELB.
+Then, we wanted to send real-user requests to that app. We wanted to see how it would behave with real production traffic.
+But we didn’t want to send 100% of our users over there at once: we’d first rather check everything works fine with just 1% of our users.</p>
+
+<h2 id="haproxy">HAProxy</h2>
+
+<p>We’ve been using HAProxy for several years now.
+Because of its features, like advanced backend monitoring or its enormous number of metrics, it’s the perfect tool to help us on this migration.</p>
+
+<p>At first, we didn’t know how the app, the Horizontal Pod Autoscaler, Liveness probes etc. would react with real live production requests.
+So, we decided to migrate only 1% of production HTTP requests to our Kubernetes cluster. The other 99% of HTTP requests would remain on premise, where the application works for sure.</p>
+
+<p>Here’s a part of the associated HAProxy configuration:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">backend</span> <span class="n">application</span><span class="o">-</span><span class="mo">01</span>
+    <span class="n">http</span><span class="o">-</span><span class="n">response</span> <span class="n">add</span><span class="o">-</span><span class="n">header</span> <span class="no">X</span><span class="o">-</span><span class="no">Backend</span><span class="o">-</span><span class="no">Server</span> <span class="o">%</span><span class="n">s</span>
+    <span class="n">balance</span> <span class="n">roundrobin</span>
+    <span class="n">http</span><span class="o">-</span><span class="n">request</span> <span class="n">set</span><span class="o">-</span><span class="n">header</span> <span class="no">Host</span> <span class="n">application</span><span class="o">-</span><span class="mo">01</span><span class="o">.</span><span class="mi">6</span><span class="n">play</span><span class="p">.</span><span class="nf">fr</span>
+    <span class="n">option</span> <span class="n">httpchk</span> <span class="no">GET</span> <span class="sr">/HealthCheck HTTP/</span><span class="mf">1.1</span><span class="p">\</span><span class="n">r</span><span class="p">\</span><span class="n">nHost</span><span class="p">:\</span> <span class="n">application</span><span class="o">-</span><span class="mo">01</span><span class="o">.</span><span class="mi">6</span><span class="n">play</span><span class="p">.</span><span class="nf">fr</span>
+    <span class="n">server</span> <span class="n">aws</span><span class="o">-</span><span class="n">prod</span><span class="o">-</span><span class="no">Kubernetes</span><span class="o">-</span><span class="n">application</span><span class="o">-</span><span class="mo">01</span> <span class="n">aQuiteLongURLCorrespondingToOurELBEndpoint</span><span class="p">.</span><span class="nf">eu</span><span class="o">-</span><span class="n">west</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="nf">elb</span><span class="p">.</span><span class="nf">amazonaws</span><span class="p">.</span><span class="nf">com</span><span class="p">:</span><span class="mi">443</span> <span class="n">check</span> <span class="n">ssl</span> <span class="n">verify</span> <span class="n">required</span> <span class="n">sni</span> <span class="n">req</span><span class="p">.</span><span class="nf">hdr</span><span class="p">(</span><span class="n">host</span><span class="p">)</span> <span class="n">check</span><span class="o">-</span><span class="n">sni</span> <span class="n">application</span><span class="o">-</span><span class="mo">01</span><span class="o">.</span><span class="mi">6</span><span class="n">play</span><span class="p">.</span><span class="nf">fr</span> <span class="n">ca</span><span class="o">-</span><span class="n">file</span> <span class="n">ca</span><span class="o">-</span><span class="n">certificates</span><span class="p">.</span><span class="nf">crt</span> <span class="n">inter</span> <span class="mi">1</span><span class="n">s</span> <span class="n">fall</span> <span class="mi">1</span> <span class="n">rise</span> <span class="mi">2</span> <span class="n">resolvers</span> <span class="n">m6dns</span> <span class="n">observe</span> <span class="n">layer7</span> <span class="n">weight</span> <span class="mi">25</span>
+    <span class="n">server</span> <span class="n">onprem</span><span class="o">-</span><span class="n">prod</span><span class="o">-</span><span class="n">front</span><span class="o">-</span><span class="n">application</span><span class="o">-</span><span class="mo">01</span> <span class="n">onprem</span><span class="o">-</span><span class="n">application</span><span class="o">-</span><span class="mo">01</span><span class="o">.</span><span class="mi">6</span><span class="n">play</span><span class="p">.</span><span class="nf">fr</span><span class="p">:</span><span class="mi">80</span> <span class="n">check</span> <span class="n">resolvers</span> <span class="n">m6dns</span> <span class="n">weight</span> <span class="mi">75</span></code></pre></figure>
+
+<p>Some explanations on key elements of this configuration:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">http-response add-header</code>: adds an HTTP header to the response, with the server chosen by HAProxy to handle the request. We added this for debugging purposes: to know who handled our request when requesting the service</li>
+  <li><code class="language-plaintext highlighter-rouge">balance roundrobin</code>: because we’re using a stateless application</li>
+  <li><code class="language-plaintext highlighter-rouge">check .. inter 1s fall 1 rise 2</code> in the server directive: healthchecks have 1 second of timeout, only 1 bad healthcheck is enough to mark the server as unhealthy and we need 2 good healthchecks in a row to mark it as healthy again</li>
+  <li><code class="language-plaintext highlighter-rouge">observe layer7</code>: It will simulate a bad healthcheck for each application server error (e.g: 500, 502, 503, etc.) making this server fall in such a situation</li>
+  <li><code class="language-plaintext highlighter-rouge">weight 25</code>: We use weights from 0 to 100 (you can go up to 256), so that corresponds to traffic percentages in our case</li>
+</ul>
+
+<p>With the above configuration, as soon as there is an error, HAProxy won’t send traffic to our AWS/Kubernetes application anymore; consequently, it will have a minimum impact on endusers.</p>
+
+<h2 id="tests">Tests</h2>
+
+<p>We first tested this with staging proxies, with a temporary domain name and a 50-50% loadbalancer, to ensure the load-balancing worked fine.
+We tried to kill the deployment on Kubernetes to check 100% of requests came back on-prem. We tested killing random pods to see if we had some user impact. We tested to slow down the application so it would be slower than 1s to respond. We also tested to slow down only one of two pods running the application.
+It was all OK, so we were confident to go to production.</p>
+
+<h2 id="migration-steps">Migration steps</h2>
+
+<p>Before its migration, the application infrastructure looked like this:
+<img src="/images/posts/migrating-production-apps-to-the-cloud/application_pre_migration.png" alt="Application before the migration to AWS &amp; Kubernetes" /></p>
+
+<p>We inserted HAProxy servers in that schema, so the traffic passes through them before being sent to the caches.
+That way, HAProxy controls where traffic is sent.
+To make those migrations as transparent as possible, we first configured HAProxy to send traffic to on-prem servers only.
+In the same time, developers have deployed all mandatory resources (RDS, DynamoDB, elasticache, etc.) with Terraform and verified the application works fine. The application itself could have changed: either the code or kubernetes manifests.
+When ready, both ops and devs gave their approval to send traffic to the cloud.</p>
+
+<p>We started by load-balancing 1% to the AWS ELB with HAProxy:
+<img src="/images/posts/migrating-production-apps-to-the-cloud/application_migrating.png" alt="Application while migrating 1% to AWS &amp; Kubernetes" /></p>
+
+<p>We compared everything we could:</p>
+<ul>
+  <li>2xx, 3xx, 4xx and 5xx percentages</li>
+  <li>connect and response times</li>
+  <li>failed healthchecks and healthchecks return codes</li>
+  <li>backend retries and bad responses</li>
+</ul>
+
+<p>We were amazed: only 3ms in average difference between on-prem and our Kubernetes cluster in AWS cloud.
+And no error. Everything worked as expected. It was almost suspicious.</p>
+
+<p><img src="/images/posts/migrating-production-apps-to-the-cloud/haproxy_cloud_connect_time_avg.png" alt="Average connect times from HAProxy to backends" />
+This graph shows the average connect times from HAProxy.</p>
+
+<p>We’re using Paris as AWS zone and our datacenters are located in Paris too, so that explains the few milliseconds to go back and forth from HAProxy (on prem) to the cloud. In fact, this one to two millisecond between our on-prem servers and AWS is one of the reasons adding HAProxy in the mix was possible.</p>
+
+<p><img src="/images/posts/migrating-production-apps-to-the-cloud/haproxy_cloud_response_time_avg.png" alt="Average response times from HAProxy to backends" />
+This graph shows the average response times from the application.</p>
+
+<p>We also had some PHP configurations to update to be ISO prod (OPCache, APCu, etc.). Why? Well, at first, we created a quick’n dirty (working, but not optimized) Docker image for our application and it went straight to production, before our sysadmins could take a better look at it.</p>
+
+<p><img src="/images/posts/migrating-production-apps-to-the-cloud/haproxy_cloud_http2xx_codes.png" alt="HTTP codes 2xx" />
+This graph shows the number of 2xx HTTP codes with 25% of traffic sent to AWS.</p>
+
+<p>Once those PHP optimisations were fixed, we had only 2ms difference between our on-premise and our Kubernetes on AWS. It’s low enough to allow us to test this setup a bit longer without any visible user impact.</p>
+
+<h2 id="deploying-more-and-more">Deploying more and more</h2>
+
+<p>1% on our kubernetes cluster was great, but it was not enough to see perfs issues.
+So we raised HAProxy’s load balancing from 1%/99% to 10%/90%.
+Still not enough. We raised it to 25%/75%.
+We checked application’s pods CPU usage, it was really low. Too low to even trigger the Horizontal Pod Autoscaler based on cpu usage. We couldn’t validate our pods Requests and Limits for that Kubernetes deployment therefore.</p>
+
+<p>So far, it was enough for us to validate things we could check were working fine. The application cache was efficient, we had stable performances and no surprise on traffic peaks.</p>
+
+<p>On this first application migration, we decided to stay at 25% of traffic sent to the cloud for the moment, to observe.
+We did it because HAProxy would have saved us if something bad happened.</p>
+
+<p>It did behave well: nothing happened for 26 days.</p>
+
+<h2 id="some-errors-encountered">Some errors encountered</h2>
+
+<h3 id="unknown-nodes">Unknown nodes</h3>
+
+<p>On the 27th day, we noticed two of our three nodes were in <code class="language-plaintext highlighter-rouge">Unknown</code> state. As our Replicas specified we wanted several pods, Kubernetes started new pods. But as we only had one <code class="language-plaintext highlighter-rouge">Ready</code> node left (3 worker nodes in the cluster, including two in <code class="language-plaintext highlighter-rouge">Unknown</code> state), all pods for our application were now on that single node. Not great for reliability.<br />
+We found that the CoreOS image we used was doing automatic updates that restarted nodes regularly. On those two nodes (and on the third one a few days later!), the restart did not go well and Kubelet wasn’t starting at bootime. After investigation, it appears we changed the <a href="https://github.com/kubernetes/kops/blob/master/docs/state.md">KOPS STATE STORE</a> bucket. Nodes started before that change were impacted as Kubelet couldn’t find its configuration. Starting new nodes and killing the old ones solved this issue.<br />
+That allowed us to identify two problems: we didn’t restrict when and how automatic updates were started; and we didn’t have enough cluster monitoring.</p>
+
+<p>From that, we knew we had to monitor:</p>
+<ul>
+  <li>Nodes in a state different from Ready for a certain time</li>
+  <li>If the number of Ready nodes is at least equal to the Auto Scaling Group minimum</li>
+  <li>If the number of Ready nodes is at most 90% the Auto Scaling Group maximum</li>
+</ul>
+
+<h3 id="differences-between-cluster-autoscaler-and-asg-values">Differences between cluster-autoscaler and ASG values</h3>
+
+<p>While trying to solve the problem above, we also found that pods were living around 5mns before being destroyed and created again. After some investigation, we found that min and max EC2 instances were not configured to the same values between the AWS Auto Scaling Group and the cluster-autoscaler pod.<br />
+Some day, we modified the Kops configuration for those worker nodes and the configuration was well applied to the ASG, but was not applied to the cluster-autoscaler. As a result, we had an ASG minimum of 4 worker nodes, but a cluster-autoscaler minimum of 3.<br />
+At some point in the history, the cluster-autoscaler defined that the current amount of worker nodes (four) was too high compared to the real need, so it tried to reallocate pods to free up a node. It have done that by draining pods from a node. At the same time, the cluster-autoscaler tried to change the ASG’s desired value to 3 nodes. Because the minimum nodes configured for the ASG was 4, the latter denied the request. Kubernetes scheduler chose to reschedule those recently-killed pods on available nodes, starting by the one with no running pods, AKA: the one that just drained them all.<br />
+This last phase started again every 5 minutes, making sure that our pods did not survive longer than that.</p>
+
+<h3 id="application-latencies-undetected-by-health-checks">Application latencies undetected by health checks</h3>
+
+<p>Our application was really slow on Kubernetes/AWS (due to a network misconfiguration) but HAProxy did not disable it. We specified a 1s timeout as shown in the example above, but this is only for healthchecks. Our global server timeout is upper than 1s. Because our application calls another webservice, those calls were timeouting. HAProxy was not aware of that, because the application’s <code class="language-plaintext highlighter-rouge">/HealthCheck</code> health page doesn’t check external webservices and thus, were not impacted by those external webservices timeouts. This is an application choice that we can encounter on-premise too, with the exact same behavior. For that reason, we decided to change nothing for now (and we’ll discuss this with the devs teams to see if there’s something we can do).
+We don’t check external webservices in our <code class="language-plaintext highlighter-rouge">/HealthCheck</code> page on purpose, because that page is also tested by kubernetes for livenessProbe. Kubernetes restarts a pod when it is not healthy anymore but when it comes to an external service that is failing, restarting the current pod is non-sens. Kubernetes will restart pods again and again even if the application itself can’t to anything about it! The livenessProbe should test only what the pod does. The Amadeus team <a href="https://www.youtube.com/watch?v=HIB_haT1z5M">talked about that at the KubeCon EU 2018</a> while presenting Kubervisor.</p>
+
+<h2 id="pedal-to-the-metal">Pedal to the metal</h2>
+
+<p>We were stabilized again.
+So we raised HAProxy load-balancing to 50% on our application in the cloud.
+After seven days without any error, we pushed it to 75%.
+After another seven days, we passed the on-prem server as a backup in HAProxy, making the application in kubernetes receiving 100% traffic.</p>
+
+<p><img src="/images/posts/migrating-production-apps-to-the-cloud/haproxy_cloud_http2xx_codes_100pc.png" alt="HTTP codes 2xx with 100% traffic sent to AWS" /></p>
+
+<p>We stayed with that configuration for 2 months.
+That gave us plenty of time to adapt pods Requests and Limits.
+That is really important for us, because we use HorizontalPodAutoscaler resources with CPU metrics to scale most of our APIs. <a href="https://fr.slideshare.net/VincentGallissot/how-we-auto-scale-applications-based-on-cpu-with-kubernetes-at-m6web">Here you can find slides</a> deep diving one of our applications that autoscales in prod with kubernetes.
+We had several events during those 2 months that helped us optimize Requests and Limits for that app. For example, we had holiday traffic, a football match and some special primetime sessions.
+We also improved our knowledge of both Kubernetes and AWS during this time (I.e: What happens when we rolling restart worker nodes?). Finally, we have configured our Prometheus servers with effective and non-noisy alerts.</p>
+
+<p>After weeks of optimizations, we migrated this app’s DNS directly on ELB without HAProxy.
+Everything works perfectly as expected since that day.</p>
+
+<h2 id="next-applications-to-migrate">Next applications to migrate</h2>
+
+<p>We’ve done a lot of work for our first migration. We’ve capitalized that time for the next projects to finally be able to migrate them in few days.
+The workflow stays unchanged:</p>
+
+<ul>
+  <li>Deploy the application into a kubernetes cluster</li>
+  <li>Add HAProxy servers in front of both on-prem and in-cloud instances</li>
+  <li>Load balance from 1% to 100% traffic to the in-cloud instance</li>
+  <li>Configure accurate Requests and Limits</li>
+  <li>Create efficient alerting</li>
+  <li>Point DNS to ELB</li>
+</ul>
+
+<h2 id="migrate-an-application-path-by-path">Migrate an application path by path</h2>
+
+<p>Some of our applications needed to be partially rewritten to be cloud native.
+Only specific paths were affected by this rewrite.</p>
+
+<p>So we decided to use HAProxy to migrate those applications, path by path.
+We also used GOReplay to replicate production traffic for each path, to be sure we didn’t messed up things before sending end-users traffic.</p>
+
+<p><img src="/images/posts/migrating-production-apps-to-the-cloud/application_migrating_specific_v2_path.png" alt="Application while migrating 50% to AWS &amp; Kubernetes for specific v2 path" />
+This schema shows how HAProxy were routing traffic according to specific paths.</p>
+
+<p>The workflow is almost the same as above, with few changes:</p>
+
+<ul>
+  <li>Deploy the application into a kubernetes cluster</li>
+  <li>Add HAProxy servers in front of both on-prem and in-cloud instances</li>
+  <li>Use HAProxy <code class="language-plaintext highlighter-rouge">map_reg</code> to route traffic, depending of the requested URL</li>
+  <li>Define path routing preferences in the map file created in step 3 (see example below)</li>
+  <li>Configure and test each path:
+    <ul>
+      <li>Let developers rewrite paths, I.E: /HealthCheck</li>
+      <li>Replicate production traffic with <a href="https://github.com/buger/goreplay">GOReplay</a>, to specific paths, including /HealthCheck, from on-prem to the application in the Kubernetes cluster in AWS</li>
+      <li>Stabilize the application: either code optimisations or Kubernetes Requests and Limits adaptations</li>
+      <li>Add this newly created path /HealthCheck on the HAProxy’s routing map file</li>
+      <li>Repeat for each new path</li>
+    </ul>
+  </li>
+  <li>Create a specific HAProxy Backend section for each route to load balance traffic differently for each route</li>
+  <li>Increase traffic load balancing up to 100% to the cloud</li>
+  <li>Create efficient alerting</li>
+  <li>Point the DNS to the ELB</li>
+</ul>
+
+<h3 id="traffic-replication-with-goreplay">Traffic replication with GOReplay</h3>
+
+<p>We use a lot <a href="https://github.com/buger/goreplay">GOReplay</a>.
+Not only because it’s light and easy to work with, but because we can do whatever we want with it to replicate traffic. It can rewrite headers, catch only a specific domain or a specific url. It’s the perfect tool to complete our migration workflow.</p>
+
+<p>Here is a script we used in the step 5.b of the workflow above:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+
+replicate_traffic<span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">[[</span> <span class="nt">-z</span> <span class="nv">$1</span> <span class="o">]]</span>
+    <span class="k">then
+        </span><span class="nb">local </span><span class="nv">REPLICATION_PERCENTAGE</span><span class="o">=</span>5%
+    <span class="k">else
+        </span><span class="nb">local </span><span class="nv">REPLICATION_PERCENTAGE</span><span class="o">=</span><span class="nv">$1</span>
+    <span class="k">fi
+
+    if</span> <span class="o">[[</span> <span class="nt">-z</span> <span class="nv">$2</span> <span class="o">]]</span>
+    <span class="k">then
+        </span><span class="nb">local </span><span class="nv">TIMEOUT</span><span class="o">=</span>45s
+    <span class="k">else
+        </span><span class="nb">local </span><span class="nv">TIMEOUT</span><span class="o">=</span><span class="nv">$2</span>
+    <span class="k">fi
+
+    </span><span class="nb">echo</span> <span class="s2">"Replicating traffic at </span><span class="k">${</span><span class="nv">REPLICATION_PERCENTAGE</span><span class="k">}</span><span class="s2"> for </span><span class="nv">$TIMEOUT</span><span class="s2">"</span>
+
+    ./gor <span class="nt">-exit-after</span> <span class="nv">$TIMEOUT</span> <span class="se">\</span>
+    <span class="nt">-input-raw</span> :8080 <span class="se">\</span>
+    <span class="nt">-http-disallow-url</span> /v2/critical/sensible_datas/payments/ <span class="se">\</span>
+    <span class="nt">-http-allow-url</span> /v2 <span class="se">\</span>
+    <span class="nt">-input-raw-bpf-filter</span> <span class="s2">"dst host 127.0.0.72"</span> <span class="se">\</span>
+    <span class="nt">-output-http</span> <span class="s2">"https://application-02.6play.fr/|</span><span class="k">${</span><span class="nv">REPLICATION_PERCENTAGE</span><span class="k">}</span><span class="s2">"</span> <span class="se">\</span>
+    <span class="nt">-http-original-host</span> <span class="se">\</span>
+    2&gt;/dev/null
+<span class="o">}</span>
+
+<span class="c"># The above allows a normal ramp-up of the traffic.</span>
+<span class="c"># That means application replicas can be low and increase naturally without an insane peak</span>
+replicate_traffic 1% 45s
+replicate_traffic 2% 45s
+replicate_traffic 5% 45s
+replicate_traffic 10% 45s
+replicate_traffic 20% 60s
+replicate_traffic 40% 60s
+replicate_traffic 60% 60s
+replicate_traffic 80% 60s
+replicate_traffic 100% 7h</code></pre></figure>
+
+<p>We’re using this script and not directly the gor command, to do a slow ramp-up of traffic to the application in Kubernetes.
+Otherwise, since the application is not stressed before traffic is replicated, replicating 100% of traffic all of a sudden would not be representative of real user behavior. It would led to unwanted alerts that would disappear in minutes with auto-scaling, but that would have rang anyway. So we chose to avoid that noise by doing a slow ramp-up to make traffic replication more real.</p>
+
+<p>We could follow the replication with HAProxy dashboard, like the following graph:
+<img src="/images/posts/migrating-production-apps-to-the-cloud/gor-traffic-replication.png" alt="Replicating production traffic with gor" /></p>
+
+<h3 id="haproxy-configuration">HAProxy configuration</h3>
+
+<p>To achieve a path-by-path migration of an application, we used this HAProxy configuration:</p>
+
+<figure class="highlight"><pre><code class="language-apache" data-lang="apache">frontend application-02
+    <span class="err">...</span>
+    <span class="c"># Defined with a "map" style, from file /etc/haproxy/domain2backend.map</span>
+    <span class="c"># CF https://blog.haproxy.com/2015/01/26/web-application-name-to-backend-mapping-in-haproxy/</span>
+    use_backend %[base,map_reg(/etc/haproxy/domain2backend.map,bk_default)]
+
+backend application-02-on-prem
+    http-response add-header X-Backend-Server %s
+    <span class="nc">option</span> httpchk GET /HealthCheck HTTP/1.1\r\nHost:\ application-02.6play.fr
+    <span class="nc">server</span> onprem-prod-front-application-02 onprem-application-02.6play.fr:80 check resolvers m6dns
+
+backend application-02-on-cloud
+    http-response add-header X-Backend-Server %s
+    <span class="nc">option</span> httpchk GET /HealthCheck HTTP/1.1\r\nHost:\ application-02.6play.fr
+    <span class="nc">server</span> aws-prod-Kubernetes-application-02 aQuiteLongURLCorrespondingToOurELBEndpoint.eu-west-3.elb.amazonaws.com:443 check <span class="ss">ssl</span> verify required sni req.hdr(host) check-sni application-02.6play.fr ca-file ca-certificates.crt resolvers m6dns
+
+backend application-02-mixed
+    http-response add-header X-Backend-Server %s
+    <span class="nc">option</span> httpchk GET /HealthCheck HTTP/1.1\r\nHost:\ application-02.6play.fr
+    <span class="nc">server</span> onprem-prod-front-application-02 onprem-application-02.6play.fr:80 check resolvers m6dns weight 75
+    <span class="nc">server</span> aws-prod-Kubernetes-application-02 aQuiteLongURLCorrespondingToOurELBEndpoint.eu-west-3.elb.amazonaws.com:443 check <span class="ss">ssl</span> verify required sni req.hdr(host) check-sni application-02.6play.fr ca-file ca-certificates.crt resolvers m6dns inter 3s fall 1 rise 2 observe layer7 weight 25
+
+backend application-02-mixed-critical
+    http-response add-header X-Backend-Server %s
+    <span class="nc">option</span> httpchk GET /HealthCheck HTTP/1.1\r\nHost:\ application-02.6play.fr
+    <span class="nc">server</span> onprem-prod-front-application-02 onprem-application-02.6play.fr:80 check resolvers m6dns weight 99
+    <span class="nc">server</span> aws-prod-Kubernetes-application-02 aQuiteLongURLCorrespondingToOurELBEndpoint.eu-west-3.elb.amazonaws.com:443 check <span class="ss">ssl</span> verify required sni req.hdr(host) check-sni application-02.6play.fr ca-file ca-certificates.crt resolvers m6dns inter 3s fall 1 rise 2 observe layer7 weight 1</code></pre></figure>
+
+<p>And here’s the associated map file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#HOST Header                                                            #HAP backend_name
+application-02\.6play\.fr\/v2\/critical\/(\w{1,45})\/payments\/         application-02-mixed-critical
+application-02\.6play\.fr\/v2\/customers\/                              application-02-mixed
+application-02\.6play\.fr\/v2\/                                         application-02-on-cloud
+application-02\.6play\.fr\/v1\/                                         application-02-on-prem
+
+# Catch ALL for application-02.6play.fr
+application-02\.6play\.fr\/                                             application-02-on-prem
+</code></pre></div></div>
+
+<p>Some examples of traffic routing made by HAProxy with the configuration above:</p>
+
+<ul>
+  <li>application-02.6play.fr/v2/critical/sensible_datas/payments/
+    <ul>
+      <li>sent on the specific <code class="language-plaintext highlighter-rouge">application-02-mixed-critical</code> backend,</li>
+      <li>with 1% traffic sent to the cloud</li>
+    </ul>
+  </li>
+  <li>application-02.6play.fr/v2/customers/
+    <ul>
+      <li>sent on <code class="language-plaintext highlighter-rouge">application-02-mixed</code>,</li>
+      <li>load balanced at 25% on the cloud</li>
+    </ul>
+  </li>
+  <li>application-02.6play.fr/v2/
+    <ul>
+      <li>sent on <code class="language-plaintext highlighter-rouge">application-02-on-cloud</code>,</li>
+      <li>only on the AWS ELB: cloud only</li>
+    </ul>
+  </li>
+  <li>application-02.6play.fr/v1/
+    <ul>
+      <li>sent on <code class="language-plaintext highlighter-rouge">application-02-on-prem</code>,</li>
+      <li>only on-premise</li>
+    </ul>
+  </li>
+  <li>application-02.6play.fr/admin/
+    <ul>
+      <li>sent on-premise only,</li>
+      <li>this is the default</li>
+    </ul>
+  </li>
+</ul>
+
+<p>With HAProxy map files and the according backend sections, we’re able to migrate path by path any application from on-premise to our kubernetes cluster in the cloud.
+With gor on top of it, it’s even easier to allow developers develop a specific path while another is being migrated, and all that, with no downtime.</p>
+
+<h2 id="next-steps">Next steps</h2>
+
+<p>We’ve done most of our cloud migration with workflows explained in this blogpost.
+Thanks to HAProxy, most of our applications could be migrated at the same time with no impact from on migration to another.</p>
+
+<p>There are still some applications to migrate though and one of them is a tough one. This application is heavily using Cassandra database. There is no Cassandra managed in AWS, so we are completely rewriting the application to adapt it to DynamoDB and also to face upcoming business needs.
+The challenge is to keep existing pathUrl of the application, working. In other words: the new version have to give same functionalities, keeping the same URLs, but with totally different data management under the hood.
+GOReplay is a wonderful asset to help us in this task.</p>
+
+<p>If you found this useful and you’d like more production return of experiences like this one, please let us know. We plan to write more in the coming weeks.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Migrating+production+applications+from+on-premise+to+the+cloud+with+no+downtime%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2019%2F03%2F11%2FMigrating-production-apps-from-on-premise-to-the-cloud-with-no-downtime.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2019/03/11/Migrating-production-apps-from-on-premise-to-the-cloud-with-no-downtime.html&title=Migrating+production+applications+from+on-premise+to+the+cloud+with+no+downtime%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2019/03/11/Migrating-production-apps-from-on-premise-to-the-cloud-with-no-downtime.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Migrating production applications from on-premise to the cloud with no downtime%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2019/03/11/Migrating-production-apps-from-on-premise-to-the-cloud-with-no-downtime.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#AWS">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> AWS</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#Cloud">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Cloud</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#GOReplay">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> GOReplay</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#HAProxy">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> HAProxy</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#Kops">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Kops</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#Kubernetes">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Kubernetes</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="AFUP Day Lyon 2019" href="/2019/05/23/afup-day.html">
+            <p>Previous post</p>
+            AFUP Day Lyon 2019
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="7 conseils pour démarrer avec Spark" href="/2019/01/14/7-conseils-pour-demarrer-avec-spark.html">
+            <p>Next post</p>
+            7 conseils pour démarrer avec Spark
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/migrating-production-apps-to-the-cloud/kaushik-panchal-37070-unsplash.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

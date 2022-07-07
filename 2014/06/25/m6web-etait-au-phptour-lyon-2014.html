@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/phptour2014/elephant.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>M6Web était présent au PHPTour Lyon 2014 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="M6Web était présent au PHPTour Lyon 2014" />
+<meta name="author" content="M6Web" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="M6Web était présent au PHPTour Lyon 2014 organisé par l’AFUP" />
+<meta property="og:description" content="M6Web était présent au PHPTour Lyon 2014 organisé par l’AFUP" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2014/06/25/m6web-etait-au-phptour-lyon-2014.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2014/06/25/m6web-etait-au-phptour-lyon-2014.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-06-25T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="M6Web était présent au PHPTour Lyon 2014" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2014/06/25/m6web-etait-au-phptour-lyon-2014.html"},"url":"https://tech.bedrockstreaming.com/2014/06/25/m6web-etait-au-phptour-lyon-2014.html","author":{"@type":"Person","name":"M6Web"},"description":"M6Web était présent au PHPTour Lyon 2014 organisé par l’AFUP","dateModified":"2014-06-25T00:00:00+02:00","datePublished":"2014-06-25T00:00:00+02:00","headline":"M6Web était présent au PHPTour Lyon 2014","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="M6Web était présent au PHPTour Lyon 2014">
+    <meta name="twitter:description" content="Le Lundi 23 et Mardi 24 juin a eu lieu l’événement PHP de l’année à Lyon : le PHPTour Lyon.À cette occasion, les équipes d’M6Web ont présenté un talk, dont v...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/phptour2014/elephant.jpg">
+    <meta name="twitter:image:alt" content="M6Web était présent au PHPTour Lyon 2014">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="M6Web était présent au PHPTour Lyon 2014 " aria-label="M6Web était présent au PHPTour Lyon 2014" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="M6Web+%C3%A9tait+pr%C3%A9sent+au+PHPTour+Lyon+2014" class="title">M6Web était présent au PHPTour Lyon 2014</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      June 25, 2014
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Le Lundi 23 et Mardi 24 juin a eu lieu l’événement PHP de l’année à Lyon : le PHPTour Lyon.
+À cette occasion, les équipes d’M6Web ont présenté un talk, dont voici les slides et vidéos :</p>
+
+<p>#Nouveau socle pour une nouvelle vie, chez M6Web (par Kenny Dits)</p>
+
+<p>La seconde conférence de <a href="https://twitter.com/TechM6Web">@techM6Web</a> a été tenue par Kenny Dits (<a href="https://twitter.com/kenny_dee">@kenny_dee</a>) : “Nouveau socle pour une nouvelle vie, chez M6Web”.</p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/7lgWS6NULXo?rel=0" frameborder="0" allowfullscreen=""></iframe>
+
+<script async="" class="speakerdeck-embed" data-id="929666f0da7d0131c6a07202678817e0" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+
+<p><a href="https://joind.in/talk/view/11223">Voir les commentaires sur Joind.in</a></p>
+
+<p>Nous avons aussi retrouvé une bonne partie des développeurs de l’équipe (anciens ou actuels) qui ont joué le jeu de la borne photo Pixiway mise à disposition :</p>
+
+<p><img src="https://cdn.pixiway.com/p/h/p/ltm/7a9d9fe51bd81cdbe396e46740f53a3ede204e47.gif" alt="M6Web @PHPTour 2014" /></p>
+
+<p>#Conclusion</p>
+
+<p>L’Afup a encore réalisé un boulot considérable cette année, pour accoucher sans aucun doute, du meilleur PHP Tour jamais fait.
+Bravo à toute la team pour l’organisation sans faille, et aux autres speakers pour la qualité de leurs talks.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=M6Web+%C3%A9tait+pr%C3%A9sent+au+PHPTour+Lyon+2014%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2014%2F06%2F25%2Fm6web-etait-au-phptour-lyon-2014.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2014/06/25/m6web-etait-au-phptour-lyon-2014.html&title=M6Web+%C3%A9tait+pr%C3%A9sent+au+PHPTour+Lyon+2014%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2014/06/25/m6web-etait-au-phptour-lyon-2014.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=M6Web était présent au PHPTour Lyon 2014%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2014/06/25/m6web-etait-au-phptour-lyon-2014.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#afup">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> afup</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#phptour">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> phptour</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#video">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> video</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Contrôlez facilement votre cohérence de code sur votre projet Symfony2 avec coke" href="/2014/08/05/verifier-la-coherence-du-code-d-un-projet-symfony2-avec-coke.html">
+            <p>Previous post</p>
+            Contrôlez facilement votre cohérence de code sur votre projet Symfony2 avec coke
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="M6Web sera présent au PHPTour Lyon 2014" href="/2014/05/15/m6web-sera-present-au-phptour-lyon-2014.html">
+            <p>Next post</p>
+            M6Web sera présent au PHPTour Lyon 2014
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/phptour2014/elephant.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

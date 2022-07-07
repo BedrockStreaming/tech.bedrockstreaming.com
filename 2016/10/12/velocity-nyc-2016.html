@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/banner_xl.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Retour sur la Velocity New York Conference 2016 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Retour sur la Velocity New York Conference 2016" />
+<meta name="author" content="Kenny Dits et Fabien de Saint pern" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Velocity New York 2016 - Performance, Scalabilité, Devops" />
+<meta property="og:description" content="Velocity New York 2016 - Performance, Scalabilité, Devops" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2016/10/12/velocity-nyc-2016.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2016/10/12/velocity-nyc-2016.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-10-12T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Retour sur la Velocity New York Conference 2016" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2016/10/12/velocity-nyc-2016.html"},"url":"https://tech.bedrockstreaming.com/2016/10/12/velocity-nyc-2016.html","author":{"@type":"Person","name":"Kenny Dits et Fabien de Saint pern"},"description":"Velocity New York 2016 - Performance, Scalabilité, Devops","dateModified":"2016-10-12T00:00:00+02:00","datePublished":"2016-10-12T00:00:00+02:00","headline":"Retour sur la Velocity New York Conference 2016","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Retour sur la Velocity New York Conference 2016">
+    <meta name="twitter:description" content="Nous étions cette année à New York, à quelques blocs de Time Square, pour suivre l’édition New Yorkaise de la Velocity Conference 2016.C’est une conférence q...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/banner_xl.jpg">
+    <meta name="twitter:image:alt" content="Retour sur la Velocity New York Conference 2016">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Retour sur la Velocity New York Conference 2016 " aria-label="Retour sur la Velocity New York Conference 2016" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Retour+sur+la+Velocity+New+York+Conference+2016" class="title">Retour sur la Velocity New York Conference 2016</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      October 12, 2016
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Nous étions cette année à New York, à quelques blocs de Time Square, pour suivre l’édition New Yorkaise de la Velocity Conference 2016.
+C’est une conférence que nous apprécions particulièrement et à laquelle nous nous rendons quasiment chaque année, soit dans son édition européenne (Berlin, Londres, Barcelone, et Amsterdam cette année en novembre), soit aux U.S. (précédemment Santa Clara, New York cette année, et San José l’année prochaine).
+C’est l’occasion de suivre une conf de très haute qualité composée de 4 ou 5 tracks en parallèle, dédiée aux problématiques de performance et de scalabilité.
+On remarque que d’année en année la conférence s’est réorientée autour du mouvement DevOps, alors qu’elle était précédemment beaucoup plus centrée sur la WebPerf (desktop et mobile).</p>
+
+<p>La conférence commence par l’Ignite (sorte de mini conférence dans la conférence), basée sur un format court (type Lightning Talk) de 5 minutes pour une présentation de 5 slides défilant automatiquement. On retiendra de cette première partie des talks intéressants exposant les tristes chiffres de la diversité dans la tech aux US, mais aussi une conférence très drôle de <a href="https://twitter.com/bendhalpern">@beldhalpern</a> de <a href="https://twitter.com/ThePracticalDev">@ThePracticalDev</a> sur des parodies des livres OReilly (voir le <a href="https://dev.to/rly">O RLY Cover Generator</a>) :</p>
+
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">Enjoying the heck out of <a href="https://twitter.com/ThePracticalDev">@ThePracticalDev</a> at Ignite <a href="https://twitter.com/hashtag/velocityconf?src=hash">#velocityconf</a>. Lololol! <a href="https://t.co/ZlJWoP4cjh">pic.twitter.com/ZlJWoP4cjh</a></p>&mdash; Bridget Kromhout (@bridgetkromhout) <a href="https://twitter.com/bridgetkromhout/status/778353731045908480">20 septembre 2016</a></blockquote>
+<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>L’ignite s’est fini sur le célèbre Ignite Karaoké où 16 volontaires se sont prêtés au jeu de cet exercice hilarant mais tellement difficile, consistant à improviser une conférence sur le sujet de son choix sur 5 slides inconnues de l’orateur et qui défilent automatiquement au bout de quelques secondes 😃. Ce qu’on fait aussi chez M6Web de temps en temps nommé <a href="/organiser-des-conferences-technique-en-interne">Karaoké Slideshow</a> et que Kenny avait animé lors d’un Forum PHP (<a href="https://www.youtube.com/watch?v=Ln12meWM1pE">voir la vidéo</a>).</p>
+
+<p><img src="https://c8.staticflickr.com/9/8046/29856652295_153795f039_z.jpg" alt="O&#x27;Reilly Conferences sur Flickr" />
+<a href="https://flic.kr/p/Muk9xa">Crédit : Flickr</a></p>
+
+<p>Nous avons ensuite suivi deux jours de conférences dont les thèmes majeurs étaient :</p>
+
+<ul>
+  <li>Les Service Workers</li>
+  <li>Les microservices</li>
+  <li>Le monitoring</li>
+  <li>HTTP2</li>
+  <li>La sécurité des apps</li>
+  <li>Les détections d’anomalie</li>
+  <li>Les ChatOps</li>
+  <li>Le WebMobile, AMP et les PWA</li>
+</ul>
+
+<h1 id="chatops">ChatOps</h1>
+
+<p>Un des sujets assez récurrent, notamment dans la mouvance DevOps est l’utilisation des ChatOps, sujet popularisé par Github (via <a href="https://hubot.github.com/">Hubot</a>).
+Cela consiste généralement en un bot ou une IA posée sur un outil de Chat type Slack, Flowdock ou Hipchat, permettant de simplifier la communication entre différentes équipes et les différents outils (ticketing, alerting, monitoring, état d’une machine, etc). Une démo de l’IA de Dynatrace à reconnaissance vocale à été faite, montrant comment par la voix, on pouvait recevoir dans l’outil de Chat les infos sur les incidents de la veille, créer les tickets de support etc. <a href="https://dynatrace.com/meet-davis">Voir ici</a>. Un peu gadget, mais rigolo.</p>
+
+<p>L’un des points à retenir, c’est que même si ces outils font partie de la « culture » DevOps, ce n’est pas l’ajout d’un de ces outils qui fera apparaître cette culture dans votre entreprise si vous ne l’avez pas.</p>
+
+<blockquote>
+  <p>Tools will not fix a broken culture</p>
+</blockquote>
+
+<p><img src="https://c1.staticflickr.com/9/8053/29842348056_a46d176931_z.jpg" alt="O&#x27;Reilly Conferences sur Flickr" />
+<a href="https://flic.kr/p/Mt4Qom">Crédit : Flickr</a></p>
+
+<h1 id="le-webmobile-amp-et-les-pwa">Le WebMobile, AMP, et les PWA</h1>
+
+<p>Plusieurs conférences avaient pour but de comparer ce que l’on pouvait obtenir de nos jours via du WebMobile versus ce que l’on a sur les apps natives. Le fossé s’est énormément rétréci et les WebApps ont désormais accès à la plupart des fonctionnalités présentes côté natif :</p>
+
+<ul>
+  <li>Notifications</li>
+  <li>Ajout sur le Home Screen de l’icone</li>
+  <li>Full Screen</li>
+  <li>Orientation</li>
+  <li>Gestion hors ligne</li>
+  <li>…</li>
+</ul>
+
+<p>Ce qui nous amène aux Progressive Web Apps : PWA</p>
+
+<p>Pete Lepage <a href="https://twitter.com/petele">@petele</a> de chez Google nous a notamment présenté des projets open-source de Google pour mettre en place différentes politiques de cache via les « serviceWorkers » (voir https://developers.google.com/web/tools/service-worker-libraries/), ainsi que les futures api : Web Payments, Credential Management …</p>
+
+<ul>
+  <li>Les <a href="goo.gl/0QcNQf">slides</a>.</li>
+  <li>Exemple de la <a href="https://wapo.com/pwa">PWA du Washington Post</a></li>
+</ul>
+
+<p>Toujours sur la partie mobile, Malte Ubl (<a href="https://twitter.com/cramforce">@cramforce</a>), core développeur de AMP, nous a présenté le futur de ce protocole de Google pour offrir des pages plus rapides pour la consultation de site média sur mobile.</p>
+
+<blockquote>
+  <p>AMP is a web component library, validator and caching layer for reliably fast web content at scale</p>
+</blockquote>
+
+<p>En commençant par un bilan d’AMP, 3000 PR + 200 contributeurs (au bout d’un an seulement !), Malte nous a expliqué qu’un site mobile très optimisé pouvait logiquement être plus performant qu’AMP.</p>
+
+<p>Arriveront prochainement sur AMP, le support des formulaires, des optimisations avancées d’images via le Google AMP Cache, des Service Workers pour AMP pour ne jamais télécharger AMP dans le « chemin critique » du chargement de la page.</p>
+
+<p>Un petit focus a aussi été fait sur les PWA et AMP avec <code class="language-plaintext highlighter-rouge">amp-install-serviceworker</code> qui est un Service Worker permettant d’installer la PWA après chargement de AMP, pour faire une upgrade transparente de AMP vers une PWA (Voir une démo ici <a href="https://choumx.github.io/amp-pwa">choumx.github.io/amp-pwa</a>)</p>
+
+<blockquote>
+  <p>AMP : « Start Fast, Stay Fast »</p>
+</blockquote>
+
+<p>Nous avons aussi vu une conférence sur l’optimisation de la consommation des webApps en terme de CPU / temps de réponse, notamment via l’étude des capacités JS de chacun des devices/OS avec le benchmark JetStream Javascript.</p>
+
+<p>On découvre notamment que l’iPhone 7 a des capacités assez impressionnantes, contrairement à l’iPhone 5C, que le mode « économie d’énergie » ou encore une bonne insolation rendent les devices beaucoup moins performants. D’excellentes slides à voir ici : <a href="https://hearne.me/2hot">hearne.me/2hot</a></p>
+
+<h1 id="webperf">WebPerf</h1>
+
+<p>Côté WebPerf, peu de grosses nouveautés, on retiendra <a href="https://twitter.com/nparashuram">@nparashuram</a> qui nous a montré comment automatiser le “profiling” des ChromeDevTools dans Node.js via ChromeDriver !</p>
+
+<p>Plus d’infos ici : <a href="https://blog.nparashuram.com/2016/09/rise-of-web-workers-nationjs.html">https://blog.nparashuram.com/2016/09/rise-of-web-workers-nationjs.html</a></p>
+
+<p>Tammy Everts (<a href="https://twitter.com/tameverts">@tameverts</a> de Soasta) et Pat Meenan (<a href="https://twitter.com/patmeenan">@patmeenan</a> de Google et créateur de WebPageTest) nous ont fait un gros retour basé sur toutes les métriques récoltées par Soasta mPulse (outils de Real User Monitoring en SAAS) afin de déterminer des corrélations entre les temps de chargement et d’autres métriques (taux de rebond, conversion, etc.) grâce à l’application de concept propre au Machine Learning sur une quantité énorme de data. Toujours intéressant.</p>
+
+<p>Slides ici : <a href="https://conferences.oreilly.com/velocity/devops-web-performance-ny/public/schedule/detail/51082">https://conferences.oreilly.com/velocity/devops-web-performance-ny/public/schedule/detail/51082</a></p>
+
+<p><img src="https://c8.staticflickr.com/9/8322/29824346471_b189d1b8ab_z.jpg" alt="O&#x27;Reilly Conferences sur Flickr" />
+<a href="https://flic.kr/p/Mrtz9c">Crédit : Flickr</a></p>
+
+<p>Côté Single Page App, le Server Side Rendering est revenu à plusieurs reprises afin d’avoir des SPA performantes dont le premier rendu est généré côté serveur, ce que permet nativement React, et désormais Ember et Angular 2. Voir <a href="/2014/12/04/isomorphic-single-page-app-parfaite-react-flux">notre article sur l’isomorphisme</a>.</p>
+
+<p>Coté HTTP, on retiendra Hooman Beheshti qui nous a fait un retour d’expérience sur HTTP2. Après une explication des nouveautés du protocole (binary, single, long-lasting TCP connection, streams encapsulation, frames, bi-directional…), une comparaison avec HTTP 1 nous a été exposée. En conclusion, HTTP2 est complexe et la migration n’est pas une simple modification de paramètre. Bien que cette nouvelle version est légèrement plus rapide, en particulier sur un réseau lent (&lt;1Mbps), le protocole supporte très mal les pertes de paquets ou les fortes congestions à cause de l’unique connexion (TCP slow start). La recommandation est de tester sur chaque site et d’optimiser ses pages selon la version d’HTTP utilisée. Une piste serait HTTP2 over UDP.</p>
+
+<p>Les <a href="https://www.slideshare.net/Fastly/http2-what-no-one-is-telling-you">slides</a></p>
+
+<h1 id="devops">DevOps</h1>
+
+<p>De nombreuses conférences avaient pour objectif d’aborder les bienfaits du DevOps et plus largement les bonnes pratiques liées au mouvement afin de gagner en qualité et fiabilité.</p>
+
+<p>On retiendra notamment la conférence de Cornelia Davis (DevOps: Who does what?) explicitant les différents rôles dans un SDLC (Software Development Life-Cycle) et leur répartition en équipe dans l’organisation.</p>
+
+<h2 id="les-rôles-dans-le-sdlc-">Les rôles dans le SDLC :</h2>
+
+<ul>
+  <li><strong>Architecte</strong> : Ent Archi, Biz Analyst, Portfolio Mgmt</li>
+  <li><strong>SCO</strong> : Info sec</li>
+  <li><strong>Infra</strong> : Srv Build, Cap Plan, Network, Ops</li>
+  <li><strong>Middleware/AppDev</strong> : Middleware Eng, SW Arch, SW Dev, Client SW Dev, Svc Govern</li>
+  <li><strong>Data</strong> : Data Arch, DBA</li>
+  <li><strong>Biz</strong> : Prod Mgmt</li>
+  <li><strong>Ent Apps</strong> : DCTM (Documentum) Eng.</li>
+</ul>
+
+<h2 id="la-répartition-en-équipe-proposée-">La répartition en équipe proposée :</h2>
+
+<p><strong>Platform</strong> (unique / transverse) :</p>
+
+<ul>
+  <li><strong>Middleware/AppDev</strong> : Middleware Eng, Svc Govern</li>
+  <li><strong>Infra</strong> : Srv Build, Cap Plan, Network, Ops</li>
+  <li><strong>SCO</strong> : Info sec</li>
+  <li><strong>Data</strong> : DBA</li>
+</ul>
+
+<p><strong>Customer Facing App</strong> (de 1 à n équipes)</p>
+
+<ul>
+  <li><strong>Middleware/AppDev</strong> : SW Arch, SW Dev, Client SW Dev</li>
+  <li><strong>Data</strong> : Data Arch</li>
+  <li><strong>Infra</strong> : Cap Plan, Ops</li>
+  <li><strong>Biz</strong> : Prod Mgmt</li>
+  <li><strong>Architecte</strong> : Biz Analyst</li>
+</ul>
+
+<p><strong>Enablement</strong> (unique / transverse) :</p>
+
+<ul>
+  <li><strong>Architecte</strong> : Ent Archi, Portfolio Mgmt</li>
+</ul>
+
+<p><strong>DCTM</strong> - Documentum (Enterprise Content Management Platform) (unique / transverse) :</p>
+
+<ul>
+  <li><strong>Infra</strong> : Ops, Cap Plan</li>
+  <li><strong>Ent Apps</strong> : DCTM (Documentum) Eng.</li>
+</ul>
+
+<p>On notera notamment la présence d’Ops dans les équipes Customer Facing App et inversement de Middleware Eng dans l’équipe Platform.</p>
+
+<p>De même, la présence d’architectes transverses (enablement) permet de garder une architecture cohérente. (Pas de slides disponibles pour cette conférence)</p>
+
+<p><img src="https://c8.staticflickr.com/9/8242/29281257423_6e74baae8e_z.jpg" alt="O&#x27;Reilly Conferences sur Flickr" />
+<a href="https://flic.kr/p/LBu6FV">Crédit : Flickr</a></p>
+
+<h1 id="microservices">Microservices</h1>
+
+<p>La conférence de <a href="https://twitter.com/susanthesquark">@susanthesquark</a>, axée sur les microservices, rappelait quelques bonnes pratiques :</p>
+
+<ul>
+  <li>Architecture sans SPOF</li>
+  <li>Ne pas laisser la dette technique s’accumuler</li>
+  <li>Déploiement continu</li>
+  <li>Travail en équipe entre Dev / PM / SRE</li>
+  <li>Monitoring</li>
+  <li>Procédures standard de gestion des incidents</li>
+  <li>Post-mortem pour apprendre de ses erreurs…</li>
+</ul>
+
+<p>Les <a href="https://cdn.oreillystatic.com/en/assets/1/event/159/Mitigating%20sprawl%20with%20microservices%20and%20containerization%20Presentation.pdf">slides</a></p>
+
+<p>Concernant le monitoring des microservices, la conférence de Reshmi Krishna <a href="https://twitter.com/reshmi9k">@reshmi9k</a> s’intéressait à l’analyse de la latence, inhérente à ce type d’architecture. La principale technique proposée est celle du suivi d’une requête de bout en bout, grâce notamment à l’outil Zipkin. De même, une gestion des timeouts globale (pour chaque requête pour tous les microservices) et dynamique (selon le contexte) permet de maîtriser les problèmes en cas de ralentissement d’un service en particulier.</p>
+
+<p>Les <a href="https://cdn.oreillystatic.com/en/assets/1/event/159/Distributed%20tracing_%20How%20to%20do%20latency%20analysis%20for%20microservices-based%20applications%20Presentation.ppt">slides</a></p>
+
+<h1 id="sécurité">Sécurité</h1>
+
+<p>Concernant la sécurité, la conférence de Kelly Lum <a href="https://twitter.com/aloria">@aloria</a>, passait en revue le minimun vital :</p>
+
+<ul>
+  <li>La sécurité doit être pensée dès la conception</li>
+  <li>Permettre aux utilisateurs de reporter facilement des problèmes de sécurité et être à l’écoute des réseaux sociaux</li>
+  <li>Toujours remercier les utilisateurs signalant les failles</li>
+  <li>Avoir une équipe testant régulièrement la sécurité (Crack Team).</li>
+  <li>En cas de failles de sécurité, après correction, toujours analyser les causes et apprendre de ses erreurs.</li>
+</ul>
+
+<p>Les <a href="https://cdn.oreillystatic.com/en/assets/1/event/159/Security%20at%20the%20speed%20of%20innovation_%20Defensive%20development%20for%20a%20fast-paced%20world%20Presentation.pdf">slides</a></p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>Vous pouvez retrouver la plupart des slides <a href="https://conferences.oreilly.com/velocity/devops-web-performance-ny/public/schedule/speakers">ici</a>.
+et voir les vidéos de certaines conférences <a href="https://www.youtube.com/playlist?list=PL055Epbe6d5Zl1yShG26D2r2TzwDDoDfK">ici</a>.
+ou <a href="https://www.oreilly.com/ideas/keynotes-from-velocity-new-york-2016">ici</a>.</p>
+
+<p>Les photos officielles de la conf sont <a href="https://www.flickr.com/photos/oreillyconf/albums/72157670842287154">ici</a>.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Retour+sur+la+Velocity+New+York+Conference+2016%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2016%2F10%2F12%2Fvelocity-nyc-2016.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2016/10/12/velocity-nyc-2016.html&title=Retour+sur+la+Velocity+New+York+Conference+2016%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2016/10/12/velocity-nyc-2016.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Retour sur la Velocity New York Conference 2016%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2016/10/12/velocity-nyc-2016.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#devops">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> devops</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#velocity">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> velocity</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#webperf">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> webperf</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Enquête exclusive au coeur de la technique de 6play. Les slides." href="/2016/11/03/blendwebmix-6play-conference.html">
+            <p>Previous post</p>
+            Enquête exclusive au coeur de la technique de 6play. Les slides.
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Use the Sensiolabs Security Checker to check potential vulnerabilities on Symfony projects" href="/2016/07/20/sf2-security-checker.html">
+            <p>Next post</p>
+            Use the Sensiolabs Security Checker to check potential vulnerabilities on Symfony projects
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

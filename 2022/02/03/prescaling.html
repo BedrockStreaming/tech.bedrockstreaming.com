@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/2022-02-03-prescaling/davide_ragusa_unsplash.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Tonight’s football time, let’s prescale Kubernetes to avoid a crash! | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Tonight’s football time, let’s prescale Kubernetes to avoid a crash!" />
+<meta name="author" content="Timothée Aufort" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Are you experiencing peak loads on your Kubernetes-hosted platform? At Bedrock, we have developed a prescaling solution. It allows us to handle sudden and abrupt, but predictable, traffic spikes." />
+<meta property="og:description" content="Are you experiencing peak loads on your Kubernetes-hosted platform? At Bedrock, we have developed a prescaling solution. It allows us to handle sudden and abrupt, but predictable, traffic spikes." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2022/02/03/prescaling.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2022/02/03/prescaling.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-02-03T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Tonight’s football time, let’s prescale Kubernetes to avoid a crash!" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/02/03/prescaling.html"},"url":"https://tech.bedrockstreaming.com/2022/02/03/prescaling.html","author":{"@type":"Person","name":"Timothée Aufort"},"description":"Are you experiencing peak loads on your Kubernetes-hosted platform? At Bedrock, we have developed a prescaling solution. It allows us to handle sudden and abrupt, but predictable, traffic spikes.","dateModified":"2022-02-03T00:00:00+01:00","datePublished":"2022-02-03T00:00:00+01:00","headline":"Tonight’s football time, let’s prescale Kubernetes to avoid a crash!","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Tonight's football time, let's prescale Kubernetes to avoid a crash!">
+    <meta name="twitter:description" content="Are you experiencing peak loads on your Kubernetes-hosted platform? Rest assured, you are not alone.At Bedrock, we have developed a prescaling solution. It a...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/2022-02-03-prescaling/davide_ragusa_unsplash.jpg">
+    <meta name="twitter:image:alt" content="Tonight's football time, let's prescale Kubernetes to avoid a crash!">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Tonight's football time, let's prescale Kubernetes to avoid a crash! " aria-label="Tonight's football time, let's prescale Kubernetes to avoid a crash!" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Tonight%27s+football+time%2C+let%27s+prescale+Kubernetes+to+avoid+a+crash%21" class="title">Tonight's football time, let's prescale Kubernetes to avoid a crash!</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/TimAufort" target="_blank" rel="noopener">
+    <p class="meta">
+      Timothée Aufort - 
+      
+      February 03, 2022
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Are you experiencing peak loads on your Kubernetes-hosted platform? Rest assured, you are not alone.
+At Bedrock, we have developed a prescaling solution. It allows us to handle sudden and abrupt, but predictable, 
+traffic spikes, like soccer games.</p>
+
+<p>Kubernetes provides HorizontalPodAutoscalers to handle traffic variations. 
+We’ll look at their limitations in the case of meteoric spikes in load and how prescaling helps us deal with the 
+sudden arrival of several hundred thousand users.</p>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+  <li><a href="#load-and-traffic-vary">Load and traffic vary</a></li>
+  <li><a href="#beginning-of-the-scaling-problems">Beginning of the scaling problems</a></li>
+  <li><a href="#how-does-reactive-scaling-work-in-kubernetes">How does reactive scaling work in Kubernetes?</a>
+    <ul>
+      <li><a href="#an-horizontalpodautoscaler">An HorizontalPodAutoscaler</a></li>
+      <li><a href="#what-scale-out-looks-like-in-a-real-case">What scale out looks like in a real case</a></li>
+      <li><a href="#how-fast-is-reactive-scaling">How fast is reactive scaling?</a></li>
+    </ul>
+  </li>
+  <li><a href="#prescaling-what-is-this-about">Prescaling… What is this about?</a></li>
+  <li><a href="#prescaling-our-applications">Prescaling our applications</a>
+    <ul>
+      <li><a href="#enabling-and-configuring-prescaling-on-an-hpa">Enabling and configuring prescaling on an HPA</a></li>
+      <li><a href="#the-prescaling-exporter">The prescaling exporter</a></li>
+      <li><a href="#how-can-the-hpas-prescale">How can the HPAs prescale?</a></li>
+      <li><a href="#prescaling-works">Prescaling works!</a></li>
+    </ul>
+  </li>
+  <li><a href="#what-about-special-huge-events">What about special, huge, events?</a>
+    <ul>
+      <li><a href="#the-prescaling-api">The prescaling API</a></li>
+      <li><a href="#lets-see-how-an-application-scales-during-a-very-special-event">Let’s see how an application scales during a very special event</a></li>
+    </ul>
+  </li>
+  <li><a href="#prescaling-external-services-another-challenge">Prescaling external services: another challenge</a></li>
+</ul>
+
+<h2 id="load-and-traffic-vary">Load and traffic vary</h2>
+
+<p>Load and traffic have always varied over time on our platform:</p>
+
+<p><img src="/images/posts/2022-02-03-prescaling/cpu_varies_over_time.png" alt="CPU per instance over time" /></p>
+<center><i>CPU per instance over time</i></center>
+
+<p>To deal with these load variations, several tools help us to automatically adapt our Kubernetes clusters’ capacity:</p>
+<ul>
+  <li><a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">HorizontalPodAutoscaler</a> 
+(HPA): adds/removes Pods (= capacity) on a workload resource such as Deployment or a 
+StatefulSet.</li>
+  <li><a href="https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler">Cluster Autoscaler</a>: 
+adjusts the size of a Kubernetes cluster by adding/removing nodes.</li>
+  <li><a href="https://github.com/kubernetes-sigs/cluster-proportional-autoscaler">Overprovisioning</a>: starts “empty” 
+pods (and new “useless” nodes, as a consequence), so the cluster has available capacity that will be used to start 
+applications pods quicker.</li>
+</ul>
+
+<blockquote>
+  <p>If you wish to know more about which tools we use and why we use them in our Kubernetes clusters, I advise you to 
+check out another dedicated blog post named 
+<a href="/2020/12/08/Three-years-running-kubernetes-on-production-at-Bedrock">“Three years running Kubernetes on production at Bedrock”</a>.</p>
+</blockquote>
+
+<p>Unfortunately, all those tools are not sufficient to deal with heavy and sudden traffic spikes on some special 
+evenings such as the final of a football game or a successful show. During this kind of events, users arrive massively, 
+all at the same time. On some evenings, some of our applications see their load rise by 5 in 2 minutes, others even 
+see theirs multiplied by 10 in 2 minutes!</p>
+
+<p>The predictable aspect of those arrivals is very important because it means we are able to prepare our platform 
+beforehand. That’s why our prescaling solution was born.</p>
+
+<h2 id="beginning-of-the-scaling-problems">Beginning of the scaling problems</h2>
+
+<p>On an ordinary evening, when the multiple Kubernetes scaling tools were kicking in, here is basically what was 
+happening:</p>
+
+<p><img src="/images/posts/2022-02-03-prescaling/traffic_normal_evening.png" alt="Traffic normal evening" /></p>
+
+<p>As the load increased, our capacity was increasing as well and we always had spare capacity. We were able to double our 
+initial capacity every 5 minutes thanks to reactive scaling when load started to rise.</p>
+
+<p>After a while and on some special evenings, we began to see this kind of behavior:</p>
+
+<p><img src="/images/posts/2022-02-03-prescaling/traffic_special_evening.png" alt="Traffic special evening" /></p>
+
+<p>Sometimes, load was increasing faster than what reactive scaling could handle, that is to say about x2 in capacity 
+every 5 minutes. The consequence is that we could not serve everyone. For a while, our platform would fail for some 
+users, until autoscaling kicked in or until load stopped rising so fast.</p>
+
+<p>Let’s see how reactive scaling works to understand how we can leverage it to prepare the platform in advance.</p>
+
+<h2 id="how-does-reactive-scaling-work-in-kubernetes">How does reactive scaling work in Kubernetes?</h2>
+
+<h3 id="an-horizontalpodautoscaler">An HorizontalPodAutoscaler</h3>
+
+<p>For a Deployment to be autoscaled (reactively, according to varying load), the number of replicas of a Kubernetes 
+Deployment is reconfigured by an HorizontalPodAutoscaler:</p>
+
+<p><img src="/images/posts/2022-02-03-prescaling/hpa_deployment_pods.png" alt="HPA Deployment Pods" /></p>
+
+<p>Its manifest usually looks like this:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">autoscaling/v2beta1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">HorizontalPodAutoscaler</span>
+<span class="c1"># …</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="c1"># …</span>
+  <span class="na">minReplicas</span><span class="pi">:</span> <span class="m">2</span>
+  <span class="na">maxReplicas</span><span class="pi">:</span> <span class="m">100</span>
+  <span class="na">metrics</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">Resource</span>
+    <span class="na">resource</span><span class="pi">:</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">cpu</span>
+      <span class="na">targetAverageUtilization</span><span class="pi">:</span> <span class="m">70</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">Pods</span>
+    <span class="na">pods</span><span class="pi">:</span>
+      <span class="na">metricName</span><span class="pi">:</span> <span class="s">phpfpm_active_process_percentage</span>
+      <span class="na">targetAverageValue</span><span class="pi">:</span> <span class="s2">"</span><span class="s">40"</span>
+  <span class="c1"># …</span>
+</code></pre></div></div>
+
+<p>Here:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">minReplicas</code> is the minimum number of Pods that will run (under normal conditions).</li>
+  <li><code class="language-plaintext highlighter-rouge">maxReplicas</code> is the maximum number of Pods that will run.</li>
+  <li><code class="language-plaintext highlighter-rouge">metrics</code> is a list of metrics the HPA will analyze to determine if it must scale or not. If usage gets higher 
+than the target specified for a metric, the HPA will add new Pods (= scale out). If usage gets lower than all targets 
+specified for all metrics, the HPA will remove Pods (= scale in).</li>
+</ul>
+
+<h3 id="what-scale-out-looks-like-in-a-real-case">What scale out looks like in a real case</h3>
+
+<p>At Bedrock, we use three types of metrics to scale: <code class="language-plaintext highlighter-rouge">Resource</code>, <code class="language-plaintext highlighter-rouge">Custom</code> and <code class="language-plaintext highlighter-rouge">External</code>. Here is an example of 
+an application scaling out on a <code class="language-plaintext highlighter-rouge">Custom</code> metric:</p>
+
+<p><img src="/images/posts/2022-02-03-prescaling/reactive_scaling_process_percentage.png" alt="Reactive scaling process percentage" /></p>
+<center><i>Process status (%) over time</i></center>
+
+<p>In this graph, around 20:52:30 and 20:55:00, the percentage of active processes rises to go above 
+the target <code class="language-plaintext highlighter-rouge">40</code> we saw in the YAML example before. This triggers the scale out of the HPA of this application:</p>
+
+<p><img src="/images/posts/2022-02-03-prescaling/reactive_scaling_pods.png" alt="Reactive scaling pods" /></p>
+<center><i>Pod status over time</i></center>
+
+<p>We can see that around 20:53:00 (30 seconds after we first go above the target), the number of <code class="language-plaintext highlighter-rouge">unavailable</code> pods rises. 
+The scale-out has just started. A few moments after, the pods become <code class="language-plaintext highlighter-rouge">available</code> and are able to serve users.</p>
+
+<h3 id="how-fast-is-reactive-scaling">How fast is reactive scaling?</h3>
+
+<p>Scaling in Kubernetes with HPA is not instantaneous:</p>
+
+<p><img src="/images/posts/2022-02-03-prescaling/reactive_scaling_timeline.png" alt="Reactive scaling timeline" /></p>
+
+<ul>
+  <li>Metrics are updated every 30 seconds (for CPU or memory) or every 60 seconds (for external and custom metrics) or so.</li>
+  <li>HPA analyses the metrics to know if scale-out is required every 30 seconds or more.</li>
+  <li>We might not have enough EC2 servers running to host the new Pods that are trying to start (we usually have between 
+10% and 20% of spare capacity). If starting new EC2 servers is necessary, this takes between 2 and 4 minutes.</li>
+  <li>Pods (as our applications and Docker images are big) usually need between 30 and 60 seconds to start.</li>
+</ul>
+
+<p>This means when a spike in load occurs, we need between 1’00’’ and 6’00’’ for new Pods to be able to handle that load. 
+Scaling is clearly not instantaneous.</p>
+
+<h2 id="prescaling-what-is-this-about">Prescaling… What is this about?</h2>
+
+<p>Most our applications deployed in Kubernetes use an HorizontalPodAutoscaler. As we’ve seen, this autoscaling 
+mechanism is reactive in nature: Pods are added when load (or another metric) gets higher than a target. 
+It can handle load that increases slowly (say, instant +20% or x2 in 5 minutes), but not huge instantaneous spikes 
+(say, x10 in less than 5 minutes). It works fine for most of our usual workloads, but cannot absorb spikes we receive 
+during special events like Top Chef or when the France football team plays.</p>
+
+<p>The only way we can handle a huge and sudden spike in traffic on an application is by pre-provisioning capacity. 
+In Kubernetes, this is done by running more Pods than necessary so that they are ready to handle the additional load. 
+Running additional, mostly superfluous, capacity has a cost…</p>
+
+<p>We know our applications receive a sudden and brutal traffic spike once a day, between 20:50 and 21:00 Paris time. 
+Not taking special events into account, that’s the only time load increases violently enough for reactive autoscaling 
+to be unable to handle it – and, most days, it actually does quite fine. So, we could pre-provision more capacity 
+around that time (only), and not pay for it the rest of the day…</p>
+
+<h2 id="prescaling-our-applications">Prescaling our applications</h2>
+
+<h3 id="enabling-and-configuring-prescaling-on-an-hpa">Enabling and configuring prescaling on an HPA</h3>
+
+<p>To enable and configure prescaling on an <code class="language-plaintext highlighter-rouge">HorizontalPodAutoscaler</code>, we add two sets of information:</p>
+<ul>
+  <li>Three annotations to define:
+    <ul>
+      <li>Time when prescaling starts.</li>
+      <li>Time when prescaling stops.</li>
+      <li>The minimum number of Pods we want between those two times.</li>
+    </ul>
+  </li>
+  <li>A new metric to scale on.</li>
+</ul>
+
+<p>The annotations are set in the metadata block:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># …</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="c1"># …</span>
+  <span class="na">annotations</span><span class="pi">:</span>
+    <span class="na">annotations.scaling.exporter.replica.min</span><span class="pi">:</span> <span class="s2">"</span><span class="s">25"</span>
+    <span class="na">annotations.scaling.exporter.time.start</span><span class="pi">:</span> <span class="s2">"</span><span class="s">19:30:00"</span>
+    <span class="na">annotations.scaling.exporter.time.end</span><span class="pi">:</span> <span class="s2">"</span><span class="s">23:30:00"</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">scaleTargetRef</span><span class="pi">:</span>
+    <span class="c1"># …</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">service-6play-images"</span>
+</code></pre></div></div>
+
+<p>In this example, we indicate we want at least 25 pods between 19:30:00 and 23:30:00. As a result, 
+the number of pods of this application will rise up to at least 25 pods during this period of time.</p>
+
+<p>Times are expressed in the local timezone of the Kubernetes cluster as prescaling is linked to events on the platform. 
+Those events are usually linked to events on live TV and we deploy one cluster per TV broadcaster.</p>
+
+<p>In the <code class="language-plaintext highlighter-rouge">metrics</code> block, you need to configure a new <code class="language-plaintext highlighter-rouge">External</code> metric:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># …</span>
+<span class="na">metrics</span><span class="pi">:</span>
+ <span class="c1"># …</span>
+ <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">External</span>
+   <span class="na">external</span><span class="pi">:</span>
+     <span class="na">metricName</span><span class="pi">:</span> <span class="s2">"</span><span class="s">annotation_scaling_min_replica"</span>
+     <span class="na">metricSelector</span><span class="pi">:</span>
+       <span class="na">matchLabels</span><span class="pi">:</span>
+         <span class="na">deployment</span><span class="pi">:</span> <span class="s2">"</span><span class="s">service-6play-images"</span>
+     <span class="na">targetValue</span><span class="pi">:</span> <span class="s2">"</span><span class="s">10"</span>
+</code></pre></div></div>
+
+<p>The label used for <code class="language-plaintext highlighter-rouge">deployment</code> must be set to the value of <code class="language-plaintext highlighter-rouge">scaleTargetRef.name</code> (= the name of the <code class="language-plaintext highlighter-rouge">Deployment</code> the 
+HPA reconfigures). The <code class="language-plaintext highlighter-rouge">targetValue</code> must always be set to <code class="language-plaintext highlighter-rouge">10</code>.</p>
+
+<p>You now know how we configure an HPA for prescaling. What you do not know yet is how the HPA annotations are used 
+and which application exposes the metrics called <code class="language-plaintext highlighter-rouge">annotation_scaling_min_replica</code>. It’s now time to talk about the 
+prescaling exporter.</p>
+
+<h3 id="the-prescaling-exporter">The prescaling exporter</h3>
+
+<p>The prescaling exporter is a <a href="https://prometheus.io/">Prometheus</a> exporter we developed (in Python). 
+It exposes metrics, used to scale Kubernetes applications on a day-to-day basis during a given time range.</p>
+
+<blockquote>
+  <p>Prometheus is one of the tools we use in our monitoring stack at Bedrock. One of its purposes, among others, is to 
+collect metrics from Pods. This article will not present our Prometheus stack in detail.</p>
+</blockquote>
+
+<p>Here is how the prescaling exporter works:</p>
+
+<p><img src="/images/posts/2022-02-03-prescaling/prescaling_v1.png" alt="Prescaling v1" /></p>
+
+<ol>
+  <li>Every 15 seconds or so, Prometheus scrapes the prescaling exporter pod to get the metrics it exposes.</li>
+  <li>Scrapping triggers the generation of the metrics. Before they are exposed, the exporter first 
+calls the k8s API to list all HPAs in the cluster.</li>
+  <li>Then, it will:
+    <ul>
+      <li>Filter those HPA with the required annotations (the annotations we added a bit earlier on an HPA).</li>
+      <li>Calculate the new <code class="language-plaintext highlighter-rouge">annotation_scaling_min_replica</code> metric for each HPA with the prescaling annotations.</li>
+      <li>The prescaling exporter can now expose the metrics.</li>
+    </ul>
+  </li>
+  <li>And Prometheus can retrieve them.</li>
+</ol>
+
+<p>How does the prescaling exporter calculate the metrics of the HPA subscribed to the prescaling? Well, it depends 
+on the content of the annotations you configured on the HPA.</p>
+
+<p>Here is how a Prometheus metric of the prescaling exporter looks like:</p>
+
+<p><img src="/images/posts/2022-02-03-prescaling/prometheus_metric.png" alt="Prometheus metric" /></p>
+
+<p>In each metric, you will find several labels. I chose to put only one here to simplify.
+The metric can take one of three values, depending on the content of the annotations we saw earlier:</p>
+<ul>
+  <li>When we are not within the time range of the prescaling annotations of the HPA, it means that we do not 
+need to prescale. As a result, the metric is set to <code class="language-plaintext highlighter-rouge">0</code>.</li>
+  <li>If we are within the time range of the prescaling annotations, it means we are in the prescaling time range. 
+From there, two possibilities:
+    <ul>
+      <li>If “Current number of replicas” &lt; “Number of minimum replicas in the HPA annotation”, we need to add replicas so 
+the metric is set to <code class="language-plaintext highlighter-rouge">11</code>.</li>
+      <li>If “Current number of replicas” &gt;= “Number of minimum replicas in the HPA annotation”, we have enough replicas so 
+the metric is set to <code class="language-plaintext highlighter-rouge">10</code>.</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>When the metric is set to 10 and we already have enough replicas running, the number of replicas will never go below 
+the minimum chosen in the prescaling annotation <code class="language-plaintext highlighter-rouge">annotations.scaling.exporter.replica.min</code>.</p>
+</blockquote>
+
+<p>Here is what it looks like on Grafana for the application <code class="language-plaintext highlighter-rouge">service-6play-images</code> during the evening:</p>
+
+<p><img src="/images/posts/2022-02-03-prescaling/annotation_scaling_min_replica_over_time.png" alt="annotation_scaling_min_replica over time" /></p>
+<center><i>annotation_scaling_min_replica over time</i></center>
+
+<p>In this example:</p>
+<ul>
+  <li>Until 19:30, <code class="language-plaintext highlighter-rouge">annotation_scaling_min_replica</code> is set to 0.</li>
+  <li>From 19:30 until about 19:35, <code class="language-plaintext highlighter-rouge">annotation_scaling_min_replica</code> is set to 11 (scale-out will happen).</li>
+  <li>From 19:35 until 00:00, <code class="language-plaintext highlighter-rouge">annotation_scaling_min_replica</code> is set to 10 (scale-out is done, we have enough Pods).</li>
+  <li>From 00:00 until the following evening, <code class="language-plaintext highlighter-rouge">annotation_scaling_min_replica</code> is set to 0 again.</li>
+</ul>
+
+<p>We can guess two things from this example:</p>
+<ol>
+  <li>The prescaling period for this application was 19:30 until 00:00.</li>
+  <li>It took about 5 minutes to prescale (= add more Pods) the application.</li>
+</ol>
+
+<h3 id="how-can-the-hpas-prescale">How can the HPAs prescale?</h3>
+
+<p>To understand how the HPAs can prescale, we need to talk about 
+<a href="https://github.com/kubernetes-sigs/prometheus-adapter">the prometheus adapter</a>. It is an implementation 
+of the Kubernetes metrics APIs. We use it to expose custom and external metrics for HPAs to use in order to scale:</p>
+
+<p><img src="/images/posts/2022-02-03-prescaling/hpa_scale.png" alt="HPA scale" /></p>
+
+<ol>
+  <li>Prometheus adapter collects metrics from prometheus once every minute and exposes them as <code class="language-plaintext highlighter-rouge">External</code> and
+<code class="language-plaintext highlighter-rouge">Custom</code> metrics.</li>
+  <li>The HPA controller manager fetches metrics provided by metrics-server and prometheus-adapter to scale out or 
+scale in Deployment/Replica Set/Stateful Set resources. To do so, it uses k8s aggregated 
+APIs (<code class="language-plaintext highlighter-rouge">metrics.k8s.io</code>, <code class="language-plaintext highlighter-rouge">custom.metrics.k8s.io</code> and <code class="language-plaintext highlighter-rouge">external.metrics.k8s.io</code>). 
+Metrics-server provides resource metrics (only CPU and memory). 
+Prometheus adapter provides all non-resource metrics (external and custom).</li>
+</ol>
+
+<p>For more information: <a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">HPA Kubernetes documentation</a>.</p>
+
+<h3 id="prescaling-works">Prescaling works!</h3>
+
+<p>After prescaling has been deployed into production and teams started to add annotations in their projects, 
+this is what happened:</p>
+
+<p><img src="/images/posts/2022-02-03-prescaling/pods_status_over_time.png" alt="Number of pods regarding their status over time" /></p>
+<center><i>Number of pods regarding their status over time</i></center>
+
+<p>Around 19:30, the number of pods for this application goes from 25 to a bit more than 55. It means its HPA was 
+scaled out, based on the prescaling metric of that application. Mission accomplished!</p>
+
+<h2 id="what-about-special-huge-events">What about special, huge, events?</h2>
+
+<p>Some days, during very special events, “normal” prescaling was not enough to handle the load that was rising 
+way faster than what we usually see on our platform:</p>
+
+<p><img src="/images/posts/2022-02-03-prescaling/huge_special_event.png" alt="Huge special event" /></p>
+
+<p>As you can see, even with prescaling doing its job before the start of the TV program (we can see capacity 
+rising at the beginning of the graph), the traffic rises so quickly at 20:55 that we are still unable to scale fast 
+enough to serve all users.</p>
+
+<p>For these special events, we have developed an additional mechanism that allows us to set a multiplication coefficient 
+to all prescaling. We use it to say “I want a 5x higher minimum number of Pods than what’s configured in the annotation 
+we’ve seen before, for all HPAs bearing this annotation”.</p>
+
+<p>To deal with those very special events, we added another component in the prescaling stack: the prescaling API.</p>
+
+<h3 id="the-prescaling-api">The prescaling API</h3>
+
+<p>The prescaling API is a backend application also developed in Python. It was designed to store prescaling 
+settings for future events on the platform in AWS DynamoDB. We chose DynamoDB because it’s a serverless database 
+easily maintainable through Terraform code. By “event”, understand a football game or another big show such as 
+Top Chef. Those settings define when and how we must enlarge the platform to sustain bigger 
+traffic spikes than on standard days (= on normal prescaling evenings).</p>
+
+<p><img src="/images/posts/2022-02-03-prescaling/prescaling_v2.png" alt="Prescaling v2" /></p>
+
+<p>With this API, our prescaling workflow has evolved:</p>
+
+<ol>
+  <li>Prometheus scrapes the prescaling exporter pod, same as before.</li>
+  <li>Scrapping triggers the exposition of the Prometheus metrics. Before the metrics are exposed, the exporter first 
+calls the Prescaling API server to get the current special event if there is one.</li>
+  <li>After calling the prescaling API, the exporter calls the k8s API (as before) to list all HPAs in the cluster.</li>
+  <li>Then, it:
+    <ul>
+      <li>Filters those HPA with the required annotations.</li>
+      <li>Calculates the new <code class="language-plaintext highlighter-rouge">annotation_scaling_min_replica</code> metrics by merging information from the HPA annotations and 
+the special event from the <code class="language-plaintext highlighter-rouge">prescaling-api</code> server.</li>
+    </ul>
+  </li>
+  <li>The prescaling exporter now exposes the metrics so that Prometheus can retrieve them.</li>
+</ol>
+
+<h3 id="lets-see-how-an-application-scales-during-a-very-special-event">Let’s see how an application scales during a very special event</h3>
+
+<p>Here is how the number of pods evolves with a special prescaling event configured:</p>
+
+<p><img src="/images/posts/2022-02-03-prescaling/pods_status_over_time.png" alt="Number of pods regarding their status over time" /></p>
+<center><i>Number of pods by status over time</i></center>
+
+<p>For this specific application, we had around 25 pods during the day and standard prescaling was configured at 
+40 pods in the HPA annotations. On normal days, we would have had about 40 pods throughout the evening. 
+On this particular day, we had around 125 pods: a ”x3” multiplier was applied, thanks to the prescaling API.</p>
+
+<h2 id="prescaling-external-services-another-challenge">Prescaling external services: another challenge</h2>
+
+<p>Reactive scaling still answers most of our needs. We are still able to do “x2 every 5 minutes” in Kubernetes. 
+Prescaling is great, it can help critical applications to sustain sudden and expected traffic spikes we had 
+problems dealing with before. On top of that, prescaling for special events even allows us to deal with extreme cases.</p>
+
+<p>Still, the applications we prescale often depend on external services: a database, a cache, a search engine… 
+Most of these external services will not prescale as easily as with our prescaling solution. 
+Some services, like AWS DynamoDB or AWS Aurora serverless, come with a reactive autoscaling solution, 
+but not all of them. And still, even those autoscaling services have limits…</p>
+
+<hr />
+
+<p><em>Very special thanks to all my Bedrock Streaming colleagues who helped me improve this blog post.</em></p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Tonight%27s+football+time%2C+let%27s+prescale+Kubernetes+to+avoid+a+crash%21%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F02%2F03%2Fprescaling.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/02/03/prescaling.html&title=Tonight%27s+football+time%2C+let%27s+prescale+Kubernetes+to+avoid+a+crash%21%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/02/03/prescaling.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Tonight's football time, let's prescale Kubernetes to avoid a crash!%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/02/03/prescaling.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#aws">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> aws</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#cloud">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#high+availability">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> high availability</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#kubernetes">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> kubernetes</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#scaling">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> scaling</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Streaming recommendations at Bedrock" href="/2022/02/27/streaming-recommendation.html">
+            <p>Previous post</p>
+            Streaming recommendations at Bedrock
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Bedrock Dev Facts #15" href="/2021/12/20/bedrock-dev-facts-15.html">
+            <p>Next post</p>
+            Bedrock Dev Facts #15
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/2022-02-03-prescaling/davide_ragusa_unsplash.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

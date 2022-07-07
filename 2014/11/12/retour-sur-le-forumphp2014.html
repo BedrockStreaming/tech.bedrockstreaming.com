@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/forumphp2014/cover.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Retour sur le forum PHP 2014 organisé par l’AFUP | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Retour sur le forum PHP 2014 organisé par l’AFUP" />
+<meta name="author" content="Team Burton" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Blog technique de Bedrock" />
+<meta property="og:description" content="Blog technique de Bedrock" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2014/11/12/retour-sur-le-forumphp2014.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2014/11/12/retour-sur-le-forumphp2014.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-11-12T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Retour sur le forum PHP 2014 organisé par l’AFUP" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2014/11/12/retour-sur-le-forumphp2014.html"},"url":"https://tech.bedrockstreaming.com/2014/11/12/retour-sur-le-forumphp2014.html","author":{"@type":"Person","name":"Team Burton"},"description":"Blog technique de Bedrock","dateModified":"2014-11-12T00:00:00+01:00","datePublished":"2014-11-12T00:00:00+01:00","headline":"Retour sur le forum PHP 2014 organisé par l’AFUP","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Retour sur le forum PHP 2014 organisé par l'AFUP">
+    <meta name="twitter:description" content="M6Web était présent en force avec 5 collaborateurs présent à l’évènement. Voici un retour des conférences qui nous ont le plus marquées.Vers des applications...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/forumphp2014/cover.jpg">
+    <meta name="twitter:image:alt" content="Retour sur le forum PHP 2014 organisé par l'AFUP">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Retour sur le forum PHP 2014 organisé par l'AFUP " aria-label="Retour sur le forum PHP 2014 organisé par l'AFUP" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Retour+sur+le+forum+PHP+2014+organis%C3%A9+par+l%27AFUP" class="title">Retour sur le forum PHP 2014 organisé par l'AFUP</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      November 12, 2014
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>M6Web était présent en force avec 5 collaborateurs présent à l’évènement. Voici un retour des conférences qui nous ont le plus marquées.</p>
+
+<h2 id="vers-des-applications-12-factor-avec-symfony-et-docker">Vers des applications “12 factor” avec Symfony et Docker</h2>
+
+<p>Cette session avait pour objectif de nous présenter la méthodologie du “twelve-factor app”, à travers des exemples concrets pour PHP à l’aide de Symfony et Docker.</p>
+
+<p><a href="https://12factor.net/">“The twelve-factor app”</a> est une suite de recommandations, indépendante d’un langage de programmation particulier et pouvant s’appliquer à toutes sortes de logiciels développés en tant que service.</p>
+
+<p>Sans revenir sur l’ensemble de la présentation, voici un retour sur les 12 facteurs :</p>
+
+<ul>
+  <li>Codebase : une app = un repo (ou équivalent) servant de source à tous les déploiements (dev / preprod / recette / prod  etc.). Exemples : git, mercurial etc.</li>
+  <li>Dependencies : déclaration explicite et complète de l’arbre de dépendances, utilisé uniformément pour tous les environnements. Exemples : composer, npm etc.</li>
+  <li>Config : séparation stricte config/code (Resources, Backing services, Credentials, Hostname etc.). Exemples : parameters.yml pour Symfony 2 ou utilisation de variables d’environnement avec Docker notamment. Utilisation de fig pour l’orchestration des containers docker.</li>
+  <li>Backing Services : tous les services utilisés par l’application sont accessibles par le réseau. Il n’y a pas de distinction entre les ressources locales et distantes car toutes sont accessibles via URL et/ou Credentials. Exemples : MySQL, RabbitMQ, Postfix, Redis, S3 etc.</li>
+  <li>Build, release, run : séparation stricte entre
+    <ul>
+      <li>“build stage” : téléchargement d’une version du code et des dépendances. Exemples : “docker build”</li>
+      <li>“release stage“ : utilise le “build” et le combine avec la configuration du déploiement (une version sur un environnement). Exemple : “docker push”, utilisation de capistrano…</li>
+      <li>“run stage” : lancement de la “release” sur l’environnement cible. Exemple “docker run” ou “fig run”</li>
+    </ul>
+  </li>
+  <li>Processes : chaque composant de l’application est ‘sans état’ et ne doit pas partager directement des données. Tout doit être partagé en “backing service”.</li>
+  <li>Port binding : les services doivent être disponibles en mettant à disposition un port d’accès, directement accessible. Cela permet une utilisation aisée en environnement de dev mais également de réutiliser les services.</li>
+  <li>Concurrency : une application respectant les “12 factor” est facilement scalable, quel que soit son type (web, worker, etc.) car elle repose sur des composants systèmes pour son pilotage.</li>
+  <li>Disposability : robustesse par le lancement et l’arrêt rapide des services, pour rendre chacune de ses services scalables.</li>
+  <li>Dev/Pro parity : homogénéité des environnements dev/prod et gain de temps pour la prise en main d’un projet. (mais le développeur n’aura pas une vision précise de la configuration… boite noire ?)</li>
+  <li>Logs : traitement des logs en tant que flux, utilisés par des services. Exemples : ELK, StatsD/Grafana etc.</li>
+  <li>Admin process : Exécuter les tâches de maintenance sur les mêmes environnements/containers. Exemples : docker exec</li>
+</ul>
+
+<p><a href="https://speakerdeck.com/ubermuda/vers-des-applications-twelve-factor">slides</a></p>
+
+<p>Personnellement, j’ai trouvé cette conférence vraiment riche et instructive. Peut-être un peu plus d’exemples de configuration fig/docker aurait pu illustrer d’avantage.</p>
+
+<h2 id="la-mesure-ce-nest-pas-que-pour-le-devops">La mesure ce n’est pas que pour le devops</h2>
+
+<p>Les conférenciers ont commencé leur présentation sur un rappel de ce qu’est le Lean Startup, héritier de la méthode Lean mise au point par Toyota. Nous connaissions la démarche Lean mais pas du tout son approche spécifique au lancement d’un produit.</p>
+
+<p>Le concept pourrait se résumer à : la base du lean startup est de savoir écouter -ses utilisateurs- car le succès dépend d’un feedback mesurable.</p>
+
+<p>Le processus d’application est très simple : un cycle construit/mesure/apprend.</p>
+
+<p>S’en est logiquement suivi une énumération des manières de mettre en oeuvre le processus en sachant prendre en compte les mesures qui importent (AAA, AARRR), plutôt que des “mesures de vanité” (followers, nombre de visite,..).</p>
+
+<p>Enfin pour appliquer ces mesures, une présentation des outils a disposition a été faite.</p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/8tgvbue4Qqo" frameborder="0" allowfullscreen=""></iframe>
+
+<h2 id="php-dans-les-distributions-rpm">PHP dans les distributions RPM</h2>
+
+<p><a href="https://blog.famillecollet.com/public/Docs/PHPRPM.pdf">Slides</a></p>
+
+<p>Cette session avait comme objectif de faire un état de PHP dans les distributions RPM RHEL/Centos/Fedora.</p>
+
+<p>RHEL / Centos :</p>
+
+<ul>
+  <li>Objectif de stabilité à 10 ans</li>
+  <li>Stabilité binaire et de configuration sur la durée de vie de la distribution</li>
+  <li>RHEL : version payante avec support (contacts avec les ingénieurs RedHat, ressources en ligne, cycles de mises à jour garantis etc.).</li>
+  <li>Centos : même code que RHEL (juste recompilé) mais uniquement un support communautaire (comme fedora, ubuntu, suse…).</li>
+  <li>RHEL 5 : PHP 5.1 / RHEL 6 : PHP 5.3 / RHEL 7 : PHP 5.4</li>
+  <li>Application des patchs de sécurités sur les versions anciennes de PHP pendant 10 ans.</li>
+  <li>Possibilité d’utiliser des repos tiers pour choisir une version plus récente spécifique (comme ceux de Remi Collet) - mais pas de support officiel.</li>
+  <li>Distributions plutôt destinées à des applicatifs maintenus sur le long terme.</li>
+</ul>
+
+<p>Fedora 21+ :</p>
+
+<ul>
+  <li>3 sous distributions : Workstation / Server / Cloud</li>
+  <li>Dernière version de PHP (PHP5.5 pour f20 et PHP5.6 pour f21)</li>
+  <li>Intégration continue de PHP dans les cycles de Fédora. Permet d’éviter les régressions.</li>
+</ul>
+
+<p>A venir : Software Collections (scl) permet d’avoir TOUTES les versions de PHP souhaitées simultanément sur la même installation de Fedora. <strong>Vraiment prometteur</strong> !</p>
+
+<p>Exemple d’utilisation des SCL en cli :</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">scl <span class="nb">enable </span>php56 <span class="nt">-f</span> myscript56.php
+scl <span class="nb">enable </span>php56 bash
+scl <span class="nb">enable </span>php53 <span class="nt">-f</span> myscript53only.php
+scl <span class="nb">enable </span>php53 bash</code></pre></figure>
+
+<p>Dans une config apache :</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">&lt;VirtualHost <span class="k">*</span>:80&gt;
+    ServerName php56scl
+    
+    <span class="c"># Redirect to FPM server in php56 SCL</span>
+    &lt;FilesMatch <span class="se">\.</span>php<span class="nv">$&gt;</span>
+    SetHandler <span class="s2">"proxy:fcgi://127.0.0.1:9006"</span>
+    &lt;/FilesMatch&gt;
+&lt;/VirtualHost&gt;</code></pre></figure>
+
+<h2 id="frameworks-a-history-of-violence">Frameworks: A History of Violence</h2>
+
+<p><img src="/images/posts/forumphp2014/francoisz.jpg" alt="president" /></p>
+
+<p>Francois Zaninotto nous a offert un vrai show en se mettant dans la peau d’un homme politique candidat à la présidence du parti des développeurs. Avec beaucoup d’humour il a fait un retour sur l’évolution (sa propre évolution ?) du développement web et son futur hypothétique, tout en distillant (son programme) de précieux conseils pour être un meilleur développeur.</p>
+
+<p>Son programme :</p>
+
+<ul>
+  <li>Le domaine d’abord : lier son développement métier à un minimum de tierce partie (pas facile à faire !),</li>
+  <li>Dites non au full-stack (ça se discute !),</li>
+  <li>L’application plurielle : ne pas hésiter à mélanger différents langages et différents projets dialoguant via http sur une même application,</li>
+  <li>Repenser le temps : passons aux 32h pour nous permettre de faire de la veille.</li>
+</ul>
+
+<p>A la communauté PHP nous pourrions proposer une synthèse (entendu ailleurs) : <em>“soyons plus des développeurs web que des développeurs PHP, soyons plus des développeurs que des développeurs web”</em>.</p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/ep3Oztvy0rk" frameborder="0" allowfullscreen=""></iframe>
+
+<h2 id="retour-dexpérience-arte-geie--développement-dapi">Retour d’expérience ARTE GEIE : développement d’API</h2>
+
+<p>Une conférence donnée par un de nos confrères d’ARTE sur des problématiques très actuelles pour nous. <a href="https://twitter.com/_franek_">François Dume</a> a expliqué la stratégie de mise en place d’une API autour de <a href="https://jsonapi.org/">JSON API</a> et des microservices. L’utilisation de OpenResty et du langage Lua couplé à un serveur oAuth en Symfony2 gérant la validation des tokens et le throttling.</p>
+
+<p>Il a ensuite expliqué en détail l’implémentation de {json:api} dans Symfony2, en mettant en avant de nombreuses contributions open-source.</p>
+
+<p><img src="/images/posts/forumphp2014/arte.jpg" alt="archi de l'API ARTE" /></p>
+
+<p>Une conférence didactique et claire.</p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/nxqEpkTV_BE" frameborder="0" allowfullscreen=""></iframe>
+
+<h2 id="vdm-devops-malgré-moi">VDM, DevOps malgré moi</h2>
+
+<p><a href="https://twitter.com/maxime">Maxime Valette</a> nous expliqué comment il a (à 20 ans à peine) crée un business incroyable sur Internet et a surtout réussi à gérer une augmentation de 30 à 40K visiteurs de plus chaque jour avec pratiquement juste sa b* et son c*.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Comment on fait ? 
+- Comme on peut ! 
+</code></pre></div></div>
+
+<p>De vrai qualité d’orateur pour Maxime et une conf très rafraichissante. Une démonstration de lean startup par l’exemple. Même si ce choix n’a pas été discuté, PHP était un choix naturel pour lui à l’époque.</p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/rZrj_1IFGCM" frameborder="0" allowfullscreen=""></iframe>
+
+<h2 id="an-introduction-to-the-laravel-framework-for-php">An introduction to the Laravel Framework for PHP.</h2>
+
+<p>Bien que Symfony soit très largement majoritaire en Europe, <a href="https://laravel.com/">Laravel</a> est très populaire en Amérique du Nord, c’est donc avec curiosité que nous avons assisté à cette présentation du framework faite par <a href="https://twitter.com/daylerees">Dayle Rees</a>, core developer.</p>
+
+<p>Une fois passé la très longue présentation des livres et autres activités du conférencier, nous avons eu droit à une présentation générale du framework qui nous as fortement rappelé Symfony1 : utilisation de singleton à outrance, MagicBox (équivalent du sfContext), beaucoup de magie pour réduire la configuration (nom des contrôleurs).</p>
+
+<p>Au final, l’impression laissée est mitigée : certes, le seuil d’entrée est relativement réduit, tout est simple d’apparence, mais c’était la même chose pour Symfony1, et l’expérience nous a montré que lorsque l’on essayait de sortir le framework des sentiers battus, cette simplicité devenait un vrai obstacle.</p>
+
+<p>Au final, Laravel est sûrement une alternative intéressante pour les nostalgiques de Symfony1, puisque le projet est actif et maintenu. Mais, pour les projets que nous développons, Symfony2 reste une solution tout à fait adaptée.</p>
+
+<h2 id="laisse-pas-trainer-ton-log-">Laisse pas trainer ton log !</h2>
+
+<p><a href="https://twitter.com/odolbeau">Olivier Dolbeau</a> nous a fait un retour sur la problématique d’accès et l’interprétation des logs sur les serveurs de production.</p>
+
+<p><img src="/images/posts/forumphp2014/dolbeau.jpg" alt="Olivier on stage" /></p>
+
+<p>Il nous as donc présenté la solution qu’il utilise, à savoir la stack ELK, pour <a href="https://www.elasticsearch.org/">ElasticSearch</a>/<a href="https://logstash.net/">LogStash</a>/<a href="https://www.elasticsearch.org/overview/kibana/">Kibana</a>, qui permet à chaque serveur d’envoyer ses logs vers un serveur central, qui a pour charge de les agréger, et de permettre leur utilisation avancée.
+Fini la recherche dans des fichiers textes plats qu’il faut commencer par comprendre, désormais vos applicatifs peuvent enrichir leurs logs, les envoyer sur un système dédié à la gestion des logs disposant de vraies interfaces de recherche et de consultation.</p>
+
+<p>Nous avons été confortés dans notre idée, puisque nous mettons également en oeuvre cette solution.</p>
+
+<h2 id="table-ronde-etat-des-lieux-et-avenir-de-php">Table ronde “Etat des lieux et avenir de PHP”</h2>
+
+<p><a href="https://twitter.com/pascal_martin">Pascal Martin</a> a animé d’une main de maître une table ronde sur l’avenir de PHP. Avec Jordi Boggiano, lead developer de Composer, Pierre Joye, core dev de PHP, Julien Pauli, release manager de PHP 5.5 et co-RM de PHP 5.6.</p>
+
+<p>La communauté se pose beaucoup de questions sur le devenir de l’engine PHP et comment va évoluer le langage. <br />
+Les débats ont été intenses et les invités ont pu répondre à des questions posées via Twitter. Au final peu de conclusions définitives. On peut déduire que malgré les alternatives proposées par HHVM et HippyVM, la communauté reste majoritairement sur PHP et est toujours très friande d’évolutions du langage et de sa performance. Les invités de la table ronde ont exhortés les participants à contribuer au code de PHP en nous fournissant pas mal de conseils.</p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/U4dYlxQATlk" frameborder="0" allowfullscreen=""></iframe>
+
+<h2 id="slideshow-karaoké">Slideshow Karaoké</h2>
+
+<p>Une honte ! En plus les slides n’avaient aucun sens ! :) Bravo à <a href="https://twitter.com/kenny_dee">Mc Kenny</a> pour l’animation.</p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/Ln12meWM1pE" frameborder="0" allowfullscreen=""></iframe>
+
+<p><img src="/images/posts/forumphp2014/ss_karaoke.jpg" alt="Les participants au karaoké" /></p>
+
+<p>Un grand merci à l’AFUP pour ce joli évènement ! Retrouvez pas mal de ressources partagés pendant l’event sur <a href="https://eventifier.com/event/frmphp/">eventifier</a>.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Retour+sur+le+forum+PHP+2014+organis%C3%A9+par+l%27AFUP%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2014%2F11%2F12%2Fretour-sur-le-forumphp2014.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2014/11/12/retour-sur-le-forumphp2014.html&title=Retour+sur+le+forum+PHP+2014+organis%C3%A9+par+l%27AFUP%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2014/11/12/retour-sur-le-forumphp2014.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Retour sur le forum PHP 2014 organisé par l'AFUP%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2014/11/12/retour-sur-le-forumphp2014.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#afup">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> afup</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#forumphp">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> forumphp</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#php">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> php</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="M6Web Dev Facts #7" href="/2014/11/13/m6web-dev-facts-7.html">
+            <p>Previous post</p>
+            M6Web Dev Facts #7
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Github Team Reviewer pour gagner la course aux Pull Requests" href="/github-team-reviewer-pull-requests.html">
+            <p>Next post</p>
+            Github Team Reviewer pour gagner la course aux Pull Requests
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/forumphp2014/cover.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

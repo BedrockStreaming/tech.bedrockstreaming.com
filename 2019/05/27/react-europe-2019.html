@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/react-europe-2019/brendan-church-182747-unsplash.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>React Europe 2019 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="React Europe 2019" />
+<meta name="author" content="Florent Dubost, Nicolas Afresne, Antoine Caron" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Our feedbacks about the European React Conference 2019" />
+<meta property="og:description" content="Our feedbacks about the European React Conference 2019" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2019/05/27/react-europe-2019.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2019/05/27/react-europe-2019.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-05-27T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="React Europe 2019" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2019/05/27/react-europe-2019.html"},"url":"https://tech.bedrockstreaming.com/2019/05/27/react-europe-2019.html","author":{"@type":"Person","name":"Florent Dubost, Nicolas Afresne, Antoine Caron"},"description":"Our feedbacks about the European React Conference 2019","dateModified":"2019-05-27T00:00:00+02:00","datePublished":"2019-05-27T00:00:00+02:00","headline":"React Europe 2019","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="React Europe 2019">
+    <meta name="twitter:description" content="The M6 Distribution’s (M6 Web’s new name!) front team hasn’t posted for a long time. We took part as listeners of the 5th European React Conference in Paris ...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/react-europe-2019/brendan-church-182747-unsplash.jpg">
+    <meta name="twitter:image:alt" content="React Europe 2019">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="React Europe 2019 " aria-label="React Europe 2019" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="React+Europe+2019" class="title">React Europe 2019</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      May 27, 2019
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>The M6 Distribution’s (M6 Web’s new name!) front team hasn’t posted for a long time. We took part as listeners of the 5th European React Conference in Paris on May 24th and 25th. It’s an opportunity to talk about what are the last moves in the React community and at M6.</p>
+
+<p>As usual, we were waiting for lot of announcements in this conference and a lot of new tools or new libraries. There has been no big declaration, no surprise. But many subjects were interesting and several talks confirmed the way we have taken over the last few years.</p>
+
+<h2 id="hooks-more-hooks-and-suspense">Hooks, more hooks and suspense</h2>
+
+<p>During the keynote, Jared Palmer put the emphasis on <a href="https://reactjs.org/docs/hooks-overview.html"><em>hooks</em></a> through an example to simplify the use of GraphQL queries. At M6 Distribution, <strong>we use hooks since the beginning of the year and many are in production</strong>. That has changed the way we write components. We already have used functionnal components before, but using hooks simplify the readability and the evolutivity of old class component. The bad point is testing… Because we use Enzyme, testing hooks is painful for now. Until Enzyme fully supports hooks, we have implemented custom mocks.</p>
+
+<p>Jared Palmer also showed us the interest of React Suspense to manage a main loading state in an app instead of many spinners that don’t offer a good user experience. We can’t use Suspense for our app because of the <a href="/2017/05/17/spa-mode-isomorphism-js">SSR</a>. As it is <a href="https://reactjs.org/docs/code-splitting.html#reactlazy">recommended by the React team</a>, we use <a href="https://github.com/smooth-code/loadable-components">Loadable Components</a> instead. Jared  announced that a new asynchronous server renderer is in progress and could be released in 2019 supporting Suspense. Suspense will also include <a href="https://reactjs.org/blog/2018/11/27/react-16-roadmap.html#react-16x-mid-2019-the-one-with-suspense-for-data-fetching">data fetching</a>.</p>
+
+<p>Others features or refactoring will come in the future, but there is very limited information:</p>
+<ul>
+  <li><a href="https://github.com/facebook/react/issues/13525">React Fire</a></li>
+  <li>React Fusion (?)</li>
+  <li><a href="https://github.com/react-native-community/discussions-and-proposals/issues/4">React Native Fabric</a></li>
+  <li><a href="https://github.com/facebook/react/issues/15257">React Flare</a></li>
+</ul>
+
+<h2 id="do-the-harlem-shake">Do the harlem shake</h2>
+
+<p>Several conferences have addressed the theme of animations with React. This subject is very often complicated to solve. Finding a high-performance solution that is compatible with as many browsers as possible can be a real challenge.</p>
+
+<p>For more than a year now, we have been migrating from Sass to <a href="https://www.styled-components.com/">styled-components</a>. Despite some resentment, it should be noted that this new tool makes it very easy to create/compose our new visual components. It also helps us a lot with its management of the theme.</p>
+
+<p>Between the <a href="https://www.react-spring.io/">react-spring</a> library and the tips of <a href="https://twitter.com/JoshWComeau">Joshua Comeau</a>, we now have many ways to integrate the new animations that designers can invent.</p>
+
+<p>To summarize their comments, <strong>there is no single best way to make animations in all situations</strong>. Whether with canvas, SVG, web API, CSS, 2D sprite, you should try to do it in several ways to compare performance and rendering in order to choose the best option for your specific case.</p>
+
+<h2 id="make-tests-but-make-good-tests">Make tests but make good tests</h2>
+
+<p><a href="https://twitter.com/lisa_gagarina">Lisa Gagarina</a> gave us some tips to better testing the code. Even If we have been using ESLint and Prettier for a long time in our JS projects, we have chosen not to implement static typing for the moment. Indeed, we think that it is a huge step, it has a big impact on the code and it can make the onboarding of new developpers more complex. For now, we just use the React proptypes well.</p>
+
+<p>Lisa also advices to <strong>better use Jest snapshots</strong>. They are often too many, too big, not clear, hard to review. And we have experienced it too. A best pratice can be to reduce snapshots size and inline it in the test file. The readability of a test is indeed very important and it is not recommended to refer to other files than the test file (this is valid for snapshots but also for fixtures). There are some ESLint rules to ensure this: jest/no-large-snapshots, jest/prefer-inline-snapshots. <a href="https://github.com/jest-community/snapshot-diff"><code class="language-plaintext highlighter-rouge">snapshot-diff</code></a> can also helps by making a diff between the nominal case and the tested case of a component rendering.</p>
+
+<p>A difficult thing is to <strong>keep test agnostic to implementation details</strong>. We should consider the code as a black-box and only test the user interaction of the components, otherwise any refactoring of code will be painful and might discourage developers from writing tests.</p>
+
+<p>E2E tests are also complex to setup, write and debug but are <strong>absolutely necessary</strong>. For the back office app, unlike our front app where <a href="/2016/01/25/tests-fonctionnels-app-js">we use a custom stack</a>, we choose <a href="https://www.cypress.io/">Cypress</a> a complete E2E framework that has saved us a lot of time.</p>
+
+<p>Lisa concluded her very interesting lightning talk by saying that there is no such thing as a one-size-fits-all approach, the way of testing has to be adapted to the team and the project. For example on our 6play project, we have more than 3000 unit tests performed by Jest in less than 4 minutes and 450 E2E scenarios that save your life every day!</p>
+
+<p>If you are interested in this subject, take a look at <a href="https://medium.com/@me_37286/yoni-goldberg-javascript-nodejs-testing-best-practices-2b98924c9347">this article about JS testing best practices</a>.</p>
+
+<h2 id="finally-a-little-graphql-in-our-projects">Finally a little GraphQL in our projects</h2>
+
+<p>One of the main themes of the conference was also <code class="language-plaintext highlighter-rouge">GraphQL</code>. 
+This data exchange paradigm now seems to have its place among many users.
+For more than a year now, we have been using <code class="language-plaintext highlighter-rouge">GraphQL</code> on our back office and we are already seeing a lot of benefits:</p>
+
+<ul>
+  <li>a front/back exchange contract materialized in a schema,</li>
+  <li>easy consumption thanks to queries,</li>
+  <li>cache management provided by Apollo (also providing a collection of great tools for <code class="language-plaintext highlighter-rouge">GraphQL</code>).</li>
+</ul>
+
+<p><a href="/2015/04/01/immutablejs-relay-graphql-react-native">Kenny already talked about it in 2015</a> but now we use it!</p>
+
+<h2 id="development-worflow-the-expected-journey">Development worflow: the expected journey</h2>
+
+<p>One of the most interesting conferences in my opinion was about the need to optimize the development workflow. This is an element that is too often ignored but is very important in the life of a project. Paul Amstrong presents us here an analysis of the workflow of his team in charge of the development of the Twitter Lite application. He also presented some conclusions and solutions he implemented. In a standard development workflow there are 3 points that allow a significant margin of progress:</p>
+<ul>
+  <li>increased developer confidence and delivery speed,</li>
+  <li>automate the PR process to maximum,</li>
+  <li>detect errors as early as possible.</li>
+</ul>
+
+<p>These words echo our own questions on the subject and these conclusions confirm our decisions. 
+It is important to have <strong>the shortest and most automated workflow possible</strong> between the developer and the user without sacrificing the developer’s experience because it goes hand in hand with all the other aspects of a project.</p>
+
+<p>At M6 Distribution, we use most of the tools presented, but two in particular caught our attention.</p>
+
+<p>The first, <a href="https://github.com/paularmstrong/react-component-benchmark"><strong>React Component Benchmark</strong></a>, is of particular interest to us because in the past we had started to investigate the subject and used tools that are depreciated today.</p>
+
+<p>The second, <a href="https://buildtracker.dev/"><strong>Build Tracker</strong></a>, which allows us to test the evolution of bundle size, will allow us to replace an equivalent tool developed internally while providing a more detailed analysis in order to work more accurately on these issues.</p>
+
+<p>Here is an example of a message posted by our in-house build tracker on a Pull Request.</p>
+
+<p><img src="/images/posts/react-europe-2019/our-build-tracker.png" alt="our version of Build tracker" /></p>
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ikn_dBSski8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<h2 id="a11y-is-our-new-challenge">A11y is our new challenge</h2>
+
+<p>Several very inspiring talks on accessibility seem to show that this issue finally appears to be considered by web actors. In particular Facebook, which has distinguished itself by showing its assistant to detect accessibility errors in the development of its new version. However, it is regrettable that this toolkit is not accessible to the community because it could be a great help to avoid putting people from being in a situation of handicap.</p>
+
+<p>It is clear that our front web app is not yet very accessible but we are working to correct this error, especially on the new screens we have been integrating for several months.</p>
+
+<h2 id="our-expectations-on-yarn-finally-fulfilled">Our expectations on Yarn finally fulfilled</h2>
+
+<p>We were waiting for it at M6, the new <code class="language-plaintext highlighter-rouge">yarn</code> release named <code class="language-plaintext highlighter-rouge">berry</code> offers almost everything we were missing in our favorite package manager.
+Indeed, by using <code class="language-plaintext highlighter-rouge">yarn</code> in <em>monorepo</em> mode for our front projects, we were confronted with several problems that had to be overcome with in-house tools. Example here with our <a href="https://github.com/BedrockStreaming/monorepo-dependencies-check"><code class="language-plaintext highlighter-rouge">monorepo-dependencies-check</code> tool</a> which is now becoming obsolete thanks to <code class="language-plaintext highlighter-rouge">Constraints</code>.</p>
+
+<p>We are also delighted with the functionality of Zero install. But what we expected the most was about the <em>workspaces</em>. We will finally have a management of the publication of these.</p>
+
+<p>Take a look at <a href="https://github.com/yarnpkg/berry">this repository</a> for more information.</p>
+
+<h2 id="some-projects-that-interest-us-a-lot-nextjs--code-sandbox">Some projects that interest us a lot: Next.js &amp; Code Sandbox</h2>
+
+<p>Even if these two tools are not used for the development of our applications, the new features of Next.js and Code Sandbox are clearly very interesting.</p>
+
+<p>As for Next.js, our front web project has its own configuration of <code class="language-plaintext highlighter-rouge">server side rendering</code> (Florent explains it in <a href="/2017/05/17/spa-mode-isomorphism-js">‘Last night isomorphic JS saved our life!’</a>). However, NextJS is a great project that we use for many of our side projects. <strong>AMP support, client-only pages and API endpoints</strong> are clearly welcome.</p>
+
+<p>As for Code Sandbox, Ives van Hoorne told us his personal story and that of his project. In addition to <strong>the great tool that is CodeSandbox</strong>, we have seen that the use of WebAssembly seems to have solved a lot of performance and implementation problems. For example, he cites the coloring of the code based on <em>TextMate</em> only available in C could not have been ported to the browser without going through WebAssembly.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=React+Europe+2019%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2019%2F05%2F27%2Freact-europe-2019.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2019/05/27/react-europe-2019.html&title=React+Europe+2019%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2019/05/27/react-europe-2019.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=React Europe 2019%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2019/05/27/react-europe-2019.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#2019">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> 2019</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#6play">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> 6play</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#Conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#JS">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> JS</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#React">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> React</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="M6Web Dev Facts #10" href="/2019/08/08/m6web-dev-facts-10.html">
+            <p>Previous post</p>
+            M6Web Dev Facts #10
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="AFUP Day Lyon 2019" href="/2019/05/23/afup-day.html">
+            <p>Next post</p>
+            AFUP Day Lyon 2019
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/react-europe-2019/brendan-church-182747-unsplash.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

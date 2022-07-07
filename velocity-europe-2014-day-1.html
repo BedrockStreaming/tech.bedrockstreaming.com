@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/velocity2014/velocity_banner.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Retour sur la Velocity Barcelone - premier jour | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Retour sur la Velocity Barcelone - premier jour" />
+<meta name="author" content="Baptiste, François Verron et Olivier Mansour" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Blog technique de Bedrock" />
+<meta property="og:description" content="Blog technique de Bedrock" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/velocity-europe-2014-day-1" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/velocity-europe-2014-day-1" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-11-19T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Retour sur la Velocity Barcelone - premier jour" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/velocity-europe-2014-day-1"},"url":"https://tech.bedrockstreaming.com/velocity-europe-2014-day-1","author":{"@type":"Person","name":"Baptiste, François Verron et Olivier Mansour"},"description":"Blog technique de Bedrock","dateModified":"2014-11-19T00:00:00+01:00","datePublished":"2014-11-19T00:00:00+01:00","headline":"Retour sur la Velocity Barcelone - premier jour","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Retour sur la Velocity Barcelone - premier jour">
+    <meta name="twitter:description" content="Velocity Barcelone, premier jourBaptiste, François et Olivier ont eu la chance de participer à la Vélocity Conférence Europe 2014 qui avait lieu cette année ...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/velocity2014/velocity_banner.jpg">
+    <meta name="twitter:image:alt" content="Retour sur la Velocity Barcelone - premier jour">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Retour sur la Velocity Barcelone - premier jour " aria-label="Retour sur la Velocity Barcelone - premier jour" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Retour+sur+la+Velocity+Barcelone+-+premier+jour" class="title">Retour sur la Velocity Barcelone - premier jour</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      November 19, 2014
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <h1 id="velocity-barcelone-premier-jour">Velocity Barcelone, premier jour</h1>
+
+<p>Baptiste, François et Olivier ont eu la chance de participer à la Vélocity Conférence Europe 2014 qui avait lieu cette année à Barcelone.</p>
+
+<p>Voici le compte rendu des conférences et des moments qui les ont marqués.</p>
+
+<h2 id="morning-keynotes">Morning Keynotes</h2>
+
+<p>Les keynotes du matin semblaient être scénarisées sur différents points que les organisateurs de la conférence voulaient mettre en avant.</p>
+
+<h3 id="life-after-human-error---steven-shorrock-eurocontrol">Life after human error - Steven Shorrock (EUROCONTROL)</h3>
+
+<p>Steven Shorrock n’est pas un homme de l’IT, mais travaille autour de la sécurité aérienne. Il se définit comme un ergonomiste des systèmes. Il a présenté comment, autour des erreurs humaines, “les mots créaient le monde” et entrainaient immédiatement un jugement social (“négligence” est évidement plus connoté que “erreur d’attention”). Il peut y avoir des erreurs dans la définition d’une erreur. Qualifier une erreur demandait une définition précise de standards et de contextes. <br />
+Il a également conseillé d’étudier les cas de fonctionnement normaux ; ne pas faire seulement des <em>post-mortem</em> mais des <em>pre</em> et des <em>no</em> mortem.</p>
+
+<p><img src="/images/posts/velocity2014/hal.jpg" alt="hal" /></p>
+
+<p>Une présentation intéressante sur l’incident et l’erreur.</p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/STU3Or6ZU60" frameborder="0" allowfullscreen=""></iframe>
+
+<h3 id="maximize-the-return-of-your-digital-investments---aaron-rudger-keynote-systems">Maximize the Return of Your Digital Investments - Aaron Rudger (Keynote Systems)</h3>
+
+<p>Une présentation sponsorisée bien faite, montrant les difficultés de communication entre deux populations (IT et biz en l’occurence) et comment un outil performant et agréable peut aider à combler ce gap.<br />
+Chez M6Web nous utilisons grafana, et il est vrai que cet outil pourrait largement sortir du périmètre de l’IT.</p>
+
+<p>Slides : <a href="https://cdn.oreillystatic.com/en/assets/1/event/121/Maximize%20the%20Return%20of%20Your%20Digital%20Investments%20Presentation.ppt">Maximize the Return of Your Digital Investments</a></p>
+
+<iframe width="853" height="480" src="//www.youtube.com/embed/en4ywZINQhI" frameborder="0" allowfullscreen=""></iframe>
+
+<h3 id="always-keep-an-eye-on-your-website-performance---perfbar-khalid-lafi-wirefilter">Always Keep an Eye on Your Website Performance - PerfBar Khalid Lafi (WireFilter)</h3>
+
+<p>Une rapide démonstration d’un outil en javascript à installer sur les postes de vos développeurs et permettant d’afficher des alertes si un site en production (ou ailleurs) dépasse un certain seuil.</p>
+
+<p>A découvrir : <a href="https://lafikl.github.io/perfBar/">PerfBar</a></p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/xJogXOzmcSk" frameborder="0" allowfullscreen=""></iframe>
+
+<h3 id="the-impatience-economy-where-velocity-creates-value---monica-pal-aerospike-inc">The Impatience Economy, Where Velocity Creates Value - Monica Pal (Aerospike Inc.)</h3>
+
+<p>Il y a une génération on attendait 10 jours un échange de courrier postal, aujourd’hui un adolescent vérifie son téléphone toutes les 10 secondes ! Nous sommes moins attentifs, plus impatients.<br />
+De ce constat Monica Pal explique comment les backend web doivent s’adapter et servir de plus en plus d’informations contextualisées : <em>search, sort, recommand, personalize</em>.</p>
+
+<p>Slides : <a href="https://cdn.oreillystatic.com/en/assets/1/event/121/The%20Impatience%20Economy,%20Where%20Velocity%20Creates%20Value%20Presentation.pptx">The Impatience Economy</a></p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/mgnLVSSfols" frameborder="0" allowfullscreen=""></iframe>
+
+<h3 id="recruiting-for-diversity-in-tech---laine-campbell-pythian">Recruiting for Diversity in Tech - Laine Campbell (Pythian)</h3>
+
+<p>Un thème récurrent de la velocity de cette année. Laine explique comment l’ascenseur <em>méritocratique</em> est cassé et que seule une démarche volontaire permettra d’augmenter la diversité dans les entreprises.</p>
+
+<p>Slides : <a href="https://cdn.oreillystatic.com/en/assets/1/event/121/Recruiting%20for%20Diversity%20in%20Tech%20Presentation.pptx">Recruiting for Diversity in Tech</a></p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/Hw8D0gW5rZA" frameborder="0" allowfullscreen=""></iframe>
+
+<h3 id="better-performance-through-better-design---mark-zeman-speedcurve">Better Performance Through Better Design - Mark Zeman (SpeedCurve)</h3>
+
+<p>La dernière keynote était vraiment excellente. Mark Zeman, venu de Nouvelle Zélande, a expliqué comment le processus créatif pouvait aider à améliorer la performance. Dans ce but il a proposé de <em>redesign the design process</em>.</p>
+<ul>
+  <li>se fixer certains principes/objectifs de performance dès le départ</li>
+  <li>ajouter les designers dans la <em>feature team</em> et itérer via des prototypes</li>
+  <li>de partager le savoir sous forme d’informations visuelles (graphique mais aussi sous forme <a href="https://github.com/zeman/perfmap">d’un bookmarklet</a> indiquant quelle partie d’un site met du temps à charger)</li>
+</ul>
+
+<p><img src="/images/posts/velocity2014/better_perf_with_better_design1.jpg" alt="better_perf_with_better_design1" /></p>
+
+<p><img src="/images/posts/velocity2014/better_perf_with_better_design2.jpg" alt="better_perf_with_better_design2" /></p>
+
+<p>Je vous invite vivement à regarder sa vidéo :</p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/DFImM0r4EpE" frameborder="0" allowfullscreen=""></iframe>
+
+<hr />
+
+<h2 id="it-janitor-how-to-tidy-up---mark-barnes-financial-times">IT Janitor, How to Tidy Up - Mark Barnes (Financial Times)</h2>
+
+<p>Ce manager au Financial Times a expliqué comment le journal a été touché de plein fouet par la révolution du web mobile et a dû s’adapter très rapidement.</p>
+
+<p><img src="/images/posts/velocity2014/transfo_mobile_FT.jpg" alt="transfo_mobile_FT" /></p>
+
+<p>Il a expliqué quelle stratégie il a adoptée pour tuer ou refaire les vieux systèmes et comment, en premier lieu, il a vendu le projet à ses supérieurs.<br />
+Il a tout d’abord présenté le TCO de ce qu’il a appelé la version <em>”classic”</em> de ft.com (la carotte) puis a appuyé sur la peur de l’incident et les problèmes de sécurité (le bâton ; le journal ayant été la cible des pirates syriens).</p>
+
+<p>Après une analyse fine du traffic il a ensuite appliqué ces stratégies :</p>
+<ul>
+  <li>tuer directement une application inutile (il y en avait), quitte à la rallumer si quelqu’un finalement en à l’usage :) (et couper un serveur Solaris avec 1833 jours d’uptime !)</li>
+  <li>reécrire l’application et la redéployer sur le nouveau système</li>
+  <li>tuer une application et écrire plusieurs autres (découpage en micro services)</li>
+</ul>
+
+<p>Son crédo était <em>”try to make the right thing easier.”</em> Ainsi les projets basés sur la nouvelle stack disposait <em>out of the box</em> de fonctionnalités de monitoring et de log. Cela a beaucoup motivé les équipes de développements.</p>
+
+<p>Au final la purge du legacy a apporté :</p>
+
+<ul>
+  <li>un gain de 30% de performance</li>
+  <li>un meilleur TTM</li>
+  <li>de substantiels retours sur investissement</li>
+</ul>
+
+<p>Slides : <a href="https://cdn.oreillystatic.com/en/assets/1/event/121/IT%20Janitor%20-%20How%20to%20Tidy%20Up%20Presentation.pptx">IT Janitor - How to Tidy Up</a></p>
+
+<hr />
+
+<h2 id="mansplaining-101-cisadmin-edition---marni-cohen-puppet-labs">Mansplaining 101: Cisadmin Edition - Marni Cohen (Puppet Labs)</h2>
+
+<p>La conférence la plus geek de la journée. La conférencière a ouvert un terminal et a tapé</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>feminism
+</code></pre></div></div>
+
+<p><img src="/images/posts/velocity2014/marni1.jpg" alt="marni1" /></p>
+
+<p>La conférence était très sincère et didactique sur comment mieux intégrer les femmes dans l’IT.</p>
+
+<p>Voici les scripts et les ressources qu’elle a présentés : <a href="https://gitlab.com/marni/mansplaining">https://gitlab.com/marni/mansplaining</a></p>
+
+<hr />
+
+<h2 id="building-the-firefoxos-homescreen---kevin-grandon-mozilla">Building the FirefoxOS Homescreen - Kevin Grandon (Mozilla)</h2>
+
+<p><img src="https://zef.me/wp-content/uploads/2013/05/FirefoxOS-logo_610x385.png" alt="Firefox OS" /></p>
+
+<p>Slides : <a href="https://slidedeck.io/KevinGrandon/slides-fxos-home-screen-velocity-2014">Building the FirefoxOS Homescreen</a></p>
+
+<p>Conférence de présentation de l’OS pour smartphone de Firefox.</p>
+
+<p>Lors de cette présentation, Kevin Grandon Ingénieur chez Mozilla nous a présenté le nouvel OS, et nous a initié à la programmation sur ce dernier.
+Ce nouvel OS est donc basé sur des langages simples : HTML / CSS / Javascript.</p>
+
+<p>Le développement est donc assez facile à prendre en main, le débugage aussi car on peux monitorer tout ce qu’il se passe sur le device de test via un firebug dédié.</p>
+
+<hr />
+
+<h2 id="dont-kill-yourself--mobile-web-performance-tricks-that-arent-worth-it-and-somme-that-are---lyza-gardner-cloud-four">Don’t Kill Yourself : Mobile Web Performance Tricks that Aren’t Worth it, and Somme that Are - Lyza Gardner (Cloud Four)</h2>
+
+<p>Optimisations pour le web mobile.</p>
+
+<p>Lyza Gardner nous a présenté sa vision de l’optimisation sur web mobile. Elle nous a tout d’abord fait un compte rendu sur son expérience personnelle. Liza a cherché via différentes analyses (speedIndex…) à trouver une relation entre temps de chargement, nombres d’assets etc… Et la conclusion qu’elle mettait en avant, c’est qu’il n’y avait pas de recette magique. 
+Elle a ensuite fait la parallèle entre le web lors de ces débuts qui était limité par le débit de nos connexions de l’époque, et le web mobile tel qu’il est actuellement. Ainsi certaines optimisations de l’époque sont adaptables, et même toujours valables, à nos problématiques actuelles.
+Selon elle, il ne faut pas optimiser un site pour le mobile, mais l’optimiser tout court. Elle propose de se fixer des objectifs, par exemple se fixer une limite de nombre d’appel asset. Mais surtout d’optimiser / limiter les images puisque 62% du trafic d’un site correspond a ces dernières.</p>
+
+<hr />
+
+<h2 id="what-are-the-third-party-components-doing-to-your-sites-performance---andy-davies-simon-hearne-ncc-group">What are the Third-party Components Doing to Your Site’s Performance? - Andy Davies, Simon Hearne (NCC Group)</h2>
+
+<p>Slides : <a href="https://cdn.oreillystatic.com/en/assets/1/event/121/What%20are%20Third-party%20Components%20Doing%20to%20Your%20Site_s%20Performance_%20Presentation.pdf">Third-party components and site performance?</a></p>
+
+<p>Nous utilisons tous des « Third-Party » sur nos sites, mais est-ce une bonne idée ?</p>
+
+<p>Un Third-Party est un script que nous chargeons depuis un autre site. Par exemple : Google Analitycs. Il existe différents type de Third-Party : la publicité, les analyseurs de trafic … La problématique est que nous ne pouvons pas controller ces outils. Nous n’avons pas la main sur le temps de chargement, la disponibilité de l’outils, et cela peut influer sur l’expérience utilisateur et la qualité de nos services.</p>
+
+<p>Pour conclure, il faut trouver le bon compromis entre ce que nous apporte le Third-Party et ce qu’il peut nous coûter …</p>
+
+<hr />
+
+<h2 id="guide-to-survive-a-world-wide-event---almudena-vivanco-mateus-bartz-telefónica">Guide to Survive a World Wide Event - Almudena Vivanco, Mateus Bartz (Telefónica</h2>
+
+<p>Slides : <a href="https://cdn.oreillystatic.com/en/assets/1/event/121/Guide%20to%20Survive%20a%20World%20Wide%20Event%20%20Presentation.pdf">Survive a World Wide Event</a></p>
+
+<p>Retour d’expérience de Movistar TV, une chaîne payante multi-support qui a diffusé la coupe du monde en Espagne, au Brésil et en Argentine.</p>
+
+<p>Cette société s’est confrontée à une problématique de traffic avec des pics de connexions importants en peu de temps. La société devait diffuser la coupe du monde FIFA 2014 dans plusieurs pays et sur plusieurs devices différents. Après des tests en condition réelles avant le début de la compétition, ils se sont aperçus qu’ils ne pouvaient pas gérer le pic de connexion qui arrivait entre 5 minutes avant le coup d’envoi et 5 minutes après, ainsi qu’à la reprise du match et début de deuxième mi-temps.<br />
+Il a donc fallu tout refaire à plusieurs niveaux :</p>
+<ul>
+  <li>Création d’un CDN en interne</li>
+  <li>Refonte globale du système de connexion pour pouvoir supporter les pics.</li>
+  <li>Mise en place de monitoring via Graphite</li>
+  <li>Mise en place de Tests</li>
+</ul>
+
+<p>Mise en avant de beaucoup de problématiques :</p>
+<ul>
+  <li>Multi plateforme</li>
+  <li>Déploiement sur plusieurs continents (Amérique du Sud, Europe)</li>
+  <li>Rassembler 11 outils de monitoring en un seul.</li>
+</ul>
+
+<hr />
+
+<h2 id="is-tls-fast-yet-">Is TLS Fast yet ?</h2>
+
+<p>Slides : <a href="https://docs.google.com/presentation/d/1BH9DI1XlmukCzU2i8OvxLIfgQf_aGlZgZyvWDSyYyzs/present?slide=id.p19">Is TLS Fast yet ?</a></p>
+
+<p>TL;DR = Oui, il pourrait l’être !</p>
+
+<p>Le talent d’Ilya pour les conférences techniques a une fois de plus fait ses preuves. 
+Tout en détaillant l’utilité de TransportLayerSecurity (compression, vérification d’erreurs, authentification, chiffrement…) Ilya nous prouve que dans le meilleur des cas, un RTT supplémentaire est nécessaire et l’impact CPU très faible.</p>
+
+<p>Outre l’utilisation des dernières versions du Kernel, d’OpenSSL et de votre OS serveur, la performance de TLS passe aussi par la réutilisation d’éléments négociés lors de la première (et coûteuse) poignée de main. Cette optimisation se fait coté serveur en conservant les “sessions identifiers” coté serveur ou coté client avec un “cookie” chiffré, le “session ticket”. Il faudra bien entendu ajuster la durée de cache et/ou les timeouts (~ 1 jour).</p>
+
+<p>Une erreur fréquemment commise consiste à ne pas intégrer le certificat intermédiaire (peu de CA s’autorise à signer votre certificat avec leur CA Root) dans le certificat serveur ce qui a pour conséquence de stopper le render, ouvrir une nouvelle connexion tcp et https pour récupérer ce dernier chez l’autorité de certification.</p>
+
+<p>L’OSCP stappling permet lui d’inclure directement la réponse OCSP et ainsi éviter le même problème de blocage du rendu, connexion à un tiers etc…</p>
+
+<p>L’utilisation hasardeuse de redirection 301 peut considérablement augmenter le Time To First Byte de votre site, il est donc fortement conseillé de bien analyser ses chaînes de redirections (ex: https://domain.com =&gt; https://www.domain.com =&gt; https://www.domain.com) et d’utiliser HSTS. Ce header émis par le serveur permettra au navigateur de mettre en cache la décision de redirection vers https.</p>
+
+<p>Le talk s’est terminé par un tableau comparatif fort intéressant des serveurs HTTP et des CDNs concernant tous ces aspects.</p>
+
+<p>Quelques liens supplémentaires:</p>
+
+<ul>
+  <li><a href="https://www.ssllabs.com/ssltest/">https://www.ssllabs.com/ssltest/</a></li>
+  <li><a href="https://www.feistyduck.com/books/bulletproof-ssl-and-tls/">https://www.feistyduck.com/books/bulletproof-ssl-and-tls/</a></li>
+</ul>
+
+<hr />
+
+<h2 id="monitoring-the-math-behind-bad-behavior">Monitoring: the math behind bad behavior</h2>
+
+<p>Slides : <a href="https://speakerdeck.com/postwait/the-math-behind-big-systems-analysis">the math behind bad behavior</a></p>
+
+<p>La détection d’anomalies dans les flux continus de données de type Time Series n’est pas une chose aisée.</p>
+
+<p>Se baser sur un percentile, une moyenne ou une mediane uniquement ne permet pas de capturer les phénomènes de saisonnalité et d’anomalies.</p>
+
+<p>Théo nous a proposé une méthode de détection de ces dernières appelée “lurching windows”. Sur des fenêtres de temps glissantes, on applique la méthode CUSUM (Cumulative Sum), qui somme les données en affectant un poids relatif (en réalité la probabilité que cette valeur existe).</p>
+
+<p>A voir: <a href="https://en.wikipedia.org/wiki/CUSUM">https://en.wikipedia.org/wiki/CUSUM</a></p>
+
+<hr />
+
+<h2 id="what-ops-can-learn-from-design---robert-treat-omniti">What ops can learn from design - Robert Treat (OmniTI)</h2>
+
+<p>Slides : <a href="https://cdn.oreillystatic.com/en/assets/1/event/121/What%20Ops%20Can%20Learn%20From%20Design%20Presentation.pdf">What ops can learn from design</a></p>
+
+<p>“Un designer est quelqu’un qui design”.</p>
+
+<p>Derrière cette lapalissade se cache en réalité plusieurs concepts importants à intégrer pour toutes personnes produisant un code, un service utilisé par un tiers.</p>
+
+<p>Nous sommes tous des designers. Il est donc indispensable de mettre en oeuvre 3 mécanismes simples pour faciliter l’utilisation de votre code/service.</p>
+
+<p>Le “Feedback”: le bon code de retour lors de l’échec d’un script, un message intelligible et contextualisé dans un log d’erreur applicatif, le “natural Mapping”: -d dans une option en ligne de commande pour indiquer –database, et le “force functions”: sous Unix, kill est par défaut non destructif, il faut forcer avec kill -9 pour tuer définitivement un processus, tout comme on vous force à fermer la porte de votre micro-onde pour le mettre en marche.</p>
+
+<p>Conférence intéressante qui vous fera sentir moins coupable de ne pas savoir si il fallait pousser ou tirer une porte :)</p>
+
+<hr />
+
+<h2 id="statistical-learning-based-automatic-anomaly-detection-twitter">Statistical Learning-based Automatic Anomaly Detection @Twitter</h2>
+
+<p>Arun Kejariwal est maintenant un habitué de la Velocity, j’avais particulièrement apprécié sa présentation l’année dernière à Londres sur la détection d’anomalies chez twitter.</p>
+
+<p>L’ojectif est toujours le même: prédire la capacité pour ajouter du matériel en datacenter, détecter des événements particulier, distinguer le spam du trafic normal etc…</p>
+
+<p>Leur méthode est relativement identique à ce qui avait été présenté l’année dernière: sur deux semaines de données on applique un traitement du signal pour décomposer et filtrer la saisonnalité. Il “suffit” ensuite d’appliquer une regression ou un ESD sur les résidus pour détecter d’éventuelles anomalies.</p>
+
+<p>Chose à savoir: Twitter va publier un package R contenant ces fonctions et algorithmes, qui seront donc utilisables par le commun des mortels !</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Une première journée intéressante et intense, sous le soleil de Barcelone !</p>
+
+<p><img src="/images/posts/velocity2014/sun.jpg" alt="sun of Barcelona" /></p>
+
+<p>Le résumé de <a href="/velocity-europe-2014-day-2">la seconde journée</a> est également disponible.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Retour+sur+la+Velocity+Barcelone+-+premier+jour%20https%3A%2F%2Ftech.bedrockstreaming.com%2Fvelocity-europe-2014-day-1"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/velocity-europe-2014-day-1&title=Retour+sur+la+Velocity+Barcelone+-+premier+jour%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/velocity-europe-2014-day-1"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Retour sur la Velocity Barcelone - premier jour%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/velocity-europe-2014-day-1"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#velocity">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> velocity</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#webperf">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> webperf</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Retour sur la Velocity Barcelone - seconde journée" href="/velocity-europe-2014-day-2">
+            <p>Previous post</p>
+            Retour sur la Velocity Barcelone - seconde journée
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Configuration dynamique avec Symfony ExpressionLanguage" href="/symfony-expression-language">
+            <p>Next post</p>
+            Configuration dynamique avec Symfony ExpressionLanguage
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/velocity2014/velocity_banner.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

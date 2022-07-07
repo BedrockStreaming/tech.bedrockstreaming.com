@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/2021-11-18-hsdo/hsdo.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>More efficient Load Balancing and Caching at AWS, using Consistent Hashing and HAProxy | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="More efficient Load Balancing and Caching at AWS, using Consistent Hashing and HAProxy" />
+<meta name="author" content="Tanguy Falconnet" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Why and how, we implement consistent hashing based load balancing at AWS with HSDO" />
+<meta property="og:description" content="Why and how, we implement consistent hashing based load balancing at AWS with HSDO" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2021/11/18/hsdo.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2021/11/18/hsdo.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-11-18T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="More efficient Load Balancing and Caching at AWS, using Consistent Hashing and HAProxy" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2021/11/18/hsdo.html"},"url":"https://tech.bedrockstreaming.com/2021/11/18/hsdo.html","author":{"@type":"Person","name":"Tanguy Falconnet"},"description":"Why and how, we implement consistent hashing based load balancing at AWS with HSDO","dateModified":"2021-11-18T00:00:00+01:00","datePublished":"2021-11-18T00:00:00+01:00","headline":"More efficient Load Balancing and Caching at AWS, using Consistent Hashing and HAProxy","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="More efficient Load Balancing and Caching at AWS, using Consistent Hashing and HAProxy">
+    <meta name="twitter:description" content="AWS ALB &amp; NLB currently supports Round-Robin (RR) and Least Outstanding Requests (LOR) balancing algorithms. But what happens when you try to load balanc...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/2021-11-18-hsdo/hsdo.png">
+    <meta name="twitter:image:alt" content="More efficient Load Balancing and Caching at AWS, using Consistent Hashing and HAProxy">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="More efficient Load Balancing and Caching at AWS, using Consistent Hashing and HAProxy " aria-label="More efficient Load Balancing and Caching at AWS, using Consistent Hashing and HAProxy" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="More+efficient+Load+Balancing+and+Caching+at+AWS%2C+using+Consistent+Hashing+and+HAProxy" class="title">More efficient Load Balancing and Caching at AWS, using Consistent Hashing and HAProxy</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/TanguyFalconnet" target="_blank" rel="noopener">
+    <p class="meta">
+      Tanguy Falconnet - 
+      
+      November 18, 2021
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>AWS ALB &amp; NLB currently supports Round-Robin (RR) and Least Outstanding Requests (LOR) balancing algorithms. But what happens when you try to load balance cache servers with these algorithms? How to implement an effective cache in Cloud at scale?</p>
+
+<h1 id="context">Context</h1>
+<p>At Bedrock we use both ALB &amp; NLB for different use-cases (like <a href="/2020/12/08/Three-years-running-kubernetes-on-production-at-Bedrock">in front of our Kubernetes clusters</a>) in our platforms. For our last VOD platform, we needed to be able to load balance heavy content (videos) to our cache servers. We knew that the balancing algorithm was a key factor for our cache in Cloud at scale, and that ALB &amp; NLB won’t be sufficient to achieve our goals.</p>
+
+<h1 id="balancing-algorithms">Balancing algorithms</h1>
+
+<p>Round-Robin is a widely used balancing algorithms.</p>
+
+<p><img src="/images/posts/2021-11-18-hsdo/image8.png" alt="Round robin or Least Outstanding Requests algorithms" /></p>
+<center><ins>Round robin or Least Outstanding Requests algorithms</ins></center>
+
+<p>The load balancer cycles through cache servers sequentially, so each cache server should receive an equal share of requests. Each cache server has to possibly store every requested object (♠️, ♥️, ♦️, and ♣️ represent different objects).</p>
+
+<p>With Least Outstanding Requests, load balancers send requests to the cache server with least awaiting requests. The cache server still has to store every requested object.</p>
+
+<p>Consistent Hashing is a very interesting balancing algorithm for caching purposes.</p>
+
+<p><img src="/images/posts/2021-11-18-hsdo/image9.png" alt="Consistent Hashing algorithm" /></p>
+<center><ins>Consistent Hashing algorithm</ins></center>
+
+<p>This algorithm allows to distribute the load so that all requests for the same object will always go to the same cache server. This way, each cache server has to store half of the objects.</p>
+
+<p>And more cache servers means more load balancing between the servers.</p>
+
+<p><img src="/images/posts/2021-11-18-hsdo/image10.png" alt="Consistent Hashing at scale" /></p>
+<center><ins>Consistent Hashing at scale</ins></center>
+
+<p>While at scale, Round-Robin or Least Outstanding Requests will look like this:</p>
+
+<p><img src="/images/posts/2021-11-18-hsdo/image5.png" alt="Round Robin or Least Outstanding Requests at scale" /></p>
+
+<center><ins>Round Robin or Least Outstanding Requests at scale</ins></center>
+
+<p>Cache servers are not efficient at scale with these algorithms. There is a higher chance for the cache to miss, because all servers do not store all objects. Every time a cache expires or cache server boots, objects need to be cached again to be hit. You also need more resources, as the same object needs to be cached on all cache server disks.</p>
+
+<p>With Consistent Hashing, once an object has been cached you have a greater chance for the cache to hit. And you save money by using smaller disks on cache servers and reducing network bandwidth.</p>
+
+<h1 id="haproxy-implementation">HAProxy implementation</h1>
+
+<p>Consistent Hashing at AWS is not available with ALB, ELB and NLB. You need to implement it yourself.</p>
+
+<p>To do this, we chose to use HAProxy.</p>
+
+<p>HAproxy is fast and reliable. We use it often, we know it well, and it can use consistent hashing.</p>
+
+<p>This is how we architected it.</p>
+
+<p><img src="/images/posts/2021-11-18-hsdo/image6.png" alt="Load Balanced Cache Architecture Schema" /></p>
+<center><ins>Load Balanced Cache Architecture</ins></center>
+
+<p>HAProxy servers and Cache servers are deployed with Auto Scaling Groups (ASG). A Target Group is registering HAProxy ASG instances so NLB will load balance between them. Having separated ASG for HAProxy and Cache allows it to have dedicated automatic scaling and management.</p>
+
+<p>We need to implement something for HAProxy so it could discover and register Cache ASG instances. And there is one thing important to do consistent hashing with HAProxy: a centralized and consistent configuration.</p>
+
+<h2 id="centralized-configuration">Centralized configuration</h2>
+
+<p>All HAProxy instances need to have the same configuration with the same list of servers, or requests will be split differently depending on HAproxy instances.</p>
+
+<p><img src="/images/posts/2021-11-18-hsdo/image11.png" alt="Consistent Hashing with different list of servers per HAProxy" /></p>
+<center><ins>Consistent Hashing with different list of servers per HAProxy</ins></center>
+
+<p>You have a higher chance to have a miss on your cache request as a single object may be at different locations depending on the HAproxy instance.
+With a centralized configuration, you can be sure that each HAProxy instance will request the same cache server for the same object.</p>
+
+<h2 id="consistent-configuration">Consistent configuration</h2>
+
+<p>HAProxy consistent hashing is based on backend server IDs. These IDs match the position of the server in the backend server list. For example, this HAProxy configuration:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>backend cache
+   server CacheA 192.168.0.1:80 #ID = 1
+   server CacheB 192.168.0.2:80 #ID = 2
+   server CacheC 192.168.0.3:80 #ID = 3
+   server CacheD 192.168.0.4:80 #ID = 4
+</code></pre></div></div>
+
+<p>will be seen as the following:</p>
+
+<p><img src="/images/posts/2021-11-18-hsdo/image3.png" alt="Consistent Configuration Schema 1" /></p>
+
+<p>To keep consistent hashing efficient, cache servers need to change ID rarely. HAProxy backend server list must be consistent across all HAProxy instances.</p>
+
+<p>If CacheC is removed, configuration has to be like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>backend cache
+   server CacheA 192.168.0.1:80          #ID = 1
+   server CacheB 192.168.0.2:80          #ID = 2
+   server CacheC 192.168.0.3:80 disabled #ID = 3
+   server CacheD 192.168.0.4:80          #ID = 4
+</code></pre></div></div>
+
+<p>CacheC backend server is now <a href="http://cbonte.github.io/haproxy-dconv/2.0/configuration.html#5.2-disabled">disabled</a> until another Cache server takes its place.</p>
+
+<p><img src="/images/posts/2021-11-18-hsdo/image4.png" alt="Consistent Configuration Schema 2" /></p>
+
+<p>With consistent configuration: ♠️, ♣️ and ♥️ requests are always balanced to the same cache servers, while ♦️ requests are balanced to another available cache server.<br />
+Without consistent configuration: all requests could be rebalanced to other cache servers. This would mean that for each cache server scale up or down, we no longer have the cached objects: we MISS the cache. This would be inefficient: we would lose the advantage of the cache.</p>
+
+<h1 id="solutions">Solutions</h1>
+
+<h2 id="consul">Consul</h2>
+
+<p>At first, we started to configure HAproxy through Consul. We already used it at BedRock, and an <a href="https://www.haproxy.com/blog/haproxy-and-consul-with-dns-for-service-discovery/">article</a> gave us hope to quickly achieve what we wanted. 
+Consul Service Discovery with DNS won’t provide sorted/consistent DNS records by design. We can’t have a consistent configuration with it.</p>
+
+<p>Another way of doing so would be to use consul-template for generating backends and registering servers into an HAProxy configuration file. With this approach, we would reload systemd to add new servers to HAProxy.</p>
+
+<p>But <a href="http://cbonte.github.io/haproxy-dconv/2.0/management.html#9.3">HAProxy Runtime API</a> is the recommended way to make frequent changes on configuration, <a href="https://www.haproxy.com/blog/dynamic-scaling-for-microservices-with-runtime-api/">service reloads are not considered safe</a>.</p>
+
+<h2 id="aws-ec2-service-discovery">AWS EC2 Service Discovery</h2>
+
+<p>HAProxy also released a new functionality called <a href="https://www.haproxy.com/blog/aws-ec2-service-discovery-with-haproxy/">AWS EC2 Service Discovery</a> in July 2021. We haven’t tested it yet, but it lacks the possibility to keep a consistent list of servers between HAProxy instances, which isn’t good for consistent hashing as discussed before. We opened an <a href="https://github.com/haproxytech/dataplaneapi/issues/223">issue on HAProxy dedicated Github repository</a>.</p>
+
+<p>Added to the fact that we were starting to think that Consul was overkill for our needs, we start to implement our own solution.</p>
+
+<h2 id="haproxy-service-discovery-orchestrator">HAProxy Service Discovery Orchestrator</h2>
+
+<p>What we wanted to achieve was to use maximum managed service from AWS, meet our standard of stability and resilience, and keep things simple. We choose Python with boto3 to implement our solution as it is one of our team’s favorite languages.</p>
+
+<p>HAProxy Service Discovery Orchestrator (or HSDO) is <a href="https://github.com/BedrockStreaming/hsdo">open-source</a>.</p>
+
+<p>HSDO is composed of a server and a client.</p>
+
+<h3 id="hsdo-server">HSDO Server</h3>
+
+<p>HSDO Server runs in standalone. It could be a Lambda, but we were more comfortable with system processes when we designed it.<br />
+Its job is to keep track EC2 instances of one or multiple Cache ASGs and update a list accordingly.
+HSDO server provides a consistent sorted list of instances. Every time a new cache server appears in the ASG, it is added to the list at a given ID that will never change.
+This list is stored in DynamoDB.</p>
+
+<p><img src="/images/posts/2021-11-18-hsdo/image2.png" alt="DynamoDB Items View" /></p>
+<center><ins>DynamoDB Items View</ins></center>
+
+<h3 id="hsdo-client">HSDO Client</h3>
+
+<p>HSDO client is reading the DynamoDB table to get the cache servers. The client run on the same instance as HAProxy and use the runtime API to update HAProxy config.</p>
+
+<p><img src="/images/posts/2021-11-18-hsdo/image1.png" alt="HAProxy Status Page" style="width:10em;margin-left: auto;margin-right: auto;display: block;" /></p>
+<center><ins>HAProxy Status Page</ins></center>
+
+<p>Brown lines are disabled servers, while green lines are servers stored in DynamoDB as seen above.</p>
+
+<p><img src="/images/posts/2021-11-18-hsdo/image7.png" alt="HSDO in Load Balanced Cache Architecture Schema" /></p>
+<center><ins>HSDO in Load Balanced Cache Architecture Schema</ins></center>
+
+<p>With this architecture, we achieve a centralized and consistent configuration to make consistent hashing work at scale for cache servers.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>We have been using HSDO since September 2020. We are distributing VOD content for Salto and 6play streaming platforms and are able to handle at least 10.000 requests/s. This wasn’t possible without a few improvements (on platform cost, timeout funnels, …) and this will be presented in another post, so keep in touch. ;)</p>
+
+<p>Special thanks to all Ops team members in BedRock Streaming for re-re-re-and-rereading this blog post.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=More+efficient+Load+Balancing+and+Caching+at+AWS%2C+using+Consistent+Hashing+and+HAProxy%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2021%2F11%2F18%2Fhsdo.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2021/11/18/hsdo.html&title=More+efficient+Load+Balancing+and+Caching+at+AWS%2C+using+Consistent+Hashing+and+HAProxy%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2021/11/18/hsdo.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=More efficient Load Balancing and Caching at AWS, using Consistent Hashing and HAProxy%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2021/11/18/hsdo.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#HAProxy">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> HAProxy</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#aws">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> aws</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#cloud">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#high+availability">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> high availability</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#opensource">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> opensource</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#sysadmin">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> sysadmin</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#video">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> video</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Scaling Bedrock video delivery to 50 million users" href="/2021/12/15/scaling-bedrock-video-delivery-to-50-million-users.html">
+            <p>Previous post</p>
+            Scaling Bedrock video delivery to 50 million users
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Forum PHP 2021 - L'édition des retrouvailles" href="/2021/11/02/forum-php-2021.html">
+            <p>Next post</p>
+            Forum PHP 2021 - L'édition des retrouvailles
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

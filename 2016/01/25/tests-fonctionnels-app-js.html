@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/cytron/moon.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>On a testé fonctionnellement notre app JS | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="On a testé fonctionnellement notre app JS" />
+<meta name="author" content="Florent Dubost" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Faire des tests fonctionnels avec Cucumber.js, WebdriverIO et PhantomJS sur une app JS isomorphique." />
+<meta property="og:description" content="Faire des tests fonctionnels avec Cucumber.js, WebdriverIO et PhantomJS sur une app JS isomorphique." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2016/01/25/tests-fonctionnels-app-js.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2016/01/25/tests-fonctionnels-app-js.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-01-25T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="On a testé fonctionnellement notre app JS" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2016/01/25/tests-fonctionnels-app-js.html"},"url":"https://tech.bedrockstreaming.com/2016/01/25/tests-fonctionnels-app-js.html","author":{"@type":"Person","name":"Florent Dubost"},"description":"Faire des tests fonctionnels avec Cucumber.js, WebdriverIO et PhantomJS sur une app JS isomorphique.","dateModified":"2016-01-25T00:00:00+01:00","datePublished":"2016-01-25T00:00:00+01:00","headline":"On a testé fonctionnellement notre app JS","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="On a testé fonctionnellement notre app JS">
+    <meta name="twitter:description" content="L’utilité des tests fonctionnels pour les applications web n’est plus à démontrer (comment ça, vous ne testez pas encore vos apps ?). Malheureusement, tout n...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/cytron/moon.jpg">
+    <meta name="twitter:image:alt" content="On a testé fonctionnellement notre app JS">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="On a testé fonctionnellement notre app JS " aria-label="On a testé fonctionnellement notre app JS" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="On+a+test%C3%A9+fonctionnellement+notre+app+JS" class="title">On a testé fonctionnellement notre app JS</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/fooragnak" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="/images/avatar/florent.jpg">
+    
+    <p class="meta">
+      Florent Dubost - 
+      
+      January 25, 2016
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>L’utilité des tests fonctionnels pour les applications web n’est plus à démontrer (comment ça, vous ne testez pas encore vos apps ?). Malheureusement, tout ne peut pas être totalement testé fonctionnellement, ou de façon aisée : je pense par exemple au player chez nous, un composant stratégique mais pauvrement testé fonctionnellement de par sa nature un peu hybride (mélange de flash et de JS). Dans tous les cas, pour ce qui peut l’être, nous sommes partisans dans l’équipe Cytron d’user sans mesure (ou presque !) de cet outil de manière à être le plus zen possible au moment d’appuyer sur le bouton “deploy”.</p>
+
+<h2 id="quelle-stack-">Quelle stack ?</h2>
+
+<p>Notre application est codée en JS isomorphique (ou <a href="https://medium.com/@mjackson/universal-javascript-4761051b7ae9#.2srtfrqku">Universal JS</a>) grâce à <a href="/beta-nouveau-6play-react-isomorphic/">React et Node.js</a>.</p>
+
+<p>Pour les tests fonctionnels, nous utilisons le trio <a href="https://github.com/cucumber/cucumber-js">Cucumber.js</a> + <a href="https://webdriver.io/">WebdriverIO</a> + <a href="https://phantomjs.org/">PhantomJS</a> :</p>
+
+<ul>
+  <li><strong>Cucumber.js</strong> est l’outil qui permet de dérouler la suite de tests écrits dans la syntaxe <a href="https://github.com/cucumber/cucumber/wiki/Gherkin">Gherkin</a>,</li>
+  <li><strong>WebdriverIO</strong> permet d’interfacer les tests traduits en JS avec un serveur Selenium (dialoguant grâce au protocole <a href="https://code.google.com/p/selenium/wiki/JsonWireProtocol">WebDriver Wire</a> et permettant de contrôler un browser),</li>
+  <li><strong>PhantomJS</strong> est le browser dans lequel les scénarios de tests seront exécutés, il embarque son propre serveur Webdriver, <a href="https://github.com/detro/ghostdriver">Ghostdriver</a>.</li>
+</ul>
+
+<p>Toutes <a href="/lache-moi-la-branch">nos Pull Requests lancent les tests indépendamment via Jenkins</a> dans un environnement “dockerisé”, donc complètement autonome et isolé. De façon à respecter ce principe jusqu’au bout et à ne pas dépendre de données versatiles, nos API sont aussi mockées grâce à <a href="https://github.com/BedrockStreaming/superagent-mock">superagent-mock</a>.</p>
+
+<h2 id="setup">Setup</h2>
+
+<h3 id="arborescence">Arborescence</h3>
+<p>Dans notre projet, nous avons un dossier pour les tests fonctionnels organisés comme suit :</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">├─┐ tests
+│ ├─┐ step_definitions
+│ │ └── my_feature.steps.js
+│ ├─┐ screenshots
+│ │ └── my_scenario.png
+│ ├─┐ support
+│ │ ├── config.json
+│ │ ├── constants.json
+│ │ ├── hooks.js
+│ │ └── world.js
+│ └── my_feature.feature</code></pre></figure>
+
+<h3 id="features">Features</h3>
+<p>Une feature est un fichier testant une fonctionnalité de l’application et regroupant plusieurs scénarios de test. Il est écrit en langage naturel (Gherkin) de façon à être lisible par tous.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># tests/support/cookie.feature</span>
+Feature: Scenarios about the cookie banner
+
+  Scenario: See the cookie banner and close it
+    Given My browser storage is empty
+    When I visit the <span class="s2">"homepage"</span> page
+    Then I should see the <span class="s2">"cookie banner"</span>
+
+    When I click on <span class="s2">"Accept cookie"</span>
+    Then I should not see a <span class="s2">"cookie banner"</span>
+
+    When I visit the <span class="s2">"homepage"</span> page
+    Then I should not see a <span class="s2">"cookie banner"</span></code></pre></figure>
+
+<h3 id="world">World</h3>
+<p>Le fichier <code class="language-plaintext highlighter-rouge">world.js</code> est le point de départ pour Cucumber.js. C’est ici que nous initialisons WebdriverIO et que nous mettons un place un contexte qui sera disponible pour tous les tests.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// tests/support/world.js</span>
+<span class="kd">var</span> <span class="nx">Webdriver</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">webdriverio</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./config.json</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">assert</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">browser</span> <span class="o">=</span> <span class="nx">Webdriver</span><span class="p">.</span><span class="nx">remote</span><span class="p">({</span>
+  <span class="na">logLevel</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">logLevel</span> <span class="o">||</span> <span class="dl">'</span><span class="s1">silent</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">host</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">webdriver</span><span class="p">.</span><span class="nx">host</span><span class="p">,</span>
+  <span class="na">port</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">webdriver</span><span class="p">.</span><span class="nx">port</span><span class="p">,</span>
+  <span class="na">waitforTimeout</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">waitTimeout</span><span class="p">,</span>
+  <span class="na">desiredCapabilities</span><span class="p">:</span> <span class="p">{</span><span class="na">browserName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">phantomjs</span><span class="dl">'</span><span class="p">}</span>
+<span class="p">});</span>
+
+<span class="kd">function</span> <span class="nx">WorldConstructor</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">world</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">browser</span><span class="p">:</span> <span class="nx">browser</span><span class="p">,</span>
+
+    <span class="c1">// Global visit method</span>
+    <span class="na">visit</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">baseUrl</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">pathUrl</span> <span class="o">=</span> <span class="nx">url</span><span class="p">.</span><span class="nx">format</span><span class="p">({</span>
+        <span class="na">pathname</span><span class="p">:</span> <span class="nx">baseUrl</span><span class="p">,</span>
+        <span class="na">query</span><span class="p">:</span> <span class="nx">params</span>
+      <span class="p">});</span>
+
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">browser</span><span class="p">.</span><span class="nx">url</span><span class="p">(</span><span class="nx">pathUrl</span><span class="p">);</span>
+    <span class="p">},</span>
+
+    <span class="c1">// Take screenshot</span>
+    <span class="na">screenshot</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">filename</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">browser</span><span class="p">.</span><span class="nx">saveScreenshot</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">screenshot</span><span class="p">.</span><span class="nx">path</span><span class="p">,</span> <span class="nx">filename</span><span class="p">));</span>
+    <span class="p">},</span>
+
+    <span class="na">assert</span><span class="p">:</span> <span class="p">{</span>
+      <span class="cm">/**
+       * Assert if element(s) are visible
+       *
+       * @param selector    {String}   Can be query multiple DOM elements
+       * @param failMessage {String}   Fail message if no visible
+       */</span>
+      <span class="na">visible</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">selector</span><span class="p">,</span> <span class="nx">failMessage</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// ...</span>
+      <span class="p">},</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">world</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">WorldConstructor</span><span class="p">;</span></code></pre></figure>
+
+<h3 id="hooks">Hooks</h3>
+<p>Cucumber.js permet de déclencher des traitements sur <a href="https://github.com/cucumber/cucumber-js#hooks">certains évènements clés</a> lors de l’exécution de la suite de tests. Nous utilisons ce système pour réaliser une capture d’écran sur chaque scénario de test en échec qui viendra s’ajouter dans le dossier <code class="language-plaintext highlighter-rouge">screenshots</code>.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// tests/support/hook.js</span>
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./config.json</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">sprintf</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">sprintf-js</span><span class="dl">'</span><span class="p">).</span><span class="nx">sprintf</span><span class="p">;</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">Before</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">scenario</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">browser</span><span class="p">.</span><span class="nx">init</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">browser</span><span class="p">.</span><span class="nx">setViewportSize</span><span class="p">({</span>
+        <span class="na">width</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">screenshot</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span>
+        <span class="na">height</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">screenshot</span><span class="p">.</span><span class="nx">height</span>
+      <span class="p">});</span>
+    <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+  <span class="p">});</span>
+
+  <span class="k">this</span><span class="p">.</span><span class="nx">After</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">scenario</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">scenario</span><span class="p">.</span><span class="nx">isFailed</span><span class="p">())</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">screenshot</span><span class="p">(</span><span class="nx">sprintf</span><span class="p">(</span>
+        <span class="dl">'</span><span class="s1">%s_%d.png</span><span class="dl">'</span><span class="p">,</span>
+        <span class="nx">scenario</span><span class="p">.</span><span class="nx">getName</span><span class="p">().</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">-</span><span class="dl">'</span><span class="p">),</span>
+        <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">()</span>
+      <span class="p">)).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">browser</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+      <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">browser</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">};</span></code></pre></figure>
+
+<h3 id="step-definitions">Step definitions</h3>
+<p>Ce sont les fichiers qui font le lien entre les features (écrit en langage naturel) et WebdriverIO (initialisé dans <code class="language-plaintext highlighter-rouge">world.js</code>).</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// tests/step_definitions/cookie.steps.js</span>
+<span class="kd">var</span> <span class="nx">sprintf</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">sprintf-js</span><span class="dl">'</span><span class="p">).</span><span class="nx">sprintf</span><span class="p">;</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="cm">/**
+   * Visit a page
+   *
+   * @param page {String}
+   *
+   * @require config routes object
+   */</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">When</span><span class="p">(</span><span class="sr">/^I visit the "</span><span class="se">([^</span><span class="sr">"</span><span class="se">]</span><span class="sr">*</span><span class="se">)</span><span class="sr">" page$/</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">page</span><span class="p">)</span> <span class="p">{</span>    
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getRoute</span><span class="p">(</span><span class="nx">page</span><span class="p">)).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">assert</span><span class="p">.</span><span class="nx">existing</span><span class="p">(</span><span class="dl">'</span><span class="s1">#__main</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">React application is not loaded.</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+  <span class="p">});</span>
+
+  <span class="cm">/**
+   * I click on "label"
+   *
+   * @param label {String}   DOM selector label
+   */</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">When</span><span class="p">(</span><span class="sr">/^I click on "</span><span class="se">([^</span><span class="sr">"</span><span class="se">]</span><span class="sr">*</span><span class="se">)</span><span class="sr">"$/</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">label</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">selector</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getDOMSelector</span><span class="p">(</span><span class="nx">label</span><span class="p">);</span>
+    
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="nx">selector</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="cm">/**
+   * Assert element matching the given selector is visible.
+   *
+   * @param label {String}
+   *
+   * @require config DOMSelectors object
+   */</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">Then</span><span class="p">(</span><span class="sr">/^I should see a "</span><span class="se">([^</span><span class="sr">"</span><span class="se">]</span><span class="sr">*</span><span class="se">)</span><span class="sr">"$/</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">label</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">selector</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getDOMSelector</span><span class="p">(</span><span class="nx">label</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">failMessage</span> <span class="o">=</span> <span class="nx">sprintf</span><span class="p">(</span><span class="dl">'</span><span class="s1">%s is not visible</span><span class="dl">'</span><span class="p">,</span> <span class="nx">label</span><span class="p">);</span>
+    
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">assert</span><span class="p">.</span><span class="nx">visible</span><span class="p">(</span><span class="nx">selector</span><span class="p">,</span> <span class="nx">failMessage</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="c1">// ...</span>
+<span class="p">}</span></code></pre></figure>
+
+<h3 id="design">Design</h3>
+<p>Nous n’avons pas mis en œuvre le <a href="https://blog.josephwilk.net/cucumber/page-object-pattern.html">pattern Page Object</a>. Ce n’était pas un choix délibéré mais le contexte et les enjeux du projet nous ont fait passer à côté, ou ce n’était peut être simplement pas le moment. Malgré tout, nous avons tenté de rationaliser au mieux l’organisation du code. Par exemple, afin de ne pas se retrouver avec des sélecteurs CSS éparpillés dans plusieurs fichiers de “features” ou de “step definitions”, nous avons choisi de les regrouper dans un fichier <code class="language-plaintext highlighter-rouge">constants.json</code> et d’utiliser seulement des labels ailleurs. Nous faisons le lien entre le label et le sélecteur CSS avec la méthode <code class="language-plaintext highlighter-rouge">getDOMSelector</code>, visible ci-dessus et définie dans le fichier <code class="language-plaintext highlighter-rouge">world.js</code>.</p>
+
+<h3 id="run">Run</h3>
+<p>Pour lancer les tests, il faut :</p>
+
+<ul>
+  <li>lancer le serveur de l’app en local (l’URL du serveur est paramétrable dans le fichier de config),</li>
+  <li>lancer un phantomjs en mode webdriver <code class="language-plaintext highlighter-rouge">phantomjs --webdriver=5024</code> où 5024 est le port du serveur (également configurable dans <code class="language-plaintext highlighter-rouge">config.json</code>),</li>
+  <li>lancer une suite de tests via Cucumberjs, au choix :
+    <ul>
+      <li>tous les tests <code class="language-plaintext highlighter-rouge">cucumberjs tests/</code>,</li>
+      <li>une feature <code class="language-plaintext highlighter-rouge">cucumberjs tests/cookie.feature</code>,</li>
+      <li>un scénario <code class="language-plaintext highlighter-rouge">cucumberjs tests/cookie.feature:3</code> où 3 correspond à la ligne du début du scénario ciblé dans le fichier <code class="language-plaintext highlighter-rouge">cookie.feature</code>.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="particularité-de-lisomorphisme">Particularité de l’isomorphisme</h2>
+
+<p>Deux chemins sont possibles avec l’isomorphisme. Soit l’utilisateur arrive directement sur la page, auquel cas celle-ci sera générée sur le serveur, soit il y arrive en naviguant sur l’app et c’est le client qui aura exécuté le code. Il faut tester ces deux cas car le code concerné n’est pas toujours le même (la variable <code class="language-plaintext highlighter-rouge">window</code> par exemple n’est pas accessible côté serveur).</p>
+
+<p>Il est bien sûr impossible d’être exhaustif. L’idée est d’abord de couvrir les cas les plus fréquents et les plus critiques pour l’application. Ensuite, il faut s’astreindre à ajouter un test à chaque fois qu’un bug est détecté de façon à s’assurer qu’on ne le rencontrera plus dans le futur.</p>
+
+<h2 id="phantomjs-la-stabilité-en-question">PhantomJS, la stabilité en question…</h2>
+
+<p>Basé sur Webkit, PhantomJS est le plus connu des navigateurs headless, c’est-à-dire exécutables sans interface visuelle. D’autres navigateurs légers et créés pour les tests fonctionnels existent comme <a href="https://slimerjs.org/">SlimerJS</a> (basé sur Gecko et pas vraiment headless) ou <a href="https://zombie.js.org/">Zombie.js</a> (pas de moteur de rendu). Cependant aucun n’offre toutes les fonctionnalités de PhantomJS qui se rapprochent le plus d’un vrai browser. <strong>Il émule de façon transparente tout le rendu graphique</strong> avec la possibilité de réaliser des screenshots par exemple ou de tester la visibilité d’un élément du DOM (non opaque, dans le viewport, sur la couche z-index la plus haute…).</p>
+
+<p>Néanmoins celui-ci n’intègre pas toutes les dernières avancées en terme de JS et de CSS. Flexbox n’est par exemple pas pris en charge ce qui nous a posé quelques problèmes sur les vérifications liées à la visibilité des éléments. Sa version 2.0 qui date de début 2015, malgré la bonne volonté des contributeurs, n’a toujours pas de build officiel sous Linux, ce qui oblige à compiler les sources sur sa machine de tests ou à trouver sur le net un build officieux correspondant à sa distribution. C’est ce que nous avons fait via <a href="https://github.com/BedrockStreaming/phantomjs2">M6Web/phantomjs2</a>. Cependant, l’outil est assez instable (builds officiels ou pas) et nous avons rencontré beaucoup de crashs aléatoires ou reproductibles mais incompréhensibles (dus par exemple à l’ajout de quelques lignes de CSS anodines…).</p>
+
+<p>En local, sur sa machine, PhantomJS est encore moins stable que sur Jenkins. Il semblerait qu’exécution après exécution, il garde des “choses” en cache quelque part qui, à terme, produisent des crashs systématiques de l’outil. Nous n’avons pas réussi à établir un scénario reproductible qui nous permette de poser une issue sur le projet. N’hésitez pas à réagir en commentaire si vous vous êtes trouvé dans un cas similaire.</p>
+
+<p>Pour régler temporairement ce problème, nous avons utilisé l’<a href="https://github.com/rosenhouse/phantomjs2">image docker de Gabe Rosenhouse</a> pour le faire tourner dans un environnement indépendant mais ce n’est pas faciliter la vie des développeurs qui veulent juste lancer des tests sans avoir à mettre en œuvre une usine à gaz derrière.</p>
+
+<p><em>Edit: hier, la version 2.1 de PhantomJS a (enfin) été publiée avec <a href="https://phantomjs.org/download.html">un build pour chaque plateforme</a>. Plusieurs de nos soucis pourraient être réglés avec cette nouvelle release, à suivre…</em></p>
+
+<h2 id="chromechromedriver-une-alternative-">Chrome+ChromeDriver, une alternative ?</h2>
+
+<p>Nous avons alors opté pour la solution Chrome+ChromeDriver. <a href="https://code.google.com/p/selenium/wiki/ChromeDriver">ChromeDriver</a> a le rôle du serveur Selenium qui permet de faire communiquer WebriverIO avec Chrome. Les avantages de cette stack sont multiples. D’abord, l’ensemble est beaucoup <strong>plus stable</strong>, fini les crashs impromptus. Ensuite, le <strong>debug des tests</strong> en échec est bien plus aisé : on voit en effet la suite se jouer en temps réel dans son navigateur, on peut ainsi tout à fait mettre un point d’arrêt et utiliser la console de développement. Enfin, on utilise la version de Chrome que l’on souhaite, donc <strong>plus de problème de CSS non supportés</strong>.</p>
+
+<p>Alors pourquoi se cantonner à n’utiliser Chrome+ChromeDriver qu’en local et pas en intégration continue sur Jenkins ? Chrome n’est pas un browser headless et a besoin d’une interface visuelle qui n’est pas disponible sur Jenkins. Il existe des solutions pour simuler un affichage graphique avec <a href="https://www.x.org/archive/X11R7.6/doc/man/man1/Xvfb.1.xhtml">Xvfb</a> par exemple. Nous avons tenté de mettre en place une telle stack sur l’image docker utilisée pour créer notre environnement de test sur Jenkins en se basant sur l’<a href="https://github.com/RobCherry/docker-chromedriver">image de Rob Cherry</a>. Malheureusement, après y avoir consacré un peu d’énergie, le résultat n’a pas été au rendez-vous car :</p>
+
+<ul>
+  <li>l’exécution des tests dans Chrome est bien plus lente que sur PhantomJS (2 à 3 fois plus lent), notre intégration continue prenant déjà plus de 10 minutes sur ce projet,</li>
+  <li>il semble difficile d’obtenir ici aussi une stabilité du dispositif, les sessions Webdriver étaient souvent perdues, sans que nous en trouvions la cause.</li>
+</ul>
+
+<p>Ces raisons nous ont conduit à abandonner cette piste.</p>
+
+<h2 id="quelques-tips-pour-améliorer-la-stabilité-de-ses-tests">Quelques tips pour améliorer la stabilité de ses tests</h2>
+
+<p>Nous avons continué d’espérer avoir une stack stable pour nos tests fonctionnels. Avec persévérance, nous pouvons dire qu’à l’heure actuelle grâce à ces quelques tips, nous avons une plateforme de test stable (à 99%) !</p>
+
+<h3 id="waituntil">waitUntil</h3>
+<p>C’est la première chose à faire et la plus importante de notre point de vue. On ne sait jamais vraiment quand un élément s’affichera dans la page car son chargement dépend de trop de facteurs non prédictibles (la connexion, l’utilisation cpu, gpu, mémoire, etc.). Sur notre projet, nous avons par exemple beaucoup d’animations CSS qui retardent le timing d’apparition des pages et des éléments du DOM. Notre première approche a été de rajouter des <code class="language-plaintext highlighter-rouge">sleep</code> un peu de partout dans nos tests. Chose à ne pas faire. L’usage des <code class="language-plaintext highlighter-rouge">sleep</code> doit être cantonné à des cas très spécifiques. Pour tout le reste, il faut user et abuser du <a href="https://webdriver.io/api/utility/waitUntil.html"><code class="language-plaintext highlighter-rouge">waitUntil</code></a> de WebdriverIO, que ce soit pour des actions ou des vérifications dans la page, et en adaptant le timeout à votre projet (certaines de nos animations sont assez longues).</p>
+
+<h3 id="rollover">rollover</h3>
+<p>Un autre problème que nous avons rencontré est la bonne exécution des rollovers. En utilisant la méthode <a href="https://webdriver.io/api/action/moveToObject.html"><code class="language-plaintext highlighter-rouge">moveToObject</code></a> pour pointer la souris sur un élément, il nous arrivait que le comportement “hover” ne soit pas déclenché, mettant en échec la suite du test. Nous avons donc changé notre manière d’effectuer le rollover : on répète l’action grâce au <code class="language-plaintext highlighter-rouge">waitUntil</code> tant que l’élement devant apparaître au hover n’est pas visible.</p>
+
+<p>Nous n’écrivons plus</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">I rollover the <span class="s2">"Header login icon"</span></code></pre></figure>
+
+<p>mais</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">I rollover the <span class="s2">"Header login icon"</span> to make <span class="s2">"Submenu"</span> appear</code></pre></figure>
+
+<h3 id="rerun">rerun</h3>
+<p><a href="https://github.com/cucumber/cucumber-js#formatters">“Rerun”</a> est une fonctionnalité existante sur d’autres frameworks de tests fonctionnels tel que Behat et créée pour les tests récalcitrants encore instables. Elle permet de stocker dans un fichier texte la liste des scénarios en échec pour les relancer ensuite afin de vérifier qu’ils le sont réellement. Nous avons mis en place ce process sur Jenkins, bien qu’il y ait <a href="https://github.com/cucumber/cucumber-js/issues/499">quelques subtilités qui ne facilitent pas la tâche</a> (mais qui devraient être bientôt corrigées), et nous en sommes satisfaits.</p>
+
+<h3 id="isvisible">isVisible</h3>
+<p>A nos débuts, nous avons eu quelques problèmes avec la fonction <a href="https://webdriver.io/api/state/isVisible.html"><code class="language-plaintext highlighter-rouge">isVisible</code></a> de WebdriverIO car les éléments opaques ou en dehors du viewport étaient considérés comme visibles. Nous avons alors choisi d’utiliser <a href="https://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport/7557433#7557433">une fonction custom</a> injectée via <a href="https://webdriver.io/api/protocol/execute.html"><code class="language-plaintext highlighter-rouge">execute</code></a>. Récemment, dans la version 3 de WebdriverIO, la fonction <a href="https://webdriver.io/api/state/isVisibleWithinViewport.html">isVisibleWithinViewport</a> a fait son apparition mais nous n’avons pas encore tenté de l’utiliser dans nos tests.</p>
+
+<p>Cet article est un retour d’expérience sur notre usage des tests fonctionnels sur un projet précis mais il est loin d’exposer des vérités absolues. Si vous avez des remarques ou n’êtes pas d’accord avec certaines choses, n’hésitez pas à nous le faire savoir !</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=On+a+test%C3%A9+fonctionnellement+notre+app+JS%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2016%2F01%2F25%2Ftests-fonctionnels-app-js.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2016/01/25/tests-fonctionnels-app-js.html&title=On+a+test%C3%A9+fonctionnellement+notre+app+JS%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2016/01/25/tests-fonctionnels-app-js.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=On a testé fonctionnellement notre app JS%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2016/01/25/tests-fonctionnels-app-js.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#Cytron">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Cytron</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#javascript">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#phantomjs">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> phantomjs</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#tests+fonctionnels">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> tests fonctionnels</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#webdriver">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> webdriver</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="M6Web Lyon recherche un développeur player vidéo JavaScript (H/F) en CDI" href="/2016/01/26/m6web-lyon-recherche-developpeur-player-video-web-h-f-en-cdi.html">
+            <p>Previous post</p>
+            M6Web Lyon recherche un développeur player vidéo JavaScript (H/F) en CDI
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="L'envers du décor du nouveau 6play" href="/2015/11/30/beta-nouveau-6play-backend.html">
+            <p>Next post</p>
+            L'envers du décor du nouveau 6play
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/cytron/moon.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

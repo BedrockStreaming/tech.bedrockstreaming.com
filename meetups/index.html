@@ -1,0 +1,2213 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/travel.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Meetups &amp; Conferences | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Meetups &amp; Conferences" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Blog technique de Bedrock" />
+<meta property="og:description" content="Blog technique de Bedrock" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/meetups/" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/meetups/" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Meetups &amp; Conferences" />
+<script type="application/ld+json">
+{"url":"https://tech.bedrockstreaming.com/meetups/","description":"Blog technique de Bedrock","headline":"Meetups &amp; Conferences","@type":"WebPage","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Meetups & Conferences">
+    <meta name="twitter:description" content="Bedrock through its actions, sponsors events in France, hosts Meetup and conferences in its auditorium. Each of those events is an opportunity for Bedrock me...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/travel.jpg">
+    <meta name="twitter:image:alt" content="Meetups & Conferences">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Meetups & Conferences " aria-label="Meetups & Conferences" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image">
+
+  <header id="main" style="background-image: url('/images/travel.jpg')">
+    <div class="title-padder">
+      
+        <h1 id="Meetups+%26+Conferences" class="title"> Meetups & Conferences</h1>
+        
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+	<main class="home">
+    <style scoped>
+        .video-list {
+            display: grid;
+            justify-content: center;
+            align-content: center;
+            gap: 32px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+
+        .card {
+            width: 100%;
+        }
+
+        .card img {
+            width: 100%;
+        }
+
+        .card-content {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8em;
+        }
+
+        .card-title {
+            text-overflow:ellipsis;
+            overflow:hidden;
+            display: -webkit-box !important;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            white-space: normal;
+        }
+
+        .card img {
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            padding: 0;
+        }
+    </style>
+
+    <p>Bedrock through its actions, sponsors events in France, hosts Meetup and conferences in its auditorium. Each of those events is an opportunity for Bedrock members to give conferences in France or abroad.</p>
+
+<p><em>⭐ sponsored by Bedrock</em>
+<em>🏠 hosted by Bedrock</em></p>
+
+    
+    
+    
+
+    
+
+    
+        
+        <h3>2022</h3>
+        <ul>
+            
+                
+                <li>
+                    08/06 : 
+                    
+                        <a href="https://www.meetup.com/fr-FR/lyonjs/events/285497869/" target="_blank">
+                    
+                        LyonJS Meetup
+                    
+                        </a>
+                    
+                    🏠
+                    ⭐️
+                    
+                    <ul>
+                        
+                            <li>
+                                <a href="/2022/06/08/migration-progressive-vers-redux-toolkit.html">
+                                Migration progressive vers Redux Toolkit
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://maximeblanc.fr">
+                                        Maxime Blanc
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="/2022/06/08/comment-ne-pas-jeter-votre-application.html">
+                                Comment ne pas jeter son application Frontend tous les deux ans ?
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://blog.slashgear.dev/">
+                                        Antoine Caron
+                                    </a>
+                                    , 
+                                
+                                    
+                                    <a href="https://twitter.com/fooragnak">
+                                        Florent Dubost
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="/2022/04/04/comment-faire-un-trailer-qui-dechire-avec-des-technos-web.html">
+                                Comment faire un trailer vidéo qui déchire avec des technos web ?
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/CruuzAzul">
+                                        Mickael Alves
+                                    </a>
+                                    , 
+                                
+                                    
+                                    <a href="https://blog.slashgear.dev/">
+                                        Antoine Caron
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+                
+                <li>
+                    13/05 : 
+                    
+                        <a href="https://www.meetup.com/fr-FR/docker-lyon/events/285057478/" target="_blank">
+                    
+                        Docker meetup
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                <a href="/2022/05/13/docker-meetup-you-build-it-you-run-it.html">
+                                You Build it, you run it
+                                </a>
+                                - 
+                                
+                                    
+                                    
+                                        Jérome Foray
+                                    
+                                    
+                                
+                            </li>
+                        
+                            <li>
+                                
+                                Open Policy Agent avec KICS de chez Checkmarx
+                                
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/Saaraahka">
+                                        Jean-Yves Camier
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+                
+                <li>
+                    21/04 : 
+                    
+                        <a href="https://www.devoxx.fr/" target="_blank">
+                    
+                        Devoxx France
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                <a href="/2022/04/21/vite-the-webpack-killer.html">
+                                ⚡️ Vite ⚡️ the Webpack killer
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://blog.slashgear.dev/">
+                                        Antoine Caron
+                                    </a>
+                                    , 
+                                
+                                    
+                                    <a href="https://twitter.com/mathieumure">
+                                        Mathieu Mure
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+                
+                <li>
+                    12/04 : 
+                    
+                        <a href="https://aws.amazon.com/fr/events/summits/paris/" target="_blank">
+                    
+                        AWS Summit Paris
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                
+                                Êtes-vous bien architecturé ?
+                                
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/pascal_martin">
+                                        Pascal Martin
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                            <li>
+                                
+                                Transformer le load balancing pour optimiser le cache : objectif 50 millions d’utilisateurs
+                                
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/vgallissot">
+                                        Vincent Gallissot
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                            <li>
+                                
+                                Préparez et donnez votre premier talk
+                                
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/pascal_martin">
+                                        Pascal Martin
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+                
+                <li>
+                    05/02 : 
+                    
+                        <a href="https://snowcamp.io/fr/" target="_blank">
+                    
+                        Snowcamp 2022
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                
+                                Comment ne pas jeter son application Frontend tous les deux ans ?
+                                
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/fooragnak">
+                                        Florent Dubost
+                                    </a>
+                                    , 
+                                
+                                    
+                                    <a href="https://blog.slashgear.dev/">
+                                        Antoine Caron
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+        </ul>
+    
+        
+        <h3>2021</h3>
+        <ul>
+            
+                
+                <li>
+                    10/11 : 
+                    
+                        <a href="https://devfest2021.gdgnantes.com/sessions/_%EF%B8%8F_vite_%EF%B8%8Fthe_webpack_killer/" target="_blank">
+                    
+                        Devfest Nantes
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                
+                                ⚡️ Vite ⚡️ the Webpack killer
+                                
+                                - 
+                                
+                                    
+                                    <a href="https://blog.slashgear.dev/">
+                                        Antoine Caron
+                                    </a>
+                                    , 
+                                
+                                    
+                                    <a href="https://twitter.com/mathieumure">
+                                        Mathieu Mure
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+                
+                <li>
+                    21/10 : 
+                    
+                        <a href="https://event.afup.org/forum-php-2021/" target="_blank">
+                    
+                        ForumPHP 2021
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                <a href="/2021/10/21/confiance-aux-devs-de-votre-team.html">
+                                Faites confiance aux développeurs.euses de votre équipe : voyez plus loin que les fonctionnalités
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/SofLesc">
+                                        Sofia Lescano
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="/2021/10/21/fiber-the-open-door-to-async.html">
+                                Fiber: the open door to asynchronous
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/b_viguier">
+                                        Benoit Viguier
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+                
+                <li>
+                    08/09 : 
+                    
+                        <a href="https://www.jugsummercamp.org/edition/12/presentations/QYeD36ff9h4A8v243Hu3" target="_blank">
+                    
+                        JUG Summer Camp
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                
+                                ⚡️ Vite ⚡️ the Webpack killer
+                                
+                                - 
+                                
+                                    
+                                    <a href="https://blog.slashgear.dev/">
+                                        Antoine Caron
+                                    </a>
+                                    , 
+                                
+                                    
+                                    <a href="https://twitter.com/mathieumure">
+                                        Mathieu Mure
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+                
+                <li>
+                    11/06 : 
+                    
+                        <a href="https://event.afup.org/afup-day-2021/" target="_blank">
+                    
+                        AFUP Day Toulouse 2021
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                <a href="/2021/06/11/no-code-developpement-applications-ouvert-autres-metiers-pascal-martin.html">
+                                No-code, ou le développement d’applications ouvert à d’autres métiers !
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/pascal_martin">
+                                        Pascal Martin
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+                
+                <li>
+                    25/05 : 
+                    
+                        <a href="https://datatalks.club/" target="_blank">
+                    
+                        DataTalks.Club
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                
+                                Productionizing ML Systems without Fear nor Heroism
+                                
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/saby_nastasia">
+                                        Nastasia Saby
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+                
+                <li>
+                    30/03 : 
+                    
+                        <a href="https://www.meetup.com/fr-FR/AWS-User-Group-Strasbourg/events/277030691/" target="_blank">
+                    
+                        AWS Community Day France
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                <a href="/2021/03/30/comment-nous-reduisons-augmentation-couts-aws-pascal-martin.html">
+                                Comment nous réduisons l’augmentation de nos coûts AWS
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/pascal_martin">
+                                        Pascal Martin
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+                
+                <li>
+                    11/03 : 
+                    
+                        <a href="https://cloudsud.fr/" target="_blank">
+                    
+                        Cloudsud
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                <a href="/2021/03/11/migration-6play-vers-le-cloud-retour-experience-pascal-martin.html">
+                                Migration de 6play vers Le Cloud, retour d’expérience.
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/pascal_martin">
+                                        Pascal Martin
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+                
+                <li>
+                    21/01 : 
+                    
+                        <a href="http://www.lyondata.science/" target="_blank">
+                    
+                        Lyon Data Science Meetup
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                <a href="/2021/01/21/machine-learning-en-production.html">
+                                Machine Learning en production
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/saby_nastasia">
+                                        Nastasia Saby
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+        </ul>
+    
+        
+        <h3>2020</h3>
+        <ul>
+            
+                
+                <li>
+                    23/11 : 
+                    
+                        <a href="https://event.afup.org/forum-php-2020/" target="_blank">
+                    
+                        ForumPHP 2020
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                <a href="/2020/11/23/php-cest-vous-et-vous-pouvez-contribuer-pascal-martin.html">
+                                PHP, c’est vous ! Et vous pouvez contribuer !
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/pascal_martin">
+                                        Pascal Martin
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="/2020/10/23/l'open-source-ce-n-est-pas-que-pour-le-web.html">
+                                L'open source, ce n'est pas que pour le web
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/sarahhaim">
+                                        Sarah Haïm-Lubczanski
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="/2020/10/22/la-scalabilite-d-une-equipe-d-un-pole-technique.html">
+                                La scalabilité d’une équipe / d’un pôle technique
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/mikaelrandy">
+                                        Mikael Randy
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+                
+                <li>
+                    07/09 : 
+                    
+                        <a href="https://www.paris-web.fr/2019/ateliers/webpack-workshop.php" target="_blank">
+                    
+                        Paris Web
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                
+                                Webpack Workshop
+                                
+                                - 
+                                
+                                    
+                                    <a href="https://blog.slashgear.dev/">
+                                        Antoine Caron
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+                
+                <li>
+                    24/06 : 
+                    
+                        <a href="https://event.afup.org/afup-day-2021/" target="_blank">
+                    
+                        AFUP Day 2021
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                <a href="/2020/06/24/devops-je-n-ai-jamais-voulu-faire.html">
+                                DevOps ? Je n'ai jamais voulu faire ça, et pourtant …
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/SofLesc">
+                                        Sofia Lescano
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="/2020/06/24/6play_API-v2-Final(1).html">
+                                6play_API-v2-Final(1).doc
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/b_viguier">
+                                        Benoit Viguier
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+                
+                <li>
+                    10/06 : 
+                    
+                        <a href="https://www.meetup.com/fr-FR/LyonJS/events/278441866/" target="_blank">
+                    
+                        LyonJS Meetup
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                
+                                ⚡️ Vite ⚡️ the Webpack killer
+                                
+                                - 
+                                
+                                    
+                                    <a href="https://blog.slashgear.dev/">
+                                        Antoine Caron
+                                    </a>
+                                    , 
+                                
+                                    
+                                    <a href="https://twitter.com/mathieumure">
+                                        Mathieu Mure
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+                
+                <li>
+                    10/02 : 
+                    
+                        <a href="https://scala.io/" target="_blank">
+                    
+                        Scala IO
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                
+                                Apache Spark et le machine learning : rêves et réalités
+                                
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/saby_nastasia">
+                                        Nastasia Saby
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+                
+                <li>
+                    07/02 : 
+                    
+                        <a href="https://www.laduckconf.com/" target="_blank">
+                    
+                        La Duck Conf
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                <a href="/2020/02/07/pascal-martin-laduckconf.html">
+                                Migration de 6PLAY - l'amour est dans le cloud
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/pascal_martin">
+                                        Pascal Martin
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+                
+                <li>
+                    22/01 : 
+                    
+                        <a href="https://snowcamp.io/fr/" target="_blank">
+                    
+                        Snowcamp 2020
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                
+                                Webpack Workshop
+                                
+                                - 
+                                
+                                    
+                                    <a href="https://blog.slashgear.dev/">
+                                        Antoine Caron
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+        </ul>
+    
+        
+        <h3>2019</h3>
+        <ul>
+            
+                
+                <li>
+                    14/11 : 
+                    
+                        
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                
+                                Machine learning sans magie et sans s'arracher les cheveux
+                                
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/saby_nastasia">
+                                        Nastasia Saby
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+                
+                <li>
+                    25/10 : 
+                    
+                        <a href="https://event.afup.org/forumphp2019/" target="_blank">
+                    
+                        ForumPHP 2019
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                <a href="/2019/10/25/one-year-of-asynchronous-code-in-production.html">
+                                One year of asynchronous PHP in production
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/b_viguier">
+                                        Benoit Viguier
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="/2019/10/25/une-application-resiliente-dans-un-monde-partiellement-degrade-pascal-martin.html">
+                                Une application résiliente, dans un monde partiellement dégradé
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/pascal_martin">
+                                        Pascal Martin
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+                
+                <li>
+                    14/01 : 
+                    
+                        <a href="https://scala.io/" target="_blank">
+                    
+                        Scala IO
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                <a href="/2019/01/14/7-conseils-pour-demarrer-avec-spark.html">
+                                7 conseils pour démarrer avec Spark
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/saby_nastasia">
+                                        Nastasia Saby
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+        </ul>
+    
+        
+        <h3>2018</h3>
+        <ul>
+            
+                
+                <li>
+                    26/10 : 
+                    
+                        <a href="https://event.afup.org/forumphp2018/" target="_blank">
+                    
+                        ForumPHP 2018
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                <a href="/2018/10/26/generators-for-async-programming-user-manual.html">
+                                Generators for Asynchronous Programming: User Manual
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/b_viguier">
+                                        Benoit Viguier
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="/2018/10/26/docker-en-prod-oui-avec-kubernetes-pascal-martin.html">
+                                Docker en prod ? Oui, avec Kubernetes !
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/pascal_martin">
+                                        Pascal Martin
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+        </ul>
+    
+        
+        <h3>2016</h3>
+        <ul>
+            
+                
+                <li>
+                    24/11 : 
+                    
+                        <a href="https://event.afup.org/forum-php-2016/home-forum-php-2016/" target="_blank">
+                    
+                        ForumPHP 2016
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                <a href="/2016/11/24/une-donnee-presque-parfaite.html">
+                                Une donnée presque parfaite sur 6play
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/omansour">
+                                        Olivier Mansour
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+                
+                <li>
+                    24/05 : 
+                    
+                        <a href="https://event.afup.org/php-tour-2016/home-phptour-2016/" target="_blank">
+                    
+                        PHPTour Clermont‑Ferrand 2016
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                <a href="/2016/05/24/arretons-de-perdre-du-temps.html">
+                                Arrêtons de perdre du temps à débuguer !
+                                </a>
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/saby_nastasia">
+                                        Nastasia Saby
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                            <li>
+                                
+                                Retour d’expérience : réaliser des Workers en PHP
+                                
+                                - 
+                                
+                                    
+                                    
+                                        Fabien De Saint Pern
+                                    
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+        </ul>
+    
+        
+        <h3>2015</h3>
+        <ul>
+            
+                
+                <li>
+                    13/05 : 
+                    
+                        <a href="https://event.afup.org/phptourluxembourg2015__programme/" target="_blank">
+                    
+                        PHPTour Luxembourg 2015
+                    
+                        </a>
+                    
+                    
+                    
+                    
+                    <ul>
+                        
+                            <li>
+                                
+                                Le second écran chez M6Web, another (php) brick in the wall !
+                                
+                                - 
+                                
+                                    
+                                    <a href="https://twitter.com/omansour">
+                                        Olivier Mansour
+                                    </a>
+                                    
+                                
+                            </li>
+                        
+                    </ul>
+                </li>
+            
+        </ul>
+    
+
+    <h2>Replays</h2>
+
+    <p>Here is the list of the replay of talks given during these events:</p>
+
+    <section class="video-list">
+        
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2022/06/08/migration-progressive-vers-redux-toolkit.html"><img loading="lazy" src="https://img.youtube.com/vi/YsHiH7qCjKM/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2022/06/08/migration-progressive-vers-redux-toolkit.html"><h5 class="card-title">Migration progressive vers Redux Toolkit</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Maxime Blanc</div>
+                            
+                            <div>June 08, 2022</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2022/06/08/comment-ne-pas-jeter-votre-application.html"><img loading="lazy" src="https://img.youtube.com/vi/t36UqNSmybM/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2022/06/08/comment-ne-pas-jeter-votre-application.html"><h5 class="card-title">Comment ne pas jeter son application Frontend tous les deux ans ?</h5></a>
+                        <div class="card-content">
+                            
+                            <div>June 08, 2022</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2022/05/13/docker-meetup-you-build-it-you-run-it.html"><img loading="lazy" src="https://img.youtube.com/vi/SGgVKrNfTLc/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2022/05/13/docker-meetup-you-build-it-you-run-it.html"><h5 class="card-title">You Build it, you run it</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Jérome Foray</div>
+                            
+                            <div>May 13, 2022</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2022/04/21/vite-the-webpack-killer.html"><img loading="lazy" src="https://img.youtube.com/vi/Q6N7DoCNfAE/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2022/04/21/vite-the-webpack-killer.html"><h5 class="card-title">⚡️ Vite ⚡️ the Webpack killer</h5></a>
+                        <div class="card-content">
+                            
+                            <div>April 21, 2022</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2022/04/04/comment-faire-un-trailer-qui-dechire-avec-des-technos-web.html"><img loading="lazy" src="https://img.youtube.com/vi/8nnDOT8b5Oc/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2022/04/04/comment-faire-un-trailer-qui-dechire-avec-des-technos-web.html"><h5 class="card-title">Comment faire un trailer vidéo qui déchire avec des technos web ?</h5></a>
+                        <div class="card-content">
+                            
+                            <div>April 04, 2022</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2021/10/21/confiance-aux-devs-de-votre-team.html"><img loading="lazy" src="https://img.youtube.com/vi/tuGpNiy6e9s/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2021/10/21/confiance-aux-devs-de-votre-team.html"><h5 class="card-title">Faites confiance aux développeurs.euses de votre équipe : voyez plus loin que les fonctionnalités</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Sofia Lescano</div>
+                            
+                            <div>October 21, 2021</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2021/10/21/fiber-the-open-door-to-async.html"><img loading="lazy" src="https://img.youtube.com/vi/KkRo7fAC28s/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2021/10/21/fiber-the-open-door-to-async.html"><h5 class="card-title">Fiber: the open door to asynchronous</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Benoit Viguier</div>
+                            
+                            <div>October 21, 2021</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2021/06/11/no-code-developpement-applications-ouvert-autres-metiers-pascal-martin.html"><img loading="lazy" src="https://img.youtube.com/vi/9OM2gdMpCg0/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2021/06/11/no-code-developpement-applications-ouvert-autres-metiers-pascal-martin.html"><h5 class="card-title">No-code, ou le développement d’applications ouvert à d’autres métiers !</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Pascal Martin</div>
+                            
+                            <div>June 11, 2021</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="https://www.youtube.com/watch?v=KkOGMaz4Xws"><img loading="lazy" src="https://img.youtube.com/vi/KkOGMaz4Xws/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="https://www.youtube.com/watch?v=KkOGMaz4Xws"><h5 class="card-title">Productionizing ML Systems without Fear nor Heroism</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Nastasia Saby</div>
+                            
+                            <div>May 25, 2021</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2021/03/30/comment-nous-reduisons-augmentation-couts-aws-pascal-martin.html"><img loading="lazy" src="https://img.youtube.com/vi/mMRVCtYjzLo/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2021/03/30/comment-nous-reduisons-augmentation-couts-aws-pascal-martin.html"><h5 class="card-title">Comment nous réduisons l’augmentation de nos coûts AWS</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Pascal Martin</div>
+                            
+                            <div>March 30, 2021</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2021/03/11/migration-6play-vers-le-cloud-retour-experience-pascal-martin.html"><img loading="lazy" src="https://img.youtube.com/vi/xZep9iv6tLY/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2021/03/11/migration-6play-vers-le-cloud-retour-experience-pascal-martin.html"><h5 class="card-title">Migration de 6play vers Le Cloud, retour d’expérience.</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Pascal Martin</div>
+                            
+                            <div>March 11, 2021</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2021/01/21/machine-learning-en-production.html"><img loading="lazy" src="https://img.youtube.com/vi/f93yCPq-VMc/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2021/01/21/machine-learning-en-production.html"><h5 class="card-title">Machine Learning en production</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Nastasia Saby</div>
+                            
+                            <div>January 21, 2021</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2020/11/23/php-cest-vous-et-vous-pouvez-contribuer-pascal-martin.html"><img loading="lazy" src="https://img.youtube.com/vi/bGklD-ZxIjI/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2020/11/23/php-cest-vous-et-vous-pouvez-contribuer-pascal-martin.html"><h5 class="card-title">PHP, c’est vous ! Et vous pouvez contribuer !</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Pascal Martin</div>
+                            
+                            <div>November 23, 2020</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2020/10/23/l'open-source-ce-n-est-pas-que-pour-le-web.html"><img loading="lazy" src="https://img.youtube.com/vi/riPzJ-IMs6k/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2020/10/23/l'open-source-ce-n-est-pas-que-pour-le-web.html"><h5 class="card-title">L'open source, ce n'est pas que pour le web</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Sarah Haïm-Lubczanski</div>
+                            
+                            <div>October 23, 2020</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2020/10/22/la-scalabilite-d-une-equipe-d-un-pole-technique.html"><img loading="lazy" src="https://img.youtube.com/vi/bECYd6Qo7Qw/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2020/10/22/la-scalabilite-d-une-equipe-d-un-pole-technique.html"><h5 class="card-title">La scalabilité d’une équipe / d’un pôle technique</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Mikael Randy</div>
+                            
+                            <div>October 22, 2020</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2020/06/24/devops-je-n-ai-jamais-voulu-faire.html"><img loading="lazy" src="https://img.youtube.com/vi/dNUIFe7S1A0/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2020/06/24/devops-je-n-ai-jamais-voulu-faire.html"><h5 class="card-title">DevOps ? Je n'ai jamais voulu faire ça, et pourtant …</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Sofia Lescano</div>
+                            
+                            <div>June 24, 2020</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2020/06/24/6play_API-v2-Final(1).html"><img loading="lazy" src="https://img.youtube.com/vi/Y_umU8mTWho/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2020/06/24/6play_API-v2-Final(1).html"><h5 class="card-title">6play_API-v2-Final(1).doc</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Benoit Viguier</div>
+                            
+                            <div>June 24, 2020</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="https://www.youtube.com/watch?v=8e2TOelpqds"><img loading="lazy" src="https://img.youtube.com/vi/8e2TOelpqds/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="https://www.youtube.com/watch?v=8e2TOelpqds"><h5 class="card-title">Apache Spark et le machine learning : rêves et réalités</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Nastasia Saby</div>
+                            
+                            <div>February 10, 2020</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2020/02/07/pascal-martin-laduckconf.html"><img loading="lazy" src="https://img.youtube.com/vi/xLELSIEt2xA/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2020/02/07/pascal-martin-laduckconf.html"><h5 class="card-title">Migration de 6PLAY - l'amour est dans le cloud</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Pascal Martin</div>
+                            
+                            <div>February 07, 2020</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="https://www.youtube.com/watch?v=5c120IGLHk8"><img loading="lazy" src="https://img.youtube.com/vi/5c120IGLHk8/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="https://www.youtube.com/watch?v=5c120IGLHk8"><h5 class="card-title">Machine learning sans magie et sans s'arracher les cheveux</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Nastasia Saby</div>
+                            
+                            <div>November 14, 2019</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2019/10/25/one-year-of-asynchronous-code-in-production.html"><img loading="lazy" src="https://img.youtube.com/vi/R6ldQzXScCs/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2019/10/25/one-year-of-asynchronous-code-in-production.html"><h5 class="card-title">One year of asynchronous PHP in production</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Benoit Viguier</div>
+                            
+                            <div>October 25, 2019</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2019/10/25/une-application-resiliente-dans-un-monde-partiellement-degrade-pascal-martin.html"><img loading="lazy" src="https://img.youtube.com/vi/U7wuMyv8YzA/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2019/10/25/une-application-resiliente-dans-un-monde-partiellement-degrade-pascal-martin.html"><h5 class="card-title">Une application résiliente, dans un monde partiellement dégradé</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Pascal Martin</div>
+                            
+                            <div>October 25, 2019</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2019/01/14/7-conseils-pour-demarrer-avec-spark.html"><img loading="lazy" src="https://img.youtube.com/vi/QCFnjpUL95I/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2019/01/14/7-conseils-pour-demarrer-avec-spark.html"><h5 class="card-title">7 conseils pour démarrer avec Spark</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Nastasia Saby</div>
+                            
+                            <div>January 14, 2019</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2018/10/26/generators-for-async-programming-user-manual.html"><img loading="lazy" src="https://img.youtube.com/vi/7TvIIt4c8uY/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2018/10/26/generators-for-async-programming-user-manual.html"><h5 class="card-title">Generators for Asynchronous Programming: User Manual</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Benoit Viguier</div>
+                            
+                            <div>October 26, 2018</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2018/10/26/docker-en-prod-oui-avec-kubernetes-pascal-martin.html"><img loading="lazy" src="https://img.youtube.com/vi/Cq1sR005B2E/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2018/10/26/docker-en-prod-oui-avec-kubernetes-pascal-martin.html"><h5 class="card-title">Docker en prod ? Oui, avec Kubernetes !</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Pascal Martin</div>
+                            
+                            <div>October 26, 2018</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2016/11/24/une-donnee-presque-parfaite.html"><img loading="lazy" src="https://img.youtube.com/vi/kSlYXpezjIQ/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2016/11/24/une-donnee-presque-parfaite.html"><h5 class="card-title">Une donnée presque parfaite sur 6play</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Olivier Mansour</div>
+                            
+                            <div>November 24, 2016</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="/2016/05/24/arretons-de-perdre-du-temps.html"><img loading="lazy" src="https://img.youtube.com/vi/iuod3e6e7FM/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="/2016/05/24/arretons-de-perdre-du-temps.html"><h5 class="card-title">Arrêtons de perdre du temps à débuguer !</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Nastasia Saby</div>
+                            
+                            <div>May 24, 2016</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="https://www.youtube.com/watch?v=0A5tbrMarGA"><img loading="lazy" src="https://img.youtube.com/vi/0A5tbrMarGA/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="https://www.youtube.com/watch?v=0A5tbrMarGA"><h5 class="card-title">Retour d’expérience : réaliser des Workers en PHP</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Fabien De Saint Pern</div>
+                            
+                            <div>May 23, 2016</div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                
+                
+
+                <div class="card">
+                    <a href="https://www.youtube.com/watch?v=VPYFnaX_5Tg"><img loading="lazy" src="https://img.youtube.com/vi/VPYFnaX_5Tg/hqdefault.jpg" alt=""></a>
+                    <div class="card-body">
+                        <a href="https://www.youtube.com/watch?v=VPYFnaX_5Tg"><h5 class="card-title">Le second écran chez M6Web, another (php) brick in the wall !</h5></a>
+                        <div class="card-content">
+                            
+                            <div>Olivier Mansour</div>
+                            
+                            <div>May 13, 2015</div>
+                        </div>
+                    </div>
+                </div>
+        
+    </section>
+</main>
+  
+  </section>
+
+
+  <!-- Tag list for portfolio -->
+  
+  
+
+
+  <div class="tag-list"></div>
+
+
+
+</article>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/reactnative/nighttrain.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Preview your Android &amp; iOS React Native apps on your Github Pull Request | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Preview your Android &amp; iOS React Native apps on your Github Pull Request" />
+<meta name="author" content="Kenny Dits" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Staging environment for your Android and iOS React Native apps on your Github Pull Request with Jenkins, Fastlane &amp; Appetize" />
+<meta property="og:description" content="Staging environment for your Android and iOS React Native apps on your Github Pull Request with Jenkins, Fastlane &amp; Appetize" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2016/06/20/preview-android-ios-react-native-on-github-pull-request.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2016/06/20/preview-android-ios-react-native-on-github-pull-request.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-06-20T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Preview your Android &amp; iOS React Native apps on your Github Pull Request" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2016/06/20/preview-android-ios-react-native-on-github-pull-request.html"},"url":"https://tech.bedrockstreaming.com/2016/06/20/preview-android-ios-react-native-on-github-pull-request.html","author":{"@type":"Person","name":"Kenny Dits"},"description":"Staging environment for your Android and iOS React Native apps on your Github Pull Request with Jenkins, Fastlane &amp; Appetize","dateModified":"2016-06-20T00:00:00+02:00","datePublished":"2016-06-20T00:00:00+02:00","headline":"Preview your Android &amp; iOS React Native apps on your Github Pull Request","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Preview your Android & iOS React Native apps on your Github Pull Request">
+    <meta name="twitter:description" content="We are playing since a few weeks with React Native for a Proof Of Concept and wanted to have the same development workflow for mobile apps, as we have for th...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/reactnative/nighttrain.jpg">
+    <meta name="twitter:image:alt" content="Preview your Android & iOS React Native apps on your Github Pull Request">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Preview your Android & iOS React Native apps on your Github Pull Request " aria-label="Preview your Android & iOS React Native apps on your Github Pull Request" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Preview+your+Android+%26+iOS+React+Native+apps+on+your+Github+Pull+Request" class="title">Preview your Android & iOS React Native apps on your Github Pull Request</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/kenny_dee" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="/images/avatar/kenny.jpg">
+    
+    <p class="meta">
+      Kenny Dits - 
+      
+      June 20, 2016
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>We are playing since a few weeks with <a href="https://facebook.github.io/react-native/">React Native</a> for a Proof Of Concept and wanted to have the same development workflow for mobile apps, as we have for the web.</p>
+
+<p>Here is the workflow we use for web development:</p>
+
+<ul>
+  <li>Branch <img src="/images/posts/reactnative/allthethings.png" alt="allthethings" /> : every bugfix or feature is developed on a new git branch,</li>
+  <li>Pull Request (PR) <img src="/images/posts/reactnative/allthethings.png" alt="allthethings" /> : we make PR for each bugfix or feature to propose the modification to the « master » git branch,</li>
+  <li>Code Review <img src="/images/posts/reactnative/allthethings.png" alt="allthethings" /> : other teammates have to review each PR and add :+1: when they agree with the modification,</li>
+  <li>Test <img src="/images/posts/reactnative/allthethings.png" alt="allthethings" /> : a CI system (<a href="https://jenkins.io/">Jenkins</a>) runs Unit and Integration tests, and Lint on each PR,</li>
+  <li>Preview <img src="/images/posts/reactnative/allthethings.png" alt="allthethings" /> : an internal tool (Github Hooker) is called with a Github webhook on each PR to create a staging environment.</li>
+</ul>
+
+<p>When every step is ok, the PR is merged.</p>
+
+<p>The « Branch step », « PR step » and « Code Review step » are mostly related to our CVS (Github Enterprise) and are not a problem.
+The « Test step » is related to React Native. We already use <a href="https://facebook.github.io/jest/">Jest</a> and <a href="https://eslint.org/">ESLint</a>, but we have to dig more for Integration test (<a href="https://appium.io/">Appium</a> ?).</p>
+
+<p>The « Preview step » is more interesting. It was not the simplest thing to do on our web project, but this is probably one of the most useful feature we have on our stack.
+Having a staging environment for all open PR allows devs, PO, PM and scrum masters to play with this exact version of the code (on any browser they want), and really see if the bug is fixed, or if the feature correspond to the PO needs. It allows everyone to iterate and make feedbacks before the code lands on the master branch. It’s also a good way to be sure your app build didn’t fail.</p>
+
+<p>So, what we want is to have on each of our React Native PR, a link to preview iOS and Android version of our app in a web browser, refreshed after every commit on the branch.</p>
+
+<p>The goal of this blog post is just to show you, that it is something doable and really useful. If you are interested in, here are some more information, that maybe can help you.</p>
+
+<h2 id="the-stack">The stack</h2>
+
+<p>Concerning the CI, we already use Jenkins, so we will continue to. Beware that for building iOS apps, a CI running on OSX is needed. In our case, we had added a Jenkins slave to our Jenkins pool. If you don’t have CI system internally, you should take a look at <a href="https://www.bitrise.io/">Bitrise</a> or <a href="https://circleci.com/">CircleCi</a> because they propose OSX CI systems.
+Our CVS is Github Enterprise, but everything is also possible with Gitlab (or any other CVS).
+We use <a href="https://fastlane.tools/">Fastlane.tools</a> to automate build and credentials support. (Mostly because it was recommended by some of our iOS developers).</p>
+
+<p>In order to preview iOS and Android app in a web browser, we use the amazing SAAS service <a href="https://appetize.io/">Appetize.io</a> (free for 100min/month).</p>
+
+<p><img src="/images/posts/reactnative/appetize.png" alt="Appetize" /></p>
+
+<h2 id="how-did-we-do-">How did we do ?</h2>
+
+<p>We had set up an OSX machine with a fresh Jenkins install, and created a job that triggers a build everytime a push is made on a PR, thanks to the “<a href="https://wiki.jenkins-ci.org/display/JENKINS/GitHub+pull+request+builder+plugin">Github Pull Request Builder</a> » Jenkins plugin. There is also a lot of things to configure on this machine (Nodejs, Ruby, xCode …), and i recommend you to do some builds (iOS and Android) manually to be sure everything is ready.</p>
+
+<p>Fastlane is an open-source automation toolset for iOS &amp; Android. It lets you write « lane » to automate a lot of things. We set up a unique Fastlane file at the root of our React Native project directory dealing with Android &amp; iOS lanes.</p>
+
+<p>To suit our needs, we created one lane « deployAppetize » for each platform: it performs the corresponding build, uploads it to Appetize.io via their API, and updates the Github PR Statuses during the process.</p>
+
+<p>I’m not a Ruby programmer, so please, don’t blame me, and feel free to improve the code below if you want (on this <a href="https://gist.github.com/kennydee/e5dbefb1b75eb79cf1de3b47b9fdf00a">Github Gist</a>).
+This is neither the state of the art, nor a beautiful open source thing, we just share what we did in case it helps someone :-)</p>
+
+<p>Before doing anything, you’ll have to set some variables on Fastlane, so go to the <code class="language-plaintext highlighter-rouge">Fastfile</code> file in your <code class="language-plaintext highlighter-rouge">fastlane</code> folder:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#3rd party lib to do some http calls</span>
+<span class="nb">require</span> <span class="s1">'httparty'</span>
+
+<span class="n">fastlane_version</span> <span class="s2">"1.95.0"</span>
+<span class="n">default_platform</span> <span class="ss">:ios</span>
+
+<span class="n">before_all</span> <span class="k">do</span>
+  <span class="c1"># put here your token and iOS scheme app</span>
+  <span class="no">ENV</span><span class="p">[</span><span class="s2">"GITHUB_TOKEN"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"----"</span>
+  <span class="no">ENV</span><span class="p">[</span><span class="s2">"APPETIZE_TOKEN"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"----"</span>
+  <span class="no">ENV</span><span class="p">[</span><span class="s2">"APP_IOS_SCHEME"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"----"</span>
+
+  <span class="c1"># get the last git commit information</span>
+  <span class="no">ENV</span><span class="p">[</span><span class="s2">"GIT_COMMIT"</span><span class="p">]</span> <span class="o">=</span> <span class="n">last_git_commit</span><span class="p">[</span><span class="ss">:commit_hash</span><span class="p">]</span>
+
+  <span class="c1"># Use ghprbSourceBranch env variable on CI, git_branch lane elsewhere</span>
+  <span class="k">if</span> <span class="o">!</span><span class="no">ENV</span><span class="p">[</span><span class="s2">"ghprbSourceBranch"</span><span class="p">]</span>
+    <span class="no">ENV</span><span class="p">[</span><span class="s2">"ghprbSourceBranch"</span><span class="p">]</span> <span class="o">=</span> <span class="n">git_branch</span>
+  <span class="k">end</span>
+
+<span class="k">end</span></code></pre></figure>
+
+<p>Create a private lane to make the POST request to your Github statuses API to avoid DRY:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Update git statuses of your commit.</span>
+<span class="n">private_lane</span> <span class="ss">:githubStatusUpdate</span> <span class="k">do</span> <span class="o">|</span><span class="n">options</span><span class="o">|</span>
+
+  <span class="n">response</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span>
+    <span class="s2">"https://&lt;yourgithubenterprisedomain.tld&gt;/api/v3/repos/&lt;orga&gt;/&lt;repos&gt;/statuses/</span><span class="si">#{</span><span class="no">ENV</span><span class="p">[</span><span class="s2">"GIT_COMMIT"</span><span class="p">]</span><span class="si">}</span><span class="s2">?access_token=</span><span class="si">#{</span><span class="no">ENV</span><span class="p">[</span><span class="s2">"GITHUB_TOKEN"</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+    <span class="ss">:body</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="ss">:context</span> <span class="o">=&gt;</span> <span class="n">options</span><span class="p">[</span><span class="ss">:context</span><span class="p">],</span>
+      <span class="ss">:state</span> <span class="o">=&gt;</span> <span class="n">options</span><span class="p">[</span><span class="ss">:state</span><span class="p">],</span>
+      <span class="ss">:description</span> <span class="o">=&gt;</span> <span class="n">options</span><span class="p">[</span><span class="ss">:description</span><span class="p">],</span>
+      <span class="ss">:target_url</span> <span class="o">=&gt;</span> <span class="n">options</span><span class="p">[</span><span class="ss">:url</span><span class="p">]</span>
+    <span class="p">}.</span><span class="nf">to_json</span><span class="p">,</span>
+    <span class="ss">:headers</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span> <span class="p">}</span>
+  <span class="p">)</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>Appetize allows you to create different apps. We want one app per PR, and update the corresponding app when a new commit is made on a PR. For that, we keep track of the branch name by storing it in the « notes » field of the app on Appetize.io.</p>
+
+<p>So, here’s a private lane to get back the public key of the corresponding app on Appetize.io, to update the good one if it already exists.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># get the publicKey of the appetizeApp corresponding to your git branch</span>
+<span class="n">private_lane</span> <span class="ss">:getAppetizePublicKey</span> <span class="k">do</span> <span class="o">|</span><span class="n">options</span><span class="o">|</span>
+  <span class="n">publicKey</span> <span class="o">=</span> <span class="s2">""</span>
+
+  <span class="n">response</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">"https://</span><span class="si">#{</span><span class="no">ENV</span><span class="p">[</span><span class="s2">"APPETIZE_TOKEN"</span><span class="p">]</span><span class="si">}</span><span class="s2">@api.appetize.io/v1/apps"</span><span class="p">)</span>
+  <span class="n">json</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+
+  <span class="c1"># Find branch name in notes</span>
+  <span class="n">json</span><span class="p">[</span><span class="s2">"data"</span><span class="p">].</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">value</span><span class="o">|</span>
+    <span class="k">if</span> <span class="n">value</span><span class="p">[</span><span class="s2">"note"</span><span class="p">]</span> <span class="o">==</span> <span class="no">ENV</span><span class="p">[</span><span class="s2">"ghprbSourceBranch"</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">value</span><span class="p">[</span><span class="s2">"platform"</span><span class="p">]</span> <span class="o">==</span> <span class="n">options</span><span class="p">[</span><span class="ss">:platform</span><span class="p">]</span>
+      <span class="n">publicKey</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="s2">"publicKey"</span><span class="p">]</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">publicKey</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>Now, we have everything ready to do the deployAppetize lane for iOS :</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">platform</span> <span class="ss">:ios</span> <span class="k">do</span>
+
+  <span class="n">desc</span> <span class="s2">"Deployment iOS lane"</span>
+
+    <span class="n">lane</span> <span class="ss">:deployAppetize</span> <span class="k">do</span>
+
+      <span class="n">githubStatusUpdate</span><span class="p">(</span>
+        <span class="ss">context: </span><span class="s1">'Appetize iOS'</span><span class="p">,</span>
+        <span class="ss">state: </span><span class="s1">'pending'</span><span class="p">,</span>
+        <span class="ss">url: </span><span class="s2">"https://appetize.io/dashboard"</span><span class="p">,</span>
+        <span class="ss">description: </span><span class="s1">'iOS build in progress'</span>
+      <span class="p">)</span>
+
+      <span class="no">Dir</span><span class="p">.</span><span class="nf">chdir</span> <span class="s2">"../ios"</span> <span class="k">do</span>
+        <span class="n">tmp_path</span> <span class="o">=</span> <span class="s2">"/tmp/fastlane_build"</span>
+
+        <span class="c1">#seems not possible to use gym to do the simulator release ?</span>
+        <span class="n">xcodebuild_configs</span> <span class="o">=</span> <span class="p">{</span>
+          <span class="ss">configuration: </span><span class="s2">"Release"</span><span class="p">,</span>
+          <span class="ss">sdk: </span><span class="s2">"iphonesimulator"</span><span class="p">,</span>
+          <span class="ss">derivedDataPath: </span><span class="n">tmp_path</span><span class="p">,</span>
+          <span class="ss">xcargs: </span><span class="s2">"CONFIGURATION_BUILD_DIR="</span> <span class="o">+</span> <span class="n">tmp_path</span><span class="p">,</span>
+          <span class="ss">scheme: </span><span class="s2">"</span><span class="si">#{</span><span class="no">ENV</span><span class="p">[</span><span class="s2">"APP_IOS_SCHEME"</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">}</span>
+
+        <span class="no">Actions</span><span class="o">::</span><span class="no">XcodebuildAction</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="n">xcodebuild_configs</span><span class="p">)</span>
+
+        <span class="n">app_path</span> <span class="o">=</span> <span class="no">Dir</span><span class="p">[</span><span class="no">File</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">tmp_path</span><span class="p">,</span> <span class="s2">"**"</span><span class="p">,</span> <span class="s2">"*.app"</span><span class="p">)].</span><span class="nf">last</span>
+
+        <span class="n">zipped_bundle</span> <span class="o">=</span> <span class="no">Actions</span><span class="o">::</span><span class="no">ZipAction</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="ss">path: </span><span class="n">app_path</span><span class="p">,</span> <span class="ss">output_path: </span><span class="no">File</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">tmp_path</span><span class="p">,</span> <span class="s2">"Result.zip"</span><span class="p">))</span>
+
+        <span class="no">Actions</span><span class="o">::</span><span class="no">AppetizeAction</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span>
+          <span class="ss">path: </span><span class="n">zipped_bundle</span><span class="p">,</span>
+          <span class="ss">api_token: </span><span class="s2">"</span><span class="si">#{</span><span class="no">ENV</span><span class="p">[</span><span class="s2">"APPETIZE_TOKEN"</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+          <span class="ss">platform: </span><span class="s2">"ios"</span><span class="p">,</span>
+          <span class="ss">note: </span><span class="s2">"</span><span class="si">#{</span><span class="no">ENV</span><span class="p">[</span><span class="s2">"ghprbSourceBranch"</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+          <span class="ss">public_key: </span><span class="n">getAppetizePublicKey</span><span class="p">({</span><span class="ss">platform: </span><span class="s2">"ios"</span><span class="p">})</span>
+        <span class="p">)</span>
+
+        <span class="no">FileUtils</span><span class="p">.</span><span class="nf">rm_rf</span><span class="p">(</span><span class="n">tmp_path</span><span class="p">)</span>
+
+      <span class="k">end</span>
+
+      <span class="n">githubStatusUpdate</span><span class="p">(</span>
+        <span class="ss">context: </span><span class="s1">'Appetize iOS'</span><span class="p">,</span>
+        <span class="ss">state: </span><span class="s1">'success'</span><span class="p">,</span>
+        <span class="ss">url: </span><span class="s2">"</span><span class="si">#{</span><span class="n">lane_context</span><span class="p">[</span><span class="no">SharedValues</span><span class="o">::</span><span class="no">APPETIZE_APP_URL</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+        <span class="ss">description: </span><span class="s1">'iOS build succeed'</span>
+      <span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="n">error</span> <span class="k">do</span> <span class="o">|</span><span class="n">lane</span><span class="p">,</span> <span class="n">exception</span><span class="o">|</span>
+      <span class="k">case</span> <span class="n">lane</span>
+        <span class="k">when</span> <span class="sr">/deployAppetize/</span>
+          <span class="n">githubStatusUpdate</span><span class="p">(</span>
+            <span class="ss">context: </span><span class="s1">'Appetize iOS'</span><span class="p">,</span>
+            <span class="ss">state: </span><span class="s1">'failure'</span><span class="p">,</span>
+            <span class="ss">url: </span><span class="s2">"https://appetize.io/dashboard"</span><span class="p">,</span>
+            <span class="ss">description: </span><span class="s1">'iOS build failed'</span>
+          <span class="p">)</span>
+        <span class="k">end</span>
+      <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>For Android, it’s almost the same things, except we have to do some small business logic to find the apk generated by <code class="language-plaintext highlighter-rouge">Gradle</code>, with this private lane :</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># find the path of the last apk build</span>
+<span class="n">private_lane</span> <span class="ss">:getLastAPKPath</span> <span class="k">do</span>
+  <span class="n">apk_search_path</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">'../android/'</span><span class="p">,</span> <span class="s1">'app'</span><span class="p">,</span> <span class="s1">'build'</span><span class="p">,</span> <span class="s1">'outputs'</span><span class="p">,</span> <span class="s1">'apk'</span><span class="p">,</span> <span class="s1">'*.apk'</span><span class="p">)</span>
+  <span class="n">new_apks</span> <span class="o">=</span> <span class="no">Dir</span><span class="p">[</span><span class="n">apk_search_path</span><span class="p">].</span><span class="nf">reject</span> <span class="p">{</span> <span class="o">|</span><span class="n">path</span><span class="o">|</span> <span class="n">path</span> <span class="o">=~</span> <span class="sr">/^.*-unaligned.apk$/i</span><span class="p">}</span>
+  <span class="n">new_apks</span> <span class="o">=</span> <span class="n">new_apks</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">path</span><span class="o">|</span> <span class="no">File</span><span class="p">.</span><span class="nf">expand_path</span><span class="p">(</span><span class="n">path</span><span class="p">)}</span>
+  <span class="n">last_apk_path</span> <span class="o">=</span> <span class="n">new_apks</span><span class="p">.</span><span class="nf">sort_by</span><span class="p">(</span><span class="o">&amp;</span><span class="no">File</span><span class="p">.</span><span class="nf">method</span><span class="p">(</span><span class="ss">:mtime</span><span class="p">)).</span><span class="nf">last</span>
+
+  <span class="n">last_apk_path</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>And now you should be able to also deploy to Appetize.io on Android :</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">platform</span> <span class="ss">:android</span> <span class="k">do</span>
+
+  <span class="n">desc</span> <span class="s2">"Deployment Android lane"</span>
+
+    <span class="n">lane</span> <span class="ss">:deployAppetize</span> <span class="k">do</span>
+
+      <span class="n">githubStatusUpdate</span><span class="p">(</span>
+        <span class="ss">context: </span><span class="s1">'Appetize Android'</span><span class="p">,</span>
+        <span class="ss">state: </span><span class="s1">'pending'</span><span class="p">,</span>
+        <span class="ss">url: </span><span class="s2">"https://appetize.io/dashboard"</span><span class="p">,</span>
+        <span class="ss">description: </span><span class="s1">'Android build in progress'</span>
+      <span class="p">)</span>
+
+      <span class="n">gradle</span><span class="p">(</span>
+        <span class="ss">task: </span><span class="s2">"assemble"</span><span class="p">,</span>
+        <span class="ss">build_type: </span><span class="s2">"Release"</span><span class="p">,</span>
+        <span class="ss">project_dir: </span><span class="s2">"android/"</span>
+      <span class="p">)</span>
+
+      <span class="no">Actions</span><span class="o">::</span><span class="no">AppetizeAction</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span>
+        <span class="ss">path: </span><span class="n">getLastAPKPath</span><span class="p">,</span>
+        <span class="ss">api_token: </span><span class="s2">"</span><span class="si">#{</span><span class="no">ENV</span><span class="p">[</span><span class="s2">"APPETIZE_TOKEN"</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+        <span class="ss">platform: </span><span class="s2">"android"</span><span class="p">,</span>
+        <span class="ss">note: </span><span class="s2">"</span><span class="si">#{</span><span class="no">ENV</span><span class="p">[</span><span class="s2">"ghprbSourceBranch"</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+        <span class="ss">public_key: </span><span class="n">getAppetizePublicKey</span><span class="p">({</span><span class="ss">platform: </span><span class="s2">"android"</span><span class="p">})</span>
+      <span class="p">)</span>
+
+      <span class="n">githubStatusUpdate</span><span class="p">(</span>
+        <span class="ss">context: </span><span class="s1">'Appetize Android'</span><span class="p">,</span>
+        <span class="ss">state: </span><span class="s1">'success'</span><span class="p">,</span>
+        <span class="ss">url: </span><span class="s2">"</span><span class="si">#{</span><span class="n">lane_context</span><span class="p">[</span><span class="no">SharedValues</span><span class="o">::</span><span class="no">APPETIZE_APP_URL</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+        <span class="ss">description: </span><span class="s1">'Android build succeed'</span>
+      <span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="n">error</span> <span class="k">do</span> <span class="o">|</span><span class="n">lane</span><span class="p">,</span> <span class="n">exception</span><span class="o">|</span>
+      <span class="k">case</span> <span class="n">lane</span>
+        <span class="k">when</span> <span class="sr">/deployAppetize/</span>
+          <span class="n">githubStatusUpdate</span><span class="p">(</span>
+            <span class="ss">context: </span><span class="s1">'Appetize Android'</span><span class="p">,</span>
+            <span class="ss">state: </span><span class="s1">'failure'</span><span class="p">,</span>
+            <span class="ss">url: </span><span class="s2">"https://appetize.io/dashboard"</span><span class="p">,</span>
+            <span class="ss">description: </span><span class="s1">'Android build failed'</span>
+          <span class="p">)</span>
+      <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>It’s over. You just have to add those commands to your CI to do the job :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install
+Fastlane ios deployAppetize
+Fastlane android deployAppetize
+</code></pre></div></div>
+
+<p>You have now two new checks on each PR with a link to the iOS or Android instance on Appetize.io.</p>
+
+<p><img src="/images/posts/reactnative/githubpr.png" alt="Github Pull Request with preview url" /></p>
+
+<p>The complete <code class="language-plaintext highlighter-rouge">Fastfile</code> on a Github Gist : <a href="https://gist.github.com/kennydee/e5dbefb1b75eb79cf1de3b47b9fdf00a">FastFile</a></p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>At M6web, we are glad to see the whole React Native promise taking a concrete shape: the developer experience is the same for both mobile &amp; web development, even about tooling. We are continuing to play with it and we’ll certainly keep posting articles here, stay tuned !</p>
+
+<p>P.S.: You could look at the <a href="https://fabric.io/blog/fastlane-updates-powerful-prs-enhanced-deployment">Fabric Blog post</a> on the device grid for Fabric but with <a href="https://github.com/danger/danger">Danger</a> commenting on the PR instead of Github Statuses, and iOS only.</p>
+
+<p>P.S.2: You could also look at <a href="https://reploy.io">Reploy.io</a>, which try to improve this workflow with extra features and a more cleaner UX than Appetize.io, but it is “alpha” for now.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Preview+your+Android+%26+iOS+React+Native+apps+on+your+Github+Pull+Request%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2016%2F06%2F20%2Fpreview-android-ios-react-native-on-github-pull-request.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2016/06/20/preview-android-ios-react-native-on-github-pull-request.html&title=Preview+your+Android+%26+iOS+React+Native+apps+on+your+Github+Pull+Request%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2016/06/20/preview-android-ios-react-native-on-github-pull-request.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Preview your Android & iOS React Native apps on your Github Pull Request%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2016/06/20/preview-android-ios-react-native-on-github-pull-request.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#appetize">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> appetize</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#fastlane">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> fastlane</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#github">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> github</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#jenkins">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> jenkins</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#mobile">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> mobile</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#react">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> react</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#reactnative">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> reactnative</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Retour d’expérience : réaliser des Workers en PHP - Fabien de Saint pern au PHP Tour 2016 " href="/2016/06/23/video-phptour-worker-php.html">
+            <p>Previous post</p>
+            Retour d’expérience : réaliser des Workers en PHP - Fabien de Saint pern au PHP Tour 2016 
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="M6web fera un retour d'expérience sur l'usage de Cassandra sur 6play le 14/06/2016" href="/2016/05/25/m6web-retourdxp-cassandra.html">
+            <p>Next post</p>
+            M6web fera un retour d'expérience sur l'usage de Cassandra sur 6play le 14/06/2016
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/reactnative/nighttrain.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

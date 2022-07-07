@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/phptour2018/team.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>PHP Tour Montpellier 2018 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="PHP Tour Montpellier 2018" />
+<meta name="author" content="Guillaume Bouyge, Valentin Claras, Fabien De Saint Pern, Francois-Xavier Gaberan, Héléna Hiraux, Pascal Martin" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Nos retours du PHP Tour à Montpellier, les 17 et 18 mai 2018" />
+<meta property="og:description" content="Nos retours du PHP Tour à Montpellier, les 17 et 18 mai 2018" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2018/05/17/retour-php-tour-2018.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2018/05/17/retour-php-tour-2018.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-05-17T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="PHP Tour Montpellier 2018" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2018/05/17/retour-php-tour-2018.html"},"url":"https://tech.bedrockstreaming.com/2018/05/17/retour-php-tour-2018.html","author":{"@type":"Person","name":"Guillaume Bouyge, Valentin Claras, Fabien De Saint Pern, Francois-Xavier Gaberan, Héléna Hiraux, Pascal Martin"},"description":"Nos retours du PHP Tour à Montpellier, les 17 et 18 mai 2018","dateModified":"2018-05-17T00:00:00+02:00","datePublished":"2018-05-17T00:00:00+02:00","headline":"PHP Tour Montpellier 2018","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="PHP Tour Montpellier 2018">
+    <meta name="twitter:description" content="Cette année encore, M6Web a sponsorisé le PHP Tour, organisé cette année par l’AFUP à Montpellier.Nous étions donc nombreux pour assister à l’ensemble des co...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/phptour2018/team.jpg">
+    <meta name="twitter:image:alt" content="PHP Tour Montpellier 2018">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="PHP Tour Montpellier 2018 " aria-label="PHP Tour Montpellier 2018" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="PHP+Tour+Montpellier+2018" class="title">PHP Tour Montpellier 2018</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      May 17, 2018
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Cette année encore, M6Web a sponsorisé le <a href="https://event.afup.org/en/phptourmontpellier2018/">PHP Tour, organisé cette année par l’AFUP à Montpellier</a>.
+Nous étions donc nombreux pour assister à l’ensemble des conférences. Comme d’habitude avec l’AFUP, les conférences étaient de bonne qualité, et il y en avait pour tous : débutants comme utilisateurs avancés.</p>
+
+<p>Pour la première fois, les conférences étaient données dans un cinéma Gaumont. Un très bon choix en termes de configuration : visibilité, confort, son et lumière !</p>
+
+<p>En attendant la mise en ligne des vidéos, nous remercions les conférencières et les conférenciers pour leurs présentations. Vous trouverez ci-dessous quelques mots sur les conférences que nous avons particulièrement appréciées.</p>
+
+<h3 id="tirer-le-maximum-du-moteur-php7">“Tirer le maximum du moteur PHP7”</h3>
+
+<p>Conférence donnée par <a href="https://twitter.com/nicolasgrekas">Nicolas Grekas</a>.</p>
+
+<p>L’approche de Nicolas était très intéressante et nous à permis de mieux comprendre le fonctionnement interne de Symfony, en lien avec les optimisations apportées par le nouveau moteur de PHP7.</p>
+
+<p>Les exemples cités nous ont permis de voir qu’avec quelques “tips”, il est possible de “bypasser” des étapes coûteuses lors de l’exécution de notre code.</p>
+
+<h3 id="100-asynchrone---0-callback-en-php">“100% asynchrone - 0% callback en PHP”</h3>
+
+<p>Une présentation de <a href="https://twitter.com/joelwurtz">Joel Wurtz</a>.</p>
+
+<p>Cette conférence nous a permis d’aborder un sujet assez peu connu dans l’univers PHP : l’asynchrone.</p>
+
+<p>Dès qu’un projet commence à être complexe, il est souvent possible de réaliser des tâches en parallèle, non bloquantes, permettant d’optimiser les temps de réponse.</p>
+
+<p>Pour répondre à ce besoin, Joel nous a présenté le concept de l’asynchrone : <code class="language-plaintext highlighter-rouge">l'event loop</code>.
+Via cette boucle, Joel nous a expliqué comment les évènements sont “dispatchés” au travers de <a href="https://php.net/manual/en/language.generators.overview.php">générateurs</a>.</p>
+
+<p>Pour aller plus loin, Joel nous a aussi parlé des outils existants qui implémentent cette logique d’event loop : <a href="https://github.com/amphp/amp">AMP</a>.</p>
+
+<p>Enfin pour terminer, pour être 0% callback, Joel nous a présenté <a href="https://github.com/fiberphp/fiber-ext">Fiber</a>. Cette extension implémente <a href="https://wiki.php.net/rfc/fiber">la RFC Fiber</a> actuellement en cours d’homologation.</p>
+
+<p>Nous vous recommandons de creuser ce sujet, qui selons nous, ouvre de belles perspectives dans l’univers PHP !</p>
+
+<h3 id="bienvenue-dans-la-matrice-">“Bienvenue dans la matrice !”</h3>
+
+<p>Cette conférence était animée par <a href="https://twitter.com/@bjacquemont">Benoit Jacquemont</a>.</p>
+
+<p>Aujourd’hui encore, les développeurs ont trop peu de connaissance sur ce qu’il se passe à bas niveau sur nos serveurs.</p>
+
+<p>Cette conférence, qui présentait notamment <code class="language-plaintext highlighter-rouge">strace</code> (pour suivre les appels système) et <code class="language-plaintext highlighter-rouge">ltrace</code> (pour suivre les appels aux fonctions de bibliothèques), était donc particulièrement rafraîchissante. La démo “comment voir les requêtes et réponse en HTTPS, en clair”, était complètement bluffante !</p>
+
+<h3 id="sans-documentation-la-fonctionnalité-nexiste-pas-">“Sans documentation, la fonctionnalité n’existe pas !”</h3>
+
+<p>Ce talk était proposé par <a href="https://twitter.com/sarahhaim">Sarah Haïm-Lubczanski</a>.</p>
+
+<p>Tout le monde, dans sa vie de développeur, a été confronté au problème suivant : écrire la documentation des fonctionnalités développées. 
+C’est un challenge auquel nous nous sommes nous-même confrontés lorsque nous avons travaillé, l’année dernière, sur <a href="/6play/6play-goes-international/">l’internationalisation de notre plate-forme</a>, puisque nous avons dû documenter nos API, désormais appelées par des collègues basés dans d’autres pays.</p>
+
+<p>Sarah nous a montré comment faire face à cette barrière souvent perçue comme insurmontable par bon nombre d’entre nous.
+Elle nous a pour cela donné les clés et les bonnes pratiques pour créer, maintenir et rédiger une documentation cohérente.</p>
+
+<p>On retiendra aussi la présentation des différents <a href="https://www.staticgen.com/">outils open source de gestion de documentation</a>.</p>
+
+<h3 id="a-la-découverte-du-workflow">“A la découverte du Workflow”</h3>
+
+<p>Conférence animée par <a href="https://twitter.com/lyrixx">Gregoire Pineau</a>.</p>
+
+<p>Cette conférence a retenu notre attention. Particulièrement bien faite, elle résume les fonctionnalités de ce nouveau composant de Symfony, en partant d’un workflow simple jusqu’au réseau de Pétri. Grégoire donnait des exemples d’utilisations concrètes.</p>
+
+<p>Difficile à résumer, je vous invite à consulter la <a href="https://symfony.com/doc/current/components/workflow.html">documentation Symfony sur ce composant</a>.</p>
+
+<h3 id="mais-encore-">Mais encore ?</h3>
+
+<p>De plus, trois conférences ont attiré notre attention de par leur valeur pédagogique. Elles étaient à nos yeux particulièrement  intéressantes pour des débutants ou des personnes ne connaissant pas encore le fonctionnement de certains processus suivis par notre communauté.</p>
+
+<p>Dans l’ordre, vous trouverez :</p>
+
+<ul>
+  <li><em>IT figures</em> par <a href="https://twitter.com/SaraMG">Sara Golemon</a>, qui revient sur ce qu’est le FIG, organisme important qui régit aujourd’hui une partie de l’organisation de la communauté PHP, et sur ce que sont les PSRs.</li>
+  <li><em>Nommer les choses ? Oui : avec le DNS</em> par <a href="https://twitter.com/julienPauli">Julien Pauli</a>. Cette conférence revient sur les bases du fonctionnement du DNS et son utilité.</li>
+  <li>Et, pour finir : <em>Caching with PSRs</em> par <a href="https://twitter.com/hannesvdvreken">Hannes Van De Vreken</a>. Dernière des conférences “à voir une fois”, celle-ci revient sur ce qu’est le cache en général, pourquoi on en utilise. Puis s’intéresse au cache applicatif via les PSRs.</li>
+</ul>
+
+<h3 id="le-dernier-php-tour">Le dernier PHP Tour</h3>
+
+<p>Ce PHP Tour était le dernier, puisque l’AFUP proposera à partir de 2019 un nouveau format pour les événements en région : l’AFUP Day. Nous aurons grand plaisir à vous y rencontrer à nouveau, à Lyon cette fois-ci !</p>
+
+<p>Encore un grand merci à l’<a href="https://twitter.com/afup">AFUP</a> !</p>
+
+<p>Enfin, retrouvez toute l’actualité de l’événement sur <a href="https://twitter.com/hashtag/phptour?src=hash">#phptour</a>.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=PHP+Tour+Montpellier+2018%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2018%2F05%2F17%2Fretour-php-tour-2018.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2018/05/17/retour-php-tour-2018.html&title=PHP+Tour+Montpellier+2018%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2018/05/17/retour-php-tour-2018.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=PHP Tour Montpellier 2018%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2018/05/17/retour-php-tour-2018.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#2018">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> 2018</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#afup">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> afup</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#php">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> php</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#phptour">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> phptour</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="KubeCon 2018 Copenhagen, day 1" href="/2018/05/21/kubecon-2018-copenhaguen-day-1.html">
+            <p>Previous post</p>
+            KubeCon 2018 Copenhagen, day 1
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="How a fullscreen video mode ended up implementing React Native Portals?" href="/6play/2018/04/15/how-a-fullscreen-video-mode-ended-up-implementing-react-native-portals.html">
+            <p>Next post</p>
+            How a fullscreen video mode ended up implementing React Native Portals?
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/phptour2018/team.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

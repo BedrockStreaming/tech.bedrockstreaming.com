@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/coke-et-symfony2/feature.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Contrôlez facilement votre cohérence de code sur votre projet Symfony2 avec coke | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Contrôlez facilement votre cohérence de code sur votre projet Symfony2 avec coke" />
+<meta name="author" content="Mikael Randy" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Voici comment facilement et rapidement mettre en place un système de contrôle de la cohérence du code d’un projet Symfony2 avec coke" />
+<meta property="og:description" content="Voici comment facilement et rapidement mettre en place un système de contrôle de la cohérence du code d’un projet Symfony2 avec coke" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2014/08/05/verifier-la-coherence-du-code-d-un-projet-symfony2-avec-coke.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2014/08/05/verifier-la-coherence-du-code-d-un-projet-symfony2-avec-coke.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-08-05T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Contrôlez facilement votre cohérence de code sur votre projet Symfony2 avec coke" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2014/08/05/verifier-la-coherence-du-code-d-un-projet-symfony2-avec-coke.html"},"url":"https://tech.bedrockstreaming.com/2014/08/05/verifier-la-coherence-du-code-d-un-projet-symfony2-avec-coke.html","author":{"@type":"Person","name":"Mikael Randy"},"description":"Voici comment facilement et rapidement mettre en place un système de contrôle de la cohérence du code d’un projet Symfony2 avec coke","dateModified":"2014-08-05T00:00:00+02:00","datePublished":"2014-08-05T00:00:00+02:00","headline":"Contrôlez facilement votre cohérence de code sur votre projet Symfony2 avec coke","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Contrôlez facilement votre cohérence de code sur votre projet Symfony2 avec coke">
+    <meta name="twitter:description" content="Pour qu’un projet persiste dans le temps, il est important que le style de codage soit le même. Et quand vous vous reposez sur des outils, autant faire en so...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/coke-et-symfony2/feature.png">
+    <meta name="twitter:image:alt" content="Contrôlez facilement votre cohérence de code sur votre projet Symfony2 avec coke">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Contrôlez facilement votre cohérence de code sur votre projet Symfony2 avec coke " aria-label="Contrôlez facilement votre cohérence de code sur votre projet Symfony2 avec coke" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Contr%C3%B4lez+facilement+votre+coh%C3%A9rence+de+code+sur+votre+projet+Symfony2+avec+coke" class="title">Contrôlez facilement votre cohérence de code sur votre projet Symfony2 avec coke</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/mikaelrandy" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="/images/avatar/mikaelrandy.png">
+    
+    <p class="meta">
+      Mikael Randy - 
+      
+      August 05, 2014
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Pour qu’un projet persiste dans le temps, il est important que le style de codage soit le même. Et quand vous vous reposez sur des outils, autant faire en sorte que le style de codage retenu soit proche, si ce n’est le même, que les briques que vous utilisez. Et dans le cas où vous utilisez un framework, c’est d’autant plus important.</p>
+
+<p>Avec Symfony2, c’est d’autant plus facile que l’architecture des bundles est très marquée, et qu’un coding guide est publié.</p>
+
+<p>Ça, c’est pour la théorie, mais en pratique, si ce n’est pas super simple, automatique, une somme de toutes petites erreurs apparaissent et le sentiment d’abandon s’installe rapidement.</p>
+
+<h2 id="coke">Coke</h2>
+
+<p>Il y a un peu plus d’un an, chez M6Web, nous avons développé <a href="/coke-pour-bien-sniffer-son-code">coke</a> pour configurer simplement l’exécution de PHP_CodeSniffer.</p>
+
+<p>Depuis quelques mois, il est possible <a href="https://github.com/BedrockStreaming/Coke/pull/4">d’installer coke via Composer</a> :</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+  </span><span class="nl">"require"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"m6web/coke"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~1.2"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p>L’avantage de passer par Composer, c’est que coke va lui-même installer PHP_CodeSniffer en tant que dépendance Composer (dans le dossier <code class="language-plaintext highlighter-rouge">vendor</code>), permettant de ne pas avoir à suivre la <a href="https://pear.php.net/manual/en/guide.users.commandline.installing.php">fastidieuse procédure d’installation via PEAR</a>.</p>
+
+<h2 id="installer-un-coding-standard-via-composer">Installer un coding standard via Composer</h2>
+
+<p>Lorsque nous voulons utiliser un coding standard qui n’est pas inclus par défaut avec PHP_CodeSniffer, il est possible de l’installer en utilisant Composer</p>
+
+<h2 id="symfony2-coding-standard">Symfony2-coding-standard</h2>
+
+<p>Chez M6Web, nous maintenons le standard <a href="https://github.com/BedrockStreaming/Symfony2-coding-standard">Symfony2-coding-standard</a> qui permet de valider que le code d’un projet respecte les <a href="https://symfony.com/doc/current/contributing/code/standards.html">coding standard de Symfony2</a>.</p>
+
+<p>Pour rendre à César ce qui appartient à César, nous avons récupéré la base du standard telle que créé par <a href="https://github.com/opensky">opensky</a>.</p>
+
+<p>Si nous avons décidé de le forker, c’est que la structure ne correspondait pas à ce qui est nécessaire pour une installation de ce standard via Composer</p>
+
+<h2 id="procédure-complète-pas-à-pas">Procédure complète, pas-à-pas</h2>
+
+<p>Créer le fichier <code class="language-plaintext highlighter-rouge">composer.json</code> suivant :</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+  </span><span class="nl">"require-dev"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"m6web/coke"</span><span class="w">                       </span><span class="p">:</span><span class="w"> </span><span class="s2">"~1.2"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"m6web/symfony2-coding-standard"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="s2">"~1.1"</span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p>Installer les dépendances Composer :</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">composer <span class="nb">install</span></code></pre></figure>
+
+<p>Créer le fichier <code class="language-plaintext highlighter-rouge">.coke</code> suivant :</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Standard used by PHP CodeSniffer (required)</span>
+<span class="nv">standard</span><span class="o">=</span>vendor/m6web/symfony2-coding-standard/Symfony2</code></pre></figure>
+
+<p>Il est désormais possible d’appeler la commande suivante pour valider le style de codage de votre projet</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">./vendor/bin/coke</code></pre></figure>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Avec cette technique, il est très simple de valider le style de codage d’un projet. Du coup, plus d’excuse pour ne pas le faire ;)</p>
+
+<h2 id="bonus">Bonus</h2>
+
+<p>L’idéal, pour ne jamais commiter un code ne respectant pas les conventions de codage, est d’utiliser les <a href="https://git-scm.com/book/en/Customizing-Git-Git-Hooks">hooks de commit</a> pour que cette vérification soit faite automatiquement.</p>
+
+<p>La manière la plus simple de le faire est d’ajouter la ligne <code class="language-plaintext highlighter-rouge">./vendor/bin/coke</code> dans le fichier <code class="language-plaintext highlighter-rouge">.git/hooks/pre-commit</code>, mais cette méthode a le défaut de vérifier tout le projet, et pas uniquement le code modifié et à commiter.</p>
+
+<p>Pour aller plus loin, vous pouvez vous inspirer du <a href="https://gist.github.com/JJK801/5867810">script suivant</a> qui ne lance coke que sur les fichiers dans le “staging” de Git (les fichiers à commiter).</p>
+
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Contr%C3%B4lez+facilement+votre+coh%C3%A9rence+de+code+sur+votre+projet+Symfony2+avec+coke%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2014%2F08%2F05%2Fverifier-la-coherence-du-code-d-un-projet-symfony2-avec-coke.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2014/08/05/verifier-la-coherence-du-code-d-un-projet-symfony2-avec-coke.html&title=Contr%C3%B4lez+facilement+votre+coh%C3%A9rence+de+code+sur+votre+projet+Symfony2+avec+coke%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2014/08/05/verifier-la-coherence-du-code-d-un-projet-symfony2-avec-coke.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Contrôlez facilement votre cohérence de code sur votre projet Symfony2 avec coke%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2014/08/05/verifier-la-coherence-du-code-d-un-projet-symfony2-avec-coke.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#Symfony2">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Symfony2</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#code+sniffing">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> code sniffing</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#coke">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> coke</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Tests E2E sur son application AngularJS avec Protractor" href="/tests-e2e-application-angularjs-protractor.html">
+            <p>Previous post</p>
+            Tests E2E sur son application AngularJS avec Protractor
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="M6Web était présent au PHPTour Lyon 2014" href="/2014/06/25/m6web-etait-au-phptour-lyon-2014.html">
+            <p>Next post</p>
+            M6Web était présent au PHPTour Lyon 2014
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/coke-et-symfony2/feature.png'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

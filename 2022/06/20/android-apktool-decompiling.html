@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/banner_xl.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Debugging and reviewing your Android dependencies with apktool | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Debugging and reviewing your Android dependencies with apktool" />
+<meta name="author" content="Baptiste Candellier" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="How decompiling your Android app using apktool can help you find the source of instrumentation issues at the bytecode level, as well as improve your review process." />
+<meta property="og:description" content="How decompiling your Android app using apktool can help you find the source of instrumentation issues at the bytecode level, as well as improve your review process." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-06-20T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Debugging and reviewing your Android dependencies with apktool" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html"},"url":"https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html","author":{"@type":"Person","name":"Baptiste Candellier"},"description":"How decompiling your Android app using apktool can help you find the source of instrumentation issues at the bytecode level, as well as improve your review process.","dateModified":"2022-06-20T00:00:00+02:00","datePublished":"2022-06-20T00:00:00+02:00","headline":"Debugging and reviewing your Android dependencies with apktool","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Debugging and reviewing your Android dependencies with apktool">
+    <meta name="twitter:description" content="If you maintain an Android application, you might be relying on performance monitoring SDKs like Firebase Performance or New Relic, to name a couple. These p...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/banner_xl.jpg">
+    <meta name="twitter:image:alt" content="Debugging and reviewing your Android dependencies with apktool">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Debugging and reviewing your Android dependencies with apktool " aria-label="Debugging and reviewing your Android dependencies with apktool" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Debugging+and+reviewing+your+Android+dependencies+with+apktool" class="title">Debugging and reviewing your Android dependencies with apktool</h1>
+      
+
+
+<div class="post-info"><a href="https://github.com/outadoc" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="https://s.gravatar.com/avatar/c638445b4e00f76960bf7ee2275d7014?s=80">
+    
+    <p class="meta">
+      Baptiste Candellier - 
+      
+      June 20, 2022
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>If you maintain an Android application, you might be relying on performance monitoring SDKs like <a href="https://firebase.google.com/docs/perf-mon">Firebase Performance</a> or <a href="https://newrelic.com/products/mobile-monitoring">New Relic</a>, to name a couple. These plugins usually have a light setup process—just apply a Gradle plugin, and they provide the ability to collect statistics about every network call and database query in your app automatically.</p>
+
+<p>The usual way to achieve this is to rely on a process called <strong>instrumentation</strong>, which is supported <em>via</em> the Android Gradle Plugin’s <a href="https://developer.android.com/reference/tools/gradle-api/7.2/com/android/build/api/transform/Transform">Transform API</a>, or its successor, the <a href="https://developer.android.com/studio/releases/gradle-plugin-api-updates#transform-removed">Instrumentation API</a>. This feature is very powerful, and potentially dangerous; in our case, a minor patch of one of these SDKs caused a production bug that left one of our core features crippled.</p>
+
+<p>The visible cause of our bug, from a developer’s point of view, was that the video player saw the network requests as always being extremely fast, no matter the network quality. Therefore, it assumed the device had access to a very high bandwidth, and tried loading video segments with a very high bit rate. This did <strong>not</strong> go well for users with slower network speeds.</p>
+
+<p>To understand what was going on, what went wrong, how to fix it and how to take measures so that it never happens again, we had to do some investigation.</p>
+
+<h1 id="diving-into-the-android-build-process">Diving into the Android build process</h1>
+
+<p>Before we get to the topic of instrumentation, we first need to know a little about the Android app build process. Don’t worry, we won’t need to dive too deep into the details.</p>
+
+<p>To put it simply, during the build process, your source files (Kotlin and Java) are compiled to Dalvik bytecode, which is stored in <code class="language-plaintext highlighter-rouge">.dex</code> files. These files are then packaged into an APK file, which is basically just a ZIP file with all your code and resources.</p>
+
+<div class="mermaid">
+flowchart LR
+    kt[.kt files] -- kotlinc --&gt; dex[.dex files] --&gt; packaging[[packaging]]
+    java[.java files] -- javac --&gt; dex
+    res[resource files] -- aapt --&gt; resc[compiled resource files] --&gt; packaging --&gt; APK
+    subgraph APK
+    direction TB
+    dex1[.dex] -.- dex2[.dex] -.- dex3[.dex] -.- dex4[.dex]
+    res1[res] -.- res2[res] -.- res3[res] -.- res4[res]
+    signature -.- manifest
+end
+</div>
+
+<h2 id="understanding-bytecode-instrumentation">Understanding bytecode instrumentation</h2>
+
+<p>Now, let’s say you want to take an existing application with its untouched source code, and automatically inject calls to <em>your</em> SDK every time a network call is made, to log whether it was successful or not. How would you achieve this?</p>
+
+<p>The easiest way is to plug yourself into the build, right after the code is compiled into bytecode, and <strong>modify the bytecode</strong> to your will.</p>
+
+<div class="mermaid">
+flowchart LR
+    kt[.kt files] -- kotlinc --&gt; dex[.dex files] --&gt; transform[[transform]] --&gt; packaging[[packaging]]
+    java[.java files] -- javac --&gt; dex
+    res[resource files] -- aapt --&gt; resc[compiled resource files] --&gt; packaging --&gt; APK
+    classDef transformed fill:#ff0000
+    class transform transformed
+
+    subgraph APK
+    direction TB
+    dex1[.dex] -.- dex2[.dex] -.- dex3[.dex] -.- dex4[.dex]
+    res1[res] -.- res2[res] -.- res3[res] -.- res4[res]
+    signature -.- manifest
+    class dex1,dex2,dex3,dex4 transformed
+end
+</div>
+
+<p>The Android Gradle Plugin (AGP) offers APIs to do this, so SDK vendors can just develop a Gradle plugin and ta-da! Once you apply it, your app is automatically instrumented.</p>
+
+<p>Note that there are other ways to achieve this without the AGP. Notably, Kotlin now uses an Intermediate Representation (IR), before it gets compiled down to a target-specific format. <a href="https://blog.bnorm.dev/writing-your-second-compiler-plugin-part-1">You can write a Kotlin IR compiler plugin</a> to transform the IR code and add your own hooks in an Android-agnostic way, although this API is still experimental at the time of writing.</p>
+
+<h2 id="reverse-engineering-a-built-apk">Reverse-engineering a built APK</h2>
+
+<p>Now, this is great. But when you open an APK file, what do you get?</p>
+
+<p>Let’s unzip one and look inside.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
+├── META-INF
+├── assets
+├── google
+├── okhttp3
+├── res
+├── AndroidManifest.xml
+├── classes.dex
+├── classes2.dex
+├── classes3.dex
+├── classes4.dex
+├── firebase-common.properties
+├── firebase-crashlytics.properties
+├── play-services-base.properties
+├── ...
+└── resources.arsc
+</code></pre></div></div>
+
+<p>A bunch of noise, and four interesting <code class="language-plaintext highlighter-rouge">.dex</code> files. That’s where the app’s code is stored, but unfortunately, these files are not human-readable.</p>
+
+<p>To turn them into low-level but understandable code, some tooling will be necessary. The easiest to use for this task is <a href="https://ibotpeaches.github.io/Apktool/"><code class="language-plaintext highlighter-rouge">apktool</code></a>, which is free and open-source.</p>
+
+<p>Let’s run <code class="language-plaintext highlighter-rouge">apktool</code> on our APK, and see what happens:</p>
+
+<script id="asciicast-1RozUUMJwPlMjS0ea1R6GNwuj" src="https://asciinema.org/a/1RozUUMJwPlMjS0ea1R6GNwuj.js" async=""></script>
+
+<noscript>
+<pre>
+~/Downloads
+❯ apktool d bedrock-sample-release.apk
+I: Using Apktool 2.6.1 on bedrock-sample-release.apk
+I: Loading resource table...
+I: Decoding AndroidManifest.xml with resources...
+I: Loading resource table from file: /Users/bcandellier/Library/apktool/framework/1.apk
+I: Regular manifest package...
+I: Decoding file-resources...
+W: Cant find 9patch chunk in file: "drawable-xxhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-mdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-mdpi-v4/common_google_signin_btn_text_light_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-xhdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-xhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-xhdpi-v4/common_google_signin_btn_text_light_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-xxhdpi-v4/common_google_signin_btn_text_light_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-hdpi-v4/common_google_signin_btn_text_light_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-xhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-hdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-mdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-xxhdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-xxhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-mdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-hdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png". Renaming it to *.png.
+W: Cant find 9patch chunk in file: "drawable-hdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png". Renaming it to *.png.
+I: Decoding values */* XMLs...
+I: Baksmaling classes.dex...
+I: Baksmaling classes2.dex...
+I: Baksmaling classes3.dex...
+I: Baksmaling classes4.dex...
+I: Copying assets and libs...
+I: Copying unknown files...
+I: Copying original files...
+I: Copying META-INF/services directory
+</pre>
+</noscript>
+
+<p>There we go! In our case, we can ignore the warnings. <code class="language-plaintext highlighter-rouge">apktool</code> created a new directory with a bunch of <code class="language-plaintext highlighter-rouge">.smali</code> files, organized by package: one file per class, containing their Dalvik bytecode.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
+├── AndroidManifest.xml
+├── res
+│   ├── values
+│   │   ├── strings.xml
+│   │   └── ...
+│   ├── layout
+│   │   ├── layout_home.xml
+│   │   └── ...
+│   └── ...
+├── smali
+│   ├── com
+│       ├── bedrockstreaming
+│       │   ├── app
+│       │   │   ├── mobile
+│       │   │   │   ├── R$anim.smali
+│       │   │   │   ├── R$layout.smali
+│       │   │   │   ├── R$string.smali
+│       │   │   │   ├── R$style.smali
+│       │   │   │   └── ...
+│       │   │   └── ...
+│       │   └── ...
+│       └── google
+│           ├── android
+│           │   ├── exoplayer2
+│           │   │   ├── AbstractConcatenatedTimeline.smali
+│           │   │   ├── AudioBecomingNoisyManager.smali
+│           │   │   ├── AudioFocusManager$AudioFocusListener$$ExternalSyntheticLambda0.smali
+│           │   │   ├── AudioFocusManager$AudioFocusListener.smali
+│           │   │   ├── AudioFocusManager.smali
+│           │   │   ├── BasePlayer.smali
+│           │   │   ├── BaseRenderer.smali
+│           │   │   ├── BuildConfig.smali
+│           │   │   └── ...
+│           │   └── ...
+│           └── ...
+├── smali_classes2
+│   ├── com
+│   │   └── bedrockstreaming
+│   │       ├── app
+│   │       │   ├── mobile
+│   │       │   │   ├── MobileApplication.smali
+│   │       │   │   └── ...
+│   │       │   └── ...
+│   │       └── ...
+│   └── ...
+└── ...
+</code></pre></div></div>
+
+<p>If you see files with mangled names and contents, make sure that you run <code class="language-plaintext highlighter-rouge">apktool</code> on an APK with R8 obfuscation disabled, or you’ll have a hard time figuring things out.</p>
+
+<h2 id="understanding-dalvik-bytecode">Understanding Dalvik bytecode</h2>
+
+<p>Now, if you open one of these files, it will contain code that looks like the snippet below. It will look unfamiliar; that’s normal.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.method private final getContent()Lcom/bedrockstreaming/example/HomeViewModel$State$Content;
+
+    .locals 2
+    .line 119
+
+    iget-object v0, p0, Lcom/bedrockstreaming/example/HomeViewModel;-&gt;state:Landroidx/lifecycle/LiveData;
+
+    invoke-virtual {v0}, Landroidx/lifecycle/LiveData;-&gt;getValue()Ljava/lang/Object;
+
+    move-result-object v0
+
+    instance-of v1, v0, Lcom/bedrockstreaming/example/HomeViewModel$State$Content;
+
+    if-eqz v1, :cond_0
+
+    check-cast v0, Lcom/bedrockstreaming/example/HomeViewModel$State$Content;
+
+    goto :goto_0
+
+    :cond_0
+
+    const/4 v0, 0x0
+
+    :goto_0
+
+    return-object v0
+  
+.end method
+</code></pre></div></div>
+
+<p>If you’ve ever worked with assembly code before, you might notice similarities in the way the code is written. Each line begins with an instruction, which can take comma-separated parameters. To work out what these instructions and their parameters mean, you <strong>will</strong> need to refer to the <a href="https://source.android.com/devices/tech/dalvik/dalvik-bytecode">Dalvik bytecode documentation</a> provided by Google.</p>
+
+<p>Let’s take an example line from the snippet and decode it together. Looking at the table in the documentation, we can see deduce this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># We'll decode this line:
+invoke-virtual {v0}, Landroidx/lifecycle/LiveData;-&gt;getValue()Ljava/lang/Object;
+
+invoke-virtual                                                                   # We're calling a virtual method
+               {v0},                                                             # We're calling the method on the object referenced in register v0
+                     Landroidx/lifecycle/LiveData;                               # The method we're calling is defined by androidx.lifecycle.LiveData
+                                                  -&gt;getValue()                   # We're calling a method called getValue()
+                                                              Ljava/lang/Object; # This method returns an Object
+</code></pre></div></div>
+
+<p>With some determination, we can figure out what the snippet does. Here, we’re defining a <code class="language-plaintext highlighter-rouge">getContent()</code> method that tries to cast a <code class="language-plaintext highlighter-rouge">LiveData</code>’s value to <code class="language-plaintext highlighter-rouge">State.Content</code> and returns it, or <code class="language-plaintext highlighter-rouge">null</code> otherwise.</p>
+
+<h1 id="using-a-decompiled-apk-as-a-debugging-tool">Using a decompiled APK as a debugging tool</h1>
+
+<h2 id="inspecting-suspicious-code">Inspecting suspicious code</h2>
+
+<p>Before doing anything else, we can already start looking at the generated code to identify patterns that could cause issues. Problem is… there can be a <em>lot</em> of code to look through.</p>
+
+<p>Before going this deep in the rabbit hole, we already figured our issue was, somehow, related to instrumentation: disabling it fixed this issue; downgrading to the previous release of the SDK also fixed it. This means that if we want to get a clear look at <strong>what</strong> needs to change to go from a working APK from a broken one, we could just compare an APK instrumented by the previous SDK version with an APK instrumented by the current one!</p>
+
+<p>Of course, we want to do this on the human-readable <code class="language-plaintext highlighter-rouge">smali</code> files, not the raw <code class="language-plaintext highlighter-rouge">dex</code> files. We can generate a full diff with the help of the <code class="language-plaintext highlighter-rouge">diff</code> tool:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>diff <span class="nt">-bur</span> normal/ instrumented/
+</code></pre></div></div>
+
+<p>In our case, it also proved useful to compare an APK that has been instrumented with one that hasn’t, to understand what that instrumentation is meant to achieve. Most of it was to notify the SDK of every HTTP request, along with its result.</p>
+
+<p>As a simple example, the snippet below shows a class belonging to Picasso. We can see the HTTP calls it makes are being intercepted by the SDK.</p>
+
+<div class="language-diff highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gd">--- normal/smali/com/squareup/picasso/NetworkRequestHandler.smali	2022-01-05 11:09:22.000000000 +0100
+</span><span class="gi">+++ instrumented/smali/com/squareup/picasso/NetworkRequestHandler.smali	2022-01-05 11:08:34.000000000 +0100
+</span><span class="p">@@ -128,10 +128,26 @@</span>
+
+     .line 103
+     :cond_4
+<span class="gi">+    instance-of v2, v1, Lokhttp3/Request$Builder;
++
++    if-nez v2, :cond_5
++
+</span>     invoke-virtual {v1}, Lokhttp3/Request$Builder;-&gt;build()Lokhttp3/Request;
+
+     move-result-object v2
+
++    goto :goto_1
+<span class="gi">+
++    :cond_5
++    move-object v2, v1
++
++    check-cast v2, Lokhttp3/Request$Builder;
++
++    invoke-static {v2}, Lcom/vendor/instrumentation/okhttp3/OkHttp3Instrumentation;-&gt;build(Lokhttp3/Request$Builder;)Lokhttp3/Request;
++
++    move-result-object v2
++
++    :goto_1
+</span>     return-object v2
+ .end method
+</code></pre></div></div>
+
+<h2 id="finding-the-source-of-the-issue-by-iteration">Finding the source of the issue by iteration</h2>
+
+<p>We haven’t talked about <code class="language-plaintext highlighter-rouge">apktool</code>’s greatest strength yet: its ability to <strong>recompile</strong> an APK from the <code class="language-plaintext highlighter-rouge">smali</code> sources it has decompiled! This means we can effectively decompile an APK, make modifications to its low-level code, recompile and run it.</p>
+
+<p>This proved really useful during our investigation. Since we have one directory with our APK in a bad state, and one directory with our APK in a good state, we can process by elimination to point out exactly which <strong>single class</strong>, when modified, causes our bug.</p>
+
+<p>In our case, a useful workflow was to start with a suspect—let’s say we think instrumenting the OkHttp classes might have caused the bug.</p>
+
+<ol>
+  <li>Copy the OkHttp classes from the “bad” APK, and only those, to our “good” APK.</li>
+  <li>Recompile and run the app.</li>
+  <li>Does the bug occur?
+    <ul>
+      <li>If it does, then that means it is caused by the instrumentation of at least one of the OkHttp classes. We can go through this process again, this time by selecting only a subset of OkHttp’s classes, and check if the bug still occurs, etc.</li>
+      <li>If it doesn’t, revert the OkHttp classes and try again with another suspect.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>This process can be accelerated with a very simple script, to iterate faster. The recompilation step occurs incrementally, and so only takes a few seconds.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+
+<span class="c"># rebuild-and-run.sh</span>
+<span class="c"># Rebuild, sign and install an APK from its decompiled source.</span>
+<span class="c"># (c) 2022 Bedrock Streaming</span>
+
+<span class="c"># Inputs:</span>
+<span class="c"># DECOMPILED_APK_PATH: path to your previously decompiled APK directory</span>
+<span class="c"># KEYSTORE_PATH: path to your debug keystore</span>
+<span class="c"># KEYSTORE_PASSWORD: your debug keystore password</span>
+
+apktool <span class="nt">--use-aapt2</span> b <span class="s2">"</span><span class="nv">$DECOMPILED_APK_PATH</span><span class="s2">"</span> <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> apksigner sign <span class="nt">-ks</span> <span class="s2">"</span><span class="nv">$KEYSTORE_PATH</span><span class="s2">"</span> <span class="nt">--ks-pass</span> <span class="s2">"pass:</span><span class="nv">$KEYSTORE_PASSWORD</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$DECOMPILED_APK_PATH</span><span class="s2">/dist/*.apk"</span> <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> adb <span class="nb">install</span> <span class="s2">"</span><span class="nv">$DECOMPILED_APK_PATH</span><span class="s2">/dist/*.apk"</span>
+</code></pre></div></div>
+
+<p>Here’s what it looks like in action:</p>
+
+<script id="asciicast-HCdekIJOEwSdARnP2bUnWWipo" src="https://asciinema.org/a/HCdekIJOEwSdARnP2bUnWWipo.js" async=""></script>
+
+<noscript>
+<pre>
+~/bytecode-playground
+❯ ./rebuild-and-run.sh
+I: Using Apktool 2.6.1
+I: Checking whether sources has changed...
+I: Checking whether sources has changed...
+I: Checking whether sources has changed...
+I: Checking whether sources has changed...
+I: Checking whether sources has changed...
+I: Checking whether sources has changed...
+I: Checking whether sources has changed...
+I: Checking whether sources has changed...
+I: Checking whether sources has changed...
+I: Checking whether sources has changed...
+I: Checking whether sources has changed...
+I: Checking whether resources has changed...
+I: Building apk file...
+I: Copying unknown files/dir...
+I: Built apk...
+Performing Incremental Install
+Serving...
+Success
+Install command complete in 445 ms
+</pre>
+</noscript>
+
+<p>In our case, we narrowed down the issue to the instrumentation of a single class: <code class="language-plaintext highlighter-rouge">okhttp3.internal.http.CallServerInterceptor</code>: once it was reverted, the bug disappeared.</p>
+
+<p>In fact, we narrowed it down to a very small patch with which the app runs fine:</p>
+
+<div class="language-diff highlighter-rouge"><div class="highlight"><pre class="highlight"><code> .../okhttp3/internal/http/CallServerInterceptor.smali         | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali b/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali
+<span class="gh">index c916149f..c26eab15 100644
+</span><span class="gd">--- a/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali
+</span><span class="gi">+++ b/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali
+</span><span class="p">@@ -510,7 +510,7 @@</span>
+ 
+     instance-of v8, v14, Lokhttp3/Response$Builder;
+ 
+<span class="gd">-    if-nez v8, :cond_b
+</span><span class="gi">+    #if-nez v8, :cond_b
+</span> 
+     invoke-virtual {v14, v15}, Lokhttp3/Response$Builder;-&gt;body(Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
+ 
+<span class="p">@@ -574,7 +574,7 @@</span>
+ 
+     instance-of v15, v8, Lokhttp3/Response$Builder;
+ 
+<span class="gd">-    if-nez v15, :cond_e
+</span><span class="gi">+    #if-nez v15, :cond_e
+</span> 
+     invoke-virtual {v8, v14}, Lokhttp3/Response$Builder;-&gt;body(Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
+ 
+<span class="gd">-- 
+</span></code></pre></div></div>
+
+<p>Basically, when the code went through this <code class="language-plaintext highlighter-rouge">if</code> statement, our request got wrapped by <code class="language-plaintext highlighter-rouge">com.vendor.instrumentation.okhttp3.OkHttp3Instrumentation</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>invoke-static {v8, v14}, Lcom/vendor/instrumentation/okhttp3/OkHttp3Instrumentation;-&gt;body(Lokhttp3/Response$Builder;Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
+</code></pre></div></div>
+
+<p>And what does this method do, you ask? Let’s take a look at the decompiled source in Android Studio, so that it’s a bit easier to read:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nc">Builder</span> <span class="nf">body</span><span class="o">(</span><span class="nc">ResponseBody</span> <span class="n">body</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">body</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">BufferedSource</span> <span class="n">source</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="na">source</span><span class="o">();</span>
+            <span class="nc">Buffer</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Buffer</span><span class="o">();</span>
+            <span class="n">source</span><span class="o">.</span><span class="na">readAll</span><span class="o">(</span><span class="n">buffer</span><span class="o">);</span>
+            <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">impl</span><span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="nc">ResponseBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">body</span><span class="o">.</span><span class="na">contentType</span><span class="o">(),</span> <span class="n">buffer</span><span class="o">.</span><span class="na">size</span><span class="o">(),</span> <span class="n">buffer</span><span class="o">));</span>
+        <span class="o">}</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">var4</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"IOException reading from source: "</span><span class="o">,</span> <span class="n">var4</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IllegalStateException</span> <span class="n">var5</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"IllegalStateException reading from source: "</span><span class="o">,</span> <span class="n">var5</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">impl</span><span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="n">body</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The body is being read into memory!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">source</span><span class="o">.</span><span class="na">readAll</span><span class="o">(</span><span class="n">buffer</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>When correlating this discovery with the source code from ExoPlayer, we could verify that, indeed, our player was expecting that the time it takes reading the response body would be the time it took to download the entire video segment. Here’s what this flow looks like in a functional app:</p>
+
+<div class="mermaid">
+sequenceDiagram
+    participant exo as OkHttpDataSource
+    participant nr as OkHttp3Instrumentation
+    participant okhttp as OkHttpClient
+    participant server as Server Endpoint
+
+    exo-&gt;&gt;nr: body()
+    nr-&gt;&gt;okhttp: body()
+    activate server
+    okhttp-&gt;&gt;server: 
+    server-&gt;&gt;okhttp: 
+    okhttp-&gt;&gt;nr: ResponseBody (length=0)
+    activate exo
+    nr-&gt;&gt;exo: ResponseBody (length=0)
+    server-&gt;&gt;exo: length=512
+    server-&gt;&gt;exo: length=1024
+    server-&gt;&gt;exo: length=1536
+    server-&gt;&gt;exo: length=2048
+    server-&gt;&gt;exo: length=2560
+    note right of exo: OkHttpDataSource controls the body reads <br /> and can measure the time it took <br /> to read the whole response
+    deactivate server
+    deactivate exo
+</div>
+
+<p>But with this bug in the SDK, since the HTTP response has been buffered into memory by some SDK, the read was always almost-instantaneous, no matter the speed of the connection. Additionally, it messed with the overall performance since requests were no longer properly streamed by their rightful users.</p>
+
+<div class="mermaid">
+sequenceDiagram
+    participant exo as OkHttpDataSource
+    participant nr as OkHttp3Instrumentation
+    participant okhttp as OkHttpClient
+    participant server as Server Endpoint
+
+    exo-&gt;&gt;nr: body()
+    nr-&gt;&gt;okhttp: body()
+    activate server
+    okhttp-&gt;&gt;server: 
+    server-&gt;&gt;okhttp: 
+    activate nr
+    okhttp-&gt;&gt;nr: 
+    server-&gt;&gt;nr: length=512
+    server-&gt;&gt;nr: length=1024
+    server-&gt;&gt;nr: length=1536
+    server-&gt;&gt;nr: length=2048
+    server-&gt;&gt;nr: length=2560
+    deactivate nr
+    activate exo
+    note right of exo: OkHttpDataSource is only notified <br /> after everything is downloaded
+    nr-&gt;&gt;exo: ResponseBody (length=2560)
+    deactivate server
+    deactivate exo
+</div>
+
+<h1 id="using-a-decompiled-apk-as-a-review-tool">Using a decompiled APK as a review tool</h1>
+
+<p>It’s no secret to developers in any software ecosystem that library updates can be a source of problems - security vulnerabilities, bugs, incompatibilities, and so on. It’s hard to vet them properly, especially in compiled form, like libraries distributed in the Java ecosystem. Things get even harder when arbitrary Gradle plugins start rewriting our own code!</p>
+
+<p>The tooling needed to decompile an APK is free, fast, and easy to automate. It’s a really helpful tool to investigate obscure bugs in places your debugger won’t let you place a breakpoint, and it’s also really useful to be able to see a human-readable diff between two binaries.</p>
+
+<p>Generating a diff of the effects of a library upgrade can seem overkill and hard to do in practice, but at least in the case of bug-fix releases with hopefully few changes, it can be very helpful to have an actual report of what changed. It’s an accepted practice to review the code your team checks in; why not review the code of others, since it ends up in the exact same artifact?</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Debugging+and+reviewing+your+Android+dependencies+with+apktool%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F06%2F20%2Fandroid-apktool-decompiling.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html&title=Debugging+and+reviewing+your+Android+dependencies+with+apktool%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Debugging and reviewing your Android dependencies with apktool%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#android">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> android</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#apktool">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> apktool</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#debugging">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> debugging</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#instrumentation">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> instrumentation</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#productivity">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> productivity</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="Bedrock à la Kubecon 2022, 4ème partie : chaos, résilience, ressenti global et conclusion générale…" href="/2022/06/16/kubecon-2022-part-4.html">
+            <p>Next post</p>
+            Bedrock à la Kubecon 2022, 4ème partie : chaos, résilience, ressenti global et conclusion générale…
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(19,174,19) !important; }
+  .share-buttons a { color: rgb(19,174,19) !important; }
+  .tag-list a:not(:hover) { color: rgb(19,174,19) !important; }
+  div#post-nav a { color: rgb(19,174,19) !important; }
+  footer a { color: rgb(19,174,19) !important; }
+  .site-header nav a:hover {  color: rgb(19,174,19) !important; }
+  a.button:hover {
+    background: rgb(19,174,19) !important;
+    border: 1px solid rgb(19,174,19) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(19,174,19) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/kubecon-2018/title-kubecon.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>KubeCon 2018 Copenhagen, global review | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="KubeCon 2018 Copenhagen, global review" />
+<meta name="author" content="Vincent Gallissot, Pascal Martin" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Our global review of KubeCon 2018 in Copenhagen" />
+<meta property="og:description" content="Our global review of KubeCon 2018 in Copenhagen" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2018/05/24/kubecon-2018-copenhaguen-global-review.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2018/05/24/kubecon-2018-copenhaguen-global-review.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-05-24T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="KubeCon 2018 Copenhagen, global review" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2018/05/24/kubecon-2018-copenhaguen-global-review.html"},"url":"https://tech.bedrockstreaming.com/2018/05/24/kubecon-2018-copenhaguen-global-review.html","author":{"@type":"Person","name":"Vincent Gallissot, Pascal Martin"},"description":"Our global review of KubeCon 2018 in Copenhagen","dateModified":"2018-05-24T00:00:00+02:00","datePublished":"2018-05-24T00:00:00+02:00","headline":"KubeCon 2018 Copenhagen, global review","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="KubeCon 2018 Copenhagen, global review">
+    <meta name="twitter:description" content="After those three days at KubeCon, we’ve seen and heard a lot of interesting ideas. You can read about our first day here, about our second day there, and ab...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/kubecon-2018/title-kubecon.jpg">
+    <meta name="twitter:image:alt" content="KubeCon 2018 Copenhagen, global review">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="KubeCon 2018 Copenhagen, global review " aria-label="KubeCon 2018 Copenhagen, global review" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="KubeCon+2018+Copenhagen%2C+global+review" class="title">KubeCon 2018 Copenhagen, global review</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      May 24, 2018
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>After those three days at KubeCon, we’ve seen and heard a lot of interesting ideas. You can read about <a href="/kubecon-2018-copenhaguen-day-1/">our first day here</a>, <a href="/kubecon-2018-copenhaguen-day-2/">about our second day there</a>, and <a href="/kubecon-2018-copenhaguen-day-3/">about our third day there</a>. If we had to do a short recap, here are the points we would list.</p>
+
+<p>First of all “Cloud native” seems to be <em>the</em> buzzword of the year. Not just <em>cloud</em> anymore, but <em>cloud native</em>! What does it mean? Instead of just deploying your application to the cloud, it should fully <em>use the cloud</em>.</p>
+
+<p>Then, Kubernetes. It is a mature solution in itself. There doesn’t seem to be any doubt left about that. Even if this is the case with Kubernetes, the majority of the ecosystem around it is not mature yet, and that’s a bit of a problem. We saw a lot of tools and some that were presented during talks are still WIP and some demos completely failed. If you’re surfing the Kubernetes wave, please be careful with the tools you choose, and don’t loose yourself adopting a fancy/non-working tool that will bring your infrastructure down. Continue to master what you do without being trapped by the hype brought by certain solutions.</p>
+
+<p>Deployment, CI and CD. Well, not so much. There are a few projects out there and several different approaches (<code class="language-plaintext highlighter-rouge">kubectl apply</code>, a bit of Jenkins around it, deployments from inside the cluster, several black boxes like CodeFresh…), but not one thing that everyone is doing/using. We are currently looking at Jenkins-X and hope we’ll be able to build our CI/CD stack using it.</p>
+
+<p>For monitoring, use Prometheus. It’s pretty much what everyone is using.</p>
+
+<p>Service mesh. One of the big things this year, everybody is talking about it, Istio seems to be taking the lead. It’s still moving fast, though and not enough people are truly mastering this in a production setup.</p>
+
+<p>Development environment. Well, “LOL” would do it maybe. This is clearly not a priority yet. Some teams and projects (like Telepresence) have started working on this, but there is still road ahead.</p>
+
+<p>GitOps. Everybody is going this way. Versioning, of course. But also using Git events to pilot things.</p>
+
+<p>Things are beginning to move on the security side of things. Companies are starting to notice there is work to be done, startups are appearing with different services.</p>
+
+<p>And, finally, multi-clusters. We felt a few people are using multi-cluster, but it’s often done <em>by hand</em>. That doesn’t seem mature at all. Maybe a subject we’ll hear more about in the future?</p>
+
+<p>In any case, we had a really great time during this KubeCon in Copenhagen, we saw many interesting talks and discussed with lots of people!</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=KubeCon+2018+Copenhagen%2C+global+review%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2018%2F05%2F24%2Fkubecon-2018-copenhaguen-global-review.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2018/05/24/kubecon-2018-copenhaguen-global-review.html&title=KubeCon+2018+Copenhagen%2C+global+review%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2018/05/24/kubecon-2018-copenhaguen-global-review.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=KubeCon 2018 Copenhagen, global review%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2018/05/24/kubecon-2018-copenhaguen-global-review.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#KubeCon">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> KubeCon</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#kubernetes">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> kubernetes</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Docker en prod ? Oui, avec Kubernetes !" href="/2018/10/26/docker-en-prod-oui-avec-kubernetes-pascal-martin.html">
+            <p>Previous post</p>
+            Docker en prod ? Oui, avec Kubernetes !
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="KubeCon 2018 Copenhagen, day 3" href="/2018/05/23/kubecon-2018-copenhaguen-day-3.html">
+            <p>Next post</p>
+            KubeCon 2018 Copenhagen, day 3
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/kubecon-2018/title-kubecon.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

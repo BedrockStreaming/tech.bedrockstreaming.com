@@ -1,0 +1,1125 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-07-07T11:08:02+02:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Debugging and reviewing your Android dependencies with apktool</title><link href="https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html" rel="alternate" type="text/html" title="Debugging and reviewing your Android dependencies with apktool" /><published>2022-06-20T00:00:00+02:00</published><updated>2022-06-20T00:00:00+02:00</updated><id>https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html">&lt;p&gt;If you maintain an Android application, you might be relying on performance monitoring SDKs like &lt;a href=&quot;https://firebase.google.com/docs/perf-mon&quot;&gt;Firebase Performance&lt;/a&gt; or &lt;a href=&quot;https://newrelic.com/products/mobile-monitoring&quot;&gt;New Relic&lt;/a&gt;, to name a couple. These plugins usually have a light setup process—just apply a Gradle plugin, and they provide the ability to collect statistics about every network call and database query in your app automatically.&lt;/p&gt;
+
+&lt;p&gt;The usual way to achieve this is to rely on a process called &lt;strong&gt;instrumentation&lt;/strong&gt;, which is supported &lt;em&gt;via&lt;/em&gt; the Android Gradle Plugin’s &lt;a href=&quot;https://developer.android.com/reference/tools/gradle-api/7.2/com/android/build/api/transform/Transform&quot;&gt;Transform API&lt;/a&gt;, or its successor, the &lt;a href=&quot;https://developer.android.com/studio/releases/gradle-plugin-api-updates#transform-removed&quot;&gt;Instrumentation API&lt;/a&gt;. This feature is very powerful, and potentially dangerous; in our case, a minor patch of one of these SDKs caused a production bug that left one of our core features crippled.&lt;/p&gt;
+
+&lt;p&gt;The visible cause of our bug, from a developer’s point of view, was that the video player saw the network requests as always being extremely fast, no matter the network quality. Therefore, it assumed the device had access to a very high bandwidth, and tried loading video segments with a very high bit rate. This did &lt;strong&gt;not&lt;/strong&gt; go well for users with slower network speeds.&lt;/p&gt;
+
+&lt;p&gt;To understand what was going on, what went wrong, how to fix it and how to take measures so that it never happens again, we had to do some investigation.&lt;/p&gt;
+
+&lt;h1 id=&quot;diving-into-the-android-build-process&quot;&gt;Diving into the Android build process&lt;/h1&gt;
+
+&lt;p&gt;Before we get to the topic of instrumentation, we first need to know a little about the Android app build process. Don’t worry, we won’t need to dive too deep into the details.&lt;/p&gt;
+
+&lt;p&gt;To put it simply, during the build process, your source files (Kotlin and Java) are compiled to Dalvik bytecode, which is stored in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.dex&lt;/code&gt; files. These files are then packaged into an APK file, which is basically just a ZIP file with all your code and resources.&lt;/p&gt;
+
+&lt;div class=&quot;mermaid&quot;&gt;
+flowchart LR
+    kt[.kt files] -- kotlinc --&amp;gt; dex[.dex files] --&amp;gt; packaging[[packaging]]
+    java[.java files] -- javac --&amp;gt; dex
+    res[resource files] -- aapt --&amp;gt; resc[compiled resource files] --&amp;gt; packaging --&amp;gt; APK
+    subgraph APK
+    direction TB
+    dex1[.dex] -.- dex2[.dex] -.- dex3[.dex] -.- dex4[.dex]
+    res1[res] -.- res2[res] -.- res3[res] -.- res4[res]
+    signature -.- manifest
+end
+&lt;/div&gt;
+
+&lt;h2 id=&quot;understanding-bytecode-instrumentation&quot;&gt;Understanding bytecode instrumentation&lt;/h2&gt;
+
+&lt;p&gt;Now, let’s say you want to take an existing application with its untouched source code, and automatically inject calls to &lt;em&gt;your&lt;/em&gt; SDK every time a network call is made, to log whether it was successful or not. How would you achieve this?&lt;/p&gt;
+
+&lt;p&gt;The easiest way is to plug yourself into the build, right after the code is compiled into bytecode, and &lt;strong&gt;modify the bytecode&lt;/strong&gt; to your will.&lt;/p&gt;
+
+&lt;div class=&quot;mermaid&quot;&gt;
+flowchart LR
+    kt[.kt files] -- kotlinc --&amp;gt; dex[.dex files] --&amp;gt; transform[[transform]] --&amp;gt; packaging[[packaging]]
+    java[.java files] -- javac --&amp;gt; dex
+    res[resource files] -- aapt --&amp;gt; resc[compiled resource files] --&amp;gt; packaging --&amp;gt; APK
+    classDef transformed fill:#ff0000
+    class transform transformed
+
+    subgraph APK
+    direction TB
+    dex1[.dex] -.- dex2[.dex] -.- dex3[.dex] -.- dex4[.dex]
+    res1[res] -.- res2[res] -.- res3[res] -.- res4[res]
+    signature -.- manifest
+    class dex1,dex2,dex3,dex4 transformed
+end
+&lt;/div&gt;
+
+&lt;p&gt;The Android Gradle Plugin (AGP) offers APIs to do this, so SDK vendors can just develop a Gradle plugin and ta-da! Once you apply it, your app is automatically instrumented.&lt;/p&gt;
+
+&lt;p&gt;Note that there are other ways to achieve this without the AGP. Notably, Kotlin now uses an Intermediate Representation (IR), before it gets compiled down to a target-specific format. &lt;a href=&quot;https://blog.bnorm.dev/writing-your-second-compiler-plugin-part-1&quot;&gt;You can write a Kotlin IR compiler plugin&lt;/a&gt; to transform the IR code and add your own hooks in an Android-agnostic way, although this API is still experimental at the time of writing.&lt;/p&gt;
+
+&lt;h2 id=&quot;reverse-engineering-a-built-apk&quot;&gt;Reverse-engineering a built APK&lt;/h2&gt;
+
+&lt;p&gt;Now, this is great. But when you open an APK file, what do you get?&lt;/p&gt;
+
+&lt;p&gt;Let’s unzip one and look inside.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.
+├── META-INF
+├── assets
+├── google
+├── okhttp3
+├── res
+├── AndroidManifest.xml
+├── classes.dex
+├── classes2.dex
+├── classes3.dex
+├── classes4.dex
+├── firebase-common.properties
+├── firebase-crashlytics.properties
+├── play-services-base.properties
+├── ...
+└── resources.arsc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;A bunch of noise, and four interesting &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.dex&lt;/code&gt; files. That’s where the app’s code is stored, but unfortunately, these files are not human-readable.&lt;/p&gt;
+
+&lt;p&gt;To turn them into low-level but understandable code, some tooling will be necessary. The easiest to use for this task is &lt;a href=&quot;https://ibotpeaches.github.io/Apktool/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apktool&lt;/code&gt;&lt;/a&gt;, which is free and open-source.&lt;/p&gt;
+
+&lt;p&gt;Let’s run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apktool&lt;/code&gt; on our APK, and see what happens:&lt;/p&gt;
+
+&lt;script id=&quot;asciicast-1RozUUMJwPlMjS0ea1R6GNwuj&quot; src=&quot;https://asciinema.org/a/1RozUUMJwPlMjS0ea1R6GNwuj.js&quot; async=&quot;&quot;&gt;&lt;/script&gt;
+
+&lt;noscript&gt;
+&lt;pre&gt;
+~/Downloads
+❯ apktool d bedrock-sample-release.apk
+I: Using Apktool 2.6.1 on bedrock-sample-release.apk
+I: Loading resource table...
+I: Decoding AndroidManifest.xml with resources...
+I: Loading resource table from file: /Users/bcandellier/Library/apktool/framework/1.apk
+I: Regular manifest package...
+I: Decoding file-resources...
+W: Cant find 9patch chunk in file: &quot;drawable-xxhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png&quot;. Renaming it to *.png.
+W: Cant find 9patch chunk in file: &quot;drawable-mdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png&quot;. Renaming it to *.png.
+W: Cant find 9patch chunk in file: &quot;drawable-mdpi-v4/common_google_signin_btn_text_light_normal_background.9.png&quot;. Renaming it to *.png.
+W: Cant find 9patch chunk in file: &quot;drawable-xhdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png&quot;. Renaming it to *.png.
+W: Cant find 9patch chunk in file: &quot;drawable-xhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png&quot;. Renaming it to *.png.
+W: Cant find 9patch chunk in file: &quot;drawable-xhdpi-v4/common_google_signin_btn_text_light_normal_background.9.png&quot;. Renaming it to *.png.
+W: Cant find 9patch chunk in file: &quot;drawable-xxhdpi-v4/common_google_signin_btn_text_light_normal_background.9.png&quot;. Renaming it to *.png.
+W: Cant find 9patch chunk in file: &quot;drawable-hdpi-v4/common_google_signin_btn_text_light_normal_background.9.png&quot;. Renaming it to *.png.
+W: Cant find 9patch chunk in file: &quot;drawable-xhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png&quot;. Renaming it to *.png.
+W: Cant find 9patch chunk in file: &quot;drawable-hdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png&quot;. Renaming it to *.png.
+W: Cant find 9patch chunk in file: &quot;drawable-mdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png&quot;. Renaming it to *.png.
+W: Cant find 9patch chunk in file: &quot;drawable-xxhdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png&quot;. Renaming it to *.png.
+W: Cant find 9patch chunk in file: &quot;drawable-xxhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png&quot;. Renaming it to *.png.
+W: Cant find 9patch chunk in file: &quot;drawable-mdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png&quot;. Renaming it to *.png.
+W: Cant find 9patch chunk in file: &quot;drawable-hdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png&quot;. Renaming it to *.png.
+W: Cant find 9patch chunk in file: &quot;drawable-hdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png&quot;. Renaming it to *.png.
+I: Decoding values */* XMLs...
+I: Baksmaling classes.dex...
+I: Baksmaling classes2.dex...
+I: Baksmaling classes3.dex...
+I: Baksmaling classes4.dex...
+I: Copying assets and libs...
+I: Copying unknown files...
+I: Copying original files...
+I: Copying META-INF/services directory
+&lt;/pre&gt;
+&lt;/noscript&gt;
+
+&lt;p&gt;There we go! In our case, we can ignore the warnings. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apktool&lt;/code&gt; created a new directory with a bunch of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.smali&lt;/code&gt; files, organized by package: one file per class, containing their Dalvik bytecode.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.
+├── AndroidManifest.xml
+├── res
+│   ├── values
+│   │   ├── strings.xml
+│   │   └── ...
+│   ├── layout
+│   │   ├── layout_home.xml
+│   │   └── ...
+│   └── ...
+├── smali
+│   ├── com
+│       ├── bedrockstreaming
+│       │   ├── app
+│       │   │   ├── mobile
+│       │   │   │   ├── R$anim.smali
+│       │   │   │   ├── R$layout.smali
+│       │   │   │   ├── R$string.smali
+│       │   │   │   ├── R$style.smali
+│       │   │   │   └── ...
+│       │   │   └── ...
+│       │   └── ...
+│       └── google
+│           ├── android
+│           │   ├── exoplayer2
+│           │   │   ├── AbstractConcatenatedTimeline.smali
+│           │   │   ├── AudioBecomingNoisyManager.smali
+│           │   │   ├── AudioFocusManager$AudioFocusListener$$ExternalSyntheticLambda0.smali
+│           │   │   ├── AudioFocusManager$AudioFocusListener.smali
+│           │   │   ├── AudioFocusManager.smali
+│           │   │   ├── BasePlayer.smali
+│           │   │   ├── BaseRenderer.smali
+│           │   │   ├── BuildConfig.smali
+│           │   │   └── ...
+│           │   └── ...
+│           └── ...
+├── smali_classes2
+│   ├── com
+│   │   └── bedrockstreaming
+│   │       ├── app
+│   │       │   ├── mobile
+│   │       │   │   ├── MobileApplication.smali
+│   │       │   │   └── ...
+│   │       │   └── ...
+│   │       └── ...
+│   └── ...
+└── ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you see files with mangled names and contents, make sure that you run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apktool&lt;/code&gt; on an APK with R8 obfuscation disabled, or you’ll have a hard time figuring things out.&lt;/p&gt;
+
+&lt;h2 id=&quot;understanding-dalvik-bytecode&quot;&gt;Understanding Dalvik bytecode&lt;/h2&gt;
+
+&lt;p&gt;Now, if you open one of these files, it will contain code that looks like the snippet below. It will look unfamiliar; that’s normal.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.method private final getContent()Lcom/bedrockstreaming/example/HomeViewModel$State$Content;
+
+    .locals 2
+    .line 119
+
+    iget-object v0, p0, Lcom/bedrockstreaming/example/HomeViewModel;-&amp;gt;state:Landroidx/lifecycle/LiveData;
+
+    invoke-virtual {v0}, Landroidx/lifecycle/LiveData;-&amp;gt;getValue()Ljava/lang/Object;
+
+    move-result-object v0
+
+    instance-of v1, v0, Lcom/bedrockstreaming/example/HomeViewModel$State$Content;
+
+    if-eqz v1, :cond_0
+
+    check-cast v0, Lcom/bedrockstreaming/example/HomeViewModel$State$Content;
+
+    goto :goto_0
+
+    :cond_0
+
+    const/4 v0, 0x0
+
+    :goto_0
+
+    return-object v0
+  
+.end method
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you’ve ever worked with assembly code before, you might notice similarities in the way the code is written. Each line begins with an instruction, which can take comma-separated parameters. To work out what these instructions and their parameters mean, you &lt;strong&gt;will&lt;/strong&gt; need to refer to the &lt;a href=&quot;https://source.android.com/devices/tech/dalvik/dalvik-bytecode&quot;&gt;Dalvik bytecode documentation&lt;/a&gt; provided by Google.&lt;/p&gt;
+
+&lt;p&gt;Let’s take an example line from the snippet and decode it together. Looking at the table in the documentation, we can see deduce this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# We'll decode this line:
+invoke-virtual {v0}, Landroidx/lifecycle/LiveData;-&amp;gt;getValue()Ljava/lang/Object;
+
+invoke-virtual                                                                   # We're calling a virtual method
+               {v0},                                                             # We're calling the method on the object referenced in register v0
+                     Landroidx/lifecycle/LiveData;                               # The method we're calling is defined by androidx.lifecycle.LiveData
+                                                  -&amp;gt;getValue()                   # We're calling a method called getValue()
+                                                              Ljava/lang/Object; # This method returns an Object
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;With some determination, we can figure out what the snippet does. Here, we’re defining a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getContent()&lt;/code&gt; method that tries to cast a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LiveData&lt;/code&gt;’s value to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;State.Content&lt;/code&gt; and returns it, or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;null&lt;/code&gt; otherwise.&lt;/p&gt;
+
+&lt;h1 id=&quot;using-a-decompiled-apk-as-a-debugging-tool&quot;&gt;Using a decompiled APK as a debugging tool&lt;/h1&gt;
+
+&lt;h2 id=&quot;inspecting-suspicious-code&quot;&gt;Inspecting suspicious code&lt;/h2&gt;
+
+&lt;p&gt;Before doing anything else, we can already start looking at the generated code to identify patterns that could cause issues. Problem is… there can be a &lt;em&gt;lot&lt;/em&gt; of code to look through.&lt;/p&gt;
+
+&lt;p&gt;Before going this deep in the rabbit hole, we already figured our issue was, somehow, related to instrumentation: disabling it fixed this issue; downgrading to the previous release of the SDK also fixed it. This means that if we want to get a clear look at &lt;strong&gt;what&lt;/strong&gt; needs to change to go from a working APK from a broken one, we could just compare an APK instrumented by the previous SDK version with an APK instrumented by the current one!&lt;/p&gt;
+
+&lt;p&gt;Of course, we want to do this on the human-readable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;smali&lt;/code&gt; files, not the raw &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dex&lt;/code&gt; files. We can generate a full diff with the help of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;diff&lt;/code&gt; tool:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;diff &lt;span class=&quot;nt&quot;&gt;-bur&lt;/span&gt; normal/ instrumented/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In our case, it also proved useful to compare an APK that has been instrumented with one that hasn’t, to understand what that instrumentation is meant to achieve. Most of it was to notify the SDK of every HTTP request, along with its result.&lt;/p&gt;
+
+&lt;p&gt;As a simple example, the snippet below shows a class belonging to Picasso. We can see the HTTP calls it makes are being intercepted by the SDK.&lt;/p&gt;
+
+&lt;div class=&quot;language-diff highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gd&quot;&gt;--- normal/smali/com/squareup/picasso/NetworkRequestHandler.smali	2022-01-05 11:09:22.000000000 +0100
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+++ instrumented/smali/com/squareup/picasso/NetworkRequestHandler.smali	2022-01-05 11:08:34.000000000 +0100
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;@@ -128,10 +128,26 @@&lt;/span&gt;
+
+     .line 103
+     :cond_4
+&lt;span class=&quot;gi&quot;&gt;+    instance-of v2, v1, Lokhttp3/Request$Builder;
++
++    if-nez v2, :cond_5
++
+&lt;/span&gt;     invoke-virtual {v1}, Lokhttp3/Request$Builder;-&amp;gt;build()Lokhttp3/Request;
+
+     move-result-object v2
+
++    goto :goto_1
+&lt;span class=&quot;gi&quot;&gt;+
++    :cond_5
++    move-object v2, v1
++
++    check-cast v2, Lokhttp3/Request$Builder;
++
++    invoke-static {v2}, Lcom/vendor/instrumentation/okhttp3/OkHttp3Instrumentation;-&amp;gt;build(Lokhttp3/Request$Builder;)Lokhttp3/Request;
++
++    move-result-object v2
++
++    :goto_1
+&lt;/span&gt;     return-object v2
+ .end method
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;finding-the-source-of-the-issue-by-iteration&quot;&gt;Finding the source of the issue by iteration&lt;/h2&gt;
+
+&lt;p&gt;We haven’t talked about &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apktool&lt;/code&gt;’s greatest strength yet: its ability to &lt;strong&gt;recompile&lt;/strong&gt; an APK from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;smali&lt;/code&gt; sources it has decompiled! This means we can effectively decompile an APK, make modifications to its low-level code, recompile and run it.&lt;/p&gt;
+
+&lt;p&gt;This proved really useful during our investigation. Since we have one directory with our APK in a bad state, and one directory with our APK in a good state, we can process by elimination to point out exactly which &lt;strong&gt;single class&lt;/strong&gt;, when modified, causes our bug.&lt;/p&gt;
+
+&lt;p&gt;In our case, a useful workflow was to start with a suspect—let’s say we think instrumenting the OkHttp classes might have caused the bug.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Copy the OkHttp classes from the “bad” APK, and only those, to our “good” APK.&lt;/li&gt;
+  &lt;li&gt;Recompile and run the app.&lt;/li&gt;
+  &lt;li&gt;Does the bug occur?
+    &lt;ul&gt;
+      &lt;li&gt;If it does, then that means it is caused by the instrumentation of at least one of the OkHttp classes. We can go through this process again, this time by selecting only a subset of OkHttp’s classes, and check if the bug still occurs, etc.&lt;/li&gt;
+      &lt;li&gt;If it doesn’t, revert the OkHttp classes and try again with another suspect.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This process can be accelerated with a very simple script, to iterate faster. The recompilation step occurs incrementally, and so only takes a few seconds.&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# rebuild-and-run.sh&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Rebuild, sign and install an APK from its decompiled source.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# (c) 2022 Bedrock Streaming&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Inputs:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# DECOMPILED_APK_PATH: path to your previously decompiled APK directory&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# KEYSTORE_PATH: path to your debug keystore&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# KEYSTORE_PASSWORD: your debug keystore password&lt;/span&gt;
+
+apktool &lt;span class=&quot;nt&quot;&gt;--use-aapt2&lt;/span&gt; b &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$DECOMPILED_APK_PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apksigner sign &lt;span class=&quot;nt&quot;&gt;-ks&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$KEYSTORE_PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--ks-pass&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;pass:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$KEYSTORE_PASSWORD&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$DECOMPILED_APK_PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/dist/*.apk&quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; adb &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$DECOMPILED_APK_PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/dist/*.apk&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Here’s what it looks like in action:&lt;/p&gt;
+
+&lt;script id=&quot;asciicast-HCdekIJOEwSdARnP2bUnWWipo&quot; src=&quot;https://asciinema.org/a/HCdekIJOEwSdARnP2bUnWWipo.js&quot; async=&quot;&quot;&gt;&lt;/script&gt;
+
+&lt;noscript&gt;
+&lt;pre&gt;
+~/bytecode-playground
+❯ ./rebuild-and-run.sh
+I: Using Apktool 2.6.1
+I: Checking whether sources has changed...
+I: Checking whether sources has changed...
+I: Checking whether sources has changed...
+I: Checking whether sources has changed...
+I: Checking whether sources has changed...
+I: Checking whether sources has changed...
+I: Checking whether sources has changed...
+I: Checking whether sources has changed...
+I: Checking whether sources has changed...
+I: Checking whether sources has changed...
+I: Checking whether sources has changed...
+I: Checking whether resources has changed...
+I: Building apk file...
+I: Copying unknown files/dir...
+I: Built apk...
+Performing Incremental Install
+Serving...
+Success
+Install command complete in 445 ms
+&lt;/pre&gt;
+&lt;/noscript&gt;
+
+&lt;p&gt;In our case, we narrowed down the issue to the instrumentation of a single class: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;okhttp3.internal.http.CallServerInterceptor&lt;/code&gt;: once it was reverted, the bug disappeared.&lt;/p&gt;
+
+&lt;p&gt;In fact, we narrowed it down to a very small patch with which the app runs fine:&lt;/p&gt;
+
+&lt;div class=&quot;language-diff highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; .../okhttp3/internal/http/CallServerInterceptor.smali         | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali b/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali
+&lt;span class=&quot;gh&quot;&gt;index c916149f..c26eab15 100644
+&lt;/span&gt;&lt;span class=&quot;gd&quot;&gt;--- a/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+++ b/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;@@ -510,7 +510,7 @@&lt;/span&gt;
+ 
+     instance-of v8, v14, Lokhttp3/Response$Builder;
+ 
+&lt;span class=&quot;gd&quot;&gt;-    if-nez v8, :cond_b
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+    #if-nez v8, :cond_b
+&lt;/span&gt; 
+     invoke-virtual {v14, v15}, Lokhttp3/Response$Builder;-&amp;gt;body(Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
+ 
+&lt;span class=&quot;p&quot;&gt;@@ -574,7 +574,7 @@&lt;/span&gt;
+ 
+     instance-of v15, v8, Lokhttp3/Response$Builder;
+ 
+&lt;span class=&quot;gd&quot;&gt;-    if-nez v15, :cond_e
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+    #if-nez v15, :cond_e
+&lt;/span&gt; 
+     invoke-virtual {v8, v14}, Lokhttp3/Response$Builder;-&amp;gt;body(Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
+ 
+&lt;span class=&quot;gd&quot;&gt;-- 
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Basically, when the code went through this &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if&lt;/code&gt; statement, our request got wrapped by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;com.vendor.instrumentation.okhttp3.OkHttp3Instrumentation&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;invoke-static {v8, v14}, Lcom/vendor/instrumentation/okhttp3/OkHttp3Instrumentation;-&amp;gt;body(Lokhttp3/Response$Builder;Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And what does this method do, you ask? Let’s take a look at the decompiled source in Android Studio, so that it’s a bit easier to read:&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Builder&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ResponseBody&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;BufferedSource&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;Buffer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Buffer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;impl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ResponseBody&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;contentType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;IOException reading from source: &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;IllegalStateException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;IllegalStateException reading from source: &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;impl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The body is being read into memory!&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;When correlating this discovery with the source code from ExoPlayer, we could verify that, indeed, our player was expecting that the time it takes reading the response body would be the time it took to download the entire video segment. Here’s what this flow looks like in a functional app:&lt;/p&gt;
+
+&lt;div class=&quot;mermaid&quot;&gt;
+sequenceDiagram
+    participant exo as OkHttpDataSource
+    participant nr as OkHttp3Instrumentation
+    participant okhttp as OkHttpClient
+    participant server as Server Endpoint
+
+    exo-&amp;gt;&amp;gt;nr: body()
+    nr-&amp;gt;&amp;gt;okhttp: body()
+    activate server
+    okhttp-&amp;gt;&amp;gt;server: 
+    server-&amp;gt;&amp;gt;okhttp: 
+    okhttp-&amp;gt;&amp;gt;nr: ResponseBody (length=0)
+    activate exo
+    nr-&amp;gt;&amp;gt;exo: ResponseBody (length=0)
+    server-&amp;gt;&amp;gt;exo: length=512
+    server-&amp;gt;&amp;gt;exo: length=1024
+    server-&amp;gt;&amp;gt;exo: length=1536
+    server-&amp;gt;&amp;gt;exo: length=2048
+    server-&amp;gt;&amp;gt;exo: length=2560
+    note right of exo: OkHttpDataSource controls the body reads &lt;br /&gt; and can measure the time it took &lt;br /&gt; to read the whole response
+    deactivate server
+    deactivate exo
+&lt;/div&gt;
+
+&lt;p&gt;But with this bug in the SDK, since the HTTP response has been buffered into memory by some SDK, the read was always almost-instantaneous, no matter the speed of the connection. Additionally, it messed with the overall performance since requests were no longer properly streamed by their rightful users.&lt;/p&gt;
+
+&lt;div class=&quot;mermaid&quot;&gt;
+sequenceDiagram
+    participant exo as OkHttpDataSource
+    participant nr as OkHttp3Instrumentation
+    participant okhttp as OkHttpClient
+    participant server as Server Endpoint
+
+    exo-&amp;gt;&amp;gt;nr: body()
+    nr-&amp;gt;&amp;gt;okhttp: body()
+    activate server
+    okhttp-&amp;gt;&amp;gt;server: 
+    server-&amp;gt;&amp;gt;okhttp: 
+    activate nr
+    okhttp-&amp;gt;&amp;gt;nr: 
+    server-&amp;gt;&amp;gt;nr: length=512
+    server-&amp;gt;&amp;gt;nr: length=1024
+    server-&amp;gt;&amp;gt;nr: length=1536
+    server-&amp;gt;&amp;gt;nr: length=2048
+    server-&amp;gt;&amp;gt;nr: length=2560
+    deactivate nr
+    activate exo
+    note right of exo: OkHttpDataSource is only notified &lt;br /&gt; after everything is downloaded
+    nr-&amp;gt;&amp;gt;exo: ResponseBody (length=2560)
+    deactivate server
+    deactivate exo
+&lt;/div&gt;
+
+&lt;h1 id=&quot;using-a-decompiled-apk-as-a-review-tool&quot;&gt;Using a decompiled APK as a review tool&lt;/h1&gt;
+
+&lt;p&gt;It’s no secret to developers in any software ecosystem that library updates can be a source of problems - security vulnerabilities, bugs, incompatibilities, and so on. It’s hard to vet them properly, especially in compiled form, like libraries distributed in the Java ecosystem. Things get even harder when arbitrary Gradle plugins start rewriting our own code!&lt;/p&gt;
+
+&lt;p&gt;The tooling needed to decompile an APK is free, fast, and easy to automate. It’s a really helpful tool to investigate obscure bugs in places your debugger won’t let you place a breakpoint, and it’s also really useful to be able to see a human-readable diff between two binaries.&lt;/p&gt;
+
+&lt;p&gt;Generating a diff of the effects of a library upgrade can seem overkill and hard to do in practice, but at least in the case of bug-fix releases with hopefully few changes, it can be very helpful to have an actual report of what changed. It’s an accepted practice to review the code your team checks in; why not review the code of others, since it ends up in the exact same artifact?&lt;/p&gt;</content><author><name>Baptiste Candellier</name></author><category term="android" /><category term="apktool" /><category term="instrumentation" /><category term="debugging" /><category term="productivity" /><summary type="html">If you maintain an Android application, you might be relying on performance monitoring SDKs like Firebase Performance or New Relic, to name a couple. These plugins usually have a light setup process—just apply a Gradle plugin, and they provide the ability to collect statistics about every network call and database query in your app automatically.</summary></entry><entry><title type="html">Bedrock à la Kubecon 2022, 4ème partie : chaos, résilience, ressenti global et conclusion générale…</title><link href="https://tech.bedrockstreaming.com/2022/06/16/kubecon-2022-part-4.html" rel="alternate" type="text/html" title="Bedrock à la Kubecon 2022, 4ème partie : chaos, résilience, ressenti global et conclusion générale…" /><published>2022-06-16T00:00:00+02:00</published><updated>2022-06-16T00:00:00+02:00</updated><id>https://tech.bedrockstreaming.com/2022/06/16/kubecon-2022-part-4</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/06/16/kubecon-2022-part-4.html">&lt;p&gt;Pour terminer cette série, un ou deux sujets divers que nous n’avons pas regroupé dans les trois articles précédents
+(&lt;a href=&quot;/2022/06/13/kubecon-2022-part-1.html&quot;&gt;les performances applicatives et la scalabilité&lt;/a&gt;, 
+&lt;a href=&quot;/2022/06/14/kubecon-2022-part-2.html&quot;&gt;les performances bas niveau, le système et le réseau&lt;/a&gt;,
+&lt;a href=&quot;/2022/06/15/kubecon-2022-part-3.html&quot;&gt;la dev XP, l’outillage, la CI/CD et l’observabilité&lt;/a&gt;), 
+puis une conclusion globale avec ce que nous avons retenu de cette KubeCon Europe 2022.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/part4.jpg&quot; alt=&quot;&amp;quot;KubeCon 2022 part4&amp;quot;&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;&lt;i&gt;La conclusion, @ KubeCon 2022 !&lt;/i&gt;&lt;/center&gt;
+
+&lt;h2 id=&quot;chaos-engineering--chaos-testing-pour-une-meilleur-résilience-aux-pannes&quot;&gt;Chaos Engineering / Chaos Testing pour une meilleur résilience aux pannes&lt;/h2&gt;
+
+&lt;p&gt;C’est un des sujets sur lesquels nous avons commencé à travailler activement cette année : &lt;em&gt;casser des choses&lt;/em&gt; dans nos clusters, dans notre plateforme, entre nos microservices.&lt;br /&gt;
+L’idée sous-jacente est, bien sûr, que tout va casser un jour ou l’autre, donc autant provoquer du chaos nous-même, en environnement contrôlé. Nous identifierons ainsi des points sensibles de notre plateforme et pourrons les corriger, évitant ainsi des incidents, parfois majeurs, au mauvais moment.&lt;/p&gt;
+
+&lt;p&gt;Ce thème du &lt;em&gt;Chaos Engineering&lt;/em&gt; est régulièrement abordé en conférences et nous étions contents de voir que nous ne sommes pas les seuls à nous interroger sur &lt;em&gt;“comment”&lt;/em&gt; en mettre en place.&lt;br /&gt;
+Nous sommes repartis avec quelques pistes d’outils, comme &lt;a href=&quot;https://chaos-mesh.org/&quot;&gt;chaos mesh&lt;/a&gt; ou &lt;a href=&quot;https://litmuschaos.io/&quot;&gt;Litmus Chaos&lt;/a&gt;, que nous allons peut-être prototyper pour les comparer à &lt;a href=&quot;https://github.com/DataDog/chaos-controller&quot;&gt;chaos-controller&lt;/a&gt; que nous avons récemment expérimenté.&lt;/p&gt;
+
+&lt;p&gt;Au cours de la conférence, &lt;em&gt;“Case Study: Bringing Chaos Engineering to the Cloud Native Developers”&lt;/em&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=KSl-oKk6TPA&quot;&gt;vidéo&lt;/a&gt;) par Uma Mukkara, Litmus et Ramiro Berelleza, Okteto, nous avons pu avoir un aperçu de l’outil de chaos Litmus, sa force semblant résider dans le partage des scripts de chaos au sein la communauté.&lt;br /&gt;
+Puis, il a été décrit une approche CI des tests de chaos visant à intégrer certains tests de chaos dans le flux de développement plutôt qu’à la fin.&lt;/p&gt;
+
+&lt;p&gt;Enfin, toujours sur des questions de résilience en cas d’interruption de service, dans sa conférence &lt;em&gt;“Building for the (inevitable) Next Cloud Outage”&lt;/em&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=02a8VB__UQ4&quot;&gt;vidéo&lt;/a&gt;), Pavel Nikolov de &lt;a href=&quot;https://www.section.io/&quot;&gt;Section&lt;/a&gt; nous a questionnés sur la manière d’être plus robuste à une catastrophe.&lt;br /&gt;
+La question n’est pas de savoir si une catastrophe se produira, mais quand elle se produira. C’est pourquoi il est aussi préférable de disposer d’un plan de reprise après sinistre mais surtout de prévoir en amont un système d’auto-guérison permettant d’être plus résilient aux catastrophes.&lt;br /&gt;
+Il nous a ensuite présenté un &lt;em&gt;use case&lt;/em&gt; spécifique au réseau, nous invitant à préférer au traditionnel “DNS à la rescousse”, la mise en place de BGP (Border Gateway Protocol).&lt;/p&gt;
+
+&lt;h2 id=&quot;quelques-sujets-divers&quot;&gt;Quelques sujets divers&lt;/h2&gt;
+
+&lt;p&gt;À travers quelques talks, nous avons jeté des coups d’œil sur des sujets sur lesquels nous ne travaillons pas réellement au quotidien – appelez ça de la curiosité intellectuelle si vous le voulez ;-)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Nous avons vu un ensemble de design patterns pour le développement de controllers Kubernetes (&lt;a href=&quot;https://www.youtube.com/watch?v=I1-s7AxD1Ls&quot;&gt;vidéo&lt;/a&gt;), approche qui devient petit à petit un moyen répandu de répondre à des problématiques, en codant directement dans Kubernetes.&lt;/li&gt;
+  &lt;li&gt;La conférence &lt;em&gt;“A treasure map of hacking (and defending) K8s”&lt;/em&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=1HbwfpE4XKY&quot;&gt;vidéo&lt;/a&gt;) était très sympathique, elle montrait à quel point il peut être &lt;em&gt;“facile”&lt;/em&gt; de prendre le contrôle d’une infrastructure. Une façon de montrer que patcher est obligatoire !&lt;/li&gt;
+  &lt;li&gt;Et dans un registre hors-technique, &lt;em&gt;“Composability is to software as compounding interest is to finance”&lt;/em&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=25aVkm89ZT8&quot;&gt;vidéo&lt;/a&gt;) mettait en évidence à quel point, en construisant des outils, puis des projets, puis un écosystème, les uns profitent aux autres, on construit donc plus grand et plus gros. Il suffit de voir le landscape CNCF aujourd’hui par rapport à 4 ans en arrière.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;conclusion-kubecon-europe-2022&quot;&gt;Conclusion, KubeCon Europe 2022&lt;/h2&gt;
+
+&lt;p&gt;Nous avons commencé à migrer vers Le Cloud, vers AWS et Kubernetes, il y a plus de quatre ans. Notre première KubeCon était à Copenhague, en 2018. Que dire, en conclusion de cette conférence annuelle ? Comment conclure ces articles ?&lt;/p&gt;
+
+&lt;p&gt;Aujourd’hui, les grandes idées que nous avons retenues de cette KubeCon Europe 2022, en résumant, sont les suivantes :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Les problématiques d’auto-scaling sont bien cernées, les outils sont plutôt matures. Comme beaucoup d’autres entreprises, nous arrivons sur l’étape suivante, qui est de dimensionner en tenant mieux compte des couts et pas uniquement des performances et/ou de la disponibilité.&lt;/li&gt;
+  &lt;li&gt;La gestion des coûts dans Kubernetes n’est toujours pas simple. À la fois pour les suivre et les répartir, mais aussi pour décider du bon compromis entre performances / disponibilité / souplesse / autonomie des équipes / couts.&lt;/li&gt;
+  &lt;li&gt;Service Mesh : nous n’avons toujours pas franchi le pas et Istio, qui était un sujet très à la mode il y a quatre ans, nous semble désormais presque oublié. Aujourd’hui, Cilium semble être la nouvelle approche qui s’impose, et il se pourrait que nous jouions avec &lt;em&gt;“pour voir”&lt;/em&gt; prochainement…&lt;/li&gt;
+  &lt;li&gt;L’observabilité, plus vraiment un problème.&lt;/li&gt;
+  &lt;li&gt;Le chaos engineering / chaos testing : toujours une idée séduisante, mais pas encore réellement industrialisée ?&lt;/li&gt;
+  &lt;li&gt;L’outillage autour de la CI/CD, le déploiement progressif, le rollback (possiblement automatisé) progresse, et ça fait plaisir !&lt;/li&gt;
+  &lt;li&gt;L’écosystème progresse, mûrit, et on parle de sujets de plus haut niveau que quelques années en arrière. Par exemple, nous avons entendu plusieurs fois parler de base de données magiquement scalable hébergée dans Kubernetes, alors que l’époque où nous évitions de stocker quelque état que ce soit dans un cluster ne nous semble pas si lointaine !&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Et, pour finir, quelques points dont nous n’avons pas du tout ou très peu entendu parler :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Nous avons peut-être loupé des choses en créant nos programmes, mais nous n’avons vu aucun talk autour de &lt;em&gt;“comment nous développons des applications cloud-native”&lt;/em&gt;. Pourtant, la problématique de l’environnement de développement, avec des services managés, des déploiements vers Kubernetes et des plateformes distribuées, ne nous parait pas encore réglée !&lt;/li&gt;
+  &lt;li&gt;L’approche “FaaS” (Function as a Service) nous paraît encore moins répandue que quelques années en arrière ?&lt;/li&gt;
+  &lt;li&gt;Nous n’avons pas entendu parler une seule fois de &lt;em&gt;Fédération&lt;/em&gt;, alors que le terme revenait encore et encore il y a quatre ans. Nous avons bien fait de ne même pas essayer, on dirait ;-)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/end-part4.jpg&quot; alt=&quot;&amp;quot;La fin d'une aventure !&amp;quot;&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;&lt;i&gt;Rejoignez-nos équipes et venez vivre les prochaines conférences avec nous l’an prochain&lt;/i&gt;&lt;/center&gt;</content><author><name>Bedrock</name></author><category term="kubecon" /><category term="kubernetes" /><category term="cloud" /><category term="k8s" /><category term="conference" /><summary type="html">Pour terminer cette série, un ou deux sujets divers que nous n’avons pas regroupé dans les trois articles précédents (les performances applicatives et la scalabilité, les performances bas niveau, le système et le réseau, la dev XP, l’outillage, la CI/CD et l’observabilité), puis une conclusion globale avec ce que nous avons retenu de cette KubeCon Europe 2022.</summary></entry><entry><title type="html">Bedrock à la Kubecon 2022, 3ème partie : Dev XP, outillage, CI/CD, observabilité…</title><link href="https://tech.bedrockstreaming.com/2022/06/15/kubecon-2022-part-3.html" rel="alternate" type="text/html" title="Bedrock à la Kubecon 2022, 3ème partie : Dev XP, outillage, CI/CD, observabilité…" /><published>2022-06-15T00:00:00+02:00</published><updated>2022-06-15T00:00:00+02:00</updated><id>https://tech.bedrockstreaming.com/2022/06/15/kubecon-2022-part-3</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/06/15/kubecon-2022-part-3.html">&lt;p&gt;Pour notre troisième article de cette série sur ce que nous avons retenu de la KubeCon Europe 2022, après 
+&lt;a href=&quot;/2022/06/13/kubecon-2022-part-1.html&quot;&gt;les performances applicatives et la scalabilité&lt;/a&gt; et 
+&lt;a href=&quot;/2022/06/14/kubecon-2022-part-2.html&quot;&gt;les performances bas niveau, le système et le réseau&lt;/a&gt;, 
+passons à la Developper eXperience, à l’outillage, à la CI/CD, aux rollback, à l’observabilité et aux incidents !&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/part3.jpg&quot; alt=&quot;&amp;quot;KubeCon 2022 part3&amp;quot;&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;&lt;i&gt;Une nouvelle journée commence, @ KubeCon 2022 !&lt;/i&gt;&lt;/center&gt;
+
+&lt;h2 id=&quot;la-prod-est-tombée&quot;&gt;La prod est tombée !&lt;/h2&gt;
+
+&lt;p&gt;Dans notre secteur d’activité, nous avons tous subis des incidents de production et le retour d’expérience, qu’il soit interne ou public, est important et formateur.&lt;br /&gt;
+En effet, même si les incidents de production sont malheureusement inéluctables dans nos métiers, il est important de les analyser afin de mieux les comprendre et demieux s’en prémunir.&lt;/p&gt;
+
+&lt;p&gt;Preuve de l’importance de ces sujets : nous avons assisté à deux conférences très intéressantes sur ce thème dans des salles pleines à craquer !&lt;br /&gt;
+Toutes deux portaient sur des incidents de production majeurs suite à une modification de code qui peut paraître anodine : la première était donnée par Influxdata, la seconde par Skyscanner.&lt;br /&gt;
+Les conférences étaient particulièrement joviales et bienveillantes : les réactions du public à certains slides montraient bien que ce genre de situations sentait le vécu pour certains !&lt;/p&gt;
+
+&lt;p&gt;Nous avons tous à apprendre de ces cas concrets d’incident, aussi, nous vous conseillons de visionner les vidéos de ces conférences : &lt;a href=&quot;https://www.youtube.com/watch?v=FiEm2zOuHsg&quot;&gt;skyscanner&lt;/a&gt; et &lt;a href=&quot;https://www.youtube.com/watch?v=xDGjmav8UBg&quot;&gt;influxdata&lt;/a&gt;.&lt;br /&gt;
+Mais si nous devions les résumer : l’automatisation de bout en bout demande une grande maturité, beaucoup &lt;em&gt;(beaucoup !)&lt;/em&gt; de tests et des reviews de qualité !&lt;/p&gt;
+
+&lt;p&gt;Et comme il est dit dans une des slides :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/part3-gitops-power-responsibility.png&quot; alt=&quot;&amp;quot;With great GitOps power…&amp;quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;debugger-en-production-avec-des-conteneurs-éphémères&quot;&gt;Debugger, en production, avec des conteneurs éphémères&lt;/h2&gt;
+
+&lt;p&gt;Nous utilisons régulièrement la commande &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kubectl exec&lt;/code&gt; pour &lt;em&gt;entrer dans conteneur / pod&lt;/em&gt; et y lancer des commandes de débogage – parce que certains problèmes ne sont pas reproductibles ailleurs qu’en production, ou parce qu’il faut comprendre ce qu’il se passe avant de savoir reproduire en environnement de développement.&lt;/p&gt;
+
+&lt;p&gt;Cela dit, cette approche n’est &lt;em&gt;pas géniale&lt;/em&gt; : si nous modifions des choses dans un conteneur, ces modifications persistent.&lt;br /&gt;
+Aussi, il faut pouvoir installer des outils de débug dans un conteneur &lt;em&gt;(ce qu’on ne peut pas facilement faire chez Bedrock, où nos conteneurs ne s’exécutent pas en root et ont souvent un filesystem read-only)&lt;/em&gt;, ou les embarquer dans les images &lt;em&gt;(ce qui les grossit considérablement, sans compter l’augmentation du risque de failles de sécurité)&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Pour remédier à cette problématique, la fonctionnalité de conteneurs éphémères (&lt;a href=&quot;https://www.youtube.com/watch?v=obasTgzhVR0&quot;&gt;vidéo&lt;/a&gt;) arrive en bêta dans Kubernetes 1.23 et ça semble absolument génial !&lt;br /&gt;
+L’outil &lt;strong&gt;parfait&lt;/strong&gt; pour lancer des conteneurs temporaires à l’intérieur de pods existant et incroyablement puissant pour débugger !&lt;br /&gt;
+Nous allons pouvoir réduire le nombre d’outils de debug intégrés à nos images et parvenir à débugger plus aisément des problèmes qui ne surviennent qu’en production !&lt;/p&gt;
+
+&lt;h2 id=&quot;les-risques-de-lobservabilité--observabilité-piratée&quot;&gt;Les risques de l’observabilité / Observabilité piratée&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;“How attackers use exposed Prometheus Server to Exploit Kubernetes Clusters”&lt;/em&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=5cbbm_L6n7w&quot;&gt;vidéo&lt;/a&gt;) par David de Torres et  Miguel Hernandez, ou &lt;em&gt;“comment obtenir l’empreinte de vos clusters k8s à travers vos données de monitoring”&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Sysdig est venu nous remémorer que le monitoring, c’est bien, mais que ne pas exposer ses données de monitoring, c’est mieux !&lt;br /&gt;
+En effet, attention aux informations qui sont exposées à l’extérieur, elles pourraient être recueillies par des attaquants externes pour acquérir des connaissances sur votre plateforme (provider cloud, version de l’OS utilisé…) et s’en servir ensuite pour s’introduire dans votre infrastructure (fuite de données, cryptominage ou ransomware).&lt;/p&gt;
+
+&lt;p&gt;À travers un cas d’utilisation fictif, ils nous ont démontré la facilité de récupération de ces informations et comment elles sont utilisées pour monter une attaque.&lt;br /&gt;
+Enfin, ils nous ont rappelé que pour se prémunir de ces attaques, il &lt;em&gt;suffit&lt;/em&gt; de suivre les recommandations de sécurité ! CQFD.&lt;br /&gt;
+Il est toujours bon d’avoir ces piqures de rappel et de toujours bien penser aux données que l’on expose vers l’extérieur.&lt;/p&gt;
+
+&lt;h2 id=&quot;cicd-déploiement-progressif&quot;&gt;CI/CD, déploiement progressif&lt;/h2&gt;
+
+&lt;p&gt;Chez Bedrock, nous sommes en pleine refonte de notre chaîne de CI/CD : nous basculons tous nos projets du bon &lt;em&gt;vieux Jenkins “temporaire”&lt;/em&gt;, que nous avions monté au début de &lt;a href=&quot;https://leanpub.com/6cloud/&quot;&gt;notre migration vers Le Cloud&lt;/a&gt;, vers Github Actions.&lt;br /&gt;
+Au passage, nous nous demandons forcément comment nous pourrions améliorer nos déploiements et les rendre plus sécurisés, tant pour la santé de notre plateforme que pour la paix d’esprit de nos équipes et de nos utilisateurs.&lt;/p&gt;
+
+&lt;p&gt;La conférence &lt;em&gt;“Automated progressive delivery using gitops and service mesh”&lt;/em&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=5Ko-CnP2qhA&quot;&gt;vidéo&lt;/a&gt;) parlait de déploiement progressif avec &lt;a href=&quot;https://argo-cd.readthedocs.io/en/stable/&quot;&gt;Argo CD&lt;/a&gt;, pour améliorer l’excellence opérationnelle, réduire le MTTR, accroître l’automatisation et la fiabilité des processus de déploiement. Bref, des idées qui nous parlent !&lt;/p&gt;
+
+&lt;p&gt;Reste des fonctionnalités, qui nous semblent primordiales avant de se lancer sur un autre outil, qui ne sont pas encore gérées, hélas : mirroring de traffic, routing basé sur des en-têtes (typiquement : pour faire du déploiement progressif à la maille &lt;em&gt;“utilisateur”&lt;/em&gt; et pas à la maille &lt;em&gt;“requête HTTP”&lt;/em&gt;), détection d’anomalie et rollback automatisé…&lt;br /&gt;
+Un projet à suivre, donc, qui pourrait mûrir dans les prochains mois.&lt;/p&gt;
+
+&lt;p&gt;Au niveau des aspects moins sympathiques : cette approche de déploiement progressif passe par un service mesh (&lt;a href=&quot;https://www.envoyproxy.io/&quot;&gt;envoy&lt;/a&gt;, ici).&lt;br /&gt;
+Or nous n’en avons pas en place et depuis quatre ans n’avons toujours pas trouvé les bons arguments pour en introduire dans nos clusters, notamment à cause de la complexité ajoutée…&lt;/p&gt;
+
+&lt;p&gt;Une autre conférence (&lt;a href=&quot;https://www.youtube.com/watch?v=Mh0Wqu3v8h0&quot;&gt;vidéo&lt;/a&gt;) mentionnait l’outil &lt;a href=&quot;https://flagger.app/&quot;&gt;Flagger&lt;/a&gt; pour des déploiements Canary.&lt;/p&gt;
+
+&lt;h2 id=&quot;quelques-autres-idées-à-retenir&quot;&gt;Quelques autres idées à retenir&lt;/h2&gt;
+
+&lt;p&gt;Nous avons aussi vu quelques autres conférences dont nous avons tiré quelques idées, en plus bref :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Kubernetes 1.23 apporte (en alpha) une nouvelle commande &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kubectl events&lt;/code&gt;, qui retourne ses résultats dans l’ordre chronologique. Ce que l’actuel &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kubectl get events&lt;/code&gt; ne fait pas et ça peut être bien embêtant. Vue comme de la culture générale, la conférence &lt;em&gt;“The soul of a new command: adding ‘events’ to kubectl”&lt;/em&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=YI1ZuN-OHNw&quot;&gt;vidéo&lt;/a&gt;) racontait comment cette fonctionnalité a été implémentée et était fort intéressante.&lt;/li&gt;
+  &lt;li&gt;Un speaker parlait de la mise en place de &lt;a href=&quot;https://crossplane.io/&quot;&gt;Crossplane&lt;/a&gt; dans son entreprise (&lt;a href=&quot;https://www.youtube.com/watch?v=XyR9DGnOpXo&quot;&gt;vidéo&lt;/a&gt;). Sujet potentiellement intéressant, mais qui ne correspond pas à notre approche actuelle. Nous avons toutefois retenu quelques points autour de comment il fournit des outils à ses collègues développeurs : documentation, composition de services, management d’attentes, utilisation de l’écosystème… Des problématiques auxquelles nous nous sommes confrontés de nombreuses fois, pour encourager nos équipes à adopter des évolutions ou de nouveaux outils !&lt;/li&gt;
+  &lt;li&gt;Si vous commencez à mettre en place votre stack de logs, la conférence &lt;em&gt;“Show me your labels and I’ll tell you who you are”&lt;/em&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=TWf1ho0XMyM&quot;&gt;vidéo&lt;/a&gt;) est faite pour vous. L’idée d’utiliser les labels assignés aux pods pour aller jusqu’à filtrer l’accès aux logs via RBAC, terrible ! Aussi, la création de flux de logs avec &lt;a href=&quot;https://github.com/banzaicloud/logging-operator&quot;&gt;Logging Operator&lt;/a&gt; a l’air fort sympathique. Si ce talk était venu trois ans plus tôt, c’est quelque chose que nous essayerons !&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Ces conférences nous ont permis d’approfondir les questions que nous nous posons actuellement alors que notre changeons de CI/CD (déploiement progressif, rollback automatisé ou non…).&lt;/p&gt;
+
+&lt;p&gt;Plus globalement, nous sommes contents de voir que l’outillage autour de Kubernetes continue à progresser et que la Developer eXperience est un sujet pris au sérieux dans notre communauté.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/end-part3.jpg&quot; alt=&quot;&amp;quot;Après une journée de conférences, une promenade à Valencia !&amp;quot;&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;&lt;i&gt;Rejoignez-nos équipes et venez vivre les prochaines conférences avec nous l’an prochain&lt;/i&gt;&lt;/center&gt;</content><author><name>Bedrock</name></author><category term="kubecon" /><category term="kubernetes" /><category term="cloud" /><category term="k8s" /><category term="conference" /><summary type="html">Pour notre troisième article de cette série sur ce que nous avons retenu de la KubeCon Europe 2022, après les performances applicatives et la scalabilité et les performances bas niveau, le système et le réseau, passons à la Developper eXperience, à l’outillage, à la CI/CD, aux rollback, à l’observabilité et aux incidents !</summary></entry><entry><title type="html">Bedrock à la Kubecon 2022, 2nde partie : performances, système et réseau</title><link href="https://tech.bedrockstreaming.com/2022/06/14/kubecon-2022-part-2.html" rel="alternate" type="text/html" title="Bedrock à la Kubecon 2022, 2nde partie : performances, système et réseau" /><published>2022-06-14T00:00:00+02:00</published><updated>2022-06-14T00:00:00+02:00</updated><id>https://tech.bedrockstreaming.com/2022/06/14/kubecon-2022-part-2</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/06/14/kubecon-2022-part-2.html">&lt;p&gt;Pour ce second article de synthèse de la KubeCon Europe 2022, continuons sur le thème des performances, peut-être plus bas niveau,
+et plongeons aussi dans des outils pouvant être déployés au cœur de nos clusters !&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/part2.jpg&quot; alt=&quot;&amp;quot;KubeCon 2022 part2&amp;quot;&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;&lt;i&gt;Ca va commencer, @ KubeCon 2022 !&lt;/i&gt;&lt;/center&gt;
+
+&lt;h2 id=&quot;lautoscaling-autrement&quot;&gt;L’autoscaling, autrement&lt;/h2&gt;
+
+&lt;p&gt;Une des conférences : &lt;em&gt;“Autoscaling Kubernetes Deployments: A (Mostly) Practical Guide”&lt;/em&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=n8t_hbchQcc&quot;&gt;vidéo&lt;/a&gt;) présenté par NewRelic présentait le principe &lt;em&gt;d’autoscaling&lt;/em&gt; dans Kubernetes, avec les trois principales ressources associées à ce concept : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ClusterAutoscaler&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HorizontalPodAutoscaler&lt;/code&gt; et &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VerticalPodAutoscler&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Cette conférence présentait :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;le fonctionnement du scale up/down des pods avec les périodes de stabilisation ;&lt;/li&gt;
+  &lt;li&gt;le calcul par rapport aux indicateurs utilisés ;&lt;/li&gt;
+  &lt;li&gt;les types de métriques utilisables par les HPA et VPA.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Pas de grande découverte technique pour nous, mais cette conférence nous a surtout permis de confirmer que, chez BedRock, 
+nous sommes de plus en plus matures sur la scalabilité de nos clusters Kubernetes.&lt;/p&gt;
+
+&lt;p&gt;La conférence donnée par AWS (&lt;a href=&quot;https://www.youtube.com/watch?v=UBb8wbfSc34&quot;&gt;vidéo&lt;/a&gt;) portait sur deux aspects :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Premièrement, l’utilisation d’instances &lt;em&gt;Spot&lt;/em&gt; (une option à ne pas négliger si vous souhaitez fortement réduire vos coûts de &lt;em&gt;compute&lt;/em&gt;) et les bonnes pratiques à mettre en place en utilisant ce type d’instances EC2.&lt;/li&gt;
+  &lt;li&gt;Le second traitait de la scalabilité des nœuds avec ClusterAutoscaler mais présentait un nouvel outil de provisionnement de nœuds Kubernetes proposé par AWS : &lt;a href=&quot;https://karpenter.sh/&quot;&gt;Karpenter&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Une des différences notables par rapport à cluster-autoscaler est que Karpenter ne fonctionne pas avec des AutoScalingGroup AWS 
+mais provisionne directement des instances EC2.&lt;br /&gt;
+Outre cette fonctionnalité, Karpenter est actuellement à l’étude chez BedRock, notamment car il permet l’utilisation de la 
+dimension &lt;em&gt;région&lt;/em&gt;, ce qui n’est pas possible avec cluster-autoscaler et nous pose des problèmes avec nos statefullsets dans des ASG multiAZ.&lt;/p&gt;
+
+&lt;h2 id=&quot;réseau-bande-passante-et-gpu&quot;&gt;Réseau, Bande passante et GPU&lt;/h2&gt;
+
+&lt;p&gt;Autre point abordé lors de la KubeCon : comment intégrer la bande passante comme une ressource limitante, de la même façon que le CPU et la RAM actuellement.&lt;br /&gt;
+Nous avons pu suivre deux présentations à ce sujet : &lt;em&gt;“Network-aware Scheduling in Kubernetes”&lt;/em&gt; de José Santos, Ghent University (&lt;a href=&quot;https://www.youtube.com/watch?v=E4cP275_OCs&quot;&gt;video&lt;/a&gt; et &lt;em&gt;“Better Bandwidth Management with eBPF”&lt;/em&gt; de Daniel Borkmann et Christopher M. Luciano, Isovalent (&lt;a href=&quot;https://www.youtube.com/watch?v=QTSS6ktK8hY&quot;&gt;video&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;La première session proposait un nouveau plugin (&lt;a href=&quot;https://github.com/kubernetes-sigs/scheduler-plugins/tree/master/kep/260-network-aware-scheduling&quot;&gt;repo github&lt;/a&gt;) pour permettre l’orchestration du déploiement de nouveaux pods en fonction de leur charge et coût réseau, afin de réduire la latence des déploiements.&lt;br /&gt;
+Une nouvelle fonctionnalité de ce plugin est par ailleurs en développement et permettra d’éviter de déployer sur un nœud ou la bande passante est déjà saturée.&lt;/p&gt;
+
+&lt;p&gt;La seconde présentation exposait comment eBPF permet de mettre en place de nouveaux pods en prenant en compte la bande passante. Le replay de la conférence est disponible &lt;a href=&quot;https://www.youtube.com/watch?v=QTSS6ktK8hY&quot;&gt;ici&lt;/a&gt;, nous vous conseillons son visionnage.&lt;br /&gt;
+Cette approche pourrait être très intéressante pour Bedrock si nous décidions de migrer &lt;a href=&quot;/2021/12/15/scaling-bedrock-video-delivery-to-50-million-users&quot;&gt;notre plateforme VOD&lt;/a&gt; sur un cluster Kubernetes : en effet, elle nous permettrait de mieux gérer les burst réseaux et le throttling de la bande passante qui se produisent sur nos instances.&lt;/p&gt;
+
+&lt;p&gt;Côté GPU, Google, dans son exposé &lt;em&gt;“Improving GPU Utilization using Kubernetes”&lt;/em&gt; de Maulin Patel et Pradeep Venkatachalam (&lt;a href=&quot;https://www.youtube.com/watch?v=X876kr-LkPA&quot;&gt;video&lt;/a&gt;), nous a présenté deux façons de partager des ressources GPU dans un cluster kubernetes :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;soit en partageant le temps d’utilisation (timesharing, temporal multiplexing) entre conteneurs sur un même nœud,&lt;/li&gt;
+  &lt;li&gt;soit en multi-instance GPU (MIG, spatial multiplexing) permettant de partager les ressources en parallèle entre conteneur en allouant une partie des cœurs GPU et de sa mémoire pour chaque conteneur.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Cette conférence sur l’utilisation des GPU dans un cluster k8s nous incite à réfléchir aux optimisations que nous pourrions faire sur nos plateformes vidéo et data…&lt;/p&gt;
+
+&lt;h2 id=&quot;service-mesh-cilium&quot;&gt;Service Mesh : Cilium&lt;/h2&gt;
+
+&lt;p&gt;Au cours de diverses conférences, nous avons plusieurs fois entendu le nom de &lt;em&gt;“Cilium”&lt;/em&gt; associé au concept de &lt;em&gt;Service Mesh&lt;/em&gt;.&lt;br /&gt;
+La conférence &lt;em&gt;“A guided tour of Cilium Service Mesh”&lt;/em&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=e10kDBEsZw4&quot;&gt;vidéo&lt;/a&gt;) nous a permis d’en apprendre plus sur ce nouveau service qui ne se base plus sur des sidecars, mais sur eBPF.&lt;/p&gt;
+
+&lt;p&gt;Un outil peut-être encore un peu jeune, mais clairement prometteur – et très certainement quelque chose que nous allons étudier lors d’un POC dans le courant de l’année ;-)&lt;/p&gt;
+
+&lt;h2 id=&quot;récapitulatif&quot;&gt;Récapitulatif&lt;/h2&gt;
+
+&lt;p&gt;Il n’existe toujours pas d’outils magique pour passer à l’échelle et supporter les pics de charges.&lt;br /&gt;
+Toutefois, les solutions présentées au cours de cette KubeCon EU 2022 viennent répondre à des besoins qui sont apparus au fil des années et dont peu d’utilisateurs avaient mesuré l’impact au début de leur périple avec Kubernetes.&lt;/p&gt;
+
+&lt;p&gt;Aussi, eBPF continue à faire parler de lui et son utilisation semble se répandre.&lt;br /&gt;
+L’idée d’un service mesh plus léger que Istio, par exemple, a l’air fort intéressante !&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/end-part2.jpg&quot; alt=&quot;&amp;quot;Instant détente pour débriefer de la seconde journée de la KubeCon 2022&amp;quot;&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;&lt;i&gt;Rejoignez-nos équipes et venez vivre les prochaines conférences avec nous l’an prochain&lt;/i&gt;&lt;/center&gt;</content><author><name>Bedrock</name></author><category term="kubecon" /><category term="kubernetes" /><category term="cloud" /><category term="k8s" /><category term="conference" /><summary type="html">Pour ce second article de synthèse de la KubeCon Europe 2022, continuons sur le thème des performances, peut-être plus bas niveau, et plongeons aussi dans des outils pouvant être déployés au cœur de nos clusters !</summary></entry><entry><title type="html">Bedrock à la kubecon 2022, 1ere partie : performances applicatives et scalabilité</title><link href="https://tech.bedrockstreaming.com/2022/06/13/kubecon-2022-part-1.html" rel="alternate" type="text/html" title="Bedrock à la kubecon 2022, 1ere partie : performances applicatives et scalabilité" /><published>2022-06-13T00:00:00+02:00</published><updated>2022-06-13T00:00:00+02:00</updated><id>https://tech.bedrockstreaming.com/2022/06/13/kubecon-2022-part-1</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/06/13/kubecon-2022-part-1.html">&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/part1.jpg&quot; alt=&quot;&amp;quot;KubeCon 2022 part1&amp;quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;bedrock-à-la-kubecon-2022&quot;&gt;BEDROCK à la KubeCon 2022&lt;/h2&gt;
+
+&lt;p&gt;Après 2018 à Copenhague et 2019 à Barcelone, cette année encore, nous étions trois, &lt;a href=&quot;https://twitter.com/_CoralinePetit&quot;&gt;Coraline&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/julien_menan&quot;&gt;Julien&lt;/a&gt; et &lt;a href=&quot;https://twitter.com/pascal_martin&quot;&gt;Pascal&lt;/a&gt;, présents à la KubeCon CloudNativeCon Europe 2022, à Valencia !&lt;/p&gt;
+
+&lt;p&gt;Plus de quatre ans après le début de notre migration vers Le Cloud (AWS + Kubernetes) racontée dans &lt;a href=&quot;https://leanpub.com/6cloud/&quot;&gt;Le Plan Copenhague&lt;/a&gt;, nous visions à découvrir de nouvelles idées, à confirmer certains de nos choix et à apprendre des retours d’expérience de nos pairs. Après tout, avec une communauté aussi large (plus de 7000 participants et participantes cette année), il serait dommage de rester seuls avec nos idées !&lt;/p&gt;
+
+&lt;h2 id=&quot;sommaire&quot;&gt;Sommaire&lt;/h2&gt;
+
+&lt;p&gt;À trois, nous avons assisté à une grosse quarantaine de conférences. Nous avons choisi d’organiser nos notes par thèmes, en quatre articles :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Un premier, celui-ci, centré sur les performances applicatives, sur la scalabilité des applications et la gestion des coûts.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/2022/06/14/kubecon-2022-part-2.html&quot;&gt;Le second, consacré aux performances système, aux services mesh, aux fonctionnalités au niveau du cluster.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/2022/06/15/kubecon-2022-part-3.html&quot;&gt;Le troisième, pour regrouper ce qui est Dev XP, outillage, CI/CD, rollback, observabilité…&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Et &lt;a href=&quot;/2022/06/16/kubecon-2022-part-4.html&quot;&gt;un dernier, pour quelques sujets divers, dont le chaos engineering et la résilience, et pour conclure sur ce que nous avons retenu de cette édition de la KubeCon publication jeudi&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Avec une plateforme de VOD et de replay déployée en marque blanche pour des broadcasters européen majeurs, des millions d’utilisateurs actifs, des milliers de CPU consommés, des centaines d’instances allumées et des dizaines de microservices, les performances sont au cœur de nos préoccupations.&lt;/p&gt;
+
+&lt;p&gt;Cet article reprend nos retours sur les nombreuses conférences consacrées à la scalabilité lors de cette KubeCon 2022. Cette fonctionnalité essentielle de Kubernetes est l’une des raisons de notre migration sur cette plateforme. En effet, notre activité nécessite que nous adaptions la taille de nos clusters en fonction du nombre d’utilisateurs connectés.
+Nous avons donc assisté à la plupart des conférences consacrées à la performance et à l’adaptation de celle-ci en fonction de nos besoins.&lt;/p&gt;
+
+&lt;h3 id=&quot;le-scaling-vertical&quot;&gt;Le scaling vertical&lt;/h3&gt;
+&lt;p&gt;La conférence “How Lombard Odier Deployed VPA to Increase Resource Usage Efficiency” (&lt;a href=&quot;https://www.youtube.com/watch?v=eAAio3KFm6w&quot;&gt;vidéo&lt;/a&gt;) nous présentait comment fonctionnent les &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;requests&lt;/code&gt; et &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;limits&lt;/code&gt;.
+Un sujet qui demande du temps pour être efficace afin de ne pas être en &lt;em&gt;oversizing&lt;/em&gt; ou au contraire en &lt;em&gt;undersizing&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Mais surtout, le conférencier nous a présenté son implémentation d’un composant Kubernetes assez rarement utilisé : Le VerticalPodAutoscaler. Le VPA à fait récemment l’objet de discussions au sein de nos équipes et cette présentation a confirmé notre ressenti : cette ressource est intéressante pour des cas d’usages spécifiques, notamment sur des “workloads” assez consommateurs en RAM et/ou en CPU et ne pouvant pas être découpés en multiples pods via un HorizontalPodAutoscaler.&lt;/p&gt;
+
+&lt;p&gt;le VPA souffre toujours d’une limitation : l’ajout de RAM ou CPU à chaud n’est pas possible et nécessite la re-création du pod.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/vpa.jpg&quot; alt=&quot;&amp;quot;KubeCon 2022 day1&amp;quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;améliorer-la-scalabilité&quot;&gt;Améliorer la scalabilité&lt;/h3&gt;
+&lt;p&gt;Une autre conférence, donnée cette fois-ci par Intel, présentait un projet récent : &lt;a href=&quot;https://github.com/intel/platform-aware-scheduling/tree/master/telemetry-aware-scheduling&quot;&gt;Telemetry Aware Scheduler&lt;/a&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=csg7ZQXQ5u8&quot;&gt;vidéo&lt;/a&gt;). Cet outil permet d’améliorer les choix du scheduler de Kubernetes en s’appuyant sur des métriques “customs”. Le projet est récent et en ALPHA, mais à surveiller dans l’avenir.&lt;/p&gt;
+
+&lt;p&gt;Lors d’une autre conférence intitulée “How Adobe is optimizing resource usage in K8s” (&lt;a href=&quot;https://www.youtube.com/watch?v=iVD5YI1-U_M&quot;&gt;vidéo&lt;/a&gt;), Carlos Sanchez a présenté un outil interne permettant d’émettre des recommandations basées sur un historique de métriques, un peu comme fait VPA, mais au niveau d’un namespace ou du cluster entier. Il est également revenu sur comment ils parviennent à éteindre automatiquement des applications non utilisées par les clients pour réaliser des économies conséquentes.&lt;/p&gt;
+
+&lt;h4 id=&quot;mais-comment-configurer-les-requests-limits-et-tout-ça-sans-y-passer-des-mois-&quot;&gt;Mais comment configurer les requests, limits et tout ça… sans y passer des mois ?&lt;/h4&gt;
+
+&lt;p&gt;Notre plateforme est composée de dizaines de services qui interagissent les uns avec les autres et sont soumis à un trafic qui varie au quotidien, avec des pics parfois impressionnants. Le paramétrage des requests et limits de chaque conteneur, ainsi que d’autres ressources, comme le nombre de processus php-fpm par conteneur, est un travail de fourmi, où nous devons itérer quotidiennement pendant une ou deux semaines, en travaillant application par application. Et tout ce travail est à refaire lorsque les applications ou leurs usages évoluent… un vrai casse-tête !.
+Nous ne sommes pas les seuls à rencontrer ces problématiques et c’était le sujet de la conférence “Getting the optimal service efficiency that autoscaler won’t give you” (&lt;a href=&quot;https://www.youtube.com/watch?v=Z-G6yMavQrU&quot;&gt;vidéo&lt;/a&gt;), où une approche basée sur de l’IA (ou, plutôt, sur du brute-force) était présentée.&lt;/p&gt;
+
+&lt;p&gt;Voici les grandes lignes de la méthodologie présentée :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;définition d’un scénario de load-test (ce qui reste difficile, il faut qu’il soit représentatif de la réalité)&lt;/li&gt;
+  &lt;li&gt;Définition d’objectifs (les temps de réponses attendus, le pourcentage d’erreurs… en fait, des SLOs que chacun devrait déjà avoir pour ses services),&lt;/li&gt;
+  &lt;li&gt;Lancer en boucle ces scenarios en retouchant &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;request&lt;/code&gt; et &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;limits&lt;/code&gt; (et configuration JVM) entre chaque itération.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Sur un cas réel, après la 34ᵉ itération (réalisées en 19 heures), environ 49% d’économies ont été réalisées. Mais surtout, cela a représenté un jour de travail grâce à cet outillage, au lieu de deux mois à la main.&lt;/p&gt;
+
+&lt;p&gt;Le logiciel utilisé ne semble pas disponible en open-source, mais l’approche “automatiser les itérations” en retouchant les paramètres est très intéressante et nous saurions la reproduire. Elle nous permettrait de gagner beaucoup de temps, en supprimant beaucoup de tâches fastidieuses aujourd’hui. Reste à continuer à définir des SLOs, puis créer de nouveaux scénarios de load-testing représentatifs ! ;-)&lt;/p&gt;
+
+&lt;h4 id=&quot;et-les-coûts-dhébergement-alors-&quot;&gt;Et les coûts d’hébergement, alors ?&lt;/h4&gt;
+
+&lt;p&gt;Nous avons aussi entendu parler plusieurs fois de coûts d’hébergement tout au long de cette KubeCon : comme l’illustrent les travaux de la FinOps Foundation, nous sommes de plus en plus nombreux à réaliser que si nous ne pensons pas à l’impact financier de nos infrastructures élastiques, où n’importe quel membre des équipes peut déployer des applications, la facture augmente vite et fort.&lt;/p&gt;
+
+&lt;p&gt;Le talk “Why Kubernetes can’t get around FinOps - Cost Management best practices” (&lt;a href=&quot;https://www.youtube.com/watch?v=zqJ9CqaQpYw&quot;&gt;vidéo&lt;/a&gt;) était une bonne introduction aux principes de gestion de coûts sur Kubernetes. Rien de nouveau pour nous, sur la théorie… même s’il nous reste encore beaucoup de progrès à réaliser pour mieux maîtriser nos frais d’hébergement !&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Sur ces sujets de scalabilité, les conférences auxquelles nous avons assisté confirment que bon nombre des choix que nous avons fait sont les bons, et que les problématiques qui nous font encore souffrir sont partagées par d’autres membres de la communauté.&lt;/p&gt;
+
+&lt;p&gt;Nous allons prochainement tenter de mettre en place VPA sur un de nos composants majeur, VictoriaMetrics, qui consomme beaucoup de ressources quelques heures par jour et pour lequel un scaling horizontal n’est pas adapté.&lt;/p&gt;
+
+&lt;p&gt;Nous n’en avons pas (ou peu) entendu parler pendant cette KubeCon, mais nous étudions en ce moment la solution Karpenter pour remplacer cluster-autoscaler, très utilisé dans la communauté, mais qui ne sait pas réellement tirer profit de spécificités liées à AWS.&lt;/p&gt;
+
+&lt;p&gt;Enfin, sur les coûts… OK, il n’y a pas que chez nous que c’est compliqué. Et c’est clairement un sujet, dans Kubernetes comme au niveau d’AWS, sur lequel nous avons encore du boulot devant nous pour un an ou deux. &lt;a href=&quot;https://www.bedrockstreaming.com/career&quot;&gt;Nous avons même un poste FinOps ouvert ;-)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/end-part1.jpg&quot; alt=&quot;&amp;quot;KubeCon 2022 day1&amp;quot;&quot; /&gt;&lt;/p&gt;</content><author><name>Bedrock</name></author><category term="kubecon" /><category term="kubernetes" /><category term="cloud" /><category term="k8s" /><category term="conference" /><summary type="html"></summary></entry><entry><title type="html">Bedrock’s backend architecture and its front API Gateway</title><link href="https://tech.bedrockstreaming.com/2022/06/10/backend-bff-intro.html" rel="alternate" type="text/html" title="Bedrock’s backend architecture and its front API Gateway" /><published>2022-06-10T00:00:00+02:00</published><updated>2022-06-10T00:00:00+02:00</updated><id>https://tech.bedrockstreaming.com/2022/06/10/backend-bff-intro</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/06/10/backend-bff-intro.html">&lt;p&gt;What is a BFF, and how does it simplify the development of frontend applications?&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Ahoy there o/&lt;/p&gt;
+
+&lt;p&gt;This article is the first in a series explaining the backend architecture we use at Bedrock.
+This first piece is dedicated to the &lt;em&gt;BFF&lt;/em&gt; API. Without further delay, let’s jump into the subject!&lt;/p&gt;
+
+&lt;h2 id=&quot;so-whats-a-bff&quot;&gt;So, what’s a BFF?&lt;/h2&gt;
+
+&lt;p&gt;For years, we have been using a microservices pattern &lt;a href=&quot;#notes&quot;&gt;(1)&lt;/a&gt;. Each with their own responsibilities.&lt;/p&gt;
+
+&lt;p&gt;Backend and frontend development have long been decoupled.
+Every frontend applications had to know about all microservices, call them and know what to do with their data.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-10-backend-bff-intro/architecture-old.png&quot; alt=&quot;old architecture&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This approach had three main limitations from a frontend point of view:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;It forced Bedrock to duplicate logic in each application.&lt;/li&gt;
+  &lt;li&gt;It prevented us from deprecating legacy APIs.&lt;/li&gt;
+  &lt;li&gt;New features implied a frontend development and deployment.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There were other downsides, which were mainly derivatives from those listed above.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;As an example, updating an icon into the menu bar required us to deploy all applications. It is not always easy or doable, and cannot be forced onto users without losing some of them.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The BFF tries to answer those limitations!&lt;/p&gt;
+
+&lt;p&gt;It’s a single API &lt;a href=&quot;#notes&quot;&gt;(2)&lt;/a&gt; that handles all the frontend applications queries to display contents, navigation, or even start downloads.
+In addition, this gateway &lt;a href=&quot;#notes&quot;&gt;(3)&lt;/a&gt; gathers all business logic. This is done in order to avoid repeating the logic in each application.
+That’s what we call a &lt;em&gt;Back For Front&lt;/em&gt;!&lt;/p&gt;
+
+&lt;h3 id=&quot;abstracting-the-microservices&quot;&gt;Abstracting the microservices&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-10-backend-bff-intro/architecture-new.png&quot; alt=&quot;Our new BFF API Gateway + microservices architecture&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The first main advantage is to abstract the backend complexity for the frontend teams.
+In the previous model, each application had to know where each data came from, how to parse it, and what to do with it.&lt;/p&gt;
+
+&lt;p&gt;In the new model, we can easily deprecate an API, replace it, change how the data is stored or returned.
+To do so, we only need the team leading the change, and the team handling the BFF to work together at their own pace.
+They can decide, depending on the change, how to handle the migration.
+They might decide to use a new endpoint to be switched at some point, or add a new attribute in the response, etc.&lt;/p&gt;
+
+&lt;p&gt;All those changes will happen without any frontend application noticing it.&lt;/p&gt;
+
+&lt;h3 id=&quot;simplification-of-the-data-structure&quot;&gt;Simplification of the data structure&lt;/h3&gt;
+
+&lt;p&gt;Another advantage is to simplify the data representation.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-10-backend-bff-intro/presentation-old.png&quot; alt=&quot;old presentation with multiple data structure behind&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;By taking all this responsibility in a single API, it now translates the data from the APIs to a single unified representation that all applications can use.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-10-backend-bff-intro/presentation-new.png&quot; alt=&quot;new presentation with a single data structure&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This representation is maintained by the BFF in a single openapi schema &lt;a href=&quot;#notes&quot;&gt;(4)&lt;/a&gt;. It shares the same concepts between the multiple endpoints of the API.&lt;/p&gt;
+
+&lt;p&gt;The main usage of the BFF is to handle the navigation between the pages of the application.
+In the pictures above and below, the central block shows the application screen. The application page is split into two parts.&lt;/p&gt;
+
+&lt;p&gt;The top is answered by the navigation endpoint which gives a list of groups and entries.
+Every entry can have nested groups, and an action.&lt;/p&gt;
+
+&lt;p&gt;The second part is what we call the &lt;em&gt;layout&lt;/em&gt;. It’s a representation of the page, composed of multiple blocks, each with a list of items.
+Each item has a title, a description, an image, and an action (the same type as in the entries).&lt;/p&gt;
+
+&lt;p&gt;This makes the BFF responsible for what to display in the page, and in which order and how to display it.
+How to display things is described through template strings that tell how to display each block.&lt;/p&gt;
+
+&lt;p&gt;It’s important to understand that the BFF does not return HTML! It returns a JSON string that needs to be parsed and interpreted by the application.&lt;/p&gt;
+
+&lt;p&gt;Every application still has to care about its design system, what font to use, which iconography.
+This means that a template &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Card&lt;/code&gt; might not be displayed exactly the same between a computer, a mobile phone or a television; even if the data are the same.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-10-backend-bff-intro/presentation-explanation.png&quot; alt=&quot;presentation explanation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There are other usages to the BFF &lt;a href=&quot;#notes&quot;&gt;(5)&lt;/a&gt;, such as handling downloads, and some others to come, but it shares the same concept by answering to the front something to display.&lt;/p&gt;
+
+&lt;h3 id=&quot;keeping-all-logic-in-one-place&quot;&gt;Keeping all logic in one place&lt;/h3&gt;
+
+&lt;p&gt;The last main gain with the BFF, is that we’re able to put all the logic in one place.
+This allows us to update and change the business rules at any time.&lt;/p&gt;
+
+&lt;p&gt;Here are a few examples&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;When a user tries to navigate the application, if he uses a new device while he has already reached the limit of allowed devices, we can display a layout asking him to delete a device first.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This limit can be removed or changed at any time in all applications.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In France, explicit contents must be filtered out during daytime&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If this rule changes, we will do so directly in the BFF, and no application will ever notice it.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;The model known as back for front or API Gateway is nothing new and other major services already use it.
+We’ve been using this model for more than 3 years now. It has undergone some major updates &lt;a href=&quot;#notes&quot;&gt;(6)&lt;/a&gt; but this is a model we’re happy with.&lt;/p&gt;
+
+&lt;p&gt;We plan to expand this pattern to handle even more logic inside the BFF in the coming years and keep being frontend application’s best friend.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-10-backend-bff-intro/bff.png&quot; alt=&quot;BFF stands for Back for Front, and not Best Friends Forever here&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;That’s all for today’s post!&lt;/p&gt;
+
+&lt;p&gt;In the next part we will talk about handling the failures of the dependencies the BFF is calling, and what to do to always answer something usable by the applications.&lt;/p&gt;
+
+&lt;h2 id=&quot;notes&quot;&gt;Notes&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;For more details about microservices, you can read &lt;a href=&quot;https://aws.amazon.com/microservices/&quot;&gt;this piece from AWS&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;There are some other APIs called by our applications, such as the authentication service, but let’s not get lost into details…&lt;/li&gt;
+  &lt;li&gt;There’s a lot of resources about API Gateway, here is &lt;a href=&quot;https://www.nginx.com/learn/api-gateway/&quot;&gt;one from nginx&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Open API is used to define the communication standards between our BFF and the clients, more explanation on the &lt;a href=&quot;https://www.openapis.org/&quot;&gt;dedicated website of the organization&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;In addition to note 1, we are currently moving to the api gateway model, and some behaviors still require the application to call dedicated microservices.&lt;/li&gt;
+  &lt;li&gt;( in French 🇫🇷 ) &lt;a href=&quot;https://afup.org/talks/3241-6play-api-v2-final-1-doc&quot;&gt;An old conference&lt;/a&gt; from 2020 given by Benoit VIGUIER, previous Team Lead in charge of the BFF, about API gateway and asynchronous development.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;from-the-same-series&quot;&gt;From the same series&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;/2022/06/10/backend-bff-intro&quot;&gt;What’s a BFF&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;In the meantime, feel free to have a look at other articles available on this blog:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;🇺🇸 &lt;a href=&quot;/2022/05/31/github-action-pr-size-labeler&quot;&gt;Announcing BedrockStreaming/pr-size-labeler github action&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;🇫🇷 &lt;a href=&quot;/2022/05/30/afup-day-lille-2022&quot;&gt;Retour sur l’AFUP Day Lille 2022&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Valentin CLARAS</name></author><category term="backend" /><category term="php" /><category term="api" /><category term="api-gateway" /><category term="back-for-front" /><summary type="html">What is a BFF, and how does it simplify the development of frontend applications?</summary></entry><entry xml:lang="fr"><title type="html">Comment ne pas jeter son application Frontend tous les deux ans ?</title><link href="https://tech.bedrockstreaming.com/2022/06/08/comment-ne-pas-jeter-votre-application.html" rel="alternate" type="text/html" title="Comment ne pas jeter son application Frontend tous les deux ans ?" /><published>2022-06-08T00:00:00+02:00</published><updated>2022-06-08T00:00:00+02:00</updated><id>https://tech.bedrockstreaming.com/2022/06/08/comment-ne-pas-jeter-votre-application</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/06/08/comment-ne-pas-jeter-votre-application.html">&lt;p&gt;Bonnes pratiques pour la maintenance d’une application web
+Refaire son front tous les 2 ans, c’est devenu une pratique plutôt courante dans tous les projets. Tous ? Non, chez Bedrock streaming, nous avons choisi de rester sur la même codebase et ça depuis plus de 7 ans! En plus, ce n’est pas une petite application puisqu’il s’agit de 6play et de salto.
+Vous pourriez vous dire: “Oh les pauvres, maintenir une application vieille de presque 10 ans ça doit être un enfer !”
+Rassurez-vous, ce n’est pas le cas ! Nous avons tous travaillé sur des projets bien moins vieux mais sur lesquels le développement de nouvelles fonctionnalités était bien plus pénible.&lt;/p&gt;
+
+&lt;p&gt;Quel est notre secret ? C’est ce que vous allez découvrir pendant ce talk !
+Automatisation des tâches courantes, gestion de la dette, testing et architecture seront des sujets abordés.
+Ce talk propose des thématiques qui ne concernent pas que le frontend !&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/2021/09/01/bonnes-pratiques-web.html&quot;&gt;Plus de détails dans l’article suivant.&lt;/a&gt;&lt;/p&gt;</content><author><name>[&quot;a_caron&quot;, &quot;florent&quot;]</name></author><category term="conference" /><category term="js" /><category term="react" /><category term="lyonjs" /><category term="meetup" /><summary type="html">Bonnes pratiques pour la maintenance d’une application web Refaire son front tous les 2 ans, c’est devenu une pratique plutôt courante dans tous les projets. Tous ? Non, chez Bedrock streaming, nous avons choisi de rester sur la même codebase et ça depuis plus de 7 ans! En plus, ce n’est pas une petite application puisqu’il s’agit de 6play et de salto. Vous pourriez vous dire: “Oh les pauvres, maintenir une application vieille de presque 10 ans ça doit être un enfer !” Rassurez-vous, ce n’est pas le cas ! Nous avons tous travaillé sur des projets bien moins vieux mais sur lesquels le développement de nouvelles fonctionnalités était bien plus pénible.</summary></entry><entry><title type="html">Migration progressive vers Redux Toolkit</title><link href="https://tech.bedrockstreaming.com/2022/06/08/migration-progressive-vers-redux-toolkit.html" rel="alternate" type="text/html" title="Migration progressive vers Redux Toolkit" /><published>2022-06-08T00:00:00+02:00</published><updated>2022-06-08T00:00:00+02:00</updated><id>https://tech.bedrockstreaming.com/2022/06/08/migration-progressive-vers-redux-toolkit</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/06/08/migration-progressive-vers-redux-toolkit.html">&lt;p&gt;Redux est le gestionnaire d’état global le plus populaire au sein de la communauté JS.
+Ses créateurs encouragent désormais l’utilisation de Redux Toolkit (RTK). Une suite d’utilitaires facilitant l’usage de Redux et réduisant notamment sa verbosité.
+Dans cette présentation, je vous propose un live coding pour migrer pas-à-pas une application React/Redux vers RTK.&lt;/p&gt;</content><author><name>Maxime Blanc</name></author><category term="redux" /><category term="lyonjs" /><category term="meetup" /><category term="react" /><category term="javascript" /><category term="conference" /><summary type="html">Redux est le gestionnaire d’état global le plus populaire au sein de la communauté JS. Ses créateurs encouragent désormais l’utilisation de Redux Toolkit (RTK). Une suite d’utilitaires facilitant l’usage de Redux et réduisant notamment sa verbosité. Dans cette présentation, je vous propose un live coding pour migrer pas-à-pas une application React/Redux vers RTK.</summary></entry><entry xml:lang="en"><title type="html">Announcing BedrockStreaming/pr-size-labeler github action 🎉</title><link href="https://tech.bedrockstreaming.com/2022/05/31/github-action-pr-size-labeler.html" rel="alternate" type="text/html" title="Announcing BedrockStreaming/pr-size-labeler github action 🎉" /><published>2022-05-31T00:00:00+02:00</published><updated>2022-05-31T00:00:00+02:00</updated><id>https://tech.bedrockstreaming.com/2022/05/31/github-action-pr-size-labeler</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/05/31/github-action-pr-size-labeler.html">&lt;p&gt;&lt;img src=&quot;/images/posts/pr-size-labeler/helena-hertz-wWZzXlDpMog-unsplash.jpg&quot; alt=&quot;laurel branch with a white paper label&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;smaller-pr-for-a-reduced-mental-load&quot;&gt;Smaller PR for a reduced mental load&lt;/h2&gt;
+
+&lt;p&gt;For several years at Bedrock Streaming the technical teams have used the &lt;em&gt;Pull Requests&lt;/em&gt; code review for each project. 
+Between collective ownership, quality improvement, regression detection, knowledge sharing, learning, there is no question in this article to further legitimize the immense interest to implement this practice in your teams.&lt;/p&gt;
+
+&lt;p&gt;This practice can however lead to some problems, each developer who proposes Pull Requests for review by his colleagues can sometimes propose monstrous diffs.
+Sometimes constrained by certain project mechanics or tools, but sometimes also by the “Wheelbarrow” effect.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;While I was there, I took the opportunity to modify this too.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It always starts from a good will, however, to make PR that changes several &lt;em&gt;intentions&lt;/em&gt;. 
+By creating his &lt;em&gt;wheelbarrow&lt;/em&gt;, the developer is adding diff to a pull request that deviates from the original intent.&lt;/p&gt;
+
+&lt;p&gt;Limiting the number of &lt;em&gt;intentions&lt;/em&gt; of a pull request often simplifies the proofreading of it.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Has anyone ever had the pleasure of reviewing a Pull Request with more than 1000 lines of changes with more than 100 modified files?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;We also forget that making a “big” Pull Request can also generate a mental load on the person or persons assigned to its development. 
+We have to remember the modified files, we are more likely to generate conflicts.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Ok, lets make smaller PR’s! We promise!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;you-cant-improve-anything-without-measuring-it&quot;&gt;You can’t improve anything without measuring it&lt;/h2&gt;
+
+&lt;p&gt;Saying “from now on we do smaller PR&lt;sup id=&quot;fnref:pr&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:pr&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;” is a pious hope.
+We have been doing application monitoring for a long time, we know that thanks to these measurements we are able to understand if the evolution is rather positive or not.
+Why not do it on our PR sizes?
+Why not implement monitoring on our devs?&lt;/p&gt;
+
+&lt;p&gt;The idea is absolutely not to measure/comparison the performance of our developers. 
+It would not be positive for the engineering manager and the dev to compare the performance of one developer against another. 
+We are all different after all!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The size of a dev’s PRs does not reflect his productivity at all, it just allows to evaluate the personal and collective mental load produced.&lt;/strong&gt;
+There are other measures we would like to follow, but let’s start with the size of the PR.&lt;/p&gt;
+
+&lt;p&gt;Be warned, the purpose of this metric is not to say &lt;em&gt;“Oh! you made an XL size PR that’s not right”&lt;/em&gt; 😡.
+It happens from time to time, and it’s not bad.
+You should rather look at the distribution of PR sizes of a dev.&lt;/p&gt;
+
+&lt;p&gt;Let’s take the example of a dev named Bob who would have this distribution over the last month:
+&lt;img src=&quot;/images/posts/pr-size-labeler/PR-size-distribution-for-Bob-over-the-last-month.png&quot; alt=&quot;PR size distribution for Bob over the last month.&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here we see that Bob is globally making large PRs (taking arbitrary t-shirt sizes), seeing this we can say: &lt;em&gt;As a TechLead, how can I best accompany Bob to make smaller PRs?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Next, let’s look at Alice’s profile, which has a more centered distribution:
+&lt;img src=&quot;/images/posts/pr-size-labeler/pr-size-distribution-for-alice-over-the-last-month.png&quot; alt=&quot;PR size distribution for Alice over the last month.&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here, we can say that overall the majority of RPs are of moderate size (in this absolute scale), so the mental load should be lower than for Bob.
+&lt;em&gt;This remains an interpretation that will require some discussion to be sure.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;how-to-set-it-up&quot;&gt;How to set it up?&lt;/h2&gt;
+
+&lt;p&gt;If you are interested in this measure and like us you use the Github Actions solution for your automation, it will be very easy for you to implement our brand new &lt;em&gt;pr-size-labeler&lt;/em&gt; in your projects.&lt;/p&gt;
+
+&lt;p&gt;To do so, you can add a workflow to your Github repository:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;🏷 PR size labeler&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
+  &lt;span class=&quot;na&quot;&gt;pull_request&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;pr-labeler&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ubuntu-latest&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Label the PR size&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;BedrockStreaming/pr-size-labeler@v1.1.0&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;exclude_files&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;.lock&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# RegExp of your excluded file pattern&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The action will then put &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Size/S&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Size/XL&lt;/code&gt; tags on your PRs automatically according to the number of modified files and the number of added or deleted lines.&lt;/p&gt;
+
+&lt;p&gt;🧙‍ &lt;strong&gt;You can change the text of the labels used and even the thresholds for each size as you wish.
+&lt;a href=&quot;https://github.com/marketplace/actions/pull-request-auto-size-labeler&quot;&gt;Take a look at Github presentation page of this Github action.&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Once set up, you should also notice the added labels can allow to evaluate the time needed for the review before starting it.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I’ve got 30 minutes to spare, I’m not going to start reviewing this PR XL.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It’s now your turn to play!&lt;/p&gt;
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:pr&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;Alias for Pull Request &lt;a href=&quot;#fnref:pr&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name>Antoine Caron</name></author><category term="oss" /><category term="github" /><category term="devops" /><summary type="html"></summary></entry><entry><title type="html">Retour sur l’AFUP Day Lille 2022</title><link href="https://tech.bedrockstreaming.com/2022/05/30/afup-day-lille-2022.html" rel="alternate" type="text/html" title="Retour sur l’AFUP Day Lille 2022" /><published>2022-05-30T00:00:00+02:00</published><updated>2022-05-30T00:00:00+02:00</updated><id>https://tech.bedrockstreaming.com/2022/05/30/afup-day-lille-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/05/30/afup-day-lille-2022.html">&lt;p&gt;&lt;img src=&quot;/images/posts/2022-05-30-afup-day-2022/team.jpg&quot; alt=&quot;&amp;quot;L'équipe à l'AFUP Day Lille 2022&amp;quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Cette année encore, Bedrock participait à l’&lt;a href=&quot;https://event.afup.org/afup-day-2022/&quot;&gt;&lt;em&gt;AFUP Day 2022&lt;/em&gt;&lt;/a&gt;, nous avons eu la chance de profiter de conférences de qualité et aux sujets variés.&lt;/p&gt;
+
+&lt;h2 id=&quot;php-81-en-détail&quot;&gt;PHP 8.1 en détail&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/faguo&quot;&gt;&lt;em&gt;Damien Seguy&lt;/em&gt;&lt;/a&gt; nous a parlé des nouveautés de PHP 8.1 mais aussi de celles de PHP 8.2 qui arriveront prochainement.&lt;/p&gt;
+
+&lt;p&gt;Damien nous a parlé en vrac :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;de l’ajout du format &lt;a href=&quot;https://www.php.net/manual/fr/function.imagecreatefromavif.php&quot;&gt;&lt;em&gt;AVIF&lt;/em&gt;&lt;/a&gt; dans &lt;a href=&quot;https://www.php.net/manual/fr/book.image.php&quot;&gt;&lt;em&gt;GD&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;l’ajout des fonctions &lt;a href=&quot;https://www.php.net/manual/fr/function.fsync.php&quot;&gt;&lt;em&gt;fsync&lt;/em&gt;&lt;/a&gt; et &lt;a href=&quot;https://www.php.net/manual/fr/function.fdatasync.php&quot;&gt;&lt;em&gt;fdatasync&lt;/em&gt;&lt;/a&gt; qui permettent de synchroniser les données d’un fichier sur l’OS. Cela veut dire que le fichier sera bien écrit sur le disque.&lt;/li&gt;
+  &lt;li&gt;l’arrivée de la prise en compte du format ristreto255 avec le libsodium&lt;/li&gt;
+  &lt;li&gt;de la fonction &lt;a href=&quot;https://www.php.net/manual/en/function.array-is-list.php&quot;&gt;&lt;em&gt;array_is_list&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Le conférencier a insisté sur le fait de ne pas hésiter à monter de version régulièrement. Il est possible d’utiliser les polyfills déjà existants (pour la &lt;a href=&quot;https://github.com/symfony/polyfill-php81&quot;&gt;&lt;em&gt;8.1&lt;/em&gt;&lt;/a&gt; et même la &lt;a href=&quot;https://github.com/symfony/polyfill-php82&quot;&gt;&lt;em&gt;8.2&lt;/em&gt;&lt;/a&gt;) ou d’ajouter ses propres fonctions, mais de bien faire attention d’utiliser &lt;a href=&quot;https://www.php.net/manual/fr/function.function-exists.php&quot;&gt;&lt;em&gt;function_exists&lt;/em&gt;&lt;/a&gt; pour préparer les migrations.&lt;/p&gt;
+
+&lt;p&gt;Une des nouveautés phare de la version 8.1 est l’ajout de la gestion des &lt;a href=&quot;https://www.php.net/manual/en/language.types.enumerations.php&quot;&gt;&lt;em&gt;enums&lt;/em&gt;&lt;/a&gt;. Une énumération est un &lt;a href=&quot;https://www.php.net/manual/en/class.unitenum.php&quot;&gt;&lt;em&gt;objet&lt;/em&gt;&lt;/a&gt; et non un type scalaire. Il est donc possible de l’étendre (&lt;a href=&quot;https://www.php.net/manual/en/language.enumerations.methods.php&quot;&gt;&lt;em&gt;via des interfaces&lt;/em&gt;&lt;/a&gt;, …). Cela veut aussi dire que nous ne pouvons pas les utiliser comme clefs de tableau par exemple. Il est par contre possible d’utiliser la propriété $myEnum-&amp;gt;value. Attention, les énumérations et les classes partagent le même espace de nom, nous ne pouvons donc pas avoir une enum et une classe s’appelant pareil dans le même namespace.&lt;/p&gt;
+
+&lt;p&gt;Les Fibers, solution pour rendre les programmes interruptibles, a été rapidement introduite, mais nous vous conseillons de regarder la &lt;a href=&quot;https://afup.org/talks/3794-fiber-la-porte-ouverte-sur-l-asynchrone&quot;&gt;&lt;em&gt;conférence sur ce sujet&lt;/em&gt;&lt;/a&gt; de notre cher et estimé collègue &lt;a href=&quot;https://twitter.com/b_viguier&quot;&gt;&lt;em&gt;Benoit Viguier&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Dans la dernière version, à ce jour, a été introduit le type de retour &lt;a href=&quot;https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.never&quot;&gt;&lt;em&gt;never&lt;/em&gt;&lt;/a&gt;. Une fonction ou méthode qui retourne ce type ne pourra pas faire de return (même vide) ni même un yield. Il sera, par contre, possible d’appeler &lt;a href=&quot;https://www.php.net/manual/en/function.die.php&quot;&gt;&lt;em&gt;die&lt;/em&gt;&lt;/a&gt;, &lt;a href=&quot;https://www.php.net/manual/en/function.exit.php&quot;&gt;&lt;em&gt;exit&lt;/em&gt;&lt;/a&gt;, &lt;a href=&quot;https://www.php.net/manual/en/language.exceptions.php&quot;&gt;&lt;em&gt;throw&lt;/em&gt;&lt;/a&gt; ou &lt;a href=&quot;https://www.php.net/manual/en/fiber.suspend.php&quot;&gt;&lt;em&gt;suspend&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Les &lt;a href=&quot;https://www.php.net/manual/en/language.oop5.constants.php&quot;&gt;&lt;em&gt;constantes&lt;/em&gt;&lt;/a&gt; peuvent maintenant être finales, cela bloquera la possibilité de surcharger leurs valeurs par héritage.&lt;/p&gt;
+
+&lt;p&gt;Il est désormais possible de faire des propriétés &lt;a href=&quot;https://www.php.net/manual/en/language.oop5.properties.php#language.oop5.properties.readonly-properties&quot;&gt;&lt;em&gt;readonly&lt;/em&gt;&lt;/a&gt;. Cette propriété devra forcément être typée, et ne pourra pas avoir de valeur par défaut. &lt;em&gt;readonly&lt;/em&gt; ne peut pas être utilisé avec &lt;em&gt;static&lt;/em&gt;. Si la propriété est un objet, l’instance pourra être modifiée (par exemple avec des setters), mais pas remplacée.&lt;/p&gt;
+
+&lt;p&gt;Il est maintenant possible d’instancier des valeurs par défaut. Par exemple :&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;nc&quot;&gt;Formatter&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$formatter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DefaultFormatter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Cette instanciation est possible dans les arguments de fonction ou de méthode, les variables statiques ou encore les constantes globales. Par contre, ce n’est pas compatible avec les constantes de classes ou les propriétés de classes (sauf si ces dernières sont des propriétés promues).&lt;/p&gt;
+
+&lt;p&gt;Dans sa version 8.1, PHP apporte aussi les &lt;a href=&quot;https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.composite.intersection&quot;&gt;&lt;em&gt;types d’intersections&lt;/em&gt;&lt;/a&gt;. Un exemple présenté serait de vouloir une instance de type Traversable ET Countable. Les types scalaires ne sont pas acceptés, c’est uniquement avec plusieurs classes.&lt;/p&gt;
+
+&lt;h2 id=&quot;de-lhumain-à-lordinateur-ou-découvrir-le-sens-dun-texte-avec-elasticsearch&quot;&gt;De l’humain à l’ordinateur, ou découvrir le sens d’un texte avec ElasticSearch&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/matarld&quot;&gt;&lt;em&gt;Mathias ARLAUD&lt;/em&gt;&lt;/a&gt; nous a ensuite parlé d’ElasticSearch et de comment il est possible d'attribuer un score de corrélation entre un texte donné et une multitude d'autres.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-05-30-afup-day-2022/formula.png&quot; alt=&quot;&amp;quot;Formule de scoring d'ElasticSearch&amp;quot;&quot; /&gt;&lt;br /&gt;
+Il a décortiqué cette équation (déjà simplifiée) en nous expliquant les mécanismes en place pour calculer ce score.&lt;br /&gt;
+Il nous a parlé de &lt;strong&gt;&lt;em&gt;Term Frequency&lt;/em&gt;&lt;/strong&gt; (la fréquence à laquelle un mot apparaît dans un document), d’&lt;strong&gt;&lt;em&gt;Inverse Document Frequency&lt;/em&gt;&lt;/strong&gt; (la pertinence des mots) ainsi que de &lt;strong&gt;&lt;em&gt;Coordination Factor&lt;/em&gt;&lt;/strong&gt; (le fait de valoriser un document avec le plus haut pourcentage de mots présents dans la requête).&lt;br /&gt;
+Avec un exemple simple (&lt;strong&gt;&lt;em&gt;Les Développeurs 🥰 développer avec,VIM&amp;amp;excl;&lt;/em&gt;&lt;/strong&gt;), il nous a montré comment les filtres de caractères tels que &lt;em&gt;html_strip&lt;/em&gt;, le &lt;em&gt;mapping&lt;/em&gt;, les générateurs de tokens (&lt;em&gt;whitespace&lt;/em&gt; -&amp;gt; 1 token = 1 mot) ou bien encore les filtres de tokens (&lt;em&gt;phonetic&lt;/em&gt;, &lt;em&gt;stopwords&lt;/em&gt;) permettent d’enlever le bruit des phrases humaines pour ne récupérer que les informations les plus pertinentes pour calculer ce score de corrélation. Après application de ces différentes étapes, son exemple se transforme en &lt;strong&gt;[developp] [aim] [developp] [vim]&lt;/strong&gt;, ce qui permet alors à ElasticSearch d’éliminer des documents non pertinents et qui seraient remontés si ces filtres n’avaient pas été appliqués.&lt;br /&gt;
+Pour plus d’informations, Mathias a mis à disposition &lt;a href=&quot;https://slides.com/mathiasarlaud/elasticsearch&quot;&gt;&lt;em&gt;les slides de son
+talk&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;guide-pratique-dune-méthodologie-ux-pour-la-conception-de-features&quot;&gt;Guide pratique d'une méthodologie UX pour la conception de features&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/jess_m_martel&quot;&gt;&lt;em&gt;Jessica Martel&lt;/em&gt;&lt;/a&gt; nous a présenté une méthodologie UX pour la conception de features qu’elle a mise en place et suivie lors d’une expérience chez Decitre et maintenant chez Unow.&lt;br /&gt;
+Elle nous a parlé de l’importance de la constitution d’une équipe projet regroupant tous les acteurs (PO, devs, le pôle Design et les équipes métier). Diversifier les acteurs permet d'accroître l’adhésion du projet, d’apporter différentes cultures et de cibler le besoin.&lt;/p&gt;
+
+&lt;p&gt;S'ensuivent plusieurs étapes :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;em&gt;Product concept&lt;/em&gt;&lt;/strong&gt; : évaluation du besoin, de la criticité&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;em&gt;UX Research et audit&lt;/em&gt;&lt;/strong&gt; : bench global, entretiens&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;em&gt;User journey&lt;/em&gt;&lt;/strong&gt; : identification des différentes étapes (déterminées suite au bench et entretiens), mise en place du workflow&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;em&gt;Specs fonctionnelles et design&lt;/em&gt;&lt;/strong&gt; : cas d’usages, règles métier, versions, KPI / création de wireframes, maquettes UI et prototypes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Cette méthodologie comprend cependant des limites ! Elle prend beaucoup de temps et est soumise au contexte, aux priorisations d’autres features, au downsizer…&lt;/p&gt;
+
+&lt;h2 id=&quot;le-prométhée-moderne--embarquer-php-dans-go&quot;&gt;Le Prométhée moderne : embarquer PHP dans Go&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/dunglas&quot;&gt;&lt;em&gt;Kévin Dunglas&lt;/em&gt;&lt;/a&gt; nous a parlé de comment embarquer PHP dans du Go. Après avoir listé les différentes SAPI (Module Apache, FPM, …) et nous avoir expliqué brièvement le langage Go et sa librairie standard net/http, Kévin nous a présenté &lt;strong&gt;FrankenPHP&lt;/strong&gt; et toute la réflexion et les contraintes rencontrées pour le créer. Ce projet est un nouveau serveur Web en Go qui est capable d’appeler l’interpréteur PHP et donc de faire tourner nos applications Web. Le projet est bien avancé, mais pas terminé. N’hésitez pas à le contacter si vous voulez essayer avec vos applications, les retours lui seront utiles. En tout cas, chez Bedrock, on va suivre ça de près !&lt;/p&gt;
+
+&lt;h2 id=&quot;les-subtilités-du-e-commerce-à-la-française&quot;&gt;Les subtilités du e-commerce à la française&lt;/h2&gt;
+
+&lt;p&gt;Après nous avoir présenté les différentes taxes françaises et chez quelques-uns de nos voisins européens, &lt;a href=&quot;https://twitter.com/lanfisis&quot;&gt;&lt;em&gt;David Buros&lt;/em&gt;&lt;/a&gt; nous a résenté les différents problèmes qu’il a rencontrés avec Sylius:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;l’affichage du prix HT et du prix TTC&lt;/li&gt;
+  &lt;li&gt;la gestion des réductions avec ce double affichage&lt;/li&gt;
+  &lt;li&gt;la gestion des écotaxes&lt;/li&gt;
+  &lt;li&gt;le paiement par mandat administratif&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;comment-on-est-passé-de-1-800-emails-à-70-000-par-jour-chez-trustt-en-1-mois-avec-rabbitmq&quot;&gt;Comment on est passé de 1 800 emails à 70 000 par jour chez Trustt en 1 mois avec RabbitMQ&lt;/h2&gt;
+
+&lt;p&gt;Cédric Driaux nous a expliqué comment ils ont mis en place RabbitMQ chez Trustt pour gérer l’envoi de plus de 70 000 mails par jour, afin de remplacer une ancienne solution qui lançait un CRON toutes les 15 minutes dans le but de faire les calculs et la distribution. Il y avait également des appels API à des outils externes, causant des ralentissements. De plus, certains reliquats de mail n'étaient pas envoyés.&lt;/p&gt;
+
+&lt;p&gt;Pour répondre à ce problème, l’idée était de mettre les mails dans une file ou queue en anglais, permettant une mise en attente de l’envoi des messages, puis utiliser un consumer pour traiter les messages.&lt;/p&gt;
+
+&lt;p&gt;Cédric a décidé de choisir et de mettre en place (en à peine un mois !) RabbitMQ comme solution à cette problématique. Cela a permis : une baisse de charge des serveurs, notamment due à la suppression des CRON, une augmentation des mails envoyés, dont ces derniers peuvent désormais tous être traités dans la journée. Les erreurs sont mises de côté pour être traitées plus tard et ne pas ralentir le processus. Enfin, il est dorénavant possible pour eux d’ajouter d’autres mails dans la queue dans la journée.&lt;/p&gt;
+
+&lt;p&gt;Grâce à RabbitMQ, ils ont pu fortement augmenter leurs capacités d’envoi de mails tout en soulageant les serveurs.&lt;/p&gt;
+
+&lt;h2 id=&quot;cecil-mon-générateur-de-site-statique&quot;&gt;Cecil, mon générateur de site statique&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/ArnaudLigny&quot;&gt;&lt;em&gt;Arnaud Ligny&lt;/em&gt;&lt;/a&gt; nous a présenté son projet perso de générateurs de sites statiques en archive phar : &lt;a href=&quot;https://cecil.app/&quot;&gt;&lt;em&gt;Cecil&lt;/em&gt;&lt;/a&gt;. Il voulait une solution rapide à prendre en main, intuitive et avec une séparation entre le contenu et la mise en forme. Ce side project avait pour but de remettre ses connaissances à jour en appliquant les bonnes pratiques. L’application est automatisée, le paquet .phar est automatiquement généré par GitHub Action lors de la création d’une release, scrutinizer qui fait des corrections, des previews sont réalisables avec netlify.&lt;/p&gt;
+
+&lt;h2 id=&quot;et-si-on-étendait-sql-avec-du-php&quot;&gt;Et si on étendait SQL avec du PHP&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/s0yuka&quot;&gt;&lt;em&gt;Antoine BLUCHET&lt;/em&gt;&lt;/a&gt; nous a présenté plus en détail les projets Doctrine et principalement l’ORM. Cet outil est extensible, mais a quelques limites. Comment pouvons-nous faire des requêtes complexes avec Doctrine ? Peut-on utiliser des Common Table Expression ? La réponse à ces questions, proposée, est &lt;a href=&quot;https://github.com/soyuka/esql&quot;&gt;&lt;em&gt;ESQL&lt;/em&gt;&lt;/a&gt;. Cet outil permet de construire des requêtes SQL complexes facilement sans se soucier des noms des tables ou des colonnes, car il permet d’utiliser ces métadonnées depuis Doctrine.&lt;/p&gt;
+
+&lt;h2 id=&quot;pourquoi-vous-nattirerez-et-ne-retiendrez-pas-les-femmes-dans-vos-équipes-tech&quot;&gt;Pourquoi vous n’attirerez et ne retiendrez pas les femmes dans vos équipes tech.&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://fr.linkedin.com/in/marcy-ericka-charollois-1604&quot;&gt;&lt;em&gt;Marcy Charollois&lt;/em&gt;&lt;/a&gt; fait un constat sur le monde du travail dans le numérique, dominé largement par les hommes et ne laissant que trop peu de place aux femmes. Marcy commence par introduire la notion d’habitus, qui désigne un système de préférences, de style de vie particulier à chacun, qui influence les pratiques des individus au quotidien. Ces pratiques sont intériorisées inconsciemment, car l’individu s’adapte et s'intègre à son environnement social. Cela crée un groupe majoritaire qui devient décisionnaire. Se met alors en place un statu quo qui va soit inclure ou exclure et qui est fortement dominé par la pensée masculine. Marcy nous dévoile que sur 100 % de freins ressentis par les femmes dans la tech, 30% proviennent des biais d'oppression de groupe, une part donc assez conséquente.&lt;/p&gt;
+
+&lt;p&gt;Le constat est réel, les femmes dans la tech vivent mal leur condition de femmes, il faut changer ce sentiment, mais les attitudes face au changement sont variées. 15% de personnes sont réfractaires, il sera donc difficile de faire évoluer les choses avec eux, 15% sont déjà partantes et 70% sont neutres, potentiellement pour ce changement, mais ne savent pas comment le faire.&lt;/p&gt;
+
+&lt;p&gt;Marcy nous donne alors des clés qui permettront d’attirer les femmes dans nos équipes en mettant en avant les freins ressentis par celles-ci : une expression du genre, une légitimité face au métier exercé, des a priori sur la provenance des profils féminins qui sont souvent reconvertis et donc potentiellement juniors :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;féminiser les postes et en particulier sur les offres d’emploi, une femme est développeuse, pas développeur.&lt;/li&gt;
+  &lt;li&gt;mettre en avant les témoignages de femmes qui montent dans votre entreprise pour donner des exemples concrets de ce qu’elles pourraient trouver en venant chez vous&lt;/li&gt;
+  &lt;li&gt;s’intéresser réellement à elles et non pas de voir en vous ce qu’elles mettent en avant&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;La conférence continue sur les actions à mener pour garder les femmes dans nos équipes :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;parler d’égal à égal pour éviter la posture sachant(e)/ignorante&lt;/li&gt;
+  &lt;li&gt;soyez clair, transparent sur les salaires, les évolutions de poste&lt;/li&gt;
+  &lt;li&gt;mettez en place des moments conviviaux plus portés sur des préférences féminines&lt;/li&gt;
+  &lt;li&gt;minimiser les interruptions pendant les prises de parole&lt;/li&gt;
+  &lt;li&gt;écoutez des besoins spécifiques inhérents aux femmes et accommodez-les en offrant des ressources sans juger : parentalité, menstruation, assistance psychologique, adaptation à l’emploi du temps&lt;/li&gt;
+  &lt;li&gt;encouragez les femmes à prendre la parole, à devenir un rôle modèle parce que compétente&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Marcy termine sa conférence par la présentation de quelques chiffres sur l’évolution de carrière des femmes et des enjeux psychosociaux résultant
+de cette évolution et conclut en montrant les bienfaits de l’inclusion des femmes au sein des entreprises et en nous donnant quelques noms de femmes célèbres dans ce combat.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Encore une fois, l’AFUP a réussi à faire un événement chaleureux, intéressant et diversifié&lt;/p&gt;
+
+&lt;p&gt;Nous sommes ravis d’avoir pu participer à cette manifestation qui nous a permis de rencontrer les membres de la communauté ainsi que de visiter rapidement la ville de Lille et manger des Welsh.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-05-30-afup-day-2022/welsh.jpeg&quot; alt=&quot;&amp;quot;Welsh&amp;quot;&quot; /&gt;&lt;img src=&quot;/images/posts/2022-05-30-afup-day-2022/rues_de_lille.jpg&quot; alt=&quot;&amp;quot;Visite nocturne de Lilles&amp;quot;&quot; /&gt;&lt;/p&gt;</content><author><name>backend</name></author><category term="backend" /><category term="php" /><category term="conference" /><summary type="html"></summary></entry></feed>

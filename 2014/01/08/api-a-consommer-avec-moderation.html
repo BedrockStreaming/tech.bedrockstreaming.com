@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/cytron/domainuserbundle.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>API à consommer avec modération | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="API à consommer avec modération" />
+<meta name="author" content="Cytron Team" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Authentification des API par nom de domaine" />
+<meta property="og:description" content="Authentification des API par nom de domaine" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2014/01/08/api-a-consommer-avec-moderation.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2014/01/08/api-a-consommer-avec-moderation.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-01-08T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="API à consommer avec modération" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2014/01/08/api-a-consommer-avec-moderation.html"},"url":"https://tech.bedrockstreaming.com/2014/01/08/api-a-consommer-avec-moderation.html","author":{"@type":"Person","name":"Cytron Team"},"description":"Authentification des API par nom de domaine","dateModified":"2014-01-08T00:00:00+01:00","datePublished":"2014-01-08T00:00:00+01:00","headline":"API à consommer avec modération","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="API à consommer avec modération">
+    <meta name="twitter:description" content="Après avoir travaillé pendant plusieurs mois sur la création et les tests de nos API avec Symfony, le moment de leur publication est enfin arrivé !Or, les cl...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/cytron/domainuserbundle.png">
+    <meta name="twitter:image:alt" content="API à consommer avec modération">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="API à consommer avec modération " aria-label="API à consommer avec modération" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="API+%C3%A0+consommer+avec+mod%C3%A9ration" class="title">API à consommer avec modération</h1>
+      
+
+
+<div class="post-info">
+      <img alt="Author's avatar" src="/images/avatar/cytron.png">
+    
+    <p class="meta">
+      Cytron Team - 
+      
+      January 08, 2014
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Après avoir travaillé pendant plusieurs mois sur la création et les <a href="/redismock-qui-a-bouchonne-mon-redis">tests</a> de nos API avec Symfony, le moment de leur publication est enfin arrivé !</p>
+
+<p>Or, les clients de nos API sont multiples : il peut s’agir d’applications mobiles, de sites web mais aussi d’un <em>back office</em> interne. Chacun de ces clients peut nécessiter des “vues” différentes de l’API.</p>
+
+<p>Effectivement, alors que le BO devra pouvoir accéder à la totalité des ressources disponibles, l’application mobile ne devra avoir accès qu’aux ressources publiées. De la même manière, la gestion du cache ainsi que la disponibilité des routes doit pouvoir s’adapter facilement aux clients qui consomment l’API.</p>
+
+<p>Nous avons opté pour l’utilisation d’un sous-domaine par client afin de l’identifier et ainsi de lui appliquer des configurations particulières. Ex :</p>
+
+<ul>
+  <li>https://bo.api.monservice.fr pour le BO,</li>
+  <li>https://mobile.api.monservice.fr pour l’application mobile.</li>
+</ul>
+
+<p>#### Authentification</p>
+
+<p>Nous utilisons le <a href="https://symfony.com/doc/current/components/security/introduction.html">composant sécurité</a> de Symfony, qui permet de créer un utilisateur authentifié à la volée et de charger la configuration spécifique à celui-ci.</p>
+
+<p>Nous avons tout d’abord besoin de créer une classe <code class="language-plaintext highlighter-rouge">User</code> implémentant <code class="language-plaintext highlighter-rouge">Symfony\Component\Security\Core\User\UserInterface</code>, et contenant les informations de configuration spécifique.</p>
+
+<p>Les différents <code class="language-plaintext highlighter-rouge">Users</code> sont ensuite créés à l’aide d’un fournisseur d’utilisateurs implémentant <code class="language-plaintext highlighter-rouge">Symfony\Component\Security\Core\User\UserProviderInterface</code>.
+Dans notre cas, chaque utilisateur possède son propre fichier de configuration yml. Le fournisseur d’utilisateur vérifie donc que l’utilisateur demandé possède un fichier de configuration et instancie un objet <code class="language-plaintext highlighter-rouge">User</code> avec cette configuration. Ce UserProvider est défini comme service dans notre bundle et configuré dans <code class="language-plaintext highlighter-rouge">security.yml</code>.</p>
+
+<p>Il faut ensuite créer notre propre fournisseur d’authentification pour avoir une authentification par nom de domaine. Pour cela nous avons suivi et adapté le <a href="https://symfony.com/doc/current/cookbook/security/custom_authentication_provider.html">cookbook de Symfony</a>. Cette authentification s’articule autour de 2 classes : un FirewallListener et un AuthenticationProvider. Pour que notre FirewallListener puisse facilement récupérer le client associé, nous avons ajouté un paramètre au routing Symfony :</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">host</span><span class="pi">:</span> <span class="pi">{</span><span class="nv">client</span><span class="pi">}</span><span class="s">.api.monservice.fr</span></code></pre></figure>
+
+<p>Le FirewallListener utilise donc ce paramètre du routing comme nom d’utilisateur et le transmet à notre AuthenticationProvider. Celui-ci récupère le <code class="language-plaintext highlighter-rouge">User</code> grâce au <code class="language-plaintext highlighter-rouge">UserProvider</code> et profite de cette phase pour vérifier que l’adresse IP du client est bien autorisée dans sa configuration grâce au <a href="https://github.com/BedrockStreaming/FirewallBundle">FirewallBundle</a>.</p>
+
+<p>Effectivement, nous avons ajouté un filtrage initial (mais optionnel) sur les IPs pour chaque client, dans le fichiers <code class="language-plaintext highlighter-rouge">app/config/users/{username}.yml</code> :</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">firewall</span><span class="pi">:</span>
+    <span class="na">user_access</span><span class="pi">:</span>
+        <span class="na">default_state</span><span class="pi">:</span> <span class="no">false</span>
+        <span class="na">lists</span><span class="pi">:</span>
+            <span class="na">m6_prod</span><span class="pi">:</span> <span class="no">true</span>
+            <span class="na">m6_preprod</span><span class="pi">:</span> <span class="no">true</span>
+            <span class="na">m6_dev</span><span class="pi">:</span> <span class="no">true</span>
+            <span class="na">m6_lan</span><span class="pi">:</span> <span class="no">true</span>
+            <span class="na">m6_local</span><span class="pi">:</span> <span class="no">true</span>
+            <span class="na">m6_public</span><span class="pi">:</span> <span class="no">true</span></code></pre></figure>
+
+<p>Pour plus de précisions, voir la <a href="https://github.com/BedrockStreaming/FirewallBundle#firewall-bundle-">documentation du FirewallBundle</a>.</p>
+
+<h4 id="autorisation">Autorisation</h4>
+
+<p>Pour gérer les autorisations d’accès des utilisateurs aux différentes routes, nous avons créé un EventListener qui écoute <code class="language-plaintext highlighter-rouge">kernel.request</code> et qui décide de laisser passer la requête ou non en fonction de la configuration de l’utilisateur.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">allow</span><span class="pi">:</span>
+    <span class="na">default</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">methods</span><span class="pi">:</span>
+        <span class="na">delete</span><span class="pi">:</span> <span class="no">false</span>
+    <span class="na">resources</span><span class="pi">:</span>
+        <span class="na">exam</span><span class="pi">:</span> <span class="no">false</span>
+    <span class="na">routes</span><span class="pi">:</span>
+        <span class="na">get_articles</span><span class="pi">:</span> <span class="no">false</span></code></pre></figure>
+
+<p>Dans cet exemple, l’utilisateur a accès par défaut à toutes les routes sauf les méthodes <code class="language-plaintext highlighter-rouge">DELETE</code>, les routes concernant les <code class="language-plaintext highlighter-rouge">exams</code> et la route spécifique <code class="language-plaintext highlighter-rouge">get_articles</code>.</p>
+
+<p>#### Durée de cache</p>
+
+<p>Les temps de cache sont différents en fonction de l’utilisation des données. Les données du backoffice ne seront pas cachées, tandis que les données de l’application mobile auront un temps de cache de 300s.
+Nous avons là-aussi créé un EventListener qui écoute cette fois <code class="language-plaintext highlighter-rouge">kernel.response</code> et qui modifie les headers de cache de la réponse en fonction de la configuration utilisateur qui peut contenir une durée par défaut de cache et des durées de cache par route.</p>
+
+<h4 id="filtrage-automatique-avec-doctrine">Filtrage automatique avec Doctrine</h4>
+
+<p>Nous pouvons offrir une “vue” différente de nos données à chaque client en définissant des critères de filtrage pour Doctrine (ex: date de publication, ressource activée, etc.) dans les fichiers de configuration des clients :</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">entities</span><span class="pi">:</span>
+    <span class="na">article</span><span class="pi">:</span>
+        <span class="na">active</span><span class="pi">:</span> <span class="no">true</span>
+        <span class="na">publication</span><span class="pi">:</span> <span class="no">false</span></code></pre></figure>
+
+<p>Afin de ne pas modifier le comportement par défaut de Doctrine, nous avons ajouté une méthode <a href="https://gist.github.com/oziks/8180382"><code class="language-plaintext highlighter-rouge">findWithContext</code></a> à nos repositories qui reprend les mêmes paramètres que la méthode <code class="language-plaintext highlighter-rouge">findBy</code> en injectant le <code class="language-plaintext highlighter-rouge">SecurityContext</code>. Cette méthode permet donc de récupérer des entités filtrées en fonction des paramètres d’un client :</p>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="nv">$article</span> <span class="o">=</span> <span class="nv">$this</span>
+    <span class="o">-&gt;</span><span class="nf">get</span><span class="p">(</span><span class="s1">'m6_contents.article.manager'</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="nf">getRepository</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="nf">findWithContext</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="n">container</span><span class="o">-&gt;</span><span class="nf">get</span><span class="p">(</span><span class="s1">'security.context'</span><span class="p">),</span> <span class="p">[</span><span class="s1">'id'</span> <span class="o">=&gt;</span> <span class="nv">$id</span><span class="p">]);</span></code></pre></figure>
+
+<p>#### Personnalisation avancée</p>
+
+<p>Grâce à l’utilisation du Bundle Security de Symfony, toute la configuration spécifique à un sous-domaine est stockée dans l’utilisateur courant. Et dans Symfony, l’utilisateur courant est facilement récupérable à partir du service <code class="language-plaintext highlighter-rouge">security_context</code>. Il est ainsi possible de personnaliser n’importe quelle brique de l’application en y injectant la dépendance sur ce service.</p>
+
+<h4 id="domainuserbundle">DomainUserBundle</h4>
+
+<p>Afin d’implémenter facilement ce fonctionnement sur nos API, nous avons développé un bundle dédié. Il peut donc aussi vous permettre de gérer l’authentification et la configuration de vos API par nom de domaine.</p>
+
+<p><a href="https://github.com/BedrockStreaming/DomainUserBundle">DomainUserBundle</a> est disponible en <a href="https://tom.preston-werner.com/2011/11/22/open-source-everything.html">open-source</a> sur le <a href="https://github.com/BedrockStreaming">compte GitHub de M6Web</a>.</p>
+
+<p>Enjoy !</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=API+%C3%A0+consommer+avec+mod%C3%A9ration%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2014%2F01%2F08%2Fapi-a-consommer-avec-moderation.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2014/01/08/api-a-consommer-avec-moderation.html&title=API+%C3%A0+consommer+avec+mod%C3%A9ration%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2014/01/08/api-a-consommer-avec-moderation.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=API à consommer avec modération%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2014/01/08/api-a-consommer-avec-moderation.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#api">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> api</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#cytron">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> cytron</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#doctrine">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> doctrine</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#open-source">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> open-source</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#outil">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> outil</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#symfony">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> symfony</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Vagrant & Cie, du Dév à la Prod avec Julien Bianchi" href="/2014/01/18/vagrant-julien-bianchi.html">
+            <p>Previous post</p>
+            Vagrant & Cie, du Dév à la Prod avec Julien Bianchi
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Qui a bouchonné mon Redis ?" href="/redismock-qui-a-bouchonne-mon-redis">
+            <p>Next post</p>
+            Qui a bouchonné mon Redis ?
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/cytron/domainuserbundle.png'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

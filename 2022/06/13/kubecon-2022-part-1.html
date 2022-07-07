@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/2022-06-13-kubecon-2022/main.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Bedrock à la kubecon 2022, 1ere partie : performances applicatives et scalabilité | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Bedrock à la kubecon 2022, 1ere partie : performances applicatives et scalabilité" />
+<meta name="author" content="Bedrock" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Une partie des équipes infra Bedrock étaient à la KubeCon 2022, voici leur retour d’expérience." />
+<meta property="og:description" content="Une partie des équipes infra Bedrock étaient à la KubeCon 2022, voici leur retour d’expérience." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2022/06/13/kubecon-2022-part-1.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2022/06/13/kubecon-2022-part-1.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-06-13T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Bedrock à la kubecon 2022, 1ere partie : performances applicatives et scalabilité" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/06/13/kubecon-2022-part-1.html"},"url":"https://tech.bedrockstreaming.com/2022/06/13/kubecon-2022-part-1.html","author":{"@type":"Person","name":"Bedrock"},"description":"Une partie des équipes infra Bedrock étaient à la KubeCon 2022, voici leur retour d’expérience.","dateModified":"2022-06-13T00:00:00+02:00","datePublished":"2022-06-13T00:00:00+02:00","headline":"Bedrock à la kubecon 2022, 1ere partie : performances applicatives et scalabilité","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Bedrock à la kubecon 2022, 1ere partie : performances applicatives et scalabilité">
+    <meta name="twitter:description" content="BEDROCK à la KubeCon 2022Après 2018 à Copenhague et 2019 à Barcelone, cette année encore, nous étions trois, Coraline, Julien et Pascal, présents à la KubeCo...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/2022-06-13-kubecon-2022/main.jpg">
+    <meta name="twitter:image:alt" content="Bedrock à la kubecon 2022, 1ere partie : performances applicatives et scalabilité">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Bedrock à la kubecon 2022, 1ere partie : performances applicatives et scalabilité " aria-label="Bedrock à la kubecon 2022, 1ere partie : performances applicatives et scalabilité" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Bedrock+%C3%A0+la+kubecon+2022%2C+1ere+partie+%3A+performances+applicatives+et+scalabilit%C3%A9" class="title">Bedrock à la kubecon 2022, 1ere partie : performances applicatives et scalabilité</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      Bedrock - 
+      
+      June 13, 2022
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p><img src="/images/posts/2022-06-13-kubecon-2022/part1.jpg" alt="&quot;KubeCon 2022 part1&quot;" /></p>
+
+<h2 id="bedrock-à-la-kubecon-2022">BEDROCK à la KubeCon 2022</h2>
+
+<p>Après 2018 à Copenhague et 2019 à Barcelone, cette année encore, nous étions trois, <a href="https://twitter.com/_CoralinePetit">Coraline</a>, <a href="https://twitter.com/julien_menan">Julien</a> et <a href="https://twitter.com/pascal_martin">Pascal</a>, présents à la KubeCon CloudNativeCon Europe 2022, à Valencia !</p>
+
+<p>Plus de quatre ans après le début de notre migration vers Le Cloud (AWS + Kubernetes) racontée dans <a href="https://leanpub.com/6cloud/">Le Plan Copenhague</a>, nous visions à découvrir de nouvelles idées, à confirmer certains de nos choix et à apprendre des retours d’expérience de nos pairs. Après tout, avec une communauté aussi large (plus de 7000 participants et participantes cette année), il serait dommage de rester seuls avec nos idées !</p>
+
+<h2 id="sommaire">Sommaire</h2>
+
+<p>À trois, nous avons assisté à une grosse quarantaine de conférences. Nous avons choisi d’organiser nos notes par thèmes, en quatre articles :</p>
+<ul>
+  <li>Un premier, celui-ci, centré sur les performances applicatives, sur la scalabilité des applications et la gestion des coûts.</li>
+  <li><a href="/2022/06/14/kubecon-2022-part-2.html">Le second, consacré aux performances système, aux services mesh, aux fonctionnalités au niveau du cluster.</a></li>
+  <li><a href="/2022/06/15/kubecon-2022-part-3.html">Le troisième, pour regrouper ce qui est Dev XP, outillage, CI/CD, rollback, observabilité…</a></li>
+  <li>Et <a href="/2022/06/16/kubecon-2022-part-4.html">un dernier, pour quelques sujets divers, dont le chaos engineering et la résilience, et pour conclure sur ce que nous avons retenu de cette édition de la KubeCon publication jeudi</a>.</li>
+</ul>
+
+<p>Avec une plateforme de VOD et de replay déployée en marque blanche pour des broadcasters européen majeurs, des millions d’utilisateurs actifs, des milliers de CPU consommés, des centaines d’instances allumées et des dizaines de microservices, les performances sont au cœur de nos préoccupations.</p>
+
+<p>Cet article reprend nos retours sur les nombreuses conférences consacrées à la scalabilité lors de cette KubeCon 2022. Cette fonctionnalité essentielle de Kubernetes est l’une des raisons de notre migration sur cette plateforme. En effet, notre activité nécessite que nous adaptions la taille de nos clusters en fonction du nombre d’utilisateurs connectés.
+Nous avons donc assisté à la plupart des conférences consacrées à la performance et à l’adaptation de celle-ci en fonction de nos besoins.</p>
+
+<h3 id="le-scaling-vertical">Le scaling vertical</h3>
+<p>La conférence “How Lombard Odier Deployed VPA to Increase Resource Usage Efficiency” (<a href="https://www.youtube.com/watch?v=eAAio3KFm6w">vidéo</a>) nous présentait comment fonctionnent les <code class="language-plaintext highlighter-rouge">requests</code> et <code class="language-plaintext highlighter-rouge">limits</code>.
+Un sujet qui demande du temps pour être efficace afin de ne pas être en <em>oversizing</em> ou au contraire en <em>undersizing</em>.</p>
+
+<p>Mais surtout, le conférencier nous a présenté son implémentation d’un composant Kubernetes assez rarement utilisé : Le VerticalPodAutoscaler. Le VPA à fait récemment l’objet de discussions au sein de nos équipes et cette présentation a confirmé notre ressenti : cette ressource est intéressante pour des cas d’usages spécifiques, notamment sur des “workloads” assez consommateurs en RAM et/ou en CPU et ne pouvant pas être découpés en multiples pods via un HorizontalPodAutoscaler.</p>
+
+<p>le VPA souffre toujours d’une limitation : l’ajout de RAM ou CPU à chaud n’est pas possible et nécessite la re-création du pod.</p>
+
+<p><img src="/images/posts/2022-06-13-kubecon-2022/vpa.jpg" alt="&quot;KubeCon 2022 day1&quot;" /></p>
+
+<h3 id="améliorer-la-scalabilité">Améliorer la scalabilité</h3>
+<p>Une autre conférence, donnée cette fois-ci par Intel, présentait un projet récent : <a href="https://github.com/intel/platform-aware-scheduling/tree/master/telemetry-aware-scheduling">Telemetry Aware Scheduler</a> (<a href="https://www.youtube.com/watch?v=csg7ZQXQ5u8">vidéo</a>). Cet outil permet d’améliorer les choix du scheduler de Kubernetes en s’appuyant sur des métriques “customs”. Le projet est récent et en ALPHA, mais à surveiller dans l’avenir.</p>
+
+<p>Lors d’une autre conférence intitulée “How Adobe is optimizing resource usage in K8s” (<a href="https://www.youtube.com/watch?v=iVD5YI1-U_M">vidéo</a>), Carlos Sanchez a présenté un outil interne permettant d’émettre des recommandations basées sur un historique de métriques, un peu comme fait VPA, mais au niveau d’un namespace ou du cluster entier. Il est également revenu sur comment ils parviennent à éteindre automatiquement des applications non utilisées par les clients pour réaliser des économies conséquentes.</p>
+
+<h4 id="mais-comment-configurer-les-requests-limits-et-tout-ça-sans-y-passer-des-mois-">Mais comment configurer les requests, limits et tout ça… sans y passer des mois ?</h4>
+
+<p>Notre plateforme est composée de dizaines de services qui interagissent les uns avec les autres et sont soumis à un trafic qui varie au quotidien, avec des pics parfois impressionnants. Le paramétrage des requests et limits de chaque conteneur, ainsi que d’autres ressources, comme le nombre de processus php-fpm par conteneur, est un travail de fourmi, où nous devons itérer quotidiennement pendant une ou deux semaines, en travaillant application par application. Et tout ce travail est à refaire lorsque les applications ou leurs usages évoluent… un vrai casse-tête !.
+Nous ne sommes pas les seuls à rencontrer ces problématiques et c’était le sujet de la conférence “Getting the optimal service efficiency that autoscaler won’t give you” (<a href="https://www.youtube.com/watch?v=Z-G6yMavQrU">vidéo</a>), où une approche basée sur de l’IA (ou, plutôt, sur du brute-force) était présentée.</p>
+
+<p>Voici les grandes lignes de la méthodologie présentée :</p>
+<ul>
+  <li>définition d’un scénario de load-test (ce qui reste difficile, il faut qu’il soit représentatif de la réalité)</li>
+  <li>Définition d’objectifs (les temps de réponses attendus, le pourcentage d’erreurs… en fait, des SLOs que chacun devrait déjà avoir pour ses services),</li>
+  <li>Lancer en boucle ces scenarios en retouchant <code class="language-plaintext highlighter-rouge">request</code> et <code class="language-plaintext highlighter-rouge">limits</code> (et configuration JVM) entre chaque itération.</li>
+</ul>
+
+<p>Sur un cas réel, après la 34ᵉ itération (réalisées en 19 heures), environ 49% d’économies ont été réalisées. Mais surtout, cela a représenté un jour de travail grâce à cet outillage, au lieu de deux mois à la main.</p>
+
+<p>Le logiciel utilisé ne semble pas disponible en open-source, mais l’approche “automatiser les itérations” en retouchant les paramètres est très intéressante et nous saurions la reproduire. Elle nous permettrait de gagner beaucoup de temps, en supprimant beaucoup de tâches fastidieuses aujourd’hui. Reste à continuer à définir des SLOs, puis créer de nouveaux scénarios de load-testing représentatifs ! ;-)</p>
+
+<h4 id="et-les-coûts-dhébergement-alors-">Et les coûts d’hébergement, alors ?</h4>
+
+<p>Nous avons aussi entendu parler plusieurs fois de coûts d’hébergement tout au long de cette KubeCon : comme l’illustrent les travaux de la FinOps Foundation, nous sommes de plus en plus nombreux à réaliser que si nous ne pensons pas à l’impact financier de nos infrastructures élastiques, où n’importe quel membre des équipes peut déployer des applications, la facture augmente vite et fort.</p>
+
+<p>Le talk “Why Kubernetes can’t get around FinOps - Cost Management best practices” (<a href="https://www.youtube.com/watch?v=zqJ9CqaQpYw">vidéo</a>) était une bonne introduction aux principes de gestion de coûts sur Kubernetes. Rien de nouveau pour nous, sur la théorie… même s’il nous reste encore beaucoup de progrès à réaliser pour mieux maîtriser nos frais d’hébergement !</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>Sur ces sujets de scalabilité, les conférences auxquelles nous avons assisté confirment que bon nombre des choix que nous avons fait sont les bons, et que les problématiques qui nous font encore souffrir sont partagées par d’autres membres de la communauté.</p>
+
+<p>Nous allons prochainement tenter de mettre en place VPA sur un de nos composants majeur, VictoriaMetrics, qui consomme beaucoup de ressources quelques heures par jour et pour lequel un scaling horizontal n’est pas adapté.</p>
+
+<p>Nous n’en avons pas (ou peu) entendu parler pendant cette KubeCon, mais nous étudions en ce moment la solution Karpenter pour remplacer cluster-autoscaler, très utilisé dans la communauté, mais qui ne sait pas réellement tirer profit de spécificités liées à AWS.</p>
+
+<p>Enfin, sur les coûts… OK, il n’y a pas que chez nous que c’est compliqué. Et c’est clairement un sujet, dans Kubernetes comme au niveau d’AWS, sur lequel nous avons encore du boulot devant nous pour un an ou deux. <a href="https://www.bedrockstreaming.com/career">Nous avons même un poste FinOps ouvert ;-)</a></p>
+
+<p><img src="/images/posts/2022-06-13-kubecon-2022/end-part1.jpg" alt="&quot;KubeCon 2022 day1&quot;" /></p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Bedrock+%C3%A0+la+kubecon+2022%2C+1ere+partie+%3A+performances+applicatives+et+scalabilit%C3%A9%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F06%2F13%2Fkubecon-2022-part-1.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/06/13/kubecon-2022-part-1.html&title=Bedrock+%C3%A0+la+kubecon+2022%2C+1ere+partie+%3A+performances+applicatives+et+scalabilit%C3%A9%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/06/13/kubecon-2022-part-1.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Bedrock à la kubecon 2022, 1ere partie : performances applicatives et scalabilité%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/06/13/kubecon-2022-part-1.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#cloud">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#k8s">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> k8s</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#kubecon">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> kubecon</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#kubernetes">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> kubernetes</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Bedrock à la Kubecon 2022, 2nde partie : performances, système et réseau" href="/2022/06/14/kubecon-2022-part-2.html">
+            <p>Previous post</p>
+            Bedrock à la Kubecon 2022, 2nde partie : performances, système et réseau
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Bedrock's backend architecture and its front API Gateway" href="/2022/06/10/backend-bff-intro.html">
+            <p>Next post</p>
+            Bedrock's backend architecture and its front API Gateway
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

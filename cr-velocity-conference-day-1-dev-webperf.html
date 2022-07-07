@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/banner_xl.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>CR Velocity Conference 2012 : Day 1 (Dev/Webperf) | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="CR Velocity Conference 2012 : Day 1 (Dev/Webperf)" />
+<meta name="author" content="Kenny Dits" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Blog technique de Bedrock" />
+<meta property="og:description" content="Blog technique de Bedrock" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/cr-velocity-conference-day-1-dev-webperf" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/cr-velocity-conference-day-1-dev-webperf" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2012-06-27T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CR Velocity Conference 2012 : Day 1 (Dev/Webperf)" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/cr-velocity-conference-day-1-dev-webperf"},"url":"https://tech.bedrockstreaming.com/cr-velocity-conference-day-1-dev-webperf","author":{"@type":"Person","name":"Kenny Dits"},"description":"Blog technique de Bedrock","dateModified":"2012-06-27T00:00:00+02:00","datePublished":"2012-06-27T00:00:00+02:00","headline":"CR Velocity Conference 2012 : Day 1 (Dev/Webperf)","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="CR Velocity Conference 2012 : Day 1 (Dev/Webperf)">
+    <meta name="twitter:description" content="Nous voici à Santa Clara, CA, ce lundi 25 juin pour notre première Velocity Conference (Web Performance &amp; Operations) aux states (nous avions déjà pu avo...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/banner_xl.jpg">
+    <meta name="twitter:image:alt" content="CR Velocity Conference 2012 : Day 1 (Dev/Webperf)">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="CR Velocity Conference 2012 : Day 1 (Dev/Webperf) " aria-label="CR Velocity Conference 2012 : Day 1 (Dev/Webperf)" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="CR+Velocity+Conference+2012+%3A+Day+1+%28Dev%2FWebperf%29" class="title">CR Velocity Conference 2012 : Day 1 (Dev/Webperf)</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/kenny_dee" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="/images/avatar/kenny.jpg">
+    
+    <p class="meta">
+      Kenny Dits - 
+      
+      June 27, 2012
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Nous voici à Santa Clara, CA, ce lundi 25 juin pour notre première Velocity Conference (Web Performance &amp; Operations) aux states (nous avions déjà pu avoir un aperçu l’année dernière avec la première Velocity Europe Berlin).</p>
+
+<p><img src="/images/posts/velocityus2012-welcome.jpg" alt="CR Velocity Conference 2012 : Day 1 (Dev/Webperf)" /></p>
+
+<p>L’évenement se situe au Convention Center, et la première chose que nous remarquons, c’est la taille démesurée du lieu ! Et pour cause, 800 personnes sont attendues !</p>
+
+<p>Pour cette première journée sous le signe des tutoriaux, il y avait entre trois et quatre tracks parallèles de 90 minutes chacun, dont un réservé aux sponsors. Dur de faire des choix parmi toutes les confs et le programme alléchant de la journée !</p>
+
+<p>Je m’oriente donc sur le coté Dév / WebPerf / Monitoring, pendant que mon collègue, Francois, part sur le coté operations qu’il couvrira dans une autre série de CR.</p>
+
+<h4 id="webperf-understanding-and-optimizing-web-performance-metrics-par-bryan-mcquade-de-chez-google">[WebPerf] Understanding and Optimizing Web Performance Metrics, par Bryan McQuade de chez Google</h4>
+
+<p>Au menu :</p>
+
+<ul>
+  <li>Explication des métriques de performance orientées réseau</li>
+  <li>Fonctionnement du parser HTML5</li>
+  <li>Explication des métriques de performance orientées rendu</li>
+  <li>Démo de Critical Path Explorer (PageSpeed Online)</li>
+  <li>Optimisation de l’affichage perçu utilisateur</li>
+</ul>
+
+<p>Les slides parlent d’elles même et sont disponibles ici : <br />
+<a href="https://perf-metrics-velocity2012.appspot.com">https://perf-metrics-velocity2012.appspot.com</a> .</p>
+
+<p>Elles parcourent l’intégralité des notions de WebPerf existantes “à jour”, dont certaines peu connues comme la Speculative loading, et permettent surtout de comprendre ce qu’elles signifient très précisément.</p>
+
+<p>A retenir aussi le SSL Server Test ici <a href="https://www.ssllabs.com/ssltest/">https://www.ssllabs.com/ssltest/</a></p>
+
+<p>C’est donc un Must Read pour tout ceux que la WebPerf intéresse.</p>
+
+<p>**Page Speed Insights : **</p>
+
+<p>Nous avons eu droit ensuite une démo très intéressante de la fonctionnalité Critical Path Explorer (déjà entraperçue en version béta à la Velocity Europe), et qui sera je pense lancée officiellement demain.</p>
+
+<p>En attendant et pour la tester : <br />
+<a href="https://developers.google.com/speed/pagespeed/insights?velocity=1">https://developers.google.com/speed/pagespeed/insights?velocity=1</a></p>
+
+<p>Cette fonctionnalité permet, comme son nom l’indique, de montrer le chemin critique de votre page. Sur les quelques tests que j’ai pu effectués, c’est très efficace. On apprécie le détail au niveau du waterfall sur l’exécution des javascripts, l’affichage de “qui bloque quoi”, ou le render css. A approfondir de toute urgence !</p>
+
+<p><a href="https://www.flickr.com/photos/norby/7446201456/" title="Bryan McQuade de Norby, sur Flickr"><img src="https://farm9.staticflickr.com/8168/7446201456_b2cfe5aab5.jpg" width="400" height="500" alt="Bryan McQuade" /></a></p>
+
+<p>Bryan McQuade (Google)</p>
+
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/NTAi3ILOa1c?wmode=transparent&amp;fs=1&amp;feature=oembed" width="640"></iframe>
+<p>La Lightning Démo de Page Speed ayant eu lieu le lendemain</p>
+
+<h4 id="webperf-a-web-perf-dashboard-up--running-in-90-minutes-par-cliff-crocker-et-aaron-kulick">[WebPerf] A Web Perf Dashboard: Up &amp; Running in 90 Minutes, par Cliff Crocker et Aaron Kulick.</h4>
+
+<p>L’idée ici était de montrer en 90 minutes avec quels outils obtenir un dashboard orienté WebPerf, qui sera fourni comme une VM à la fin de la session.</p>
+
+<p>Après une longue présentation orale d’outils plutôt connus désormais comme :</p>
+
+<ul>
+  <li><a href="https://github.com/yahoo/boomerang">Boomerang.Js</a></li>
+  <li><a href="https://www.webpagetest.org">WebPageTest instance privée + API</a></li>
+  <li><a href="https://piwik.org/">Piwik</a> (clone de Google Analytics)</li>
+  <li><a href="https://github.com/etsy/statsd">StatsD</a> (collecteur pour Graphite)</li>
+  <li><a href="https://graphite.wikidot.com/">Graphite</a></li>
+  <li><a href="https://redbot.org/">REDbot.org</a></li>
+  <li>cUrl</li>
+  <li><a href="https://www.showslow.com/">ShowSlow</a></li>
+  <li>…</li>
+</ul>
+
+<p>Les deux conférenciers nous présentent un site réalisé pour l’occasion : “Sally Squirrel’s Dance Emporium”, hommage aux gifs animés d’écureuils dansant, et nous font une démo (un peu capricieuse) de leur dashboard basé sur Piwik, alternative Google Analytics avec un système de “plugin” visiblement pour aggréger un peu le tout.</p>
+
+<p>L’idée est clairement bonne, le résultat ne m’a pas convaincu titre personnel. On vante au départ de la présentation, le faite qu’une image bien choisie suffit au monitoring, et qu’un dashboard ne doit pas être complexe, et au final, on se retrouve avec un dashboard remplis d’images en tout genre, de données tabulaires, … complexe quoi …</p>
+
+<p><strong>Piwik en alternative Analytics ?</strong></p>
+
+<p>Je doute aussi de la robustesse de Piwik que nous avions déjà étudier, et voir des pages listant les temps de latence ou de chargement utilisateur par utilisateur, me fait réellement peur avec une audience dépassant la centaine de personnes la journée …</p>
+
+<p>Pour l’anecdote, sur le wiki de Piwik, on lit cette phrase que je vous laisse apprécier : “If your website has more than a few hundreds visits per day (bravo!), waiting for Piwik to process your data may take a few minutes”</p>
+
+<p>Je vous invite tout de même à lire les slides : <br />
+[https://assets.en.oreilly.com/1/event/79/A%20Web%20Perf%20Dashboard_%20%20Up%20<em>%20Running%20in%2090%20Minutes%20Presentation.pptx](https://assets.en.oreilly.com/1/event/79/A%20Web%20Perf%20Dashboard</em>%20%20Up%20_%20Running%20in%2090%20Minutes%20Presentation.pptx)</p>
+
+<p>Ainsi qu’à tester la VM mise à disposition, car le travail derrière est conséquent, et peut correspondre à certains, ou peut au moins donner des idées pour d’autres : <a href="https://t.co/uLv1fX1A">https://t.co/uLv1fX1A</a></p>
+
+<p>**A retenir : **</p>
+
+<p>A retenir aussi dans cette présentation, tout le bien qui a été dit de Graphite (même si je ne suis plus convaincre la dessus), et de quelques features pour lesquelles j’étais passée travers :</p>
+
+<ul>
+  <li>Support du SVG ( &amp;format=svg) qui va enfin nous permettre de tester l’enrichissement des graphs par du contenu “connexe” (liste des erreurs 404 sur le graph lorsque l’on clic sur un point, nom du développeur ayant fait la mise en production etc)</li>
+  <li>Les fonctions de HoltWinter afin d’avoir des tendances hautes et basses pour mieux savoir quand alerter par exemple.</li>
+</ul>
+
+<h4 id="webperf-how-to-walk-away-from-your-outage-looking-like-a-hero-par-teresa-dietrich-webmd-derek-chang-webmd">[WebPerf] How to Walk Away From Your Outage Looking Like a HERO par Teresa Dietrich (WebMD), Derek Chang (WebMD)</h4>
+
+<p>L’une des conférences que j’attendais beaucoup : le titre annonçait un talk sur la gestion d’incident avec un coté humoristique.</p>
+
+<p>Les deux conférenciers ont présentés des templates très complet de gestion d’incident qu’ils réalisent pour des posts-mortems qu’on peut retrouver ici : <a href="https://www.teresadietrich.net/?page_id=37">https://www.teresadietrich.net/?page_id=37</a></p>
+
+<p>Personnellement, il me parait très important de réaliser des posts mortems. Mais si c’est pour passer plus de temps à rédiger des rapports d’incidents trop complet qu’on ne relira jamais qu’a en tirer un quelconque bénéfice, cela me parait inutile.</p>
+
+<p>Du coup, la première demi-heure a consisté à présenter ces templates, lire et expliquer quelques incidents ayant eu lieu chez WebMD.</p>
+
+<p>J’ai, comme une bonne partie de la salle, fait l’impasse rapidement : entre le sujet dans lequel je ne suis jamais rentré ainsi que des slides avec beaucoup de texte illisible passés les premiers rangs de la très grande salle, je n’ai pas accroché.</p>
+
+<p>A revoir tête reposée : <a href="https://velocityconf.com/velocity2012/public/schedule/detail/23615">https://velocityconf.com/velocity2012/public/schedule/detail/23615</a> (slides non dispo à l’heure actuelle)</p>
+
+<p><a href="https://www.flickr.com/photos/norby/7446205242/" title="Teresa Dietrich and Derek Chang de Norby, sur Flickr"><img src="https://farm8.staticflickr.com/7256/7446205242_f5752167d7.jpg" width="500" height="333" alt="Teresa Dietrich and Derek Chang" /></a></p>
+
+<p>Teresa Dietrich (WebMD), Derek Chang (WebMD)</p>
+
+<h4 id="webperf-the-90-minutes-mobile-optimization-life-cycle-par-hooman-beheshti-vp-strangeloop">[WebPerf] The 90-minutes Mobile optimization life cycle par Hooman Beheshti (VP strangeloop)</h4>
+
+<p>Conférence orientée WebPerf Mobile.</p>
+
+<p>Ici, on retrouve tout ce que j’aime dans les conférences Vélocity :</p>
+
+<ul>
+  <li>Un conférencier avec un grand talent d’orateur : précis, drôle et captivant</li>
+  <li>Un sujet très maitrisé</li>
+  <li>Des slides propres et parlantes même sans avoir assisté au talk</li>
+  <li>Des débats lancés …</li>
+</ul>
+
+<p>L’idée était de partir d’un site, au hasard Oreilly.com, puis le site mobile velocityconf.com par la suite, et de démontrer les étapes d’optimisation WebPerf, étape par étape, avec à chaque fois, ce que l’on souhaite obtenir, ce que l’on obtient réellement, et une comparaison vidéo du changement.</p>
+
+<p>Des points ont été approfondis comme la gestion du cache, via LocalStorage, du fonctionnement des CDN (pour le mobile), du Pipellining HTTP, de la congestion TCP etc …</p>
+
+<p>Beaucoup d’outils ont aussi été mentionnés pour la WebPerf mobile :</p>
+
+<ul>
+  <li>Chrome remote debugging : <a href="Http://developers.google.com/chrome/mobile/docs/debugging/">Http://developers.google.com/chrome/mobile/docs/debugging/</a></li>
+  <li>iWebInspector for IOS simulator : <a href="https://www.iwebinspector.com">www.iwebinspector.com</a></li>
+  <li>Weinre : Remote debugging from the desktop for what the phone is doing : <a href="https://people.apache.org/~pmuellr/weinre/">https://people.apache.org/~pmuellr/weinre/</a></li>
+  <li>Aardwolf : Remote js debugging <a href="https://https://lexandera.com/aardwolf/">lexandera.com/aardwolf</a></li>
+  <li>Mobile Perf Bookmarklet : <a href="https://www.stevesouders.com/mobileperf/mobileperfbkm.php">stevesouders.com/mobileperf/mobileperfbkm.php</a></li>
+  <li>Pcap2har : Turn packet captures to waterfalls <a href="https://pcapperf.appspot.com">https://pcapperf.appspot.com</a></li>
+  <li>…</li>
+</ul>
+
+<p>Bref, un très bon panorama pour la WebPerf mobile avec deux cas concret d’étude, chacun avec deux approches différentes :</p>
+
+<ul>
+  <li>Améliorer les métriques de WebPerf pour le site d’Oreilly</li>
+  <li>Améliorer la perception utilisateur sans regarder les métriques pour le site mobile de la Vélocityconf</li>
+</ul>
+
+<p>Slides dispo ici : <a href="https://www.strangeloopnetworks.com/blog/the-90-minute-mobile-optimization-life-cycle/">https://www.strangeloopnetworks.com/blog/the-90-minute-mobile-optimization-life-cycle/</a></p>
+
+<p>Je vous invite aussi à regarder son interview ci dessous.</p>
+
+<iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/TpkxPEurk9M?wmode=transparent&amp;fs=1&amp;feature=oembed" width="640"></iframe>
+
+<p><img src="/images/posts/velocityus-akamai-pool.jpg" alt="CR Velocity Conference 2012 : Day 1 (Dev/Webperf)" /></p>
+
+<h4 id="event-akamai-pool-party">[Event] Akamai Pool Party</h4>
+
+<p>Cette journée touche à sa fin avec une Pool Party extérieure par Akamai avec un orchestre (qui nous joué notamment le thème de Mario ! Très fun), beaucoup à boire, et beaucoup à manger (légumes tremper dans du brie chaud, WTF ?). L’occasion de rencontrer quelques sponsors et 2 autres français. :-)</p>
+
+<p><img src="/images/posts/velocityus-akamai-pool2.jpg" alt="DevOps drinking session / @jstinson" />
+DevOps drinking session / @jstinson</p>
+
+<h4 id="event-ignite-sessions">[Event] Ignite Sessions</h4>
+
+<p>A 19h30 avait lieu les Ignite sessions, des confs “lightning talks” de 5 minutes sur des sujets divers, certains très intéressant comme :</p>
+
+<ul>
+  <li>le “Perceptual Diff” par un ingénieur de chez Google, pour être alerté (par l’intégration continue) lorsque la page du Service customers de chez Google change. <a href="https://www.onebigfluke.com/2012/06/i-showed-how-perceptual-diffs-are-core.html">Photos de la présentation ici</a> + <a href="https://pdiff.sourceforge.net/">https://pdiff.sourceforge.net/</a></li>
+  <li>les #lolops, avec une série de Twitt orientée Devops à mourir de rire : Voir ici <a href="https://www.slideshare.net/cwestin63/lolops-a-years-worth-of-humorous-engineering-tweets">https://www.slideshare.net/cwestin63/lolops-a-years-worth-of-humorous-engineering-tweets</a></li>
+  <li>…</li>
+</ul>
+
+<p>Le concept est vraiment efficace avec des speakers ultra dynamique et pour la majorité très drôle.</p>
+
+<p>Mention spéciale pour la partie centrale, où 11 personnes de la salle (dont certains speakers, Allspaw et Souders en tête), avait 1 à 2 minutes pour improviser sur des slides plutôt très drôle qu’ils n’avaient jamais vu.</p>
+
+<p>J’espère que les vidéos seront disponible car c’était juste hilarant au possible. Je ne m’attendais pas à pleurer de rire non stop ici :-)</p>
+
+<p><img src="/images/posts/velocityus2012-vide.jpg" alt="CR Velocity Conference 2012 : Day 1 (Dev/Webperf)" /></p>
+
+<h4 id="conclusion">Conclusion</h4>
+
+<p>Excellente première journée, déjà des tonnes d’infos à condenser / retenir, et ce n’était que le premier jour !</p>
+
+<p>Sinon l’organisation est impeccable, lieu exceptionnel, wifi public qui fonctionne, repas de très bonne qualité (et table qui plus est), pas mal de multiprises dans les salles, à boire à volonté … La grande classe !</p>
+
+<p>Les comptes rendus des prochaines journées et des sessions orientés Ops suivre ;-)</p>
+
+<p>N’hésitez pas à faire un maximum de retour sur ce compte rendu, cela nous aidera et nous motivera pour les prochains ;-)</p>
+
+<p>P.S: Retrouvez moi sur Twitter : <a href="https://twitter.com/#!/kenny_dee">@kenny_dee</a></p>
+
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=CR+Velocity+Conference+2012+%3A+Day+1+%28Dev%2FWebperf%29%20https%3A%2F%2Ftech.bedrockstreaming.com%2Fcr-velocity-conference-day-1-dev-webperf"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/cr-velocity-conference-day-1-dev-webperf&title=CR+Velocity+Conference+2012+%3A+Day+1+%28Dev%2FWebperf%29%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/cr-velocity-conference-day-1-dev-webperf"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=CR Velocity Conference 2012 : Day 1 (Dev/Webperf)%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/cr-velocity-conference-day-1-dev-webperf"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#mobile">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> mobile</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#velocity">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> velocity</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#webperf">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> webperf</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)" href="/cr-velocity-conference-2012-day-2-devops-webperf">
+            <p>Previous post</p>
+            CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Monitoring applicatif : Pourquoi et comment ?" href="/monitoring-applicatif-pourquoi-et-comment">
+            <p>Next post</p>
+            Monitoring applicatif : Pourquoi et comment ?
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

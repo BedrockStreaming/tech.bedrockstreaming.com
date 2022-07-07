@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/banner_xl.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Benchmarking WebSockets avec NodeJs | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Benchmarking WebSockets avec NodeJs" />
+<meta name="author" content="Bedrock" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Blog technique de Bedrock" />
+<meta property="og:description" content="Blog technique de Bedrock" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/benchmarking-websockets-avec-nodejs" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/benchmarking-websockets-avec-nodejs" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-07-05T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Benchmarking WebSockets avec NodeJs" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/benchmarking-websockets-avec-nodejs"},"url":"https://tech.bedrockstreaming.com/benchmarking-websockets-avec-nodejs","author":{"@type":"Person","name":"Bedrock"},"description":"Blog technique de Bedrock","dateModified":"2013-07-05T00:00:00+02:00","datePublished":"2013-07-05T00:00:00+02:00","headline":"Benchmarking WebSockets avec NodeJs","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Benchmarking WebSockets avec NodeJs">
+    <meta name="twitter:description" content="Nous avons récemment eu à repenser une application Node.js de timeline temps réel, basée sur les WebSockets afin de tenir une charge plus élevée.L’applicatio...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/banner_xl.jpg">
+    <meta name="twitter:image:alt" content="Benchmarking WebSockets avec NodeJs">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Benchmarking WebSockets avec NodeJs " aria-label="Benchmarking WebSockets avec NodeJs" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Benchmarking+WebSockets+avec+NodeJs" class="title">Benchmarking WebSockets avec NodeJs</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      Bedrock - 
+      
+      July 05, 2013
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Nous avons récemment eu à repenser une application <a href="https://nodejs.org">Node.js</a> de timeline temps réel, basée sur les <a href="https://fr.wikipedia.org/wiki/Websocket">WebSockets</a> afin de tenir une charge plus élevée.</p>
+
+<h2 id="lapplication-timeline">L’application timeline</h2>
+
+<p>Fonctionnellement, l’application timeline est relativement simple: elle consiste à afficher un flux de message publiés par des contributeurs en temps réel pour les internautes présent sur la page. Pour cela l’application se base sur <a href="https://socket.io/">socket.io</a> pour la partie websocket, et supporte à peu près 15 000 connexions simultanées.</p>
+
+<p>Afin d’augmenter la capacité de l’application, nous avons décidé de la rendre scalable horizontalement. C’est dire, répartir la charge sur un nombre X de serveurs communiquant entre eux, par exemple, par le biais de Redis.</p>
+
+<p><img src="/images/posts/imgob/0-00-30-83-201306-ob_f7b929d0a6fe57963aa5f28c2d48a291_test.png" alt="Benchmarking WebSockets avec NodeJs" /></p>
+
+<p>Pour cela socket.io propose un store redis qui permet aux différentes instances de communiquer entre elles. Malheureusement les performances de ce store sont plutôt désastreuses car le store que propose socket.io est beaucoup trop verbeux et écrit absolument tous les évènements que reçoit un serveur sur un seul channel redis. L’application devenait inutilisable autour de 8 000 connexions. Il était donc inenvisageable de l’utiliser en production.</p>
+
+<p>Nous avons donc décidé rapidement de passer une autre solution que socket.io. Après pas mal de recherche nous avons fait notre choix sur <a href="https://faye.jcoglan.com/">Faye</a>, une implémentation du protocole de Bayeux, bien documenté et proposant aussi d’utiliser redis comme “store”. Après test, cette solution s’est révélée bien plus performante que socket.io.</p>
+
+<h2 id="tests-de-charge">Tests de charge</h2>
+
+<p>Une des problématiques rapidement rencontrée sur ce projet a été de tester la charge de notre application: comment simuler 15 000 connexions simultanées ?</p>
+
+<p>En faisant le tour des solutions de benchmark de websocket (<a href="https://github.com/observing/thor">thor</a>, …) ,nous n’avons pas trouvé la solution qui nous permettait de faire les tests que nous souhaitions. <a href="https://www.joedog.org/siege-home/">Siege</a>, <a href="https://httpd.apache.org/docs/2.2/programs/ab.html">ab</a> ne le propose pas encore,<a href="https://gatling-tool.org/">Gatling</a>, <a href="https://jmeter.apache.org/">Jmeter</a>, <a href="https://tsung.erlang-projects.org/">Tsung</a> ont des plugins web-socket mais l’utilisation et le reporting ne sont pas des plus clair.</p>
+
+<p>La solution ?</p>
+
+<h2 id="websocket-bench">Websocket-bench</h2>
+
+<p>Nous avons donc décidé de développer notre propre outil de benchmark de websocket (<a href="https://socket.io/">Socket.io</a> ou <a href="https://faye.jcoglan.com/">Faye</a>), au nom très original : <a href="https://github.com/BedrockStreaming/websocket-bench">websocket-bench</a>.</p>
+
+<p>Cet outil se base sur les clients Node que proposent <a href="https://faye.jcoglan.com/">Faye</a> et <a href="https://socket.io/">Socket.io</a>. Il peut être facilement étendu à l’aide de “generator” (module Node), afin de rajouter la logique de votre application. Par exemple dans le cas de notre application, en se connectant, un client doit envoyer un message au serveur pour valider la connexion.</p>
+
+<p>Ci dessous un exemple de générateur qu’on a pu utiliser lors de nos tests de charge.</p>
+
+<script src="https://gist.github.com/nchaulet/5875142.js"></script>
+
+<p>Cet outil, lancé sur des instances Amazon, nous a permis d’exécuter nos tests de charge.</p>
+
+<p>Un exemple : la commande ci dessous va lancer 25 000 connexions, à raison de 1000 connexions par seconde en utilisant le generateur “generator.js” :</p>
+
+<script src="https://gist.github.com/nchaulet/5934254.js"></script>
+
+<p><img src="/images/posts/imgob/0-00-30-83-201306-ob_d08f10f02fad26d77fa14e6d966584c2_testcharge.png" alt="Nombre de clients connectés sur Graphite" /></p>
+
+<p>Nombre de clients connectés sur Graphite</p>
+
+<p>Au delà de 25 000 connexions, l’instance Amazon (large) qui lançait les tests ne tenait plus. Une solution pour tester un nombre plus élevés de connexions serait d’utiliser plusieurs machine de tests, peut être à l’aide de <a href="https://github.com/newsapps/beeswithmachineguns">bees with machin guns</a> et ainsi d’utiliser plusieurs instances pour lancer les tirs de charge.</p>
+
+<h5 id="bonnes-pratique-de-test-de-charge"><strong>Bonnes pratique de test de charge</strong></h5>
+
+<p>Lors de votre test de charge (et pour la prod), n’oubliez pas d’augmenter le nombre maximal de descripteurs de fichiers coté client ET coté injecteur (ulimit -n 256000 par exemple dans la conf de supervisor, et dans le terminal avant de lancer le benchmark).</p>
+
+<p>Surveillez votre <a href="https://conntrack-tools.netfilter.org/">conntrack</a> (si firewall iptables), augmentez votre plage locale de port, et si vous êtes amenés à tester plus de 25K connexions, utilisez plusieurs machines et/ou plusieurs IP sources différentes.</p>
+
+<h5 id="comment-contribuer-au-projet-">Comment contribuer au projet ?</h5>
+
+<p>N’hésitez pas à remonter d’éventuels bug via les issues ou à contribuer au projet l’aide de pull request github (<a href="https://github.com/BedrockStreaming/websocket-bench">https://github.com/BedrockStreaming/websocket-bench</a>)</p>
+
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Benchmarking+WebSockets+avec+NodeJs%20https%3A%2F%2Ftech.bedrockstreaming.com%2Fbenchmarking-websockets-avec-nodejs"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/benchmarking-websockets-avec-nodejs&title=Benchmarking+WebSockets+avec+NodeJs%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/benchmarking-websockets-avec-nodejs"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Benchmarking WebSockets avec NodeJs%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/benchmarking-websockets-avec-nodejs"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#benchmark">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> benchmark</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#nodejs">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> nodejs</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#open-source">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> open-source</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#websockets">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> websockets</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="M6Web Dev Facts #5" href="/m6web-dev-facts-5">
+            <p>Previous post</p>
+            M6Web Dev Facts #5
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Performances web et "Disaster case" sur applications mobile native" href="/performances-web-disaster-case-applications-mobile-native">
+            <p>Next post</p>
+            Performances web et "Disaster case" sur applications mobile native
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

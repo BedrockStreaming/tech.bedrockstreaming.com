@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/2020-12-08-three-years-running-kubernetes/ihor-dvoretskyi-UGKfiS5CcZI-unsplash.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Three years running Kubernetes on production at Bedrock | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Three years running Kubernetes on production at Bedrock" />
+<meta name="author" content="Vincent Gallissot" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Running all our workloads on Kubernetes is not that simple. We’ve learned a lot and are still learning, but we can already share what we’re doing" />
+<meta property="og:description" content="Running all our workloads on Kubernetes is not that simple. We’ve learned a lot and are still learning, but we can already share what we’re doing" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2020/12/08/Three-years-running-kubernetes-on-production-at-Bedrock.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2020/12/08/Three-years-running-kubernetes-on-production-at-Bedrock.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-12-08T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Three years running Kubernetes on production at Bedrock" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2020/12/08/Three-years-running-kubernetes-on-production-at-Bedrock.html"},"url":"https://tech.bedrockstreaming.com/2020/12/08/Three-years-running-kubernetes-on-production-at-Bedrock.html","author":{"@type":"Person","name":"Vincent Gallissot"},"description":"Running all our workloads on Kubernetes is not that simple. We’ve learned a lot and are still learning, but we can already share what we’re doing","dateModified":"2020-12-08T00:00:00+01:00","datePublished":"2020-12-08T00:00:00+01:00","headline":"Three years running Kubernetes on production at Bedrock","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Three years running Kubernetes on production at Bedrock">
+    <meta name="twitter:description" content="We migrated our first application to a Kubernetes cluster at AWS in 2018 (a colleague even wrote a book about it).Three years later, we manage a dozen cluste...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/2020-12-08-three-years-running-kubernetes/ihor-dvoretskyi-UGKfiS5CcZI-unsplash.jpg">
+    <meta name="twitter:image:alt" content="Three years running Kubernetes on production at Bedrock">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Three years running Kubernetes on production at Bedrock " aria-label="Three years running Kubernetes on production at Bedrock" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Three+years+running+Kubernetes+on+production+at+Bedrock" class="title">Three years running Kubernetes on production at Bedrock</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/vgallissot" target="_blank" rel="noopener">
+    <p class="meta">
+      Vincent Gallissot - 
+      
+      December 08, 2020
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>We migrated our first application to a Kubernetes cluster at AWS in 2018 (a colleague even wrote <a href="https://leanpub.com/tci/">a book about it)</a>.<br />
+Three years later, we manage a dozen clusters, to which we have added a lot of tools and we have a much better grasp of certain subtleties.<br />
+Each cluster reaches, depending on the load, hundreds of nodes and thousands of pods.</p>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+  <li>Base
+    <ul>
+      <li>Kops and templates</li>
+      <li>Tools we use</li>
+      <li>Keep tools up to date on all clusters</li>
+    </ul>
+  </li>
+  <li>Resiliency
+    <ul>
+      <li>DNS</li>
+      <li>Lots of AutoScalingGroups</li>
+      <li>Dedicated AutoScalingGroups by app</li>
+      <li>QOS Guaranteed Daemonsets</li>
+    </ul>
+  </li>
+  <li>Scalability
+    <ul>
+      <li>Cluster Autoscaler
+        <ul>
+          <li>Expander Priority</li>
+        </ul>
+      </li>
+      <li>Overprovisioning</li>
+      <li>PriorityClass</li>
+      <li>Low HPA targets</li>
+      <li>Long downscale durations</li>
+    </ul>
+  </li>
+  <li>Observability
+    <ul>
+      <li>Metrics</li>
+      <li>Logs</li>
+      <li>Alerting</li>
+    </ul>
+  </li>
+  <li>Costs
+    <ul>
+      <li>Spot instances
+        <ul>
+          <li>Inter accounts reclaims</li>
+          <li>On-demand fallback</li>
+          <li>Draino and node-problem-detector</li>
+          <li>Spot Tips</li>
+        </ul>
+      </li>
+      <li>Kube-downscaler</li>
+      <li>HAProxy Ingress Controller</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="base">Base</h2>
+
+<h3 id="kops-and-templates">Kops and templates</h3>
+
+<p><a href="https://aws.amazon.com/eks/">EKS</a> didn’t exist when we started to work on Kubernetes on AWS. So we use <a href="https://github.com/kubernetes/kops">Kops</a> which, by the way, works very well.<br />
+Kops creates, updates and deletes our clusters, but also associates resources on our AWS accounts: DNS zone + entries, AutoScalingGroups, SecurityGroups, etc.<br />
+Our rolling updates and rolling upgrades are 100% handled by kops which never failed us.</p>
+
+<p>Because we have several clusters, we use <code class="language-plaintext highlighter-rouge">kops toolbox template</code> instead of having a single YAML file per cluster. We have mutualized resources definitions, like AutoScalingGroups, DNS options or namespaces list, inside common files and use a dedicated template file per cluster, referencing mutualized configs through variables.</p>
+
+<p>For example, the EC2 instance types will be defined as snippets:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">± <span class="nb">cat </span>snippets/spot_4x_32Gb_machine_type.yaml:
+- c5.4xlarge
+- c5d.4xlarge
+- c5n.4xlarge</code></pre></figure>
+
+<p>And used inside a generic template file:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">± <span class="nb">cat </span>templates/3_spot-nodes.yaml.tpl
+…
+  mixedInstancesPolicy:
+    instances:
+    <span class="o">{</span> <span class="o">{</span> <span class="k">if </span>eq <span class="nv">$index</span> <span class="s2">"4x_32Gb"</span> <span class="o">}</span> <span class="o">}</span>
+    <span class="o">{</span> <span class="o">{</span> include <span class="s2">"spot_4x_32Gb_machine_type.yaml"</span> <span class="nb">.</span> | indent 4 <span class="o">}</span> <span class="o">}</span>
+    <span class="o">{</span> <span class="o">{</span> end <span class="o">}</span> <span class="o">}</span>
+…</code></pre></figure>
+
+<p>Finally, if the cluster requires an ASG with instances size 4x with 32GB RAM on Spot instances:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">± <span class="nb">cat </span>vars/prod-customer.k8s.foo.bar.yaml
+…
+spot_nodes:
+  4x_32Gb:
+    az:
+      - eu-west-3a
+      - eu-west-3b
+      - eu-west-3c
+    min: 1
+    max: 100</code></pre></figure>
+
+<p>A bash script orchestrates all this. It generates manifest files, creates/updates clusters and checks everything is operating normally.</p>
+
+<p>All of the above lives as files in a git repository, ensuring we’re doing only Infrastructure as Code.</p>
+
+<p>We never make any Infrastructure modification outside of code.</p>
+
+<h3 id="tools-we-use">Tools we use</h3>
+
+<p>We add some tools to a raw Kubernetes cluster:</p>
+
+<ul>
+  <li><a href="https://github.com/kubernetes-sigs/aws-iam-authenticator">aws-iam-authenticator</a></li>
+  <li><a href="https://github.com/kubernetes/autoscaler">cluster-autoscaler</a></li>
+  <li>cloudwatch-exporter-in-cluster</li>
+  <li><a href="https://github.com/aws/amazon-vpc-cni-k8s">cni-metrics-helper</a></li>
+  <li><a href="https://github.com/planetlabs/draino">draino</a></li>
+  <li><a href="https://github.com/lmenezes/cerebro">elasticsearch-cerebro</a></li>
+  <li><a href="https://github.com/fluent/fluentd-kubernetes-daemonset">fluentd</a></li>
+  <li><a href="https://github.com/haproxytech/kubernetes-ingress/">haproxy-ingress-controller</a></li>
+  <li><a href="https://github.com/aws/amazon-eks-pod-identity-webhook">iam-role-for-serviceaccount</a></li>
+  <li><a href="https://github.com/kube-aws/kube-spot-termination-notice-handler">k8s-spot-termination-handler</a></li>
+  <li><a href="https://codeberg.org/hjacobs/kube-downscaler">kube-downscaler</a></li>
+  <li><a href="https://github.com/elastic/logstash">logstash</a></li>
+  <li><a href="https://github.com/grafana/loki">loki</a></li>
+  <li><a href="https://github.com/kubernetes-sigs/metrics-server">metrics-server</a></li>
+  <li><a href="https://github.com/kubernetes/node-problem-detector">node-problem-detector</a></li>
+  <li><a href="https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-can-i-configure-overprovisioning-with-cluster-autoscaler">overprovisioning</a></li>
+  <li><a href="https://github.com/prometheus-operator/kube-prometheus">prometheus</a></li>
+  <li><a href="https://github.com/google/dnsmasq_exporter">prometheus-dnsmasq-exporter</a></li>
+  <li><a href="https://github.com/prometheus/pushgateway">prometheus-pushgateway</a></li>
+  <li><a href="https://github.com/prometheus/statsd_exporter">statsd-exporter</a></li>
+  <li><a href="https://github.com/hit9/statsd-proxy">statsd-proxy</a></li>
+  <li><a href="https://github.com/VictoriaMetrics/VictoriaMetrics">victoria-metrics-cluster</a></li>
+</ul>
+
+<p>Some of those tools stand for compatibility reasons after our cloud migration, so our developers can still use our ELK stack, or a statsd format to generate metrics.</p>
+
+<p>We need all these tools to have a production-ready cluster, so we can provide scaling, resilience, observability, security with controlled costs. This list isn’t even exhaustive.</p>
+
+<p>It evolved a lot over the last two years and will surely evolve a lot in the near future, as both Kubernetes and AWS are moving playgrounds.</p>
+
+<h3 id="keep-tools-up-to-date-on-all-clusters">Keep tools up to date on all clusters</h3>
+
+<p>We use a Jenkins job for that.</p>
+
+<p>We deploy k8s-tools the same way we deploy our apis in the cluster: with bash scripts and a helm chart, dedicated per application.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">± tree app/loki/.cloud/       
+app/loki/.cloud/
+├── charts
+│   ├── Chart.yaml
+│   ├── templates/
+│   ├── values.yaml
+│   ├── values.customerX.yaml
+│   └── values.customerY.yaml
+└── jenkins
+    ├── builder.sh
+    └── deployer.sh</code></pre></figure>
+
+<p>A Jenkins job runs the <code class="language-plaintext highlighter-rouge">builder.sh</code>, then the <code class="language-plaintext highlighter-rouge">deployer.sh</code> script for every k8s-tool.<br />
+<code class="language-plaintext highlighter-rouge">builder.sh</code> is run when we need to build our own Docker images.<br />
+<code class="language-plaintext highlighter-rouge">deployer.sh</code> handles the Helm Chart deployment subtleties.<br />
+All apps are first deployed on all our staging clusters, then on prod.</p>
+
+<p>Consistency is maintained over all our clusters through this Jenkins job.</p>
+
+<h2 id="resiliency">Resiliency</h2>
+
+<h3 id="dns">DNS</h3>
+
+<p>Like everyone who’s using Kubernetes on production, at some point, we faced an outage due to DNS. It was either <a href="https://www.weave.works/blog/racy-conntrack-and-dns-lookup-timeouts">UDP failing because of a kernel race condition</a>, or <a href="https://github.com/gliderlabs/docker-alpine/blob/master/docs/caveats.md#dns">musl (Alpine Linux’s replacement of glibc) not correctly handling domain or search</a>, or also the default <code class="language-plaintext highlighter-rouge">ndots 5 dnsConfig</code>, or even KubeDNS not handling peak loads properly.</p>
+
+<p>As of today:</p>
+
+<ul>
+  <li>We are using a local DNS cache on each worker node, with dnsmasq,</li>
+  <li>We use Fully Qualified Domain Names (trailing dot on curl calls) as much as possible,</li>
+  <li>We’ve defined <a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-dns-config">dnsConfig</a> preferences for all our applications,</li>
+  <li>We use CoreDNS with autoscaling as a replacement for KubeDNS,</li>
+  <li>We forbid as much as possible musl/Alpine</li>
+</ul>
+
+<p>Example of a dns configuration in prod:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">dnsConfig</span><span class="pi">:</span>
+    <span class="na">options</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">use-vc</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">single-request</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">single-request-reopen</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">ndots</span>
+      <span class="na">value</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1"</span>
+  <span class="na">dnsPolicy</span><span class="pi">:</span> <span class="s">ClusterFirst</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">dnsPolicy: ClusterFirst</code> makes sure we’re using the node’s loopback interface, so pods will send their DNS requests to dnsmasq installed locally on each node.<br />
+Dnsmasq forwards DNS queries to CoreDNS for <code class="language-plaintext highlighter-rouge">cluster.local.</code> sub-domains and to the VPC’s DNS server for the rest.</p>
+
+<h3 id="lots-of-autoscalinggroups">Lots of AutoScalingGroups</h3>
+
+<p>We had a dozen AutoScalingGroups per cluster.<br />
+This was both for resiliency and because we use Spot instances.<br />
+With Spot instance reclaims, we needed to have a lot of instance types and family types: m5.4xlarge, c5.4xlarge, m5n.8xlarge, etc.<br />
+This is an autoscaler recommendation to split AutoScalingGroups so that <a href="https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md#using-mixed-instances-policies-and-spot-instances">each ASG has the same amount of RAM and number of CPU cores</a> when using mixed instances policies.<br />
+As a result, we had ASGs like:</p>
+
+<ul>
+  <li>spot_4x_32Gb</li>
+  <li>spot_4x_64Gb</li>
+  <li>spot_4x_128Gb</li>
+</ul>
+
+<p><strong>Lots of AutoScalingGroups doesn’t work well</strong></p>
+
+<p><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-benefits.html#AutoScalingBehavior.InstanceUsage">AZ rebalancing</a> doesn’t work anymore when using more than one ASG. It becomes totally unpredictable and uncontrollable. It is even a total nightmare with a dozen ASGs.</p>
+
+<p>You can see the difference of outgoing traffic between our 3 NAT Gateway over 4 hours time range :
+<img src="/images/posts/2020-12-08-three-years-running-kubernetes/aws-nat-gateway-unbalanced.png" alt="difference of outgoing traffic between our 3 NAT Gateway" />
+The blue NAT gateway is used way more than the two others between 19h00 and 22h00. The green NAT gateway is used half as much as the other two during peak usage times.<br />
+This is because AZ-rebalacing has resulted in twice as many instances in one AZ than in the others.</p>
+
+<p>Also, Kubernetes’s <strong>cluster-autoscaler</strong> isn’t really compatible with many AutoScalingGroups. We’ll cover how it works later in this post (Scalability/ExpanderPriority), but keep in mind that each application should run on no more than a maximum of 4 ASGs. This is due to the failover mechanism of cluster-autoscaler that doesn’t detect ASGs errors like <em>InsufficientInstanceCapacity</em>, which considerably increases the scale-up time. We are particularly concerned because we need to scale quickly and intensely.</p>
+
+<p>We’ve rolled-back on the ASG number. We now have a maximum of 4 ASGs per application group (see next section: Resiliency/DedicatedAutoScalingGroups), with 2 being Spot and 2 on-demand fallbacks.<br />
+For this reason, we no longer respect the recommendation to split AutoScalingGroups so that each ASG has the same amount of RAM and number of CPU cores, in order to reduce ASGs number.</p>
+
+<p>Running PHP, the CPU is our bottleneck, not RAM. So we made the choice to have mixed ASG with the same number of CPUs, but not the same amount of RAM.<br />
+This means that our ASG <code class="language-plaintext highlighter-rouge">spot-nodes-8x</code> is composed of m5.8xlarge as well as r5.8xlarge</p>
+
+<h3 id="dedicated-autoscalinggroups-by-app">Dedicated AutoScalingGroups by app</h3>
+
+<p>We started to dedicate AutoScalingGroups for some applications when Prometheus was eating all the memory of a node, ending up in OOM errors. Because Prometheus replays its WAL at startup and consumes a lot of memory doing so, adding a Limit over the memory was of no use. It was OOMKill during the WAL process, restarted, OOMKilled again, etc. . Therefore, we isolated Prometheus on nodes having a lot of memory so it could use up all of it.</p>
+
+<p>Then, one of our main API experienced a huge load, <strong>60% IDLE CPU to 0% in a few seconds</strong>. Because of the brutality of such a peak, active pods started to consume all CPU available on nodes, depriving other pods. Getting rid of CPU <code class="language-plaintext highlighter-rouge">limits</code> is <a href="https://erickhun.com/posts/kubernetes-faster-services-no-cpu-limits/">a recommendation</a> that comes with drawbacks that we measured and chose to follow the recommendation to ensure performance. As a result, the entire cluster went down, lacking for available CPU. <a href="https://thenewstack.io/kubernetes-performance-troublespots-airbnbs-take/">Airbnb shared the same experience</a>: they removed CPU limits because of throttling, but the <em>noisy neighbors</em> forced them to re-introduce <code class="language-plaintext highlighter-rouge">limits</code>.</p>
+
+<p>We tried to isolate this API on its own nodes, as such peaks can repeat in the future, because it’s uncacheable and userfacing. We added <code class="language-plaintext highlighter-rouge">Taints</code> on dedicated nodes and <code class="language-plaintext highlighter-rouge">Tolerations</code> on the selected API.</p>
+
+<p>Since then, we had to deploy a dedicated overprovisioning on those nodes as the overprovisioning pods didn’t have this <code class="language-plaintext highlighter-rouge">Toleration</code>. It turned out we’re also able to adapt the overprovisioning specifically for this API, which wasn’t the base idea, but it has proven to be very effective due to the API’s nature. We talk more about overprovisioning’s conf a little later on (Scalability/Overprovisioning).</p>
+
+<p>Now, we’re setting CPU <code class="language-plaintext highlighter-rouge">limits</code>, at least for all applications not using dedicated nodes and also because we’ve updated our kernels <a href="https://engineering.indeedblog.com/blog/2019/12/cpu-throttling-regression-fix/">to the patched version</a>. We follow their CPU usage through Prometheus alerting, with:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">severity</span><span class="pi">:</span> <span class="s">notice</span>
+    <span class="na">cluster_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{</span><span class="nv"> </span><span class="s">{</span><span class="nv"> </span><span class="s">$externalLabels.cluster_name</span><span class="nv"> </span><span class="s">}</span><span class="nv"> </span><span class="s">}"</span>
+  <span class="na">annotations</span><span class="pi">:</span>
+    <span class="na">alertmessage</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{</span><span class="nv"> </span><span class="s">{</span><span class="nv"> </span><span class="s">$labels.namespace</span><span class="nv"> </span><span class="s">}</span><span class="nv"> </span><span class="s">}/{</span><span class="nv"> </span><span class="s">{</span><span class="nv"> </span><span class="s">$labels.pod</span><span class="nv"> </span><span class="s">}</span><span class="nv"> </span><span class="s">}/{</span><span class="nv"> </span><span class="s">{</span><span class="nv"> </span><span class="s">$labels.container</span><span class="nv"> </span><span class="s">}</span><span class="nv"> </span><span class="s">}</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="s">{</span><span class="nv"> </span><span class="s">{</span><span class="nv"> </span><span class="s">printf</span><span class="nv"> </span><span class="s">"%0.0f"</span><span class="nv"> </span><span class="s">$value</span><span class="nv"> </span><span class="s">}</span><span class="nv"> </span><span class="s">}%'</span>
+    <span class="na">description</span><span class="pi">:</span> <span class="s">Container using more CPU than expected.</span>
+      <span class="s">It will soon be throttled, which has a negative impact on performances.</span>
+    <span class="na">summary</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{</span><span class="nv"> </span><span class="s">{</span><span class="nv"> </span><span class="s">$externalLabels.cluster_name</span><span class="nv"> </span><span class="s">}</span><span class="nv"> </span><span class="s">}</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">Notice</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">K8S</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">Container</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">90%</span><span class="nv"> </span><span class="s">CPU</span><span class="nv"> </span><span class="s">Limit"</span>
+  <span class="na">alert</span><span class="pi">:</span> <span class="s">Notice - K8S - Container getting close to its CPU Limit</span>
+  <span class="na">expr</span><span class="pi">:</span> <span class="pi">|</span>
+    <span class="s">(</span>
+      <span class="s">sum(rate(container_cpu_usage_seconds_total{job="kubelet", container!="POD", container!=""}[1m])) by (container, namespace, pod)</span>
+    <span class="s">/ sum(kube_pod_container_resource_limits_cpu_cores{job="kube-state-metrics", container!="POD", container!=""}) by (container, namespace, pod)</span>
+    <span class="s">) * 100 &gt; 90</span>
+</code></pre></div></div>
+
+<p>We don’t currently have alerting on Throttling, only a Grafana graph using the metric:</p>
+
+<figure class="highlight"><pre><code class="language-prometheus" data-lang="prometheus"><span class="nf">sum</span> <span class="k">by</span> <span class="p">(</span><span class="na">pod</span><span class="p">)</span> <span class="p">(</span><span class="nb">rate</span><span class="p">(</span><span class="n">container_cpu_cfs_throttled_seconds_total</span><span class="p">{</span><span class="na">job</span><span class="o">=</span><span class="s2">"kubelet"</span><span class="p">,</span> <span class="na">image</span><span class="o">!=</span><span class="s2">""</span><span class="p">,</span><span class="na">container</span><span class="o">!=</span><span class="s2">"POD"</span><span class="p">}[</span><span class="mi">1m</span><span class="p">]))</span></code></pre></figure>
+
+<p>After Prometheus, we later isolated Victoria Metrics and Grafana Loki on their own ASGs.<br />
+We’re also isolating “admin” tools, like CoreDNS, cluster-autoscaler, HAProxy Ingress Controller, on dedicated “admin nodes” group. That way, admin tools can’t mess with applications pods and vice versa.</p>
+
+<p><img src="/images/posts/2020-12-08-three-years-running-kubernetes/dedicated_admin_nodes.png" alt="Nodes separations on groups" />
+Developers only deploy to Worker nodes. An application’s pods can only be scheduled on 4 ASGs, including 2 on-demand backups.</p>
+
+<p>Our admin nodes are on-demand. Having an ASG of few nodes all Spot is a risk we didn’t want to take regarding the criticality of those pods.</p>
+
+<h3 id="qos-guaranteed-daemonsets">QOS Guaranteed Daemonsets</h3>
+
+<p>All our Daemonsets have <code class="language-plaintext highlighter-rouge">Requests</code> and <code class="language-plaintext highlighter-rouge">Limits</code> set at the same value.<br />
+We’ve found out that a lot of Daemonsets don’t define those values by default.<br />
+Enforcing QOS Guaranteed Daemonsets:</p>
+
+<ul>
+  <li>ensures our daemonsets request all the resources they need, which is also important for the k8s scheduler to be more effective</li>
+  <li>daemonsets bad behaviours can be contained through <code class="language-plaintext highlighter-rouge">Limits</code>, and will not mess up with pods</li>
+  <li>it’s a good indicator of the overhead we add on each node and helps us choose our EC2 instance types better (E.g: 2x.large instances are too small)</li>
+  <li>it’s a reminder that a server with 16 CPUs has in fact only 80% of them usable by application pods</li>
+</ul>
+
+<h2 id="scalability">Scalability</h2>
+
+<h3 id="cluster-autoscaler">Cluster Autoscaler</h3>
+
+<p>We automatically scale our EC2 Instances with cluster-autoscaler.</p>
+
+<p><img src="/images/posts/2020-12-08-three-years-running-kubernetes/overprovisioning-total-node-count.png" alt="Autoscaling nodes" /></p>
+
+<p>As mentioned before, we have several AutoScalingGroups per cluster.<br />
+We use the service discovery feature of cluster-autoscaler to find all ASGs to work with and to control them automatically.<br />
+This is done in two steps:</p>
+
+<ol>
+  <li>We add 2 tags on ASGs that the cluster-autoscaler should manage</li>
+</ol>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">k8s.io/cluster-autoscaler/enabled</span><span class="pi">:</span> <span class="s2">"</span><span class="s">true"</span>
+<span class="s">k8s.io/cluster-autoscaler/{ { $cluster.name } }</span><span class="err">:</span> <span class="s2">"</span><span class="s">true"</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Then, inside the Chart, we add those two labels to the node-group-auto-discovery parameter:</li>
+</ol>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">command</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">./cluster-autoscaler</span>
+<span class="pi">-</span> <span class="s">--cloud-provider=aws</span>
+<span class="pi">-</span> <span class="s">--node-group-auto-discovery=asg:tag=k8s.io/cluster-autoscaler/enabled,k8s.io/cluster-autoscaler/{ { index .Values.nodes .Values.env "clusterName" } }</span>
+<span class="s">…</span>
+</code></pre></div></div>
+
+<h4 id="expander-priority">Expander Priority</h4>
+
+<p>We use cluster-autoscaler with the <em>expander: priority</em>.<br />
+ASGs will be chosen as:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">spot-nodes-.*</code></li>
+  <li><code class="language-plaintext highlighter-rouge">on-demand-.*</code></li>
+</ol>
+
+<p>Cluster-autoscaler will randomly add an EC2 instance in an ASG in the first group: <code class="language-plaintext highlighter-rouge">spot-nodes-*</code>. If a new instance hasn’t joined the cluster after the fallback timeout (<code class="language-plaintext highlighter-rouge">--max-node-provision-time</code>), it will try another ASG in the same group. It will try all the ASGs in this group before moving on to the next group: <code class="language-plaintext highlighter-rouge">on-demand-*</code>.</p>
+
+<p>With a dozen ASGs, most of them being Spot, we’ve already waited for 45 minutes to actually be able to successfully add an EC2 instance.</p>
+
+<p>Launching an EC2 instance sometimes fails with <em>InsufficientInstanceCapacity</em>, especially for Spot instances. With the autoscaler recommendation to split ASGs by the same amount of CPU/RAM, there were just too many ASGs to try before falling back on-demand. We’ve reduced the cluster-autoscaler fallback timeout to 5 minutes and still are facing many scaling problems at Paris, where it seems there are not many Spot instances available.</p>
+
+<p><img src="/images/posts/2020-12-08-three-years-running-kubernetes/aws-could-not-launch-instance-insufficientisntancecapacity.png" alt="InsufficientInstanceCapacity" /></p>
+
+<p>Expander priority allows us to have resilience through an automatic fall back to on-demand when there is no more Spot.<br />
+We have already faced, multiple times, a fallback to on-demand instances even with a dozen different instance types. <em>InsufficientInstanceCapacity</em> errors are not a myth. Even on-demand instances can be in <em>InsufficientInstanceCapacity</em>, which we hope to never face with expander priority, 10+ Spot instance types, 10+ on-demand instance types and low <code class="language-plaintext highlighter-rouge">--max-node-provision-time</code>.</p>
+
+<h3 id="overprovisioning">Overprovisioning</h3>
+
+<p>We have overprovisioning pods inside the cluster.<br />
+The objective is to trigger a node scale-up before a legitimate pod actually needs resources. Doing so, the pod doesn’t wait minutes to be scheduled, but a few seconds. This need for speed is linked to our business and sometimes the television audience bringing us many viewers very quickly.</p>
+
+<p>This works using overprovisioning pods which request resources without doing anything (docker image: <code class="language-plaintext highlighter-rouge">k8s.gcr.io/pause</code>). Those pods are also using a low PriorityClass (-10), lower than our apps.</p>
+
+<p>This trick is the whole magic of this overprovisioning: we request space that can be reclaimed anytime and very quickly. When an app needs it, the Scheduler will free up this space by expelling overprovisioning pods (of lower priority) because the cluster doesn’t have enough free space. The expelled pods then change their state to <code class="language-plaintext highlighter-rouge">Pending</code> with the <code class="language-plaintext highlighter-rouge">Reason: Unschedulable</code> because we just filled the cluster with higher priority pods from the app. Presence of <code class="language-plaintext highlighter-rouge">Pending</code> Pods with <code class="language-plaintext highlighter-rouge">Unschedulable</code> reason trigger the cluster-autoscaler to add nodes.</p>
+
+<p>We follow the efficiency of this overprovisioning with these Prometheus expressions:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">kube_deployment_status_replicas_unavailable</code>: we know which pods are waiting to be scheduled,</li>
+  <li><code class="language-plaintext highlighter-rouge">sum(kube_node_status_condition{condition="Ready",status="false"})</code>: we know if there are UnReady nodes, like when nodes are scaling-up and new nodes don’t have their daemonsets Ready.</li>
+</ul>
+
+<p>Because we have some nice load peaks on our applications, we are using the ladder mode of the overprovisioning. That ensures that we always have a minimum amount of overprovisioning running in the cluster, so we’re able to handle huge loads at any time. Also, we ensure that we don’t waste too much resources when heavily loaded, so we don’t reserve 200 nodes in a cluster of 1000 nodes for example.</p>
+
+<p>The configmap looks like:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">data</span><span class="pi">:</span>
+  <span class="na">ladder</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{"coresToReplicas":[[16,4],[100,10],[200,20]]}'</span>
+</code></pre></div></div>
+
+<p>We chose to have big overprovisioning pods, bigger than any other pod in the cluster, to ensure that expelling one of the overprovisioning pods is enough to schedule any <code class="language-plaintext highlighter-rouge">Pending</code> pod.</p>
+
+<h2 id="priorityclass">PriorityClass</h2>
+
+<p>We sacrifice some applications when overprovisioning is not enough.</p>
+
+<p>The overprovisioning magic is based on <code class="language-plaintext highlighter-rouge">PriorityClass</code> objects.<br />
+We’re using the same logic for our other applications, using <code class="language-plaintext highlighter-rouge">PriorityClass</code>.<br />
+We have 3 of them which concern applications:</p>
+
+<ul>
+  <li>low: -5</li>
+  <li>default: 0</li>
+  <li>high: 5</li>
+</ul>
+
+<p>Critical applications are using the “high” PriorityClass.<br />
+Most applications are using the “default” one, so they don’t even have to explicitly use it.<br />
+Workers doing asynchronous tasks can be cut off for several tens of minutes without any business impact. These are the ones with the “low” PriorityClass we sacrifice when needed.</p>
+
+<p>Here is an example, during a heavy load :
+<img src="/images/posts/2020-12-08-three-years-running-kubernetes/kubernetes-unavailable-pods-all-priorityclass-included.png" alt="A lot of unavailable pods" />
+Hundreds of unavailable pods for 10 minutes.</p>
+
+<p>If we filter out “low” PriorityClass pods in the graph above, there’s only one application having unavailable pods:
+<img src="/images/posts/2020-12-08-three-years-running-kubernetes/kubernetes-unavailable-pods-low-priorityclass-excluded.png" alt="Not so many high priority unavailable pods" />
+New pods for this application stayed in the Unavailable state for 15 seconds.</p>
+
+<h3 id="low-hpa-targets">Low HPA targets</h3>
+
+<p>Kubernetes takes time to scale-up pods.</p>
+
+<p>Without overprovisioning, we’ve measured that we wait up to 4 minutes when there’s no available node where pods can be scheduled.<br />
+Then, with overprovisioning, we mostly wait for 45seconds, between the moment the HorizontalPodAutoscaler changes the <code class="language-plaintext highlighter-rouge">Replicas</code> of a <code class="language-plaintext highlighter-rouge">Deployment</code> and for those pods to be ready and receive traffic.</p>
+
+<p>We can’t wait so long during our peaks, so we generally define HPA targets at 60%, 70% or 80% of <code class="language-plaintext highlighter-rouge">Requests</code>. That gives us more time to handle the load while new pods are being scheduled.</p>
+
+<p>On the following graphs, we can see two nice peaks at 20h52 and 21h02:
+<img src="/images/posts/2020-12-08-three-years-running-kubernetes/load-spikes-impact-on-cpu-consumption.png" alt="two nice peaks" />
+Above, in green, the number of consumed CPUs for one specific application: +55% in one minute.</p>
+
+<p>Below, in blue, new pods are created in response to the peak.<br />
+<img src="/images/posts/2020-12-08-three-years-running-kubernetes/load-spikes-impact-on-pods-scaling.png" alt="pods created in response to the peak" /></p>
+
+<p>This is obviously not a good way of managing resources, as we waste them as soon as the load balances.<br />
+This waste effect is amplified with the load: the more pods we have, the more we waste.</p>
+
+<p>You can see it in this graph that shows the number of CPU reserved but not consumed:
+<img src="/images/posts/2020-12-08-three-years-running-kubernetes/wasting-resources-number-of-cpu-reserved-but-not-used.png" alt="" /></p>
+
+<p>We consume more CPU during peaks and therefore, we use more efficiently the reservations that do not have time to move, because we do not yet have scale-up.<br />
+As soon as the new pods added in response to the peak are <code class="language-plaintext highlighter-rouge">Ready</code>, 40% of CPU are wasted again.</p>
+
+<p>We don’t have a viable solution to solve this.</p>
+
+<p>We’re thinking about reducing scale-up duration to 10 seconds, so we won’t need these additional resources while we launch new pods. This is a challenge as the scaling mechanism is composed of several tools (metrics-server update frequency, autoscaler controller loop frequency, pod autoscaler initial readiness delay, probe launch times, etc.) and changing only one of them can have catastrophic behavior on the cluster stability. This huge subject will need its own dedicated blogpost…</p>
+
+<h3 id="long-downscale-durations">Long downscale durations</h3>
+
+<p>Recently, we have increased the HPA’s downscale durations from 5 to 30 minutes.</p>
+
+<p>It’s done through Kops spec:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">kubeControllerManager</span><span class="pi">:</span>
+    <span class="na">horizontalPodAutoscalerDownscaleStabilization</span><span class="pi">:</span> <span class="s">30m0s</span>
+</code></pre></div></div>
+
+<p>When an application fails, its traffic decreases. When front A fails, traffic on backend B decreases too. When front A comes back, both A and B will have a big peak load.</p>
+
+<p>The default five minutes delay for scaling down pods is too short for us. Increasing this delay makes the return to life of front A transparent on the number of pods of the whole platform, at least for the first 30 minutes of shutdown.</p>
+
+<p>We’ve seen blog posts where people turn off autoscaling for those very situations.<br />
+Failure is not an extreme case. Failure is expected. Autoscaling strategies must adapt to it.</p>
+
+<p>You can see that one waits 30 minutes after an upscale, before downscaling:
+<img src="/images/posts/2020-12-08-three-years-running-kubernetes/kubernetes-pods-horizontalpodautoscaler-long-downscaling-duration.png" alt="30mns of stabilization after a scale-up" /></p>
+
+<p><a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-cooldown-delay">Documentation</a> specifies that: “this duration specifies how long the autoscaler has to wait before another downscale operation can be performed after the current one has completed.”</p>
+
+<p>We can observe on the graph above that it’s rather: “this duration specifies how long the autoscaler has to wait to perform a downscale after the last upscale”.</p>
+
+<h2 id="observability">Observability</h2>
+
+<h3 id="metrics">Metrics</h3>
+
+<p>We scrape application and system metrics via Prometheus.<br />
+We’re using Victoria Metrics as long term storage. We found it really easy to deploy and it needs really few time to administer on a daily basis, unlike Prometheus.</p>
+
+<p>Details:</p>
+
+<ul>
+  <li>Prometheus scrapes metrics of pods having:</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">annotations</span><span class="pi">:</span>
+  <span class="na">prometheus.io/path</span><span class="pi">:</span> <span class="s">/metrics</span>
+  <span class="na">prometheus.io/port</span><span class="pi">:</span> <span class="s2">"</span><span class="s">8080"</span>
+  <span class="na">prometheus.io/scrape</span><span class="pi">:</span> <span class="s2">"</span><span class="s">true"</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Then, inside prometheus jsonnet files, we define a remoteWrite pointing to VictoriaMetrics:</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">remote_write</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="na">url</span><span class="pi">:</span> <span class="s">https://victoria-metrics-cluster-vminsert.monitoring.svc.cluster.local.:8480/insert/001/prometheus</span>
+  <span class="na">remote_timeout</span><span class="pi">:</span> <span class="s">30s</span>
+  <span class="na">write_relabel_configs</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">separator</span><span class="pi">:</span> <span class="s">;</span>
+    <span class="na">regex</span><span class="pi">:</span> <span class="s">prometheus_replica</span>
+    <span class="na">replacement</span><span class="pi">:</span> <span class="s">$1</span>
+    <span class="na">action</span><span class="pi">:</span> <span class="s">labeldrop</span>
+  <span class="na">queue_config</span><span class="pi">:</span>
+    <span class="na">capacity</span><span class="pi">:</span> <span class="m">50000</span>
+    <span class="na">max_shards</span><span class="pi">:</span> <span class="m">30</span>
+    <span class="na">min_shards</span><span class="pi">:</span> <span class="m">1</span>
+    <span class="na">max_samples_per_send</span><span class="pi">:</span> <span class="m">10000</span>
+    <span class="na">batch_send_deadline</span><span class="pi">:</span> <span class="s">5s</span>
+    <span class="na">min_backoff</span><span class="pi">:</span> <span class="s">30ms</span>
+    <span class="na">max_backoff</span><span class="pi">:</span> <span class="s">100ms</span>
+<span class="s">…</span>
+</code></pre></div></div>
+
+<p>We have 2 Prometheus pods per cluster, each on separate nodes.<br />
+Each Prometheus scrapes all metrics in the cluster, for resilience.<br />
+They have a really low retention (few hours, because of the WAL replay issue) and are deployed on Spot instances.</p>
+
+<p>We have 2 Victoria Metrics pods per cluster (cluster version), each on separate nodes, separated of Prometheus pods through a <code class="language-plaintext highlighter-rouge">podAntiAffinity</code></p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">affinity</span><span class="pi">:</span>
+  <span class="na">podAntiAffinity</span><span class="pi">:</span>
+    <span class="na">preferredDuringSchedulingIgnoredDuringExecution</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">weight</span><span class="pi">:</span> <span class="m">100</span>
+      <span class="na">podAffinityTerm</span><span class="pi">:</span>
+        <span class="na">labelSelector</span><span class="pi">:</span>
+          <span class="na">matchExpressions</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="na">key</span><span class="pi">:</span> <span class="s">app</span>
+            <span class="na">operator</span><span class="pi">:</span> <span class="s">In</span>
+            <span class="na">values</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="s">prometheus</span>
+        <span class="na">topologyKey</span><span class="pi">:</span> <span class="s2">"</span><span class="s">kubernetes.io/hostname"</span>
+</code></pre></div></div>
+
+<p>Each Victoria Metrics pod receives all metrics in duplicate, from the two prometheus pods.<br />
+We use the command-line flag <code class="language-plaintext highlighter-rouge">dedup.minScrapeInterval: 15s</code> to deduplicate metrics.</p>
+
+<p>We’re thinking about totally removing Prometheus from the mix, using only Victoria Metrics Agent to scrape metrics.</p>
+
+<h3 id="logs">Logs</h3>
+
+<p>We collect stderr and stdout of all our containers.<br />
+We use fluentd for that, as a DaemonSet, which uses the node’s /var/log/containers directory.<br />
+We use Grafana Loki as an interface to filter those logs.</p>
+
+<p>Our developers catch most of their logs and send them directly to Elasticsearch. Fluentd and Loki are used only for uncatched errors and have little traffic.</p>
+
+<p>Fluentd uses around 200MB of memory per node and so we look at replacing it by promtail which uses only 40MB in our case.</p>
+
+<p><img src="/images/posts/2020-12-08-three-years-running-kubernetes/grafana-loki.png" alt="Grafana Loki" />
+We’re happy with Loki, because we have few logs to parse. We’ve tested to get our Ingress Controller access logs sent to Loki and it was a nightmare. Too many entries to parse.</p>
+
+<p>There’s a default limit of 1000 log entries when querying, which we raised but then Grafana became very slow. Very very slow. 3000 log entries is the best fit for us.</p>
+
+<h3 id="alerting">Alerting</h3>
+
+<p>We mostly use alerts defined in <a href="https://github.com/prometheus-operator/kube-prometheus/blob/master/manifests/prometheus-rules.yaml">the official prometheus-operator repo</a>.</p>
+
+<p>We also added some alerts of our own. E.g: an alert when our Ingress Controller can’t connect to a pod:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">severity</span><span class="pi">:</span> <span class="s">critical</span>
+    <span class="na">cluster_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{</span><span class="nv"> </span><span class="s">{</span><span class="nv"> </span><span class="s">$externalLabels.cluster_name</span><span class="nv"> </span><span class="s">}</span><span class="nv"> </span><span class="s">}"</span>
+  <span class="na">annotations</span><span class="pi">:</span>
+    <span class="na">alertmessage</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{</span><span class="nv"> </span><span class="s">{</span><span class="nv"> </span><span class="s">$labels.proxy</span><span class="nv"> </span><span class="s">}</span><span class="nv"> </span><span class="s">}</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="s">{</span><span class="nv"> </span><span class="s">{</span><span class="nv"> </span><span class="s">printf</span><span class="nv"> </span><span class="s">"%.2f"</span><span class="nv"> </span><span class="s">$value</span><span class="nv"> </span><span class="s">}</span><span class="nv"> </span><span class="s">}</span><span class="nv"> </span><span class="s">requests</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">error</span><span class="nv"> </span><span class="s">per</span><span class="nv"> </span><span class="s">second'</span>
+    <span class="na">description</span><span class="pi">:</span> <span class="s1">'</span><span class="s">HAProxy</span><span class="nv"> </span><span class="s">pods</span><span class="nv"> </span><span class="s">cannot</span><span class="nv"> </span><span class="s">send</span><span class="nv"> </span><span class="s">requests</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">application.</span><span class="nv"> </span><span class="s">Connection</span><span class="nv"> </span><span class="s">errors</span><span class="nv"> </span><span class="s">may</span><span class="nv"> </span><span class="s">happen</span><span class="nv"> </span><span class="s">when</span><span class="nv"> </span><span class="s">one</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">more</span><span class="nv"> </span><span class="s">pods</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">failing</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">there'</span><span class="s1">'</span><span class="s">s</span><span class="nv"> </span><span class="s">no</span><span class="nv"> </span><span class="s">more</span><span class="nv"> </span><span class="s">healthy</span><span class="nv"> </span><span class="s">pods</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="s">Application</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">crashed</span><span class="nv"> </span><span class="s">!!'</span>
+    <span class="na">summary</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{</span><span class="nv"> </span><span class="s">{</span><span class="nv"> </span><span class="s">$externalLabels.cluster_name</span><span class="nv"> </span><span class="s">}</span><span class="nv"> </span><span class="s">}</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">Critical</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">K8S</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">HAProxy</span><span class="nv"> </span><span class="s">IC</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">Backend</span><span class="nv"> </span><span class="s">connection</span><span class="nv"> </span><span class="s">errors"</span>
+  <span class="na">alert</span><span class="pi">:</span> <span class="s">Critical -K8S - HAProxy IC - Backend connection errors</span>
+  <span class="na">expr</span><span class="pi">:</span> <span class="pi">|</span>
+    <span class="s">sum(rate(haproxy_backend_connection_errors_total[1m])) by (proxy) &gt; 0</span>
+  <span class="na">for</span><span class="pi">:</span> <span class="s">1m</span>
+</code></pre></div></div>
+
+<p>Prometheus generates alerts that it sends to 2 redundant AlertManager instances, in a separate account that centralises alerts from all our clusters.<br />
+We have several possibilities then:</p>
+
+<ul>
+  <li>Send alerts on Slack dedicated channels</li>
+  <li>Send alerts to PagerDuty for the on-call teams</li>
+</ul>
+
+<p>Our developers are managing their own alerts (Kubernetes CRD: <code class="language-plaintext highlighter-rouge">PrometheusRule</code>) that are following a different path regarding labels defined. They have their own alerts sent in their own channels.</p>
+
+<h2 id="costs">Costs</h2>
+
+<h3 id="spot-instances">Spot instances</h3>
+
+<p>We’re running 100% of our application workloads on Spot instances.</p>
+
+<p>It was easy at first: implement <a href="https://github.com/kube-aws/kube-spot-termination-notice-handler">spot-termination-handler</a> and voilà.<br />
+Indeed, but that was only the first step.</p>
+
+<h4 id="inter-accounts-reclaims">Inter accounts reclaims</h4>
+
+<p>We created AWS accounts for <a href="https://www.salto.fr/">salto.fr</a> platform, for which we did a lot of load tests with on-demand servers.<br />
+That’s when <strong>we reclaimed our own instances</strong> on our other accounts.</p>
+
+<p><img src="/images/posts/2020-12-08-three-years-running-kubernetes/ec2-spot-instances-got-reclaims-across-accounts.gif" alt="ec2 instances per cluster" /></p>
+
+<p>Your accounts are not “linked” to each other in terms of Spot reclaims. Having resources in the same region with different accounts creates a relationship itself that we had never though about.<br />
+In this case, launching on-demand instances on one account triggered reclaims on our other accounts in the same region.</p>
+
+<h4 id="on-demand-fallback">On-demand fallback</h4>
+
+<p>We didn’t have on-demand fallback for a year and it went well.<br />
+There was enough spot capacity and there was no need for fallback. Therefore, we didn’t prioritize automated on-demand fallbacks.</p>
+
+<p>Then, all our instance types (+10) went <em>InsufficientInstanceCapacity</em> at the same time.<br />
+We could only work around with a manual ASG we have from our first days on Kubernetes at AWS, on which we could launch on-demand instances as a last-resort fallback.</p>
+
+<p>Now, we’re using <strong>cluster-autoscaler</strong> with the <code class="language-plaintext highlighter-rouge">expander: priority</code> to automatically fallback on lower priority ASGs (see above Scalability/Cluster-autoscaler).</p>
+
+<p>It takes us around 10mn to start a node when all our instances are <em>InsufficientInstanceCapacity</em>.<br />
+There are other mechanisms that directly detect <em>InsufficientInstanceCapacity</em> on an ASG, so we wouldn’t have to wait 5mn before moving on to the next one. We’re thinking about implementing them, but they’re not really compatible with cluster-autoscaler right now.</p>
+
+<p>As of today, we have two ASGs per application group, as Spot, and also two ASGs as on-demand automatic fallback.</p>
+
+<h4 id="draino-and-node-problem-detector">Draino and node-problem-detector</h4>
+
+<p>The problem came when downscaling : cluster-autoscaler removes the least used node, no matter if it’s a Spot or an on-demand instance.</p>
+
+<p>We found ourselves with a lot of on-demand nodes after load peaks and they stayed on. And they cost a lot more than Spot instances.</p>
+
+<p>We were already using <strong>node-problem-detector</strong>, so we added <strong>draino</strong>, to detect if an instance is on-demand and try to remove it when it is. Draino waits for 2h after the node is launched before trying to remove it.</p>
+
+<p>Since then, we use on-demand only when there’s no Spot left and only for a few hours.</p>
+
+<p>We can see on this graph, that we added automated on-demand fallback and we never stopped having on-demand instances, until we added draino:
+<img src="/images/posts/2020-12-08-three-years-running-kubernetes/aws-ec2-nodes-per-lifecycle.png" alt="nodes per lifecycle" /></p>
+
+<h4 id="spot-tips">Spot Tips</h4>
+
+<ul>
+  <li>You need to be in an “old” AWS region to have a large number of Spot available. I.E. consider eu-west-1 instead of eu-west-3, even if it adds latency,</li>
+  <li>Use the maximum number of instance types possible. A dozen is barely enough. I.E. use all instance family letters regardless of what they’re optimised for (compute, memory) as long as your workload can use it,</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">CapacityOptimized</code> spot allocation strategy, to limit reclaims to the strict necessary,</li>
+  <li>Do not use Spot on a single AZ (this advice is not limited to spot),</li>
+  <li>Prepare yourself to large reclaims, dozens at a time,</li>
+  <li>Configure and test your on-demand fallback</li>
+</ul>
+
+<h3 id="kube-downscaler">Kube-downscaler</h3>
+
+<p><a href="https://codeberg.org/hjacobs/kube-downscaler">Open-source project</a> from Zalando which allows us to scale down Kubernetes deployments after work hours: nights and week-ends.</p>
+
+<p>We use it on all our staging clusters. We save 60% of EC2 instances.</p>
+
+<h3 id="haproxy-ingress-controller">HAProxy Ingress Controller</h3>
+
+<p>The whole traffic of a cluster goes through a single ALB.</p>
+
+<p>We load-balance traffic to the correct pod through HAProxy, which uses Ingress rules to update its configuration.<br />
+We explained the way HAProxy Ingress controller lives inside the cluster during a <a href="https://www.haproxy.com/user-spotlight-series/rtls-journey-to-kubernetes-with-haproxy/">talk at the HAProxy Conf in 2019</a>.</p>
+
+<p>Reducing the number of managed load balancers at AWS isn’t the only benefit of HAProxy: we have tons of metrics in a single Grafana dashboard. Requests number, errors, retries, response times, connect times, bad health checks, etc.</p>
+
+<h2 id="whats-next">What’s next</h2>
+
+<p>A lot has been done to have scalability, resilience, observability and reasoned costs over the last 3 years.</p>
+
+<p>Using Kubernetes in production is not that simple.<br />
+It is necessary to be well equipped, to understand finely the workings of the kubernetes mechanics to find the balance that suits us. Avoid falling into the trap of adopting whatever tool everyone is talking about if you don’t need it. There’s a lot of hype around kubernetes and the cloud, it can be dangerous.</p>
+
+<p>The next step will be for us to increase resilience as much as possible, while at the same time reducing costs.<br />
+Perhaps it will be by speeding up the start-up of pods. Maybe it won’t work. Maybe we can make some modifications to cluster-autoscaler to make it more compatible with aws events (like <em>InsufficiantInstanceCapacity</em>). But we will certainly work around the costs.</p>
+
+<hr />
+
+<p><em>Thanks to all the reviewers, for their good advice and their time</em> ❤️</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Three+years+running+Kubernetes+on+production+at+Bedrock%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2020%2F12%2F08%2FThree-years-running-kubernetes-on-production-at-Bedrock.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2020/12/08/Three-years-running-kubernetes-on-production-at-Bedrock.html&title=Three+years+running+Kubernetes+on+production+at+Bedrock%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2020/12/08/Three-years-running-kubernetes-on-production-at-Bedrock.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Three years running Kubernetes on production at Bedrock%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2020/12/08/Three-years-running-kubernetes-on-production-at-Bedrock.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#AWS">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> AWS</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#Cloud">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Cloud</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#HAProxy">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> HAProxy</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#Infrastructure">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Infrastructure</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#Kops">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Kops</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#Kubernetes">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Kubernetes</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Machine Learning en production" href="/2021/01/21/machine-learning-en-production.html">
+            <p>Previous post</p>
+            Machine Learning en production
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="PHP, c’est vous ! Et vous pouvez contribuer !" href="/2020/11/23/php-cest-vous-et-vous-pouvez-contribuer-pascal-martin.html">
+            <p>Next post</p>
+            PHP, c’est vous ! Et vous pouvez contribuer !
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/2020-12-08-three-years-running-kubernetes/ihor-dvoretskyi-UGKfiS5CcZI-unsplash.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

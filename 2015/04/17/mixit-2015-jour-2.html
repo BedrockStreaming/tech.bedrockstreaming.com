@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/mixit2015/logo-mixit.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Mix-IT 2015 - Jour 2 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Mix-IT 2015 - Jour 2" />
+<meta name="author" content="Mikael Randy" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Retour des conférences vues lors du jour 2 du Mix-IT 2015" />
+<meta property="og:description" content="Retour des conférences vues lors du jour 2 du Mix-IT 2015" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2015/04/17/mixit-2015-jour-2.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2015/04/17/mixit-2015-jour-2.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-04-17T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Mix-IT 2015 - Jour 2" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2015/04/17/mixit-2015-jour-2.html"},"url":"https://tech.bedrockstreaming.com/2015/04/17/mixit-2015-jour-2.html","author":{"@type":"Person","name":"Mikael Randy"},"description":"Retour des conférences vues lors du jour 2 du Mix-IT 2015","dateModified":"2015-04-17T00:00:00+02:00","datePublished":"2015-04-17T00:00:00+02:00","headline":"Mix-IT 2015 - Jour 2","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Mix-IT 2015 - Jour 2">
+    <meta name="twitter:description" content="Cet article est le retour du second jour du Mix-IT 2015, le vendredi 17 avril 2015.Vous pouvez également consulter le retour du jour 1.Aller sur Mars … ou pr...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/mixit2015/logo-mixit.png">
+    <meta name="twitter:image:alt" content="Mix-IT 2015 - Jour 2">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Mix-IT 2015 - Jour 2 " aria-label="Mix-IT 2015 - Jour 2" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Mix-IT+2015+-+Jour+2" class="title">Mix-IT 2015 - Jour 2</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/mikaelrandy" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="/images/avatar/mikaelrandy.png">
+    
+    <p class="meta">
+      Mikael Randy - 
+      
+      April 17, 2015
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Cet article est le retour du second jour du Mix-IT 2015, le vendredi 17 avril 2015.
+Vous pouvez également consulter <a href="/mixit-2015-jour-1/">le retour du jour 1</a>.</p>
+
+<h1 id="aller-sur-mars--ou-presque">Aller sur Mars … ou presque</h1>
+<p>— <a href="https://twitter.com/florenceporcel">Florence Porcel</a></p>
+
+<p>Florence est venue nous présenter son rêve : devenir une marsonaute, à savoir une personne qui va aller physiquement sur Mars.</p>
+
+<p>Après avoir pris le temps de faire le point sur tout ce qui a été fait pour permettre un jour à l’homme de faire le voyage pour mettre le pied sur Mars, Florence nous a expliqué les différentes actions qu’elle avait entrepris pour agir sur ce cheminement :</p>
+
+<ul>
+  <li>Participation à un projet de simulation de vie sur Mars : elle a fait partie d’un groupe de personnes qui se sont isolées pendant 15 jours dans des conditions de vie semblables à celles sur Mars (au milieu du désert de l’Utah, scaphandre pour sortir, nourriture lyophilisée, rationnement);</li>
+  <li>Participation à un programme de volontaire pour le premier départ habité vers Mars;</li>
+  <li>…</li>
+</ul>
+
+<p>Le but de tout ça ? Suivre son rêve.</p>
+
+<p>Florence a fini sa conférence en nous rappelant que ce n’est pas notre éducation, notre formation ou notre passé qui dicte ce que nous pouvons faire de notre vie, mais ce sont nos rêves.
+Elle nous a rappelé que, malgré sa formation littéraire, et son métier de comédienne, que son rêve d’aller sur Mars un jour l’a conduite à faire ses actions très concrètes, et que c’est grâce à l’action un peu utopique de beaucoup de gens qu’on peux changer le monde.</p>
+
+<p>En 2 mots, poursuivons nos rêves !</p>
+
+<h1 id="reactjs-pour-les-néophytes">ReactJS pour les néophytes</h1>
+<p>– <a href="https://github.com/ncuillery">Nicolas Cuillery</a>, <a href="https://twitter.com/swiip">Matthieu Lux</a> et <a href="https://twitter.com/superflaw">Florent Lepretre</a></p>
+
+<p>Cet atelier était un peu corporate puisque que Nicolas et Florent sont actuellement en mission chez M6Web.</p>
+
+<p>Lors de cet atelier, qui se décomposait en plusieurs TP permettant de découvrir une à une les différentes spécificités de <a href="https://facebook.github.io/react/">React</a> et du pattern <a href="https://facebook.github.io/flux/">Flux</a> : React et sa notion de composant, le pattern Flux et une de ses variantes, <a href="https://github.com/spoike/refluxjs">ReFlux</a>, le système de routing et les tests avec <a href="https://facebook.github.io/jest/">Jest</a>.</p>
+
+<p>Bien qu’il leur ait manqué du temps pour finir l’atelier, ils étaient très présents pour nous aider à franchir les premiers pas qui permettent d’entrer dans ce nouveau monde.</p>
+
+<p>En tout cas, félicitations à tous les 3 pour leur implication pour ce difficile exercice qu’ils ont plutôt bien surmonté.</p>
+
+<h1 id="startups-détats">Startups d’états</h1>
+<p>— <a href="https://twitter.com/ppezziardi">Pierre Pezziardi</a></p>
+
+<p>Pierre, qui dirige un incubateur d’état, soit un incubateur qui sélectionne et héberge des petites équipes dont le but est de faire évoluer le système informatique public, mais à la sauce d’une startup : budget réduit, équipe réduite, mode “survie”.</p>
+
+<p>Il a eu l’idée de ce système lorsqu’il s’est posé la question sur les outils qui “marchent” et leurs raisons. Pourquoi utilisons nous les outils de Google ou Dropbox ? Parce qu’ils sont simples et efficace ! Ils vont au but, et correspondent à ce que l’utilisateur désire.
+En poussant cette réflexion, il en est arrivé à la conclusion que tout système informatique est le reflet de l’organisation qui le pilote : plus l’organisation est tournée sur sa propre organisation, plus le produit final correspondra à ce qu’un grand manager a demandé, et pourra être décalé de ce que les utilisateurs attendent.</p>
+
+<p>À l’inverse, quand une organisation n’a pas de marge, elle va à l’essentiel pour que son produit convienne aux utilisateurs.</p>
+
+<p>Voici quelques exemples de projets qui sortent de cet incubateur d’état :</p>
+
+<ul>
+  <li><a href="https://www.data.gouv.fr/fr/">data.gouv.fr</a></li>
+  <li><a href="https://mps.apientreprise.fr/">Marchés Publics Simplifiés</a></li>
+  <li><a href="https://mes-aides.gouv.fr/">mes-aides.gouv.fr</a></li>
+</ul>
+
+<h1 id="coding-dojo-et-mob-programming-dans-les-tranchées">Coding Dojo et Mob Programming dans les tranchées</h1>
+<p>— <a href="https://twitter.com/notarianni">Bernard Notarianni</a></p>
+
+<p>Cette conférence était un retour d’expérience expliquant comment une équipe de développement habituée a travailler avec des releases fixes à dates régulières a tenté de mettre en place un découpage en sprint pour améliorer sa productivité.</p>
+
+<p>Je dis volontairement “en sprint” sans parler de Scrum parce qu’en fait, cette équipe s’auto-organisait de la sorte, mais sur un cahier des charges fixe, un périmètre fixe pour chaque release, et pas de feedback avec le produit.</p>
+
+<p>Au final, la conclusion de Bernard a été sans appel : ils ont essayés, l’équipe a fait son travail, a essayé l’amélioration continue, mais comme le client ne jouait pas le jeu, ça c’est mal passé.</p>
+
+<h1 id="fabriquez-votre-devbox-portable-avec-docker">Fabriquez votre devbox portable avec Docker</h1>
+<p>— <a href="https://twitter.com/jm_meessen">Jean-Marc Meessen</a> et <a href="https://twitter.com/damienduportal">Damien Duportal</a></p>
+
+<p>Lors de cette conférence, Jean-Marc et Damien nous ont expliqués comment ils avaient réussi à utiliser Docker pour réaliser une “devbox” portable.
+Avant cette conférence, je pensais qu’ils allaient nous expliquer comment ils avaient organisé leurs conteneurs pour que ça soit le plus efficace, mais en fait, une “devbox” est plus un poste de développement complet (bureau et IDE compris)</p>
+
+<p>Le résultat est assez impressionnant dans le fait qu’ils ont réussi à virtualiser une Debian avec son UI via Docker, et qu’ils peuvent le faire tourner sur n’importe quel poste.</p>
+
+<p>Toutefois, je ne suis pas convaincu par cette approche. À mon sens, Docker permet à tous de développer dans l’environnement qui lui convient, tout en exécutant son code dans un environnement qui est le plus proche possible de la production.</p>
+
+<p>Il n’en reste pas moins que je les félicite pour le résultat qu’ils ont obtenu, et je suis encore plus convaincu de la puissance de Docker suite à cette présentation.</p>
+
+<h1 id="reading-code-good">Reading code good</h1>
+<p>— <a href="https://twitter.com/saronyitbarek">Saron Yitbarek</a></p>
+
+<p>Saron est venue nous partager sa vision sur le moyen qu’elle trouve le plus efficace pour apprendre un langage, un framework, une librairie : lire du code. 
+De la même manière, pour progresser, lire le code des autres permet d’aller au delà de ce que nous pensons faire. En se confrontant au code des autres, nous apprenons sur les autres manières de résoudre un même problème, sur d’autres approches de code, et nous élargissons notre connaissance.</p>
+
+<p>Suivre un tutorial, c’est bien, mais le soucis, c’est que le code est basique, sur un usage basique.
+Lire un code réel, c’est voir un cas d’utilisation réel, c’est voir comment le développeur l’a résolu, voir les techniques qu’il utilise, … et le moyen le plus sûr de toujours découvrir et apprendre.</p>
+
+<p>Pour aller encore plus loin, il ne faut pas hésiter à discuter avec l’auteur du code que l’on vient de lire.</p>
+
+<p>L’énergie de Saron et la conviction qu’elle met dans sa présentation ont fait de cette conférence un vrai coup de coeur de ma part !</p>
+
+<h1 id="come-to-the-dark-side">Come to the dark side</h1>
+<p>— <a href="https://twitter.com/bortzmeyer">Stéphane Bortzmeyer</a> - [<a href="https://www.infoq.com/fr/presentations/come-to-dark-side">Présentation sur InfoQ</a>]</p>
+
+<p>Lors de cette Keynote, Stéphane nous a fait part de son ressenti quand à l’impact de l’informatique dans notre vie.</p>
+
+<p>Il n’y a encore que 20 ans, l’informatique était au service de l’homme. Elle servait à améliorer son quotidien à faciliter son travail.
+Aujourd’hui, c’est l’informatique qui dirige nos vies. Si vous êtes anti Facebook, vous perdez contact avec pas mal de gens. Si vous ne voulez pas d’ordinateur, il y a de plus en plus de démarches que vous ne pouvez faire.</p>
+
+<p>Encore plus important, nous avons délégués de plus en plus de décisions à l’informatique, sur des aspects qui impactent de plus en plus notre quotidien. Par exemple, lorsque vous faites un paiement, c’est un algorithme qui va décider si la transaction est autorisée ou non, de manière froide et automatique, sans chercher à comprendre si sa décision peux vous laisser dans une situation compliquée.</p>
+
+<p>À partir de là, nous, développeurs, avons une grande responsabilité. Le code que nous produisons, les algorithmes que nous acceptons d’implémenter sont ceux qui se retrouvent dans les systèmes qui régissent nos vies.
+Il est donc primordial que nous prenions conscience de cette responsabilité et que nous nous posions des questions sur ce que nous faisons, quitte à refuser de le faire si cela va à l’encontre de notre éthique.</p>
+
+<p>J’ai été fortement touché par cette claque, enfin, cette conférence, car elle nous place devant nos responsabilités, et devant notre devoir de prendre du recul sur ce que nous faisons pour ne pas être un simple robot.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>Comme à leur habitude, les organisateurs de ce Mix-IT 2015 ont réalisés un superbe travail.
+Un grand bravo à eux !</p>
+
+<p>Rappel : cet article est découpé en 2 parties. N’oubliez pas de consulter le <a href="/mixit-2015-jour-1/">retour des conférences suivies lors du premier jour</a>.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Mix-IT+2015+-+Jour+2%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2015%2F04%2F17%2Fmixit-2015-jour-2.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2015/04/17/mixit-2015-jour-2.html&title=Mix-IT+2015+-+Jour+2%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2015/04/17/mixit-2015-jour-2.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Mix-IT 2015 - Jour 2%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2015/04/17/mixit-2015-jour-2.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#agile">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> agile</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#mixit">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> mixit</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#technique">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> technique</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="M6Web Dev Facts #8" href="/2015/05/07/m6web-dev-facts-8.html">
+            <p>Previous post</p>
+            M6Web Dev Facts #8
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Mix-IT 2015 - Jour 1" href="/2015/04/16/mixit-2015-jour-1.html">
+            <p>Next post</p>
+            Mix-IT 2015 - Jour 1
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/mixit2015/logo-mixit.png'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

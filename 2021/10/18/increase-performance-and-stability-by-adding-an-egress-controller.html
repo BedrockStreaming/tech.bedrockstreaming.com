@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/bonnes-pratiques-web/bedrock.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Increase performance and stability by adding an Egress Controller in a Kubernetes cluster at AWS | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Increase performance and stability by adding an Egress Controller in a Kubernetes cluster at AWS" />
+<meta name="author" content="Tanguy Falconnet" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="How to avoid ErrorPortAllocation on AWS NAT Gateways, with PHP applications, at scale" />
+<meta property="og:description" content="How to avoid ErrorPortAllocation on AWS NAT Gateways, with PHP applications, at scale" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2021/10/18/increase-performance-and-stability-by-adding-an-egress-controller.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2021/10/18/increase-performance-and-stability-by-adding-an-egress-controller.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-10-18T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Increase performance and stability by adding an Egress Controller in a Kubernetes cluster at AWS" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2021/10/18/increase-performance-and-stability-by-adding-an-egress-controller.html"},"url":"https://tech.bedrockstreaming.com/2021/10/18/increase-performance-and-stability-by-adding-an-egress-controller.html","author":{"@type":"Person","name":"Tanguy Falconnet"},"description":"How to avoid ErrorPortAllocation on AWS NAT Gateways, with PHP applications, at scale","dateModified":"2021-10-18T00:00:00+02:00","datePublished":"2021-10-18T00:00:00+02:00","headline":"Increase performance and stability by adding an Egress Controller in a Kubernetes cluster at AWS","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Increase performance and stability by adding an Egress Controller in a Kubernetes cluster at AWS">
+    <meta name="twitter:description" content="IntroductionWe recently encountered issues with our PHP applications at scale in our Kubernetes clusters at AWS. We will explain the root cause of these issu...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/bonnes-pratiques-web/bedrock.jpg">
+    <meta name="twitter:image:alt" content="Increase performance and stability by adding an Egress Controller in a Kubernetes cluster at AWS">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Increase performance and stability by adding an Egress Controller in a Kubernetes cluster at AWS " aria-label="Increase performance and stability by adding an Egress Controller in a Kubernetes cluster at AWS" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Increase+performance+and+stability+by+adding+an+Egress+Controller+in+a+Kubernetes+cluster+at+AWS" class="title">Increase performance and stability by adding an Egress Controller in a Kubernetes cluster at AWS</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/TanguyFalconnet" target="_blank" rel="noopener">
+    <p class="meta">
+      Tanguy Falconnet - 
+      
+      October 18, 2021
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <h1 id="introduction">Introduction</h1>
+
+<p>We recently encountered issues with our PHP applications at scale in our Kubernetes clusters at AWS. We will explain the root cause of these issues, how we fixed them with Egress Controller, and overall improvements. We also added a detailed configuration to use HAProxy as Egress Controller.</p>
+
+<h1 id="context">Context</h1>
+
+<p>Bedrock is using PHP for almost all of the backend API of our streaming platforms (6Play, RTLMost, Salto, …). We have deployed our applications in AWS on our kops-managed Kubernetes clusters. Each of our applications is behind a CDN for caching purposes (CloudFront, Fastly). This means every time an application needs to access another API, requests go on the internet to access the latter through CDN.</p>
+
+<p>During special events with huge loads on our platforms, we started to see TCP connection errors from our applications to the outside of our VPC.</p>
+
+<h1 id="errorportallocation-source">ErrorPortAllocation source</h1>
+
+<p>After a few investigations, we saw that TCP connection errors were correlated with NAT Gateways ErrorPortAllocation.</p>
+
+<p><img src="/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/error-port-allocation.png" alt="Error Port Allocation Graph" /></p>
+<center><ins>Some loadtesting on our platform, which you may see as no traffic, huge traffic, then no traffic again</ins></center>
+
+<p>In AWS, NAT Gateways are endpoints allowing us to go outside our VPC. They have hard limits that can’t be modified:</p>
+<blockquote>
+  <p>A NAT gateway can support up to 55,000 simultaneous connections […]. If the destination IP address, the destination port, or the protocol (TCP/UDP/ICMP) changes, you can create an additional 55,000 connections. For more than 55,000 connections, there is an increased chance of connection errors due to port allocation errors. <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-limits">AWS Documentation</a></p>
+</blockquote>
+
+<p>Our applications always request the same endpoints: other APIs CDN. Destination port, IP or protocol doesn’t change that much, so we start hitting max connections, resulting in ErrorPortAllocation.</p>
+
+<p>At the same time, we found a very interesting blog post: <a href="https://techblog.wikimedia.org/2020/10/26/impact-of-using-http-connection-pooling-for-php-applications-at-scale/">Impact of using HTTP connection pooling for PHP applications at scale</a>, which was a very good coincidence.</p>
+
+<p>As you can read in Wikimedia’s post, PHP applications aren’t able to reuse TCP connections, as PHP processes are not sharing information from a request to another. Recreating new connections on the same endpoints is inefficient: adds latency, wastes CPU (TLS negotiation and TCP connection lifecycle) but also overconsumes TCP connections.</p>
+
+<p><img src="/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/outgoing-traffic-without-egress-schema.png" alt="Outgoing Traffic without Egress Controller" /></p>
+<center><ins>PHP application calls another API on internet through the NAT gateway</ins></center>
+
+<h1 id="outgoing-requests-optimization">Outgoing requests optimization</h1>
+
+<h2 id="egress-controller">Egress Controller</h2>
+
+<p>HAproxy is fast and reliable. We use it often and know it well. We already have it as Ingress Controller in our clusters and we know service mesh needs time to be production-ready. So we thought a service mesh might be overkill in our case and we tried to add HAProxy as Kubernetes Egress Controller in our clusters.</p>
+
+<p><img src="/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/outgoing-traffic-with-egress-schema.png" alt="Outgoing Traffic with Egress Controller" /></p>
+<center><ins>Outgoing requests go through the Egress Controller, which pools and maintains TCP and TLS connections</ins></center>
+
+<p>We configured some applications to send a few outgoing requests to Egress Controller. The latter was configured to do TCP re-use and to forward to desired endpoints.</p>
+
+<h2 id="effects">Effects</h2>
+
+<p>With this optimization, we don’t encounter ErrorPortAllocation anymore. Requests duration are reduced by 20 to 30%, and apps are consuming less CPU. Ressources were spent to instantiate a new TLS connection, which is now handled by Egress Controller.</p>
+
+<p><img src="/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/cpu-metrics.png" alt="CPU consumption of an app configured to use Egress Controller for DynamoDB requests" /></p>
+<center><ins>Application consumes less CPU, because Egress Controller is responsible of TLS and TCP connections to the outside world, which consumes a lot of resources</ins></center>
+
+<h1 id="detailed-configuration">Detailed configuration</h1>
+
+<p>We generally prefer to use what already exists rather than starting from scratch, so we tried to see if <a href="https://www.haproxy.com/documentation/kubernetes/latest/installation/community/">HAProxy Kubernetes Ingress Controller</a> could be used as egress.</p>
+
+<p>HAProxy Ingress Controller loads its frontend domains in <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">Ingress</a> resource, and loads backend servers in the associated <a href="https://kubernetes.io/docs/concepts/services-networking/service/">Service</a> resource. To inject an external domain as a backend server, we have to use <a href="https://kubernetes.io/docs/concepts/services-networking/service/#externalname">Service ExternalName</a>.</p>
+
+<p><img src="/images/posts/2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller/detailed-configuration.png" alt="Detailed Configuration Schema" /></p>
+
+<p>To use HAProxy Kubernetes Ingress Controller as an Egress Controller, we will use Ingress Kubernetes resource as Egress to define domains handled by the Controller.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Service</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">app1</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">type</span><span class="pi">:</span> <span class="s">ExternalName</span>
+  <span class="na">externalName</span><span class="pi">:</span> <span class="s">app1.example.com</span>
+  <span class="na">ports</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">https</span>
+      <span class="na">protocol</span><span class="pi">:</span> <span class="s">TCP</span>
+      <span class="na">port</span><span class="pi">:</span> <span class="m">443</span>
+      <span class="na">targetPort</span><span class="pi">:</span> <span class="m">443</span>
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">extensions/v1beta1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Ingress</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">app1</span>
+<span class="na">annotations</span><span class="pi">:</span>
+    <span class="na">haproxy.org/server-ssl</span><span class="pi">:</span> <span class="s2">"</span><span class="s">true"</span>
+    <span class="na">haproxy.org/backend-config-snippet</span><span class="pi">:</span> <span class="pi">|</span>
+      <span class="s"># See this article for the deep reasons of both parameters: https://www.haproxy.com/fr/blog/http-keep-alive-pipelining-multiplexing-and-connection-pooling/</span>
+      <span class="s"># enforce SNI with the Host string instead of the 'Host' header, because HAProxy cannot reuse connections with a non-fixed Host SNI value.</span>
+      <span class="s">default-server check-sni app1.example.com sni str(app1.example.com) resolvers mydns resolve-prefer ipv4</span>
+      <span class="s"># make HAProxy reuse connections, because the default safe mode reuses connections only for the same source.ip</span>
+      <span class="s">http-reuse always</span>
+
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">rules</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">host</span><span class="pi">:</span> <span class="s">app1.example.com</span>
+    <span class="na">http</span><span class="pi">:</span>
+      <span class="na">paths</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">backend</span><span class="pi">:</span>
+          <span class="na">serviceName</span><span class="pi">:</span> <span class="s">app1</span>
+          <span class="na">servicePort</span><span class="pi">:</span> <span class="m">443</span>
+</code></pre></div></div>
+
+<p>When everything is ready, you will be able to send requests:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">curl -H "host</span><span class="err">:</span> <span class="s">app1.example.com" https://haproxy-egress.default.svc.cluster.local/health</span>
+</code></pre></div></div>
+
+<p>By default, HAProxy resolves domain names only at bootime. But it can be configured to resolves during runtime by adding a <a href="https://www.haproxy.com/documentation/kubernetes/latest/configuration/configmap/#global-config-snippet">config snippet to Egress Controller configuration</a>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">global-config-snippet</span><span class="pi">:</span> <span class="pi">|</span>
+  <span class="s">resolvers mydns</span>
+    <span class="s">nameserver local &lt;MY_DNS&gt;:53</span>
+</code></pre></div></div>
+
+<h1 id="conclusions">Conclusions</h1>
+
+<p>It seems surprising to reduce requests latency by adding a hop in a network. But it does really work, even if it has some limits.</p>
+
+<p>The main problem with this approach is the fact that we are effectively creating a Single Point of Failure in our clusters if we choose to send all our egress traffic through it. Instead, we are carefully selecting applications that should use an Egress Controller to refine the configuration little by little. Some applications are tightly tied to external services and would massively gain from this and others would only be less resilient.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Increase+performance+and+stability+by+adding+an+Egress+Controller+in+a+Kubernetes+cluster+at+AWS%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2021%2F10%2F18%2Fincrease-performance-and-stability-by-adding-an-egress-controller.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2021/10/18/increase-performance-and-stability-by-adding-an-egress-controller.html&title=Increase+performance+and+stability+by+adding+an+Egress+Controller+in+a+Kubernetes+cluster+at+AWS%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2021/10/18/increase-performance-and-stability-by-adding-an-egress-controller.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Increase performance and stability by adding an Egress Controller in a Kubernetes cluster at AWS%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2021/10/18/increase-performance-and-stability-by-adding-an-egress-controller.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#HAProxy">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> HAProxy</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#aws">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> aws</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#cloud">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#kubernetes">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> kubernetes</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#performance">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> performance</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#php">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> php</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#sysadmin">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> sysadmin</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Faites confiance aux développeurs.euses de votre équipe : voyez plus loin que les fonctionnalités" href="/2021/10/21/confiance-aux-devs-de-votre-team.html">
+            <p>Previous post</p>
+            Faites confiance aux développeurs.euses de votre équipe : voyez plus loin que les fonctionnalités
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="How did we live stream our Last Friday Talks?" href="/2021/10/14/live-streaming-lft.html">
+            <p>Next post</p>
+            How did we live stream our Last Friday Talks?
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/bonnes-pratiques-web/bedrock.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

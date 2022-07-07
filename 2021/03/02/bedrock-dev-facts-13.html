@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/banner_xl.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Bedrock Dev Facts #13 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Bedrock Dev Facts #13" />
+<meta name="author" content="Bedrock" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Les plus belles phrases de nos équipes techniques" />
+<meta property="og:description" content="Les plus belles phrases de nos équipes techniques" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2021/03/02/bedrock-dev-facts-13.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2021/03/02/bedrock-dev-facts-13.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-03-02T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Bedrock Dev Facts #13" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2021/03/02/bedrock-dev-facts-13.html"},"url":"https://tech.bedrockstreaming.com/2021/03/02/bedrock-dev-facts-13.html","author":{"@type":"Person","name":"Bedrock"},"description":"Les plus belles phrases de nos équipes techniques","dateModified":"2021-03-02T00:00:00+01:00","datePublished":"2021-03-02T00:00:00+01:00","headline":"Bedrock Dev Facts #13","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Bedrock Dev Facts #13">
+    <meta name="twitter:description" content="Reprenons un rythme soutenu des devfacts !Des branchements surprenants  Ah tu test ta branche en prod ? Tu peux y aller, si tu touches pas au staging pas de ...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/banner_xl.jpg">
+    <meta name="twitter:image:alt" content="Bedrock Dev Facts #13">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Bedrock Dev Facts #13 " aria-label="Bedrock Dev Facts #13" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Bedrock+Dev+Facts+%2313" class="title">Bedrock Dev Facts #13</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      Bedrock - 
+      
+      March 02, 2021
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Reprenons un rythme soutenu des <a href="/tags/#devfacts">devfacts</a> !</p>
+
+<h1 id="des-branchements-surprenants">Des branchements surprenants</h1>
+<blockquote>
+  <p>Ah tu test ta branche en prod ? Tu peux y aller, si tu touches pas au staging pas de soucis</p>
+</blockquote>
+
+<h1 id="angular-conventional-commit">Angular conventional commit</h1>
+
+<p>Trouvé dans l’historique</p>
+
+<p><img src="/images/posts/dev-facts-13/fix.png" alt="screenshot d'un commit nommé 'fix(fix):fix'" /></p>
+
+<h1 id="time-is-relative">Time is relative</h1>
+
+<blockquote>
+  <p>Non mais c’est normal, ce sont des mois de 5 minutes</p>
+</blockquote>
+
+<h1 id="le-confinement-à-la-campagne-cest-parfois-compliqué">Le confinement à la campagne, c’est parfois compliqué</h1>
+
+<blockquote>
+  <p>Dédicace a tous ceux qui comme moi, vont passer une bonne semaine à batailler avec internet ! (au moins, j’ai assez de débit pour un mp3).
+320 Kbps</p>
+</blockquote>
+
+<h1 id="apple-">Apple 💰</h1>
+
+<blockquote>
+  <p>Quand ca parle d’argent, Apple ne se rate pas généralement</p>
+</blockquote>
+
+<h1 id="le-courage">Le courage</h1>
+
+<blockquote>
+  <p>Une MEP le vendredi avec la CI KO, vous êtes mes héros 😍</p>
+</blockquote>
+
+<h1 id="note-à-moi-même">Note à moi-même</h1>
+
+<blockquote>
+  <p>TODO: test if my code is the problem</p>
+</blockquote>
+
+<h1 id="aucun-abus">Aucun abus</h1>
+
+<blockquote>
+  <p>Bon, je crois que je vais m’auto-déclarer meilleur développeur de l’année!</p>
+</blockquote>
+
+<h1 id="une-semaine-qui-commence-bien">Une semaine qui commence bien</h1>
+
+<blockquote>
+  <p>3 push master, lundi matin, 11h30. La semaine va être bonne</p>
+</blockquote>
+
+<h1 id="soit-gentil-pas-méchant-cest-pas-gentil-dêtre-méchant">Soit gentil, pas méchant, c’est pas gentil d’être méchant</h1>
+
+<blockquote>
+  <p>A: “Je comprends pas l’API elle repond rien”</p>
+</blockquote>
+
+<blockquote>
+  <p>B: “T’as essayé de demander gentiment ?”</p>
+</blockquote>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid parameters 'MAIS_TU_VAS_ME_REPONDRE_UN_TRUC_COHERENT_BORDEL_DE_MERDE_!?!?!?!?!?!?!?!?!!' for route 'xxxxxxxxxxxxx'"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h1 id="des-réponses-magiques">Des réponses magiques</h1>
+
+<blockquote>
+  <p>“so this case is never expected, but obviously it happens” Ah 😅, nous voilà rassuré</p>
+</blockquote>
+
+<h1 id="alerte-générale">Alerte générale</h1>
+
+<blockquote>
+  <p>Quand on crée une alerte pour pouvoir la mettre en silence juste après 👌</p>
+</blockquote>
+
+<h1 id="le-consentement">Le consentement</h1>
+
+<blockquote>
+  <p>A: “J’ai insisté et c’est passé”</p>
+</blockquote>
+
+<blockquote>
+  <p>B: “Tu as insisté mais est-ce que tu as pensé au consentement de GraphQL et de postgre ?”</p>
+</blockquote>
+
+<h1 id="-moi-paresseux-">🦥, moi paresseux ?</h1>
+
+<blockquote>
+  <p>Même ne rien faire c’est déjà pas mal de taf</p>
+</blockquote>
+
+<h1 id="-question-">? Question ?</h1>
+
+<p><img src="/images/posts/dev-facts-13/question.png" alt="screenshot d'une PR ou plusieurs personnes commentent avec juste un ?" /></p>
+
+<h1 id="-mnom-mnom">🍗 Mnom Mnom</h1>
+
+<blockquote>
+  <p>A: “Ah mince j’ai pas mis mon texte en escalope”</p>
+</blockquote>
+
+<blockquote>
+  <p>B: “?”</p>
+</blockquote>
+
+<blockquote>
+  <p>A: “Entre quote”</p>
+</blockquote>
+
+<h1 id="la-documentation-éternelle">La documentation éternelle</h1>
+
+<blockquote>
+  <p>Les temps changent mais pas les readme</p>
+</blockquote>
+
+<h1 id="les-petits-génies">Les petits génies</h1>
+
+<blockquote>
+  <p>Nan mais attendez vous à plein de commentaires disant que c’est codé avec les pieds, et que Jean-Kevin, 16 ans, aurait mieux fait en 2j pendant son week-end chez sa mamie Germaine, pendant qu’il faisait une pause dans le développement du nouveau Bitcoin.</p>
+</blockquote>
+
+<h1 id="blackhole-sun">Blackhole sun</h1>
+
+<p>En parlant de lignes supprimées.</p>
+
+<p><img src="/images/posts/dev-facts-13/review.png" alt="A: Where did this go? 🤔 B: In a black hole. 😞" /></p>
+
+<h1 id="technique-de-sioux">Technique de sioux</h1>
+
+<blockquote>
+  <p>Nan mais réécrit les status 404 en 200 et ça marchera !</p>
+</blockquote>
+
+<h1 id="on-peut-revert-une-fois-mais-pas-quinze-">On peut revert une fois, mais pas quinze !</h1>
+
+<p><img src="/images/posts/dev-facts-13/revert.png" alt="Screenshot d'un commit dont le titre commence par: &quot;Revert &quot;Revert &quot;Revert ...&quot;" /></p>
+
+<h1 id="définition-aws">Définition AWS</h1>
+
+<blockquote>
+  <p>AZ = Ama Zones</p>
+</blockquote>
+
+<h1 id="heureusement-pour-nous">Heureusement pour nous</h1>
+
+<blockquote>
+  <p>Les cas sans erreurs fonctionnent très bien</p>
+</blockquote>
+
+<h1 id="manager---">Manager === 🐐 ?</h1>
+
+<blockquote>
+  <p>La formatrice : je vous donne un mot et vous me donnez le premier mot qui vous passe par la tête.</p>
+</blockquote>
+
+<blockquote>
+  <p>La formatrice : “Chef” ?</p>
+</blockquote>
+
+<blockquote>
+  <p>Un participant : Chèvre</p>
+</blockquote>
+
+<h1 id="il-ny-a-pas-de-mais-">Il n’y a pas de “mais” !</h1>
+
+<blockquote>
+  <p>Je ne veux pas remettre en cause toute l’architecture MAIS …</p>
+</blockquote>
+
+<h1 id="-singe-">🐒 Singe ?</h1>
+
+<blockquote>
+  <p>Quand j’entends “Go/NoGo”, mon cerveau comprend “Bonobo”</p>
+</blockquote>
+
+<h1 id="avec-du-savon-">Avec du savon !</h1>
+
+<blockquote>
+  <p>A: “Ils font du SOAP!”</p>
+</blockquote>
+
+<blockquote>
+  <p>A: “C’est pour être bien propre”</p>
+</blockquote>
+
+<h1 id="lautomatisation-diy">L’automatisation DIY</h1>
+
+<blockquote>
+  <p>C’est automatiquement fait à la main</p>
+</blockquote>
+
+<h1 id="-le-retour">🦥 le retour</h1>
+
+<blockquote>
+  <p>La paresse n’est pas un défaut, c’est une optimisation</p>
+</blockquote>
+
+<h1 id="astuce-de-pro">Astuce de pro!</h1>
+
+<blockquote>
+  <p>Si vos collègues et votre conscience vous embêtent quand vous dites « je vais tester ce changement en prod », dites à la place « je vais valider ce changement en prod ». Vous verrez, ça ira tout de suite mieux !</p>
+</blockquote>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Bedrock+Dev+Facts+%2313%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2021%2F03%2F02%2Fbedrock-dev-facts-13.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2021/03/02/bedrock-dev-facts-13.html&title=Bedrock+Dev+Facts+%2313%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2021/03/02/bedrock-dev-facts-13.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Bedrock Dev Facts #13%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2021/03/02/bedrock-dev-facts-13.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#devfacts">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> devfacts</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#humour">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> humour</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Migration de 6play vers Le Cloud, retour d’expérience." href="/2021/03/11/migration-6play-vers-le-cloud-retour-experience-pascal-martin.html">
+            <p>Previous post</p>
+            Migration de 6play vers Le Cloud, retour d’expérience.
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Machine Learning en production" href="/2021/01/21/machine-learning-en-production.html">
+            <p>Next post</p>
+            Machine Learning en production
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>
