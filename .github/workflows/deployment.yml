@@ -1,0 +1,26 @@
+name: Continous Deployment
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    name: 'Build 📦 & Deploy 🚀'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '3'
+      - run: gem install bundler
+      - run: bundle install --jobs 4 --retry 3
+
+      - name: 'Build 📦'
+        run: bundle exec jekyll build
+
+      - uses: JamesIves/github-pages-deploy-action@v4.3.4
+        name: 'Deploy 🚀'
+        with:
+          folder: _site
+          clean: true
