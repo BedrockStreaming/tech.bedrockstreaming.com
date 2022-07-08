@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/2022-07-08-encrypt-aws-amis/encrypt-aws-amis.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Encrypt AWS AMIs: one way to do it badly | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Encrypt AWS AMIs: one way to do it badly" />
+<meta name="author" content="Tanguy Falconnet" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="By encrypting our AMIs, we wanted to overzealously increase our security. In the end, we reduced it and lost time. Here is the REX of this failure that we had to rollback." />
+<meta property="og:description" content="By encrypting our AMIs, we wanted to overzealously increase our security. In the end, we reduced it and lost time. Here is the REX of this failure that we had to rollback." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2022/07/08/encrypt-aws-amis.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2022/07/08/encrypt-aws-amis.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-07-08T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Encrypt AWS AMIs: one way to do it badly" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/07/08/encrypt-aws-amis.html"},"url":"https://tech.bedrockstreaming.com/2022/07/08/encrypt-aws-amis.html","author":{"@type":"Person","name":"Tanguy Falconnet"},"@type":"BlogPosting","headline":"Encrypt AWS AMIs: one way to do it badly","dateModified":"2022-07-08T00:00:00+00:00","datePublished":"2022-07-08T00:00:00+00:00","description":"By encrypting our AMIs, we wanted to overzealously increase our security. In the end, we reduced it and lost time. Here is the REX of this failure that we had to rollback.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Encrypt AWS AMIs: one way to do it badly">
+    <meta name="twitter:description" content="At Bedrock, we build our own privately shared AMIs (Amazon Machine Images) for different parts of our stack: kubernetes platform, vod platform, etc. We build...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/2022-07-08-encrypt-aws-amis/encrypt-aws-amis.png">
+    <meta name="twitter:image:alt" content="Encrypt AWS AMIs: one way to do it badly">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Encrypt AWS AMIs: one way to do it badly " aria-label="Encrypt AWS AMIs: one way to do it badly" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Encrypt+AWS+AMIs%3A+one+way+to+do+it+badly" class="title">Encrypt AWS AMIs: one way to do it badly</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/TanguyFalconnet" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="/images/avatar/t_falconnet.jpg">
+    
+    <p class="meta">
+      Tanguy Falconnet - 
+      
+      July 08, 2022
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>At Bedrock, we build our own privately shared AMIs (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html">Amazon Machine Images</a>) for different parts of our stack: kubernetes platform, vod platform, etc. We build those AMIs to optimize kernel parameters,to embed some tools, and more. We have been using Packer for a couple of years, and everything has been working just fine.</p>
+
+<p>Concerned about following AWS best-practices, we recently added <a href="https://aws.amazon.com/premiumsupport/knowledge-center/ebs-automatic-encryption/">encryption by default to all new EBS volumes</a> in all our accounts.</p>
+
+<p>We didn’t expect it, but this decision impacted our AMI creation process. We thus began to update our Packer workflow to integrate this new constraint. We were telling ourselves that more security was for the best and we didn’t take enough steps back to analyze drawbacks.</p>
+
+<p>You will find in this blog post multiple tips that may help you handle your AMIs encryption, but also why you shouldn’t handle it our way.</p>
+
+<h2 id="build-an-encrypted-ami">Build an encrypted AMI</h2>
+
+<p>To build our AMI, Packer launches an EC2 in a “builder” account, then a snapshot is created and copied in needed regions. To use this AMI, “user” accounts are listed in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-explicit.html">AMI allowed users</a>.</p>
+
+<p>With account EBS encryption enabled, snapshots are now encrypted. The default behavior is to use the account’s default KMS Key. Our first “easy” problem while trying to build new AMI with Packer was the following error message:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Error Copying AMI (ami-xxxxxx) to region (xx-xxx-x): InvalidRequest: Snapshot snap-xxxxxxx is encrypted. Creating an unencrypted copy from an encrypted snapshot is not supported.
+</code></pre></div></div>
+
+<p>To avoid that, we enabled AMI encryption with Packer, but it resulted in another error :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Error modify AMI attributes: InvalidParameter: Snapshots encrypted with the AWS Managed CMK can't be shared.
+</code></pre></div></div>
+
+<p>As our AMI has to be shared to other accounts, it was impossible to encrypt our AMI with the account default KMS Key. So we created a dedicated KMS Key for Packer encryption.</p>
+
+<p>And it worked! We had our beautiful encrypted AMI, ready to be used in all our accounts.</p>
+
+<p><img src="/images/posts/2022-07-08-encrypt-aws-amis/build_encrypted_amis.png" alt="How we build our encrypted AMIs" /></p>
+
+<center><ins>How we build our encrypted AMIs</ins></center>
+
+<h2 id="run-an-encrypted-ami">Run an encrypted AMI</h2>
+
+<p>This is where it gets complex.</p>
+
+<p>When we tried to launch an EC2 instance with our newly encrypted AMI, it failed with this error code :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Client.InternalError: Client error on launch
+</code></pre></div></div>
+
+<p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/troubleshooting-launch.html">It means that AWS can’t use this AMI because it is encrypted.</a></p>
+
+<p>First step was to authorize the KMS Key to be used for encryption in user (external) accounts.</p>
+
+<p>There are two methods to do that, for two different needs.</p>
+
+<hr />
+
+<h3 id="policy-method">Policy method</h3>
+
+<p>To authorize an external customer managed role (ours), we had to authorize our role in KMS Key dedicated policy to use it, then authorize KMS Key in our role policy to be used. It is some kind of symmetric reference hard to correctly maintain with IaC (Terraform). And we had to do the same for KMS Key replicas in other regions, because they have a dedicated policy.</p>
+
+<p><img src="/images/posts/2022-07-08-encrypt-aws-amis/policy_method.png" alt="Policy method" /></p>
+
+<center><ins>Policy method</ins></center>
+
+<p>One important thing to know here: some KMS Key permissions aren’t available for external account sharing. It means that when we try to add the permission <code class="language-plaintext highlighter-rouge">kms:*</code> to our role policy (for debug purposes only, we follow least privileges principles), it failed. You can find which permission is accessible in cross account use and which is not <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">here</a>.</p>
+
+<h3 id="grant-method">Grant method</h3>
+
+<p>To authorize an AWS managed role, like <code class="language-plaintext highlighter-rouge">AWSServiceRoleForAutoScaling</code> (to launch our EC2), we also needed to allow it to use our key. It is impossible to add a new policy on an AWS Managed role. So instead of using a policy method like before, we had to create a grant on that role to use our key. We tried to create that grant from the source account (where the key is created), but it didn’t work. We had to create that grant from the destination account (where <code class="language-plaintext highlighter-rouge">AWSServiceRoleForAutoScaling</code> is), using a role in the destination account that is allowed to create a grant… So we had to allow a role from the destination account to create a grant with Policy method, then use the previous role to allow an AWS Managed Role to use our KMS Key with Grant method. Pretty fun, right?</p>
+
+<p><img src="/images/posts/2022-07-08-encrypt-aws-amis/grant_method.png" alt="Grant method" /></p>
+
+<center><ins>Grant method</ins></center>
+
+<hr />
+
+<p>Once all needed roles were allowed, we tried to launch an EC2 with the allowed role attached as an instance role. It failed again, because we needed to also use the AMI KMS Key on root volume of our instance. By default, it was the account KMS Key that was used.</p>
+
+<p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">We attached that key on our root volume</a>, and it worked. We also could launch our EC2 with ASG. It was all good.</p>
+
+<p>But there was a big security vulnerability: instead of using one KMS key per account to encrypt our EBS volume, we were now using the same KMS key on all our accounts because of our encrypted AMI.</p>
+
+<h2 id="kms-key-rotation">KMS Key rotation</h2>
+
+<p>A short word about <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#kms-key-rotation">Key rotation</a>: it can easily be enabled to automatically rotate key materials each year. All new AMIs will be encrypted with new key material and nothing has to be changed to run encrypted AMIs.
+But in case of a manual rotation: if a key is leaked for example, you will need to recreate a new KMS Key, its replicas, and all permissions and grants seen before.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Using privately shared encrypted AMI caused us multiple problems:</p>
+<ul>
+  <li>higher complexity to maintain.</li>
+  <li>lower security in cross-account configuration.</li>
+</ul>
+
+<p>Furthermore, we checked all our AMIs to see if they contain sensitive data. It isn’t the case : all sensitive data is uploaded at startup by <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-launch-template.html">Launch Template</a>. We had no interest in continuing to use encrypted AMI, and we would have spared so much time if we had seen that sooner.</p>
+
+<p>This is why we decided to disable encryption for all new EBS volume on our builder account and stop building encrypted AMI.</p>
+
+<p>Doing all the previous configuration took us several weeks. We are now more aware that doing security just for the beauty of it can be really counterproductive.</p>
+
+<p>If your AMIs contain sensitive data, a better way to handle encrypted AMI may be to stop creating privately shared AMIs. Instead, copy and encrypt a private AMI in each of your “user” accounts with a dedicated KMS Key per account. As a result, there will be a larger amount of AMI to handle (one AMI per account per region), KMS Key permissions will still be complex, but security should improved.</p>
+
+<h4 id="logo-used-in-thumbnail">Logo used in thumbnail</h4>
+<h5 id="death-by-imogen-oh-from-nounprojectcom">Death by Imogen Oh from NounProject.com</h5>
+<h5 id="key-by-baboon-designs-from-nounprojectcom">Key by Baboon designs from NounProject.com</h5>
+<h5 id="gears-by-aybige-from-nounprojectcom">Gears by Aybige from NounProject.com</h5>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Encrypt+AWS+AMIs%3A+one+way+to+do+it+badly%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F07%2F08%2Fencrypt-aws-amis.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/07/08/encrypt-aws-amis.html&title=Encrypt+AWS+AMIs%3A+one+way+to+do+it+badly%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/07/08/encrypt-aws-amis.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Encrypt AWS AMIs: one way to do it badly%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/07/08/encrypt-aws-amis.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#aws">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> aws</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#cloud">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="Debugging and reviewing your Android dependencies with apktool" href="/2022/06/20/android-apktool-decompiling.html">
+            <p>Next post</p>
+            Debugging and reviewing your Android dependencies with apktool
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

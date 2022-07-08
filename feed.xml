@@ -1,4 +1,101 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-07-08T13:08:10+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Debugging and reviewing your Android dependencies with apktool</title><link href="https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html" rel="alternate" type="text/html" title="Debugging and reviewing your Android dependencies with apktool" /><published>2022-06-20T00:00:00+00:00</published><updated>2022-06-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html">&lt;p&gt;If you maintain an Android application, you might be relying on performance monitoring SDKs like &lt;a href=&quot;https://firebase.google.com/docs/perf-mon&quot;&gt;Firebase Performance&lt;/a&gt; or &lt;a href=&quot;https://newrelic.com/products/mobile-monitoring&quot;&gt;New Relic&lt;/a&gt;, to name a couple. These plugins usually have a light setup process—just apply a Gradle plugin, and they provide the ability to collect statistics about every network call and database query in your app automatically.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-07-08T13:16:41+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Encrypt AWS AMIs: one way to do it badly</title><link href="https://tech.bedrockstreaming.com/2022/07/08/encrypt-aws-amis.html" rel="alternate" type="text/html" title="Encrypt AWS AMIs: one way to do it badly" /><published>2022-07-08T00:00:00+00:00</published><updated>2022-07-08T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/07/08/encrypt-aws-amis</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/07/08/encrypt-aws-amis.html">&lt;p&gt;At Bedrock, we build our own privately shared AMIs (&lt;a href=&quot;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html&quot;&gt;Amazon Machine Images&lt;/a&gt;) for different parts of our stack: kubernetes platform, vod platform, etc. We build those AMIs to optimize kernel parameters,to embed some tools, and more. We have been using Packer for a couple of years, and everything has been working just fine.&lt;/p&gt;
+
+&lt;p&gt;Concerned about following AWS best-practices, we recently added &lt;a href=&quot;https://aws.amazon.com/premiumsupport/knowledge-center/ebs-automatic-encryption/&quot;&gt;encryption by default to all new EBS volumes&lt;/a&gt; in all our accounts.&lt;/p&gt;
+
+&lt;p&gt;We didn’t expect it, but this decision impacted our AMI creation process. We thus began to update our Packer workflow to integrate this new constraint. We were telling ourselves that more security was for the best and we didn’t take enough steps back to analyze drawbacks.&lt;/p&gt;
+
+&lt;p&gt;You will find in this blog post multiple tips that may help you handle your AMIs encryption, but also why you shouldn’t handle it our way.&lt;/p&gt;
+
+&lt;h2 id=&quot;build-an-encrypted-ami&quot;&gt;Build an encrypted AMI&lt;/h2&gt;
+
+&lt;p&gt;To build our AMI, Packer launches an EC2 in a “builder” account, then a snapshot is created and copied in needed regions. To use this AMI, “user” accounts are listed in the &lt;a href=&quot;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-explicit.html&quot;&gt;AMI allowed users&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;With account EBS encryption enabled, snapshots are now encrypted. The default behavior is to use the account’s default KMS Key. Our first “easy” problem while trying to build new AMI with Packer was the following error message:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Error Copying AMI (ami-xxxxxx) to region (xx-xxx-x): InvalidRequest: Snapshot snap-xxxxxxx is encrypted. Creating an unencrypted copy from an encrypted snapshot is not supported.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To avoid that, we enabled AMI encryption with Packer, but it resulted in another error :&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Error modify AMI attributes: InvalidParameter: Snapshots encrypted with the AWS Managed CMK can&apos;t be shared.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As our AMI has to be shared to other accounts, it was impossible to encrypt our AMI with the account default KMS Key. So we created a dedicated KMS Key for Packer encryption.&lt;/p&gt;
+
+&lt;p&gt;And it worked! We had our beautiful encrypted AMI, ready to be used in all our accounts.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-07-08-encrypt-aws-amis/build_encrypted_amis.png&quot; alt=&quot;How we build our encrypted AMIs&quot; /&gt;&lt;/p&gt;
+
+&lt;center&gt;&lt;ins&gt;How we build our encrypted AMIs&lt;/ins&gt;&lt;/center&gt;
+
+&lt;h2 id=&quot;run-an-encrypted-ami&quot;&gt;Run an encrypted AMI&lt;/h2&gt;
+
+&lt;p&gt;This is where it gets complex.&lt;/p&gt;
+
+&lt;p&gt;When we tried to launch an EC2 instance with our newly encrypted AMI, it failed with this error code :&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Client.InternalError: Client error on launch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/troubleshooting-launch.html&quot;&gt;It means that AWS can’t use this AMI because it is encrypted.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;First step was to authorize the KMS Key to be used for encryption in user (external) accounts.&lt;/p&gt;
+
+&lt;p&gt;There are two methods to do that, for two different needs.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;policy-method&quot;&gt;Policy method&lt;/h3&gt;
+
+&lt;p&gt;To authorize an external customer managed role (ours), we had to authorize our role in KMS Key dedicated policy to use it, then authorize KMS Key in our role policy to be used. It is some kind of symmetric reference hard to correctly maintain with IaC (Terraform). And we had to do the same for KMS Key replicas in other regions, because they have a dedicated policy.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-07-08-encrypt-aws-amis/policy_method.png&quot; alt=&quot;Policy method&quot; /&gt;&lt;/p&gt;
+
+&lt;center&gt;&lt;ins&gt;Policy method&lt;/ins&gt;&lt;/center&gt;
+
+&lt;p&gt;One important thing to know here: some KMS Key permissions aren’t available for external account sharing. It means that when we try to add the permission &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kms:*&lt;/code&gt; to our role policy (for debug purposes only, we follow least privileges principles), it failed. You can find which permission is accessible in cross account use and which is not &lt;a href=&quot;https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;grant-method&quot;&gt;Grant method&lt;/h3&gt;
+
+&lt;p&gt;To authorize an AWS managed role, like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AWSServiceRoleForAutoScaling&lt;/code&gt; (to launch our EC2), we also needed to allow it to use our key. It is impossible to add a new policy on an AWS Managed role. So instead of using a policy method like before, we had to create a grant on that role to use our key. We tried to create that grant from the source account (where the key is created), but it didn’t work. We had to create that grant from the destination account (where &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AWSServiceRoleForAutoScaling&lt;/code&gt; is), using a role in the destination account that is allowed to create a grant… So we had to allow a role from the destination account to create a grant with Policy method, then use the previous role to allow an AWS Managed Role to use our KMS Key with Grant method. Pretty fun, right?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-07-08-encrypt-aws-amis/grant_method.png&quot; alt=&quot;Grant method&quot; /&gt;&lt;/p&gt;
+
+&lt;center&gt;&lt;ins&gt;Grant method&lt;/ins&gt;&lt;/center&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Once all needed roles were allowed, we tried to launch an EC2 with the allowed role attached as an instance role. It failed again, because we needed to also use the AMI KMS Key on root volume of our instance. By default, it was the account KMS Key that was used.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html&quot;&gt;We attached that key on our root volume&lt;/a&gt;, and it worked. We also could launch our EC2 with ASG. It was all good.&lt;/p&gt;
+
+&lt;p&gt;But there was a big security vulnerability: instead of using one KMS key per account to encrypt our EBS volume, we were now using the same KMS key on all our accounts because of our encrypted AMI.&lt;/p&gt;
+
+&lt;h2 id=&quot;kms-key-rotation&quot;&gt;KMS Key rotation&lt;/h2&gt;
+
+&lt;p&gt;A short word about &lt;a href=&quot;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#kms-key-rotation&quot;&gt;Key rotation&lt;/a&gt;: it can easily be enabled to automatically rotate key materials each year. All new AMIs will be encrypted with new key material and nothing has to be changed to run encrypted AMIs.
+But in case of a manual rotation: if a key is leaked for example, you will need to recreate a new KMS Key, its replicas, and all permissions and grants seen before.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Using privately shared encrypted AMI caused us multiple problems:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;higher complexity to maintain.&lt;/li&gt;
+  &lt;li&gt;lower security in cross-account configuration.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Furthermore, we checked all our AMIs to see if they contain sensitive data. It isn’t the case : all sensitive data is uploaded at startup by &lt;a href=&quot;https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-launch-template.html&quot;&gt;Launch Template&lt;/a&gt;. We had no interest in continuing to use encrypted AMI, and we would have spared so much time if we had seen that sooner.&lt;/p&gt;
+
+&lt;p&gt;This is why we decided to disable encryption for all new EBS volume on our builder account and stop building encrypted AMI.&lt;/p&gt;
+
+&lt;p&gt;Doing all the previous configuration took us several weeks. We are now more aware that doing security just for the beauty of it can be really counterproductive.&lt;/p&gt;
+
+&lt;p&gt;If your AMIs contain sensitive data, a better way to handle encrypted AMI may be to stop creating privately shared AMIs. Instead, copy and encrypt a private AMI in each of your “user” accounts with a dedicated KMS Key per account. As a result, there will be a larger amount of AMI to handle (one AMI per account per region), KMS Key permissions will still be complex, but security should improved.&lt;/p&gt;
+
+&lt;h4 id=&quot;logo-used-in-thumbnail&quot;&gt;Logo used in thumbnail&lt;/h4&gt;
+&lt;h5 id=&quot;death-by-imogen-oh-from-nounprojectcom&quot;&gt;Death by Imogen Oh from NounProject.com&lt;/h5&gt;
+&lt;h5 id=&quot;key-by-baboon-designs-from-nounprojectcom&quot;&gt;Key by Baboon designs from NounProject.com&lt;/h5&gt;
+&lt;h5 id=&quot;gears-by-aybige-from-nounprojectcom&quot;&gt;Gears by Aybige from NounProject.com&lt;/h5&gt;</content><author><name>Tanguy Falconnet</name></author><category term="cloud" /><category term="aws" /><summary type="html">At Bedrock, we build our own privately shared AMIs (Amazon Machine Images) for different parts of our stack: kubernetes platform, vod platform, etc. We build those AMIs to optimize kernel parameters,to embed some tools, and more. We have been using Packer for a couple of years, and everything has been working just fine.</summary></entry><entry><title type="html">Debugging and reviewing your Android dependencies with apktool</title><link href="https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html" rel="alternate" type="text/html" title="Debugging and reviewing your Android dependencies with apktool" /><published>2022-06-20T00:00:00+00:00</published><updated>2022-06-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html">&lt;p&gt;If you maintain an Android application, you might be relying on performance monitoring SDKs like &lt;a href=&quot;https://firebase.google.com/docs/perf-mon&quot;&gt;Firebase Performance&lt;/a&gt; or &lt;a href=&quot;https://newrelic.com/products/mobile-monitoring&quot;&gt;New Relic&lt;/a&gt;, to name a couple. These plugins usually have a light setup process—just apply a Gradle plugin, and they provide the ability to collect statistics about every network call and database query in your app automatically.&lt;/p&gt;
 
 &lt;p&gt;The usual way to achieve this is to rely on a process called &lt;strong&gt;instrumentation&lt;/strong&gt;, which is supported &lt;em&gt;via&lt;/em&gt; the Android Gradle Plugin’s &lt;a href=&quot;https://developer.android.com/reference/tools/gradle-api/7.2/com/android/build/api/transform/Transform&quot;&gt;Transform API&lt;/a&gt;, or its successor, the &lt;a href=&quot;https://developer.android.com/studio/releases/gradle-plugin-api-updates#transform-removed&quot;&gt;Instrumentation API&lt;/a&gt;. This feature is very powerful, and potentially dangerous; in our case, a minor patch of one of these SDKs caused a production bug that left one of our core features crippled.&lt;/p&gt;
 
@@ -987,139 +1084,4 @@ You should rather look at the distribution of PR sizes of a dev.&lt;/p&gt;
       &lt;p&gt;Alias for Pull Request &lt;a href=&quot;#fnref:pr&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
-&lt;/div&gt;</content><author><name>Antoine Caron</name></author><category term="oss" /><category term="github" /><category term="devops" /><summary type="html"></summary></entry><entry><title type="html">Retour sur l’AFUP Day Lille 2022</title><link href="https://tech.bedrockstreaming.com/2022/05/30/afup-day-lille-2022.html" rel="alternate" type="text/html" title="Retour sur l’AFUP Day Lille 2022" /><published>2022-05-30T00:00:00+00:00</published><updated>2022-05-30T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/05/30/afup-day-lille-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/05/30/afup-day-lille-2022.html">&lt;p&gt;&lt;img src=&quot;/images/posts/2022-05-30-afup-day-2022/team.jpg&quot; alt=&quot;&amp;quot;L&apos;équipe à l&apos;AFUP Day Lille 2022&amp;quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Cette année encore, Bedrock participait à l’&lt;a href=&quot;https://event.afup.org/afup-day-2022/&quot;&gt;&lt;em&gt;AFUP Day 2022&lt;/em&gt;&lt;/a&gt;, nous avons eu la chance de profiter de conférences de qualité et aux sujets variés.&lt;/p&gt;
-
-&lt;h2 id=&quot;php-81-en-détail&quot;&gt;PHP 8.1 en détail&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/faguo&quot;&gt;&lt;em&gt;Damien Seguy&lt;/em&gt;&lt;/a&gt; nous a parlé des nouveautés de PHP 8.1 mais aussi de celles de PHP 8.2 qui arriveront prochainement.&lt;/p&gt;
-
-&lt;p&gt;Damien nous a parlé en vrac :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;de l’ajout du format &lt;a href=&quot;https://www.php.net/manual/fr/function.imagecreatefromavif.php&quot;&gt;&lt;em&gt;AVIF&lt;/em&gt;&lt;/a&gt; dans &lt;a href=&quot;https://www.php.net/manual/fr/book.image.php&quot;&gt;&lt;em&gt;GD&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;l’ajout des fonctions &lt;a href=&quot;https://www.php.net/manual/fr/function.fsync.php&quot;&gt;&lt;em&gt;fsync&lt;/em&gt;&lt;/a&gt; et &lt;a href=&quot;https://www.php.net/manual/fr/function.fdatasync.php&quot;&gt;&lt;em&gt;fdatasync&lt;/em&gt;&lt;/a&gt; qui permettent de synchroniser les données d’un fichier sur l’OS. Cela veut dire que le fichier sera bien écrit sur le disque.&lt;/li&gt;
-  &lt;li&gt;l’arrivée de la prise en compte du format ristreto255 avec le libsodium&lt;/li&gt;
-  &lt;li&gt;de la fonction &lt;a href=&quot;https://www.php.net/manual/en/function.array-is-list.php&quot;&gt;&lt;em&gt;array_is_list&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Le conférencier a insisté sur le fait de ne pas hésiter à monter de version régulièrement. Il est possible d’utiliser les polyfills déjà existants (pour la &lt;a href=&quot;https://github.com/symfony/polyfill-php81&quot;&gt;&lt;em&gt;8.1&lt;/em&gt;&lt;/a&gt; et même la &lt;a href=&quot;https://github.com/symfony/polyfill-php82&quot;&gt;&lt;em&gt;8.2&lt;/em&gt;&lt;/a&gt;) ou d’ajouter ses propres fonctions, mais de bien faire attention d’utiliser &lt;a href=&quot;https://www.php.net/manual/fr/function.function-exists.php&quot;&gt;&lt;em&gt;function_exists&lt;/em&gt;&lt;/a&gt; pour préparer les migrations.&lt;/p&gt;
-
-&lt;p&gt;Une des nouveautés phare de la version 8.1 est l’ajout de la gestion des &lt;a href=&quot;https://www.php.net/manual/en/language.types.enumerations.php&quot;&gt;&lt;em&gt;enums&lt;/em&gt;&lt;/a&gt;. Une énumération est un &lt;a href=&quot;https://www.php.net/manual/en/class.unitenum.php&quot;&gt;&lt;em&gt;objet&lt;/em&gt;&lt;/a&gt; et non un type scalaire. Il est donc possible de l’étendre (&lt;a href=&quot;https://www.php.net/manual/en/language.enumerations.methods.php&quot;&gt;&lt;em&gt;via des interfaces&lt;/em&gt;&lt;/a&gt;, …). Cela veut aussi dire que nous ne pouvons pas les utiliser comme clefs de tableau par exemple. Il est par contre possible d’utiliser la propriété $myEnum-&amp;gt;value. Attention, les énumérations et les classes partagent le même espace de nom, nous ne pouvons donc pas avoir une enum et une classe s’appelant pareil dans le même namespace.&lt;/p&gt;
-
-&lt;p&gt;Les Fibers, solution pour rendre les programmes interruptibles, a été rapidement introduite, mais nous vous conseillons de regarder la &lt;a href=&quot;https://afup.org/talks/3794-fiber-la-porte-ouverte-sur-l-asynchrone&quot;&gt;&lt;em&gt;conférence sur ce sujet&lt;/em&gt;&lt;/a&gt; de notre cher et estimé collègue &lt;a href=&quot;https://twitter.com/b_viguier&quot;&gt;&lt;em&gt;Benoit Viguier&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Dans la dernière version, à ce jour, a été introduit le type de retour &lt;a href=&quot;https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.never&quot;&gt;&lt;em&gt;never&lt;/em&gt;&lt;/a&gt;. Une fonction ou méthode qui retourne ce type ne pourra pas faire de return (même vide) ni même un yield. Il sera, par contre, possible d’appeler &lt;a href=&quot;https://www.php.net/manual/en/function.die.php&quot;&gt;&lt;em&gt;die&lt;/em&gt;&lt;/a&gt;, &lt;a href=&quot;https://www.php.net/manual/en/function.exit.php&quot;&gt;&lt;em&gt;exit&lt;/em&gt;&lt;/a&gt;, &lt;a href=&quot;https://www.php.net/manual/en/language.exceptions.php&quot;&gt;&lt;em&gt;throw&lt;/em&gt;&lt;/a&gt; ou &lt;a href=&quot;https://www.php.net/manual/en/fiber.suspend.php&quot;&gt;&lt;em&gt;suspend&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Les &lt;a href=&quot;https://www.php.net/manual/en/language.oop5.constants.php&quot;&gt;&lt;em&gt;constantes&lt;/em&gt;&lt;/a&gt; peuvent maintenant être finales, cela bloquera la possibilité de surcharger leurs valeurs par héritage.&lt;/p&gt;
-
-&lt;p&gt;Il est désormais possible de faire des propriétés &lt;a href=&quot;https://www.php.net/manual/en/language.oop5.properties.php#language.oop5.properties.readonly-properties&quot;&gt;&lt;em&gt;readonly&lt;/em&gt;&lt;/a&gt;. Cette propriété devra forcément être typée, et ne pourra pas avoir de valeur par défaut. &lt;em&gt;readonly&lt;/em&gt; ne peut pas être utilisé avec &lt;em&gt;static&lt;/em&gt;. Si la propriété est un objet, l’instance pourra être modifiée (par exemple avec des setters), mais pas remplacée.&lt;/p&gt;
-
-&lt;p&gt;Il est maintenant possible d’instancier des valeurs par défaut. Par exemple :&lt;/p&gt;
-
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
-    &lt;span class=&quot;nc&quot;&gt;Formatter&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$formatter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DefaultFormatter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Cette instanciation est possible dans les arguments de fonction ou de méthode, les variables statiques ou encore les constantes globales. Par contre, ce n’est pas compatible avec les constantes de classes ou les propriétés de classes (sauf si ces dernières sont des propriétés promues).&lt;/p&gt;
-
-&lt;p&gt;Dans sa version 8.1, PHP apporte aussi les &lt;a href=&quot;https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.composite.intersection&quot;&gt;&lt;em&gt;types d’intersections&lt;/em&gt;&lt;/a&gt;. Un exemple présenté serait de vouloir une instance de type Traversable ET Countable. Les types scalaires ne sont pas acceptés, c’est uniquement avec plusieurs classes.&lt;/p&gt;
-
-&lt;h2 id=&quot;de-lhumain-à-lordinateur-ou-découvrir-le-sens-dun-texte-avec-elasticsearch&quot;&gt;De l’humain à l’ordinateur, ou découvrir le sens d’un texte avec ElasticSearch&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/matarld&quot;&gt;&lt;em&gt;Mathias ARLAUD&lt;/em&gt;&lt;/a&gt; nous a ensuite parlé d’ElasticSearch et de comment il est possible d&apos;attribuer un score de corrélation entre un texte donné et une multitude d&apos;autres.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-05-30-afup-day-2022/formula.png&quot; alt=&quot;&amp;quot;Formule de scoring d&apos;ElasticSearch&amp;quot;&quot; /&gt;&lt;br /&gt;
-Il a décortiqué cette équation (déjà simplifiée) en nous expliquant les mécanismes en place pour calculer ce score.&lt;br /&gt;
-Il nous a parlé de &lt;strong&gt;&lt;em&gt;Term Frequency&lt;/em&gt;&lt;/strong&gt; (la fréquence à laquelle un mot apparaît dans un document), d’&lt;strong&gt;&lt;em&gt;Inverse Document Frequency&lt;/em&gt;&lt;/strong&gt; (la pertinence des mots) ainsi que de &lt;strong&gt;&lt;em&gt;Coordination Factor&lt;/em&gt;&lt;/strong&gt; (le fait de valoriser un document avec le plus haut pourcentage de mots présents dans la requête).&lt;br /&gt;
-Avec un exemple simple (&lt;strong&gt;&lt;em&gt;Les Développeurs 🥰 développer avec,VIM&amp;amp;excl;&lt;/em&gt;&lt;/strong&gt;), il nous a montré comment les filtres de caractères tels que &lt;em&gt;html_strip&lt;/em&gt;, le &lt;em&gt;mapping&lt;/em&gt;, les générateurs de tokens (&lt;em&gt;whitespace&lt;/em&gt; -&amp;gt; 1 token = 1 mot) ou bien encore les filtres de tokens (&lt;em&gt;phonetic&lt;/em&gt;, &lt;em&gt;stopwords&lt;/em&gt;) permettent d’enlever le bruit des phrases humaines pour ne récupérer que les informations les plus pertinentes pour calculer ce score de corrélation. Après application de ces différentes étapes, son exemple se transforme en &lt;strong&gt;[developp] [aim] [developp] [vim]&lt;/strong&gt;, ce qui permet alors à ElasticSearch d’éliminer des documents non pertinents et qui seraient remontés si ces filtres n’avaient pas été appliqués.&lt;br /&gt;
-Pour plus d’informations, Mathias a mis à disposition &lt;a href=&quot;https://slides.com/mathiasarlaud/elasticsearch&quot;&gt;&lt;em&gt;les slides de son
-talk&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;guide-pratique-dune-méthodologie-ux-pour-la-conception-de-features&quot;&gt;Guide pratique d&apos;une méthodologie UX pour la conception de features&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/jess_m_martel&quot;&gt;&lt;em&gt;Jessica Martel&lt;/em&gt;&lt;/a&gt; nous a présenté une méthodologie UX pour la conception de features qu’elle a mise en place et suivie lors d’une expérience chez Decitre et maintenant chez Unow.&lt;br /&gt;
-Elle nous a parlé de l’importance de la constitution d’une équipe projet regroupant tous les acteurs (PO, devs, le pôle Design et les équipes métier). Diversifier les acteurs permet d&apos;accroître l’adhésion du projet, d’apporter différentes cultures et de cibler le besoin.&lt;/p&gt;
-
-&lt;p&gt;S&apos;ensuivent plusieurs étapes :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;Product concept&lt;/em&gt;&lt;/strong&gt; : évaluation du besoin, de la criticité&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;UX Research et audit&lt;/em&gt;&lt;/strong&gt; : bench global, entretiens&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;User journey&lt;/em&gt;&lt;/strong&gt; : identification des différentes étapes (déterminées suite au bench et entretiens), mise en place du workflow&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;Specs fonctionnelles et design&lt;/em&gt;&lt;/strong&gt; : cas d’usages, règles métier, versions, KPI / création de wireframes, maquettes UI et prototypes&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Cette méthodologie comprend cependant des limites ! Elle prend beaucoup de temps et est soumise au contexte, aux priorisations d’autres features, au downsizer…&lt;/p&gt;
-
-&lt;h2 id=&quot;le-prométhée-moderne--embarquer-php-dans-go&quot;&gt;Le Prométhée moderne : embarquer PHP dans Go&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/dunglas&quot;&gt;&lt;em&gt;Kévin Dunglas&lt;/em&gt;&lt;/a&gt; nous a parlé de comment embarquer PHP dans du Go. Après avoir listé les différentes SAPI (Module Apache, FPM, …) et nous avoir expliqué brièvement le langage Go et sa librairie standard net/http, Kévin nous a présenté &lt;strong&gt;FrankenPHP&lt;/strong&gt; et toute la réflexion et les contraintes rencontrées pour le créer. Ce projet est un nouveau serveur Web en Go qui est capable d’appeler l’interpréteur PHP et donc de faire tourner nos applications Web. Le projet est bien avancé, mais pas terminé. N’hésitez pas à le contacter si vous voulez essayer avec vos applications, les retours lui seront utiles. En tout cas, chez Bedrock, on va suivre ça de près !&lt;/p&gt;
-
-&lt;h2 id=&quot;les-subtilités-du-e-commerce-à-la-française&quot;&gt;Les subtilités du e-commerce à la française&lt;/h2&gt;
-
-&lt;p&gt;Après nous avoir présenté les différentes taxes françaises et chez quelques-uns de nos voisins européens, &lt;a href=&quot;https://twitter.com/lanfisis&quot;&gt;&lt;em&gt;David Buros&lt;/em&gt;&lt;/a&gt; nous a résenté les différents problèmes qu’il a rencontrés avec Sylius:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;l’affichage du prix HT et du prix TTC&lt;/li&gt;
-  &lt;li&gt;la gestion des réductions avec ce double affichage&lt;/li&gt;
-  &lt;li&gt;la gestion des écotaxes&lt;/li&gt;
-  &lt;li&gt;le paiement par mandat administratif&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;comment-on-est-passé-de-1-800-emails-à-70-000-par-jour-chez-trustt-en-1-mois-avec-rabbitmq&quot;&gt;Comment on est passé de 1 800 emails à 70 000 par jour chez Trustt en 1 mois avec RabbitMQ&lt;/h2&gt;
-
-&lt;p&gt;Cédric Driaux nous a expliqué comment ils ont mis en place RabbitMQ chez Trustt pour gérer l’envoi de plus de 70 000 mails par jour, afin de remplacer une ancienne solution qui lançait un CRON toutes les 15 minutes dans le but de faire les calculs et la distribution. Il y avait également des appels API à des outils externes, causant des ralentissements. De plus, certains reliquats de mail n&apos;étaient pas envoyés.&lt;/p&gt;
-
-&lt;p&gt;Pour répondre à ce problème, l’idée était de mettre les mails dans une file ou queue en anglais, permettant une mise en attente de l’envoi des messages, puis utiliser un consumer pour traiter les messages.&lt;/p&gt;
-
-&lt;p&gt;Cédric a décidé de choisir et de mettre en place (en à peine un mois !) RabbitMQ comme solution à cette problématique. Cela a permis : une baisse de charge des serveurs, notamment due à la suppression des CRON, une augmentation des mails envoyés, dont ces derniers peuvent désormais tous être traités dans la journée. Les erreurs sont mises de côté pour être traitées plus tard et ne pas ralentir le processus. Enfin, il est dorénavant possible pour eux d’ajouter d’autres mails dans la queue dans la journée.&lt;/p&gt;
-
-&lt;p&gt;Grâce à RabbitMQ, ils ont pu fortement augmenter leurs capacités d’envoi de mails tout en soulageant les serveurs.&lt;/p&gt;
-
-&lt;h2 id=&quot;cecil-mon-générateur-de-site-statique&quot;&gt;Cecil, mon générateur de site statique&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/ArnaudLigny&quot;&gt;&lt;em&gt;Arnaud Ligny&lt;/em&gt;&lt;/a&gt; nous a présenté son projet perso de générateurs de sites statiques en archive phar : &lt;a href=&quot;https://cecil.app/&quot;&gt;&lt;em&gt;Cecil&lt;/em&gt;&lt;/a&gt;. Il voulait une solution rapide à prendre en main, intuitive et avec une séparation entre le contenu et la mise en forme. Ce side project avait pour but de remettre ses connaissances à jour en appliquant les bonnes pratiques. L’application est automatisée, le paquet .phar est automatiquement généré par GitHub Action lors de la création d’une release, scrutinizer qui fait des corrections, des previews sont réalisables avec netlify.&lt;/p&gt;
-
-&lt;h2 id=&quot;et-si-on-étendait-sql-avec-du-php&quot;&gt;Et si on étendait SQL avec du PHP&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/s0yuka&quot;&gt;&lt;em&gt;Antoine BLUCHET&lt;/em&gt;&lt;/a&gt; nous a présenté plus en détail les projets Doctrine et principalement l’ORM. Cet outil est extensible, mais a quelques limites. Comment pouvons-nous faire des requêtes complexes avec Doctrine ? Peut-on utiliser des Common Table Expression ? La réponse à ces questions, proposée, est &lt;a href=&quot;https://github.com/soyuka/esql&quot;&gt;&lt;em&gt;ESQL&lt;/em&gt;&lt;/a&gt;. Cet outil permet de construire des requêtes SQL complexes facilement sans se soucier des noms des tables ou des colonnes, car il permet d’utiliser ces métadonnées depuis Doctrine.&lt;/p&gt;
-
-&lt;h2 id=&quot;pourquoi-vous-nattirerez-et-ne-retiendrez-pas-les-femmes-dans-vos-équipes-tech&quot;&gt;Pourquoi vous n’attirerez et ne retiendrez pas les femmes dans vos équipes tech.&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://fr.linkedin.com/in/marcy-ericka-charollois-1604&quot;&gt;&lt;em&gt;Marcy Charollois&lt;/em&gt;&lt;/a&gt; fait un constat sur le monde du travail dans le numérique, dominé largement par les hommes et ne laissant que trop peu de place aux femmes. Marcy commence par introduire la notion d’habitus, qui désigne un système de préférences, de style de vie particulier à chacun, qui influence les pratiques des individus au quotidien. Ces pratiques sont intériorisées inconsciemment, car l’individu s’adapte et s&apos;intègre à son environnement social. Cela crée un groupe majoritaire qui devient décisionnaire. Se met alors en place un statu quo qui va soit inclure ou exclure et qui est fortement dominé par la pensée masculine. Marcy nous dévoile que sur 100 % de freins ressentis par les femmes dans la tech, 30% proviennent des biais d&apos;oppression de groupe, une part donc assez conséquente.&lt;/p&gt;
-
-&lt;p&gt;Le constat est réel, les femmes dans la tech vivent mal leur condition de femmes, il faut changer ce sentiment, mais les attitudes face au changement sont variées. 15% de personnes sont réfractaires, il sera donc difficile de faire évoluer les choses avec eux, 15% sont déjà partantes et 70% sont neutres, potentiellement pour ce changement, mais ne savent pas comment le faire.&lt;/p&gt;
-
-&lt;p&gt;Marcy nous donne alors des clés qui permettront d’attirer les femmes dans nos équipes en mettant en avant les freins ressentis par celles-ci : une expression du genre, une légitimité face au métier exercé, des a priori sur la provenance des profils féminins qui sont souvent reconvertis et donc potentiellement juniors :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;féminiser les postes et en particulier sur les offres d’emploi, une femme est développeuse, pas développeur.&lt;/li&gt;
-  &lt;li&gt;mettre en avant les témoignages de femmes qui montent dans votre entreprise pour donner des exemples concrets de ce qu’elles pourraient trouver en venant chez vous&lt;/li&gt;
-  &lt;li&gt;s’intéresser réellement à elles et non pas de voir en vous ce qu’elles mettent en avant&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;La conférence continue sur les actions à mener pour garder les femmes dans nos équipes :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;parler d’égal à égal pour éviter la posture sachant(e)/ignorante&lt;/li&gt;
-  &lt;li&gt;soyez clair, transparent sur les salaires, les évolutions de poste&lt;/li&gt;
-  &lt;li&gt;mettez en place des moments conviviaux plus portés sur des préférences féminines&lt;/li&gt;
-  &lt;li&gt;minimiser les interruptions pendant les prises de parole&lt;/li&gt;
-  &lt;li&gt;écoutez des besoins spécifiques inhérents aux femmes et accommodez-les en offrant des ressources sans juger : parentalité, menstruation, assistance psychologique, adaptation à l’emploi du temps&lt;/li&gt;
-  &lt;li&gt;encouragez les femmes à prendre la parole, à devenir un rôle modèle parce que compétente&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Marcy termine sa conférence par la présentation de quelques chiffres sur l’évolution de carrière des femmes et des enjeux psychosociaux résultant
-de cette évolution et conclut en montrant les bienfaits de l’inclusion des femmes au sein des entreprises et en nous donnant quelques noms de femmes célèbres dans ce combat.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;Encore une fois, l’AFUP a réussi à faire un événement chaleureux, intéressant et diversifié&lt;/p&gt;
-
-&lt;p&gt;Nous sommes ravis d’avoir pu participer à cette manifestation qui nous a permis de rencontrer les membres de la communauté ainsi que de visiter rapidement la ville de Lille et manger des Welsh.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-05-30-afup-day-2022/welsh.jpeg&quot; alt=&quot;&amp;quot;Welsh&amp;quot;&quot; /&gt;&lt;img src=&quot;/images/posts/2022-05-30-afup-day-2022/rues_de_lille.jpg&quot; alt=&quot;&amp;quot;Visite nocturne de Lilles&amp;quot;&quot; /&gt;&lt;/p&gt;</content><author><name>backend</name></author><category term="backend" /><category term="php" /><category term="conference" /><summary type="html"></summary></entry></feed>
+&lt;/div&gt;</content><author><name>Antoine Caron</name></author><category term="oss" /><category term="github" /><category term="devops" /><summary type="html"></summary></entry></feed>
