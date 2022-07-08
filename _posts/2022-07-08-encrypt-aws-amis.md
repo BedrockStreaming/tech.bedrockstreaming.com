@@ -10,7 +10,7 @@ language: en
 comments: true
 ---
 
-At Bedrock, we build our own privately shared AMIs ([Amazon Machine Images](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) for different parts of our stack: kubernetes platform, vod platform, etc. We build those AMI to optimize  kernel parameters,to embed some tools, and more. We have been using Packer for a couple of years, and everything has been working just fine. 
+At Bedrock, we build our own privately shared AMIs ([Amazon Machine Images](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) for different parts of our stack: kubernetes platform, vod platform, etc. We build those AMIs to optimize kernel parameters,to embed some tools, and more. We have been using Packer for a couple of years, and everything has been working just fine. 
 
 Concerned about following AWS best-practices, we recently added [encryption by default to all new EBS volumes](https://aws.amazon.com/premiumsupport/knowledge-center/ebs-automatic-encryption/) in all our accounts.
 
