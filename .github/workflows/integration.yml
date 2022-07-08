@@ -1,13 +1,16 @@
 name: Continous Integration
 
 on:
+  # On merge master
   push:
     branches: [master]
+  # Check that the static website is buildable for every PR
   pull_request:
     branches: [master]
 
 jobs:
   build:
+    name: 'Build 📦'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,3 +20,22 @@ jobs:
       - run: gem install bundler
       - run: bundle install --jobs 4 --retry 3
       - run: bundle exec jekyll build
+
+  deploy:
+    needs: build
+    name: 'Deploy 🚀'
+    runs-on: ubuntu-latest
+    # Deploy only master branch
+    if: ${{ github.ref == 'refs/heads/master' }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: ./_site
+      - uses: JamesIves/github-pages-deploy-action@v4.3.4
+        name: 'Deploy 🚀'
+        with:
+          branch: master
+          folder: _site
+          clean: true
