@@ -28,14 +28,8 @@ jobs:
     # Deploy only master branch
     if: ${{ github.ref == 'refs/heads/master' }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/download-artifact@v3
-        with:
-          name: build
-          path: ./_site
       - uses: JamesIves/github-pages-deploy-action@v4.3.4
         name: 'Deploy 🚀'
         with:
-          branch: master
           folder: _site
           clean: true
