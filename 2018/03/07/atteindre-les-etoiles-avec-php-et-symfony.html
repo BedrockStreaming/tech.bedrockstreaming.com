@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/banner_xl.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Atteindre les étoiles avec PHP et Symfony | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Atteindre les étoiles avec PHP et Symfony" />
+<meta name="author" content="Mikael Randy" />
+<meta property="og:locale" content="fr" />
+<meta name="description" content="À l’automne 2014, M6 décide d’adapter le programme Rising Star en France, un concours de chant en direct, mais dont le jury est le public, qui vote en direct depuis son application mobile. A travers cette conférence, je me propose de vous présenter l’architecture mise en place pour être capable de traiter plusieurs dizaines de millions de votes dans un délais de quelques secondes, tout en se synchronisant avec une émission de télé en direct." />
+<meta property="og:description" content="À l’automne 2014, M6 décide d’adapter le programme Rising Star en France, un concours de chant en direct, mais dont le jury est le public, qui vote en direct depuis son application mobile. A travers cette conférence, je me propose de vous présenter l’architecture mise en place pour être capable de traiter plusieurs dizaines de millions de votes dans un délais de quelques secondes, tout en se synchronisant avec une émission de télé en direct." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2018/03/07/atteindre-les-etoiles-avec-php-et-symfony.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2018/03/07/atteindre-les-etoiles-avec-php-et-symfony.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-03-07T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Atteindre les étoiles avec PHP et Symfony" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2018/03/07/atteindre-les-etoiles-avec-php-et-symfony.html"},"url":"https://tech.bedrockstreaming.com/2018/03/07/atteindre-les-etoiles-avec-php-et-symfony.html","author":{"@type":"Person","name":"Mikael Randy"},"@type":"BlogPosting","headline":"Atteindre les étoiles avec PHP et Symfony","dateModified":"2018-03-07T00:00:00+00:00","datePublished":"2018-03-07T00:00:00+00:00","description":"À l’automne 2014, M6 décide d’adapter le programme Rising Star en France, un concours de chant en direct, mais dont le jury est le public, qui vote en direct depuis son application mobile. A travers cette conférence, je me propose de vous présenter l’architecture mise en place pour être capable de traiter plusieurs dizaines de millions de votes dans un délais de quelques secondes, tout en se synchronisant avec une émission de télé en direct.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Atteindre les étoiles avec PHP et Symfony">
+    <meta name="twitter:description" content="À l’automne 2014, M6 décide d’adapter le programme Rising Star en France, un concours de chant en direct, mais dont le jury est le public, qui vote en direct...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/banner_xl.jpg">
+    <meta name="twitter:image:alt" content="Atteindre les étoiles avec PHP et Symfony">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Atteindre les étoiles avec PHP et Symfony " aria-label="Atteindre les étoiles avec PHP et Symfony" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Atteindre+les+%C3%A9toiles+avec+PHP+et+Symfony" class="title">Atteindre les étoiles avec PHP et Symfony</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/mikaelrandy" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="/images/avatar/mikaelrandy.png">
+    
+    <p class="meta">
+      Mikael Randy - 
+      
+      March 07, 2018
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+    
+        <p>À l’automne 2014, M6 décide d’adapter le programme Rising Star en France, un concours de chant en direct, mais dont le jury est le public, qui vote en direct depuis son application mobile.
+A travers cette conférence, je me propose de vous présenter l’architecture mise en place pour être capable de traiter plusieurs dizaines de millions de votes dans un délais de quelques secondes, tout en se synchronisant avec une émission de télé en direct.</p>
+ 
+      
+
+    
+    <p>
+      <em>
+        Par 
+          
+            
+            <a href="https://twitter.com/mikaelrandy">
+                Mikael Randy
+            </a>
+            
+          
+        - 
+        <a href="https://confoo.ca/fr/yul2018">Confoo Montreal 2018</a>
+      </em>
+    </p>
+    
+    
+
+    
+      <iframe width="100%" height="auto" style="aspect-ratio: 16/9" src="https://www.slideshare.net/slideshow/embed_code/key/2CHGfkIFMor2BU" frameborder="0" allowfullscreen> </iframe>
+    
+
+    
+      <p><a href="https://confoo.ca/fr/yul2018/session/atteindre-les-etoiles-avec-php-et-symfony" target="_blank">Lien vers la conférence</a></p>
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Atteindre+les+%C3%A9toiles+avec+PHP+et+Symfony%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2018%2F03%2F07%2Fatteindre-les-etoiles-avec-php-et-symfony.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2018/03/07/atteindre-les-etoiles-avec-php-et-symfony.html&title=Atteindre+les+%C3%A9toiles+avec+PHP+et+Symfony%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2018/03/07/atteindre-les-etoiles-avec-php-et-symfony.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Atteindre les étoiles avec PHP et Symfony%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2018/03/07/atteindre-les-etoiles-avec-php-et-symfony.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#PHP">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> PHP</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#Symfony">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Symfony</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#confoo">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> confoo</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Useful (or not) M6Web OSS stuff" href="/oss/2018/03/20/useful-or-not-usefull-m6web-stuff.html">
+            <p>Previous post</p>
+            Useful (or not) M6Web OSS stuff
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Migration to Spark 2.2" href="/2017/12/13/spark-2.html">
+            <p>Next post</p>
+            Migration to Spark 2.2
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>
