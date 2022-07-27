@@ -56,13 +56,13 @@ color: rgb(251,87,66) # this is Bedrock color here
 ```
 
 We are using a community theme for Jekyll for this blog, you may find some usefull examples here:
-- [How to add Table of content for your blog post ?](https://sylhare.github.io/Type-on-Strap/2013/12/12/Generate-a-table-of-content.html)
+- [How to add Table of content for your blog post ?](https://sylhare.github.io/Type-on-Strap/2014/11/28/markdown-and-html.html)
 - [How to customize the color used on a post page ?](https://sylhare.github.io/Type-on-Strap/2019/05/18/color-post.html)
-- [How to use images in your post ?](https://sylhare.github.io/Type-on-Strap/2014/11/29/feature-images.html)
+- [How to use images in your post ?](https://sylhare.github.io/Type-on-Strap/2018/10/29/feature-images.html)
   You can store your images in _images/post_ folder of this repository.  
   Don't forget to compress them for performances with tools like [TinyPNG](https://tinypng.com/)
 - [How to add code examples ?](https://sylhare.github.io/Type-on-Strap/2014/08/08/Markup-Syntax-Highlighting.html)
-- [How to add simple Diagrams with _Mermaids_?](https://sylhare.github.io/Type-on-Strap/2013/11/02/Tech-stuff-example.html#Mermaid)
+- [How to add simple Diagrams with _Mermaids_?](https://sylhare.github.io/Type-on-Strap/2019/11/02/Tech-stuff-example.html#mermaid)
   Mermaid is a really powerful tool to generate Diagram dynamically with some text.
   Check [Mermaid documentation](https://mermaid-js.github.io/mermaid/#/).
 - How to add an author ? 
