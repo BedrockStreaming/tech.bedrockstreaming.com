@@ -87,6 +87,12 @@ Pour en savoir un peu plus sur *l’Abstract Syntax Tree*, je vous conseille de 
 
 Quelques librairies ont proposé des _codemods_ lors de leurs grosses mises à jour, par exemple [React avec react-codemod](https://github.com/reactjs/react-codemod).
 
+<center>
+<a href="https://astexplorer.net/"><img src="/images/posts/refactorer-avec-jscodeshift/astexplorer.png" alt="Capture d'écran du site ASTExplorer"/></a>
+<br/>
+ℹ️ <em>Capture d'écran du site ASTExplorer</em>
+</center> <br/>
+
 ## En application 💪
 
 ```typescript
