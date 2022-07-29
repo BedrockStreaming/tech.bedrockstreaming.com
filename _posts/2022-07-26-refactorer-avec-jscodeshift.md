@@ -75,7 +75,7 @@ Dans le cas le plus basique sans les arguments optionnels `t(‘translationKey�
 - Créer un fichier de définition TypeScript pour la librairie, et laisser le Language Server Protocol ou son IDE trouver les appels problématiques
   - La solution la plus rapide et la plus fiable pour la partie détection, mais qui demande toujours de faire les modifications à la main.
 
-Mais il nous restait encore un 🃏 pour cette tâche. 
+Mais il nous restait encore un Joker pour cette tâche. 🃏 
 
 # JSCodeshift 🪄
 
@@ -155,17 +155,21 @@ Finalement, on peut passer dans la fonction de mutation, qui va nous permettre d
 const mutatePath = (j: JSCodeshift) => (p: ASTPath<CallExpression>) => {
   const objectProperties = requiredPropertiesKeys.reduce((acc, propertyKey, index) => {
     const argument = p.value.arguments[index + 1];
+    // If no argument or argument is a spread type, we don't take it in consideration
     if (!argument || argument.type === 'SpreadElement') {
       return acc;
     }
 
+    // If argument is undefined, we skip it
     if ((argument as Identifier).name && (argument as Identifier).name === 'undefined') {
       return acc;
     }
 
+    // We create a new object property with an identifier (the object key) and put our argument inside
     return [...acc, j.objectProperty(j.identifier(propertyKey), argument)];
   }, [] as ObjectProperty[]);
 
+  // Finally, we keep our translation key in first position and our newly created object in second argument
   p.value.arguments = [p.value.arguments[0], j.objectExpression(objectProperties)];
 
   return p;
