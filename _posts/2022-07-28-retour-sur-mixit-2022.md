@@ -110,28 +110,28 @@ On va ensuite venir agrémenter notre croyance avec tous ces éléments puis, po
 
 [Page du talk sur le site de MiXiT et voir le replay](https://mixitconf.org/2022/-arretez-l-auto-sabotage-et-sortez-de-votre-boucle-systemique-)
 
-## Comment fonctionne un gestionnaire de mot de passe
+## Comment fonctionne un gestionnaire de mots de passe
 
 Les mots de passe sont partout. Ils nous permettent d'accéder à nos photos, nos comptes bancaires, nos documents de santé et bien d'autres données sensibles que l'on ne souhaite pas voir aux mains d'individus que l’on ne connaît pas.
-Tout le monde sait que l'on doit avoir des longs mots de passe mais comment tous les retenir ? C'est là que les gestionnaires de mot de passe entrent en jeu. Mais peut-on leur faire confiance ? Comment ça marche au juste ? C'est à cette question qu'à souhaiter répondre Eric Daspet pendant sa conférence.
+Tout le monde sait que l'on doit avoir des longs mots de passe mais comment tous les retenir ? C'est là que les gestionnaires de mot de passe entrent en jeu. Mais peut-on leur faire confiance ? Comment ça marche au juste ? C'est à cette question qu'a souhaité répondre Eric Daspet pendant sa conférence.
 
-Le rôle d'un gestionnaire de mot de passe est de permettre à son utilisateur d'utiliser qu'un seul mot de passe pour ensuite laisser l'outil générer et mémoriser tous les autres mots de passe. On a plus qu'à retenir un seul mot de passe et par conséquent ce dernier peut-être long et complexe, l'exercice de mémoire sera moins compliqué que si on en avait plusieurs à retenir.
+Le rôle d'un gestionnaire de mots de passe est de permettre à son utilisateur d'utiliser qu'un seul mot de passe pour ensuite laisser l'outil générer et mémoriser tous les autres mots de passe. On a plus qu'à retenir un seul mot de passe qui peut donc être long et complexe. L'exercice de mémoire sera alors moins compliqué que si on en avait plusieurs à retenir.
 
 À travers son exposé, on découvre un peu plus tous les procédés de cryptographie utilisés afin de gérer les mots de passe que l'on va créer ou modifier en utilisant ces outils.
 Grâce à de nombreux schémas, il explique clairement les différentes étapes de chiffrements utilisées que ce soit pour la création du mot de passe maître, la création et le changement des mots de passe, l'affichage des mots de passe et même le fonctionnement du partage de mots de passe (lorsque celui-ci existe dans l'outil).
 
-On découvre pendant cette heure que les gestionnaires de mot de passe ne cherchent pas à réinventer la roue en matière de cryptographie mais s'appuient sur des concepts déjà éprouvés et robustes. On apprend aussi que tout est chiffré de bout en bout et que seul celui qui détient le mot de passe maître (l'utilisateur donc, même l'outil ne le connaît pas et n'en a pas besoin) peut interagir avec les mots de passe créer. Rassurant non ? En tout cas, me voilà maintenant prêt à expliquer autour de moi pourquoi il est grand temps de passer à un gestionnaire de mot de passe !
+On découvre pendant cette heure que les gestionnaires de mots de passe ne cherchent pas à réinventer la roue en matière de cryptographie mais s'appuient sur des concepts déjà éprouvés et robustes. On apprend aussi que tout est chiffré de bout en bout et que seul celui qui détient le mot de passe maître (l'utilisateur donc, même l'outil ne le connaît pas et n'en a pas besoin) peut interagir avec les mots de passe créés. Rassurant, non ? En tout cas, me voilà maintenant prêt à expliquer autour de moi pourquoi il est grand temps de passer à un gestionnaire de mot de passe !
 
 [Page du talk sur le site de MiXiT et voir le replay](https://mixitconf.org/2022/comment-fonctionne-un-gestionnaire-de-mots-de-passe-)
 
 ## Optimiser votre revue de code avec le rebase interactif
 
-GIT est un outil bien connu des développeurs de nos jours, mais dès lors que l'on s'écarte des commandes traditionnelles (checkout, commit et push), on sait bien moins ce que l'on peut faire d'autre avec.
+GIT est un outil bien connu des développeurs de nos jours, mais dès qu'on s'écarte des commandes traditionnelles (checkout, commit et push), on sait bien moins ce que l'on peut faire d'autre avec.
 
 Sonia Seddiki nous explique ici comment rendre la revue de code, souvent longue et fastidieuse, plus simple et agréable pour nos collègues avec quelques astuces qu'elle a partagées avec nous lors d'un live coding.
-Contrairement à l'idée que j'en avais, le rebase interactif n'est pas là que pour nettoyer les noms de commit sans aucun sens que j'avais mis dans la précipitation mais que c'était un outil bien plus puissant.
+Contrairement à l'idée que j'en avais, le rebase interactif n'est pas là que pour nettoyer les noms de commit sans aucun sens que j'avais mis dans la précipitation mais que c'est un outil bien plus puissant.
 
-Elle nous a ainsi montré comment elle utilisait cette commande afin d’organiser et de donner une chronologie à son travail rendant ainsi la revue de code plus facile. Elle a ainsi, devant nos yeux, changé des fichiers de commits, réorganisé l'ordre des commits et tout ça sans altérer le code produit.
+Elle nous a ainsi montré comment elle utilise cette commande afin d’organiser et de donner une chronologie à son travail rendant ainsi la revue de code plus facile. Elle a ainsi, devant nos yeux, changé des fichiers de commits, réorganisé l'ordre des commits et tout ça sans altérer le code produit.
 
 Évidemment, c'est une habitude à prendre, elle-même le souligne que ce n'est pas facile d'exporter cette bonne pratique au sein des équipes avec qui elle travaille. Mais la démonstration m'a convaincu, je vais m'essayer à cette pratique et qui sait, un jour j'arriverai peut-être à mon tour à convaincre des gens de mon équipe à en faire de même.
 
@@ -159,7 +159,7 @@ On peut citer quelques réalisations Beta.gouv comme la plateforme dossierfacile
 
 [Page du talk sur le site de MiXiT et voir le replay](https://mixitconf.org/2022/designer-pour-le-service-public)
 
-### Mes autres conférences coup de coeur
+### Nos autres conférences coup de coeur
 
 * [Ma vie est un ticket](https://mixitconf.org/2022/ma-vie-est-un-ticket-eloge-de-la-communication-paresseuse-et-enjeux-pour-l-agilite-du-futur) de Romain Couturier, une conférence raconté avec dessins légère et qui donne des idées pour lutter contre la mauvaise utilisation des outils de ticketing
 * [Tout ce que l'on ne vous pas dit sur l'IA](https://mixitconf.org/2022/tout-ce-que-l-on-ne-vous-dit-pas-sur-l-intelligence-artificielle-ia-) de Amélie Cordier, une conférence pleine d'humour sur ce qu'est et n'est pas une IA
