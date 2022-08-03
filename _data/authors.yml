@@ -4,6 +4,10 @@ a_caron:
   name: Antoine Caron
   avatar: /images/avatar/acaron.jpeg
   url: https://blog.slashgear.dev/
+arthurzinck:
+  name: Arthur Zinck
+  avatar: /images/avatar/arthurzinck.png
+  url: https://www.z3k.fr
 b_candellier:
   name: Baptiste Candellier
   avatar: https://s.gravatar.com/avatar/c638445b4e00f76960bf7ee2275d7014?s=80
@@ -66,7 +70,7 @@ s_haim:
 s_lescano:
   name: Sofia Lescano
   url: https://twitter.com/SofLesc
-  avatar: /images/avatar/s_lescano.jpeg  
+  avatar: /images/avatar/s_lescano.jpeg
 t_aufort:
   name: Timothée Aufort
   url: https://twitter.com/TimAufort
