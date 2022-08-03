@@ -9,7 +9,7 @@ color: rgb(251,87,66)
 language: en
 comments: true
 ---
-Bedrock Streaming is a company that sells a white label streaming and live platform. Our customers are media groups, TV channels, and streaming companies. Our goal is to deliver a state of the art streaming  platform to our customers.
+Bedrock Streaming is a company that sells a white labeled streaming and live platform. Our customers are media groups, TV channels, and streaming companies. Our goal is to deliver a state of the art streaming  platform to our customers.
 
 To achieve this goal, we have our own Content Delivery Network (CDN), made of several bare metal servers racked in our Data Centers. Those servers run Nginx and are designed to output hundreds of Gbps (several tens of Pb per month) to end-users. We use them to cache video content at our infrastructure’s edge. 
 
