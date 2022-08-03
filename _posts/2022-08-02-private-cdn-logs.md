@@ -13,7 +13,7 @@ Bedrock Streaming is a company that sells a white label streaming and live platf
 
 To achieve this goal, we have our own Content Delivery Network (CDN), made of several bare metal servers racked in our Data Centers. Those servers run Nginx and are designed to output hundreds of Gbps (several tens of Pb per month) to end-users. We use them to cache video content at our infrastructure’s edge. 
 
-This increases efficiency 96 times out of 100, as video traffic doesn’t have to flow all the way through our infrastructure and improves user experience as it serves video faster. Also it diminishes the cost of our Video On Demand (VOD) infrastructure as we need less servers in VOD Stack.
+This increases efficiency of the platform 96 times out of 100, as video traffic doesn’t have to flow all the way through our infrastructure and improves user experience as it serves video faster. Also it diminishes the cost of our Video On Demand (VOD) infrastructure as we need less servers in VOD Stack.
 
 This in-turn increases end-users (clients of our customers) satisfaction with the service.
 
