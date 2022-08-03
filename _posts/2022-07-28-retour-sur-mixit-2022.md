@@ -153,7 +153,7 @@ Il s’agit d’une conférence passionnante, dérangeante et éclairante que je
 
 Cela peut faire un peu peur dit comme ça, mais je suis allé sceptique à cette conférence d’Anne-Sophie Tranchet. J’étais rattaché à une image peu flatteuse des outils du service public, alors que ces derniers ont connu une vraie progression ces dernières années. Anne-Sophie fait partie du programme beta.gouv qui intervient auprès des administrations pour les services numériques.
 
-C’est armé des bonnes pratiques de nos métiers que Beta.gouv a la mission de transformer et d’accompagner les services publics. On y apprendra le parcours d’Anne-Sophie, ce que cela veut dire de travailler pour le service public ainsi que les projets et challenges qui en découlent. Leur méthodologie centrée utilisateur leur permet de travailler en itération, et de délivrer de la valeur, en incubation d’abord, puis jusqu’à un développement national en fonction des retours sur le service.
+C’est armé des bonnes pratiques de nos métiers que Beta.gouv a la mission de transformer et d’accompagner les services publics. On y apprendra le parcours d’Anne-Sophie, ce que travailler pour le service public veut dire, ainsi que les projets et challenges qui en découlent. Leur méthodologie centrée utilisateur leur permet de travailler en itération, et de délivrer de la valeur, en incubation d’abord, puis jusqu’à un développement national en fonction des retours sur le service.
 
 On peut citer quelques réalisations Beta.gouv comme la plateforme dossierfacile.com, qui facilite la création de dossier pour une location, ou 1000 Premiers Jours, qui délivre des informations et un accompagnement sur la grossesse et les 2 premières années de l’enfant
 
