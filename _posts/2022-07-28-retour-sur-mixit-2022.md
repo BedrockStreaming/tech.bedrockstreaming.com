@@ -20,7 +20,7 @@ Gaël Musquet nous a d’abord expliqué le rôle de Gustave Ferrié, qu’il co
 
 Gaël Musquet nous explique ce qu’on est en droit d’attendre en 2022 d’un pays moderne, concernant les alertes sur les risques majeurs, qui varient selon notre emplacement (du tsunami à la rupture de barrage artificiel).
 
-Il nous incite à lire le DICRIM de notre ville ([celui de Lyon](https://www.lyon.fr/sites/lyonfr/files/content/documents/2021-02/risque-majeurs-DICRIM-ALEX-25-01-2021.pdf)) ainsi qu’à nous procurer un poste de radio à piles, car dans l’éventualité d’un moment sans Internet et sans satellites, comment ferons-nous pour nous tenir au courant ?
+Il nous incite à lire le DICRIM de notre ville ([celui de Lyon](https://www.lyon.fr/sites/lyonfr/files/content/documents/2021-02/risque-majeurs-DICRIM-ALEX-25-01-2021.pdf)) ainsi qu’à nous procurer un poste de radio à piles, car dans l’éventualité d’un moment catastrophique sans Internet et sans satellites, comment ferons-nous pour nous tenir au courant de ce qu'il faut faire pour rester en vie ?
 
 [Page du talk sur le site de MiXiT et voir le replay](https://mixitconf.org/2022/how-to-build-the-alert-system-that-france-deserves-)
 
