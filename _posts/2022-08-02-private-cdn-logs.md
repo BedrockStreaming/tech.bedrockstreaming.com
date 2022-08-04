@@ -8,6 +8,7 @@ color: rgb(251,87,66)
 # thumbnail: ""
 language: en
 comments: true
+excerpt: "At Bedrock we have a CDN that outputs on average 400GB of uncompressed logs. In this article we will explain in an architectural point of vue how we managed to collect and extract value out of them."
 ---
 Bedrock Streaming is a company that sells a white labeled streaming and live platform. Our customers are media groups, TV channels, and streaming companies. Our goal is to deliver a state of the art streaming  platform to our customers.
 
