@@ -1,4 +1,166 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-08-01T08:09:56+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Comment appliquer automatiquement des modifications sur une codebase JS 🤖</title><link href="https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift" rel="alternate" type="text/html" title="Comment appliquer automatiquement des modifications sur une codebase JS 🤖" /><published>2022-07-26T00:00:00+00:00</published><updated>2022-07-26T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift</id><content type="html" xml:base="https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift">&lt;p&gt;Dans cet article, je vais vous présenter &lt;a href=&quot;https://github.com/facebook/jscodeshift&quot;&gt;JSCodeshift&lt;/a&gt;, une libraire qui va vous permettre d’analyser et appliquer automatiquement des modifications sur du code Javascript ou Typescript.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-08-04T15:30:42+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Retour sur la conférence MiXiT 2022</title><link href="https://tech.bedrockstreaming.com/2022/07/28/retour-sur-mixit-2022.html" rel="alternate" type="text/html" title="Retour sur la conférence MiXiT 2022" /><published>2022-07-28T00:00:00+00:00</published><updated>2022-07-28T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/07/28/retour-sur-mixit-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/07/28/retour-sur-mixit-2022.html">&lt;p&gt;&lt;img src=&quot;/images/posts/mixit-crepes.jpg&quot; alt=&quot;&amp;quot;MiXiT, la conférence avec des crêpes et du cœur&amp;quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://mixitconf.org/&quot;&gt;MiXiT&lt;/a&gt; est une conférence “avec des crêpes et du cœur” qui se déroule à Lyon. Les sujets sont assez variés abordant autant l’agilité, que la programmation, le droit ou encore l’histoire de l’informatique.&lt;/p&gt;
+
+&lt;p&gt;Voici un résumé des conférences de l’édition 2022 qui nous ont le plus marquées.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-to-build-the-alert-system-that-france-deserves&quot;&gt;How to build the alert system that France deserves?&lt;/h2&gt;
+
+&lt;p&gt;Gaël Musquet nous a d’abord expliqué le rôle de Gustave Ferrié, qu’il considère comme le premier hacker, qui a installé des mâts de télégraphe sans fil en 1902, entre les émetteurs en Martinique, pour remplacer le câble télégraphique, détruit lors de la catastrophe de la montagne Pelée du 8 mai 1902. Cet homme avait saisi l’intérêt d’avoir un système de communication fiable.&lt;/p&gt;
+
+&lt;p&gt;Gaël Musquet nous explique ce qu’on est en droit d’attendre en 2022 d’un pays moderne, concernant les alertes sur les risques majeurs, qui varient selon notre emplacement (du tsunami à la rupture de barrage artificiel).&lt;/p&gt;
+
+&lt;p&gt;Il nous incite à lire le DICRIM de notre ville (&lt;a href=&quot;https://www.lyon.fr/sites/lyonfr/files/content/documents/2021-02/risque-majeurs-DICRIM-ALEX-25-01-2021.pdf&quot;&gt;celui de Lyon&lt;/a&gt;) ainsi qu’à nous procurer un poste de radio à piles, car dans l’éventualité d’un moment catastrophique sans Internet et sans satellites, comment ferons-nous pour nous tenir au courant de ce qu’il faut faire pour rester en vie ?&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://mixitconf.org/2022/how-to-build-the-alert-system-that-france-deserves-&quot;&gt;Page du talk sur le site de MiXiT et voir le replay&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;meet-null-the-unknown&quot;&gt;Meet NULL the UNKNOWN&lt;/h2&gt;
+
+&lt;p&gt;Dans cette conférence, Laëtiia Avrot entame un rappel de la norme SQL, que PostgresQL implémente au plus près, sur la valeur de NULL en SQL. Et la valeur UNKNOWN est également abordée. Notamment la complexité induite par le fait qu’un champ de type Boolean peut se retrouver avec comme valeurs possibles : True, False, UNKNOWN et NULL. Cela donne un système à quadruple valeur. Pour un champ typé.&lt;/p&gt;
+
+&lt;p&gt;NULL est plus facile à définir par ce qu’il n’est pas qu’en expliquant ce qu’il est.
+Une option intéressante pour mettre en évidence la valeur NULL dans PostgresQL est d’en définir nous-même une valeur affichée.&lt;/p&gt;
+
+&lt;p&gt;Ensuite, Laëtitia nous propose un Quizz. Sur une base de données qu’on connaît, chaque fois la même question est posée sur “Combien de lignes vont être retournées par la requête SQL ?”&lt;/p&gt;
+
+&lt;p&gt;C’est intéressant, car chaque question comporte un degré de complexité élevé impliquant l’usage de la valeur NULL, tout en suivant la logique de la norme SQL. Cerise sur le gâteau, Laëtitia propose en “Réponse D”, le nom d’une scientifique célèbre et nous en donne une courte biographie à chaque question.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Liens&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mydbanotebook.org/&quot;&gt;Blog de l’oratrice, Laëtitia Avrot&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mixitconf.org/2022/meet-null-the-unknown&quot;&gt;Page du talk sur le site de MiXiT et voir le replay&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;parlez-de-vous-faites-des-feedbacks&quot;&gt;Parlez de vous, faites des feedbacks&lt;/h2&gt;
+
+&lt;p&gt;Le feedback est un outil communicationnel qui permet de formuler un avis sur une situation passée dans le but de gérer les situations futures.&lt;/p&gt;
+
+&lt;p&gt;On peut trouver plusieurs formes de feedbacks :
+le feedback est à destination de la personne, pour l’aider à s’améliorer. Elle peut décider de le suivre ou non,
+la demande que l’on fait à quelqu’un est à notre bénéfice (on demande à la personne de changer un comportement qui nous gêne) en laissant la possibilité à la personne de décider si elle veut ou non répondre favorablement à cette demande,
+l’exigence qui est aussi à notre bénéfice, mais pour laquelle on ne laisse pas le choix (dans le cadre d’une relation hiérarchique)&lt;/p&gt;
+
+&lt;p&gt;Julie Quillié propose un modèle de feedbacks basé sur la CNV (Communication Non Violente) et qui peut se résumer de la manière suivante.&lt;/p&gt;
+
+&lt;h3 id=&quot;feedback-basé-sur-la-cnv-communication-non-violente&quot;&gt;Feedback basé sur la CNV (Communication Non Violente)&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;On vérifie la disponibilité de la personne en lui demandant si elle est d’accord pour qu’on lui fasse des feedbacks et sous quelle forme.&lt;/li&gt;
+  &lt;li&gt;On formule le feedback :
+  Décrire une Observation, les faits (= pas de jugement)
+  Exprimer le Sentiment que cette situation a engendré
+  Expliquer le Besoin qui est la source du sentiment ressenti
+  et finir par faire une Demande (= réalisable, formulée positivement, précise)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Un exemple :&lt;/strong&gt;
+  Nous avions rendez-vous à 12h et il est 12h30 = observation, factuel.
+  Je suis très fâché car je m’étais organisé pour être à l’heure = le sentiment
+  C’est important pour moi de ne pas perdre de temps et de pouvoir rester libre dans mon organisation = le besoin
+  La prochaine fois que tu sais que tu seras en retard, peux-tu stp m’appeler dès que possible pour me le signaler ? De cette manière, je peux me réorganiser facilement. = la demande&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;On vérifie ce qui a été reçu par la personne. On lui propose de nous reformuler ce qu’elle en a retenu. Cela permet de vérifier que le message que l’on voulait faire passer a bien été entendu.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;2ème-possibilité-pour-faire-un-feedback--le-feedback-en-4-temps&quot;&gt;2ème possibilité pour faire un feedback : le feedback en 4 temps&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;On demande à la personne ce qu’elle a aimé dans ce qu’elle vient de faire&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On lui demande ensuite ce qu’elle aurait aimé faire différemment&lt;/p&gt;
+
+    &lt;p&gt;On lui demande si elle veut qu’on lui donne notre feedback&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;“Moi, j’ai aimé …, parce que … ”&lt;/em&gt; : on parle de ce que ça nous a apporté (clarté, motivation, inspiration, soutien, etc.)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;“Et j’aurais aimé …  de différent, parce que … ”&lt;/em&gt; on parle de ce que ça nous apporterait (clarté, motivation, inspiration, soutien, etc.)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Et en bonus : “Peux-tu me dire comment tu reçois ce que je te dis ?”&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://mixitconf.org/2022/parlez-de-vous-faites-des-feedbacks-&quot;&gt;Page du talk sur le site de MiXiT et voir le replay&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;arrêtez-lauto-sabotage-et-sortez-de-la-boucle-systémique&quot;&gt;Arrêtez l’auto-sabotage et sortez de la boucle (systémique)&lt;/h2&gt;
+
+&lt;p&gt;Dans cet atelier, Albane Veyron nous explique que nous avons tous des croyances sur nous-mêmes et sur les autres. Les croyances sont des pensées qui sont des vérités, pour nous. Elles ont plusieurs origines : l’enfance, notre cercle social et notre expérience de vie.&lt;/p&gt;
+
+&lt;p&gt;Les croyances peuvent être aidantes ou limitantes.&lt;/p&gt;
+
+&lt;p&gt;L’atelier commence par une première phase qui consiste à reconnaître une de ses croyances limitantes :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;les généralisations : personne, tout le monde, toujours, tout le temps, jamais, trop, je dois, il faut, pas assez&lt;/li&gt;
+  &lt;li&gt;les barrières infinies aka les bonnes excuses pour ne pas passer à l’action : j’aimerais, mais … / je pourrais, mais …&lt;/li&gt;
+  &lt;li&gt;les sensations de déjà vu : les blocages et les situations récurrentes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Une fois qu’on a repéré une de ses croyances limitantes, on l’écrit sur une feuille et on va ensuite décomposer cette croyance et réfléchir à :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;son origine : d’où nous vient cette croyance ? depuis combien de temps fait-elle partie de nous ? nous vient-elle de notre éducation ?&lt;/li&gt;
+  &lt;li&gt;les bénéfices : quels bénéfices nous apporte cette croyance ? qu’est-ce qu’elle nous permet ?&lt;/li&gt;
+  &lt;li&gt;les inconvénients / les freins : en quoi cette croyance nous gêne et quels sont les impacts sur notre vie (pro ou perso) ?&lt;/li&gt;
+  &lt;li&gt;les contradictions : a-t-on déjà fait quelque chose ou été dans une situation qui vient contredire cette croyance ?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;On va ensuite venir agrémenter notre croyance avec tous ces éléments puis, pour finir, transformer notre croyance limitante en une croyance aidante.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://mixitconf.org/2022/-arretez-l-auto-sabotage-et-sortez-de-votre-boucle-systemique-&quot;&gt;Page du talk sur le site de MiXiT et voir le replay&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;comment-fonctionne-un-gestionnaire-de-mots-de-passe&quot;&gt;Comment fonctionne un gestionnaire de mots de passe&lt;/h2&gt;
+
+&lt;p&gt;Les mots de passe sont partout. Ils nous permettent d’accéder à nos photos, nos comptes bancaires, nos documents de santé et bien d’autres données sensibles que l’on ne souhaite pas voir aux mains d’individus que l’on ne connaît pas.
+Tout le monde sait que l’on doit avoir des longs mots de passe mais comment tous les retenir ? C’est là que les gestionnaires de mot de passe entrent en jeu. Mais peut-on leur faire confiance ? Comment ça marche au juste ? C’est à cette question qu’a souhaité répondre Eric Daspet pendant sa conférence.&lt;/p&gt;
+
+&lt;p&gt;Le rôle d’un gestionnaire de mots de passe est de permettre à son utilisateur d’utiliser qu’un seul mot de passe pour ensuite laisser l’outil générer et mémoriser tous les autres mots de passe. On a plus qu’à retenir un seul mot de passe qui peut donc être long et complexe. L’exercice de mémoire sera alors moins compliqué que si on en avait plusieurs à retenir.&lt;/p&gt;
+
+&lt;p&gt;À travers son exposé, on découvre un peu plus tous les procédés de cryptographie utilisés afin de gérer les mots de passe que l’on va créer ou modifier en utilisant ces outils.
+Grâce à de nombreux schémas, il explique clairement les différentes étapes de chiffrements utilisées que ce soit pour la création du mot de passe maître, la création et le changement des mots de passe, l’affichage des mots de passe et même le fonctionnement du partage de mots de passe (lorsque celui-ci existe dans l’outil).&lt;/p&gt;
+
+&lt;p&gt;On découvre pendant cette heure que les gestionnaires de mots de passe ne cherchent pas à réinventer la roue en matière de cryptographie mais s’appuient sur des concepts déjà éprouvés et robustes. On apprend aussi que tout est chiffré de bout en bout et que seul celui qui détient le mot de passe maître (l’utilisateur donc, même l’outil ne le connaît pas et n’en a pas besoin) peut interagir avec les mots de passe créés. Rassurant, non ? En tout cas, me voilà maintenant prêt à expliquer autour de moi pourquoi il est grand temps de passer à un gestionnaire de mot de passe !&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://mixitconf.org/2022/comment-fonctionne-un-gestionnaire-de-mots-de-passe-&quot;&gt;Page du talk sur le site de MiXiT et voir le replay&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;optimiser-votre-revue-de-code-avec-le-rebase-interactif&quot;&gt;Optimiser votre revue de code avec le rebase interactif&lt;/h2&gt;
+
+&lt;p&gt;GIT est un outil bien connu des développeurs de nos jours, mais dès qu’on s’écarte des commandes traditionnelles (checkout, commit et push), on sait bien moins ce que l’on peut faire d’autre avec.&lt;/p&gt;
+
+&lt;p&gt;Sonia Seddiki nous explique ici comment rendre la revue de code, souvent longue et fastidieuse, plus simple et agréable pour nos collègues avec quelques astuces qu’elle a partagées avec nous lors d’un live coding.
+Contrairement à l’idée que j’en avais, le rebase interactif n’est pas là que pour nettoyer les noms de commit sans aucun sens que j’avais mis dans la précipitation mais que c’est un outil bien plus puissant.&lt;/p&gt;
+
+&lt;p&gt;Elle nous a ainsi montré comment elle utilise cette commande afin d’organiser et de donner une chronologie à son travail rendant ainsi la revue de code plus facile. Elle a ainsi, devant nos yeux, changé des fichiers de commits, réorganisé l’ordre des commits et tout ça sans altérer le code produit.&lt;/p&gt;
+
+&lt;p&gt;Évidemment, c’est une habitude à prendre, elle-même le souligne que ce n’est pas facile d’exporter cette bonne pratique au sein des équipes avec qui elle travaille. Mais la démonstration m’a convaincu, je vais m’essayer à cette pratique et qui sait, un jour j’arriverai peut-être à mon tour à convaincre des gens de mon équipe à en faire de même.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://mixitconf.org/2022/optimisez-vos-revues-de-code-avec-le-rebase-interactif-&quot;&gt;Page du talk sur le site de MiXiT et voir le replay&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;violence-herméneutique---comment-éviter-le-malaise&quot;&gt;Violence Herméneutique - Comment éviter le malaise&lt;/h2&gt;
+
+&lt;p&gt;Le MiXiT est aussi un évènement nous permettant d’ouvrir notre esprit à des connaissances qui sortent de notre quotidien. Cette conférence animée par Romeu Moura et Sara Dufour en fait partie. Ce talk nous fait découvrir le concept d’herméneutique, défini en début de présentation comme étant “La connaissance d’un concept permettant l’interprétation”. Si vous n’avez rien compris à cette définition à ce stade, c’était également mon cas.&lt;/p&gt;
+
+&lt;p&gt;Malgré cette introduction confuse, petit à petit, en allant de plus en plus dans le détail, des sujets apparaissent et donnent sens à ce concept. On y parle de systémisme, de charge mentale, de patriarcat et autres systèmes de notre société dont l’exercice de compréhension va plus loin que leur simple mot ou leur définition. L’herméneutique consiste à comprendre les fondements et rouages d’un système, qu’on y appartienne ou non.&lt;/p&gt;
+
+&lt;p&gt;Mais notre société, et l’humain, tend à compliquer cet exercice de compréhension de concept. C’est là qu’on arrive à la notion de violence herméneutique, à savoir tous les mécanismes conscients et inconscients, systémiques ou non, internes ou externes, qui vont venir entraver et contraindre l’herméneutique. De réels freins à la compréhension d’un système. Ils peuvent prendre plusieurs formes, comme la notion de norme, le fait de nier l’existence d’un système ou de réfuter un sujet du simple fait qu’il soit considéré tabou. On y retrouve également la déformation de mots, et le fameux “wokisme”.&lt;/p&gt;
+
+&lt;p&gt;Il s’agit d’une conférence passionnante, dérangeante et éclairante que je conseille à tous. Le début piétine un peu, mais le voyage en vaut la peine.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://mixitconf.org/2022/violence-hermeneutique-comment-eviter-le-malaise-&quot;&gt;Page du talk sur le site de MiXiT et voir le replay&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;designer-pour-le-service-public&quot;&gt;Designer pour le service public&lt;/h2&gt;
+
+&lt;p&gt;Cela peut faire un peu peur dit comme ça, mais je suis allé sceptique à cette conférence d’Anne-Sophie Tranchet. J’étais rattaché à une image peu flatteuse des outils du service public, alors que ces derniers ont connu une vraie progression ces dernières années. Anne-Sophie fait partie du programme beta.gouv qui intervient auprès des administrations pour les services numériques.&lt;/p&gt;
+
+&lt;p&gt;C’est armé des bonnes pratiques de nos métiers que Beta.gouv a la mission de transformer et d’accompagner les services publics. On y apprendra le parcours d’Anne-Sophie, ce que travailler pour le service public veut dire, ainsi que les projets et challenges qui en découlent. Leur méthodologie centrée utilisateur leur permet de travailler en itération, et de délivrer de la valeur, en incubation d’abord, puis jusqu’à un développement national en fonction des retours sur le service.&lt;/p&gt;
+
+&lt;p&gt;On peut citer quelques réalisations Beta.gouv comme la plateforme dossierfacile.com, qui facilite la création de dossier pour une location, ou 1000 Premiers Jours, qui délivre des informations et un accompagnement sur la grossesse et les 2 premières années de l’enfant&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://mixitconf.org/2022/designer-pour-le-service-public&quot;&gt;Page du talk sur le site de MiXiT et voir le replay&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;nos-autres-conférences-coup-de-coeur&quot;&gt;Nos autres conférences coup de coeur&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mixitconf.org/2022/ma-vie-est-un-ticket-eloge-de-la-communication-paresseuse-et-enjeux-pour-l-agilite-du-futur&quot;&gt;Ma vie est un ticket&lt;/a&gt; de Romain Couturier, une conférence raconté avec dessins légère et qui donne des idées pour lutter contre la mauvaise utilisation des outils de ticketing&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mixitconf.org/2022/tout-ce-que-l-on-ne-vous-dit-pas-sur-l-intelligence-artificielle-ia-&quot;&gt;Tout ce que l’on ne vous pas dit sur l’IA&lt;/a&gt; de Amélie Cordier, une conférence pleine d’humour sur ce qu’est et n’est pas une IA&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>[&quot;s_haim&quot;, &quot;e_perrin&quot;, &quot;j_mastounga&quot;, &quot;s_zoccarato&quot;]</name></author><category term="conference" /><category term="agile" /><summary type="html"></summary></entry><entry><title type="html">Comment appliquer automatiquement des modifications sur une codebase JS 🤖</title><link href="https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift" rel="alternate" type="text/html" title="Comment appliquer automatiquement des modifications sur une codebase JS 🤖" /><published>2022-07-26T00:00:00+00:00</published><updated>2022-07-26T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift</id><content type="html" xml:base="https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift">&lt;p&gt;Dans cet article, je vais vous présenter &lt;a href=&quot;https://github.com/facebook/jscodeshift&quot;&gt;JSCodeshift&lt;/a&gt;, une libraire qui va vous permettre d’analyser et appliquer automatiquement des modifications sur du code Javascript ou Typescript.&lt;/p&gt;
 
 &lt;h1 id=&quot;cas-décole-&quot;&gt;Cas d’école 👨‍🎓&lt;/h1&gt;
 
@@ -1312,13 +1474,4 @@ We’ve been using this model for more than 3 years now. It has undergone some m
 &lt;ul&gt;
   &lt;li&gt;🇺🇸 &lt;a href=&quot;/2022/05/31/github-action-pr-size-labeler&quot;&gt;Announcing BedrockStreaming/pr-size-labeler github action&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;🇫🇷 &lt;a href=&quot;/2022/05/30/afup-day-lille-2022&quot;&gt;Retour sur l’AFUP Day Lille 2022&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Valentin CLARAS</name></author><category term="backend" /><category term="php" /><category term="api" /><category term="api-gateway" /><category term="back-for-front" /><summary type="html">What is a BFF, and how does it simplify the development of frontend applications?</summary></entry><entry xml:lang="fr"><title type="html">Comment ne pas jeter son application Frontend tous les deux ans ?</title><link href="https://tech.bedrockstreaming.com/2022/06/08/comment-ne-pas-jeter-votre-application.html" rel="alternate" type="text/html" title="Comment ne pas jeter son application Frontend tous les deux ans ?" /><published>2022-06-08T00:00:00+00:00</published><updated>2022-06-08T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/06/08/comment-ne-pas-jeter-votre-application</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/06/08/comment-ne-pas-jeter-votre-application.html">&lt;p&gt;Bonnes pratiques pour la maintenance d’une application web
-Refaire son front tous les 2 ans, c’est devenu une pratique plutôt courante dans tous les projets. Tous ? Non, chez Bedrock streaming, nous avons choisi de rester sur la même codebase et ça depuis plus de 7 ans! En plus, ce n’est pas une petite application puisqu’il s’agit de 6play et de salto.
-Vous pourriez vous dire: “Oh les pauvres, maintenir une application vieille de presque 10 ans ça doit être un enfer !”
-Rassurez-vous, ce n’est pas le cas ! Nous avons tous travaillé sur des projets bien moins vieux mais sur lesquels le développement de nouvelles fonctionnalités était bien plus pénible.&lt;/p&gt;
-
-&lt;p&gt;Quel est notre secret ? C’est ce que vous allez découvrir pendant ce talk !
-Automatisation des tâches courantes, gestion de la dette, testing et architecture seront des sujets abordés.
-Ce talk propose des thématiques qui ne concernent pas que le frontend !&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/2021/09/01/bonnes-pratiques-web.html&quot;&gt;Plus de détails dans l’article suivant.&lt;/a&gt;&lt;/p&gt;</content><author><name>[&quot;a_caron&quot;, &quot;florent&quot;]</name></author><category term="conference" /><category term="js" /><category term="react" /><category term="lyonjs" /><category term="meetup" /><summary type="html">Bonnes pratiques pour la maintenance d’une application web Refaire son front tous les 2 ans, c’est devenu une pratique plutôt courante dans tous les projets. Tous ? Non, chez Bedrock streaming, nous avons choisi de rester sur la même codebase et ça depuis plus de 7 ans! En plus, ce n’est pas une petite application puisqu’il s’agit de 6play et de salto. Vous pourriez vous dire: “Oh les pauvres, maintenir une application vieille de presque 10 ans ça doit être un enfer !” Rassurez-vous, ce n’est pas le cas ! Nous avons tous travaillé sur des projets bien moins vieux mais sur lesquels le développement de nouvelles fonctionnalités était bien plus pénible.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Valentin CLARAS</name></author><category term="backend" /><category term="php" /><category term="api" /><category term="api-gateway" /><category term="back-for-front" /><summary type="html">What is a BFF, and how does it simplify the development of frontend applications?</summary></entry></feed>
