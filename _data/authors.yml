@@ -22,6 +22,8 @@ cytron:
 denis:
   name: Denis
   avatar: /images/avatar/denis.jpg
+e_perrin:
+  name: Elodie e_perrin
 fvieudrin:
   name: Frederic Vieudrin
   url: https://twitter.com/fvieudrin
@@ -35,6 +37,8 @@ f_lepretre:
 front:
   name: Front teams
   avatar: /images/avatar/front.jpg
+j_mastounga:
+  name: Jules Matsounga
 kenny:
   name: Kenny Dits
   avatar: /images/avatar/kenny.jpg
@@ -87,6 +91,8 @@ m_alves:
   url: https://twitter.com/CruuzAzul
 rpanoyan:
   name: Rafi Panoyan
+s_zoccarato:
+  name: Sylvain Zoccarato
 jerome_foray:
   name: Jérome Foray
 jy_camier:
