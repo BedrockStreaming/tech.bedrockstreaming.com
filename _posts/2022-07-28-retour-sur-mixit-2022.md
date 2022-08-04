@@ -49,34 +49,34 @@ le feedback est à destination de la personne, pour l’aider à s’améliorer.
 la demande que l’on fait à quelqu’un est à notre bénéfice (on demande à la personne de changer un comportement qui nous gêne) en laissant la possibilité à la personne de décider si elle veut ou non répondre favorablement à cette demande,
 l’exigence qui est aussi à notre bénéfice, mais pour laquelle on ne laisse pas le choix (dans le cadre d’une relation hiérarchique)
 
-Julie propose un modèle de feedbacks basé sur la CNV (Communication Non Violente) et qui peut se résumer de la manière suivante :
+Julie Quillié propose un modèle de feedbacks basé sur la CNV (Communication Non Violente) et qui peut se résumer de la manière suivante.
 
-1- On vérifie la disponibilité de la personne en lui demandant si elle est d’accord pour qu’on lui fasse des feedbacks et sous quelle forme.
+### Feedback basé sur la CNV (Communication Non Violente)
 
-2- On formule le feedback :
+1. On vérifie la disponibilité de la personne en lui demandant si elle est d’accord pour qu’on lui fasse des feedbacks et sous quelle forme.
+2. On formule le feedback :
+  Décrire une Observation, les faits (= pas de jugement)
+  Exprimer le Sentiment que cette situation a engendré
+  Expliquer le Besoin qui est la source du sentiment ressenti
+  et finir par faire une Demande (= réalisable, formulée positivement, précise)
 
-Décrire une Observation, les faits (= pas de jugement)
-Exprimer le Sentiment que cette situation a engendré
-Expliquer le Besoin qui est la source du sentiment ressenti
-et finir par faire une Demande (= réalisable, formulée positivement, précise)
+  **Un exemple :**
+  Nous avions rendez-vous à 12h et il est 12h30 = observation, factuel.
+  Je suis très fâché car je m’étais organisé pour être à l’heure = le sentiment
+  C’est important pour moi de ne pas perdre de temps et de pouvoir rester libre dans mon organisation = le besoin
+  La prochaine fois que tu sais que tu seras en retard, peux-tu stp m’appeler dès que possible pour me le signaler ? De cette manière, je peux me réorganiser facilement. = la demande
 
-Un exemple :
-Nous avions rendez-vous à 12h et il est 12h30 = observation, factuel.
-Je suis très fâché car je m’étais organisé pour être à l’heure = le sentiment
-C’est important pour moi de ne pas perdre de temps et de pouvoir rester libre dans mon organisation = le besoin
-La prochaine fois que tu sais que tu seras en retard, peux-tu stp m’appeler dès que possible pour me le signaler ? De cette manière, je peux me réorganiser facilement. = la demande
+3. On vérifie ce qui a été reçu par la personne. On lui propose de nous reformuler ce qu’elle en a retenu. Cela permet de vérifier que le message que l’on voulait faire passer a bien été entendu.
 
-3- On vérifie ce qui a été reçu par la personne. On lui propose de nous reformuler ce qu’elle en a retenu. Cela permet de vérifier que le message que l’on voulait faire passer a bien été entendu.
+### 2ème possibilité pour faire un feedback : le feedback en 4 temps
 
-2ème possibilité pour faire un feedback : le feedback en 4 temps
+1. On demande à la personne ce qu’elle a aimé dans ce qu’elle vient de faire
+2. On lui demande ensuite ce qu’elle aurait aimé faire différemment
 
-1- On demande à la personne ce qu’elle a aimé dans ce qu’elle vient de faire
-2- On lui demande ensuite ce qu’elle aurait aimé faire différemment
+    On lui demande si elle veut qu’on lui donne notre feedback
 
-On lui demande si elle veut qu’on lui donne notre feedback
-
-3- _“Moi, j'ai aimé …, parce que … ”_ : on parle de ce que ça nous a apporté (clarté, motivation, inspiration, soutien, etc.)
-4- _“Et j’aurais aimé …  de différent, parce que … ”_ on parle de ce que ça nous apporterait (clarté, motivation, inspiration, soutien, etc.)
+3. _“Moi, j'ai aimé …, parce que … ”_ : on parle de ce que ça nous a apporté (clarté, motivation, inspiration, soutien, etc.)
+4. _“Et j’aurais aimé …  de différent, parce que … ”_ on parle de ce que ça nous apporterait (clarté, motivation, inspiration, soutien, etc.)
 
 Et en bonus : “Peux-tu me dire comment tu reçois ce que je te dis ?”
 
