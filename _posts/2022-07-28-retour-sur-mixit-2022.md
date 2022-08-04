@@ -16,8 +16,6 @@ Voici un résumé des conférences de l'édition 2022 qui nous ont le plus marqu
 
 ## How to build the alert system that France deserves?
 
-par Gaël Musquet
-
 Gaël Musquet nous a d’abord expliqué le rôle de Gustave Ferrié, qu’il considère comme le premier hacker, qui a installé des mâts de télégraphe sans fil en 1902, entre les émetteurs en Martinique, pour remplacer le câble télégraphique, détruit lors de la catastrophe de la montagne Pelée du 8 mai 1902. Cet homme avait saisi l’intérêt d’avoir un système de communication fiable.
 
 Gaël Musquet nous explique ce qu’on est en droit d’attendre en 2022 d’un pays moderne, concernant les alertes sur les risques majeurs, qui varient selon notre emplacement (du tsunami à la rupture de barrage artificiel).
@@ -27,8 +25,6 @@ Il nous incite à lire le DICRIM de notre ville ([celui de Lyon](https://www.lyo
 [Page du talk sur le site de MiXiT et voir le replay](https://mixitconf.org/2022/how-to-build-the-alert-system-that-france-deserves-)
 
 ## Meet NULL the UNKNOWN
-
-par Laëtitia Avrot
 
 Dans cette conférence, Laëtiia Avrot entame un rappel de la norme SQL, que PostgresQL implémente au plus près, sur la valeur de NULL en SQL. Et la valeur UNKNOWN est également abordée. Notamment la complexité induite par le fait qu’un champ de type Boolean peut se retrouver avec comme valeurs possibles : True, False, UNKNOWN et NULL. Cela donne un système à quadruple valeur. Pour un champ typé.
 
@@ -45,8 +41,6 @@ C’est intéressant, car chaque question comporte un degré de complexité éle
 * [Page du talk sur le site de MiXiT et voir le replay](https://mixitconf.org/2022/meet-null-the-unknown)
 
 ## Parlez de vous, faites des feedbacks
-
-par Julie Quillé
 
 Le feedback est un outil communicationnel qui permet de formuler un avis sur une situation passée dans le but de gérer les situations futures.
 
@@ -89,9 +83,8 @@ Et en bonus : “Peux-tu me dire comment tu reçois ce que je te dis ?”
 [Page du talk sur le site de MiXiT et voir le replay](https://mixitconf.org/2022/parlez-de-vous-faites-des-feedbacks-)
 
 ## Arrêtez l’auto-sabotage et sortez de la boucle (systémique)
-Albane Veyron
 
-Dans cet atelier, Albane nous explique que nous avons tous des croyances sur nous-mêmes et sur les autres. Les croyances sont des pensées qui sont des vérités, pour nous. Elles ont plusieurs origines : l’enfance, notre cercle social et notre expérience de vie.
+Dans cet atelier, Albane Veyron nous explique que nous avons tous des croyances sur nous-mêmes et sur les autres. Les croyances sont des pensées qui sont des vérités, pour nous. Elles ont plusieurs origines : l’enfance, notre cercle social et notre expérience de vie.
 
 Les croyances peuvent être aidantes ou limitantes.
 
