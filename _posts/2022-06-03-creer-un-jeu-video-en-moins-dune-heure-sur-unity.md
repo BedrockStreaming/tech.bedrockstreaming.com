@@ -9,6 +9,5 @@ youtubeId: qEiUSoZbQ68
 permalink: creer-un-jeu-video-en-moins-dune-heure-sur-unity
 ---
 
-Julie Nginn nous présente en livecoding la construction d'un jeux video.
-Il s’agit d’une introduction au moteur de jeu Unity. 
+Julie Nginn nous présente une introduction au moteur de jeu Unity, en *livecodant* la construction d'un jeux video.  
 Pas besoin d'être développeur pour pouvoir créer un jeu vidéo, ce talk s’adresse à tout le monde 🙂

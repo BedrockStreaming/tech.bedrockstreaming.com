@@ -9,4 +9,4 @@ youtubeId: zZnnW_h78-s
 permalink: connaissez-vous-cache°cache
 ---
 
-Petite découverte d’un pattern de composition en utilisant une librairie de cache comme exemple présentée par notre expert Sebastien Drode.
+Petite découverte d’un pattern de composition en utilisant une librairie de cache comme exemple, présentée par notre expert Sebastien Drode.

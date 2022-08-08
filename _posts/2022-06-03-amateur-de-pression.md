@@ -9,4 +9,4 @@ youtubeId: 3KbXTzypKRY
 permalink: amateur-de-pression
 ---
 
-Ivresse des profondeurs, exploration, dépassement de soi, durant ce talk Hugo Riffiod nous partage sa passion pour la plongée sous-marine.
+Ivresse des profondeurs, exploration, dépassement de soi, durant ce talk, Hugo Riffiod nous partage sa passion pour la plongée sous-marine.

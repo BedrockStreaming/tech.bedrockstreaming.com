@@ -9,5 +9,5 @@ youtubeId: LvaHeKiwf0o
 permalink: comment-faire-un-trailer-video-qui-dechire-avec-les-technos-web
 ---
 
-Un jour, alors que Mickaël Alves était fraichement arrivé à Bedrock, celui-ci a eu le malheur de demander à Antoine Caron ce sur quoi il bossait entre midi et deux et qui semblait fort l'amuser. Quelle erreur du dev Franco-Portugais ! :scream:
-Il ne se doutait pas encore de la folie de son nouveau tech lead."J'essaie de générer des vidéos en MP4 à partir de composants React, tu veux voir ?"
+Un jour, alors que Mickaël Alves était fraichement arrivé à Bedrock, il a eu le malheur de demander à Antoine Caron sur quoi il bossait entre midi et deux, qui semblait fort l'amuser. Quelle erreur du dev Franco-Portugais ! :scream:
+Il ne se doutait pas encore de la folie de son nouveau tech lead : *« J'essaie de générer des vidéos en MP4 à partir de composants React, tu veux voir ? »*
