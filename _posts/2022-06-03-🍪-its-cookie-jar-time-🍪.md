@@ -9,5 +9,5 @@ youtubeId: -rMtDI3tvDI
 permalink: 🍪-its-cookie-jar-time-🍪
 ---
 
-Découvrez “Cookie Jar”, la base de donnée de connaissance utilisateurs qui centralise et documente toute l’UX research produite chez Bedrock. 
+Découvrez “Cookie Jar”, la base de données de connaissances utilisateurs qui centralise et documente toute l’UX research produite chez Bedrock. 
 Présenté par Elise Carenau.
