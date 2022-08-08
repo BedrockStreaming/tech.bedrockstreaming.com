@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.15.2 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.13.10 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/2022-08-08-privateCdnLogs/main.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>How to ingest 400GB of logs per hour? | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="How to ingest 400GB of logs per hour?" />
+<meta name="author" content="Arthur Zinck" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="We wanted to exploit our CDN logs as they contain many valuable information." />
+<meta property="og:description" content="We wanted to exploit our CDN logs as they contain many valuable information." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-08-08T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How to ingest 400GB of logs per hour?" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html"},"url":"https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html","author":{"@type":"Person","name":"Arthur Zinck"},"@type":"BlogPosting","headline":"How to ingest 400GB of logs per hour?","dateModified":"2022-08-08T00:00:00+00:00","datePublished":"2022-08-08T00:00:00+00:00","description":"We wanted to exploit our CDN logs as they contain many valuable information.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="How to ingest 400GB of logs per hour?">
+    <meta name="twitter:description" content="Bedrock Streaming is a company that sells a white labeled streaming and live platform. Our customers are media groups, TV channels, and streaming companies. ...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/2022-08-08-privateCdnLogs/main.png">
+    <meta name="twitter:image:alt" content="How to ingest 400GB of logs per hour?">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="About" title="About" href="/about/">
+                     About 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="How to ingest 400GB of logs per hour? " aria-label="How to ingest 400GB of logs per hour?" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="How+to+ingest+400GB+of+logs+per+hour%3F" class="title">How to ingest 400GB of logs per hour?</h1>
+      
+
+
+<div class="post-info"><a href="https://www.z3k.fr" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="/images/avatar/arthurzinck.png">
+    
+    <p class="meta">
+      Arthur Zinck - 
+      
+      August 08, 2022
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Bedrock Streaming is a company that sells a white labeled streaming and live platform. Our customers are media groups, TV channels, and streaming companies. Our goal is to deliver a state-of-the-art streaming platform to our customers.</p>
+
+<p>To achieve this goal, we have our own Content Delivery Network (CDN), made of several bare metal servers racked in our Data Centers. Those servers run Nginx and are designed to output hundreds of Gbps (several tens of Pb per month) to end-users. We use them to cache video content at our infrastructure’s edge.</p>
+
+<p>This increases efficiency of the platform 96 times out of 100, as video traffic doesn’t have to flow all the way through our infrastructure, and improves user experience as it serves video faster. Also, it diminishes the cost of our Video On Demand (VOD) infrastructure as we need less servers in VOD Stack.</p>
+
+<p>This in-turn increases end-users (clients of our customers) satisfaction with the service.</p>
+
+<h2 id="who-needs-to-ingest-400gb-of-logs-per-hour-anyway">Who needs to ingest 400GB of logs per hour anyway?</h2>
+<p>Every time someone watches a video, it generates traffic on our CDN, resulting in a lot of access logs. Without filtering, it averages to 400GB uncompressed logs per hour.</p>
+
+<p>This is why, at first, we chose to not log 2XX or 3XX HTTP codes. We had too many of them, and we considered them not as worth it as 4XX and 5XX. The 4XX and 5XX can be especially useful for debugging a particular situation or, from a broader perspective, improving the user experience.</p>
+
+<p>This was the kind of Nginx configuration we had deployed:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map $status $loggable {
+    ~^[23]  0;
+    default 1;
+}
+access_log /path/to/access.log combined if=$loggable;
+</code></pre></div></div>
+
+<h2 id="giving-autonomy-for-all-teams-on-logs">Giving autonomy for all teams on logs</h2>
+
+<p>At the end of 2021, the finance team approached us with a challenge: how to bill our customers based on their end-users CDN usage?
+This was in fact a need we already anticipated, we tried the nginx module <a href="https://www.nginx.com/resources/wiki/modules/traffic_accounting/">Traffic_accounting</a>, but it did not satisfy us fully. This module calculates and exposes metrics on-the-fly, which is CPU and memory intensive, especially above 50Gbps of traffic per server.</p>
+
+<p>We also had another objective that wasn’t addressed with the nginx module. We needed to give autonomy to QA, Video, Data, and Finance teams. We wanted to allow them to use CDN logs when they needed without having to ask for it, and ideally in a practical and unified way.</p>
+
+<p>The company philosophy states that we are user obsessed and that we do not finger point. We work as a team to offer the best user experience, this is why we make all our logs available to all teams. We didn’t come around to do it for the CDN as the volume of logs was too much of a constraint.</p>
+
+<h2 id="technical-solution">Technical Solution</h2>
+
+<p>At Bedrock, we like to keep things simple. We think our CDN main mission is to serve video as efficiently as possible. Our CDN’s servers can’t keep PetaBytes of logs on their disks. This is why we chose to output logs to Amazon S3.</p>
+
+<p>The real benefit to using S3 is that you can easily plug it into Glue and Athena which allows you to request TeraBytes of data easily.</p>
+
+<p><img src="/images/posts/2022-08-08-privateCdnLogs/image1.png" alt="technical Solution" /></p>
+
+<h3 id="sending-logs-to-s3-vector">Sending logs to S3: Vector</h3>
+
+<p>To send logs from our CDN servers to Amazon S3 bucket, we had many options, but chose to test two approaches: <a href="https://www.fluentd.org/">Fluentd</a> and <a href="https://vector.dev/">Vector</a>. Fluentd is the legacy one, and Vector the new rusty one.</p>
+
+<p>After a quick evaluation, we decided to go with <a href="https://medium.com/ibm-cloud/log-collectors-performance-benchmarking-8c5218a08fea">Vector as it seemed more memory efficient</a> and output more Logs Per Second under heavy load than Fluentd.</p>
+
+<center><img alt="Log per second" src="/images/posts/2022-08-08-privateCdnLogs/image4.png" /></center>
+<center>Source: <a href="https://medium.com/ibm-cloud/log-collectors-performance-benchmarking-8c5218a08fea" target="blank">Who is the winner — Comparing Vector, Fluent Bit, Fluentd performance from Ajay Gupta</a></center>
+<p><br /></p>
+
+<p>We have Nginx and Vector installed on the CDN servers. Nginx now outputs all the access logs to a file. Vector reads the file, compresses logs to GZIP format and every 10Mb sends the logs to S3. Nginx may generate at peak 600GB of logs; we only send 10GB.</p>
+
+<p>Those logs are then locally cleaned by Logrotate.</p>
+
+<h3 id="storing-logs-s3">Storing logs: S3</h3>
+<p>We chose to store logs on an S3 bucket. We figured it was the most scalable and time efficient. S3 buckets can grow to PetaBytes easily. It is a few terraform lines away, this is convenient as we handle all our infrastructure with Terraform.</p>
+
+<p>We configured our bucket to use several lifecycle policies. One to automatically clean logs after 365 days, another to remove incomplete uploads, and another one to immediately remove files with a delete marker. Also, we configured the storage class in <em>intelligent tiering mode</em> to store logs according to their access frequency.</p>
+
+<p>This will permit us to diminish the cost of our S3 bucket and not have an ever-increasing S3 bill.</p>
+
+<h3 id="partitioning-logs-on-s3-lambda-stack">Partitioning logs on S3: Lambda stack</h3>
+
+<p>Once logs are stored in S3 bucket, we need to classify and sort them in order to extract valuable intel. At Bedrock, we already use a modified version of a lambda stack, that does just that. Originally designed for Cloudfront, we have been using it also for Fastly and now for our Private CDN. You can find the original version at <a href="https://github.com/aws-samples/amazon-cloudfront-access-logs-queries">AWS Sample Github</a>.</p>
+
+<p>We have 2 different parts in this lambda stack.</p>
+
+<center><img alt="Move Acess Logs" src="/images/posts/2022-08-08-privateCdnLogs/image3.png" /></center>
+<center>source: <a href="https://github.com/aws-samples/amazon-cloudfront-access-logs-queries/blob/mainline/images/moveAccessLogs.png" target="blanck">moveAccessLogs</a></center>
+<p><br />
+The first part is called by S3 Event when a new file is pushed to a specific path. This lambda moves the file to a path assigned per server and per hour. This way, logs are stored for each server, each month, each day and each hour in a separate prefix.</p>
+
+<center><img alt="Transform Partition" src="/images/posts/2022-08-08-privateCdnLogs/image2.png" /></center>
+<center>source: <a href="https://github.com/aws-samples/amazon-cloudfront-access-logs-queries/blob/mainline/images/transformPartition.png" target="blank">transformPartition</a></center>
+<p><br />
+Then, another lambda transforms logs into <a href="https://parquet.apache.org/">Parquet format</a>. Parquet is an open source format from the Apache Foundation. It is commonly used in big data. It takes up little space and is very effective.</p>
+
+<p>We chose to use AWS glue in order to create a database of our logs. The columns of the table are based on our log format. We can then request everything we want in Athena.</p>
+
+<center><img alt="Athena Query" src="/images/posts/2022-08-08-privateCdnLogs/image5.png" /></center>
+
+<p>We are now capable of extracting the bytes sent from a particular virtual host and sum it over a month for all CDN servers to bill our customers.
+Those logs are now available for all the teams who may need them to improve their application or to debug an issue they are facing.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>We chose <a href="https://vector.dev/">Vector</a> to transport our private CDN logs to an S3 Bucket. Then, we chose to reuse an AWS Stack using Lambda and Glue to extract information from these logs, asynchronously. This stack is used in production for several months on other projects.
+All the teams that needed to extract value from our CDN logs are now autonomous to do so. We are now able to bill our customers based on their CDN usage.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=How+to+ingest+400GB+of+logs+per+hour%3F%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F08%2F08%2Fprivate-cdn-logs.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html&title=How+to+ingest+400GB+of+logs+per+hour%3F%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=How to ingest 400GB of logs per hour?%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#athena">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> athena</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#aws">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> aws</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#cdn">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> cdn</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#cloud">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#glue">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> glue</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#lambda">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> lambda</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#logs">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> logs</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#nginx">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> nginx</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#onprem">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> onprem</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#s3">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> s3</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#vector">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> vector</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="Retour sur la conférence MiXiT 2022" href="/2022/07/28/retour-sur-mixit-2022.html">
+            <p>Next post</p>
+            Retour sur la conférence MiXiT 2022
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>
