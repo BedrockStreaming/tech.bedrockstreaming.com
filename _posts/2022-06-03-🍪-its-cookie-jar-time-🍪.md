@@ -2,6 +2,7 @@
 layout: video
 title: "🍪 It’s Cookie Jar Time 🍪 #LFT 03/06/22"
 description: ""
+author: e_carneau
 tags: [UX, lft, tech]
 comments: true
 color: rgb(251,87,66)

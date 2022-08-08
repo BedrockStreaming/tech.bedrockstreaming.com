@@ -2,6 +2,7 @@
 layout: video
 title: "Amateur de pression #LFT 03/06/22"
 description: ""
+author: h_ruffiod
 tags: [plongée, partage, lft, partage]
 comments: true
 color: rgb(251,87,66)

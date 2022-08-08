@@ -2,6 +2,7 @@
 layout: video
 title: "Comment faire un trailer vidéo qui déchire avec les technos web ? #LFT 03/06/22"
 description: ""
+author: [m_alves, a_caron]
 tags: [video, react, js, remotion,ffmpeg, lft, tech]
 comments: true
 color: rgb(251,87,66)
