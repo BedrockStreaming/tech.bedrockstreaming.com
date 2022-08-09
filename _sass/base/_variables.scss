@@ -43,10 +43,10 @@ html, html[data-theme="light"] {
   --text: #262626;
   --h1: #fd4d26; // headers
   --h2: #fd4d26;
-  --h3: #fd4d26;
-  --h4: #fd4d26;
-  --h5: #fd4d26;
-  --h6: #fd4d26;
+  --h3: #262626;
+  --h4: #262626;
+  --h5: #262626;
+  --h6: #262626;
   --border: rgba(0, 0, 0, 0.2);
 }
 
@@ -65,10 +65,10 @@ html[data-theme="dark"] {
   --text: #cdd9e5; // text
   --h1: #fd4d26; // headers
   --h2: #fd4d26;
-  --h3: #fd4d26;
-  --h4: #fd4d26;
-  --h5: #fd4d26;
-  --h6: #fd4d26;
+  --h3: #ff7d5f;
+  --h4: #ff7d5f;
+  --h5: #fc937c;
+  --h6: #fc937c;
   --border: rgba(255, 255, 255, 0.5); // border
   --cusdis--color-text-default: var(--text);
   --cusdis--color-comment-username-text: var(--link);
