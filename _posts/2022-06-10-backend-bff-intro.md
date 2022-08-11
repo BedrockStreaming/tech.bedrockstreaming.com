@@ -135,6 +135,7 @@ In the next part we will talk about handling the failures of the dependencies th
 1. [What's a BFF](/2022/06/10/backend-bff-intro.html)
 2. [Handling API failures in a gateway](/2022/08/12/backend-fallbacks.html)
 3. [What's an error, and handling connection to multiple APIs](/2022/08/25/backend-errors-connections.html)
+4. [Using a circuit breaker](/2022/09/02/backend-circuit-breaker.html)
 
 ---
 In the meantime, feel free to have a look at other articles available on this blog:
