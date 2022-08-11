@@ -148,6 +148,7 @@ Next time, we will see how we can spare some traffic on those dependencies when 
 1. [What's a BFF](/2022/06/10/backend-bff-intro)
 2. [Handling API failures in a gateway](/2022/08/12/backend-fallbacks)
 3. [What's an error, and handling connexion to multiple APIs](/2022/08/25/backend-errors-connexions)
+4. [Using a circuit breaker](/2022/09/02/backend-circuit-breaker)
 
 ---
 In the meantime, feel free to have a look at other articles available on this blog:
