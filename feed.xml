@@ -1,4 +1,155 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-08-09T05:52:13+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">How to ingest 400GB of logs per hour?</title><link href="https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html" rel="alternate" type="text/html" title="How to ingest 400GB of logs per hour?" /><published>2022-08-08T00:00:00+00:00</published><updated>2022-08-08T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html">&lt;p&gt;Bedrock Streaming is a company that sells a white labeled streaming and live platform. Our customers are media groups, TV channels, and streaming companies. Our goal is to deliver a state-of-the-art streaming platform to our customers.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-08-12T05:27:08+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Handling dependencies failures in an API gateway</title><link href="https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html" rel="alternate" type="text/html" title="Handling dependencies failures in an API gateway" /><published>2022-08-12T00:00:00+00:00</published><updated>2022-08-12T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html">&lt;p&gt;Welcome to our second article about the backend architecture and its api gateway.
+In &lt;a href=&quot;/2022/06/10/backend-bff-intro.html&quot;&gt;the first part&lt;/a&gt;, we talked about the BFF and all services it depends on.
+Today we’re going to take a look at what to do when one of them (or many), fails to respond.&lt;/p&gt;
+
+&lt;h2 id=&quot;service-dependencies&quot;&gt;Service dependencies&lt;/h2&gt;
+
+&lt;p&gt;As seen previously, the BFF uses multiple data sources and services to create a full layout.&lt;/p&gt;
+
+&lt;p&gt;Those services are used to gather the contents to be displayed in the application:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;getting user personalisation data;&lt;/li&gt;
+  &lt;li&gt;advertising and analytics configuration;&lt;/li&gt;
+  &lt;li&gt;asking if the user has some authorizations.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If we don’t want our BFF to become one giant SPOF &lt;a href=&quot;#notes&quot;&gt;(1)&lt;/a&gt;, we need to be resilient to the death &lt;a href=&quot;#notes&quot;&gt;(2)&lt;/a&gt; of those dependencies, any of them, at any time!
+You must keep in mind that &lt;strong&gt;our top priority is to always be able to answer something readable&lt;/strong&gt; to the frontend applications.&lt;/p&gt;
+
+&lt;h2 id=&quot;ddd&quot;&gt;DDD&lt;/h2&gt;
+
+&lt;p&gt;First thing first, we are using a DDD &lt;a href=&quot;#notes&quot;&gt;(3)&lt;/a&gt; approach for our modeling.
+This means that we focus on the business, as described by our Product Owner. We try not to worry about the various implementation of our backend’s friends and their different services.&lt;/p&gt;
+
+&lt;p&gt;A picture is always easier to understand.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-08-12-backend-fallbacks/ddd-page-min.png&quot; alt=&quot;asking for a layout to the domain means asking a interface for&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Above, we can see that when a user ask for a layout A, we are looking to resolve who is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;A&lt;/code&gt;.
+From the domain point of view, the page collection is only an interface.&lt;/p&gt;
+
+&lt;p&gt;In the picture below, we see the “Page collection implem (Infra)”.
+It’s a layer implementing the interface defined in the domain. It uses multiple clients that call the services behind.
+It’s its responsibility to chose which service to look on for the page.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-08-12-backend-fallbacks/ddd-page-full.png&quot; alt=&quot;page collection implementation chose the correct data source&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;DDD is a too large subjects to be perfectly defined in this article. If you want to dig deeper into it, there are multiple great reads, feel free to check them out!
+Now, how does this help us?&lt;/p&gt;
+
+&lt;h2 id=&quot;handling-failures&quot;&gt;Handling failures&lt;/h2&gt;
+
+&lt;p&gt;Failures handling is done by the middle layer seen in the previous example.
+Its goal is to catch error &lt;a href=&quot;#notes&quot;&gt;(4)&lt;/a&gt;, and convert them to something expected and defined by the interface.&lt;/p&gt;
+
+&lt;p&gt;That said, its responsibility is not to know what the expected answer is. To do that, we use the domain.&lt;/p&gt;
+
+&lt;p&gt;Let’s see with a small code sample.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note: The following example is not a real use-case, but it’s representative and simple enough to illustrate how it works.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;In the code below, we see a class that represents the subscribing status of a user, which has two properties:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hasAccess&lt;/code&gt; controls whether the user can read protected contents;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;isSubscribed&lt;/code&gt; is used in analytics, and to show subscription pages.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SubscribeStatus&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__construct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;readonly&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$hasAccess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;readonly&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$isSubscribed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;createAnonymous&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;self&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;createSubscribed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;self&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To create such an object, we use either one of the two static functions, depending on the status we get from the subscriptions API.
+This is done in the middle layer, but the business is kept in the domain.&lt;/p&gt;
+
+&lt;p&gt;To handle the failure, we add a new named constructor, dedicated to this specific case.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    public static function createUnknown(): self
+    {
+        return new self(true, false);
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;When an error happens and we can’t retrieve the user subscription status, we now have a fallback option.
+With this fallback option, the user will:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;be able to access any content, it’s better to let an anonymous user access a content it should not, that blocking a paying customer;&lt;/li&gt;
+  &lt;li&gt;still be reported as not subscribed and will see all available offers.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Most of the time, the answer is even simpler than this one.&lt;/p&gt;
+
+&lt;p&gt;Another example would be user’s viewing statuses. If we can’t retrieve them, we don’t display any progress bar.
+Users won’t be able to tell if they have seen a content, but they will still be able to navigate the application.&lt;/p&gt;
+
+&lt;h2 id=&quot;infrastructure-solution-the-stale-cache&quot;&gt;Infrastructure solution, the stale cache&lt;/h2&gt;
+
+&lt;p&gt;In some cases, the above solution doesn’t work.
+For example, contents information cannot be replaced by default values. If we don’t know about a video or a program, we cannot guess what it is.&lt;/p&gt;
+
+&lt;p&gt;Luckily, we can rely on the stale cache.
+Stale cache is an old cache entry which is expired. When the cache finds such entry, it usually ignores it and asks for a new version of the response.
+In case of failure, we can use the available staled version.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-08-12-backend-fallbacks/stale-cache-usage.png&quot; alt=&quot;following first example, when the http fails to answer, we use the stale cached response&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;The limitation is that a response must have been cached at least once, in order to have a staled version.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;When there is no stale cache, we don’t display the content &lt;a href=&quot;#notes&quot;&gt;(5)&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So far, we are only using it with http implementation:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;called API must answers with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;max-stale&lt;/code&gt; cache directive, see &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#cache_directives&quot;&gt;the mdn&lt;/a&gt;;&lt;/li&gt;
+  &lt;li&gt;on the client side, we are using the &lt;a href=&quot;https://github.com/Kevinrob/guzzle-cache-middleware&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kevinrob/guzzle-cache-middleware&lt;/code&gt;&lt;/a&gt; to do the job.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We plan to expand its usage to other kinds of cached entries, such as manually saved data, and database queries.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;In today’s post, we have seen how we handle the loss of our dependencies by anticipating their potential failures and preparing default acceptable behaviours.&lt;/p&gt;
+
+&lt;p&gt;Next time, we will see how we can spare some traffic on those dependencies when they’re struggling with traffic.&lt;/p&gt;
+
+&lt;h2 id=&quot;notes&quot;&gt;Notes&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;SPOF, as &lt;a href=&quot;https://en.wikipedia.org/wiki/Single_point_of_failure&quot;&gt;single point of failure&lt;/a&gt; since all frontend applications have to rely on the BFF, I cannot resist linking this excellent &lt;a href=&quot;https://xkcd.com/2347/&quot;&gt;xkcd&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;By “death”, we mean anything unexpected. It can be a 500 error code, a timeout, a wrong content. We will talk a bit more about this in the next article.&lt;/li&gt;
+  &lt;li&gt;DDD, as domain driven design, you can read more about it on &lt;a href=&quot;https://martinfowler.com/bliki/DomainDrivenDesign.html&quot;&gt;Martin FOWLER’s website&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Throwing errors is still allowed, but restricted to domain exceptions, and must be specified in the method’s declaration in the interface (i.e. via a comment).&lt;/li&gt;
+  &lt;li&gt;There will be a dedicated article on partial rendering.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;from-the-same-series&quot;&gt;From the same series&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;/2022/06/10/backend-bff-intro&quot;&gt;What’s a BFF&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/2022/08/12/backend-fallbacks&quot;&gt;Handling API failures in a gateway&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;In the meantime, feel free to have a look at other articles available on this blog:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;🇺🇸 &lt;a href=&quot;/2022/07/08/encrypt-aws-amis&quot;&gt;Encrypt AWS AMIs: one way to do it wrong&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;🇫🇷 &lt;a href=&quot;/2022/06/13/kubecon-2022-part-1&quot;&gt;Bedrock à la kubecon 2022 (4 articles)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Valentin CLARAS</name></author><category term="backend" /><category term="php" /><category term="api" /><category term="api-gateway" /><category term="back-for-front" /><category term="resiliency" /><summary type="html">Welcome to our second article about the backend architecture and its api gateway. In the first part, we talked about the BFF and all services it depends on. Today we’re going to take a look at what to do when one of them (or many), fails to respond.</summary></entry><entry><title type="html">How to ingest 400GB of logs per hour?</title><link href="https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html" rel="alternate" type="text/html" title="How to ingest 400GB of logs per hour?" /><published>2022-08-08T00:00:00+00:00</published><updated>2022-08-08T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html">&lt;p&gt;Bedrock Streaming is a company that sells a white labeled streaming and live platform. Our customers are media groups, TV channels, and streaming companies. Our goal is to deliver a state-of-the-art streaming platform to our customers.&lt;/p&gt;
 
 &lt;p&gt;To achieve this goal, we have our own Content Delivery Network (CDN), made of several bare metal servers racked in our Data Centers. Those servers run Nginx and are designed to output hundreds of Gbps (several tens of Pb per month) to end-users. We use them to cache video content at our infrastructure’s edge.&lt;/p&gt;
 
@@ -1351,73 +1502,4 @@ Toutefois, les solutions présentées au cours de cette KubeCon EU 2022 viennent
 L’idée d’un service mesh plus léger que Istio, par exemple, a l’air fort intéressante !&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/end-part2.jpg&quot; alt=&quot;&amp;quot;Instant détente pour débriefer de la seconde journée de la KubeCon 2022&amp;quot;&quot; /&gt;&lt;/p&gt;
-&lt;center&gt;&lt;i&gt;Rejoignez-nos équipes et venez vivre les prochaines conférences avec nous l’an prochain&lt;/i&gt;&lt;/center&gt;</content><author><name>Bedrock</name></author><category term="kubecon" /><category term="kubernetes" /><category term="cloud" /><category term="k8s" /><category term="conference" /><summary type="html">Pour ce second article de synthèse de la KubeCon Europe 2022, continuons sur le thème des performances, peut-être plus bas niveau, et plongeons aussi dans des outils pouvant être déployés au cœur de nos clusters !</summary></entry><entry><title type="html">Bedrock à la kubecon 2022, 1ere partie : performances applicatives et scalabilité</title><link href="https://tech.bedrockstreaming.com/2022/06/13/kubecon-2022-part-1.html" rel="alternate" type="text/html" title="Bedrock à la kubecon 2022, 1ere partie : performances applicatives et scalabilité" /><published>2022-06-13T00:00:00+00:00</published><updated>2022-06-13T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/06/13/kubecon-2022-part-1</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/06/13/kubecon-2022-part-1.html">&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/part1.jpg&quot; alt=&quot;&amp;quot;KubeCon 2022 part1&amp;quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;bedrock-à-la-kubecon-2022&quot;&gt;BEDROCK à la KubeCon 2022&lt;/h2&gt;
-
-&lt;p&gt;Après 2018 à Copenhague et 2019 à Barcelone, cette année encore, nous étions trois, &lt;a href=&quot;https://twitter.com/_CoralinePetit&quot;&gt;Coraline&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/julien_menan&quot;&gt;Julien&lt;/a&gt; et &lt;a href=&quot;https://twitter.com/pascal_martin&quot;&gt;Pascal&lt;/a&gt;, présents à la KubeCon CloudNativeCon Europe 2022, à Valencia !&lt;/p&gt;
-
-&lt;p&gt;Plus de quatre ans après le début de notre migration vers Le Cloud (AWS + Kubernetes) racontée dans &lt;a href=&quot;https://leanpub.com/6cloud/&quot;&gt;Le Plan Copenhague&lt;/a&gt;, nous visions à découvrir de nouvelles idées, à confirmer certains de nos choix et à apprendre des retours d’expérience de nos pairs. Après tout, avec une communauté aussi large (plus de 7000 participants et participantes cette année), il serait dommage de rester seuls avec nos idées !&lt;/p&gt;
-
-&lt;h2 id=&quot;sommaire&quot;&gt;Sommaire&lt;/h2&gt;
-
-&lt;p&gt;À trois, nous avons assisté à une grosse quarantaine de conférences. Nous avons choisi d’organiser nos notes par thèmes, en quatre articles :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Un premier, celui-ci, centré sur les performances applicatives, sur la scalabilité des applications et la gestion des coûts.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/2022/06/14/kubecon-2022-part-2.html&quot;&gt;Le second, consacré aux performances système, aux services mesh, aux fonctionnalités au niveau du cluster.&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/2022/06/15/kubecon-2022-part-3.html&quot;&gt;Le troisième, pour regrouper ce qui est Dev XP, outillage, CI/CD, rollback, observabilité…&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Et &lt;a href=&quot;/2022/06/16/kubecon-2022-part-4.html&quot;&gt;un dernier, pour quelques sujets divers, dont le chaos engineering et la résilience, et pour conclure sur ce que nous avons retenu de cette édition de la KubeCon publication jeudi&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Avec une plateforme de VOD et de replay déployée en marque blanche pour des broadcasters européen majeurs, des millions d’utilisateurs actifs, des milliers de CPU consommés, des centaines d’instances allumées et des dizaines de microservices, les performances sont au cœur de nos préoccupations.&lt;/p&gt;
-
-&lt;p&gt;Cet article reprend nos retours sur les nombreuses conférences consacrées à la scalabilité lors de cette KubeCon 2022. Cette fonctionnalité essentielle de Kubernetes est l’une des raisons de notre migration sur cette plateforme. En effet, notre activité nécessite que nous adaptions la taille de nos clusters en fonction du nombre d’utilisateurs connectés.
-Nous avons donc assisté à la plupart des conférences consacrées à la performance et à l’adaptation de celle-ci en fonction de nos besoins.&lt;/p&gt;
-
-&lt;h3 id=&quot;le-scaling-vertical&quot;&gt;Le scaling vertical&lt;/h3&gt;
-&lt;p&gt;La conférence “How Lombard Odier Deployed VPA to Increase Resource Usage Efficiency” (&lt;a href=&quot;https://www.youtube.com/watch?v=eAAio3KFm6w&quot;&gt;vidéo&lt;/a&gt;) nous présentait comment fonctionnent les &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;requests&lt;/code&gt; et &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;limits&lt;/code&gt;.
-Un sujet qui demande du temps pour être efficace afin de ne pas être en &lt;em&gt;oversizing&lt;/em&gt; ou au contraire en &lt;em&gt;undersizing&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Mais surtout, le conférencier nous a présenté son implémentation d’un composant Kubernetes assez rarement utilisé : Le VerticalPodAutoscaler. Le VPA à fait récemment l’objet de discussions au sein de nos équipes et cette présentation a confirmé notre ressenti : cette ressource est intéressante pour des cas d’usages spécifiques, notamment sur des “workloads” assez consommateurs en RAM et/ou en CPU et ne pouvant pas être découpés en multiples pods via un HorizontalPodAutoscaler.&lt;/p&gt;
-
-&lt;p&gt;le VPA souffre toujours d’une limitation : l’ajout de RAM ou CPU à chaud n’est pas possible et nécessite la re-création du pod.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/vpa.jpg&quot; alt=&quot;&amp;quot;KubeCon 2022 day1&amp;quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;améliorer-la-scalabilité&quot;&gt;Améliorer la scalabilité&lt;/h3&gt;
-&lt;p&gt;Une autre conférence, donnée cette fois-ci par Intel, présentait un projet récent : &lt;a href=&quot;https://github.com/intel/platform-aware-scheduling/tree/master/telemetry-aware-scheduling&quot;&gt;Telemetry Aware Scheduler&lt;/a&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=csg7ZQXQ5u8&quot;&gt;vidéo&lt;/a&gt;). Cet outil permet d’améliorer les choix du scheduler de Kubernetes en s’appuyant sur des métriques “customs”. Le projet est récent et en ALPHA, mais à surveiller dans l’avenir.&lt;/p&gt;
-
-&lt;p&gt;Lors d’une autre conférence intitulée “How Adobe is optimizing resource usage in K8s” (&lt;a href=&quot;https://www.youtube.com/watch?v=iVD5YI1-U_M&quot;&gt;vidéo&lt;/a&gt;), Carlos Sanchez a présenté un outil interne permettant d’émettre des recommandations basées sur un historique de métriques, un peu comme fait VPA, mais au niveau d’un namespace ou du cluster entier. Il est également revenu sur comment ils parviennent à éteindre automatiquement des applications non utilisées par les clients pour réaliser des économies conséquentes.&lt;/p&gt;
-
-&lt;h4 id=&quot;mais-comment-configurer-les-requests-limits-et-tout-ça-sans-y-passer-des-mois-&quot;&gt;Mais comment configurer les requests, limits et tout ça… sans y passer des mois ?&lt;/h4&gt;
-
-&lt;p&gt;Notre plateforme est composée de dizaines de services qui interagissent les uns avec les autres et sont soumis à un trafic qui varie au quotidien, avec des pics parfois impressionnants. Le paramétrage des requests et limits de chaque conteneur, ainsi que d’autres ressources, comme le nombre de processus php-fpm par conteneur, est un travail de fourmi, où nous devons itérer quotidiennement pendant une ou deux semaines, en travaillant application par application. Et tout ce travail est à refaire lorsque les applications ou leurs usages évoluent… un vrai casse-tête !.
-Nous ne sommes pas les seuls à rencontrer ces problématiques et c’était le sujet de la conférence “Getting the optimal service efficiency that autoscaler won’t give you” (&lt;a href=&quot;https://www.youtube.com/watch?v=Z-G6yMavQrU&quot;&gt;vidéo&lt;/a&gt;), où une approche basée sur de l’IA (ou, plutôt, sur du brute-force) était présentée.&lt;/p&gt;
-
-&lt;p&gt;Voici les grandes lignes de la méthodologie présentée :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;définition d’un scénario de load-test (ce qui reste difficile, il faut qu’il soit représentatif de la réalité)&lt;/li&gt;
-  &lt;li&gt;Définition d’objectifs (les temps de réponses attendus, le pourcentage d’erreurs… en fait, des SLOs que chacun devrait déjà avoir pour ses services),&lt;/li&gt;
-  &lt;li&gt;Lancer en boucle ces scenarios en retouchant &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;request&lt;/code&gt; et &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;limits&lt;/code&gt; (et configuration JVM) entre chaque itération.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Sur un cas réel, après la 34ᵉ itération (réalisées en 19 heures), environ 49% d’économies ont été réalisées. Mais surtout, cela a représenté un jour de travail grâce à cet outillage, au lieu de deux mois à la main.&lt;/p&gt;
-
-&lt;p&gt;Le logiciel utilisé ne semble pas disponible en open-source, mais l’approche “automatiser les itérations” en retouchant les paramètres est très intéressante et nous saurions la reproduire. Elle nous permettrait de gagner beaucoup de temps, en supprimant beaucoup de tâches fastidieuses aujourd’hui. Reste à continuer à définir des SLOs, puis créer de nouveaux scénarios de load-testing représentatifs ! ;-)&lt;/p&gt;
-
-&lt;h4 id=&quot;et-les-coûts-dhébergement-alors-&quot;&gt;Et les coûts d’hébergement, alors ?&lt;/h4&gt;
-
-&lt;p&gt;Nous avons aussi entendu parler plusieurs fois de coûts d’hébergement tout au long de cette KubeCon : comme l’illustrent les travaux de la FinOps Foundation, nous sommes de plus en plus nombreux à réaliser que si nous ne pensons pas à l’impact financier de nos infrastructures élastiques, où n’importe quel membre des équipes peut déployer des applications, la facture augmente vite et fort.&lt;/p&gt;
-
-&lt;p&gt;Le talk “Why Kubernetes can’t get around FinOps - Cost Management best practices” (&lt;a href=&quot;https://www.youtube.com/watch?v=zqJ9CqaQpYw&quot;&gt;vidéo&lt;/a&gt;) était une bonne introduction aux principes de gestion de coûts sur Kubernetes. Rien de nouveau pour nous, sur la théorie… même s’il nous reste encore beaucoup de progrès à réaliser pour mieux maîtriser nos frais d’hébergement !&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;Sur ces sujets de scalabilité, les conférences auxquelles nous avons assisté confirment que bon nombre des choix que nous avons fait sont les bons, et que les problématiques qui nous font encore souffrir sont partagées par d’autres membres de la communauté.&lt;/p&gt;
-
-&lt;p&gt;Nous allons prochainement tenter de mettre en place VPA sur un de nos composants majeur, VictoriaMetrics, qui consomme beaucoup de ressources quelques heures par jour et pour lequel un scaling horizontal n’est pas adapté.&lt;/p&gt;
-
-&lt;p&gt;Nous n’en avons pas (ou peu) entendu parler pendant cette KubeCon, mais nous étudions en ce moment la solution Karpenter pour remplacer cluster-autoscaler, très utilisé dans la communauté, mais qui ne sait pas réellement tirer profit de spécificités liées à AWS.&lt;/p&gt;
-
-&lt;p&gt;Enfin, sur les coûts… OK, il n’y a pas que chez nous que c’est compliqué. Et c’est clairement un sujet, dans Kubernetes comme au niveau d’AWS, sur lequel nous avons encore du boulot devant nous pour un an ou deux. &lt;a href=&quot;https://www.bedrockstreaming.com/career&quot;&gt;Nous avons même un poste FinOps ouvert ;-)&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/end-part1.jpg&quot; alt=&quot;&amp;quot;KubeCon 2022 day1&amp;quot;&quot; /&gt;&lt;/p&gt;</content><author><name>Bedrock</name></author><category term="kubecon" /><category term="kubernetes" /><category term="cloud" /><category term="k8s" /><category term="conference" /><summary type="html"></summary></entry></feed>
+&lt;center&gt;&lt;i&gt;Rejoignez-nos équipes et venez vivre les prochaines conférences avec nous l’an prochain&lt;/i&gt;&lt;/center&gt;</content><author><name>Bedrock</name></author><category term="kubecon" /><category term="kubernetes" /><category term="cloud" /><category term="k8s" /><category term="conference" /><summary type="html">Pour ce second article de synthèse de la KubeCon Europe 2022, continuons sur le thème des performances, peut-être plus bas niveau, et plongeons aussi dans des outils pouvant être déployés au cœur de nos clusters !</summary></entry></feed>

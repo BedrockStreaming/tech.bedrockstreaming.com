@@ -58,7 +58,7 @@
     <meta property="og:type" content="website" />
     
     <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Page 19 of 37 for Bedrock Tech Blog | Blog technique de Bedrock</title>
+<title>Page 19 of 38 for Bedrock Tech Blog | Blog technique de Bedrock</title>
 <meta name="generator" content="Jekyll v4.2.2" />
 <meta property="og:title" content="Bedrock Tech Blog" />
 <meta property="og:locale" content="en_US" />
@@ -367,6 +367,9 @@
             
             
         
+            
+            
+        
         
         
         <li class="separator"> | </li>
@@ -403,6 +406,53 @@
 
     <div class="posts">
     
+    
+    <div class="post-teaser">
+        
+        <span>
+          <header>
+            <h1>
+              <a aria-label="Use the Sensiolabs Security Checker to check potential vulnerabilities on Symfony projects" class="post-link" href="/2016/07/20/sf2-security-checker.html">
+                Use the Sensiolabs Security Checker to check potential vulnerabilities on Symfony projects
+              </a>
+            </h1>
+            
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      July 20, 2016
+    </p></div>
+
+          </header>
+          
+              <div class="excerpt">
+                  
+                     Numerous vulnerabilities are detected every day. That’s a good thing and a key benefit of using open source products. At m6web we don’t want to be exposed to known vulnerabilities, so we use a service provided by Sensiolabs in our continuous integration tool (Jenkins) to check it.
+
+Just add those lines in your ant build file (and adapt basedir) :
+
+    &amp;lt;!-- =================================================================== --&amp;gt;
+    &amp;lt;!-- Security checker                                                    --&amp;gt;
+    &amp;lt;!-- =================================================================== --&amp;gt;
+    &amp;lt;target name=&quot;sf2-security-checker&quot;&amp;gt;
+     &amp;lt;exec executable=&quot;bash&quot; dir=&quot;${basedir}/sources/bin&quot; failonerror=&quot;true&quot;&amp;gt;
+         &amp;lt;arg value=&quot;-c&quot;/&amp;gt;
+         &amp;lt;arg value=&quot;curl -Os https://get.sensiolabs.org/security-checker.phar&quot; /&amp;gt;
+     &amp;lt;/exec&amp;gt;
+     &amp;lt;exec executable=&quot;php&quot; dir=&quot;${basedir}/sources&quot; failonerror=&quot;true&quot;&amp;gt;
+         &amp;lt;arg line=&quot;${basedir}/sources/bin/security-checker.phar security:check composer.lock&quot; /&amp;gt;
+     &amp;lt;/exec&amp;gt;
+    &amp;lt;/target&amp;gt;
+
+
+                  
+              </div>
+          
+      </span>
+    </div>
     
     <div class="post-teaser">
         
@@ -546,37 +596,6 @@
       </span>
     </div>
     
-    <div class="post-teaser">
-        
-        <span>
-          <header>
-            <h1>
-              <a aria-label="M6web fera un retour d'expérience sur l'usage de Cassandra sur 6play le 14/06/2016" class="post-link" href="/2016/05/25/m6web-retourdxp-cassandra.html">
-                M6web fera un retour d'expérience sur l'usage de Cassandra sur 6play le 14/06/2016
-              </a>
-            </h1>
-            
-
-
-<div class="post-info">
-    <p class="meta">
-      
-      
-      May 25, 2016
-    </p></div>
-
-          </header>
-          
-              <div class="excerpt">
-                  
-                     Olivier Mansour, responsable R&amp;amp;D, sera présent au Cassandra Days le 14 Juin à Paris pour faire un retour d’expérience sur l’utilisation de Cassandra sur 6play.
-
-                  
-              </div>
-          
-      </span>
-    </div>
-    
 </div>
 
 
@@ -599,7 +618,7 @@
     </div>
 
     <div class="page_number">
-        19 / 37
+        19 / 38
     </div>
 
     <div class="next">
@@ -614,7 +633,7 @@
         
         <!-- >> -->
         <a aria-label="Next"
-        href="/blog/page37" class="button">
+        href="/blog/page38" class="button">
             <span><i class="fas fa-angle-double-right"></i></span>
         </a>
         
