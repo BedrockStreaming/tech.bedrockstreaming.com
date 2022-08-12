@@ -132,12 +132,12 @@ In the next part we will talk about handling the failures of the dependencies th
 
 ## From the same series
 
-1. [What's a BFF](/2022/06/10/backend-bff-intro)
-2. [Handling API failures in a gateway](/2022/08/12/backend-fallbacks)
-3. [What's an error, and handling connection to multiple APIs](/2022/08/25/backend-errors-connections)
+1. [What's a BFF](/2022/06/10/backend-bff-intro.html)
+2. [Handling API failures in a gateway](/2022/08/12/backend-fallbacks.html)
+3. [What's an error, and handling connection to multiple APIs](/2022/08/25/backend-errors-connections.html)
 
 ---
 In the meantime, feel free to have a look at other articles available on this blog:
 
-- 🇺🇸 [Announcing BedrockStreaming/pr-size-labeler github action](/2022/05/31/github-action-pr-size-labeler)
-- 🇫🇷 [Retour sur l'AFUP Day Lille 2022](/2022/05/30/afup-day-lille-2022)
+- 🇺🇸 [Announcing BedrockStreaming/pr-size-labeler github action](/2022/05/31/github-action-pr-size-labeler.html)
+- 🇫🇷 [Retour sur l'AFUP Day Lille 2022](/2022/05/30/afup-day-lille-2022.html)

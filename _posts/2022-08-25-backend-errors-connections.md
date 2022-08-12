@@ -14,7 +14,7 @@ This piece defines what are we talking about when we say "an error", and explain
 
 ## Definition
 
-In [the previous article](/2022/08/12/backend-fallbacks), we've seen how we handle errors.
+In [the previous article](/2022/08/12/backend-fallbacks.html), we've seen how we handle errors.
 This was mainly from a business point of view, and how it's done in our domain.
 
 *But what is "an error"?*
@@ -120,6 +120,6 @@ This was a deviation on the road to our next article, where we will talk about m
 
 ## From the same series
 
-1. [What's a BFF](/2022/06/10/backend-bff-intro)
-2. [Handling API failures in a gateway](/2022/08/12/backend-fallbacks)
-3. [What's an error, and handling connection to multiple APIs](/2022/08/25/backend-errors-connections)
+1. [What's a BFF](/2022/06/10/backend-bff-intro.html)
+2. [Handling API failures in a gateway](/2022/08/12/backend-fallbacks.html)
+3. [What's an error, and handling connection to multiple APIs](/2022/08/25/backend-errors-connections.html)
