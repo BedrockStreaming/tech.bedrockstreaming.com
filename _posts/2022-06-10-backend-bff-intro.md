@@ -122,10 +122,10 @@ In the next part we will talk about handling the failures of the dependencies th
 
 ## Notes
 
-1. For more details about microservices, you can read [this piece from AWS](https://aws.amazon.com/microservices/)
+1. For more details about microservices, you can read [this piece from AWS](https://aws.amazon.com/microservices/).
 2. There are some other APIs called by our applications, such as the authentication service, but let's not get lost into details…
-3. There's a lot of resources about API Gateway, here is [one from nginx](https://www.nginx.com/learn/api-gateway/)
-4. Open API is used to define the communication standards between our BFF and the clients, more explanation on the [dedicated website of the organization](https://www.openapis.org/)
+3. There's a lot of resources about API Gateway, here is [one from nginx](https://www.nginx.com/learn/api-gateway/).
+4. Open API is used to define the communication standards between our BFF and the clients, more explanation on the [dedicated website of the organization](https://www.openapis.org/).
 5. In addition to note 1, we are currently moving to the api gateway model, and some behaviors still require the application to call dedicated microservices.
 6. ( in French 🇫🇷 ) [An old conference](https://afup.org/talks/3241-6play-api-v2-final-1-doc) from 2020 given by Benoit VIGUIER, previous Team Lead in charge of the BFF, about API gateway and asynchronous development.
 
@@ -133,6 +133,7 @@ In the next part we will talk about handling the failures of the dependencies th
 ## From the same series
 
 1. [What's a BFF](/2022/06/10/backend-bff-intro)
+2. [Handling API failures in a gateway](/2022/08/12/backend-fallbacks)
 
 ---
 In the meantime, feel free to have a look at other articles available on this blog:
