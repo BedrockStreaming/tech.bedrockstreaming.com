@@ -519,9 +519,16 @@ In case of failure, we can use the available staled version.</p>
 
 <p>So far, we are only using it with http implementation:</p>
 <ul>
-  <li>called API must answers with <code class="language-plaintext highlighter-rouge">max-stale</code> cache directive, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#cache_directives">the mdn</a>;</li>
+  <li>called API must answers with <code class="language-plaintext highlighter-rouge">stale-if-error</code> cache directive, it allows for the response to be used while stale when an error happens;</li>
+  <li>called API can answer with <code class="language-plaintext highlighter-rouge">stale-while-revalidate</code> cache directive, for better performances;</li>
+  <li>calling API can query with <code class="language-plaintext highlighter-rouge">max-stale</code> cache directive, to use stale response see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#cache_directives">the mdn for more on those headers</a>;</li>
   <li>on the client side, we are using the <a href="https://github.com/Kevinrob/guzzle-cache-middleware"><code class="language-plaintext highlighter-rouge">Kevinrob/guzzle-cache-middleware</code></a> to do the job.</li>
 </ul>
+
+<p>For an entry cached for up to 10 minutes (answered with <code class="language-plaintext highlighter-rouge">max-age</code>), we allow up to 4 hours of stale cache (with <code class="language-plaintext highlighter-rouge">stale-if-error</code>).
+Since we are using a shared cache, we are using <code class="language-plaintext highlighter-rouge">max-stale</code> when querying, with a random value up to 1 hour.
+This makes most requests use the last stale response while one of them ask for a fresher response.
+Those values are chosen according to our platform usages where peak visitor last for about 2 to 3 hours at night.</p>
 
 <p>We plan to expand its usage to other kinds of cached entries, such as manually saved data, and database queries.</p>
 
