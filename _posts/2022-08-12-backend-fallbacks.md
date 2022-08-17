@@ -123,8 +123,15 @@ _The limitation is that a response must have been cached at least once, in order
 When there is no stale cache, we don't display the content [(5)](#notes).
 
 So far, we are only using it with http implementation:
-* called API must answers with `max-stale` cache directive, see [the mdn](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#cache_directives);
+* called API must answers with `stale-if-error` cache directive, it allows for the response to be used while stale when an error happens;
+* called API can answer with `stale-while-revalidate` cache directive, for better performances;
+* calling API can query with `max-stale` cache directive, to use stale response see [the mdn for more on those headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#cache_directives);
 * on the client side, we are using the [`Kevinrob/guzzle-cache-middleware`](https://github.com/Kevinrob/guzzle-cache-middleware) to do the job.
+
+For an entry cached for up to 10 minutes (answered with `max-age`), we allow up to 4 hours of stale cache (with `stale-if-error`).
+Since we are using a shared cache, we are using `max-stale` when querying, with a random value up to 1 hour.
+This makes most requests use the last stale response while one of them ask for a fresher response.
+Those values are chosen according to our platform usages where peak visitor last for about 2 to 3 hours at night.
 
 We plan to expand its usage to other kinds of cached entries, such as manually saved data, and database queries.
 
