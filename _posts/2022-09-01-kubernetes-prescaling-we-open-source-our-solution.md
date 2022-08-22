@@ -2,7 +2,7 @@
 layout: post
 title: Prescaling pods in Kubernetes, we open source our solution
 description: Reactive scaling in k8s is not always enough. We have built a solution and we share it with everyone now!
-author: j_planckeel, v_chabrier 
+author: [j_planckeel, v_chabrier]
 tags: [k8s, kuernetes, pods, prometheus, scaling, hpa, resiliency, go, prescaling, opensource]
 color: rgb(251,87,66) # this is Bedrock color here
 ---
