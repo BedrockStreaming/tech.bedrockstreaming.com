@@ -10,7 +10,7 @@ color: rgb(251,87,66) # this is Bedrock color here
 Previously we [discussed](https://tech.bedrockstreaming.com/2022/02/03/prescaling.html) how we manage the load of our Kubernetes clusters and how we can anticipate our needs with prescaling. Today, we are here to share our solution that we have reworked and open sourced! 
 ![BedrockStreaming Logo](/images/posts/2022-09-01-kubernetes-prescaling-we-open-source-our-solution/br-opensource.png) 
 
-At [Bedrock Streaming](https://www.bedrockstreaming.com/), we provide streaming platforms for customers (6play, Salto, Videoland and many others), we have a good knowledge of the daily load peaks and we know in advance the programs that are likely to generate a lot of traffic. We can therefore not only rely on reactive scaling which has its limits (cf. https://tech.bedrockstreaming.com/2022/02/03/prescaling.html) but also on prescaling. 
+At [Bedrock Streaming](https://www.bedrockstreaming.com/), we provide streaming platforms for customers (6play, Salto, Videoland and many others), we have a good knowledge of the daily load peaks and we know in advance the programs that are likely to generate a lot of traffic. We can therefore not only rely on reactive scaling which has its limits (cf. [prescaling article](https://tech.bedrockstreaming.com/2022/02/03/prescaling.html)) but also on prescaling. 
 
 _> **Prescaling** means increasing the number of critical application pods in our clusters in advance to be ready for a sudden traffic spike._
 
