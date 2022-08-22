@@ -43,6 +43,9 @@ front:
   avatar: /images/avatar/front.jpg
 j_mastounga:
   name: Jules Matsounga
+j_planckeel:
+  name: Jérémy Planckeel
+  url: https://github.com/jplanckeel
 kenny:
   name: Kenny Dits
   avatar: /images/avatar/kenny.jpg
@@ -82,6 +85,10 @@ t_falconnet:
   name: Tanguy Falconnet
   url: https://twitter.com/TanguyFalconnet
   avatar: /images/avatar/t_falconnet.jpg
+v_chabrier:
+  name: Valentin Chabrier
+  url: https://github.com/Eriwyr
+kenny:
 v_claras:
   name: Valentin CLARAS
   url: https://twitter.com/LarsVanCiental
