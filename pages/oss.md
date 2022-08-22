@@ -27,6 +27,7 @@ Here some projects open sourced:
 * [SeyrenLight](https://github.com/BedrockStreaming/SeyrenLight) is an other monitoring tool (buildwall) that allow to quickly show failing [Seyren](https://github.com/scobal/seyren) checks
 * [VigoJS](https://github.com/BedrockStreaming/VigoJS) is a (small) Javascript tool using CasperJS and PhantomJS to make easily functional tests on web applications
 * [BedrockStreaming/pr-size-labeler](https://github.com/marketplace/actions/pull-request-auto-size-labeler) is a configurable Github action that dynamically adds size labels to _Pull Requests_ based on the size of the diff and the number of modified files.
+* [BedrockStreaming/prescaling-exporter](https://github.com/BedrockStreaming/prescaling-exporter) is a prometheus exporter which allows applications to be staggered over time or an event with a multiplier.
 
 # Bundle and libs
 
