@@ -31,11 +31,19 @@ Votre objectif final est de réaliser tout ce que vous avez sur cette liste : st
 Cette liste peut être écrite selon votre format favori : un cahier des charges, une série de directives *Gherkin*, l’important c’est qu’elle soit écrite, claire et précise. En d’autres termes, vous écrivez ici votre propre cahier des charges.
 Le résultat final doit donc être quelque chose dans ce style : 
 
-<center>
-<a href="https://cucumber.io/docs/bdd/better-gherkin/"><img src="/images/posts/how-to-spike/gherkin-example.png" alt="Exemple de gherkin"/></a>
-<br/>
-ℹ️ <em>Exemple de gherkin à implémenter durant le spike</em>
-</center> <br/>
+```
+As a client
+I want to see my product in 3 dimensions
+So that I can know what it looks like
+
+As a client
+I want to be able to rotate my product using the arrow keys
+So that I can check it out entirely
+
+As a client
+I want to be able to zoom on my product
+So that I can see even the smallest details
+```
 
 
 Une fois que vous savez quoi faire, on peut vraiment commencer à mettre la main dans le code !
