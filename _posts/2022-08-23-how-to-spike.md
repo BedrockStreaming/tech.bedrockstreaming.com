@@ -32,7 +32,7 @@ Cette liste peut être écrite selon votre format favori : un cahier des charges
 Le résultat final doit donc être quelque chose dans ce style : 
 
 <center>
-<a href="https://cucumber.io/docs/bdd/better-gherkin/"><img src="/images/posts/how-to-spike/gherkin-example" alt="Exemple de gherkin"/></a>
+<a href="https://cucumber.io/docs/bdd/better-gherkin/"><img src="/images/posts/how-to-spike/gherkin-example.png" alt="Exemple de gherkin"/></a>
 <br/>
 ℹ️ <em>Exemple de gherkin à implémenter durant le spike</em>
 </center> <br/>
@@ -48,7 +48,7 @@ Je vous vois déjà, votre liste de points en main, à tenter de la faire rentre
 Un peu de calme : le but d’un spike n’est pas de faire tout fonctionner, pas du tout. Prenez de la distance, et on va y aller en douceur.
 
 Pour commencer, isolez une partie de votre projet et de vos points objectifs. Il existe plusieurs moyens de s’y prendre : créer un nouveau projet, créer une nouvelle page avec seulement composants, décharger votre backend… On veut un environnement le plus clean possible.
-Beaucoup de projets sont vieux, et si mal conçus qu’il (aurait fallu jeter au bout de deux ans)[/2021/09/01/bonnes-pratiques-web]. On cherche ici à se détacher au maximum de cette dette technique.
+Beaucoup de projets sont vieux, et si mal conçus qu’il [aurait fallu jeter au bout de deux ans](/2021/09/01/bonnes-pratiques-web). On cherche ici à se détacher au maximum de cette dette technique.
 
 N’hésitez pas à utiliser des *mocks*, des faux appels et résultats au reste de votre application :  en simulant comment se comporte le reste de votre projet sans véritablement y faire appel, vous diminuez au maximum votre marge d’erreur, et vous assurez que vous contrôlez la moindre information qui transite par votre code. 
 
