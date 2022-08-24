@@ -3,9 +3,9 @@ layout: post
 title: "Les spikes : quand, comment, pour quoi faire ?"
 description: "Décomposer une tâche complexe, de A à Z"
 author: e_doyon
-category:
 tags: [spike, methodologie, cytron, tech]
 language: fr
+color: rgb(255,128,0)
 permalink: how-to-spike
 ---
 
