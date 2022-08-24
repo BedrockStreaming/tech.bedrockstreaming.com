@@ -18,17 +18,18 @@ Je vous propose donc ensemble de voir dans cet article : qu’est-ce qu’un spi
 
 Si je devais citer [Wikipedia](https://en.wikipedia.org/wiki/Spike_(software_development)), je dirais qu’un Spike, c’est “une méthode de développement de produit, dérivée de l’extrême programming, et qui cherche à créer le code le plus simple possible pour obtenir des solutions potentielles”.
 
-En gros, le but d’un spike, c’est de répondre à la question *“Comment on fait ?”*. Le but d’un spike est de finir avec un prototype de code qui répond à une question, grâce à une série de petites étapes simples. Un spike n’est pas une formule magique qui va vous permettre de réaliser la tâche impossible que votre client vous a donné. En revanche, le spike va vous permettre de savoir si la tâche impossible ou compliquée à première vue est en fait possible, et si oui, comment.
+En gros, le but d’un spike, c’est de répondre à la question *“Comment on fait ?”* avec un prototype de code réalisé grâce à une série de petites étapes simples. Un spike n’est pas une formule magique qui va vous permettre de réaliser la tâche impossible que votre client vous a donné. En revanche, le spike va vous permettre de savoir si la tâche impossible ou compliquée à première vue est en fait possible, et si oui, comment.
 Il arrivera également que votre spike vous permette de constater qu’une tâche donnée peut être réalisée de plusieurs manières : Que ce soit en passant par des librairies différentes, avec une implémentation changeante, ou autre chose encore. Dans ces cas, le spike va également vous servir à essayer ces différentes possibilités, et à choisir celle qui est la plus appropriée !
 
 Le moyen le plus simple est de procéder morceau par morceau. Alors je vous propose qu’on s’y mette maintenant, et qu’on regarde quoi faire !
 
 # “kowalski, analysis !” 📊
+
 Avant toute chose, il faut savoir exactement ce que vous souhaitez faire. Rien ne sert de mettre la charrue avant les bœufs.
 
 Si ce n’est pas fait, écrivez noir sur blanc les lignes exactes qui vont définir votre tâche comme finie. Que ce soit connecter votre utilisateur de façon sécurisée, afficher une vidéo sans heurt, ou juste avoir une page qui clignote en blanc et bleu, il faut que vous ayez une liste de *bullet points*, qui définit précisément ce que vous voulez faire.
-Votre objectif final est de réaliser tout ce que vous avez sur cette liste : strictement rien de moins, mais aussi strictement rien de plus ! Pas de demande implicite de type “Ah mais je voulais aussi que l’image soit visible soit en noir et blanc” : si ce n’est pas sur la liste, ce n’est pas à faire.
-Cette liste peut être écrite selon votre format favori : un cahier des charges, une série de directives *Gherkin*, l’important c’est qu’elle soit écrite, claire et précise. En d’autres termes, vous écrivez ici votre propre cahier des charges.
+Votre objectif final est de réaliser tout ce que vous avez sur cette liste : strictement rien de moins, mais aussi strictement rien de plus ! Pas de demande implicite de type “Ah mais je voulais aussi que l’image soit visible en noir et blanc” : si ce n’est pas sur la liste, ce n’est pas à faire.
+Cette liste peut être écrite selon votre format favori : un cahier des charges, une série de directives *Gherkin*, l’important c’est qu’elle soit écrite, claire et précise. En d’autres termes, vous définissez ici votre propre cahier des charges.
 Le résultat final doit donc être quelque chose dans ce style : 
 
 ```
@@ -55,19 +56,21 @@ Stop. Lâchez tout.
 Je vous vois déjà, votre liste de points en main, à tenter de la faire rentrer dans votre gros projet à grands coups de burin, de vous gratter la tête à comprendre pourquoi ça ne rentre pas, et qu’est-ce qui a bien pu casser, cette fois.
 Un peu de calme : le but d’un spike n’est pas de faire tout fonctionner, pas du tout. Prenez de la distance, et on va y aller en douceur.
 
-Pour commencer, isolez une partie de votre projet et de vos points objectifs. Il existe plusieurs moyens de s’y prendre : créer un nouveau projet, créer une nouvelle page avec seulement composants, décharger votre backend… On veut un environnement le plus clean possible.
-Beaucoup de projets sont vieux, et si mal conçus qu’il [aurait fallu jeter au bout de deux ans](/2021/09/01/bonnes-pratiques-web). On cherche ici à se détacher au maximum de cette dette technique.
+Pour commencer, isolez une partie de votre projet et de vos points objectifs. Il existe plusieurs moyens de s’y prendre : créer un nouveau projet, créer une nouvelle page avec seulement quelques composants, décharger votre backend… On veut un environnement le plus clean possible.
+Beaucoup de projets sont vieux, et si mal conçus qu’il [aurait fallu les jeter au bout de deux ans](/2021/09/01/bonnes-pratiques-web). On cherche ici à se détacher au maximum de cette dette technique.
 
 N’hésitez pas à utiliser des *mocks*, des faux appels et résultats au reste de votre application :  en simulant comment se comporte le reste de votre projet sans véritablement y faire appel, vous diminuez au maximum votre marge d’erreur, et vous assurez que vous contrôlez la moindre information qui transite par votre code. 
 
-Maintenant seulement, vous pouvez prendre votre clavier, et coder. Regardez comment implémenter chacun de ces points dans votre code propre et épuré. Ça fonctionne du premier coup ? Génial, notez comment vous avez fait ! Ça marche pas ? Dommage, mais ce n’est pas une raison pour Ctrl+Z et recommencer. Notez bien ce qui n’a pas marché, avant de retenter ! Si ça ne marche toujours pas au bout de 2/3 essais, pas de soucis, n’hésitez pas à laisser ce point de côté et passer à un autre. Mais notez bien tout, car cela va vous servir très bientôt !
+Maintenant seulement, vous pouvez prendre votre clavier, et coder. Regardez comment implémenter chacun de ces points dans votre code propre de manière épurée. Ça fonctionne du premier coup ? Génial, notez comment vous avez fait ! Ça ne marche pas ? Dommage, mais ce n’est pas une raison pour Ctrl+Z et recommencer. Notez bien ce qui n’a pas marché, avant de retenter ! Si ça ne marche toujours pas au bout de 2/3 essais, pas de soucis, n’hésitez pas à laisser ce point de côté et passer à un autre. Mais notez bien tout, car cela va vous servir très bientôt !
 
-# if(bug == true) { delete(bug); return; } 🤖
+# if(bug == true) { delete(bug); console.log("It works !"); } 🤖
+
 Il peut cependant arriver que, parfois, tous vos efforts ne mènent à rien. Vous avez déjà passé plusieurs jours sur les différents sujets du spike, et vous n’avez pas encore identifié de solution pour faire fonctionner le tout.
 Dans ce cas-là, pas de panique ! Il s’agit également d’un des objectifs du spike. Après tout, si vous n’avez pas pu réaliser votre objectif dans un cadre réduit, il est bien probable que vous n’auriez jamais pu le faire fonctionner dans votre projet lui-même.
 
 Les mêmes points qu’indiqués ci-dessus continuent de s’appliquer : Notez ce que vous avez tenté et les soucis rencontrés avec chaque implémentation. Puis, continuez le processus détaillé ici : Ce n’est pas parce que votre code n’as pas fonctionné qu’il ne doit surtout pas être présenté. Peut-être un de vos collègues trouvera-t-il la ligne qui vous manque, ou le point-virgule que vous avez oublié : Mais peut-être aussi qu’il vous aidera à comprendre ensemble pourquoi la solution ne fonctionne pas dans votre cadre.
 Et puis, vous pourrez alors vous poser la question : Est-ce qu’il faut bien faire comprendre que la tâche demandée est irréalisable, ou est-ce qu’il faut prévoir un chantier pour réussir à trouver un moyen de remplir la requête ?
+
 # L’instant doc 📝 
 
 Une fois que vous avez terminé de coder, il est temps pour vous de poser votre IDE, et de sortir votre outil de documentation favori : Confluence, Jira, que sais-je. 
@@ -112,6 +115,6 @@ N’hésitez pas à le guider pour ajouter encore une fois des détails techniqu
 
 Il est également possible, comme indiqué plus haut, que la tâche qui a entraîné la réalisation de ce spike se découvre être impossible à implémenter. Il s’agit là également d’un point à faire avec votre *Product Owner*, afin de décider ensemble de la procédure à suivre : peut-être faudra-t-il redéfinir les critères d’acceptation, ou bien laisser tomber complètement cette idée.
 
-
+# return 0;
 
 Vous avez fini votre spike ! Ce qui était à l’origine une tâche complexe, confuse ou impossible à prévoir, est désormais divisée en une série d’étapes, qui sera désormais bien plus aisée à réaliser pour votre équipe. Alors, satisfait ? 
