@@ -7,6 +7,7 @@ tags: [spike, methodologie, cytron, tech]
 language: fr
 color: rgb(255,128,0)
 permalink: how-to-spike
+thumbnail: "/images/posts/how-to-spike/cactus.jpg"
 ---
 
 C’est une histoire bien connue, dans la vie de n’importe quel développeur : un ticket arrive dans le backlog, décrivant une problématique bien complexe. C’est parfois une question de technologie inconnue, ou parfois simplement un chantier un peu trapu. Je pense que toutes les équipes ont, au moins une fois dans leur vie, fait face à ce genre de tâche impossible : c’est l’occasion des regards désespérés, alors qu’un junior se lamente en disant « Mais par où est-ce qu’il faut commencer ? ». Et c’est là qu’on répond : « Essaye de faire un spike ».
