@@ -10,7 +10,7 @@ feature-img: "images/posts/how-to-spike/cactus.jpg"
 permalink: how-to-spike
 ---
 
-C’est une histoire bien connue, dans la vie de n’importe quel développeur : un ticket arrive dans le backlog, décrivant une problématique bien complexe. C’est parfois une question de technologie inconnue, ou parfois simplement un chantier un peu trapu. Je pense que toutes les équipes ont, au moins une fois dans leur vie, fait face à ce genre de tâche impossible : c’est l’occasion des regards désespérés, alors qu’un junior se lamente en disant « Mais par où est-ce qu’il faut commencer ? ». Et c’est là qu’on répond : « Essaye de faire un spike ».
+C’est une histoire bien connue, dans la vie de n’importe quel développeur : un ticket arrive dans le backlog, décrivant une problématique relativement complexe. C’est parfois une question de technologie inconnue, ou parfois simplement un chantier un peu trapu. Je pense que toutes les équipes ont, au moins une fois dans leur vie, fait face à ce genre de tâche impossible : c’est l’occasion des regards désespérés, alors qu’un junior se lamente en disant « Mais par où est-ce qu’il faut commencer ? ». Et c’est là qu’on répond : « Essaye de faire un spike ».
 
 Faire un spike ? Quelle excellente idée ! Encore faudrait-il savoir ce qu’est un spike, comment ça marche, et à quoi ça sert.
 Je vous propose donc ensemble de voir dans cet article : qu’est-ce qu’un spike, quand l’utiliser, et comment considérer qu’il est réussi ?
@@ -57,26 +57,26 @@ Stop. Lâchez tout.
 Je vous vois déjà, votre liste de points en main, à tenter de la faire rentrer dans votre gros projet à grands coups de burin, de vous gratter la tête à comprendre pourquoi ça ne rentre pas, et qu’est-ce qui a bien pu casser, cette fois.
 Un peu de calme : le but d’un spike n’est pas de faire tout fonctionner, pas du tout. Prenez de la distance, et on va y aller en douceur.
 
-Pour commencer, isolez une partie de votre projet et de vos points objectifs. Il existe plusieurs moyens de s’y prendre : créer un nouveau projet, créer une nouvelle page avec seulement quelques composants, décharger votre backend… On veut un environnement le plus clean possible.
+Pour commencer, isolez une partie de votre projet et de vos points objectifs. Il existe plusieurs moyens de s’y prendre : créer un nouveau projet, créer une nouvelle page avec seulement quelques composants, décharger votre backend… On veut un environnement le plus propre possible.
 Beaucoup de projets sont vieux, et si mal conçus qu’il [aurait fallu les jeter au bout de deux ans](/2021/09/01/bonnes-pratiques-web). On cherche ici à se détacher au maximum de cette dette technique.
 
 N’hésitez pas à utiliser des *mocks*, des faux appels et résultats au reste de votre application :  en simulant comment se comporte le reste de votre projet sans véritablement y faire appel, vous diminuez au maximum votre marge d’erreur, et vous assurez que vous contrôlez la moindre information qui transite par votre code. 
 
-Maintenant seulement, vous pouvez prendre votre clavier, et coder. Regardez comment implémenter chacun de ces points dans votre code propre de manière épurée. Ça fonctionne du premier coup ? Génial, notez comment vous avez fait ! Ça ne marche pas ? Dommage, mais ce n’est pas une raison pour Ctrl+Z et recommencer. Notez bien ce qui n’a pas marché, avant de retenter ! Si ça ne marche toujours pas au bout de 2/3 essais, pas de soucis, n’hésitez pas à laisser ce point de côté et passer à un autre. Mais notez bien tout, car cela va vous servir très bientôt !
+Maintenant seulement, vous pouvez prendre votre clavier, et coder. Regardez comment implémenter chacun de ces points dans votre code propre de manière épurée. Ça fonctionne du premier coup ? Génial, notez comment vous avez fait ! Ça ne marche pas ? Dommage, mais ce n’est pas une raison pour Ctrl+Z et recommencer. Notez bien ce qui n’a pas marché, avant de retenter ! Si ça ne marche toujours pas au bout de 2/3 essais, pas de soucis, n’hésitez pas à laisser ce point de côté et passer à un autre. Mais écrivez tout, car cela va vous servir très bientôt !
 
 # if(bug == true) { delete(bug); console.log("It works !"); } 🤖
 
 Il peut cependant arriver que, parfois, tous vos efforts ne mènent à rien. Vous avez déjà passé plusieurs jours sur les différents sujets du spike, et vous n’avez pas encore identifié de solution pour faire fonctionner le tout.
 Dans ce cas-là, pas de panique ! Il s’agit également d’un des objectifs du spike. Après tout, si vous n’avez pas pu réaliser votre objectif dans un cadre réduit, il est bien probable que vous n’auriez jamais pu le faire fonctionner dans votre projet lui-même.
 
-Les mêmes points qu’indiqués ci-dessus continuent de s’appliquer : Notez ce que vous avez tenté et les soucis rencontrés avec chaque implémentation. Puis, continuez le processus détaillé ici : Ce n’est pas parce que votre code n’as pas fonctionné qu’il ne doit surtout pas être présenté. Peut-être un de vos collègues trouvera-t-il la ligne qui vous manque, ou le point-virgule que vous avez oublié : Mais peut-être aussi qu’il vous aidera à comprendre ensemble pourquoi la solution ne fonctionne pas dans votre cadre.
-Et puis, vous pourrez alors vous poser la question : Est-ce qu’il faut bien faire comprendre que la tâche demandée est irréalisable, ou est-ce qu’il faut prévoir un chantier pour réussir à trouver un moyen de remplir la requête ?
+Les mêmes points qu’indiqués ci-dessus continuent de s’appliquer : notez ce que vous avez tenté et les soucis rencontrés avec chaque implémentation. Puis, continuez le processus détaillé ici : ce n’est pas parce que votre code n’as pas fonctionné qu’il ne doit surtout pas être présenté. Peut-être un de vos collègues trouvera-t-il la ligne qui vous manque, ou le point-virgule que vous avez oublié : mais peut-être aussi qu’il vous aidera à comprendre ensemble pourquoi la solution ne fonctionne pas dans votre cadre.
+Et puis, vous pourrez alors vous poser la question : est-ce qu’il faut bien faire comprendre que la tâche demandée est irréalisable, ou est-ce qu’il faut prévoir un chantier pour réussir à trouver un moyen de remplir la requête ?
 
 # L’instant doc 📝 
 
 Une fois que vous avez terminé de coder, il est temps pour vous de poser votre IDE, et de sortir votre outil de documentation favori : Confluence, Jira, que sais-je. 
-Puis, écrivez ici un compte-rendu de votre aventure. Présentez l’origine de votre spike (Le **Pourquoi**), ce que vous avez tenté (Le **Comment**). Expliquez ce qui a marché et ce qui n’as pas marché : cela vous servira lorsque vous implémenterez vraiment la feature !
-Enfin, écrivez également les étapes qu’il faudrait suivre pour terminer la feature : ajoutez un maximum de détails techniques ici. Ce sera autant de problématiques en moins pour le pauvre dev qui va récupérer les US après vous.
+Puis, écrivez un compte-rendu de votre aventure. Présentez l’origine de votre spike (Le **Pourquoi**), ce que vous avez tenté (Le **Comment**). Expliquez ce qui a marché et ce qui n’a pas marché : cela vous servira lorsque vous implémenterez vraiment la feature !
+Enfin, écrivez également les étapes qu’il faudrait suivre pour terminer la feature : ajoutez un maximum de détails techniques. Ce sera autant de problématiques en moins pour le pauvre dev qui va récupérer les US après vous.
 
 Je vous suggère donc de faire un plan de ce type :
 
@@ -91,7 +91,7 @@ Pour la dernière étape, je vous conseille de réaliser un tableau d’actions 
 - Elle doit être **Réaliste** au sujet en cours, donc nécessaire à l’accomplissement final (Est-ce qu’il est pertinent de prendre du temps pour faire ça ? Exemple de réponse : « Afin que notre client puisse voir l’avant et l’arrière de nos produits »)
 - Elle doit être définie de façon **Temporelle**, afin de ne pas pouvoir s’éterniser (Pour quand ma tâche doit-elle être réalisée ? Exemple de réponse : « A réaliser avant que la feature soit considérée terminée »)
 
-Dans le cas où une des tâches que vous avez devisé ne peut pas répondre à un de ces cinq points, alors il est probable qu’elle ne soit pas suffisamment précise : Peut-être la tâche manque-t-elle de cadre ou de contexte, ou le temps nécessaire pour la réaliser ne peut que difficilement être justifié. Je vous invite alors à la supprimer, ou à la fusionner avec une autre jusqu’à enfin pouvoir répondre à ces cinq questions !
+Dans le cas où une des tâches que vous avez devisé ne peut pas répondre à un de ces cinq points, alors il est probable qu’elle ne soit pas suffisamment précise : peut-être la tâche manque-t-elle de cadre ou de contexte, ou le temps nécessaire pour la réaliser ne peut que difficilement être justifié. Je vous invite alors à la supprimer, ou à la fusionner avec une autre jusqu’à enfin pouvoir répondre à ces cinq questions !
 
 Bien entendu, n’hésitez pas à modifier le plan de cette documentation comme vous l’entendez : vous êtes celui qui allez l’utiliser, après tout !
 
@@ -110,7 +110,7 @@ Une fois votre présentation terminée, débattez avec le reste de votre équipe
 
 # “Happily ever after…” 💭
 
-Maintenant que tous vos coéquipiers ont pu constater et valider votre travail, il ne vous reste plus qu’à acter la mise en place : Et pour ça, rien de mieux que, aux côtés de votre *Product Owner* (Ou de l’équivalent dans votre équipe) de créer des tâches, *User Story*, post-its, ou quoi que ce soit, pour que les étapes restantes soient visibles et accessibles par tous !
+Maintenant que tous vos coéquipiers ont pu constater et valider votre travail, il ne vous reste plus qu’à acter la mise en place : et pour ça, rien de mieux que, aux côtés de votre *Product Owner* (Ou de l’équivalent dans votre équipe) de créer des tâches, *User Story*, post-its, ou quoi que ce soit, pour que les étapes restantes soient visibles et accessibles par tous !
 
 N’hésitez pas à le guider pour ajouter encore une fois des détails techniques dans ces US ou tâches : vous avez réalisé l’analyse, il serait dommage de ne pas l’utiliser, et ce sera autant de temps gagné pour votre équipe. Tant que vous y êtes, pensez aussi à ajouter un lien vers votre documentation, ou vers une vidéo de votre présentation… Plus il y aura de détails, mieux ça sera !
 
