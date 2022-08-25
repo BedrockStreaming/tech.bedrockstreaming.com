@@ -152,11 +152,12 @@ Next time, we will see how we can spare some traffic on those dependencies when 
 
 ## From the same series
 
-1. [What's a BFF](/2022/06/10/backend-bff-intro)
-2. [Handling API failures in a gateway](/2022/08/12/backend-fallbacks)
+1. [What's a BFF](/2022/06/10/backend-bff-intro.html)
+2. [Handling API failures in a gateway](/2022/08/12/backend-fallbacks.html)
+3. [What's an error, and handling connection to multiple APIs](/2022/08/25/backend-errors-connections.html)
 
 ---
 In the meantime, feel free to have a look at other articles available on this blog:
 
-- 🇺🇸 [Encrypt AWS AMIs: one way to do it wrong](/2022/07/08/encrypt-aws-amis)
-- 🇫🇷 [Bedrock à la kubecon 2022 (4 articles)](/2022/06/13/kubecon-2022-part-1)
+- 🇺🇸 [Encrypt AWS AMIs: one way to do it wrong](/2022/07/08/encrypt-aws-amis.html)
+- 🇫🇷 [Bedrock à la kubecon 2022 (4 articles)](/2022/06/13/kubecon-2022-part-1.html)
