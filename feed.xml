@@ -1,4 +1,121 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-08-24T13:37:06+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Handling dependencies failures in an API gateway</title><link href="https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html" rel="alternate" type="text/html" title="Handling dependencies failures in an API gateway" /><published>2022-08-12T00:00:00+00:00</published><updated>2022-08-12T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html">&lt;p&gt;Welcome to our second article about the backend architecture and its api gateway.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-08-25T12:24:34+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">BFF’s error definition, and handling connections to multiple API</title><link href="https://tech.bedrockstreaming.com/2022/08/25/backend-errors-connections.html" rel="alternate" type="text/html" title="BFF’s error definition, and handling connections to multiple API" /><published>2022-08-25T00:00:00+00:00</published><updated>2022-08-25T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/08/25/backend-errors-connections</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/08/25/backend-errors-connections.html">&lt;p&gt;A &lt;em&gt;quick&lt;/em&gt; sidetrack in &lt;a href=&quot;#from-the-same-series&quot;&gt;our series&lt;/a&gt; about Bedrock’s API gateway.
+This piece defines what are we talking about when we say “an error”, and explains how we handle the numerous connections to services we are calling.&lt;/p&gt;
+
+&lt;h2 id=&quot;definition&quot;&gt;Definition&lt;/h2&gt;
+
+&lt;p&gt;In &lt;a href=&quot;/2022/08/12/backend-fallbacks.html&quot;&gt;the previous article&lt;/a&gt;, we’ve seen how we handle errors.
+This was mainly from a business point of view, and how it’s done in our domain.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;But what is “an error”?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;This term is a bit generic, and the definition will be too: &lt;em&gt;an error is anything unexpected by the application&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;In our context of an API Gateway, we are restricting this to the services we are calling.&lt;/p&gt;
+
+&lt;p&gt;This can be, but not exhaustively, a service not responding because:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;it’s offline;&lt;/li&gt;
+  &lt;li&gt;it’s taking too much time to answer;&lt;/li&gt;
+  &lt;li&gt;it’s responding with a 5** error (when talking about an API);&lt;/li&gt;
+  &lt;li&gt;it’s giving us an invalid or unexpected content.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;what-are-the-consequences-of-those-errors&quot;&gt;What are the consequences of those errors?&lt;/h2&gt;
+
+&lt;p&gt;The first issue is: we won’t be able to display some part of the application as intended.
+We’ve &lt;a href=&quot;https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html#handling-failures&quot;&gt;talked about this previously&lt;/a&gt; already.&lt;/p&gt;
+
+&lt;p&gt;The second error, more insidious, is that it can slow down our BFF terribly.&lt;/p&gt;
+
+&lt;p&gt;The BFF response time is, on average, equals to the slowest service the BFF is calling.
+If a service that usually responds in 200ms starts slowing down to an average response time of 1s and also times out half the time, it will increase the BFF response time to 1,5s (1s average, and 50% retry).&lt;/p&gt;
+
+&lt;p&gt;That’s why we must be careful when configuring those timeouts.
+The BFF exposes a response-time Service Level Objective (SLO), and frontend applications will cut any connection that takes too long.
+Losing some parts of the responses is better than slowing the BFF down to a point where frontend won’t get any response at all.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-are-we-mitigating-the-errors&quot;&gt;How are we mitigating the errors?&lt;/h2&gt;
+
+&lt;p&gt;For any remote service, we configure short timeouts, and retry when we must.
+A short timeout is a timeout that usually match the SLO of the called services, and that will match 99% of our calls.
+When the SLO of the called service is higher than ours, we use a shorter timeout and accept that a larger parts of the calls will be cut.
+The values are tailored according to our usages.
+We use our monitoring to adapt those values in order to reduce the number of errors, while minimizing the impact on the BFF response time.
+We are also constantly challenging our colleagues to improve the average response time of their services that we are calling.&lt;/p&gt;
+
+&lt;p&gt;The choice of using retries is based on the information criticality.
+For example, retrieving the user’s previous viewing sessions, is important for his/her experience, so we’re using a retry here.
+On the opposite, analytics are less important, so we don’t use any retry there.&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;na&quot;&gt;app.http_client_configs.best_effort&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;retry&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.6&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;connect_timeout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.1&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;app.http_client_configs.fast_fail&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;retry&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.6&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;connect_timeout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.1&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;app.http_client_configs.long_fail&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;retry&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;connect_timeout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.1&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;app.http_client_configs.reliant&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;retry&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;60&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;connect_timeout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Above, you can see the yaml configuration our Symfony application uses to build its Guzzle clients.&lt;/p&gt;
+
+&lt;p&gt;Each configuration can cascade onto the clients, making variants available for our Symfony services.&lt;/p&gt;
+
+&lt;p&gt;Below lies a Symfony configuration example:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;We have an interface &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFF\Domain\Content\Repository&lt;/code&gt; from the domain for a content repository.&lt;/li&gt;
+  &lt;li&gt;The interface is linked to an implementation &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFF\Infra\HttpContentClient&lt;/code&gt; inside the infrastructure.&lt;/li&gt;
+  &lt;li&gt;The implementation is built with variants (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;best_effort&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fast_fail&lt;/code&gt;) from a factory using the matching Guzzle configurations.&lt;/li&gt;
+  &lt;li&gt;Other services use a chosen repository &lt;em&gt;according to their needs and criticality&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;c1&quot;&gt;# Service definition with its aliases.&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;BFF\Domain\Content\Repository&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@BFF\Domain\Content\Repository.fast_fail&apos;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;BFF\Domain\Content\Repository.best_effort&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@BFF\Infra\HttpContentClient.best_effort&apos;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;BFF\Domain\Content\Repository.fast_fail&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@BFF\Infra\HttpContentClient.fast_fail&apos;&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# Concrete implementations&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;BFF\Infra\HttpContentClient.best_effort&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;BFF\Infra\HttpContentClient&apos;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@BFF\Infra\ContentClientFactory&apos;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;create&apos;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;$clientConfig&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;%app.http_client_configs.best_effort%&apos;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;BFF\Infra\HttpContentClient.fast_fail&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;BFF\Infra\HttpContentClient&apos;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@BFF\Infra\ContentClientFactory&apos;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;create&apos;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;$clientConfig&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;%app.http_client_configs.fast_fail%&apos;&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# Other services using the Repository&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;BFF\Domain\Navigation\NavBarResolver&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;$content&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@BFF\Domain\Content\Repository.best_effort&apos;&lt;/span&gt;
+
+    &lt;span class=&quot;na&quot;&gt;BFF\Domain\Layout\BlockResolver&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;$content&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@BFF\Domain\Content\Repository.fast_fail&apos;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;This is an over simplified example as we have more layers and wrappers used for things like caching, monitoring, logging, etc.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;In this article, we’ve clarified what an error is, and explained that we cannot generalize the configuration and usage of our APIs. Timeouts and retries, especially, must be tailored depending on the criticality of each call.&lt;/p&gt;
+
+&lt;p&gt;This was a deviation on the road to our next article, where we will talk about monitoring the errors and stopping calls to failing APIs by implementing the circuit-breaker pattern.&lt;/p&gt;
+
+&lt;h2 id=&quot;from-the-same-series&quot;&gt;From the same series&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;/2022/06/10/backend-bff-intro.html&quot;&gt;What’s a BFF&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/2022/08/12/backend-fallbacks.html&quot;&gt;Handling API failures in a gateway&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/2022/08/25/backend-errors-connections.html&quot;&gt;What’s an error, and handling connection to multiple APIs&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Valentin CLARAS</name></author><category term="backend" /><category term="php" /><category term="api" /><category term="api-gateway" /><category term="back-for-front" /><category term="error" /><category term="timout" /><category term="retry" /><category term="slo" /><category term="guzzle" /><summary type="html">A quick sidetrack in our series about Bedrock’s API gateway. This piece defines what are we talking about when we say “an error”, and explains how we handle the numerous connections to services we are calling.</summary></entry><entry><title type="html">Handling dependencies failures in an API gateway</title><link href="https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html" rel="alternate" type="text/html" title="Handling dependencies failures in an API gateway" /><published>2022-08-12T00:00:00+00:00</published><updated>2022-08-12T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html">&lt;p&gt;Welcome to our second article about the backend architecture and its api gateway.
 In &lt;a href=&quot;/2022/06/10/backend-bff-intro.html&quot;&gt;the first part&lt;/a&gt;, we talked about the BFF and all services it depends on.
 Today we’re going to take a look at what to do when one of them (or many), fails to respond.&lt;/p&gt;
 
@@ -146,16 +263,17 @@ Those values are chosen according to our platform usages where peak visitor last
 &lt;h2 id=&quot;from-the-same-series&quot;&gt;From the same series&lt;/h2&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;/2022/06/10/backend-bff-intro&quot;&gt;What’s a BFF&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/2022/08/12/backend-fallbacks&quot;&gt;Handling API failures in a gateway&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/2022/06/10/backend-bff-intro.html&quot;&gt;What’s a BFF&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/2022/08/12/backend-fallbacks.html&quot;&gt;Handling API failures in a gateway&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/2022/08/25/backend-errors-connections.html&quot;&gt;What’s an error, and handling connection to multiple APIs&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;hr /&gt;
 &lt;p&gt;In the meantime, feel free to have a look at other articles available on this blog:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;🇺🇸 &lt;a href=&quot;/2022/07/08/encrypt-aws-amis&quot;&gt;Encrypt AWS AMIs: one way to do it wrong&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;🇫🇷 &lt;a href=&quot;/2022/06/13/kubecon-2022-part-1&quot;&gt;Bedrock à la kubecon 2022 (4 articles)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;🇺🇸 &lt;a href=&quot;/2022/07/08/encrypt-aws-amis.html&quot;&gt;Encrypt AWS AMIs: one way to do it wrong&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;🇫🇷 &lt;a href=&quot;/2022/06/13/kubecon-2022-part-1.html&quot;&gt;Bedrock à la kubecon 2022 (4 articles)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><author><name>Valentin CLARAS</name></author><category term="backend" /><category term="php" /><category term="api" /><category term="api-gateway" /><category term="back-for-front" /><category term="resiliency" /><summary type="html">Welcome to our second article about the backend architecture and its api gateway. In the first part, we talked about the BFF and all services it depends on. Today we’re going to take a look at what to do when one of them (or many), fails to respond.</summary></entry><entry><title type="html">How to ingest 400GB of logs per hour?</title><link href="https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html" rel="alternate" type="text/html" title="How to ingest 400GB of logs per hour?" /><published>2022-08-08T00:00:00+00:00</published><updated>2022-08-08T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html">&lt;p&gt;Bedrock Streaming is a company that sells a white labeled streaming and live platform. Our customers are media groups, TV channels, and streaming companies. Our goal is to deliver a state-of-the-art streaming platform to our customers.&lt;/p&gt;
 
 &lt;p&gt;To achieve this goal, we have our own Content Delivery Network (CDN), made of several bare metal servers racked in our Data Centers. Those servers run Nginx and are designed to output hundreds of Gbps (several tens of Pb per month) to end-users. We use them to cache video content at our infrastructure’s edge.&lt;/p&gt;
@@ -1440,73 +1558,4 @@ Or nous n’en avons pas en place et depuis quatre ans n’avons toujours pas tr
 &lt;p&gt;Plus globalement, nous sommes contents de voir que l’outillage autour de Kubernetes continue à progresser et que la Developer eXperience est un sujet pris au sérieux dans notre communauté.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/end-part3.jpg&quot; alt=&quot;&amp;quot;Après une journée de conférences, une promenade à Valencia !&amp;quot;&quot; /&gt;&lt;/p&gt;
-&lt;center&gt;&lt;i&gt;Rejoignez-nos équipes et venez vivre les prochaines conférences avec nous l’an prochain&lt;/i&gt;&lt;/center&gt;</content><author><name>Bedrock</name></author><category term="kubecon" /><category term="kubernetes" /><category term="cloud" /><category term="k8s" /><category term="conference" /><summary type="html">Pour notre troisième article de cette série sur ce que nous avons retenu de la KubeCon Europe 2022, après les performances applicatives et la scalabilité et les performances bas niveau, le système et le réseau, passons à la Developper eXperience, à l’outillage, à la CI/CD, aux rollback, à l’observabilité et aux incidents !</summary></entry><entry><title type="html">Bedrock à la Kubecon 2022, 2nde partie : performances, système et réseau</title><link href="https://tech.bedrockstreaming.com/2022/06/14/kubecon-2022-part-2.html" rel="alternate" type="text/html" title="Bedrock à la Kubecon 2022, 2nde partie : performances, système et réseau" /><published>2022-06-14T00:00:00+00:00</published><updated>2022-06-14T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/06/14/kubecon-2022-part-2</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/06/14/kubecon-2022-part-2.html">&lt;p&gt;Pour ce second article de synthèse de la KubeCon Europe 2022, continuons sur le thème des performances, peut-être plus bas niveau,
-et plongeons aussi dans des outils pouvant être déployés au cœur de nos clusters !&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/part2.jpg&quot; alt=&quot;&amp;quot;KubeCon 2022 part2&amp;quot;&quot; /&gt;&lt;/p&gt;
-&lt;center&gt;&lt;i&gt;Ca va commencer, @ KubeCon 2022 !&lt;/i&gt;&lt;/center&gt;
-
-&lt;h2 id=&quot;lautoscaling-autrement&quot;&gt;L’autoscaling, autrement&lt;/h2&gt;
-
-&lt;p&gt;Une des conférences : &lt;em&gt;“Autoscaling Kubernetes Deployments: A (Mostly) Practical Guide”&lt;/em&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=n8t_hbchQcc&quot;&gt;vidéo&lt;/a&gt;) présenté par NewRelic présentait le principe &lt;em&gt;d’autoscaling&lt;/em&gt; dans Kubernetes, avec les trois principales ressources associées à ce concept : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ClusterAutoscaler&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HorizontalPodAutoscaler&lt;/code&gt; et &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VerticalPodAutoscler&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Cette conférence présentait :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;le fonctionnement du scale up/down des pods avec les périodes de stabilisation ;&lt;/li&gt;
-  &lt;li&gt;le calcul par rapport aux indicateurs utilisés ;&lt;/li&gt;
-  &lt;li&gt;les types de métriques utilisables par les HPA et VPA.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Pas de grande découverte technique pour nous, mais cette conférence nous a surtout permis de confirmer que, chez BedRock, 
-nous sommes de plus en plus matures sur la scalabilité de nos clusters Kubernetes.&lt;/p&gt;
-
-&lt;p&gt;La conférence donnée par AWS (&lt;a href=&quot;https://www.youtube.com/watch?v=UBb8wbfSc34&quot;&gt;vidéo&lt;/a&gt;) portait sur deux aspects :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Premièrement, l’utilisation d’instances &lt;em&gt;Spot&lt;/em&gt; (une option à ne pas négliger si vous souhaitez fortement réduire vos coûts de &lt;em&gt;compute&lt;/em&gt;) et les bonnes pratiques à mettre en place en utilisant ce type d’instances EC2.&lt;/li&gt;
-  &lt;li&gt;Le second traitait de la scalabilité des nœuds avec ClusterAutoscaler mais présentait un nouvel outil de provisionnement de nœuds Kubernetes proposé par AWS : &lt;a href=&quot;https://karpenter.sh/&quot;&gt;Karpenter&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Une des différences notables par rapport à cluster-autoscaler est que Karpenter ne fonctionne pas avec des AutoScalingGroup AWS 
-mais provisionne directement des instances EC2.&lt;br /&gt;
-Outre cette fonctionnalité, Karpenter est actuellement à l’étude chez BedRock, notamment car il permet l’utilisation de la 
-dimension &lt;em&gt;région&lt;/em&gt;, ce qui n’est pas possible avec cluster-autoscaler et nous pose des problèmes avec nos statefullsets dans des ASG multiAZ.&lt;/p&gt;
-
-&lt;h2 id=&quot;réseau-bande-passante-et-gpu&quot;&gt;Réseau, Bande passante et GPU&lt;/h2&gt;
-
-&lt;p&gt;Autre point abordé lors de la KubeCon : comment intégrer la bande passante comme une ressource limitante, de la même façon que le CPU et la RAM actuellement.&lt;br /&gt;
-Nous avons pu suivre deux présentations à ce sujet : &lt;em&gt;“Network-aware Scheduling in Kubernetes”&lt;/em&gt; de José Santos, Ghent University (&lt;a href=&quot;https://www.youtube.com/watch?v=E4cP275_OCs&quot;&gt;video&lt;/a&gt; et &lt;em&gt;“Better Bandwidth Management with eBPF”&lt;/em&gt; de Daniel Borkmann et Christopher M. Luciano, Isovalent (&lt;a href=&quot;https://www.youtube.com/watch?v=QTSS6ktK8hY&quot;&gt;video&lt;/a&gt;).&lt;/p&gt;
-
-&lt;p&gt;La première session proposait un nouveau plugin (&lt;a href=&quot;https://github.com/kubernetes-sigs/scheduler-plugins/tree/master/kep/260-network-aware-scheduling&quot;&gt;repo github&lt;/a&gt;) pour permettre l’orchestration du déploiement de nouveaux pods en fonction de leur charge et coût réseau, afin de réduire la latence des déploiements.&lt;br /&gt;
-Une nouvelle fonctionnalité de ce plugin est par ailleurs en développement et permettra d’éviter de déployer sur un nœud ou la bande passante est déjà saturée.&lt;/p&gt;
-
-&lt;p&gt;La seconde présentation exposait comment eBPF permet de mettre en place de nouveaux pods en prenant en compte la bande passante. Le replay de la conférence est disponible &lt;a href=&quot;https://www.youtube.com/watch?v=QTSS6ktK8hY&quot;&gt;ici&lt;/a&gt;, nous vous conseillons son visionnage.&lt;br /&gt;
-Cette approche pourrait être très intéressante pour Bedrock si nous décidions de migrer &lt;a href=&quot;/2021/12/15/scaling-bedrock-video-delivery-to-50-million-users&quot;&gt;notre plateforme VOD&lt;/a&gt; sur un cluster Kubernetes : en effet, elle nous permettrait de mieux gérer les burst réseaux et le throttling de la bande passante qui se produisent sur nos instances.&lt;/p&gt;
-
-&lt;p&gt;Côté GPU, Google, dans son exposé &lt;em&gt;“Improving GPU Utilization using Kubernetes”&lt;/em&gt; de Maulin Patel et Pradeep Venkatachalam (&lt;a href=&quot;https://www.youtube.com/watch?v=X876kr-LkPA&quot;&gt;video&lt;/a&gt;), nous a présenté deux façons de partager des ressources GPU dans un cluster kubernetes :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;soit en partageant le temps d’utilisation (timesharing, temporal multiplexing) entre conteneurs sur un même nœud,&lt;/li&gt;
-  &lt;li&gt;soit en multi-instance GPU (MIG, spatial multiplexing) permettant de partager les ressources en parallèle entre conteneur en allouant une partie des cœurs GPU et de sa mémoire pour chaque conteneur.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Cette conférence sur l’utilisation des GPU dans un cluster k8s nous incite à réfléchir aux optimisations que nous pourrions faire sur nos plateformes vidéo et data…&lt;/p&gt;
-
-&lt;h2 id=&quot;service-mesh-cilium&quot;&gt;Service Mesh : Cilium&lt;/h2&gt;
-
-&lt;p&gt;Au cours de diverses conférences, nous avons plusieurs fois entendu le nom de &lt;em&gt;“Cilium”&lt;/em&gt; associé au concept de &lt;em&gt;Service Mesh&lt;/em&gt;.&lt;br /&gt;
-La conférence &lt;em&gt;“A guided tour of Cilium Service Mesh”&lt;/em&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=e10kDBEsZw4&quot;&gt;vidéo&lt;/a&gt;) nous a permis d’en apprendre plus sur ce nouveau service qui ne se base plus sur des sidecars, mais sur eBPF.&lt;/p&gt;
-
-&lt;p&gt;Un outil peut-être encore un peu jeune, mais clairement prometteur – et très certainement quelque chose que nous allons étudier lors d’un POC dans le courant de l’année ;-)&lt;/p&gt;
-
-&lt;h2 id=&quot;récapitulatif&quot;&gt;Récapitulatif&lt;/h2&gt;
-
-&lt;p&gt;Il n’existe toujours pas d’outils magique pour passer à l’échelle et supporter les pics de charges.&lt;br /&gt;
-Toutefois, les solutions présentées au cours de cette KubeCon EU 2022 viennent répondre à des besoins qui sont apparus au fil des années et dont peu d’utilisateurs avaient mesuré l’impact au début de leur périple avec Kubernetes.&lt;/p&gt;
-
-&lt;p&gt;Aussi, eBPF continue à faire parler de lui et son utilisation semble se répandre.&lt;br /&gt;
-L’idée d’un service mesh plus léger que Istio, par exemple, a l’air fort intéressante !&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/end-part2.jpg&quot; alt=&quot;&amp;quot;Instant détente pour débriefer de la seconde journée de la KubeCon 2022&amp;quot;&quot; /&gt;&lt;/p&gt;
-&lt;center&gt;&lt;i&gt;Rejoignez-nos équipes et venez vivre les prochaines conférences avec nous l’an prochain&lt;/i&gt;&lt;/center&gt;</content><author><name>Bedrock</name></author><category term="kubecon" /><category term="kubernetes" /><category term="cloud" /><category term="k8s" /><category term="conference" /><summary type="html">Pour ce second article de synthèse de la KubeCon Europe 2022, continuons sur le thème des performances, peut-être plus bas niveau, et plongeons aussi dans des outils pouvant être déployés au cœur de nos clusters !</summary></entry></feed>
+&lt;center&gt;&lt;i&gt;Rejoignez-nos équipes et venez vivre les prochaines conférences avec nous l’an prochain&lt;/i&gt;&lt;/center&gt;</content><author><name>Bedrock</name></author><category term="kubecon" /><category term="kubernetes" /><category term="cloud" /><category term="k8s" /><category term="conference" /><summary type="html">Pour notre troisième article de cette série sur ce que nous avons retenu de la KubeCon Europe 2022, après les performances applicatives et la scalabilité et les performances bas niveau, le système et le réseau, passons à la Developper eXperience, à l’outillage, à la CI/CD, aux rollback, à l’observabilité et aux incidents !</summary></entry></feed>
