@@ -20,7 +20,7 @@ Je vous propose donc ensemble de voir dans cet article : qu’est-ce qu’un spi
 Si je devais citer [Wikipedia](https://en.wikipedia.org/wiki/Spike_(software_development)), je dirais qu’un Spike, c’est “une méthode de développement de produit, dérivée de l’extrême programming, et qui cherche à créer le code le plus simple possible pour obtenir des solutions potentielles”.
 
 En gros, le but d’un spike, c’est de répondre à la question *“Comment on fait ?”* avec un prototype de code réalisé grâce à une série de petites étapes simples. Un spike n’est pas une formule magique qui va vous permettre de réaliser la tâche impossible que votre client vous a donné. En revanche, le spike va vous permettre de savoir si la tâche impossible ou compliquée à première vue est en fait possible, et si oui, comment.
-Il arrivera également que votre spike vous permette de constater qu’une tâche donnée peut être réalisée de plusieurs manières : Que ce soit en passant par des librairies différentes, avec une implémentation changeante, ou autre chose encore. Dans ces cas, le spike va également vous servir à essayer ces différentes possibilités, et à choisir celle qui est la plus appropriée !
+Il arrivera également que votre spike vous permette de constater qu’une tâche donnée peut être réalisée de plusieurs manières : que ce soit en passant par des librairies différentes, avec une implémentation changeante, ou autre chose encore. Dans ces cas, le spike va également vous servir à essayer ces différentes possibilités, et à choisir celle qui est la plus appropriée !
 
 Le moyen le plus simple est de procéder morceau par morceau. Alors je vous propose qu’on s’y mette maintenant, et qu’on regarde quoi faire !
 
@@ -50,7 +50,7 @@ So that I can see even the smallest details
 
 Une fois que vous savez quoi faire, on peut vraiment commencer à mettre la main dans le code !
 
-# // TODO : Make the code below work 💻
+# // TODO : make the code below work 💻
 
 Stop. Lâchez tout.
 
