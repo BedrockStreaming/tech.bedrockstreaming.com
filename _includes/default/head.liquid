@@ -2,7 +2,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
 
-    <!-- Theme Mode-->
+    <!-- Theme Mode -->
     {% if site.color_theme == 'auto' %}
     <script>
         const isAutoTheme = true;
@@ -21,7 +21,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
-    <!--Favicon-->
+    <!-- Favicon -->
     <link rel="shortcut icon" href="{{ site.favicon | relative_url }}" type="image/x-icon">
 
     {% if page.bootstrap %}
@@ -49,6 +49,23 @@
     <!-- Simple Jekyll Search 1.9.1 -->
     <script src="{{ '/assets/js/vendor/simple-jekyll-search.min.js' | relative_url }}" type="text/javascript"></script>
 
+    <!-- Matomo -->
+    {% if site.matomo %}
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="https://techbedrockstreaming.matomo.cloud/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src='//cdn.matomo.cloud/techbedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+    </script>
+    {% endif %}
+
     <!-- Google Analytics / Cookie Consent -->
     <script>
       const cookieName = 'cookie-notice-dismissed-{{ site.url }}';
@@ -68,7 +85,7 @@
         <script async src='https://www.google-analytics.com/analytics.js'></script>
     {% endif %}
 
-    <!-- seo tags -->
+    <!-- SEO tags -->
     <meta property="og:image" content="{{ '/' | absolute_url }}{% if page.thumbnail %}{{ page.thumbnail }}{% else %}{{ page.feature-img | default: site.header_feature_image }}{% endif %}">
     {% unless page.layout == post %}
     <meta property="og:type" content="website" />
