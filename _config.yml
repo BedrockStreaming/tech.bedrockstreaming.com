@@ -3,13 +3,13 @@ baseurl: ""
 url: "https://tech.bedrockstreaming.com"
 
 # THEME-SPECIFIC CONFIGURATION
-title: Bedrock Tech Blog                                    # site's title
-description: "Blog technique de Bedrock"      # used by search engines
-avatar: images/br-site-logo.jpg                  # Empty for no avatar in navbar
+title: Bedrock Tech Blog                                # Site's title
+description: "Blog technique de Bedrock"                # used by search engines
+avatar: images/br-site-logo.jpg                         # Empty for no avatar in navbar
 favicon: assets/favicon.png                             # Icon displayed in the tab
 
 # Header and footer text
-header_text: Creating Streaming Champions  # Change Blog header text
+header_text: Creating Streaming Champions               # Change Blog header text
 header_feature_image: images/banner_xl.jpg
 header_feature_image_responsive: true
 footer_text: >
@@ -24,6 +24,7 @@ color_image: /assets/img/lineart.png                    # A bit transparent for 
 # More in the _data folder for share buttons, author and language
 # For layout customization, go to the "_sass > base" folder, and check "_variables.scss"
 katex: true                                             # Enable if using math markup
+matomo: true                                            # Enable matomo tracking tool
 mermaid: true                                           # Enable mermaid-js for sequence and diagrams
 google_analytics:                                       # Tracking ID, e.g. "UA-000000-01"
 cookie_consent: false                                   # To respect the usage of cookies
