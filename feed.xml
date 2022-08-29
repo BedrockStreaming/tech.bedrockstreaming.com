@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-08-29T11:35:46+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">BFF’s error definition, and handling connections to multiple API</title><link href="https://tech.bedrockstreaming.com/2022/08/25/backend-errors-connections.html" rel="alternate" type="text/html" title="BFF’s error definition, and handling connections to multiple API" /><published>2022-08-25T00:00:00+00:00</published><updated>2022-08-25T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/08/25/backend-errors-connections</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/08/25/backend-errors-connections.html">&lt;p&gt;A &lt;em&gt;quick&lt;/em&gt; sidetrack in &lt;a href=&quot;#from-the-same-series&quot;&gt;our series&lt;/a&gt; about Bedrock’s API gateway.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-08-29T13:21:01+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">BFF’s error definition, and handling connections to multiple API</title><link href="https://tech.bedrockstreaming.com/2022/08/25/backend-errors-connections.html" rel="alternate" type="text/html" title="BFF’s error definition, and handling connections to multiple API" /><published>2022-08-25T00:00:00+00:00</published><updated>2022-08-25T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/08/25/backend-errors-connections</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/08/25/backend-errors-connections.html">&lt;p&gt;A &lt;em&gt;quick&lt;/em&gt; sidetrack in &lt;a href=&quot;#from-the-same-series&quot;&gt;our series&lt;/a&gt; about Bedrock’s API gateway.
 This piece defines what are we talking about when we say “an error”, and explains how we handle the numerous connections to services we are calling.&lt;/p&gt;
 
 &lt;h2 id=&quot;definition&quot;&gt;Definition&lt;/h2&gt;
@@ -115,7 +115,124 @@ On the opposite, analytics are less important, so we don’t use any retry there
   &lt;li&gt;&lt;a href=&quot;/2022/06/10/backend-bff-intro.html&quot;&gt;What’s a BFF&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;/2022/08/12/backend-fallbacks.html&quot;&gt;Handling API failures in a gateway&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;/2022/08/25/backend-errors-connections.html&quot;&gt;What’s an error, and handling connection to multiple APIs&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Valentin CLARAS</name></author><category term="backend" /><category term="php" /><category term="api" /><category term="api-gateway" /><category term="back-for-front" /><category term="error" /><category term="timout" /><category term="retry" /><category term="slo" /><category term="guzzle" /><summary type="html">A quick sidetrack in our series about Bedrock’s API gateway. This piece defines what are we talking about when we say “an error”, and explains how we handle the numerous connections to services we are calling.</summary></entry><entry><title type="html">Handling dependencies failures in an API gateway</title><link href="https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html" rel="alternate" type="text/html" title="Handling dependencies failures in an API gateway" /><published>2022-08-12T00:00:00+00:00</published><updated>2022-08-12T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html">&lt;p&gt;Welcome to our second article about the backend architecture and its api gateway.
+&lt;/ol&gt;</content><author><name>Valentin CLARAS</name></author><category term="backend" /><category term="php" /><category term="api" /><category term="api-gateway" /><category term="back-for-front" /><category term="error" /><category term="timout" /><category term="retry" /><category term="slo" /><category term="guzzle" /><summary type="html">A quick sidetrack in our series about Bedrock’s API gateway. This piece defines what are we talking about when we say “an error”, and explains how we handle the numerous connections to services we are calling.</summary></entry><entry><title type="html">Les spikes : quand, comment, pour quoi faire ?</title><link href="https://tech.bedrockstreaming.com/how-to-spike" rel="alternate" type="text/html" title="Les spikes : quand, comment, pour quoi faire ?" /><published>2022-08-23T00:00:00+00:00</published><updated>2022-08-23T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/how-to-spike</id><content type="html" xml:base="https://tech.bedrockstreaming.com/how-to-spike">&lt;p&gt;C’est une histoire bien connue, dans la vie de n’importe quel développeur : un ticket arrive dans le backlog, décrivant une problématique relativement complexe. C’est parfois une question de technologie inconnue, ou parfois simplement un chantier un peu trapu. Je pense que toutes les équipes ont, au moins une fois dans leur vie, fait face à ce genre de tâche impossible : c’est l’occasion des regards désespérés, alors qu’un junior se lamente en disant « Mais par où est-ce qu’il faut commencer ? ». Et c’est là qu’on répond : « Essaye de faire un spike ».&lt;/p&gt;
+
+&lt;p&gt;Faire un spike ? Quelle excellente idée ! Encore faudrait-il savoir ce qu’est un spike, comment ça marche, et à quoi ça sert.&lt;/p&gt;
+
+&lt;p&gt;Je vous propose donc ensemble de voir dans cet article : qu’est-ce qu’un spike, quand l’utiliser, et comment considérer qu’il est réussi ?&lt;/p&gt;
+
+&lt;h1 id=&quot;spike-help-&quot;&gt;spike –help 📚&lt;/h1&gt;
+
+&lt;p&gt;Si je devais citer &lt;a href=&quot;https://en.wikipedia.org/wiki/Spike_(software_development)&quot;&gt;Wikipedia&lt;/a&gt;, je dirais qu’un Spike, c’est “une méthode de développement de produit, dérivée de l’extrême programming, et qui cherche à créer le code le plus simple possible pour obtenir des solutions potentielles”.&lt;/p&gt;
+
+&lt;p&gt;En gros, le but d’un spike, c’est de répondre à la question &lt;em&gt;“Comment on fait ?”&lt;/em&gt; avec un prototype de code réalisé grâce à une série de petites étapes simples. Un spike n’est pas une formule magique qui va vous permettre de réaliser la tâche impossible que votre client vous a donné. En revanche, le spike va vous permettre de savoir si la tâche impossible ou compliquée à première vue est en fait possible, et si oui, comment.
+Il arrivera également que votre spike vous permette de constater qu’une tâche donnée peut être réalisée de plusieurs manières : que ce soit en passant par des librairies différentes, avec une implémentation changeante, ou autre chose encore. Dans ces cas, le spike va également vous servir à essayer ces différentes possibilités, et à choisir celle qui est la plus appropriée !&lt;/p&gt;
+
+&lt;p&gt;Le moyen le plus simple est de procéder morceau par morceau. Alors je vous propose qu’on s’y mette maintenant, et qu’on regarde quoi faire !&lt;/p&gt;
+
+&lt;h1 id=&quot;kowalski-analysis--&quot;&gt;“kowalski, analysis !” 📊&lt;/h1&gt;
+
+&lt;p&gt;Avant toute chose, il faut savoir exactement ce que vous souhaitez faire. Rien ne sert de mettre la charrue avant les bœufs.&lt;/p&gt;
+
+&lt;p&gt;Si ce n’est pas fait, écrivez noir sur blanc les lignes exactes qui vont définir votre tâche comme finie. Que ce soit connecter votre utilisateur de façon sécurisée, afficher une vidéo sans heurt, ou juste avoir une page qui clignote en blanc et bleu, il faut que vous ayez une liste de &lt;em&gt;bullet points&lt;/em&gt;, qui définit précisément ce que vous voulez faire.&lt;/p&gt;
+
+&lt;p&gt;Votre objectif final est de réaliser tout ce que vous avez sur cette liste : strictement rien de moins, mais aussi strictement rien de plus ! Pas de demande implicite de type “Ah mais je voulais aussi que l’image soit visible en noir et blanc” : si ce n’est pas sur la liste, ce n’est pas à faire.&lt;/p&gt;
+
+&lt;p&gt;Cette liste peut être écrite selon votre format favori : un cahier des charges, une série de directives &lt;em&gt;Gherkin&lt;/em&gt;, l’important c’est qu’elle soit écrite, claire et précise. En d’autres termes, vous définissez ici votre propre cahier des charges.&lt;/p&gt;
+
+&lt;p&gt;Le résultat final doit donc être quelque chose dans ce style :&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;As a client
+I want to see my product in 3 dimensions
+So that I can know what it looks like
+
+As a client
+I want to be able to rotate my product using the arrow keys
+So that I can check it out entirely
+
+As a client
+I want to be able to zoom on my product
+So that I can see even the smallest details
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Une fois que vous savez quoi faire, on peut vraiment commencer à mettre la main dans le code !&lt;/p&gt;
+
+&lt;h1 id=&quot;-todo--make-the-code-below-work-&quot;&gt;// TODO : make the code below work 💻&lt;/h1&gt;
+
+&lt;p&gt;Stop. Lâchez tout.&lt;/p&gt;
+
+&lt;p&gt;Je vous vois déjà, votre liste de points en main, à tenter de la faire rentrer dans votre gros projet à grands coups de burin, de vous gratter la tête à comprendre pourquoi ça ne rentre pas, et qu’est-ce qui a bien pu casser, cette fois.&lt;/p&gt;
+
+&lt;p&gt;Un peu de calme : le but d’un spike n’est pas de faire tout fonctionner, pas du tout. Prenez de la distance, et on va y aller en douceur.&lt;/p&gt;
+
+&lt;p&gt;Pour commencer, isolez une partie de votre projet et de vos points objectifs. Il existe plusieurs moyens de s’y prendre : créer un nouveau projet, créer une nouvelle page avec seulement quelques composants, décharger votre backend… On veut un environnement le plus propre possible.
+Beaucoup de projets sont vieux, et si mal conçus qu’il &lt;a href=&quot;/2021/09/01/bonnes-pratiques-web&quot;&gt;aurait fallu les jeter au bout de deux ans&lt;/a&gt;. On cherche ici à se détacher au maximum de cette dette technique.&lt;/p&gt;
+
+&lt;p&gt;N’hésitez pas à utiliser des &lt;em&gt;mocks&lt;/em&gt;, des faux appels et résultats au reste de votre application :  en simulant comment se comporte le reste de votre projet sans véritablement y faire appel, vous diminuez au maximum votre marge d’erreur, et vous assurez que vous contrôlez la moindre information qui transite par votre code.&lt;/p&gt;
+
+&lt;p&gt;Maintenant seulement, vous pouvez prendre votre clavier, et coder. Regardez comment implémenter chacun de ces points dans votre code propre de manière épurée.
+Ça fonctionne du premier coup ? Génial, notez comment vous avez fait ! Ça ne marche pas ? Dommage, mais ce n’est pas une raison pour Ctrl+Z et recommencer. Notez bien ce qui n’a pas marché, avant de retenter ! Si ça ne marche toujours pas au bout de 2/3 essais, pas de soucis, n’hésitez pas à laisser ce point de côté et passer à un autre. Mais écrivez tout, car cela va vous servir très bientôt !&lt;/p&gt;
+
+&lt;h1 id=&quot;ifbug--true--deletebug-consolelogit-works---&quot;&gt;if(bug == true) { delete(bug); console.log(“It works !”); } 🤖&lt;/h1&gt;
+
+&lt;p&gt;Il peut cependant arriver que, parfois, tous vos efforts ne mènent à rien. Vous avez déjà passé plusieurs jours sur les différents sujets du spike, et vous n’avez pas encore identifié de solution pour faire fonctionner le tout.
+Dans ce cas-là, pas de panique ! Il s’agit également d’un des objectifs du spike. Après tout, si vous n’avez pas pu réaliser votre objectif dans un cadre réduit, il est bien probable que vous n’auriez jamais pu le faire fonctionner dans votre projet lui-même.&lt;/p&gt;
+
+&lt;p&gt;Les mêmes points qu’indiqués ci-dessus continuent de s’appliquer : notez ce que vous avez tenté et les soucis rencontrés avec chaque implémentation. Puis, continuez le processus détaillé ici : ce n’est pas parce que votre code n’as pas fonctionné qu’il ne doit surtout pas être présenté. Peut-être un de vos collègues trouvera-t-il la ligne qui vous manque, ou le point-virgule que vous avez oublié : mais peut-être aussi qu’il vous aidera à comprendre ensemble pourquoi la solution ne fonctionne pas dans votre cadre.
+Et puis, vous pourrez alors vous poser la question : est-ce qu’il faut bien faire comprendre que la tâche demandée est irréalisable, ou est-ce qu’il faut prévoir un chantier pour réussir à trouver un moyen de remplir la requête ?&lt;/p&gt;
+
+&lt;h1 id=&quot;linstant-doc-&quot;&gt;L’instant doc 📝&lt;/h1&gt;
+
+&lt;p&gt;Une fois que vous avez terminé de coder, il est temps pour vous de poser votre IDE, et de sortir votre outil de documentation favori : Confluence, Jira, que sais-je. 
+Puis, écrivez un compte-rendu de votre aventure. Présentez l’origine de votre spike (Le &lt;strong&gt;Pourquoi&lt;/strong&gt;), ce que vous avez tenté (Le &lt;strong&gt;Comment&lt;/strong&gt;). Expliquez ce qui a marché et ce qui n’a pas marché : cela vous servira lorsque vous implémenterez vraiment la feature !
+Enfin, écrivez également les étapes qu’il faudrait suivre pour terminer la feature : ajoutez un maximum de détails techniques. Ce sera autant de problématiques en moins pour le pauvre dev qui va récupérer les US après vous.&lt;/p&gt;
+
+&lt;p&gt;Je vous suggère donc de faire un plan de ce type :&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Problème&lt;/strong&gt; - Expliquez ici l’état initial. Qu’est-ce qui était demandé ? Pourquoi avoir choisi de faire un spike ? Quel en est l’objectif ?&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Observations&lt;/strong&gt;  - Indiquez là vos réflexions et le code que vous avez produit. Expliquez ce que vous avez tenté, les problèmes rencontrés et les solutions établies, vos pistes de réflexion. N’hésitez surtout pas à détailler !&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Actions&lt;/strong&gt; - Enfin, détaillez dans cette dernière partie ce qu’il restera à faire afin de transformer ce spike en une feature fonctionnelle. Quels bugs corriger ? Quels points n’ont pas encore été réalisés, et comment faire pour les réaliser ?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Pour la dernière étape, je vous conseille de réaliser un tableau d’actions &lt;em&gt;SMART&lt;/em&gt; afin de définir au mieux les tâches à réaliser.
+Le principe SMART suppose qu’une tâche doit être composées des cinq caractéristiques suivantes afin d’être pertinente :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Elle doit être &lt;strong&gt;Spécifique&lt;/strong&gt;, afin que l’objectif soit clair et concis (Qu’est-ce que je dois faire ? Exemple de réponse : « Il faut que l’image d’un objet soit en 3D »)&lt;/li&gt;
+  &lt;li&gt;Elle doit être &lt;strong&gt;Mesurable&lt;/strong&gt;, pour définir un objectif quantifiable (Quant est-ce que ma tâche sera finie ? Exemple de réponse : « Il faut que je puisse faire tourner l’image avec les flèches gauches et droites du clavier  »))&lt;/li&gt;
+  &lt;li&gt;Elle doit être &lt;strong&gt;Atteignable&lt;/strong&gt;, sans demander de décrocher les étoiles (Comment réaliser ma tâche ? Exemple de réponse : « Utiliser la méthode &lt;em&gt;Get3D&lt;/em&gt; de la librairie &lt;em&gt;Easy3D&lt;/em&gt; »))&lt;/li&gt;
+  &lt;li&gt;Elle doit être &lt;strong&gt;Réaliste&lt;/strong&gt; au sujet en cours, donc nécessaire à l’accomplissement final (Est-ce qu’il est pertinent de prendre du temps pour faire ça ? Exemple de réponse : « Afin que notre client puisse voir l’avant et l’arrière de nos produits »)&lt;/li&gt;
+  &lt;li&gt;Elle doit être définie de façon &lt;strong&gt;Temporelle&lt;/strong&gt;, afin de ne pas pouvoir s’éterniser (Pour quand ma tâche doit-elle être réalisée ? Exemple de réponse : « A réaliser avant que la feature soit considérée terminée »)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Dans le cas où une des tâches que vous avez devisé ne peut pas répondre à un de ces cinq points, alors il est probable qu’elle ne soit pas suffisamment précise : peut-être la tâche manque-t-elle de cadre ou de contexte, ou le temps nécessaire pour la réaliser ne peut que difficilement être justifié. Je vous invite alors à la supprimer, ou à la fusionner avec une autre jusqu’à enfin pouvoir répondre à ces cinq questions !&lt;/p&gt;
+
+&lt;p&gt;Bien entendu, n’hésitez pas à modifier le plan de cette documentation comme vous l’entendez : vous êtes celui qui allez l’utiliser, après tout !&lt;/p&gt;
+
+&lt;p&gt;La doc est finie ? Il ne reste plus que deux étapes, puis on pourra enfin considérer ce spike comme fini !&lt;/p&gt;
+
+&lt;h1 id=&quot;presentation_spikeppt-&quot;&gt;Presentation_Spike.ppt 🎬&lt;/h1&gt;
+
+&lt;p&gt;Avant de pouvoir clôturer ce spike, il serait bien d’avoir des retours extérieurs. Pour ça, rien de mieux que de le présenter à votre équipe !
+Organisez ensemble une réunion, pas très longue. Au sein de mon équipe, une demi-heure suffit. Il vous faudra peut-être un peu moins ou un peu plus de temps.&lt;/p&gt;
+
+&lt;p&gt;Utilisez cette présentation afin de montrer, étape par étape, ce que vous avez réalisé. Rappelez tout d’abord les objectifs du spike, avant d’expliquer votre analyse du problème et les objectifs que vous avez identifiés. Puis, présentez les différentes implémentations que vous avez tentées, avant de conclure en montrant votre documentation et en expliquant les tâches qui restent à accomplir pour réaliser la feature objectif.&lt;/p&gt;
+
+&lt;p&gt;Il est très important que vous ne présentiez pas uniquement le code que vous avez réussi à faire fonctionner, mais aussi vos tentatives échouées, et ce pour plusieurs raisons. Tout d’abord, il est tout à fait possible qu’un de vos collègues, en voyant votre présentation, réalise une de vos erreurs et vous l’indique. Mais surtout, si quelqu’un d’autre que vous récupère une des tâches restantes, il risque de tenter les mêmes pistes que vous, et rencontrer les mêmes problématiques que vous !&lt;/p&gt;
+
+&lt;p&gt;Une fois votre présentation terminée, débattez avec le reste de votre équipe. S’ils sont d’accord avec vous sur le plan d’action que vous avez établi grâce à votre tableau SMART, il vous reste une toute dernière étape à accomplir !&lt;/p&gt;
+
+&lt;h1 id=&quot;happily-ever-after-&quot;&gt;“Happily ever after…” 💭&lt;/h1&gt;
+
+&lt;p&gt;Maintenant que tous vos coéquipiers ont pu constater et valider votre travail, il ne vous reste plus qu’à acter la mise en place : et pour ça, rien de mieux que, aux côtés de votre &lt;em&gt;Product Owner&lt;/em&gt; (Ou de l’équivalent dans votre équipe) de créer des tâches, &lt;em&gt;User Story&lt;/em&gt;, post-its, ou quoi que ce soit, pour que les étapes restantes soient visibles et accessibles par tous !&lt;/p&gt;
+
+&lt;p&gt;N’hésitez pas à le guider pour ajouter encore une fois des détails techniques dans ces US ou tâches : vous avez réalisé l’analyse, il serait dommage de ne pas l’utiliser, et ce sera autant de temps gagné pour votre équipe. Tant que vous y êtes, pensez aussi à ajouter un lien vers votre documentation, ou vers une vidéo de votre présentation… Plus il y aura de détails, mieux ça sera !&lt;/p&gt;
+
+&lt;p&gt;Il est également possible, comme indiqué plus haut, que la tâche qui a entraîné la réalisation de ce spike se découvre être impossible à implémenter. Il s’agit là également d’un point à faire avec votre &lt;em&gt;Product Owner&lt;/em&gt;, afin de décider ensemble de la procédure à suivre : peut-être faudra-t-il redéfinir les critères d’acceptation, ou bien laisser tomber complètement cette idée.&lt;/p&gt;
+
+&lt;h1 id=&quot;return-0&quot;&gt;return 0;&lt;/h1&gt;
+
+&lt;p&gt;Vous avez fini votre spike ! Ce qui était à l’origine une tâche complexe, confuse ou impossible à prévoir, est désormais divisée en une série d’étapes, qui sera désormais bien plus aisée à réaliser pour votre équipe. Alors, satisfait ?&lt;/p&gt;</content><author><name>Etienne Doyon</name></author><category term="spike" /><category term="methodologie" /><category term="cytron" /><category term="tech" /><summary type="html">C’est une histoire bien connue, dans la vie de n’importe quel développeur : un ticket arrive dans le backlog, décrivant une problématique relativement complexe. C’est parfois une question de technologie inconnue, ou parfois simplement un chantier un peu trapu. Je pense que toutes les équipes ont, au moins une fois dans leur vie, fait face à ce genre de tâche impossible : c’est l’occasion des regards désespérés, alors qu’un junior se lamente en disant « Mais par où est-ce qu’il faut commencer ? ». Et c’est là qu’on répond : « Essaye de faire un spike ».</summary></entry><entry><title type="html">Handling dependencies failures in an API gateway</title><link href="https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html" rel="alternate" type="text/html" title="Handling dependencies failures in an API gateway" /><published>2022-08-12T00:00:00+00:00</published><updated>2022-08-12T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html">&lt;p&gt;Welcome to our second article about the backend architecture and its api gateway.
 In &lt;a href=&quot;/2022/06/10/backend-bff-intro.html&quot;&gt;the first part&lt;/a&gt;, we talked about the BFF and all services it depends on.
 Today we’re going to take a look at what to do when one of them (or many), fails to respond.&lt;/p&gt;
 
@@ -1480,82 +1597,4 @@ Il nous a ensuite présenté un &lt;em&gt;use case&lt;/em&gt; spécifique au ré
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/end-part4.jpg&quot; alt=&quot;&amp;quot;La fin d&apos;une aventure !&amp;quot;&quot; /&gt;&lt;/p&gt;
-&lt;center&gt;&lt;i&gt;Rejoignez-nos équipes et venez vivre les prochaines conférences avec nous l’an prochain&lt;/i&gt;&lt;/center&gt;</content><author><name>Bedrock</name></author><category term="kubecon" /><category term="kubernetes" /><category term="cloud" /><category term="k8s" /><category term="conference" /><summary type="html">Pour terminer cette série, un ou deux sujets divers que nous n’avons pas regroupé dans les trois articles précédents (les performances applicatives et la scalabilité, les performances bas niveau, le système et le réseau, la dev XP, l’outillage, la CI/CD et l’observabilité), puis une conclusion globale avec ce que nous avons retenu de cette KubeCon Europe 2022.</summary></entry><entry><title type="html">Bedrock à la Kubecon 2022, 3ème partie : Dev XP, outillage, CI/CD, observabilité…</title><link href="https://tech.bedrockstreaming.com/2022/06/15/kubecon-2022-part-3.html" rel="alternate" type="text/html" title="Bedrock à la Kubecon 2022, 3ème partie : Dev XP, outillage, CI/CD, observabilité…" /><published>2022-06-15T00:00:00+00:00</published><updated>2022-06-15T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/06/15/kubecon-2022-part-3</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/06/15/kubecon-2022-part-3.html">&lt;p&gt;Pour notre troisième article de cette série sur ce que nous avons retenu de la KubeCon Europe 2022, après 
-&lt;a href=&quot;/2022/06/13/kubecon-2022-part-1.html&quot;&gt;les performances applicatives et la scalabilité&lt;/a&gt; et 
-&lt;a href=&quot;/2022/06/14/kubecon-2022-part-2.html&quot;&gt;les performances bas niveau, le système et le réseau&lt;/a&gt;, 
-passons à la Developper eXperience, à l’outillage, à la CI/CD, aux rollback, à l’observabilité et aux incidents !&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/part3.jpg&quot; alt=&quot;&amp;quot;KubeCon 2022 part3&amp;quot;&quot; /&gt;&lt;/p&gt;
-&lt;center&gt;&lt;i&gt;Une nouvelle journée commence, @ KubeCon 2022 !&lt;/i&gt;&lt;/center&gt;
-
-&lt;h2 id=&quot;la-prod-est-tombée&quot;&gt;La prod est tombée !&lt;/h2&gt;
-
-&lt;p&gt;Dans notre secteur d’activité, nous avons tous subis des incidents de production et le retour d’expérience, qu’il soit interne ou public, est important et formateur.&lt;br /&gt;
-En effet, même si les incidents de production sont malheureusement inéluctables dans nos métiers, il est important de les analyser afin de mieux les comprendre et demieux s’en prémunir.&lt;/p&gt;
-
-&lt;p&gt;Preuve de l’importance de ces sujets : nous avons assisté à deux conférences très intéressantes sur ce thème dans des salles pleines à craquer !&lt;br /&gt;
-Toutes deux portaient sur des incidents de production majeurs suite à une modification de code qui peut paraître anodine : la première était donnée par Influxdata, la seconde par Skyscanner.&lt;br /&gt;
-Les conférences étaient particulièrement joviales et bienveillantes : les réactions du public à certains slides montraient bien que ce genre de situations sentait le vécu pour certains !&lt;/p&gt;
-
-&lt;p&gt;Nous avons tous à apprendre de ces cas concrets d’incident, aussi, nous vous conseillons de visionner les vidéos de ces conférences : &lt;a href=&quot;https://www.youtube.com/watch?v=FiEm2zOuHsg&quot;&gt;skyscanner&lt;/a&gt; et &lt;a href=&quot;https://www.youtube.com/watch?v=xDGjmav8UBg&quot;&gt;influxdata&lt;/a&gt;.&lt;br /&gt;
-Mais si nous devions les résumer : l’automatisation de bout en bout demande une grande maturité, beaucoup &lt;em&gt;(beaucoup !)&lt;/em&gt; de tests et des reviews de qualité !&lt;/p&gt;
-
-&lt;p&gt;Et comme il est dit dans une des slides :&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/part3-gitops-power-responsibility.png&quot; alt=&quot;&amp;quot;With great GitOps power…&amp;quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;debugger-en-production-avec-des-conteneurs-éphémères&quot;&gt;Debugger, en production, avec des conteneurs éphémères&lt;/h2&gt;
-
-&lt;p&gt;Nous utilisons régulièrement la commande &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kubectl exec&lt;/code&gt; pour &lt;em&gt;entrer dans conteneur / pod&lt;/em&gt; et y lancer des commandes de débogage – parce que certains problèmes ne sont pas reproductibles ailleurs qu’en production, ou parce qu’il faut comprendre ce qu’il se passe avant de savoir reproduire en environnement de développement.&lt;/p&gt;
-
-&lt;p&gt;Cela dit, cette approche n’est &lt;em&gt;pas géniale&lt;/em&gt; : si nous modifions des choses dans un conteneur, ces modifications persistent.&lt;br /&gt;
-Aussi, il faut pouvoir installer des outils de débug dans un conteneur &lt;em&gt;(ce qu’on ne peut pas facilement faire chez Bedrock, où nos conteneurs ne s’exécutent pas en root et ont souvent un filesystem read-only)&lt;/em&gt;, ou les embarquer dans les images &lt;em&gt;(ce qui les grossit considérablement, sans compter l’augmentation du risque de failles de sécurité)&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Pour remédier à cette problématique, la fonctionnalité de conteneurs éphémères (&lt;a href=&quot;https://www.youtube.com/watch?v=obasTgzhVR0&quot;&gt;vidéo&lt;/a&gt;) arrive en bêta dans Kubernetes 1.23 et ça semble absolument génial !&lt;br /&gt;
-L’outil &lt;strong&gt;parfait&lt;/strong&gt; pour lancer des conteneurs temporaires à l’intérieur de pods existant et incroyablement puissant pour débugger !&lt;br /&gt;
-Nous allons pouvoir réduire le nombre d’outils de debug intégrés à nos images et parvenir à débugger plus aisément des problèmes qui ne surviennent qu’en production !&lt;/p&gt;
-
-&lt;h2 id=&quot;les-risques-de-lobservabilité--observabilité-piratée&quot;&gt;Les risques de l’observabilité / Observabilité piratée&lt;/h2&gt;
-
-&lt;p&gt;&lt;em&gt;“How attackers use exposed Prometheus Server to Exploit Kubernetes Clusters”&lt;/em&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=5cbbm_L6n7w&quot;&gt;vidéo&lt;/a&gt;) par David de Torres et  Miguel Hernandez, ou &lt;em&gt;“comment obtenir l’empreinte de vos clusters k8s à travers vos données de monitoring”&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Sysdig est venu nous remémorer que le monitoring, c’est bien, mais que ne pas exposer ses données de monitoring, c’est mieux !&lt;br /&gt;
-En effet, attention aux informations qui sont exposées à l’extérieur, elles pourraient être recueillies par des attaquants externes pour acquérir des connaissances sur votre plateforme (provider cloud, version de l’OS utilisé…) et s’en servir ensuite pour s’introduire dans votre infrastructure (fuite de données, cryptominage ou ransomware).&lt;/p&gt;
-
-&lt;p&gt;À travers un cas d’utilisation fictif, ils nous ont démontré la facilité de récupération de ces informations et comment elles sont utilisées pour monter une attaque.&lt;br /&gt;
-Enfin, ils nous ont rappelé que pour se prémunir de ces attaques, il &lt;em&gt;suffit&lt;/em&gt; de suivre les recommandations de sécurité ! CQFD.&lt;br /&gt;
-Il est toujours bon d’avoir ces piqures de rappel et de toujours bien penser aux données que l’on expose vers l’extérieur.&lt;/p&gt;
-
-&lt;h2 id=&quot;cicd-déploiement-progressif&quot;&gt;CI/CD, déploiement progressif&lt;/h2&gt;
-
-&lt;p&gt;Chez Bedrock, nous sommes en pleine refonte de notre chaîne de CI/CD : nous basculons tous nos projets du bon &lt;em&gt;vieux Jenkins “temporaire”&lt;/em&gt;, que nous avions monté au début de &lt;a href=&quot;https://leanpub.com/6cloud/&quot;&gt;notre migration vers Le Cloud&lt;/a&gt;, vers Github Actions.&lt;br /&gt;
-Au passage, nous nous demandons forcément comment nous pourrions améliorer nos déploiements et les rendre plus sécurisés, tant pour la santé de notre plateforme que pour la paix d’esprit de nos équipes et de nos utilisateurs.&lt;/p&gt;
-
-&lt;p&gt;La conférence &lt;em&gt;“Automated progressive delivery using gitops and service mesh”&lt;/em&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=5Ko-CnP2qhA&quot;&gt;vidéo&lt;/a&gt;) parlait de déploiement progressif avec &lt;a href=&quot;https://argo-cd.readthedocs.io/en/stable/&quot;&gt;Argo CD&lt;/a&gt;, pour améliorer l’excellence opérationnelle, réduire le MTTR, accroître l’automatisation et la fiabilité des processus de déploiement. Bref, des idées qui nous parlent !&lt;/p&gt;
-
-&lt;p&gt;Reste des fonctionnalités, qui nous semblent primordiales avant de se lancer sur un autre outil, qui ne sont pas encore gérées, hélas : mirroring de traffic, routing basé sur des en-têtes (typiquement : pour faire du déploiement progressif à la maille &lt;em&gt;“utilisateur”&lt;/em&gt; et pas à la maille &lt;em&gt;“requête HTTP”&lt;/em&gt;), détection d’anomalie et rollback automatisé…&lt;br /&gt;
-Un projet à suivre, donc, qui pourrait mûrir dans les prochains mois.&lt;/p&gt;
-
-&lt;p&gt;Au niveau des aspects moins sympathiques : cette approche de déploiement progressif passe par un service mesh (&lt;a href=&quot;https://www.envoyproxy.io/&quot;&gt;envoy&lt;/a&gt;, ici).&lt;br /&gt;
-Or nous n’en avons pas en place et depuis quatre ans n’avons toujours pas trouvé les bons arguments pour en introduire dans nos clusters, notamment à cause de la complexité ajoutée…&lt;/p&gt;
-
-&lt;p&gt;Une autre conférence (&lt;a href=&quot;https://www.youtube.com/watch?v=Mh0Wqu3v8h0&quot;&gt;vidéo&lt;/a&gt;) mentionnait l’outil &lt;a href=&quot;https://flagger.app/&quot;&gt;Flagger&lt;/a&gt; pour des déploiements Canary.&lt;/p&gt;
-
-&lt;h2 id=&quot;quelques-autres-idées-à-retenir&quot;&gt;Quelques autres idées à retenir&lt;/h2&gt;
-
-&lt;p&gt;Nous avons aussi vu quelques autres conférences dont nous avons tiré quelques idées, en plus bref :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Kubernetes 1.23 apporte (en alpha) une nouvelle commande &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kubectl events&lt;/code&gt;, qui retourne ses résultats dans l’ordre chronologique. Ce que l’actuel &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kubectl get events&lt;/code&gt; ne fait pas et ça peut être bien embêtant. Vue comme de la culture générale, la conférence &lt;em&gt;“The soul of a new command: adding ‘events’ to kubectl”&lt;/em&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=YI1ZuN-OHNw&quot;&gt;vidéo&lt;/a&gt;) racontait comment cette fonctionnalité a été implémentée et était fort intéressante.&lt;/li&gt;
-  &lt;li&gt;Un speaker parlait de la mise en place de &lt;a href=&quot;https://crossplane.io/&quot;&gt;Crossplane&lt;/a&gt; dans son entreprise (&lt;a href=&quot;https://www.youtube.com/watch?v=XyR9DGnOpXo&quot;&gt;vidéo&lt;/a&gt;). Sujet potentiellement intéressant, mais qui ne correspond pas à notre approche actuelle. Nous avons toutefois retenu quelques points autour de comment il fournit des outils à ses collègues développeurs : documentation, composition de services, management d’attentes, utilisation de l’écosystème… Des problématiques auxquelles nous nous sommes confrontés de nombreuses fois, pour encourager nos équipes à adopter des évolutions ou de nouveaux outils !&lt;/li&gt;
-  &lt;li&gt;Si vous commencez à mettre en place votre stack de logs, la conférence &lt;em&gt;“Show me your labels and I’ll tell you who you are”&lt;/em&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=TWf1ho0XMyM&quot;&gt;vidéo&lt;/a&gt;) est faite pour vous. L’idée d’utiliser les labels assignés aux pods pour aller jusqu’à filtrer l’accès aux logs via RBAC, terrible ! Aussi, la création de flux de logs avec &lt;a href=&quot;https://github.com/banzaicloud/logging-operator&quot;&gt;Logging Operator&lt;/a&gt; a l’air fort sympathique. Si ce talk était venu trois ans plus tôt, c’est quelque chose que nous essayerons !&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;Ces conférences nous ont permis d’approfondir les questions que nous nous posons actuellement alors que notre changeons de CI/CD (déploiement progressif, rollback automatisé ou non…).&lt;/p&gt;
-
-&lt;p&gt;Plus globalement, nous sommes contents de voir que l’outillage autour de Kubernetes continue à progresser et que la Developer eXperience est un sujet pris au sérieux dans notre communauté.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/end-part3.jpg&quot; alt=&quot;&amp;quot;Après une journée de conférences, une promenade à Valencia !&amp;quot;&quot; /&gt;&lt;/p&gt;
-&lt;center&gt;&lt;i&gt;Rejoignez-nos équipes et venez vivre les prochaines conférences avec nous l’an prochain&lt;/i&gt;&lt;/center&gt;</content><author><name>Bedrock</name></author><category term="kubecon" /><category term="kubernetes" /><category term="cloud" /><category term="k8s" /><category term="conference" /><summary type="html">Pour notre troisième article de cette série sur ce que nous avons retenu de la KubeCon Europe 2022, après les performances applicatives et la scalabilité et les performances bas niveau, le système et le réseau, passons à la Developper eXperience, à l’outillage, à la CI/CD, aux rollback, à l’observabilité et aux incidents !</summary></entry></feed>
+&lt;center&gt;&lt;i&gt;Rejoignez-nos équipes et venez vivre les prochaines conférences avec nous l’an prochain&lt;/i&gt;&lt;/center&gt;</content><author><name>Bedrock</name></author><category term="kubecon" /><category term="kubernetes" /><category term="cloud" /><category term="k8s" /><category term="conference" /><summary type="html">Pour terminer cette série, un ou deux sujets divers que nous n’avons pas regroupé dans les trois articles précédents (les performances applicatives et la scalabilité, les performances bas niveau, le système et le réseau, la dev XP, l’outillage, la CI/CD et l’observabilité), puis une conclusion globale avec ce que nous avons retenu de cette KubeCon Europe 2022.</summary></entry></feed>
