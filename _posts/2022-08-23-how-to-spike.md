@@ -13,6 +13,7 @@ permalink: how-to-spike
 C’est une histoire bien connue, dans la vie de n’importe quel développeur : un ticket arrive dans le backlog, décrivant une problématique relativement complexe. C’est parfois une question de technologie inconnue, ou parfois simplement un chantier un peu trapu. Je pense que toutes les équipes ont, au moins une fois dans leur vie, fait face à ce genre de tâche impossible : c’est l’occasion des regards désespérés, alors qu’un junior se lamente en disant « Mais par où est-ce qu’il faut commencer ? ». Et c’est là qu’on répond : « Essaye de faire un spike ».
 
 Faire un spike ? Quelle excellente idée ! Encore faudrait-il savoir ce qu’est un spike, comment ça marche, et à quoi ça sert.
+
 Je vous propose donc ensemble de voir dans cet article : qu’est-ce qu’un spike, quand l’utiliser, et comment considérer qu’il est réussi ?
 
 # spike --help 📚
@@ -29,8 +30,11 @@ Le moyen le plus simple est de procéder morceau par morceau. Alors je vous prop
 Avant toute chose, il faut savoir exactement ce que vous souhaitez faire. Rien ne sert de mettre la charrue avant les bœufs.
 
 Si ce n’est pas fait, écrivez noir sur blanc les lignes exactes qui vont définir votre tâche comme finie. Que ce soit connecter votre utilisateur de façon sécurisée, afficher une vidéo sans heurt, ou juste avoir une page qui clignote en blanc et bleu, il faut que vous ayez une liste de *bullet points*, qui définit précisément ce que vous voulez faire.
+
 Votre objectif final est de réaliser tout ce que vous avez sur cette liste : strictement rien de moins, mais aussi strictement rien de plus ! Pas de demande implicite de type “Ah mais je voulais aussi que l’image soit visible en noir et blanc” : si ce n’est pas sur la liste, ce n’est pas à faire.
+
 Cette liste peut être écrite selon votre format favori : un cahier des charges, une série de directives *Gherkin*, l’important c’est qu’elle soit écrite, claire et précise. En d’autres termes, vous définissez ici votre propre cahier des charges.
+
 Le résultat final doit donc être quelque chose dans ce style : 
 
 ```
@@ -55,6 +59,7 @@ Une fois que vous savez quoi faire, on peut vraiment commencer à mettre la main
 Stop. Lâchez tout.
 
 Je vous vois déjà, votre liste de points en main, à tenter de la faire rentrer dans votre gros projet à grands coups de burin, de vous gratter la tête à comprendre pourquoi ça ne rentre pas, et qu’est-ce qui a bien pu casser, cette fois.
+
 Un peu de calme : le but d’un spike n’est pas de faire tout fonctionner, pas du tout. Prenez de la distance, et on va y aller en douceur.
 
 Pour commencer, isolez une partie de votre projet et de vos points objectifs. Il existe plusieurs moyens de s’y prendre : créer un nouveau projet, créer une nouvelle page avec seulement quelques composants, décharger votre backend… On veut un environnement le plus propre possible.
@@ -62,7 +67,8 @@ Beaucoup de projets sont vieux, et si mal conçus qu’il [aurait fallu les jete
 
 N’hésitez pas à utiliser des *mocks*, des faux appels et résultats au reste de votre application :  en simulant comment se comporte le reste de votre projet sans véritablement y faire appel, vous diminuez au maximum votre marge d’erreur, et vous assurez que vous contrôlez la moindre information qui transite par votre code. 
 
-Maintenant seulement, vous pouvez prendre votre clavier, et coder. Regardez comment implémenter chacun de ces points dans votre code propre de manière épurée. Ça fonctionne du premier coup ? Génial, notez comment vous avez fait ! Ça ne marche pas ? Dommage, mais ce n’est pas une raison pour Ctrl+Z et recommencer. Notez bien ce qui n’a pas marché, avant de retenter ! Si ça ne marche toujours pas au bout de 2/3 essais, pas de soucis, n’hésitez pas à laisser ce point de côté et passer à un autre. Mais écrivez tout, car cela va vous servir très bientôt !
+Maintenant seulement, vous pouvez prendre votre clavier, et coder. Regardez comment implémenter chacun de ces points dans votre code propre de manière épurée.
+Ça fonctionne du premier coup ? Génial, notez comment vous avez fait ! Ça ne marche pas ? Dommage, mais ce n’est pas une raison pour Ctrl+Z et recommencer. Notez bien ce qui n’a pas marché, avant de retenter ! Si ça ne marche toujours pas au bout de 2/3 essais, pas de soucis, n’hésitez pas à laisser ce point de côté et passer à un autre. Mais écrivez tout, car cela va vous servir très bientôt !
 
 # if(bug == true) { delete(bug); console.log("It works !"); } 🤖
 
@@ -84,7 +90,8 @@ Je vous suggère donc de faire un plan de ce type :
 2. **Observations**  - Indiquez là vos réflexions et le code que vous avez produit. Expliquez ce que vous avez tenté, les problèmes rencontrés et les solutions établies, vos pistes de réflexion. N’hésitez surtout pas à détailler !
 3. **Actions** - Enfin, détaillez dans cette dernière partie ce qu’il restera à faire afin de transformer ce spike en une feature fonctionnelle. Quels bugs corriger ? Quels points n’ont pas encore été réalisés, et comment faire pour les réaliser ?
 
-Pour la dernière étape, je vous conseille de réaliser un tableau d’actions *SMART* afin de définir au mieux les tâches à réaliser. Le principe SMART suppose qu’une tâche doit être composées des cinq caractéristiques suivantes afin d’être pertinente :
+Pour la dernière étape, je vous conseille de réaliser un tableau d’actions *SMART* afin de définir au mieux les tâches à réaliser.
+Le principe SMART suppose qu’une tâche doit être composées des cinq caractéristiques suivantes afin d’être pertinente :
 - Elle doit être **Spécifique**, afin que l’objectif soit clair et concis (Qu’est-ce que je dois faire ? Exemple de réponse : « Il faut que l’image d’un objet soit en 3D »)
 - Elle doit être **Mesurable**, pour définir un objectif quantifiable (Quant est-ce que ma tâche sera finie ? Exemple de réponse : « Il faut que je puisse faire tourner l’image avec les flèches gauches et droites du clavier  »))
 - Elle doit être **Atteignable**, sans demander de décrocher les étoiles (Comment réaliser ma tâche ? Exemple de réponse : « Utiliser la méthode *Get3D* de la librairie *Easy3D* »))
