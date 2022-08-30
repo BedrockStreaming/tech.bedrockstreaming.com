@@ -2,8 +2,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
 
-    <!-- Theme Mode -->
     {% if site.color_theme == 'auto' %}
+    <!-- Theme Mode -->
     <script>
         const isAutoTheme = true;
         document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
@@ -35,14 +35,14 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     {% endif %}
 
-    <!-- KaTeX 0.15.2 -->
     {% if site.katex or site.theme_settings.katex %}
+    <!-- KaTeX 0.15.2 -->
     <script defer src="{{ '/assets/js/vendor/katex.min.js' | relative_url }}"></script>
     <script defer src="{{ '/assets/js/vendor/auto-render.min.js' | relative_url }}" onload="renderMathInElement(document.body);"></script>
     {% endif %}
 
-    <!-- Mermaid 8.13.10 -->
     {% if site.mermaid %}
+    <!-- Mermaid 8.13.10 -->
     <script defer src="{{ '/assets/js/vendor/mermaid.min.js' | relative_url }}" onload="mermaid.initialize({startOnLoad:true});"></script>
     {% endif %}
 
