@@ -26,7 +26,7 @@ We also wanted to simplify the project. In the first versions, we had two bricks
 
 The great moment has come. Our prescaling solution is now available on GitHub in its alpha version: https://github.com/BedrockStreaming/prescaling-exporter.
 
-This is the version we currently use in all our clusters. Let's quickly see how to set up the solution (you can find more details in the README of the repo). 
+This is the version we currently use in all our clusters. Let's quickly see how to implement the solution (you can find more details in the repo README).
 
 The prescaling-exporter is distributed with helm charts in order to install it in your cluster. 
 
