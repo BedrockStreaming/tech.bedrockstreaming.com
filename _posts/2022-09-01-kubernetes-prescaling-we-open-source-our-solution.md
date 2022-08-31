@@ -59,7 +59,7 @@ You will need to add the following configuration to Prometheus adapter:
 
 ### Daily prescaling event 
 
-We have chosen to manage the configuration of daily events directly on the hpa of the applications. You just have to add the following annotations on each chosen hpa. 
+We have chosen to manage the configuration of daily events directly on the HPA of the applications. Here is how to activate it, through annotations:
 
 ```yaml
 apiVersion: autoscaling/v2beta1
