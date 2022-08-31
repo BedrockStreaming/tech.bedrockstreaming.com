@@ -12,7 +12,7 @@ Previously we [discussed](https://tech.bedrockstreaming.com/2022/02/03/prescalin
 
 At [Bedrock Streaming](https://www.bedrockstreaming.com/), we provide streaming platforms to our customers (6play, Salto, Videoland and many others), we have a good knowledge of the daily load peaks and we know in advance the programs that are likely to generate a lot of traffic. We can therefore rely not only on reactive scaling, which has its limits (cf. [prescaling article](https://tech.bedrockstreaming.com/2022/02/03/prescaling.html)) but also on prescaling. 
 
-_> **Prescaling** means increasing the number of critical application pods in our clusters in advance to be ready for a sudden traffic spike._
+_> **Prescaling** consists of increasing the number of critical application pods in our clusters in advance in order to be ready to face a sudden traffic peak._
 
 Initially, we developed an in-house solution in Python for a simple reason: it was the language that most people in the team knew. Since we had time to test our solution, we thought it would be great to share it with everyone. But to do so, we had to make some adjustments.
 
