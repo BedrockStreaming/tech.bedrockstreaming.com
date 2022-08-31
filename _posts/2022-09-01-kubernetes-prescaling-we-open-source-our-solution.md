@@ -28,11 +28,11 @@ The great moment has come. Our prescaling solution is now available on GitHub in
 
 This is the version we currently use in all our clusters. Let's quickly see how to implement the solution (you can find more details in the repo README).
 
-The prescaling-exporter is distributed with helm charts in order to install it in your cluster. 
+The prescaling-exporter is distributed with helm charts in order to install it in kubernetes cluster. 
 
 ### Prerequisites
 
-You must have the following bricks installed in your cluster: 
+The following bricks must be installed in the k8s cluster: 
    * `Prometheus` Stack or `Victoria Metrics Stack`
    * `Prometheus Adapter`
 
@@ -44,7 +44,7 @@ Clone the repo and run the following command with Helm3:
 helm install prescaling-exporter ./helm/prescaling-exporter -n prescaling-exporter --create-namespace
 ```
 
-You will need to add the following configuration to Prometheus adapter: 
+It's required to add the following configuration to Prometheus adapter: 
 
 ```
 - "metricsQuery": "avg(<<.Series>>{<<.LabelMatchers>>})"
@@ -81,16 +81,16 @@ spec:
       targetValue: 10
 ```
 
-You will be able to control the start and end time of your prescaling and the minimum number of pods you want during this window. Please note that if the number of pods you want for prescaling is less than the current number of pods, the solution will not downscale the application and the HPA will continue to behave as usual.
+We are able to control the start and end time of the prescaling and the minimum number of pods we want during this window. Please note that if the number of pods we want for prescaling is less than the current number of pods, the solution will not downscale the application and the HPA will continue to behave as usual.
 
 
 
 ### One-time events
 
-You can also record one-off events. For example, at Bedrock Streaming, during an important soccer match, we will record a special event in a Custom Resource Definition. 
+We can also record one-off events. For example, at Bedrock Streaming, during an important soccer match, we will record a special event in a Custom Resource Definition. 
 One-time events allow to prescale all applications having annotations on their hpa by multiplying their prescaling minimum replicas (`annotations.scaling.exporter.replica.min`) by the multiplier of the event in question.
 
-To record a one-time event, an OpenAPI UI (formerly known as Swagger) is exposed by the prescaling exporter at the url `/swagger/index.html`. You can also register a new event from here or directly by making an api call to the following address `/api/v1/events/`. 
+To record a one-time event, an OpenAPI UI (formerly known as Swagger) is exposed by the prescaling exporter at the url `/swagger/index.html`. We can also register a new event from here or directly by making an api call to the following address `/api/v1/events/`. 
 
 ![Screenshot POST prescaling event](/images/posts/2022-09-01-kubernetes-prescaling-we-open-source-our-solution/post-prescaling-event.png) 
 
