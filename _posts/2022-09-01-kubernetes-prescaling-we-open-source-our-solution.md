@@ -96,6 +96,6 @@ To record a one-time event, an OpenAPI UI (formerly known as Swagger) is exposed
 
 ## What’s next?
 
-We will continue improving the solution. For example, we are thinking about removing the annotations on HPAs to replace them with a new dedicated CRD.
+We will continue to improve the solution. For example, we are thinking about removing annotations on HPAs and replacing them with a new dedicated CRD.
 
 All contributions are welcome, don't hesitate to come and exchange with us on GitHub if you want to use the solution, we would be delighted. 
