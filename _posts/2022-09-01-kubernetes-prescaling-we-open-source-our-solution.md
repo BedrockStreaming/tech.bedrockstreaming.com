@@ -20,7 +20,7 @@ Initially, we developed an in-house solution in Python for a simple reason: it w
 
 Many open source projects we use are written in Golang. In addition, the DevOps/Cloud world is mostly focused on Go. So, we decided to rewrite our prescaling solution in Go in order to make our teams more skilled in this language. The other goal was to make it cloud agnostic. In the Python version, we had an API part that stored prescaling events in a DynamoDB table, which made the solution dependent on AWS. Since prescaling is Kubernetes oriented, we had thought in the first versions in Python to store these events in Custom Resources (CRD) but due to lack of time, we did not implement it. We took advantage of the redesign to implement it and remove the dependency with AWS DynamoDB.
 
-We also wanted to simplify the project. In the first versions, we had two bricks: one containing the exporter and another the API. We merged both applications into one monolith. The API is CRUD which allows managing CRD events. 
+We also wanted to simplify the project. In the first versions, we had two bricks: one containing the exporter and another the API. We merged the two applications into one monolith. The API is CRUD and can handle CRD events. 
 
 ## Here we go, we open source it
 
