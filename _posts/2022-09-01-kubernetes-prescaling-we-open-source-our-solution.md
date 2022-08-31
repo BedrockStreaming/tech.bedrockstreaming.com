@@ -91,7 +91,7 @@ One-time events allow to prescale all applications having annotations on their h
 
 To record a one-time event, an OpenAPI UI (formerly known as Swagger) is exposed by the prescaling exporter at the url `/swagger/index.html`. You can also register a new event from here or directly by making an api call to the following address `/api/v1/events/`. 
 
-![BedrockStreaming Logo](/images/posts/2022-09-01-kubernetes-prescaling-we-open-source-our-solution/post-prescaling-event.png) 
+![Screenshot POST prescaling event](/images/posts/2022-09-01-kubernetes-prescaling-we-open-source-our-solution/post-prescaling-event.png) 
 
 
 ## What’s next?
