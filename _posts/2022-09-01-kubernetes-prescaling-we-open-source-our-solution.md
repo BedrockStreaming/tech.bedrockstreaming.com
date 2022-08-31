@@ -81,7 +81,7 @@ spec:
       targetValue: 10
 ```
 
-You will be able to control the start and end time of your prescaling and the minimum number of pods you want during that window. Please note that if the number of pods you want for the prescaling is lower than the current number of pods, the solution will not downscale the application and the hpa will continue to behave as usual.
+You will be able to control the start and end time of your prescaling and the minimum number of pods you want during that window. Please note that if the number of pods you want for the prescaling is lower than the current number of pods, the solution will not downscale the application and the HPA will continue to behave as usual.
 
 
 ### One-time events
