@@ -103,4 +103,4 @@ All contributions are welcome, don't hesitate to come and exchange with us on Gi
 
 <br/>
 
-Authors:[Jérémy Planckeel](https://www.linkedin.com/in/jeremy-planckeel-44426112b/), [Valentin Chabrier](https://www.linkedin.com/in/valentin-chabrier-180937142/) 
+Authors:[ Jérémy Planckeel](https://www.linkedin.com/in/jeremy-planckeel-44426112b/), [Valentin Chabrier](https://www.linkedin.com/in/valentin-chabrier-180937142/) 
