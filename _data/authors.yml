@@ -26,6 +26,8 @@ cytron:
 denis:
   name: Denis
   avatar: /images/avatar/denis.jpg
+e_carneau:
+  name: Elise Carenau
 e_perrin:
   name: Elodie e_perrin
 fvieudrin:
@@ -41,11 +43,15 @@ f_lepretre:
 front:
   name: Front teams
   avatar: /images/avatar/front.jpg
+h_riffiod:
+  name: Hugo Riffiod
 j_mastounga:
   name: Jules Matsounga
 j_planckeel:
   name: Jérémy Planckeel
   url: https://github.com/jplanckeel
+j_nginn:
+ name: Julie Nginn
 kenny:
   name: Kenny Dits
   avatar: /images/avatar/kenny.jpg
@@ -54,6 +60,8 @@ m_blanc:
   name: Maxime Blanc
   avatar: /images/avatar/m_blanc.jpeg
   url: https://maximeblanc.fr
+m_lopez:
+  name: Mathieu Lopez
 mikaelrandy:
   name: Mikael Randy
   avatar: /images/avatar/mikaelrandy.png
@@ -71,6 +79,10 @@ oliviernoel:
 p_martin:
   name: Pascal Martin
   url: https://twitter.com/pascal_martin
+s_drode:
+  name: Sebastien Drode
+s_guyon:
+  name: Sylvain Guyon
 s_haim:
   name: Sarah Haïm-Lubczanski
   url: https://twitter.com/sarahhaim
@@ -117,3 +129,6 @@ m_schneider:
   name: Martin SCHNEIDER
   url: https://github.com/martinschneider01
   avatar: /images/avatar/m_schneider.png
+e_doyon:
+  name: Etienne Doyon
+  avatar: /images/avatar/e_doyon.jpeg
