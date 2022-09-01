@@ -47,6 +47,9 @@ h_riffiod:
   name: Hugo Riffiod
 j_mastounga:
   name: Jules Matsounga
+j_planckeel:
+  name: Jérémy Planckeel
+  url: https://github.com/jplanckeel
 j_nginn:
  name: Julie Nginn
 kenny:
@@ -94,6 +97,9 @@ t_falconnet:
   name: Tanguy Falconnet
   url: https://twitter.com/TanguyFalconnet
   avatar: /images/avatar/t_falconnet.jpg
+v_chabrier:
+  name: Valentin Chabrier
+  url: https://github.com/Eriwyr
 v_claras:
   name: Valentin CLARAS
   url: https://twitter.com/LarsVanCiental
