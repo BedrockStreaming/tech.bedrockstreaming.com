@@ -88,7 +88,7 @@ We are able to control the start and end time of the prescaling and the minimum 
 ### One-time events
 
 We can also record one-off events. For example, at Bedrock Streaming, during an important soccer match, we will record a special event in a Custom Resource Definition. 
-One-time events allow to prescale all applications having annotations on their hpa by multiplying their prescaling minimum replicas (`annotations.scaling.exporter.replica.min`) by the multiplier of the event in question.
+One-time events allow to prescale all applications having annotations on their HPA by multiplying their prescaling minimum replicas (`annotations.scaling.exporter.replica.min`) by the multiplier of the event in question.
 
 To record a one-time event, an OpenAPI UI (formerly known as Swagger) is exposed by the prescaling exporter at the url `/swagger/index.html`. We can also register a new event from here or directly by making an api call to the following address `/api/v1/events/`. 
 
