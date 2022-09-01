@@ -363,6 +363,50 @@
     <div class="post-teaser">
         
         <div class="post-img">
+            <a aria-label="Elasticsearch: la grande migration" href="/2017/06/01/migration-elasticsearch.html">
+                <img alt="Elasticsearch: la grande migration" src="/images/posts/migration-es/migration.jpg">
+            </a>
+        </div>
+        
+        <span>
+          <header>
+            <h1>
+              <a aria-label="Elasticsearch: la grande migration" class="post-link" href="/2017/06/01/migration-elasticsearch.html">
+                Elasticsearch: la grande migration
+              </a>
+            </h1>
+            
+
+
+<div class="post-info"><a href="https://twitter.com/b_viguier" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="/images/avatar/b_viguier.png">
+    
+    <p class="meta">
+      Benoit Viguier - 
+      
+      June 01, 2017
+    </p></a></div>
+
+          </header>
+          
+              <div class="excerpt">
+                  
+                     Pour assurer la scalabilité des performances de l’API 6play, les données suivent tout un workflow pour être dénormalisées et stockées dans Elasticsearch.
+Mi-2016, nous avons identifié des dysfonctionnements majeurs sur nos serveurs, entrainant parfois des interruptions de service.
+Suite à quelques mesures d’urgences pour stabiliser l’existant, nous avons entrepris de mettre à jour notre version d’Elasticsearch pour bénéficier des dernières améliorations.
+Nous étions alors sur la version 1.7, et souhaitions passer en version 2.0.
+Après plusieurs mois d’efforts pour effectuer cette migration sans interruption de service ni gel technique, nous voici en version… 5.2!
+Voici le récit de cette grande migration, et ce que l’on a appris tout au long de ce périple.
+
+                  
+              </div>
+          
+      </span>
+    </div>
+    
+    <div class="post-teaser">
+        
+        <div class="post-img">
             <a aria-label="Last night isomorphic JS saved our life!" href="/2017/05/17/spa-mode-isomorphism-js.html">
                 <img alt="Last night isomorphic JS saved our life!" src="/images/posts/spamode/spamode.jpg">
             </a>
@@ -676,53 +720,6 @@ It’s a really exciting piece of software that adds a lot of value in the mobil
 C’est une conférence que nous apprécions particulièrement et à laquelle nous nous rendons quasiment chaque année, soit dans son édition européenne (Berlin, Londres, Barcelone, et Amsterdam cette année en novembre), soit aux U.S. (précédemment Santa Clara, New York cette année, et San José l’année prochaine).
 C’est l’occasion de suivre une conf de très haute qualité composée de 4 ou 5 tracks en parallèle, dédiée aux problématiques de performance et de scalabilité.
 On remarque que d’année en année la conférence s’est réorientée autour du mouvement DevOps, alors qu’elle était précédemment beaucoup plus centrée sur la WebPerf (desktop et mobile).
-
-                  
-              </div>
-          
-      </span>
-    </div>
-    
-    <div class="post-teaser">
-        
-        <span>
-          <header>
-            <h1>
-              <a aria-label="Use the Sensiolabs Security Checker to check potential vulnerabilities on Symfony projects" class="post-link" href="/2016/07/20/sf2-security-checker.html">
-                Use the Sensiolabs Security Checker to check potential vulnerabilities on Symfony projects
-              </a>
-            </h1>
-            
-
-
-<div class="post-info">
-    <p class="meta">
-      
-      
-      July 20, 2016
-    </p></div>
-
-          </header>
-          
-              <div class="excerpt">
-                  
-                     Numerous vulnerabilities are detected every day. That’s a good thing and a key benefit of using open source products. At m6web we don’t want to be exposed to known vulnerabilities, so we use a service provided by Sensiolabs in our continuous integration tool (Jenkins) to check it.
-
-Just add those lines in your ant build file (and adapt basedir) :
-
-    &amp;lt;!-- =================================================================== --&amp;gt;
-    &amp;lt;!-- Security checker                                                    --&amp;gt;
-    &amp;lt;!-- =================================================================== --&amp;gt;
-    &amp;lt;target name=&quot;sf2-security-checker&quot;&amp;gt;
-     &amp;lt;exec executable=&quot;bash&quot; dir=&quot;${basedir}/sources/bin&quot; failonerror=&quot;true&quot;&amp;gt;
-         &amp;lt;arg value=&quot;-c&quot;/&amp;gt;
-         &amp;lt;arg value=&quot;curl -Os https://get.sensiolabs.org/security-checker.phar&quot; /&amp;gt;
-     &amp;lt;/exec&amp;gt;
-     &amp;lt;exec executable=&quot;php&quot; dir=&quot;${basedir}/sources&quot; failonerror=&quot;true&quot;&amp;gt;
-         &amp;lt;arg line=&quot;${basedir}/sources/bin/security-checker.phar security:check composer.lock&quot; /&amp;gt;
-     &amp;lt;/exec&amp;gt;
-    &amp;lt;/target&amp;gt;
-
 
                   
               </div>

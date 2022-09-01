@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/banner_xl.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Prescaling pods in Kubernetes, we open source our solution | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Prescaling pods in Kubernetes, we open source our solution" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Reactive scaling in k8s is not always enough. We have built a solution and we share it with everyone now!" />
+<meta property="og:description" content="Reactive scaling in k8s is not always enough. We have built a solution and we share it with everyone now!" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-09-01T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Prescaling pods in Kubernetes, we open source our solution" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html"},"url":"https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html","@type":"BlogPosting","headline":"Prescaling pods in Kubernetes, we open source our solution","dateModified":"2022-09-01T00:00:00+00:00","datePublished":"2022-09-01T00:00:00+00:00","description":"Reactive scaling in k8s is not always enough. We have built a solution and we share it with everyone now!","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Prescaling pods in Kubernetes, we open source our solution">
+    <meta name="twitter:description" content="Previously we discussed how we manage the load of our Kubernetes clusters and how we can anticipate our needs with prescaling. Today, we are here to share ou...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/banner_xl.jpg">
+    <meta name="twitter:image:alt" content="Prescaling pods in Kubernetes, we open source our solution">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Prescaling pods in Kubernetes, we open source our solution " aria-label="Prescaling pods in Kubernetes, we open source our solution" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Prescaling+pods+in+Kubernetes%2C+we+open+source+our+solution" class="title">Prescaling pods in Kubernetes, we open source our solution</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      September 01, 2022
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Previously we <a href="https://tech.bedrockstreaming.com/2022/02/03/prescaling.html">discussed</a> how we manage the load of our Kubernetes clusters and how we can anticipate our needs with prescaling. Today, we are here to share our solution that we have reworked and open sourced! 
+<img src="/images/posts/2022-09-01-kubernetes-prescaling-we-open-source-our-solution/br-opensource.png" alt="BedrockStreaming Logo" /></p>
+
+<p>At <a href="https://www.bedrockstreaming.com/">Bedrock Streaming</a>, we provide streaming platforms to our customers (6play, Salto, Videoland and many others), we have a good knowledge of the daily load peaks and we know in advance the programs that are likely to generate a lot of traffic. We can therefore rely not only on reactive scaling, which has its limits (cf. <a href="https://tech.bedrockstreaming.com/2022/02/03/prescaling.html">prescaling article</a>) but also on prescaling.</p>
+
+<p><em>&gt; <strong>Prescaling</strong> consists of increasing the number of critical application pods in our clusters in advance in order to be ready to face a sudden traffic peak.</em></p>
+
+<p>Initially, we developed an in-house solution in Python for a simple reason: it was the language that most people in the team knew. Since we had time to test our solution, we thought it would be great to share it with everyone. But to do so, we had to make some adjustments.</p>
+
+<h2 id="we-rewrote-everything-in-go">We rewrote everything in go</h2>
+
+<p>Many open source projects we use are written in Golang. In addition, the DevOps/Cloud world is mostly focused on Go. So, we decided to rewrite our prescaling solution in Go in order to make our teams more skilled in this language. The other goal was to make it cloud agnostic. In the Python version, we had an API part that stored prescaling events in a DynamoDB table, which made the solution dependent on AWS. Since prescaling is Kubernetes oriented, we had thought in the first versions in Python to store these events in Custom Resources (CRD) but due to lack of time, we did not implement it. We took advantage of the redesign to implement it and remove the dependency with AWS DynamoDB.</p>
+
+<p>We also wanted to simplify the project. In the first versions, we had two bricks: one containing the exporter and another the API. We merged the two applications into one monolith. The API is CRUD and can handle CRD events.</p>
+
+<h2 id="here-we-go-we-open-source-it">Here we go, we open source it</h2>
+
+<p>The great moment has come. Our prescaling solution is now available on GitHub in its alpha version: https://github.com/BedrockStreaming/prescaling-exporter.</p>
+
+<p>This is the version we currently use in all our clusters. Let’s quickly see how to implement the solution (you can find more details in the repo README).</p>
+
+<p>The prescaling-exporter is distributed with helm charts in order to install it in kubernetes cluster.</p>
+
+<h3 id="prerequisites">Prerequisites</h3>
+
+<p>The following bricks must be installed in the k8s cluster:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Prometheus</code> Stack or <code class="language-plaintext highlighter-rouge">Victoria Metrics Stack</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Prometheus Adapter</code></li>
+</ul>
+
+<p>It is possible to use another metrics stack but we do not provide an example at this time.</p>
+
+<p>Clone the repo and run the following command with Helm3:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>helm <span class="nb">install </span>prescaling-exporter ./helm/prescaling-exporter <span class="nt">-n</span> prescaling-exporter <span class="nt">--create-namespace</span>
+</code></pre></div></div>
+
+<p>It’s required to add the following configuration to Prometheus adapter:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- "metricsQuery": "avg(&lt;&lt;.Series&gt;&gt;{&lt;&lt;.LabelMatchers&gt;&gt;})"
+    "name":
+      "as": "prescale_metric"
+    "resources":
+      "overrides":
+        "namespace":
+          "resource": "namespace"
+    "seriesQuery": "prescale_metric"
+</code></pre></div></div>
+
+<h3 id="daily-prescaling-event">Daily prescaling event</h3>
+
+<p>We have chosen to manage the configuration of daily events directly on the HPA (HorizontalPodAutoscaler) of the applications. Here is how to activate it, through annotations:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">autoscaling/v2beta1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">HorizontalPodAutoscaler</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">annotations</span><span class="pi">:</span>
+    <span class="na">annotations.scaling.exporter.replica.min</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">annotations.scaling.exporter.time.end</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">annotations.scaling.exporter.time.start</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">metrics</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">External</span>
+    <span class="na">external</span><span class="pi">:</span>
+      <span class="na">metricName</span><span class="pi">:</span> <span class="s2">"</span><span class="s">prescaling_metric"</span>
+      <span class="na">metricSelector</span><span class="pi">:</span>
+          <span class="na">matchLabels</span><span class="pi">:</span>
+            <span class="na">deployment</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+      <span class="na">targetValue</span><span class="pi">:</span> <span class="m">10</span>
+</code></pre></div></div>
+
+<p>We are able to control the start and end time of the prescaling and the minimum number of pods we want during this window. Please note that if the number of pods we want for prescaling is less than the current number of pods, the solution will not downscale the application and the HPA will continue to behave as usual.</p>
+
+<h3 id="one-time-events">One-time events</h3>
+
+<p>We can also record one-off events. For example, at Bedrock Streaming, during an important soccer match, we will record a special event in a Custom Resource Definition. 
+One-time events allow to prescale all applications having annotations on their HPA by multiplying their prescaling minimum replicas (<code class="language-plaintext highlighter-rouge">annotations.scaling.exporter.replica.min</code>) by the multiplier of the event in question.</p>
+
+<p>To record a one-time event, an OpenAPI UI (formerly known as Swagger) is exposed by the prescaling exporter at the url <code class="language-plaintext highlighter-rouge">/swagger/index.html</code>. We can also register a new event from here or directly by making an api call to the following address <code class="language-plaintext highlighter-rouge">/api/v1/events/</code>.</p>
+
+<p><img src="/images/posts/2022-09-01-kubernetes-prescaling-we-open-source-our-solution/post-prescaling-event.png" alt="Screenshot POST prescaling event" /></p>
+
+<h2 id="whats-next">What’s next?</h2>
+
+<p>We will continue to improve the solution. For example, we are thinking about removing annotations on HPAs and replacing them with a new dedicated CRD.</p>
+
+<p>All contributions are welcome, don’t hesitate to come and exchange with us on GitHub if you want to use the solution, we would be delighted.</p>
+
+<p><br /></p>
+
+<p>Authors:<a href="https://www.linkedin.com/in/jeremy-planckeel-44426112b/"> Jérémy Planckeel</a>, <a href="https://www.linkedin.com/in/valentin-chabrier-180937142/">Valentin Chabrier</a></p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Prescaling+pods+in+Kubernetes%2C+we+open+source+our+solution%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F09%2F01%2Fkubernetes-prescaling-we-open-source-our-solution.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html&title=Prescaling+pods+in+Kubernetes%2C+we+open+source+our+solution%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Prescaling pods in Kubernetes, we open source our solution%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#go">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> go</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#hpa">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> hpa</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#k8s">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> k8s</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#kubernetes">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> kubernetes</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#opensource">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> opensource</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#pods">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> pods</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#prescaling">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> prescaling</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#prometheus">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> prometheus</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#resiliency">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> resiliency</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#scaling">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> scaling</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="BFF's error definition, and handling connections to multiple API" href="/2022/08/25/backend-errors-connections.html">
+            <p>Next post</p>
+            BFF's error definition, and handling connections to multiple API
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

@@ -1,4 +1,96 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-08-31T14:53:57+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">BFF’s error definition, and handling connections to multiple API</title><link href="https://tech.bedrockstreaming.com/2022/08/25/backend-errors-connections.html" rel="alternate" type="text/html" title="BFF’s error definition, and handling connections to multiple API" /><published>2022-08-25T00:00:00+00:00</published><updated>2022-08-25T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/08/25/backend-errors-connections</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/08/25/backend-errors-connections.html">&lt;p&gt;A &lt;em&gt;quick&lt;/em&gt; sidetrack in &lt;a href=&quot;#from-the-same-series&quot;&gt;our series&lt;/a&gt; about Bedrock’s API gateway.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-09-01T09:06:30+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Prescaling pods in Kubernetes, we open source our solution</title><link href="https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html" rel="alternate" type="text/html" title="Prescaling pods in Kubernetes, we open source our solution" /><published>2022-09-01T00:00:00+00:00</published><updated>2022-09-01T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html">&lt;p&gt;Previously we &lt;a href=&quot;https://tech.bedrockstreaming.com/2022/02/03/prescaling.html&quot;&gt;discussed&lt;/a&gt; how we manage the load of our Kubernetes clusters and how we can anticipate our needs with prescaling. Today, we are here to share our solution that we have reworked and open sourced! 
+&lt;img src=&quot;/images/posts/2022-09-01-kubernetes-prescaling-we-open-source-our-solution/br-opensource.png&quot; alt=&quot;BedrockStreaming Logo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;At &lt;a href=&quot;https://www.bedrockstreaming.com/&quot;&gt;Bedrock Streaming&lt;/a&gt;, we provide streaming platforms to our customers (6play, Salto, Videoland and many others), we have a good knowledge of the daily load peaks and we know in advance the programs that are likely to generate a lot of traffic. We can therefore rely not only on reactive scaling, which has its limits (cf. &lt;a href=&quot;https://tech.bedrockstreaming.com/2022/02/03/prescaling.html&quot;&gt;prescaling article&lt;/a&gt;) but also on prescaling.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&amp;gt; &lt;strong&gt;Prescaling&lt;/strong&gt; consists of increasing the number of critical application pods in our clusters in advance in order to be ready to face a sudden traffic peak.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Initially, we developed an in-house solution in Python for a simple reason: it was the language that most people in the team knew. Since we had time to test our solution, we thought it would be great to share it with everyone. But to do so, we had to make some adjustments.&lt;/p&gt;
+
+&lt;h2 id=&quot;we-rewrote-everything-in-go&quot;&gt;We rewrote everything in go&lt;/h2&gt;
+
+&lt;p&gt;Many open source projects we use are written in Golang. In addition, the DevOps/Cloud world is mostly focused on Go. So, we decided to rewrite our prescaling solution in Go in order to make our teams more skilled in this language. The other goal was to make it cloud agnostic. In the Python version, we had an API part that stored prescaling events in a DynamoDB table, which made the solution dependent on AWS. Since prescaling is Kubernetes oriented, we had thought in the first versions in Python to store these events in Custom Resources (CRD) but due to lack of time, we did not implement it. We took advantage of the redesign to implement it and remove the dependency with AWS DynamoDB.&lt;/p&gt;
+
+&lt;p&gt;We also wanted to simplify the project. In the first versions, we had two bricks: one containing the exporter and another the API. We merged the two applications into one monolith. The API is CRUD and can handle CRD events.&lt;/p&gt;
+
+&lt;h2 id=&quot;here-we-go-we-open-source-it&quot;&gt;Here we go, we open source it&lt;/h2&gt;
+
+&lt;p&gt;The great moment has come. Our prescaling solution is now available on GitHub in its alpha version: https://github.com/BedrockStreaming/prescaling-exporter.&lt;/p&gt;
+
+&lt;p&gt;This is the version we currently use in all our clusters. Let’s quickly see how to implement the solution (you can find more details in the repo README).&lt;/p&gt;
+
+&lt;p&gt;The prescaling-exporter is distributed with helm charts in order to install it in kubernetes cluster.&lt;/p&gt;
+
+&lt;h3 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h3&gt;
+
+&lt;p&gt;The following bricks must be installed in the k8s cluster:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Prometheus&lt;/code&gt; Stack or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Victoria Metrics Stack&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Prometheus Adapter&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It is possible to use another metrics stack but we do not provide an example at this time.&lt;/p&gt;
+
+&lt;p&gt;Clone the repo and run the following command with Helm3:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;helm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;prescaling-exporter ./helm/prescaling-exporter &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; prescaling-exporter &lt;span class=&quot;nt&quot;&gt;--create-namespace&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;It’s required to add the following configuration to Prometheus adapter:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- &quot;metricsQuery&quot;: &quot;avg(&amp;lt;&amp;lt;.Series&amp;gt;&amp;gt;{&amp;lt;&amp;lt;.LabelMatchers&amp;gt;&amp;gt;})&quot;
+    &quot;name&quot;:
+      &quot;as&quot;: &quot;prescale_metric&quot;
+    &quot;resources&quot;:
+      &quot;overrides&quot;:
+        &quot;namespace&quot;:
+          &quot;resource&quot;: &quot;namespace&quot;
+    &quot;seriesQuery&quot;: &quot;prescale_metric&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;daily-prescaling-event&quot;&gt;Daily prescaling event&lt;/h3&gt;
+
+&lt;p&gt;We have chosen to manage the configuration of daily events directly on the HPA (HorizontalPodAutoscaler) of the applications. Here is how to activate it, through annotations:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;apiVersion&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;autoscaling/v2beta1&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;kind&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;HorizontalPodAutoscaler&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;metadata&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;annotations&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;annotations.scaling.exporter.replica.min&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;annotations.scaling.exporter.time.end&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;annotations.scaling.exporter.time.start&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;spec&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;metrics&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;External&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;external&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;metricName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;prescaling_metric&quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;metricSelector&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;matchLabels&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;deployment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;targetValue&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We are able to control the start and end time of the prescaling and the minimum number of pods we want during this window. Please note that if the number of pods we want for prescaling is less than the current number of pods, the solution will not downscale the application and the HPA will continue to behave as usual.&lt;/p&gt;
+
+&lt;h3 id=&quot;one-time-events&quot;&gt;One-time events&lt;/h3&gt;
+
+&lt;p&gt;We can also record one-off events. For example, at Bedrock Streaming, during an important soccer match, we will record a special event in a Custom Resource Definition. 
+One-time events allow to prescale all applications having annotations on their HPA by multiplying their prescaling minimum replicas (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;annotations.scaling.exporter.replica.min&lt;/code&gt;) by the multiplier of the event in question.&lt;/p&gt;
+
+&lt;p&gt;To record a one-time event, an OpenAPI UI (formerly known as Swagger) is exposed by the prescaling exporter at the url &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/swagger/index.html&lt;/code&gt;. We can also register a new event from here or directly by making an api call to the following address &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/api/v1/events/&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-09-01-kubernetes-prescaling-we-open-source-our-solution/post-prescaling-event.png&quot; alt=&quot;Screenshot POST prescaling event&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;whats-next&quot;&gt;What’s next?&lt;/h2&gt;
+
+&lt;p&gt;We will continue to improve the solution. For example, we are thinking about removing annotations on HPAs and replacing them with a new dedicated CRD.&lt;/p&gt;
+
+&lt;p&gt;All contributions are welcome, don’t hesitate to come and exchange with us on GitHub if you want to use the solution, we would be delighted.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Authors:&lt;a href=&quot;https://www.linkedin.com/in/jeremy-planckeel-44426112b/&quot;&gt; Jérémy Planckeel&lt;/a&gt;, &lt;a href=&quot;https://www.linkedin.com/in/valentin-chabrier-180937142/&quot;&gt;Valentin Chabrier&lt;/a&gt;&lt;/p&gt;</content><author><name>[&quot;j_planckeel&quot;, &quot;v_chabrier&quot;]</name></author><category term="k8s" /><category term="kubernetes" /><category term="pods" /><category term="prometheus" /><category term="scaling" /><category term="hpa" /><category term="resiliency" /><category term="go" /><category term="prescaling" /><category term="opensource" /><summary type="html">Previously we discussed how we manage the load of our Kubernetes clusters and how we can anticipate our needs with prescaling. Today, we are here to share our solution that we have reworked and open sourced!</summary></entry><entry><title type="html">BFF’s error definition, and handling connections to multiple API</title><link href="https://tech.bedrockstreaming.com/2022/08/25/backend-errors-connections.html" rel="alternate" type="text/html" title="BFF’s error definition, and handling connections to multiple API" /><published>2022-08-25T00:00:00+00:00</published><updated>2022-08-25T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/08/25/backend-errors-connections</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/08/25/backend-errors-connections.html">&lt;p&gt;A &lt;em&gt;quick&lt;/em&gt; sidetrack in &lt;a href=&quot;#from-the-same-series&quot;&gt;our series&lt;/a&gt; about Bedrock’s API gateway.
 This piece defines what are we talking about when we say “an error”, and explains how we handle the numerous connections to services we are calling.&lt;/p&gt;
 
 &lt;h2 id=&quot;definition&quot;&gt;Definition&lt;/h2&gt;
@@ -1538,63 +1630,4 @@ sequenceDiagram
 
 &lt;p&gt;The tooling needed to decompile an APK is free, fast, and easy to automate. It’s a really helpful tool to investigate obscure bugs in places your debugger won’t let you place a breakpoint, and it’s also really useful to be able to see a human-readable diff between two binaries.&lt;/p&gt;
 
-&lt;p&gt;Generating a diff of the effects of a library upgrade can seem overkill and hard to do in practice, but at least in the case of bug-fix releases with hopefully few changes, it can be very helpful to have an actual report of what changed. It’s an accepted practice to review the code your team checks in; why not review the code of others, since it ends up in the exact same artifact?&lt;/p&gt;</content><author><name>Baptiste Candellier</name></author><category term="android" /><category term="apktool" /><category term="instrumentation" /><category term="debugging" /><category term="productivity" /><summary type="html">If you maintain an Android application, you might be relying on performance monitoring SDKs like Firebase Performance or New Relic, to name a couple. These plugins usually have a light setup process—just apply a Gradle plugin, and they provide the ability to collect statistics about every network call and database query in your app automatically.</summary></entry><entry><title type="html">Bedrock à la Kubecon 2022, 4ème partie : chaos, résilience, ressenti global et conclusion générale…</title><link href="https://tech.bedrockstreaming.com/2022/06/16/kubecon-2022-part-4.html" rel="alternate" type="text/html" title="Bedrock à la Kubecon 2022, 4ème partie : chaos, résilience, ressenti global et conclusion générale…" /><published>2022-06-16T00:00:00+00:00</published><updated>2022-06-16T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/06/16/kubecon-2022-part-4</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/06/16/kubecon-2022-part-4.html">&lt;p&gt;Pour terminer cette série, un ou deux sujets divers que nous n’avons pas regroupé dans les trois articles précédents
-(&lt;a href=&quot;/2022/06/13/kubecon-2022-part-1.html&quot;&gt;les performances applicatives et la scalabilité&lt;/a&gt;, 
-&lt;a href=&quot;/2022/06/14/kubecon-2022-part-2.html&quot;&gt;les performances bas niveau, le système et le réseau&lt;/a&gt;,
-&lt;a href=&quot;/2022/06/15/kubecon-2022-part-3.html&quot;&gt;la dev XP, l’outillage, la CI/CD et l’observabilité&lt;/a&gt;), 
-puis une conclusion globale avec ce que nous avons retenu de cette KubeCon Europe 2022.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/part4.jpg&quot; alt=&quot;&amp;quot;KubeCon 2022 part4&amp;quot;&quot; /&gt;&lt;/p&gt;
-&lt;center&gt;&lt;i&gt;La conclusion, @ KubeCon 2022 !&lt;/i&gt;&lt;/center&gt;
-
-&lt;h2 id=&quot;chaos-engineering--chaos-testing-pour-une-meilleur-résilience-aux-pannes&quot;&gt;Chaos Engineering / Chaos Testing pour une meilleur résilience aux pannes&lt;/h2&gt;
-
-&lt;p&gt;C’est un des sujets sur lesquels nous avons commencé à travailler activement cette année : &lt;em&gt;casser des choses&lt;/em&gt; dans nos clusters, dans notre plateforme, entre nos microservices.&lt;br /&gt;
-L’idée sous-jacente est, bien sûr, que tout va casser un jour ou l’autre, donc autant provoquer du chaos nous-même, en environnement contrôlé. Nous identifierons ainsi des points sensibles de notre plateforme et pourrons les corriger, évitant ainsi des incidents, parfois majeurs, au mauvais moment.&lt;/p&gt;
-
-&lt;p&gt;Ce thème du &lt;em&gt;Chaos Engineering&lt;/em&gt; est régulièrement abordé en conférences et nous étions contents de voir que nous ne sommes pas les seuls à nous interroger sur &lt;em&gt;“comment”&lt;/em&gt; en mettre en place.&lt;br /&gt;
-Nous sommes repartis avec quelques pistes d’outils, comme &lt;a href=&quot;https://chaos-mesh.org/&quot;&gt;chaos mesh&lt;/a&gt; ou &lt;a href=&quot;https://litmuschaos.io/&quot;&gt;Litmus Chaos&lt;/a&gt;, que nous allons peut-être prototyper pour les comparer à &lt;a href=&quot;https://github.com/DataDog/chaos-controller&quot;&gt;chaos-controller&lt;/a&gt; que nous avons récemment expérimenté.&lt;/p&gt;
-
-&lt;p&gt;Au cours de la conférence, &lt;em&gt;“Case Study: Bringing Chaos Engineering to the Cloud Native Developers”&lt;/em&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=KSl-oKk6TPA&quot;&gt;vidéo&lt;/a&gt;) par Uma Mukkara, Litmus et Ramiro Berelleza, Okteto, nous avons pu avoir un aperçu de l’outil de chaos Litmus, sa force semblant résider dans le partage des scripts de chaos au sein la communauté.&lt;br /&gt;
-Puis, il a été décrit une approche CI des tests de chaos visant à intégrer certains tests de chaos dans le flux de développement plutôt qu’à la fin.&lt;/p&gt;
-
-&lt;p&gt;Enfin, toujours sur des questions de résilience en cas d’interruption de service, dans sa conférence &lt;em&gt;“Building for the (inevitable) Next Cloud Outage”&lt;/em&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=02a8VB__UQ4&quot;&gt;vidéo&lt;/a&gt;), Pavel Nikolov de &lt;a href=&quot;https://www.section.io/&quot;&gt;Section&lt;/a&gt; nous a questionnés sur la manière d’être plus robuste à une catastrophe.&lt;br /&gt;
-La question n’est pas de savoir si une catastrophe se produira, mais quand elle se produira. C’est pourquoi il est aussi préférable de disposer d’un plan de reprise après sinistre mais surtout de prévoir en amont un système d’auto-guérison permettant d’être plus résilient aux catastrophes.&lt;br /&gt;
-Il nous a ensuite présenté un &lt;em&gt;use case&lt;/em&gt; spécifique au réseau, nous invitant à préférer au traditionnel “DNS à la rescousse”, la mise en place de BGP (Border Gateway Protocol).&lt;/p&gt;
-
-&lt;h2 id=&quot;quelques-sujets-divers&quot;&gt;Quelques sujets divers&lt;/h2&gt;
-
-&lt;p&gt;À travers quelques talks, nous avons jeté des coups d’œil sur des sujets sur lesquels nous ne travaillons pas réellement au quotidien – appelez ça de la curiosité intellectuelle si vous le voulez ;-)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Nous avons vu un ensemble de design patterns pour le développement de controllers Kubernetes (&lt;a href=&quot;https://www.youtube.com/watch?v=I1-s7AxD1Ls&quot;&gt;vidéo&lt;/a&gt;), approche qui devient petit à petit un moyen répandu de répondre à des problématiques, en codant directement dans Kubernetes.&lt;/li&gt;
-  &lt;li&gt;La conférence &lt;em&gt;“A treasure map of hacking (and defending) K8s”&lt;/em&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=1HbwfpE4XKY&quot;&gt;vidéo&lt;/a&gt;) était très sympathique, elle montrait à quel point il peut être &lt;em&gt;“facile”&lt;/em&gt; de prendre le contrôle d’une infrastructure. Une façon de montrer que patcher est obligatoire !&lt;/li&gt;
-  &lt;li&gt;Et dans un registre hors-technique, &lt;em&gt;“Composability is to software as compounding interest is to finance”&lt;/em&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=25aVkm89ZT8&quot;&gt;vidéo&lt;/a&gt;) mettait en évidence à quel point, en construisant des outils, puis des projets, puis un écosystème, les uns profitent aux autres, on construit donc plus grand et plus gros. Il suffit de voir le landscape CNCF aujourd’hui par rapport à 4 ans en arrière.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;conclusion-kubecon-europe-2022&quot;&gt;Conclusion, KubeCon Europe 2022&lt;/h2&gt;
-
-&lt;p&gt;Nous avons commencé à migrer vers Le Cloud, vers AWS et Kubernetes, il y a plus de quatre ans. Notre première KubeCon était à Copenhague, en 2018. Que dire, en conclusion de cette conférence annuelle ? Comment conclure ces articles ?&lt;/p&gt;
-
-&lt;p&gt;Aujourd’hui, les grandes idées que nous avons retenues de cette KubeCon Europe 2022, en résumant, sont les suivantes :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Les problématiques d’auto-scaling sont bien cernées, les outils sont plutôt matures. Comme beaucoup d’autres entreprises, nous arrivons sur l’étape suivante, qui est de dimensionner en tenant mieux compte des couts et pas uniquement des performances et/ou de la disponibilité.&lt;/li&gt;
-  &lt;li&gt;La gestion des coûts dans Kubernetes n’est toujours pas simple. À la fois pour les suivre et les répartir, mais aussi pour décider du bon compromis entre performances / disponibilité / souplesse / autonomie des équipes / couts.&lt;/li&gt;
-  &lt;li&gt;Service Mesh : nous n’avons toujours pas franchi le pas et Istio, qui était un sujet très à la mode il y a quatre ans, nous semble désormais presque oublié. Aujourd’hui, Cilium semble être la nouvelle approche qui s’impose, et il se pourrait que nous jouions avec &lt;em&gt;“pour voir”&lt;/em&gt; prochainement…&lt;/li&gt;
-  &lt;li&gt;L’observabilité, plus vraiment un problème.&lt;/li&gt;
-  &lt;li&gt;Le chaos engineering / chaos testing : toujours une idée séduisante, mais pas encore réellement industrialisée ?&lt;/li&gt;
-  &lt;li&gt;L’outillage autour de la CI/CD, le déploiement progressif, le rollback (possiblement automatisé) progresse, et ça fait plaisir !&lt;/li&gt;
-  &lt;li&gt;L’écosystème progresse, mûrit, et on parle de sujets de plus haut niveau que quelques années en arrière. Par exemple, nous avons entendu plusieurs fois parler de base de données magiquement scalable hébergée dans Kubernetes, alors que l’époque où nous évitions de stocker quelque état que ce soit dans un cluster ne nous semble pas si lointaine !&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Et, pour finir, quelques points dont nous n’avons pas du tout ou très peu entendu parler :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Nous avons peut-être loupé des choses en créant nos programmes, mais nous n’avons vu aucun talk autour de &lt;em&gt;“comment nous développons des applications cloud-native”&lt;/em&gt;. Pourtant, la problématique de l’environnement de développement, avec des services managés, des déploiements vers Kubernetes et des plateformes distribuées, ne nous parait pas encore réglée !&lt;/li&gt;
-  &lt;li&gt;L’approche “FaaS” (Function as a Service) nous paraît encore moins répandue que quelques années en arrière ?&lt;/li&gt;
-  &lt;li&gt;Nous n’avons pas entendu parler une seule fois de &lt;em&gt;Fédération&lt;/em&gt;, alors que le terme revenait encore et encore il y a quatre ans. Nous avons bien fait de ne même pas essayer, on dirait ;-)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-06-13-kubecon-2022/end-part4.jpg&quot; alt=&quot;&amp;quot;La fin d&apos;une aventure !&amp;quot;&quot; /&gt;&lt;/p&gt;
-&lt;center&gt;&lt;i&gt;Rejoignez-nos équipes et venez vivre les prochaines conférences avec nous l’an prochain&lt;/i&gt;&lt;/center&gt;</content><author><name>Bedrock</name></author><category term="kubecon" /><category term="kubernetes" /><category term="cloud" /><category term="k8s" /><category term="conference" /><summary type="html">Pour terminer cette série, un ou deux sujets divers que nous n’avons pas regroupé dans les trois articles précédents (les performances applicatives et la scalabilité, les performances bas niveau, le système et le réseau, la dev XP, l’outillage, la CI/CD et l’observabilité), puis une conclusion globale avec ce que nous avons retenu de cette KubeCon Europe 2022.</summary></entry></feed>
+&lt;p&gt;Generating a diff of the effects of a library upgrade can seem overkill and hard to do in practice, but at least in the case of bug-fix releases with hopefully few changes, it can be very helpful to have an actual report of what changed. It’s an accepted practice to review the code your team checks in; why not review the code of others, since it ends up in the exact same artifact?&lt;/p&gt;</content><author><name>Baptiste Candellier</name></author><category term="android" /><category term="apktool" /><category term="instrumentation" /><category term="debugging" /><category term="productivity" /><summary type="html">If you maintain an Android application, you might be relying on performance monitoring SDKs like Firebase Performance or New Relic, to name a couple. These plugins usually have a light setup process—just apply a Gradle plugin, and they provide the ability to collect statistics about every network call and database query in your app automatically.</summary></entry></feed>

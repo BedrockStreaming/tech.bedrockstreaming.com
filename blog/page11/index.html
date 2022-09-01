@@ -365,6 +365,53 @@
         <span>
           <header>
             <h1>
+              <a aria-label="Use the Sensiolabs Security Checker to check potential vulnerabilities on Symfony projects" class="post-link" href="/2016/07/20/sf2-security-checker.html">
+                Use the Sensiolabs Security Checker to check potential vulnerabilities on Symfony projects
+              </a>
+            </h1>
+            
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      July 20, 2016
+    </p></div>
+
+          </header>
+          
+              <div class="excerpt">
+                  
+                     Numerous vulnerabilities are detected every day. That’s a good thing and a key benefit of using open source products. At m6web we don’t want to be exposed to known vulnerabilities, so we use a service provided by Sensiolabs in our continuous integration tool (Jenkins) to check it.
+
+Just add those lines in your ant build file (and adapt basedir) :
+
+    &amp;lt;!-- =================================================================== --&amp;gt;
+    &amp;lt;!-- Security checker                                                    --&amp;gt;
+    &amp;lt;!-- =================================================================== --&amp;gt;
+    &amp;lt;target name=&quot;sf2-security-checker&quot;&amp;gt;
+     &amp;lt;exec executable=&quot;bash&quot; dir=&quot;${basedir}/sources/bin&quot; failonerror=&quot;true&quot;&amp;gt;
+         &amp;lt;arg value=&quot;-c&quot;/&amp;gt;
+         &amp;lt;arg value=&quot;curl -Os https://get.sensiolabs.org/security-checker.phar&quot; /&amp;gt;
+     &amp;lt;/exec&amp;gt;
+     &amp;lt;exec executable=&quot;php&quot; dir=&quot;${basedir}/sources&quot; failonerror=&quot;true&quot;&amp;gt;
+         &amp;lt;arg line=&quot;${basedir}/sources/bin/security-checker.phar security:check composer.lock&quot; /&amp;gt;
+     &amp;lt;/exec&amp;gt;
+    &amp;lt;/target&amp;gt;
+
+
+                  
+              </div>
+          
+      </span>
+    </div>
+    
+    <div class="post-teaser">
+        
+        <span>
+          <header>
+            <h1>
               <a aria-label="Retour d'expérience sur l'utilisation de Cassandra sur 6play en vidéo" class="post-link" href="/2016/07/04/rex-cassandra.html">
                 Retour d'expérience sur l'utilisation de Cassandra sur 6play en vidéo
               </a>
@@ -667,37 +714,6 @@ Ca parlera jenkins, gitlab, gitlab-ci, outil de gestion de projets, api, sentry,
               <div class="excerpt">
                   
                      Depuis quelques années les équipes d’M6Web se sont organisées autour des méthodes agiles. Scrum, Kanban, Lean, méthodes adaptées, nous nous efforçons de toujours garder en tête l’amélioration continue et le fun spirit au coeur du travail de nos équipes.
-
-                  
-              </div>
-          
-      </span>
-    </div>
-    
-    <div class="post-teaser">
-        
-        <span>
-          <header>
-            <h1>
-              <a aria-label="M6Web Lyon recherche un développeur player vidéo JavaScript (H/F) en CDI" class="post-link" href="/2016/01/26/m6web-lyon-recherche-developpeur-player-video-web-h-f-en-cdi.html">
-                M6Web Lyon recherche un développeur player vidéo JavaScript (H/F) en CDI
-              </a>
-            </h1>
-            
-
-
-<div class="post-info">
-    <p class="meta">
-      
-      
-      January 26, 2016
-    </p></div>
-
-          </header>
-          
-              <div class="excerpt">
-                  
-                     Mise jour : Le poste n’est à plus pourvoir. Merci
 
                   
               </div>
