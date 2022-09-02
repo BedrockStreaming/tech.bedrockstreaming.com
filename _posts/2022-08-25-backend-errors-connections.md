@@ -123,3 +123,4 @@ This was a deviation on the road to our next article, where we will talk about m
 1. [What's a BFF](/2022/06/10/backend-bff-intro.html)
 2. [Handling API failures in a gateway](/2022/08/12/backend-fallbacks.html)
 3. [What's an error, and handling connection to multiple APIs](/2022/08/25/backend-errors-connections.html)
+4. [Using a circuit breaker](/2022/09/02/backend-circuit-breaker.html)
