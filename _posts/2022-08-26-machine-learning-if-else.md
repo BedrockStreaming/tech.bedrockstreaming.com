@@ -26,7 +26,7 @@ Yes! …and no. As always, it depends.
 ## A recap of machine learning
 As a recap, with machine learning, you have data, you apply an algorithm on these data to detect patterns that is grouped as a function.
 
-![ml recap schema](/images/posts/2022-08-26-machine-learning-if-else/ML%20recap.png)
+![machine learning representation schema](/images/posts/2022-08-26-machine-learning-if-else/ML%20recap.png)
 
 Then, you'll be able to use this function on new data to extract new information.
 
