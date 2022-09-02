@@ -24,7 +24,7 @@ Yes! …and no. As always, it depends.
 **Quick answer**: Machine learning is a bunch of mathematical and statistical operations. Sometimes, the operations you use can be translated into “if” and “else” clauses, and sometimes not. But you never write the serie of “if” and “else” yourself.
 
 ## A recap of machine learning
-The idea of machine learning is: you have some data, you apply an algorithm on these to detect patterns that is grouped as a function.
+The idea of machine learning is: you have some data, you apply an algorithm on these to detect patterns. You grouped this pattern in a function.
 
 ![machine learning representation schema](/images/posts/2022-08-26-machine-learning-if-else/ML%20recap.png)
 
@@ -87,15 +87,55 @@ As an example, you can get the result of a decision tree using the Shannon Entro
 
 ![shannon entropy formula](/images/posts/2022-08-26-machine-learning-if-else/formula.png)
 
-If you want to know how it works, you’ve got this article: [Classification in machine learning - Example of Decision Tree with Shannon Entropy](https://medium.zenika.com/classification-in-machine-learning-example-of-decision-tree-with-shannon-entropy-945fc8e2a3fb)
+Suppose we want to guess the form (pentagon or plate) of a diamond according to its attributes. We have three diamonds:
 
-**Then as a result, yes, you can have machine learning algorithms that will build a serie of “if” and “else”. But to generate it, you’ll use mathematical operations.**
+| **carat** | **size** | **form** |
+|-----------|----------|----------|
+| high      | small    | plate    |
+| low       | high     | plate    |
+| low       | small    | pentagon |
+
+
+The process if the following:
+- You split your data randomly: so you create an *if* like *if carat is high*
+- You check if it helps to generate a more accurate view of your data: by doing this *if*, do we separate correctly our data? Do we have pentagons mostly from one side and plates from another? **To be able to know what, we use the Shannon entropy formula that will give us the response**
+        - if yes, we keep the *if carat is high*
+        - if not, we generate another one
+Then, you obtain something like that:
+  
+![decision tree - first step](/images/posts/2022-08-26-machine-learning-if-else/decision_tree_first_step.png)
+
+The translation with a code is:
+
+```python
+if carat (the weight of a diamond) is high:
+    return red plate
+else:
+    #We don't know yet how to handle that
+```
+
+Note that you have a branch with a plate and a pentagon. It corresponds to the *else* where we don't know what to put yet. Then, you start again the process.
+
+- You split your data randomly: so you create another *if*
+- You check if it helps to generate a more accurate view of your data
+        - if yes, we keep the new *if*
+        - if not, we generate another one
+
+And of course, you do that iteratively until getting the perfect tree. The process, we used is an optimisation algorithm.
+
+*Mathematical optimization [...] is the selection of a best element, with regard to some criterion, from some set of available alternatives (definition from Wikipedia)*
+
+If you want to know how the Shannon entropy works with mathematical formulas, you’ve got this article: [Classification in machine learning - Example of Decision Tree with Shannon Entropy](https://medium.zenika.com/classification-in-machine-learning-example-of-decision-tree-with-shannon-entropy-945fc8e2a3fb)
+
+**Then as a result, yes, you can have machine learning algorithms that will build a serie of *if* and *else*. But to generate it, you’ll use mathematical operations.**
+
+*Note that for other algorithms such as the matrix factorisation or neural networks, we don't use the Shannon entropy formula, but other optimisation algorithms that don't generate a serie of *if* and *else* but, as previously seen, vectors or formulas.
 
 ## So why do we sometimes say that machine learning is a bunch of “if” and “else” statements?
 
 To my opinion, because of expert systems. They are the ancestors of machine learning in artificial intelligence.
 
-Artificial intelligence is a way to simulate human cognitive abilities. In the history of artificial intelligence, we thought that we’d be able to target that with expert systems. These are big series of hardcoded rules and then... of “if” and “else”.
+Artificial intelligence is a way to simulate human cognitive abilities. In the history of artificial intelligence, we thought that we’d be able to target that with expert systems. These are big series of hardcoded rules and then... of *if* and *else*.
 
 ## Conclusion
 To conclude, most of the time, machine learning is not a serie of “if” and “else”. It’s just mathematics and for some techniques, they are very old. I’m thinking of linear regressions or Bayesian probabilities. These were used long before the existence of computers.
