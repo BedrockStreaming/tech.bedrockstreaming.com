@@ -9,7 +9,7 @@ color: rgb(251,87,66) # this is Bedrock color here
 
 Recently, a colleague asked me:
 
-"All good with your if and else machine learning system?”
+> All good with your if and else machine learning system?
 
 It was a joke but this one made me think. 
 
