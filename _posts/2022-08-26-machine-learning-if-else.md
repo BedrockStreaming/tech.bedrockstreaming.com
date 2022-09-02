@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Is machine learning a unicorn hiding a serie of “if” and “else”?
+title: Is machine learning a unicorn hiding a serie of "if” and “else”?
 description: Let's think about what is behind machine learning
 author: n_saby
 tags: [machine learning, Data Science]
@@ -13,7 +13,7 @@ Recently, a colleague asked me:
 
 It was a joke but this one made me think. 
 
-*This is a running gag: machine learning is only a serie of “if” and “else”.*
+*This is a running gag: machine learning is only a serie of "if” and “else”.*
 
 ![unicorn in the forest](/images/posts/2022-08-26-machine-learning-if-else/unicorn_forest.jpg)
 
@@ -21,7 +21,7 @@ Beyond the joke, it is true?
 
 Yes! …and no. As always, it depends.
 
-**Quick answer**: Machine learning is a bunch of mathematical and statistical operations. Sometimes, the operations you use can be translated into “if” and “else” clauses, and sometimes not. But you never write the serie of “if” and “else” yourself.
+**Quick answer**: Machine learning is a bunch of mathematical and statistical operations. Sometimes, the operations you use can be translated into *if* and *else* clauses, and sometimes not. But you never write the serie of *if* and *else* yourself.
 
 ## A recap of machine learning
 The idea of machine learning is: you have some data, you apply an algorithm on these to detect patterns. You grouped this pattern in a function.
@@ -48,7 +48,7 @@ else:
         return grey pentagon
 ```
 
-**Then, yes, you can see that here, we have a serie of “if” and “else”.**
+**Then, yes, you can see that here, we have a serie of *if* and *else*.**
 
 And decision trees are used a lot in machine learning. Most of the time, you don’t use decision trees directly but forests of decision trees in the Random Forest algorithm or a serie of decision trees in the Gradient Boosted Trees algorithm.
 
@@ -60,9 +60,9 @@ Let’s take another famous way to do machine learning: a neural network. What w
 a*10+b*15+c*16+20…
 ```
 
-Then, the process doesn’t try to find a serie of “if” and “else”, but a mathematical formula.
+Then, the process doesn’t try to find a serie of *if* and *else*, but a mathematical formula.
 
-I would like to finish with a last example: recommender systems. There are many ways to build a recommendation system. One which is well known is matrix factorization. 
+I would like to finish with a last example: recommender systems. There are many ways to build a recommendation system. One which is well known is matrix factorization.
 
 *Matrix factorization, what?*
 
@@ -75,11 +75,11 @@ The result is something like that:
 Vector A * Vector B
 ```
 
-**As a result, yes, you have types of machine learning that will generate a serie of “if” and “else”. But, you have also plenty of algorithms that try to find the variables of an equation or vectors.**
+**As a result, yes, you have types of machine learning that will generate a serie of *if* and *else*. But, you have also plenty of algorithms that try to find the variables of an equation or vectors.**
 
 ## You never write the serie of “if” and “else” yourself
 
-Let’s go back to the decision tree. As we’ve seen, the result could be translated as a serie of “if” and “else”.
+Let’s go back to the decision tree. As we’ve seen, the result could be translated as a serie of *if* and *else*.
 
 But, you don’t write directly this code. You generate it using… mathematical operations. Yes, again! 
 
@@ -96,12 +96,12 @@ Suppose we want to guess the form (pentagon or plate) of a diamond according to 
 | low       | small    | pentagon |
 
 
-The process if the following:
+The process is the following:
 - You split your data randomly: so you create an *if* like *if carat is high*
 - You check if it helps to generate a more accurate view of your data: by doing this *if*, do we separate correctly our data? Do we have pentagons mostly from one side and plates from another? **To be able to know what, we use the Shannon entropy formula that will give us the response**
         - if yes, we keep the *if carat is high*
         - if not, we generate another one
-Then, you obtain something like that:
+Then, by keeping the *if* you get something like that:
   
 ![decision tree - first step](/images/posts/2022-08-26-machine-learning-if-else/decision_tree_first_step.png)
 
@@ -120,6 +120,20 @@ Note that you have a branch with a plate and a pentagon. It corresponds to the *
 - You check if it helps to generate a more accurate view of your data
         - if yes, we keep the new *if*
         - if not, we generate another one
+  
+For instance, you get another *if*, another branch:
+![decision tree - second step](/images/posts/2022-08-26-machine-learning-if-else/decision_tree_second_step.png)
+
+The translation with a code is:
+```python
+if size is high:
+    return red plate
+else:
+    return grey pentagon
+```
+
+At the end, you get a final tree decision:
+![decision tree - final](/images/posts/2022-08-26-machine-learning-if-else/decision_tree_final.png)
 
 And of course, you do that iteratively until getting the perfect tree. The process, we used is an optimisation algorithm.
 
@@ -138,6 +152,6 @@ To my opinion, because of expert systems. They are the ancestors of machine lear
 Artificial intelligence is a way to simulate human cognitive abilities. In the history of artificial intelligence, we thought that we’d be able to target that with expert systems. These are big series of hardcoded rules and then... of *if* and *else*.
 
 ## Conclusion
-To conclude, most of the time, machine learning is not a serie of “if” and “else”. It’s just mathematics and for some techniques, they are very old. I’m thinking of linear regressions or Bayesian probabilities. These were used long before the existence of computers.
+To conclude, most of the time, machine learning is not a serie of *if* and *else*. It’s just mathematics and for some techniques, they are very old. I’m thinking of linear regressions or Bayesian probabilities. These were used long before the existence of computers.
 
 *Photo of the unicorn by <a href="https://unsplash.com/@stephenleo1982?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Stephen Leonardi</a> on <a href="https://unsplash.com/s/photos/unicorn?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>*
