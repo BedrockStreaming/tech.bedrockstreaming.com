@@ -98,10 +98,13 @@ Suppose we want to guess the form (pentagon or plate) of a diamond according to 
 
 The process is the following:
 1. You split your data randomly: so you create an *if* like *if carat is high*
-2. You check if it helps to generate a more accurate view of your data: by doing this *if*, do we separate correctly our data? Do we have pentagons mostly from one side and plates from another? **To be able to know what, we use the Shannon entropy formula that will give us the response**
+2. You check if it helps to generate a more accurate view of your data: by doing this *if*, do we separate correctly our data? Do we have pentagons mostly from one side and plates from another? 
+   
+**To be able to know what, we use the Shannon entropy formula that will give us the response**
 
-        - if yes, we keep the *if carat is high*
-        - if not, we generate another one
+- if yes, we keep the *if carat is high*
+- if not, we generate another one
+
 Then, by keeping the *if* you get something like that:
   
 ![decision tree - first step](/images/posts/2022-08-26-machine-learning-if-else/decision_tree_first_step.png)
@@ -120,8 +123,8 @@ Note that you have a branch with a plate and a pentagon. It corresponds to the *
 1. You split your data randomly: so you create another *if*
 2. You check if it helps to generate a more accurate view of your data
 
-        - if yes, we keep the new *if*
-        - if not, we generate another one
+- if yes, we keep the new *if*
+- if not, we generate another one
   
 For instance, you get another *if*, another branch:
 ![decision tree - second step](/images/posts/2022-08-26-machine-learning-if-else/decision_tree_second_step.png)
