@@ -24,7 +24,7 @@ Yes! …and no. As always, it depends.
 **Quick answer**: Machine learning is a bunch of mathematical and statistical operations. Sometimes, the operations you use can be translated into “if” and “else” clauses, and sometimes not. But you never write the serie of “if” and “else” yourself.
 
 ## A recap of machine learning
-As a recap, with machine learning, you have data, you apply an algorithm on these data to detect patterns that is grouped as a function.
+The idea of machine learning is: you have some data, you apply an algorithm on these to detect patterns that is grouped as a function.
 
 ![machine learning representation schema](/images/posts/2022-08-26-machine-learning-if-else/ML%20recap.png)
 
