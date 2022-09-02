@@ -32,7 +32,7 @@ Then, you'll be able to use this function on new data to extract new information
 
 ## A decision tree with a series of if and else
 
-There are different types of machine learning. If you decide to build a decision tree (a famous way to do machine learning), you’ll get something like that:
+There are different types of machine learning. If you decide to build a decision tree (a famous way to do machine learning) to know the form of a diamond, you’ll get something like that:
 
 ![decision tree](/images/posts/2022-08-26-machine-learning-if-else/decision_tree.png)
 
@@ -141,7 +141,19 @@ else:
 At the end, you get a final tree decision:
 ![decision tree - final](/images/posts/2022-08-26-machine-learning-if-else/decision_tree_final.png)
 
-Of course, in real life, data are more complicated and the process must iterate a lot until getting the perfect tree. The process, used is an optimisation algorithm. This is the part called *learning*.
+with a final code:
+
+```python
+if carat (the weight of a diamond) is high:
+    return red plate
+else:
+    if size is high:
+        return red plate
+    else:
+        return grey pentagon
+```
+
+Of course, in real life, data are more complicated and the process must iterate a lot until getting the perfect tree. The process used is an optimisation algorithm. This is the part called *learning* in machine learning.
 
 *Mathematical optimization [...] is the selection of a best element, with regard to some criterion, from some set of available alternatives (definition from Wikipedia)*
 
@@ -155,7 +167,7 @@ If you want to know how the Shannon entropy works with mathematical formulas, yo
 
 To my opinion, because of expert systems. They are the ancestors of machine learning in artificial intelligence.
 
-Artificial intelligence is a way to simulate human cognitive abilities. In the history of artificial intelligence, people thought that they would have been able to target that with expert systems. These are big series of hardcoded rules and then... of *if* and *else*.
+Artificial intelligence is a way to simulate human cognitive abilities. In the history of artificial intelligence, people thought that they would be able to target that with expert systems. These are big series of hardcoded rules and then... of *if* and *else*.
 
 ## Conclusion
 To conclude, most of the time, machine learning is not a series of *if* and *else*. It’s just mathematics and for some techniques, they are very old. I’m thinking of linear regressions or Bayesian probabilities. These were used long before the existence of computers.
