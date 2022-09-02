@@ -97,8 +97,9 @@ Suppose we want to guess the form (pentagon or plate) of a diamond according to 
 
 
 The process is the following:
-- You split your data randomly: so you create an *if* like *if carat is high*
-- You check if it helps to generate a more accurate view of your data: by doing this *if*, do we separate correctly our data? Do we have pentagons mostly from one side and plates from another? **To be able to know what, we use the Shannon entropy formula that will give us the response**
+1. You split your data randomly: so you create an *if* like *if carat is high*
+2. You check if it helps to generate a more accurate view of your data: by doing this *if*, do we separate correctly our data? Do we have pentagons mostly from one side and plates from another? **To be able to know what, we use the Shannon entropy formula that will give us the response**
+
         - if yes, we keep the *if carat is high*
         - if not, we generate another one
 Then, by keeping the *if* you get something like that:
@@ -116,8 +117,9 @@ else:
 
 Note that you have a branch with a plate and a pentagon. It corresponds to the *else* where we don't know what to put yet. Then, you start again the process.
 
-- You split your data randomly: so you create another *if*
-- You check if it helps to generate a more accurate view of your data
+1. You split your data randomly: so you create another *if*
+2. You check if it helps to generate a more accurate view of your data
+
         - if yes, we keep the new *if*
         - if not, we generate another one
   
