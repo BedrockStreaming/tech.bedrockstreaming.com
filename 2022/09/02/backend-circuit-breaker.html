@@ -75,22 +75,22 @@
     <meta property="og:type" content="website" />
     
     <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Bedrock’s backend architecture and its front API Gateway | Bedrock Tech Blog</title>
+<title>Using a circuit breaker to spare the API we are calling | Bedrock Tech Blog</title>
 <meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="Bedrock’s backend architecture and its front API Gateway" />
+<meta property="og:title" content="Using a circuit breaker to spare the API we are calling" />
 <meta name="author" content="Valentin CLARAS" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="What is a BFF, and how does it simplify the development of frontend applications?" />
-<meta property="og:description" content="What is a BFF, and how does it simplify the development of frontend applications?" />
-<link rel="canonical" href="https://tech.bedrockstreaming.com/2022/06/10/backend-bff-intro.html" />
-<meta property="og:url" content="https://tech.bedrockstreaming.com/2022/06/10/backend-bff-intro.html" />
+<meta name="description" content="What is a circuit-breaker, and how are we using it?" />
+<meta property="og:description" content="What is a circuit-breaker, and how are we using it?" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2022/09/02/backend-circuit-breaker.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2022/09/02/backend-circuit-breaker.html" />
 <meta property="og:site_name" content="Bedrock Tech Blog" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-06-10T00:00:00+00:00" />
+<meta property="article:published_time" content="2022-09-02T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Bedrock’s backend architecture and its front API Gateway" />
+<meta property="twitter:title" content="Using a circuit breaker to spare the API we are calling" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/06/10/backend-bff-intro.html"},"url":"https://tech.bedrockstreaming.com/2022/06/10/backend-bff-intro.html","author":{"@type":"Person","name":"Valentin CLARAS"},"@type":"BlogPosting","headline":"Bedrock’s backend architecture and its front API Gateway","dateModified":"2022-06-10T00:00:00+00:00","datePublished":"2022-06-10T00:00:00+00:00","description":"What is a BFF, and how does it simplify the development of frontend applications?","@context":"https://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/09/02/backend-circuit-breaker.html"},"url":"https://tech.bedrockstreaming.com/2022/09/02/backend-circuit-breaker.html","author":{"@type":"Person","name":"Valentin CLARAS"},"@type":"BlogPosting","headline":"Using a circuit breaker to spare the API we are calling","dateModified":"2022-09-02T00:00:00+00:00","datePublished":"2022-09-02T00:00:00+00:00","description":"What is a circuit-breaker, and how are we using it?","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -99,12 +99,12 @@
     <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
 
     <!-- Twitter Cards -->
-    <meta name="twitter:title" content="Bedrock's backend architecture and its front API Gateway">
-    <meta name="twitter:description" content="What is a BFF, and how does it simplify the development of frontend applications?IntroductionAhoy there o/This article is the first in a series explaining th...">
+    <meta name="twitter:title" content="Using a circuit breaker to spare the API we are calling">
+    <meta name="twitter:description" content="Hi! We’re going to start our fourth article about Bedrock’s API gateway.Today we will talk about the circuit breaker pattern, what it is, and how we’re using...">
     
     <meta name="twitter:card" content="summary">
     <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/banner_xl.jpg">
-    <meta name="twitter:image:alt" content="Bedrock's backend architecture and its front API Gateway">
+    <meta name="twitter:image:alt" content="Using a circuit breaker to spare the API we are calling">
 </head>
 
   <body>
@@ -324,7 +324,7 @@
         
         
         <li class="separator"> | </li>
-        <li><a id="theme-toggle" title="Bedrock's backend architecture and its front API Gateway " aria-label="Bedrock's backend architecture and its front API Gateway" onclick="themeToggle()"></a></li>
+        <li><a id="theme-toggle" title="Using a circuit breaker to spare the API we are calling " aria-label="Using a circuit breaker to spare the API we are calling" onclick="themeToggle()"></a></li>
         
     </ul>
 
@@ -336,7 +336,7 @@
   <header id="main" style="">
     <div class="title-padder">
       
-      <h1 id="Bedrock%27s+backend+architecture+and+its+front+API+Gateway" class="title">Bedrock's backend architecture and its front API Gateway</h1>
+      <h1 id="Using+a+circuit+breaker+to+spare+the+API+we+are+calling" class="title">Using a circuit breaker to spare the API we are calling</h1>
       
 
 
@@ -346,7 +346,7 @@
     <p class="meta">
       Valentin CLARAS - 
       
-      June 10, 2022
+      September 02, 2022
     </p></a></div>
 
       
@@ -355,148 +355,107 @@
 
   <section class="post-content">
   
-      <p>What is a BFF, and how does it simplify the development of frontend applications?</p>
+      <p>Hi! We’re going to start our <a href="#from-the-same-series">fourth article</a> about Bedrock’s API gateway.
+Today we will talk about the circuit breaker pattern, what it is, and how we’re using it.</p>
 
-<h2 id="introduction">Introduction</h2>
+<h2 id="the-circuit-breaker-pattern">The Circuit Breaker Pattern</h2>
 
-<p>Ahoy there o/</p>
+<p>With this pattern, our API Gateway detects errors when calling its dependencies.
+It will stop calling them if a given threshold (ratio of errors) is crossed.</p>
 
-<p>This article is the first in a series explaining the backend architecture we use at Bedrock.
-This first piece is dedicated to the <em>BFF</em> API. Without further delay, let’s jump into the subject!</p>
+<p>The circuit breaker allows us to spare the dependencies in difficulty, but also avoid taking time to do something that will most likely fail.</p>
 
-<h2 id="so-whats-a-bff">So, what’s a BFF?</h2>
+<p>You’ll find a more detailed explanation about the circuit breaker on Martin FOWLER’s <a href="https://martinfowler.com/bliki/CircuitBreaker.html">blog</a>.</p>
 
-<p>For years, we have been using a microservices pattern <a href="#notes">(1)</a>. Each with their own responsibilities.</p>
+<h2 id="where-to-use-it">Where to use it?</h2>
 
-<p>Backend and frontend development have long been decoupled.
-Every frontend applications had to know about all microservices, call them and know what to do with their data.</p>
+<p>As soon as a service call is not mandatory for our BFF to answer something that a frontend application can read, then we can use the circuit breaker pattern.</p>
 
-<p><img src="/images/posts/2022-06-10-backend-bff-intro/architecture-old.png" alt="old architecture" /></p>
+<p>If an API cannot handle a sudden increase in traffic (for example: it’s not scaling fast enough or its database starts to throttle), it’s better to stop calling it temporarily.
+When the right timeouts are configured, an API throttling will result in an error, as seen <a href="/2022/08/25/backend-errors-connections.html">in the previous article</a></p>
 
-<p>This approach had three main limitations from a frontend point of view:</p>
-<ul>
-  <li>It forced Bedrock to duplicate logic in each application.</li>
-  <li>It prevented us from deprecating legacy APIs.</li>
-  <li>New features implied a frontend development and deployment.</li>
-</ul>
+<p>Here are some examples:</p>
 
-<p>There were other downsides, which were mainly derivatives from those listed above.</p>
-<blockquote>
-  <p>As an example, updating an icon into the menu bar required us to deploy all applications. It is not always easy or doable, and cannot be forced onto users without losing some of them.</p>
-</blockquote>
+<p><em>Video progress information</em></p>
 
-<p>The BFF tries to answer those limitations!</p>
+<p>Displaying a video progress bar is useful for end users, but it’s better to not display this information instead of risking the entire page to not be displayed!
+If the service that stores video viewing sessions is (slowing) down, we can stop asking for this information and stop displaying the video progress bar.</p>
 
-<p>It’s a single API <a href="#notes">(2)</a> that handles all the frontend applications queries to display contents, navigation, or even start downloads.
-In addition, this gateway <a href="#notes">(3)</a> gathers all business logic. This is done in order to avoid repeating the logic in each application.
-That’s what we call a <em>Back For Front</em>!</p>
+<p><img src="/images/posts/2022-09-02-backend-circuit-breaker/progress-bar.png" alt="a video with a progress bar" /></p>
 
-<h3 id="abstracting-the-microservices">Abstracting the microservices</h3>
+<p><em>User geolocation</em></p>
 
-<p><img src="/images/posts/2022-06-10-backend-bff-intro/architecture-new.png" alt="Our new BFF API Gateway + microservices architecture" /></p>
+<p>The geolocation service allows us to know where the end user is in the world. Based on this information we lock some area restricted contents.
+If this service goes down for some reason, we will stop calling it, and instead use a default area matching the area of our customer as it’s the majority case.</p>
 
-<p>The first main advantage is to abstract the backend complexity for the frontend teams.
-In the previous model, each application had to know where each data came from, how to parse it, and what to do with it.</p>
+<h2 id="implementation-and-configuration">Implementation and configuration</h2>
 
-<p>In the new model, we can easily deprecate an API, replace it, change how the data is stored or returned.
-To do so, we only need the team leading the change, and the team handling the BFF to work together at their own pace.
-They can decide, depending on the change, how to handle the migration.
-They might decide to use a new endpoint to be switched at some point, or add a new attribute in the response, etc.</p>
+<p>So far we’re only using the circuit breaker pattern with HTTP calls.
+This is made possible thanks to the <a href="https://github.com/ackintosh/ganesha">Ganesha library</a>, and its Guzzle middleware.</p>
 
-<p>All those changes will happen without any frontend application noticing it.</p>
+<p>The Guzzle middleware is created as a service within the Symfony service definitions.
+It’s then injected into our <code class="language-plaintext highlighter-rouge">HttpClientFactory</code> that will handle the creation of all the different clients.
+The responsibility of using the circuit breaker falls on each service that will create a http client.</p>
 
-<h3 id="simplification-of-the-data-structure">Simplification of the data structure</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">Ackintosh\Ganesha\GuzzleMiddleware</span><span class="pi">:</span>
+    <span class="na">factory</span><span class="pi">:</span> <span class="pi">[</span><span class="s1">'</span><span class="s">@...Infrastructure\HttpClient\CircuitBreaker\CircuitBreakerMiddlewareFactory'</span><span class="pi">,</span> <span class="s1">'</span><span class="s">buildWithRateStrategy'</span><span class="pi">]</span>
+    <span class="na">arguments</span><span class="pi">:</span>
+        <span class="na">$timeWindow</span><span class="pi">:</span> <span class="m">60</span>
+        <span class="na">$failureRateThreshold</span><span class="pi">:</span> <span class="m">40</span>
+        <span class="na">$minimumRequests</span><span class="pi">:</span> <span class="m">10</span>
+        <span class="na">$intervalToHalfOpen</span><span class="pi">:</span> <span class="m">60</span>
+</code></pre></div></div>
 
-<p>Another advantage is to simplify the data representation.</p>
+<h2 id="monitoring-the-circuit-breaker">Monitoring the circuit breaker</h2>
 
-<p><img src="/images/posts/2022-06-10-backend-bff-intro/presentation-old.png" alt="old presentation with multiple data structure behind" /></p>
+<p>At Bedrock, we’re used to monitor everything. The circuit breaker makes no exception to this rule.
+Usually we store time spent and response code for every outgoing http call.
+To see when the circuit breaker is open, we catch the ganesha’s <code class="language-plaintext highlighter-rouge">RejectedException</code> to save a dedicated <code class="language-plaintext highlighter-rouge">666</code> http status.</p>
 
-<p>By taking all this responsibility in a single API, it now translates the data from the APIs to a single unified representation that all applications can use.</p>
+<p>This allows us to look for the exact number of calls avoided.
+Below lies an example of a monitoring chart showing some errors happening during a usual night.</p>
 
-<p><img src="/images/posts/2022-06-10-backend-bff-intro/presentation-new.png" alt="new presentation with a single data structure" /></p>
+<p><img src="/images/posts/2022-09-02-backend-circuit-breaker/monitoring-1.png" alt="monitoring excluding less reliable services" /></p>
 
-<p>This representation is maintained by the BFF in a single openapi schema <a href="#notes">(4)</a>. It shares the same concepts between the multiple endpoints of the API.</p>
+<p>We also have to query slower services that often trigger our circuit breaker because they cannot answer in the short timeout we impose.
+Thereafter, the same monitoring chart including such services.</p>
 
-<p>The main usage of the BFF is to handle the navigation between the pages of the application.
-In the pictures above and below, the central block shows the application screen. The application page is split into two parts.</p>
+<p><img src="/images/posts/2022-09-02-backend-circuit-breaker/monitoring-2.png" alt="monitoring including less reliable service" /></p>
 
-<p>The top is answered by the navigation endpoint which gives a list of groups and entries.
-Every entry can have nested groups, and an action.</p>
+<h2 id="going-further">Going further</h2>
 
-<p>The second part is what we call the <em>layout</em>. It’s a representation of the page, composed of multiple blocks, each with a list of items.
-Each item has a title, a description, an image, and an action (the same type as in the entries).</p>
+<p>So far, we have identified two areas for improvements described below.</p>
 
-<p>This makes the BFF responsible for what to display in the page, and in which order and how to display it.
-How to display things is described through template strings that tell how to display each block.</p>
+<h3 id="different-configurations">Different configurations</h3>
 
-<p>It’s important to understand that the BFF does not return HTML! It returns a JSON string that needs to be parsed and interpreted by the application.</p>
+<p>We’re only using a single configuration for the circuit breaker.
+We should allow each service to choose from a named list of configurations when creating a client, <a href="/2022/08/25/backend-errors-connections.html">similarly to the different guzzle configuration we are using</a>.
+The main obstacle is a lack of hindsight which prevent us to have fine-tuned values.
+This is something that will definitively be improved over time as we monitor over long period.</p>
 
-<p>Every application still has to care about its design system, what font to use, which iconography.
-This means that a template <code class="language-plaintext highlighter-rouge">Card</code> might not be displayed exactly the same between a computer, a mobile phone or a television; even if the data are the same.</p>
+<h3 id="staled-cache-when-the-circuit-breaker-is-open">Staled cache when the circuit breaker is open</h3>
 
-<p><img src="/images/posts/2022-06-10-backend-bff-intro/presentation-explanation.png" alt="presentation explanation" /></p>
+<p>For many editorial contents, we’re using a staled cache version of the data as a fallback.
+To do so, we’re using <a href="https://github.com/Kevinrob/guzzle-cache-middleware">another guzzle middleware</a>.</p>
 
-<p>There are other usages to the BFF <a href="#notes">(5)</a>, such as handling downloads, and some others to come, but it shares the same concept by answering to the front something to display.</p>
-
-<h3 id="keeping-all-logic-in-one-place">Keeping all logic in one place</h3>
-
-<p>The last main gain with the BFF, is that we’re able to put all the logic in one place.
-This allows us to update and change the business rules at any time.</p>
-
-<p>Here are a few examples</p>
-
-<blockquote>
-  <p>When a user tries to navigate the application, if he uses a new device while he has already reached the limit of allowed devices, we can display a layout asking him to delete a device first.</p>
-</blockquote>
-
-<p>This limit can be removed or changed at any time in all applications.</p>
-
-<blockquote>
-  <p>In France, explicit contents must be filtered out during daytime</p>
-</blockquote>
-
-<p>If this rule changes, we will do so directly in the BFF, and no application will ever notice it.</p>
+<p>Sadly, the two middlewares don’t work together. We have to chose which one to use based on the criticality of the content and the API behind. 
+This is something that we aim at solving with a bit of R&amp;D.</p>
 
 <h2 id="conclusion">Conclusion</h2>
 
-<p>The model known as back for front or API Gateway is nothing new and other major services already use it.
-We’ve been using this model for more than 3 years now. It has undergone some major updates <a href="#notes">(6)</a> but this is a model we’re happy with.</p>
+<p>In today’s post we’ve seen our usage of the circuit breaker pattern.
+It allows us to spare the services we are calling, and avoid slowing us down in case of throttling.</p>
 
-<p>We plan to expand this pattern to handle even more logic inside the BFF in the coming years and keep being frontend application’s best friend.</p>
-
-<p><img src="/images/posts/2022-06-10-backend-bff-intro/bff.png" alt="BFF stands for Back for Front, and not Best Friends Forever here" /></p>
-
-<p>That’s all for today’s post!</p>
-
-<p>In the next part we will talk about handling the failures of the dependencies the BFF is calling, and what to do to always answer something usable by the applications.</p>
-
-<h2 id="notes">Notes</h2>
-
-<ol>
-  <li>For more details about microservices, you can read <a href="https://aws.amazon.com/microservices/">this piece from AWS</a>.</li>
-  <li>There are some other APIs called by our applications, such as the authentication service, but let’s not get lost into details…</li>
-  <li>There’s a lot of resources about API Gateway, here is <a href="https://www.nginx.com/learn/api-gateway/">one from nginx</a>.</li>
-  <li>Open API is used to define the communication standards between our BFF and the clients, more explanation on the <a href="https://www.openapis.org/">dedicated website of the organization</a>.</li>
-  <li>In addition to note 1, we are currently moving to the api gateway model, and some behaviors still require the application to call dedicated microservices.</li>
-  <li>( in French 🇫🇷 ) <a href="https://afup.org/talks/3241-6play-api-v2-final-1-doc">An old conference</a> from 2020 given by Benoit VIGUIER, previous Team Lead in charge of the BFF, about API gateway and asynchronous development.</li>
-</ol>
+<p>Next time, we will talk about our ultimate layer of protection to ensure the BFF always responds something readable to frontend applications.</p>
 
 <h2 id="from-the-same-series">From the same series</h2>
 
 <ol>
-  <li><a href="/2022/06/10/backend-bff-intro.html">What’s a BFF</a></li>
-  <li><a href="/2022/08/12/backend-fallbacks.html">Handling API failures in a gateway</a></li>
-  <li><a href="/2022/08/25/backend-errors-connections.html">What’s an error, and handling connection to multiple APIs</a></li>
+  <li><a href="/2022/06/10/backend-bff.html">What’s a BFF</a></li>
+  <li><a href="/2022/06/12/backend-fallbacks.html">Handling API failures in a gateway</a></li>
+  <li><a href="/2022/08/25/backend-errors-connections.html">What’s an error, and handling connexion to multiple APIs</a></li>
   <li><a href="/2022/09/02/backend-circuit-breaker.html">Using a circuit breaker</a></li>
 </ol>
-
-<hr />
-<p>In the meantime, feel free to have a look at other articles available on this blog:</p>
-
-<ul>
-  <li>🇺🇸 <a href="/2022/05/31/github-action-pr-size-labeler.html">Announcing BedrockStreaming/pr-size-labeler github action</a></li>
-  <li>🇫🇷 <a href="/2022/05/30/afup-day-lille-2022.html">Retour sur l’AFUP Day Lille 2022</a></li>
-</ul>
 
     
   </section>
@@ -509,7 +468,7 @@ We’ve been using this model for more than 3 years now. It has undergone some m
         <li class="meta">Share</li>
          
         <li>
-            <a href="https://twitter.com/intent/tweet?text=Bedrock%27s+backend+architecture+and+its+front+API+Gateway%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F06%2F10%2Fbackend-bff-intro.html"
+            <a href="https://twitter.com/intent/tweet?text=Using+a+circuit+breaker+to+spare+the+API+we+are+calling%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F09%2F02%2Fbackend-circuit-breaker.html"
                target="_blank" title="">
                 <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
                 <span class="sr-only">Tweet</span>
@@ -517,7 +476,7 @@ We’ve been using this model for more than 3 years now. It has undergone some m
         </li>
              
         <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/06/10/backend-bff-intro.html&title=Bedrock%27s+backend+architecture+and+its+front+API+Gateway%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/06/10/backend-bff-intro.html"
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/09/02/backend-circuit-breaker.html&title=Using+a+circuit+breaker+to+spare+the+API+we+are+calling%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/09/02/backend-circuit-breaker.html"
                target="_blank" title=" LinkedIn">
                 <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
                 <span class="sr-only">Share on LinkedIn</span>
@@ -525,7 +484,7 @@ We’ve been using this model for more than 3 years now. It has undergone some m
         </li>
           
         <li>
-            <a href="mailto:?subject=Bedrock's backend architecture and its front API Gateway%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/06/10/backend-bff-intro.html"
+            <a href="mailto:?subject=Using a circuit breaker to spare the API we are calling%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/09/02/backend-circuit-breaker.html"
                target="_blank" title="">
                 <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
                 <span class="sr-only">Email</span></a>
@@ -565,8 +524,16 @@ We’ve been using this model for more than 3 years now. It has undergone some m
           <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
         </a></li>
       
+        <li><a class="button" href="/tags/#circuit-breaker">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> circuit-breaker</p>
+        </a></li>
+      
         <li><a class="button" href="/tags/#php">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> php</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#resiliency">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> resiliency</p>
         </a></li>
       
     </ul>
@@ -580,19 +547,12 @@ We’ve been using this model for more than 3 years now. It has undergone some m
 
 <div id="post-nav">
     
-    <div id="previous-post">
-        <a alt="Bedrock à la kubecon 2022, 1ere partie : performances applicatives et scalabilité" href="/2022/06/13/kubecon-2022-part-1.html">
-            <p>Previous post</p>
-            Bedrock à la kubecon 2022, 1ere partie : performances applicatives et scalabilité
-        </a>
-    </div>
-    
 
     
     <div id="next-post">
-        <a alt="Migration progressive vers Redux Toolkit" href="/2022/06/08/migration-progressive-vers-redux-toolkit.html">
+        <a alt="Prescaling pods in Kubernetes, we open source our solution" href="/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html">
             <p>Next post</p>
-            Migration progressive vers Redux Toolkit
+            Prescaling pods in Kubernetes, we open source our solution
         </a>
     </div>
     

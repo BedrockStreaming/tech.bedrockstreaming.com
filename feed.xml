@@ -1,4 +1,104 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-09-01T09:28:30+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Prescaling pods in Kubernetes, we open source our solution</title><link href="https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html" rel="alternate" type="text/html" title="Prescaling pods in Kubernetes, we open source our solution" /><published>2022-09-01T00:00:00+00:00</published><updated>2022-09-01T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html">&lt;p&gt;Previously we &lt;a href=&quot;https://tech.bedrockstreaming.com/2022/02/03/prescaling.html&quot;&gt;discussed&lt;/a&gt; how we manage the load of our Kubernetes clusters and how we can anticipate our needs with prescaling. Today, we are here to share our solution that we have reworked and open sourced! 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-09-02T08:50:03+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Using a circuit breaker to spare the API we are calling</title><link href="https://tech.bedrockstreaming.com/2022/09/02/backend-circuit-breaker.html" rel="alternate" type="text/html" title="Using a circuit breaker to spare the API we are calling" /><published>2022-09-02T00:00:00+00:00</published><updated>2022-09-02T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/09/02/backend-circuit-breaker</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/09/02/backend-circuit-breaker.html">&lt;p&gt;Hi! We’re going to start our &lt;a href=&quot;#from-the-same-series&quot;&gt;fourth article&lt;/a&gt; about Bedrock’s API gateway.
+Today we will talk about the circuit breaker pattern, what it is, and how we’re using it.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-circuit-breaker-pattern&quot;&gt;The Circuit Breaker Pattern&lt;/h2&gt;
+
+&lt;p&gt;With this pattern, our API Gateway detects errors when calling its dependencies.
+It will stop calling them if a given threshold (ratio of errors) is crossed.&lt;/p&gt;
+
+&lt;p&gt;The circuit breaker allows us to spare the dependencies in difficulty, but also avoid taking time to do something that will most likely fail.&lt;/p&gt;
+
+&lt;p&gt;You’ll find a more detailed explanation about the circuit breaker on Martin FOWLER’s &lt;a href=&quot;https://martinfowler.com/bliki/CircuitBreaker.html&quot;&gt;blog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;where-to-use-it&quot;&gt;Where to use it?&lt;/h2&gt;
+
+&lt;p&gt;As soon as a service call is not mandatory for our BFF to answer something that a frontend application can read, then we can use the circuit breaker pattern.&lt;/p&gt;
+
+&lt;p&gt;If an API cannot handle a sudden increase in traffic (for example: it’s not scaling fast enough or its database starts to throttle), it’s better to stop calling it temporarily.
+When the right timeouts are configured, an API throttling will result in an error, as seen &lt;a href=&quot;/2022/08/25/backend-errors-connections.html&quot;&gt;in the previous article&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Here are some examples:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Video progress information&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Displaying a video progress bar is useful for end users, but it’s better to not display this information instead of risking the entire page to not be displayed!
+If the service that stores video viewing sessions is (slowing) down, we can stop asking for this information and stop displaying the video progress bar.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-09-02-backend-circuit-breaker/progress-bar.png&quot; alt=&quot;a video with a progress bar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;User geolocation&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The geolocation service allows us to know where the end user is in the world. Based on this information we lock some area restricted contents.
+If this service goes down for some reason, we will stop calling it, and instead use a default area matching the area of our customer as it’s the majority case.&lt;/p&gt;
+
+&lt;h2 id=&quot;implementation-and-configuration&quot;&gt;Implementation and configuration&lt;/h2&gt;
+
+&lt;p&gt;So far we’re only using the circuit breaker pattern with HTTP calls.
+This is made possible thanks to the &lt;a href=&quot;https://github.com/ackintosh/ganesha&quot;&gt;Ganesha library&lt;/a&gt;, and its Guzzle middleware.&lt;/p&gt;
+
+&lt;p&gt;The Guzzle middleware is created as a service within the Symfony service definitions.
+It’s then injected into our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HttpClientFactory&lt;/code&gt; that will handle the creation of all the different clients.
+The responsibility of using the circuit breaker falls on each service that will create a http client.&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;Ackintosh\Ganesha\GuzzleMiddleware&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@...Infrastructure\HttpClient\CircuitBreaker\CircuitBreakerMiddlewareFactory&apos;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;buildWithRateStrategy&apos;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;$timeWindow&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;60&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;$failureRateThreshold&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;40&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;$minimumRequests&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;$intervalToHalfOpen&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;60&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;monitoring-the-circuit-breaker&quot;&gt;Monitoring the circuit breaker&lt;/h2&gt;
+
+&lt;p&gt;At Bedrock, we’re used to monitor everything. The circuit breaker makes no exception to this rule.
+Usually we store time spent and response code for every outgoing http call.
+To see when the circuit breaker is open, we catch the ganesha’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RejectedException&lt;/code&gt; to save a dedicated &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;666&lt;/code&gt; http status.&lt;/p&gt;
+
+&lt;p&gt;This allows us to look for the exact number of calls avoided.
+Below lies an example of a monitoring chart showing some errors happening during a usual night.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-09-02-backend-circuit-breaker/monitoring-1.png&quot; alt=&quot;monitoring excluding less reliable services&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We also have to query slower services that often trigger our circuit breaker because they cannot answer in the short timeout we impose.
+Thereafter, the same monitoring chart including such services.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-09-02-backend-circuit-breaker/monitoring-2.png&quot; alt=&quot;monitoring including less reliable service&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;going-further&quot;&gt;Going further&lt;/h2&gt;
+
+&lt;p&gt;So far, we have identified two areas for improvements described below.&lt;/p&gt;
+
+&lt;h3 id=&quot;different-configurations&quot;&gt;Different configurations&lt;/h3&gt;
+
+&lt;p&gt;We’re only using a single configuration for the circuit breaker.
+We should allow each service to choose from a named list of configurations when creating a client, &lt;a href=&quot;/2022/08/25/backend-errors-connections.html&quot;&gt;similarly to the different guzzle configuration we are using&lt;/a&gt;.
+The main obstacle is a lack of hindsight which prevent us to have fine-tuned values.
+This is something that will definitively be improved over time as we monitor over long period.&lt;/p&gt;
+
+&lt;h3 id=&quot;staled-cache-when-the-circuit-breaker-is-open&quot;&gt;Staled cache when the circuit breaker is open&lt;/h3&gt;
+
+&lt;p&gt;For many editorial contents, we’re using a staled cache version of the data as a fallback.
+To do so, we’re using &lt;a href=&quot;https://github.com/Kevinrob/guzzle-cache-middleware&quot;&gt;another guzzle middleware&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Sadly, the two middlewares don’t work together. We have to chose which one to use based on the criticality of the content and the API behind. 
+This is something that we aim at solving with a bit of R&amp;amp;D.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;In today’s post we’ve seen our usage of the circuit breaker pattern.
+It allows us to spare the services we are calling, and avoid slowing us down in case of throttling.&lt;/p&gt;
+
+&lt;p&gt;Next time, we will talk about our ultimate layer of protection to ensure the BFF always responds something readable to frontend applications.&lt;/p&gt;
+
+&lt;h2 id=&quot;from-the-same-series&quot;&gt;From the same series&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;/2022/06/10/backend-bff.html&quot;&gt;What’s a BFF&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/2022/06/12/backend-fallbacks.html&quot;&gt;Handling API failures in a gateway&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/2022/08/25/backend-errors-connections.html&quot;&gt;What’s an error, and handling connexion to multiple APIs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/2022/09/02/backend-circuit-breaker.html&quot;&gt;Using a circuit breaker&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Valentin CLARAS</name></author><category term="backend" /><category term="php" /><category term="api" /><category term="api-gateway" /><category term="back-for-front" /><category term="resiliency" /><category term="circuit-breaker" /><summary type="html">Hi! We’re going to start our fourth article about Bedrock’s API gateway. Today we will talk about the circuit breaker pattern, what it is, and how we’re using it.</summary></entry><entry><title type="html">Prescaling pods in Kubernetes, we open source our solution</title><link href="https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html" rel="alternate" type="text/html" title="Prescaling pods in Kubernetes, we open source our solution" /><published>2022-09-01T00:00:00+00:00</published><updated>2022-09-01T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html">&lt;p&gt;Previously we &lt;a href=&quot;https://tech.bedrockstreaming.com/2022/02/03/prescaling.html&quot;&gt;discussed&lt;/a&gt; how we manage the load of our Kubernetes clusters and how we can anticipate our needs with prescaling. Today, we are here to share our solution that we have reworked and open sourced! 
 &lt;img src=&quot;/images/posts/2022-09-01-kubernetes-prescaling-we-open-source-our-solution/br-opensource.png&quot; alt=&quot;BedrockStreaming Logo&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;At &lt;a href=&quot;https://www.bedrockstreaming.com/&quot;&gt;Bedrock Streaming&lt;/a&gt;, we provide streaming platforms to our customers (6play, Salto, Videoland and many others), we have a good knowledge of the daily load peaks and we know in advance the programs that are likely to generate a lot of traffic. We can therefore rely not only on reactive scaling, which has its limits (cf. &lt;a href=&quot;https://tech.bedrockstreaming.com/2022/02/03/prescaling.html&quot;&gt;prescaling article&lt;/a&gt;) but also on prescaling.&lt;/p&gt;
@@ -207,6 +307,7 @@ On the opposite, analytics are less important, so we don’t use any retry there
   &lt;li&gt;&lt;a href=&quot;/2022/06/10/backend-bff-intro.html&quot;&gt;What’s a BFF&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;/2022/08/12/backend-fallbacks.html&quot;&gt;Handling API failures in a gateway&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;/2022/08/25/backend-errors-connections.html&quot;&gt;What’s an error, and handling connection to multiple APIs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/2022/09/02/backend-circuit-breaker.html&quot;&gt;Using a circuit breaker&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;</content><author><name>Valentin CLARAS</name></author><category term="backend" /><category term="php" /><category term="api" /><category term="api-gateway" /><category term="back-for-front" /><category term="error" /><category term="timout" /><category term="retry" /><category term="slo" /><category term="guzzle" /><summary type="html">A quick sidetrack in our series about Bedrock’s API gateway. This piece defines what are we talking about when we say “an error”, and explains how we handle the numerous connections to services we are calling.</summary></entry><entry><title type="html">Les spikes : quand, comment, pour quoi faire ?</title><link href="https://tech.bedrockstreaming.com/how-to-spike" rel="alternate" type="text/html" title="Les spikes : quand, comment, pour quoi faire ?" /><published>2022-08-23T00:00:00+00:00</published><updated>2022-08-23T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/how-to-spike</id><content type="html" xml:base="https://tech.bedrockstreaming.com/how-to-spike">&lt;p&gt;C’est une histoire bien connue, dans la vie de n’importe quel développeur : un ticket arrive dans le backlog, décrivant une problématique relativement complexe. C’est parfois une question de technologie inconnue, ou parfois simplement un chantier un peu trapu. Je pense que toutes les équipes ont, au moins une fois dans leur vie, fait face à ce genre de tâche impossible : c’est l’occasion des regards désespérés, alors qu’un junior se lamente en disant « Mais par où est-ce qu’il faut commencer ? ». Et c’est là qu’on répond : « Essaye de faire un spike ».&lt;/p&gt;
 
 &lt;p&gt;Faire un spike ? Quelle excellente idée ! Encore faudrait-il savoir ce qu’est un spike, comment ça marche, et à quoi ça sert.&lt;/p&gt;
@@ -475,6 +576,7 @@ Those values are chosen according to our platform usages where peak visitor last
   &lt;li&gt;&lt;a href=&quot;/2022/06/10/backend-bff-intro.html&quot;&gt;What’s a BFF&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;/2022/08/12/backend-fallbacks.html&quot;&gt;Handling API failures in a gateway&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;/2022/08/25/backend-errors-connections.html&quot;&gt;What’s an error, and handling connection to multiple APIs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/2022/09/02/backend-circuit-breaker.html&quot;&gt;Using a circuit breaker&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;hr /&gt;
@@ -1164,470 +1266,4 @@ But in case of a manual rotation: if a key is leaked for example, you will need 
 &lt;h4 id=&quot;logo-used-in-thumbnail&quot;&gt;Logo used in thumbnail&lt;/h4&gt;
 &lt;h5 id=&quot;death-by-imogen-oh-from-nounprojectcom&quot;&gt;Death by Imogen Oh from NounProject.com&lt;/h5&gt;
 &lt;h5 id=&quot;key-by-baboon-designs-from-nounprojectcom&quot;&gt;Key by Baboon designs from NounProject.com&lt;/h5&gt;
-&lt;h5 id=&quot;gears-by-aybige-from-nounprojectcom&quot;&gt;Gears by Aybige from NounProject.com&lt;/h5&gt;</content><author><name>Tanguy Falconnet</name></author><category term="cloud" /><category term="aws" /><summary type="html">At Bedrock, we build our own privately shared AMIs (Amazon Machine Images) for different parts of our stack: kubernetes platform, vod platform, etc. We build those AMIs to optimize kernel parameters,to embed some tools, and more. We have been using Packer for a couple of years, and everything has been working just fine.</summary></entry><entry><title type="html">Debugging and reviewing your Android dependencies with apktool</title><link href="https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html" rel="alternate" type="text/html" title="Debugging and reviewing your Android dependencies with apktool" /><published>2022-06-20T00:00:00+00:00</published><updated>2022-06-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html">&lt;p&gt;If you maintain an Android application, you might be relying on performance monitoring SDKs like &lt;a href=&quot;https://firebase.google.com/docs/perf-mon&quot;&gt;Firebase Performance&lt;/a&gt; or &lt;a href=&quot;https://newrelic.com/products/mobile-monitoring&quot;&gt;New Relic&lt;/a&gt;, to name a couple. These plugins usually have a light setup process—just apply a Gradle plugin, and they provide the ability to collect statistics about every network call and database query in your app automatically.&lt;/p&gt;
-
-&lt;p&gt;The usual way to achieve this is to rely on a process called &lt;strong&gt;instrumentation&lt;/strong&gt;, which is supported &lt;em&gt;via&lt;/em&gt; the Android Gradle Plugin’s &lt;a href=&quot;https://developer.android.com/reference/tools/gradle-api/7.2/com/android/build/api/transform/Transform&quot;&gt;Transform API&lt;/a&gt;, or its successor, the &lt;a href=&quot;https://developer.android.com/studio/releases/gradle-plugin-api-updates#transform-removed&quot;&gt;Instrumentation API&lt;/a&gt;. This feature is very powerful, and potentially dangerous; in our case, a minor patch of one of these SDKs caused a production bug that left one of our core features crippled.&lt;/p&gt;
-
-&lt;p&gt;The visible cause of our bug, from a developer’s point of view, was that the video player saw the network requests as always being extremely fast, no matter the network quality. Therefore, it assumed the device had access to a very high bandwidth, and tried loading video segments with a very high bit rate. This did &lt;strong&gt;not&lt;/strong&gt; go well for users with slower network speeds.&lt;/p&gt;
-
-&lt;p&gt;To understand what was going on, what went wrong, how to fix it and how to take measures so that it never happens again, we had to do some investigation.&lt;/p&gt;
-
-&lt;h1 id=&quot;diving-into-the-android-build-process&quot;&gt;Diving into the Android build process&lt;/h1&gt;
-
-&lt;p&gt;Before we get to the topic of instrumentation, we first need to know a little about the Android app build process. Don’t worry, we won’t need to dive too deep into the details.&lt;/p&gt;
-
-&lt;p&gt;To put it simply, during the build process, your source files (Kotlin and Java) are compiled to Dalvik bytecode, which is stored in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.dex&lt;/code&gt; files. These files are then packaged into an APK file, which is basically just a ZIP file with all your code and resources.&lt;/p&gt;
-
-&lt;div class=&quot;mermaid&quot;&gt;
-flowchart LR
-    kt[.kt files] -- kotlinc --&amp;gt; dex[.dex files] --&amp;gt; packaging[[packaging]]
-    java[.java files] -- javac --&amp;gt; dex
-    res[resource files] -- aapt --&amp;gt; resc[compiled resource files] --&amp;gt; packaging --&amp;gt; APK
-    subgraph APK
-    direction TB
-    dex1[.dex] -.- dex2[.dex] -.- dex3[.dex] -.- dex4[.dex]
-    res1[res] -.- res2[res] -.- res3[res] -.- res4[res]
-    signature -.- manifest
-end
-&lt;/div&gt;
-
-&lt;h2 id=&quot;understanding-bytecode-instrumentation&quot;&gt;Understanding bytecode instrumentation&lt;/h2&gt;
-
-&lt;p&gt;Now, let’s say you want to take an existing application with its untouched source code, and automatically inject calls to &lt;em&gt;your&lt;/em&gt; SDK every time a network call is made, to log whether it was successful or not. How would you achieve this?&lt;/p&gt;
-
-&lt;p&gt;The easiest way is to plug yourself into the build, right after the code is compiled into bytecode, and &lt;strong&gt;modify the bytecode&lt;/strong&gt; to your will.&lt;/p&gt;
-
-&lt;div class=&quot;mermaid&quot;&gt;
-flowchart LR
-    kt[.kt files] -- kotlinc --&amp;gt; dex[.dex files] --&amp;gt; transform[[transform]] --&amp;gt; packaging[[packaging]]
-    java[.java files] -- javac --&amp;gt; dex
-    res[resource files] -- aapt --&amp;gt; resc[compiled resource files] --&amp;gt; packaging --&amp;gt; APK
-    classDef transformed fill:#ff0000
-    class transform transformed
-
-    subgraph APK
-    direction TB
-    dex1[.dex] -.- dex2[.dex] -.- dex3[.dex] -.- dex4[.dex]
-    res1[res] -.- res2[res] -.- res3[res] -.- res4[res]
-    signature -.- manifest
-    class dex1,dex2,dex3,dex4 transformed
-end
-&lt;/div&gt;
-
-&lt;p&gt;The Android Gradle Plugin (AGP) offers APIs to do this, so SDK vendors can just develop a Gradle plugin and ta-da! Once you apply it, your app is automatically instrumented.&lt;/p&gt;
-
-&lt;p&gt;Note that there are other ways to achieve this without the AGP. Notably, Kotlin now uses an Intermediate Representation (IR), before it gets compiled down to a target-specific format. &lt;a href=&quot;https://blog.bnorm.dev/writing-your-second-compiler-plugin-part-1&quot;&gt;You can write a Kotlin IR compiler plugin&lt;/a&gt; to transform the IR code and add your own hooks in an Android-agnostic way, although this API is still experimental at the time of writing.&lt;/p&gt;
-
-&lt;h2 id=&quot;reverse-engineering-a-built-apk&quot;&gt;Reverse-engineering a built APK&lt;/h2&gt;
-
-&lt;p&gt;Now, this is great. But when you open an APK file, what do you get?&lt;/p&gt;
-
-&lt;p&gt;Let’s unzip one and look inside.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.
-├── META-INF
-├── assets
-├── google
-├── okhttp3
-├── res
-├── AndroidManifest.xml
-├── classes.dex
-├── classes2.dex
-├── classes3.dex
-├── classes4.dex
-├── firebase-common.properties
-├── firebase-crashlytics.properties
-├── play-services-base.properties
-├── ...
-└── resources.arsc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;A bunch of noise, and four interesting &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.dex&lt;/code&gt; files. That’s where the app’s code is stored, but unfortunately, these files are not human-readable.&lt;/p&gt;
-
-&lt;p&gt;To turn them into low-level but understandable code, some tooling will be necessary. The easiest to use for this task is &lt;a href=&quot;https://ibotpeaches.github.io/Apktool/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apktool&lt;/code&gt;&lt;/a&gt;, which is free and open-source.&lt;/p&gt;
-
-&lt;p&gt;Let’s run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apktool&lt;/code&gt; on our APK, and see what happens:&lt;/p&gt;
-
-&lt;script id=&quot;asciicast-1RozUUMJwPlMjS0ea1R6GNwuj&quot; src=&quot;https://asciinema.org/a/1RozUUMJwPlMjS0ea1R6GNwuj.js&quot; async=&quot;&quot;&gt;&lt;/script&gt;
-
-&lt;noscript&gt;
-&lt;pre&gt;
-~/Downloads
-❯ apktool d bedrock-sample-release.apk
-I: Using Apktool 2.6.1 on bedrock-sample-release.apk
-I: Loading resource table...
-I: Decoding AndroidManifest.xml with resources...
-I: Loading resource table from file: /Users/bcandellier/Library/apktool/framework/1.apk
-I: Regular manifest package...
-I: Decoding file-resources...
-W: Cant find 9patch chunk in file: &quot;drawable-xxhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png&quot;. Renaming it to *.png.
-W: Cant find 9patch chunk in file: &quot;drawable-mdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png&quot;. Renaming it to *.png.
-W: Cant find 9patch chunk in file: &quot;drawable-mdpi-v4/common_google_signin_btn_text_light_normal_background.9.png&quot;. Renaming it to *.png.
-W: Cant find 9patch chunk in file: &quot;drawable-xhdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png&quot;. Renaming it to *.png.
-W: Cant find 9patch chunk in file: &quot;drawable-xhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png&quot;. Renaming it to *.png.
-W: Cant find 9patch chunk in file: &quot;drawable-xhdpi-v4/common_google_signin_btn_text_light_normal_background.9.png&quot;. Renaming it to *.png.
-W: Cant find 9patch chunk in file: &quot;drawable-xxhdpi-v4/common_google_signin_btn_text_light_normal_background.9.png&quot;. Renaming it to *.png.
-W: Cant find 9patch chunk in file: &quot;drawable-hdpi-v4/common_google_signin_btn_text_light_normal_background.9.png&quot;. Renaming it to *.png.
-W: Cant find 9patch chunk in file: &quot;drawable-xhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png&quot;. Renaming it to *.png.
-W: Cant find 9patch chunk in file: &quot;drawable-hdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png&quot;. Renaming it to *.png.
-W: Cant find 9patch chunk in file: &quot;drawable-mdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png&quot;. Renaming it to *.png.
-W: Cant find 9patch chunk in file: &quot;drawable-xxhdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png&quot;. Renaming it to *.png.
-W: Cant find 9patch chunk in file: &quot;drawable-xxhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png&quot;. Renaming it to *.png.
-W: Cant find 9patch chunk in file: &quot;drawable-mdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png&quot;. Renaming it to *.png.
-W: Cant find 9patch chunk in file: &quot;drawable-hdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png&quot;. Renaming it to *.png.
-W: Cant find 9patch chunk in file: &quot;drawable-hdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png&quot;. Renaming it to *.png.
-I: Decoding values */* XMLs...
-I: Baksmaling classes.dex...
-I: Baksmaling classes2.dex...
-I: Baksmaling classes3.dex...
-I: Baksmaling classes4.dex...
-I: Copying assets and libs...
-I: Copying unknown files...
-I: Copying original files...
-I: Copying META-INF/services directory
-&lt;/pre&gt;
-&lt;/noscript&gt;
-
-&lt;p&gt;There we go! In our case, we can ignore the warnings. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apktool&lt;/code&gt; created a new directory with a bunch of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.smali&lt;/code&gt; files, organized by package: one file per class, containing their Dalvik bytecode.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.
-├── AndroidManifest.xml
-├── res
-│   ├── values
-│   │   ├── strings.xml
-│   │   └── ...
-│   ├── layout
-│   │   ├── layout_home.xml
-│   │   └── ...
-│   └── ...
-├── smali
-│   ├── com
-│       ├── bedrockstreaming
-│       │   ├── app
-│       │   │   ├── mobile
-│       │   │   │   ├── R$anim.smali
-│       │   │   │   ├── R$layout.smali
-│       │   │   │   ├── R$string.smali
-│       │   │   │   ├── R$style.smali
-│       │   │   │   └── ...
-│       │   │   └── ...
-│       │   └── ...
-│       └── google
-│           ├── android
-│           │   ├── exoplayer2
-│           │   │   ├── AbstractConcatenatedTimeline.smali
-│           │   │   ├── AudioBecomingNoisyManager.smali
-│           │   │   ├── AudioFocusManager$AudioFocusListener$$ExternalSyntheticLambda0.smali
-│           │   │   ├── AudioFocusManager$AudioFocusListener.smali
-│           │   │   ├── AudioFocusManager.smali
-│           │   │   ├── BasePlayer.smali
-│           │   │   ├── BaseRenderer.smali
-│           │   │   ├── BuildConfig.smali
-│           │   │   └── ...
-│           │   └── ...
-│           └── ...
-├── smali_classes2
-│   ├── com
-│   │   └── bedrockstreaming
-│   │       ├── app
-│   │       │   ├── mobile
-│   │       │   │   ├── MobileApplication.smali
-│   │       │   │   └── ...
-│   │       │   └── ...
-│   │       └── ...
-│   └── ...
-└── ...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;If you see files with mangled names and contents, make sure that you run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apktool&lt;/code&gt; on an APK with R8 obfuscation disabled, or you’ll have a hard time figuring things out.&lt;/p&gt;
-
-&lt;h2 id=&quot;understanding-dalvik-bytecode&quot;&gt;Understanding Dalvik bytecode&lt;/h2&gt;
-
-&lt;p&gt;Now, if you open one of these files, it will contain code that looks like the snippet below. It will look unfamiliar; that’s normal.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.method private final getContent()Lcom/bedrockstreaming/example/HomeViewModel$State$Content;
-
-    .locals 2
-    .line 119
-
-    iget-object v0, p0, Lcom/bedrockstreaming/example/HomeViewModel;-&amp;gt;state:Landroidx/lifecycle/LiveData;
-
-    invoke-virtual {v0}, Landroidx/lifecycle/LiveData;-&amp;gt;getValue()Ljava/lang/Object;
-
-    move-result-object v0
-
-    instance-of v1, v0, Lcom/bedrockstreaming/example/HomeViewModel$State$Content;
-
-    if-eqz v1, :cond_0
-
-    check-cast v0, Lcom/bedrockstreaming/example/HomeViewModel$State$Content;
-
-    goto :goto_0
-
-    :cond_0
-
-    const/4 v0, 0x0
-
-    :goto_0
-
-    return-object v0
-  
-.end method
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;If you’ve ever worked with assembly code before, you might notice similarities in the way the code is written. Each line begins with an instruction, which can take comma-separated parameters. To work out what these instructions and their parameters mean, you &lt;strong&gt;will&lt;/strong&gt; need to refer to the &lt;a href=&quot;https://source.android.com/devices/tech/dalvik/dalvik-bytecode&quot;&gt;Dalvik bytecode documentation&lt;/a&gt; provided by Google.&lt;/p&gt;
-
-&lt;p&gt;Let’s take an example line from the snippet and decode it together. Looking at the table in the documentation, we can see deduce this:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# We&apos;ll decode this line:
-invoke-virtual {v0}, Landroidx/lifecycle/LiveData;-&amp;gt;getValue()Ljava/lang/Object;
-
-invoke-virtual                                                                   # We&apos;re calling a virtual method
-               {v0},                                                             # We&apos;re calling the method on the object referenced in register v0
-                     Landroidx/lifecycle/LiveData;                               # The method we&apos;re calling is defined by androidx.lifecycle.LiveData
-                                                  -&amp;gt;getValue()                   # We&apos;re calling a method called getValue()
-                                                              Ljava/lang/Object; # This method returns an Object
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;With some determination, we can figure out what the snippet does. Here, we’re defining a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getContent()&lt;/code&gt; method that tries to cast a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LiveData&lt;/code&gt;’s value to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;State.Content&lt;/code&gt; and returns it, or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;null&lt;/code&gt; otherwise.&lt;/p&gt;
-
-&lt;h1 id=&quot;using-a-decompiled-apk-as-a-debugging-tool&quot;&gt;Using a decompiled APK as a debugging tool&lt;/h1&gt;
-
-&lt;h2 id=&quot;inspecting-suspicious-code&quot;&gt;Inspecting suspicious code&lt;/h2&gt;
-
-&lt;p&gt;Before doing anything else, we can already start looking at the generated code to identify patterns that could cause issues. Problem is… there can be a &lt;em&gt;lot&lt;/em&gt; of code to look through.&lt;/p&gt;
-
-&lt;p&gt;Before going this deep in the rabbit hole, we already figured our issue was, somehow, related to instrumentation: disabling it fixed this issue; downgrading to the previous release of the SDK also fixed it. This means that if we want to get a clear look at &lt;strong&gt;what&lt;/strong&gt; needs to change to go from a working APK from a broken one, we could just compare an APK instrumented by the previous SDK version with an APK instrumented by the current one!&lt;/p&gt;
-
-&lt;p&gt;Of course, we want to do this on the human-readable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;smali&lt;/code&gt; files, not the raw &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dex&lt;/code&gt; files. We can generate a full diff with the help of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;diff&lt;/code&gt; tool:&lt;/p&gt;
-
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;diff &lt;span class=&quot;nt&quot;&gt;-bur&lt;/span&gt; normal/ instrumented/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;In our case, it also proved useful to compare an APK that has been instrumented with one that hasn’t, to understand what that instrumentation is meant to achieve. Most of it was to notify the SDK of every HTTP request, along with its result.&lt;/p&gt;
-
-&lt;p&gt;As a simple example, the snippet below shows a class belonging to Picasso. We can see the HTTP calls it makes are being intercepted by the SDK.&lt;/p&gt;
-
-&lt;div class=&quot;language-diff highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gd&quot;&gt;--- normal/smali/com/squareup/picasso/NetworkRequestHandler.smali	2022-01-05 11:09:22.000000000 +0100
-&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+++ instrumented/smali/com/squareup/picasso/NetworkRequestHandler.smali	2022-01-05 11:08:34.000000000 +0100
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;@@ -128,10 +128,26 @@&lt;/span&gt;
-
-     .line 103
-     :cond_4
-&lt;span class=&quot;gi&quot;&gt;+    instance-of v2, v1, Lokhttp3/Request$Builder;
-+
-+    if-nez v2, :cond_5
-+
-&lt;/span&gt;     invoke-virtual {v1}, Lokhttp3/Request$Builder;-&amp;gt;build()Lokhttp3/Request;
-
-     move-result-object v2
-
-+    goto :goto_1
-&lt;span class=&quot;gi&quot;&gt;+
-+    :cond_5
-+    move-object v2, v1
-+
-+    check-cast v2, Lokhttp3/Request$Builder;
-+
-+    invoke-static {v2}, Lcom/vendor/instrumentation/okhttp3/OkHttp3Instrumentation;-&amp;gt;build(Lokhttp3/Request$Builder;)Lokhttp3/Request;
-+
-+    move-result-object v2
-+
-+    :goto_1
-&lt;/span&gt;     return-object v2
- .end method
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;finding-the-source-of-the-issue-by-iteration&quot;&gt;Finding the source of the issue by iteration&lt;/h2&gt;
-
-&lt;p&gt;We haven’t talked about &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apktool&lt;/code&gt;’s greatest strength yet: its ability to &lt;strong&gt;recompile&lt;/strong&gt; an APK from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;smali&lt;/code&gt; sources it has decompiled! This means we can effectively decompile an APK, make modifications to its low-level code, recompile and run it.&lt;/p&gt;
-
-&lt;p&gt;This proved really useful during our investigation. Since we have one directory with our APK in a bad state, and one directory with our APK in a good state, we can process by elimination to point out exactly which &lt;strong&gt;single class&lt;/strong&gt;, when modified, causes our bug.&lt;/p&gt;
-
-&lt;p&gt;In our case, a useful workflow was to start with a suspect—let’s say we think instrumenting the OkHttp classes might have caused the bug.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Copy the OkHttp classes from the “bad” APK, and only those, to our “good” APK.&lt;/li&gt;
-  &lt;li&gt;Recompile and run the app.&lt;/li&gt;
-  &lt;li&gt;Does the bug occur?
-    &lt;ul&gt;
-      &lt;li&gt;If it does, then that means it is caused by the instrumentation of at least one of the OkHttp classes. We can go through this process again, this time by selecting only a subset of OkHttp’s classes, and check if the bug still occurs, etc.&lt;/li&gt;
-      &lt;li&gt;If it doesn’t, revert the OkHttp classes and try again with another suspect.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;This process can be accelerated with a very simple script, to iterate faster. The recompilation step occurs incrementally, and so only takes a few seconds.&lt;/p&gt;
-
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# rebuild-and-run.sh&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# Rebuild, sign and install an APK from its decompiled source.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# (c) 2022 Bedrock Streaming&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Inputs:&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# DECOMPILED_APK_PATH: path to your previously decompiled APK directory&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# KEYSTORE_PATH: path to your debug keystore&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# KEYSTORE_PASSWORD: your debug keystore password&lt;/span&gt;
-
-apktool &lt;span class=&quot;nt&quot;&gt;--use-aapt2&lt;/span&gt; b &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$DECOMPILED_APK_PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apksigner sign &lt;span class=&quot;nt&quot;&gt;-ks&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$KEYSTORE_PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--ks-pass&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;pass:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$KEYSTORE_PASSWORD&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$DECOMPILED_APK_PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/dist/*.apk&quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; adb &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$DECOMPILED_APK_PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/dist/*.apk&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Here’s what it looks like in action:&lt;/p&gt;
-
-&lt;script id=&quot;asciicast-HCdekIJOEwSdARnP2bUnWWipo&quot; src=&quot;https://asciinema.org/a/HCdekIJOEwSdARnP2bUnWWipo.js&quot; async=&quot;&quot;&gt;&lt;/script&gt;
-
-&lt;noscript&gt;
-&lt;pre&gt;
-~/bytecode-playground
-❯ ./rebuild-and-run.sh
-I: Using Apktool 2.6.1
-I: Checking whether sources has changed...
-I: Checking whether sources has changed...
-I: Checking whether sources has changed...
-I: Checking whether sources has changed...
-I: Checking whether sources has changed...
-I: Checking whether sources has changed...
-I: Checking whether sources has changed...
-I: Checking whether sources has changed...
-I: Checking whether sources has changed...
-I: Checking whether sources has changed...
-I: Checking whether sources has changed...
-I: Checking whether resources has changed...
-I: Building apk file...
-I: Copying unknown files/dir...
-I: Built apk...
-Performing Incremental Install
-Serving...
-Success
-Install command complete in 445 ms
-&lt;/pre&gt;
-&lt;/noscript&gt;
-
-&lt;p&gt;In our case, we narrowed down the issue to the instrumentation of a single class: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;okhttp3.internal.http.CallServerInterceptor&lt;/code&gt;: once it was reverted, the bug disappeared.&lt;/p&gt;
-
-&lt;p&gt;In fact, we narrowed it down to a very small patch with which the app runs fine:&lt;/p&gt;
-
-&lt;div class=&quot;language-diff highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; .../okhttp3/internal/http/CallServerInterceptor.smali         | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali b/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali
-&lt;span class=&quot;gh&quot;&gt;index c916149f..c26eab15 100644
-&lt;/span&gt;&lt;span class=&quot;gd&quot;&gt;--- a/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali
-&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+++ b/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;@@ -510,7 +510,7 @@&lt;/span&gt;
- 
-     instance-of v8, v14, Lokhttp3/Response$Builder;
- 
-&lt;span class=&quot;gd&quot;&gt;-    if-nez v8, :cond_b
-&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+    #if-nez v8, :cond_b
-&lt;/span&gt; 
-     invoke-virtual {v14, v15}, Lokhttp3/Response$Builder;-&amp;gt;body(Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
- 
-&lt;span class=&quot;p&quot;&gt;@@ -574,7 +574,7 @@&lt;/span&gt;
- 
-     instance-of v15, v8, Lokhttp3/Response$Builder;
- 
-&lt;span class=&quot;gd&quot;&gt;-    if-nez v15, :cond_e
-&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+    #if-nez v15, :cond_e
-&lt;/span&gt; 
-     invoke-virtual {v8, v14}, Lokhttp3/Response$Builder;-&amp;gt;body(Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
- 
-&lt;span class=&quot;gd&quot;&gt;-- 
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Basically, when the code went through this &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if&lt;/code&gt; statement, our request got wrapped by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;com.vendor.instrumentation.okhttp3.OkHttp3Instrumentation&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;invoke-static {v8, v14}, Lcom/vendor/instrumentation/okhttp3/OkHttp3Instrumentation;-&amp;gt;body(Lokhttp3/Response$Builder;Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;And what does this method do, you ask? Let’s take a look at the decompiled source in Android Studio, so that it’s a bit easier to read:&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Builder&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ResponseBody&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;BufferedSource&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;Buffer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Buffer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;impl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ResponseBody&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;contentType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;IOException reading from source: &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;IllegalStateException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;IllegalStateException reading from source: &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;impl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The body is being read into memory!&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;When correlating this discovery with the source code from ExoPlayer, we could verify that, indeed, our player was expecting that the time it takes reading the response body would be the time it took to download the entire video segment. Here’s what this flow looks like in a functional app:&lt;/p&gt;
-
-&lt;div class=&quot;mermaid&quot;&gt;
-sequenceDiagram
-    participant exo as OkHttpDataSource
-    participant nr as OkHttp3Instrumentation
-    participant okhttp as OkHttpClient
-    participant server as Server Endpoint
-
-    exo-&amp;gt;&amp;gt;nr: body()
-    nr-&amp;gt;&amp;gt;okhttp: body()
-    activate server
-    okhttp-&amp;gt;&amp;gt;server: 
-    server-&amp;gt;&amp;gt;okhttp: 
-    okhttp-&amp;gt;&amp;gt;nr: ResponseBody (length=0)
-    activate exo
-    nr-&amp;gt;&amp;gt;exo: ResponseBody (length=0)
-    server-&amp;gt;&amp;gt;exo: length=512
-    server-&amp;gt;&amp;gt;exo: length=1024
-    server-&amp;gt;&amp;gt;exo: length=1536
-    server-&amp;gt;&amp;gt;exo: length=2048
-    server-&amp;gt;&amp;gt;exo: length=2560
-    note right of exo: OkHttpDataSource controls the body reads &lt;br /&gt; and can measure the time it took &lt;br /&gt; to read the whole response
-    deactivate server
-    deactivate exo
-&lt;/div&gt;
-
-&lt;p&gt;But with this bug in the SDK, since the HTTP response has been buffered into memory by some SDK, the read was always almost-instantaneous, no matter the speed of the connection. Additionally, it messed with the overall performance since requests were no longer properly streamed by their rightful users.&lt;/p&gt;
-
-&lt;div class=&quot;mermaid&quot;&gt;
-sequenceDiagram
-    participant exo as OkHttpDataSource
-    participant nr as OkHttp3Instrumentation
-    participant okhttp as OkHttpClient
-    participant server as Server Endpoint
-
-    exo-&amp;gt;&amp;gt;nr: body()
-    nr-&amp;gt;&amp;gt;okhttp: body()
-    activate server
-    okhttp-&amp;gt;&amp;gt;server: 
-    server-&amp;gt;&amp;gt;okhttp: 
-    activate nr
-    okhttp-&amp;gt;&amp;gt;nr: 
-    server-&amp;gt;&amp;gt;nr: length=512
-    server-&amp;gt;&amp;gt;nr: length=1024
-    server-&amp;gt;&amp;gt;nr: length=1536
-    server-&amp;gt;&amp;gt;nr: length=2048
-    server-&amp;gt;&amp;gt;nr: length=2560
-    deactivate nr
-    activate exo
-    note right of exo: OkHttpDataSource is only notified &lt;br /&gt; after everything is downloaded
-    nr-&amp;gt;&amp;gt;exo: ResponseBody (length=2560)
-    deactivate server
-    deactivate exo
-&lt;/div&gt;
-
-&lt;h1 id=&quot;using-a-decompiled-apk-as-a-review-tool&quot;&gt;Using a decompiled APK as a review tool&lt;/h1&gt;
-
-&lt;p&gt;It’s no secret to developers in any software ecosystem that library updates can be a source of problems - security vulnerabilities, bugs, incompatibilities, and so on. It’s hard to vet them properly, especially in compiled form, like libraries distributed in the Java ecosystem. Things get even harder when arbitrary Gradle plugins start rewriting our own code!&lt;/p&gt;
-
-&lt;p&gt;The tooling needed to decompile an APK is free, fast, and easy to automate. It’s a really helpful tool to investigate obscure bugs in places your debugger won’t let you place a breakpoint, and it’s also really useful to be able to see a human-readable diff between two binaries.&lt;/p&gt;
-
-&lt;p&gt;Generating a diff of the effects of a library upgrade can seem overkill and hard to do in practice, but at least in the case of bug-fix releases with hopefully few changes, it can be very helpful to have an actual report of what changed. It’s an accepted practice to review the code your team checks in; why not review the code of others, since it ends up in the exact same artifact?&lt;/p&gt;</content><author><name>Baptiste Candellier</name></author><category term="android" /><category term="apktool" /><category term="instrumentation" /><category term="debugging" /><category term="productivity" /><summary type="html">If you maintain an Android application, you might be relying on performance monitoring SDKs like Firebase Performance or New Relic, to name a couple. These plugins usually have a light setup process—just apply a Gradle plugin, and they provide the ability to collect statistics about every network call and database query in your app automatically.</summary></entry></feed>
+&lt;h5 id=&quot;gears-by-aybige-from-nounprojectcom&quot;&gt;Gears by Aybige from NounProject.com&lt;/h5&gt;</content><author><name>Tanguy Falconnet</name></author><category term="cloud" /><category term="aws" /><summary type="html">At Bedrock, we build our own privately shared AMIs (Amazon Machine Images) for different parts of our stack: kubernetes platform, vod platform, etc. We build those AMIs to optimize kernel parameters,to embed some tools, and more. We have been using Packer for a couple of years, and everything has been working just fine.</summary></entry></feed>
