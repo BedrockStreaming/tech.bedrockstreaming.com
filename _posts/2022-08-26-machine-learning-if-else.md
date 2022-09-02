@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Is machine learning a unicorn hiding a series of "if” and “else”?
+title: Is machine learning a unicorn hiding a series of if and else?
 description: Let's think about what is behind machine learning
 author: n_saby
 tags: [machine learning, Data Science]
@@ -13,7 +13,7 @@ Recently, a colleague asked me:
 
 It was a joke but this one made me think. 
 
-*This is a running gag: machine learning is only a series of "if” and “else”.*
+*This is a running gag: machine learning is only a series of if and else.*
 
 ![unicorn in the forest](/images/posts/2022-08-26-machine-learning-if-else/unicorn_forest.jpg)
 
@@ -24,7 +24,7 @@ Yes! …and no. As always, it depends.
 **Quick answer**: Machine learning is a bunch of mathematical and statistical operations. Sometimes, the operations you use can be translated into *if* and *else* clauses, and sometimes not. But you never write the series of *if* and *else* yourself.
 
 ## A recap of machine learning
-The idea of machine learning is: you have some data, you apply an algorithm on these to detect patterns. You grouped this pattern in a function.
+The idea of machine learning is: you have some data, you apply an algorithm on these to detect a patern. You put this pattern into a function.
 
 ![machine learning representation schema](/images/posts/2022-08-26-machine-learning-if-else/ML%20recap.png)
 
@@ -77,7 +77,7 @@ Vector A * Vector B
 
 **As a result, yes, you have types of machine learning that will generate a series of *if* and *else*. But, you have also plenty of algorithms that try to find the variables of an equation or vectors.**
 
-## You never write the series of “if” and “else” yourself
+## You never write the series of if and else yourself
 
 Let’s go back to the decision tree. As we’ve seen, the result could be translated as a series of *if* and *else*.
 
@@ -97,13 +97,13 @@ Suppose we want to guess the form (pentagon or plate) of a diamond according to 
 
 
 The process is the following:
-1. You split your data randomly: so you create an *if* like *if carat is high*
-2. You check if it helps to generate a more accurate view of your data: by doing this *if*, do we separate correctly our data? Do we have pentagons mostly from one side and plates from another? 
+1. The data is randomly: a random *if* statement is created like *if carat is high*
+2. The process checks if it helps to generate a more accurate view of your data: by doing this *if*, are the data separated correctly? Do we have pentagons mostly from one side and plates from another? 
    
-**To be able to know what, we use the Shannon entropy formula that will give us the response**
+**To be able to know if the data are separated correctly, the Shannon entropy formula is used**
 
-- if yes, we keep the *if carat is high*
-- if not, we generate another one
+- if yes, the process keeps the *if carat is high*
+- if not, it generates another one
 
 Then, by keeping the *if* you get something like that:
   
@@ -118,13 +118,13 @@ else:
     #We don't know yet how to handle that
 ```
 
-Note that you have a branch with a plate and a pentagon. It corresponds to the *else* where we don't know what to put yet. Then, you start again the process.
+Note that you have a branch with a plate and a pentagon. It corresponds to the *else* where we don't know what to put yet. Then, the process is used again.
 
 1. You split your data randomly: so you create another *if*
 2. You check if it helps to generate a more accurate view of your data
 
-- if yes, we keep the new *if*
-- if not, we generate another one
+- if yes, the process keeps the new *if*
+- if not, it generates another one
   
 For instance, you get another *if*, another branch:
 
@@ -141,7 +141,7 @@ else:
 At the end, you get a final tree decision:
 ![decision tree - final](/images/posts/2022-08-26-machine-learning-if-else/decision_tree_final.png)
 
-And of course, you do that iteratively until getting the perfect tree. The process, we used is an optimisation algorithm.
+And of course, the process iterates until getting the perfect tree. The process, used is an optimisation algorithm.
 
 *Mathematical optimization [...] is the selection of a best element, with regard to some criterion, from some set of available alternatives (definition from Wikipedia)*
 
@@ -149,9 +149,9 @@ If you want to know how the Shannon entropy works with mathematical formulas, yo
 
 **Then as a result, yes, you can have machine learning algorithms that will build a series of *if* and *else*. But to generate it, you’ll use mathematical operations.**
 
-*Note that for other algorithms such as the matrix factorisation or neural networks, we don't use the Shannon entropy formula, but other optimisation algorithms that don't generate a series of *if* and *else* but, as previously seen, vectors or formulas.
+*Note that for other algorithms such as the matrix factorisation or neural networks, we don't use a process with the Shannon entropy formula, but other optimisation algorithms that don't generate a series of if and else but, as previously seen, vectors or formulas.*
 
-## So why do we sometimes say that machine learning is a bunch of “if” and “else” statements?
+## So why do we sometimes say that machine learning is a bunch of if and else statements?
 
 To my opinion, because of expert systems. They are the ancestors of machine learning in artificial intelligence.
 
