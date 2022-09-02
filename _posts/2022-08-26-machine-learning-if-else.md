@@ -127,6 +127,7 @@ Note that you have a branch with a plate and a pentagon. It corresponds to the *
 - if not, we generate another one
   
 For instance, you get another *if*, another branch:
+
 ![decision tree - second step](/images/posts/2022-08-26-machine-learning-if-else/decision_tree_second_step.png)
 
 The translation with a code is:
