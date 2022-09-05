@@ -169,7 +169,7 @@ We have configured a one-year retention for each of our Kubernetes clusters, and
 
 The downsampling allows you to configure how many metrics you want to keep per time interval.
 
-In this example: `-downsampling.period=24h:10s,1w:30s,30d:1m,360d:5m`, (assuming we collect metrics every 5 seconds) we only keep : 
+In this example: `-downsampling.period=24h:10s,1w:30s,30d:1m,360d:5m`, (assuming we collect metrics every 5 seconds) we only keep: 
  - one measurement point every 10 seconds beyond 24 hours (instead of one point every 5 seconds)
  - one measurement point every 30 seconds beyond 7 days
  - one measurement point every minute beyond 30 days
