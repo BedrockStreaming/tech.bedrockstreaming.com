@@ -90,12 +90,12 @@ You can see the [main features](https://docs.victoriametrics.com/#prominent-feat
 # POC of Victoria Metrics
 We wanted to validate the performance and consumption of a stack entirely based on Victoria Metrics, the results were really encouraging.
 
-test environment :
+Test environment :
  - 1500 web app pods
  - 250 Haproxy Ingress pods (metric with high cardinality enabled)
  - 3700 scrapped targets
 
-comparative table between Prometheus and Victoria Metrics : 
+Comparative table between Prometheus and Victoria Metrics : 
 
 |                      | Prometheus | Victoria Metrics |
 | -------------------- | ---------- | ---------------- |
@@ -105,7 +105,7 @@ comparative table between Prometheus and Victoria Metrics :
 | Max active TimeSeries| 7M         | 91M              |
 | Max cardinality      | 4 metrics > 100K | 10+ metrics > 1M |
 
-_graph on the CPU consumption of Victoria Metrics components_
+_Graph on the CPU consumption of Victoria Metrics components_
 ![cpu-usage-poc-vm](/images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/cpu-poc-vm.png)
 
 _Number of active "TimeSeries" in Victoria Metrics_
