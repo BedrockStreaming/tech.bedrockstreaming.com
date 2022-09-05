@@ -1,4 +1,193 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-09-02T08:50:03+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Using a circuit breaker to spare the API we are calling</title><link href="https://tech.bedrockstreaming.com/2022/09/02/backend-circuit-breaker.html" rel="alternate" type="text/html" title="Using a circuit breaker to spare the API we are calling" /><published>2022-09-02T00:00:00+00:00</published><updated>2022-09-02T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/09/02/backend-circuit-breaker</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/09/02/backend-circuit-breaker.html">&lt;p&gt;Hi! We’re going to start our &lt;a href=&quot;#from-the-same-series&quot;&gt;fourth article&lt;/a&gt; about Bedrock’s API gateway.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-09-05T07:52:15+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Is machine learning a unicorn hiding a series of if and else?</title><link href="https://tech.bedrockstreaming.com/2022/09/05/machine-learning-if-else.html" rel="alternate" type="text/html" title="Is machine learning a unicorn hiding a series of if and else?" /><published>2022-09-05T00:00:00+00:00</published><updated>2022-09-05T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/09/05/machine-learning-if-else</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/09/05/machine-learning-if-else.html">&lt;p&gt;Recently, a colleague asked me:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;All good with your if and else machine learning system?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It was a joke but this one made me think.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;This is a running gag: machine learning is only a series of if and else.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-09-05-machine-learning-if-else/unicorn_forest.jpg&quot; alt=&quot;unicorn in the forest&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Beyond the joke, it is true?&lt;/p&gt;
+
+&lt;p&gt;Yes! …and no. As always, it depends.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Quick answer&lt;/strong&gt;: Machine learning is a bunch of mathematical and statistical operations. Sometimes, the operations you use can be translated into &lt;em&gt;if&lt;/em&gt; and &lt;em&gt;else&lt;/em&gt; clauses, and sometimes not. But you never write the series of &lt;em&gt;if&lt;/em&gt; and &lt;em&gt;else&lt;/em&gt; yourself.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-recap-of-machine-learning&quot;&gt;A recap of machine learning&lt;/h2&gt;
+&lt;p&gt;The idea of machine learning is: you have some data, and you apply an algorithm to these to detect a pattern. You put this pattern into a function.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-09-05-machine-learning-if-else/ML%20recap.png&quot; alt=&quot;machine learning representation schema&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then, you’ll be able to use this function on new data to extract new information.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-decision-tree-with-a-series-of-if-and-else&quot;&gt;A decision tree with a series of if and else&lt;/h2&gt;
+
+&lt;p&gt;There are different types of machine learning. If you decide to build a decision tree (a famous way to do machine learning) to know the form of a diamond, you’ll get something like that:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-09-05-machine-learning-if-else/decision_tree.png&quot; alt=&quot;decision tree&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you translate it with code, you’ll get something like that:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;carat&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;weight&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;diamond&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;high&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;red&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plate&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;high&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;red&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plate&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grey&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pentagon&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Then, yes, you can see that here, you have a series of &lt;em&gt;if&lt;/em&gt; and &lt;em&gt;else&lt;/em&gt;.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;And decision trees are used a lot in machine learning. Most of the time, you don’t use decision trees directly but forests of decision trees in the Random Forest algorithm or a series of decision trees in the Gradient Boosted Trees algorithm.&lt;/p&gt;
+
+&lt;h2 id=&quot;but-many-algorithms-in-machine-learning-are-just-the-generation-of-plain-mathematical-formulas&quot;&gt;But, many algorithms in machine learning are just the generation of plain mathematical formulas&lt;/h2&gt;
+
+&lt;p&gt;Let’s take another famous way to do machine learning: a neural network. What you’ll get at the end is more something like that:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;a*10+b*15+c*16+20…
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then, the process doesn’t try to find a series of &lt;em&gt;if&lt;/em&gt; and &lt;em&gt;else&lt;/em&gt;, but a mathematical formula.&lt;/p&gt;
+
+&lt;p&gt;I would like to finish with a last example: recommender systems. There are many ways to build a recommendation system. One which is well known is matrix factorization.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Matrix factorization, what?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I won’t explain deeply what it is about, but as a sum up, it’s a manipulation of matrices. It comes from linear algebra.
+Here is a definition: &lt;a href=&quot;https://en.wikipedia.org/wiki/Matrix_decomposition&quot;&gt;Matrix decomposition&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The result is something like that:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Vector A * Vector B
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;As a result, yes, you have types of machine learning that will generate a series of &lt;em&gt;if&lt;/em&gt; and &lt;em&gt;else&lt;/em&gt;. But, you have also plenty of algorithms that try to find the variables of an equation or vectors.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;you-never-write-the-series-of-if-and-else-yourself&quot;&gt;You never write the series of if and else yourself&lt;/h2&gt;
+
+&lt;p&gt;Let’s go back to the decision tree. As you’ve seen previously, the result could be translated as a series of &lt;em&gt;if&lt;/em&gt; and &lt;em&gt;else&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;But, you don’t write directly this code. You generate it using… mathematical operations. Yes, again!&lt;/p&gt;
+
+&lt;p&gt;As an example, you can get the result of a decision tree using an optimisation algorithm with the Shannon Entropy formula:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-09-05-machine-learning-if-else/formula.png&quot; alt=&quot;shannon entropy formula&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s suppose you want to guess the form (pentagon or plate) of a diamond according to its attributes. You have three diamonds:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;carat&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;size&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;form&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;high&lt;/td&gt;
+      &lt;td&gt;small&lt;/td&gt;
+      &lt;td&gt;plate&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;low&lt;/td&gt;
+      &lt;td&gt;high&lt;/td&gt;
+      &lt;td&gt;plate&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;low&lt;/td&gt;
+      &lt;td&gt;small&lt;/td&gt;
+      &lt;td&gt;pentagon&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The process is the following:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;The data is split randomly: a random &lt;em&gt;if&lt;/em&gt; statement is created like &lt;em&gt;if carat is high&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;The process checks if it helps to generate a more accurate view of the data: by doing this &lt;em&gt;if&lt;/em&gt;, are the data separated correctly? Do we have pentagons mostly from one side and plates from another?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;To be able to know if the data are separated correctly, the Shannon entropy formula is used&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;if yes, the process keeps the &lt;em&gt;if carat is high&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;if not, it generates another one&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Then, by keeping the &lt;em&gt;if&lt;/em&gt; you get something like that:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-09-05-machine-learning-if-else/decision_tree_first_step.png&quot; alt=&quot;decision tree - first step&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The translation with a code is:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;carat&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;weight&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;diamond&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;high&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;red&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plate&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;#The process doesn&apos;t know yet how to handle that
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Note that you have a branch (below &lt;em&gt;low&lt;/em&gt;) with a plate and a pentagon. It corresponds to the &lt;em&gt;else&lt;/em&gt; where the process doesn’t know what to put yet.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;So, the data below &lt;em&gt;low&lt;/em&gt; is split randomly: another &lt;em&gt;if&lt;/em&gt; is created&lt;/li&gt;
+  &lt;li&gt;The process checks if it helps to generate a more accurate view of the data&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;if yes, the process keeps the new &lt;em&gt;if&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;if not, it generates another one&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;By keeping the new &lt;em&gt;if&lt;/em&gt;, you get another branch:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-09-05-machine-learning-if-else/decision_tree_second_step.png&quot; alt=&quot;decision tree - second step&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The translation with a code is:&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;high&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;red&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plate&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grey&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pentagon&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;At the end, you get a final tree decision:
+&lt;img src=&quot;/images/posts/2022-09-05-machine-learning-if-else/decision_tree_final.png&quot; alt=&quot;decision tree - final&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;with a final code:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;carat&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;weight&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;diamond&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;high&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;red&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plate&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;high&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;red&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plate&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grey&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pentagon&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Of course, in real life, data are more complicated and the process must iterate a lot until getting the perfect tree. The process used is an optimisation algorithm. This is the part called &lt;em&gt;learning&lt;/em&gt; in machine learning.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Mathematical optimization […] is the selection of a best element, with regard to some criterion, from some set of available alternatives (definition from Wikipedia)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;If you want to know how the Shannon entropy works with mathematical formulas, you’ve got this article: &lt;a href=&quot;https://medium.zenika.com/classification-in-machine-learning-example-of-decision-tree-with-shannon-entropy-945fc8e2a3fb&quot;&gt;Classification in machine learning - Example of Decision Tree with Shannon Entropy&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Then as a result, yes, you can have machine learning algorithms that will build a series of &lt;em&gt;if&lt;/em&gt; and &lt;em&gt;else&lt;/em&gt;. But to generate it, you’ll use mathematical operations.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note that for other algorithms such as the matrix factorisation or neural networks, you don’t use a process with the Shannon entropy formula, but other optimisation algorithms that don’t generate a series of if and else but, as previously seen, vectors or formulas.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;so-why-do-we-sometimes-say-that-machine-learning-is-a-bunch-of-if-and-else-statements&quot;&gt;So why do we sometimes say that machine learning is a bunch of if and else statements?&lt;/h2&gt;
+
+&lt;p&gt;To my opinion, because of expert systems. They are the ancestors of machine learning in artificial intelligence.&lt;/p&gt;
+
+&lt;p&gt;Artificial intelligence is a way to simulate human cognitive abilities. In the history of artificial intelligence, people thought that they would be able to target that with expert systems. These are big series of hardcoded rules and then… of &lt;em&gt;if&lt;/em&gt; and &lt;em&gt;else&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;To conclude, most of the time, machine learning is not a series of &lt;em&gt;if&lt;/em&gt; and &lt;em&gt;else&lt;/em&gt;. It’s just mathematics and for some techniques, they are very old. I’m thinking of linear regressions or Bayesian probabilities. These were used long before the existence of computers.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Photo of the unicorn by &lt;a href=&quot;https://unsplash.com/@stephenleo1982?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Stephen Leonardi&lt;/a&gt; on &lt;a href=&quot;https://unsplash.com/s/photos/unicorn?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Nastasia Saby</name></author><category term="machine learning" /><category term="Data Science" /><summary type="html">Recently, a colleague asked me:</summary></entry><entry><title type="html">Using a circuit breaker to spare the API we are calling</title><link href="https://tech.bedrockstreaming.com/2022/09/02/backend-circuit-breaker.html" rel="alternate" type="text/html" title="Using a circuit breaker to spare the API we are calling" /><published>2022-09-02T00:00:00+00:00</published><updated>2022-09-02T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/09/02/backend-circuit-breaker</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/09/02/backend-circuit-breaker.html">&lt;p&gt;Hi! We’re going to start our &lt;a href=&quot;#from-the-same-series&quot;&gt;fourth article&lt;/a&gt; about Bedrock’s API gateway.
 Today we will talk about the circuit breaker pattern, what it is, and how we’re using it.&lt;/p&gt;
 
 &lt;h2 id=&quot;the-circuit-breaker-pattern&quot;&gt;The Circuit Breaker Pattern&lt;/h2&gt;
@@ -1169,101 +1358,4 @@ J’ai fait tout le code, mais il ne marche pas.&lt;/p&gt;
 &lt;em&gt;N’hésitez pas à venir présenter votre travail accompli !&lt;/em&gt;&lt;br /&gt;
 &lt;em&gt;D’ici à ce prochain rendez-vous,&lt;/em&gt;&lt;br /&gt;
 &lt;em&gt;Des bisous 😘&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>Bedrock</name></author><category term="devfacts" /><category term="humour" /><summary type="html">L’été arrive, les vacances, le repos. Et vu les derniers devfacts des équipes Bedrock, il semblerait qu’il soit temps.</summary></entry><entry><title type="html">Encrypt AWS AMIs: one way to do it wrong</title><link href="https://tech.bedrockstreaming.com/2022/07/08/encrypt-aws-amis.html" rel="alternate" type="text/html" title="Encrypt AWS AMIs: one way to do it wrong" /><published>2022-07-08T00:00:00+00:00</published><updated>2022-07-08T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/07/08/encrypt-aws-amis</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/07/08/encrypt-aws-amis.html">&lt;p&gt;At Bedrock, we build our own privately shared AMIs (&lt;a href=&quot;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html&quot;&gt;Amazon Machine Images&lt;/a&gt;) for different parts of our stack: kubernetes platform, vod platform, etc. We build those AMIs to optimize kernel parameters,to embed some tools, and more. We have been using Packer for a couple of years, and everything has been working just fine.&lt;/p&gt;
-
-&lt;p&gt;Concerned about following AWS best-practices, we recently added &lt;a href=&quot;https://aws.amazon.com/premiumsupport/knowledge-center/ebs-automatic-encryption/&quot;&gt;encryption by default to all new EBS volumes&lt;/a&gt; in all our accounts.&lt;/p&gt;
-
-&lt;p&gt;We didn’t expect it, but this decision impacted our AMI creation process. We thus began to update our Packer workflow to integrate this new constraint. We were telling ourselves that more security was for the best and we didn’t take enough steps back to analyze drawbacks.&lt;/p&gt;
-
-&lt;p&gt;You will find in this blog post multiple tips that may help you handle your AMIs encryption, but also why you shouldn’t handle it our way.&lt;/p&gt;
-
-&lt;h2 id=&quot;build-an-encrypted-ami&quot;&gt;Build an encrypted AMI&lt;/h2&gt;
-
-&lt;p&gt;To build our AMI, Packer launches an EC2 in a “builder” account, then a snapshot is created and copied in needed regions. To use this AMI, “user” accounts are listed in the &lt;a href=&quot;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-explicit.html&quot;&gt;AMI allowed users&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;With account EBS encryption enabled, snapshots are now encrypted. The default behavior is to use the account’s default KMS Key. Our first “easy” problem while trying to build new AMI with Packer was the following error message:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Error Copying AMI (ami-xxxxxx) to region (xx-xxx-x): InvalidRequest: Snapshot snap-xxxxxxx is encrypted. Creating an unencrypted copy from an encrypted snapshot is not supported.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;To avoid that, we enabled AMI encryption with Packer, but it resulted in another error :&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Error modify AMI attributes: InvalidParameter: Snapshots encrypted with the AWS Managed CMK can&apos;t be shared.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;As our AMI has to be shared to other accounts, it was impossible to encrypt our AMI with the account default KMS Key. So we created a dedicated KMS Key for Packer encryption.&lt;/p&gt;
-
-&lt;p&gt;And it worked! We had our beautiful encrypted AMI, ready to be used in all our accounts.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-07-08-encrypt-aws-amis/build_encrypted_amis.png&quot; alt=&quot;How we build our encrypted AMIs&quot; /&gt;&lt;/p&gt;
-
-&lt;center&gt;&lt;ins&gt;How we build our encrypted AMIs&lt;/ins&gt;&lt;/center&gt;
-
-&lt;h2 id=&quot;run-an-encrypted-ami&quot;&gt;Run an encrypted AMI&lt;/h2&gt;
-
-&lt;p&gt;This is where it gets complex.&lt;/p&gt;
-
-&lt;p&gt;When we tried to launch an EC2 instance with our newly encrypted AMI, it failed with this error code :&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Client.InternalError: Client error on launch
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/troubleshooting-launch.html&quot;&gt;It means that AWS can’t use this AMI because it is encrypted.&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;First step was to authorize the KMS Key to be used for encryption in user (external) accounts.&lt;/p&gt;
-
-&lt;p&gt;There are two methods to do that, for two different needs.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;policy-method&quot;&gt;Policy method&lt;/h3&gt;
-
-&lt;p&gt;To authorize an external customer managed role (ours), we had to authorize our role in KMS Key dedicated policy to use it, then authorize KMS Key in our role policy to be used. It is some kind of symmetric reference hard to correctly maintain with IaC (Terraform). And we had to do the same for KMS Key replicas in other regions, because they have a dedicated policy.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-07-08-encrypt-aws-amis/policy_method.png&quot; alt=&quot;Policy method&quot; /&gt;&lt;/p&gt;
-
-&lt;center&gt;&lt;ins&gt;Policy method&lt;/ins&gt;&lt;/center&gt;
-
-&lt;p&gt;One important thing to know here: some KMS Key permissions aren’t available for external account sharing. It means that when we try to add the permission &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kms:*&lt;/code&gt; to our role policy (for debug purposes only, we follow least privileges principles), it failed. You can find which permission is accessible in cross account use and which is not &lt;a href=&quot;https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;grant-method&quot;&gt;Grant method&lt;/h3&gt;
-
-&lt;p&gt;To authorize an AWS managed role, like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AWSServiceRoleForAutoScaling&lt;/code&gt; (to launch our EC2), we also needed to allow it to use our key. It is impossible to add a new policy on an AWS Managed role. So instead of using a policy method like before, we had to create a grant on that role to use our key. We tried to create that grant from the source account (where the key is created), but it didn’t work. We had to create that grant from the destination account (where &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AWSServiceRoleForAutoScaling&lt;/code&gt; is), using a role in the destination account that is allowed to create a grant… So we had to allow a role from the destination account to create a grant with Policy method, then use the previous role to allow an AWS Managed Role to use our KMS Key with Grant method. Pretty fun, right?&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-07-08-encrypt-aws-amis/grant_method.png&quot; alt=&quot;Grant method&quot; /&gt;&lt;/p&gt;
-
-&lt;center&gt;&lt;ins&gt;Grant method&lt;/ins&gt;&lt;/center&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Once all needed roles were allowed, we tried to launch an EC2 with the allowed role attached as an instance role. It failed again, because we needed to also use the AMI KMS Key on root volume of our instance. By default, it was the account KMS Key that was used.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html&quot;&gt;We attached that key on our root volume&lt;/a&gt;, and it worked. We also could launch our EC2 with ASG. It was all good.&lt;/p&gt;
-
-&lt;p&gt;But there was a big security vulnerability: instead of using one KMS key per account to encrypt our EBS volume, we were now using the same KMS key on all our accounts because of our encrypted AMI.&lt;/p&gt;
-
-&lt;h2 id=&quot;kms-key-rotation&quot;&gt;KMS Key rotation&lt;/h2&gt;
-
-&lt;p&gt;A short word about &lt;a href=&quot;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#kms-key-rotation&quot;&gt;Key rotation&lt;/a&gt;: it can easily be enabled to automatically rotate key materials each year. All new AMIs will be encrypted with new key material and nothing has to be changed to run encrypted AMIs.
-But in case of a manual rotation: if a key is leaked for example, you will need to recreate a new KMS Key, its replicas, and all permissions and grants seen before.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;Using privately shared encrypted AMI caused us multiple problems:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;higher complexity to maintain.&lt;/li&gt;
-  &lt;li&gt;lower security in cross-account configuration.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Furthermore, we checked all our AMIs to see if they contain sensitive data. It isn’t the case : all sensitive data is uploaded at startup by &lt;a href=&quot;https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-launch-template.html&quot;&gt;Launch Template&lt;/a&gt;. We had no interest in continuing to use encrypted AMI, and we would have spared so much time if we had seen that sooner.&lt;/p&gt;
-
-&lt;p&gt;This is why we decided to disable encryption for all new EBS volume on our builder account and stop building encrypted AMI.&lt;/p&gt;
-
-&lt;p&gt;Doing all the previous configuration took us several weeks. We are now more aware that doing security just for the beauty of it can be really counterproductive.&lt;/p&gt;
-
-&lt;p&gt;If your AMIs contain sensitive data, a better way to handle encrypted AMI may be to stop creating privately shared AMIs. Instead, copy and encrypt a private AMI in each of your “user” accounts with a dedicated KMS Key per account. As a result, there will be a larger amount of AMI to handle (one AMI per account per region), KMS Key permissions will still be complex, but security should improved.&lt;/p&gt;
-
-&lt;h4 id=&quot;logo-used-in-thumbnail&quot;&gt;Logo used in thumbnail&lt;/h4&gt;
-&lt;h5 id=&quot;death-by-imogen-oh-from-nounprojectcom&quot;&gt;Death by Imogen Oh from NounProject.com&lt;/h5&gt;
-&lt;h5 id=&quot;key-by-baboon-designs-from-nounprojectcom&quot;&gt;Key by Baboon designs from NounProject.com&lt;/h5&gt;
-&lt;h5 id=&quot;gears-by-aybige-from-nounprojectcom&quot;&gt;Gears by Aybige from NounProject.com&lt;/h5&gt;</content><author><name>Tanguy Falconnet</name></author><category term="cloud" /><category term="aws" /><summary type="html">At Bedrock, we build our own privately shared AMIs (Amazon Machine Images) for different parts of our stack: kubernetes platform, vod platform, etc. We build those AMIs to optimize kernel parameters,to embed some tools, and more. We have been using Packer for a couple of years, and everything has been working just fine.</summary></entry></feed>
+&lt;/blockquote&gt;</content><author><name>Bedrock</name></author><category term="devfacts" /><category term="humour" /><summary type="html">L’été arrive, les vacances, le repos. Et vu les derniers devfacts des équipes Bedrock, il semblerait qu’il soit temps.</summary></entry></feed>

@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/banner_xl.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Is machine learning a unicorn hiding a series of if and else? | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Is machine learning a unicorn hiding a series of if and else?" />
+<meta name="author" content="Nastasia Saby" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Let’s think about what is behind machine learning" />
+<meta property="og:description" content="Let’s think about what is behind machine learning" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2022/09/05/machine-learning-if-else.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2022/09/05/machine-learning-if-else.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-09-05T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Is machine learning a unicorn hiding a series of if and else?" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/09/05/machine-learning-if-else.html"},"url":"https://tech.bedrockstreaming.com/2022/09/05/machine-learning-if-else.html","author":{"@type":"Person","name":"Nastasia Saby"},"@type":"BlogPosting","headline":"Is machine learning a unicorn hiding a series of if and else?","dateModified":"2022-09-05T00:00:00+00:00","datePublished":"2022-09-05T00:00:00+00:00","description":"Let’s think about what is behind machine learning","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Is machine learning a unicorn hiding a series of if and else?">
+    <meta name="twitter:description" content="Recently, a colleague asked me:  All good with your if and else machine learning system?It was a joke but this one made me think.This is a running gag: machi...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/banner_xl.jpg">
+    <meta name="twitter:image:alt" content="Is machine learning a unicorn hiding a series of if and else?">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Is machine learning a unicorn hiding a series of if and else? " aria-label="Is machine learning a unicorn hiding a series of if and else?" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Is+machine+learning+a+unicorn+hiding+a+series+of+if+and+else%3F" class="title">Is machine learning a unicorn hiding a series of if and else?</h1>
+      
+
+
+<div class="post-info"><a href="https://twitter.com/saby_nastasia" target="_blank" rel="noopener">
+    <p class="meta">
+      Nastasia Saby - 
+      
+      September 05, 2022
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Recently, a colleague asked me:</p>
+
+<blockquote>
+  <p>All good with your if and else machine learning system?</p>
+</blockquote>
+
+<p>It was a joke but this one made me think.</p>
+
+<p><em>This is a running gag: machine learning is only a series of if and else.</em></p>
+
+<p><img src="/images/posts/2022-09-05-machine-learning-if-else/unicorn_forest.jpg" alt="unicorn in the forest" /></p>
+
+<p>Beyond the joke, it is true?</p>
+
+<p>Yes! …and no. As always, it depends.</p>
+
+<p><strong>Quick answer</strong>: Machine learning is a bunch of mathematical and statistical operations. Sometimes, the operations you use can be translated into <em>if</em> and <em>else</em> clauses, and sometimes not. But you never write the series of <em>if</em> and <em>else</em> yourself.</p>
+
+<h2 id="a-recap-of-machine-learning">A recap of machine learning</h2>
+<p>The idea of machine learning is: you have some data, and you apply an algorithm to these to detect a pattern. You put this pattern into a function.</p>
+
+<p><img src="/images/posts/2022-09-05-machine-learning-if-else/ML%20recap.png" alt="machine learning representation schema" /></p>
+
+<p>Then, you’ll be able to use this function on new data to extract new information.</p>
+
+<h2 id="a-decision-tree-with-a-series-of-if-and-else">A decision tree with a series of if and else</h2>
+
+<p>There are different types of machine learning. If you decide to build a decision tree (a famous way to do machine learning) to know the form of a diamond, you’ll get something like that:</p>
+
+<p><img src="/images/posts/2022-09-05-machine-learning-if-else/decision_tree.png" alt="decision tree" /></p>
+
+<p>If you translate it with code, you’ll get something like that:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">carat</span> <span class="p">(</span><span class="n">the</span> <span class="n">weight</span> <span class="n">of</span> <span class="n">a</span> <span class="n">diamond</span><span class="p">)</span> <span class="ow">is</span> <span class="n">high</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">red</span> <span class="n">plate</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">size</span> <span class="ow">is</span> <span class="n">high</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">red</span> <span class="n">plate</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">grey</span> <span class="n">pentagon</span>
+</code></pre></div></div>
+
+<p><strong>Then, yes, you can see that here, you have a series of <em>if</em> and <em>else</em>.</strong></p>
+
+<p>And decision trees are used a lot in machine learning. Most of the time, you don’t use decision trees directly but forests of decision trees in the Random Forest algorithm or a series of decision trees in the Gradient Boosted Trees algorithm.</p>
+
+<h2 id="but-many-algorithms-in-machine-learning-are-just-the-generation-of-plain-mathematical-formulas">But, many algorithms in machine learning are just the generation of plain mathematical formulas</h2>
+
+<p>Let’s take another famous way to do machine learning: a neural network. What you’ll get at the end is more something like that:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a*10+b*15+c*16+20…
+</code></pre></div></div>
+
+<p>Then, the process doesn’t try to find a series of <em>if</em> and <em>else</em>, but a mathematical formula.</p>
+
+<p>I would like to finish with a last example: recommender systems. There are many ways to build a recommendation system. One which is well known is matrix factorization.</p>
+
+<p><em>Matrix factorization, what?</em></p>
+
+<p>I won’t explain deeply what it is about, but as a sum up, it’s a manipulation of matrices. It comes from linear algebra.
+Here is a definition: <a href="https://en.wikipedia.org/wiki/Matrix_decomposition">Matrix decomposition</a>.</p>
+
+<p>The result is something like that:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Vector A * Vector B
+</code></pre></div></div>
+
+<p><strong>As a result, yes, you have types of machine learning that will generate a series of <em>if</em> and <em>else</em>. But, you have also plenty of algorithms that try to find the variables of an equation or vectors.</strong></p>
+
+<h2 id="you-never-write-the-series-of-if-and-else-yourself">You never write the series of if and else yourself</h2>
+
+<p>Let’s go back to the decision tree. As you’ve seen previously, the result could be translated as a series of <em>if</em> and <em>else</em>.</p>
+
+<p>But, you don’t write directly this code. You generate it using… mathematical operations. Yes, again!</p>
+
+<p>As an example, you can get the result of a decision tree using an optimisation algorithm with the Shannon Entropy formula:</p>
+
+<p><img src="/images/posts/2022-09-05-machine-learning-if-else/formula.png" alt="shannon entropy formula" /></p>
+
+<p>Let’s suppose you want to guess the form (pentagon or plate) of a diamond according to its attributes. You have three diamonds:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>carat</strong></th>
+      <th><strong>size</strong></th>
+      <th><strong>form</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>high</td>
+      <td>small</td>
+      <td>plate</td>
+    </tr>
+    <tr>
+      <td>low</td>
+      <td>high</td>
+      <td>plate</td>
+    </tr>
+    <tr>
+      <td>low</td>
+      <td>small</td>
+      <td>pentagon</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The process is the following:</p>
+<ol>
+  <li>The data is split randomly: a random <em>if</em> statement is created like <em>if carat is high</em></li>
+  <li>The process checks if it helps to generate a more accurate view of the data: by doing this <em>if</em>, are the data separated correctly? Do we have pentagons mostly from one side and plates from another?</li>
+</ol>
+
+<p><strong>To be able to know if the data are separated correctly, the Shannon entropy formula is used</strong></p>
+
+<ul>
+  <li>if yes, the process keeps the <em>if carat is high</em></li>
+  <li>if not, it generates another one</li>
+</ul>
+
+<p>Then, by keeping the <em>if</em> you get something like that:</p>
+
+<p><img src="/images/posts/2022-09-05-machine-learning-if-else/decision_tree_first_step.png" alt="decision tree - first step" /></p>
+
+<p>The translation with a code is:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">carat</span> <span class="p">(</span><span class="n">the</span> <span class="n">weight</span> <span class="n">of</span> <span class="n">a</span> <span class="n">diamond</span><span class="p">)</span> <span class="ow">is</span> <span class="n">high</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">red</span> <span class="n">plate</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1">#The process doesn't know yet how to handle that
+</span></code></pre></div></div>
+
+<p>Note that you have a branch (below <em>low</em>) with a plate and a pentagon. It corresponds to the <em>else</em> where the process doesn’t know what to put yet.</p>
+
+<ol>
+  <li>So, the data below <em>low</em> is split randomly: another <em>if</em> is created</li>
+  <li>The process checks if it helps to generate a more accurate view of the data</li>
+</ol>
+
+<ul>
+  <li>if yes, the process keeps the new <em>if</em></li>
+  <li>if not, it generates another one</li>
+</ul>
+
+<p>By keeping the new <em>if</em>, you get another branch:</p>
+
+<p><img src="/images/posts/2022-09-05-machine-learning-if-else/decision_tree_second_step.png" alt="decision tree - second step" /></p>
+
+<p>The translation with a code is:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">size</span> <span class="ow">is</span> <span class="n">high</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">red</span> <span class="n">plate</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">grey</span> <span class="n">pentagon</span>
+</code></pre></div></div>
+
+<p>At the end, you get a final tree decision:
+<img src="/images/posts/2022-09-05-machine-learning-if-else/decision_tree_final.png" alt="decision tree - final" /></p>
+
+<p>with a final code:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">carat</span> <span class="p">(</span><span class="n">the</span> <span class="n">weight</span> <span class="n">of</span> <span class="n">a</span> <span class="n">diamond</span><span class="p">)</span> <span class="ow">is</span> <span class="n">high</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">red</span> <span class="n">plate</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">size</span> <span class="ow">is</span> <span class="n">high</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">red</span> <span class="n">plate</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">grey</span> <span class="n">pentagon</span>
+</code></pre></div></div>
+
+<p>Of course, in real life, data are more complicated and the process must iterate a lot until getting the perfect tree. The process used is an optimisation algorithm. This is the part called <em>learning</em> in machine learning.</p>
+
+<p><em>Mathematical optimization […] is the selection of a best element, with regard to some criterion, from some set of available alternatives (definition from Wikipedia)</em></p>
+
+<p>If you want to know how the Shannon entropy works with mathematical formulas, you’ve got this article: <a href="https://medium.zenika.com/classification-in-machine-learning-example-of-decision-tree-with-shannon-entropy-945fc8e2a3fb">Classification in machine learning - Example of Decision Tree with Shannon Entropy</a></p>
+
+<p><strong>Then as a result, yes, you can have machine learning algorithms that will build a series of <em>if</em> and <em>else</em>. But to generate it, you’ll use mathematical operations.</strong></p>
+
+<p><em>Note that for other algorithms such as the matrix factorisation or neural networks, you don’t use a process with the Shannon entropy formula, but other optimisation algorithms that don’t generate a series of if and else but, as previously seen, vectors or formulas.</em></p>
+
+<h2 id="so-why-do-we-sometimes-say-that-machine-learning-is-a-bunch-of-if-and-else-statements">So why do we sometimes say that machine learning is a bunch of if and else statements?</h2>
+
+<p>To my opinion, because of expert systems. They are the ancestors of machine learning in artificial intelligence.</p>
+
+<p>Artificial intelligence is a way to simulate human cognitive abilities. In the history of artificial intelligence, people thought that they would be able to target that with expert systems. These are big series of hardcoded rules and then… of <em>if</em> and <em>else</em>.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>To conclude, most of the time, machine learning is not a series of <em>if</em> and <em>else</em>. It’s just mathematics and for some techniques, they are very old. I’m thinking of linear regressions or Bayesian probabilities. These were used long before the existence of computers.</p>
+
+<p><em>Photo of the unicorn by <a href="https://unsplash.com/@stephenleo1982?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Stephen Leonardi</a> on <a href="https://unsplash.com/s/photos/unicorn?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></em></p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Is+machine+learning+a+unicorn+hiding+a+series+of+if+and+else%3F%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F09%2F05%2Fmachine-learning-if-else.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/09/05/machine-learning-if-else.html&title=Is+machine+learning+a+unicorn+hiding+a+series+of+if+and+else%3F%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/09/05/machine-learning-if-else.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Is machine learning a unicorn hiding a series of if and else?%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/09/05/machine-learning-if-else.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#Data+Science">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Data Science</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#machine+learning">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> machine learning</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="Using a circuit breaker to spare the API we are calling" href="/2022/09/02/backend-circuit-breaker.html">
+            <p>Next post</p>
+            Using a circuit breaker to spare the API we are calling
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>
