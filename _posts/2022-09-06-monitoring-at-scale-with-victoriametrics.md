@@ -46,7 +46,7 @@ In this example, any Prometheus instance can handle this cardinality, but if you
 
 You should read the excellent [article](https://www.robustperception.io/cardinality-is-key/) from "Robust Perception" for more details on this subject.
 
-At BedRock the high cardinality metrics comes from our HAProxy ingress. For our needs, we retrieve several labels like the name of the ingress pod as well as its IP address, but more importantly the name and IP address of the destination pod. In a cluster that can grow to  more than 15,000 pods, the combination of unique labels (cardinality) is very significant for some of our ingress metrics.
+At BedRock the high cardinality metrics come from our HAProxy ingress. For our needs, we retrieve several labels like the name of the ingress pod as well as its IP address, but more importantly the name and IP address of the destination pod. In a cluster that can grow to more than 15,000 pods, the combination of unique labels (cardinality) is very significant for some of our ingress metrics.
 
 We found that Prometheus performed poorly when we had multiple metrics with high cardinalities (> 100,000), and resulted in over-consumption of RAM.
 
