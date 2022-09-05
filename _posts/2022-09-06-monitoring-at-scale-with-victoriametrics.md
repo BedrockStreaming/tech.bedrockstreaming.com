@@ -31,7 +31,7 @@ The RAM and CPU usage of a Prometheus instance is correlated to the number of me
 
 consumed more than 64 GB of RAM and 26 CPUs each, in order to absorb our peak loads. In a Kubernetes cluster, this high resources consumption can cause problems, especially for scheduling.
 
-The Write-Ahead Log (WAL) system can cause rather slow restarts if the Prometheus instance runs out of RAM and can cause the Prometheus instance to hang for varying lengths of time. During the replay of the WAL, prometheus doesn't scrape anything, thus there is no alerting and no way of knowing if something is going on
+The Write-Ahead Log (WAL) system can cause rather slow restarts if the Prometheus instance runs out of RAM and can cause the Prometheus instance to hang for varying lengths of time. During the replay of the WAL, Prometheus doesn't scrape anything, thus there is no alerting and no way of knowing if something is going on.
 
 ## The cardinality of metrics
 When our Kubernetes clusters manage a large number of pods, a constraint quickly appears: cardinality.
