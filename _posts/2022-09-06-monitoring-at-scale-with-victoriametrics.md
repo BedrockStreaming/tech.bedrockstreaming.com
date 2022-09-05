@@ -10,7 +10,7 @@ color: rgb(251,87,66) # this is Bedrock color here
 # Monitoring at BedRock :
 At [Bedrock Streaming](https://www.bedrockstreaming.com/), a large part of our applications are hosted on Kubernetes clusters, others use the EC2 service from AWS and a small part are hosted on "OnPremise" servers.
 
-From 2018 until January 2022, we used Prometheus to monitor all these platforms, because Prometheus met all our needs: keeping control over our monitoring solution and supporting service discovery, which is essential on environments such as Kubernetes or AWS EC2. Prometheus can also support custom exporters that we developed internally.
+From 2018 until January 2022, we used Prometheus to monitor all these platforms, because Prometheus met all our needs: keeping control over our monitoring solution and supporting service discovery, which is essential in environments such as Kubernetes or AWS EC2. Prometheus can also support custom exporters that we developed internally.
 
 Over the years, our business has grown significantly, so the load on our platforms has increased. Indirectly, the load on our Prometheus instances has also increased, to the point where certain limitations have become too much for us. This is why we have changed our monitoring/alerting stack.
 
