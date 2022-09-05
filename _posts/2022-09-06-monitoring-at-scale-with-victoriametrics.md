@@ -88,7 +88,7 @@ We also wanted to keep the Prometheus language: [PromQL](https://prometheus.io/d
 You can see the [main features](https://docs.victoriametrics.com/#prominent-features) of Victoria Metrics as well as various [case studies](https://docs.victoriametrics.com/#case-studies-and-talks) in their documentation.
 
 # POC of Victoria Metrics
-We wanted to validate the performance and consumption of a stack entirely based on Victoria Metrics, the results were really encouraging
+We wanted to validate the performance and consumption of a stack entirely based on Victoria Metrics, the results were really encouraging.
 
 test environment :
  - 1500 web app pods
