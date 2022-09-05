@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Monitoring at scale with victoria metrics
+title: Monitoring at scale with Victoria Metrics
 description: why and how we moved from Prometheus to Victoria Metrics
 author: j_menan
 tags: [k8s, kubernetes, monitoring, prometheus, scaling, victoriametrics, cardinality]
