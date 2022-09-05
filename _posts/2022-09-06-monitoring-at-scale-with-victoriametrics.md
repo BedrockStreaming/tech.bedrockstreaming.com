@@ -57,7 +57,7 @@ _RAM and CPU consumption of our prometheus instances (the red lines represent th
 ![RAM consumption of prometheus ](/images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/prometheus-ram.png)
 ![RAM consumption of prometheus ](/images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/prometheus-cpu.png)
 
-Prometheus is still a good solution, which has served its purpose well for several years, but for our use case, prometheus has reached its limits in our production environments.
+Prometheus is still a good solution, which has served its purpose well for several years, but we have reached its limits in our production environments.
 
 # Replacing Prometheus?
 
