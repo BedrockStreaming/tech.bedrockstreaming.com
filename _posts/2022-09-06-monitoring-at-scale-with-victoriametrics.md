@@ -36,7 +36,7 @@ The Write-Ahead Log (WAL) system can cause rather slow restarts if the Prometheu
 ## The cardinality of metrics
 When our Kubernetes clusters manage a large number of pods, a constraint quickly appears: cardinality.
 
-_>The cardinality of a metric is the number of TimeSeries of that metric with single-valued labels._
+_> The cardinality of a metric is the number of TimeSeries of that metric with single-valued labels._
 
 ![schema of cardinality](/images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/cardinality-example.png)
 
