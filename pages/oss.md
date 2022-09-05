@@ -95,7 +95,7 @@ Throught GitHub we participated to the improvement (we hope so) of many open sou
 * [symfony/symfony-docs](https://github.com/symfony/symfony-docs): [#4300](https://github.com/symfony/symfony-docs/pull/4300)
 * [variantdev/chartify](https://github.com/variantdev/chartify): [#17](https://github.com/variantdev/chartify/pull/17)
 * [Versent/saml2aws](https://github.com/Versent/saml2aws): [#272](https://github.com/Versent/saml2aws/pull/272)
-* [video-dev/hls.js](https://github.com/video-dev/hls.js): [#1907](https://github.com/video-dev/hls.js/pull/1907) - [#2606](https://github.com/video-dev/hls.js/pull/2606)
+* [video-dev/hls.js](https://github.com/video-dev/hls.js): [#1907](https://github.com/video-dev/hls.js/pull/1907) - [#2606](https://github.com/video-dev/hls.js/pull/2606) - [#4474](https://github.com/video-dev/hls.js/pull/4474)
 * [vuejs/vue-router](https://github.com/vuejs/vue-router): [#2411](https://github.com/vuejs/vue-router/pull/2411)
 * [vuejs/vuex](https://github.com/vuejs/vuex): [#1412](https://github.com/vuejs/vuex/pull/1412)
 * [webpack/webpack](https://github.com/webpack/webpack): [#5862](https://github.com/webpack/webpack/pull/5862)
