@@ -25,7 +25,7 @@ _> Prometheus's local storage is not intended to be durable long-term storage; e
 Prometheus's local storage is not intended to be durable long-term storage; external solutions offer extended retention and data durability.
 We worked around this limitation by using Victoria Metrics (VMCluster) as a LongTermStorage via the remote_write protocol
 
-All processes (scrapping, ingest, storage etc.) were, until now, managed in the same "prometheus" instance, which implied a less flexible and vertical scaling only (since recently a [Prometheus agent](https://prometheus.io/blog/2021/11/16/agent/) is available for the "scrapping" part).
+All processes (scrapping, ingest, storage, etc.) were, until now, managed in the same "prometheus" instance, which implied a less flexible and vertical scaling only (since recently a [Prometheus agent](https://prometheus.io/blog/2021/11/16/agent/) is available for the "scrapping" part).
 
 The RAM and CPU usage of a Prometheus instance is correlated to the number of metrics (and their cardinality) it has to manage. In our case, several Prometheus instances 
 
