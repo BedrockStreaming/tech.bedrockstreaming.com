@@ -47,11 +47,15 @@ h_riffiod:
   name: Hugo Riffiod
 j_mastounga:
   name: Jules Matsounga
+j_menan:
+  name: Julien Menan
+  avatar: /images/avatar/jmenan.jpg
+  url: https://twitter.com/julien_menan
 j_planckeel:
   name: Jérémy Planckeel
   url: https://github.com/jplanckeel
 j_nginn:
- name: Julie Nginn
+  name: Julie Nginn
 kenny:
   name: Kenny Dits
   avatar: /images/avatar/kenny.jpg
