@@ -133,7 +133,7 @@ _This is what our monitoring and alerting stack based on this Helm chart looks l
 ![stack-vm](/images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/stack-vm.png)
 
 # Resumption of the history
-We wanted to keep historical metrics of our Kubernetes clusters. Victoria Metrics provides a tool to manage the export and import of data from different tsdb: [vmctl](https://docs.victoriametrics.com/vmctl.html).
+We wanted to keep historical metrics of our Kubernetes clusters. Victoria Metrics provides a tool to manage the export and import of data from different TSDB: [vmctl](https://docs.victoriametrics.com/vmctl.html).
 
 In order not to overload our monitoring stack, we splitted the exports into smaller or larger time ranges, depending on the history of the cluster. For clusters with little activity and therefore few metrics, exports/imports were split day by day, for others we had to use smaller time slots.
 A home-made bash script launched several kubernetes jobs simultaneously and took care of restarting one of them as soon as another one ended.
