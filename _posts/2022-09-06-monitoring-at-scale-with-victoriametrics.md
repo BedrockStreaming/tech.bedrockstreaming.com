@@ -7,10 +7,10 @@ tags: [k8s, kubernetes, monitoring, prometheus, scaling, victoriametrics, cardin
 color: rgb(251,87,66) # this is Bedrock color here
 ---
 
-# Monitoring at BedRock :
+# Monitoring at Bedrock :
 At [Bedrock Streaming](https://www.bedrockstreaming.com/), a large part of our applications are hosted on Kubernetes clusters, others use the EC2 service from AWS and a small part are hosted on "OnPremise" servers.
 
-From 2018 until January 2022, we used Prometheus to monitor all these platforms, because Prometheus met all our needs: keeping control over our monitoring solution and supporting service discovery, which is essential in environments such as Kubernetes or AWS EC2. Prometheus can also support custom exporters that we developed internally.
+From 2018 until January 2022, we used Prometheus to monitor all these platforms, because Prometheus met all our needs: keeping control over our monitoring solution and supporting service discovery, which is essential in environments such as Kubernetes or AWS EC2. Prometheus also supports custom exporters we developed internally.
 
 Over the years, our business has grown significantly, so the load on our platforms has increased. Indirectly, the load on our Prometheus instances has also increased, to the point where certain limitations have become too much for us. This is why we have changed our monitoring/alerting stack.
 
@@ -27,9 +27,7 @@ We worked around this limitation by using Victoria Metrics (VMCluster) as a Long
 
 All processes (scrapping, ingest, storage, etc.) were, until now, managed in the same "prometheus" instance, which implied a less flexible and vertical scaling only (since recently a [Prometheus agent](https://prometheus.io/blog/2021/11/16/agent/) is available for the "scrapping" part).
 
-The RAM and CPU usage of a Prometheus instance is correlated to the number of metrics (and their cardinality) it has to manage. In our case, several Prometheus instances 
-
-consumed more than 64 GB of RAM and 26 CPUs each, in order to absorb our peak loads. In a Kubernetes cluster, this high resources consumption can cause problems, especially for scheduling.
+The RAM and CPU usage of a Prometheus instance is correlated to the number of metrics (and their cardinality) it has to manage. In our case, several Prometheus instances consumed more than 64 GB of RAM and 26 CPUs each, in order to absorb our peak loads. In a Kubernetes cluster, this high resources consumption can cause problems, especially for scheduling.
 
 The Write-Ahead Log (WAL) system can cause rather slow restarts if the Prometheus instance runs out of RAM and can cause the Prometheus instance to hang for varying lengths of time. During the replay of the WAL, Prometheus doesn't scrape anything, thus there is no alerting and no way of knowing if something is going on.
 
@@ -125,9 +123,8 @@ One of the advantages of using this Helm chart is that it will deploy essential 
 
 Alerting is also managed via a VMAlert component, which will execute the alerting and recording rules set by VictoriaMetrics. Notifications are managed by an Alertmanager which is also deployable via this chart.
 
-One of the advantages of using this Helm chart is that it will deploy essential components to properly monitor a Kubernetes cluster such as _Kube-state-metrics_ or _prometheus-node-exporter_, but also scraping configurations for services such as _Kubelet, KubeApiServer, KubeControllerManager, KubeDNS, KubeEtcd, KubeScheduler, KubeProxy_
 
-Alerting is also managed via a VMAlert component, which will execute the alerting and recording rules set by VictoriaMetrics. Notifications are managed by an Alertmanager which is also deployable via this chart.
+One of the advantages of using this Helm chart is that it will deploy essential components to properly monitor a Kubernetes cluster such as _Kube-state-metrics_ or _prometheus-node-exporter_, but also scraping configurations for services such as _Kubelet, KubeApiServer, KubeControllerManager, KubeDNS, KubeEtcd, KubeScheduler, KubeProxy_
 
 _This is what our monitoring and alerting stack based on this Helm chart looks like._
 ![stack-vm](/images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/stack-vm.png)
