@@ -1,4 +1,234 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-09-05T07:52:15+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Is machine learning a unicorn hiding a series of if and else?</title><link href="https://tech.bedrockstreaming.com/2022/09/05/machine-learning-if-else.html" rel="alternate" type="text/html" title="Is machine learning a unicorn hiding a series of if and else?" /><published>2022-09-05T00:00:00+00:00</published><updated>2022-09-05T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/09/05/machine-learning-if-else</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/09/05/machine-learning-if-else.html">&lt;p&gt;Recently, a colleague asked me:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-09-06T07:13:19+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Monitoring at scale with Victoria Metrics</title><link href="https://tech.bedrockstreaming.com/2022/09/06/monitoring-at-scale-with-victoriametrics.html" rel="alternate" type="text/html" title="Monitoring at scale with Victoria Metrics" /><published>2022-09-06T00:00:00+00:00</published><updated>2022-09-06T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/09/06/monitoring-at-scale-with-victoriametrics</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/09/06/monitoring-at-scale-with-victoriametrics.html">&lt;h1 id=&quot;monitoring-at-bedrock-&quot;&gt;Monitoring at BedRock :&lt;/h1&gt;
+&lt;p&gt;At &lt;a href=&quot;https://www.bedrockstreaming.com/&quot;&gt;Bedrock Streaming&lt;/a&gt;, a large part of our applications are hosted on Kubernetes clusters, others use the EC2 service from AWS and a small part are hosted on “OnPremise” servers.&lt;/p&gt;
+
+&lt;p&gt;From 2018 until January 2022, we used Prometheus to monitor all these platforms, because Prometheus met all our needs: keeping control over our monitoring solution and supporting service discovery, which is essential in environments such as Kubernetes or AWS EC2. Prometheus can also support custom exporters that we developed internally.&lt;/p&gt;
+
+&lt;p&gt;Over the years, our business has grown significantly, so the load on our platforms has increased. Indirectly, the load on our Prometheus instances has also increased, to the point where certain limitations have become too much for us. This is why we have changed our monitoring/alerting stack.&lt;/p&gt;
+
+&lt;h1 id=&quot;limits-of-prometheus&quot;&gt;Limits of Prometheus&lt;/h1&gt;
+&lt;p&gt;Prometheus does not have a native High Availability mode: to have high availability, we had to duplicate our Prometheus instances. This implies that our targets were “scrapped” by all our Prometheus instances (same for our rules and records).
+To avoid this, we had to use sharding, but this made the infrastructure more complex. More information on this subject in this &lt;a href=&quot;https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/high-availability.md&quot;&gt;documentation&lt;/a&gt; from the Prometheus operator&lt;/p&gt;
+
+&lt;p&gt;Prometheus is not designed to store metrics on a long-term basis, as mentioned in the &lt;a href=&quot;https://prometheus.io/docs/prometheus/latest/storage/#operational-aspects&quot;&gt;documentation&lt;/a&gt; :&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&amp;gt; Prometheus’s local storage is not intended to be durable long-term storage; external solutions offer extended retention and data durability.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Prometheus’s local storage is not intended to be durable long-term storage; external solutions offer extended retention and data durability.
+We worked around this limitation by using Victoria Metrics (VMCluster) as a LongTermStorage via the remote_write protocol&lt;/p&gt;
+
+&lt;p&gt;All processes (scrapping, ingest, storage, etc.) were, until now, managed in the same “prometheus” instance, which implied a less flexible and vertical scaling only (since recently a &lt;a href=&quot;https://prometheus.io/blog/2021/11/16/agent/&quot;&gt;Prometheus agent&lt;/a&gt; is available for the “scrapping” part).&lt;/p&gt;
+
+&lt;p&gt;The RAM and CPU usage of a Prometheus instance is correlated to the number of metrics (and their cardinality) it has to manage. In our case, several Prometheus instances&lt;/p&gt;
+
+&lt;p&gt;consumed more than 64 GB of RAM and 26 CPUs each, in order to absorb our peak loads. In a Kubernetes cluster, this high resources consumption can cause problems, especially for scheduling.&lt;/p&gt;
+
+&lt;p&gt;The Write-Ahead Log (WAL) system can cause rather slow restarts if the Prometheus instance runs out of RAM and can cause the Prometheus instance to hang for varying lengths of time. During the replay of the WAL, Prometheus doesn’t scrape anything, thus there is no alerting and no way of knowing if something is going on.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-cardinality-of-metrics&quot;&gt;The cardinality of metrics&lt;/h2&gt;
+&lt;p&gt;When our Kubernetes clusters manage a large number of pods, a constraint quickly appears: cardinality.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&amp;gt; The cardinality of a metric is the number of TimeSeries of that metric with single-valued labels.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/cardinality-example.png&quot; alt=&quot;schema of cardinality&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In the example above, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;status_code&lt;/code&gt; label has a cardinality of 5, app has a cardinality of 2 and the overall cardinality of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;server_reponses&lt;/code&gt; metric is 10.&lt;/p&gt;
+
+&lt;p&gt;In this example, any Prometheus instance can handle this cardinality, but if you add for example the label &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pod_name&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;client_IP&lt;/code&gt; (or both) to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;server_reponses&lt;/code&gt; metric, the cardinality increases for each different clients calls and for each pod.&lt;/p&gt;
+
+&lt;p&gt;You should read the excellent &lt;a href=&quot;https://www.robustperception.io/cardinality-is-key/&quot;&gt;article&lt;/a&gt; from “Robust Perception” for more details on this subject.&lt;/p&gt;
+
+&lt;p&gt;At BedRock the high cardinality metrics come from our HAProxy ingress. For our needs, we retrieve several labels like the name of the ingress pod as well as its IP address, but more importantly the name and IP address of the destination pod. In a cluster that can grow to more than 15,000 pods, the combination of unique labels (cardinality) is very significant for some of our ingress metrics.&lt;/p&gt;
+
+&lt;p&gt;We found that Prometheus performed poorly when we had multiple metrics with high cardinalities (&amp;gt; 100,000), and resulted in over-consumption of RAM.&lt;/p&gt;
+
+&lt;p&gt;During a high load event, Prometheus could consume up to 200 GB of RAM before being OOMKilled. When this happened, we would go completely blind as we had no metrics or alerting.
+This also impacts us on scalability in our Kubernetes clusters, as we use &lt;a href=&quot;https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#scaling-on-custom-metrics&quot;&gt;CustomMetrics&lt;/a&gt; very heavily in HPAs to scale the number of pods in our applications.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;RAM and CPU consumption of our prometheus instances (the red lines represent the reboots of our instances, we also see a loss of metrics)&lt;/em&gt;
+&lt;img src=&quot;/images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/prometheus-ram.png&quot; alt=&quot;RAM consumption of prometheus &quot; /&gt;
+&lt;img src=&quot;/images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/prometheus-cpu.png&quot; alt=&quot;RAM consumption of prometheus &quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Prometheus is still a good solution, which has served its purpose well for several years, but we have reached its limits in our production environments.&lt;/p&gt;
+
+&lt;h1 id=&quot;replacing-prometheus&quot;&gt;Replacing Prometheus?&lt;/h1&gt;
+
+&lt;p&gt;We spent time optimizing Prometheus to absorb the amount of metrics and their cardinality, in particular by either directly removing high cardinality metrics if they were totally unused, or by removing the labels of certain metrics that caused high cardinalities.
+We have also optimized the Prometheus configuration directly, as well as the maximum IOPS of our EBS. The RAM and CPU consumption of Prometheus is linked to the number of metrics to manage and their cardinality. But we always have more traffic and therefore always more pods in our clusters: we should have perpetually increased Prometheus instances resources. This was a problem for scalability and costs.&lt;/p&gt;
+
+&lt;p&gt;Can we replace a critical tool like this? What are our short, medium and long term needs? How can we optimize costs? And especially in what timeframe?
+The emergency of recent incidents forced us to exclude solutions such as &lt;a href=&quot;https://thanos.io/&quot;&gt;Thanos&lt;/a&gt; and &lt;a href=&quot;https://cortexmetrics.io/&quot;&gt;Cortex&lt;/a&gt;. Testing these solutions completely would have required too much time, which we did not have.&lt;/p&gt;
+
+&lt;p&gt;It is also important to consider that we were already using Victoria Metrics, but only for the Long Term Storage part, without any problems.
+Could replacing Prometheus with a stack based entirely on Victoria Metrics overcome the limitations we had with Prometheus?
+High availability and fault tolerance is well-supported, their &lt;a href=&quot;https://docs.victoriametrics.com/guides/k8s-ha-monitoring-via-vm-cluster.html&quot;&gt;documentation&lt;/a&gt; explains how to manage this.&lt;/p&gt;
+
+&lt;p&gt;Managing long-term data is possible, as we were already doing it.
+Victoria Metrics is built around a set of microservices. Each one is built in order to serve a specific job, and each supports vertical and especially horizontal scaling (with sharding). A very important point when used in a Kubernetes environment.&lt;/p&gt;
+
+&lt;p&gt;In addition, Victoria Metrics seemed to handle high cardinality metrics better (see &lt;a href=&quot;https://valyala.medium.com/high-cardinality-tsdb-benchmarks-victoriametrics-vs-timescaledb-vs-influxdb-13e6ee64dd6b&quot;&gt;article&lt;/a&gt; on this subject). It is also possible to do &lt;a href=&quot;https://docs.victoriametrics.com/vmagent.html#cardinality-limiter&quot;&gt;rate limiting&lt;/a&gt; on the number of Time Series to be ingested:&lt;/p&gt;
+
+&lt;p&gt;CPU and RAM consumption is lower with better performance than with Prometheus and even other TSDBs, several comparative articles on this subject have already been published:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://promcon.io/2019-munich/talks/remote-write-storage-wars/&quot;&gt;Remote Write Storage Wars&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://valyala.medium.com/prometheus-vs-victoriametrics-benchmark-on-node-exporter-metrics-4ca29c75590f&quot;&gt;Prometheus vs VictoriaMetrics benchmark on node_exporter metrics&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://valyala.medium.com/when-size-matters-benchmarking-victoriametrics-vs-timescale-and-influxdb-6035811952d4&quot;&gt;When size matters — benchmarking VictoriaMetrics vs Timescale and InfluxDB&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/faun/comparing-thanos-to-victoriametrics-cluster-b193bea1683&quot;&gt;Comparing Thanos to VictoriaMetrics cluster&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We also wanted to keep the Prometheus language: &lt;a href=&quot;https://prometheus.io/docs/prometheus/latest/querying/basics/&quot;&gt;PromQL&lt;/a&gt; in order to keep our Grafana dashboards and all our Prometheus alerts. Even though Victoria Metrics offers its own MetricsQL language, it is perfectly compatible with PromQL.&lt;/p&gt;
+
+&lt;p&gt;You can see the &lt;a href=&quot;https://docs.victoriametrics.com/#prominent-features&quot;&gt;main features&lt;/a&gt; of Victoria Metrics as well as various &lt;a href=&quot;https://docs.victoriametrics.com/#case-studies-and-talks&quot;&gt;case studies&lt;/a&gt; in their documentation.&lt;/p&gt;
+
+&lt;h1 id=&quot;poc-of-victoria-metrics&quot;&gt;POC of Victoria Metrics&lt;/h1&gt;
+&lt;p&gt;We wanted to validate the performance and consumption of a stack entirely based on Victoria Metrics, the results were really encouraging.&lt;/p&gt;
+
+&lt;p&gt;Test environment :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;1500 web app pods&lt;/li&gt;
+  &lt;li&gt;250 Haproxy Ingress pods (metric with high cardinality enabled)&lt;/li&gt;
+  &lt;li&gt;3700 scrapped targets&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Comparative table between Prometheus and Victoria Metrics :&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt;Prometheus&lt;/th&gt;
+      &lt;th&gt;Victoria Metrics&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CPU consumption&lt;/td&gt;
+      &lt;td&gt;26&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;RAM consumption&lt;/td&gt;
+      &lt;td&gt;30Go&lt;/td&gt;
+      &lt;td&gt;11Go&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;New TimeSeries / min&lt;/td&gt;
+      &lt;td&gt;50K&lt;/td&gt;
+      &lt;td&gt;6.5M&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Max active TimeSeries&lt;/td&gt;
+      &lt;td&gt;7M&lt;/td&gt;
+      &lt;td&gt;91M&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Max cardinality&lt;/td&gt;
+      &lt;td&gt;4 metrics &amp;gt; 100K&lt;/td&gt;
+      &lt;td&gt;10+ metrics &amp;gt; 1M&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;em&gt;Graph on the CPU consumption of Victoria Metrics components&lt;/em&gt;
+&lt;img src=&quot;/images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/cpu-poc-vm.png&quot; alt=&quot;cpu-usage-poc-vm&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Number of active “TimeSeries” in Victoria Metrics&lt;/em&gt;
+&lt;img src=&quot;/images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/active-ts-poc-vm.png&quot; alt=&quot;active-ts-poc-vm&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Our benchmark persuaded us to use Victoria Metrics as a replacement for Prometheus.&lt;/p&gt;
+
+&lt;h1 id=&quot;implementation-of-victoria-metrics-&quot;&gt;Implementation of Victoria Metrics :&lt;/h1&gt;
+&lt;p&gt;We used the official &lt;a href=&quot;https://github.com/VictoriaMetrics/helm-charts/blob/master/charts/victoria-metrics-k8s-stack/README.md&quot;&gt;victoria-metrics-k8s-stack&lt;/a&gt; Helm chart which is based on an &lt;a href=&quot;https://github.com/VictoriaMetrics/helm-charts/tree/master/charts/victoria-metrics-operator&quot;&gt;operator&lt;/a&gt;. This chart Helm permits to deploy a complete monitoring and alerting stack in a Kubernetes cluster.&lt;/p&gt;
+
+&lt;p&gt;A VMCluster (Insert, Select, Storage) is deployed to manage access to metrics. The collection of metrics (push/pull) from exporters in Prometheus format is handled by the VMagent. Its configuration is done in the form of a Prometheus configuration file. It is able to :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Manage the relabeling of metrics.&lt;/li&gt;
+  &lt;li&gt;Temporarily store the metrics it has collected if the VMCluster is unavailable or not able to send the metrics to the VMCluster.&lt;/li&gt;
+  &lt;li&gt;Limit the cardinality of metrics.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;One of the advantages of using this Helm chart is that it will deploy essential components to properly monitor a Kubernetes cluster such as Kube-state-metrics or prometheus-node-exporter, but also scraping configurations for services such as Kubelet, KubeApiServer, KubeControllerManager, KubeDNS, KubeEtcd, KubeScheduler, KubeProxy&lt;/p&gt;
+
+&lt;p&gt;Alerting is also managed via a VMAlert component, which will execute the alerting and recording rules set by VictoriaMetrics. Notifications are managed by an Alertmanager which is also deployable via this chart.&lt;/p&gt;
+
+&lt;p&gt;One of the advantages of using this Helm chart is that it will deploy essential components to properly monitor a Kubernetes cluster such as &lt;em&gt;Kube-state-metrics&lt;/em&gt; or &lt;em&gt;prometheus-node-exporter&lt;/em&gt;, but also scraping configurations for services such as &lt;em&gt;Kubelet, KubeApiServer, KubeControllerManager, KubeDNS, KubeEtcd, KubeScheduler, KubeProxy&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Alerting is also managed via a VMAlert component, which will execute the alerting and recording rules set by VictoriaMetrics. Notifications are managed by an Alertmanager which is also deployable via this chart.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;This is what our monitoring and alerting stack based on this Helm chart looks like.&lt;/em&gt;
+&lt;img src=&quot;/images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/stack-vm.png&quot; alt=&quot;stack-vm&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;resumption-of-the-history&quot;&gt;Resumption of the history&lt;/h1&gt;
+&lt;p&gt;We wanted to keep historical metrics of our Kubernetes clusters. Victoria Metrics provides a tool to manage the export and import of data from different TSDB: &lt;a href=&quot;https://docs.victoriametrics.com/vmctl.html&quot;&gt;vmctl&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In order not to overload our monitoring stack, we splitted the exports into smaller or larger time ranges, depending on the history of the cluster. For clusters with little activity and therefore few metrics, exports/imports were split day by day, for others we had to use smaller time slots.
+A home-made bash script launched several kubernetes jobs simultaneously and took care of restarting one of them as soon as another one ended.&lt;/p&gt;
+
+&lt;p&gt;Below an extract of the definition of our Kubernetes job with the arguments we used to do our history transfer by time range:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;      &lt;span class=&quot;na&quot;&gt;containers&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;vmctl&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;victoriametrics/vmctl&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;resources&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;cpu&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;1&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;vm-native&lt;/span&gt;
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;--vm-native-src-addr=http://victoria-metrics-cluster-vmselect.monitoring.svc.cluster.local.:8481/select/001/prometheus&lt;/span&gt;
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;--vm-native-dst-addr=http://vminsert-victoria-metrics-k8s-stack.monitoring.svc.cluster.local.:8480/insert/000/prometheus&lt;/span&gt;
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;--vm-native-filter-match={__name__!~&quot;_vm.*&quot;}&lt;/span&gt;
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;--vm-native-filter-time-start=&quot;{ { start } }&quot;&lt;/span&gt;
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;--vm-native-filter-time-end=&quot;{ { end } }&quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;restartPolicy&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Never&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;feedback-after-months-of-use&quot;&gt;Feedback after months of use&lt;/h1&gt;
+&lt;p&gt;Since we have been using our new monitoring stack, we have encountered a few bugs (as with all solutions).
+Most of the time, these were not impactful, except for one that caused us a production incident.
+We had an overconsumption of RAM of VMStorage which was fixed in version 1.76. I would like to highlight the responsiveness of the VictoriaMetrics team, whether on slack or on GitHub: I have had several discussions with them on various subjects, and they have always been reactive&lt;/p&gt;
+
+&lt;p&gt;Victoria Metrics regularly releases new versions, including performance improvements and new features. The &lt;a href=&quot;https://docs.victoriametrics.com/CHANGELOG.htm&quot;&gt;changelog&lt;/a&gt; will give you an idea of the latest improvements and their frequency.&lt;/p&gt;
+
+&lt;p&gt;Victoria Metrics has an &lt;a href=&quot;https://victoriametrics.com/products/enterprise/&quot;&gt;Enterprise&lt;/a&gt; version that adds some features, including one that we are interested in but have not yet tested: downsampling.
+We have configured a one-year retention for each of our Kubernetes clusters, and on some clusters that’s mean more than 7 TB of data per VMStorage.&lt;/p&gt;
+
+&lt;p&gt;The downsampling allows you to configure how many metrics you want to keep per time interval.&lt;/p&gt;
+
+&lt;p&gt;In this example: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-downsampling.period=24h:10s,1w:30s,30d:1m,360d:5m&lt;/code&gt;, (assuming we collect metrics every 5 seconds) we only keep:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;one measurement point every 10 seconds beyond 24 hours (instead of one point every 5 seconds)&lt;/li&gt;
+  &lt;li&gt;one measurement point every 30 seconds beyond 7 days&lt;/li&gt;
+  &lt;li&gt;one measurement point every minute beyond 30 days&lt;/li&gt;
+  &lt;li&gt;one measurement point every 5 minutes beyond one year&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It is rarely necessary to keep all the measurements of our metrics on such a long scale, when we want to retrieve measurements that are several months old, it is usually to see a trend and not all the measurements.
+With this option, we could greatly reduce the storage used by our metrics.&lt;/p&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;Through this article, you have discovered why and how we migrated our monitoring stack of our Kubernetes clusters at BedRock from Prometheus to Victoria Metrics.&lt;/p&gt;
+
+&lt;p&gt;This was an important and critical subject for us, as monitoring is a critical need.
+Now our monitoring stack, based entirely on Victoria Metrics, is robust and capable of absorbing large load peaks.&lt;/p&gt;
+
+&lt;p&gt;Here are some indicators of the victoria metrics stack performance of one of our Kubernetes clusters during last 6 months:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;active time series: up to 39 million (average 7.4M)&lt;/li&gt;
+  &lt;li&gt;total number of datapoints: 12 trillion&lt;/li&gt;
+  &lt;li&gt;ingestion rate : up to 1.3 million new samples per second (average 227K)&lt;/li&gt;
+  &lt;li&gt;churn rate : up to 117 Million new time series per day (average 30.6 Million)&lt;/li&gt;
+  &lt;li&gt;disk usage (data + index): 15 TB&lt;/li&gt;
+  &lt;li&gt;sample rate : up to 4.99M (average 343K)&lt;/li&gt;
+  &lt;li&gt;scrape target : up to 49K (average 4.4K)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/total-datapoint-vm-last-6m.png&quot; alt=&quot;total-datapoint-vm-last-6m&quot; /&gt;
+&lt;img src=&quot;/images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/active-ts-vm-last-6m.png&quot; alt=&quot;active-ts-vm-last-6m&quot; /&gt;
+&lt;img src=&quot;/images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/ingestion-rate-vm-last-6m.png&quot; alt=&quot;ingestion-rate-vm-last-6m&quot; /&gt;
+&lt;img src=&quot;/images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/cpu-usage-vm-last-6m.png&quot; alt=&quot;cpu-usage-vm-last-6m&quot; /&gt;
+&lt;img src=&quot;/images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/ram-usage-vm-last-6m.png&quot; alt=&quot;ram-usage-vm-last-6m&quot; /&gt;
+&lt;img src=&quot;/images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/churn-rate-vm-last-6m.png&quot; alt=&quot;churn-rate-vm-last-6m&quot; /&gt;
+&lt;img src=&quot;/images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/sample-rate-vm-last-6m.png&quot; alt=&quot;sample-rate-vm-last-6m&quot; /&gt;
+&lt;img src=&quot;/images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/scrape-target-vm-last-6m.png&quot; alt=&quot;scrape-target-vm-last-6m&quot; /&gt;&lt;/p&gt;</content><author><name>Julien Menan</name></author><category term="k8s" /><category term="kubernetes" /><category term="monitoring" /><category term="prometheus" /><category term="scaling" /><category term="victoriametrics" /><category term="cardinality" /><summary type="html">Monitoring at BedRock : At Bedrock Streaming, a large part of our applications are hosted on Kubernetes clusters, others use the EC2 service from AWS and a small part are hosted on “OnPremise” servers.</summary></entry><entry><title type="html">Is machine learning a unicorn hiding a series of if and else?</title><link href="https://tech.bedrockstreaming.com/2022/09/05/machine-learning-if-else.html" rel="alternate" type="text/html" title="Is machine learning a unicorn hiding a series of if and else?" /><published>2022-09-05T00:00:00+00:00</published><updated>2022-09-05T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/09/05/machine-learning-if-else</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/09/05/machine-learning-if-else.html">&lt;p&gt;Recently, a colleague asked me:&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;All good with your if and else machine learning system?&lt;/p&gt;
@@ -1219,143 +1449,4 @@ Ceci permet de gagner un peu de temps sur l’exécution. ⌛️&lt;/p&gt;
 
 &lt;p&gt;Avec une prise en main relativement facile pour un résultat très rapide, nous avons été très satisfaits de JSCodeshift et nous n’hésiterons pas à réutiliser cette librairie dans le futur. 👊&lt;/p&gt;
 
-&lt;p&gt;Merci à tous pour la lecture de mon premier article et JSCodeshiftez bien. 😘&lt;/p&gt;</content><author><name>Martin SCHNEIDER</name></author><category term="javascript" /><category term="outil" /><category term="cytron" /><category term="frontend" /><category term="react" /><category term="refactor" /><category term="js" /><summary type="html">Dans cet article, je vais vous présenter JSCodeshift, une libraire qui va vous permettre d’analyser et appliquer automatiquement des modifications sur du code Javascript ou Typescript.</summary></entry><entry><title type="html">Bedrock Dev Facts #17</title><link href="https://tech.bedrockstreaming.com/2022/07/22/bedrock-dev-facts-17.html" rel="alternate" type="text/html" title="Bedrock Dev Facts #17" /><published>2022-07-22T00:00:00+00:00</published><updated>2022-07-22T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/07/22/bedrock-dev-facts-17</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/07/22/bedrock-dev-facts-17.html">&lt;p&gt;L’été arrive, les vacances, le repos.&lt;br /&gt;
-Et vu les derniers devfacts des équipes Bedrock, il semblerait qu’il soit temps.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/tags/#devfacts&quot;&gt;Les autres articles de cette série sont disponibles ici.&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;cest-presque-fini&quot;&gt;C’est presque fini&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;C’est fait à 80%.&lt;br /&gt;
-J’ai fait tout le code, mais il ne marche pas.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;la-potion-magique&quot;&gt;La potion magique&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Je n’ai plus de cerveau, je vais aller au bar&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;cest-dommage-ils-allaient-le-faire-&quot;&gt;C’est dommage, ils allaient le faire !&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Notre stratégie, c’est d’être à la bourre pour que d’autres fassent le travail&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;lenvers-du-décor-du-télétravail&quot;&gt;L’envers du décor du télétravail&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Quand il y a du vent chez moi la connexion est instable&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;ah-&quot;&gt;Ah !&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;J’ai tiré toute mon inspiration de manager des Shadocks&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;les-conséquences-du-management-à-la-shadock&quot;&gt;Les conséquences du management à la Shadock&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Je ne vais tout de même pas faire ma sieste pendant des heures de repos&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;auto-critique-du-manager-shadock-on-est-sauvé-&quot;&gt;Auto-critique du manager Shadock. On est sauvé !&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Tout le monde s’en fout de ce que je fais&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;quand-tout-le-monde-le-fait-mais-que-personne-ne-comprend-pourquoi&quot;&gt;Quand tout le monde le fait, mais que personne ne comprend pourquoi&lt;/h1&gt;
-
-&lt;p&gt;&lt;em&gt;En parlant du TimeSheet, de manière naïve&lt;/em&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;“Mais il y a vraiment quelqu’un dans la boite qui fait ça correctement ?”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;est-ce-que-je-peux-casser-à-moitié-&quot;&gt;Est-ce que je peux casser à moitié ?&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Est-ce qu’on peut faire un semi BC-break ⁉️&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;cest-pas-faux&quot;&gt;C’est pas faux&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;C’est connu et assumé, ça fonctionnera pas jusqu’au moment où ça fonctionnera&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;quand-tu-as-délaissé-la-review-toute-la-semaine&quot;&gt;Quand tu as délaissé la review toute la semaine&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Allez bon vendREVIEW à tous&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1&gt;🤔&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Les tests passent mais ça plante&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;le-détecteur-à-petit-dej&quot;&gt;Le détecteur à petit-dej&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;“je cherche X …”&lt;/li&gt;
-    &lt;li&gt;“va voir à la cafete, il y a quelqu’un qui a ramené de la bouffe”&lt;/li&gt;
-    &lt;li&gt;“c’est un honeypot à X ça !”&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;cest-beau-le-mob-programming&quot;&gt;C’est beau le mob programming&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/dev-facts-17/mob-programming.png&quot; alt=&quot;Image d&apos;un commit de H disant &amp;quot;little bug for E&amp;quot;, puis d&apos;un commit de E disant &amp;quot;fix H&apos;s shit&quot; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;meurs-un-autre-jour&quot;&gt;Meurs un autre jour&lt;/h1&gt;
-
-&lt;p&gt;&lt;em&gt;Quand tu veux vraiment être sûr que ton code est exécuté mais que tu oublies de nettoyer l’historique&lt;/em&gt;
-&lt;img src=&quot;/images/posts/dev-facts-17/die-to-test.png&quot; alt=&quot;Image du code PHP d&apos;un commit où il reste un `die(&apos;HEEEEERE&apos;)&quot; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;cest-pas-compliqué-linformatique&quot;&gt;C’est pas compliqué l’informatique&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;Comment tu as fait ça ?&lt;/li&gt;
-    &lt;li&gt;J’ai appuyé sur des touches de mon clavier&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/dev-facts-17/type-30-keyboard.png&quot; alt=&quot;Image d&apos;un ticket où le développeur indique qu&apos;il a changé une valeur de 20 à 30 en expliquant le &amp;quot;comment&amp;quot; par &amp;quot;en appuyant sur le clavier&amp;quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;google-translate-nest-pas-toujours-ton-ami&quot;&gt;Google translate n’est pas toujours ton ami&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;“Tu peux traduire l’US en français quand tu la lis ?”&lt;/li&gt;
-    &lt;li&gt;“Pas de souci, Alors… &lt;em&gt;il faut ajouter un message de grille pain d’erreur lors du …&lt;/em&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;si-ça-passait-cétait-beau&quot;&gt;Si ça passait, c’était beau&lt;/h1&gt;
-
-&lt;p&gt;&lt;em&gt;Une personne qui parle à son écran sur lequel il y a du code :&lt;/em&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Dis moi que ça va marcher, s’il te plait 🙏&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;sur-un-malentendu-il-a-été-engagé&quot;&gt;Sur un malentendu, il a été engagé&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;L’essentiel de mes connaissances, c’est du bluff&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;et-on-fini-avec-un-instant-poésie&quot;&gt;Et on fini avec un instant poésie&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;Mes p’tits chats, demain c’est démo infra,&lt;/em&gt;&lt;br /&gt;
-&lt;em&gt;Pour l’instant il n’y a pas d’inscrits,&lt;/em&gt;&lt;br /&gt;
-&lt;em&gt;N’hésitez pas à venir présenter votre travail accompli !&lt;/em&gt;&lt;br /&gt;
-&lt;em&gt;D’ici à ce prochain rendez-vous,&lt;/em&gt;&lt;br /&gt;
-&lt;em&gt;Des bisous 😘&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>Bedrock</name></author><category term="devfacts" /><category term="humour" /><summary type="html">L’été arrive, les vacances, le repos. Et vu les derniers devfacts des équipes Bedrock, il semblerait qu’il soit temps.</summary></entry></feed>
+&lt;p&gt;Merci à tous pour la lecture de mon premier article et JSCodeshiftez bien. 😘&lt;/p&gt;</content><author><name>Martin SCHNEIDER</name></author><category term="javascript" /><category term="outil" /><category term="cytron" /><category term="frontend" /><category term="react" /><category term="refactor" /><category term="js" /><summary type="html">Dans cet article, je vais vous présenter JSCodeshift, une libraire qui va vous permettre d’analyser et appliquer automatiquement des modifications sur du code Javascript ou Typescript.</summary></entry></feed>
