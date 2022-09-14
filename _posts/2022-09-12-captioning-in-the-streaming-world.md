@@ -33,9 +33,9 @@ The most important difference between Closed and Open Captions is that Open Capt
 
 ### Forced subtitles
 
-There is often a misconception around forced subtitles (sometimes referred as forced narratives) as they are mistaken with open captions. The name « forced » might suggest that they are burned in the video stream like open captions but there is a difference. Forced subtitles are actually distributed in a separate file and, despite their name, are not necessarily displayed. On our platform, if a subtitle or closed captions track is selected by the user, forced subtitles will not show up. We will come back on this later.
+There is often a misconception around forced subtitles (sometimes referred as forced narratives) as they are mistaken with open captions. The name « forced » might suggest that they are burned in the video stream like open captions but there is a difference. Forced subtitles are actually distributed in a separate file and, despite their name, are not necessarily displayed. On our platform, if a subtitle or closed captions track is selected by the user, forced subtitles will not show up. We will come back to this later.
 
-In fact forced subtitles are a text representation of a communication element like a spoken dialogue, specify a character ID that are not described in the original (or dubbed) audio stream. A common example would be to translate alien language. Despite watching a movie in your native (or any language that does not require you tu activate subtitles), you would not be able to understand so that’s when forced subtitles come into play and ensure that you have a textual representation of what is being said even if you set subtitles to off, hence the « forced » attribute.
+Actually, forced subtitles are a text representation of a communication element like a spoken dialogue, specify a character ID that are not described in the original (or dubbed) audio stream. A common example would be to translate alien language. Despite watching a movie in your native (or any language that does not require you to activate subtitles), you would not be able to understand so that’s when forced subtitles come into play and ensure that you have a textual representation of what is being said even if you set subtitles to off, hence the « forced » attribute.
 
 However, imagine you are French and watch a Spanish show for instance. If you set the subtitles to French in order to be able to understand the content, forced subtitles won’t show up since you already have a textual representation of the content. Same goes for closed captions: if set to off, forced subtitles will display, if any. Otherwise, they won’t show up. To ensure better user experience, forced subtitles content should be included in all other tracks (regular subtitles, SDH, CC).
 
@@ -47,7 +47,7 @@ To sum up, here is a table comparing the different technologies:
 |  | Subtitles | SDH | Closed Captions | Open Captions | Forced Subtitles |
 |-|:-:|:-:|:-:|:-:|:-:|
 | Can be turned off | ✔️ | ✔️ | ✔️ | | *
-| Appearance | Varies | Vaires | Usually white text / black background | Varies | Varies
+| Appearance | Varies | Varies | Usually white text / black background | Varies | Varies
 | Position | Bottom third, centered | Bottom third, centered | Varies | Varies | Bottom third, centered
 | HDMI Supported | ✔️ | ✔️ | |✔️ | ✔️ |
 | Describes music and sounds |  | ✔️ |✔️ | ✔️ | |
