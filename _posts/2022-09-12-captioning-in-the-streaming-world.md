@@ -29,7 +29,7 @@ Subtitles for the Deaf and Hard of Hearing, known as SDH, are some sort of combi
 
 ### Open Captions
 
-The most important difference between Closed and Open Captions is that Open Captions are always visible and cannot be turned off. Think of them as « burned » in the video stream: they are not a separate file. Because of this, quality and readability may be affected. Open captions are widely used on social media for retention: since there is a high chance that the end user is scrolling through content without sound, ensuring the display of text on the video helps catch and retain attention. In other cases where closed captions cannot be used for example if you have no control on the media player that will play your file, you may provide open captions to be sure to display a textual translation. The downside of doing this is that part of the audience might dislike the superfluous text burned in the stream.
+The most important difference between Closed and Open Captions is that Open Captions are always visible and cannot be turned off. Think of them as « burned » in the video stream: they are not a separate file. Because of this, quality and readability may be affected. Open captions are widely used on social media for retention. Since there is a high chance that the end user is scrolling through content without sound, ensuring the display of text on the video helps catch and retain attention. In other cases where closed captions cannot be used for example if you have no control on the media player that will play your file, you may provide open captions to be sure to display a textual translation. The downside might be that part of the audience dislikes the superfluous text burned in the stream.
 
 ### Forced subtitles
 
