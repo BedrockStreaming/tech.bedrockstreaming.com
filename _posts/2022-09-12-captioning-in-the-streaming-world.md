@@ -21,7 +21,7 @@ Subtitles exist in order to help the viewer understand the spoken language in th
 
 Closed Captions on the other hand, assume that the viewer is deaf (or hard of hearing) hence cannot understand what is being said, regardless of the spoken language. For this reason and contrary to subtitles, it will describe spoken dialogues as well as all important audio information such as music, sounds, speaker information when it makes sense (for example narrated content). In terms of appearance, closed captions are usually white text on a black background. An important note is that they are not supported through digital connections such as HDMI.
 
-Subtitles and closed caption are separate files that provide information for the receiver to decode. They’re not part of the stream and both can be turned off.
+Subtitles and closed captions are separate files that provide information for the receiver to decode. They’re not part of the stream and both can be turned off.
 
 ### Subtitles for the Deaf and Hard of Hearing
 
