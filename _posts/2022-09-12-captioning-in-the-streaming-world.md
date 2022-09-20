@@ -7,7 +7,7 @@
  color: rgb(251,87,66) # this is Bedrock color here
 ---
 
-# Subtitles, open captions, closed caption, SDH, oh my!
+# Subtitles, open captions, closed captions, SDH, oh my!
 
 Wait, what? Subtitles and captions are not the same? Have you noticed the popular « cc » logo in a player you use, standing for « Closed Captions » but you have never heard of Open Captions? In this article we are going to dive into the different textual representations used in the streaming world.
 
