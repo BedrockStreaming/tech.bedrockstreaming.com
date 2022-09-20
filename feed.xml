@@ -1,4 +1,111 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-09-19T07:32:27+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Monitoring at scale with Victoria Metrics</title><link href="https://tech.bedrockstreaming.com/2022/09/06/monitoring-at-scale-with-victoriametrics.html" rel="alternate" type="text/html" title="Monitoring at scale with Victoria Metrics" /><published>2022-09-06T00:00:00+00:00</published><updated>2022-09-06T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/09/06/monitoring-at-scale-with-victoriametrics</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/09/06/monitoring-at-scale-with-victoriametrics.html">&lt;h1 id=&quot;monitoring-at-bedrock-&quot;&gt;Monitoring at Bedrock :&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-09-20T12:45:06+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Subtitles, open captions, closed captions, SDH, oh my!</title><link href="https://tech.bedrockstreaming.com/2022/09/20/captioning-in-the-streaming-world.html" rel="alternate" type="text/html" title="Subtitles, open captions, closed captions, SDH, oh my!" /><published>2022-09-20T00:00:00+00:00</published><updated>2022-09-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/09/20/captioning-in-the-streaming-world</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/09/20/captioning-in-the-streaming-world.html">&lt;h1 id=&quot;subtitles-open-captions-closed-captions-sdh-oh-my&quot;&gt;Subtitles, open captions, closed captions, SDH, oh my!&lt;/h1&gt;
+
+&lt;p&gt;Wait, what? Subtitles and captions are not the same? Have you noticed the popular « cc » logo in a player you use, standing for « Closed Captions » but you have never heard of Open Captions? In this article we are going to dive into the different textual representations used in the streaming world.&lt;/p&gt;
+
+&lt;h2 id=&quot;subtitles-vs-captions-a-matter-of-accessibility&quot;&gt;Subtitles vs Captions: a matter of accessibility&lt;/h2&gt;
+
+&lt;p&gt;Since both terms are often mixed up, in this post we are going to explain in details the different types of subtitles and captions.&lt;/p&gt;
+
+&lt;p&gt;Subtitles exist in order to help the viewer understand the spoken language in the content being watched, assuming that the viewer can hear. This is the important part. You can think of subtitles as the closest translation of what is being said, textually represented on the screen.&lt;/p&gt;
+
+&lt;h3 id=&quot;closed-captions&quot;&gt;Closed Captions&lt;/h3&gt;
+
+&lt;p&gt;Closed Captions on the other hand, assume that the viewer is deaf (or hard of hearing) hence cannot understand what is being said, regardless of the spoken language. For this reason and contrary to subtitles, it will describe spoken dialogues as well as all important audio information such as music, sounds, speaker information when it makes sense (for example narrated content). In terms of appearance, closed captions are usually white text on a black background. An important note is that they are not supported through digital connections such as HDMI.&lt;/p&gt;
+
+&lt;p&gt;Subtitles and closed captions are separate files that provide information for the receiver to decode. They’re not part of the stream and both can be turned off.&lt;/p&gt;
+
+&lt;h3 id=&quot;subtitles-for-the-deaf-and-hard-of-hearing&quot;&gt;Subtitles for the Deaf and Hard of Hearing&lt;/h3&gt;
+
+&lt;p&gt;Subtitles for the Deaf and Hard of Hearing, known as SDH, are a combination between subtitles and closed captions. They can be in the same language of the video original audio and bring some additional non-spoken information (speaker identification, sound effects, etc.) and/or be translated. This makes the content accessible for the deaf and hard of hearing who can read and understand foreign languages.&lt;/p&gt;
+
+&lt;h3 id=&quot;open-captions&quot;&gt;Open Captions&lt;/h3&gt;
+
+&lt;p&gt;The most important difference between Closed and Open Captions is that Open Captions are always visible and cannot be turned off. Think of them as « burned » in the video stream: they are not a separate file. Because of this, quality and readability may be affected. Open captions are widely used on social media for retention. Since there is a high chance that the end user is scrolling through content without sound, ensuring the display of text on the video helps catch and retain attention. In other cases where closed captions cannot be used for example if you have no control on the media player that will play your file, you may provide open captions to be sure to display a textual translation. The downside might be that part of the audience dislikes the superfluous text burned in the stream.&lt;/p&gt;
+
+&lt;h3 id=&quot;forced-subtitles&quot;&gt;Forced subtitles&lt;/h3&gt;
+
+&lt;p&gt;There is often a misconception around forced subtitles (sometimes referred as forced narratives) as they are mistaken with open captions. The name « forced » might suggest that they are burned in the video stream like open captions but there is a difference. Forced subtitles are actually distributed in a separate file and, despite their name, are not necessarily displayed. On our platform, if a subtitle or closed captions track is selected by the user, forced subtitles will not show up. We will come back to this later.&lt;/p&gt;
+
+&lt;p&gt;Actually, forced subtitles are a text representation of a communication element like a spoken dialogue, specify a character ID that are not described in the original (or dubbed) audio stream. A common example would be to translate alien language. Despite watching a movie in your native (or any language that does not require you to activate subtitles), you would not be able to understand. That’s where forced subtitles come into play and ensure that you have a textual representation of what is being said even if you set subtitles to off, hence the « forced » attribute.&lt;/p&gt;
+
+&lt;p&gt;However, imagine you are French and watch a Spanish show for instance. If you set the subtitles to French in order to be able to understand the content, forced subtitles won’t show up since you already have a textual representation of the content. Same goes for closed captions: if set to off, forced subtitles will display, if any. Otherwise, they won’t show up. To ensure better user experience, forced subtitles content should be included in all other tracks (regular subtitles, SDH, CC).&lt;/p&gt;
+
+&lt;p&gt;If available, forced subtitles should be displayed in the preferred language set up by the user.&lt;/p&gt;
+
+&lt;p&gt;To sum up, here is a table comparing the different technologies:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Subtitles&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;SDH&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Closed Captions&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Open Captions&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Forced Subtitles&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Can be turned off&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✔️&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✔️&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✔️&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;*&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Appearance&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Varies&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Varies&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Usually white text / black background&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Varies&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Varies&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Position&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Bottom third, centered&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Bottom third, centered&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Varies&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Varies&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Bottom third, centered&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;HDMI Supported&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✔️&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✔️&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✔️&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✔️&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Describes music and sounds&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✔️&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✔️&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✔️&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Describes speaker ID&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✔️&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✔️&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✔️&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Available in source language&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✔️&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✔️&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✔️&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✔️&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;*: Forced subtitles do not show up in the track selection tool making them impossible to turn on or off. However, the business rules of the media platform will take care of displaying them, if needed.&lt;/p&gt;</content><author><name>Hugo Riffiod</name></author><category term="streaming" /><category term="subtitles" /><category term="captions" /><category term="video" /><category term="player" /><summary type="html">Subtitles, open captions, closed captions, SDH, oh my!</summary></entry><entry><title type="html">Monitoring at scale with Victoria Metrics</title><link href="https://tech.bedrockstreaming.com/2022/09/06/monitoring-at-scale-with-victoriametrics.html" rel="alternate" type="text/html" title="Monitoring at scale with Victoria Metrics" /><published>2022-09-06T00:00:00+00:00</published><updated>2022-09-06T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/09/06/monitoring-at-scale-with-victoriametrics</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/09/06/monitoring-at-scale-with-victoriametrics.html">&lt;h1 id=&quot;monitoring-at-bedrock-&quot;&gt;Monitoring at Bedrock :&lt;/h1&gt;
 &lt;p&gt;At &lt;a href=&quot;https://www.bedrockstreaming.com/&quot;&gt;Bedrock Streaming&lt;/a&gt;, a large part of our applications are hosted on Kubernetes clusters, others use the EC2 service from AWS and a small part are hosted on “OnPremise” servers.&lt;/p&gt;
 
 &lt;p&gt;From 2018 until January 2022, we used Prometheus to monitor all these platforms, because Prometheus met all our needs: keeping control over our monitoring solution and supporting service discovery, which is essential in environments such as Kubernetes or AWS EC2. Prometheus also supports custom exporters we developed internally.&lt;/p&gt;
@@ -1246,203 +1353,4 @@ Contrairement à l’idée que j’en avais, le rebase interactif n’est pas l�
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://mixitconf.org/2022/ma-vie-est-un-ticket-eloge-de-la-communication-paresseuse-et-enjeux-pour-l-agilite-du-futur&quot;&gt;Ma vie est un ticket&lt;/a&gt; de Romain Couturier, une conférence raconté avec dessins légère et qui donne des idées pour lutter contre la mauvaise utilisation des outils de ticketing&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://mixitconf.org/2022/tout-ce-que-l-on-ne-vous-dit-pas-sur-l-intelligence-artificielle-ia-&quot;&gt;Tout ce que l’on ne vous pas dit sur l’IA&lt;/a&gt; de Amélie Cordier, une conférence pleine d’humour sur ce qu’est et n’est pas une IA&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>[&quot;s_haim&quot;, &quot;e_perrin&quot;, &quot;j_mastounga&quot;, &quot;s_zoccarato&quot;]</name></author><category term="conference" /><category term="agile" /><summary type="html"></summary></entry><entry><title type="html">Comment appliquer automatiquement des modifications sur une codebase JS 🤖</title><link href="https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift" rel="alternate" type="text/html" title="Comment appliquer automatiquement des modifications sur une codebase JS 🤖" /><published>2022-07-26T00:00:00+00:00</published><updated>2022-07-26T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift</id><content type="html" xml:base="https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift">&lt;p&gt;Dans cet article, je vais vous présenter &lt;a href=&quot;https://github.com/facebook/jscodeshift&quot;&gt;JSCodeshift&lt;/a&gt;, une libraire qui va vous permettre d’analyser et appliquer automatiquement des modifications sur du code Javascript ou Typescript.&lt;/p&gt;
-
-&lt;h1 id=&quot;cas-décole-&quot;&gt;Cas d’école 👨‍🎓&lt;/h1&gt;
-
-&lt;p&gt;Maintenir à jour les dépendances de nos projets JS est l’une des règles primordiales que nous nous efforçons de bien respecter pour &lt;a href=&quot;/2021/09/01/bonnes-pratiques-web&quot;&gt;ne pas avoir à jeter nos applications tous les deux ans. 🗑&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Cette tâche exige souvent d’un développeur plus de travail que de simplement changer les versions des libraires dans le &lt;em&gt;package.json&lt;/em&gt;.
-Si une dépendance est utilisée dans différentes parties du code et qu’un breaking-change est introduit, on peut vite se retrouver avec &lt;strong&gt;des centaines&lt;/strong&gt; de fichiers à modifier manuellement.&lt;/p&gt;
-
-&lt;center&gt;
-&lt;a href=&quot;https://www.monkeyuser.com/2018/implementation/&quot;&gt;&lt;img src=&quot;/images/posts/refactorer-avec-jscodeshift/102-implementation.png&quot; alt=&quot;Caricature de projet avec ses dependencies&quot; /&gt;&lt;/a&gt;
-&lt;br /&gt;
-ℹ️ &lt;em&gt;Exemple d&apos;un project Javascript qui ne respecte pas cette règle&lt;/em&gt;
-&lt;/center&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;C’est un problème de ce genre que nous avons rencontré lors de la mise à jour de &lt;a href=&quot;https://github.com/BedrockStreaming/i18n-tools&quot;&gt;notre librairie d’internationalisation&lt;/a&gt; sur notre web app React en JS.&lt;/p&gt;
-
-&lt;p&gt;Après mise à jour, l’appel à l’API de la librairie change de forme :&lt;/p&gt;
-&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//Before&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;translationKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// All options are passed as parameters&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Data used for interpolation&lt;/span&gt;
-    &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Amount used for plural form&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;general&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;boolean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Use general plural form&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;renderers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// JSX renderers&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;//After&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;translationKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// Object containing all options&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Data used for interpolation&lt;/span&gt;
-      &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Amount used for plural form&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;general&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;boolean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Use general plural form&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;renderers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// JSX renderers&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Plus simplement, quelques exemples de transformations :&lt;/p&gt;
-&lt;div class=&quot;language-tsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Before&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;title1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;translationKeyExample&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;title2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;labelKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;someData&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;aNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;title3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;translationKeyExample&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// After&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;title1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;translationKeyExample&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Basic usecase with only one argument, nothing changed on this one&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;title2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;labelKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;someData&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;aNumber&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;title3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;translationKeyExample&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Dans le cas le plus basique sans les arguments optionnels &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;t(‘translationKey’)&lt;/code&gt; nous n’avons rien à modifier, mais dans les autres cas, il y a du changement à faire. 🧹&lt;/p&gt;
-
-&lt;h2 id=&quot;les-solutions-que-nous-avons-écartées-&quot;&gt;Les solutions que nous avons écartées ❌&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Avec un &lt;strong&gt;Find All&lt;/strong&gt;, trouver toutes les utilisations de la librairie et modifier les appels problématiques à la main.
-    &lt;ul&gt;
-      &lt;li&gt;Cette solution est la plus simple, mais peut être très répétitive, ce qui augmente la probabilité de faire une erreur. On aura du mal à uniquement filtrer les cas spécifiques qui nous intéressent.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Utiliser des RegExp pour mieux cibler les cas spécifiques
-    &lt;ul&gt;
-      &lt;li&gt;Cela nous a permis de faire rapidement une estimation approximative du nombre de cas qu’il nous faudrait modifier, mais nous avons eu du mal à cibler correctement tous les appels et la modification se fait toujours à la main.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Créer un fichier de définition TypeScript pour la librairie, et laisser le Language Server Protocol ou son IDE trouver les appels problématiques
-    &lt;ul&gt;
-      &lt;li&gt;La solution la plus rapide et la plus fiable pour la partie détection, mais qui demande toujours de faire les modifications à la main.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Mais il nous restait encore un Joker pour cette tâche. 🃏&lt;/p&gt;
-
-&lt;h1 id=&quot;jscodeshift-&quot;&gt;JSCodeshift 🪄&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/facebook/jscodeshift&quot;&gt;Cette librairie&lt;/a&gt; permet d’exposer facilement &lt;a href=&quot;https://fr.wikipedia.org/wiki/Arbre_de_la_syntaxe_abstraite&quot;&gt;&lt;em&gt;l’Abstract Syntax Tree&lt;/em&gt;&lt;/a&gt;, autrement dit la représentation du code après le parsing des fichiers.
-Nous pouvons ainsi écrire des scripts qui nous permettent de parcourir cet arbre, de le modifier facilement, d’appliquer les modifications et de les formater.
-Ces scripts s’appellent des &lt;em&gt;codemods&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Pour en savoir un peu plus sur &lt;em&gt;l’Abstract Syntax Tree&lt;/em&gt;, je vous conseille de jeter un coup d’œil à &lt;a href=&quot;https://astexplorer.net/&quot;&gt;ASTExplorer&lt;/a&gt; qui vous permet de visualiser l’AST d’un fichier facilement pour en comprendre le fonctionnement.&lt;/p&gt;
-
-&lt;p&gt;Quelques librairies ont proposé des &lt;em&gt;codemods&lt;/em&gt; lors de leurs grosses mises à jour, par exemple &lt;a href=&quot;https://github.com/reactjs/react-codemod&quot;&gt;React avec react-codemod&lt;/a&gt;.&lt;/p&gt;
-
-&lt;center&gt;
-&lt;a href=&quot;https://astexplorer.net/&quot;&gt;&lt;img src=&quot;/images/posts/refactorer-avec-jscodeshift/astexplorer.png&quot; alt=&quot;Capture d&apos;écran du site ASTExplorer&quot; /&gt;&lt;/a&gt;
-&lt;br /&gt;
-ℹ️ &lt;em&gt;Capture d&apos;écran du site ASTExplorer&lt;/em&gt;
-&lt;/center&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;en-application-&quot;&gt;En application 💪&lt;/h2&gt;
-
-&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FileInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;API&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;jscodeshift&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;c1&quot;&gt;// If we don&apos;t find any &quot;Translate&quot; string inside our file, we can assume that it&apos;s safe to skip it&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;regex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;RegExp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Translate[(]&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;regex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CallExpression&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;callee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Identifier&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;filterOutSimpleUsages&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mutatePath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Dans la fonction principale du script, j’ai utilisé une expression régulière pour filtrer les fichiers qui ne possèdent pas la chaîne de caractères &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Translate(&lt;/code&gt;.
-Ceci permet de gagner un peu de temps sur l’exécution. ⌛️&lt;/p&gt;
-
-&lt;p&gt;Ensuite, je cherche dans le fichier une ou plusieurs variables &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;t&lt;/code&gt;. Si aucune n’est présente, on peut passer au fichier suivant, sinon on continue le raffinage.&lt;/p&gt;
-
-&lt;p&gt;On passe dans un filtre qui va nous permettre d’enlever les usages de la fonction &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;t&lt;/code&gt; avec un seul argument qui ne posent pas de problème.&lt;/p&gt;
-
-&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;requiredPropertiesKeys&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;general&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;renderers&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// Filter function to ensure that we enter the mutation function only if needed&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;filterOutSimpleUsages&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ASTPath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CallExpression&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;c1&quot;&gt;// If we only have the translation key, we don&apos;t need to refactor this usage&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;c1&quot;&gt;// More than 2 arguments is an absolute sign of an old usage&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;// If second argument is not an object, we need to manually fix this case&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;ObjectExpression&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;c1&quot;&gt;// If none of the above properties is found in second argument, we can say that this is an old usage&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;requiredPropertiesKeys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;every&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;requiredPropertyKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ObjectExpression&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// I needed to do some TS trickery to avoid getting warnings everywhere, sorry for that&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;property&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;property&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ObjectProperty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Identifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;requiredPropertyKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Finalement, on peut passer dans la fonction de mutation, qui va nous permettre de modifier directement le code des fichiers.&lt;/p&gt;
-
-&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Mutation function, we apply our modification to the AST&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mutatePath&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSCodeshift&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ASTPath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CallExpression&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;objectProperties&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;requiredPropertiesKeys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reduce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;acc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;propertyKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;argument&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// If no argument or argument is a spread type, we don&apos;t take it in consideration&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;argument&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;SpreadElement&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;acc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;c1&quot;&gt;// If argument is undefined, we skip it&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;argument&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Identifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;argument&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Identifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;acc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;c1&quot;&gt;// We create a new object property with an identifier (the object key) and put our argument inside&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;acc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;objectProperty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;identifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;propertyKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)];&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ObjectProperty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]);&lt;/span&gt;
-
-  &lt;span class=&quot;c1&quot;&gt;// Finally, we keep our translation key in first position and our newly created object in second argument&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arguments&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;objectExpression&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;objectProperties&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)];&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;On récupère les arguments déjà existants, on crée un nouvel objet et on y place nos arguments !&lt;/p&gt;
-
-&lt;h2 id=&quot;résultats-&quot;&gt;Résultats ✨&lt;/h2&gt;
-
-&lt;p&gt;⏱ Pour à peu près &lt;strong&gt;2900 fichiers&lt;/strong&gt;, le script a mis moins de &lt;strong&gt;5,9 secondes&lt;/strong&gt; à s’exécuter &lt;em&gt;(Macbook Pro 13” 2019)&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;JSCodeshift nous a permis de cibler très rapidement 99 % des cas problématiques et de les corriger automatiquement.&lt;/p&gt;
-
-&lt;p&gt;Le pourcentage restant concerne des cas où il était généralement difficile de cibler la fonction &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;t&lt;/code&gt; (passée en props à un autre composant sous un autre nom). Ces quelques cas ont pu être corrigés rapidement à la main et détectés grâce à nos nombreux tests (heureusement qu’on a &lt;a href=&quot;/2021/09/01/bonnes-pratiques-web#tester-tester-tester&quot;&gt;une règle de bonne pratique&lt;/a&gt; pour ça 😇).&lt;/p&gt;
-
-&lt;h1 id=&quot;tldr--conclusion-&quot;&gt;tl;dr &amp;amp; conclusion 🏃&lt;/h1&gt;
-
-&lt;p&gt;Vous pouvez retrouver la source du codemod &lt;a href=&quot;https://gist.github.com/martinschneider01/40e0f340cf2ed549a875e8de00475b97&quot;&gt;ici même&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Si vous êtes mainteneur d’une librairie, il peut être très intéressant de livrer des &lt;em&gt;codemods&lt;/em&gt; en même temps que les breaking-changes pour faciliter l’adoption des mises à jour par exemple !&lt;/p&gt;
-
-&lt;p&gt;Avec une prise en main relativement facile pour un résultat très rapide, nous avons été très satisfaits de JSCodeshift et nous n’hésiterons pas à réutiliser cette librairie dans le futur. 👊&lt;/p&gt;
-
-&lt;p&gt;Merci à tous pour la lecture de mon premier article et JSCodeshiftez bien. 😘&lt;/p&gt;</content><author><name>Martin SCHNEIDER</name></author><category term="javascript" /><category term="outil" /><category term="cytron" /><category term="frontend" /><category term="react" /><category term="refactor" /><category term="js" /><summary type="html">Dans cet article, je vais vous présenter JSCodeshift, une libraire qui va vous permettre d’analyser et appliquer automatiquement des modifications sur du code Javascript ou Typescript.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>[&quot;s_haim&quot;, &quot;e_perrin&quot;, &quot;j_mastounga&quot;, &quot;s_zoccarato&quot;]</name></author><category term="conference" /><category term="agile" /><summary type="html"></summary></entry></feed>
