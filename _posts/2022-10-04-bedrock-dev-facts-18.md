@@ -20,7 +20,7 @@ C'est maintenant l'automne 🍁🎃, on vous propose les devfacts de cette fin d
 
 # La priorité c'est important
 
-> C'est plus important que des trucs moins important.
+> C'est plus important que des trucs moins importants.
 
 
 # Biafine nécessaire
@@ -35,7 +35,7 @@ _Un QA voulant faire une vanne au morning_
 _Parlant d’une évolution majeure_
 > Est-ce que c’est OK pour vous pour qu’on MEP aujourd’hui ou pas ?
 > 
-> À priori pas de contre-indications. Peut-être achetez directement une boulangerie ?
+> À priori pas de contre-indications. Peut-être acheter directement une boulangerie ?
 
 # Sugar ! 
 
