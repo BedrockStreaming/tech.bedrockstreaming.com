@@ -50,11 +50,11 @@ _Parlant d’une évolution majeure_
 
 > Je crois qu'on est bon, on a pas plus d'erreur que d'user.
 
-# Le verre a moitié plein
+# Le verre à moitié plein
 
-> Du coup ca a cassé je suppose?
+> Du coup ça a cassé je suppose?
 >
-> Ouais , enfin pas totalement, presque un succès.
+> Ouais, enfin pas totalement, presque un succès.
 
 # La montagne ça vous gagne
 
@@ -66,7 +66,7 @@ _En parlant de son ascension du Ventoux à vélo:_
 
 _Essayant de comprendre pourquoi une commande met beaucoup de temps sur sa machine._
 
-> Je suis sur master, branche a jour, yarn réalisé juste avant, et je pense pas que mon PC soit particulièrement atteint de maladie congénitale
+> Je suis sur master, branche à jour, yarn réalisé juste avant, et je pense pas que mon PC soit particulièrement atteint de maladie congénitale
 (Enfin, j'espère pas?)
 
 # Read me please
@@ -75,8 +75,8 @@ _Essayant de comprendre pourquoi une commande met beaucoup de temps sur sa machi
 
 # Les étoiles ⭐️
 
-> Etre responsable d'un incident, c'est pas marrant c'est sûr. 
-> Mais ça forme! 
+> Être responsable d'un incident, c'est pas marrant c'est sûr. 
+> Mais ça forme !
 > Casser la prod et la réparer ça donne une étoile sur le maillot, et je peux te dire qu'on est plusieurs ici à avoir plus d'étoiles que le drapeau américain.
 
 # Review main dans la main
@@ -101,7 +101,7 @@ _Essayant de comprendre pourquoi une commande met beaucoup de temps sur sa machi
 
 # :bim:
 
-> Alors l'intelligence elle existe déjà, elle s'appelle vous même... mais actuellement elle n'est pas disponible.
+> Alors l'intelligence elle existe déjà, elle s'appelle vous-même... mais actuellement elle n'est pas disponible.
 
 # ☕️
 
