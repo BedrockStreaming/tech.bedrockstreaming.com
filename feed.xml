@@ -1,4 +1,185 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-09-20T12:45:06+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Subtitles, open captions, closed captions, SDH, oh my!</title><link href="https://tech.bedrockstreaming.com/2022/09/20/captioning-in-the-streaming-world.html" rel="alternate" type="text/html" title="Subtitles, open captions, closed captions, SDH, oh my!" /><published>2022-09-20T00:00:00+00:00</published><updated>2022-09-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/09/20/captioning-in-the-streaming-world</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/09/20/captioning-in-the-streaming-world.html">&lt;h1 id=&quot;subtitles-open-captions-closed-captions-sdh-oh-my&quot;&gt;Subtitles, open captions, closed captions, SDH, oh my!&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-10-07T09:59:21+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">API Platform Conference 2022</title><link href="https://tech.bedrockstreaming.com/2022/10/07/api-platform-conference-2022.html" rel="alternate" type="text/html" title="API Platform Conference 2022" /><published>2022-10-07T00:00:00+00:00</published><updated>2022-10-07T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/10/07/api-platform-conference-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/10/07/api-platform-conference-2022.html">&lt;p&gt;En cette période de rentrée, Bedrock participait à l’&lt;a href=&quot;https://api-platform.com/con/2022&quot;&gt;API Platform Conference 2022&lt;/a&gt;, où nous avons eu le plaisir d’assister à une partie des conférences proposées. Un grand merci à toutes les personnes chez &lt;a href=&quot;https://les-tilleuls.coop/&quot;&gt;Les-Tilleuls.coop&lt;/a&gt; pour l’organisation de cet évènement !
+Pour cette seconde édition, le programme était réparti sur deux jours, les 15 &amp;amp; 16 septembre 2022.&lt;/p&gt;
+
+&lt;p&gt;En introduction à cette conférence, Kévin Dunglas, créateur d’&lt;a href=&quot;https://api-platform.com/&quot;&gt;API Platform&lt;/a&gt;, a mis en ligne la version 3.0.0 du framework en nous présentant certaines nouvelles fonctionnalités développées telles que le support natif de XDebug. Il a profité de l’occasion pour présenter un petit historique d’API Platform.&lt;/p&gt;
+
+&lt;h2 id=&quot;domain-driven-design-with-api-platform-3&quot;&gt;Domain-driven design with API Platform 3&lt;/h2&gt;
+
+&lt;p&gt;Lors de cette conférence, &lt;a href=&quot;https://twitter.com/chalas_r&quot;&gt;Robin Chalas&lt;/a&gt; et &lt;a href=&quot;https://twitter.com/matarld&quot;&gt;Mathias Arlaud&lt;/a&gt; nous ont parlé de l’utilisation d’API Platform dans le cadre du Domain Driven Development et de l’Architecture Hexagonale.
+Les présentateurs ont commencé cette présentation par plusieurs rappels et présentations sur des sujets comme :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Domain Driven Design&lt;/li&gt;
+  &lt;li&gt;Structures hexagonales&lt;/li&gt;
+  &lt;li&gt;CQRS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ces rappels ont permis d’enchainer sur l’utilisation du framework dans ce contexte à travers un &lt;a href=&quot;https://github.com/mtarld/apip-ddd&quot;&gt;exemple de projet&lt;/a&gt; DDD utilisant API Platform 3 et suivant l’architecture hexagonale.&lt;/p&gt;
+
+&lt;p&gt;Ils expliquent comment implémenter API Platform dans notre code en détaillant plusieurs points :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;L’implémentation des providers côté query&lt;/li&gt;
+  &lt;li&gt;L’implémentation des processors côté command&lt;/li&gt;
+  &lt;li&gt;Le système d’opération&lt;/li&gt;
+  &lt;li&gt;Les providers/processors qui appellent l’app via les bus&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;comment-alice-gardens-gère-t-elle-son-code-métier-via-les-évènements&quot;&gt;Comment Alice Garden’s gère-t-elle son code métier via les évènements&lt;/h2&gt;
+
+&lt;p&gt;Nous avons pu assister à la conférence “Comment Alice Garden’s gère-t-elle le code métier via des évènements ?” proposée par leur technical architect &lt;a href=&quot;https://twitter.com/epatwon&quot;&gt;Nicolas Lemahieu&lt;/a&gt;. Tout d’abord, il nous a présenté le contexte de son entreprise Alice Garden’s qui fait de la vente de mobilier d’extérieur. En se basant sur la stack technique déjà présente : Symfony, RabbitMQ, MariaDB et sans tout refondre, comment faire pour mieux gérer le code métier actuellement éparpillé un peu partout dans le code.&lt;/p&gt;
+
+&lt;p&gt;Ils utilisaient beaucoup de subscribers Doctrine, ce qui entraîne plusieurs problèmes :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Des subscribers nombreux = plus de logique au flush&lt;/li&gt;
+  &lt;li&gt;Code plus difficile à maintenir et à comprendre&lt;/li&gt;
+  &lt;li&gt;L’augmentation du risque de boucles infinies implique que chaque changement entraîne des boucles sur le UnitOfWork&lt;/li&gt;
+  &lt;li&gt;Duplication de code&lt;/li&gt;
+  &lt;li&gt;Code fortement couplé à Doctrine et manque de typage&lt;/li&gt;
+  &lt;li&gt;Du côté du profiler Symfony, cela devient compliqué aussi dès qu’on commence à en avoir beaucoup&lt;/li&gt;
+  &lt;li&gt;Les tests sont compliqués :
+    &lt;ul&gt;
+      &lt;li&gt;Unitaires quasi impossibles,&lt;/li&gt;
+      &lt;li&gt;Fonctionnels possibles, mais demandent beaucoup de ressources en temps et donc d’argent&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Nicolas Lemahieu a donc présenté les différentes solutions envisagées ainsi que leurs avantages et inconvénients :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Domain Driven Development : séparation très nette du métier et de l’infra, mais demande beaucoup trop d’effort à mettre en place, car aucune correspondance avec les bundles déjà existants (risque de régression trop haut, coût de développement trop grand…)&lt;/li&gt;
+  &lt;li&gt;Garder les évènements et s’affranchir de Doctrine : c’est la solution qui a été retenue parce qu’elle permettait de réutiliser un maximum de l’existant&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Puis, nous avons pu apprendre comment implémenter cette solution :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Création d’une abstraction supplémentaire “BusinessObject” : nouveau dossier Business dans src où :
+    &lt;ul&gt;
+      &lt;li&gt;Entité = objet métier&lt;/li&gt;
+      &lt;li&gt;Méthodes des entités = règles métier&lt;/li&gt;
+      &lt;li&gt;Toutes les interfaces entité étendent BusinessObjectInterface&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Classes abstraites dans Business&lt;/li&gt;
+  &lt;li&gt;Implémentation d’events custom pour chaque objet métier et par type d’event&lt;/li&gt;
+  &lt;li&gt;Event provider : fournit les évènements qui sont mis dans une collection puis tag dans les services&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;En conclusion, chez Alice Garden’s, ils ont réussi à n’avoir qu’un seul Doctrine Subscriber, donc une seule boucle de UnitOfWork et des tests facilités, car c’est seulement du PHP. La dépendance à Doctrine est éliminée et il suffira de déplacer le provider pour adapter le code à une autre infrastructure.&lt;/p&gt;
+
+&lt;h2 id=&quot;réutiliser-et-partager-vos-opérations-personnalisées-avec-api-platform&quot;&gt;Réutiliser et partager vos opérations personnalisées avec API Platform&lt;/h2&gt;
+
+&lt;p&gt;Grâce à &lt;a href=&quot;https://mobile.twitter.com/jean_beru&quot;&gt;Hubert Lenoir&lt;/a&gt; et &lt;a href=&quot;https://mobile.twitter.com/jjarrie&quot;&gt;Jérémy Jarrié&lt;/a&gt; de l’entreprise SensioLabs, nous avons pu apprendre à réutiliser et partager les opérations avec API Platform. Ils utilisent 3 API REST faites avec API Platform v3. Des opérations génériques comme “liker” peuvent s’appliquer sur des ressources différentes (articles, photos, pages, etc.), on peut donc réutiliser du code.&lt;/p&gt;
+
+&lt;p&gt;Les principes pour faire cette utilisation générique de code sont simples :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Un seul contrôleur pour plusieurs ressources = un contrôleur de comportement&lt;/li&gt;
+  &lt;li&gt;Une interface pour que les entités puissent adopter ce comportement&lt;/li&gt;
+  &lt;li&gt;Trait pour les méthodes du comportement (1 à n comportements, donc classe abstraite ou interface impossible)&lt;/li&gt;
+  &lt;li&gt;Ajouter des services intermédiaires&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Il survient un seul problème avec ce pattern : la duplication des annotations API Platform. La solution est d’ajouter des décorations (design pattern decorator) sur les métadatas d’API Platform. Il est donc simple de créer des comportements indépendants des ressources qui pourront être facilement réutilisés. Ce projet était encore à l’état de POC, mais Jérémy et Hubert allaient mettre à jour la version plus aboutie sur le &lt;a href=&quot;https://github.com/JJarrie/reuse-behaviour&quot;&gt;repository GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;la-revue-de-code-est-un-art&quot;&gt;La revue de code est un art&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/SmaineDev&quot;&gt;Smaine Milianni&lt;/a&gt; a proposé une conférence sur les conseils à suivre afin d’effectuer une revue de code. Nous avons pu réaliser qu’au sein de Bedrock nous appliquions déjà de nombreux principes.&lt;/p&gt;
+
+&lt;p&gt;Nous appliquons déjà :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Un template de PR pour décrire les caractéristiques du bug ou de l’US :
+    &lt;ul&gt;
+      &lt;li&gt;Quoi, pourquoi, comment, comment tester, etc.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Des noms de commits explicites&lt;/li&gt;
+  &lt;li&gt;La bienveillance&lt;/li&gt;
+  &lt;li&gt;Le challenge du code des autres personnes&lt;/li&gt;
+  &lt;li&gt;La connaissance des nombreux concepts de code (SOLID, KISS…)&lt;/li&gt;
+  &lt;li&gt;Faire du pair review ou mob review&lt;/li&gt;
+  &lt;li&gt;Un request bot déjà en place&lt;/li&gt;
+  &lt;li&gt;Tester et ne pas se fier uniquement à la lecture du code&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Nous avons aussi pu prendre du recul et noter des conseils à appliquer. Chacun a pu transmettre ses idées à son équipe. Le rappel qu’une revue c’est aussi souligner le positif et pas seulement challenger le code. Cette conférence est très concrète et facilement applicable à Bedrock.&lt;/p&gt;
+
+&lt;h2 id=&quot;fighting-impostor-syndrome-a-practical-handbook&quot;&gt;Fighting impostor syndrome: a practical handbook&lt;/h2&gt;
+
+&lt;p&gt;Lors de cette conférence, &lt;a href=&quot;https://twitter.com/mupsigraphy&quot;&gt;Marine Gandy&lt;/a&gt; commence sa présentation par définir ce que le syndrome de l’imposteur est : une peur de l’échec, la crainte que quelqu’un dise que nous ne sommes pas capables, mais aussi le sentiment de ne pas mériter de réussir.
+Elle nous explique que ce terme était tout d’abord attribué exclusivement aux femmes, mais qu’après une étude montrant que 70% de la population était touchée, il se serait généralisé à tous les genres.
+Marine Gandy nous énonce que la tech est très touchée par ce phénomène pour plusieurs raisons comme le fait qu’il y ait beaucoup de renouveau dans ce corps de métier et que nous avons vite l’impression de retourner à nos débuts lorsque nous changeons de techno, créant ainsi un sentiment d’instabilité. 
+Dans ce contexte, Marine nous parle de &lt;a href=&quot;https://www.universite-paris-saclay.fr/sites/default/files/media/2020-02/erreur-fondamentale-d-attribution-atelierfbjip2018.pdf&quot;&gt;l’effet Julien Lepers&lt;/a&gt; en prenant pour exemple le fait de se trouver dans une équipe de personnes bien plus expérimentées que nous où la situation influe sur la personne.
+Pour finir, la conférencière nous présente plusieurs pistes à suivre pour éviter ou minimiser ce genre de sentiment :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Arrêter de se comparer aux autres&lt;/li&gt;
+  &lt;li&gt;Se challenger sur de nouveaux domaines pour se rendre compte qu’on peut toujours apprendre&lt;/li&gt;
+  &lt;li&gt;Travailler sur ses faiblesses pour permettre de se sentir plus compétent&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;mon-combat-contre-larachnophobie&quot;&gt;Mon combat contre l’arachnophobie&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/Deuchnord&quot;&gt;Jérôme Tanghe&lt;/a&gt;, par son arachnophobie, nous a expliqué comment il est arrivé à contribuer à API Platform afin d’ajouter une option pour cacher la mascotte Webby. Et c’est ce dont il nous a parlé, à savoir comment bien démarrer sa première pull request pour contribuer au logiciel libre. La première étape étant de trouver le bon repository qui nous conviendrait parmi les projets existants. Dans le but d’identifier un sujet sur lequel contribuer, il ne faut pas hésiter à utiliser la fonctionnalité des tags sur les issues, par exemple le tag hacktoberfest dans le cadre d’API Platform. Une fois le sujet trouvé, il faut maintenant identifier la branche de base à partir de laquelle faire sa pull request, cela peut s’agir d’une version spécifique choisie ou même de la branche principale. La contribution au logiciel libre ou à l’open source ne passe pas uniquement par des pull requests uniquement basés sur le code. Il est également possible de tester les préversions (release-candidate), signaler des bugs, faire des suggestions, améliorer la documentation ou encore rédiger des traductions. Enfin, il est conseillé de prendre en compte chaque retour sur d’autres pull requests, cela permet notamment de découvrir les principes et standards du projet.&lt;/p&gt;
+
+&lt;h2 id=&quot;pourquoi-je-nutilise-pas-api-platform&quot;&gt;Pourquoi je n’utilise pas API Platform&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/FredBouchery&quot;&gt;Frédéric Bouchery&lt;/a&gt;, s’est décidément perdu en se retrouvant à présenter cette conférence à l’API Platform conference 2022. Malgré tout, cela lui a permis de nous partager son introspection : Mais au fait, pourquoi il ne s’en sert pas ?&lt;br /&gt;
+Dans cette première partie de sa conférence, Frédéric n’hésite pas à utiliser beaucoup de sarcasme. Il nous explique qu’il ne s’en sert pas, car API Platform est écrit en PHP et pour lui, c’est une technologie vieillissante qui ne devrait pas tarder à rejoindre Cobolt. Également parce qu’API Platform utilise Symfony, alors que tout le monde le sait très bien, enfin surtout les Google Trend, Laravel est plus utilisé dans le monde. De plus, Frédéric n’aime pas la magie et API Platform en est rempli : sérialisation et désérialisation à tout va alors que lui est capable de faire une API en seulement quelques lignes avec du PHP pur sans artifice. Enfin, il reproche à API Platform de devenir compliqué à utiliser si le projet qui se base dessus est complexe, trop de personnalisation et de configurations doivent être effectuées. &lt;br /&gt;
+Dans cette deuxième partie, Frédéric fait tomber son masque sarcastique et décide de revenir sur les points qu’il a abordés précédemment :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Les tendances concernant un langage ne sont pas des bons indicateurs, en effet imaginer le futur ou la mort de PHP via des statistiques dont certaines basées sur l’opinion publique n’est pas une bonne façon de faire&lt;/li&gt;
+  &lt;li&gt;PHP, c’est aujourd’hui 75% des sites du monde entier et 54% parmi le top 1000 des sites internet fréquemment utilisés&lt;/li&gt;
+  &lt;li&gt;Malgré tout, il nous conseille de ne pas être mono technologique non plus. S’intéresser à d’autres langages est une bonne chose&lt;/li&gt;
+  &lt;li&gt;API Plateform a quand même de bonnes performances : 99% de réponses avec une moyenne de 91 ms sur 5 000 requêtes comparées à son code PHP pur avec une moyenne de 21 ms pour 5 000 requêtes également sachant que son code ne prend pas en compte la sécurité&lt;/li&gt;
+  &lt;li&gt;Le framework Laravel utilisant des composants Symfony, il est dès lors difficile de les comparer. Même si factuellement Laravel est plus utilisé dans le monde, on n’utilise pas du Laravel ou du Symfony pour les mêmes raisons et c’est une bonne chose que les deux coexistent ensemble&lt;/li&gt;
+  &lt;li&gt;Il pensait qu’avec la complexité de ses projets, il était trop dur de passer à API Platform, mais il s’est rendu compte que ce n’était pas nécessairement vrai&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;En conclusion de sa conférence et sans aucun sarcasme, Frédéric n’hésite pas à se livrer à nous et finit par nous dire qu’il va finalement utiliser API Platform 3 pour un projet.&lt;/p&gt;
+
+&lt;h2 id=&quot;whats-new-in-caddy-the-webserver-of-api-platform&quot;&gt;What’s New in Caddy, the webserver of API Platform&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/_francislavoie&quot;&gt;Francis Lavoie&lt;/a&gt; nous a présenté plusieurs nouveautés dans &lt;strong&gt;Caddy&lt;/strong&gt;, un webserver écrit en Go ayant beaucoup de fonctionnalités activées par défaut et fourni avec API Platform dans &lt;a href=&quot;https://api-platform.com/docs/distribution/caddy/&quot;&gt;l’installation de base&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Parmi les nouveautés présentées, il nous a notamment parlé d’améliorations au niveau des &lt;strong&gt;request matchers&lt;/strong&gt; avec des matchers réutilisables, des expressions et des fonctions. Il a ensuite parlé d’une gestion native de &lt;a href=&quot;https://www.authelia.com&quot;&gt;Authelia&lt;/a&gt; permettant de déléguer facilement l’authentification depuis la configuration du serveur.
+Enfin, la directive &lt;strong&gt;file_server&lt;/strong&gt; peut maintenant servir des fichiers provenant d’autres sources que le système de fichiers local, par exemple depuis un &lt;strong&gt;bucket S3&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Certaines fonctionnalités sont désormais activées par défaut comme &lt;strong&gt;HTTP/3&lt;/strong&gt; et la suppression du log des headers d’authentification où il est également possible de créer des filtres pour retirer d’autres informations.&lt;/p&gt;
+
+&lt;h2 id=&quot;webauthn--se-débarrasser-des-mots-de-passe-définitivement&quot;&gt;WebAuthn : se débarrasser des mots de passe. Définitivement.&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://mobile.twitter.com/florentmorselli&quot;&gt;Florent Morselli&lt;/a&gt; nous fait une proposition : il est de plus en plus possible aujourd’hui de se passer complètement des mots de passe.&lt;/p&gt;
+
+&lt;p&gt;Il a commencé par nous rappeler les problèmes récurrents : mots de passe trop faibles et/ou trop courts, réutilisation sur plusieurs sites, la multiplication des fuites de bases de données, etc.&lt;/p&gt;
+
+&lt;p&gt;La solution proposée : &lt;a href=&quot;https://webauthn.io&quot;&gt;WebAuthn&lt;/a&gt;, un standard d’authentification multifacteur permettant d’identifier les utilisateurs via des données biométriques, des clés physiques ou sans aucune information après la première authentification sur un appareil.&lt;/p&gt;
+
+&lt;p&gt;Côté implémentation, Florent nous a présenté deux projets : un &lt;a href=&quot;https://github.com/web-auth/webauthn-symfony-bundle&quot;&gt;bundle Symfony&lt;/a&gt; pour le côté backend et un &lt;a href=&quot;https://github.com/web-auth/webauthn-stimulus&quot;&gt;composant Symfony UX&lt;/a&gt; pour le frontend.&lt;/p&gt;
+
+&lt;h2 id=&quot;php-websockets-or-how-to-communicate-with-clients-in-real-time&quot;&gt;PHP WebSockets, or how to communicate with clients in real-time&lt;/h2&gt;
+
+&lt;p&gt;Habituellement connue pour faire des conférences sur Git, &lt;a href=&quot;https://twitter.com/vanamerongen&quot;&gt;Pauline Vos&lt;/a&gt; nous a fait une démo en live de l’utilisation des &lt;strong&gt;WebSockets&lt;/strong&gt; en PHP.&lt;/p&gt;
+
+&lt;p&gt;Elle a commencé par une rapide explication de différents protocoles de communication en temps réel existant : &lt;em&gt;WebRTC&lt;/em&gt; chez Google, &lt;em&gt;Mercure&lt;/em&gt; chez Symfony et &lt;em&gt;Livewire&lt;/em&gt; chez Laravel.
+Les WebSockets étant de simples tunnels à données, ces protocoles permettent de les enrichir de diverses fonctionnalités : identification, structures de messages, reconnexion auto, etc.&lt;/p&gt;
+
+&lt;p&gt;Vient ensuite la démo qui consistait en une mini webapp de tombola en ligne. Elle a été découpée en différentes étapes (préparées dans des branches Git) avec, pour chaque étape, une présentation du code et des tests en live via l’outil &lt;a href=&quot;https://websocketking.com&quot;&gt;WebSocketKing&lt;/a&gt;.
+Pour l’étape finale, un QR code a été affiché à l’écran pour permettre aux spectateurs et spectatrices de participer en live. Le hasard a voulu que le nom tiré soit &lt;a href=&quot;https://twitter.com/s0yuka&quot;&gt;Antoine Bluchet&lt;/a&gt;, le contributeur principal d’API Platform !&lt;/p&gt;
+
+&lt;h2 id=&quot;comment-remettre-la-tech-au-service-du-bien-commun-&quot;&gt;Comment (re)mettre la tech au service du bien commun ?&lt;/h2&gt;
+
+&lt;p&gt;Pour conclure ces deux jours de conférences intenses en savoir et en émotions, animé par &lt;a href=&quot;https://twitter.com/gregcop1&quot;&gt;Grégory Copin&lt;/a&gt; : &lt;a href=&quot;https://twitter.com/HeleneMaitre&quot;&gt;Hélène Marchois&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/paulandrieux&quot;&gt;Paul Andrieux&lt;/a&gt; et &lt;a href=&quot;https://twitter.com/dunglas&quot;&gt;Kévin Dunglas&lt;/a&gt; nous ont proposé une excellente table ronde riche en idées et porteuse (d’un peu) d’espoir. Le sujet étant de savoir s’il est possible de faire évoluer la tech dans le but de rejoindre les objectifs de départ du logiciel libre.&lt;/p&gt;
+
+&lt;p&gt;L’apparition du mouvement du logiciel libre puis celle du web se sont bâties sur de grands espoirs et de beaux objectifs : émancipation des individus, partage des connaissances à l’échelle planétaire, liberté d’expression, constructions de bien commun appartenant à toutes et tous et maintenues collectivement. Malheureusement, force est de constater que le web comme le logiciel libre ont été détournés de leurs objectifs de base et que les idéaux qu’ils portaient ont été bien mis à mal : surveillance de masse, capitalisation de ces biens communs et précarisation des individus et des libertés.&lt;/p&gt;
+
+&lt;p&gt;Kévin nous explique ensuite la différence entre logiciel libre et open source : API Platform est un logiciel libre plus qu’open source, même si techniquement, c’est les deux. Historiquement, le logiciel libre est apparu dans le but de créer un bien commun pour l’humanité et s’est élargi avec, notamment, la notion de commons via Wikipédia. La différence avec l’open source est que si le code est disponible, ce n’est pas uniquement pour bâtir tout et n’importe quoi avec, mais c’est un code qui porte des valeurs et qui a pour but de faire en sorte que tout le monde sans distinction puisse facilement créer de nouveaux outils qui puissent être partagés, qui appartiennent à un ensemble de personnes et qui vont socialiser le travail qui est réalisé en commun là-dessus. Le but du logiciel libre à la base, c’est de faire en sorte que ces valeurs de transparence, de démocraties, de partage de connaissance s’étendent via le logiciel à l’ensemble de la société. Donc si vous aussi, vous voulez utiliser un logiciel libre, la condition est que, vous aussi, vous devez faire quelque chose qui sert l’humanité : créer un bien commun et mettre aussi à disposition le code source du logiciel. En l’occurrence, API Platform, est une licence permissive, c’est-à-dire qu’il est possible de faire tout et n’importe quoi avec, mais ce n’est pas le cas pour le logiciel &lt;a href=&quot;https://github.com/dunglas/mercure&quot;&gt;Mercure&lt;/a&gt; par exemple, où si vous l’utilisez et le modifiez, vous êtes obligé de redistribuer les éléments.&lt;/p&gt;
+
+&lt;p&gt;Quant à l’open source, c’est une initiative qui est arrivée bien après le logiciel libre et est une offensive de multinationale de la technologie qui veut dépolitiser le mouvement du logiciel libre. Le point de départ étant que, techniquement, c’est très intéressant de créer du logiciel ensemble, de partager les coûts de maintenance entre différentes entreprises ou personnes et c’est surtout très intéressant d’avoir accès au secret de fabrication pour les choses qui ont peu de valeur ajoutée. Mais l’objectif final étant de capitaliser, faire du business et capter la valeur sur ce qui a une très forte valeur ajoutée. Par exemple, pour macOS, toutes les briques de bases sont complètement libres, développées par une communauté de personne, d’entreprise et essentiellement beaucoup de bénévoles et d’hobbyiste. Et dans ce cas-là, ce qui a une extrême valeur ajoutée, c’est l’UI au-dessus du matériel ou encore les jolis outils qui coûtent une fortune. Ce qui permet à Apple d’être la boite la plus riche du monde en réutilisant le travail de personnes qui n’ont pas fait ça pour macOS à la base.&lt;/p&gt;
+
+&lt;p&gt;Les trois personnes intervenantes représentant chacune une SCOP, la table ronde s’est ensuite naturellement tournée vers le lien entre le logiciel libre et le mouvement coopératif. Le lien étant la vision politique du logiciel libre via son socle de valeur : liberté, transparence, gouvernance partagée et coopération. On retrouve cet esprit de transparence, de fonctionnement démocratique et de fonctionnement par coopération à l’intérieur de la SCOP et entre les différentes SCOP.
+S’en est ajoutée la question du sens par rapport à son travail. Effectivement, le logiciel libre, comme le mouvement coopératif, redonne du sens, principalement car cela ouvre le champ des possibles en vue des enjeux climatiques et sociaux actuels. Même si l’on vit dans une société qui est régie par le profit, la compétition féroce et le pouvoir, il existe des possibilités de s’organiser autrement et qui fonctionne quand même à une échelle conséquente, bien qu’encore insuffisante. Des actions individuelles existent et sont possibles. Pour cela, nous vous recommandons de regarder &lt;a href=&quot;https://www.youtube.com/watch?v=XpY7p062zIo&amp;amp;list=PL3hoUDjLa7eSo7-CAyiirYfhJe4h_Wxs4&quot;&gt;la conférence d’Hélène&lt;/a&gt; à l’API Platform Conference de l’année dernière qu’elle résume et étoffe lors de cette table ronde.&lt;/p&gt;
+
+&lt;p&gt;Et bien sûr, quand cela sera possible, nous vous encourageons fortement de regarder le replay de cette conférence (&lt;a href=&quot;https://www.youtube.com/c/Les-tilleulsCoop&quot;&gt;sur la chaine des Tilleuls&lt;/a&gt;) qui redonne un peu d’espoir quant aux futurs des organisations démocratiques de nos métiers.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Merci à toutes et tous les speakers, à API Platform ainsi qu’aux Tilleuls-coop pour cet évènement ! Nous avons pu en apprendre plus sur API Platform et revenir la tête pleine d’idées pour nos projets futurs et présents ! À l’année prochaine peut-être !&lt;/p&gt;</content><author><name>backend</name></author><category term="conferences" /><category term="backend" /><category term="api" /><category term="php" /><summary type="html">En cette période de rentrée, Bedrock participait à l’API Platform Conference 2022, où nous avons eu le plaisir d’assister à une partie des conférences proposées. Un grand merci à toutes les personnes chez Les-Tilleuls.coop pour l’organisation de cet évènement ! Pour cette seconde édition, le programme était réparti sur deux jours, les 15 &amp;amp; 16 septembre 2022.</summary></entry><entry><title type="html">Subtitles, open captions, closed captions, SDH, oh my!</title><link href="https://tech.bedrockstreaming.com/2022/09/20/captioning-in-the-streaming-world.html" rel="alternate" type="text/html" title="Subtitles, open captions, closed captions, SDH, oh my!" /><published>2022-09-20T00:00:00+00:00</published><updated>2022-09-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/09/20/captioning-in-the-streaming-world</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/09/20/captioning-in-the-streaming-world.html">&lt;h1 id=&quot;subtitles-open-captions-closed-captions-sdh-oh-my&quot;&gt;Subtitles, open captions, closed captions, SDH, oh my!&lt;/h1&gt;
 
 &lt;p&gt;Wait, what? Subtitles and captions are not the same? Have you noticed the popular « cc » logo in a player you use, standing for « Closed Captions » but you have never heard of Open Captions? In this article we are going to dive into the different textual representations used in the streaming world.&lt;/p&gt;
 
@@ -1191,166 +1372,4 @@ Those logs are now available for all the teams who may need them to improve thei
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;We chose &lt;a href=&quot;https://vector.dev/&quot;&gt;Vector&lt;/a&gt; to transport our private CDN logs to an S3 Bucket. Then, we chose to reuse an AWS Stack using Lambda and Glue to extract information from these logs, asynchronously. This stack is used in production for several months on other projects.
-All the teams that needed to extract value from our CDN logs are now autonomous to do so. We are now able to bill our customers based on their CDN usage.&lt;/p&gt;</content><author><name>Arthur Zinck</name></author><category term="onprem" /><category term="cdn" /><category term="logs" /><category term="aws" /><category term="cloud" /><category term="nginx" /><category term="vector" /><category term="lambda" /><category term="s3" /><category term="glue" /><category term="athena" /><summary type="html">At Bedrock, we have a CDN that outputs on average 400GB of uncompressed logs per hour. In this article, we present the architecture we have setup to collect these logs and extract value from them.</summary></entry><entry><title type="html">Retour sur la conférence MiXiT 2022</title><link href="https://tech.bedrockstreaming.com/2022/07/28/retour-sur-mixit-2022.html" rel="alternate" type="text/html" title="Retour sur la conférence MiXiT 2022" /><published>2022-07-28T00:00:00+00:00</published><updated>2022-07-28T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/07/28/retour-sur-mixit-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/07/28/retour-sur-mixit-2022.html">&lt;p&gt;&lt;img src=&quot;/images/posts/mixit-crepes.jpg&quot; alt=&quot;&amp;quot;MiXiT, la conférence avec des crêpes et du cœur&amp;quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://mixitconf.org/&quot;&gt;MiXiT&lt;/a&gt; est une conférence “avec des crêpes et du cœur” qui se déroule à Lyon. Les sujets sont assez variés abordant autant l’agilité, que la programmation, le droit ou encore l’histoire de l’informatique.&lt;/p&gt;
-
-&lt;p&gt;Voici un résumé des conférences de l’édition 2022 qui nous ont le plus marquées.&lt;/p&gt;
-
-&lt;h2 id=&quot;how-to-build-the-alert-system-that-france-deserves&quot;&gt;How to build the alert system that France deserves?&lt;/h2&gt;
-
-&lt;p&gt;Gaël Musquet nous a d’abord expliqué le rôle de Gustave Ferrié, qu’il considère comme le premier hacker, qui a installé des mâts de télégraphe sans fil en 1902, entre les émetteurs en Martinique, pour remplacer le câble télégraphique, détruit lors de la catastrophe de la montagne Pelée du 8 mai 1902. Cet homme avait saisi l’intérêt d’avoir un système de communication fiable.&lt;/p&gt;
-
-&lt;p&gt;Gaël Musquet nous explique ce qu’on est en droit d’attendre en 2022 d’un pays moderne, concernant les alertes sur les risques majeurs, qui varient selon notre emplacement (du tsunami à la rupture de barrage artificiel).&lt;/p&gt;
-
-&lt;p&gt;Il nous incite à lire le DICRIM de notre ville (&lt;a href=&quot;https://www.lyon.fr/sites/lyonfr/files/content/documents/2021-02/risque-majeurs-DICRIM-ALEX-25-01-2021.pdf&quot;&gt;celui de Lyon&lt;/a&gt;) ainsi qu’à nous procurer un poste de radio à piles, car dans l’éventualité d’un moment catastrophique sans Internet et sans satellites, comment ferons-nous pour nous tenir au courant de ce qu’il faut faire pour rester en vie ?&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://mixitconf.org/2022/how-to-build-the-alert-system-that-france-deserves-&quot;&gt;Page du talk sur le site de MiXiT et voir le replay&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;meet-null-the-unknown&quot;&gt;Meet NULL the UNKNOWN&lt;/h2&gt;
-
-&lt;p&gt;Dans cette conférence, Laëtiia Avrot entame un rappel de la norme SQL, que PostgresQL implémente au plus près, sur la valeur de NULL en SQL. Et la valeur UNKNOWN est également abordée. Notamment la complexité induite par le fait qu’un champ de type Boolean peut se retrouver avec comme valeurs possibles : True, False, UNKNOWN et NULL. Cela donne un système à quadruple valeur. Pour un champ typé.&lt;/p&gt;
-
-&lt;p&gt;NULL est plus facile à définir par ce qu’il n’est pas qu’en expliquant ce qu’il est.
-Une option intéressante pour mettre en évidence la valeur NULL dans PostgresQL est d’en définir nous-même une valeur affichée.&lt;/p&gt;
-
-&lt;p&gt;Ensuite, Laëtitia nous propose un Quizz. Sur une base de données qu’on connaît, chaque fois la même question est posée sur “Combien de lignes vont être retournées par la requête SQL ?”&lt;/p&gt;
-
-&lt;p&gt;C’est intéressant, car chaque question comporte un degré de complexité élevé impliquant l’usage de la valeur NULL, tout en suivant la logique de la norme SQL. Cerise sur le gâteau, Laëtitia propose en “Réponse D”, le nom d’une scientifique célèbre et nous en donne une courte biographie à chaque question.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Liens&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://mydbanotebook.org/&quot;&gt;Blog de l’oratrice, Laëtitia Avrot&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://mixitconf.org/2022/meet-null-the-unknown&quot;&gt;Page du talk sur le site de MiXiT et voir le replay&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;parlez-de-vous-faites-des-feedbacks&quot;&gt;Parlez de vous, faites des feedbacks&lt;/h2&gt;
-
-&lt;p&gt;Le feedback est un outil communicationnel qui permet de formuler un avis sur une situation passée dans le but de gérer les situations futures.&lt;/p&gt;
-
-&lt;p&gt;On peut trouver plusieurs formes de feedbacks :
-le feedback est à destination de la personne, pour l’aider à s’améliorer. Elle peut décider de le suivre ou non,
-la demande que l’on fait à quelqu’un est à notre bénéfice (on demande à la personne de changer un comportement qui nous gêne) en laissant la possibilité à la personne de décider si elle veut ou non répondre favorablement à cette demande,
-l’exigence qui est aussi à notre bénéfice, mais pour laquelle on ne laisse pas le choix (dans le cadre d’une relation hiérarchique)&lt;/p&gt;
-
-&lt;p&gt;Julie Quillié propose un modèle de feedbacks basé sur la CNV (Communication Non Violente) et qui peut se résumer de la manière suivante.&lt;/p&gt;
-
-&lt;h3 id=&quot;feedback-basé-sur-la-cnv-communication-non-violente&quot;&gt;Feedback basé sur la CNV (Communication Non Violente)&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;On vérifie la disponibilité de la personne en lui demandant si elle est d’accord pour qu’on lui fasse des feedbacks et sous quelle forme.&lt;/li&gt;
-  &lt;li&gt;On formule le feedback :
-  Décrire une Observation, les faits (= pas de jugement)
-  Exprimer le Sentiment que cette situation a engendré
-  Expliquer le Besoin qui est la source du sentiment ressenti
-  et finir par faire une Demande (= réalisable, formulée positivement, précise)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;strong&gt;Un exemple :&lt;/strong&gt;
-  Nous avions rendez-vous à 12h et il est 12h30 = observation, factuel.
-  Je suis très fâché car je m’étais organisé pour être à l’heure = le sentiment
-  C’est important pour moi de ne pas perdre de temps et de pouvoir rester libre dans mon organisation = le besoin
-  La prochaine fois que tu sais que tu seras en retard, peux-tu stp m’appeler dès que possible pour me le signaler ? De cette manière, je peux me réorganiser facilement. = la demande&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;On vérifie ce qui a été reçu par la personne. On lui propose de nous reformuler ce qu’elle en a retenu. Cela permet de vérifier que le message que l’on voulait faire passer a bien été entendu.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;2ème-possibilité-pour-faire-un-feedback--le-feedback-en-4-temps&quot;&gt;2ème possibilité pour faire un feedback : le feedback en 4 temps&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;On demande à la personne ce qu’elle a aimé dans ce qu’elle vient de faire&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;On lui demande ensuite ce qu’elle aurait aimé faire différemment&lt;/p&gt;
-
-    &lt;p&gt;On lui demande si elle veut qu’on lui donne notre feedback&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;“Moi, j’ai aimé …, parce que … ”&lt;/em&gt; : on parle de ce que ça nous a apporté (clarté, motivation, inspiration, soutien, etc.)&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;“Et j’aurais aimé …  de différent, parce que … ”&lt;/em&gt; on parle de ce que ça nous apporterait (clarté, motivation, inspiration, soutien, etc.)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Et en bonus : “Peux-tu me dire comment tu reçois ce que je te dis ?”&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://mixitconf.org/2022/parlez-de-vous-faites-des-feedbacks-&quot;&gt;Page du talk sur le site de MiXiT et voir le replay&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;arrêtez-lauto-sabotage-et-sortez-de-la-boucle-systémique&quot;&gt;Arrêtez l’auto-sabotage et sortez de la boucle (systémique)&lt;/h2&gt;
-
-&lt;p&gt;Dans cet atelier, Albane Veyron nous explique que nous avons tous des croyances sur nous-mêmes et sur les autres. Les croyances sont des pensées qui sont des vérités, pour nous. Elles ont plusieurs origines : l’enfance, notre cercle social et notre expérience de vie.&lt;/p&gt;
-
-&lt;p&gt;Les croyances peuvent être aidantes ou limitantes.&lt;/p&gt;
-
-&lt;p&gt;L’atelier commence par une première phase qui consiste à reconnaître une de ses croyances limitantes :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;les généralisations : personne, tout le monde, toujours, tout le temps, jamais, trop, je dois, il faut, pas assez&lt;/li&gt;
-  &lt;li&gt;les barrières infinies aka les bonnes excuses pour ne pas passer à l’action : j’aimerais, mais … / je pourrais, mais …&lt;/li&gt;
-  &lt;li&gt;les sensations de déjà vu : les blocages et les situations récurrentes&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Une fois qu’on a repéré une de ses croyances limitantes, on l’écrit sur une feuille et on va ensuite décomposer cette croyance et réfléchir à :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;son origine : d’où nous vient cette croyance ? depuis combien de temps fait-elle partie de nous ? nous vient-elle de notre éducation ?&lt;/li&gt;
-  &lt;li&gt;les bénéfices : quels bénéfices nous apporte cette croyance ? qu’est-ce qu’elle nous permet ?&lt;/li&gt;
-  &lt;li&gt;les inconvénients / les freins : en quoi cette croyance nous gêne et quels sont les impacts sur notre vie (pro ou perso) ?&lt;/li&gt;
-  &lt;li&gt;les contradictions : a-t-on déjà fait quelque chose ou été dans une situation qui vient contredire cette croyance ?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;On va ensuite venir agrémenter notre croyance avec tous ces éléments puis, pour finir, transformer notre croyance limitante en une croyance aidante.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://mixitconf.org/2022/-arretez-l-auto-sabotage-et-sortez-de-votre-boucle-systemique-&quot;&gt;Page du talk sur le site de MiXiT et voir le replay&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;comment-fonctionne-un-gestionnaire-de-mots-de-passe&quot;&gt;Comment fonctionne un gestionnaire de mots de passe&lt;/h2&gt;
-
-&lt;p&gt;Les mots de passe sont partout. Ils nous permettent d’accéder à nos photos, nos comptes bancaires, nos documents de santé et bien d’autres données sensibles que l’on ne souhaite pas voir aux mains d’individus que l’on ne connaît pas.
-Tout le monde sait que l’on doit avoir des longs mots de passe mais comment tous les retenir ? C’est là que les gestionnaires de mot de passe entrent en jeu. Mais peut-on leur faire confiance ? Comment ça marche au juste ? C’est à cette question qu’a souhaité répondre Eric Daspet pendant sa conférence.&lt;/p&gt;
-
-&lt;p&gt;Le rôle d’un gestionnaire de mots de passe est de permettre à son utilisateur d’utiliser qu’un seul mot de passe pour ensuite laisser l’outil générer et mémoriser tous les autres mots de passe. On a plus qu’à retenir un seul mot de passe qui peut donc être long et complexe. L’exercice de mémoire sera alors moins compliqué que si on en avait plusieurs à retenir.&lt;/p&gt;
-
-&lt;p&gt;À travers son exposé, on découvre un peu plus tous les procédés de cryptographie utilisés afin de gérer les mots de passe que l’on va créer ou modifier en utilisant ces outils.
-Grâce à de nombreux schémas, il explique clairement les différentes étapes de chiffrements utilisées que ce soit pour la création du mot de passe maître, la création et le changement des mots de passe, l’affichage des mots de passe et même le fonctionnement du partage de mots de passe (lorsque celui-ci existe dans l’outil).&lt;/p&gt;
-
-&lt;p&gt;On découvre pendant cette heure que les gestionnaires de mots de passe ne cherchent pas à réinventer la roue en matière de cryptographie mais s’appuient sur des concepts déjà éprouvés et robustes. On apprend aussi que tout est chiffré de bout en bout et que seul celui qui détient le mot de passe maître (l’utilisateur donc, même l’outil ne le connaît pas et n’en a pas besoin) peut interagir avec les mots de passe créés. Rassurant, non ? En tout cas, me voilà maintenant prêt à expliquer autour de moi pourquoi il est grand temps de passer à un gestionnaire de mot de passe !&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://mixitconf.org/2022/comment-fonctionne-un-gestionnaire-de-mots-de-passe-&quot;&gt;Page du talk sur le site de MiXiT et voir le replay&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;optimiser-votre-revue-de-code-avec-le-rebase-interactif&quot;&gt;Optimiser votre revue de code avec le rebase interactif&lt;/h2&gt;
-
-&lt;p&gt;GIT est un outil bien connu des développeurs de nos jours, mais dès qu’on s’écarte des commandes traditionnelles (checkout, commit et push), on sait bien moins ce que l’on peut faire d’autre avec.&lt;/p&gt;
-
-&lt;p&gt;Sonia Seddiki nous explique ici comment rendre la revue de code, souvent longue et fastidieuse, plus simple et agréable pour nos collègues avec quelques astuces qu’elle a partagées avec nous lors d’un live coding.
-Contrairement à l’idée que j’en avais, le rebase interactif n’est pas là que pour nettoyer les noms de commit sans aucun sens que j’avais mis dans la précipitation mais que c’est un outil bien plus puissant.&lt;/p&gt;
-
-&lt;p&gt;Elle nous a ainsi montré comment elle utilise cette commande afin d’organiser et de donner une chronologie à son travail rendant ainsi la revue de code plus facile. Elle a ainsi, devant nos yeux, changé des fichiers de commits, réorganisé l’ordre des commits et tout ça sans altérer le code produit.&lt;/p&gt;
-
-&lt;p&gt;Évidemment, c’est une habitude à prendre, elle-même le souligne que ce n’est pas facile d’exporter cette bonne pratique au sein des équipes avec qui elle travaille. Mais la démonstration m’a convaincu, je vais m’essayer à cette pratique et qui sait, un jour j’arriverai peut-être à mon tour à convaincre des gens de mon équipe à en faire de même.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://mixitconf.org/2022/optimisez-vos-revues-de-code-avec-le-rebase-interactif-&quot;&gt;Page du talk sur le site de MiXiT et voir le replay&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;violence-herméneutique---comment-éviter-le-malaise&quot;&gt;Violence Herméneutique - Comment éviter le malaise&lt;/h2&gt;
-
-&lt;p&gt;Le MiXiT est aussi un évènement nous permettant d’ouvrir notre esprit à des connaissances qui sortent de notre quotidien. Cette conférence animée par Romeu Moura et Sara Dufour en fait partie. Ce talk nous fait découvrir le concept d’herméneutique, défini en début de présentation comme étant “La connaissance d’un concept permettant l’interprétation”. Si vous n’avez rien compris à cette définition à ce stade, c’était également mon cas.&lt;/p&gt;
-
-&lt;p&gt;Malgré cette introduction confuse, petit à petit, en allant de plus en plus dans le détail, des sujets apparaissent et donnent sens à ce concept. On y parle de systémisme, de charge mentale, de patriarcat et autres systèmes de notre société dont l’exercice de compréhension va plus loin que leur simple mot ou leur définition. L’herméneutique consiste à comprendre les fondements et rouages d’un système, qu’on y appartienne ou non.&lt;/p&gt;
-
-&lt;p&gt;Mais notre société, et l’humain, tend à compliquer cet exercice de compréhension de concept. C’est là qu’on arrive à la notion de violence herméneutique, à savoir tous les mécanismes conscients et inconscients, systémiques ou non, internes ou externes, qui vont venir entraver et contraindre l’herméneutique. De réels freins à la compréhension d’un système. Ils peuvent prendre plusieurs formes, comme la notion de norme, le fait de nier l’existence d’un système ou de réfuter un sujet du simple fait qu’il soit considéré tabou. On y retrouve également la déformation de mots, et le fameux “wokisme”.&lt;/p&gt;
-
-&lt;p&gt;Il s’agit d’une conférence passionnante, dérangeante et éclairante que je conseille à tous. Le début piétine un peu, mais le voyage en vaut la peine.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://mixitconf.org/2022/violence-hermeneutique-comment-eviter-le-malaise-&quot;&gt;Page du talk sur le site de MiXiT et voir le replay&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;designer-pour-le-service-public&quot;&gt;Designer pour le service public&lt;/h2&gt;
-
-&lt;p&gt;Cela peut faire un peu peur dit comme ça, mais je suis allé sceptique à cette conférence d’Anne-Sophie Tranchet. J’étais rattaché à une image peu flatteuse des outils du service public, alors que ces derniers ont connu une vraie progression ces dernières années. Anne-Sophie fait partie du programme beta.gouv qui intervient auprès des administrations pour les services numériques.&lt;/p&gt;
-
-&lt;p&gt;C’est armé des bonnes pratiques de nos métiers que Beta.gouv a la mission de transformer et d’accompagner les services publics. On y apprendra le parcours d’Anne-Sophie, ce que travailler pour le service public veut dire, ainsi que les projets et challenges qui en découlent. Leur méthodologie centrée utilisateur leur permet de travailler en itération, et de délivrer de la valeur, en incubation d’abord, puis jusqu’à un développement national en fonction des retours sur le service.&lt;/p&gt;
-
-&lt;p&gt;On peut citer quelques réalisations Beta.gouv comme la plateforme dossierfacile.com, qui facilite la création de dossier pour une location, ou 1000 Premiers Jours, qui délivre des informations et un accompagnement sur la grossesse et les 2 premières années de l’enfant&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://mixitconf.org/2022/designer-pour-le-service-public&quot;&gt;Page du talk sur le site de MiXiT et voir le replay&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;nos-autres-conférences-coup-de-coeur&quot;&gt;Nos autres conférences coup de coeur&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://mixitconf.org/2022/ma-vie-est-un-ticket-eloge-de-la-communication-paresseuse-et-enjeux-pour-l-agilite-du-futur&quot;&gt;Ma vie est un ticket&lt;/a&gt; de Romain Couturier, une conférence raconté avec dessins légère et qui donne des idées pour lutter contre la mauvaise utilisation des outils de ticketing&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://mixitconf.org/2022/tout-ce-que-l-on-ne-vous-dit-pas-sur-l-intelligence-artificielle-ia-&quot;&gt;Tout ce que l’on ne vous pas dit sur l’IA&lt;/a&gt; de Amélie Cordier, une conférence pleine d’humour sur ce qu’est et n’est pas une IA&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>[&quot;s_haim&quot;, &quot;e_perrin&quot;, &quot;j_mastounga&quot;, &quot;s_zoccarato&quot;]</name></author><category term="conference" /><category term="agile" /><summary type="html"></summary></entry></feed>
+All the teams that needed to extract value from our CDN logs are now autonomous to do so. We are now able to bill our customers based on their CDN usage.&lt;/p&gt;</content><author><name>Arthur Zinck</name></author><category term="onprem" /><category term="cdn" /><category term="logs" /><category term="aws" /><category term="cloud" /><category term="nginx" /><category term="vector" /><category term="lambda" /><category term="s3" /><category term="glue" /><category term="athena" /><summary type="html">At Bedrock, we have a CDN that outputs on average 400GB of uncompressed logs per hour. In this article, we present the architecture we have setup to collect these logs and extract value from them.</summary></entry></feed>
