@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-10-07T09:59:21+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">API Platform Conference 2022</title><link href="https://tech.bedrockstreaming.com/2022/10/07/api-platform-conference-2022.html" rel="alternate" type="text/html" title="API Platform Conference 2022" /><published>2022-10-07T00:00:00+00:00</published><updated>2022-10-07T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/10/07/api-platform-conference-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/10/07/api-platform-conference-2022.html">&lt;p&gt;En cette période de rentrée, Bedrock participait à l’&lt;a href=&quot;https://api-platform.com/con/2022&quot;&gt;API Platform Conference 2022&lt;/a&gt;, où nous avons eu le plaisir d’assister à une partie des conférences proposées. Un grand merci à toutes les personnes chez &lt;a href=&quot;https://les-tilleuls.coop/&quot;&gt;Les-Tilleuls.coop&lt;/a&gt; pour l’organisation de cet évènement !
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-10-07T13:02:51+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">API Platform Conference 2022</title><link href="https://tech.bedrockstreaming.com/2022/10/07/api-platform-conference-2022.html" rel="alternate" type="text/html" title="API Platform Conference 2022" /><published>2022-10-07T00:00:00+00:00</published><updated>2022-10-07T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/10/07/api-platform-conference-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/10/07/api-platform-conference-2022.html">&lt;p&gt;En cette période de rentrée, Bedrock participait à l’&lt;a href=&quot;https://api-platform.com/con/2022&quot;&gt;API Platform Conference 2022&lt;/a&gt;, où nous avons eu le plaisir d’assister à une partie des conférences proposées. Un grand merci à toutes les personnes chez &lt;a href=&quot;https://les-tilleuls.coop/&quot;&gt;Les-Tilleuls.coop&lt;/a&gt; pour l’organisation de cet évènement !
 Pour cette seconde édition, le programme était réparti sur deux jours, les 15 &amp;amp; 16 septembre 2022.&lt;/p&gt;
 
 &lt;p&gt;En introduction à cette conférence, Kévin Dunglas, créateur d’&lt;a href=&quot;https://api-platform.com/&quot;&gt;API Platform&lt;/a&gt;, a mis en ligne la version 3.0.0 du framework en nous présentant certaines nouvelles fonctionnalités développées telles que le support natif de XDebug. Il a profité de l’occasion pour présenter un petit historique d’API Platform.&lt;/p&gt;
@@ -179,7 +179,151 @@ S’en est ajoutée la question du sens par rapport à son travail. Effectivemen
 &lt;p&gt;Et bien sûr, quand cela sera possible, nous vous encourageons fortement de regarder le replay de cette conférence (&lt;a href=&quot;https://www.youtube.com/c/Les-tilleulsCoop&quot;&gt;sur la chaine des Tilleuls&lt;/a&gt;) qui redonne un peu d’espoir quant aux futurs des organisations démocratiques de nos métiers.&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;Merci à toutes et tous les speakers, à API Platform ainsi qu’aux Tilleuls-coop pour cet évènement ! Nous avons pu en apprendre plus sur API Platform et revenir la tête pleine d’idées pour nos projets futurs et présents ! À l’année prochaine peut-être !&lt;/p&gt;</content><author><name>backend</name></author><category term="conferences" /><category term="backend" /><category term="api" /><category term="php" /><summary type="html">En cette période de rentrée, Bedrock participait à l’API Platform Conference 2022, où nous avons eu le plaisir d’assister à une partie des conférences proposées. Un grand merci à toutes les personnes chez Les-Tilleuls.coop pour l’organisation de cet évènement ! Pour cette seconde édition, le programme était réparti sur deux jours, les 15 &amp;amp; 16 septembre 2022.</summary></entry><entry><title type="html">Subtitles, open captions, closed captions, SDH, oh my!</title><link href="https://tech.bedrockstreaming.com/2022/09/20/captioning-in-the-streaming-world.html" rel="alternate" type="text/html" title="Subtitles, open captions, closed captions, SDH, oh my!" /><published>2022-09-20T00:00:00+00:00</published><updated>2022-09-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/09/20/captioning-in-the-streaming-world</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/09/20/captioning-in-the-streaming-world.html">&lt;h1 id=&quot;subtitles-open-captions-closed-captions-sdh-oh-my&quot;&gt;Subtitles, open captions, closed captions, SDH, oh my!&lt;/h1&gt;
+&lt;p&gt;Merci à toutes et tous les speakers, à API Platform ainsi qu’aux Tilleuls-coop pour cet évènement ! Nous avons pu en apprendre plus sur API Platform et revenir la tête pleine d’idées pour nos projets futurs et présents ! À l’année prochaine peut-être !&lt;/p&gt;</content><author><name>backend</name></author><category term="conferences" /><category term="backend" /><category term="api" /><category term="php" /><summary type="html">En cette période de rentrée, Bedrock participait à l’API Platform Conference 2022, où nous avons eu le plaisir d’assister à une partie des conférences proposées. Un grand merci à toutes les personnes chez Les-Tilleuls.coop pour l’organisation de cet évènement ! Pour cette seconde édition, le programme était réparti sur deux jours, les 15 &amp;amp; 16 septembre 2022.</summary></entry><entry><title type="html">Bedrock Dev Facts #18</title><link href="https://tech.bedrockstreaming.com/2022/10/07/bedrock-dev-facts-18.html" rel="alternate" type="text/html" title="Bedrock Dev Facts #18" /><published>2022-10-07T00:00:00+00:00</published><updated>2022-10-07T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/10/07/bedrock-dev-facts-18</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/10/07/bedrock-dev-facts-18.html">&lt;p&gt;C’est maintenant l’automne 🍁🎃, on vous propose les devfacts de cette fin d’été et il y a du lourd !&lt;/p&gt;
+
+&lt;h1 id=&quot;cogito-ergo-sum&quot;&gt;Cogito ergo sum&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Le seul truc que je “sais” c’est “on paye 200 par mois pour avoir un direct connect” ; mais peut-être que je sais que je ne sais rien.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1&gt;👋🔥🙊🎉&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Je te fais confiance, je te laisserai mettre des emoji sur ma tombe&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;la-priorité-cest-important&quot;&gt;La priorité c’est important&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;C’est plus important que des trucs moins importants.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;biafine-nécessaire&quot;&gt;Biafine nécessaire&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;Un QA voulant faire une vanne au morning&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Le QA: “Qu’est-ce qui a deux lettres et qui marche pas?”&lt;/p&gt;
+
+  &lt;p&gt;Réponse du dev: “La QA ?”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;3615-croissants&quot;&gt;3615 croissants&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;Parlant d’une évolution majeure&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Est-ce que c’est OK pour vous pour qu’on MEP aujourd’hui ou pas ?&lt;/p&gt;
+
+  &lt;p&gt;À priori pas de contre-indications. Peut-être acheter directement une boulangerie ?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;sugar-&quot;&gt;Sugar !&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;C’est du sucre syntaxique&lt;/p&gt;
+
+  &lt;p&gt;Quand il y a trop de sucre, tu risques du diabète&lt;/p&gt;
+
+  &lt;p&gt;Surtout que le diabète syntaxique, c’est le pire&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;la-metric&quot;&gt;LA metric&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Je crois qu’on est bon, on a pas plus d’erreur que d’user.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;le-verre-à-moitié-plein&quot;&gt;Le verre à moitié plein&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Du coup ça a cassé je suppose?&lt;/p&gt;
+
+  &lt;p&gt;Ouais, enfin pas totalement, presque un succès.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;la-montagne-ça-vous-gagne&quot;&gt;La montagne ça vous gagne&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;En parlant de son ascension du Ventoux à vélo:&lt;/em&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Moi je pensais vraiment que j’étais prêt”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;mais-pourquoi-&quot;&gt;Mais pourquoi ?&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;Essayant de comprendre pourquoi une commande met beaucoup de temps sur sa machine.&lt;/em&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Je suis sur master, branche à jour, yarn réalisé juste avant, et je pense pas que mon PC soit particulièrement atteint de maladie congénitale
+(Enfin, j’espère pas?)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;read-me-please&quot;&gt;Read me please&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Tout est dans le README (que les gens liront pas de toute façon mais bon).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;les-étoiles-️&quot;&gt;Les étoiles ⭐️&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Être responsable d’un incident, c’est pas marrant c’est sûr. 
+Mais ça forme !
+Casser la prod et la réparer ça donne une étoile sur le maillot, et je peux te dire qu’on est plusieurs ici à avoir plus d’étoiles que le drapeau américain.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;review-main-dans-la-main&quot;&gt;Review main dans la main&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;La peer review, c’est la meilleure des reviews.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;patterns&quot;&gt;Patterns&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A : “Je pense que je vais devoir faire un singleton pour ça…”&lt;/p&gt;
+
+  &lt;p&gt;B : “Sinon, tu devrais pouvoir aussi faire des multitons ?”&lt;/p&gt;
+
+  &lt;p&gt;C : “On appelle ça une boîte de conserve.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;ම&quot;&gt;ම&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Ça devait être en base64 des Maya&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;time-is-relative&quot;&gt;Time is relative&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Je pense que la première fois ce sera long …et après ce ne sera pas long, mais ce sera long quand même.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;bim&quot;&gt;:bim:&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Alors l’intelligence elle existe déjà, elle s’appelle vous-même… mais actuellement elle n’est pas disponible.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;️&quot;&gt;☕️&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Tu peux mettre autant de code brouette dans tes pull request que de sucre dans ton café : L’important, c’est que ça soit bien dilué. 
+Moi, je ne sucre pas mon café.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;-1&quot;&gt;🔍&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Normalement j’utilise un vrai IDE. Mais je ne sais pas monter le zoom sur PHPStorm&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;encore-une-histoire-de-date&quot;&gt;Encore une histoire de date&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;C’est une fois par semaine, les releases mensuelles ?&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name>Bedrock</name></author><category term="devfacts" /><category term="humour" /><summary type="html">C’est maintenant l’automne 🍁🎃, on vous propose les devfacts de cette fin d’été et il y a du lourd !</summary></entry><entry><title type="html">Subtitles, open captions, closed captions, SDH, oh my!</title><link href="https://tech.bedrockstreaming.com/2022/09/20/captioning-in-the-streaming-world.html" rel="alternate" type="text/html" title="Subtitles, open captions, closed captions, SDH, oh my!" /><published>2022-09-20T00:00:00+00:00</published><updated>2022-09-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/09/20/captioning-in-the-streaming-world</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/09/20/captioning-in-the-streaming-world.html">&lt;h1 id=&quot;subtitles-open-captions-closed-captions-sdh-oh-my&quot;&gt;Subtitles, open captions, closed captions, SDH, oh my!&lt;/h1&gt;
 
 &lt;p&gt;Wait, what? Subtitles and captions are not the same? Have you noticed the popular « cc » logo in a player you use, standing for « Closed Captions » but you have never heard of Open Captions? In this article we are going to dive into the different textual representations used in the streaming world.&lt;/p&gt;
 
@@ -1288,88 +1432,4 @@ Those values are chosen according to our platform usages where peak visitor last
 &lt;ul&gt;
   &lt;li&gt;🇺🇸 &lt;a href=&quot;/2022/07/08/encrypt-aws-amis.html&quot;&gt;Encrypt AWS AMIs: one way to do it wrong&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;🇫🇷 &lt;a href=&quot;/2022/06/13/kubecon-2022-part-1.html&quot;&gt;Bedrock à la kubecon 2022 (4 articles)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Valentin CLARAS</name></author><category term="backend" /><category term="php" /><category term="api" /><category term="api-gateway" /><category term="back-for-front" /><category term="resiliency" /><summary type="html">Welcome to our second article about the backend architecture and its api gateway. In the first part, we talked about the BFF and all services it depends on. Today we’re going to take a look at what to do when one of them (or many), fails to respond.</summary></entry><entry><title type="html">How to ingest 400GB of logs per hour?</title><link href="https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html" rel="alternate" type="text/html" title="How to ingest 400GB of logs per hour?" /><published>2022-08-08T00:00:00+00:00</published><updated>2022-08-08T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html">&lt;p&gt;Bedrock Streaming is a company that sells a white labeled streaming and live platform. Our customers are media groups, TV channels, and streaming companies. Our goal is to deliver a state-of-the-art streaming platform to our customers.&lt;/p&gt;
-
-&lt;p&gt;To achieve this goal, we have our own Content Delivery Network (CDN), made of several bare metal servers racked in our Data Centers. Those servers run Nginx and are designed to output hundreds of Gbps (several tens of Pb per month) to end-users. We use them to cache video content at our infrastructure’s edge.&lt;/p&gt;
-
-&lt;p&gt;This increases efficiency of the platform 96 times out of 100, as video traffic doesn’t have to flow all the way through our infrastructure, and improves user experience as it serves video faster. Also, it diminishes the cost of our Video On Demand (VOD) infrastructure as we need less servers in VOD Stack.&lt;/p&gt;
-
-&lt;p&gt;This in-turn increases end-users (clients of our customers) satisfaction with the service.&lt;/p&gt;
-
-&lt;h2 id=&quot;who-needs-to-ingest-400gb-of-logs-per-hour-anyway&quot;&gt;Who needs to ingest 400GB of logs per hour anyway?&lt;/h2&gt;
-&lt;p&gt;Every time someone watches a video, it generates traffic on our CDN, resulting in a lot of access logs. Without filtering, it averages to 400GB uncompressed logs per hour.&lt;/p&gt;
-
-&lt;p&gt;This is why, at first, we chose to not log 2XX or 3XX HTTP codes. We had too many of them, and we considered them not as worth it as 4XX and 5XX. The 4XX and 5XX can be especially useful for debugging a particular situation or, from a broader perspective, improving the user experience.&lt;/p&gt;
-
-&lt;p&gt;This was the kind of Nginx configuration we had deployed:&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;map $status $loggable {
-    ~^[23]  0;
-    default 1;
-}
-access_log /path/to/access.log combined if=$loggable;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;giving-autonomy-for-all-teams-on-logs&quot;&gt;Giving autonomy for all teams on logs&lt;/h2&gt;
-
-&lt;p&gt;At the end of 2021, the finance team approached us with a challenge: how to bill our customers based on their end-users CDN usage?
-This was in fact a need we already anticipated, we tried the nginx module &lt;a href=&quot;https://www.nginx.com/resources/wiki/modules/traffic_accounting/&quot;&gt;Traffic_accounting&lt;/a&gt;, but it did not satisfy us fully. This module calculates and exposes metrics on-the-fly, which is CPU and memory intensive, especially above 50Gbps of traffic per server.&lt;/p&gt;
-
-&lt;p&gt;We also had another objective that wasn’t addressed with the nginx module. We needed to give autonomy to QA, Video, Data, and Finance teams. We wanted to allow them to use CDN logs when they needed without having to ask for it, and ideally in a practical and unified way.&lt;/p&gt;
-
-&lt;p&gt;The company philosophy states that we are user obsessed and that we do not finger point. We work as a team to offer the best user experience, this is why we make all our logs available to all teams. We didn’t come around to do it for the CDN as the volume of logs was too much of a constraint.&lt;/p&gt;
-
-&lt;h2 id=&quot;technical-solution&quot;&gt;Technical Solution&lt;/h2&gt;
-
-&lt;p&gt;At Bedrock, we like to keep things simple. We think our CDN main mission is to serve video as efficiently as possible. Our CDN’s servers can’t keep PetaBytes of logs on their disks. This is why we chose to output logs to Amazon S3.&lt;/p&gt;
-
-&lt;p&gt;The real benefit to using S3 is that you can easily plug it into Glue and Athena which allows you to request TeraBytes of data easily.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-08-08-privateCdnLogs/image1.png&quot; alt=&quot;technical Solution&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;sending-logs-to-s3-vector&quot;&gt;Sending logs to S3: Vector&lt;/h3&gt;
-
-&lt;p&gt;To send logs from our CDN servers to Amazon S3 bucket, we had many options, but chose to test two approaches: &lt;a href=&quot;https://www.fluentd.org/&quot;&gt;Fluentd&lt;/a&gt; and &lt;a href=&quot;https://vector.dev/&quot;&gt;Vector&lt;/a&gt;. Fluentd is the legacy one, and Vector the new rusty one.&lt;/p&gt;
-
-&lt;p&gt;After a quick evaluation, we decided to go with &lt;a href=&quot;https://medium.com/ibm-cloud/log-collectors-performance-benchmarking-8c5218a08fea&quot;&gt;Vector as it seemed more memory efficient&lt;/a&gt; and output more Logs Per Second under heavy load than Fluentd.&lt;/p&gt;
-
-&lt;center&gt;&lt;img alt=&quot;Log per second&quot; src=&quot;/images/posts/2022-08-08-privateCdnLogs/image4.png&quot; /&gt;&lt;/center&gt;
-&lt;center&gt;Source: &lt;a href=&quot;https://medium.com/ibm-cloud/log-collectors-performance-benchmarking-8c5218a08fea&quot; target=&quot;blank&quot;&gt;Who is the winner — Comparing Vector, Fluent Bit, Fluentd performance from Ajay Gupta&lt;/a&gt;&lt;/center&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;We have Nginx and Vector installed on the CDN servers. Nginx now outputs all the access logs to a file. Vector reads the file, compresses logs to GZIP format and every 10Mb sends the logs to S3. Nginx may generate at peak 600GB of logs; we only send 10GB.&lt;/p&gt;
-
-&lt;p&gt;Those logs are then locally cleaned by Logrotate.&lt;/p&gt;
-
-&lt;h3 id=&quot;storing-logs-s3&quot;&gt;Storing logs: S3&lt;/h3&gt;
-&lt;p&gt;We chose to store logs on an S3 bucket. We figured it was the most scalable and time efficient. S3 buckets can grow to PetaBytes easily. It is a few terraform lines away, this is convenient as we handle all our infrastructure with Terraform.&lt;/p&gt;
-
-&lt;p&gt;We configured our bucket to use several lifecycle policies. One to automatically clean logs after 365 days, another to remove incomplete uploads, and another one to immediately remove files with a delete marker. Also, we configured the storage class in &lt;em&gt;intelligent tiering mode&lt;/em&gt; to store logs according to their access frequency.&lt;/p&gt;
-
-&lt;p&gt;This will permit us to diminish the cost of our S3 bucket and not have an ever-increasing S3 bill.&lt;/p&gt;
-
-&lt;h3 id=&quot;partitioning-logs-on-s3-lambda-stack&quot;&gt;Partitioning logs on S3: Lambda stack&lt;/h3&gt;
-
-&lt;p&gt;Once logs are stored in S3 bucket, we need to classify and sort them in order to extract valuable intel. At Bedrock, we already use a modified version of a lambda stack, that does just that. Originally designed for Cloudfront, we have been using it also for Fastly and now for our Private CDN. You can find the original version at &lt;a href=&quot;https://github.com/aws-samples/amazon-cloudfront-access-logs-queries&quot;&gt;AWS Sample Github&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;We have 2 different parts in this lambda stack.&lt;/p&gt;
-
-&lt;center&gt;&lt;img alt=&quot;Move Acess Logs&quot; src=&quot;/images/posts/2022-08-08-privateCdnLogs/image3.png&quot; /&gt;&lt;/center&gt;
-&lt;center&gt;source: &lt;a href=&quot;https://github.com/aws-samples/amazon-cloudfront-access-logs-queries/blob/mainline/images/moveAccessLogs.png&quot; target=&quot;blanck&quot;&gt;moveAccessLogs&lt;/a&gt;&lt;/center&gt;
-&lt;p&gt;&lt;br /&gt;
-The first part is called by S3 Event when a new file is pushed to a specific path. This lambda moves the file to a path assigned per server and per hour. This way, logs are stored for each server, each month, each day and each hour in a separate prefix.&lt;/p&gt;
-
-&lt;center&gt;&lt;img alt=&quot;Transform Partition&quot; src=&quot;/images/posts/2022-08-08-privateCdnLogs/image2.png&quot; /&gt;&lt;/center&gt;
-&lt;center&gt;source: &lt;a href=&quot;https://github.com/aws-samples/amazon-cloudfront-access-logs-queries/blob/mainline/images/transformPartition.png&quot; target=&quot;blank&quot;&gt;transformPartition&lt;/a&gt;&lt;/center&gt;
-&lt;p&gt;&lt;br /&gt;
-Then, another lambda transforms logs into &lt;a href=&quot;https://parquet.apache.org/&quot;&gt;Parquet format&lt;/a&gt;. Parquet is an open source format from the Apache Foundation. It is commonly used in big data. It takes up little space and is very effective.&lt;/p&gt;
-
-&lt;p&gt;We chose to use AWS glue in order to create a database of our logs. The columns of the table are based on our log format. We can then request everything we want in Athena.&lt;/p&gt;
-
-&lt;center&gt;&lt;img alt=&quot;Athena Query&quot; src=&quot;/images/posts/2022-08-08-privateCdnLogs/image5.png&quot; /&gt;&lt;/center&gt;
-
-&lt;p&gt;We are now capable of extracting the bytes sent from a particular virtual host and sum it over a month for all CDN servers to bill our customers.
-Those logs are now available for all the teams who may need them to improve their application or to debug an issue they are facing.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;We chose &lt;a href=&quot;https://vector.dev/&quot;&gt;Vector&lt;/a&gt; to transport our private CDN logs to an S3 Bucket. Then, we chose to reuse an AWS Stack using Lambda and Glue to extract information from these logs, asynchronously. This stack is used in production for several months on other projects.
-All the teams that needed to extract value from our CDN logs are now autonomous to do so. We are now able to bill our customers based on their CDN usage.&lt;/p&gt;</content><author><name>Arthur Zinck</name></author><category term="onprem" /><category term="cdn" /><category term="logs" /><category term="aws" /><category term="cloud" /><category term="nginx" /><category term="vector" /><category term="lambda" /><category term="s3" /><category term="glue" /><category term="athena" /><summary type="html">At Bedrock, we have a CDN that outputs on average 400GB of uncompressed logs per hour. In this article, we present the architecture we have setup to collect these logs and extract value from them.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Valentin CLARAS</name></author><category term="backend" /><category term="php" /><category term="api" /><category term="api-gateway" /><category term="back-for-front" /><category term="resiliency" /><summary type="html">Welcome to our second article about the backend architecture and its api gateway. In the first part, we talked about the BFF and all services it depends on. Today we’re going to take a look at what to do when one of them (or many), fails to respond.</summary></entry></feed>
