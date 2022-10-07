@@ -12,7 +12,7 @@ C'est maintenant l'automne 🍁🎃, on vous propose les devfacts de cette fin d
 
 # Cogito ergo sum
 
-> Le seul truc que je “sais” c’est “on paye 3000 par mois pour avoir un direct connect” ; mais peut-être que je sais que je ne sais rien.
+> Le seul truc que je “sais” c’est “on paye 200 par mois pour avoir un direct connect” ; mais peut-être que je sais que je ne sais rien.
 
 # 👋🔥🙊🎉
 
