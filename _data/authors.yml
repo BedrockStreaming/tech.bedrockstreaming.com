@@ -137,3 +137,17 @@ m_schneider:
 e_doyon:
   name: Etienne Doyon
   avatar: /images/avatar/e_doyon.jpeg
+o_balystky:
+  name: Oleksandr Balystky
+f_dumas:
+  name: Fabien Dumas
+c_cousin:
+  name: Camille Cousin
+t_courtoison:
+  name: Thibaud Courtoison
+t_sontag:
+  name: Thomas Sontag
+m_agack:
+  name: Moustapha Agack
+b_garcia:
+  name: Bénédicte Garcia
