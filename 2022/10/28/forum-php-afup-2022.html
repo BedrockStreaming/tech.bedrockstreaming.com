@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/forumphp2022/header.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Forum PHP 2022 - L’éléphant bleu n’a pas peur de la souris aux grandes oreilles | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Forum PHP 2022 - L’éléphant bleu n’a pas peur de la souris aux grandes oreilles" />
+<meta name="author" content="Bedrock" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Nos retours du Forum PHP à Paris, les 13 et 14 octobre 2022" />
+<meta property="og:description" content="Nos retours du Forum PHP à Paris, les 13 et 14 octobre 2022" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2022/10/28/forum-php-afup-2022.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2022/10/28/forum-php-afup-2022.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-10-28T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Forum PHP 2022 - L’éléphant bleu n’a pas peur de la souris aux grandes oreilles" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/10/28/forum-php-afup-2022.html"},"url":"https://tech.bedrockstreaming.com/2022/10/28/forum-php-afup-2022.html","author":{"@type":"Person","name":"Bedrock"},"@type":"BlogPosting","headline":"Forum PHP 2022 - L’éléphant bleu n’a pas peur de la souris aux grandes oreilles","dateModified":"2022-10-28T00:00:00+00:00","datePublished":"2022-10-28T00:00:00+00:00","description":"Nos retours du Forum PHP à Paris, les 13 et 14 octobre 2022","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Forum PHP 2022 - L’éléphant bleu n’a pas peur de la souris aux grandes oreilles">
+    <meta name="twitter:description" content="Pour cette édition du Forum PHP qui s’est déroulée à Disneyland Paris, Bedrock a vu les choses en grand : première foissponsor Or sur un forum et pas moins d...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/forumphp2022/header.jpg">
+    <meta name="twitter:image:alt" content="Forum PHP 2022 - L’éléphant bleu n’a pas peur de la souris aux grandes oreilles">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Forum PHP 2022 - L’éléphant bleu n’a pas peur de la souris aux grandes oreilles " aria-label="Forum PHP 2022 - L’éléphant bleu n’a pas peur de la souris aux grandes oreilles" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Forum+PHP+2022+-+L%E2%80%99%C3%A9l%C3%A9phant+bleu+n%E2%80%99a+pas+peur+de+la+souris+aux+grandes+oreilles" class="title">Forum PHP 2022 - L’éléphant bleu n’a pas peur de la souris aux grandes oreilles</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      Bedrock - 
+      
+      October 28, 2022
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Pour cette édition du Forum PHP qui s’est déroulée à Disneyland Paris, Bedrock a vu les choses en grand : première fois
+sponsor Or sur un forum et pas moins de 32 Bedrockien(ne)s présent(e)s dont 4 en tant que conférencier(e)s !
+Cette année encore, le forum a été un moment privilégié pour les échanges, le partage et vous avez été nombreux(ses) à
+venir nous rencontrer sur notre stand et nous avons été ravis de pouvoir échanger avec vous.</p>
+
+<p>La richesse et la diversité des conférences ont fait de cette édition une grande réussite. Nous ne pouvons
+malheureusement pas aborder toutes les conférences dans cet article, mais voici une sélection de 10 d’entre elles.</p>
+
+<p><img src="/images/posts/forumphp2022/stand-bedrock.jpg" alt="Le stand Bedrock" /></p>
+
+<h2 id="bedrock-au-forum-php">Bedrock au Forum PHP</h2>
+
+<p>Grande première pour nous cette fois-ci : Bedrock avait un stand sur le forum PHP !
+Notre équipe technique, ainsi que des membres de l’équipe RH a participé à la présentation de
+l’entreprise. Nous avons pu, tous ensemble, vous accueillir sur le stand pour répondre aux questions sur notre activité,
+notre organisation et la vie dans l’entreprise.</p>
+
+<p>De leurs propres mots :</p>
+
+<blockquote>
+  <p>“Notre présence au forum fut une réussite collective, qui nous a permis de nous faire connaître et mettre en lumière BEDROCK en tant que structure à part entière, et non plus en tant que « M6 Web ».
+Nos équipes étaient ravies que Bedrock soit sponsor et ont pu se challenger sur de réels “casses-têtes” et non pas sur leur code.
+Durant ces deux journées, le stand Bedrock a été un point de rendez-vous agréable pour nos équipes et pour les autres participants curieux d’apprendre à nous connaître.
+Cette participation, au-delà d’être très formatrice pour la communauté Bedrock, a même parfois été assimilée à un « team building » pour reprendre les termes de nos collaborateurs, leur permettant de se retrouver dans un autre environnement et de participer à l’attractivité de leur entreprise.
+Les équipes Backend &amp; RH étaient fières de représenter Bedrock en participant à la vie du stand et de répondre aux questions des passants.</p>
+</blockquote>
+
+<p><img src="/images/posts/forumphp2022/backend-managers.jpg" alt="Nos 2 Backend managers, Mikael et FX en train d’animer l’épreuve des casse-têtes" /></p>
+
+<h2 id="les-conférences-quon-retient">Les conférences qu’on retient</h2>
+
+<h3 id="jour-1">Jour 1</h3>
+
+<h4 id="the-php-foundation-the-past-the-present-and-the-future---sebastian-bergmann-roman-pronskiy">The PHP Foundation: The past, the present, and the future - Sebastian BERGMANN, Roman PRONSKIY</h4>
+
+<blockquote>
+  <p>“PHP c’est simple, suffit de dégommer un mec, et ça n’existe plus…”
+                                  	- Chuck Norris -</p>
+</blockquote>
+
+<p>Cette vision à peine exagérée de l’ami Chuck était assez proche de la réalité jusqu’à l’année dernière. En effet,
+jusque-là, l’écrasante majorité de la connaissance internet et des implémentations des features de PHP reposaient sur
+les épaules de <em>Nikita Popov</em> et <em>Dmitry Stogov</em>. Lesquels faisaient cela de manière non-professionnelle, comme un hobby,
+alors que PHP est aujourd’hui utilisé pour environ <a href="https://w3techs.com/technologies/details/pl-php">70% des sites internets</a>.</p>
+
+<p>Tout ceci est résumé dans <a href="https://blog.krakjoe.ninja/2021/05/avoiding-busses.html">cet article</a> (en anglais).</p>
+
+<p>Ce qui nous amène à un principe bien connu et très problématique de bon nombre d’entreprises : <em>le Bus Factor</em>.</p>
+
+<h5 id="bus-factor">Bus Factor</h5>
+
+<p>Ce principe identifie <em>le nombre de personnes qui doivent être renversées par un bus</em> pour que la connaissance d’un
+projet disparaisse et que ce dernier soit réellement mis en péril. Appliqué à PHP, cela signifie que <em>si deux
+personnes</em> avaient été renversées par un bus ou <em>avaient croisé le chemin de Chuck</em>, l’ensemble de la communauté PHP
+aurait bien transpiré.</p>
+
+<h5 id="la-php-foundation">La PHP Foundation</h5>
+
+<p>En 2021, <em>Nikita Popov</em> annonce son souhait de réduire drastiquement sa contribution au langage, et c’est là que
+la <a href="https://thephp.foundation/">PHP Fundation</a> est fondée autour de personnalités comme <em>Sebastian BERGMAN</em> et
+<em>Roman PRONSKIY</em> qui ont animé cette conférence à laquelle nous avons eu la chance d’assister.</p>
+
+<p>L’objectif est simple : récolter des fonds pour pouvoir <em>rémunérer des personnes qui font évoluer le langage</em> et
+répartir la connaissance dudit langage entre un maximum de personnes pour <em>minimiser le Bus Factor</em></p>
+
+<p>L’aspect juridique et financier de la chose est délégué à une structure
+nommée <a href="https://opencollective.com/phpfoundation">Open Collective</a>, dont l’activité est 100% transparente.
+Les derniers chiffres font ainsi valoir qu’après déductions des charges, il reste cette année environ 580 000$ pour la
+fondation.</p>
+
+<p>Les fonds <em>proviennent majoritairement de donations</em> répartis comme suit :</p>
+<ul>
+  <li>77% provenant d’entreprises (JetBrains, Livesport, Symfony…)</li>
+  <li>23% provenant d’individus</li>
+</ul>
+
+<p>Parmi les actuels core contributeurs on retrouve :</p>
+<ul>
+  <li><a href="https://github.com/arnaud-lb">Arnaud Le Blanc</a></li>
+  <li><a href="https://github.com/derickr">Derick Rethans</a></li>
+  <li><a href="https://github.com/Girgias">George P. Banyard</a></li>
+  <li><a href="https://github.com/iluuu1994">Ilija Tovilo</a></li>
+  <li><a href="https://github.com/bukka">Jakub Zelenka</a></li>
+  <li><a href="https://github.com/kocsismate">Máté Kocsis</a></li>
+</ul>
+
+<h5 id="le-futur-de-php-">Le futur de PHP ?</h5>
+
+<p>Avec cette stratégie de contractualisation des core-contributeurs et le souci de partager la connaissance, on est en
+droit d’espérer que le risque de mise en péril du langage soit fortement réduit. Qui plus est, <strong>l’arrivée prochaine de
+la version 8.2 de PHP</strong> semble montrer que la nouvelle équipe a su faire avancer le projet, pour notre plus grand plaisir.</p>
+
+<h4 id="watch-the-clock---andreas-heighl">Watch the clock - Andreas HEIGHL</h4>
+
+<p>Dans cette conférence, <a href="https://twitter.com/heiglandreas">Andreas</a> aborde la douloureuse problématique du temps en PHP
+et plus précisément le cauchemar que sont les tests sur la notion de temps réel.</p>
+
+<p>Afin de répondre à cette problématique, il évoque et explique en détail tout le cheminement intellectuel pour la mise en
+place de la <a href="https://github.com/php-fig/clock">PSR-20</a>. Elle donnera la possibilité, grâce à une “simple” interface, de
+gérer plus facilement le temps réel et les tests associés. Malheureusement, la PSR-20 est actuellement encore à l’état
+de brouillon et ne sera probablement pas mise à disposition avant longtemps.</p>
+
+<p>Afin de nous faire patienter, Andreas a développé sa propre implémentation de l’interface Clock qui sera proposée dans
+la PSR-20 : <a href="https://packagist.org/packages/stella-maris/clock">https://packagist.org/packages/stella-maris/clock</a>.</p>
+
+<h4 id="comment-être-bien-onboardé-en-tant-que-développeuse-junior-reconvertie----amélie-abdallah">Comment être bien onboardé en tant que développeuse junior reconvertie ? - <a href="https://twitter.com/AlonahAmelie">Amélie ABDALLAH</a></h4>
+
+<p>Amélie, alternante et en reconversion, a donné sa première conférence pour faire un retour d’expérience des onboardings
+qu’elle a vécu dans ses 2 premières entreprises.</p>
+
+<p>Pour sa première expérience en tant que développeuse elle se retrouve à devoir coder dès le premier jour. Une fois
+passée l’euphorie, je rappelle qu’elle est en reconversion et sur-motivée, elle se rend vite compte de tout ce qui ne
+va pas :</p>
+
+<ul>
+  <li>personne pour la former que ce soit techniquement ou concernant le métier</li>
+  <li>aucune présentation des autres équipes</li>
+  <li>aucun accompagnement de la part des supérieurs hiérarchiques</li>
+  <li>seule sur un projet où les règles métiers semblent complexes</li>
+</ul>
+
+<p>Elle se sent rapidement perdue et son moral et sa motivation tombent en flèche.</p>
+
+<p>Concernant sa seconde entreprise, c’est tout l’inverse :</p>
+
+<ul>
+  <li>pas de code pour les alternants/reconverti(e)s avant 2 semaines</li>
+  <li>un système de marrainage/parrainage</li>
+  <li>un repo avec des exercices et bonnes pratiques pour progresser</li>
+  <li>une rencontre avec toutes les équipes pour se connaître mais surtout pour bien comprendre les différents métiers de ses collègues</li>
+</ul>
+
+<p>Amélie conclut en incitant toutes les entreprises à envisager des candidat(e)s en reconversion qui, à la condition
+d’être bien accompagné(e)s, seront sur-motivé(e)s et plein(e)s d’énergie.</p>
+
+<p>Cela nous permet de faire l’état des lieux de notre processus d’onboarding. Même si on peut trouver des pistes
+d’amélioration, comme par exemple avoir une présentation des autres équipes et différents métiers bien plus tôt, on
+constate que nous avons déjà mis en place beaucoup de bonnes pratiques :</p>
+
+<ul>
+  <li>calendrier d’onboarding clair avec installation de la machine, présentation de l’équipe rejoint par la nouvelle personne, des locaux, des projets, etc.</li>
+  <li>système de marrainage/parrainage,</li>
+  <li>des formations disponibles sur les différentes technologies utilisées</li>
+  <li>ce qu’on appelle la <em>Bedrock Academy</em>, qui donne une vision globale des métiers de l’entreprise</li>
+  <li>un rapport d’étonnement présenté par le nouvel arrivant qui nous permet d’améliorer notre onboarding en continu</li>
+</ul>
+
+<h4 id="ffi--de-nouveaux-horizons-pour-php---pierre-pelisset">FFI : De nouveaux horizons pour PHP - Pierre PELISSET</h4>
+
+<p>Chez Karafun, Pierre Pelisset nous présente un moyen de dépasser les frontières habituelles de PHP.</p>
+
+<p>La mise en place de bar à karaoké nécessite en effet de manipuler du matériel spécifique. La transmission de données par
+USB reste le moyen le plus simple de faire communiquer des systèmes, mais nativement rien n’existe en PHP. Jusqu’à
+présent les équipes de Karafun utilisaient un script Python avec PySerial pour répondre à ce besoin.</p>
+
+<p>Depuis PHP 7.4, il est possible d’utiliser les <a href="https://www.php.net/manual/en/book.ffi.php"><em>Foreign Function Interface</em> (FFI)</a>
+pour appeler directement des libraires C compilées depuis le code PHP. En se basant sur les bonnes librairies, il a été
+ainsi possible pour les équipes de Karafun d’utiliser PHP dans la totalité de leur stack, et de remplacer leurs scripts
+Python.</p>
+
+<p>Pierre nous présente ensuite la librairie <a href="https://github.com/ppelisset/php-termios">php-termios</a> qu’il a implémentée
+pour permettre d’utiliser Termios, une librairie de manipulation de terminal POSIX écrite en C, depuis PHP.</p>
+
+<p>L’interfaçage reste facile tant qu’il s’agit de types de données simples (comme des entiers), mais devient beaucoup plus
+complexe lorsqu’il s’agit de manipuler des structures de données avancées (chaînes de caractères, objets, …).</p>
+
+<p>Idéalement, il faut créer des classes PHP ressemblant à la librairie C (mêmes noms de fonction, de constante, …), afin
+de faciliter sa manipulation.</p>
+
+<p>L’utilisation des FFI introduit de nouvelles difficultés liées généralement aux programmes compilés. Ainsi, dans le cas
+de Termios, les constantes utilisées varient selon la plateforme (Linux, MacOS, …). Il a donc fallu utiliser quelques
+astuces pour les copier dynamiquement dans le code PHP. De même, pour distribuer le binaire compilé, il faut prendre en
+compte l’architecture CPU de la machine exécutant le code.</p>
+
+<h4 id="opentelemetry--vers-un-standard-pour-surveiller-vos-applications---benoit-viguier">OpenTelemetry : vers un standard pour surveiller vos applications - Benoit Viguier</h4>
+
+<p>Lors de sa conférence, Benoit Viguier (développeur chez <a href="https://platform.sh/">Platform.sh</a> au sein de l’équipe de <a href="https://www.blackfire.io/">Blackfire.io</a>) est venu parler
+d’un standard de monitoring soutenu par la Cloud Native Computing Foundation : OpenTelemetry. Il a d’abord commencé par
+nous rappeler pourquoi nous faisons du monitoring.</p>
+
+<p>Le monitoring nous permet de savoir si nos services fonctionnent correctement (conforme au SLA|SLO), et si cela n’est
+pas le cas, de savoir pourquoi cela ne fonctionne pas. Pour faire cela, il nous a présenté les différentes solutions de
+monitoring qui existent, de la plus simple à mettre en place (Analytics), au plus|trop détaillé (logs) mais aussi via
+des metrics qui eux demandent une plus grande intégration.</p>
+
+<p>Ensuite vient la présentation des promesses de ce nouveau standard (OpenTelemetry) et sa volonté d’uniformiser les trois
+piliers du monitoring : logs, metrics et les traces, avec la volonté de rendre interopérable ces données collectées avec
+n’importe quel service et ce qu’importe le langage.</p>
+
+<p><img src="/images/posts/forumphp2022/open-telemetry.png" alt="Schéma OpenTelemetry" /></p>
+
+<p>Afin de permettre cette interopérabilité pour la collecte, le traitement et l’envoi des données entre nos applications
+et nos APMs, OpenTelemetry propose l’utilisation d’un <a href="https://opentelemetry.io/docs/collector/">collecteur</a>. Ce collecteur possède trois composants par lesquels
+notre donnée va transiter :</p>
+
+<ul>
+  <li>Receiver - Gère la récupération des données dans le collecteur. Il fonctionne aussi bien avec une mécanique de push que de pull et supporte nativement les protocoles HTTP et gRPC.</li>
+  <li>Processor - Permet le traitement des données avant l’envoi aux différents outils de monitoring.</li>
+  <li>Exporter - Envoie les données (via push ou pull) aux outils de monitoring.</li>
+</ul>
+
+<p>Concernant l’utilisation du standard OpenTelemetry en PHP, il existe aujourd’hui un SDK qui, cependant, ne possède
+pas beaucoup de fonctionnalités.</p>
+
+<p>Malgré son jeune âge (release v1.0 en 2021), OpenTelemetry a encore de beaux jours devant lui si la contribution et le
+soutien de la communauté continuent. Il est important de rappeler que le standard n’est pas encore finalisé, par exemple
+la fonctionnalité “logging” est encore en cours de développement et n’est disponible qu’en “draft”.</p>
+
+<h3 id="jour-2">Jour 2</h3>
+
+<h4 id="typage-en-php-comment-ça-fonctionne----george-banyard">Typage en PHP, comment ça fonctionne ? - George BANYARD</h4>
+
+<p>Lors de cette dissection du typage PHP, George Banyard, développeur salarié de la PHP Foundation, nous a expliqué (ou du
+moins tenté) comment fonctionne le typage PHP grâce à des formules mathématiques. Mais avant de nous faire peur avec les
+formules, il nous d’abord rappelé les différents types existants et futurs (PHP 8.1 et 8.2) et comment ils sont
+représentés en C (<code class="language-plaintext highlighter-rouge">zend_type</code>,<code class="language-plaintext highlighter-rouge"> _zval_struct</code>, <code class="language-plaintext highlighter-rouge">_zend_class_entry</code>)</p>
+
+<ul>
+  <li>Types Primitifs</li>
+  <li>Types définis en espace utilisateur (classe, interfaces, enum)</li>
+  <li>Types Littéraux (false, true)</li>
+  <li>Type callable</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Types Composés (A&amp;B, A</td>
+          <td>B, Forme Normale Disjonctive)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>Alias de Type (PHP 8.2)</li>
+</ul>
+
+<p>Ensuite, il nous a expliqué le principe de <strong>substitution de Liskov</strong> de différente manière.</p>
+<blockquote>
+  <p><em>Si φ(x) est une propriété démontrable pour tout objet x de</em>
+<em>type T, alors φ(y) est vraie pour tout objet y de type S tel que</em>
+<em>S est un sous-type de T</em></p>
+</blockquote>
+
+<p>Mathématique, en C mais aussi en image :</p>
+
+<p><img src="/images/posts/forumphp2022/schema-maths.png" alt="Schéma mathématique" /></p>
+
+<p>En version très simplifiée, la substitution de Liskov permet de substituer un type par un autre type s’il est
+mieux-disant. C’est par exemple sur ce principe que sont fondées <a href="https://www.php.net/manual/en/language.oop5.variance.php">la co-variance et la contra-variance</a> en PHP.</p>
+
+<p>Après toutes ces informations, George nous a fait rêver avec les nouveautés qui pourraient arriver dans notre langage préféré :</p>
+
+<ul>
+  <li>La possibilité de définir nos alias de type (numeric qui serait int ou float)</li>
+  <li>Pouvoir définir un typage pour les paramètres et le retour des callable directement dans la fonction : <code class="language-plaintext highlighter-rouge">foo(fn&lt;int,string&gt;:bool $callable) {}</code></li>
+  <li>Le paramètre in-out qui permet de vérifier que le type ne change pas entre l’entrée et la sortie d’une fonction, utile notamment dans le cas de passage par référence</li>
+  <li>Pouvoir créer des types génériques (par exemple <code class="language-plaintext highlighter-rouge">class Collection&lt;string&gt;</code>)</li>
+</ul>
+
+<p>Vous pouvez retrouver les slides de la conférence <a href="https://gpb.moe/doc/PHP_Type_System_Talk__FR.pdf">ici</a></p>
+
+<h4 id="protéger-votre-application-avec-len-tête-http-de-sécurité-content-security-policy---laurent-brunet">Protéger votre application avec l’en-tête HTTP de sécurité “Content Security Policy” - Laurent BRUNET</h4>
+
+<p>Durant ce talk, Laurent BRUNET nous a rappelé l’importance de sécuriser les sites internet en nous parlant des attaques
+les plus utilisées et dont on pourrait se défendre en exploitant correctement le header de réponse <code class="language-plaintext highlighter-rouge">Content-Security-Policy</code> (aka. CSP).</p>
+
+<p>Concrètement, le header CSP est délivré par le serveur en même temps que le HTML d’une page web et contraint les
+navigateurs à s’assurer que le contenu de la page respecte les règles de sécurité définies grâce à de nombreuses directives.</p>
+
+<p>Il existe 2 variantes de ce header qui peuvent être utilisées conjointement :</p>
+
+<ul>
+  <li>une forme bloquante qui empêchera tous contenus illicites d’être chargés par le navigateur
+<code class="language-plaintext highlighter-rouge">Content-Security-Policy: &lt;directive1&gt; ;  &lt;directive2&gt; ;  &lt;directiveN&gt;</code></li>
+  <li>une forme non-bloquante qui permet uniquement aux développeurs d’être avertis si du contenu illicite est présent sur la page
+<code class="language-plaintext highlighter-rouge">Content-Security-Policy-Report-Only: &lt;directive1&gt; ;  &lt;directive2&gt; ;  &lt;directiveN&gt;</code></li>
+</ul>
+
+<p>Et voici quelques unes des failles de sécurité évoquées durant ce talk, chacune accompagnée d’une des directives permettant de s’en protéger :</p>
+
+<ul>
+  <li>on peut se protéger des attaques <code class="language-plaintext highlighter-rouge">XSS</code> (e.g. injection de scripts dans une page web permettant d’exploiter les accès d’un utilisateur) en whitelistant les scripts autorisés à s’exécuter dans votre application avec <code class="language-plaintext highlighter-rouge">script-src 'nonce-MonIDDeScript' 'sha256-MonHashDeScript' 'strict-dynamic' https: 'unsafe-inline' *.example.com ;</code></li>
+  <li>le Clickjacking (e.g. injection d’iframe invisible dans laquelle l’utilisateur va cliquer sans le savoir) peut être facilement contré en whitelistant vos iframes et celles de vos partenaires avec <code class="language-plaintext highlighter-rouge">frame-ancestors 'self' https://example.com ;</code></li>
+  <li>la faille Magecart (e.g. récupération des données bancaires en les envoyant vers un nom de domaine pirate difficile à détecter) disparaîtra en whitelistant les noms de domaines utilisés dans des appels AJAX avec <code class="language-plaintext highlighter-rouge">connect-src 'self' https://example.com ;</code></li>
+</ul>
+
+<p>Si le sujet vous intéresse, n’hésitez pas à consulter le talk de Laurent dès qu’il sera disponible en replay. En
+attendant, profitez de <a href="https://developer.mozilla.org/fr/docs/Web/HTTP/CSP">la documentation du MDN</a> et sachez
+que <a href="https://csp-evaluator.withgoogle.com">Google fournit un service en ligne</a> pour inspecter et valider les CSP de vos
+pages web.</p>
+
+<h4 id="tester-à-travers-openapi-ou-comment-valider-votre-documentation----stéphane-hulard">Tester à travers OpenAPI, ou comment valider votre documentation ! - Stéphane Hulard</h4>
+
+<p><a href="https://twitter.com/s_hulard">Stéphane Hulard</a> a commencé sa conférence par nous rappeler ce qu’est OpenAPI : il s’agit
+d’une initiative qui vise à normaliser et standardiser la description d’APIs. Cela sert à l’interopérabilité,
+l’automatisation et la fiabilité.</p>
+
+<p>Il faut voir la documentation comme une spécification de notre API. <em>“Une documentation n’a de sens que si elle reflète
+l’état actuel de l’application.”</em> Rien de mieux donc que d’intégrer la validation de notre documentation par rapport à
+notre code, et inversement : que notre documentation valide notre code !</p>
+
+<p><img src="/images/posts/forumphp2022/presentation-validation-openapi.png" alt="schéma de validation" /></p>
+
+<p><a href="https://thephpleague.com/"><em>thephpleague</em></a> nous propose une solution pour faire ça : <a href="https://github.com/thephpleague/openapi-psr7-validator">openapi-psr7-validator</a>.
+Ce paquet peut valider les messages PSR-7 par rapport aux spécifications OpenAPI (3.0.x) exprimées en YAML ou JSON.</p>
+
+<p>Ce paquet se base sur les <em>PHP Standards Recommendations</em> (PSR) qui sont des textes décrivant une manière commune de
+résoudre un problème spécifique. De cette façon, les projets qui suivent ces recommandations auront une excellente
+interopérabilité en suivant les mêmes recommandations et contrats.</p>
+
+<p>Stéphane nous parle ensuite de la librairie <a href="https://github.com/CHStudio/Raven">Raven</a> qu’il vient de publier. Raven a
+pour but de faciliter la validation au travers de la documentation, de s’appuyer sur de vraies données pour valider les
+requêtes et réponses ainsi que valider le comportement de l’API testée. La librairie n’en est qu’à ses débuts, quelques
+issues sont remontées sur le repository, n’hésitez pas à contribuer !</p>
+
+<p>Stéphane a mis à disposition les <a href="https://public.chstudio.fr/talks/test-through-openapi-or-how-to-validate-your-documentation/fr-forum-php-2022.html#/">slides de sa conférence ici</a></p>
+
+<h4 id="frankenphp-dans-les-entrailles-de-linterpréteur-php-de-machines-virtuelles-et-des-threads---kévin-dunglas">FrankenPHP, dans les entrailles de l’interpréteur PHP, de machines virtuelles et des threads - <a href="https://twitter.com/dunglas">Kévin DUNGLAS</a></h4>
+
+<p>Chez Bedrock, nous utilisons majoritairement nginx et php-fpm pour servir nos applications. Nous avons aussi fait des
+essais avec Road Runner comme alternative.</p>
+
+<p>Durant cette conférence, Kévin DUNGLAS nous a présenté une nouvelle alternative écrite en Go et nommée <a href="https://frankenphp.dev/">frankenphp</a>.
+Chouette effet d’annonce au passage, FrankenPHP a été ouvert au public en direct durant la conférence.</p>
+
+<p>En plus d’avoir un logo très mignon, ce nouveau serveur d’application PHP promet un gain de performance en gardant en
+mémoire l’application chargée. Autre argument intéressant, la facilité d’installation et d’utilisation.</p>
+
+<p>Bien qu’il a plusieurs fois précisé que ce n’était pas prêt pour la production, cette nouvelle approche semble
+prometteuse. Il est probable que nous ne tardions pas à l’essayer pour voir s’il est possible de gagner en performance.</p>
+
+<h2 id="les-conférenciers-bedrock">Les conférenciers Bedrock</h2>
+
+<p><img src="/images/posts/forumphp2022/presentation-anne-laure.jpg" alt="Anne-Laure durant sa présentation" /></p>
+
+<p>Cette année, ce ne sont pas moins de 4 présentations qui étaient données par des personnes de chez Bedrock.</p>
+
+<p>Vous pourrez les trouver très bientôt en replay. Les liens seront partagés sur ce blog et les vidéos disponibles
+sur <a href="https://www.youtube.com/user/afupPHP">la chaîne youtube de l’afup</a>.</p>
+
+<p>En attendant, et pour rappel, il s’agissait des conférences suivantes :</p>
+
+<h4 id="comprenez-comment-php-fonctionne-vos-applications-marcheront-mieux---pascal-martin">Comprenez comment PHP fonctionne, vos applications marcheront mieux - Pascal MARTIN</h4>
+
+<p>À l’échelle à laquelle nous travaillons, avec des millions de personnes sur nos plateformes tous les jours, nous découvrons, atteignons, voire dépassons régulièrement des limites de l’approche traditionnelle de PHP et de php-fpm. Au cours de ce talk, Pascal souhaitait partager notre expérience de travail avec PHP, sur des sujets souvent peu connus par les développeurs et développeuses, pour aider le public à créer des applications qui répondent mieux aux attentes de leur public.</p>
+
+<blockquote>
+  <p>Pour exécuter du code, PHP consomme du processeur et de la mémoire. Quand une requête HTTP arrive, un processus php-fpm lui est dédié. Mais ces ressources sont limitées. Et, même dans le Cloud ou en serverless, scaler prend du temps et les coûts s’envolent !</p>
+</blockquote>
+
+<blockquote>
+  <p>Savez-vous combien de CPU et de RAM votre application réclame ? Et pendant quelle durée ? Si non ou sans comprendre « pourquoi », difficile de développer efficacement et de dimensionner un hébergement pérenne ! Peut-être que ça marche… Sur votre poste. Ou pendant un moment, en gaspillant de l’argent et des ressources. Mais l’expérience prouve que, tôt ou tard, ces questions vous rattraperont.</p>
+</blockquote>
+
+<blockquote>
+  <p>Cycle de vie de PHP, communication entre nginx et php-fpm, approche shared-nothing, compilation et cache d’opcodes, gestion interne de la mémoire ou même architecture logicielle et debugging… Pour qu’une application réponde aux attentes de son public, nous devons comprendre comment PHP fonctionne !</p>
+</blockquote>
+
+<h4 id="sauve-un-e-dév-écris-une-doc----sarah-haïm-lubczanski">Sauve un-e dév, écris une doc ! - Sarah HAÏM-LUBCZANSKI</h4>
+
+<blockquote>
+  <p>Vous êtes développeur ou développeuse PHP : vous aimez programmer, réfléchir. Vous aimez créer des applications ou des bibliothèques de qualité. Mais pourquoi personne ne les utilise ? Parce que votre documentation n’est pas à la hauteur !</p>
+</blockquote>
+
+<blockquote>
+  <p>Justement : je suis Technical Writer et mon métier est de vous aider à valoriser votre logiciel auprès de ses utilisateurs et utilisatrices, à travers une bonne doc. Comprenons comment architecturer, concevoir et rédiger votre contenu. Découvrons les outils qui vous procureront une aide précieuse. Enfin, facilitons sa mise à jour pour qu’elle soit pérenne.</p>
+</blockquote>
+
+<blockquote>
+  <p>Dorénavant, vous saurez identifier les passages obligés et ceux où vous pouvez gagner du temps.</p>
+</blockquote>
+
+<h4 id="revue-de-code--on-nest-pas-venu-pour-souffrir----anne-laure-de-boissieu">Revue de code : on n’est pas venu pour souffrir ! - Anne-Laure DE BOISSIEU</h4>
+
+<blockquote>
+  <p>J’ai rejoint ma nouvelle équipe il y a 6 mois, avec une appréhension. Comment allais-je vivre les revues de code par des collègues que je ne connais pas encore ? Incompréhensions, malentendus : la communication écrite rend cet exercice très délicat. Vous avez été blessé-e par un commentaire ? Etait-il vraiment mal intentionné ? Vous avez blessé quelqu’un sans le vouloir, à cause d’une tournure maladroite ?</p>
+</blockquote>
+
+<blockquote>
+  <p>Dans mon équipe, j’ai découvert un cadre qui m’a permis de me sentir bien accueillie dès mon arrivée. En adoptant une posture et une convention bien adaptée, on peut largement diminuer le risque de mal se comprendre. Non seulement on communique mieux, mais on améliore la qualité globale du projet.</p>
+</blockquote>
+
+<blockquote>
+  <p>Vous n’aurez plus aucune raison de souffrir !</p>
+</blockquote>
+
+<h4 id="bff-notre-best-friend-forever-pour-faire-plein-dapplications-frontend----valentin-claras">BFF, notre best friend forever pour faire plein d’applications frontend ? - Valentin CLARAS</h4>
+
+<blockquote>
+  <p>Chez Bedrock nous fournissons des applications de streaming (ASVOD, AVOD) pour plusieurs clients en France et en Europe, chaque application étant déployée sur de nombreux appareils (ordinateur, mobile, set top box, tv connectée, consoles de jeux, tv stick etc …). Il était devenu très difficile de gérer la création et l’évolution de ces nombreuses applications qui requêtaient et formataient chacune elles-mêmes les données dont elles avaient besoin.</p>
+</blockquote>
+
+<blockquote>
+  <p>Pour cela, en 2018, nous avons décidé de nous lancer dans la création d’un Back For Front afin d’unifier et faciliter les interactions backend et frontend. Cette conférence fut l’occasion de passer en revue :</p>
+  <ul>
+    <li>les concepts du Back For Front</li>
+    <li>l’architecture api-gateway et micro service mise en place</li>
+    <li>les gains fonctionnels et la vélocité gagnée</li>
+    <li>les différents mécanismes développés pour absorber les importants pics de charge (résilience, circuit breaker, fallbacks etc.)</li>
+    <li>les impacts techniques et organisationnels d’une telle architecture</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <p>Aujourd’hui notre API Gateway BFF opère 92 frontends délivrant 1.5 milliards de vidéos par an pour 45 millions d’utilisateurs actifs (MaU).
+Vous pourrez trouver un complément d’informations au sujet de notre BFF dans <a href="https://tech.bedrockstreaming.com/2022/06/10/backend-bff-intro.html">la suite d’articles dédié</a>.</p>
+</blockquote>
+
+<h2 id="pour-conclure">Pour conclure</h2>
+
+<p>Nous sommes revenus la tête pleine de nouvelles idées. Ces deux jours de conférences nous ont permis de montrer le savoir faire présent chez Bedrock et nous avons aussi pu nous inspirer des connaissances d’autres personnes. Les formats variés répondaient aux goûts de chacun(e) et ont rendu ce forum unique.</p>
+
+<p>Les nombreuses activités proposées entre chaque conférence permettaient d’échanger entre pairs et comme toujours la communauté a été mise à l’honneur avec la construction d’une fresque LEGO représentant tous les logos des antennes de l’AFUP.</p>
+
+<p>Merci à tou(te)s les conférencier(e)s pour leur travail incroyable et merci l’AFUP pour l’organisation de ce superbe évènement !</p>
+
+<p><img src="/images/posts/forumphp2022/fresque-lego-communautaire.jpg" alt="La fresque Lego communautaire" /></p>
+
+<p>Vivement l’année prochaine !</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Forum+PHP+2022+-+L%E2%80%99%C3%A9l%C3%A9phant+bleu+n%E2%80%99a+pas+peur+de+la+souris+aux+grandes+oreilles%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F10%2F28%2Fforum-php-afup-2022.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/10/28/forum-php-afup-2022.html&title=Forum+PHP+2022+-+L%E2%80%99%C3%A9l%C3%A9phant+bleu+n%E2%80%99a+pas+peur+de+la+souris+aux+grandes+oreilles%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/10/28/forum-php-afup-2022.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Forum PHP 2022 - L’éléphant bleu n’a pas peur de la souris aux grandes oreilles%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/10/28/forum-php-afup-2022.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#afup">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> afup</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#forumphp">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> forumphp</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#php">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> php</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="Bedrock Dev Facts #18" href="/2022/10/07/bedrock-dev-facts-18.html">
+            <p>Next post</p>
+            Bedrock Dev Facts #18
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>
