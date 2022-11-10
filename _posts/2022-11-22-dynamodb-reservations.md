@@ -34,6 +34,8 @@ With DynamoDB, committing to a certain capacity for a year can help reduce costs
 
 ## DynamoDB: a not always obvious cost model!
 
+*[To skip all the theory about how DynamoDB is priced and WCUs, RCU, on-demand and provisionned billing modes, click here…](#in-practice-lets-calculate-how-much-to-reserve)*
+
 > DynamoDB is serverless!
 
 But, as with many AWS services, you have to think for a while before you really understand DynamoDB costs…
@@ -126,8 +128,6 @@ Reservations are global to an AWS account, or even to all accounts on a consolid
 
 
 ## How many WCUs and RCUs do we consume?
-
-**TODO Insérer une ancre ici + un saut plus haut pour bypasser toute la théorie**
 
 For the rest of our reasoning and this article, we only count the consumption in *provisioned* mode (and exclude *on-demand*), since that's where we can play with reservations.  
 Also, we count provisioned WCU and RCU and not what is actually consumed -- so beware of any potential *waste*.
