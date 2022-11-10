@@ -5,8 +5,8 @@ description: "How many DynamoDB RCU and WCU should we reserve to achieve maximum
 author: p_martin
 category:
 tags: [aws, dynamodb, finops]
-feature-img: "images/posts/aws/dynamodb-reservations/TODO-header.jpg"
-thumbnail: "images/posts/aws/dynamodb-reservations/TODO-header.jpg"
+feature-img: "images/posts/aws/dynamodb-reservations/cost-explorer-reserved-vs-not-reserved-CENSORED-inverted-colors.png"
+thumbnail: "images/posts/aws/dynamodb-reservations/cost-explorer-reserved-vs-not-reserved-CENSORED-inverted-colors.png"
 comments: true
 language: en
 ---
