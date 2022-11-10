@@ -325,8 +325,7 @@ Since we make several reservations during the year, the reservations already in 
 
 To create a new reservation, click on *"Purchase reserved capacity"* and fill in the form ;-)
 
-**TODO A screenshot of the reservation creation screen, with an amount that corresponds to what we have pseudo-calculated above?**
-
+![Reserving 23,000 WCU: this is not free!](/images/posts/aws/dynamodb-reservations/creating-a-reservation-23k.png)
 
 ## After reserving, viewing the costs
 
