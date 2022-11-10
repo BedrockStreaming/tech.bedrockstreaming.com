@@ -22,6 +22,16 @@ With DynamoDB, committing to a certain capacity for a year can help reduce costs
 
 [^50-percent-savings]: 50% is kind of the maximum possible saving we can achieve if our usage is flat and we reserve exactly what we provision. Flat usage might be what you see on your applications, but it's not how our platform works! 
 
+**Table of Contents**
+
+ * [DynamoDB: a not always obvious cost model!](#dynamodb-a-not-always-obvious-cost-model)
+ * [How many WCUs and RCUs do we consume?](#how-many-wcus-and-rcus-do-we-consume)
+ * [In theory: how much should we reserve, to achieve maximum savings?](#in-theory-how-much-should-we-reserve-to-achieve-maximum-savings)
+ * [In practice: let’s calculate how much to reserve!](#in-practice-lets-calculate-how-much-to-reserve)
+ * [Finally, let’s create those reservations!](#finally-lets-create-those-reservations)
+ * [After reserving, viewing the costs](#after-reserving-viewing-the-costs)
+ * [Conclusion](#conclusion)
+
 ## DynamoDB: a not always obvious cost model!
 
 > DynamoDB is serverless!
@@ -318,7 +328,7 @@ To create a new reservation, click on *"Purchase reserved capacity"* and fill in
 **TODO A screenshot of the reservation creation screen, with an amount that corresponds to what we have pseudo-calculated above?**
 
 
-## After booking, viewing the costs
+## After reserving, viewing the costs
 
 Once the reservations are made, in AWS Cost Explorer, the upfront cost is clearly visible.  
 It is charged at once, on the day we opened the reservation:
