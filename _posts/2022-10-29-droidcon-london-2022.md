@@ -107,11 +107,11 @@ Afin de remettre les choses en perspective, [Ash Davies](https://twitter.com/ask
 
 ## **La gestion des erreurs** - David Yim
 
-La gestion des erreurs a été le sujet de plusieurs présentations à la Droidcon. Ces présentations avaient pour objectif de servir de piqûre de rappel sur l'importance de bien prendre en compte ce problème concernant tous les développeurs. Aujourd'hui, nous avons tous les outils pour gérer facilement nos erreurs. Cependant, par paresse et comme nous préferons penser de manière positive, nous ne pensons souvent qu'au cas de succès et les cas d'erreurs sont souvent brouillons voir ne sont même pas spécifiés.
+La gestion des erreurs a été le sujet de plusieurs présentations à la Droidcon. Ces présentations avaient pour objectif de servir de piqûre de rappel sur l'importance de bien prendre en compte ce problème concernant tous les développeurs. Aujourd'hui, nous avons tous les outils pour gérer facilement nos erreurs. Cependant, par paresse et comme nous préférons penser de manière positive, nous ne pensons souvent qu'au cas de succès et les cas d'erreurs sont souvent brouillons voir ne sont même pas spécifiés.
 
-Les speakers m'ont marqué avec un exemple de mauvaise gestion d'erreur qui a coûté plusieurs centaines de milliers de dollars. L'exemple parlait d'une faille chez 7 eleven, une chaine de supérette dont le site au Japon a été victime. Dans la base de donnée de ce projet, les développeurs ont ajouté un champ "date de naissance" comme nullable. Plus tard ce champ est devenu non nullable. Par paresse, le développeur qui a rendu ce champ non nullable a mis par défaut un 1er janvier 2019 sur cette date lorsqu'elle n'était pas renseignée, simplement pour satisfaire son compilateur. Le problème est que ce champ fut plus tard utilisé dans la fonctionalité de mot de passe oublié du site. En utilisant la date par défaut du 1er janvier 2019, un hacker a pu récupérer des comptes utilisateurs et voler des informations bancaires. Cet exemple m'a marqué par l'habitude que nous avons en tant que développeur de nous soucier que de satisfaire notre compilateur plutôt que de vraiment discuter de solutions réfléchies à nos problèmes techniques.
+Les speakers m'ont marqué avec un exemple de mauvaise gestion d'erreur qui a coûté plusieurs centaines de milliers de dollars. L'exemple parlait d'une faille chez 7 eleven, une chaîne de supérette dont le site au Japon a été victime. Dans la base de donnée de ce projet, les développeurs ont ajouté un champ "date de naissance" comme nullable. Plus tard, ce champ est devenu non nullable. Par paresse, le développeur qui a rendu ce champ non nullable a mis par défaut un 1er janvier 2019 sur cette date lorsqu'elle n'était pas renseignée, simplement pour satisfaire son compilateur. Le problème est que ce champ fut plus tard utilisé dans la fonctionnalité de mot de passe oublié du site. En utilisant la date par défaut du 1er janvier 2019, un hacker a pu récupérer des comptes utilisateurs et voler des informations bancaires. Cet exemple m'a marqué par l'habitude que nous avons en tant que développeur de nous soucier que de satisfaire notre compilateur plutôt que de vraiment discuter de solutions réfléchies à nos problèmes techniques.
 
-Plusieurs méthodes de gestions des erreurs existent et les speakers en ont présentés quelques unes.
+Plusieurs méthodes de gestion des erreurs existent et les speakers en ont présentés quelques-unes.
 
 #### Vérification des entrées
 
@@ -138,7 +138,7 @@ class Email(value: String) {
 data class User(private val email: Email)
 ```
 
-Cette méthode peut paraitre un peu exagérée dans cet exemple. Mais dans un contexte où la classe `User` serait utilisée par un grand nombre d'équipes et que les règles métier de l'`Email` serait complexe, cette méthode prendrait tout son sens pour éviter d'avoir de mauvaise surprise !
+Cette méthode peut paraître un peu exagérée dans cet exemple. Mais dans un contexte où la classe `User` serait utilisée par un grand nombre d'équipes et que les règles métier de l'`Email` serait complexe, cette méthode prendrait tout son sens pour éviter d'avoir de mauvaises surprises !
 
 #### Le type Either
 
@@ -168,7 +168,7 @@ when (either) {
 }
 ```
 
-Grace à ce type, on peut par exemple savoir si un appel à une API a réussi ou non, ce qui nous permet de gérer plus facilement nos cas d'erreurs.
+Grâce à ce type, on peut par exemple savoir si un appel à une API a réussi ou non, ce qui nous permet de gérer plus facilement nos cas d'erreurs.
 
 #### Kotlin Result
 
@@ -199,7 +199,7 @@ result.onSuccess { user ->
 
 ### Conclusion
 
-Plusieurs méthodes existent pour prendre en compte nos cas d'erreurs. Laquelle est la meilleure ? Eh bien vous vous y attendez sûrement, mais ca dépend ! On choisira une méthode ou une autre selon ce qui nous arrange par rapport à la situation, nos choix d'outils techniques ou nos effectifs. L'important étant de prendre en compte ces cas d'erreurs et de ne pas laisser leur résolution au hasard. Les cas d'erreurs ne sont en fait que d'autres usecases de l'utilisateur et souvent ne sont pas des edgecase. Ils méritent donc d'être tout autant réfléchis et spécifiés que les cas de succès !
+Plusieurs méthodes existent pour prendre en compte nos cas d'erreurs. Laquelle est la meilleure ? Eh bien vous vous y attendez sûrement, mais ça dépend ! On choisira une méthode ou une autre selon ce qui nous arrange par rapport à la situation, nos choix d'outils techniques ou nos effectifs. L'important étant de prendre en compte ces cas d'erreurs et de ne pas laisser leur résolution au hasard. Les cas d'erreurs ne sont en fait que d'autres usecases de l'utilisateur et souvent ne sont pas des edgecase. Ils méritent donc d'être tout autant réfléchis et spécifiés que les cas de succès !
 
 
 
