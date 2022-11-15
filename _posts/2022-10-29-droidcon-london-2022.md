@@ -11,9 +11,9 @@ language: fr
 comments: true
 ---
 
-La communauté Android a apporté le soleil sur Londres les 27 et 28 octobre 2022. La DroidCon London a réuni plus de 1400 développeurs autour de l'écosystème Android, de ses outils et enjeux actuels. Jetpack Compose, évidemment, mais aussi Gradle, modularisation, optimisation et autres sujets plus divers ont été abordé lors de ce rendez-vous incontournable pour la communauté.
+La communauté Android a apporté le soleil sur Londres les 27 et 28 octobre 2022. La DroidCon London a réuni plus de 1400 développeurs autour de l'écosystème Android, de ses outils et enjeux actuels. Jetpack Compose, évidemment, mais aussi Gradle, modularisation, optimisation et autres sujets plus divers ont été abordés lors de ce rendez-vous incontournable pour la communauté.
 
-![Hall DroidCon London 2022](/images/posts/2022-10-29-droidcon-london/hall.jpg)
+![DroidCon London 2022 entrance](/images/posts/2022-10-29-droidcon-london/entrance.jpg)
 
 * TOC
 {:toc}
@@ -24,7 +24,7 @@ L'optimisation des temps de compilation a tenu une place très importante lors d
 Qu'il s'agisse d'optimiser ses temps de compilation, de repenser la création de modules et des dépendances entre eux, de factoriser les logiques des scripts, 
 nous avons eu une emphase claire sur l'importance d'adresser ces sujets.
 
-### Vous reprendriez bien un peu de Gradle Enterprise ?
+### Vous reprendrez bien un peu de Gradle Enterprise ?
 
 [Nelson Osacky](https://twitter.com/nellyspageli) travaillant chez Gradle a présenté tous les outils que la formule [Gradle Entreprise](https://gradle.com/) met à disposition des développeurs permettant d'analyser en détail les compilations. 
 
@@ -34,10 +34,10 @@ les entrées et sorties de vos builds, et analyse les tâches empêchant ce méc
 Vous voulez vous assurer que Gradle est bien capable de retrouver le cache de vos tâches sur un même poste ou bien depuis le cloud ? 
 Là aussi des outils vous permettent d'identifier précisemment les points qui ne tirent pas parti de ces mécanismes.
 
-On regrettera que ces outils soient disponible uniquement pour la formule payante de Gradle. Cependant, les [scans Gradle](https://scans.gradle.com/) sont, eux,
+On regrettera que ces outils soient disponibles uniquement pour la formule payante de Gradle. Cependant, les [scans Gradle](https://scans.gradle.com/) sont, eux,
 gratuits et illimités, et permettent tout de même de mesurer et comparer des compilations et ainsi suivre l'impact des différentes optimisations que vous pourriez apporter.
 
-### "Déssine moi un module"
+### *Déssine moi un module*
 
 La modularisation ayant un impact sur les temps de compilation, plusieurs conférences ont abordé ce sujet très en vogue dans la communauté Android.
 
@@ -86,24 +86,40 @@ Retrouvez ici la liste de ces fonctionnalités, leur utilité et leur valeur par
 
 ## COMPOSING THE WORLD - Damien Cuny
 
-Il y a un peu plus d'un an sortait de la version 1.0 de Jectpack Compose, le nouveau toolkit déclaratif pour la création d'interface Android. Il a, cette année encore, tenue une place de choix dans l'agendas de cette Droidcon Londre 2022.
-Comment l'utiliser correctement? Comment s'en servir pour implémenter un design systéme personnalisé? Jusqu'ou peut-on aller?
+Il y a un peu plus d'un an sortait la version 1.0 de Jectpack Compose, le nouveau toolkit déclaratif pour la création d'interface Android. Il a, cette année encore, tenue une place de choix dans l'agenda de cette DroidCon Londre 2022.  
+Comment l'utiliser correctement ? Comment s'en servir pour implémenter un design system personnalisé ? Jusqu'où peut-on aller ?
 Autant de questions auxquelles ont tenté de répondre les nombreuses présentations sur le sujet.
 
 ### COMPOSE
 
-Compose facilite beaucoup de choses dans l'implémentation et le maintiens de design sur Android. Cependant, cela nécessite de réapprendre à faire certaine chose que l'on maitrise déjà avec le système de view. Déssiner dans un canvas en est une et [Himanshu Singh](https://twitter.com/hi_man_shoe) dans sa présentation : "composing in your canvas" nous montre les pièges à éviter pour réaliser cela avec Compose. La recomposition, peut également etre source de problème et de latence si elle est mal utilisé avec Compose. Dans sa présentation "understanding recomposition performance pitfall" [Jossi Wolf](https://twitter.com/jossiwolf) et [Andrei Shikov](https://twitter.com/shikasd_) nous donne à partir d'un exemple concret les meilleures astuces pour l'utiliser à bon escient.
+Compose facilite beaucoup de choses dans l'implémentation et le maintien de design sur Android. Cependant, cela nécessite de réapprendre à faire certaine chose que l'on maitrise déjà avec le système de [`View`](https://developer.android.com/reference/android/view/View).  
+Déssiner dans un canvas en est une et [Himanshu Singh](https://twitter.com/hi_man_shoe) dans sa présentation *"Composing in your canvas"* nous montre les pièges à éviter pour réaliser cela avec Compose.  
 
-### DESIGN SYSTEME
+La recomposition peut également être source de problèmes et de latences si elle est mal utilisée avec Compose. Dans sa présentation *"Understanding recomposition performance pitfall"* [Jossi Wolf](https://twitter.com/jossiwolf) et [Andrei Shikov](https://twitter.com/shikasd_) nous donne, à partir d'un exemple concret, les meilleures astuces pour l'utiliser à bon escient.
 
-En faisant le parallele avec la saga épique de JRR Tolkien, [Daniel Beleza](https://medium.com/@danielbbeleza), dans sa présentation: "One design system to rule them all", nous explique comment il a réussi, tout en se passant de Material, à unifier et automatiser son propre design système. Cela demande, évidemment, une collaboration totale de la part de l'équipe de design, mais une fois cette intégration faites, les bénéfices et l'autonomie se ressentes de part et d'autre. Des outils tel que [Figma](https://www.figma.com/), [kotlin Poet](https://square.github.io/kotlinpoet/) ou des plugins Android Studio custom lui ont permis d'automatiser ensuite ce processus.
-Material Design est un design system. Il a l'avantage d'étre très bien documenté, uniforme et régulièrement enrichis. De plus, il est déjà implementé dans l'ancien systeme de view android et plus récemment dans Jetpack Compose avec [Compose Material](https://developer.android.com/jetpack/androidx/releases/compose-material). Une des différence majeur entre Compose et le systeme de View sur Android est sont découpage. Dans compose, Material, n'est implémenté et n'apparait que dans la partie la plus hautes alors que dans le systeme de view, son implémentation est répartie dans toutes les couches. Il est donc assez complexe de se passer de Material avec le systeme de view mais cela est complétement envisageable, voir recommandé, dans certain cas avec Compose. Pour illustrer cela [Sebastiano Poggi](https://twitter.com/seebrock3r) (la moitié de [Coding with the italians](https://www.youtube.com/c/CodewiththeItalians)) est venue nous présenter dans "Compose beyond Material" les questions à se poser avant de se lancer dans son design systeme et comment le package Foundation de Compose peux nous aider.
-Tout comme la présentation d'introduction de cette droidcon "The Silver Bullet Syndrome Director's Cut - Complexity Strikes Back!" il nous suggére également de bien faire attention au niveau de complexité que l'on souhaite en fonction du besoin que l'on a.
+### DESIGN SYSTEM
 
-### Aller encore plus loin
+En faisant le parallèle avec la saga épique de JRR Tolkien, [Daniel Beleza](https://medium.com/@danielbbeleza), dans sa présentation *"One design system to rule them all"*, nous explique comment il a réussi, tout en se passant de [Material](https://material.io), à unifier et automatiser son propre design system.  
+Cela demande, évidemment, une collaboration totale de la part de l'équipe de design, mais une fois cette intégration faite, les bénéfices et l'autonomie se ressentent de part et d'autre.  
+Des outils tel que [Figma](https://www.figma.com/), [kotlin Poet](https://square.github.io/kotlinpoet/) ou des plugins Android Studio custom lui ont permis d'automatiser ensuite ce processus.  
 
-[Chris Bane](https://twitter.com/chrisbanes) et [Nacho Lopez](https://twitter.com/mrmans0n) dans leur présentation : "Branching out jetpack compose", nous on raconté comment l'aventure du passage à Compose s'est déroulé chez Twitter qui a été l'un des premier à l'adopter. Avec une code base aussi conséquente (plus de 1000 modules, dont 300 pour le design, répartis sur plus de 30 équipes), ils ont du progressivement convaincre les équipes, les former et les accompagner à passer à Compose. La question de continuer à utiliser Material design s'est également poser chez eux. Ils l'ont dans un premier temps conserver pour faciliter le passage sur Compose, pour finalement le retirer complement en se basant, eux aussi, sur le package foundation. Leur présentation résume bien l'ensemble des étapes et des questions par lesquelles ils sont passé pour accomplir cette transition.
-Afin de remettre les choses en perspective, [Ash Davies](https://twitter.com/askashdavies) nous rappel que Compose n'est qu'un pattern de developpement multiplateforme. De ce fait, il peux donc étre appliquer à autre chose qu'à l'UI comme le propose Jetpack Compose. Il nous explique dans "Demystifying Molecule: Running Your Own Compositions For Fun And Profit", comment l'appliquer à la couche domain d'un projet.
+Material Design est un design system. Il a l'avantage d'être très bien documenté, uniforme et régulièrement enrichis. De plus, il est déjà implementé dans l'ancien système de View Android et plus récemment dans Jetpack Compose avec [Compose Material](https://developer.android.com/jetpack/androidx/releases/compose-material).  
+Une des différences majeures entre Compose et le systeme de View sur Android est son découpage. Dans compose, Material, n'est implémenté et n'apparait que dans la partie la plus hautes alors que dans le système de View, son implémentation est répartie dans toutes les couches.  
+Il est donc assez complexe de se passer de Material avec le système de View mais cela est complétement envisageable, voire recommandé, dans certains cas avec Compose.  
+
+Pour illustrer cela [Sebastiano Poggi](https://twitter.com/seebrock3r) (la moitié de [Coding with the italians](https://www.youtube.com/c/CodewiththeItalians)) est venue nous présenter, dans *"Compose beyond Material"*, les questions à se poser avant de se lancer dans son design system et comment le package [Foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) de Compose peux nous aider.  
+
+Tout comme la présentation d'introduction de cette DroidCon *"The Silver Bullet Syndrome Director's Cut - Complexity Strikes Back!"*, il nous suggère également de bien faire attention au niveau de complexité que l'on souhaite en fonction du besoin que l'on a.
+
+### ALLER ENCORE PLUS LOIN
+
+[Chris Bane](https://twitter.com/chrisbanes) et [Nacho Lopez](https://twitter.com/mrmans0n) dans leur présentation *"Branching out Jetpack Compose"*, nous ont raconté comment l'aventure du passage à Compose s'est déroulé chez Twitter, qui a été l'un des premier à l'adopter.  
+Avec une code base aussi conséquente (plus de **1000 modules**, dont 300 pour le design, répartis sur plus de 30 équipes), ils ont dû progressivement convaincre les équipes, les former et les accompagner à passer à Compose.  
+La question de continuer à utiliser Material Design s'est également posée chez eux. Ils l'ont dans un premier temps conservé pour faciliter le passage sur Compose, pour finalement le retirer complètement en se basant, eux aussi, sur le package 
+Foundation.  
+Leur présentation résume bien l'ensemble des étapes et des questions par lesquelles ils sont passé pour accomplir cette transition.  
+
+Afin de remettre les choses en perspective, [Ash Davies](https://twitter.com/askashdavies) nous rappel que Compose n'est qu'un pattern de developpement multiplateforme. De ce fait, il peux donc être appliqué à autre chose qu'à l'UI comme le propose Jetpack Compose. Il nous explique dans *"Demystifying Molecule: Running Your Own Compositions For Fun And Profit"*, comment l'appliquer à la couche domain d'un projet.
 
 ## **La gestion des erreurs** - David Yim
 
@@ -201,5 +217,13 @@ result.onSuccess { user ->
 
 Plusieurs méthodes existent pour prendre en compte nos cas d'erreurs. Laquelle est la meilleure ? Eh bien vous vous y attendez sûrement, mais ça dépend ! On choisira une méthode ou une autre selon ce qui nous arrange par rapport à la situation, nos choix d'outils techniques ou nos effectifs. L'important étant de prendre en compte ces cas d'erreurs et de ne pas laisser leur résolution au hasard. Les cas d'erreurs ne sont en fait que d'autres usecases de l'utilisateur et souvent ne sont pas des edgecase. Ils méritent donc d'être tout autant réfléchis et spécifiés que les cas de succès !
 
+## See you later !
 
+Il est toujours intéressant de mesurer l'engouement pour tel ou tel sujet dans la communauté Android en analysant les présentations lors des différentes conférences technologiques.
 
+Sans aucun doute, cette DroidCon était sous le signe de Jetpack Compose, qui bénéficie d'un suivi et d'un engagement fort de Google et de toute la communauté.  
+Tout l'enjeux ici est de rester au contact des innovations et de l'évolution de la plateforme Android, et Jetpack Compose un défi que nous avons commencé à relever chez Bedrock.  
+
+Nous attendons avec impatience de voir où va Android, et avons à coeur de participer à cette aventure qui nous lie tous !
+
+![Hall DroidCon London 2022](/images/posts/2022-10-29-droidcon-london/hall.jpg)
