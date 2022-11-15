@@ -6,7 +6,7 @@ author: [rpanoyan, d_yim, d_cuny]
 category:
 tags: [android, droidcon, conference]
 color: rgb(251,87,66)
-thumbnail: "images/posts/2022-10-29-droidcon-london/hall.jpg"
+thumbnail: "images/posts/2022-10-29-droidcon-london/entrance.jpg"
 language: fr
 comments: true
 ---
