@@ -1,4 +1,270 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-10-28T14:39:19+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Forum PHP 2022 - L’éléphant bleu n’a pas peur de la souris aux grandes oreilles</title><link href="https://tech.bedrockstreaming.com/2022/10/28/forum-php-afup-2022.html" rel="alternate" type="text/html" title="Forum PHP 2022 - L’éléphant bleu n’a pas peur de la souris aux grandes oreilles" /><published>2022-10-28T00:00:00+00:00</published><updated>2022-10-28T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/10/28/forum-php-afup-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/10/28/forum-php-afup-2022.html">&lt;p&gt;Pour cette édition du Forum PHP qui s’est déroulée à Disneyland Paris, Bedrock a vu les choses en grand : première fois
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-11-15T09:27:40+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Un onboarding facilité grâce à la revue de code!</title><link href="https://tech.bedrockstreaming.com/2022/11/15/onboarding-revue-code.html" rel="alternate" type="text/html" title="Un onboarding facilité grâce à la revue de code!" /><published>2022-11-15T00:00:00+00:00</published><updated>2022-11-15T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/11/15/onboarding-revue-code</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/11/15/onboarding-revue-code.html">&lt;h1 id=&quot;facilitez-lonboarding-de-vos-collègues-grâce-à-la-revue-de-code&quot;&gt;Facilitez l’onboarding de vos collègues grâce à la revue de code!&lt;/h1&gt;
+
+&lt;p&gt;Au sein des équipes de développement, une activité bien connue est celle de la revue de code, et 
+plus 
+précisément de la &lt;strong&gt;revue du delta du code&lt;/strong&gt;. Il s’agit de l’inspection par nos 
+pairs du code proposé par nos soins, qui se trouve ainsi commenté pour répondre aux 
+exigences de qualité de l’équipe et du projet.&lt;/p&gt;
+
+&lt;p&gt;Les risques d’incompréhensions inhérents à la communication écrite, de malentendus
+ou encore les remarques &lt;em&gt;malheureuses&lt;/em&gt; peuvent rendre cet exercice redouté tant par les 
+relecteurs et relectrices 
+que 
+par celles et ceux dont le code est relu.&lt;/p&gt;
+
+&lt;p&gt;Avant d’arriver chez Bedrock, j’étais un peu 
+inquiète. Je savais déjà que les 9 personnes de ma future équipe font tou(te)s de la revue de code. 
+&lt;strong&gt;Comment échangerons-nous? Saurai-je faire “bonne impression” via mes commentaires 
+sur leur code ?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;En arrivant, j’ai été très 
+agréablement surprise de découvrir que l’équipe applique un 
+standard, celui des conventions de commentaires, &lt;a href=&quot;https://conventionalcomments.org/&quot;&gt;ou conventional comments&lt;/a&gt;. &lt;strong&gt;Grâce à cela, mon 
+onboarding a été grandement facilité&lt;/strong&gt; et j’ai découvert une façon plus efficace d’écrire mes 
+commentaires !&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt; : cet article est inspiré de ma conférence “&lt;em&gt;Revue de code : on n’est pas 
+venu-e-s pour
+souffrir !&lt;/em&gt;” donnée à l’occasion du meet-up anniversaire Duchess chez Dataiku en 2022 et &lt;a href=&quot;https://afup.org/talks/4038-revue-de-code-on-n-est-pas-venu-pour-souffrir&quot;&gt;au Forum
+PHP 2022&lt;/a&gt;.&lt;/p&gt;
+
+&lt;iframe width=&quot;1127&quot; height=&quot;773&quot; src=&quot;https://www.youtube.com/embed/LVh6iQtJW2I&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;petit-rappel--pourquoi-faisons-nous-des-revues-de-code-&quot;&gt;Petit rappel : pourquoi faisons-nous des revues de code ?&lt;/h2&gt;
+
+&lt;p&gt;Passer en revue le code proposé par ses co-équipier(e)s est largement répandu dans les 
+équipes de développeurs et développeuses. Bien sûr, la qualité du code en elle-même se trouve 
+améliorée 
+car chacun apporte un regard neuf sur ce qui est proposé, mais ce n’est pas tout. La 
+revue de code est également une façon de nous tenir informé(e) de 
+l’implémentation de nouvelles features, d’apprendre autant du métier que de la 
+technique et enfin, d’apprendre à travailler ensemble.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-11-07-code-review-onboarding/code-review.png&quot; alt=&quot;Pourquoi faisons-nous de la code review ?&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Voici une 
+petite liste non exhaustive de l’intérêt de la revue de code :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Améliorer la qualité et la lisibilité du code grâce aux remarques de toutes les
+personnes de l’équipe&lt;/li&gt;
+  &lt;li&gt;Appliquer les standards adoptés par l’équipe (et les apprendre !)&lt;/li&gt;
+  &lt;li&gt;Détecter et corriger les éventuels bugs fonctionnels&lt;/li&gt;
+  &lt;li&gt;Favoriser la collaboration en équipe&lt;/li&gt;
+  &lt;li&gt;Former les développeurs et développeuses au fur et à mesure des remarques&lt;/li&gt;
+  &lt;li&gt;Partager les responsabilités : en approuvant une pull request ou une merge request, nous
+sommes responsables en tant qu’équipe du code ajouté/modifié au tronc commun !&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;et-parfois-on-souffre&quot;&gt;…Et parfois, on souffre&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-11-07-code-review-onboarding/parfois-on-souffre.png&quot; alt=&quot;parfois on souffre&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Mais parfois, ce n’est pas tout rose. Les commentaires qu’on laisse peuvent vexer. On 
+peut nous-même être vexé. Car certains jours, on peut manquer d’empathie. On peut avoir 
+l’impression d’être plus compétent(e) en 
+critiquant les autres, on veut se rassurer en se montrant plus qualifié(e). On peut également 
+être habitué(e) à une culture de la compétition, nous poussant ainsi à faire des remarques désagréables à nos pairs.&lt;/p&gt;
+
+&lt;h2 id=&quot;comment-le-formatage-de-commentaire-a-t-il-amélioré-mon-arrivée-dans-léquipe-&quot;&gt;Comment le formatage de commentaire a-t-il amélioré mon arrivée dans l’équipe ?&lt;/h2&gt;
+
+&lt;p&gt;La standardisation des commentaires a énormément amélioré mon intégration dans 
+l’équipe. En effet, grâce à cela :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;J’ai pu rapidement me rendre compte de ce qui était bloquant / non bloquant et ainsi me 
+&lt;strong&gt;concentrer sur les actions essentielles et prioritaires&lt;/strong&gt; à mener;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;je n’ai pas eu à me poser de questions sur le ton employé par mes collègues ni sur leur 
+intention&lt;/strong&gt;;&lt;/li&gt;
+  &lt;li&gt;j’ai pu rapidement faire moi-même des revues de code &lt;strong&gt;sans craindre d’être mal comprise&lt;/strong&gt;;&lt;/li&gt;
+  &lt;li&gt;j’ai eu des retours qui m’ont permis de &lt;strong&gt;progresser sur la connaissance du fonctionnel&lt;/strong&gt; et 
+des standards de la team.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;améliorer-sa-posture&quot;&gt;Améliorer sa posture&lt;/h2&gt;
+
+&lt;p&gt;Avant de parler du standard, je vous propose de nous interroger sur 
+notre posture en tant que développeur et développeuse. Recevoir ou donner des commentaires, ce 
+n’est pas aisé pour tous. &lt;strong&gt;Notre ego peut interférer et dégrader la qualité de nos 
+échanges avec nos collègues&lt;/strong&gt;. Aussi, avant de chercher à formater nos commentaires, nous pouvons 
+nous interroger sur leur contenu.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-11-07-code-review-onboarding/egoless.png&quot; alt=&quot;Egoless programming&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;L’Egoless Programming, proposé par &lt;a href=&quot;https://en.wikipedia.org/wiki/Gerald_Weinberg&quot;&gt;Gerald Weinberg&lt;/a&gt; en 1971 dans son livre &lt;em&gt;The Psychology of 
+Computer Programming&lt;/em&gt;, présente une dizaine de commandements pour nous 
+aider à progresser.&lt;/p&gt;
+
+&lt;p&gt;Le principe est le suivant : &lt;strong&gt;réduire au minimum les facteurs personnels lors des interactions 
+avec ses pairs&lt;/strong&gt;, pour favoriser le travail en équipe et produire le maximum de qualité.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Critiquez le code au lieu des personnes,&lt;/li&gt;
+  &lt;li&gt;Soyez factuels sur le code,&lt;/li&gt;
+  &lt;li&gt;N’attaquez jamais les personnes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Je vous recommande de regarder cette excellente conférence sur l’egoless programming, où Olivier 
+Thelu prend le temps de revenir sur tous les concepts :&lt;/p&gt;
+
+&lt;iframe src=&quot;https://player.vimeo.com/video/728605321?h=60e48e1686&amp;amp;title=0&amp;amp;byline=0&amp;amp;portrait=0&quot; width=&quot;1127&quot; height=&quot;773&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href=&quot;https://vimeo.com/728605321&quot;&gt;Les 10 commandements de la programmation sans &amp;eacute;go - Olivier Thelu - MiXiT 2022&lt;/a&gt; from &lt;a href=&quot;https://vimeo.com/mixitconf&quot;&gt;MiXiT&lt;/a&gt; on &lt;a href=&quot;https://vimeo.com&quot;&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Une autre excellente conférence de Kim Laï Trinh, lead développeur, et son &lt;a href=&quot;https://afup.org/talks/3415-auto-critique-de-la-revue-de-code-bienveillante&quot;&gt;“Auto-critique de la 
+revue de code
+bienveillante”&lt;/a&gt;.&lt;/p&gt;
+
+&lt;iframe width=&quot;1127&quot; height=&quot;773&quot; src=&quot;https://www.youtube.com/embed/jMzhP1n19e8&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;formatez-vos-commentaires-&quot;&gt;Formatez vos commentaires !&lt;/h2&gt;
+
+&lt;p&gt;Une fois qu’on a adopté une posture qui nous aide à mieux recevoir et donner des commentaires dans le cadre de nos revues de code, on peut réfléchir à la façon dont on les formate.&lt;/p&gt;
+
+&lt;p&gt;Grâce au standard des &lt;a href=&quot;https://conventionalcomments.org/&quot;&gt;conventional comments&lt;/a&gt;, nous disposons d’une convention pour écrire des 
+commentaires clairs et visuels et limiter les incompréhensions. Chacun de nous est invité 
+à réfléchir à l’intention de son commentaire &lt;strong&gt;avant&lt;/strong&gt; de l’écrire.&lt;/p&gt;
+
+&lt;p&gt;Par exemple, avec ce commentaire qui peut prêter à confusion (le OMG qui signifie “Oh my god” 
+peut être autant interprété comme quelque chose de négatif que de positif, notamment ici puisque 
+nous n’avons pas le contexte 😈) :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-11-07-code-review-onboarding/commentaire-omg.png&quot; alt=&quot;Utilisateur Kittycat dit : &amp;quot;Omg&amp;quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ce commentaire peut être préfixé par &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;praise&lt;/code&gt;, ce qui signifie éloge. Cela change radicalement 
+le ton du commentaire.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-11-07-code-review-onboarding/commentaire-praise-omg.png&quot; alt=&quot;praise : Omg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Voici un autre exemple laconique : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Poubelle&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-11-07-code-review-onboarding/commentaire-poubelle.png&quot; alt=&quot;Poubelle&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Celui-ci peut être amélioré en étant préfixé par l’étiquette &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nitpick&lt;/code&gt;, qui signifie 
+“tatillonner”, ce qui diminue également son ton dramatique. De plus, l’urgence peut être 
+indiquée (ici, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;non-bloquant&lt;/code&gt;) et le contexte est décrit et peut être exploité grâce à un patch 
+proposant un code de remplacement.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-11-07-code-review-onboarding/commentaire-nitpick.png&quot; alt=&quot;nitpick (non-bloquant): le résultat peut être directement retourné (patch)&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;La compréhension du commentaire est facilitée par l’effort fourni pour ajouter le maximum de
+contexte possible. On gagne en lisibilité grâce à la catégorisation (étiquette), qui nous permet
+également d’immédiatement savoir de quoi on parle. Par exemple, une &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;question&lt;/code&gt; ne sera pas lue
+de la même façon qu’une &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;suggestion&lt;/code&gt; !&lt;/p&gt;
+
+&lt;p&gt;La contextualisation permet de savoir si on traite le retour immédiatement ou si on ouvre une
+nouvelle pull request plus tard, pour rémedier au point soulevé. On limite ainsi les
+quiproquos ou les pertes de temps sur des actions non prioritaires.
+Et surtout, on limite les mauvaises impressions sur le ton employé.&lt;/p&gt;
+
+&lt;h3 id=&quot;description-du-standard&quot;&gt;Description du standard&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;label&amp;gt; [decorations]: &amp;lt;subject&amp;gt;
+
+[discussion]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;étiquette (label)&lt;/strong&gt; : “étiquette” pour signifier de quel genre de commentaire il s’agit&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;sujet (subject)&lt;/strong&gt; : le commentaire en lui-même&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;contexte supplémentaire (decorations)&lt;/strong&gt; (optionnel)  : labels supplémentaires pour donner plus d’indications (entre parenthèses, séparés par des virgules).
+Exemple : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;non-blocking&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;blocking&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test&lt;/code&gt; …&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;discussion (optional)&lt;/strong&gt; : contexte, raisonnement ou tout autre élément pour aider à 
+comprendre le « pourquoi » et les « prochaines étapes » pour résoudre le commentaire&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;les-labels&quot;&gt;Les labels&lt;/h3&gt;
+
+&lt;p&gt;Voici la liste de labels ou étiquettes, extraits du standard :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;praise&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nitpick&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;suggestion&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;issue&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;todo&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;question&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;thought&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chore&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;typo&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;polish&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;quibble&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;L’équipe est, bien entendu, libre de choisir ou d’inventer ses labels ! Chez nous, le choix a été 
+fait de respecter le standard tel qu’il est proposé, mais cela pourrait être rediscuté si besoin.&lt;/p&gt;
+
+&lt;p&gt;Voici quelques définitions (pour le reste, &lt;a href=&quot;https://conventionalcomments.org/&quot;&gt;se référer au site du standard&lt;/a&gt;):&lt;/p&gt;
+
+&lt;h4 id=&quot;praise-éloge&quot;&gt;Praise (éloge)&lt;/h4&gt;
+
+&lt;p&gt;Grâce à ce commentaire, on souligne quelque chose de positif, on encourage la personne. Bien 
+entendu, pas de second degré !&lt;/p&gt;
+
+&lt;h4 id=&quot;suggestion-suggestion&quot;&gt;Suggestion (suggestion)&lt;/h4&gt;
+
+&lt;p&gt;Les suggestions sont la majorité des commentaires qu’on laisse, en général. Il s’agit 
+d’améliorations à apporter au sujet actuel. On cherchera à être explicite et clair,&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;expliquer en quoi il s’agit d’une amélioration;&lt;/li&gt;
+  &lt;li&gt;utiliser des patchs;&lt;/li&gt;
+  &lt;li&gt;utiliser des décorations &lt;strong&gt;blocking&lt;/strong&gt; ou &lt;strong&gt;non-blocking&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;issue-problème&quot;&gt;Issue (problème)&lt;/h4&gt;
+
+&lt;p&gt;Grâce aux issues, on met en évidence des problèmes spécifiques. Idéalement, on couple ce 
+commentaire avec une &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Suggestion&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;thought-pensée&quot;&gt;Thought (pensée)&lt;/h4&gt;
+
+&lt;p&gt;Les pensées sont des idées qui surgissent lors de la relecture du code. Celles-ci ne sont pas 
+bloquantes par nature, mais sont extrêmement précieuses, car elles peuvent conduire à des 
+possibilités de mentorat.&lt;/p&gt;
+
+&lt;h2 id=&quot;appropriez-vous-la-méthode-&quot;&gt;Appropriez-vous la méthode !&lt;/h2&gt;
+
+&lt;p&gt;Bien entendu, vous n’êtes pas obligé d’utiliser toute la liste de labels proposée par le 
+standard. Vous pouvez en choisir quelques uns, ou bien carrément vous en inspirer et créer les 
+vôtres. C’est le choix qu’ont fait Camille et son équipe, &lt;a href=&quot;https://www.24joursdeweb.fr/2021/conventional-comments-faire-des-revues-de-code-avec-le-smiley/&quot;&gt;qu’elle décrit dans cet excellent 
+article 
+sur les conventional Comments et l’utilisation des emojis&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Ainsi, l’équipe a porté son choix sur une liste d’étiquettes illustrées par des emojis, qui 
+traduisent à fois l’intention du commentaire et son urgence.
+Voici quelques exemples, tirés de l’article :&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;🥜 peanuts&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;❓ question&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;💬 discussion&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;🚨 alerte&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;🚫 no-go&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;👏 bravo&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;⚠️ warning&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;☠️ bad idea&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;✨ magic&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;🔥 burn-it-all&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;quelques-autres-bonnes-pratiques-donboarding&quot;&gt;Quelques autres bonnes pratiques d’onboarding&lt;/h2&gt;
+
+&lt;p&gt;Bien entendu, il y a plein d’autres façons d’aider vos nouveaux développeurs ou
+nouvelles développeuses à découvrir le code. Voici quelques autres idées :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;On peut se familiariser avec le workflow d’une publication de pull request ou de merge 
+request en faisant une petite modification (ajouter son nom dans un fichier, par exemple ?);&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;on peut être accompagné(e) d’un “buddy” qui nous est assigné à l’arrivée dans l’entreprise avec 
+qui on fait les premières revues de code en direct, et pas par écrit.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Une dernière bonne pratique très largement répandue : si les échanges par commentaires sont trop 
+nombreux sur une même pull request, pourquoi ne pas se retrouver directement et résoudre en pair 
+les 
+points discutés ?&lt;/p&gt;</content><author><name>Anne-Laure de Boissieu</name></author><category term="team" /><summary type="html">Facilitez l’onboarding de vos collègues grâce à la revue de code!</summary></entry><entry><title type="html">Forum PHP 2022 - L’éléphant bleu n’a pas peur de la souris aux grandes oreilles</title><link href="https://tech.bedrockstreaming.com/2022/10/28/forum-php-afup-2022.html" rel="alternate" type="text/html" title="Forum PHP 2022 - L’éléphant bleu n’a pas peur de la souris aux grandes oreilles" /><published>2022-10-28T00:00:00+00:00</published><updated>2022-10-28T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/10/28/forum-php-afup-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/10/28/forum-php-afup-2022.html">&lt;p&gt;Pour cette édition du Forum PHP qui s’est déroulée à Disneyland Paris, Bedrock a vu les choses en grand : première fois
 sponsor Or sur un forum et pas moins de 32 Bedrockien(ne)s présent(e)s dont 4 en tant que conférencier(e)s !
 Cette année encore, le forum a été un moment privilégié pour les échanges, le partage et vous avez été nombreux(ses) à
 venir nous rencontrer sur notre stand et nous avons été ravis de pouvoir échanger avec vous.&lt;/p&gt;
@@ -746,5 +1012,4 @@ Présenté par Thibaud Courtoison.&lt;/p&gt;</content><author><name>Thibaud Cour
 Présenté par Moustapha Agack.&lt;/p&gt;</content><author><name>Moustapha Agack</name></author><category term="lft" /><category term="tech" /><summary type="html">Découvrez comment cloner Shazam! Présenté par Moustapha Agack.</summary></entry><entry><title type="html">Courir: la voi(e/x) du fondeur #LFT 30/09/22</title><link href="https://tech.bedrockstreaming.com/courir-la-voie-du-fondeur" rel="alternate" type="text/html" title="Courir: la voi(e/x) du fondeur #LFT 30/09/22" /><published>2022-09-30T00:00:00+00:00</published><updated>2022-09-30T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/courir-la-voie-du-fondeur</id><content type="html" xml:base="https://tech.bedrockstreaming.com/courir-la-voie-du-fondeur">&lt;p&gt;Courir: la voi(e/x) du fondeur
 Présenté par Thomas Sontag.&lt;/p&gt;</content><author><name>Thomas Sontag</name></author><category term="lft" /><category term="tech" /><summary type="html">Courir: la voi(e/x) du fondeur Présenté par Thomas Sontag.</summary></entry><entry><title type="html">La facilitation spectacle : Entre artifices et intention #LFT 30/09/22</title><link href="https://tech.bedrockstreaming.com/la-facilitation-spectacle" rel="alternate" type="text/html" title="La facilitation spectacle : Entre artifices et intention #LFT 30/09/22" /><published>2022-09-30T00:00:00+00:00</published><updated>2022-09-30T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/la-facilitation-spectacle</id><content type="html" xml:base="https://tech.bedrockstreaming.com/la-facilitation-spectacle">&lt;p&gt;La facilitation spectacle : Entre artifices et intention.
 Présenté par Camille Cousin &amp;amp; Marie-Andrée Jolibois.&lt;/p&gt;</content><author><name>Camille Cousin</name></author><category term="lft" /><category term="tech" /><summary type="html">La facilitation spectacle : Entre artifices et intention. Présenté par Camille Cousin &amp;amp; Marie-Andrée Jolibois.</summary></entry><entry><title type="html">Nearby interaction, Airtags or how your iPhone shares your location #LFT 30/09/22</title><link href="https://tech.bedrockstreaming.com/nearby-interaction-airtags" rel="alternate" type="text/html" title="Nearby interaction, Airtags or how your iPhone shares your location #LFT 30/09/22" /><published>2022-09-30T00:00:00+00:00</published><updated>2022-09-30T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/nearby-interaction-airtags</id><content type="html" xml:base="https://tech.bedrockstreaming.com/nearby-interaction-airtags">&lt;p&gt;Découvrez comment votre iPhone partage votre localisation.
-Présenté par Oleksandr Balystky.&lt;/p&gt;</content><author><name>Oleksandr Balystky</name></author><category term="lft" /><category term="tech" /><summary type="html">Découvrez comment votre iPhone partage votre localisation. Présenté par Oleksandr Balystky.</summary></entry><entry><title type="html">Turn off your fracking notifications #LFT 30/09/22</title><link href="https://tech.bedrockstreaming.com/turn-off-your-notifications" rel="alternate" type="text/html" title="Turn off your fracking notifications #LFT 30/09/22" /><published>2022-09-30T00:00:00+00:00</published><updated>2022-09-30T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/turn-off-your-notifications</id><content type="html" xml:base="https://tech.bedrockstreaming.com/turn-off-your-notifications">&lt;p&gt;Turn off your fracking notifications.
-Présenté par Fabien Dumas.&lt;/p&gt;</content><author><name>Fabien Dumas</name></author><category term="lft" /><category term="tech" /><summary type="html">Turn off your fracking notifications. Présenté par Fabien Dumas.</summary></entry></feed>
+Présenté par Oleksandr Balystky.&lt;/p&gt;</content><author><name>Oleksandr Balystky</name></author><category term="lft" /><category term="tech" /><summary type="html">Découvrez comment votre iPhone partage votre localisation. Présenté par Oleksandr Balystky.</summary></entry></feed>
