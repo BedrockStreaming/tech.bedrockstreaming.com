@@ -152,13 +152,10 @@ m_agack:
   name: Moustapha Agack
 b_garcia:
   name: Bénédicte Garcia
-<<<<<<< HEAD
 al_deboissieu:
   name: Anne-Laure de Boissieu
   avatar: /images/avatar/al_deboissieu.jpeg
-=======
 d_yim:
   name: David Yim
 d_cuny:
   name: Damien Cuny
->>>>>>> 27ef50b (add content from d_cuny and d_yim)
