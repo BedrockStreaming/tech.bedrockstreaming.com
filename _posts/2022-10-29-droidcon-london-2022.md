@@ -10,7 +10,7 @@ language: fr
 comments: true
 ---
 
-La communauté Android a apporté le soleil sur Londres les 27 et 28 octobre 2022. La DroidCon London a réuni plus de 1400 développeurs autour de l'écosystème Android, de ses outils et enjeux actuels. Jetpack Compose, évidemment, mais aussi Gradle, modularisation, optimisation et autres sujets plus divers ont été abordés lors de ce rendez-vous incontournable pour la communauté.
+La communauté Android a apporté le soleil sur Londres les 27 et 28 octobre 2022. La droidcon London a réuni plus de 1400 développeurs autour de l'écosystème Android, de ses outils et enjeux actuels. Jetpack Compose, évidemment, mais aussi Gradle, modularisation, optimisation et autres sujets plus divers ont été abordés lors de ce rendez-vous incontournable pour la communauté.
 
 ![DroidCon London 2022 entrance](/images/posts/2022-10-29-droidcon-london/entrance.jpg)
 
@@ -25,10 +25,10 @@ nous avons eu une emphase claire sur l'importance d'adresser ces sujets.
 
 ### Vous reprendrez bien un peu de Gradle Enterprise ?
 
-[Nelson Osacky](https://twitter.com/nellyspageli) travaillant chez Gradle a présenté tous les outils que la formule [Gradle Entreprise](https://gradle.com/) met à disposition des développeurs permettant d'analyser en détail les compilations. 
+[Nelson Osacky](https://twitter.com/nellyspageli), qui travaille chez Gradle, a présenté tous les outils que la formule [Gradle Entreprise](https://gradle.com/) met à disposition des développeurs pour analyser en détail les compilations. 
 
 Vous voulez vérifier que la compilation incrémentale est bien appliquée partout où cela est possible ? Un script permet de comparer, dans des conditions reproductibles, 
-les entrées et sorties de vos builds, et analyse les tâches empêchant ce mécanisme centrale dans la réduction des temps de compilation.  
+les entrées et sorties de vos builds, et analyse les tâches empêchant ce mécanisme central dans la réduction des temps de compilation.  
 
 Vous voulez vous assurer que Gradle est bien capable de retrouver le cache de vos tâches sur un même poste ou bien depuis le cloud ? 
 Là aussi des outils vous permettent d'identifier précisemment les points qui ne tirent pas parti de ces mécanismes.
@@ -36,7 +36,7 @@ Là aussi des outils vous permettent d'identifier précisemment les points qui n
 On regrettera que ces outils soient disponibles uniquement pour la formule payante de Gradle. Cependant, les [scans Gradle](https://scans.gradle.com/) sont, eux,
 gratuits et illimités, et permettent tout de même de mesurer et comparer des compilations et ainsi suivre l'impact des différentes optimisations que vous pourriez apporter.
 
-### *Déssine moi un module*
+### *Dessine-moi un module*
 
 La modularisation ayant un impact sur les temps de compilation, plusieurs conférences ont abordé ce sujet très en vogue dans la communauté Android.
 
@@ -45,17 +45,17 @@ Ne pas suivre une tendance mais se poser la question de l'utilité d'un nouveau 
 voilà des propos qui invitent à mesurer concrètement l'impact de ce type de chantier dans nos applications. 
 
 Ainsi, si on peut penser que modulariser permet de réduire les temps de compilation (en tirant parti de la parallélisation des tâches par exemple), 
-un chemin de dépendance trop longs entre le module initiale et la dépendance la plus profonde va entrainer une augmentation du temps de compilation.
+un chemin de dépendance trop long entre le module initial et la dépendance la plus profonde va entraîner une augmentation du temps de compilation.
 
-Vigilence, donc, sur les "Hub de dépendances" (ces dépendances dont beaucoup de modules ont besoin, et qui ont besoin de beaucoup de modules).
+Vigilance, donc, sur les "hubs de dépendances" (ces dépendances dont beaucoup de modules ont besoin, et qui ont besoin de beaucoup de modules).
 
 1- Hub de dépendances
 ![Dependency hub](/images/posts/2022-10-29-droidcon-london/dep-hub.png)
 
-De la même manière, un chemin de dépendance de trop grande profondeur ne permettra pas de tirer parti de la parallelisation des tâches de compilation.
-Sur le schéma ci-dessous, on peut voir qu'un chemin de profondeur 4 existe pour aller du module applicatif vers le module le plus bas dans la hierarchie. 
+De la même manière, un chemin de dépendance de trop grande profondeur ne permettra pas de tirer parti de la parallélisation des tâches de compilation.
+Sur le schéma ci-dessous, on peut voir qu'un chemin de profondeur 4 existe pour aller du module applicatif vers le module le plus bas dans la hiérarchie. 
 
-josef Raska propose le schéma suivant avec un découpage API/Implémentation afin de réduire au maximum cette profondeur, et ainsi compiler plus rapidement. 
+Josef Raska propose le schéma suivant avec un découpage API/implémentation afin de réduire au maximum cette profondeur, et ainsi compiler plus rapidement. 
 
 2- Profondeur de dépendances
 ![Dependency height](/images/posts/2022-10-29-droidcon-london/dep-height.png)
@@ -66,46 +66,46 @@ Josef Raska a d'ailleurs créé un plugin Gradle afin de spécifier ces règles 
 
 ### Trucs et astuces
 
-Après ces conseils très avisés mais structurellement chronophage à mettre en place (surtout sur de gros projets déjà créés), d'autres conférenciers se sont plutôt tournés vers les "quick-win". Des changements peu couteux, aux gains plus modestes mais qui s'additionnent, il en existe quelques uns.
+Après ces conseils très avisés mais structurellement chronophages à mettre en place (surtout sur de gros projets déjà créés), d'autres conférenciers se sont plutôt tournés vers les "quick-win". Des changements peu coûteux, aux gains plus modestes mais qui s'additionnent, il en existe quelques-uns.
 
 Ainsi, si gradle nous permet d'activer des fonctionnalités de caching (`org.gradle.unsafe.configuration-cache=true` pour gagner du temps lors de la phase de configuration par exemple), il est aussi possible de désactiver des fonctionnalités du plugin Android si elles ne nous sont pas utiles. 
 
-Voici une petite liste des propriétés qui sont activés par défaut, même lorsqu'elles ne sont pas utilisées dans les modules : 
-- android.defaults.buildfeatures.buildconfg
-- android.defaults.buildfeatures.buildconfg.aidl
-- android.defaults.buildfeatures.buildconfg.renderscript
-- android.defaults.buildfeatures.buildconfg.resvalues
-- android.defaults.buildfeatures.buildconfg.shaders
+Voici une petite liste des propriétés qui sont activées par défaut, même lorsqu'elles ne sont pas utilisées dans les modules : 
+- `android.defaults.buildFeatures.buildConfg`
+- `android.defaults.buildFeatures.aidl`
+- `android.defaults.buildFeatures.renderScript`
+- `android.defaults.buildFeatures.resValues`
+- `android.defaults.buildFeatures.shaders`
 
-Si vous n'utilisez pas les valeurs liés à la configuration de votre compilation, ne générez pas de `BuildConfig`.
-Si vous n'avez pas de resources dans votre module, désactiver la génération de resvalue !
+Si vous n'utilisez pas les valeurs liées à la configuration de votre compilation, ne générez pas de `BuildConfig`.
+Si vous n'avez pas de resources dans votre module, désactivez la génération de `resValue` !
 
 Retrouvez ici la liste de ces fonctionnalités, leur utilité et leur valeur par défaut : [BuildFeatures](https://developer.android.com/reference/tools/gradle-api/4.1/com/android/build/api/dsl/BuildFeatures).
 
 
 ## Design the world - Damien Cuny
 
-Il y a un peu plus d'un an sortait la version 1.0 de [Jectpack Compose](https://developer.android.com/jetpack/compose), le nouveau toolkit déclaratif pour la création d'interface Android. D'autre part, le design système [Material design 3](https://m3.material.io/) viens de sortir en version stable et son implémentation [Compose material](https://developer.android.com/jetpack/androidx/releases/compose-material) est également disponible.  
-Avec tout cela, le design a, cette année encore, tenue une place de choix dans l'agenda de cette Droidcon 2022 à Londre.  
+Il y a un peu plus d'un an sortait la version 1.0 de [Jetpack Compose](https://developer.android.com/jetpack/compose), le nouveau toolkit déclaratif pour la création d'interface Android. D'autre part, le design system [Material Design 3](https://m3.material.io/) vient de sortir en version stable et son implémentation [Compose Material](https://developer.android.com/jetpack/androidx/releases/compose-material) sont également disponibles.  
+Avec tout cela, le design a, cette année encore, tenu une place de choix dans l'agenda de cette droidcon 2022 à Londres.  
 Mais comment utiliser tout cela correctement ? Comment s'en servir pour implémenter un design system personnalisé ? Jusqu'où peut-on aller ?
 Autant de questions auxquelles ont tenté de répondre les nombreuses présentations sur le sujet.  
 
-### To compose
+### To Compose
 
-Compose facilite beaucoup de choses dans l'implémentation et le maintien d'interfaces sur Android. Cependant, cela nécessite de réapprendre à faire certaine chose que l'on maitrise déjà avec le système de [`View`](https://developer.android.com/reference/android/view/View).  
-Déssiner dans un canvas en est une et [Himanshu Singh](https://twitter.com/hi_man_shoe) dans sa présentation *"Composing in your canvas"* nous montre les pièges à éviter pour réaliser cela avec Compose.  
+Compose facilite beaucoup de choses dans l'implémentation et le maintien d'interfaces sur Android. Cependant, cela nécessite de réapprendre à faire certaines choses que l'on maîtrise déjà avec le système de [`View`](https://developer.android.com/reference/android/view/View).  
+Dessiner dans un canvas en est une, et [Himanshu Singh](https://twitter.com/hi_man_shoe) dans sa présentation *"Composing in your canvas"*, nous montre les pièges à éviter pour réaliser cela avec Compose.  
 
-La recomposition peut également être source de problèmes et de latences si elle est mal utilisée avec Compose. Dans sa présentation *"Understanding recomposition performance pitfall"* [Jossi Wolf](https://twitter.com/jossiwolf) et [Andrei Shikov](https://twitter.com/shikasd_) nous donne, à partir d'un exemple concret, les meilleures astuces pour l'utiliser à bon escient.  
+La recomposition peut également être source de problèmes et de latences si Compose est mal utilisé. Dans sa présentation *"Understanding recomposition performance pitfalls"*, [Jossi Wolf](https://twitter.com/jossiwolf) et [Andrei Shikov](https://twitter.com/shikasd_) nous donnent, à partir d'un exemple concret, les meilleures astuces pour l'utiliser à bon escient.  
 
 ### Design System
 
 En faisant le parallèle avec la saga épique de JRR Tolkien, [Daniel Beleza](https://medium.com/@danielbbeleza), dans sa présentation *"One design system to rule them all"*, nous explique comment il a réussi, tout en se passant de [Material design](https://material.io), à unifier et automatiser son propre design system.  
 Cela demande, évidemment, une collaboration totale de la part de l'équipe de design, mais une fois cette intégration faite, les bénéfices et l'autonomie se ressentent de part et d'autre.  
-Des outils tel que [Figma](https://www.figma.com/), [kotlin Poet](https://square.github.io/kotlinpoet/) ou des plugins Android Studio custom lui ont permis d'automatiser ensuite ce processus.  
+Des outils tel que [Figma](https://www.figma.com/), [Kotlin Poet](https://square.github.io/kotlinpoet/) ou des plugins Android Studio custom lui ont permis d'automatiser ensuite ce processus.  
 
-Material Design est un design system. Il a l'avantage d'être bien documenté, uniforme et régulièrement enrichis. De plus, il est déjà implementé dans l'ancien système de View Android et plus récemment dans Jetpack Compose avec [Compose Material](https://developer.android.com/jetpack/androidx/releases/compose-material).  
+Material Design est un design system. Il a l'avantage d'être bien documenté, uniforme et régulièrement enrichi. De plus, il est déjà implémenté dans l'ancien système de View Android et plus récemment dans Jetpack Compose avec [Compose Material](https://developer.android.com/jetpack/androidx/releases/compose-material).  
 
-Une des différences majeures entre Compose et le systeme de View sur Android est son découpage. Dans Compose, Material, n'est implémenté et n'apparait que dans la partie la plus hautes alors que dans le système de View, son implémentation est répartie dans toutes les couches de la librairie.  
+Une des différences majeures entre Compose et le système de View sur Android est son découpage. Dans Compose, Material n'est implémenté et n’apparaît que dans la partie la plus hautes alors que dans le système de View, son implémentation est répartie dans toutes les couches de la librairie.  
 Il est donc assez complexe de se passer de Material avec le système de View mais cela est complétement envisageable, voire recommandé, dans certains cas avec Compose.  
 
 ![Views VS Compose](/images/posts/2022-10-29-droidcon-london/views-vs-compose.png)
@@ -121,7 +121,7 @@ Avec une code base aussi conséquente (plus de **1000 modules**, dont 300 pour l
 La question de continuer à utiliser Material Design s'est également posée chez eux. Ils l'ont dans un premier temps conservé pour faciliter le passage sur Compose, pour finalement le retirer complètement en se basant, eux aussi, sur le package Foundation.  
 Leur présentation résume bien l'ensemble des étapes et des questions par lesquelles ils sont passés pour accomplir cette transition.  
 
-Afin de remettre les choses en perspective, [Ash Davies](https://twitter.com/askashdavies) nous rappel que Compose est un simple pattern de developpement multiplateforme. De ce fait, il peux être appliqué à autre chose qu'à de l'UI comme le propose Jetpack Compose. Il nous explique dans *"Demystifying Molecule: Running Your Own Compositions For Fun And Profit"*, comment l'appliquer à la couche domain d'un projet pour le "Fun".  
+Afin de remettre les choses en perspective, [Ash Davies](https://twitter.com/askashdavies) nous rappelle que Compose est un simple pattern de développement multiplateforme. De ce fait, il peux être appliqué à autre chose qu'à de l'UI comme le propose Jetpack Compose. Il nous explique dans *"Demystifying Molecule: Running Your Own Compositions For Fun And Profit"*, comment l'appliquer à la couche domaine d'un projet pour le "Fun".  
 
 ## **La gestion des erreurs** - David Yim
 
@@ -223,8 +223,8 @@ Plusieurs méthodes existent pour prendre en compte nos cas d'erreurs. Laquelle 
 
 Il est toujours intéressant de mesurer l'engouement pour tel ou tel sujet dans la communauté Android en analysant les présentations lors des différentes conférences technologiques.
 
-Sans aucun doute, cette DroidCon était sous le signe de Jetpack Compose, qui bénéficie d'un suivi et d'un engagement fort de Google et de toute la communauté.  
-Tout l'enjeux ici est de rester au contact des innovations et de l'évolution de la plateforme Android, et Jetpack Compose un défi que nous avons commencé à relever chez Bedrock.  
+Sans aucun doute, cette droidcon était sous le signe de Jetpack Compose, qui bénéficie d'un suivi et d'un engagement fort de Google et de toute la communauté.  
+Tout l'enjeu ici est de rester au contact des innovations et de l'évolution de la plateforme Android, et Jetpack Compose offre un défi que nous avons commencé à relever chez Bedrock.  
 
 Nous attendons avec impatience de voir où va Android, et avons à coeur de participer à cette aventure qui nous lie tous !
 
