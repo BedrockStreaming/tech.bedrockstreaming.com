@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Ce que nous retenons de la DroidCon London 2022"
-description: "Retour sur la virée de Bedrock à la DroidCon London 2022, et ce que nous en retenons"
+title: "Ce que nous retenons de la droidcon London 2022"
+description: "Retour sur la virée de Bedrock à la droidcon London 2022, et ce que nous en retenons"
 author: [rpanoyan, d_yim, d_cuny]
 category:
 tags: [android, droidcon, conference]
@@ -12,14 +12,14 @@ comments: true
 
 La communauté Android a apporté le soleil sur Londres les 27 et 28 octobre 2022. La droidcon London a réuni plus de 1400 développeurs autour de l'écosystème Android, de ses outils et enjeux actuels. Jetpack Compose, évidemment, mais aussi Gradle, modularisation, optimisation et autres sujets plus divers ont été abordés lors de ce rendez-vous incontournable pour la communauté.
 
-![DroidCon London 2022 entrance](/images/posts/2022-10-29-droidcon-london/entrance.jpg)
+![droidcon London 2022 entrance](/images/posts/2022-10-29-droidcon-london/entrance.jpg)
 
 * TOC
 {:toc}
 
 ## Ça compile ? - Rafi Panoyan
 
-Les sujets de compilation ont tenu une place très importante lors de cette édition de la DroidCon Londres 2022. 
+Les sujets de compilation ont tenu une place très importante lors de cette édition de la droidcon Londres 2022. 
 Qu'il s'agisse d'optimiser ses temps de compilation, de repenser la création de modules et des dépendances entre eux, de factoriser les logiques des scripts de compilation, 
 nous avons eu une emphase claire sur l'importance d'adresser ces sujets.
 
@@ -41,25 +41,33 @@ gratuits et illimités, et permettent tout de même de mesurer et comparer des c
 La modularisation ayant un impact sur les temps de compilation, plusieurs conférences ont abordé ce sujet très en vogue dans la communauté Android.
 
 Un point de vue intéressant de [Josef Raska](https://twitter.com/josef_raska) nous invite à nous poser la question de la pertinence de modulariser selon le contexte. 
-Ne pas suivre une tendance mais se poser la question de l'utilité d'un nouveau module, et encore plus de ses dépendances avec les autres modules, 
-voilà des propos qui invitent à mesurer concrètement l'impact de ce type de chantier dans nos applications. 
+Ne pas suivre une tendance mais se poser la question de l'utilité d'un nouveau module, et encore plus de ses dépendances avec les autres modules. 
+Voilà des propos qui invitent à mesurer concrètement l'impact du chantier de la modularisation dans nos applications. 
 
 Ainsi, si on peut penser que modulariser permet de réduire les temps de compilation (en tirant parti de la parallélisation des tâches par exemple), 
-un chemin de dépendance trop long entre le module initial et la dépendance la plus profonde va entraîner une augmentation du temps de compilation.
+un chemin de dépendances trop long entre le module initial et la dépendance la plus profonde va entraîner une augmentation du temps de compilation.
 
 Vigilance, donc, sur les "hubs de dépendances" (ces dépendances dont beaucoup de modules ont besoin, et qui ont besoin de beaucoup de modules).
 
-1- Hub de dépendances
-![Dependency hub](/images/posts/2022-10-29-droidcon-london/dep-hub.png)
+<figure>
+  <img src="/images/posts/2022-10-29-droidcon-london/dep-hub.png" alt="Dependency hub"/>
+  <figcaption>1. Hub de dépendances</figcaption>
+</figure>
 
-De la même manière, un chemin de dépendance de trop grande profondeur ne permettra pas de tirer parti de la parallélisation des tâches de compilation.
+De la même manière, un chemin de dépendances de trop grande profondeur ne permettra pas de tirer parti de la parallélisation des tâches de compilation.
 Sur le schéma ci-dessous, on peut voir qu'un chemin de profondeur 4 existe pour aller du module applicatif vers le module le plus bas dans la hiérarchie. 
 
-Josef Raska propose le schéma suivant avec un découpage API/implémentation afin de réduire au maximum cette profondeur, et ainsi compiler plus rapidement. 
+<figure>
+  <img src="/images/posts/2022-10-29-droidcon-london/dep-height.png" alt="Dependency height"/>
+  <figcaption>2. Profondeur de dépendances</figcaption>
+</figure>
+  
+Josef Raska propose le schéma suivant avec un découpage API/implémentation afin de réduire au maximum cette profondeur, et ainsi compiler plus rapidement.  
 
-2- Profondeur de dépendances
-![Dependency height](/images/posts/2022-10-29-droidcon-london/dep-height.png)
-![Dependency height fix](/images/posts/2022-10-29-droidcon-london/dep-height-fix.png)
+<figure>
+  <img src="/images/posts/2022-10-29-droidcon-london/dep-height-fix.png" alt="Dependency height fix"/>
+  <figcaption>3. Profondeur de dépendances corrigée</figcaption>
+</figure>
 
 Android Studio et son analyse de dépendances peut être très utile pour vérifier et mesurer cela.
 Josef Raska a d'ailleurs créé un plugin Gradle afin de spécifier ces règles à l'echelle d'un projet et de s'assurer qu'elles soient respectées : [modules-graph-assert](https://github.com/jraska/modules-graph-assert).
@@ -68,7 +76,7 @@ Josef Raska a d'ailleurs créé un plugin Gradle afin de spécifier ces règles 
 
 Après ces conseils très avisés mais structurellement chronophages à mettre en place (surtout sur de gros projets déjà créés), d'autres conférenciers se sont plutôt tournés vers les "quick-win". Des changements peu coûteux, aux gains plus modestes mais qui s'additionnent, il en existe quelques-uns.
 
-Ainsi, si gradle nous permet d'activer des fonctionnalités de caching (`org.gradle.unsafe.configuration-cache=true` pour gagner du temps lors de la phase de configuration par exemple), il est aussi possible de désactiver des fonctionnalités du plugin Android si elles ne nous sont pas utiles. 
+Ainsi, si Gradle nous permet d'activer des fonctionnalités de caching (`org.gradle.unsafe.configuration-cache=true` pour gagner du temps lors de la phase de configuration par exemple), il est aussi possible de désactiver des fonctionnalités du plugin Android si elles ne nous sont pas utiles. 
 
 Voici une petite liste des propriétés qui sont activées par défaut, même lorsqu'elles ne sont pas utilisées dans les modules : 
 - `android.defaults.buildFeatures.buildConfg`
@@ -80,12 +88,12 @@ Voici une petite liste des propriétés qui sont activées par défaut, même lo
 Si vous n'utilisez pas les valeurs liées à la configuration de votre compilation, ne générez pas de `BuildConfig`.
 Si vous n'avez pas de resources dans votre module, désactivez la génération de `resValue` !
 
-Retrouvez ici la liste de ces fonctionnalités, leur utilité et leur valeur par défaut : [BuildFeatures](https://developer.android.com/reference/tools/gradle-api/4.1/com/android/build/api/dsl/BuildFeatures).
+Retrouvez ici la liste de ces fonctionnalités, leur utilité et leurs valeurs par défaut : [BuildFeatures](https://developer.android.com/reference/tools/gradle-api/4.1/com/android/build/api/dsl/BuildFeatures).
 
 
 ## Design the world - Damien Cuny
 
-Il y a un peu plus d'un an sortait la version 1.0 de [Jetpack Compose](https://developer.android.com/jetpack/compose), le nouveau toolkit déclaratif pour la création d'interface Android. D'autre part, le design system [Material Design 3](https://m3.material.io/) vient de sortir en version stable et son implémentation [Compose Material](https://developer.android.com/jetpack/androidx/releases/compose-material) sont également disponibles.  
+Il y a un peu plus d'un an sortait la version 1.0 de [Jetpack Compose](https://developer.android.com/jetpack/compose), le nouveau toolkit déclaratif pour la création d'interfaces Android. D'autre part, le design system [Material Design 3](https://m3.material.io/) vient de sortir en version stable et son implémentation [Compose Material](https://developer.android.com/jetpack/androidx/releases/compose-material) sont également disponibles.  
 Avec tout cela, le design a, cette année encore, tenu une place de choix dans l'agenda de cette droidcon 2022 à Londres.  
 Mais comment utiliser tout cela correctement ? Comment s'en servir pour implémenter un design system personnalisé ? Jusqu'où peut-on aller ?
 Autant de questions auxquelles ont tenté de répondre les nombreuses présentations sur le sujet.  
@@ -110,9 +118,9 @@ Il est donc assez complexe de se passer de Material avec le système de View mai
 
 ![Views VS Compose](/images/posts/2022-10-29-droidcon-london/views-vs-compose.png)
 
-Pour illustrer cela [Sebastiano Poggi](https://twitter.com/seebrock3r) (la moitié de [Coding with the italians](https://www.youtube.com/c/CodewiththeItalians)) est venue nous présenter, dans *"Compose beyond Material"*, les questions à se poser avant de se lancer dans son design system et comment le package [Foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) de Compose peut nous aider.  
+Pour illustrer cela [Sebastiano Poggi](https://twitter.com/seebrock3r) (la moitié de [Coding with the italians](https://www.youtube.com/c/CodewiththeItalians)) est venu nous présenter, dans *"Compose beyond Material"*, les questions à se poser avant de se lancer dans son design system et comment le package [Foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) de Compose peut nous aider.  
 
-Pour terminer il nous donne de nombreux conseils concrets sur l'implementation de composants sans Material. Le principal, rejoint la présentation d'introduction de cette Droidcon, *"The Silver Bullet Syndrome Director's Cut - Complexity Strikes Back!"*, un bon design system est un design system qui correspond à nos besoin et qui y répond le plus simplement possible.  
+Pour terminer il nous donne de nombreux conseils concrets sur l'implémentation de composants sans Material. Le principal, rejoint la présentation d'introduction de cette droidcon, *"The Silver Bullet Syndrome Director's Cut - Complexity Strikes Back!"*, un bon design system est un design system qui correspond à nos besoins et qui y répond le plus simplement possible.  
 
 ### Vers l'infini et au dela
 
@@ -125,7 +133,7 @@ Afin de remettre les choses en perspective, [Ash Davies](https://twitter.com/ask
 
 ## **La gestion des erreurs** - David Yim
 
-La gestion des erreurs a été le sujet de plusieurs présentations à la Droidcon. Ces présentations avaient pour objectif de servir de piqûre de rappel sur l'importance de bien prendre en compte ce problème concernant tous les développeurs. Aujourd'hui, nous avons tous les outils pour gérer facilement nos erreurs. Cependant, par paresse et comme nous préférons penser de manière positive, nous ne pensons souvent qu'au cas de succès et les cas d'erreurs sont souvent brouillons voire ne sont même pas spécifiés.
+La gestion des erreurs a été le sujet de plusieurs présentations à la droidcon. Ces présentations avaient pour objectif de servir de piqûre de rappel sur l'importance de bien prendre en compte ce problème concernant tous les développeurs. Aujourd'hui, nous avons tous les outils pour gérer facilement nos erreurs. Cependant, par paresse et comme nous préférons penser de manière positive, nous ne pensons souvent qu'aux cas de succès et les cas d'erreurs sont souvent brouillons voire ne sont même pas spécifiés.
 
 Les speakers m'ont marqué avec un exemple de mauvaise gestion d'erreur qui a coûté plusieurs centaines de milliers de dollars. L'exemple parlait d'une faille chez 7 eleven, une chaîne de supérette dont le site au Japon a été victime. Dans la base de donnée de ce projet, les développeurs ont ajouté un champ "date de naissance" comme nullable. Plus tard, ce champ est devenu non nullable. Par paresse, le développeur qui a rendu ce champ non nullable a mis par défaut un 1er janvier 2019 sur cette date lorsqu'elle n'était pas renseignée, simplement pour satisfaire son compilateur. Le problème est que ce champ fut plus tard utilisé dans la fonctionnalité de mot de passe oublié du site. En utilisant la date par défaut du 1er janvier 2019, un hacker a pu récupérer des comptes utilisateurs et voler des informations bancaires. Cet exemple m'a marqué par l'habitude que nous avons en tant que développeur de nous soucier que de satisfaire notre compilateur plutôt que de vraiment discuter de solutions réfléchies à nos problèmes techniques.
 
@@ -228,4 +236,4 @@ Tout l'enjeu ici est de rester au contact des innovations et de l'évolution de 
 
 Nous attendons avec impatience de voir où va Android, et avons à coeur de participer à cette aventure qui nous lie tous !
 
-![Hall DroidCon London 2022](/images/posts/2022-10-29-droidcon-london/hall.jpg)
+![Hall droidcon London 2022](/images/posts/2022-10-29-droidcon-london/hall.jpg)
