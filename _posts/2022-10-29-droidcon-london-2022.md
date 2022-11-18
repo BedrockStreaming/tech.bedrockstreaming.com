@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "DroidCon London 2022"
-description: "Ce que nous retenons de la DroidCon London 2022"
+title: "Ce que nous retenons de la DroidCon London 2022"
+description: "Retour sur la virée de Bedrock à la DroidCon London 2022, et ce que nous en retenons"
 author: [rpanoyan, d_yim, d_cuny]
 category:
 tags: [android, droidcon, conference]
@@ -17,10 +17,10 @@ La communauté Android a apporté le soleil sur Londres les 27 et 28 octobre 202
 * TOC
 {:toc}
 
-## **It's build time !** - Rafi Panoyan
+## Ça compile ? - Rafi Panoyan
 
-L'optimisation des temps de compilation a tenu une place très importante lors de cette édition de la DroidCon Londres 2022. 
-Qu'il s'agisse d'optimiser ses temps de compilation, de repenser la création de modules et des dépendances entre eux, de factoriser les logiques des scripts, 
+Les sujets de compilation ont tenu une place très importante lors de cette édition de la DroidCon Londres 2022. 
+Qu'il s'agisse d'optimiser ses temps de compilation, de repenser la création de modules et des dépendances entre eux, de factoriser les logiques des scripts de compilation, 
 nous avons eu une emphase claire sur l'importance d'adresser ces sujets.
 
 ### Vous reprendrez bien un peu de Gradle Enterprise ?
@@ -64,11 +64,11 @@ josef Raska propose le schéma suivant avec un découpage API/Implémentation af
 Android Studio et son analyse de dépendances peut être très utile pour vérifier et mesurer cela.
 Josef Raska a d'ailleurs créé un plugin Gradle afin de spécifier ces règles à l'echelle d'un projet et de s'assurer qu'elles soient respectées : [modules-graph-assert](https://github.com/jraska/modules-graph-assert).
 
-### Quick win
+### Trucs et astuces
 
 Après ces conseils très avisés mais structurellement chronophage à mettre en place (surtout sur de gros projets déjà créés), d'autres conférenciers se sont plutôt tournés vers les "quick-win". Des changements peu couteux, aux gains plus modestes mais qui s'additionnent, il en existe quelques uns.
 
-Ainsi si gradle nous donne permet d'activer des fonctionnalités de caching (`org.gradle.unsafe.configuration-cache=true` pour gagner du temps lors de la phase de configuration par exemple), il est aussi possible de désactiver des fonctionnalités du plugin Android si elles ne nous sont pas utiles. 
+Ainsi, si gradle nous permet d'activer des fonctionnalités de caching (`org.gradle.unsafe.configuration-cache=true` pour gagner du temps lors de la phase de configuration par exemple), il est aussi possible de désactiver des fonctionnalités du plugin Android si elles ne nous sont pas utiles. 
 
 Voici une petite liste des propriétés qui sont activés par défaut, même lorsqu'elles ne sont pas utilisées dans les modules : 
 - android.defaults.buildfeatures.buildconfg
@@ -110,22 +110,22 @@ Il est donc assez complexe de se passer de Material avec le système de View mai
 
 ![Views VS Compose](/images/posts/2022-10-29-droidcon-london/views-vs-compose.png)
 
-Pour illustrer cela [Sebastiano Poggi](https://twitter.com/seebrock3r) (la moitié de [Coding with the italians](https://www.youtube.com/c/CodewiththeItalians)) est venue nous présenter, dans *"Compose beyond Material"*, les questions à se poser avant de se lancer dans son design system et comment le package [Foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) de Compose peux nous aider.  
+Pour illustrer cela [Sebastiano Poggi](https://twitter.com/seebrock3r) (la moitié de [Coding with the italians](https://www.youtube.com/c/CodewiththeItalians)) est venue nous présenter, dans *"Compose beyond Material"*, les questions à se poser avant de se lancer dans son design system et comment le package [Foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) de Compose peut nous aider.  
 
-Pour terminer il nous donne de nombreux conseils concrets sur l'implementation de composants sans Material. Le principale, rejoint la présentation d'introduction de cette Droidcon, *"The Silver Bullet Syndrome Director's Cut - Complexity Strikes Back!"*, un bon design system est un design systéme qui correspond à nos besoin et qui y répond le plus simplement possible.  
+Pour terminer il nous donne de nombreux conseils concrets sur l'implementation de composants sans Material. Le principal, rejoint la présentation d'introduction de cette Droidcon, *"The Silver Bullet Syndrome Director's Cut - Complexity Strikes Back!"*, un bon design system est un design system qui correspond à nos besoin et qui y répond le plus simplement possible.  
 
 ### Vers l'infini et au dela
 
-[Chris Bane](https://twitter.com/chrisbanes) et [Nacho Lopez](https://twitter.com/mrmans0n) dans leur présentation *"Branching out Jetpack Compose"*, nous ont raconté comment l'aventure du passage à Compose s'est déroulé chez Twitter, qui a été l'un des premier à l'adopter.  
+[Chris Bane](https://twitter.com/chrisbanes) et [Nacho Lopez](https://twitter.com/mrmans0n) dans leur présentation *"Branching out Jetpack Compose"*, nous ont raconté comment l'aventure du passage à Compose s'est déroulée chez Twitter, qui a été l'un des premier à l'adopter.  
 Avec une code base aussi conséquente (plus de **1000 modules**, dont 300 pour le design, répartis sur plus de 30 équipes), ils ont dû progressivement convaincre les équipes, les former et les accompagner.  
 La question de continuer à utiliser Material Design s'est également posée chez eux. Ils l'ont dans un premier temps conservé pour faciliter le passage sur Compose, pour finalement le retirer complètement en se basant, eux aussi, sur le package Foundation.  
-Leur présentation résume bien l'ensemble des étapes et des questions par lesquelles ils sont passé pour accomplir cette transition.  
+Leur présentation résume bien l'ensemble des étapes et des questions par lesquelles ils sont passés pour accomplir cette transition.  
 
 Afin de remettre les choses en perspective, [Ash Davies](https://twitter.com/askashdavies) nous rappel que Compose est un simple pattern de developpement multiplateforme. De ce fait, il peux être appliqué à autre chose qu'à de l'UI comme le propose Jetpack Compose. Il nous explique dans *"Demystifying Molecule: Running Your Own Compositions For Fun And Profit"*, comment l'appliquer à la couche domain d'un projet pour le "Fun".  
 
 ## **La gestion des erreurs** - David Yim
 
-La gestion des erreurs a été le sujet de plusieurs présentations à la Droidcon. Ces présentations avaient pour objectif de servir de piqûre de rappel sur l'importance de bien prendre en compte ce problème concernant tous les développeurs. Aujourd'hui, nous avons tous les outils pour gérer facilement nos erreurs. Cependant, par paresse et comme nous préférons penser de manière positive, nous ne pensons souvent qu'au cas de succès et les cas d'erreurs sont souvent brouillons voir ne sont même pas spécifiés.
+La gestion des erreurs a été le sujet de plusieurs présentations à la Droidcon. Ces présentations avaient pour objectif de servir de piqûre de rappel sur l'importance de bien prendre en compte ce problème concernant tous les développeurs. Aujourd'hui, nous avons tous les outils pour gérer facilement nos erreurs. Cependant, par paresse et comme nous préférons penser de manière positive, nous ne pensons souvent qu'au cas de succès et les cas d'erreurs sont souvent brouillons voire ne sont même pas spécifiés.
 
 Les speakers m'ont marqué avec un exemple de mauvaise gestion d'erreur qui a coûté plusieurs centaines de milliers de dollars. L'exemple parlait d'une faille chez 7 eleven, une chaîne de supérette dont le site au Japon a été victime. Dans la base de donnée de ce projet, les développeurs ont ajouté un champ "date de naissance" comme nullable. Plus tard, ce champ est devenu non nullable. Par paresse, le développeur qui a rendu ce champ non nullable a mis par défaut un 1er janvier 2019 sur cette date lorsqu'elle n'était pas renseignée, simplement pour satisfaire son compilateur. Le problème est que ce champ fut plus tard utilisé dans la fonctionnalité de mot de passe oublié du site. En utilisant la date par défaut du 1er janvier 2019, un hacker a pu récupérer des comptes utilisateurs et voler des informations bancaires. Cet exemple m'a marqué par l'habitude que nous avons en tant que développeur de nous soucier que de satisfaire notre compilateur plutôt que de vraiment discuter de solutions réfléchies à nos problèmes techniques.
 
@@ -219,7 +219,7 @@ result.onSuccess { user ->
 
 Plusieurs méthodes existent pour prendre en compte nos cas d'erreurs. Laquelle est la meilleure ? Eh bien vous vous y attendez sûrement, mais ça dépend ! On choisira une méthode ou une autre selon ce qui nous arrange par rapport à la situation, nos choix d'outils techniques ou nos effectifs. L'important étant de prendre en compte ces cas d'erreurs et de ne pas laisser leur résolution au hasard. Les cas d'erreurs ne sont en fait que d'autres usecases de l'utilisateur et souvent ne sont pas des edgecase. Ils méritent donc d'être tout autant réfléchis et spécifiés que les cas de succès !
 
-## See you later !
+## À la prochaine !
 
 Il est toujours intéressant de mesurer l'engouement pour tel ou tel sujet dans la communauté Android en analysant les présentations lors des différentes conférences technologiques.
 
