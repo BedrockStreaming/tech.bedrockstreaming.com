@@ -54,6 +54,7 @@ Vigilance, donc, sur les "hubs de dépendances" (ces dépendances dont beaucoup 
   <figcaption>1. Hub de dépendances</figcaption>
 </figure>
   
+
 De la même manière, un chemin de dépendances de trop grande profondeur ne permettra pas de tirer parti de la parallélisation des tâches de compilation.
 Sur le schéma ci-dessous, on peut voir qu'un chemin de profondeur 4 existe pour aller du module applicatif vers le module le plus bas dans la hiérarchie. 
 
@@ -61,6 +62,7 @@ Sur le schéma ci-dessous, on peut voir qu'un chemin de profondeur 4 existe pour
   <img src="/images/posts/2022-10-29-droidcon-london/dep-height.png" alt="Dependency height"/>
   <figcaption>2. Profondeur de dépendances</figcaption>
 </figure>
+  
 
 Josef Raska propose le schéma suivant avec un découpage API/implémentation afin de réduire au maximum cette profondeur, et ainsi compiler plus rapidement.  
   
@@ -68,6 +70,7 @@ Josef Raska propose le schéma suivant avec un découpage API/implémentation af
   <img src="/images/posts/2022-10-29-droidcon-london/dep-height-fix.png" alt="Dependency height fix"/>
   <figcaption>3. Profondeur de dépendances réduite</figcaption>
 </figure>
+  
   
 Android Studio et son analyse de dépendances peut être très utile pour vérifier et mesurer cela.
 Josef Raska a d'ailleurs créé un plugin Gradle afin de spécifier ces règles à l'echelle d'un projet et de s'assurer qu'elles soient respectées : [modules-graph-assert](https://github.com/jraska/modules-graph-assert).
@@ -128,7 +131,7 @@ Pour illustrer cela [Sebastiano Poggi](https://twitter.com/seebrock3r) (la moiti
 
 Pour terminer il nous donne de nombreux conseils concrets sur l'implémentation de composants sans Material. Le principal, rejoint la présentation d'introduction de cette droidcon, *"The Silver Bullet Syndrome Director's Cut - Complexity Strikes Back!"*, un bon design system est un design system qui correspond à nos besoins et qui y répond le plus simplement possible.  
 
-### Vers l'infini et au dela
+### Vers l'infini et au-delà
 
 [Chris Bane](https://twitter.com/chrisbanes) et [Nacho Lopez](https://twitter.com/mrmans0n) dans leur présentation *"Branching out Jetpack Compose"*, nous ont raconté comment l'aventure du passage à Compose s'est déroulée chez Twitter, une des premières apps à l'adopter.  
 Avec une code base aussi conséquente (plus de **1000 modules**, dont 300 pour le design, répartis sur plus de 30 équipes), ils ont dû progressivement convaincre les équipes, les former et les accompagner.  
