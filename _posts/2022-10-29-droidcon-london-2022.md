@@ -53,7 +53,7 @@ Vigilance, donc, sur les "hubs de dépendances" (ces dépendances dont beaucoup 
   <img src="/images/posts/2022-10-29-droidcon-london/dep-hub.png" alt="Dependency hub"/>
   <figcaption>1. Hub de dépendances</figcaption>
 </figure>
-  
+---  
 
 De la même manière, un chemin de dépendances de trop grande profondeur ne permettra pas de tirer parti de la parallélisation des tâches de compilation.
 Sur le schéma ci-dessous, on peut voir qu'un chemin de profondeur 4 existe pour aller du module applicatif vers le module le plus bas dans la hiérarchie. 
@@ -62,7 +62,7 @@ Sur le schéma ci-dessous, on peut voir qu'un chemin de profondeur 4 existe pour
   <img src="/images/posts/2022-10-29-droidcon-london/dep-height.png" alt="Dependency height"/>
   <figcaption>2. Profondeur de dépendances</figcaption>
 </figure>
-  
+---  
 
 Josef Raska propose le schéma suivant avec un découpage API/implémentation afin de réduire au maximum cette profondeur, et ainsi compiler plus rapidement.  
   
@@ -70,7 +70,7 @@ Josef Raska propose le schéma suivant avec un découpage API/implémentation af
   <img src="/images/posts/2022-10-29-droidcon-london/dep-height-fix.png" alt="Dependency height fix"/>
   <figcaption>3. Profondeur de dépendances réduite</figcaption>
 </figure>
-  
+---  
   
 Android Studio et son analyse de dépendances peut être très utile pour vérifier et mesurer cela.
 Josef Raska a d'ailleurs créé un plugin Gradle afin de spécifier ces règles à l'echelle d'un projet et de s'assurer qu'elles soient respectées : [modules-graph-assert](https://github.com/jraska/modules-graph-assert).
@@ -144,7 +144,7 @@ Afin de remettre les choses en perspective, [Ash Davies](https://twitter.com/ask
 
 La gestion des erreurs a été le sujet de plusieurs présentations à la droidcon. Ces présentations avaient pour objectif de servir de piqûre de rappel sur l'importance de bien prendre en compte ce problème concernant tous les développeurs. Aujourd'hui, nous avons tous les outils pour gérer facilement nos erreurs. Cependant, par paresse et comme nous préférons penser de manière positive, nous ne pensons souvent qu'aux cas de succès et les cas d'erreurs sont souvent brouillons voire ne sont même pas spécifiés.
 
-Les speakers m'ont marqué avec un exemple de mauvaise gestion d'erreur qui a coûté plusieurs centaines de milliers de dollars. L'exemple parlait d'une faille chez 7 eleven, une chaîne de supérette dont le site au Japon a été victime. Dans la base de donnée de ce projet, les développeurs ont ajouté un champ "date de naissance" comme nullable. Plus tard, ce champ est devenu non nullable. Par paresse, le développeur qui a rendu ce champ non nullable a mis par défaut un 1er janvier 2019 sur cette date lorsqu'elle n'était pas renseignée, simplement pour satisfaire son compilateur. Le problème est que ce champ fut plus tard utilisé dans la fonctionnalité de mot de passe oublié du site. En utilisant la date par défaut du 1er janvier 2019, un hacker a pu récupérer des comptes utilisateurs et voler des informations bancaires. Cet exemple m'a marqué par l'habitude que nous avons en tant que développeur de nous soucier que de satisfaire notre compilateur plutôt que de vraiment discuter de solutions réfléchies à nos problèmes techniques.
+Les speakers m'ont marqué avec un exemple de mauvaise gestion d'erreur qui a coûté plusieurs centaines de milliers de dollars. L'exemple parlait d'une faille sur le site japonais de 7-Eleven, une chaîne de supérettes, dont elle a été victime. Dans la base de données de ce projet, les développeurs ont ajouté un champ "date de naissance" comme nullable. Plus tard, ce champ est devenu non-nullable. Par paresse, le développeur qui a rendu ce champ non-nullable a mis par défaut un 1er janvier 2019 sur cette date lorsqu'elle n'était pas renseignée, simplement pour satisfaire son compilateur. Le problème est que ce champ fut plus tard utilisé dans la fonctionnalité de mot de passe oublié du site. En utilisant la date par défaut du 1er janvier 2019, un hacker a pu récupérer des comptes utilisateurs et voler des informations bancaires. Cet exemple m'a marqué par l'habitude que nous avons en tant que développeur de nous soucier que de satisfaire notre compilateur plutôt que de vraiment discuter de solutions réfléchies à nos problèmes techniques.
 
 Plusieurs méthodes de gestion des erreurs existent et les speakers en ont présentés quelques-unes.
 
@@ -152,15 +152,19 @@ Plusieurs méthodes de gestion des erreurs existent et les speakers en ont prés
 
 L'une des méthode pour être certain de ne pas avoir de problème est de vérifier les données que l'on reçoit. Prenons un exemple simple :
 
-`data class User(val email: String)`
+```kotlin
+data class User(val email: String)
+```
 
 Rien n'empêche d'instancier cette classe de la manière suivante :
 
-`val user = User(email = "")`
+```kotlin
+val user = User(email = "")
+```
 
 Cela peut créer des problèmes par le futur, alors qu'il y a un moyen d'éviter cela
 
-```
+```kotlin
 class Email(value: String) {
     val value: String =
         if (value.isEmpty() || !Regex(EMAIL_FORMAT).matches(value)) {
@@ -179,7 +183,7 @@ Cette méthode peut paraître un peu exagérée dans cet exemple. Mais dans un c
 
 Le type `Either` est un moyen de différencier les cas de succès des cas d'erreurs. Il est disponible dans la [librairie Arrow](https://arrow-kt.io/) ou facilement reproduisible :
 
-```
+```kotlin
 sealed class Either<out A, out B> {
     class Left<A>(val value: A): Either<A, Nothing>()
     class Right<B>(val value: B): Either<Nothing, B>()
@@ -188,7 +192,7 @@ sealed class Either<out A, out B> {
 
 L'utilisation de ce type est qu'il est soit un type `A`, soit un type `B`. On peut ainsi définir par exemple que le `A` est un cas de succès et que le type `B` est un cas d'erreur.
 
-```
+```kotlin
 data class User(val name: String)
 
 var either: Either<User, Exception>
@@ -209,7 +213,7 @@ Grâce à ce type, on peut par exemple savoir si un appel à une API a réussi o
 
 La classe `Result` est similaire au type `Either` et a pour avantage d'être directement inclue dans Kotlin et que l'on n'a pas à se synchroniser pour savoir si le côté gauche est le cas de succès ou d'erreur.
 
-```
+```kotlin
 data class User(val name: String)
 
 var result: Result<User>
