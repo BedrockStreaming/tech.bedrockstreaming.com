@@ -53,7 +53,7 @@ Vigilance, donc, sur les "hubs de dépendances" (ces dépendances dont beaucoup 
   <img src="/images/posts/2022-10-29-droidcon-london/dep-hub.png" alt="Dependency hub"/>
   <figcaption>1. Hub de dépendances</figcaption>
 </figure>
-
+  
 De la même manière, un chemin de dépendances de trop grande profondeur ne permettra pas de tirer parti de la parallélisation des tâches de compilation.
 Sur le schéma ci-dessous, on peut voir qu'un chemin de profondeur 4 existe pour aller du module applicatif vers le module le plus bas dans la hiérarchie. 
 
@@ -61,14 +61,14 @@ Sur le schéma ci-dessous, on peut voir qu'un chemin de profondeur 4 existe pour
   <img src="/images/posts/2022-10-29-droidcon-london/dep-height.png" alt="Dependency height"/>
   <figcaption>2. Profondeur de dépendances</figcaption>
 </figure>
-  
-Josef Raska propose le schéma suivant avec un découpage API/implémentation afin de réduire au maximum cette profondeur, et ainsi compiler plus rapidement.  
 
+Josef Raska propose le schéma suivant avec un découpage API/implémentation afin de réduire au maximum cette profondeur, et ainsi compiler plus rapidement.  
+  
 <figure>
   <img src="/images/posts/2022-10-29-droidcon-london/dep-height-fix.png" alt="Dependency height fix"/>
-  <figcaption>3. Profondeur de dépendances corrigée</figcaption>
+  <figcaption>3. Profondeur de dépendances réduite</figcaption>
 </figure>
-
+  
 Android Studio et son analyse de dépendances peut être très utile pour vérifier et mesurer cela.
 Josef Raska a d'ailleurs créé un plugin Gradle afin de spécifier ces règles à l'echelle d'un projet et de s'assurer qu'elles soient respectées : [modules-graph-assert](https://github.com/jraska/modules-graph-assert).
 
@@ -79,11 +79,17 @@ Après ces conseils très avisés mais structurellement chronophages à mettre e
 Ainsi, si Gradle nous permet d'activer des fonctionnalités de caching (`org.gradle.unsafe.configuration-cache=true` pour gagner du temps lors de la phase de configuration par exemple), il est aussi possible de désactiver des fonctionnalités du plugin Android si elles ne nous sont pas utiles. 
 
 Voici une petite liste des propriétés qui sont activées par défaut, même lorsqu'elles ne sont pas utilisées dans les modules : 
-- `android.defaults.buildFeatures.buildConfg`
-- `android.defaults.buildFeatures.aidl`
-- `android.defaults.buildFeatures.renderScript`
-- `android.defaults.buildFeatures.resValues`
-- `android.defaults.buildFeatures.shaders`
+```
+android {
+  buildFeatures {
+    buildConfig false
+    aidl false
+    renderScript false
+    resValues false
+    shaders false
+  }
+}
+```
 
 Si vous n'utilisez pas les valeurs liées à la configuration de votre compilation, ne générez pas de `BuildConfig`.
 Si vous n'avez pas de resources dans votre module, désactivez la génération de `resValue` !
@@ -124,7 +130,7 @@ Pour terminer il nous donne de nombreux conseils concrets sur l'implémentation 
 
 ### Vers l'infini et au dela
 
-[Chris Bane](https://twitter.com/chrisbanes) et [Nacho Lopez](https://twitter.com/mrmans0n) dans leur présentation *"Branching out Jetpack Compose"*, nous ont raconté comment l'aventure du passage à Compose s'est déroulée chez Twitter, qui a été l'un des premier à l'adopter.  
+[Chris Bane](https://twitter.com/chrisbanes) et [Nacho Lopez](https://twitter.com/mrmans0n) dans leur présentation *"Branching out Jetpack Compose"*, nous ont raconté comment l'aventure du passage à Compose s'est déroulée chez Twitter, une des premières apps à l'adopter.  
 Avec une code base aussi conséquente (plus de **1000 modules**, dont 300 pour le design, répartis sur plus de 30 équipes), ils ont dû progressivement convaincre les équipes, les former et les accompagner.  
 La question de continuer à utiliser Material Design s'est également posée chez eux. Ils l'ont dans un premier temps conservé pour faciliter le passage sur Compose, pour finalement le retirer complètement en se basant, eux aussi, sur le package Foundation.  
 Leur présentation résume bien l'ensemble des étapes et des questions par lesquelles ils sont passés pour accomplir cette transition.  
