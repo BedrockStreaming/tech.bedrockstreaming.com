@@ -118,6 +118,7 @@ m_alves:
   url: https://twitter.com/CruuzAzul
 rpanoyan:
   name: Rafi Panoyan
+  url: https://twitter.com/rafipanoyan
 s_zoccarato:
   name: Sylvain Zoccarato
 jerome_foray:
@@ -154,3 +155,7 @@ b_garcia:
 al_deboissieu:
   name: Anne-Laure de Boissieu
   avatar: /images/avatar/al_deboissieu.jpeg
+d_yim:
+  name: David Yim
+d_cuny:
+  name: Damien Cuny
