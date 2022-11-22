@@ -223,7 +223,7 @@ Running this script for a *representative week*, we have enough data to calculat
 Importing this data into a Google Spreadsheet, we get two columns: a date+time and a number of WCUs.  
 And this is for each one-hour range during an entire week:
 
-![Date and usage](/images/posts/aws/dynamodb-reservations/spreadsheet-01-date-and-conso.png)
+![Date and usage](/images/posts/aws/dynamodb-reservations/spreadsheet-01-date-and-conso-english.png)
 
 > **ℹ️ Only twelve hours**  
 > Here, I only reproduce twelve rows corresponding to twelve hours, but keep in mind that there are actually 168 rows in my spreadsheet: one row per hour, 24 hours per day, for 7 days.  
@@ -233,7 +233,7 @@ The next step is to integrate the cost of these WCUs.
 Easy anough, we multiply the number of WCUs by the cost of a WCU in Paris, i.e. $0.000772.  
 And the sum of the cost of each line gives us the total cost, without reservation:
 
-![Costs, without any reservation](/images/posts/aws/dynamodb-reservations/spreadsheet-02-cost-without-reservation.png)
+![Costs, without any reservation](/images/posts/aws/dynamodb-reservations/spreadsheet-02-cost-without-reservation-english.png)
 
 ### The calculations, on an assumption
 
@@ -250,7 +250,7 @@ In addition:
 Adding these data, we obtain a different hourly cost, often lower than the one determined above.  
 And, therefore, we get a lower total cost as well:
 
-![Costs, with reservations](/images/posts/aws/dynamodb-reservations/spreadsheet-03-cout-including-reservations.png)
+![Costs, with reservations](/images/posts/aws/dynamodb-reservations/spreadsheet-03-cout-including-reservations-english.png)
 
 With this hypothesis of a 25,000 WCU reservation, over these twelve hours, we would pay 135 dollars instead of 229 dollars without reservation.  
 We would then realize 40.96% savings!
@@ -259,17 +259,17 @@ We would then realize 40.96% savings!
 
 Of course, during the hours when we consume less than 25,000 WCU, we are wasting capacity: we are paying for it, without using it.
 
-![Wasted reservations](/images/posts/aws/dynamodb-reservations/spreadsheet-04-waste.png)
+![Wasted reservations](/images/posts/aws/dynamodb-reservations/spreadsheet-04-waste-english.png)
 
 The goal of the game is to find the *right number* of WCUs to reserve: we want to reduce the total cost as much as possible, maximizing the percentage of savings.
 
 To do so, we try different values for the number of WCUs reserved, until we find the one that maximizes the percentage of savings:
 
-![Maximizing savings percentages (table)](/images/posts/aws/dynamodb-reservations/spreadsheet-05-maximize-percentage-savings-table.png)
+![Maximizing savings percentages (table)](/images/posts/aws/dynamodb-reservations/spreadsheet-05-maximize-percentage-savings-table-english.png)
 
 Here's the same thing as a graph:
 
-![Maximizing savings percentages (graph)](/images/posts/aws/dynamodb-reservations/spreadsheet-05-maximize-percentage-savings-graphic.png)
+![Maximizing savings percentages (graph)](/images/posts/aws/dynamodb-reservations/spreadsheet-05-maximize-percentage-savings-graphic-english.png)
 
 Here, over these twelve hours, the optimal approach would be to reserve 23,000 WCU.
 
