@@ -230,7 +230,7 @@ And this is for each one-hour range during an entire week:
 > Also, the values used for this article are all *simulated*, to avoid sharing sensitive information, but they scrupulously respect the shape of our traffic and usage wave.
 
 The next step is to integrate the cost of these WCUs.  
-Easy anough, we multiply the number of WCUs by the cost of a WCU in Paris, i.e. $0,000772.  
+Easy anough, we multiply the number of WCUs by the cost of a WCU in Paris, i.e. $0.000772.  
 And the sum of the cost of each line gives us the total cost, without reservation:
 
 ![Costs, without any reservation](/images/posts/aws/dynamodb-reservations/spreadsheet-02-cost-without-reservation.png)
@@ -240,7 +240,7 @@ And the sum of the cost of each line gives us the total cost, without reservatio
 Now, let's assume, for the time being, that we reserve 25,000 WCUs:
 
  * The upfront, each hour, is $5.07991.
- * And, each hour, we also have to pay $3,82500 for this capacity, since the upfront is only partial.
+ * And, each hour, we also have to pay $3.82500 for this capacity, since the upfront is only partial.
 
 In addition:
 
