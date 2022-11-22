@@ -357,3 +357,5 @@ And we need to find the *right values* to reserve for read and write capacity.
 
 With three or four years of hindsight, by making reservations twice a year and by following the method detailed in this article, we realize savings of about 30% to 35% on our read and write capacity in provisioned mode.  
 On our scale, this saving represents several tens of thousands of dollars per year -- which is great, considering we only spend a few hours working on this every six months!
+
+<br>
