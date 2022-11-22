@@ -314,7 +314,7 @@ We have configured our AWS accounts to have a single payer account.
 We have decided to make all our reservations in this account and they are applied to the child accounts without discrimination.  
 This applies to DynamoDB but also to RDS, EC2, Elasticache...
 
-### Reverving!
+### Reserving!
 
 To reserve, we go through the AWS DynamoDB Web console, in our payer account, in the region where these reservations will be used.
 
