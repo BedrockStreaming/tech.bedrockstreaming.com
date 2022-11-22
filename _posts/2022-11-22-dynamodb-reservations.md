@@ -9,18 +9,17 @@ feature-img: "images/posts/aws/dynamodb-reservations/cost-explorer-reserved-vs-n
 thumbnail: "images/posts/aws/dynamodb-reservations/cost-explorer-reserved-vs-not-reserved-CENSORED-inverted-colors.png"
 comments: true
 language: en
+excerpt_separator: <!--more-->
 ---
 
 Many of the microservices in our VOD and Replay platform use DynamoDB as their database.  
-Performance is very good if the data is architected for it, scalability is reasonably fast, and the serverless[^serverless-but-still-some-work] aspect offloads a lot of the administration and hosting work. Whether it's performance, resilience or time-to-market, DynamoDB helps us achieve our business goals.
-
-[^serverless-but-still-some-work]: DynamoDB is one of the _most serverless_ services we use and I like it a lot. Still, there are a few _admin_ tasks left in our hands. Typically, we have to specify the capacity we need and configure an auto-scaler. We also have to enable encryption, backups, to setup permissions -- and to check all this is done, for all tables, managed by many teams.
+Performance is very good if the data is architected for it, scalability is reasonably fast, and the serverless aspect offloads a lot of the administration and hosting work. Whether it's performance, resilience or time-to-market, DynamoDB helps us achieve our business goals.
 
 That said, when we spend several hundred thousand dollars on DynamoDB every year, any optimization is good for us!
 
-With DynamoDB, committing to a certain capacity for a year can help reduce costs -- up to 50% savings[^50-percent-savings] on that capacity. But how do we know how much to reserve when traffic on our platform varies throughout the day?
+With DynamoDB, committing to a certain capacity for a year can help reduce costs -- up to 50% savings on that capacity. But how do we know how much to reserve when traffic on our platform varies throughout the day?
 
-[^50-percent-savings]: 50% is kind of the maximum possible saving we can achieve if our usage is flat and we reserve exactly what we provision. Flat usage might be what you see on your applications, but it's not how our platform works! 
+<!--more-->
 
 **Table of Contents**
 
@@ -36,9 +35,11 @@ With DynamoDB, committing to a certain capacity for a year can help reduce costs
 
 *[To skip all the theory about how DynamoDB is priced and WCUs, RCU, on-demand and provisionned billing modes, click here…](#in-practice-lets-calculate-how-much-to-reserve)*
 
-> DynamoDB is serverless!
+> DynamoDB is serverless[^serverless-but-still-some-work]!
 
 But, as with many AWS services, you have to think for a while before you really understand DynamoDB costs…
+
+[^serverless-but-still-some-work]: DynamoDB is one of the _most serverless_ services we use and I like it a lot. Still, there are a few _admin_ tasks left in our hands. Typically, we have to specify the capacity we need and configure an auto-scaler. We also have to enable encryption, backups, to setup permissions -- and to check all this is done, for all tables, managed by many teams.
 
 ### Out of scope costs
 
@@ -107,8 +108,10 @@ This mode is not suitable:
 
 ### In provisioned mode, reservations
 
-By agreeing to pay for a certain amount of RCU and WCU for one year *(or even three years in some regions)*, these RCU and WCU become even cheaper: up to ~50% cheaper than in default-provisioned mode.  
+By agreeing to pay for a certain amount of RCU and WCU for one year *(or even three years in some regions)*, these RCU and WCU become even cheaper: up to ~50%[^50-percent-savings] cheaper than in default-provisioned mode.  
 Reserving capacity is a great way to considerably reduce the cost of read/write operations on DynamoDB!
+
+[^50-percent-savings]: 50% is kind of the maximum possible saving we can achieve if our usage is flat and we reserve exactly what we provision. Flat usage might be what you see on your applications, but it's not how our platform works!
 
 Reservations lock us for one year. We will pay for the reserved RCUs and WCUs, whether we use them or not.  
 It is therefore important to calculate correctly the reservations to be made.
