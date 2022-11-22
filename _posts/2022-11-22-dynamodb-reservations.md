@@ -116,7 +116,7 @@ It is therefore important to calculate correctly the reservations to be made.
 Also, we pay a part of the total yearly amount at the beginning of the commitment *(= "upfront")*, which means we must be able to invest a certain amount in advance.  
 The other part is spread over all the months of the commitment period.
 
-As a consequence, the *big question*, to which the rest of this document tries to answer, is: *"how many RCU and WCU should we reserve to keep our costs as low as possible?"  
+As a consequence, the *big question*, to which the rest of this document tries to answer, is: *"how many RCU and WCU should we reserve to keep our costs as low as possible?"*  
 When our consumption varies throughout the day, this calculation is pretty fun ;-)
 
 Reservations are global to an AWS account, or even to all accounts on a consolidated bill[^consolidated-billing].
