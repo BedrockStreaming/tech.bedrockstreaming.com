@@ -7,6 +7,8 @@
  color: rgb(251,87,66) # this is Bedrock color here
 ---
 
+En cette fin d'année Bedrock s'est rendu à la SymfonyCon 2022. Toute l'équipe a eu la chance de se rendre à Disneyland pour découvrir les nouveautés liées à Symfony 6.2 et assister à des conférences sur de nombreux sujets techs. La keynote présentée par [Fabien Potencier](https://github.com/fabpot), le créateur de Symfony nous a déjà mis dans le bain. En effet, Fabien a expliqué certaines nouvelles fonctionnalités permises par Symfony 6.2 comme les webhooks, l'évolution du composant Mailer qui permettra d'envoyer des mails de tests depuis la CI... 
+
 ## Unleashing the power of lazy objects in PHP
 
 [Nicolas Grekas](https://connect.symfony.com/profile/nicolas-grekas), habitué de la scène PHP et membre de la Symfony Core Team, nous a présenté les différentes façons d'utiliser des lazy objects en PHP et plus spécifiquement à l'aide de Symfony. 
@@ -83,5 +85,6 @@ Pour conclure, Diego nous rappelle le TDD est bien évidemment un outil et non u
 Tout en se basant sur les évolutions des Pokémon, [Marion Hurteau](https://connect.symfony.com/profile/marionleherisson) a introduit le principe de validation dynamique. Par exemple, vérifier que le nom de notre Pokémon contient bien 10 caractères, ou encore selon les différentes règles d'évolution en fonction du type de Pokémon utilisé. À l'aide d'exemple de code qui sont sur son repo Git, elle a passé en revue les façons d'implémenter des validations à l'aide du Symfony Validator Component. Au fil de sa présentation, la complexité des contraintes croît ce qui permet de voir un éventail développé de possibilités.
 
 ## Notre retour d'expérience
+Encore une fois participer à un évènement de cette envergure a permis à nos équipes de découvrir ou d'approfondir certaines connaissances. Nous pouvons aussi nous rendre compte de notre travail quotidien et prendre du recul sur celui-ci. Cette expérience anglophone était très enrichissante et les conférences proposées étaient variées. Il y avait de la résolution de problèmes techniques, des retours d'expériences ou encore de la télémétrie.
 
 ![Fresque Lego symfony](/images/posts/symfonycon2022/IMG-0773.jpg)
