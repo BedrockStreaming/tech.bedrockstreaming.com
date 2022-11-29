@@ -84,6 +84,32 @@ Pour conclure, Diego nous rappelle le TDD est bien évidemment un outil et non u
 
 Tout en se basant sur les évolutions des Pokémon, [Marion Hurteau](https://connect.symfony.com/profile/marionleherisson) a introduit le principe de validation dynamique. Par exemple, vérifier que le nom de notre Pokémon contient bien 10 caractères, ou encore selon les différentes règles d'évolution en fonction du type de Pokémon utilisé. À l'aide d'exemple de code qui sont sur son repo Git, elle a passé en revue les façons d'implémenter des validations à l'aide du Symfony Validator Component. Au fil de sa présentation, la complexité des contraintes croît ce qui permet de voir un éventail développé de possibilités.
 
+###  From monolith to decoupled…wait, why is that one getting bigger?!?
+Lors de cette conférence, Shawana spoor est venue nous parler de comment découper un monolith en une multitude de micro service grâce au "Strangler Fig Pat".
+Elle a commencée par nous rappeler les avantages et les inconvénients des micro-services comparer au monolith.
+Suite à cela, elle nous a donnée les différentes étapes pour découper un monolith en micro-services et ceux sans jamais arrêter le développement de nouvelle feature grace au `Strangler fig` paterne :
+1- Choisir une fonctionnalitée qui peut être découpé 
+2- Créé le nouveau Service
+3- Déplacer le trafic vers le nouveau service
+4- Recommencer jusqu'à la disparition du monolith
+On peut résumer ce patern via l’image ci-dessous, le tronc représente le monolith, et les branches qui l'étranglent lentement correspondent aux microservices.
+![Strangler Fig Paterne](https://w2j6m4k9.rocketcdn.me/wp-content/uploads/2019/09/Strangler-Tree-Header-Big-1024x576.png)
+
+
+### From a legacy Monolith to a Symfony Service Oriented Architecture with zero downtime
+Lors de la conférence présentée par Clément Bertillons, nous avons pus voir comment ils ont transformé leur ancien monolith composé de milliers de fichiers PHP en un monorepo décomposé en "micro-services" en utilisant le `Strangler Fig` paterne et cela sans aucune rupture de service ni arreter le développement de nouvelles features.
+De manière très simplifiée, ils ont installé Symfony, mis le code legacy dans un dossier à la racine du projet, le routeur symfony permet d'accéder au nouveau micro-service tout en redirigeant vers le legacy si aucun contrôleur n’a été trouvé. Il a conclus avec les règles d’or et comment analyser les performances via Blackfire.
+
+###  PHPStan: Advanced Types
+Cette conférence centrée sur l’outil d'analyse statique de code : PHPStan, a été présentée par son créateur Ondřej Mirtes. Il a commencé par nous rappeler quelle est la différence entre un langage compilé et un langage interprété, le premier ne se compile pas s’il y a des erreurs alors que le second ne plante qu'à l'exécution. Le but de PHPStan est de nous aider à trouver toutes les erreurs sans avoir besoin d'exécuter le code.
+Cet outil analyse toutes les fonctions, les propriétés, le typage PHP mais aussi la PHPDoc. Ondřej nous a ensuite parler de tous les types PHPstan qui existe avec des exemples, en voici quelques un qui ont marqué notre attention : 
+- `non-empty-array`, `non-empty-string`
+- `literal-string`
+- `integer-range`, `integer-mask`, `integer-maskof`
+- conditional return types, union types, intersection types …
+Il finit en nous rappelant que l’utilisation de `@var` est une mauvaise pratique et qu’il valait mieux modifier renforcer le typage quitte a “modifier” la documentation des `vendor` via les `Stub files`.
+
+
 ## Notre retour d'expérience
 Encore une fois participer à un évènement de cette envergure a permis à nos équipes de découvrir ou d'approfondir certaines connaissances. Nous pouvons aussi nous rendre compte de notre travail quotidien et prendre du recul sur celui-ci. Cette expérience anglophone était très enrichissante et les conférences proposées étaient variées. Il y avait de la résolution de problèmes techniques, des retours d'expériences ou encore de la télémétrie.
 
