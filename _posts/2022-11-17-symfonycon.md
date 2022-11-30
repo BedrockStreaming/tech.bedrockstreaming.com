@@ -114,6 +114,24 @@ Cet outil analyse toutes les fonctions, les propriétés, le typage PHP mais aus
 
 Il finit en nous rappelant que l’utilisation de `@var` est une mauvaise pratique et qu’il valait mieux modifier renforcer le typage quitte a “modifier” la documentation des `vendor` via les `Stub files`.
 
+## GNAP: The future of OAuth
+par [Robin Chalas](https://connect.symfony.com/profile/chalas_r) @chalas_r [[Slides](https://slides.com/chalasr/gnap-the-future-of-oauth-2fefdf)]
+
+Robin Chalas nous a présenté GNAP (Grant Negotiation and Authorization Protocol) : une initiative pour développer la prochaine génération de protocole d'autorisation.
+Pour mieux comprendre les enjeux, nous sommes repartis de l’historique d’oauth, ses évolutions et ses écueils. Le constat étant que même si de nombreux problèmes connus ont été résolus, il reste qu'aujourd'hui, pour bien utiliser OAuth 2, il faut lire une douzaine de RFC et s'assurer qu'elles sont pertinentes pour le cas d'utilisation. Cela nuit à l'expérience des développeurs car cela augmente la complexité du protocole, ce qui va à l'encontre de son objectif principal : la simplicité pour les développeurs de clients.
+
+
+GNAP (prononcer nap) est une complète réécriture afin de répondre aux besoins en sécurité des applications modernes:
+Pensé pour tous clients / plateformes (pas uniquement web, possibilités de deeplinking mobile par ex.).
+Les interactions sont un concept clé
+De la crypto partout et des mécanismes de rotation extensibles
+plusieurs Access Tokens / grant request
+gestion de l’identité intégrée
+plus developer friendly
+pas rétrocompatible avec OAUTH2
+
+Ce protocole est toujours à l’état de brouillon, le groupe de travail à été monté en octobre 2020 et lors du dernier rassemblement (nov. 2022), aucune modification du protocole n’a été acté. Le speaker conclut sur la nécessité de commencer à travailler sur l'implémentation de ce protocole dans l'écosystème php afin de supporter ce nouveau standard dont la finalisation ne devrait plus tarder. Pour aller plus loin https://oauth.xyz/
+
 
 ## Notre retour d'expérience
 Encore une fois participer à un évènement de cette envergure a permis à nos équipes de découvrir ou d'approfondir certaines connaissances. Nous pouvons aussi nous rendre compte de notre travail quotidien et prendre du recul sur celui-ci. Cette expérience anglophone était très enrichissante et les conférences proposées étaient variées. Il y avait de la résolution de problèmes techniques, des retours d'expériences ou encore de la télémétrie.
