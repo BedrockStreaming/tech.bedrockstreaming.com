@@ -35,7 +35,7 @@ Pauline nous introduit ensuite la commande `git rebase-i` qui permet un rebase i
 
 Vient ensuite l’utilisation de la commande `git reflog`, commande avec laquelle nous pouvons obtenir le détail des commandes sur la branche, elle peut de ce fait être utile pour réparer une erreur.
 
-####Comment utiliser toutes ces commandes GIT pour débugger ?
+#### Comment utiliser toutes ces commandes GIT pour débugger ?
 Une démonstration de la commande `git bisect` en faisant une recherche dichotomique des commits pour identifier le commit qui a introduit le bug. 
 Elle divise donc ses commits avec `git bisect start`, `git bisect good`, `git bisect bad` , `git bisect reset`
 Pauline pousse la réflexion plus loin en alliant la commande ‘git bisect’ avec un script de débug ou un test unitaire.
@@ -65,12 +65,12 @@ _**“Fake it till you make it”**_ , il s’agit d’abord d’écrire son cod
 ![Fake it till you make it](/images/posts/symfonycon2022/IMG-0852.jpg)
 
 **“ Write your test code, produce it and repeat.”**
-##Pourquoi nous retrouvons nous parfois bloqués ?
+#### Pourquoi nous retrouvons nous parfois bloqués ?
 - Les tests écrits sont peut-être faux
 - Les tests ne sont pas assez segmentés
 - Le code écrit est peut-être trop spécifique
 
-####Comment se débloquer ?
+#### Comment se débloquer ?
 - Continuer et trouver un test plus simple
 - Refactoriser le code en production qui met en difficulté
 - Ecrire les différents use-cases
@@ -78,7 +78,7 @@ _**“Fake it till you make it”**_ , il s’agit d’abord d’écrire son cod
 
 Les cas les plus favorables au TDD sont les nouvelles fonctionnalités qui n’ont pas de lien avec du code legacy. En ce qui concerne les cas non pertinent au TDD, nous retrouvons les cas de configuration, de découverte de code, et de requêtes.
 
-Pour conclure, Diego nous rappelle le TDD est bien évidemment un outil et non une règle.
+Pour conclure, Diego nous rappelle le TDD est bien évidemment est plus un outil qu'une règle.
 
 ## Dynamic Validation With Symfony
 
@@ -134,6 +134,6 @@ Ce protocole est toujours à l’état de brouillon, le groupe de travail à ét
 
 
 ## Notre retour d'expérience
-Encore une fois participer à un évènement de cette envergure a permis à nos équipes de découvrir ou d'approfondir certaines connaissances. Nous pouvons aussi nous rendre compte de notre travail quotidien et prendre du recul sur celui-ci. Cette expérience anglophone était très enrichissante et les conférences proposées étaient variées. Il y avait de la résolution de problèmes techniques, des retours d'expériences ou encore de la télémétrie.
+Cette nouvelle édition de la SynfonyCon nous a permis de découvrir ou d'approfondir certaines connaissances. Nous pouvons aussi nous rendre compte de notre travail quotidien et prendre du recul sur celui-ci. Cette expérience anglophone était très enrichissante et les conférences proposées étaient variées. Il y avait de la résolution de problèmes techniques, des retours d'expériences ou encore de la télémétrie.
 
 ![Fresque Lego symfony](/images/posts/symfonycon2022/IMG-0773.jpg)
