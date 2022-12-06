@@ -1,6 +1,6 @@
 ---
  layout: post
- title: SymfonyCon - Disneyland Paris 2022
+ title: Ce que nous avons retenu de la SymfonyCon - Disneyland Paris 2022
  description: "Nos retours de la SymfonyCon à Paris, les 17 et 18 novembre 2022"
  author: backend
  tags: [conferences, backend, symfony, php]
@@ -12,7 +12,7 @@
 
 En cette fin d'année, une petite équipe de chez Bedrock a assisté au grand retour de la SymfonyCon 2022 après 3 ans d'absence. 
 Nous avons eu la chance de découvrir les nouveautés liées à Symfony 6.2 et d'assister aux conférences sur de nombreux sujets techs à Disneyland.
-La keynote présentée par [Fabien Potencier](https://github.com/fabpot), le créateur de Symfony, nous donne un avant-goût des nouvelles fonctionnalités qui seront présentes dans la nouvelle version de Symfony.
+La keynote présentée par [Fabien Potencier](https://github.com/fabpot), le créateur de Symfony, nous donne un avant-goût des nouvelles fonctionnalités qui seront présentes dans la future version de Symfony.
 Au programme, un nouveau composant Webhooks ainsi que l'évolution du composant Mailer.
 
 ## Unleashing the power of lazy objects in PHP
@@ -34,11 +34,11 @@ Retour dans un premier temps sur l’importance des commits dit “atomic” ave
 - Chaque commit doit fonctionner (tous les tests doivent passer)
 - Chaque message et description doivent être clairs et concis
 
-Pauline introduit ensuite la commande `git rebase-i` qui permet un rebase interactif servant notamment à réécrire notre historique.
+Pauline introduit ensuite la commande `git rebase -i` qui permet un rebase interactif servant notamment à réécrire notre historique.
 
 ![git rebase intéractif](/images/posts/symfonycon2022/IMG-0785.jpg)
 
-Vient ensuite l’utilisation de la commande `git reflog`, commande avec laquelle nous pouvons obtenir le détail des commandes sur la branche, elle peut de ce fait être utile pour réparer une erreur.
+Vient ensuite l’utilisation de la commande `git reflog`, commande avec laquelle nous pouvons obtenir le détail des commandes lancées sur la branche, elle peut de ce fait être utile pour réparer une erreur.
 
 #### Comment utiliser toutes ces commandes GIT pour debugger ?
 Une démonstration de la commande `git bisect` et de toutes ses options qui permettent d'identifier le commit qui a introduit le bug en faisant une recherche dichotomique. 
@@ -96,7 +96,7 @@ Tout en se basant sur les évolutions des Pokémon, [Marion Hurteau](https://con
 Au fil de sa présentation, la complexité des contraintes croît ce qui permet de voir un éventail de possibilités.
 
 ##  From monolith to decoupled…wait, why is that one getting bigger?!?
-Lors de cette conférence, [Shawna Spoor](https://connect.symfony.com/profile/shawnaspoor) est venue nous parler de comment découper un monolith en une multitude de micro-services grâce au "Strangler Fig Pat". Elle a commencé par nous rappeler les avantages et les inconvénients des micro-services comparé à un monolithe.
+Lors de cette conférence, [Shawna Spoor](https://connect.symfony.com/profile/shawnaspoor) est venue nous parler de comment découper un monolithe en une multitude de microservices grâce au "Strangler Fig Pat". Elle a commencé par nous rappeler les avantages et les inconvénients des microservices comparé à un monolithe.
 
 Suite à cela, elle nous a donné les différentes étapes pour découper une application monolithe en micro-services et cela sans jamais arrêter le développement de nouvelles features:  
 - Choisir une fonctionnalité qui peut être découpée
@@ -113,7 +113,7 @@ Lors de la conférence présentée par [Clément Bertillon](https://connect.symf
 
 De manière très simplifiée, ils ont installé Symfony, mis le code legacy dans un dossier à la racine du projet, le routeur symfony permet d'accéder au nouveau micro-service tout en redirigeant vers le legacy si aucun contrôleur n’a été trouvé. Il a conclu avec les règles d’or et comment analyser les performances via Blackfire.
 
-###  PHPStan: Advanced Types
+##  PHPStan: Advanced Types
 Cette conférence centrée sur l’outil d'analyse statique de code : PHPStan, a été présentée par son créateur [Ondřej Mirtes](https://connect.symfony.com/profile/mirtes).
 Il a commencé par nous rappeler quelle est la différence entre un langage compilé et un langage interprété, le premier ne se compile pas s’il y a des erreurs alors que le second ne plante qu'à l'exécution. Le but de PHPStan est de nous aider à identifier toutes les erreurs sans avoir besoin d'exécuter le code.
 
@@ -130,7 +130,7 @@ Il finit en nous rappelant que l’utilisation de `@var` est une mauvaise pratiq
 ## GNAP: The future of OAuth
 [[Slides](https://slides.com/chalasr/gnap-the-future-of-oauth-2fefdf)]
 
-[Robin Chalas](https://connect.symfony.com/profile/chalas_r) @chalas_r nous a présenté GNAP (Grant Negotiation and Authorization Protocol) : une initiative pour développer la prochaine génération de protocole d'autorisation.
+[Robin Chalas](https://connect.symfony.com/profile/chalas_r) @chalas_r nous a présenté GNAP (Grant Negotiation and Authorization Protocol) : une initiative pour développer la prochaine génération de protocoles d'autorisation.
 Pour mieux comprendre les enjeux, nous sommes repartis de l’historique d’oauth, ses évolutions et ses écueils. Le constat étant que même si de nombreux problèmes connus ont été résolus, aujourd'hui, pour bien utiliser OAuth 2, il faut lire une douzaine de RFC et s'assurer qu'elles soient pertinentes pour les différents cas d'utilisation. 
 
 L'augmentation de la complexité du protocole dégrade l'expérience du développeur, ce qui va à l'encontre de son objectif principal qui est la simplicité pour les développeurs de clients.
@@ -145,11 +145,11 @@ GNAP (prononcé "nap") est une complète réécriture afin de répondre aux beso
 - Pas rétrocompatible avec OAUTH2
 
 Ce protocole est toujours à l’état de brouillon, le groupe de travail a été monté en octobre 2020 et lors du dernier rassemblement (nov. 2022), aucune modification du protocole n’a été actée. Le speaker conclut sur la nécessité de commencer à travailler sur l'implémentation de ce protocole dans l'écosystème PHP afin de supporter ce nouveau standard dont la finalisation ne devrait plus tarder. 
-Pour aller plus loin https://oauth.xyz/
+Pour aller plus loin [https://oauth.xyz/](https://oauth.xyz/)
 
 ## A self-training journey to the certification Symfony
 Cette conférence traite de la méthodologie et des bonnes pratiques pour obtenir la fameuse certification Symfony.
-En effet, la conférencière [Camille Jouan](https://connect.symfony.com/profile/ca-jou), nous présente sa manière de préparer l'examen.
+En effet, la conférencière, [Camille Jouan](https://connect.symfony.com/profile/ca-jou), nous présente sa manière de préparer l'examen.
 Elle commence par énoncer son plan d'action :
 - Rassembler un maximum d'informations (Symfony doc, site pour la préparation à la certification, etc)
 - Organiser un plan autour du quoi/comment/pourquoi
