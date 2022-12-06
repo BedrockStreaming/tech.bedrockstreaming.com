@@ -9,8 +9,6 @@ color: rgb(251,87,66)
 language: fr
 ---
 
-# Facilitez l’onboarding de vos collègues grâce à la revue de code!
-
 Au sein des équipes de développement, une activité bien connue est celle de la revue de code, et 
 plus 
 précisément de la **revue du delta du code**. Il s'agit de l'inspection par nos 
