@@ -112,6 +112,8 @@ On peut résumer ce pattern via l’image ci-dessous, le tronc représente le mo
 Lors de la conférence présentée par [Clément Bertillon](https://connect.symfony.com/profile/skigun), nous avons pu voir comment son équipe a transformé leur ancienne application monolithe composée de milliers de fichiers PHP en un monorepo décomposé en micro-services en utilisant le **Strangler Fig** pattern et cela sans aucune rupture de service ni arrêter le développement de nouvelles features.
 
 De manière très simplifiée, ils ont installé Symfony, mis le code legacy dans un dossier à la racine du projet, le routeur symfony permet d'accéder au nouveau micro-service tout en redirigeant vers le legacy si aucun contrôleur n’a été trouvé. Il a conclu avec les règles d’or et comment analyser les performances via Blackfire.
+Ces deux conférences sur le **Strangler fig** paterne, mon permis de mettre en place un micro projet dans un de nos projets, tout en le cloisonnant du code parent (règles d’or vérifié grâce à l'outil présenté [deptrac](https://github.com/qossmic/deptrac)). Ce principe nous permettra de le transformer en micro service très facilement.
+
 
 ##  PHPStan: Advanced Types
 Cette conférence centrée sur l’outil d'analyse statique de code : PHPStan, a été présentée par son créateur [Ondřej Mirtes](https://connect.symfony.com/profile/mirtes).
