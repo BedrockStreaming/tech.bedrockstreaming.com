@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-12-08T08:04:10+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Ce que nous retenons de la droidcon London 2022</title><link href="https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022.html" rel="alternate" type="text/html" title="Ce que nous retenons de la droidcon London 2022" /><published>2022-11-22T00:00:00+00:00</published><updated>2022-11-22T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022.html">&lt;p&gt;La communauté Android a apporté le soleil sur Londres les 27 et 28 octobre 2022. La droidcon London a réuni plus de 1400 développeurs autour de l’écosystème Android, de ses outils et enjeux actuels. Jetpack Compose, évidemment, mais aussi Gradle, modularisation, optimisation et autres sujets plus divers ont été abordés lors de ce rendez-vous incontournable pour la communauté.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-12-21T13:55:17+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Ce que nous retenons de la droidcon London 2022</title><link href="https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022.html" rel="alternate" type="text/html" title="Ce que nous retenons de la droidcon London 2022" /><published>2022-11-22T00:00:00+00:00</published><updated>2022-11-22T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022.html">&lt;p&gt;La communauté Android a apporté le soleil sur Londres les 27 et 28 octobre 2022. La droidcon London a réuni plus de 1400 développeurs autour de l’écosystème Android, de ses outils et enjeux actuels. Jetpack Compose, évidemment, mais aussi Gradle, modularisation, optimisation et autres sujets plus divers ont été abordés lors de ce rendez-vous incontournable pour la communauté.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/2022-11-22-droidcon-london/entrance.jpg&quot; alt=&quot;droidcon London 2022 entrance&quot; /&gt;&lt;/p&gt;
 
@@ -633,7 +633,183 @@ On our scale, this saving represents several tens of thousands of dollars per ye
       &lt;p&gt;For these kind of calculations and reservations, we usually work in pair, as this involves large amounts of money. Lowering risk of doing a costly mistake is quite a good idea. &lt;a href=&quot;#fnref:pair-reserving&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
-&lt;/div&gt;</content><author><name>Pascal Martin</name></author><category term="aws" /><category term="dynamodb" /><category term="finops" /><summary type="html">Many of the microservices in our VOD and Replay platform use DynamoDB as their database. Performance is very good if the data is architected for it, scalability is reasonably fast, and the serverless aspect offloads a lot of the administration and hosting work. Whether it’s performance, resilience or time-to-market, DynamoDB helps us achieve our business goals. That said, when we spend several hundred thousand dollars on DynamoDB every year, any optimization is good for us! With DynamoDB, committing to a certain capacity for a year can help reduce costs – up to 50% savings on that capacity. But how do we know how much to reserve when traffic on our platform varies throughout the day?</summary></entry><entry><title type="html">Un onboarding facilité grâce à la revue de code!</title><link href="https://tech.bedrockstreaming.com/2022/11/15/onboarding-revue-code.html" rel="alternate" type="text/html" title="Un onboarding facilité grâce à la revue de code!" /><published>2022-11-15T00:00:00+00:00</published><updated>2022-11-15T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/11/15/onboarding-revue-code</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/11/15/onboarding-revue-code.html">&lt;p&gt;Au sein des équipes de développement, une activité bien connue est celle de la revue de code, et 
+&lt;/div&gt;</content><author><name>Pascal Martin</name></author><category term="aws" /><category term="dynamodb" /><category term="finops" /><summary type="html">Many of the microservices in our VOD and Replay platform use DynamoDB as their database. Performance is very good if the data is architected for it, scalability is reasonably fast, and the serverless aspect offloads a lot of the administration and hosting work. Whether it’s performance, resilience or time-to-market, DynamoDB helps us achieve our business goals. That said, when we spend several hundred thousand dollars on DynamoDB every year, any optimization is good for us! With DynamoDB, committing to a certain capacity for a year can help reduce costs – up to 50% savings on that capacity. But how do we know how much to reserve when traffic on our platform varies throughout the day?</summary></entry><entry><title type="html">Ce que nous avons retenu de la SymfonyCon - Disneyland Paris 2022</title><link href="https://tech.bedrockstreaming.com/2022/11/17/symfonycon.html" rel="alternate" type="text/html" title="Ce que nous avons retenu de la SymfonyCon - Disneyland Paris 2022" /><published>2022-11-17T00:00:00+00:00</published><updated>2022-11-17T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/11/17/symfonycon</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/11/17/symfonycon.html">&lt;p&gt;En cette fin d’année, une petite équipe de chez Bedrock a assisté au grand retour de la SymfonyCon 2022 après 3 ans d’absence. 
+Nous avons eu la chance de découvrir les nouveautés liées à Symfony 6.2 et d’assister aux conférences sur de nombreux sujets techs à Disneyland.
+La keynote présentée par &lt;a href=&quot;https://github.com/fabpot&quot;&gt;Fabien Potencier&lt;/a&gt;, le créateur de Symfony, nous donne un avant-goût des nouvelles fonctionnalités qui seront présentes dans la future version de Symfony.
+Au programme, un nouveau composant Webhooks ainsi que l’évolution du composant Mailer.&lt;/p&gt;
+
+&lt;h2 id=&quot;unleashing-the-power-of-lazy-objects-in-php&quot;&gt;Unleashing the power of lazy objects in PHP&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://connect.symfony.com/profile/nicolas-grekas&quot;&gt;Nicolas Grekas&lt;/a&gt;, habitué de la scène PHP et membre de la Symfony Core Team, nous a présenté les différentes façons d’utiliser les lazy objects en PHP et plus spécifiquement à l’aide de Symfony. &lt;/p&gt;
+
+&lt;p&gt;Les lazy objects sont des objets instanciés vides qui peuplent leurs propriétés eux-mêmes seulement quand ils sont utilisés.
+Ils sont utiles lors de l’instanciation de lourds objets peu appelés, cela permet de faire du lazy loading.&lt;/p&gt;
+
+&lt;p&gt;Nicolas nous a aussi présenté deux nouveaux traits prochainement disponibles sur Symfony 6.2 permettant de travailler avec ces objets.
+Les &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VirtualInheritanceProxies&lt;/code&gt; et les &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GhostsObjects&lt;/code&gt; sont deux nouvelles possibilités pour implémenter plus facilement des lazy objects en plus du &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ValueHolder&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;advanced-git-magic&quot;&gt;Advanced Git magic&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://connect.symfony.com/profile/paulinevos&quot;&gt;Pauline Vos&lt;/a&gt; nous représente GIT en dehors de son usage quotidien, comment aller plus loin que les pull, commit, push et merge habituels, elle nous livre donc une présentation sur une méthode de debug en utilisant GIT.&lt;/p&gt;
+
+&lt;p&gt;Retour dans un premier temps sur l’importance des commits dit “atomic” avec comme règles :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Chaque commit se résume à un fix ou une feature&lt;/li&gt;
+  &lt;li&gt;Chaque commit doit fonctionner (tous les tests doivent passer)&lt;/li&gt;
+  &lt;li&gt;Chaque message et description doivent être clairs et concis&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Pauline introduit ensuite la commande &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rebase -i&lt;/code&gt; qui permet un rebase interactif servant notamment à réécrire notre historique.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/symfonycon2022/IMG-0785.jpg&quot; alt=&quot;git rebase intéractif&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vient ensuite l’utilisation de la commande &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git reflog&lt;/code&gt;, commande avec laquelle nous pouvons obtenir le détail des commandes lancées sur la branche, elle peut de ce fait être utile pour réparer une erreur.&lt;/p&gt;
+
+&lt;h4 id=&quot;comment-utiliser-toutes-ces-commandes-git-pour-debugger-&quot;&gt;Comment utiliser toutes ces commandes GIT pour debugger ?&lt;/h4&gt;
+&lt;p&gt;Une démonstration de la commande &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git bisect&lt;/code&gt; et de toutes ses options qui permettent d’identifier le commit qui a introduit le bug en faisant une recherche dichotomique.&lt;/p&gt;
+
+&lt;p&gt;Pauline pousse la réflexion plus loin en alliant la commande &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git bisect&lt;/code&gt; avec un script de debug ou un test unitaire.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;“Write it, push it and find where it breaks”&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Afin de tirer parti de cette méthode, il est important que chaque commit soit fonctionnel, tous les tests doivent donc passer.&lt;/p&gt;
+
+&lt;p&gt;Vous pouvez également retrouver &lt;a href=&quot;https://www.pauline-vos.nl/fix-bugs-%e2%9a%a1-fast-with-regression-tests-and-auto-bisect/&quot;&gt;un article de Pauline&lt;/a&gt; à ce sujet sur son blog personnel.&lt;/p&gt;
+
+&lt;h2 id=&quot;schrödingers-sql---the-sql-inside-the-doctrine-box&quot;&gt;Schrödinger’s SQL - The SQL inside the Doctrine box&lt;/h2&gt;
+
+&lt;p&gt;Au début de sa conférence &lt;a href=&quot;https://connect.symfony.com/profile/senseexception&quot;&gt;Claudio Zizza&lt;/a&gt; insiste sur le fait de bien connaître nos bases de données et le langage utilisé pour les requêter, il évoque notamment les différences entre MySQL et PostgreSQL. Ensuite, il nous a parlé de Doctrine ORM, des fonctions que nous apprécions tant, car elles nous facilitent la vie. 
+Puis, il a rappelé l’importance de savoir faire des requêtes SQL même si nous utilisons Doctrine. Comprendre le SQL peut nous permettre d’optimiser notre utilisation de Doctrine et donc de mieux appréhender son fonctionnement. 
+Il insiste aussi sur le fait que SQL “seul” est bien plus puissant que DQL (Doctrine Query Language). 
+Pour terminer, Claudio nous a donné quelques recommandations de lecture pour apprendre le SQL ainsi qu’un site permettant de tester nos requêtes.&lt;/p&gt;
+
+&lt;h2 id=&quot;advanced-test-driven-development&quot;&gt;Advanced Test Driven Development&lt;/h2&gt;
+
+&lt;p&gt;Durant cette conférence, &lt;a href=&quot;https://connect.symfony.com/profile/mollokhan&quot;&gt;Diego Aguiar&lt;/a&gt;, développeur de chez SymfonyCasts nous rappelle ce qu’est le &lt;strong&gt;TDD (Test Driven Development)&lt;/strong&gt;, son histoire, les différentes techniques ainsi que des astuces afin de nous débloquer et bien sûr les cas où il ne semble pas utile d’utiliser le TDD.&lt;/p&gt;
+
+&lt;p&gt;À retenir, le TDD est une discipline, il faut beaucoup d’entraînement et répéter continuellement ces exercices.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/symfonycon2022/IMG-0848.jpg&quot; alt=&quot;tdd discipline&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;“Fake it till you make it”&lt;/strong&gt;&lt;/em&gt;, il s’agit d’abord d’écrire son code de test en utilisant par exemple des assertions, des tests avec différentes sorties et ensuite de produire le code qui va résoudre ces tests.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/symfonycon2022/IMG-0852.jpg&quot; alt=&quot;Fake it till you make it&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;“ Write your test code, produce it and repeat.”&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;pourquoi-nous-retrouvons-nous-parfois-bloqués-&quot;&gt;Pourquoi nous retrouvons nous parfois bloqués ?&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Les tests écrits sont peut-être faux&lt;/li&gt;
+  &lt;li&gt;Les tests ne sont pas assez segmentés&lt;/li&gt;
+  &lt;li&gt;Le code écrit est peut-être trop spécifique&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;comment-se-débloquer-&quot;&gt;Comment se débloquer ?&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Continuer et trouver un test plus simple&lt;/li&gt;
+  &lt;li&gt;Refactoriser le code en production qui met en difficulté&lt;/li&gt;
+  &lt;li&gt;Écrire les différents use-cases&lt;/li&gt;
+  &lt;li&gt;Passer outre les tests un instant&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Les cas les plus favorables au TDD sont les nouvelles fonctionnalités qui n’ont pas de lien avec du code legacy. En ce qui concerne les cas non pertinent au TDD, nous retrouvons les cas de configuration, de découverte de code et de requêtes.&lt;/p&gt;
+
+&lt;p&gt;Pour conclure, Diego nous rappelle que le TDD est bien évidemment plus un outil qu’une règle.&lt;/p&gt;
+
+&lt;h2 id=&quot;dynamic-validation-with-symfony&quot;&gt;Dynamic Validation With Symfony&lt;/h2&gt;
+
+&lt;p&gt;Tout en se basant sur les évolutions des Pokémon, &lt;a href=&quot;https://connect.symfony.com/profile/marionleherisson&quot;&gt;Marion Hurteau&lt;/a&gt; a introduit le principe de validation dynamique. Par exemple, vérifier que le nom de notre Pokémon contient bien 10 caractères, ou encore les différentes règles d’évolution en fonction du type de Pokémon. 
+À l’aide d’exemples de code qui sont disponibles sur son repo Git, elle a passé en revue les façons d’implémenter des validations à l’aide du composant &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Symfony Validator&lt;/code&gt;.
+Au fil de sa présentation, la complexité des contraintes croît ce qui permet de voir un éventail de possibilités.&lt;/p&gt;
+
+&lt;h2 id=&quot;from-monolith-to-decoupledwait-why-is-that-one-getting-bigger&quot;&gt;From monolith to decoupled…wait, why is that one getting bigger?!?&lt;/h2&gt;
+&lt;p&gt;Lors de cette conférence, &lt;a href=&quot;https://connect.symfony.com/profile/shawnaspoor&quot;&gt;Shawna Spoor&lt;/a&gt; est venue nous parler de comment découper un monolithe en une multitude de microservices grâce au “Strangler Fig Pat”. Elle a commencé par nous rappeler les avantages et les inconvénients des microservices comparé à un monolithe.&lt;/p&gt;
+
+&lt;p&gt;Suite à cela, elle nous a donné les différentes étapes pour découper une application monolithe en micro-services et cela sans jamais arrêter le développement de nouvelles features:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Choisir une fonctionnalité qui peut être découpée&lt;/li&gt;
+  &lt;li&gt;Créé le nouveau Service&lt;/li&gt;
+  &lt;li&gt;Déplacer le trafic vers le nouveau service&lt;/li&gt;
+  &lt;li&gt;Recommencer jusqu’à la disparition du monolithe&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;On peut résumer ce pattern via l’image ci-dessous, le tronc représente le monolithe et les branches qui l’étranglent lentement correspondent aux micro-services.
+&lt;img src=&quot;https://w2j6m4k9.rocketcdn.me/wp-content/uploads/2019/09/Strangler-Tree-Header-Big-1024x576.png&quot; alt=&quot;Strangler Fig Paterne&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;from-a-legacy-monolith-to-a-symfony-service-oriented-architecture-with-zero-downtime&quot;&gt;From a legacy Monolith to a Symfony Service Oriented Architecture with zero downtime&lt;/h2&gt;
+&lt;p&gt;Lors de la conférence présentée par &lt;a href=&quot;https://connect.symfony.com/profile/skigun&quot;&gt;Clément Bertillon&lt;/a&gt;, nous avons pu voir comment son équipe a transformé leur ancienne application monolithe composée de milliers de fichiers PHP en un monorepo décomposé en micro-services en utilisant le &lt;strong&gt;Strangler Fig&lt;/strong&gt; pattern et cela sans aucune rupture de service ni arrêter le développement de nouvelles features.&lt;/p&gt;
+
+&lt;p&gt;De manière très simplifiée, ils ont installé Symfony, mis le code legacy dans un dossier à la racine du projet, le routeur symfony permet d’accéder au nouveau micro-service tout en redirigeant vers le legacy si aucun contrôleur n’a été trouvé. Il a conclu avec les règles d’or et comment analyser les performances via Blackfire.
+Ces deux conférences sur le &lt;strong&gt;Strangler fig&lt;/strong&gt; paterne, mon permis de mettre en place un micro projet dans un de nos projets, tout en le cloisonnant du code parent (règles d’or vérifié grâce à l’outil présenté &lt;a href=&quot;https://github.com/qossmic/deptrac&quot;&gt;deptrac&lt;/a&gt;). Ce principe nous permettra de le transformer en micro service très facilement.&lt;/p&gt;
+
+&lt;h2 id=&quot;phpstan-advanced-types&quot;&gt;PHPStan: Advanced Types&lt;/h2&gt;
+&lt;p&gt;Cette conférence centrée sur l’outil d’analyse statique de code : PHPStan, a été présentée par son créateur &lt;a href=&quot;https://connect.symfony.com/profile/mirtes&quot;&gt;Ondřej Mirtes&lt;/a&gt;.
+Il a commencé par nous rappeler quelle est la différence entre un langage compilé et un langage interprété, le premier ne se compile pas s’il y a des erreurs alors que le second ne plante qu’à l’exécution. Le but de PHPStan est de nous aider à identifier toutes les erreurs sans avoir besoin d’exécuter le code.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/symfonycon2022/phpstan.png&quot; alt=&quot;PHPstan&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Cet outil analyse toutes les fonctions, les propriétés, le typage PHP, mais aussi la PHPDoc. Ondřej nous a ensuite parlé de tous les types PHPStan avec des exemples, en voici quelques un qui ont marqué notre attention :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;non-empty-array&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;non-empty-string&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;literal-string&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;integer-range&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;integer-mask&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;integer-maskof&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;conditional return types, union types, intersection types&lt;/code&gt; …&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Il finit en nous rappelant que l’utilisation de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@var&lt;/code&gt; est une mauvaise pratique et qu’il vaut mieux renforcer le typage quitte à modifier la documentation des &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vendor&lt;/code&gt; via les &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Stub files&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;gnap-the-future-of-oauth&quot;&gt;GNAP: The future of OAuth&lt;/h2&gt;
+&lt;p&gt;[&lt;a href=&quot;https://slides.com/chalasr/gnap-the-future-of-oauth-2fefdf&quot;&gt;Slides&lt;/a&gt;]&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://connect.symfony.com/profile/chalas_r&quot;&gt;Robin Chalas&lt;/a&gt; @chalas_r nous a présenté GNAP (Grant Negotiation and Authorization Protocol) : une initiative pour développer la prochaine génération de protocoles d’autorisation.
+Pour mieux comprendre les enjeux, nous sommes repartis de l’historique d’oauth, ses évolutions et ses écueils. Le constat étant que même si de nombreux problèmes connus ont été résolus, aujourd’hui, pour bien utiliser OAuth 2, il faut lire une douzaine de RFC et s’assurer qu’elles soient pertinentes pour les différents cas d’utilisation.&lt;/p&gt;
+
+&lt;p&gt;L’augmentation de la complexité du protocole dégrade l’expérience du développeur, ce qui va à l’encontre de son objectif principal qui est la simplicité pour les développeurs de clients.&lt;/p&gt;
+
+&lt;p&gt;GNAP (prononcé “nap”) est une complète réécriture afin de répondre aux besoins en sécurité des applications modernes :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Pensé pour tous les clients, plateformes (pas uniquement web, possibilités de deeplinking mobile par exemple)&lt;/li&gt;
+  &lt;li&gt;les interactions sont un concept clé&lt;/li&gt;
+  &lt;li&gt;Du chiffrement partout et des mécanismes de rotation extensibles&lt;/li&gt;
+  &lt;li&gt;Plusieurs Access Tokens / grant request&lt;/li&gt;
+  &lt;li&gt;Gestion de l’identité intégrée&lt;/li&gt;
+  &lt;li&gt;Plus developer friendly&lt;/li&gt;
+  &lt;li&gt;Pas rétrocompatible avec OAUTH2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ce protocole est toujours à l’état de brouillon, le groupe de travail a été monté en octobre 2020 et lors du dernier rassemblement (nov. 2022), aucune modification du protocole n’a été actée. Le speaker conclut sur la nécessité de commencer à travailler sur l’implémentation de ce protocole dans l’écosystème PHP afin de supporter ce nouveau standard dont la finalisation ne devrait plus tarder. 
+Pour aller plus loin &lt;a href=&quot;https://oauth.xyz/&quot;&gt;https://oauth.xyz/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;a-self-training-journey-to-the-certification-symfony&quot;&gt;A self-training journey to the certification Symfony&lt;/h2&gt;
+&lt;p&gt;Cette conférence traite de la méthodologie et des bonnes pratiques pour obtenir la fameuse certification Symfony.
+En effet, la conférencière, &lt;a href=&quot;https://connect.symfony.com/profile/ca-jou&quot;&gt;Camille Jouan&lt;/a&gt;, nous présente sa manière de préparer l’examen.
+Elle commence par énoncer son plan d’action :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Rassembler un maximum d’informations (Symfony doc, site pour la préparation à la certification, etc)&lt;/li&gt;
+  &lt;li&gt;Organiser un plan autour du quoi/comment/pourquoi&lt;/li&gt;
+  &lt;li&gt;Faire une timeline avec les étapes prévues&lt;/li&gt;
+  &lt;li&gt;Se fixer un objectif dans le temps&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;L’idée est d’accepter que cela ne sera pas parfait et que des retouches vont y être apportées&lt;/p&gt;
+
+&lt;p&gt;Pour Camille, l’idéal serait de pouvoir faire un test blanc au bout d’un certain temps de préparation sans “grandes convictions” : le but étant de se familiariser avec l’exercice.
+Si les fonds sont disponibles, &lt;a href=&quot;https://training.sensiolabs.com/fr/courses/SF5PRECERTIF-preparation-certifcation-symfony-5-online-sensiolabs-university&quot;&gt;un training est proposé par Sensiolabs&lt;/a&gt;.
+En fonction de cet examen blanc, ajuster son plan, se concentrer sur des parties qui doivent être approfondies.
+Un autre point sur lequel la conférencière a insisté est le monitoring : régulièrement faire un bilan sur son avancée pour s’adapter.
+Des outils comme Trello, Excel, Google permettent d’en avoir une vision globale.&lt;/p&gt;
+
+&lt;p&gt;Il est important de parler de ce projet autour de soi, notamment auprès de ses proches pour avoir du soutien, mais également auprès de son entreprise qui peut éventuellement proposer une subvention et ou un aménagement du temps de travail.&lt;/p&gt;
+
+&lt;p&gt;Elle conclut son intervention par un dernier conseil : cette méthodologie est adaptable à la vie quotidienne et peut être utile dans d’autres situations.&lt;/p&gt;
+
+&lt;h2 id=&quot;notre-retour-dexpérience&quot;&gt;Notre retour d’expérience&lt;/h2&gt;
+&lt;p&gt;Cette nouvelle édition de la SymfonyCon nous a permis de découvrir ou d’approfondir certaines connaissances. 
+Nous pouvons aussi nous rendre compte de notre travail quotidien et prendre du recul sur celui-ci.
+Cette expérience anglophone était très enrichissante et les conférences proposées étaient variées.
+Il y avait de la résolution de problèmes techniques, des retours d’expériences ou encore de la télémétrie.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/symfonycon2022/IMG-0773.jpg&quot; alt=&quot;Fresque Lego symfony&quot; /&gt;&lt;/p&gt;</content><author><name>backend</name></author><category term="conferences" /><category term="backend" /><category term="symfony" /><category term="php" /><summary type="html">En cette fin d’année, une petite équipe de chez Bedrock a assisté au grand retour de la SymfonyCon 2022 après 3 ans d’absence. Nous avons eu la chance de découvrir les nouveautés liées à Symfony 6.2 et d’assister aux conférences sur de nombreux sujets techs à Disneyland. La keynote présentée par Fabien Potencier, le créateur de Symfony, nous donne un avant-goût des nouvelles fonctionnalités qui seront présentes dans la future version de Symfony. Au programme, un nouveau composant Webhooks ainsi que l’évolution du composant Mailer.</summary></entry><entry><title type="html">Un onboarding facilité grâce à la revue de code!</title><link href="https://tech.bedrockstreaming.com/2022/11/15/onboarding-revue-code.html" rel="alternate" type="text/html" title="Un onboarding facilité grâce à la revue de code!" /><published>2022-11-15T00:00:00+00:00</published><updated>2022-11-15T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/11/15/onboarding-revue-code</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/11/15/onboarding-revue-code.html">&lt;p&gt;Au sein des équipes de développement, une activité bien connue est celle de la revue de code, et 
 plus 
 précisément de la &lt;strong&gt;revue du delta du code&lt;/strong&gt;. Il s’agit de l’inspection par nos 
 pairs du code proposé par nos soins, qui se trouve ainsi commenté pour répondre aux 
@@ -1519,148 +1695,4 @@ S’en est ajoutée la question du sens par rapport à son travail. Effectivemen
 &lt;p&gt;Et bien sûr, quand cela sera possible, nous vous encourageons fortement de regarder le replay de cette conférence (&lt;a href=&quot;https://www.youtube.com/c/Les-tilleulsCoop&quot;&gt;sur la chaine des Tilleuls&lt;/a&gt;) qui redonne un peu d’espoir quant aux futurs des organisations démocratiques de nos métiers.&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;Merci à toutes et tous les speakers, à API Platform ainsi qu’aux Tilleuls-coop pour cet évènement ! Nous avons pu en apprendre plus sur API Platform et revenir la tête pleine d’idées pour nos projets futurs et présents ! À l’année prochaine peut-être !&lt;/p&gt;</content><author><name>backend</name></author><category term="conferences" /><category term="backend" /><category term="api" /><category term="php" /><summary type="html">En cette période de rentrée, Bedrock participait à l’API Platform Conference 2022, où nous avons eu le plaisir d’assister à une partie des conférences proposées. Un grand merci à toutes les personnes chez Les-Tilleuls.coop pour l’organisation de cet évènement ! Pour cette seconde édition, le programme était réparti sur deux jours, les 15 &amp;amp; 16 septembre 2022.</summary></entry><entry><title type="html">Bedrock Dev Facts #18</title><link href="https://tech.bedrockstreaming.com/2022/10/07/bedrock-dev-facts-18.html" rel="alternate" type="text/html" title="Bedrock Dev Facts #18" /><published>2022-10-07T00:00:00+00:00</published><updated>2022-10-07T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/10/07/bedrock-dev-facts-18</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/10/07/bedrock-dev-facts-18.html">&lt;p&gt;C’est maintenant l’automne 🍁🎃, on vous propose les devfacts de cette fin d’été et il y a du lourd !&lt;/p&gt;
-
-&lt;h1 id=&quot;cogito-ergo-sum&quot;&gt;Cogito ergo sum&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Le seul truc que je “sais” c’est “on paye 200 par mois pour avoir un direct connect” ; mais peut-être que je sais que je ne sais rien.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1&gt;👋🔥🙊🎉&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Je te fais confiance, je te laisserai mettre des emoji sur ma tombe&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;la-priorité-cest-important&quot;&gt;La priorité c’est important&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;C’est plus important que des trucs moins importants.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;biafine-nécessaire&quot;&gt;Biafine nécessaire&lt;/h1&gt;
-
-&lt;p&gt;&lt;em&gt;Un QA voulant faire une vanne au morning&lt;/em&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Le QA: “Qu’est-ce qui a deux lettres et qui marche pas?”&lt;/p&gt;
-
-  &lt;p&gt;Réponse du dev: “La QA ?”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;3615-croissants&quot;&gt;3615 croissants&lt;/h1&gt;
-
-&lt;p&gt;&lt;em&gt;Parlant d’une évolution majeure&lt;/em&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Est-ce que c’est OK pour vous pour qu’on MEP aujourd’hui ou pas ?&lt;/p&gt;
-
-  &lt;p&gt;À priori pas de contre-indications. Peut-être acheter directement une boulangerie ?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;sugar-&quot;&gt;Sugar !&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;C’est du sucre syntaxique&lt;/p&gt;
-
-  &lt;p&gt;Quand il y a trop de sucre, tu risques du diabète&lt;/p&gt;
-
-  &lt;p&gt;Surtout que le diabète syntaxique, c’est le pire&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;la-metric&quot;&gt;LA metric&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Je crois qu’on est bon, on a pas plus d’erreur que d’user.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;le-verre-à-moitié-plein&quot;&gt;Le verre à moitié plein&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Du coup ça a cassé je suppose?&lt;/p&gt;
-
-  &lt;p&gt;Ouais, enfin pas totalement, presque un succès.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;la-montagne-ça-vous-gagne&quot;&gt;La montagne ça vous gagne&lt;/h1&gt;
-
-&lt;p&gt;&lt;em&gt;En parlant de son ascension du Ventoux à vélo:&lt;/em&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“Moi je pensais vraiment que j’étais prêt”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;mais-pourquoi-&quot;&gt;Mais pourquoi ?&lt;/h1&gt;
-
-&lt;p&gt;&lt;em&gt;Essayant de comprendre pourquoi une commande met beaucoup de temps sur sa machine.&lt;/em&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Je suis sur master, branche à jour, yarn réalisé juste avant, et je pense pas que mon PC soit particulièrement atteint de maladie congénitale
-(Enfin, j’espère pas?)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;read-me-please&quot;&gt;Read me please&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Tout est dans le README (que les gens liront pas de toute façon mais bon).&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;les-étoiles-️&quot;&gt;Les étoiles ⭐️&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Être responsable d’un incident, c’est pas marrant c’est sûr. 
-Mais ça forme !
-Casser la prod et la réparer ça donne une étoile sur le maillot, et je peux te dire qu’on est plusieurs ici à avoir plus d’étoiles que le drapeau américain.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;review-main-dans-la-main&quot;&gt;Review main dans la main&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;La peer review, c’est la meilleure des reviews.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;patterns&quot;&gt;Patterns&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;A : “Je pense que je vais devoir faire un singleton pour ça…”&lt;/p&gt;
-
-  &lt;p&gt;B : “Sinon, tu devrais pouvoir aussi faire des multitons ?”&lt;/p&gt;
-
-  &lt;p&gt;C : “On appelle ça une boîte de conserve.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;ම&quot;&gt;ම&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Ça devait être en base64 des Maya&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;time-is-relative&quot;&gt;Time is relative&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Je pense que la première fois ce sera long …et après ce ne sera pas long, mais ce sera long quand même.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;bim&quot;&gt;:bim:&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Alors l’intelligence elle existe déjà, elle s’appelle vous-même… mais actuellement elle n’est pas disponible.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;️&quot;&gt;☕️&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Tu peux mettre autant de code brouette dans tes pull request que de sucre dans ton café : L’important, c’est que ça soit bien dilué. 
-Moi, je ne sucre pas mon café.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;-1&quot;&gt;🔍&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Normalement j’utilise un vrai IDE. Mais je ne sais pas monter le zoom sur PHPStorm&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;encore-une-histoire-de-date&quot;&gt;Encore une histoire de date&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;C’est une fois par semaine, les releases mensuelles ?&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>Bedrock</name></author><category term="devfacts" /><category term="humour" /><summary type="html">C’est maintenant l’automne 🍁🎃, on vous propose les devfacts de cette fin d’été et il y a du lourd !</summary></entry></feed>
+&lt;p&gt;Merci à toutes et tous les speakers, à API Platform ainsi qu’aux Tilleuls-coop pour cet évènement ! Nous avons pu en apprendre plus sur API Platform et revenir la tête pleine d’idées pour nos projets futurs et présents ! À l’année prochaine peut-être !&lt;/p&gt;</content><author><name>backend</name></author><category term="conferences" /><category term="backend" /><category term="api" /><category term="php" /><summary type="html">En cette période de rentrée, Bedrock participait à l’API Platform Conference 2022, où nous avons eu le plaisir d’assister à une partie des conférences proposées. Un grand merci à toutes les personnes chez Les-Tilleuls.coop pour l’organisation de cet évènement ! Pour cette seconde édition, le programme était réparti sur deux jours, les 15 &amp;amp; 16 septembre 2022.</summary></entry></feed>

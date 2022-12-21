@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/symfonycon2022/header.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Ce que nous avons retenu de la SymfonyCon - Disneyland Paris 2022 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Ce que nous avons retenu de la SymfonyCon - Disneyland Paris 2022" />
+<meta name="author" content="backend" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Nos retours de la SymfonyCon à Paris, les 17 et 18 novembre 2022" />
+<meta property="og:description" content="Nos retours de la SymfonyCon à Paris, les 17 et 18 novembre 2022" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2022/11/17/symfonycon.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2022/11/17/symfonycon.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-11-17T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Ce que nous avons retenu de la SymfonyCon - Disneyland Paris 2022" />
+<script type="application/ld+json">
+{"description":"Nos retours de la SymfonyCon à Paris, les 17 et 18 novembre 2022","headline":"Ce que nous avons retenu de la SymfonyCon - Disneyland Paris 2022","dateModified":"2022-11-17T00:00:00+00:00","datePublished":"2022-11-17T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/11/17/symfonycon.html"},"url":"https://tech.bedrockstreaming.com/2022/11/17/symfonycon.html","author":{"@type":"Person","name":"backend"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Ce que nous avons retenu de la SymfonyCon - Disneyland Paris 2022">
+    <meta name="twitter:description" content="En cette fin d’année, une petite équipe de chez Bedrock a assisté au grand retour de la SymfonyCon 2022 après 3 ans d’absence. Nous avons eu la chance de déc...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/symfonycon2022/header.jpg">
+    <meta name="twitter:image:alt" content="Ce que nous avons retenu de la SymfonyCon - Disneyland Paris 2022">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Ce que nous avons retenu de la SymfonyCon - Disneyland Paris 2022 " aria-label="Ce que nous avons retenu de la SymfonyCon - Disneyland Paris 2022" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Ce+que+nous+avons+retenu+de+la+SymfonyCon+-+Disneyland+Paris+2022" class="title">Ce que nous avons retenu de la SymfonyCon - Disneyland Paris 2022</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      November 17, 2022
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>En cette fin d’année, une petite équipe de chez Bedrock a assisté au grand retour de la SymfonyCon 2022 après 3 ans d’absence. 
+Nous avons eu la chance de découvrir les nouveautés liées à Symfony 6.2 et d’assister aux conférences sur de nombreux sujets techs à Disneyland.
+La keynote présentée par <a href="https://github.com/fabpot">Fabien Potencier</a>, le créateur de Symfony, nous donne un avant-goût des nouvelles fonctionnalités qui seront présentes dans la future version de Symfony.
+Au programme, un nouveau composant Webhooks ainsi que l’évolution du composant Mailer.</p>
+
+<h2 id="unleashing-the-power-of-lazy-objects-in-php">Unleashing the power of lazy objects in PHP</h2>
+
+<p><a href="https://connect.symfony.com/profile/nicolas-grekas">Nicolas Grekas</a>, habitué de la scène PHP et membre de la Symfony Core Team, nous a présenté les différentes façons d’utiliser les lazy objects en PHP et plus spécifiquement à l’aide de Symfony. </p>
+
+<p>Les lazy objects sont des objets instanciés vides qui peuplent leurs propriétés eux-mêmes seulement quand ils sont utilisés.
+Ils sont utiles lors de l’instanciation de lourds objets peu appelés, cela permet de faire du lazy loading.</p>
+
+<p>Nicolas nous a aussi présenté deux nouveaux traits prochainement disponibles sur Symfony 6.2 permettant de travailler avec ces objets.
+Les <code class="language-plaintext highlighter-rouge">VirtualInheritanceProxies</code> et les <code class="language-plaintext highlighter-rouge">GhostsObjects</code> sont deux nouvelles possibilités pour implémenter plus facilement des lazy objects en plus du <code class="language-plaintext highlighter-rouge">ValueHolder</code>.</p>
+
+<h2 id="advanced-git-magic">Advanced Git magic</h2>
+
+<p><a href="https://connect.symfony.com/profile/paulinevos">Pauline Vos</a> nous représente GIT en dehors de son usage quotidien, comment aller plus loin que les pull, commit, push et merge habituels, elle nous livre donc une présentation sur une méthode de debug en utilisant GIT.</p>
+
+<p>Retour dans un premier temps sur l’importance des commits dit “atomic” avec comme règles :</p>
+<ul>
+  <li>Chaque commit se résume à un fix ou une feature</li>
+  <li>Chaque commit doit fonctionner (tous les tests doivent passer)</li>
+  <li>Chaque message et description doivent être clairs et concis</li>
+</ul>
+
+<p>Pauline introduit ensuite la commande <code class="language-plaintext highlighter-rouge">git rebase -i</code> qui permet un rebase interactif servant notamment à réécrire notre historique.</p>
+
+<p><img src="/images/posts/symfonycon2022/IMG-0785.jpg" alt="git rebase intéractif" /></p>
+
+<p>Vient ensuite l’utilisation de la commande <code class="language-plaintext highlighter-rouge">git reflog</code>, commande avec laquelle nous pouvons obtenir le détail des commandes lancées sur la branche, elle peut de ce fait être utile pour réparer une erreur.</p>
+
+<h4 id="comment-utiliser-toutes-ces-commandes-git-pour-debugger-">Comment utiliser toutes ces commandes GIT pour debugger ?</h4>
+<p>Une démonstration de la commande <code class="language-plaintext highlighter-rouge">git bisect</code> et de toutes ses options qui permettent d’identifier le commit qui a introduit le bug en faisant une recherche dichotomique.</p>
+
+<p>Pauline pousse la réflexion plus loin en alliant la commande <code class="language-plaintext highlighter-rouge">git bisect</code> avec un script de debug ou un test unitaire.</p>
+
+<p><em>“Write it, push it and find where it breaks”</em></p>
+
+<p>Afin de tirer parti de cette méthode, il est important que chaque commit soit fonctionnel, tous les tests doivent donc passer.</p>
+
+<p>Vous pouvez également retrouver <a href="https://www.pauline-vos.nl/fix-bugs-%e2%9a%a1-fast-with-regression-tests-and-auto-bisect/">un article de Pauline</a> à ce sujet sur son blog personnel.</p>
+
+<h2 id="schrödingers-sql---the-sql-inside-the-doctrine-box">Schrödinger’s SQL - The SQL inside the Doctrine box</h2>
+
+<p>Au début de sa conférence <a href="https://connect.symfony.com/profile/senseexception">Claudio Zizza</a> insiste sur le fait de bien connaître nos bases de données et le langage utilisé pour les requêter, il évoque notamment les différences entre MySQL et PostgreSQL. Ensuite, il nous a parlé de Doctrine ORM, des fonctions que nous apprécions tant, car elles nous facilitent la vie. 
+Puis, il a rappelé l’importance de savoir faire des requêtes SQL même si nous utilisons Doctrine. Comprendre le SQL peut nous permettre d’optimiser notre utilisation de Doctrine et donc de mieux appréhender son fonctionnement. 
+Il insiste aussi sur le fait que SQL “seul” est bien plus puissant que DQL (Doctrine Query Language). 
+Pour terminer, Claudio nous a donné quelques recommandations de lecture pour apprendre le SQL ainsi qu’un site permettant de tester nos requêtes.</p>
+
+<h2 id="advanced-test-driven-development">Advanced Test Driven Development</h2>
+
+<p>Durant cette conférence, <a href="https://connect.symfony.com/profile/mollokhan">Diego Aguiar</a>, développeur de chez SymfonyCasts nous rappelle ce qu’est le <strong>TDD (Test Driven Development)</strong>, son histoire, les différentes techniques ainsi que des astuces afin de nous débloquer et bien sûr les cas où il ne semble pas utile d’utiliser le TDD.</p>
+
+<p>À retenir, le TDD est une discipline, il faut beaucoup d’entraînement et répéter continuellement ces exercices.</p>
+
+<p><img src="/images/posts/symfonycon2022/IMG-0848.jpg" alt="tdd discipline" /></p>
+
+<p><em><strong>“Fake it till you make it”</strong></em>, il s’agit d’abord d’écrire son code de test en utilisant par exemple des assertions, des tests avec différentes sorties et ensuite de produire le code qui va résoudre ces tests.</p>
+
+<p><img src="/images/posts/symfonycon2022/IMG-0852.jpg" alt="Fake it till you make it" /></p>
+
+<p><strong>“ Write your test code, produce it and repeat.”</strong></p>
+
+<h4 id="pourquoi-nous-retrouvons-nous-parfois-bloqués-">Pourquoi nous retrouvons nous parfois bloqués ?</h4>
+<ul>
+  <li>Les tests écrits sont peut-être faux</li>
+  <li>Les tests ne sont pas assez segmentés</li>
+  <li>Le code écrit est peut-être trop spécifique</li>
+</ul>
+
+<h4 id="comment-se-débloquer-">Comment se débloquer ?</h4>
+<ul>
+  <li>Continuer et trouver un test plus simple</li>
+  <li>Refactoriser le code en production qui met en difficulté</li>
+  <li>Écrire les différents use-cases</li>
+  <li>Passer outre les tests un instant</li>
+</ul>
+
+<p>Les cas les plus favorables au TDD sont les nouvelles fonctionnalités qui n’ont pas de lien avec du code legacy. En ce qui concerne les cas non pertinent au TDD, nous retrouvons les cas de configuration, de découverte de code et de requêtes.</p>
+
+<p>Pour conclure, Diego nous rappelle que le TDD est bien évidemment plus un outil qu’une règle.</p>
+
+<h2 id="dynamic-validation-with-symfony">Dynamic Validation With Symfony</h2>
+
+<p>Tout en se basant sur les évolutions des Pokémon, <a href="https://connect.symfony.com/profile/marionleherisson">Marion Hurteau</a> a introduit le principe de validation dynamique. Par exemple, vérifier que le nom de notre Pokémon contient bien 10 caractères, ou encore les différentes règles d’évolution en fonction du type de Pokémon. 
+À l’aide d’exemples de code qui sont disponibles sur son repo Git, elle a passé en revue les façons d’implémenter des validations à l’aide du composant <code class="language-plaintext highlighter-rouge">Symfony Validator</code>.
+Au fil de sa présentation, la complexité des contraintes croît ce qui permet de voir un éventail de possibilités.</p>
+
+<h2 id="from-monolith-to-decoupledwait-why-is-that-one-getting-bigger">From monolith to decoupled…wait, why is that one getting bigger?!?</h2>
+<p>Lors de cette conférence, <a href="https://connect.symfony.com/profile/shawnaspoor">Shawna Spoor</a> est venue nous parler de comment découper un monolithe en une multitude de microservices grâce au “Strangler Fig Pat”. Elle a commencé par nous rappeler les avantages et les inconvénients des microservices comparé à un monolithe.</p>
+
+<p>Suite à cela, elle nous a donné les différentes étapes pour découper une application monolithe en micro-services et cela sans jamais arrêter le développement de nouvelles features:</p>
+<ul>
+  <li>Choisir une fonctionnalité qui peut être découpée</li>
+  <li>Créé le nouveau Service</li>
+  <li>Déplacer le trafic vers le nouveau service</li>
+  <li>Recommencer jusqu’à la disparition du monolithe</li>
+</ul>
+
+<p>On peut résumer ce pattern via l’image ci-dessous, le tronc représente le monolithe et les branches qui l’étranglent lentement correspondent aux micro-services.
+<img src="https://w2j6m4k9.rocketcdn.me/wp-content/uploads/2019/09/Strangler-Tree-Header-Big-1024x576.png" alt="Strangler Fig Paterne" /></p>
+
+<h2 id="from-a-legacy-monolith-to-a-symfony-service-oriented-architecture-with-zero-downtime">From a legacy Monolith to a Symfony Service Oriented Architecture with zero downtime</h2>
+<p>Lors de la conférence présentée par <a href="https://connect.symfony.com/profile/skigun">Clément Bertillon</a>, nous avons pu voir comment son équipe a transformé leur ancienne application monolithe composée de milliers de fichiers PHP en un monorepo décomposé en micro-services en utilisant le <strong>Strangler Fig</strong> pattern et cela sans aucune rupture de service ni arrêter le développement de nouvelles features.</p>
+
+<p>De manière très simplifiée, ils ont installé Symfony, mis le code legacy dans un dossier à la racine du projet, le routeur symfony permet d’accéder au nouveau micro-service tout en redirigeant vers le legacy si aucun contrôleur n’a été trouvé. Il a conclu avec les règles d’or et comment analyser les performances via Blackfire.
+Ces deux conférences sur le <strong>Strangler fig</strong> paterne, mon permis de mettre en place un micro projet dans un de nos projets, tout en le cloisonnant du code parent (règles d’or vérifié grâce à l’outil présenté <a href="https://github.com/qossmic/deptrac">deptrac</a>). Ce principe nous permettra de le transformer en micro service très facilement.</p>
+
+<h2 id="phpstan-advanced-types">PHPStan: Advanced Types</h2>
+<p>Cette conférence centrée sur l’outil d’analyse statique de code : PHPStan, a été présentée par son créateur <a href="https://connect.symfony.com/profile/mirtes">Ondřej Mirtes</a>.
+Il a commencé par nous rappeler quelle est la différence entre un langage compilé et un langage interprété, le premier ne se compile pas s’il y a des erreurs alors que le second ne plante qu’à l’exécution. Le but de PHPStan est de nous aider à identifier toutes les erreurs sans avoir besoin d’exécuter le code.</p>
+
+<p><img src="/images/posts/symfonycon2022/phpstan.png" alt="PHPstan" /></p>
+
+<p>Cet outil analyse toutes les fonctions, les propriétés, le typage PHP, mais aussi la PHPDoc. Ondřej nous a ensuite parlé de tous les types PHPStan avec des exemples, en voici quelques un qui ont marqué notre attention :</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">non-empty-array</code>, <code class="language-plaintext highlighter-rouge">non-empty-string</code></li>
+  <li><code class="language-plaintext highlighter-rouge">literal-string</code></li>
+  <li><code class="language-plaintext highlighter-rouge">integer-range</code>, <code class="language-plaintext highlighter-rouge">integer-mask</code>, <code class="language-plaintext highlighter-rouge">integer-maskof</code></li>
+  <li><code class="language-plaintext highlighter-rouge">conditional return types, union types, intersection types</code> …</li>
+</ul>
+
+<p>Il finit en nous rappelant que l’utilisation de <code class="language-plaintext highlighter-rouge">@var</code> est une mauvaise pratique et qu’il vaut mieux renforcer le typage quitte à modifier la documentation des <code class="language-plaintext highlighter-rouge">vendor</code> via les <code class="language-plaintext highlighter-rouge">Stub files</code>.</p>
+
+<h2 id="gnap-the-future-of-oauth">GNAP: The future of OAuth</h2>
+<p>[<a href="https://slides.com/chalasr/gnap-the-future-of-oauth-2fefdf">Slides</a>]</p>
+
+<p><a href="https://connect.symfony.com/profile/chalas_r">Robin Chalas</a> @chalas_r nous a présenté GNAP (Grant Negotiation and Authorization Protocol) : une initiative pour développer la prochaine génération de protocoles d’autorisation.
+Pour mieux comprendre les enjeux, nous sommes repartis de l’historique d’oauth, ses évolutions et ses écueils. Le constat étant que même si de nombreux problèmes connus ont été résolus, aujourd’hui, pour bien utiliser OAuth 2, il faut lire une douzaine de RFC et s’assurer qu’elles soient pertinentes pour les différents cas d’utilisation.</p>
+
+<p>L’augmentation de la complexité du protocole dégrade l’expérience du développeur, ce qui va à l’encontre de son objectif principal qui est la simplicité pour les développeurs de clients.</p>
+
+<p>GNAP (prononcé “nap”) est une complète réécriture afin de répondre aux besoins en sécurité des applications modernes :</p>
+<ul>
+  <li>Pensé pour tous les clients, plateformes (pas uniquement web, possibilités de deeplinking mobile par exemple)</li>
+  <li>les interactions sont un concept clé</li>
+  <li>Du chiffrement partout et des mécanismes de rotation extensibles</li>
+  <li>Plusieurs Access Tokens / grant request</li>
+  <li>Gestion de l’identité intégrée</li>
+  <li>Plus developer friendly</li>
+  <li>Pas rétrocompatible avec OAUTH2</li>
+</ul>
+
+<p>Ce protocole est toujours à l’état de brouillon, le groupe de travail a été monté en octobre 2020 et lors du dernier rassemblement (nov. 2022), aucune modification du protocole n’a été actée. Le speaker conclut sur la nécessité de commencer à travailler sur l’implémentation de ce protocole dans l’écosystème PHP afin de supporter ce nouveau standard dont la finalisation ne devrait plus tarder. 
+Pour aller plus loin <a href="https://oauth.xyz/">https://oauth.xyz/</a></p>
+
+<h2 id="a-self-training-journey-to-the-certification-symfony">A self-training journey to the certification Symfony</h2>
+<p>Cette conférence traite de la méthodologie et des bonnes pratiques pour obtenir la fameuse certification Symfony.
+En effet, la conférencière, <a href="https://connect.symfony.com/profile/ca-jou">Camille Jouan</a>, nous présente sa manière de préparer l’examen.
+Elle commence par énoncer son plan d’action :</p>
+<ul>
+  <li>Rassembler un maximum d’informations (Symfony doc, site pour la préparation à la certification, etc)</li>
+  <li>Organiser un plan autour du quoi/comment/pourquoi</li>
+  <li>Faire une timeline avec les étapes prévues</li>
+  <li>Se fixer un objectif dans le temps</li>
+</ul>
+
+<p>L’idée est d’accepter que cela ne sera pas parfait et que des retouches vont y être apportées</p>
+
+<p>Pour Camille, l’idéal serait de pouvoir faire un test blanc au bout d’un certain temps de préparation sans “grandes convictions” : le but étant de se familiariser avec l’exercice.
+Si les fonds sont disponibles, <a href="https://training.sensiolabs.com/fr/courses/SF5PRECERTIF-preparation-certifcation-symfony-5-online-sensiolabs-university">un training est proposé par Sensiolabs</a>.
+En fonction de cet examen blanc, ajuster son plan, se concentrer sur des parties qui doivent être approfondies.
+Un autre point sur lequel la conférencière a insisté est le monitoring : régulièrement faire un bilan sur son avancée pour s’adapter.
+Des outils comme Trello, Excel, Google permettent d’en avoir une vision globale.</p>
+
+<p>Il est important de parler de ce projet autour de soi, notamment auprès de ses proches pour avoir du soutien, mais également auprès de son entreprise qui peut éventuellement proposer une subvention et ou un aménagement du temps de travail.</p>
+
+<p>Elle conclut son intervention par un dernier conseil : cette méthodologie est adaptable à la vie quotidienne et peut être utile dans d’autres situations.</p>
+
+<h2 id="notre-retour-dexpérience">Notre retour d’expérience</h2>
+<p>Cette nouvelle édition de la SymfonyCon nous a permis de découvrir ou d’approfondir certaines connaissances. 
+Nous pouvons aussi nous rendre compte de notre travail quotidien et prendre du recul sur celui-ci.
+Cette expérience anglophone était très enrichissante et les conférences proposées étaient variées.
+Il y avait de la résolution de problèmes techniques, des retours d’expériences ou encore de la télémétrie.</p>
+
+<p><img src="/images/posts/symfonycon2022/IMG-0773.jpg" alt="Fresque Lego symfony" /></p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Ce+que+nous+avons+retenu+de+la+SymfonyCon+-+Disneyland+Paris+2022%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F11%2F17%2Fsymfonycon.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/11/17/symfonycon.html&title=Ce+que+nous+avons+retenu+de+la+SymfonyCon+-+Disneyland+Paris+2022%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/11/17/symfonycon.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Ce que nous avons retenu de la SymfonyCon - Disneyland Paris 2022%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/11/17/symfonycon.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#backend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#conferences">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conferences</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#php">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> php</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#symfony">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> symfony</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Ce que nous retenons de la droidcon London 2022" href="/2022/11/22/droidcon-london-2022.html">
+            <p>Previous post</p>
+            Ce que nous retenons de la droidcon London 2022
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Un onboarding facilité grâce à la revue de code!" href="/2022/11/15/onboarding-revue-code.html">
+            <p>Next post</p>
+            Un onboarding facilité grâce à la revue de code!
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>
