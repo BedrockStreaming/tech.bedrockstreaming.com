@@ -45,7 +45,7 @@ Une démonstration de la commande `git bisect` et de toutes ses options qui perm
 
 Pauline pousse la réflexion plus loin en alliant la commande `git bisect` avec un script de debug ou un test unitaire.
 
-_“Write it, push it and find where it breaks_
+_“Write it, push it and find where it breaks”_
 
 Afin de tirer parti de cette méthode, il est important que chaque commit soit fonctionnel, tous les tests doivent donc passer.
 
