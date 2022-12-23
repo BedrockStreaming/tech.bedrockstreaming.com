@@ -20,9 +20,9 @@ La présentation de Vincent Gallissot, Lead Cloud Architect chez Bedrock, mettai
 
 **Table of Contents**
 
- * [Ce que des millions de requêtes par seconde signifient en termes de coût et d'économie d'énergie.](#ce-que-des-millions-de-requetes-par-seconde-signifient-en-termes-de-cout-et-d-economie-d-energie.)
+ * [Ce que des millions de requêtes par seconde signifient en termes de coût et d'économie d'énergie](#ce-que-des-millions-de-requêtes-par-seconde-signifient-en-termes-de-coût-et-déconomie-dénergie)
  * [Un outil pour les gouverner tous](#un-outil-pour-les-gouverner-tous)
- * [Vous reprendrez bien un peu de pétaoctets?](#vous-reprendrez-bien-un-peu-de-petaoctets?)
+ * [Vous reprendrez bien un peu de pétaoctets?](#vous-reprendrez-bien-un-peu-de-pétaoctets-)
 
 
 ## Ce que des millions de requêtes par seconde signifient en termes de coût et d'économie d'énergie.
