@@ -3,7 +3,6 @@ layout: post
 title: "Nos retours sur l'HAProxyConf Paris 2022"
 description: "Retour sur la virée de Bedrock à l'HAProxyconf Paris 2022, et ce que nous en retenons"
 author: bedrock
-category:
 tags: [haproxy, haproxyconf, conference]
 feature-img: "images/posts/2022-12-23-haproxyconf-paris-2022/haproxyconf_2022_paris.png"
 thumbnail: "images/posts/2022-12-23-haproxyconf-paris-2022/haproxyconf_2022_paris.png"
