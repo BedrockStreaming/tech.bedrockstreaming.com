@@ -15,7 +15,7 @@ Bedrock était présent lors de la Conférence HAProxy qui se déroulait à Pari
 
 La présentation de Vincent Gallissot, Lead Cloud Architect chez Bedrock, mettait en valeur l’usage d’HAProxy en tant que brique essentielle de notre infrastructure.
 
-Chez Bedrock, nous développons et maintenons une plateforme de streaming qui a été migrée dans le Cloud en 2019. Cette présentation était grandement inspirée de l’article intitulé [“Scaling Bedrock video delivery to 50 million users”](https://tech.bedrockstreaming.com/2021/12/15/scaling-bedrock-video-delivery-to-50-million-users.html), dans lequel vous trouverez pléthore d’informations concernant nos utilisations d’HAProxy.
+Chez Bedrock, nous développons et maintenons une plateforme de streaming qui a été migrée dans le Cloud en 2019. Cette présentation était grandement inspirée de l’article intitulé [“Scaling Bedrock video delivery to 50 million users”](https://tech.bedrockstreaming.com/2021/12/15/scaling-bedrock-video-delivery-to-50-million-users.html){:target="_blank"}, dans lequel vous trouverez pléthore d’informations concernant nos utilisations d’HAProxy.
 
 ![Vincent Gallissot presentation](/images/posts/2022-12-23-haproxyconf-paris-2022/keynote_conf_2022_bedrockstreaming.jpg)
 
@@ -28,7 +28,7 @@ Chez Bedrock, nous développons et maintenons une plateforme de streaming qui a 
 
 ## Ce que des millions de requêtes par seconde signifient en termes de coût et d'économie d'énergie.
 
-La keynote d'ouverture avait pour orateur [Willy Tarreau](https://twitter.com/willytarreau), le Lead Developer d'HAProxy. 
+La keynote d'ouverture avait pour orateur [Willy Tarreau](https://twitter.com/willytarreau){:target="_blank"}, le Lead Developer d'HAProxy. 
 Au travers d'une démonstration concrète mélangeant software et hardware, l'objectif était de :
 - transmettre l'idée qu'ajouter une brique logicielle dans un système ne le dégrade pas pour autant, bien au contraire
 - sensibiliser l'audience quant à la consommation d'énergie de nos systèmes
@@ -39,6 +39,7 @@ Au travers d'une démonstration concrète mélangeant software et hardware, l'ob
 Pour ce premier cas d'étude, Willy Tarreau nous présente le cas d'un service de vente en ligne.
 
 La stack technique est composée de PHP / pgSQL (NodeJS + Symfony) et les images sont stockées en base de données. C'est cette architecture qui sera mise à l'épreuve lors des tests de charge à venir.
+
 
 Dans un premier temps, plusieurs améliorations (sans HAProxy) sont proposées. Il peut s'agir d'un simple rappel, voir d'un pro-tip d’architecture pour les plus novices :
 Les images en base de données, c'est une mauvaise idée. 
@@ -67,6 +68,7 @@ Malgré les améliorations apportées pour les sessions grâce au cache, il subs
 C'est ici qu'entre en jeu HAProxy en remplaçant le NLB. Pour cela, pas besoin d'un foudre de guerre en termes de ressources. Les tests ont été effectués sur une machine ARM Breadbee cadencée à 1 GHz et possédant 64 Go de RAM. Nous verrons également par la suite qu'on pourrait même se passer d'une machine supplémentaire.
 
 Le but d’HAProxy est de spécialiser les caches des backends et plus globalement de forcer les sessions utilisateurs vers les mêmes backends. 
+
 Pour cela, HAProxy effectue une inspection de la couche 7 du trafic et renvoie toutes les requêtes d'un même utilisateur sur une même machine en réduisant ainsi les cache-miss aux seuls cas des nouveaux clients se connectant à la plateforme. Ainsi, le nombre d’appels à la base de données pour récupérer les informations de session est drastiquement réduit, la majorité d’entre elles étant stockées en cache.
 Autre fonctionnalité de taille : HAProxy limite le nombre de requêtes faites en parallèle sur un même backend, ce qui limite les locks de processus et les temps d'attente. Ceci a pour conséquence directe de réduire la consommation CPU.
 
@@ -84,7 +86,7 @@ En fin de compte, pour une même puissance de traitement, un backend est retiré
 
 C'est là que prend tout son sens l'expression qui avait été utilisée pour conclure cette keynote : "HAProxy is a free software running on free hardware".
 
-Chez Bedrock, nous appliquons aussi ces différentes techniques de Consistent Hashing en entrée de notre CDN vidéo. Nos caches vidéos sont spécialisés et chaque utilisateur est redirigé vers un unique backend lors de la lecture d’une vidéo. Pour en savoir plus, vous pouvez consulter notre article au sujet du [Consistent Hashing](https://tech.bedrockstreaming.com/2021/11/18/hsdo.html).
+Chez Bedrock, nous appliquons aussi ces différentes techniques de Consistent Hashing en entrée de notre CDN vidéo. Nos caches vidéos sont spécialisés et chaque utilisateur est redirigé vers un unique backend lors de la lecture d’une vidéo. Pour en savoir plus, vous pouvez consulter notre article au sujet du [Consistent Hashing](https://tech.bedrockstreaming.com/2021/11/18/hsdo.html){:target="_blank"}..
 
 
 ## Un outil pour les gouverner tous
@@ -126,16 +128,16 @@ Chez Bedrock, un élément central de notre métier est de fournir de la vidéo 
 Pour ce faire nous avons nos propres serveurs CDN hébergés sur Paris, en complément des CDN publics comme Cloudfront ou Fastly. Cette année nous avons servis plusieurs centaines de PB de données via nos serveurs et nous espérons pouvoir au moins doubler ce trafic l'année prochaine !
 
 Notre architecture CDN est constituée d'un logiciel appelé LBCDN qui "load-balance" la charge sur les CDN, on-prem et publics, en redirigeant un utilisateur vers un serveur CDN spécifique.
-Nos serveurs en eux-mêmes sont basés sur nginx avec une configuration assez simple en direct IO sur de gros SSD.
+Nos serveurs en eux-mêmes sont basés sur Nginx avec une configuration assez simple en direct IO sur de gros SSD.
 
 La HAproxy conf 2022 nous a pas mal inspirés pour répondre à nos problématiques avec ces deux conférences :
- - [Boost your web apps with HAProxy and Varnish, by Jérémy Lecour CTO of Evolix](https://www.haproxyconf.com/presentations/boost-your-web-apps-with-haproxy-and-varnish/)
- - [Was That really HAProxy, by Ricardo Nabinger Sanchez performance engineer at Taghos](https://www.haproxyconf.com/presentations/was-that-really-haproxy/)
+ - [Boost your web apps with HAProxy and Varnish, by Jérémy Lecour CTO of Evolix](https://www.haproxyconf.com/presentations/boost-your-web-apps-with-haproxy-and-varnish/){:target="_blank"}
+ - [Was That really HAProxy, by Ricardo Nabinger Sanchez performance engineer at Taghos](https://www.haproxyconf.com/presentations/was-that-really-haproxy/){:target="_blank"}
  
 Ces deux présentations font état d'une architecture sur les CDN intéressante où HAProxy est utilisé pour mettre “en sandwich” l'outil (ou les outils) faisant fonction de CDN.
-L’architecture présentée semble permettre une configuration bien plus fine que ce que nous avons actuellement avec seulement nginx.
+L’architecture présentée semble permettre une configuration bien plus fine que ce que nous avons actuellement avec seulement Nginx.
  
-Par exemple, sur nos CDN on-prem nous devons aujourd'hui utiliser une astuce pour que nginx puisse dynamiquement aller résoudre le nom de domaine du backend sur lequel il source ses fichiers. Cela est déjà un peu dommage de ne pas avoir de mécanisme disponible nativement. De plus, ce mécanisme est difficile à coupler avec d'autres permettant d'avoir du fail-over par exemple.
+Par exemple, sur nos CDN on-prem nous devons aujourd'hui utiliser une astuce pour que Nginx puisse dynamiquement aller résoudre le nom de domaine du backend sur lequel il source ses fichiers. Cela est déjà un peu dommage de ne pas avoir de mécanisme disponible nativement. De plus, ce mécanisme est difficile à coupler avec d'autres permettant d'avoir du fail-over par exemple.
 
 C’est ici qu’HAProxy pourrait intervenir pour résoudre notre problématique car il nous permet d’avoir du fail over et des tests plus fins sur l'état de santé des backends.
  
@@ -146,8 +148,8 @@ Tout à fait, notre cas d'usage actuel n'a pas forcément besoin d'un HAProxy en
 
 MAIS!
 
-C'est là que les conférences sont intéressantes car elles montrent que l'on peut mixer les backends. Dans la conférence présentée par Ricardo, l'utilisation de deux backends (varnish et hyper-cache) sur un même serveur est permise par un HAProxy. Cela permet de profiter de la complémentarité de ces services.
-Dans notre cas, nous n'avons pas besoin de cela mais une autre conférence nous a mis la puce à l'oreille : [Writing HAProxy Filters in Rust](https://www.haproxyconf.com/presentations/writing-haproxy-filters-in-rust/), by Aleksandr Orlenko.
+C'est là que les conférences sont intéressantes car elles montrent que l'on peut mixer les backends. Dans la conférence présentée par Ricardo, l'utilisation de deux backends (Varnish et hyper-cache) sur un même serveur est permise par un HAProxy. Cela permet de profiter de la complémentarité de ces services.
+Dans notre cas, nous n'avons pas besoin de cela mais une autre conférence nous a mis la puce à l'oreille : [Writing HAProxy Filters in Rust](https://www.haproxyconf.com/presentations/writing-haproxy-filters-in-rust/){:target="_blank"}, by Aleksandr Orlenko.
 Cela pourrait nous permettre, avec un HAProxy en frontal, d'agréger plus finement les mesures de performances du serveur afin d'optimiser l'usage de ses ressources, ou déporter une partie du trafic sur un serveur moins chargé, ou encore de récupérer une partie des traitements actuellement effectués par le LBCDN.
 
 Ajouter cette fonctionnalité serait la belle cerise au kirsch au sommet de ce sandwich de HAProxy.
@@ -169,4 +171,4 @@ La HAProxyConf, c’était deux jours de conférences avec des orateurs venus de
 
 Cette conférence était aussi l’occasion d’échanger avec l’équipe HAProxy autour de sujets techniques qui nous concernent, de voir que nous utilisions déjà certaines bonnes pratiques, mais aussi que nous avions de quoi nous améliorer.
 
-Suite à cette conférence, c’est HAProxy Fusion que nous attendons le plus. Fusion s’annonce comme l’outil idéal pour manager une flotte d’HAProxy. Jusqu’à présent, nous devions utiliser une solution maison [HSDO](https://tech.bedrockstreaming.com/2021/11/18/hsdo), fonctionnelle, mais très probablement moins bien intégrée qu’un outil directement fourni par HAProxy. 
+Suite à cette conférence, c’est HAProxy Fusion que nous attendons le plus. Fusion s’annonce comme l’outil idéal pour manager une flotte d’HAProxy. Jusqu’à présent, nous devions utiliser une solution maison [HSDO](https://tech.bedrockstreaming.com/2021/11/18/hsdo){:target="_blank"}, fonctionnelle, mais très probablement moins bien intégrée qu’un outil directement fourni par HAProxy. 
