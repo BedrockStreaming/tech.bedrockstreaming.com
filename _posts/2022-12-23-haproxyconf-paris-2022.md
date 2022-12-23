@@ -15,7 +15,7 @@ Bedrock était présent lors de la Conférence HAProxy qui se déroulait à Pari
 
 La présentation de Vincent Gallissot, Lead Cloud Architect chez Bedrock, mettait en valeur l’usage d’HAProxy en tant que brique essentielle de notre infrastructure.
 
-Chez Bedrock, nous développons et maintenons une plateforme de streaming qui a été migrée dans le Cloud en 2019. Cette présentation était grandement inspirée de l’article intitulé [“Scaling Bedrock video delivery to 50 million users”](https://tech.bedrockstreaming.com/2021/12/15/scaling-bedrock-video-delivery-to-50-million-users.html), dans lequel trouverez pléthore d’informations concernant nos utilisations d’HAProxy.
+Chez Bedrock, nous développons et maintenons une plateforme de streaming qui a été migrée dans le Cloud en 2019. Cette présentation était grandement inspirée de l’article intitulé [“Scaling Bedrock video delivery to 50 million users”](https://tech.bedrockstreaming.com/2021/12/15/scaling-bedrock-video-delivery-to-50-million-users.html), dans lequel vous trouverez pléthore d’informations concernant nos utilisations d’HAProxy.
 
 ![Vincent Gallissot presentation](/images/posts/2022-12-23-haproxyconf-paris-2022/keynote_conf_2022_bedrockstreaming.jpg)
 
@@ -28,15 +28,21 @@ Chez Bedrock, nous développons et maintenons une plateforme de streaming qui a 
 
 ## Ce que des millions de requêtes par seconde signifient en termes de coût et d'économie d'énergie.
 
-La keynote d'ouverture avait pour orateur [Willy Tarreau](https://twitter.com/willytarreau), le Lead Developer d'HAProxy. Au travers d'une démonstration concrète mélangeant software et hardware, l'objectif était de :
+La keynote d'ouverture avait pour orateur [Willy Tarreau](https://twitter.com/willytarreau), le Lead Developer d'HAProxy. 
+Au travers d'une démonstration concrète mélangeant software et hardware, l'objectif était de :
 - transmettre l'idée qu'ajouter une brique logicielle dans un système ne le dégrade pas pour autant, bien au contraire
 - sensibiliser l'audience quant à la consommation d'énergie de nos systèmes
 
 ### Contexte technique et premières améliorations
 
-Pour ce premier cas d'étude, Willy Tarreau nous présente le cas d'un service de vente en ligne. La stack technique est composée de PHP / pgSQL (nodejs + symfony) et les images sont stockées en base de données. C'est cette architecture qui sera mise à l'épreuve lors des tests de charge à venir.
+
+Pour ce premier cas d'étude, Willy Tarreau nous présente le cas d'un service de vente en ligne.
+
+La stack technique est composée de PHP / pgSQL (NodeJS + Symfony) et les images sont stockées en base de données. C'est cette architecture qui sera mise à l'épreuve lors des tests de charge à venir.
+
 Dans un premier temps, plusieurs améliorations (sans HAProxy) sont proposées. Il peut s'agir d'un simple rappel, voir d'un pro-tip d’architecture pour les plus novices :
-Les images en base de données, c'est une mauvaise idée. En les déplaçant vers un CDN, le système peut rapidement et simplement doubler ses performances, la base de données étant un goulot d'étranglement.
+Les images en base de données, c'est une mauvaise idée. 
+En les déplaçant vers un CDN, le système peut rapidement et simplement doubler ses performances, la base de données étant un goulot d'étranglement.
 La taille des pages peut être optimisée via l'activation de l'option http "gzip".
 Les informations de sessions sont elles aussi enregistrées en base de données. Afin d'améliorer les performances, il est possible d’ajouter du caching via des outils tels que Memcache.
 
