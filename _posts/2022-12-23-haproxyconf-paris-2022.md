@@ -41,6 +41,7 @@ Pour ce premier cas d'étude, Willy Tarreau nous présente le cas d'un service d
 La stack technique est composée de PHP / pgSQL (NodeJS + Symfony) et les images sont stockées en base de données. C'est cette architecture qui sera mise à l'épreuve lors des tests de charge à venir.
 
 
+
 Dans un premier temps, plusieurs améliorations (sans HAProxy) sont proposées. Il peut s'agir d'un simple rappel, voir d'un pro-tip d’architecture pour les plus novices :
 Les images en base de données, c'est une mauvaise idée. 
 En les déplaçant vers un CDN, le système peut rapidement et simplement doubler ses performances, la base de données étant un goulot d'étranglement.
