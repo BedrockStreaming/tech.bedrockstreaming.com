@@ -16,7 +16,7 @@ Bedrock était présent lors de la Conférence HAProxy qui se déroulait à Pari
 
 La présentation de Vincent Gallissot, Lead Cloud Architect chez Bedrock, mettait en valeur l’usage d’HAProxy en tant que brique essentielle de notre infrastructure. Chez Bedrock, nous développons et maintenons une plateforme de streaming qui a été migrée dans le Cloud en 2019. Cette présentation était grandement inspirée de l’article intitulé [“Scaling Bedrock video delivery to 50 million users”](https://tech.bedrockstreaming.com/2021/12/15/scaling-bedrock-video-delivery-to-50-million-users.html), dans lequel trouverez pléthore d’informations concernant nos utilisations d’HAProxy.
 
-![vincent galissot presentation](/images/posts/2022-12-23-haproxyconf-paris-2022/keynote_conf_2022_bedrockstreaming.jpg)
+![Vincent Gallissot presentation](/images/posts/2022-12-23-haproxyconf-paris-2022/keynote_conf_2022_bedrockstreaming.jpg)
 
 **Table of Contents**
 
