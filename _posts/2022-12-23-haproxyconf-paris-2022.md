@@ -69,6 +69,7 @@ C'est ici qu'entre en jeu HAProxy en remplaçant le NLB. Pour cela, pas besoin d
 
 Le but d’HAProxy est de spécialiser les caches des backends et plus globalement de forcer les sessions utilisateurs vers les mêmes backends. 
 
+
 Pour cela, HAProxy effectue une inspection de la couche 7 du trafic et renvoie toutes les requêtes d'un même utilisateur sur une même machine en réduisant ainsi les cache-miss aux seuls cas des nouveaux clients se connectant à la plateforme. Ainsi, le nombre d’appels à la base de données pour récupérer les informations de session est drastiquement réduit, la majorité d’entre elles étant stockées en cache.
 Autre fonctionnalité de taille : HAProxy limite le nombre de requêtes faites en parallèle sur un même backend, ce qui limite les locks de processus et les temps d'attente. Ceci a pour conséquence directe de réduire la consommation CPU.
 
