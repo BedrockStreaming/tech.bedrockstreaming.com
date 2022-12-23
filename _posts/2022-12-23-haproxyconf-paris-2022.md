@@ -5,6 +5,8 @@ description: "Retour sur la virée de Bedrock à l'HAProxyconf Paris 2022, et ce
 author: [v_pelus, l_caillet, o_jannin]
 category:
 tags: [haproxy, haproxyconf, conference]
+feature-img: "images/posts/2022-12-23-haproxyconf-paris-2022/haproxyconf_2022_paris.png"
+thumbnail: "images/posts/2022-12-23-haproxyconf-paris-2022/haproxyconf_2022_paris.png"
 color: rgb(251,87,66)
 language: fr
 comments: true
