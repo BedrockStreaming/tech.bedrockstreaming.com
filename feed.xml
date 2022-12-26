@@ -1,4 +1,181 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-12-21T13:55:17+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Ce que nous retenons de la droidcon London 2022</title><link href="https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022.html" rel="alternate" type="text/html" title="Ce que nous retenons de la droidcon London 2022" /><published>2022-11-22T00:00:00+00:00</published><updated>2022-11-22T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022.html">&lt;p&gt;La communauté Android a apporté le soleil sur Londres les 27 et 28 octobre 2022. La droidcon London a réuni plus de 1400 développeurs autour de l’écosystème Android, de ses outils et enjeux actuels. Jetpack Compose, évidemment, mais aussi Gradle, modularisation, optimisation et autres sujets plus divers ont été abordés lors de ce rendez-vous incontournable pour la communauté.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-12-26T13:21:25+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Nos retours sur l’HAProxyConf Paris 2022</title><link href="https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html" rel="alternate" type="text/html" title="Nos retours sur l’HAProxyConf Paris 2022" /><published>2022-12-23T00:00:00+00:00</published><updated>2022-12-23T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html">&lt;p&gt;Bedrock était présent lors de la Conférence HAProxy qui se déroulait à Paris en novembre 2022 : en tant que speaker, avec la présentation de Vincent Gallissot, mais aussi en tant que spectateur. Cet article relate les points forts qui nous ont marqués.&lt;/p&gt;
+
+&lt;p&gt;La présentation de Vincent Gallissot, Lead Cloud Architect chez Bedrock, mettait en valeur l’usage d’HAProxy en tant que brique essentielle de notre infrastructure. Chez Bedrock, nous développons et maintenons une plateforme de streaming qui a été migrée dans le Cloud en 2019. Cette présentation était grandement inspirée de l’article intitulé &lt;a href=&quot;https://tech.bedrockstreaming.com/2021/12/15/scaling-bedrock-video-delivery-to-50-million-users.html&quot; target=&quot;_blank&quot;&gt;“Scaling Bedrock video delivery to 50 million users”&lt;/a&gt;, dans lequel vous trouverez pléthore d’informations concernant nos utilisations d’HAProxy.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-12-23-haproxyconf-paris-2022/keynote_conf_2022_bedrockstreaming.jpg&quot; alt=&quot;Vincent Gallissot presentation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sommaire&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#ce-que-des-millions-de-requêtes-par-seconde-signifient-en-termes-de-coût-et-déconomie-dénergie&quot;&gt;Ce que des millions de requêtes par seconde signifient en termes de coût et d’économie d’énergie&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#un-outil-pour-les-gouverner-tous&quot;&gt;Un outil pour les gouverner tous&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#vous-reprendrez-bien-un-peu-de-pétaoctets-&quot;&gt;Vous reprendrez bien un peu de pétaoctets?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;ce-que-des-millions-de-requêtes-par-seconde-signifient-en-termes-de-coût-et-déconomie-dénergie&quot;&gt;Ce que des millions de requêtes par seconde signifient en termes de coût et d’économie d’énergie.&lt;/h2&gt;
+
+&lt;p&gt;La keynote d’ouverture avait pour orateur &lt;a href=&quot;https://twitter.com/willytarreau&quot; target=&quot;_blank&quot;&gt;Willy Tarreau&lt;/a&gt;, le Lead Developer d’HAProxy.&lt;br /&gt;
+Au travers d’une démonstration concrète mélangeant software et hardware, l’objectif était de :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;transmettre l’idée qu’ajouter une brique logicielle dans un système ne le dégrade pas pour autant, bien au contraire&lt;/li&gt;
+  &lt;li&gt;sensibiliser l’audience quant à la consommation d’énergie de nos systèmes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;contexte-technique-et-premières-améliorations&quot;&gt;Contexte technique et premières améliorations&lt;/h3&gt;
+
+&lt;p&gt;Pour ce premier cas d’étude, Willy Tarreau nous présente le cas d’un service de vente en ligne.&lt;/p&gt;
+
+&lt;p&gt;La stack technique est composée de PHP / pgSQL (NodeJS + Symfony) et les images sont stockées en base de données. C’est cette architecture qui sera mise à l’épreuve lors des tests de charge à venir.&lt;/p&gt;
+
+&lt;p&gt;Dans un premier temps, plusieurs améliorations (sans HAProxy) sont proposées. Il peut s’agir d’un simple rappel, voir d’un pro-tip d’architecture pour les plus novices : Les images en base de données, c’est une mauvaise idée.&lt;/p&gt;
+
+&lt;p&gt;En les déplaçant vers un CDN, le système peut rapidement et simplement doubler ses performances, la base de données étant un goulot d’étranglement. La taille des pages peut être optimisée via l’activation de l’option http “gzip”. Les informations de sessions sont elles aussi enregistrées en base de données. Afin d’améliorer les performances, il est possible d’ajouter du caching via des outils tels que Memcache.&lt;/p&gt;
+
+&lt;p&gt;Suite à cela, une première amélioration d’architecture serait d’ajouter un NLB (Network Load Balancer) en amont du système qui distribuerait les requêtes entrantes vers plusieurs unités de calculs.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-12-23-haproxyconf-paris-2022/keynote_conf_2022_request_arch.png&quot; alt=&quot;next architecture schematic keynote&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Schéma d’architecture, première version&lt;/p&gt;
+
+&lt;p&gt;Dans le cas présent, les requêtes entrantes sont distribuées de façon aléatoire entre les différentes unités de traitement. Chacun de ces backends se connectant à la même et unique base de données.&lt;br /&gt;
+Le benchmark ci-dessous (efficacité, au sens nombre de requêtes traitées en fonction du nombre d’unités de calcul), ne montre pas une croissance linéaire. Il s’agit d’une courbe tendant vers une pente nulle (voir négative pour les plus grosses architectures).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-12-23-haproxyconf-paris-2022/keynote_conf_2022_nlb_stats.png&quot; alt=&quot;stats of nlb with backends&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Graphique représentant l’efficacité du système en fonction du nombre de backends&lt;/p&gt;
+
+&lt;h3 id=&quot;comment-expliquer-que-cette-architecture-ne-scale-pas-linéairement-&quot;&gt;Comment expliquer que cette architecture ne scale pas linéairement ?&lt;/h3&gt;
+
+&lt;p&gt;Malgré les améliorations apportées pour les sessions grâce au cache, il subsiste encore un problème.&lt;/p&gt;
+
+&lt;p&gt;Le NLB est un composant qui ne fait que répartir la charge sans tenir compte de l’historique des requêtes. En effet, celui-ci va distribuer la charge d’entrée aléatoirement vers les backends.&lt;br /&gt;
+Chaque backend reçoit des requêtes provenant de n’importe quel utilisateur impliquant alors un cache-miss très élevé : l’utilisateur est rarement trouvé dans le cache, ce qui génère une requête supplémentaire en base de données et dégrade les performances en plus de consommer inutilement des ressources.&lt;/p&gt;
+
+&lt;h3 id=&quot;et-si-nous-ajoutons-haproxy-à-notre-système-&quot;&gt;Et si nous ajoutons HAProxy à notre système ?&lt;/h3&gt;
+
+&lt;p&gt;C’est ici qu’entre en jeu HAProxy en remplaçant le NLB. Pour cela, pas besoin d’un foudre de guerre en termes de ressources.&lt;/p&gt;
+
+&lt;p&gt;Les tests ont été effectués sur une machine ARM Breadbee cadencée à 1 GHz et possédant 64 Mo de RAM. Nous verrons également par la suite qu’on pourrait même se passer d’une machine supplémentaire.&lt;/p&gt;
+
+&lt;p&gt;Le but d’HAProxy est de spécialiser les caches des backends et plus globalement de forcer les sessions utilisateurs vers les mêmes backends.&lt;/p&gt;
+
+&lt;p&gt;Pour cela, HAProxy effectue une inspection de la couche 7 du trafic et renvoie toutes les requêtes d’un même utilisateur sur une même machine en réduisant ainsi les cache-miss aux seuls cas des nouveaux clients se connectant à la plateforme. Ainsi, le nombre d’appels à la base de données pour récupérer les informations de session est drastiquement réduit, la majorité d’entre elles étant stockées en cache.&lt;/p&gt;
+
+&lt;p&gt;Autre fonctionnalité de taille : HAProxy limite le nombre de requêtes faites en parallèle sur un même backend, ce qui limite les locks de processus et les temps d’attente. Ceci a pour conséquence directe de réduire la consommation CPU.&lt;/p&gt;
+
+&lt;p&gt;Ces deux améliorations permettent à l’application de scaler de façon beaucoup plus linéaire, tout en réduisant les consommations CPU et énergétiques inutiles. Globalement, les performances initiales sont largement dépassées avec deux fois moins de backends.&lt;/p&gt;
+
+&lt;h3 id=&quot;a-partir-de-quand-est-il-intéressant-de-franchir-le-pas-&quot;&gt;A partir de quand est-il intéressant de franchir le pas ?&lt;/h3&gt;
+
+&lt;p&gt;Maintenant que les bénéfices d’HAProxy ont été présentés, la prochaine étape est de se demander : quand est-ce qu’on se lance ? La question est considérée en termes de performance, mais aussi sous un angle pécunier.&lt;br /&gt;
+Si HAProxy peut être intégré sans augmenter les coûts du système, c’est encore mieux.&lt;/p&gt;
+
+&lt;p&gt;Ajouter HAProxy dans un système composé d’un seul backend n’apporte pas de bénéfice : il n’y a pas de load-balancing possible. Avec deux backends, si on divise le besoin de processing par deux, nous n’avons plus qu’un seul backend et donc pas de load-balancing possible.&lt;br /&gt;
+C’est en fait à partir de 4 backends que l’ajout d’un HAProxy en entrée devient intéressant :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;en retirant 2 serveurs de nos backends en conservant une puissance équivalente (cf les tests ci-dessus)&lt;/li&gt;
+  &lt;li&gt;et en recyclant un des deux backends retirés en hôte pour HAProxy
+En fin de compte, pour une même puissance de traitement, un backend est retiré ce qui permet de réduire les coûts de fonctionnement. Ce principe s’applique également sur un grand nombre de backends.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;C’est là que prend tout son sens l’expression qui avait été utilisée pour conclure cette keynote : “HAProxy is a free software running on free hardware”.&lt;/p&gt;
+
+&lt;p&gt;Chez Bedrock, nous appliquons aussi ces différentes techniques de Consistent Hashing en entrée de notre CDN vidéo. Nos caches vidéos sont spécialisés et chaque utilisateur est redirigé vers un unique backend lors de la lecture d’une vidéo.&lt;br /&gt;
+Pour en savoir plus, vous pouvez consulter notre article au sujet du &lt;a href=&quot;https://tech.bedrockstreaming.com/2021/11/18/hsdo.html&quot; target=&quot;_blank&quot;&gt;Consistent Hashing&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;un-outil-pour-les-gouverner-tous&quot;&gt;Un outil pour les gouverner tous&lt;/h2&gt;
+
+&lt;p&gt;Dans notre activité en informatique, nous sommes amenés à délivrer de plus en plus rapidement des applications, des mises à jour, etc… Nous avons donc adopté la philosophie DevOps et tout un panel d’outils autour de celle-ci afin de sécuriser, monitorer et automatiser chaque étape de nos pipelines de livraison.&lt;/p&gt;
+
+&lt;p&gt;Le cas de figure du load balancing est intéressant dans ce type d’organisation, il est essentiel d’exposer de nouvelles applications sur les environnements de production mais étant donné que la maîtrise de cet outil requiert une compréhension du réseau, la responsabilité incombe souvent à l’équipe Ops de le gérer.&lt;/p&gt;
+
+&lt;h3 id=&quot;vous-souhaitez-mieux-gérer-votre-flotte-haproxy-&quot;&gt;Vous souhaitez mieux gérer votre flotte HAProxy ?&lt;/h3&gt;
+
+&lt;p&gt;Anjelko Iharos, directeur de l’ingénierie à HAProxy Technologies nous a présenté leur nouvel outil d’automatisation : HAProxy Fusion Control Plane, packagé dans la version entreprise de HAProxy.&lt;/p&gt;
+
+&lt;p&gt;Celui-ci va amener une nouvelle interface enrichie afin de gérer toutes les instances HAProxy et les outils gravitant autour de ces dernières.&lt;/p&gt;
+
+&lt;p&gt;On peut citer :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;La possibilité pour les développeurs de router eux-même leurs applications sans avoir besoin d’un Ops dans leurs pipelines de CI via l’API Fusion.&lt;/li&gt;
+  &lt;li&gt;Gérer les WAF de HAProxy de manière centralisée et répercuter cette configuration sur un ensemble de clusters/instances.&lt;/li&gt;
+  &lt;li&gt;Permettre aux Ops de gérer la structure de leurs load balancers, ajouter de nouvelles instances, gérer les certificats SSL, le tuning des performances depuis un seul point d’entrée.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;est-ce-résilient-&quot;&gt;Est-ce résilient ?&lt;/h3&gt;
+
+&lt;p&gt;Fusion Control Plane est livré avec tout un set de features intéressantes pour assurer sa maintenabilité et sa résilience :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Une pleine observabilité avec une application unifiée de récupération de logs, métriques et rapports dans la même interface. L’export de ces data est possible, notamment pour les transposer dans un dashboard tiers (Grafana, par exemple).&lt;/li&gt;
+  &lt;li&gt;Un système de RBAC permettant de mieux gérer les périmètres de chacune des équipes dans le control plane.&lt;/li&gt;
+  &lt;li&gt;La gestion centralisée de la configuration, la validation des configurations et le bot management. La partie WAF est packagée avec OWASP (communauté publiant des recommandations pour la sécurisation des applications web) ModSecurity Core Rule Set (CRS) pour la détection des vulnérabilités. Dans le cadre d’un cluster un système de failover automatique avec auto-élection du leader (à la manière de GOSSIP avec Consul).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;une-vue-de-lavenir-&quot;&gt;Une vue de l’avenir ?&lt;/h3&gt;
+
+&lt;p&gt;Aujourd’hui, Fusion Control Plane limite son scope à HAProxy Entreprise et Community Edition, les IngressController ne sont pour le moment pas encore supportés.&lt;/p&gt;
+
+&lt;p&gt;Il n’est pas encore pleinement compatible avec les features offertes par AWS (Gestion des ASG et de Route53) mais c’est en cours de développement chez HAProxy Technologies.&lt;/p&gt;
+
+&lt;p&gt;Le produit semble prometteur et intéressant. Les possibilités qu’il nous offre pour laisser la main aux développeurs sur la mise en place de routes vers leurs applications côté on-premise est vraiment un gros plus, mais il nous manque pour le moment le support de l’IngressController HAProxy utilisé sur nos cluster Kubernetes, ce qui nous empêche d’en profiter au maximum.&lt;/p&gt;
+
+&lt;h2 id=&quot;vous-reprendrez-bien-un-peu-de-pétaoctets-&quot;&gt;Vous reprendrez bien un peu de pétaoctets ?&lt;/h2&gt;
+
+&lt;p&gt;Chez Bedrock, un élément central de notre métier est de fournir de la vidéo à nos utilisateurs. (Incroyable pour une boite qui fait de la VOD hein? 😀).&lt;/p&gt;
+
+&lt;p&gt;Pour ce faire nous avons nos propres serveurs CDN hébergés sur Paris, en complément des CDN publics comme Cloudfront ou Fastly. Cette année nous avons servis plusieurs centaines de PB de données via nos serveurs et nous espérons pouvoir au moins doubler ce trafic l’année prochaine !&lt;/p&gt;
+
+&lt;p&gt;Notre architecture CDN est constituée d’un logiciel appelé LBCDN qui “load-balance” la charge sur les CDN, on-prem et publics, en redirigeant un utilisateur vers un serveur CDN spécifique.&lt;br /&gt;
+Nos serveurs en eux-mêmes sont basés sur Nginx avec une configuration assez simple en direct IO sur de gros SSD.&lt;/p&gt;
+
+&lt;p&gt;La HAproxy conf 2022 nous a pas mal inspirés pour répondre à nos problématiques avec ces deux conférences :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.haproxyconf.com/presentations/boost-your-web-apps-with-haproxy-and-varnish/&quot; target=&quot;_blank&quot;&gt;Boost your web apps with HAProxy and Varnish, by Jérémy Lecour CTO of Evolix&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.haproxyconf.com/presentations/was-that-really-haproxy/&quot; target=&quot;_blank&quot;&gt;Was That really HAProxy, by Ricardo Nabinger Sanchez performance engineer at Taghos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ces deux présentations font état d’une architecture sur les CDN intéressante où HAProxy est utilisé pour mettre “en sandwich” l’outil (ou les outils) faisant fonction de CDN.
+L’architecture présentée semble permettre une configuration bien plus fine que ce que nous avons actuellement avec seulement Nginx.&lt;/p&gt;
+
+&lt;p&gt;Par exemple, sur nos CDN on-prem nous devons aujourd’hui utiliser une astuce pour que Nginx puisse dynamiquement aller résoudre le nom de domaine du backend sur lequel il source ses fichiers. Cela est déjà un peu dommage de ne pas avoir de mécanisme disponible nativement. De plus, ce mécanisme est difficile à coupler avec d’autres permettant d’avoir du fail-over par exemple.&lt;/p&gt;
+
+&lt;p&gt;C’est ici qu’HAProxy pourrait intervenir pour résoudre notre problématique car il nous permet d’avoir du fail over et des tests plus fins sur l’état de santé des backends.&lt;/p&gt;
+
+&lt;p&gt;De plus, nous sommes en train de tester une solution de second-tier de CDN qui, du fait de la complexité ajoutée à notre architecture de CDN, profiterait beaucoup d’une plus grande finesse de configuration.&lt;/p&gt;
+
+&lt;p&gt;“Mais attends, tu n’as parlé que de HAProxy en backend là, tu triches un peu non? C’est pas un sandwich c’est une tartine de HAProxy là!”
+Tout à fait, notre cas d’usage actuel n’a pas forcément besoin d’un HAProxy en frontal de Nginx.&lt;/p&gt;
+
+&lt;p&gt;MAIS!&lt;/p&gt;
+
+&lt;p&gt;C’est là que les conférences sont intéressantes car elles montrent que l’on peut mixer les backends.&lt;br /&gt;
+Dans la conférence présentée par Ricardo, l’utilisation de deux backends (Varnish et hyper-cache) sur un même serveur est permise par un HAProxy. Cela permet de profiter de la complémentarité de ces services.&lt;br /&gt;
+Dans notre cas, nous n’avons pas besoin de cela mais une autre conférence nous a mis la puce à l’oreille : &lt;a href=&quot;https://www.haproxyconf.com/presentations/writing-haproxy-filters-in-rust/&quot; target=&quot;_blank&quot;&gt;Writing HAProxy Filters in Rust&lt;/a&gt;, by Aleksandr Orlenko.&lt;br /&gt;
+Cela pourrait nous permettre, avec un HAProxy en frontal, d’agréger plus finement les mesures de performances du serveur afin d’optimiser l’usage de ses ressources, ou déporter une partie du trafic sur un serveur moins chargé, ou encore de récupérer une partie des traitements actuellement effectués par le LBCDN.&lt;/p&gt;
+
+&lt;p&gt;Ajouter cette fonctionnalité serait la belle cerise au kirsch au sommet de ce sandwich de HAProxy.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2022-12-23-haproxyconf-paris-2022/keynote_conf_2022_cake.png&quot; alt=&quot;cake illustration&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;“Il est bizarre ton sandwich”&lt;/p&gt;
+
+&lt;p&gt;“Bon d’accord, c’est plutôt un gâteau à étages.”&lt;/p&gt;
+
+&lt;p&gt;“Ok c’est mieux, mais je préfère les macarons de la HAProxy Conf 2022 quand même.”&lt;/p&gt;
+
+&lt;h2 id=&quot;a-une-prochaine-fois-&quot;&gt;A une prochaine fois !&lt;/h2&gt;
+
+&lt;p&gt;La HAProxyConf, c’était deux jours de conférences avec des orateurs venus de tous les coins du globe.&lt;br /&gt;
+Une belle occasion pour nous d’en apprendre plus sur un outil que nous utilisons quotidiennement chez Bedrock.&lt;br /&gt;
+Dans cet article, nous n’avons pas pu faire mention de tout ce qui nous a intéressé. Nous pourrions notamment citer les très intéressantes conférences au sujet de :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Docker et leur utilisation de l’outil Keda&lt;/li&gt;
+  &lt;li&gt;Ou encore de SoundCloud et leurs mesures anti-DDOS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Cette conférence était aussi l’occasion d’échanger avec l’équipe HAProxy autour de sujets techniques qui nous concernent, de voir que nous utilisions déjà certaines bonnes pratiques, mais aussi que nous avions de quoi nous améliorer.&lt;/p&gt;
+
+&lt;p&gt;Suite à cette conférence, c’est HAProxy Fusion que nous attendons le plus. Fusion s’annonce comme l’outil idéal pour manager une flotte d’HAProxy. Jusqu’à présent, nous devions utiliser une solution maison &lt;a href=&quot;https://tech.bedrockstreaming.com/2021/11/18/hsdo&quot; target=&quot;_blank&quot;&gt;HSDO&lt;/a&gt;, fonctionnelle, mais très probablement moins bien intégrée qu’un outil directement fourni par HAProxy.&lt;/p&gt;</content><author><name>Bedrock</name></author><category term="haproxy" /><category term="haproxyconf" /><category term="conference" /><summary type="html">Bedrock était présent lors de la Conférence HAProxy qui se déroulait à Paris en novembre 2022 : en tant que speaker, avec la présentation de Vincent Gallissot, mais aussi en tant que spectateur. Cet article relate les points forts qui nous ont marqués.</summary></entry><entry><title type="html">Ce que nous retenons de la droidcon London 2022</title><link href="https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022.html" rel="alternate" type="text/html" title="Ce que nous retenons de la droidcon London 2022" /><published>2022-11-22T00:00:00+00:00</published><updated>2022-11-22T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022.html">&lt;p&gt;La communauté Android a apporté le soleil sur Londres les 27 et 28 octobre 2022. La droidcon London a réuni plus de 1400 développeurs autour de l’écosystème Android, de ses outils et enjeux actuels. Jetpack Compose, évidemment, mais aussi Gradle, modularisation, optimisation et autres sujets plus divers ont été abordés lors de ce rendez-vous incontournable pour la communauté.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/2022-11-22-droidcon-london/entrance.jpg&quot; alt=&quot;droidcon London 2022 entrance&quot; /&gt;&lt;/p&gt;
 
@@ -1514,185 +1691,4 @@ Vous pourrez trouver un complément d’informations au sujet de notre BFF dans 
 
 &lt;p&gt;Justement : je suis Technical Writer et mon métier est de vous aider à valoriser votre logiciel auprès de ses utilisateurs et utilisatrices, à travers une bonne doc. Comprenons comment architecturer, concevoir et rédiger votre contenu. Découvrons les outils qui vous procurerons une aide précieuse. Enfin, facilitons sa mise à jour pour qu’elle soit pérenne.&lt;/p&gt;
 
-&lt;p&gt;Dorénavant, vous saurez identifier les passages obligés et ceux où vous pouvez gagner du temps.&lt;/p&gt;</content><author><name>Sarah Haïm-Lubczanski</name></author><category term="conference" /><category term="afup" /><category term="forumphp" /><category term="doc" /><summary type="html">Vous êtes développeur ou développeuse PHP : vous aimez programmer, réfléchir. Vous aimez créer des applications ou des bibliothèques de qualité. Mais pourquoi personne ne les utilise ? Parce que votre documentation n’est pas à la hauteur !</summary></entry><entry><title type="html">API Platform Conference 2022</title><link href="https://tech.bedrockstreaming.com/2022/10/07/api-platform-conference-2022.html" rel="alternate" type="text/html" title="API Platform Conference 2022" /><published>2022-10-07T00:00:00+00:00</published><updated>2022-10-07T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/10/07/api-platform-conference-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/10/07/api-platform-conference-2022.html">&lt;p&gt;En cette période de rentrée, Bedrock participait à l’&lt;a href=&quot;https://api-platform.com/con/2022&quot;&gt;API Platform Conference 2022&lt;/a&gt;, où nous avons eu le plaisir d’assister à une partie des conférences proposées. Un grand merci à toutes les personnes chez &lt;a href=&quot;https://les-tilleuls.coop/&quot;&gt;Les-Tilleuls.coop&lt;/a&gt; pour l’organisation de cet évènement !
-Pour cette seconde édition, le programme était réparti sur deux jours, les 15 &amp;amp; 16 septembre 2022.&lt;/p&gt;
-
-&lt;p&gt;En introduction à cette conférence, Kévin Dunglas, créateur d’&lt;a href=&quot;https://api-platform.com/&quot;&gt;API Platform&lt;/a&gt;, a mis en ligne la version 3.0.0 du framework en nous présentant certaines nouvelles fonctionnalités développées telles que le support natif de XDebug. Il a profité de l’occasion pour présenter un petit historique d’API Platform.&lt;/p&gt;
-
-&lt;h2 id=&quot;domain-driven-design-with-api-platform-3&quot;&gt;Domain-driven design with API Platform 3&lt;/h2&gt;
-
-&lt;p&gt;Lors de cette conférence, &lt;a href=&quot;https://twitter.com/chalas_r&quot;&gt;Robin Chalas&lt;/a&gt; et &lt;a href=&quot;https://twitter.com/matarld&quot;&gt;Mathias Arlaud&lt;/a&gt; nous ont parlé de l’utilisation d’API Platform dans le cadre du Domain Driven Development et de l’Architecture Hexagonale.
-Les présentateurs ont commencé cette présentation par plusieurs rappels et présentations sur des sujets comme :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Domain Driven Design&lt;/li&gt;
-  &lt;li&gt;Structures hexagonales&lt;/li&gt;
-  &lt;li&gt;CQRS&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Ces rappels ont permis d’enchainer sur l’utilisation du framework dans ce contexte à travers un &lt;a href=&quot;https://github.com/mtarld/apip-ddd&quot;&gt;exemple de projet&lt;/a&gt; DDD utilisant API Platform 3 et suivant l’architecture hexagonale.&lt;/p&gt;
-
-&lt;p&gt;Ils expliquent comment implémenter API Platform dans notre code en détaillant plusieurs points :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;L’implémentation des providers côté query&lt;/li&gt;
-  &lt;li&gt;L’implémentation des processors côté command&lt;/li&gt;
-  &lt;li&gt;Le système d’opération&lt;/li&gt;
-  &lt;li&gt;Les providers/processors qui appellent l’app via les bus&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;comment-alice-gardens-gère-t-elle-son-code-métier-via-les-évènements&quot;&gt;Comment Alice Garden’s gère-t-elle son code métier via les évènements&lt;/h2&gt;
-
-&lt;p&gt;Nous avons pu assister à la conférence “Comment Alice Garden’s gère-t-elle le code métier via des évènements ?” proposée par leur technical architect &lt;a href=&quot;https://twitter.com/epatwon&quot;&gt;Nicolas Lemahieu&lt;/a&gt;. Tout d’abord, il nous a présenté le contexte de son entreprise Alice Garden’s qui fait de la vente de mobilier d’extérieur. En se basant sur la stack technique déjà présente : Symfony, RabbitMQ, MariaDB et sans tout refondre, comment faire pour mieux gérer le code métier actuellement éparpillé un peu partout dans le code.&lt;/p&gt;
-
-&lt;p&gt;Ils utilisaient beaucoup de subscribers Doctrine, ce qui entraîne plusieurs problèmes :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Des subscribers nombreux = plus de logique au flush&lt;/li&gt;
-  &lt;li&gt;Code plus difficile à maintenir et à comprendre&lt;/li&gt;
-  &lt;li&gt;L’augmentation du risque de boucles infinies implique que chaque changement entraîne des boucles sur le UnitOfWork&lt;/li&gt;
-  &lt;li&gt;Duplication de code&lt;/li&gt;
-  &lt;li&gt;Code fortement couplé à Doctrine et manque de typage&lt;/li&gt;
-  &lt;li&gt;Du côté du profiler Symfony, cela devient compliqué aussi dès qu’on commence à en avoir beaucoup&lt;/li&gt;
-  &lt;li&gt;Les tests sont compliqués :
-    &lt;ul&gt;
-      &lt;li&gt;Unitaires quasi impossibles,&lt;/li&gt;
-      &lt;li&gt;Fonctionnels possibles, mais demandent beaucoup de ressources en temps et donc d’argent&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Nicolas Lemahieu a donc présenté les différentes solutions envisagées ainsi que leurs avantages et inconvénients :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Domain Driven Development : séparation très nette du métier et de l’infra, mais demande beaucoup trop d’effort à mettre en place, car aucune correspondance avec les bundles déjà existants (risque de régression trop haut, coût de développement trop grand…)&lt;/li&gt;
-  &lt;li&gt;Garder les évènements et s’affranchir de Doctrine : c’est la solution qui a été retenue parce qu’elle permettait de réutiliser un maximum de l’existant&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Puis, nous avons pu apprendre comment implémenter cette solution :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Création d’une abstraction supplémentaire “BusinessObject” : nouveau dossier Business dans src où :
-    &lt;ul&gt;
-      &lt;li&gt;Entité = objet métier&lt;/li&gt;
-      &lt;li&gt;Méthodes des entités = règles métier&lt;/li&gt;
-      &lt;li&gt;Toutes les interfaces entité étendent BusinessObjectInterface&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Classes abstraites dans Business&lt;/li&gt;
-  &lt;li&gt;Implémentation d’events custom pour chaque objet métier et par type d’event&lt;/li&gt;
-  &lt;li&gt;Event provider : fournit les évènements qui sont mis dans une collection puis tag dans les services&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;En conclusion, chez Alice Garden’s, ils ont réussi à n’avoir qu’un seul Doctrine Subscriber, donc une seule boucle de UnitOfWork et des tests facilités, car c’est seulement du PHP. La dépendance à Doctrine est éliminée et il suffira de déplacer le provider pour adapter le code à une autre infrastructure.&lt;/p&gt;
-
-&lt;h2 id=&quot;réutiliser-et-partager-vos-opérations-personnalisées-avec-api-platform&quot;&gt;Réutiliser et partager vos opérations personnalisées avec API Platform&lt;/h2&gt;
-
-&lt;p&gt;Grâce à &lt;a href=&quot;https://mobile.twitter.com/jean_beru&quot;&gt;Hubert Lenoir&lt;/a&gt; et &lt;a href=&quot;https://mobile.twitter.com/jjarrie&quot;&gt;Jérémy Jarrié&lt;/a&gt; de l’entreprise SensioLabs, nous avons pu apprendre à réutiliser et partager les opérations avec API Platform. Ils utilisent 3 API REST faites avec API Platform v3. Des opérations génériques comme “liker” peuvent s’appliquer sur des ressources différentes (articles, photos, pages, etc.), on peut donc réutiliser du code.&lt;/p&gt;
-
-&lt;p&gt;Les principes pour faire cette utilisation générique de code sont simples :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Un seul contrôleur pour plusieurs ressources = un contrôleur de comportement&lt;/li&gt;
-  &lt;li&gt;Une interface pour que les entités puissent adopter ce comportement&lt;/li&gt;
-  &lt;li&gt;Trait pour les méthodes du comportement (1 à n comportements, donc classe abstraite ou interface impossible)&lt;/li&gt;
-  &lt;li&gt;Ajouter des services intermédiaires&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Il survient un seul problème avec ce pattern : la duplication des annotations API Platform. La solution est d’ajouter des décorations (design pattern decorator) sur les métadatas d’API Platform. Il est donc simple de créer des comportements indépendants des ressources qui pourront être facilement réutilisés. Ce projet était encore à l’état de POC, mais Jérémy et Hubert allaient mettre à jour la version plus aboutie sur le &lt;a href=&quot;https://github.com/JJarrie/reuse-behaviour&quot;&gt;repository GitHub&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;la-revue-de-code-est-un-art&quot;&gt;La revue de code est un art&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/SmaineDev&quot;&gt;Smaine Milianni&lt;/a&gt; a proposé une conférence sur les conseils à suivre afin d’effectuer une revue de code. Nous avons pu réaliser qu’au sein de Bedrock nous appliquions déjà de nombreux principes.&lt;/p&gt;
-
-&lt;p&gt;Nous appliquons déjà :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Un template de PR pour décrire les caractéristiques du bug ou de l’US :
-    &lt;ul&gt;
-      &lt;li&gt;Quoi, pourquoi, comment, comment tester, etc.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Des noms de commits explicites&lt;/li&gt;
-  &lt;li&gt;La bienveillance&lt;/li&gt;
-  &lt;li&gt;Le challenge du code des autres personnes&lt;/li&gt;
-  &lt;li&gt;La connaissance des nombreux concepts de code (SOLID, KISS…)&lt;/li&gt;
-  &lt;li&gt;Faire du pair review ou mob review&lt;/li&gt;
-  &lt;li&gt;Un request bot déjà en place&lt;/li&gt;
-  &lt;li&gt;Tester et ne pas se fier uniquement à la lecture du code&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Nous avons aussi pu prendre du recul et noter des conseils à appliquer. Chacun a pu transmettre ses idées à son équipe. Le rappel qu’une revue c’est aussi souligner le positif et pas seulement challenger le code. Cette conférence est très concrète et facilement applicable à Bedrock.&lt;/p&gt;
-
-&lt;h2 id=&quot;fighting-impostor-syndrome-a-practical-handbook&quot;&gt;Fighting impostor syndrome: a practical handbook&lt;/h2&gt;
-
-&lt;p&gt;Lors de cette conférence, &lt;a href=&quot;https://twitter.com/mupsigraphy&quot;&gt;Marine Gandy&lt;/a&gt; commence sa présentation par définir ce que le syndrome de l’imposteur est : une peur de l’échec, la crainte que quelqu’un dise que nous ne sommes pas capables, mais aussi le sentiment de ne pas mériter de réussir.
-Elle nous explique que ce terme était tout d’abord attribué exclusivement aux femmes, mais qu’après une étude montrant que 70% de la population était touchée, il se serait généralisé à tous les genres.
-Marine Gandy nous énonce que la tech est très touchée par ce phénomène pour plusieurs raisons comme le fait qu’il y ait beaucoup de renouveau dans ce corps de métier et que nous avons vite l’impression de retourner à nos débuts lorsque nous changeons de techno, créant ainsi un sentiment d’instabilité. 
-Dans ce contexte, Marine nous parle de &lt;a href=&quot;https://www.universite-paris-saclay.fr/sites/default/files/media/2020-02/erreur-fondamentale-d-attribution-atelierfbjip2018.pdf&quot;&gt;l’effet Julien Lepers&lt;/a&gt; en prenant pour exemple le fait de se trouver dans une équipe de personnes bien plus expérimentées que nous où la situation influe sur la personne.
-Pour finir, la conférencière nous présente plusieurs pistes à suivre pour éviter ou minimiser ce genre de sentiment :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Arrêter de se comparer aux autres&lt;/li&gt;
-  &lt;li&gt;Se challenger sur de nouveaux domaines pour se rendre compte qu’on peut toujours apprendre&lt;/li&gt;
-  &lt;li&gt;Travailler sur ses faiblesses pour permettre de se sentir plus compétent&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;mon-combat-contre-larachnophobie&quot;&gt;Mon combat contre l’arachnophobie&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/Deuchnord&quot;&gt;Jérôme Tanghe&lt;/a&gt;, par son arachnophobie, nous a expliqué comment il est arrivé à contribuer à API Platform afin d’ajouter une option pour cacher la mascotte Webby. Et c’est ce dont il nous a parlé, à savoir comment bien démarrer sa première pull request pour contribuer au logiciel libre. La première étape étant de trouver le bon repository qui nous conviendrait parmi les projets existants. Dans le but d’identifier un sujet sur lequel contribuer, il ne faut pas hésiter à utiliser la fonctionnalité des tags sur les issues, par exemple le tag hacktoberfest dans le cadre d’API Platform. Une fois le sujet trouvé, il faut maintenant identifier la branche de base à partir de laquelle faire sa pull request, cela peut s’agir d’une version spécifique choisie ou même de la branche principale. La contribution au logiciel libre ou à l’open source ne passe pas uniquement par des pull requests uniquement basés sur le code. Il est également possible de tester les préversions (release-candidate), signaler des bugs, faire des suggestions, améliorer la documentation ou encore rédiger des traductions. Enfin, il est conseillé de prendre en compte chaque retour sur d’autres pull requests, cela permet notamment de découvrir les principes et standards du projet.&lt;/p&gt;
-
-&lt;h2 id=&quot;pourquoi-je-nutilise-pas-api-platform&quot;&gt;Pourquoi je n’utilise pas API Platform&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/FredBouchery&quot;&gt;Frédéric Bouchery&lt;/a&gt;, s’est décidément perdu en se retrouvant à présenter cette conférence à l’API Platform conference 2022. Malgré tout, cela lui a permis de nous partager son introspection : Mais au fait, pourquoi il ne s’en sert pas ?&lt;br /&gt;
-Dans cette première partie de sa conférence, Frédéric n’hésite pas à utiliser beaucoup de sarcasme. Il nous explique qu’il ne s’en sert pas, car API Platform est écrit en PHP et pour lui, c’est une technologie vieillissante qui ne devrait pas tarder à rejoindre Cobolt. Également parce qu’API Platform utilise Symfony, alors que tout le monde le sait très bien, enfin surtout les Google Trend, Laravel est plus utilisé dans le monde. De plus, Frédéric n’aime pas la magie et API Platform en est rempli : sérialisation et désérialisation à tout va alors que lui est capable de faire une API en seulement quelques lignes avec du PHP pur sans artifice. Enfin, il reproche à API Platform de devenir compliqué à utiliser si le projet qui se base dessus est complexe, trop de personnalisation et de configurations doivent être effectuées. &lt;br /&gt;
-Dans cette deuxième partie, Frédéric fait tomber son masque sarcastique et décide de revenir sur les points qu’il a abordés précédemment :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Les tendances concernant un langage ne sont pas des bons indicateurs, en effet imaginer le futur ou la mort de PHP via des statistiques dont certaines basées sur l’opinion publique n’est pas une bonne façon de faire&lt;/li&gt;
-  &lt;li&gt;PHP, c’est aujourd’hui 75% des sites du monde entier et 54% parmi le top 1000 des sites internet fréquemment utilisés&lt;/li&gt;
-  &lt;li&gt;Malgré tout, il nous conseille de ne pas être mono technologique non plus. S’intéresser à d’autres langages est une bonne chose&lt;/li&gt;
-  &lt;li&gt;API Plateform a quand même de bonnes performances : 99% de réponses avec une moyenne de 91 ms sur 5 000 requêtes comparées à son code PHP pur avec une moyenne de 21 ms pour 5 000 requêtes également sachant que son code ne prend pas en compte la sécurité&lt;/li&gt;
-  &lt;li&gt;Le framework Laravel utilisant des composants Symfony, il est dès lors difficile de les comparer. Même si factuellement Laravel est plus utilisé dans le monde, on n’utilise pas du Laravel ou du Symfony pour les mêmes raisons et c’est une bonne chose que les deux coexistent ensemble&lt;/li&gt;
-  &lt;li&gt;Il pensait qu’avec la complexité de ses projets, il était trop dur de passer à API Platform, mais il s’est rendu compte que ce n’était pas nécessairement vrai&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;En conclusion de sa conférence et sans aucun sarcasme, Frédéric n’hésite pas à se livrer à nous et finit par nous dire qu’il va finalement utiliser API Platform 3 pour un projet.&lt;/p&gt;
-
-&lt;h2 id=&quot;whats-new-in-caddy-the-webserver-of-api-platform&quot;&gt;What’s New in Caddy, the webserver of API Platform&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/_francislavoie&quot;&gt;Francis Lavoie&lt;/a&gt; nous a présenté plusieurs nouveautés dans &lt;strong&gt;Caddy&lt;/strong&gt;, un webserver écrit en Go ayant beaucoup de fonctionnalités activées par défaut et fourni avec API Platform dans &lt;a href=&quot;https://api-platform.com/docs/distribution/caddy/&quot;&gt;l’installation de base&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Parmi les nouveautés présentées, il nous a notamment parlé d’améliorations au niveau des &lt;strong&gt;request matchers&lt;/strong&gt; avec des matchers réutilisables, des expressions et des fonctions. Il a ensuite parlé d’une gestion native de &lt;a href=&quot;https://www.authelia.com&quot;&gt;Authelia&lt;/a&gt; permettant de déléguer facilement l’authentification depuis la configuration du serveur.
-Enfin, la directive &lt;strong&gt;file_server&lt;/strong&gt; peut maintenant servir des fichiers provenant d’autres sources que le système de fichiers local, par exemple depuis un &lt;strong&gt;bucket S3&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Certaines fonctionnalités sont désormais activées par défaut comme &lt;strong&gt;HTTP/3&lt;/strong&gt; et la suppression du log des headers d’authentification où il est également possible de créer des filtres pour retirer d’autres informations.&lt;/p&gt;
-
-&lt;h2 id=&quot;webauthn--se-débarrasser-des-mots-de-passe-définitivement&quot;&gt;WebAuthn : se débarrasser des mots de passe. Définitivement.&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://mobile.twitter.com/florentmorselli&quot;&gt;Florent Morselli&lt;/a&gt; nous fait une proposition : il est de plus en plus possible aujourd’hui de se passer complètement des mots de passe.&lt;/p&gt;
-
-&lt;p&gt;Il a commencé par nous rappeler les problèmes récurrents : mots de passe trop faibles et/ou trop courts, réutilisation sur plusieurs sites, la multiplication des fuites de bases de données, etc.&lt;/p&gt;
-
-&lt;p&gt;La solution proposée : &lt;a href=&quot;https://webauthn.io&quot;&gt;WebAuthn&lt;/a&gt;, un standard d’authentification multifacteur permettant d’identifier les utilisateurs via des données biométriques, des clés physiques ou sans aucune information après la première authentification sur un appareil.&lt;/p&gt;
-
-&lt;p&gt;Côté implémentation, Florent nous a présenté deux projets : un &lt;a href=&quot;https://github.com/web-auth/webauthn-symfony-bundle&quot;&gt;bundle Symfony&lt;/a&gt; pour le côté backend et un &lt;a href=&quot;https://github.com/web-auth/webauthn-stimulus&quot;&gt;composant Symfony UX&lt;/a&gt; pour le frontend.&lt;/p&gt;
-
-&lt;h2 id=&quot;php-websockets-or-how-to-communicate-with-clients-in-real-time&quot;&gt;PHP WebSockets, or how to communicate with clients in real-time&lt;/h2&gt;
-
-&lt;p&gt;Habituellement connue pour faire des conférences sur Git, &lt;a href=&quot;https://twitter.com/vanamerongen&quot;&gt;Pauline Vos&lt;/a&gt; nous a fait une démo en live de l’utilisation des &lt;strong&gt;WebSockets&lt;/strong&gt; en PHP.&lt;/p&gt;
-
-&lt;p&gt;Elle a commencé par une rapide explication de différents protocoles de communication en temps réel existant : &lt;em&gt;WebRTC&lt;/em&gt; chez Google, &lt;em&gt;Mercure&lt;/em&gt; chez Symfony et &lt;em&gt;Livewire&lt;/em&gt; chez Laravel.
-Les WebSockets étant de simples tunnels à données, ces protocoles permettent de les enrichir de diverses fonctionnalités : identification, structures de messages, reconnexion auto, etc.&lt;/p&gt;
-
-&lt;p&gt;Vient ensuite la démo qui consistait en une mini webapp de tombola en ligne. Elle a été découpée en différentes étapes (préparées dans des branches Git) avec, pour chaque étape, une présentation du code et des tests en live via l’outil &lt;a href=&quot;https://websocketking.com&quot;&gt;WebSocketKing&lt;/a&gt;.
-Pour l’étape finale, un QR code a été affiché à l’écran pour permettre aux spectateurs et spectatrices de participer en live. Le hasard a voulu que le nom tiré soit &lt;a href=&quot;https://twitter.com/s0yuka&quot;&gt;Antoine Bluchet&lt;/a&gt;, le contributeur principal d’API Platform !&lt;/p&gt;
-
-&lt;h2 id=&quot;comment-remettre-la-tech-au-service-du-bien-commun-&quot;&gt;Comment (re)mettre la tech au service du bien commun ?&lt;/h2&gt;
-
-&lt;p&gt;Pour conclure ces deux jours de conférences intenses en savoir et en émotions, animé par &lt;a href=&quot;https://twitter.com/gregcop1&quot;&gt;Grégory Copin&lt;/a&gt; : &lt;a href=&quot;https://twitter.com/HeleneMaitre&quot;&gt;Hélène Marchois&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/paulandrieux&quot;&gt;Paul Andrieux&lt;/a&gt; et &lt;a href=&quot;https://twitter.com/dunglas&quot;&gt;Kévin Dunglas&lt;/a&gt; nous ont proposé une excellente table ronde riche en idées et porteuse (d’un peu) d’espoir. Le sujet étant de savoir s’il est possible de faire évoluer la tech dans le but de rejoindre les objectifs de départ du logiciel libre.&lt;/p&gt;
-
-&lt;p&gt;L’apparition du mouvement du logiciel libre puis celle du web se sont bâties sur de grands espoirs et de beaux objectifs : émancipation des individus, partage des connaissances à l’échelle planétaire, liberté d’expression, constructions de bien commun appartenant à toutes et tous et maintenues collectivement. Malheureusement, force est de constater que le web comme le logiciel libre ont été détournés de leurs objectifs de base et que les idéaux qu’ils portaient ont été bien mis à mal : surveillance de masse, capitalisation de ces biens communs et précarisation des individus et des libertés.&lt;/p&gt;
-
-&lt;p&gt;Kévin nous explique ensuite la différence entre logiciel libre et open source : API Platform est un logiciel libre plus qu’open source, même si techniquement, c’est les deux. Historiquement, le logiciel libre est apparu dans le but de créer un bien commun pour l’humanité et s’est élargi avec, notamment, la notion de commons via Wikipédia. La différence avec l’open source est que si le code est disponible, ce n’est pas uniquement pour bâtir tout et n’importe quoi avec, mais c’est un code qui porte des valeurs et qui a pour but de faire en sorte que tout le monde sans distinction puisse facilement créer de nouveaux outils qui puissent être partagés, qui appartiennent à un ensemble de personnes et qui vont socialiser le travail qui est réalisé en commun là-dessus. Le but du logiciel libre à la base, c’est de faire en sorte que ces valeurs de transparence, de démocraties, de partage de connaissance s’étendent via le logiciel à l’ensemble de la société. Donc si vous aussi, vous voulez utiliser un logiciel libre, la condition est que, vous aussi, vous devez faire quelque chose qui sert l’humanité : créer un bien commun et mettre aussi à disposition le code source du logiciel. En l’occurrence, API Platform, est une licence permissive, c’est-à-dire qu’il est possible de faire tout et n’importe quoi avec, mais ce n’est pas le cas pour le logiciel &lt;a href=&quot;https://github.com/dunglas/mercure&quot;&gt;Mercure&lt;/a&gt; par exemple, où si vous l’utilisez et le modifiez, vous êtes obligé de redistribuer les éléments.&lt;/p&gt;
-
-&lt;p&gt;Quant à l’open source, c’est une initiative qui est arrivée bien après le logiciel libre et est une offensive de multinationale de la technologie qui veut dépolitiser le mouvement du logiciel libre. Le point de départ étant que, techniquement, c’est très intéressant de créer du logiciel ensemble, de partager les coûts de maintenance entre différentes entreprises ou personnes et c’est surtout très intéressant d’avoir accès au secret de fabrication pour les choses qui ont peu de valeur ajoutée. Mais l’objectif final étant de capitaliser, faire du business et capter la valeur sur ce qui a une très forte valeur ajoutée. Par exemple, pour macOS, toutes les briques de bases sont complètement libres, développées par une communauté de personne, d’entreprise et essentiellement beaucoup de bénévoles et d’hobbyiste. Et dans ce cas-là, ce qui a une extrême valeur ajoutée, c’est l’UI au-dessus du matériel ou encore les jolis outils qui coûtent une fortune. Ce qui permet à Apple d’être la boite la plus riche du monde en réutilisant le travail de personnes qui n’ont pas fait ça pour macOS à la base.&lt;/p&gt;
-
-&lt;p&gt;Les trois personnes intervenantes représentant chacune une SCOP, la table ronde s’est ensuite naturellement tournée vers le lien entre le logiciel libre et le mouvement coopératif. Le lien étant la vision politique du logiciel libre via son socle de valeur : liberté, transparence, gouvernance partagée et coopération. On retrouve cet esprit de transparence, de fonctionnement démocratique et de fonctionnement par coopération à l’intérieur de la SCOP et entre les différentes SCOP.
-S’en est ajoutée la question du sens par rapport à son travail. Effectivement, le logiciel libre, comme le mouvement coopératif, redonne du sens, principalement car cela ouvre le champ des possibles en vue des enjeux climatiques et sociaux actuels. Même si l’on vit dans une société qui est régie par le profit, la compétition féroce et le pouvoir, il existe des possibilités de s’organiser autrement et qui fonctionne quand même à une échelle conséquente, bien qu’encore insuffisante. Des actions individuelles existent et sont possibles. Pour cela, nous vous recommandons de regarder &lt;a href=&quot;https://www.youtube.com/watch?v=XpY7p062zIo&amp;amp;list=PL3hoUDjLa7eSo7-CAyiirYfhJe4h_Wxs4&quot;&gt;la conférence d’Hélène&lt;/a&gt; à l’API Platform Conference de l’année dernière qu’elle résume et étoffe lors de cette table ronde.&lt;/p&gt;
-
-&lt;p&gt;Et bien sûr, quand cela sera possible, nous vous encourageons fortement de regarder le replay de cette conférence (&lt;a href=&quot;https://www.youtube.com/c/Les-tilleulsCoop&quot;&gt;sur la chaine des Tilleuls&lt;/a&gt;) qui redonne un peu d’espoir quant aux futurs des organisations démocratiques de nos métiers.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;Merci à toutes et tous les speakers, à API Platform ainsi qu’aux Tilleuls-coop pour cet évènement ! Nous avons pu en apprendre plus sur API Platform et revenir la tête pleine d’idées pour nos projets futurs et présents ! À l’année prochaine peut-être !&lt;/p&gt;</content><author><name>backend</name></author><category term="conferences" /><category term="backend" /><category term="api" /><category term="php" /><summary type="html">En cette période de rentrée, Bedrock participait à l’API Platform Conference 2022, où nous avons eu le plaisir d’assister à une partie des conférences proposées. Un grand merci à toutes les personnes chez Les-Tilleuls.coop pour l’organisation de cet évènement ! Pour cette seconde édition, le programme était réparti sur deux jours, les 15 &amp;amp; 16 septembre 2022.</summary></entry></feed>
+&lt;p&gt;Dorénavant, vous saurez identifier les passages obligés et ceux où vous pouvez gagner du temps.&lt;/p&gt;</content><author><name>Sarah Haïm-Lubczanski</name></author><category term="conference" /><category term="afup" /><category term="forumphp" /><category term="doc" /><summary type="html">Vous êtes développeur ou développeuse PHP : vous aimez programmer, réfléchir. Vous aimez créer des applications ou des bibliothèques de qualité. Mais pourquoi personne ne les utilise ? Parce que votre documentation n’est pas à la hauteur !</summary></entry></feed>

@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/2022-12-23-haproxyconf-paris-2022/haproxyconf_2022_paris.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Nos retours sur l’HAProxyConf Paris 2022 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Nos retours sur l’HAProxyConf Paris 2022" />
+<meta name="author" content="Bedrock" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Retour sur la virée de Bedrock à l’HAProxyconf Paris 2022, et ce que nous en retenons" />
+<meta property="og:description" content="Retour sur la virée de Bedrock à l’HAProxyconf Paris 2022, et ce que nous en retenons" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-12-23T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Nos retours sur l’HAProxyConf Paris 2022" />
+<script type="application/ld+json">
+{"description":"Retour sur la virée de Bedrock à l’HAProxyconf Paris 2022, et ce que nous en retenons","headline":"Nos retours sur l’HAProxyConf Paris 2022","dateModified":"2022-12-23T00:00:00+00:00","datePublished":"2022-12-23T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html"},"url":"https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html","author":{"@type":"Person","name":"Bedrock"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Nos retours sur l'HAProxyConf Paris 2022">
+    <meta name="twitter:description" content="Bedrock était présent lors de la Conférence HAProxy qui se déroulait à Paris en novembre 2022 : en tant que speaker, avec la présentation de Vincent Gallisso...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/2022-12-23-haproxyconf-paris-2022/haproxyconf_2022_paris.png">
+    <meta name="twitter:image:alt" content="Nos retours sur l'HAProxyConf Paris 2022">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Nos retours sur l'HAProxyConf Paris 2022 " aria-label="Nos retours sur l'HAProxyConf Paris 2022" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Nos+retours+sur+l%27HAProxyConf+Paris+2022" class="title">Nos retours sur l'HAProxyConf Paris 2022</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      Bedrock - 
+      
+      December 23, 2022
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Bedrock était présent lors de la Conférence HAProxy qui se déroulait à Paris en novembre 2022 : en tant que speaker, avec la présentation de Vincent Gallissot, mais aussi en tant que spectateur. Cet article relate les points forts qui nous ont marqués.</p>
+
+<p>La présentation de Vincent Gallissot, Lead Cloud Architect chez Bedrock, mettait en valeur l’usage d’HAProxy en tant que brique essentielle de notre infrastructure. Chez Bedrock, nous développons et maintenons une plateforme de streaming qui a été migrée dans le Cloud en 2019. Cette présentation était grandement inspirée de l’article intitulé <a href="https://tech.bedrockstreaming.com/2021/12/15/scaling-bedrock-video-delivery-to-50-million-users.html" target="_blank">“Scaling Bedrock video delivery to 50 million users”</a>, dans lequel vous trouverez pléthore d’informations concernant nos utilisations d’HAProxy.</p>
+
+<p><img src="/images/posts/2022-12-23-haproxyconf-paris-2022/keynote_conf_2022_bedrockstreaming.jpg" alt="Vincent Gallissot presentation" /></p>
+
+<p><strong>Sommaire</strong></p>
+
+<ul>
+  <li><a href="#ce-que-des-millions-de-requêtes-par-seconde-signifient-en-termes-de-coût-et-déconomie-dénergie">Ce que des millions de requêtes par seconde signifient en termes de coût et d’économie d’énergie</a></li>
+  <li><a href="#un-outil-pour-les-gouverner-tous">Un outil pour les gouverner tous</a></li>
+  <li><a href="#vous-reprendrez-bien-un-peu-de-pétaoctets-">Vous reprendrez bien un peu de pétaoctets?</a></li>
+</ul>
+
+<h2 id="ce-que-des-millions-de-requêtes-par-seconde-signifient-en-termes-de-coût-et-déconomie-dénergie">Ce que des millions de requêtes par seconde signifient en termes de coût et d’économie d’énergie.</h2>
+
+<p>La keynote d’ouverture avait pour orateur <a href="https://twitter.com/willytarreau" target="_blank">Willy Tarreau</a>, le Lead Developer d’HAProxy.<br />
+Au travers d’une démonstration concrète mélangeant software et hardware, l’objectif était de :</p>
+<ul>
+  <li>transmettre l’idée qu’ajouter une brique logicielle dans un système ne le dégrade pas pour autant, bien au contraire</li>
+  <li>sensibiliser l’audience quant à la consommation d’énergie de nos systèmes</li>
+</ul>
+
+<h3 id="contexte-technique-et-premières-améliorations">Contexte technique et premières améliorations</h3>
+
+<p>Pour ce premier cas d’étude, Willy Tarreau nous présente le cas d’un service de vente en ligne.</p>
+
+<p>La stack technique est composée de PHP / pgSQL (NodeJS + Symfony) et les images sont stockées en base de données. C’est cette architecture qui sera mise à l’épreuve lors des tests de charge à venir.</p>
+
+<p>Dans un premier temps, plusieurs améliorations (sans HAProxy) sont proposées. Il peut s’agir d’un simple rappel, voir d’un pro-tip d’architecture pour les plus novices : Les images en base de données, c’est une mauvaise idée.</p>
+
+<p>En les déplaçant vers un CDN, le système peut rapidement et simplement doubler ses performances, la base de données étant un goulot d’étranglement. La taille des pages peut être optimisée via l’activation de l’option http “gzip”. Les informations de sessions sont elles aussi enregistrées en base de données. Afin d’améliorer les performances, il est possible d’ajouter du caching via des outils tels que Memcache.</p>
+
+<p>Suite à cela, une première amélioration d’architecture serait d’ajouter un NLB (Network Load Balancer) en amont du système qui distribuerait les requêtes entrantes vers plusieurs unités de calculs.</p>
+
+<p><img src="/images/posts/2022-12-23-haproxyconf-paris-2022/keynote_conf_2022_request_arch.png" alt="next architecture schematic keynote" /></p>
+
+<p>Schéma d’architecture, première version</p>
+
+<p>Dans le cas présent, les requêtes entrantes sont distribuées de façon aléatoire entre les différentes unités de traitement. Chacun de ces backends se connectant à la même et unique base de données.<br />
+Le benchmark ci-dessous (efficacité, au sens nombre de requêtes traitées en fonction du nombre d’unités de calcul), ne montre pas une croissance linéaire. Il s’agit d’une courbe tendant vers une pente nulle (voir négative pour les plus grosses architectures).</p>
+
+<p><img src="/images/posts/2022-12-23-haproxyconf-paris-2022/keynote_conf_2022_nlb_stats.png" alt="stats of nlb with backends" /></p>
+
+<p>Graphique représentant l’efficacité du système en fonction du nombre de backends</p>
+
+<h3 id="comment-expliquer-que-cette-architecture-ne-scale-pas-linéairement-">Comment expliquer que cette architecture ne scale pas linéairement ?</h3>
+
+<p>Malgré les améliorations apportées pour les sessions grâce au cache, il subsiste encore un problème.</p>
+
+<p>Le NLB est un composant qui ne fait que répartir la charge sans tenir compte de l’historique des requêtes. En effet, celui-ci va distribuer la charge d’entrée aléatoirement vers les backends.<br />
+Chaque backend reçoit des requêtes provenant de n’importe quel utilisateur impliquant alors un cache-miss très élevé : l’utilisateur est rarement trouvé dans le cache, ce qui génère une requête supplémentaire en base de données et dégrade les performances en plus de consommer inutilement des ressources.</p>
+
+<h3 id="et-si-nous-ajoutons-haproxy-à-notre-système-">Et si nous ajoutons HAProxy à notre système ?</h3>
+
+<p>C’est ici qu’entre en jeu HAProxy en remplaçant le NLB. Pour cela, pas besoin d’un foudre de guerre en termes de ressources.</p>
+
+<p>Les tests ont été effectués sur une machine ARM Breadbee cadencée à 1 GHz et possédant 64 Mo de RAM. Nous verrons également par la suite qu’on pourrait même se passer d’une machine supplémentaire.</p>
+
+<p>Le but d’HAProxy est de spécialiser les caches des backends et plus globalement de forcer les sessions utilisateurs vers les mêmes backends.</p>
+
+<p>Pour cela, HAProxy effectue une inspection de la couche 7 du trafic et renvoie toutes les requêtes d’un même utilisateur sur une même machine en réduisant ainsi les cache-miss aux seuls cas des nouveaux clients se connectant à la plateforme. Ainsi, le nombre d’appels à la base de données pour récupérer les informations de session est drastiquement réduit, la majorité d’entre elles étant stockées en cache.</p>
+
+<p>Autre fonctionnalité de taille : HAProxy limite le nombre de requêtes faites en parallèle sur un même backend, ce qui limite les locks de processus et les temps d’attente. Ceci a pour conséquence directe de réduire la consommation CPU.</p>
+
+<p>Ces deux améliorations permettent à l’application de scaler de façon beaucoup plus linéaire, tout en réduisant les consommations CPU et énergétiques inutiles. Globalement, les performances initiales sont largement dépassées avec deux fois moins de backends.</p>
+
+<h3 id="a-partir-de-quand-est-il-intéressant-de-franchir-le-pas-">A partir de quand est-il intéressant de franchir le pas ?</h3>
+
+<p>Maintenant que les bénéfices d’HAProxy ont été présentés, la prochaine étape est de se demander : quand est-ce qu’on se lance ? La question est considérée en termes de performance, mais aussi sous un angle pécunier.<br />
+Si HAProxy peut être intégré sans augmenter les coûts du système, c’est encore mieux.</p>
+
+<p>Ajouter HAProxy dans un système composé d’un seul backend n’apporte pas de bénéfice : il n’y a pas de load-balancing possible. Avec deux backends, si on divise le besoin de processing par deux, nous n’avons plus qu’un seul backend et donc pas de load-balancing possible.<br />
+C’est en fait à partir de 4 backends que l’ajout d’un HAProxy en entrée devient intéressant :</p>
+<ul>
+  <li>en retirant 2 serveurs de nos backends en conservant une puissance équivalente (cf les tests ci-dessus)</li>
+  <li>et en recyclant un des deux backends retirés en hôte pour HAProxy
+En fin de compte, pour une même puissance de traitement, un backend est retiré ce qui permet de réduire les coûts de fonctionnement. Ce principe s’applique également sur un grand nombre de backends.</li>
+</ul>
+
+<p>C’est là que prend tout son sens l’expression qui avait été utilisée pour conclure cette keynote : “HAProxy is a free software running on free hardware”.</p>
+
+<p>Chez Bedrock, nous appliquons aussi ces différentes techniques de Consistent Hashing en entrée de notre CDN vidéo. Nos caches vidéos sont spécialisés et chaque utilisateur est redirigé vers un unique backend lors de la lecture d’une vidéo.<br />
+Pour en savoir plus, vous pouvez consulter notre article au sujet du <a href="https://tech.bedrockstreaming.com/2021/11/18/hsdo.html" target="_blank">Consistent Hashing</a>.</p>
+
+<h2 id="un-outil-pour-les-gouverner-tous">Un outil pour les gouverner tous</h2>
+
+<p>Dans notre activité en informatique, nous sommes amenés à délivrer de plus en plus rapidement des applications, des mises à jour, etc… Nous avons donc adopté la philosophie DevOps et tout un panel d’outils autour de celle-ci afin de sécuriser, monitorer et automatiser chaque étape de nos pipelines de livraison.</p>
+
+<p>Le cas de figure du load balancing est intéressant dans ce type d’organisation, il est essentiel d’exposer de nouvelles applications sur les environnements de production mais étant donné que la maîtrise de cet outil requiert une compréhension du réseau, la responsabilité incombe souvent à l’équipe Ops de le gérer.</p>
+
+<h3 id="vous-souhaitez-mieux-gérer-votre-flotte-haproxy-">Vous souhaitez mieux gérer votre flotte HAProxy ?</h3>
+
+<p>Anjelko Iharos, directeur de l’ingénierie à HAProxy Technologies nous a présenté leur nouvel outil d’automatisation : HAProxy Fusion Control Plane, packagé dans la version entreprise de HAProxy.</p>
+
+<p>Celui-ci va amener une nouvelle interface enrichie afin de gérer toutes les instances HAProxy et les outils gravitant autour de ces dernières.</p>
+
+<p>On peut citer :</p>
+<ul>
+  <li>La possibilité pour les développeurs de router eux-même leurs applications sans avoir besoin d’un Ops dans leurs pipelines de CI via l’API Fusion.</li>
+  <li>Gérer les WAF de HAProxy de manière centralisée et répercuter cette configuration sur un ensemble de clusters/instances.</li>
+  <li>Permettre aux Ops de gérer la structure de leurs load balancers, ajouter de nouvelles instances, gérer les certificats SSL, le tuning des performances depuis un seul point d’entrée.</li>
+</ul>
+
+<h3 id="est-ce-résilient-">Est-ce résilient ?</h3>
+
+<p>Fusion Control Plane est livré avec tout un set de features intéressantes pour assurer sa maintenabilité et sa résilience :</p>
+<ul>
+  <li>Une pleine observabilité avec une application unifiée de récupération de logs, métriques et rapports dans la même interface. L’export de ces data est possible, notamment pour les transposer dans un dashboard tiers (Grafana, par exemple).</li>
+  <li>Un système de RBAC permettant de mieux gérer les périmètres de chacune des équipes dans le control plane.</li>
+  <li>La gestion centralisée de la configuration, la validation des configurations et le bot management. La partie WAF est packagée avec OWASP (communauté publiant des recommandations pour la sécurisation des applications web) ModSecurity Core Rule Set (CRS) pour la détection des vulnérabilités. Dans le cadre d’un cluster un système de failover automatique avec auto-élection du leader (à la manière de GOSSIP avec Consul).</li>
+</ul>
+
+<h3 id="une-vue-de-lavenir-">Une vue de l’avenir ?</h3>
+
+<p>Aujourd’hui, Fusion Control Plane limite son scope à HAProxy Entreprise et Community Edition, les IngressController ne sont pour le moment pas encore supportés.</p>
+
+<p>Il n’est pas encore pleinement compatible avec les features offertes par AWS (Gestion des ASG et de Route53) mais c’est en cours de développement chez HAProxy Technologies.</p>
+
+<p>Le produit semble prometteur et intéressant. Les possibilités qu’il nous offre pour laisser la main aux développeurs sur la mise en place de routes vers leurs applications côté on-premise est vraiment un gros plus, mais il nous manque pour le moment le support de l’IngressController HAProxy utilisé sur nos cluster Kubernetes, ce qui nous empêche d’en profiter au maximum.</p>
+
+<h2 id="vous-reprendrez-bien-un-peu-de-pétaoctets-">Vous reprendrez bien un peu de pétaoctets ?</h2>
+
+<p>Chez Bedrock, un élément central de notre métier est de fournir de la vidéo à nos utilisateurs. (Incroyable pour une boite qui fait de la VOD hein? 😀).</p>
+
+<p>Pour ce faire nous avons nos propres serveurs CDN hébergés sur Paris, en complément des CDN publics comme Cloudfront ou Fastly. Cette année nous avons servis plusieurs centaines de PB de données via nos serveurs et nous espérons pouvoir au moins doubler ce trafic l’année prochaine !</p>
+
+<p>Notre architecture CDN est constituée d’un logiciel appelé LBCDN qui “load-balance” la charge sur les CDN, on-prem et publics, en redirigeant un utilisateur vers un serveur CDN spécifique.<br />
+Nos serveurs en eux-mêmes sont basés sur Nginx avec une configuration assez simple en direct IO sur de gros SSD.</p>
+
+<p>La HAproxy conf 2022 nous a pas mal inspirés pour répondre à nos problématiques avec ces deux conférences :</p>
+<ul>
+  <li><a href="https://www.haproxyconf.com/presentations/boost-your-web-apps-with-haproxy-and-varnish/" target="_blank">Boost your web apps with HAProxy and Varnish, by Jérémy Lecour CTO of Evolix</a></li>
+  <li><a href="https://www.haproxyconf.com/presentations/was-that-really-haproxy/" target="_blank">Was That really HAProxy, by Ricardo Nabinger Sanchez performance engineer at Taghos</a></li>
+</ul>
+
+<p>Ces deux présentations font état d’une architecture sur les CDN intéressante où HAProxy est utilisé pour mettre “en sandwich” l’outil (ou les outils) faisant fonction de CDN.
+L’architecture présentée semble permettre une configuration bien plus fine que ce que nous avons actuellement avec seulement Nginx.</p>
+
+<p>Par exemple, sur nos CDN on-prem nous devons aujourd’hui utiliser une astuce pour que Nginx puisse dynamiquement aller résoudre le nom de domaine du backend sur lequel il source ses fichiers. Cela est déjà un peu dommage de ne pas avoir de mécanisme disponible nativement. De plus, ce mécanisme est difficile à coupler avec d’autres permettant d’avoir du fail-over par exemple.</p>
+
+<p>C’est ici qu’HAProxy pourrait intervenir pour résoudre notre problématique car il nous permet d’avoir du fail over et des tests plus fins sur l’état de santé des backends.</p>
+
+<p>De plus, nous sommes en train de tester une solution de second-tier de CDN qui, du fait de la complexité ajoutée à notre architecture de CDN, profiterait beaucoup d’une plus grande finesse de configuration.</p>
+
+<p>“Mais attends, tu n’as parlé que de HAProxy en backend là, tu triches un peu non? C’est pas un sandwich c’est une tartine de HAProxy là!”
+Tout à fait, notre cas d’usage actuel n’a pas forcément besoin d’un HAProxy en frontal de Nginx.</p>
+
+<p>MAIS!</p>
+
+<p>C’est là que les conférences sont intéressantes car elles montrent que l’on peut mixer les backends.<br />
+Dans la conférence présentée par Ricardo, l’utilisation de deux backends (Varnish et hyper-cache) sur un même serveur est permise par un HAProxy. Cela permet de profiter de la complémentarité de ces services.<br />
+Dans notre cas, nous n’avons pas besoin de cela mais une autre conférence nous a mis la puce à l’oreille : <a href="https://www.haproxyconf.com/presentations/writing-haproxy-filters-in-rust/" target="_blank">Writing HAProxy Filters in Rust</a>, by Aleksandr Orlenko.<br />
+Cela pourrait nous permettre, avec un HAProxy en frontal, d’agréger plus finement les mesures de performances du serveur afin d’optimiser l’usage de ses ressources, ou déporter une partie du trafic sur un serveur moins chargé, ou encore de récupérer une partie des traitements actuellement effectués par le LBCDN.</p>
+
+<p>Ajouter cette fonctionnalité serait la belle cerise au kirsch au sommet de ce sandwich de HAProxy.</p>
+
+<p><img src="/images/posts/2022-12-23-haproxyconf-paris-2022/keynote_conf_2022_cake.png" alt="cake illustration" /></p>
+
+<p>“Il est bizarre ton sandwich”</p>
+
+<p>“Bon d’accord, c’est plutôt un gâteau à étages.”</p>
+
+<p>“Ok c’est mieux, mais je préfère les macarons de la HAProxy Conf 2022 quand même.”</p>
+
+<h2 id="a-une-prochaine-fois-">A une prochaine fois !</h2>
+
+<p>La HAProxyConf, c’était deux jours de conférences avec des orateurs venus de tous les coins du globe.<br />
+Une belle occasion pour nous d’en apprendre plus sur un outil que nous utilisons quotidiennement chez Bedrock.<br />
+Dans cet article, nous n’avons pas pu faire mention de tout ce qui nous a intéressé. Nous pourrions notamment citer les très intéressantes conférences au sujet de :</p>
+<ul>
+  <li>Docker et leur utilisation de l’outil Keda</li>
+  <li>Ou encore de SoundCloud et leurs mesures anti-DDOS</li>
+</ul>
+
+<p>Cette conférence était aussi l’occasion d’échanger avec l’équipe HAProxy autour de sujets techniques qui nous concernent, de voir que nous utilisions déjà certaines bonnes pratiques, mais aussi que nous avions de quoi nous améliorer.</p>
+
+<p>Suite à cette conférence, c’est HAProxy Fusion que nous attendons le plus. Fusion s’annonce comme l’outil idéal pour manager une flotte d’HAProxy. Jusqu’à présent, nous devions utiliser une solution maison <a href="https://tech.bedrockstreaming.com/2021/11/18/hsdo" target="_blank">HSDO</a>, fonctionnelle, mais très probablement moins bien intégrée qu’un outil directement fourni par HAProxy.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Nos+retours+sur+l%27HAProxyConf+Paris+2022%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F12%2F23%2Fhaproxyconf-paris-2022.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html&title=Nos+retours+sur+l%27HAProxyConf+Paris+2022%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Nos retours sur l'HAProxyConf Paris 2022%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#haproxy">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> haproxy</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#haproxyconf">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> haproxyconf</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="How many DynamoDB RCU and WCU should we reserve to achieve maximum cost reductions, when our workloads are changing all the time?" href="/2022/11/22/dynamodb-reservations.html">
+            <p>Next post</p>
+            How many DynamoDB RCU and WCU should we reserve to achieve maximum cost reductions, when our workloads are changing all the time?
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+  header#main { background-image: url('/images/posts/2022-12-23-haproxyconf-paris-2022/haproxyconf_2022_paris.png'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>
