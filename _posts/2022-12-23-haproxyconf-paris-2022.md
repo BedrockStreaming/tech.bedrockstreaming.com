@@ -90,7 +90,7 @@ En fin de compte, pour une même puissance de traitement, un backend est retiré
 C'est là que prend tout son sens l'expression qui avait été utilisée pour conclure cette keynote : "HAProxy is a free software running on free hardware".
 
 Chez Bedrock, nous appliquons aussi ces différentes techniques de Consistent Hashing en entrée de notre CDN vidéo. Nos caches vidéos sont spécialisés et chaque utilisateur est redirigé vers un unique backend lors de la lecture d’une vidéo.  
-Pour en savoir plus, vous pouvez consulter notre article au sujet du [Consistent Hashing](https://tech.bedrockstreaming.com/2021/11/18/hsdo.html){:target="_blank"}..
+Pour en savoir plus, vous pouvez consulter notre article au sujet du [Consistent Hashing](https://tech.bedrockstreaming.com/2021/11/18/hsdo.html){:target="_blank"}.
 
 
 ## Un outil pour les gouverner tous
