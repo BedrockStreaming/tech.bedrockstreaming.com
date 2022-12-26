@@ -13,13 +13,11 @@ comments: true
 
 Bedrock était présent lors de la Conférence HAProxy qui se déroulait à Paris en novembre 2022 : en tant que speaker, avec la présentation de Vincent Gallissot, mais aussi en tant que spectateur. Cet article relate les points forts qui nous ont marqués.
 
-La présentation de Vincent Gallissot, Lead Cloud Architect chez Bedrock, mettait en valeur l’usage d’HAProxy en tant que brique essentielle de notre infrastructure.
-
-Chez Bedrock, nous développons et maintenons une plateforme de streaming qui a été migrée dans le Cloud en 2019. Cette présentation était grandement inspirée de l’article intitulé [“Scaling Bedrock video delivery to 50 million users”](https://tech.bedrockstreaming.com/2021/12/15/scaling-bedrock-video-delivery-to-50-million-users.html){:target="_blank"}, dans lequel vous trouverez pléthore d’informations concernant nos utilisations d’HAProxy.
+La présentation de Vincent Gallissot, Lead Cloud Architect chez Bedrock, mettait en valeur l’usage d’HAProxy en tant que brique essentielle de notre infrastructure. Chez Bedrock, nous développons et maintenons une plateforme de streaming qui a été migrée dans le Cloud en 2019. Cette présentation était grandement inspirée de l’article intitulé [“Scaling Bedrock video delivery to 50 million users”](https://tech.bedrockstreaming.com/2021/12/15/scaling-bedrock-video-delivery-to-50-million-users.html){:target="_blank"}, dans lequel vous trouverez pléthore d’informations concernant nos utilisations d’HAProxy.
 
 ![Vincent Gallissot presentation](/images/posts/2022-12-23-haproxyconf-paris-2022/keynote_conf_2022_bedrockstreaming.jpg)
 
-**Table of Contents**
+**Sommaire**
 
  * [Ce que des millions de requêtes par seconde signifient en termes de coût et d'économie d'énergie](#ce-que-des-millions-de-requêtes-par-seconde-signifient-en-termes-de-coût-et-déconomie-dénergie)
  * [Un outil pour les gouverner tous](#un-outil-pour-les-gouverner-tous)
@@ -35,20 +33,13 @@ Au travers d'une démonstration concrète mélangeant software et hardware, l'ob
 
 ### Contexte technique et premières améliorations
 
-
 Pour ce premier cas d'étude, Willy Tarreau nous présente le cas d'un service de vente en ligne.
 
 La stack technique est composée de PHP / pgSQL (NodeJS + Symfony) et les images sont stockées en base de données. C'est cette architecture qui sera mise à l'épreuve lors des tests de charge à venir.
 
+Dans un premier temps, plusieurs améliorations (sans HAProxy) sont proposées. Il peut s'agir d'un simple rappel, voir d'un pro-tip d’architecture pour les plus novices : Les images en base de données, c'est une mauvaise idée. 
 
-
-Dans un premier temps, plusieurs améliorations (sans HAProxy) sont proposées.  
-Il peut s'agir d'un simple rappel, voir d'un pro-tip d’architecture pour les plus novices :
-Les images en base de données, c'est une mauvaise idée. 
-
-En les déplaçant vers un CDN, le système peut rapidement et simplement doubler ses performances, la base de données étant un goulot d'étranglement.
-La taille des pages peut être optimisée via l'activation de l'option http "gzip".  
-Les informations de sessions sont elles aussi enregistrées en base de données. Afin d'améliorer les performances, il est possible d’ajouter du caching via des outils tels que Memcache.
+En les déplaçant vers un CDN, le système peut rapidement et simplement doubler ses performances, la base de données étant un goulot d'étranglement. La taille des pages peut être optimisée via l'activation de l'option http "gzip". Les informations de sessions sont elles aussi enregistrées en base de données. Afin d'améliorer les performances, il est possible d’ajouter du caching via des outils tels que Memcache.
 
 Suite à cela, une première amélioration d'architecture serait d'ajouter un NLB (Network Load Balancer) en amont du système qui distribuerait les requêtes entrantes vers plusieurs unités de calculs. 
 
@@ -56,8 +47,7 @@ Suite à cela, une première amélioration d'architecture serait d'ajouter un NL
 
 Schéma d’architecture, première version
 
-Dans le cas présent, les requêtes entrantes sont distribuées de façon aléatoire entre les différentes unités de traitement.  
-Chacun de ces backends se connectant à la même et unique base de données.  
+Dans le cas présent, les requêtes entrantes sont distribuées de façon aléatoire entre les différentes unités de traitement. Chacun de ces backends se connectant à la même et unique base de données.  
 Le benchmark ci-dessous (efficacité, au sens nombre de requêtes traitées en fonction du nombre d'unités de calcul), ne montre pas une croissance linéaire. Il s’agit d’une courbe tendant vers une pente nulle (voir négative pour les plus grosses architectures).
 
 ![stats of nlb with backends](/images/posts/2022-12-23-haproxyconf-paris-2022/keynote_conf_2022_nlb_stats.png)
@@ -66,18 +56,22 @@ Graphique représentant l’efficacité du système en fonction du nombre de bac
 
 ### Comment expliquer que cette architecture ne scale pas linéairement ?
 
-Malgré les améliorations apportées pour les sessions grâce au cache, il subsiste encore un problème. Le NLB est un composant qui ne fait que répartir la charge sans tenir compte de l’historique des requêtes. En effet, celui-ci va distribuer la charge d'entrée aléatoirement vers les backends.  
+Malgré les améliorations apportées pour les sessions grâce au cache, il subsiste encore un problème.
+
+Le NLB est un composant qui ne fait que répartir la charge sans tenir compte de l’historique des requêtes. En effet, celui-ci va distribuer la charge d'entrée aléatoirement vers les backends.  
 Chaque backend reçoit des requêtes provenant de n'importe quel utilisateur impliquant alors un cache-miss très élevé : l’utilisateur est rarement trouvé dans le cache, ce qui génère une requête supplémentaire en base de données et dégrade les performances en plus de consommer inutilement des ressources.
 
 ### Et si nous ajoutons HAProxy à notre système ?
 
-C'est ici qu'entre en jeu HAProxy en remplaçant le NLB. Pour cela, pas besoin d'un foudre de guerre en termes de ressources.  
+C'est ici qu'entre en jeu HAProxy en remplaçant le NLB. Pour cela, pas besoin d'un foudre de guerre en termes de ressources.
+
 Les tests ont été effectués sur une machine ARM Breadbee cadencée à 1 GHz et possédant 64 Mo de RAM. Nous verrons également par la suite qu'on pourrait même se passer d'une machine supplémentaire.
 
 Le but d’HAProxy est de spécialiser les caches des backends et plus globalement de forcer les sessions utilisateurs vers les mêmes backends. 
 
 
-Pour cela, HAProxy effectue une inspection de la couche 7 du trafic et renvoie toutes les requêtes d'un même utilisateur sur une même machine en réduisant ainsi les cache-miss aux seuls cas des nouveaux clients se connectant à la plateforme. Ainsi, le nombre d’appels à la base de données pour récupérer les informations de session est drastiquement réduit, la majorité d’entre elles étant stockées en cache.  
+Pour cela, HAProxy effectue une inspection de la couche 7 du trafic et renvoie toutes les requêtes d'un même utilisateur sur une même machine en réduisant ainsi les cache-miss aux seuls cas des nouveaux clients se connectant à la plateforme. Ainsi, le nombre d’appels à la base de données pour récupérer les informations de session est drastiquement réduit, la majorité d’entre elles étant stockées en cache.
+
 Autre fonctionnalité de taille : HAProxy limite le nombre de requêtes faites en parallèle sur un même backend, ce qui limite les locks de processus et les temps d'attente. Ceci a pour conséquence directe de réduire la consommation CPU.
 
 Ces deux améliorations permettent à l'application de scaler de façon beaucoup plus linéaire, tout en réduisant les consommations CPU et énergétiques inutiles. Globalement, les performances initiales sont largement dépassées avec deux fois moins de backends.
@@ -109,20 +103,19 @@ Le cas de figure du load balancing est intéressant dans ce type d’organisatio
 
 Anjelko Iharos, directeur de l’ingénierie à HAProxy Technologies nous a présenté leur nouvel outil d'automatisation : HAProxy Fusion Control Plane, packagé dans la version entreprise de HAProxy.
 
-Celui-ci va amener une nouvelle interface enrichie afin de gérer toutes les instances HAProxy et les outils gravitant autour de ces dernières.  
+Celui-ci va amener une nouvelle interface enrichie afin de gérer toutes les instances HAProxy et les outils gravitant autour de ces dernières.
+
 On peut citer :  
-La possibilité pour les développeurs de router eux-même leurs applications sans avoir besoin d’un Ops dans leurs pipelines de CI via l’API Fusion.  
-Gérer les WAF de HAProxy de manière centralisée et répercuter cette configuration sur un ensemble de clusters/instances.  
-Permettre aux Ops de gérer la structure de leurs load balancers, ajouter de nouvelles instances, gérer les certificats SSL, le tuning des performances depuis un seul point d’entrée.
+- La possibilité pour les développeurs de router eux-même leurs applications sans avoir besoin d’un Ops dans leurs pipelines de CI via l’API Fusion.  
+- Gérer les WAF de HAProxy de manière centralisée et répercuter cette configuration sur un ensemble de clusters/instances.  
+- Permettre aux Ops de gérer la structure de leurs load balancers, ajouter de nouvelles instances, gérer les certificats SSL, le tuning des performances depuis un seul point d’entrée.
 
 ### Est-ce résilient ?
 
 Fusion Control Plane est livré avec tout un set de features intéressantes pour assurer sa maintenabilité et sa résilience :
-
-Une pleine observabilité avec une application unifiée de récupération de logs, métriques et rapports dans la même interface. L’export de ces data est possible, notamment pour les transposer dans un dashboard tiers (Grafana, par exemple).  
-Un système de RBAC permettant de mieux gérer les périmètres de chacune des équipes dans le control plane.  
-La gestion centralisée de la configuration, la validation des configurations et le bot management. La partie WAF est packagée avec OWASP (communauté publiant des recommandations pour la sécurisation des applications web) ModSecurity Core Rule Set (CRS) pour la détection des vulnérabilités.  
-Dans le cadre d’un cluster un système de failover automatique avec auto-élection du leader (à la manière de GOSSIP avec Consul).
+- Une pleine observabilité avec une application unifiée de récupération de logs, métriques et rapports dans la même interface. L’export de ces data est possible, notamment pour les transposer dans un dashboard tiers (Grafana, par exemple).  
+- Un système de RBAC permettant de mieux gérer les périmètres de chacune des équipes dans le control plane.  
+- La gestion centralisée de la configuration, la validation des configurations et le bot management. La partie WAF est packagée avec OWASP (communauté publiant des recommandations pour la sécurisation des applications web) ModSecurity Core Rule Set (CRS) pour la détection des vulnérabilités. Dans le cadre d’un cluster un système de failover automatique avec auto-élection du leader (à la manière de GOSSIP avec Consul).
 
 ### Une vue de l’avenir ?
 
@@ -135,7 +128,8 @@ Le produit semble prometteur et intéressant. Les possibilités qu’il nous off
 
 ## Vous reprendrez bien un peu de pétaoctets ?
 
-Chez Bedrock, un élément central de notre métier est de fournir de la vidéo à nos utilisateurs. (Incroyable pour une boite qui fait de la VOD hein? 😀).  
+Chez Bedrock, un élément central de notre métier est de fournir de la vidéo à nos utilisateurs. (Incroyable pour une boite qui fait de la VOD hein? 😀).
+
 Pour ce faire nous avons nos propres serveurs CDN hébergés sur Paris, en complément des CDN publics comme Cloudfront ou Fastly. Cette année nous avons servis plusieurs centaines de PB de données via nos serveurs et nous espérons pouvoir au moins doubler ce trafic l'année prochaine !
 
 Notre architecture CDN est constituée d'un logiciel appelé LBCDN qui "load-balance" la charge sur les CDN, on-prem et publics, en redirigeant un utilisateur vers un serveur CDN spécifique.  
@@ -185,5 +179,4 @@ Dans cet article, nous n’avons pas pu faire mention de tout ce qui nous a int�
 
 Cette conférence était aussi l’occasion d’échanger avec l’équipe HAProxy autour de sujets techniques qui nous concernent, de voir que nous utilisions déjà certaines bonnes pratiques, mais aussi que nous avions de quoi nous améliorer.
 
-Suite à cette conférence, c’est HAProxy Fusion que nous attendons le plus. Fusion s’annonce comme l’outil idéal pour manager une flotte d’HAProxy.  
-Jusqu’à présent, nous devions utiliser une solution maison [HSDO](https://tech.bedrockstreaming.com/2021/11/18/hsdo){:target="_blank"}, fonctionnelle, mais très probablement moins bien intégrée qu’un outil directement fourni par HAProxy. 
+Suite à cette conférence, c’est HAProxy Fusion que nous attendons le plus. Fusion s’annonce comme l’outil idéal pour manager une flotte d’HAProxy. Jusqu’à présent, nous devions utiliser une solution maison [HSDO](https://tech.bedrockstreaming.com/2021/11/18/hsdo){:target="_blank"}, fonctionnelle, mais très probablement moins bien intégrée qu’un outil directement fourni par HAProxy. 
