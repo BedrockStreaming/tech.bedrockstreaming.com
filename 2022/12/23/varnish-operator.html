@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/2022-12-23-varnish-operator/main.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>How Micro-Services changed our caching architecture | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="How Micro-Services changed our caching architecture" />
+<meta name="author" content="Arthur Zinck" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Varnish Operator is a good solution to problem caused by Microservices architecture in Kubernetes environment. Especially where most of the traffic comes from other API rather than from an end-user." />
+<meta property="og:description" content="Varnish Operator is a good solution to problem caused by Microservices architecture in Kubernetes environment. Especially where most of the traffic comes from other API rather than from an end-user." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2022/12/23/varnish-operator.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2022/12/23/varnish-operator.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-12-23T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How Micro-Services changed our caching architecture" />
+<script type="application/ld+json">
+{"description":"Varnish Operator is a good solution to problem caused by Microservices architecture in Kubernetes environment. Especially where most of the traffic comes from other API rather than from an end-user.","headline":"How Micro-Services changed our caching architecture","dateModified":"2022-12-23T00:00:00+00:00","datePublished":"2022-12-23T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/12/23/varnish-operator.html"},"url":"https://tech.bedrockstreaming.com/2022/12/23/varnish-operator.html","author":{"@type":"Person","name":"Arthur Zinck"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="How Micro-Services changed our caching architecture">
+    <meta name="twitter:description" content="At Bedrock we use Cloudfront or Fastly for two different reason. To protect our applications from potential Distributed Denial of Service Attack. And to prov...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/2022-12-23-varnish-operator/main.png">
+    <meta name="twitter:image:alt" content="How Micro-Services changed our caching architecture">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="How Micro-Services changed our caching architecture " aria-label="How Micro-Services changed our caching architecture" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="How+Micro-Services+changed+our+caching+architecture" class="title">How Micro-Services changed our caching architecture</h1>
+      
+
+
+<div class="post-info"><a href="https://www.z3k.fr" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="/images/avatar/arthurzinck.png">
+    
+    <p class="meta">
+      Arthur Zinck - 
+      
+      December 23, 2022
+    </p></a></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>At Bedrock we use Cloudfront or Fastly for two different reason. To protect our applications from potential Distributed Denial of Service Attack. And to provide a layer of cache in front of our applications. No need to go down to the app for an easily cacheable response.</p>
+
+<center><img alt="before the project" src="/images/posts/2022-12-23-varnish-operator/image0.png" /></center>
+
+<p><br /></p>
+
+<p>At least that is what we thought in 2018 when we were migrating from on premise to the Cloud.</p>
+
+<p>At that time we had a Varnish instance caching everything at the border  of our on premise infrastructure. All the applications were running either on virtual machines or on bare metal servers. Those applications were mostly called by the end-user’s browser. Whenever an application called another application it did it through Varnish.</p>
+
+<p>This is ideal if applications are mostly called from the outside world. The Varnish instance caches all cacheable content, and it does not cost too much time as it was in the same Data Center.</p>
+
+<center><img alt="historically-before-2018" src="/images/posts/2022-12-23-varnish-operator/image2.png" /></center>
+
+<p><br />
+In 2023, we think otherwise. We have now a <a href="https://kops.sigs.k8s.io/">KOps</a> managed Kubernetes cluster running on EC2 spot instances in private subnets at AWS. As we migrated to the cloud we also embarked on the journey of splitting monolith into smaller more manageable microservices.</p>
+
+<p>With less monoliths the Bedrock product is more resilient and easier to scale but it changes the topologies of network calls. Before there were far more calls coming from the internet from end-users browsers. Now with the new architecture coming into place inter-app requests have increased.</p>
+
+<p>One solution would be to directly call the ingress of the applications, staying inside the cluster but without the benefit of caching as it is handled by the CDN. This would lead to unsustainable increase in CPU usage, and probably very little gain in terms of response time.</p>
+
+<p>A better solution for us would be to have the caching of CDN inside the cluster. This would enable us to have fast response time and little to no increase in CPU usage.</p>
+
+<h1 id="enter-varnish-operator">Enter Varnish-Operator</h1>
+
+<p>We tested the project <a href="https://github.com/IBM/varnish-operator">IBM/Varnish-Operator</a>. This project allows us to create Custom Resources for Kubernetes handled by the Varnish-Operator. This object is called a VarnishCluster, the configuration is pretty simple to get started. This enables us to have a caching layer, between the Ingress-Controller and the Application.</p>
+
+<center><img alt="varnishcluster" src="/images/posts/2022-12-23-varnish-operator/image1.png" /></center>
+
+<p><br /></p>
+
+<p>VarnishCluster also uses Varnish Configuration Language (VCL) which we are pretty familiar with since we use Varnish On-Premise since 2015, and developers use it regularly to configure Fastly distribution.</p>
+
+<p>By adding cache using VarnishCluster to an application that is not fully cacheable, we almost divided it’s average response time by two. It is not a surprise as inter api calls used to look like the following graph:</p>
+<center><img alt="before-varnishcluster" src="/images/posts/2022-12-23-varnish-operator/image3.png" /></center>
+
+<p><br /></p>
+
+<p>We changed parameters in the application after adding VarnishCluster so that it calls other app inside the cluster like in the following graph:</p>
+<center><img alt="after-varnishcluster" src="/images/posts/2022-12-23-varnish-operator/image4.png" /></center>
+
+<p><br /></p>
+
+<h1 id="a-few-details">A few details</h1>
+
+<p>Before I wrap this up, here are a few details about the implementations.</p>
+
+<p>As you will be able to read in the Varnish documentation:</p>
+<blockquote>
+  <p>“By default Varnish will use 100 megabytes of malloc(3) storage for caching objects, if you want to cache more than that, you should look at the <code class="language-plaintext highlighter-rouge">-s</code> argument.”</p>
+</blockquote>
+
+<p>So if you give many Gigs of memory to your Varnish container it won’t be attributed to the Varnish process. You can set it with the argument <code class="language-plaintext highlighter-rouge">-s storage=malloc,&lt;Number&gt;</code>.</p>
+
+<p>As we use only Spot nodes that can be terminated by AWS at any moment with only 2 minutes notice, we want to give more resilience to our Varnish Clusters pod as cache is stored in RAM memory.
+You lose all your cache at each restart of the Varnish Container.</p>
+
+<p>We configured <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity">podAntiAffinity</a> between application pods and VarnishClusters’ to avoid scheduling those pods on the same node and be vulnerable to reclaims.</p>
+
+<p>We added a <a href="https://kubernetes.io/docs/tasks/run-application/configure-pdb/">podDisruptionBudget</a> to avoid losing all our pods at the same time. We also customized the VCL a bit to make Varnish serve stale content in case our application is unreachable.</p>
+
+<p>We also added a Prometheus Service Monitor to make sure all Varnish metrics would be scraped by <a href="https://tech.bedrockstreaming.com/2022/09/06/monitoring-at-scale-with-victoriametrics.html">Victoria Metrics</a>.</p>
+
+<h1 id="in-the-future">In the Future</h1>
+
+<p>In next versions we would like to add the possibility to configure <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/#priorityclass">PriorityClass</a> of VarnishClusters pod. PriorityClasses are used to order workloads priority.
+In a context of scaling and of scarcity of resources, the scheduler will evict pods of lower priority to make room for the pod it is trying to schedule.</p>
+
+<p>For now our VarnishCluster’s pods have the PriorityClass by default but it is more critical than any other applications as it holds a cache in its memory.</p>
+
+<p>Also we do not have logs of Varnish. We would like to be able to stream VarnishLog content into <a href="https://grafana.com/oss/loki/">Loki</a>. This would be super useful to debug and to investigate if we ever encounter bugs or unexpected behaviors.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+<center><img alt="average-Response-time after apps call through VarnishCluster" src="/images/posts/2022-12-23-varnish-operator/image5.png" />
+<p>Average response time going down, red bar is when we pushed it in production</p></center>
+
+<p><br /></p>
+
+<p>With the generalization of microservices, Bedrock needed to rethink its architecture to optimize not only for browser to API calls but also for more API to API usage. By adding VarnishCluster in front of our applications and calling them directly from inside the cluster we improved significantly the Bedrock product.</p>
+
+<p><a href="https://github.com/IBM/varnish-operator">The Github project</a> is still young and lacks important features, we hope with this article to help draw attention to this project and potential contributors.</p>
+
+<center><img alt="meme-contribute-pls" src="/images/posts/2022-12-23-varnish-operator/image6.jpg" /></center>
+<p><br /></p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=How+Micro-Services+changed+our+caching+architecture%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F12%2F23%2Fvarnish-operator.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/12/23/varnish-operator.html&title=How+Micro-Services+changed+our+caching+architecture%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/12/23/varnish-operator.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=How Micro-Services changed our caching architecture%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/12/23/varnish-operator.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#alb">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> alb</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#aws">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> aws</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#cdn">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> cdn</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#cloud">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#cloudfront">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloudfront</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#fastly">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> fastly</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#on-premise">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> on-premise</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#varnish">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> varnish</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#varnish-operator">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> varnish-operator</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="Nos retours sur l'HAProxyConf Paris 2022" href="/2022/12/23/haproxyconf-paris-2022.html">
+            <p>Next post</p>
+            Nos retours sur l'HAProxyConf Paris 2022
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(0, 150, 255) !important; }
+  .share-buttons a { color: rgb(0, 150, 255) !important; }
+  .tag-list a:not(:hover) { color: rgb(0, 150, 255) !important; }
+  div#post-nav a { color: rgb(0, 150, 255) !important; }
+  footer a { color: rgb(0, 150, 255) !important; }
+  .site-header nav a:hover {  color: rgb(0, 150, 255) !important; }
+  a.button:hover {
+    background: rgb(0, 150, 255) !important;
+    border: 1px solid rgb(0, 150, 255) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(0, 150, 255) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

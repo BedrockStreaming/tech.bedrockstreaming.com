@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2022-12-26T13:21:25+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Nos retours sur l’HAProxyConf Paris 2022</title><link href="https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html" rel="alternate" type="text/html" title="Nos retours sur l’HAProxyConf Paris 2022" /><published>2022-12-23T00:00:00+00:00</published><updated>2022-12-23T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html">&lt;p&gt;Bedrock était présent lors de la Conférence HAProxy qui se déroulait à Paris en novembre 2022 : en tant que speaker, avec la présentation de Vincent Gallissot, mais aussi en tant que spectateur. Cet article relate les points forts qui nous ont marqués.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-01-06T10:23:47+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Nos retours sur l’HAProxyConf Paris 2022</title><link href="https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html" rel="alternate" type="text/html" title="Nos retours sur l’HAProxyConf Paris 2022" /><published>2022-12-23T00:00:00+00:00</published><updated>2022-12-23T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html">&lt;p&gt;Bedrock était présent lors de la Conférence HAProxy qui se déroulait à Paris en novembre 2022 : en tant que speaker, avec la présentation de Vincent Gallissot, mais aussi en tant que spectateur. Cet article relate les points forts qui nous ont marqués.&lt;/p&gt;
 
 &lt;p&gt;La présentation de Vincent Gallissot, Lead Cloud Architect chez Bedrock, mettait en valeur l’usage d’HAProxy en tant que brique essentielle de notre infrastructure. Chez Bedrock, nous développons et maintenons une plateforme de streaming qui a été migrée dans le Cloud en 2019. Cette présentation était grandement inspirée de l’article intitulé &lt;a href=&quot;https://tech.bedrockstreaming.com/2021/12/15/scaling-bedrock-video-delivery-to-50-million-users.html&quot; target=&quot;_blank&quot;&gt;“Scaling Bedrock video delivery to 50 million users”&lt;/a&gt;, dans lequel vous trouverez pléthore d’informations concernant nos utilisations d’HAProxy.&lt;/p&gt;
 
@@ -175,7 +175,90 @@ Dans cet article, nous n’avons pas pu faire mention de tout ce qui nous a int�
 
 &lt;p&gt;Cette conférence était aussi l’occasion d’échanger avec l’équipe HAProxy autour de sujets techniques qui nous concernent, de voir que nous utilisions déjà certaines bonnes pratiques, mais aussi que nous avions de quoi nous améliorer.&lt;/p&gt;
 
-&lt;p&gt;Suite à cette conférence, c’est HAProxy Fusion que nous attendons le plus. Fusion s’annonce comme l’outil idéal pour manager une flotte d’HAProxy. Jusqu’à présent, nous devions utiliser une solution maison &lt;a href=&quot;https://tech.bedrockstreaming.com/2021/11/18/hsdo&quot; target=&quot;_blank&quot;&gt;HSDO&lt;/a&gt;, fonctionnelle, mais très probablement moins bien intégrée qu’un outil directement fourni par HAProxy.&lt;/p&gt;</content><author><name>Bedrock</name></author><category term="haproxy" /><category term="haproxyconf" /><category term="conference" /><summary type="html">Bedrock était présent lors de la Conférence HAProxy qui se déroulait à Paris en novembre 2022 : en tant que speaker, avec la présentation de Vincent Gallissot, mais aussi en tant que spectateur. Cet article relate les points forts qui nous ont marqués.</summary></entry><entry><title type="html">Ce que nous retenons de la droidcon London 2022</title><link href="https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022.html" rel="alternate" type="text/html" title="Ce que nous retenons de la droidcon London 2022" /><published>2022-11-22T00:00:00+00:00</published><updated>2022-11-22T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022.html">&lt;p&gt;La communauté Android a apporté le soleil sur Londres les 27 et 28 octobre 2022. La droidcon London a réuni plus de 1400 développeurs autour de l’écosystème Android, de ses outils et enjeux actuels. Jetpack Compose, évidemment, mais aussi Gradle, modularisation, optimisation et autres sujets plus divers ont été abordés lors de ce rendez-vous incontournable pour la communauté.&lt;/p&gt;
+&lt;p&gt;Suite à cette conférence, c’est HAProxy Fusion que nous attendons le plus. Fusion s’annonce comme l’outil idéal pour manager une flotte d’HAProxy. Jusqu’à présent, nous devions utiliser une solution maison &lt;a href=&quot;https://tech.bedrockstreaming.com/2021/11/18/hsdo&quot; target=&quot;_blank&quot;&gt;HSDO&lt;/a&gt;, fonctionnelle, mais très probablement moins bien intégrée qu’un outil directement fourni par HAProxy.&lt;/p&gt;</content><author><name>Bedrock</name></author><category term="haproxy" /><category term="haproxyconf" /><category term="conference" /><summary type="html">Bedrock était présent lors de la Conférence HAProxy qui se déroulait à Paris en novembre 2022 : en tant que speaker, avec la présentation de Vincent Gallissot, mais aussi en tant que spectateur. Cet article relate les points forts qui nous ont marqués.</summary></entry><entry><title type="html">How Micro-Services changed our caching architecture</title><link href="https://tech.bedrockstreaming.com/2022/12/23/varnish-operator.html" rel="alternate" type="text/html" title="How Micro-Services changed our caching architecture" /><published>2022-12-23T00:00:00+00:00</published><updated>2022-12-23T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/12/23/varnish-operator</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/12/23/varnish-operator.html">&lt;p&gt;At Bedrock we use Cloudfront or Fastly for two different reason. To protect our applications from potential Distributed Denial of Service Attack. And to provide a layer of cache in front of our applications. No need to go down to the app for an easily cacheable response.&lt;/p&gt;
+
+&lt;center&gt;&lt;img alt=&quot;before the project&quot; src=&quot;/images/posts/2022-12-23-varnish-operator/image0.png&quot; /&gt;&lt;/center&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;At least that is what we thought in 2018 when we were migrating from on premise to the Cloud.&lt;/p&gt;
+
+&lt;p&gt;At that time we had a Varnish instance caching everything at the border  of our on premise infrastructure. All the applications were running either on virtual machines or on bare metal servers. Those applications were mostly called by the end-user’s browser. Whenever an application called another application it did it through Varnish.&lt;/p&gt;
+
+&lt;p&gt;This is ideal if applications are mostly called from the outside world. The Varnish instance caches all cacheable content, and it does not cost too much time as it was in the same Data Center.&lt;/p&gt;
+
+&lt;center&gt;&lt;img alt=&quot;historically-before-2018&quot; src=&quot;/images/posts/2022-12-23-varnish-operator/image2.png&quot; /&gt;&lt;/center&gt;
+
+&lt;p&gt;&lt;br /&gt;
+In 2023, we think otherwise. We have now a &lt;a href=&quot;https://kops.sigs.k8s.io/&quot;&gt;KOps&lt;/a&gt; managed Kubernetes cluster running on EC2 spot instances in private subnets at AWS. As we migrated to the cloud we also embarked on the journey of splitting monolith into smaller more manageable microservices.&lt;/p&gt;
+
+&lt;p&gt;With less monoliths the Bedrock product is more resilient and easier to scale but it changes the topologies of network calls. Before there were far more calls coming from the internet from end-users browsers. Now with the new architecture coming into place inter-app requests have increased.&lt;/p&gt;
+
+&lt;p&gt;One solution would be to directly call the ingress of the applications, staying inside the cluster but without the benefit of caching as it is handled by the CDN. This would lead to unsustainable increase in CPU usage, and probably very little gain in terms of response time.&lt;/p&gt;
+
+&lt;p&gt;A better solution for us would be to have the caching of CDN inside the cluster. This would enable us to have fast response time and little to no increase in CPU usage.&lt;/p&gt;
+
+&lt;h1 id=&quot;enter-varnish-operator&quot;&gt;Enter Varnish-Operator&lt;/h1&gt;
+
+&lt;p&gt;We tested the project &lt;a href=&quot;https://github.com/IBM/varnish-operator&quot;&gt;IBM/Varnish-Operator&lt;/a&gt;. This project allows us to create Custom Resources for Kubernetes handled by the Varnish-Operator. This object is called a VarnishCluster, the configuration is pretty simple to get started. This enables us to have a caching layer, between the Ingress-Controller and the Application.&lt;/p&gt;
+
+&lt;center&gt;&lt;img alt=&quot;varnishcluster&quot; src=&quot;/images/posts/2022-12-23-varnish-operator/image1.png&quot; /&gt;&lt;/center&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;VarnishCluster also uses Varnish Configuration Language (VCL) which we are pretty familiar with since we use Varnish On-Premise since 2015, and developers use it regularly to configure Fastly distribution.&lt;/p&gt;
+
+&lt;p&gt;By adding cache using VarnishCluster to an application that is not fully cacheable, we almost divided it’s average response time by two. It is not a surprise as inter api calls used to look like the following graph:&lt;/p&gt;
+&lt;center&gt;&lt;img alt=&quot;before-varnishcluster&quot; src=&quot;/images/posts/2022-12-23-varnish-operator/image3.png&quot; /&gt;&lt;/center&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;We changed parameters in the application after adding VarnishCluster so that it calls other app inside the cluster like in the following graph:&lt;/p&gt;
+&lt;center&gt;&lt;img alt=&quot;after-varnishcluster&quot; src=&quot;/images/posts/2022-12-23-varnish-operator/image4.png&quot; /&gt;&lt;/center&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;a-few-details&quot;&gt;A few details&lt;/h1&gt;
+
+&lt;p&gt;Before I wrap this up, here are a few details about the implementations.&lt;/p&gt;
+
+&lt;p&gt;As you will be able to read in the Varnish documentation:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;“By default Varnish will use 100 megabytes of malloc(3) storage for caching objects, if you want to cache more than that, you should look at the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-s&lt;/code&gt; argument.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So if you give many Gigs of memory to your Varnish container it won’t be attributed to the Varnish process. You can set it with the argument &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-s storage=malloc,&amp;lt;Number&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;As we use only Spot nodes that can be terminated by AWS at any moment with only 2 minutes notice, we want to give more resilience to our Varnish Clusters pod as cache is stored in RAM memory.
+You lose all your cache at each restart of the Varnish Container.&lt;/p&gt;
+
+&lt;p&gt;We configured &lt;a href=&quot;https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity&quot;&gt;podAntiAffinity&lt;/a&gt; between application pods and VarnishClusters’ to avoid scheduling those pods on the same node and be vulnerable to reclaims.&lt;/p&gt;
+
+&lt;p&gt;We added a &lt;a href=&quot;https://kubernetes.io/docs/tasks/run-application/configure-pdb/&quot;&gt;podDisruptionBudget&lt;/a&gt; to avoid losing all our pods at the same time. We also customized the VCL a bit to make Varnish serve stale content in case our application is unreachable.&lt;/p&gt;
+
+&lt;p&gt;We also added a Prometheus Service Monitor to make sure all Varnish metrics would be scraped by &lt;a href=&quot;https://tech.bedrockstreaming.com/2022/09/06/monitoring-at-scale-with-victoriametrics.html&quot;&gt;Victoria Metrics&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;in-the-future&quot;&gt;In the Future&lt;/h1&gt;
+
+&lt;p&gt;In next versions we would like to add the possibility to configure &lt;a href=&quot;https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/#priorityclass&quot;&gt;PriorityClass&lt;/a&gt; of VarnishClusters pod. PriorityClasses are used to order workloads priority.
+In a context of scaling and of scarcity of resources, the scheduler will evict pods of lower priority to make room for the pod it is trying to schedule.&lt;/p&gt;
+
+&lt;p&gt;For now our VarnishCluster’s pods have the PriorityClass by default but it is more critical than any other applications as it holds a cache in its memory.&lt;/p&gt;
+
+&lt;p&gt;Also we do not have logs of Varnish. We would like to be able to stream VarnishLog content into &lt;a href=&quot;https://grafana.com/oss/loki/&quot;&gt;Loki&lt;/a&gt;. This would be super useful to debug and to investigate if we ever encounter bugs or unexpected behaviors.&lt;/p&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+&lt;center&gt;&lt;img alt=&quot;average-Response-time after apps call through VarnishCluster&quot; src=&quot;/images/posts/2022-12-23-varnish-operator/image5.png&quot; /&gt;
+&lt;p&gt;Average response time going down, red bar is when we pushed it in production&lt;/p&gt;&lt;/center&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;With the generalization of microservices, Bedrock needed to rethink its architecture to optimize not only for browser to API calls but also for more API to API usage. By adding VarnishCluster in front of our applications and calling them directly from inside the cluster we improved significantly the Bedrock product.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/IBM/varnish-operator&quot;&gt;The Github project&lt;/a&gt; is still young and lacks important features, we hope with this article to help draw attention to this project and potential contributors.&lt;/p&gt;
+
+&lt;center&gt;&lt;img alt=&quot;meme-contribute-pls&quot; src=&quot;/images/posts/2022-12-23-varnish-operator/image6.jpg&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name>Arthur Zinck</name></author><category term="on-premise" /><category term="cloud" /><category term="cdn" /><category term="varnish" /><category term="aws" /><category term="cloud" /><category term="fastly" /><category term="varnish-operator" /><category term="cloudfront" /><category term="alb" /><summary type="html">At Bedrock we use Cloudfront or Fastly for two different reason. To protect our applications from potential Distributed Denial of Service Attack. And to provide a layer of cache in front of our applications. No need to go down to the app for an easily cacheable response.</summary></entry><entry><title type="html">Ce que nous retenons de la droidcon London 2022</title><link href="https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022.html" rel="alternate" type="text/html" title="Ce que nous retenons de la droidcon London 2022" /><published>2022-11-22T00:00:00+00:00</published><updated>2022-11-22T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022.html">&lt;p&gt;La communauté Android a apporté le soleil sur Londres les 27 et 28 octobre 2022. La droidcon London a réuni plus de 1400 développeurs autour de l’écosystème Android, de ses outils et enjeux actuels. Jetpack Compose, évidemment, mais aussi Gradle, modularisation, optimisation et autres sujets plus divers ont été abordés lors de ce rendez-vous incontournable pour la communauté.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/2022-11-22-droidcon-london/entrance.jpg&quot; alt=&quot;droidcon London 2022 entrance&quot; /&gt;&lt;/p&gt;
 
@@ -1687,8 +1770,4 @@ Vous pourrez trouver un complément d’informations au sujet de notre BFF dans 
 
 &lt;p&gt;Dans mon équipe, j’ai découvert un cadre qui m’a permis de me sentir bien accueillie dès mon arrivée. En adoptant une posture et une convention bien adaptée, on peut largement diminuer le risque de mal se comprendre. Non seulement on communique mieux, mais on améliore la qualité globale du projet.&lt;/p&gt;
 
-&lt;p&gt;Vous n’aurez plus aucune raison de souffrir !&lt;/p&gt;</content><author><name>Anne-Laure de Boissieu</name></author><category term="conference" /><category term="afup" /><category term="forumphp" /><category term="revue" /><summary type="html">J’ai rejoint ma nouvelle équipe il y a 6 mois, avec une appréhension. Comment allais-je vivre les revues de code par des collègues que je ne connais pas encore ? Incompréhensions, malentendus : la communication écrite rend cet exercice très délicat. Vous avez été blessé-e par un commentaire ? Etait-il vraiment mal intentionné ? Vous avez blessé quelqu’un sans le vouloir, à cause d’une tournure maladroite ?</summary></entry><entry><title type="html">Sauve un-e dév, écris une doc !</title><link href="https://tech.bedrockstreaming.com/2022/10/13/sauve-une-dev-ecris-une-doc.html" rel="alternate" type="text/html" title="Sauve un-e dév, écris une doc !" /><published>2022-10-13T00:00:00+00:00</published><updated>2022-10-13T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/10/13/sauve-une-dev-ecris-une-doc</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/10/13/sauve-une-dev-ecris-une-doc.html">&lt;p&gt;Vous êtes développeur ou développeuse PHP : vous aimez programmer, réfléchir. Vous aimez créer des applications ou des bibliothèques de qualité. Mais pourquoi personne ne les utilise ? Parce que votre documentation n’est pas à la hauteur !&lt;/p&gt;
-
-&lt;p&gt;Justement : je suis Technical Writer et mon métier est de vous aider à valoriser votre logiciel auprès de ses utilisateurs et utilisatrices, à travers une bonne doc. Comprenons comment architecturer, concevoir et rédiger votre contenu. Découvrons les outils qui vous procurerons une aide précieuse. Enfin, facilitons sa mise à jour pour qu’elle soit pérenne.&lt;/p&gt;
-
-&lt;p&gt;Dorénavant, vous saurez identifier les passages obligés et ceux où vous pouvez gagner du temps.&lt;/p&gt;</content><author><name>Sarah Haïm-Lubczanski</name></author><category term="conference" /><category term="afup" /><category term="forumphp" /><category term="doc" /><summary type="html">Vous êtes développeur ou développeuse PHP : vous aimez programmer, réfléchir. Vous aimez créer des applications ou des bibliothèques de qualité. Mais pourquoi personne ne les utilise ? Parce que votre documentation n’est pas à la hauteur !</summary></entry></feed>
+&lt;p&gt;Vous n’aurez plus aucune raison de souffrir !&lt;/p&gt;</content><author><name>Anne-Laure de Boissieu</name></author><category term="conference" /><category term="afup" /><category term="forumphp" /><category term="revue" /><summary type="html">J’ai rejoint ma nouvelle équipe il y a 6 mois, avec une appréhension. Comment allais-je vivre les revues de code par des collègues que je ne connais pas encore ? Incompréhensions, malentendus : la communication écrite rend cet exercice très délicat. Vous avez été blessé-e par un commentaire ? Etait-il vraiment mal intentionné ? Vous avez blessé quelqu’un sans le vouloir, à cause d’une tournure maladroite ?</summary></entry></feed>
