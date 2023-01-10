@@ -1,4 +1,106 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-01-06T10:23:47+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Nos retours sur l’HAProxyConf Paris 2022</title><link href="https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html" rel="alternate" type="text/html" title="Nos retours sur l’HAProxyConf Paris 2022" /><published>2022-12-23T00:00:00+00:00</published><updated>2022-12-23T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html">&lt;p&gt;Bedrock était présent lors de la Conférence HAProxy qui se déroulait à Paris en novembre 2022 : en tant que speaker, avec la présentation de Vincent Gallissot, mais aussi en tant que spectateur. Cet article relate les points forts qui nous ont marqués.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-01-10T08:33:20+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">A journey into connected TVs industrialisation process, Part 1</title><link href="https://tech.bedrockstreaming.com/2023/01/10/bedrock-app-launcher.html" rel="alternate" type="text/html" title="A journey into connected TVs industrialisation process, Part 1" /><published>2023-01-10T00:00:00+00:00</published><updated>2023-01-10T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/01/10/bedrock-app-launcher</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/01/10/bedrock-app-launcher.html">&lt;p&gt;At Bedrock, we build and run streaming applications on a wide variety of OTT devices (more than 60 different ecosystems). While testing and experimenting is easy on web and mobile devices, even for non-developers, it’s not as easy for Connected TV (CTV). In this article, you’ll discover how all of our employees can now access testing and pre-release environments on TV devices, with ease and without any technical knowledge.&lt;/p&gt;
+
+&lt;h2 id=&quot;bedrock-tvjs-project&quot;&gt;Bedrock TvJS Project&lt;/h2&gt;
+
+&lt;h3 id=&quot;how-does-it-work-&quot;&gt;How does it work ?&lt;/h3&gt;
+
+&lt;p&gt;To address the growing number of CTVs vendors in the market, we have a one-and-only monorepo project named “TVJS”. It is a React application which we can deploy almost everywhere almost anywhere with the same code, UI and UX. The magic part? There isn’t much manufacturer-specific code in that application, most of those particularities are handled by our homemade JS library named PELO (Platform Easy Life Officer). &lt;em&gt;For non-French readers, “pélo” is a Lyon/Grenoble city slang to designate “someone”.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-01-10-bedrock-app-launcher/pelo-cli.png&quot; alt=&quot;Pelo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In a few words, PELO is a set of libraries showing a unified front API for TV developers, so they don’t have to keep in mind every TV specific details and custom APIs (like lifecycle, keyboard, storage handling, and more). PELO also provides several CLI tools allowing the use of proprietary manufacturer SDKs, with a common shared API.&lt;/p&gt;
+
+&lt;p&gt;There are at least two ways to deploy a TV application:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;A fully packaged solution, where all application files and resources are stored on the TV. Everytime you want to update it, application you have to go through the manufacturer QA process. Doing so, you can develop either a web application that will run through the TV’s Web Engine, or a native TV application.&lt;/li&gt;
+  &lt;li&gt;The hosted solution, where the TV packaged application only redirects to a web application that you are responsible for. It grants much more flexibility, and delivery speed, as deployment and propagation of a new version are almost instantaneous.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We chose the second way as we are addressing a big number of devices and need all the flexibility we can have for deployments – and, sadly, for rollbacks too. Therefore, we host and deploy our CTV applications like any other website and we control the TV Browser Engine to navigate to specific domain names.&lt;/p&gt;
+
+&lt;p&gt;Three teams are working on this project, on the same repository:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;a team dedicated to Core features (like catalog, user lifecycle)&lt;/li&gt;
+  &lt;li&gt;a team dedicated to Player features (video playback and advertising)&lt;/li&gt;
+  &lt;li&gt;and a team supporting legacy devices&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Developer teams are supported by a QA team. It is responsible for functional quality assurance on Pull Requests and pre-releases. Quality assurance designates any processes to ensure a service meets its quality requirements in terms of experience, stability, …&lt;/p&gt;
+
+&lt;h3 id=&quot;develop--release-process&quot;&gt;Develop &amp;amp; release process&lt;/h3&gt;
+
+&lt;p&gt;We do our maximum to ensure the best quality of service and experience of what we deliver to our customers and their end-users. We have a strong culture of automated testing &amp;amp; tech reviewing which allows us to deliver almost without a sweat… Still, at our scale, missing a bug means a bad experience for thousands or millions of people! And that’s something we won’t accept without a fight!&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;One of Bedrock’s Values is: ROCK-SOLID, ALWAYS&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;As a consequence, we also have dedicated QA teams testing our work for a subset of device models and versions, before it is being merged to the main codebase, and before going to production as part of a release. They are doing so by connecting TVs to specific environments that are deployed on-demand: previews and staging.&lt;/p&gt;
+
+&lt;p&gt;Let’s show off a little bit: at the beginning of 2022, thanks to the TVJS project, we were able to deploy production code to 7 manufacturers, and 38 device versions, meaning 266 combinations to check before launching a release into production! And these numbers are ever increasing!&lt;/p&gt;
+
+&lt;h3 id=&quot;my-wish-make-testing-environments-easily-accessible&quot;&gt;My wish: make testing environments easily accessible&lt;/h3&gt;
+
+&lt;p&gt;We love showing-off a bit over the applications we deliver on such a huge number of device models, but that doesn’t go with ease nor without pain.&lt;/p&gt;
+
+&lt;p&gt;Testing a specific environment on a device was not possible for non-project members (other teams, support, business &amp;amp; product teams, managers …). Starting a preview or a staging application requires a deep understanding of the project, proprietary SDKs (even with our PELO CLI), shell, Git commands and advanced knowledge of how devices work in Developer Mode. This was a major issue: it causes interruptions for developers, slows delivery down, reduces our Time To Market.&lt;/p&gt;
+
+&lt;p&gt;QA teams assigned to the project know its basics, they can use PELO CLI and proprietary SDKs, but cannot debug issues they may encounter with such tools: they have to ask developers to take actions for them (as this is not their core job). Using those tools is also time-consuming and time is of the essence when running quality checks while preparing a release.&lt;/p&gt;
+
+&lt;p&gt;Many teams also want to start environments by themselves, to test their own developments on back-end services, to investigate when a customer creates a support ticket, …
+The most important of them are Video teams, responsible for video encoding, transcoding and packaging: they are constantly testing new streams and features, and need a way to test their content by themselves, without asking around for a TVJS developer.&lt;/p&gt;
+
+&lt;h2 id=&quot;our-answer-the-launcher-app-&quot;&gt;Our answer: The Launcher App !&lt;/h2&gt;
+
+&lt;h3 id=&quot;what-does-it-do-&quot;&gt;What does it do ?&lt;/h3&gt;
+
+&lt;p&gt;I’ve developed a TV application to quickly and efficiently start a specific environment. Using the TV remote, people can select the wanted environment and be redirected to it instantly, having the app like they would with the specific app installed.&lt;/p&gt;
+
+&lt;p&gt;Typing long texts is painful for TV users. So, when selecting the preview environment, it shows another set of options where users can input a specific PR number. A background process will ask our Github if it knows the PR number, if it is deployed on the selected customer/manufacturer and will pre-fill the branch name. If not specified, it will default back to our master preview that is updated whenever we merge code to the master branch.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-01-10-bedrock-app-launcher/launcher-demo.gif&quot; alt=&quot;Launcher demo&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;technical-architecture&quot;&gt;Technical Architecture&lt;/h3&gt;
+
+&lt;p&gt;The launcher is part of the TVJS monorepo, developed using React and re-using modules and packages for UI and Navigation allowing it to have minimum maintenance cost.&lt;/p&gt;
+
+&lt;p&gt;For the first iterations of development of the launcher, I hosted it on AWS Amplify, but the Core team quickly integrated it back to a regular production deployment process we have at Bedrock.&lt;/p&gt;
+
+&lt;p&gt;An automatic process builds the javascript bundle and assets and sends everything to AWS S3. The launcher will then be served through Fastly CDN. We build and deploy a unique launcher per compatible manufacturer on their own domain names (as-of-writing, Samsung Tizen, LG webOS and Hisense). For security reasons, those Fastly services are only accessible from our office networks.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-01-10-bedrock-app-launcher/launcher-tech-arch.png&quot; alt=&quot;Launcher technical architecture&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;unreliability-of-launcher-app-installation&quot;&gt;Unreliability of launcher app installation&lt;/h3&gt;
+
+&lt;p&gt;I’m proud of this launcher and it is already saving loads of time for our QA teams ! They love it, as it helps them focus on their primary role: ensuring service &amp;amp; experience quality. Still, installing the launcher application on every device in our office is a huge amount of work! And, unfortunately, not a persistent one.&lt;/p&gt;
+
+&lt;p&gt;To develop and test apps on live devices, we need to set them in “Developer Mode”. And each manufacturer has its own way, more or less time-consuming. Worse, whenever Developer Mode expires, all applications installed during this time are uninstalled from the device! Which means we have to install the launcher again after a brief period of time.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.samsung.com/smarttv/develop/getting-started/using-sdk/tv-device.html&quot;&gt;Tizen Developer Mode&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://webostv.developer.lge.com/develop/getting-started/developer-mode-app&quot;&gt;LG webOS Developer Mode&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That period of time varies. For Samsung Tizen, we’re not absolutely sure, but it’s almost a month. For LG webOS, it is 50 hours if you don’t extend the Developer Mode or if you connect another TV with the same Developer Account.&lt;/p&gt;
+
+&lt;p&gt;Specifically for LG, I did set up a CRON that automatically extends the Developer Mode, but sometimes it is being disconnected without reason… Or a mishandling by team members can cause the CRON to fail.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-01-10-bedrock-app-launcher/webos-cron.png&quot; alt=&quot;LG webOS CRON configuration to extend Developer Mode&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-01-10-bedrock-app-launcher/webos-extend-devmode.gif&quot; alt=&quot;Programmatically extending the Developer Mode on LG webOS&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Therefore, we aren’t 100% sure the launcher application will be up and ready on all the office devices when work begins in the morning, which means developers will have to manually re-install the launcher when asked by another Bedrock employee. It generates frustration for both QA and developers as they are wasting precious time to re-install the launcher.&lt;/p&gt;
+
+&lt;p&gt;Don’t worry though, I already have a couple of ideas to ensure the installation becomes reliable! I’ll talk more about these it in a future article.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Any Bedrock employee can now start an office CTV, use the launcher app, select customer and environment, hit Let’s Go and access the environment they need to work!&lt;/p&gt;
+
+&lt;p&gt;What we started to measure, and hopefully we’ll have more refined metrics over the next months, is the time QA teams are gaining per day. They needed an average of 15 minutes to start up a TV, set up the Developer Mode, and install the wanted app through CLI. They are validating 5 PRs per day, on 2 different devices at minimum, they almost gain one hour per day. That means our Time To Market is faster, and our QA teams have more time to do exploratory testing as well as refining their tests and writing more automated tests. Something that is not as measurable as time, is the enhanced peace of mind for them to go to work every morning knowing they have a tool designed for them to focus on their core work.&lt;/p&gt;
+
+&lt;p&gt;This has improved the QA team overall velocity! And it makes the whole project more accessible for any employee. However, there is still room for improvement regarding launcher deployment and stability over time, and this is something I will cover in our next article.&lt;/p&gt;
+
+&lt;p&gt;I hope you liked this article and it helped you if you’re trying to achieve something similar!&lt;/p&gt;</content><author><name>Bedrock</name></author><summary type="html">At Bedrock, we build and run streaming applications on a wide variety of OTT devices (more than 60 different ecosystems). While testing and experimenting is easy on web and mobile devices, even for non-developers, it’s not as easy for Connected TV (CTV). In this article, you’ll discover how all of our employees can now access testing and pre-release environments on TV devices, with ease and without any technical knowledge.</summary></entry><entry><title type="html">Nos retours sur l’HAProxyConf Paris 2022</title><link href="https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html" rel="alternate" type="text/html" title="Nos retours sur l’HAProxyConf Paris 2022" /><published>2022-12-23T00:00:00+00:00</published><updated>2022-12-23T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html">&lt;p&gt;Bedrock était présent lors de la Conférence HAProxy qui se déroulait à Paris en novembre 2022 : en tant que speaker, avec la présentation de Vincent Gallissot, mais aussi en tant que spectateur. Cet article relate les points forts qui nous ont marqués.&lt;/p&gt;
 
 &lt;p&gt;La présentation de Vincent Gallissot, Lead Cloud Architect chez Bedrock, mettait en valeur l’usage d’HAProxy en tant que brique essentielle de notre infrastructure. Chez Bedrock, nous développons et maintenons une plateforme de streaming qui a été migrée dans le Cloud en 2019. Cette présentation était grandement inspirée de l’article intitulé &lt;a href=&quot;https://tech.bedrockstreaming.com/2021/12/15/scaling-bedrock-video-delivery-to-50-million-users.html&quot; target=&quot;_blank&quot;&gt;“Scaling Bedrock video delivery to 50 million users”&lt;/a&gt;, dans lequel vous trouverez pléthore d’informations concernant nos utilisations d’HAProxy.&lt;/p&gt;
 
@@ -1766,8 +1868,4 @@ Vous pourrez trouver un complément d’informations au sujet de notre BFF dans 
 
 &lt;p&gt;Savez-vous combien de CPU et de RAM votre application réclame ? Et pendant quelle durée ? Si non ou sans comprendre « pourquoi », difficile de développer efficacement et de dimensionner un hébergement pérenne ! Peut-être que ça marche… Sur votre poste. Ou pendant un moment, en gaspillant de l’argent et des ressources. Mais l’expérience prouve que, tôt ou tard, ces questions vous rattraperont.&lt;/p&gt;
 
-&lt;p&gt;Cycle de vie de PHP, communication entre nginx et php-fpm, approche shared-nothing, compilation et cache d’opcodes, gestion interne de la mémoire ou même architecture logicielle et debugging… Pour qu’une application réponde aux attentes de son public, nous devons comprendre comment PHP fonctionne !&lt;/p&gt;</content><author><name>Pascal Martin</name></author><category term="conference" /><category term="afup" /><category term="forumphp" /><category term="php" /><summary type="html">Pour exécuter du code, PHP consomme du processeur et de la mémoire. Quand une requête HTTP arrive, un processus php-fpm lui est dédié. Mais ces ressources sont limitées. Et, même dans Le Cloud ou en serverless, scaler prend du temps et les coûts s’envolent !</summary></entry><entry><title type="html">Revue de code : on n’est pas venu pour souffrir !</title><link href="https://tech.bedrockstreaming.com/2022/10/13/revue-de-code-on-n-est-pas-venu-pour-souffrir.html" rel="alternate" type="text/html" title="Revue de code : on n’est pas venu pour souffrir !" /><published>2022-10-13T00:00:00+00:00</published><updated>2022-10-13T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/10/13/revue-de-code-on-n-est-pas-venu-pour-souffrir</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/10/13/revue-de-code-on-n-est-pas-venu-pour-souffrir.html">&lt;p&gt;J’ai rejoint ma nouvelle équipe il y a 6 mois, avec une appréhension. Comment allais-je vivre les revues de code par des collègues que je ne connais pas encore ? Incompréhensions, malentendus : la communication écrite rend cet exercice très délicat. Vous avez été blessé-e par un commentaire ? Etait-il vraiment mal intentionné ? Vous avez blessé quelqu’un sans le vouloir, à cause d’une tournure maladroite ?&lt;/p&gt;
-
-&lt;p&gt;Dans mon équipe, j’ai découvert un cadre qui m’a permis de me sentir bien accueillie dès mon arrivée. En adoptant une posture et une convention bien adaptée, on peut largement diminuer le risque de mal se comprendre. Non seulement on communique mieux, mais on améliore la qualité globale du projet.&lt;/p&gt;
-
-&lt;p&gt;Vous n’aurez plus aucune raison de souffrir !&lt;/p&gt;</content><author><name>Anne-Laure de Boissieu</name></author><category term="conference" /><category term="afup" /><category term="forumphp" /><category term="revue" /><summary type="html">J’ai rejoint ma nouvelle équipe il y a 6 mois, avec une appréhension. Comment allais-je vivre les revues de code par des collègues que je ne connais pas encore ? Incompréhensions, malentendus : la communication écrite rend cet exercice très délicat. Vous avez été blessé-e par un commentaire ? Etait-il vraiment mal intentionné ? Vous avez blessé quelqu’un sans le vouloir, à cause d’une tournure maladroite ?</summary></entry></feed>
+&lt;p&gt;Cycle de vie de PHP, communication entre nginx et php-fpm, approche shared-nothing, compilation et cache d’opcodes, gestion interne de la mémoire ou même architecture logicielle et debugging… Pour qu’une application réponde aux attentes de son public, nous devons comprendre comment PHP fonctionne !&lt;/p&gt;</content><author><name>Pascal Martin</name></author><category term="conference" /><category term="afup" /><category term="forumphp" /><category term="php" /><summary type="html">Pour exécuter du code, PHP consomme du processeur et de la mémoire. Quand une requête HTTP arrive, un processus php-fpm lui est dédié. Mais ces ressources sont limitées. Et, même dans Le Cloud ou en serverless, scaler prend du temps et les coûts s’envolent !</summary></entry></feed>
