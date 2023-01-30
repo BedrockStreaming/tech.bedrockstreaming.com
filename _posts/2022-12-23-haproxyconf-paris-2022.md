@@ -11,7 +11,7 @@ language: fr
 comments: true
 ---
 
-Bedrock était présent lors de la Conférence HAProxy qui se déroulait à Paris en novembre 2022 : en tant que speaker, avec [la présentation de Vincent Gallissot](https://www.youtube.com/watch?v=5jzOXlmRDao), mais aussi en tant que spectateur. Cet article relate les points forts qui nous ont marqués.
+Bedrock était présent lors de la Conférence HAProxy qui se déroulait à Paris en novembre 2022 : en tant que speaker, avec [la présentation de Vincent Gallissot](https://www.youtube.com/watch?v=5jzOXlmRDao){:target="_blank"}, mais aussi en tant que spectateur. Cet article relate les points forts qui nous ont marqués.
 
 La présentation de Vincent Gallissot, Lead Cloud Architect chez Bedrock, mettait en valeur l’usage d’HAProxy en tant que brique essentielle de notre infrastructure. Chez Bedrock, nous développons et maintenons une plateforme de streaming qui a été migrée dans le Cloud en 2019. Cette présentation était grandement inspirée de l’article intitulé [“Scaling Bedrock video delivery to 50 million users”](https://tech.bedrockstreaming.com/2021/12/15/scaling-bedrock-video-delivery-to-50-million-users.html){:target="_blank"}, dans lequel vous trouverez pléthore d’informations concernant nos utilisations d’HAProxy.
 
@@ -26,7 +26,7 @@ La présentation de Vincent Gallissot, Lead Cloud Architect chez Bedrock, mettai
 
 ## Ce que des millions de requêtes par seconde signifient en termes de coût et d'économie d'énergie.
 
-La [keynote d'ouverture](https://www.youtube.com/watch?v=GoRnD_21Qgk) avait pour orateur [Willy Tarreau](https://twitter.com/willytarreau){:target="_blank"}, le Lead Developer d'HAProxy.  
+La [keynote d'ouverture](https://www.youtube.com/watch?v=GoRnD_21Qgk){:target="_blank"} avait pour orateur [Willy Tarreau](https://twitter.com/willytarreau){:target="_blank"}, le Lead Developer d'HAProxy.  
 Au travers d'une démonstration concrète mélangeant software et hardware, l'objectif était de :
 - transmettre l'idée qu'ajouter une brique logicielle dans un système ne le dégrade pas pour autant, bien au contraire
 - sensibiliser l'audience quant à la consommation d'énergie de nos systèmes
@@ -133,8 +133,8 @@ Notre architecture CDN est constituée d'un logiciel appelé LBCDN qui "load-bal
 Nos serveurs en eux-mêmes sont basés sur Nginx avec une configuration assez simple en direct IO sur de gros SSD.
 
 La HAproxy conf 2022 nous a pas mal inspirés pour répondre à nos problématiques avec ces deux conférences :
- - [Boost your web apps with HAProxy and Varnish, by Jérémy Lecour CTO of Evolix](https://www.haproxyconf.com/presentations/boost-your-web-apps-with-haproxy-and-varnish/){:target="_blank"}:[Video](https://www.youtube.com/watch?v=3HJUrcEWsl8)
- - [Was That really HAProxy, by Ricardo Nabinger Sanchez performance engineer at Taghos](https://www.haproxyconf.com/presentations/was-that-really-haproxy/){:target="_blank"}: [Video](https://www.youtube.com/watch?v=Qz1zFVFYVcw)
+ - [Boost your web apps with HAProxy and Varnish, by Jérémy Lecour CTO of Evolix](https://www.haproxyconf.com/presentations/boost-your-web-apps-with-haproxy-and-varnish/){:target="_blank"}:[Video](https://www.youtube.com/watch?v=3HJUrcEWsl8){:target="_blank"}
+ - [Was That really HAProxy, by Ricardo Nabinger Sanchez performance engineer at Taghos](https://www.haproxyconf.com/presentations/was-that-really-haproxy/){:target="_blank"}: [Video](https://www.youtube.com/watch?v=Qz1zFVFYVcw){:target="_blank"}
 
 Ces deux présentations font état d'une architecture sur les CDN intéressante où HAProxy est utilisé pour mettre “en sandwich” l'outil (ou les outils) faisant fonction de CDN.
 L’architecture présentée semble permettre une configuration bien plus fine que ce que nous avons actuellement avec seulement Nginx.
@@ -152,7 +152,7 @@ MAIS!
 
 C'est là que les conférences sont intéressantes car elles montrent que l'on peut mixer les backends.  
 Dans la conférence présentée par Ricardo, l'utilisation de deux backends (Varnish et hyper-cache) sur un même serveur est permise par un HAProxy. Cela permet de profiter de la complémentarité de ces services.  
-Dans notre cas, nous n'avons pas besoin de cela mais [une autre conférence](https://www.youtube.com/watch?v=OjoDnlS4_1A) nous a mis la puce à l'oreille : [Writing HAProxy Filters in Rust](https://www.haproxyconf.com/presentations/writing-haproxy-filters-in-rust/){:target="_blank"}, by Aleksandr Orlenko.  
+Dans notre cas, nous n'avons pas besoin de cela mais [une autre conférence](https://www.youtube.com/watch?v=OjoDnlS4_1A){:target="_blank"} nous a mis la puce à l'oreille : [Writing HAProxy Filters in Rust](https://www.haproxyconf.com/presentations/writing-haproxy-filters-in-rust/){:target="_blank"}, by Aleksandr Orlenko.  
 Cela pourrait nous permettre, avec un HAProxy en frontal, d'agréger plus finement les mesures de performances du serveur afin d'optimiser l'usage de ses ressources, ou déporter une partie du trafic sur un serveur moins chargé, ou encore de récupérer une partie des traitements actuellement effectués par le LBCDN.
 
 Ajouter cette fonctionnalité serait la belle cerise au kirsch au sommet de ce sandwich de HAProxy.
