@@ -3,7 +3,7 @@ layout: conference
 
 title: "Projet XState"
 author: m_blanc
-description: "La gestion d'état applicative est une notion complèxe et fondamentale, donc passionante, des applications web modernes. XState est un moteur d'états reposant sur le concept de machines àa états finis."
+description: "La gestion d'état applicative est une notion complexe et fondamentale, donc passionnante, des applications web modernes. XState est un moteur d'états reposant sur le concept de machines à états finis."
 
 eventName: LyonJS Meetup
 eventUrl: https://www.meetup.com/fr-FR/lyonjs/events/290762638/
