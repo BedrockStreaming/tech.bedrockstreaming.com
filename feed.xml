@@ -1,4 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-02-28T10:36:52+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Projet XState</title><link href="https://tech.bedrockstreaming.com/2023/02/08/projet-xstate.html" rel="alternate" type="text/html" title="Projet XState" /><published>2023-02-08T00:00:00+00:00</published><updated>2023-02-08T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/02/08/projet-xstate</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/02/08/projet-xstate.html">&lt;p&gt;Dans une application frontend moderne, la gestion d’état est un élément central de son bon fonctionnement. Malgré les nombreuses librairies disponibles (Redux, MobX, Recoil…), cette tache reste complexe à réaliser et il est facile de perdre le contrôle.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-03-02T14:34:40+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Why is Transit Gateway service not right for us?</title><link href="https://tech.bedrockstreaming.com/2023/03/02/aws_transit_gateway.html" rel="alternate" type="text/html" title="Why is Transit Gateway service not right for us?" /><published>2023-03-02T00:00:00+00:00</published><updated>2023-03-02T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/03/02/aws_transit_gateway</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/03/02/aws_transit_gateway.html">&lt;p&gt;Managing the network of many interconnected AWS accounts can quickly lead to having a messy network architecture.&lt;br /&gt;
+Transit Gateway (TGW) service seems to be the way out of this. So how do you know if TGW is right for you?&lt;/p&gt;
+
+&lt;p&gt;This blog post will introduce how the service works and explain why we chose not to carry on with our migration to AWS Transit Gateway.
+&lt;!--more--&gt;&lt;/p&gt;
+&lt;h2 id=&quot;transit-gateways-backstory&quot;&gt;Transit Gateway’s backstory&lt;/h2&gt;
+
+&lt;p&gt;Transit Gateway is a network transit hub that connects multiple VPCs and On-Premises sites to allows control traffic between them.&lt;br /&gt;
+It was created to provide a new approach of network implementation on AWS and to make network administration smoother.&lt;/p&gt;
+
+&lt;p&gt;VPC peering is a point-to-point connection between 2 VPCs.&lt;br /&gt;
+It is a great example of complex network management because it adds a new topology to the network architecture.&lt;br /&gt;
+On this diagram you can see an example of VPC peering usage. It’s not that messy yet but at scale it will be.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-03-02-aws_tgw/tgw.png&quot; alt=&quot;Network architecture without Transit Gateway&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;By acting as a “cloud router”, TGW centralizes network connections and takes control of packet forwarding between VPCs.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-03-02-aws_tgw/tgw2.png&quot; alt=&quot;Network architecture with Transit Gateway&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;VPC peerings are not required anymore, we go back to a simpler star network topology thanks to Transit Gateway which really does address the complexity and restrictions of VPC peerings.&lt;br /&gt;
+At that point, TGW seems to be the perfect answer for a simpler network architecture.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-about-tgw-at-bedrock&quot;&gt;What about TGW at Bedrock?&lt;/h2&gt;
+
+&lt;p&gt;We operate more than 20 different AWS accounts for our customers’ platforms. Each account has a VPC with at least 3 private and 3 public subnets. We also manage AWS accounts for internal tools like ECR repositories, monitoring tools and shared s3 buckets. We configured Site-to-Site VPNs from On-Premises infrastructure to all the VPCs in these accounts.&lt;/p&gt;
+
+&lt;p&gt;From the creation of new AWS accounts to deploying the tenants’ platform, onboarding a new customer requires a lot of work and time.&lt;/p&gt;
+
+&lt;p&gt;Configuring VPCs Site-to-Site VPN is one of the steps that requires a lot of work. This is why we were interested in Transit Gateway at first.&lt;/p&gt;
+
+&lt;h3 id=&quot;proof-of-concept&quot;&gt;Proof of concept&lt;/h3&gt;
+
+&lt;p&gt;We created a production like Proof of Concept infrastructure using three AWS accounts, two different regions, multiple VPCs and a single Site-to-Site VPN from TGW to On-Premises firewall.&lt;/p&gt;
+
+&lt;h4 id=&quot;how-did-we-test-tgw&quot;&gt;How did we test TGW?&lt;/h4&gt;
+
+&lt;p&gt;We started by trying to split routing domains.&lt;br /&gt;
+Centralizing network connections also means (with correct ACLs or Security Groups) that VPCs can reach all other VPCs. We want to control that.&lt;br /&gt;
+Transit Gateway attachments read their routes in the TGW route table they are associated to. This is how we manage routing domains.&lt;br /&gt;
+We create a Transit Gateway routing table and create routes for target networks.&lt;br /&gt;
+TGW attachments are able to propagate routes in a route table if we want to. But because of routing domains, we can’t use that option and we have to add routes manually (attachments only read routes in the route table).&lt;/p&gt;
+
+&lt;p&gt;Then we tested Transit Gateway peering.&lt;br /&gt;
+TGW is a regional service, this means that we need to have a TGW for each active AWS region. We use TGW peering to interconnect them.&lt;br /&gt;
+We expected to have some way to propagate routes dynamically in the Transit Gateway peering route table. But it is not possible.&lt;/p&gt;
+
+&lt;p&gt;The last thing we tested is migrating from VPC Site-to-Site VPN to TGW VPN.&lt;br /&gt;
+Because of the amount of VPC Site-to-Site VPN we have, it was important for us to know if we could get a minimal down time on On-Premises to VPC connections when migrating to the Transit Gateway VPN.&lt;br /&gt;
+This process requires a lot of time because routes have to be deleted and created manually on each side.&lt;/p&gt;
+
+&lt;p&gt;Even if we noticed some pain points, tests went well. So we decided to initiate the migration to the Transit Gateway service.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-did-we-choose-to-rollback&quot;&gt;Why did we choose to rollback?&lt;/h3&gt;
+
+&lt;p&gt;Everything was okay at first, we successfully migrated two VPC Site-to-Site VPN to our Transit Gateway VPN.&lt;/p&gt;
+
+&lt;p&gt;But then previous pain points became barriers:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;creating and managing routing domains is possible, but makes it impossible to use dynamic route propagation&lt;/li&gt;
+  &lt;li&gt;there is not option to propagate routes in VPC route table, they all have to be created manually&lt;/li&gt;
+  &lt;li&gt;data transfer cost is too high (and multiplied by the number of region on which you deployed TGW if your packets go through all these regions)&lt;/li&gt;
+  &lt;li&gt;migrating to Transit Gateway requires a planned maintenance because there is a network downtime&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We took some time to talk about what to do next and concluded that migrating to Transit Gateway will just move the complexity of configuring VPC Site-to-Site VPNs to configuring TGW attachments and routes.&lt;/p&gt;
+
+&lt;p&gt;AWS support did not suggest enough solutions to the problems we faced, so we decided to rollback to VPC Site-to-Site VPNs.&lt;/p&gt;</content><author><name>Christian VAN DER ZWAARD</name></author><category term="on-premise" /><category term="cloud" /><category term="aws" /><category term="network" /><summary type="html">Managing the network of many interconnected AWS accounts can quickly lead to having a messy network architecture. Transit Gateway (TGW) service seems to be the way out of this. So how do you know if TGW is right for you? This blog post will introduce how the service works and explain why we chose not to carry on with our migration to AWS Transit Gateway.</summary></entry><entry><title type="html">Projet XState</title><link href="https://tech.bedrockstreaming.com/2023/02/08/projet-xstate.html" rel="alternate" type="text/html" title="Projet XState" /><published>2023-02-08T00:00:00+00:00</published><updated>2023-02-08T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/02/08/projet-xstate</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/02/08/projet-xstate.html">&lt;p&gt;Dans une application frontend moderne, la gestion d’état est un élément central de son bon fonctionnement. Malgré les nombreuses librairies disponibles (Redux, MobX, Recoil…), cette tache reste complexe à réaliser et il est facile de perdre le contrôle.&lt;/p&gt;
 
 &lt;p&gt;Dans l’objectif de rester maitre de son application, je vous propose de découvrir XState, une librairie reposant sur le concept de machine à états. Si l’outil ne fait pas tout, le concept de machine à état aide grandement à concevoir une application résiliente.&lt;/p&gt;
 
@@ -1856,16 +1923,4 @@ Vous pourrez trouver un complément d’informations au sujet de notre BFF dans 
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/forumphp2022/fresque-lego-communautaire.jpg&quot; alt=&quot;La fresque Lego communautaire&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Vivement l’année prochaine !&lt;/p&gt;</content><author><name>Bedrock</name></author><category term="afup" /><category term="php" /><category term="forumphp" /><category term="conference" /><summary type="html">Pour cette édition du Forum PHP qui s’est déroulée à Disneyland Paris, Bedrock a vu les choses en grand : première fois sponsor Or sur un forum et pas moins de 32 Bedrockien(ne)s présent(e)s dont 4 en tant que conférencier(e)s ! Cette année encore, le forum a été un moment privilégié pour les échanges, le partage et vous avez été nombreux(ses) à venir nous rencontrer sur notre stand et nous avons été ravis de pouvoir échanger avec vous.</summary></entry><entry><title type="html">BFF, notre best friend forever pour faire plein d’applications frontend ?</title><link href="https://tech.bedrockstreaming.com/2022/10/13/bff-notre-best-friend-forever-pour-faire-plein-d-applications-frontend.html" rel="alternate" type="text/html" title="BFF, notre best friend forever pour faire plein d’applications frontend ?" /><published>2022-10-13T00:00:00+00:00</published><updated>2022-10-13T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/10/13/bff-notre-best-friend-forever-pour-faire-plein-d-applications-frontend</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/10/13/bff-notre-best-friend-forever-pour-faire-plein-d-applications-frontend.html">&lt;p&gt;Chez Bedrock nous fournissons des applications de streaming (ASVOD, AVOD) pour plusieurs clients en France et en Europe, chaque application étant déployée sur de nombreux appareils (ordinateur, mobile, set top box, tv connecté, consoles de jeux, tv stick etc …). Il était devenu très difficile de gérer la création et l’évolution de ces nombreuses applications qui requêtaient et formataient chacune elles-mêmes les données dont elles avaient besoin.&lt;/p&gt;
-
-&lt;p&gt;Pour cela, en 2018, nous avons décidé de nous lancer dans la création d’un Back For Front afin d’unifier et faciliter les interactions backend et frontend. Au cours de cette conférence nous passerons en revue :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;les concepts du back for front&lt;/li&gt;
-  &lt;li&gt;l’architecture api-gateway et micro service mise en place&lt;/li&gt;
-  &lt;li&gt;Les gains fonctionnels et la vélocités gagnée&lt;/li&gt;
-  &lt;li&gt;les différents mécanismes développés pour absorber les importants pic de charge (résilience, circuit breaker, fallbacks etc.)&lt;/li&gt;
-  &lt;li&gt;les impacts techniques et organisationnels d’une telle architecture&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Aujourd’hui notre API Gateway BFF opère 92 frontends délivrant 1.5 milliards de vidéos par an pour 45 millions d’utilisateurs actifs (MaU). Venez découvrir notre retour d’expérience sur la mise en place d’un tel projet.&lt;/p&gt;</content><author><name>Valentin CLARAS</name></author><category term="conference" /><category term="afup" /><category term="forumphp" /><category term="php" /><category term="bff" /><summary type="html">Chez Bedrock nous fournissons des applications de streaming (ASVOD, AVOD) pour plusieurs clients en France et en Europe, chaque application étant déployée sur de nombreux appareils (ordinateur, mobile, set top box, tv connecté, consoles de jeux, tv stick etc …). Il était devenu très difficile de gérer la création et l’évolution de ces nombreuses applications qui requêtaient et formataient chacune elles-mêmes les données dont elles avaient besoin.</summary></entry></feed>
+&lt;p&gt;Vivement l’année prochaine !&lt;/p&gt;</content><author><name>Bedrock</name></author><category term="afup" /><category term="php" /><category term="forumphp" /><category term="conference" /><summary type="html">Pour cette édition du Forum PHP qui s’est déroulée à Disneyland Paris, Bedrock a vu les choses en grand : première fois sponsor Or sur un forum et pas moins de 32 Bedrockien(ne)s présent(e)s dont 4 en tant que conférencier(e)s ! Cette année encore, le forum a été un moment privilégié pour les échanges, le partage et vous avez été nombreux(ses) à venir nous rencontrer sur notre stand et nous avons été ravis de pouvoir échanger avec vous.</summary></entry></feed>
