@@ -9,35 +9,18 @@ color: rgb(251,87,66)
 
 Difficile de faire évoluer des applications et améliorer une stack si l’ensemble est basé sur une version obsolète de Node.js… Dans cet article, nous verrons comment nous avons réussi à migrer vers une version récente et maintenue de Node.js grâce à une approche progressive et incrémentale.
 
-# Table des matières
-
-- [Contexte général et fonctionnel](#DeNode.js10àNode.js18,nousavonsrattrapé8ansderetardetdedettetechnique—etseuleuneapprocheprogressiveetincrémentaleétaitviable!-Contextegénéraletfonctionnel)
-- [Contexte technique](#DeNode.js10àNode.js18,nousavonsrattrapé8ansderetardetdedettetechnique—etseuleuneapprocheprogressiveetincrémentaleétaitviable!-Contextetechnique)
-- [Objectif](#DeNode.js10àNode.js18,nousavonsrattrapé8ansderetardetdedettetechnique—etseuleuneapprocheprogressiveetincrémentaleétaitviable!-Objectif)
-- [Une première stratégie problématique : la méthode “rhinocéros” 🦏](rhinocéros#DeNode.js10àNode.js18,nousavonsrattrapé8ansderetardetdedettetechnique—etseuleuneapprocheprogressiveetincrémentaleétaitviable!-Unepremièrestratégieproblématique:laméthode)
-- [La stratégie gagnante : une migration progressive 📶](#DeNode.js10àNode.js18,nousavonsrattrapé8ansderetardetdedettetechnique—etseuleuneapprocheprogressiveetincrémentaleétaitviable!-Lastratégiegagnante:unemigrationprogressive) 
-  - [Motivation](#DeNode.js10àNode.js18,nousavonsrattrapé8ansderetardetdedettetechnique—etseuleuneapprocheprogressiveetincrémentaleétaitviable!-Motivation)
-  - [Plan d’action](#DeNode.js10àNode.js18,nousavonsrattrapé8ansderetardetdedettetechnique—etseuleuneapprocheprogressiveetincrémentaleétaitviable!-Pland’action)
-- [Difficultés rencontrées](#DeNode.js10àNode.js18,nousavonsrattrapé8ansderetardetdedettetechnique—etseuleuneapprocheprogressiveetincrémentaleétaitviable!-Difficultésrencontrées) 
-  - [Non découpage des étapes de migration](#DeNode.js10àNode.js18,nousavonsrattrapé8ansderetardetdedettetechnique—etseuleuneapprocheprogressiveetincrémentaleétaitviable!-Nondécoupagedesétapesdemigration)
-  - [Méconnaissance de Typescript](#DeNode.js10àNode.js18,nousavonsrattrapé8ansderetardetdedettetechnique—etseuleuneapprocheprogressiveetincrémentaleétaitviable!-MéconnaissancedeTypescript)
-  - [Suppression précipitée de librairies obsolètes](#DeNode.js10àNode.js18,nousavonsrattrapé8ansderetardetdedettetechnique—etseuleuneapprocheprogressiveetincrémentaleétaitviable!-Suppressionprécipitéedelibrairiesobsolètes)
-  - [Non anticipation de la complexité liée à certaines dépendances](#DeNode.js10àNode.js18,nousavonsrattrapé8ansderetardetdedettetechnique—etseuleuneapprocheprogressiveetincrémentaleétaitviable!-Nonanticipationdelacomplexitéliéeàcertainesdépendances)
-  - [Entretien des applications legacy en même temps](#DeNode.js10àNode.js18,nousavonsrattrapé8ansderetardetdedettetechnique—etseuleuneapprocheprogressiveetincrémentaleétaitviable!-Entretiendesapplicationslegacyenmêmetemps)
-- [Autres avantages](#DeNode.js10àNode.js18,nousavonsrattrapé8ansderetardetdedettetechnique—etseuleuneapprocheprogressiveetincrémentaleétaitviable!-Autresavantages) 
-  - [Uniformisation des technologies au sein de la société](#DeNode.js10àNode.js18,nousavonsrattrapé8ansderetardetdedettetechnique—etseuleuneapprocheprogressiveetincrémentaleétaitviable!-Uniformisationdestechnologiesauseindelasociété)
-  - [Attractivité et rétention des développeurs](#DeNode.js10àNode.js18,nousavonsrattrapé8ansderetardetdedettetechnique—etseuleuneapprocheprogressiveetincrémentaleétaitviable!-Attractivitéetrétentiondesdéveloppeurs)
-- [Conclusion](#DeNode.js10àNode.js18,nousavonsrattrapé8ansderetardetdedettetechnique—etseuleuneapprocheprogressiveetincrémentaleétaitviable!-Conclusion)
+* TOC
+{:toc}
 
 # Contexte général et fonctionnel
 
-Bedrock streaming est une co-entreprise (joint-venture) créée en 2020 par M6 Group et RTL Group, permettant à 7 diffuseurs et sociétés de médias dans 5 pays d’Europe à divertir 45 millions d'utilisateurs chaque jour, sur tous les écrans.
+Bedrock streaming est une co-entreprise (joint-venture) créée en 2020 par M6 Group et RTL Group, permettant à 7 diffuseurs et sociétés de médias dans 5 pays d’Europe de divertir 45 millions d'utilisateurs chaque jour, sur tous les écrans.
 
-Pour gérer tous leurs utilisateurs ainsi que leurs contenus, notamment vidéo, les clients de Bedrock Streaming accèdent chacun à une constellation d’applications au sein d’un back-office centralisé (appelé BO par la suite).
+Pour gérer tous leurs utilisateurs ainsi que leurs contenus, notamment vidéos, les clients de Bedrock Streaming accèdent chacun à une constellation d’applications au sein d’un back-office centralisé (appelé BO par la suite).
 
 # Contexte technique
 
-De part sa conception initiale, le BO est une application monorepo. Elle fournit (à elle-même donc), des données via une API Symfony 4 (PHP 7.2), consommées uniquement par :
+De part sa conception initiale, le BO est une application monorepo. Elle fournit (à elle-même donc), des données via une API Symfony 4 (PHP 7.4), consommées uniquement par :
 
 - des applications Vue.js 1 et Vue.js 2 gérées par la team backend (qui historiquement maintient le frontend de quelques applications) ;
 - des applications Vue.js 2 gérées par la team frontend.
@@ -64,15 +47,15 @@ La décision a été prise de migrer le repository de Node.js 10 vers Node.js 12
 
 Empiriquement, cette méthode a montré plusieurs limites :
 
-- même si la compilation semblait bien se dérouler, des erreurs apparaissaient au moment de l’affichage de l’UI ➡ Il semblait donc nécéssaire de parcourir l’intégralité des écrans afin de déceler toutes les anomalies possibles ➡ Le travail de la QA était alors conséquent ;
+- même si la compilation semblait bien se dérouler, des erreurs apparaissaient au moment de l’affichage de l’UI ➡ Il semblait donc nécessaire de parcourir l’intégralité des écrans afin de déceler toutes les anomalies possibles ➡ Le travail de la QA était alors conséquent ;
 - même lorsqu’une anomalie est corrigée, une nouvelle peut apparaitre ➡ Il fallait re-parcourir les écrans concernés (par exemple, après avoir corrigé une anomalie qui empêche l’apparition d’une modale, de nouvelles anomalies peuvent être décelées au niveau des fonctionnalités que permet cette modale) ➡ Le travail de la QA augmentait de façon exponentielle au fil des corrections d’anomalies ;
-- des dizaines voire centaines de dépendances dans le projet étaient dépendantes de Node.js 10 sans être encore compatibles avec Node.js 12 ➡ Il s’agissait donc de faire le point sur celles-ci, pour trouver des équivalent compatibles.
+- des dizaines voire centaines de dépendances dans le projet étaient dépendantes de Node.js 10 sans être encore compatibles avec Node.js 12 ➡ Il s’agissait donc de faire le point sur celles-ci, pour trouver des équivalents compatibles.
 
 Après plusieurs mois, bien que bon nombre d’anomalies avaient pu être corrigées, la situation stagnait et la fin ne semblait pas plus proche qu’au début.
 
 Les raisons de l'échec :
 
-- L’ancienneté de certaines applications. Certaines d’entre elles avaient plus de 8 ans d’existence. En n’ayant subi que quelques corrections seulement. Les connaissances fonctionnelles et techniques s'étaient donc estompées naturellement, en raison d’une absence de documentation (autant fonctionnelle que technique). Il s’agit là de dettes fonctionnelle et technique. Lorsqu’elles sont là, elles sont relativement simples à identifier. Mais c’est déjà trop tard… ;
+- L’ancienneté de certaines applications. Certaines d’entre elles avaient plus de 8 ans d’existence. En n’ayant subi que quelques corrections seulement. Les connaissances fonctionnelles et techniques s'étaient donc estompées naturellement, en raison d’une absence de documentation (autant fonctionnelle que technique). Il s’agit là des dettes fonctionnelle et technique. Lorsqu’elles sont là, elles sont relativement simples à identifier. Mais c’est déjà trop tard… ;
 - L’absence de mise à jour des technologies. Certaines technologies devenues obsolètes (`jQuery 1.9`, `Vue.js 1`, `Bootstrap 2.3`) imposait non plus un refactor lié à une migration, mais une véritable refonte ;
 - L’absence de tests. La couverture de tests était alors faible voire nulle. Migrer sans régression relevait alors d’une chance non maitrisable ;
 - La façon dont la migration a été lancée était trop téméraire : c’est la méthode rhinocéros.
@@ -117,14 +100,15 @@ Cette page blanche a nécessité un plan d’action que voici :
 1. Migration du design system, ainsi que des outils afférents (Storybook).
 1. Migration d’une première application, la plus simple possible. L’objectif était alors de se rendre compte très concrètement des étapes de migration d’une application, afin d’en tirer une documentation exploitable pour les futures applications. Il en est ressorti que la majeure partie du travail consistait à refactor le code avec les nouvelles technologies choisies, en l’occurrence :
    1. `Vue.js 3` et sa `Composition API` (framework JS),
-   1. `Vite` (server de dev et de build),
+   1. `Vite` (serveur de dev et de build),
    1. `Pinia` (global state management),
    1. `Vitest` (framework de test unitaire),
+   1. `Cypress` dans ses dernières versions (framework de test end-to-end)
    1. aussi et surtout `Typescript` (langage de programmation, sur-couche à JS).
 1. Migration du processus de build et d’intégration aux templates backend (via notamment une extension Twig implémentée par nos soins, `ViteAppExtension.php`)
 1. Mise en place d’une CI pour ces nouvelles applications, calquée sur celle des anciennes applications : linting, tests pour celles qui en avaient, déploiement en preview, etc.
 
-En quelques mois seulement, il a été possible d’obtenir un résultat concret. Le répertoire modern-apps a été initialisé en février 2022, et dès avril de la même année, une première application migrée était livrée en production. Et cela, avec un seul développeur à plein temps sur le sujet.
+En quelques mois seulement, il a été possible d’obtenir un résultat concret. Le répertoire `modern-apps/` a été initié en février 2022, et dès avril de la même année, une première application migrée était livrée en production. Et cela, avec un seul développeur à plein temps sur le sujet.
 
 # Difficultés rencontrées
 
@@ -152,7 +136,7 @@ Si tous ces changements sont opérés en même temps, comment réagir lors de l�
 
 Source : <https://www.typescriptlang.org/>
 
-Ce langage de programmation, bien que son adoption parmi les développpeurs JS explose, s’est avéré une complète nouveauté dans l'équipe. Il peut être tentant d'écrire des `any` partout, ou de supprimer le `strict mode`…
+Ce langage de programmation, bien que son adoption parmi les développeurs JS explose, s’est avéré une complète nouveauté dans l'équipe. Il peut être tentant d'écrire des `any` partout, ou de supprimer le `strict mode`…
 
 > **Solution adoptée**
 > 
@@ -174,7 +158,7 @@ Bien que cet aspect n'était pas une surprise, certaines librairies ont apporté
 
 > **Solution adoptée**
 > 
-> Ce cas de figure n’est pas vraiment impressionnant car nous nous y attendions. Nous avons décidé dans un premier temps d’effectuer une certaine veille technique, afin de remettre en cause le choix initiale de cette librairie. Il s’est avéré que nous l’avons conservée, ce qui amenait dans un second temps une montée en compétence quant à l’utilisation de celle-ci, en vue de son intégration.
+> Ce cas de figure n’est pas vraiment impressionnant car nous nous y attendions. Nous avons décidé dans un premier temps d’effectuer une certaine veille technique, afin de remettre en cause le choix initial de cette librairie. Il s’est avéré que nous l’avons conservée, ce qui amenait dans un second temps une montée en compétence quant à l’utilisation de celle-ci, en vue de son intégration.
 
 ## Entretien des applications legacy en même temps
 
@@ -201,8 +185,6 @@ En fin de compte, cette approche progressive et incrémentale, toujours en cours
 Cette grande aventure, toujours en cours, nous a permis de vraiment prendre conscience qu’il faut entretenir certes les applications mais aussi les versions des frameworks et outils ! Utiliser un nouvel outil ou une nouvelle technologie est un choix fort qu’il faut être capable d'assumer dans le temps.
 
 Il peut paraitre frustrant d’entretenir des outils, sans gagner en performance ni en productivité mais seulement pour ne pas devenir obsolète. Mettre l’accent sur ces points, tout en sachant bien jauger jusqu’où doivent aller ces upgrades, est la marque d’un certain professionnalisme.
-
-Certes, la valeur ajoutée pour le client est nulle dans l’immédiat. Ce n’est que plus tard que les gains se feront concrètement sentir.
 
 Il est vrai que dans l’immédiat, la valeur ajoutée pour le client est modérée : les gains restent très techniques, notamment en termes de stabilité et de performances. Ce n’est que plus tard que les gains se feront concrètement sentir : plus d’efficacité et de productivité pour les évolutions, et plus de fiabilité.
 
