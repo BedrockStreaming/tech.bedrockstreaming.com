@@ -33,7 +33,7 @@ Pour tenter de venir à bout de ces sujets legacy que l’on traîne comme des b
 
 L’idée est simple : faire travailler ensemble, sur une journée, les cinq équipes de la verticale (trois équipes de SysAdmins et deux équipes DevOps) pour faire avancer un sujet legacy. Au cours de cette journée, les profils et les membres d’équipe seront mixés, afin de ne pas travailler avec les mêmes collègues qu’au quotidien. Leads, principal engineer, seniors et juniors : tout le monde participe à la corvée !
 
-Il est difficile de convoquer 25 personnes sur une journée en leur disant que la journée est banalisée pour traiter des tâches pénibles. Ils viendraient à reculons. Deux axes ont été choisis pour faire de ces journées des journées “particulières” :
+Il est difficile de convoquer 25 personnes sur une journée en leur disant que la journée est banalisée pour traiter des tâches pénibles. Elles viendraient à reculons. Deux axes ont été choisis pour faire de ces journées des journées “particulières” :
 
 * **Gamifier** certains moments clés de la journée : la découverte du sujet, la composition des équipes, la remise en jambe du début d’après-midi…
 * **Challenger** les participants pour ne pas simplement leur demander de traiter du legacy, mais bien d’être la _meilleure_ équipe pour traiter du legacy. Celle qui ira le plus loin, qui en fera le plus.
