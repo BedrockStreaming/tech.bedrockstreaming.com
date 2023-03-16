@@ -68,7 +68,7 @@ Trois éditions du “jeudi du fun” ont été organisées jusqu’à présent.
 
 ### _De l’importance du choix du sujet_
 
-Le succès de la journée repose sur le choix du sujet. En choisissant un sujet fédérateur, comme lors de notre première édition, et en laissant le soin à chaque équipe de définir quel chantier elle souhaitait mener, nous partions gagnantes. Le repo Sysadmin/Terraform sur lequel nous avons travaillé lors de cette journée est un point de douleur pour l’ensemble de nos équipes : chacun des participants a compris l’intérêt de jouer le jeu et de retrousser ses manches. Les équipes ont même eu du mal à clôturer la journée, car elles voulaient finir ce qu’elle avait commencé.
+Le succès de la journée repose sur le choix du sujet. En choisissant un sujet fédérateur, comme lors de notre première édition, et en laissant le soin à chaque équipe de définir quel chantier elle souhaitait mener, nous partions gagnantes. Le repo Sysadmin/Terraform sur lequel nous avons travaillé lors de cette journée est un point de douleur pour l’ensemble de nos équipes : chacun des participants a compris l’intérêt de jouer le jeu et de retrousser ses manches. Les équipes ont même eu du mal à clôturer la journée, car elles voulaient finir ce qu’elles avaient commencé.
 
 <center><img alt="Au cours de la 1ère journée du “Jeudi du fun”" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-slack.png"></center>
 <center>Au cours de la 1ère journée du “Jeudi du fun”</center>
