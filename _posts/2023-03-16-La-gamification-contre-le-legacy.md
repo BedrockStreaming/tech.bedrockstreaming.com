@@ -137,7 +137,7 @@ Lors de la première édition, nous étions tous rassemblés dans le même open 
 
 Pour la seconde édition, nous avions réservé un open space dans les locaux de Bedrock pour ne pas prendre le risque de déranger les autres équipes : l’ambiance y a été d’autant plus conviviale mais n’a apporté aucun mieux aux personnes ayant besoin de tranquillité pour travailler.
 
-Lors de notre dernière édition, nous avons tenté une approche hybride : la plupart des équipes étaient rassemblées dans un même open space, et pour les personnes ayant besoin de s’isoler, une salle de réunion avait été réservée pour l’occasion. Il semble que cette organisation a apporté un mieux pour les personnes souffrant du bruit avec un écueil cependant : ils étaient isolés des autres équipes tout au long de la journée, et le jeudi du fun repose (aussi) sur l’émulation collective…
+Lors de notre dernière édition, nous avons tenté une approche hybride : la plupart des équipes étaient rassemblées dans un même open space, et pour les personnes ayant besoin de s’isoler, une salle de réunion avait été réservée pour l’occasion. Il semble que cette organisation a apporté un mieux pour les personnes souffrant du bruit avec un écueil cependant : elles étaient isolées des autres équipes tout au long de la journée, et le jeudi du fun repose (aussi) sur l’émulation collective…
 
 ### _Les autres limites de l’organisation_
 
