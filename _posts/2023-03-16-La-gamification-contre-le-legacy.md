@@ -131,7 +131,7 @@ Les phases de travail en équipe sont les plus simples à gérer : nos équipes 
 
 Les moments en plénière sont en revanche plus délicats à gérer, car le brouhaha d’une vingtaine de personnes rassemblées dans une même pièce reste difficilement audible pour les personnes à distance. Un prochain challenge pourrait être d’organiser un jeudi du fun 100% distanciel.
 
-Il est également nécessaire de tenir compte de la façon de travailler de chacun : si certaines personnes sont capables de travailler en faisant fi du bruit d’un open space, d’autres ont besoin de plus de calme. A chaque édition, nous tentons d’organiser le jeudi du fun sous différentes formes, pour tenir compte des besoins de chacun, mais nous n’avons pas encore trouvé la solution idéale.
+Il est également nécessaire de tenir compte de la façon de travailler de chacun : si certaines personnes sont capables de travailler en faisant fi du bruit d’un open space, d’autres ont besoin de plus de calme. À chaque édition, nous tentons d’organiser le jeudi du fun sous différentes formes, pour tenir compte des besoins de chacun, mais nous n’avons pas encore trouvé la solution idéale.
 
 Lors de la première édition, nous étions tous rassemblés dans le même open space, sans dispositif particulier pour les personnes ayant besoin d’un environnement silencieux, et cette journée leur a été difficile à supporter. De nombreuses autres équipes de Bedrock avec qui nous partageons d’habitude cet open space étaient en déplacement ce jour-là, ce qui a néanmoins permis de limiter nos nuisances sonores à notre seule verticale.
 
