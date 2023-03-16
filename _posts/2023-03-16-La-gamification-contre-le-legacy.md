@@ -6,8 +6,6 @@ author: Élodie Perrin, Amélie Ferez
 tags: [infra, legacy, retour d'expérience]
 color: rgb(251,87,66) # this is Bedrock color here
 ---
-# La gamification contre le legacy
-
 
 ## Ce que vous ne voulez pas voir dans vos backlogs…
 
@@ -51,7 +49,7 @@ Lors de la dernière édition, en février dernier, la compétition reposait ég
 
 Bien sûr, pour que la compétition soit totale, chaque édition du jeudi du fun se termine par une remise de prix : distribution de goodies, de cartes “bonus” ou “malus” valables dans nos “vrais” sprints, de gourmandises… il faut que la récompense soit réelle pour que les participants se prennent au jeu.
 
-<center><img alt="Exemple de lot pouvant être remporté lors du “Jeudi du fun”" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-jeu.png"></center>
+<center><img alt="Exemple de lot pouvant être remporté lors du “Jeudi du fun”" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-carte.png"></center>
 <center>Exemple de lot pouvant être remporté lors du “Jeudi du fun”</center>
 <br>
 
@@ -154,7 +152,8 @@ D’autres améliorations restent à apporter, notamment autour de la gestion du
 
 Néanmoins, après trois éditions du jeudi du fun, il nous semblait important de partager notre expérience, ne serait-ce que pour convaincre des équipes de devs de Bedrock de venir jouer avec nous lors d’une prochaine édition !
 
-<center><img alt="Les participants du "Jeudi du fun"" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-team.png"></center>
+<center><img alt="Les participants du Jeudi du fun" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-team.png"></center>
+<center>Les participants du Jeudi du fun</center>
 <br>
 
 <hr>
