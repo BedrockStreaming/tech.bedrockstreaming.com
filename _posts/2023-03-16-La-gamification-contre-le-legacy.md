@@ -84,9 +84,9 @@ La complexité du sujet et le constat de notre incapacité à avancer lors de ce
 
 #### Entendu pendant la 2nde édition du jeudi du fun 😅
 
-> A : "Alors, qu’est-ce que tu fais de beau ?"
+> 👧🏻 : "Alors, qu’est-ce que tu fais de beau ?"
 >
-> B : "Je souffre"
+> 👦 : "Je souffre"
 
 Ces guidelines nous ont aidé à définir le choix de la thématique de la 3ème édition du jeudi du fun. Le sujet devait répondre à ces critères :
 * Être réalisable en une journée,
