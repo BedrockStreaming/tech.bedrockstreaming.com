@@ -73,7 +73,7 @@ Le succès de la journée repose sur le choix du sujet. En choisissant un sujet 
 <center>Au cours de la 1ère journée du “Jeudi du fun”</center>
 <br>
 
-Lors de la seconde édition en revanche, le sujet de la journée à mis la journée en péril. Nous avions demandé aux équipes d’ajouter un niveau de sécurité à l’ensemble des secrets contenus dans le code de l’entreprise. Cela a suscité quelques difficultés :
+Lors de la seconde édition en revanche, le sujet de cette édition a mis la journée en péril. Nous avions demandé aux équipes d’ajouter un niveau de sécurité à l’ensemble des secrets contenus dans le code de l’entreprise. Cela a suscité quelques difficultés :
 * Tout d’abord, il s’agissait de trouver une méthode pour identifier tous les secrets concernés. Toutes les équipes du jeudi du fun ont alors planché sur ce sujet, en utilisant des méthodes et outils différents. Au final, nous ne sommes parvenus que tardivement (2h après le lancement de la journée) à nous mettre d’accord sur une méthodologie. Autant de temps perdu que nous aurions pu consacrer au cœur du sujet, la sécurisation des secrets.
 * En nous attaquant à l’ensemble des secrets de Bedrock, nous touchions forcément à des repositories projets dont nous ne sommes pas les _code owners._ Ce n’est pas une véritable difficulté en soi, puisqu’au quotidien, nous intervenons fréquemment dans ces repos projets pour accompagner les équipes devs. En revanche, l’ajout d’un niveau de sécurité supplémentaire sur des secrets implique de pouvoir tester, puis de merger nos modifications. Impossible de réaliser ces actions sans les équipes back et front responsables des projets, ou sans impacter leur travail. Notre périmètre d’intervention lors de cette journée à été considérablement limité.
 
