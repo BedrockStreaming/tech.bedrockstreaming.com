@@ -141,7 +141,7 @@ Lors de notre dernière édition, nous avons tenté une approche hybride : la pl
 
 ### _Les autres limites de l’organisation_
 
-Au fil des éditions, nous avons rencontré, en tant qu'organistrices, deux autres limites.
+Au fil des éditions, nous avons rencontré, en tant qu'organisatrices, deux autres limites.
 
 La première touche au choix du sujet. Si la définition de la thématique de la première journée a été évidente car le repository sysadmin/terraform est source de complaintes quotidiennes, très vite, nous avons eu besoin d’aide pour définir les sujets des éditions suivantes.  \
 En effet, il est difficile pour nous d’appréhender un sujet dans sa globalité : y aura-t’il du travail pour chaque équipe ? Le sujet est-il accessible pour tous nos profils, sans montée en compétence préalable ? Quelles sont concrètement les actions à conduire pour venir à bout d’un sujet ? Pour pallier à ce problème, nous avons réalisé un tour de passe-passe : l’équipe qui remporte le jeudi du fun gagne le droit de définir avec nous le sujet de l’édition suivante. Et ça fonctionne ! Les gagnants participent avec plaisir au choix du prochain sujet ~~de torture~~ de fun !
