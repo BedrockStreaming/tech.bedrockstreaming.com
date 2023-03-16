@@ -5,7 +5,7 @@ description: Retour d'expérience des équipes Infra de Bedrock sur la mise en p
 author: e_perrin, a_ferez 
 tags: [infra, legacy, retour d'expérience]
 color: rgb(251,87,66) # this is Bedrock color here
-excerpt: "Elles sont là, tapies dans l’ombre de la colonne “To do” de vos backlogs, attendant que leur heure vienne. À chaque backlog refinement, vous vous demandez s’il ne faut pas tout simplement les annuler, puisque personne ne les prend en charge… De quoi parle-t-on ? De ces user stories qui existent dans le backlog..."
+excerpt: "Elles sont là, tapies dans l’ombre de la colonne “To do” de vos backlogs, attendant que leur heure vienne. À chaque backlog refinement, vous vous demandez s’il ne faut pas tout simplement les annuler, puisque personne ne les prend en charge… De quoi parle-t-on ? De ces user stories qui existent dans le backlog…"
 ---
 
 ## Ce que vous ne voulez pas voir dans vos backlogs…
