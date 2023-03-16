@@ -102,7 +102,7 @@ Pour l’édition de février 2023, nous avons donc “joué” avec la migratio
 
 Après trois éditions, il nous semble nécessaire de prendre un peu de recul pour analyser si ces journées portent leur fruit. Les équipes sont ravies de travailler ensemble, certes, mais l’objectif principal est-il rempli ? Les jeudis du fun permettent-ils de venir à bout de sujets legacy ?
 
-La première édition a fortement contribué à éradiquer du legacy : nous avons mis à jour la quasi-totalité des layers Terraform,, nous avons mergé ou fermé l’entièreté des PRs, et nous avons initié des travaux de rework. Cependant, nous n’avions pas défini d’indicateurs de réussite assez fiables lors de cette première itération pour quantifier réellement le travail accompli. Si toute la verticale partage le sentiment d’avoir avancé lors de cette journée, nous ne savons pas le mesurer finement.
+La première édition a fortement contribué à éradiquer du legacy : nous avons mis à jour la quasi-totalité des layers Terraform, nous avons mergé ou fermé l’entièreté des PRs, et nous avons initié des travaux de rework. Cependant, nous n’avions pas défini d’indicateurs de réussite assez fiables lors de cette première itération pour quantifier réellement le travail accompli. Si toute la verticale partage le sentiment d’avoir avancé lors de cette journée, nous ne savons pas le mesurer finement.
 
 <center><img alt="Capture d’écran du repo sysadmin/terraform au cours de la 1ère édition du “Jeudi du fun”" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-git.png"></center>
 <center>Capture d’écran du repo sysadmin/terraform au cours de la 1ère édition du “Jeudi du fun”</center>
