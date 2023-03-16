@@ -1,4 +1,236 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-03-15T14:49:24+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Why is Transit Gateway service not right for us?</title><link href="https://tech.bedrockstreaming.com/2023/03/02/aws_transit_gateway.html" rel="alternate" type="text/html" title="Why is Transit Gateway service not right for us?" /><published>2023-03-02T00:00:00+00:00</published><updated>2023-03-02T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/03/02/aws_transit_gateway</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/03/02/aws_transit_gateway.html">&lt;p&gt;Managing the network of many interconnected AWS accounts can quickly lead to having a messy network architecture.&lt;br /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-03-16T09:31:42+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock Dev Facts #19</title><link href="https://tech.bedrockstreaming.com/2023/03/13/bedrock-dev-facts-19.html" rel="alternate" type="text/html" title="Bedrock Dev Facts #19" /><published>2023-03-13T00:00:00+00:00</published><updated>2023-03-13T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/03/13/bedrock-dev-facts-19</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/03/13/bedrock-dev-facts-19.html">&lt;p&gt;La fin de l’hiver approche, il est temps de faire un bilan ! Quelles bêtises le froid aura-t-il apportées parmi les devs ? ❄️&lt;/p&gt;
+
+&lt;h1 id=&quot;la-confiance-&quot;&gt;La confiance 🤞&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/dev-facts-19/how-to-test.png&quot; alt=&quot;Image d&apos;une Pull Request indiquant &apos;How to test ? Trust me&apos;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;mieux-quun-readme&quot;&gt;Mieux qu’un readme&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Quand le mec t’explique la solution, et finit par :&lt;/p&gt;
+
+  &lt;p&gt;“Enfin ça c’est si mon code a bien continué d’être copié collé partout”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;une-éthique-moi-&quot;&gt;Une éthique, moi ?&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Moi je peux mettre du code dégueulasse un peu partout, c’est pas un problème !&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;le-socrate-des-temps-modernes&quot;&gt;Le Socrate des temps modernes&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;La vie est un Spike&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;on-apprend-de-ses-erreurs&quot;&gt;On apprend de ses erreurs&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Set up a reminder “@myself ne jamais dire ‘je finis aujourd’hui’” in this channel at 9h45AM every day.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;en-tout-bien-tout-honneur-️&quot;&gt;En tout bien tout honneur ❤️&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Ah bah go, mets-moi en dur si tu veux.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;git-101&quot;&gt;GIT 101&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;J’en ai connu certains, à chaque fois qu’ils avaient un conflit sur leur branche, ils supprimaient le repo avant de le re-cloner&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;ten-seconds-before-disaster&quot;&gt;Ten seconds before disaster&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Le cache, c’est nul !&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;shoehashole-boolean-&quot;&gt;shoeHasHole: boolean 👟&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A : ‘tin j’ai un trou dans ma chaussure&lt;/p&gt;
+
+  &lt;p&gt;B : Tu es sûr que c’est pas un false ?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;on-a-tous-un-env-de-test-certains-ont-aussi-un-env-de-prod&quot;&gt;On a tous un env de test. Certains ont aussi un env de prod.&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/dev-facts-19/dev-env.png&quot; alt=&quot;Extrait de code définissant la variable DEV_ENV comme égal à prod&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;peur-de-rien-sauf-dune-chose&quot;&gt;Peur de rien, sauf d’une chose…&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A : Ça finit en devs qui se reconvertissent Boulanger ça.&lt;/p&gt;
+
+  &lt;p&gt;B : Certes, mais l’inverse est vrai aussi, il arrive que des Boulangers se reconvertissent après être devenus allergiques à la Farine.&lt;/p&gt;
+
+  &lt;p&gt;A : C’est pour ça que je ne me reconvertirai pas en Barman… trop peur…&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;la-confiance-second-épisode-&quot;&gt;La confiance, second épisode 🤞&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;C’est pas n’importe quoi, juste un peu yolo !&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;comme-de-leau-de-roche-trouble-&quot;&gt;Comme de l’eau de roche trouble !&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Franchement, je trouve ça clair ! Mais je comprends pas..&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;de-rares-génies-&quot;&gt;De rares génies 💡&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;On est peut-être des lumières, mais ça ne veut pas dire qu’on est tous allumés !&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;cassage-de-prod-dans-3-2-1&quot;&gt;Cassage de prod dans 3… 2… 1…&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;J’le sens bien là. J’le sens bien bien bien.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;its-not-a-bug-its-a-feature&quot;&gt;It’s not a bug, it’s a feature&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;J’ai vérifié, le bug marchait bien.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;toujours-lire-les-petites-lignes-&quot;&gt;Toujours lire les petites lignes 🔎&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Tout* marche du coup !&lt;/p&gt;
+
+  &lt;p&gt;(*pour l’instant)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;miaou-&quot;&gt;Miaou 🐱📈&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A : Je théorise que le chat ne miaule devant la porte que pour savoir s’il pourrait passer quand il aura envie.&lt;/p&gt;
+
+  &lt;p&gt;B : Ouah ton chat il fait du monitoring de la porte !&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;facile-comme-tout-&quot;&gt;Facile comme tout !&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;TKT ! tu mets ton JSON dans le yaml et ça ira !&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;une-grande-histoire-damour-épisode-1&quot;&gt;Une grande histoire d’amour, épisode 1&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Moi, j’adore le JSON&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;une-grande-histoire-damour-épisode-2&quot;&gt;Une grande histoire d’amour, épisode 2&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Le mail et le DNS c’est ma grande passion&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;partir-comme-un-roi-&quot;&gt;Partir comme un roi 👑&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/dev-facts-19/mic-drop.png&quot; alt=&quot;Image d&apos;une pull request nommée &amp;quot;Wesh je fais ce squash et je touche plus a rien. Mic drop.&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;les-grandes-questions-de-la-vie-&quot;&gt;Les grandes questions de la vie 🥐&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;D’ailleurs c’est LinkedIn ou pain au linked ?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;lhumour-pour-les-nuls&quot;&gt;L’humour pour les nuls&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A : &lt;em&gt;Pouffe de rire&lt;/em&gt;&lt;/p&gt;
+
+  &lt;p&gt;B : Tout va bien ?&lt;/p&gt;
+
+  &lt;p&gt;A : Désolé, je viens de relire ma vanne&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;les-progrès-de-lia-&quot;&gt;Les progrès de l’IA 🤖&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A : Alors B, c’est quoi le format de date php de la constante de format ‘c’ ?&lt;/p&gt;
+
+  &lt;p&gt;B : Tu m’as pris pour chatGPT ou quoi ?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;un-stagiaire-en-détresse&quot;&gt;Un stagiaire en détresse&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;TLDR: À l’aide svp&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;la-sécurité-pour-les-nuls&quot;&gt;La sécurité pour les nuls&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Brian is in the Keychain.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;promis-dans-le-contexte-cest-vrai&quot;&gt;Promis dans le contexte c’est vrai&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;On doit afficher des ronds, alors c’est mieux s’ils nous envoient des carrés.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1&gt;😳&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;(Au pire, si on a la main sur une regexp, c’est déjà plus qu’il n’en faut pour me faire rêver)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;la-sélection-naturelle&quot;&gt;La sélection naturelle&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Je suis d’accord que là il y a un bug, mais c’est un bug parce que je suis con !&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;-1&quot;&gt;🍵&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Je suis en train de me rappeler de mon weekend, et spoiler mettre du rhum dans son thé ce n’est pas une bonne idée.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;error--task-completed-successfully&quot;&gt;Error : Task completed successfully&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/dev-facts-19/error-success.png&quot; alt=&quot;Screen de popup d&apos;erreur indiquant &apos;Build failed to complete successfully&apos;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;la-confiance-30-&quot;&gt;La confiance, 3.0 🤞&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Coucou, aujourd’hui, je pète la reco (en prod), mais c’est sous contrôle.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;un-instant-de-réalisme&quot;&gt;Un instant de réalisme&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Personnellement, je sais pas ce que je fous en développeur !&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;thomas-the-train-&quot;&gt;Thomas the train 🚆&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/dev-facts-19/tchou-tchou.png&quot; alt=&quot;Message de status Slack indiquant &apos;Working remotely from the tchou tchuou&apos;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;turlututu-chapeau-pointu-&quot;&gt;Turlututu chapeau pointu !&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;On aurait dû dire c’est “chapeau perché”.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;mieux-quun-rappel-automatique-&quot;&gt;Mieux qu’un rappel automatique 🤯&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A : Du coup, tu as envoyé un mail ?&lt;/p&gt;
+
+  &lt;p&gt;B : Pas encore non ! J’attendais d’y penser !&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name>Bedrock</name></author><category term="devfacts" /><category term="humour" /><summary type="html">La fin de l’hiver approche, il est temps de faire un bilan ! Quelles bêtises le froid aura-t-il apportées parmi les devs ? ❄️</summary></entry><entry><title type="html">Why is Transit Gateway service not right for us?</title><link href="https://tech.bedrockstreaming.com/2023/03/02/aws_transit_gateway.html" rel="alternate" type="text/html" title="Why is Transit Gateway service not right for us?" /><published>2023-03-02T00:00:00+00:00</published><updated>2023-03-02T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/03/02/aws_transit_gateway</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/03/02/aws_transit_gateway.html">&lt;p&gt;Managing the network of many interconnected AWS accounts can quickly lead to having a messy network architecture.&lt;br /&gt;
 Transit Gateway (TGW) service seems to be the way out of this. So how do you know if TGW is right for you?&lt;/p&gt;
 
 &lt;p&gt;This blog post will introduce how the service works and explain why we chose not to carry on with our migration to AWS Transit Gateway.
@@ -1506,421 +1738,4 @@ qui on fait les premières revues de code en direct, et pas par écrit.&lt;/p&gt
 &lt;p&gt;Une dernière bonne pratique très largement répandue : si les échanges par commentaires sont trop 
 nombreux sur une même pull request, pourquoi ne pas se retrouver directement et résoudre en pair 
 les 
-points discutés ?&lt;/p&gt;</content><author><name>Anne-Laure de Boissieu</name></author><category term="team" /><summary type="html">Au sein des équipes de développement, une activité bien connue est celle de la revue de code, et plus précisément de la revue du delta du code. Il s’agit de l’inspection par nos pairs du code proposé par nos soins, qui se trouve ainsi commenté pour répondre aux exigences de qualité de l’équipe et du projet.</summary></entry><entry><title type="html">Forum PHP 2022 - L’éléphant bleu n’a pas peur de la souris aux grandes oreilles</title><link href="https://tech.bedrockstreaming.com/2022/10/28/forum-php-afup-2022.html" rel="alternate" type="text/html" title="Forum PHP 2022 - L’éléphant bleu n’a pas peur de la souris aux grandes oreilles" /><published>2022-10-28T00:00:00+00:00</published><updated>2022-10-28T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/10/28/forum-php-afup-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/10/28/forum-php-afup-2022.html">&lt;p&gt;Pour cette édition du Forum PHP qui s’est déroulée à Disneyland Paris, Bedrock a vu les choses en grand : première fois
-sponsor Or sur un forum et pas moins de 32 Bedrockien(ne)s présent(e)s dont 4 en tant que conférencier(e)s !
-Cette année encore, le forum a été un moment privilégié pour les échanges, le partage et vous avez été nombreux(ses) à
-venir nous rencontrer sur notre stand et nous avons été ravis de pouvoir échanger avec vous.&lt;/p&gt;
-
-&lt;p&gt;La richesse et la diversité des conférences ont fait de cette édition une grande réussite. Nous ne pouvons
-malheureusement pas aborder toutes les conférences dans cet article, mais voici une sélection de 10 d’entre elles.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/forumphp2022/stand-bedrock.jpg&quot; alt=&quot;Le stand Bedrock&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;bedrock-au-forum-php&quot;&gt;Bedrock au Forum PHP&lt;/h2&gt;
-
-&lt;p&gt;Grande première pour nous cette fois-ci : Bedrock avait un stand sur le forum PHP !
-Notre équipe technique, ainsi que des membres de l’équipe RH a participé à la présentation de
-l’entreprise. Nous avons pu, tous ensemble, vous accueillir sur le stand pour répondre aux questions sur notre activité,
-notre organisation et la vie dans l’entreprise.&lt;/p&gt;
-
-&lt;p&gt;De leurs propres mots :&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“Notre présence au forum fut une réussite collective, qui nous a permis de nous faire connaître et mettre en lumière BEDROCK en tant que structure à part entière, et non plus en tant que « M6 Web ».
-Nos équipes étaient ravies que Bedrock soit sponsor et ont pu se challenger sur de réels “casses-têtes” et non pas sur leur code.
-Durant ces deux journées, le stand Bedrock a été un point de rendez-vous agréable pour nos équipes et pour les autres participants curieux d’apprendre à nous connaître.
-Cette participation, au-delà d’être très formatrice pour la communauté Bedrock, a même parfois été assimilée à un « team building » pour reprendre les termes de nos collaborateurs, leur permettant de se retrouver dans un autre environnement et de participer à l’attractivité de leur entreprise.
-Les équipes Backend &amp;amp; RH étaient fières de représenter Bedrock en participant à la vie du stand et de répondre aux questions des passants.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/forumphp2022/backend-managers.jpg&quot; alt=&quot;Nos 2 Backend managers, Mikael et FX en train d’animer l’épreuve des casse-têtes&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;les-conférences-quon-retient&quot;&gt;Les conférences qu’on retient&lt;/h2&gt;
-
-&lt;h3 id=&quot;jour-1&quot;&gt;Jour 1&lt;/h3&gt;
-
-&lt;h4 id=&quot;the-php-foundation-the-past-the-present-and-the-future---sebastian-bergmann-roman-pronskiy&quot;&gt;The PHP Foundation: The past, the present, and the future - Sebastian BERGMANN, Roman PRONSKIY&lt;/h4&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“PHP c’est simple, suffit de dégommer un mec, et ça n’existe plus…”
-                                  	- Chuck Norris -&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Cette vision à peine exagérée de l’ami Chuck était assez proche de la réalité jusqu’à l’année dernière. En effet,
-jusque-là, l’écrasante majorité de la connaissance internet et des implémentations des features de PHP reposaient sur
-les épaules de &lt;em&gt;Nikita Popov&lt;/em&gt; et &lt;em&gt;Dmitry Stogov&lt;/em&gt;. Lesquels faisaient cela de manière non-professionnelle, comme un hobby,
-alors que PHP est aujourd’hui utilisé pour environ &lt;a href=&quot;https://w3techs.com/technologies/details/pl-php&quot;&gt;70% des sites internets&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Tout ceci est résumé dans &lt;a href=&quot;https://blog.krakjoe.ninja/2021/05/avoiding-busses.html&quot;&gt;cet article&lt;/a&gt; (en anglais).&lt;/p&gt;
-
-&lt;p&gt;Ce qui nous amène à un principe bien connu et très problématique de bon nombre d’entreprises : &lt;em&gt;le Bus Factor&lt;/em&gt;.&lt;/p&gt;
-
-&lt;h5 id=&quot;bus-factor&quot;&gt;Bus Factor&lt;/h5&gt;
-
-&lt;p&gt;Ce principe identifie &lt;em&gt;le nombre de personnes qui doivent être renversées par un bus&lt;/em&gt; pour que la connaissance d’un
-projet disparaisse et que ce dernier soit réellement mis en péril. Appliqué à PHP, cela signifie que &lt;em&gt;si deux
-personnes&lt;/em&gt; avaient été renversées par un bus ou &lt;em&gt;avaient croisé le chemin de Chuck&lt;/em&gt;, l’ensemble de la communauté PHP
-aurait bien transpiré.&lt;/p&gt;
-
-&lt;h5 id=&quot;la-php-foundation&quot;&gt;La PHP Foundation&lt;/h5&gt;
-
-&lt;p&gt;En 2021, &lt;em&gt;Nikita Popov&lt;/em&gt; annonce son souhait de réduire drastiquement sa contribution au langage, et c’est là que
-la &lt;a href=&quot;https://thephp.foundation/&quot;&gt;PHP Fundation&lt;/a&gt; est fondée autour de personnalités comme &lt;em&gt;Sebastian BERGMAN&lt;/em&gt; et
-&lt;em&gt;Roman PRONSKIY&lt;/em&gt; qui ont animé cette conférence à laquelle nous avons eu la chance d’assister.&lt;/p&gt;
-
-&lt;p&gt;L’objectif est simple : récolter des fonds pour pouvoir &lt;em&gt;rémunérer des personnes qui font évoluer le langage&lt;/em&gt; et
-répartir la connaissance dudit langage entre un maximum de personnes pour &lt;em&gt;minimiser le Bus Factor&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;L’aspect juridique et financier de la chose est délégué à une structure
-nommée &lt;a href=&quot;https://opencollective.com/phpfoundation&quot;&gt;Open Collective&lt;/a&gt;, dont l’activité est 100% transparente.
-Les derniers chiffres font ainsi valoir qu’après déductions des charges, il reste cette année environ 580 000$ pour la
-fondation.&lt;/p&gt;
-
-&lt;p&gt;Les fonds &lt;em&gt;proviennent majoritairement de donations&lt;/em&gt; répartis comme suit :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;77% provenant d’entreprises (JetBrains, Livesport, Symfony…)&lt;/li&gt;
-  &lt;li&gt;23% provenant d’individus&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Parmi les actuels core contributeurs on retrouve :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/arnaud-lb&quot;&gt;Arnaud Le Blanc&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/derickr&quot;&gt;Derick Rethans&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/Girgias&quot;&gt;George P. Banyard&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/iluuu1994&quot;&gt;Ilija Tovilo&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/bukka&quot;&gt;Jakub Zelenka&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/kocsismate&quot;&gt;Máté Kocsis&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&quot;le-futur-de-php-&quot;&gt;Le futur de PHP ?&lt;/h5&gt;
-
-&lt;p&gt;Avec cette stratégie de contractualisation des core-contributeurs et le souci de partager la connaissance, on est en
-droit d’espérer que le risque de mise en péril du langage soit fortement réduit. Qui plus est, &lt;strong&gt;l’arrivée prochaine de
-la version 8.2 de PHP&lt;/strong&gt; semble montrer que la nouvelle équipe a su faire avancer le projet, pour notre plus grand plaisir.&lt;/p&gt;
-
-&lt;h4 id=&quot;watch-the-clock---andreas-heighl&quot;&gt;Watch the clock - Andreas HEIGHL&lt;/h4&gt;
-
-&lt;p&gt;Dans cette conférence, &lt;a href=&quot;https://twitter.com/heiglandreas&quot;&gt;Andreas&lt;/a&gt; aborde la douloureuse problématique du temps en PHP
-et plus précisément le cauchemar que sont les tests sur la notion de temps réel.&lt;/p&gt;
-
-&lt;p&gt;Afin de répondre à cette problématique, il évoque et explique en détail tout le cheminement intellectuel pour la mise en
-place de la &lt;a href=&quot;https://github.com/php-fig/clock&quot;&gt;PSR-20&lt;/a&gt;. Elle donnera la possibilité, grâce à une “simple” interface, de
-gérer plus facilement le temps réel et les tests associés. Malheureusement, la PSR-20 est actuellement encore à l’état
-de brouillon et ne sera probablement pas mise à disposition avant longtemps.&lt;/p&gt;
-
-&lt;p&gt;Afin de nous faire patienter, Andreas a développé sa propre implémentation de l’interface Clock qui sera proposée dans
-la PSR-20 : &lt;a href=&quot;https://packagist.org/packages/stella-maris/clock&quot;&gt;https://packagist.org/packages/stella-maris/clock&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h4 id=&quot;comment-être-bien-onboardé-en-tant-que-développeuse-junior-reconvertie----amélie-abdallah&quot;&gt;Comment être bien onboardé en tant que développeuse junior reconvertie ? - &lt;a href=&quot;https://twitter.com/AlonahAmelie&quot;&gt;Amélie ABDALLAH&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;Amélie, alternante et en reconversion, a donné sa première conférence pour faire un retour d’expérience des onboardings
-qu’elle a vécu dans ses 2 premières entreprises.&lt;/p&gt;
-
-&lt;p&gt;Pour sa première expérience en tant que développeuse elle se retrouve à devoir coder dès le premier jour. Une fois
-passée l’euphorie, je rappelle qu’elle est en reconversion et sur-motivée, elle se rend vite compte de tout ce qui ne
-va pas :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;personne pour la former que ce soit techniquement ou concernant le métier&lt;/li&gt;
-  &lt;li&gt;aucune présentation des autres équipes&lt;/li&gt;
-  &lt;li&gt;aucun accompagnement de la part des supérieurs hiérarchiques&lt;/li&gt;
-  &lt;li&gt;seule sur un projet où les règles métiers semblent complexes&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Elle se sent rapidement perdue et son moral et sa motivation tombent en flèche.&lt;/p&gt;
-
-&lt;p&gt;Concernant sa seconde entreprise, c’est tout l’inverse :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;pas de code pour les alternants/reconverti(e)s avant 2 semaines&lt;/li&gt;
-  &lt;li&gt;un système de marrainage/parrainage&lt;/li&gt;
-  &lt;li&gt;un repo avec des exercices et bonnes pratiques pour progresser&lt;/li&gt;
-  &lt;li&gt;une rencontre avec toutes les équipes pour se connaître mais surtout pour bien comprendre les différents métiers de ses collègues&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Amélie conclut en incitant toutes les entreprises à envisager des candidat(e)s en reconversion qui, à la condition
-d’être bien accompagné(e)s, seront sur-motivé(e)s et plein(e)s d’énergie.&lt;/p&gt;
-
-&lt;p&gt;Cela nous permet de faire l’état des lieux de notre processus d’onboarding. Même si on peut trouver des pistes
-d’amélioration, comme par exemple avoir une présentation des autres équipes et différents métiers bien plus tôt, on
-constate que nous avons déjà mis en place beaucoup de bonnes pratiques :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;calendrier d’onboarding clair avec installation de la machine, présentation de l’équipe rejoint par la nouvelle personne, des locaux, des projets, etc.&lt;/li&gt;
-  &lt;li&gt;système de marrainage/parrainage,&lt;/li&gt;
-  &lt;li&gt;des formations disponibles sur les différentes technologies utilisées&lt;/li&gt;
-  &lt;li&gt;ce qu’on appelle la &lt;em&gt;Bedrock Academy&lt;/em&gt;, qui donne une vision globale des métiers de l’entreprise&lt;/li&gt;
-  &lt;li&gt;un rapport d’étonnement présenté par le nouvel arrivant qui nous permet d’améliorer notre onboarding en continu&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;ffi--de-nouveaux-horizons-pour-php---pierre-pelisset&quot;&gt;FFI : De nouveaux horizons pour PHP - Pierre PELISSET&lt;/h4&gt;
-
-&lt;p&gt;Chez Karafun, Pierre Pelisset nous présente un moyen de dépasser les frontières habituelles de PHP.&lt;/p&gt;
-
-&lt;p&gt;La mise en place de bar à karaoké nécessite en effet de manipuler du matériel spécifique. La transmission de données par
-USB reste le moyen le plus simple de faire communiquer des systèmes, mais nativement rien n’existe en PHP. Jusqu’à
-présent les équipes de Karafun utilisaient un script Python avec PySerial pour répondre à ce besoin.&lt;/p&gt;
-
-&lt;p&gt;Depuis PHP 7.4, il est possible d’utiliser les &lt;a href=&quot;https://www.php.net/manual/en/book.ffi.php&quot;&gt;&lt;em&gt;Foreign Function Interface&lt;/em&gt; (FFI)&lt;/a&gt;
-pour appeler directement des libraires C compilées depuis le code PHP. En se basant sur les bonnes librairies, il a été
-ainsi possible pour les équipes de Karafun d’utiliser PHP dans la totalité de leur stack, et de remplacer leurs scripts
-Python.&lt;/p&gt;
-
-&lt;p&gt;Pierre nous présente ensuite la librairie &lt;a href=&quot;https://github.com/ppelisset/php-termios&quot;&gt;php-termios&lt;/a&gt; qu’il a implémentée
-pour permettre d’utiliser Termios, une librairie de manipulation de terminal POSIX écrite en C, depuis PHP.&lt;/p&gt;
-
-&lt;p&gt;L’interfaçage reste facile tant qu’il s’agit de types de données simples (comme des entiers), mais devient beaucoup plus
-complexe lorsqu’il s’agit de manipuler des structures de données avancées (chaînes de caractères, objets, …).&lt;/p&gt;
-
-&lt;p&gt;Idéalement, il faut créer des classes PHP ressemblant à la librairie C (mêmes noms de fonction, de constante, …), afin
-de faciliter sa manipulation.&lt;/p&gt;
-
-&lt;p&gt;L’utilisation des FFI introduit de nouvelles difficultés liées généralement aux programmes compilés. Ainsi, dans le cas
-de Termios, les constantes utilisées varient selon la plateforme (Linux, MacOS, …). Il a donc fallu utiliser quelques
-astuces pour les copier dynamiquement dans le code PHP. De même, pour distribuer le binaire compilé, il faut prendre en
-compte l’architecture CPU de la machine exécutant le code.&lt;/p&gt;
-
-&lt;h4 id=&quot;opentelemetry--vers-un-standard-pour-surveiller-vos-applications---benoit-viguier&quot;&gt;OpenTelemetry : vers un standard pour surveiller vos applications - Benoit Viguier&lt;/h4&gt;
-
-&lt;p&gt;Lors de sa conférence, Benoit Viguier (développeur chez &lt;a href=&quot;https://platform.sh/&quot;&gt;Platform.sh&lt;/a&gt; au sein de l’équipe de &lt;a href=&quot;https://www.blackfire.io/&quot;&gt;Blackfire.io&lt;/a&gt;) est venu parler
-d’un standard de monitoring soutenu par la Cloud Native Computing Foundation : OpenTelemetry. Il a d’abord commencé par
-nous rappeler pourquoi nous faisons du monitoring.&lt;/p&gt;
-
-&lt;p&gt;Le monitoring nous permet de savoir si nos services fonctionnent correctement (conforme au SLA|SLO), et si cela n’est
-pas le cas, de savoir pourquoi cela ne fonctionne pas. Pour faire cela, il nous a présenté les différentes solutions de
-monitoring qui existent, de la plus simple à mettre en place (Analytics), au plus|trop détaillé (logs) mais aussi via
-des metrics qui eux demandent une plus grande intégration.&lt;/p&gt;
-
-&lt;p&gt;Ensuite vient la présentation des promesses de ce nouveau standard (OpenTelemetry) et sa volonté d’uniformiser les trois
-piliers du monitoring : logs, metrics et les traces, avec la volonté de rendre interopérable ces données collectées avec
-n’importe quel service et ce qu’importe le langage.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/forumphp2022/open-telemetry.png&quot; alt=&quot;Schéma OpenTelemetry&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Afin de permettre cette interopérabilité pour la collecte, le traitement et l’envoi des données entre nos applications
-et nos APMs, OpenTelemetry propose l’utilisation d’un &lt;a href=&quot;https://opentelemetry.io/docs/collector/&quot;&gt;collecteur&lt;/a&gt;. Ce collecteur possède trois composants par lesquels
-notre donnée va transiter :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Receiver - Gère la récupération des données dans le collecteur. Il fonctionne aussi bien avec une mécanique de push que de pull et supporte nativement les protocoles HTTP et gRPC.&lt;/li&gt;
-  &lt;li&gt;Processor - Permet le traitement des données avant l’envoi aux différents outils de monitoring.&lt;/li&gt;
-  &lt;li&gt;Exporter - Envoie les données (via push ou pull) aux outils de monitoring.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Concernant l’utilisation du standard OpenTelemetry en PHP, il existe aujourd’hui un SDK qui, cependant, ne possède
-pas beaucoup de fonctionnalités.&lt;/p&gt;
-
-&lt;p&gt;Malgré son jeune âge (release v1.0 en 2021), OpenTelemetry a encore de beaux jours devant lui si la contribution et le
-soutien de la communauté continuent. Il est important de rappeler que le standard n’est pas encore finalisé, par exemple
-la fonctionnalité “logging” est encore en cours de développement et n’est disponible qu’en “draft”.&lt;/p&gt;
-
-&lt;h3 id=&quot;jour-2&quot;&gt;Jour 2&lt;/h3&gt;
-
-&lt;h4 id=&quot;typage-en-php-comment-ça-fonctionne----george-banyard&quot;&gt;Typage en PHP, comment ça fonctionne ? - George BANYARD&lt;/h4&gt;
-
-&lt;p&gt;Lors de cette dissection du typage PHP, George Banyard, développeur salarié de la PHP Foundation, nous a expliqué (ou du
-moins tenté) comment fonctionne le typage PHP grâce à des formules mathématiques. Mais avant de nous faire peur avec les
-formules, il nous d’abord rappelé les différents types existants et futurs (PHP 8.1 et 8.2) et comment ils sont
-représentés en C (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zend_type&lt;/code&gt;,&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; _zval_struct&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_zend_class_entry&lt;/code&gt;)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Types Primitifs&lt;/li&gt;
-  &lt;li&gt;Types définis en espace utilisateur (classe, interfaces, enum)&lt;/li&gt;
-  &lt;li&gt;Types Littéraux (false, true)&lt;/li&gt;
-  &lt;li&gt;Type callable&lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;Types Composés (A&amp;amp;B, A&lt;/td&gt;
-          &lt;td&gt;B, Forme Normale Disjonctive)&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Alias de Type (PHP 8.2)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Ensuite, il nous a expliqué le principe de &lt;strong&gt;substitution de Liskov&lt;/strong&gt; de différente manière.&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;Si φ(x) est une propriété démontrable pour tout objet x de&lt;/em&gt;
-&lt;em&gt;type T, alors φ(y) est vraie pour tout objet y de type S tel que&lt;/em&gt;
-&lt;em&gt;S est un sous-type de T&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Mathématique, en C mais aussi en image :&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/forumphp2022/schema-maths.png&quot; alt=&quot;Schéma mathématique&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;En version très simplifiée, la substitution de Liskov permet de substituer un type par un autre type s’il est
-mieux-disant. C’est par exemple sur ce principe que sont fondées &lt;a href=&quot;https://www.php.net/manual/en/language.oop5.variance.php&quot;&gt;la co-variance et la contra-variance&lt;/a&gt; en PHP.&lt;/p&gt;
-
-&lt;p&gt;Après toutes ces informations, George nous a fait rêver avec les nouveautés qui pourraient arriver dans notre langage préféré :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;La possibilité de définir nos alias de type (numeric qui serait int ou float)&lt;/li&gt;
-  &lt;li&gt;Pouvoir définir un typage pour les paramètres et le retour des callable directement dans la fonction : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;foo(fn&amp;lt;int,string&amp;gt;:bool $callable) {}&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Le paramètre in-out qui permet de vérifier que le type ne change pas entre l’entrée et la sortie d’une fonction, utile notamment dans le cas de passage par référence&lt;/li&gt;
-  &lt;li&gt;Pouvoir créer des types génériques (par exemple &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;class Collection&amp;lt;string&amp;gt;&lt;/code&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Vous pouvez retrouver les slides de la conférence &lt;a href=&quot;https://gpb.moe/doc/PHP_Type_System_Talk__FR.pdf&quot;&gt;ici&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;protéger-votre-application-avec-len-tête-http-de-sécurité-content-security-policy---laurent-brunet&quot;&gt;Protéger votre application avec l’en-tête HTTP de sécurité “Content Security Policy” - Laurent BRUNET&lt;/h4&gt;
-
-&lt;p&gt;Durant ce talk, Laurent BRUNET nous a rappelé l’importance de sécuriser les sites internet en nous parlant des attaques
-les plus utilisées et dont on pourrait se défendre en exploitant correctement le header de réponse &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Content-Security-Policy&lt;/code&gt; (aka. CSP).&lt;/p&gt;
-
-&lt;p&gt;Concrètement, le header CSP est délivré par le serveur en même temps que le HTML d’une page web et contraint les
-navigateurs à s’assurer que le contenu de la page respecte les règles de sécurité définies grâce à de nombreuses directives.&lt;/p&gt;
-
-&lt;p&gt;Il existe 2 variantes de ce header qui peuvent être utilisées conjointement :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;une forme bloquante qui empêchera tous contenus illicites d’être chargés par le navigateur
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Content-Security-Policy: &amp;lt;directive1&amp;gt; ;  &amp;lt;directive2&amp;gt; ;  &amp;lt;directiveN&amp;gt;&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;une forme non-bloquante qui permet uniquement aux développeurs d’être avertis si du contenu illicite est présent sur la page
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Content-Security-Policy-Report-Only: &amp;lt;directive1&amp;gt; ;  &amp;lt;directive2&amp;gt; ;  &amp;lt;directiveN&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Et voici quelques unes des failles de sécurité évoquées durant ce talk, chacune accompagnée d’une des directives permettant de s’en protéger :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;on peut se protéger des attaques &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XSS&lt;/code&gt; (e.g. injection de scripts dans une page web permettant d’exploiter les accès d’un utilisateur) en whitelistant les scripts autorisés à s’exécuter dans votre application avec &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;script-src &apos;nonce-MonIDDeScript&apos; &apos;sha256-MonHashDeScript&apos; &apos;strict-dynamic&apos; https: &apos;unsafe-inline&apos; *.example.com ;&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;le Clickjacking (e.g. injection d’iframe invisible dans laquelle l’utilisateur va cliquer sans le savoir) peut être facilement contré en whitelistant vos iframes et celles de vos partenaires avec &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;frame-ancestors &apos;self&apos; https://example.com ;&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;la faille Magecart (e.g. récupération des données bancaires en les envoyant vers un nom de domaine pirate difficile à détecter) disparaîtra en whitelistant les noms de domaines utilisés dans des appels AJAX avec &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;connect-src &apos;self&apos; https://example.com ;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Si le sujet vous intéresse, n’hésitez pas à consulter le talk de Laurent dès qu’il sera disponible en replay. En
-attendant, profitez de &lt;a href=&quot;https://developer.mozilla.org/fr/docs/Web/HTTP/CSP&quot;&gt;la documentation du MDN&lt;/a&gt; et sachez
-que &lt;a href=&quot;https://csp-evaluator.withgoogle.com&quot;&gt;Google fournit un service en ligne&lt;/a&gt; pour inspecter et valider les CSP de vos
-pages web.&lt;/p&gt;
-
-&lt;h4 id=&quot;tester-à-travers-openapi-ou-comment-valider-votre-documentation----stéphane-hulard&quot;&gt;Tester à travers OpenAPI, ou comment valider votre documentation ! - Stéphane Hulard&lt;/h4&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/s_hulard&quot;&gt;Stéphane Hulard&lt;/a&gt; a commencé sa conférence par nous rappeler ce qu’est OpenAPI : il s’agit
-d’une initiative qui vise à normaliser et standardiser la description d’APIs. Cela sert à l’interopérabilité,
-l’automatisation et la fiabilité.&lt;/p&gt;
-
-&lt;p&gt;Il faut voir la documentation comme une spécification de notre API. &lt;em&gt;“Une documentation n’a de sens que si elle reflète
-l’état actuel de l’application.”&lt;/em&gt; Rien de mieux donc que d’intégrer la validation de notre documentation par rapport à
-notre code, et inversement : que notre documentation valide notre code !&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/forumphp2022/presentation-validation-openapi.png&quot; alt=&quot;schéma de validation&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://thephpleague.com/&quot;&gt;&lt;em&gt;thephpleague&lt;/em&gt;&lt;/a&gt; nous propose une solution pour faire ça : &lt;a href=&quot;https://github.com/thephpleague/openapi-psr7-validator&quot;&gt;openapi-psr7-validator&lt;/a&gt;.
-Ce paquet peut valider les messages PSR-7 par rapport aux spécifications OpenAPI (3.0.x) exprimées en YAML ou JSON.&lt;/p&gt;
-
-&lt;p&gt;Ce paquet se base sur les &lt;em&gt;PHP Standards Recommendations&lt;/em&gt; (PSR) qui sont des textes décrivant une manière commune de
-résoudre un problème spécifique. De cette façon, les projets qui suivent ces recommandations auront une excellente
-interopérabilité en suivant les mêmes recommandations et contrats.&lt;/p&gt;
-
-&lt;p&gt;Stéphane nous parle ensuite de la librairie &lt;a href=&quot;https://github.com/CHStudio/Raven&quot;&gt;Raven&lt;/a&gt; qu’il vient de publier. Raven a
-pour but de faciliter la validation au travers de la documentation, de s’appuyer sur de vraies données pour valider les
-requêtes et réponses ainsi que valider le comportement de l’API testée. La librairie n’en est qu’à ses débuts, quelques
-issues sont remontées sur le repository, n’hésitez pas à contribuer !&lt;/p&gt;
-
-&lt;p&gt;Stéphane a mis à disposition les &lt;a href=&quot;https://public.chstudio.fr/talks/test-through-openapi-or-how-to-validate-your-documentation/fr-forum-php-2022.html#/&quot;&gt;slides de sa conférence ici&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;frankenphp-dans-les-entrailles-de-linterpréteur-php-de-machines-virtuelles-et-des-threads---kévin-dunglas&quot;&gt;FrankenPHP, dans les entrailles de l’interpréteur PHP, de machines virtuelles et des threads - &lt;a href=&quot;https://twitter.com/dunglas&quot;&gt;Kévin DUNGLAS&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;Chez Bedrock, nous utilisons majoritairement nginx et php-fpm pour servir nos applications. Nous avons aussi fait des
-essais avec Road Runner comme alternative.&lt;/p&gt;
-
-&lt;p&gt;Durant cette conférence, Kévin DUNGLAS nous a présenté une nouvelle alternative écrite en Go et nommée &lt;a href=&quot;https://frankenphp.dev/&quot;&gt;frankenphp&lt;/a&gt;.
-Chouette effet d’annonce au passage, FrankenPHP a été ouvert au public en direct durant la conférence.&lt;/p&gt;
-
-&lt;p&gt;En plus d’avoir un logo très mignon, ce nouveau serveur d’application PHP promet un gain de performance en gardant en
-mémoire l’application chargée. Autre argument intéressant, la facilité d’installation et d’utilisation.&lt;/p&gt;
-
-&lt;p&gt;Bien qu’il a plusieurs fois précisé que ce n’était pas prêt pour la production, cette nouvelle approche semble
-prometteuse. Il est probable que nous ne tardions pas à l’essayer pour voir s’il est possible de gagner en performance.&lt;/p&gt;
-
-&lt;h2 id=&quot;les-conférenciers-bedrock&quot;&gt;Les conférenciers Bedrock&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/forumphp2022/presentation-anne-laure.jpg&quot; alt=&quot;Anne-Laure durant sa présentation&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Cette année, ce ne sont pas moins de 4 présentations qui étaient données par des personnes de chez Bedrock.&lt;/p&gt;
-
-&lt;p&gt;Vous pourrez les trouver très bientôt en replay. Les liens seront partagés sur ce blog et les vidéos disponibles
-sur &lt;a href=&quot;https://www.youtube.com/user/afupPHP&quot;&gt;la chaîne youtube de l’afup&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;En attendant, et pour rappel, il s’agissait des conférences suivantes :&lt;/p&gt;
-
-&lt;h4 id=&quot;comprenez-comment-php-fonctionne-vos-applications-marcheront-mieux---pascal-martin&quot;&gt;Comprenez comment PHP fonctionne, vos applications marcheront mieux - Pascal MARTIN&lt;/h4&gt;
-
-&lt;p&gt;À l’échelle à laquelle nous travaillons, avec des millions de personnes sur nos plateformes tous les jours, nous découvrons, atteignons, voire dépassons régulièrement des limites de l’approche traditionnelle de PHP et de php-fpm. Au cours de ce talk, Pascal souhaitait partager notre expérience de travail avec PHP, sur des sujets souvent peu connus par les développeurs et développeuses, pour aider le public à créer des applications qui répondent mieux aux attentes de leur public.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Pour exécuter du code, PHP consomme du processeur et de la mémoire. Quand une requête HTTP arrive, un processus php-fpm lui est dédié. Mais ces ressources sont limitées. Et, même dans le Cloud ou en serverless, scaler prend du temps et les coûts s’envolent !&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Savez-vous combien de CPU et de RAM votre application réclame ? Et pendant quelle durée ? Si non ou sans comprendre « pourquoi », difficile de développer efficacement et de dimensionner un hébergement pérenne ! Peut-être que ça marche… Sur votre poste. Ou pendant un moment, en gaspillant de l’argent et des ressources. Mais l’expérience prouve que, tôt ou tard, ces questions vous rattraperont.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Cycle de vie de PHP, communication entre nginx et php-fpm, approche shared-nothing, compilation et cache d’opcodes, gestion interne de la mémoire ou même architecture logicielle et debugging… Pour qu’une application réponde aux attentes de son public, nous devons comprendre comment PHP fonctionne !&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&quot;sauve-un-e-dév-écris-une-doc----sarah-haïm-lubczanski&quot;&gt;Sauve un-e dév, écris une doc ! - Sarah HAÏM-LUBCZANSKI&lt;/h4&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Vous êtes développeur ou développeuse PHP : vous aimez programmer, réfléchir. Vous aimez créer des applications ou des bibliothèques de qualité. Mais pourquoi personne ne les utilise ? Parce que votre documentation n’est pas à la hauteur !&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Justement : je suis Technical Writer et mon métier est de vous aider à valoriser votre logiciel auprès de ses utilisateurs et utilisatrices, à travers une bonne doc. Comprenons comment architecturer, concevoir et rédiger votre contenu. Découvrons les outils qui vous procureront une aide précieuse. Enfin, facilitons sa mise à jour pour qu’elle soit pérenne.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Dorénavant, vous saurez identifier les passages obligés et ceux où vous pouvez gagner du temps.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&quot;revue-de-code--on-nest-pas-venu-pour-souffrir----anne-laure-de-boissieu&quot;&gt;Revue de code : on n’est pas venu pour souffrir ! - Anne-Laure DE BOISSIEU&lt;/h4&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;J’ai rejoint ma nouvelle équipe il y a 6 mois, avec une appréhension. Comment allais-je vivre les revues de code par des collègues que je ne connais pas encore ? Incompréhensions, malentendus : la communication écrite rend cet exercice très délicat. Vous avez été blessé-e par un commentaire ? Etait-il vraiment mal intentionné ? Vous avez blessé quelqu’un sans le vouloir, à cause d’une tournure maladroite ?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Dans mon équipe, j’ai découvert un cadre qui m’a permis de me sentir bien accueillie dès mon arrivée. En adoptant une posture et une convention bien adaptée, on peut largement diminuer le risque de mal se comprendre. Non seulement on communique mieux, mais on améliore la qualité globale du projet.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Vous n’aurez plus aucune raison de souffrir !&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&quot;bff-notre-best-friend-forever-pour-faire-plein-dapplications-frontend----valentin-claras&quot;&gt;BFF, notre best friend forever pour faire plein d’applications frontend ? - Valentin CLARAS&lt;/h4&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Chez Bedrock nous fournissons des applications de streaming (ASVOD, AVOD) pour plusieurs clients en France et en Europe, chaque application étant déployée sur de nombreux appareils (ordinateur, mobile, set top box, tv connectée, consoles de jeux, tv stick etc …). Il était devenu très difficile de gérer la création et l’évolution de ces nombreuses applications qui requêtaient et formataient chacune elles-mêmes les données dont elles avaient besoin.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Pour cela, en 2018, nous avons décidé de nous lancer dans la création d’un Back For Front afin d’unifier et faciliter les interactions backend et frontend. Cette conférence fut l’occasion de passer en revue :&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li&gt;les concepts du Back For Front&lt;/li&gt;
-    &lt;li&gt;l’architecture api-gateway et micro service mise en place&lt;/li&gt;
-    &lt;li&gt;les gains fonctionnels et la vélocité gagnée&lt;/li&gt;
-    &lt;li&gt;les différents mécanismes développés pour absorber les importants pics de charge (résilience, circuit breaker, fallbacks etc.)&lt;/li&gt;
-    &lt;li&gt;les impacts techniques et organisationnels d’une telle architecture&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Aujourd’hui notre API Gateway BFF opère 92 frontends délivrant 1.5 milliards de vidéos par an pour 45 millions d’utilisateurs actifs (MaU).
-Vous pourrez trouver un complément d’informations au sujet de notre BFF dans &lt;a href=&quot;https://tech.bedrockstreaming.com/2022/06/10/backend-bff-intro.html&quot;&gt;la suite d’articles dédié&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;pour-conclure&quot;&gt;Pour conclure&lt;/h2&gt;
-
-&lt;p&gt;Nous sommes revenus la tête pleine de nouvelles idées. Ces deux jours de conférences nous ont permis de montrer le savoir faire présent chez Bedrock et nous avons aussi pu nous inspirer des connaissances d’autres personnes. Les formats variés répondaient aux goûts de chacun(e) et ont rendu ce forum unique.&lt;/p&gt;
-
-&lt;p&gt;Les nombreuses activités proposées entre chaque conférence permettaient d’échanger entre pairs et comme toujours la communauté a été mise à l’honneur avec la construction d’une fresque LEGO représentant tous les logos des antennes de l’AFUP.&lt;/p&gt;
-
-&lt;p&gt;Merci à tou(te)s les conférencier(e)s pour leur travail incroyable et merci l’AFUP pour l’organisation de ce superbe évènement !&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/forumphp2022/fresque-lego-communautaire.jpg&quot; alt=&quot;La fresque Lego communautaire&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Vivement l’année prochaine !&lt;/p&gt;</content><author><name>Bedrock</name></author><category term="afup" /><category term="php" /><category term="forumphp" /><category term="conference" /><summary type="html">Pour cette édition du Forum PHP qui s’est déroulée à Disneyland Paris, Bedrock a vu les choses en grand : première fois sponsor Or sur un forum et pas moins de 32 Bedrockien(ne)s présent(e)s dont 4 en tant que conférencier(e)s ! Cette année encore, le forum a été un moment privilégié pour les échanges, le partage et vous avez été nombreux(ses) à venir nous rencontrer sur notre stand et nous avons été ravis de pouvoir échanger avec vous.</summary></entry></feed>
+points discutés ?&lt;/p&gt;</content><author><name>Anne-Laure de Boissieu</name></author><category term="team" /><summary type="html">Au sein des équipes de développement, une activité bien connue est celle de la revue de code, et plus précisément de la revue du delta du code. Il s’agit de l’inspection par nos pairs du code proposé par nos soins, qui se trouve ainsi commenté pour répondre aux exigences de qualité de l’équipe et du projet.</summary></entry></feed>
