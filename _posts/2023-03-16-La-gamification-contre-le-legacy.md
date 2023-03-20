@@ -17,8 +17,7 @@ Elles sont là, tapies dans l’ombre de la colonne “To do” de vos backlogs,
 <center>Un exemple de backlog legacy</center>
 <br>
 
-Clean de code mort, montées de versions de layers Terraform, projets de refactoring jamais débutés… autant de sujets pénibles à traiter qui nécessitent du temps… et de la résilience. Parce que bien souvent, débuter l’un de ces sujets revient à s’attaquer à toutes les dépendances liées, à gérer tous les impacts. Et parce qu’il s’agit aussi de tâches redondantes, non-automatisables, n’apportant quasiment aucune valeur business immédiatement mesurable.. Du “run”, pur et simple. Dans le Slack de Bedrock, il y a un emoji tout trouvé pour ce type de tâche : <figure><img src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/souffrir.gif" alt="Gif exprimant la souffrance"/>
-</figure>
+Clean de code mort, montées de versions de layers Terraform, projets de refactoring jamais débutés… autant de sujets pénibles à traiter qui nécessitent du temps… et de la résilience. Parce que bien souvent, débuter l’un de ces sujets revient à s’attaquer à toutes les dépendances liées, à gérer tous les impacts. Et parce qu’il s’agit aussi de tâches redondantes, non-automatisables, n’apportant quasiment aucune valeur business immédiatement mesurable.. Du “run”, pur et simple. Dans le Slack de Bedrock, il y a un emoji tout trouvé pour ce type de tâche : ![Gif exprimant la souffrance](/images/posts/2023-03-16-la-gamification-contre-le-legacy/souffrir.gif)
 
 Bien sûr, on parvient parfois à dégager du temps pour s’atteler à ces user stories. Mais il faut souvent plus d’un sprint pour en venir à bout, et l’équipe en charge de leur réalisation peut rapidement se décourager devant l’ampleur et le caractère répétitif de la tâche.
 
@@ -172,6 +171,8 @@ Ensuite, vient le temps de révéler la constitution des équipes qui changent e
 - ⏰ 10h00 Les équipes partent travailler sur le sujet du jour, à leurs postes de travail
 
 - ⏰ 12h30 - 13h30 Déjeuner 
+
+<br>
 
 - ⏰ 13h30 Jeu de reprise (facultatif) : on se retrouve autour d’un blind test ou un gartic phone, histoire de passer un bon moment et de se remettre en jambe pour l’après-midi. C’est un court moment de _team building_ qui est très apprécié la plupart du temps (sauf lorsque les équipes ne veulent pas perdre un minute pour venir à bout de leur objectif !)
 
