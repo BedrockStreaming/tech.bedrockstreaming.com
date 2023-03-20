@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-Target.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>La gamification contre le legacy | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="La gamification contre le legacy" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Retour d’expérience des équipes Infra de Bedrock sur la mise en place de journées dédiées au traitement des sujets legacy" />
+<meta property="og:description" content="Retour d’expérience des équipes Infra de Bedrock sur la mise en place de journées dédiées au traitement des sujets legacy" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2023/03/20/La-gamification-contre-le-legacy.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2023/03/20/La-gamification-contre-le-legacy.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-03-20T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="La gamification contre le legacy" />
+<script type="application/ld+json">
+{"description":"Retour d’expérience des équipes Infra de Bedrock sur la mise en place de journées dédiées au traitement des sujets legacy","headline":"La gamification contre le legacy","dateModified":"2023-03-20T00:00:00+00:00","datePublished":"2023-03-20T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2023/03/20/La-gamification-contre-le-legacy.html"},"url":"https://tech.bedrockstreaming.com/2023/03/20/La-gamification-contre-le-legacy.html","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="La gamification contre le legacy">
+    <meta name="twitter:description" content="Ce que vous ne voulez pas voir dans vos backlogs…Elles sont là, tapies dans l’ombre de la colonne “To do” de vos backlogs, attendant que leur heure vienne. À...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-Target.png">
+    <meta name="twitter:image:alt" content="La gamification contre le legacy">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="La gamification contre le legacy " aria-label="La gamification contre le legacy" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="La+gamification+contre+le+legacy" class="title">La gamification contre le legacy</h1>
+      <div class="post-info">
+
+  <p class="meta">
+    
+    December 
+  </p>
+</div>
+
+
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <h2 id="ce-que-vous-ne-voulez-pas-voir-dans-vos-backlogs">Ce que vous ne voulez pas voir dans vos backlogs…</h2>
+
+<p>Elles sont là, tapies dans l’ombre de la colonne “To do” de vos backlogs, attendant que leur heure vienne. À chaque <a href="https://blog.myagilepartner.fr/index.php/2017/01/17/la-product-backlog-refinement/">backlog refinement</a>, vous vous demandez s’il ne faut pas tout simplement les annuler, puisque personne ne les prend en charge… De quoi parle-t-on ? De ces user stories qui existent dans le backlog de chaque équipe technique, pour traiter “un jour” un sujet legacy. Ces petits aides-mémoire de sujets “à ne pas oublier” qui nous poursuivent mais ne sont que peu souvent traités, faute de priorisation.</p>
+
+<center><img alt="Un exemple de backlog legacy" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-Target.png" /></center>
+<center>Un exemple de backlog legacy</center>
+<p><br /></p>
+
+<p>Clean de code mort, montées de versions de layers Terraform, projets de refactoring jamais débutés… autant de sujets pénibles à traiter qui nécessitent du temps… et de la résilience. Parce que bien souvent, débuter l’un de ces sujets revient à s’attaquer à toutes les dépendances liées, à gérer tous les impacts. Et parce qu’il s’agit aussi de tâches redondantes, non-automatisables, n’apportant quasiment aucune valeur business immédiatement mesurable.. Du “run”, pur et simple. Dans le Slack de Bedrock, il y a un emoji tout trouvé pour ce type de tâche : <img alt="Gif exprimant la souffrance" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/souffrir.gif" height="30" width="30" style="padding: 0" /></p>
+
+<p>Bien sûr, on parvient parfois à dégager du temps pour s’atteler à ces user stories. Mais il faut souvent plus d’un sprint pour en venir à bout, et l’équipe en charge de leur réalisation peut rapidement se décourager devant l’ampleur et le caractère répétitif de la tâche.</p>
+
+<p>Nos équipes Ops et DevOps sont responsables de 23 repositories Terraform. Lorsqu’il a été nécessaire d’upgrader tous nos layers en version 1.x, nous nous sommes d’abord donné pour consigne que chaque personne qui tombait sur un layer obsolète devait le mettre à jour avant de poursuivre son travail. Oui mais voilà, mettre à jour un layer ça ne se fait pas en deux minutes, et bien souvent on refuse d’abandonner ce sur quoi on travaillait jusqu’alors pour mettre à jour sa version de Terraform. La consigne a alors évolué : pour chaque layer à mettre à jour, on créé une US en colonne “to do”… Vous voyez où l’on veut en venir ? 😏</p>
+
+<p>Pour tenter de venir à bout de ces sujets legacy que l’on traîne comme des boulets, nous avons mis en place depuis octobre 2022 les “Jeudis du fun”, dont l’organisation est prise en charge par la facilitatrice agile et la Project Manager Officer (PMO) du service Infrastructure (autrices de cet article).</p>
+
+<center><img alt="Logo de la 1ère édition du “jeudi du fun”" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-logo.png" /></center>
+<center>Logo de la 1ère édition du “jeudi du fun”</center>
+<p><br /></p>
+
+<h2 id="éradiquer-en-gamifiant-challengeant-sentraidant">Éradiquer en gamifiant, challengeant, s’entraidant.</h2>
+
+<p>L’idée est simple : faire travailler ensemble, sur une journée, les cinq équipes de la verticale (trois équipes de SysAdmins et deux équipes DevOps) pour faire avancer un sujet legacy. Au cours de cette journée, les profils et les membres d’équipe seront mixés, afin de ne pas travailler avec les mêmes collègues qu’au quotidien. Leads, principal engineer, seniors et juniors : tout le monde participe à la corvée !</p>
+
+<p>Il est difficile de convoquer 25 personnes sur une journée en leur disant que la journée est banalisée pour traiter des tâches pénibles. Elles viendraient à reculons. Deux axes ont été choisis pour faire de ces journées des journées “particulières” :</p>
+
+<ul>
+  <li><strong>Gamifier</strong> certains moments clés de la journée : la découverte du sujet, la composition des équipes, la remise en jambe du début d’après-midi…</li>
+  <li><strong>Challenger</strong> les participants pour ne pas simplement leur demander de traiter du legacy, mais bien d’être la <em>meilleure</em> équipe pour traiter du legacy. Celle qui ira le plus loin, qui en fera le plus.</li>
+  <li>(Un troisième axe, plus convivial, est choisi pour la fin de journée : partager un verre tous ensemble.)</li>
+</ul>
+
+<center><img alt="Le jeu de découverte du sujet de la 3ème édition : Ansible" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-jeu.png" /></center>
+<center>Le jeu de découverte du sujet de la 3ème édition : Ansible</center>
+<p><br /></p>
+
+<p>Lors de la 1ère édition, en octobre 2022, nous avons proposé aux équipes un grand thème : le repository “SysAdmin/Terraform”, centre névralgique du travail de l’Infra. Il y a beaucoup à faire : les fameux upgrades de layers, du refactoring de code pour industrialiser nos process, des PRs ouvertes et restées en suspens depuis de nombreux mois… chacun peut y trouver son compte. Chacune des six équipes composées ce jour-là disposait de dix minutes pour définir à quel chantier elle s’attaquerait durant la journée. A l’issue de ces dix minutes, le représentant de l’équipe devait présenter aux autres le sujet choisi et l’indicateur qui permettrait de juger si le travail a été accompli ou non, en fin de journée. L’équipe ayant proposé le sujet le plus ambitieux s’est vue attribuer des points bonus, rentrant en compte pour le calcul du score final.</p>
+
+<p>Pour la seconde édition le mois suivant, le sujet était imposé : toutes les équipes avaient pour objectif de mieux sécuriser les secrets contenus dans le code Bedrock. L’équipe qui en traiterait le plus grand nombre l’emporterait.</p>
+
+<p>Lors de la dernière édition, en février dernier, la compétition reposait également sur le nombre de points gagnés par chaque équipe en fin de journée. Nous avons attribué un nombre de points à chaque tâche pouvant être traitée dans la journée, en fonction de sa complexité et/ou de sa priorité. Chaque équipe pouvait s’organiser librement : choisir plusieurs petites tâches ou deux plus importantes…</p>
+
+<p>Bien sûr, pour que la compétition soit totale, chaque édition du jeudi du fun se termine par une remise de prix : distribution de goodies, de cartes “bonus” ou “malus” valables dans nos “vrais” sprints, de gourmandises… il faut que la récompense soit réelle pour que les participants se prennent au jeu.</p>
+
+<center><img alt="Exemple de lot pouvant être remporté lors du “Jeudi du fun”" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-carte.png" /></center>
+<center>Exemple de lot pouvant être remporté lors du “Jeudi du fun”</center>
+<p><br /></p>
+
+<p>Le risque avec la compétition, c’est de se laisser déborder : gagner coûte que coûte, ajouter des points à son compteur en faisant du “quick &amp; dirty”. Jusqu’à présent, la compétition dans la verticale Infra est restée bon enfant : les équipes se défient entre elles tout au long de la journée, des points “bonus” sont réclamés aux organisatrices au moindre prétexte… mais personne ne perd de vue l’objectif principal : venir à bout du sujet.</p>
+
+<p>Les Jeudis du Fun reposent donc sur le challenge et le jeu. Mais nous avions sous-estimé un autre axe nous permettant de faire de ces journées un succès : l’entraide. A chaque édition, les retours les plus enthousiastes portent sur le fait de passer une journée à travailler en cross-team. SysAdmins et DevOps apprennent les uns des autres, les juniors ont l’occasion de former des leads… et chacun élargit son spectre de compétences. Au-delà du fait de venir à bout de sujets legacy, l’émulation engendrée par ces journées justifie à elle-seule leur organisation.</p>
+
+<p>Et puis, quitte à faire des jeudis du fun des journées particulières, autant y aller franchement : certains membres de nos équipes n’hésitent pas à venir déguisés pour ajouter une dose de fun. Vous avez croisé une licorne, Pikachu ou un plombier dans l’open space de Bedrock ? Aucun doute, c’était un jeudi ! Un dress code a même été défini lors de l’édition de février 2023.</p>
+
+<h2 id="itérer-et-corriger-nos-erreurs-à-chaque-édition">Itérer, et corriger nos erreurs à chaque édition</h2>
+
+<p>Trois éditions du “jeudi du fun” ont été organisées jusqu’à présent. À la fin de chaque édition, les organisatrices recueillent le feed-back des participantes et participants, afin de corriger ce qui doit l’être et de capitaliser sur ce qui a marché. Voici le premier bilan que nous pouvons en tirer.</p>
+
+<h3 id="de-limportance-du-choix-du-sujet"><em>De l’importance du choix du sujet</em></h3>
+
+<p>Le succès de la journée repose sur le choix du sujet. En choisissant un sujet fédérateur, comme lors de notre première édition, et en laissant le soin à chaque équipe de définir quel chantier elle souhaitait mener, nous partions gagnantes. Le repo Sysadmin/Terraform sur lequel nous avons travaillé lors de cette journée est un point de douleur pour l’ensemble de nos équipes : chacun des participants a compris l’intérêt de jouer le jeu et de retrousser ses manches. Les équipes ont même eu du mal à clôturer la journée, car elles voulaient finir ce qu’elles avaient commencé.</p>
+
+<center><img alt="Au cours de la 1ère journée du “Jeudi du fun”" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-slack.png" /></center>
+<center>Au cours de la 1ère journée du “Jeudi du fun”</center>
+<p><br /></p>
+
+<p>Lors de la seconde édition en revanche, le sujet de cette édition a mis la journée en péril. Nous avions demandé aux équipes d’ajouter un niveau de sécurité à l’ensemble des secrets contenus dans la codebase de Bedrock. Cela a suscité quelques difficultés :</p>
+<ul>
+  <li>Tout d’abord, il s’agissait de trouver une méthode pour identifier tous les secrets concernés. Toutes les équipes du jeudi du fun ont alors planché sur ce sujet, en utilisant des méthodes et outils différents. Au final, nous ne sommes parvenus que tardivement (2h après le lancement de la journée) à nous mettre d’accord sur une méthodologie. Autant de temps perdu que nous aurions pu consacrer au cœur du sujet, la sécurisation des secrets.</li>
+  <li>En nous attaquant à l’ensemble des secrets de Bedrock, nous touchions forcément à des repositories projets dont nous ne sommes pas les <em>code owners.</em> Ce n’est pas une véritable difficulté en soi, puisqu’au quotidien, nous intervenons fréquemment dans ces repos projets pour accompagner les équipes devs. En revanche, l’ajout d’un niveau de sécurité supplémentaire sur des secrets implique de pouvoir tester, puis de merger nos modifications. Impossible de réaliser ces actions sans les équipes back et front responsables des projets, ou sans impacter leur travail. Notre périmètre d’intervention lors de cette journée à été considérablement limité.</li>
+</ul>
+
+<p>La complexité du sujet et le constat de notre incapacité à avancer lors de cette journée ont rapidement conduit à un découragement des troupes. Nous sommes tout de même ressortis de cette édition avec des points positifs :</p>
+<ul>
+  <li>Une meilleure visibilité sur le périmètre de sécurisation à couvrir, en définissant le nombre de secrets concernés,</li>
+  <li>Un workflow visant à détecter à l’avenir tout nouveau secret concerné</li>
+  <li>… et la nécessité de mieux définir les guidelines pour le choix du sujet !</li>
+</ul>
+
+<h4 id="entendu-pendant-la-2nde-édition-du-jeudi-du-fun-">Entendu pendant la 2nde édition du jeudi du fun 😅</h4>
+
+<blockquote>
+  <p>👧🏻 : “Alors, qu’est-ce que tu fais de beau ?”</p>
+
+  <p>👦 : “Je souffre”</p>
+</blockquote>
+
+<p>Ces guidelines nous ont aidé à définir le choix de la thématique de la 3ème édition du jeudi du fun. Le sujet devait répondre à ces critères :</p>
+<ul>
+  <li>Être réalisable en une journée,</li>
+  <li>Permettre de terminer / accélérer un projet ou d’éradiquer du legacy,</li>
+  <li>Être dans le périmètre dont l’infra est le code owner,</li>
+  <li>Et être “morcelable” en sous-périmètres, un pour chaque équipe.</li>
+  <li>Enfin, l’avancée du sujet doit être mesurable.</li>
+</ul>
+
+<p>Pour l’édition de février 2023, nous avons donc “joué” avec la migration Ansible en cours de réalisation dans l’une de nos équipes de SysAdmins. 45 rôles Ansible restaient à migrer vers notre nouveau template Ansible, utilisé pour déployer nos machines on-prem : il y a du travail pour tout le monde, c’est parti !</p>
+
+<h3 id="et-finalement-est-ce-que-ça-marche-">Et finalement, est-ce que ça marche ?</h3>
+
+<p>Après trois éditions, il nous semble nécessaire de prendre un peu de recul pour analyser si ces journées portent leur fruit. Les équipes sont ravies de travailler ensemble, certes, mais l’objectif principal est-il rempli ? Les jeudis du fun permettent-ils de venir à bout de sujets legacy ?</p>
+
+<p>La première édition a fortement contribué à éradiquer du legacy : nous avons mis à jour la quasi-totalité des layers Terraform, nous avons mergé ou fermé l’entièreté des PRs, et nous avons initié des travaux de rework. Cependant, nous n’avions pas défini d’indicateurs de réussite assez fiables lors de cette première itération pour quantifier réellement le travail accompli. Si toute la Verticale partage le sentiment d’avoir avancé lors de cette journée, nous ne savons pas le mesurer finement.</p>
+
+<center><img alt="Capture d’écran du repo sysadmin/terraform au cours de la 1ère édition du “Jeudi du fun”" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-git.png" /></center>
+<center>Capture d’écran du repo sysadmin/terraform au cours de la 1ère édition du “Jeudi du fun”</center>
+<p><br /></p>
+
+<p>Pour pallier cette difficulté, nous avions défini un indicateur de suivi très simple pour la seconde édition du jeudi du fun : nombre de secrets à traiter / nombre de secrets traités. Ainsi, nous savons que, lors de cette (difficile) journée, nous avons traité environ un quart du périmètre.</p>
+
+<p>Au lancement de la 3ème édition du jeudi du fun, nous avions 45 rôles à migrer vers notre nouveau template Ansible. À l’issue de cette journée, l’équipe responsable du sujet n’en avait plus que 10 à traiter. La mutualisation de nos forces a porté ses fruits !</p>
+
+<p>Insuffisants lors de la première édition, les indicateurs de suivi mis en place dans les éditions suivantes sont cruciaux pour évaluer le ROI de ces journées de travail “particulières”.</p>
+
+<h2 id="les-coulisses-du-jeudi-du-fun">Les coulisses du jeudi du fun</h2>
+
+<p>Les jeudis du fun sont organisés par deux personnes au sein de la verticale infra. Si les séances de préparation de cette journée (qui débutent environ 3 semaines avant la tenue de l’événement) sont source de beaucoup de rires, il n’empêche qu’elles doivent également répondre à certaines problématiques.</p>
+
+<h3 id="sadapter-aux-habitudes-de-travail-de-chacun"><em>S’adapter aux habitudes de travail de chacun</em></h3>
+
+<p>En premier lieu, nous devons organiser une journée à laquelle tous les membres de nos équipes puissent prendre part, qu’ils soient au bureau ou en télétravail. Tous les moments de la journée doivent tenir compte de cet élément, qu’il s’agisse des phases de travail en petits groupes, des sessions en plénière (25 personnes) comme le lancement de la journée, la remise des prix ou les différents jeux qui ponctuent ces jeudis.</p>
+
+<p>Les phases de travail en équipe sont les plus simples à gérer : nos équipes ont déjà l’habitude au quotidien de travailler avec des collègues à distance. Tout le monde se connecte sur une room de visioconférence, et le tour est joué.</p>
+
+<center><img alt="Team mixte présentiel / distanciel lors du 1er “jeudi du fun”" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-team-hybride.png" /></center>
+<center>Team mixte présentiel / distanciel lors du 1er “jeudi du fun”</center>
+<p><br /></p>
+
+<p>Les moments en plénière sont en revanche plus délicats à gérer, car le brouhaha d’une vingtaine de personnes rassemblées dans une même pièce reste difficilement audible pour les personnes à distance. Un prochain challenge pourrait être d’organiser un jeudi du fun 100% distanciel.</p>
+
+<p>Il est également nécessaire de tenir compte de la façon de travailler de chacun : si certaines personnes sont capables de travailler en faisant fi du bruit d’un open space, d’autres ont besoin de plus de calme. À chaque édition, nous tentons d’organiser le jeudi du fun sous différentes formes, pour tenir compte des besoins de chacun, mais nous n’avons pas encore trouvé la solution idéale.</p>
+
+<p>Lors de la première édition, nous étions tous rassemblés dans le même open space, sans dispositif particulier pour les personnes ayant besoin d’un environnement silencieux, et cette journée leur a été difficile à supporter. De nombreuses autres équipes de Bedrock avec qui nous partageons d’habitude cet open space étaient en déplacement ce jour-là, ce qui a néanmoins permis de limiter nos nuisances sonores à notre seule verticale.</p>
+
+<p>Pour la seconde édition, nous avions réservé un open space dans les locaux de Bedrock pour ne pas prendre le risque de déranger les autres équipes : l’ambiance y a été d’autant plus conviviale mais n’a apporté aucun mieux aux personnes ayant besoin de tranquillité pour travailler.</p>
+
+<p>Lors de notre dernière édition, nous avons tenté une approche hybride : la plupart des équipes étaient rassemblées dans un même open space, et pour les personnes ayant besoin de s’isoler, une salle de réunion avait été réservée pour l’occasion. Il semble que cette organisation a apporté un mieux pour les personnes souffrant du bruit avec un écueil cependant : elles étaient isolées des autres équipes tout au long de la journée, et le jeudi du fun repose (aussi) sur l’émulation collective…</p>
+
+<h3 id="les-autres-limites-de-lorganisation"><em>Les autres limites de l’organisation</em></h3>
+
+<p>Au fil des éditions, nous avons rencontré, en tant qu’organisatrices, deux autres limites.</p>
+
+<p>La première touche au choix du sujet. Si la définition de la thématique de la première journée a été évidente car le repository sysadmin/terraform est source de complaintes quotidiennes, très vite, nous avons eu besoin d’aide pour définir les sujets des éditions suivantes.  <br />
+En effet, il est difficile pour nous d’appréhender un sujet dans sa globalité : y aura-t’il du travail pour chaque équipe ? Le sujet est-il accessible pour tous nos profils, sans montée en compétence préalable ? Quelles sont concrètement les actions à conduire pour venir à bout d’un sujet ? Pour pallier à ce problème, nous avons réalisé un tour de passe-passe : l’équipe qui remporte le jeudi du fun gagne le droit de définir avec nous le sujet de l’édition suivante. Et ça fonctionne ! Les gagnants participent avec plaisir au choix du prochain sujet <del>de torture</del> de fun !</p>
+
+<p>La seconde limite concerne la récurrence de l’événement. Initialement, nous avions prévu d’organiser un jeudi du fun par mois, pour venir à bout rapidement de nos sujets legacy. Après les deux premières éditions (organisées en octobre et novembre 2022), nous nous sommes aperçues que nous perdrions le fun de cette journée si elle revenait trop fréquemment. Pour que cet événement reste une journée de travail particulière à laquelle les personnes participent avec plaisir, nous avons fait le choix d’opter pour un format trimestriel.</p>
+
+<h2 id="next-steps-et-prochains-défis">Next steps et prochains défis</h2>
+
+<p>D’autres améliorations restent à apporter, notamment autour de la gestion du reste à faire. Comment finir correctement les travaux initiés dans cette journée, afin de ne pas créer de nouvelles user stories legacy ? Ce point est tout aussi important que celui sur le travail accompli au cours de ces journées. Entamer un rework et le laisser en chantier génère au moins autant de frustration que le manque de temps pour traiter du legacy.</p>
+
+<p>Néanmoins, après trois éditions du jeudi du fun, il nous semblait important de partager notre expérience, ne serait-ce que pour convaincre des équipes de devs de Bedrock de venir jouer avec nous lors d’une prochaine édition !</p>
+
+<center><img alt="Les participants du Jeudi du fun" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-team.png" /></center>
+<center>Les participants du Jeudi du fun</center>
+<p><br /></p>
+
+<hr />
+
+<p>Pour vous donner un aperçu de comment se déroulent ces fameux jeudis, voici <em>grosso modo</em> le programme d’une journée :</p>
+
+<ul>
+  <li>
+    <p>⏰ 9h00 Petit déjeuner convivial (car c’est très important de commencer une telle journée en prenant des forces)</p>
+  </li>
+  <li>
+    <p>⏰ 9h30 <strong>Début officiel de la journée</strong> : on se retrouve en plénière, dans une grande salle de réunion, avec tous les participants et on (ré)explique le contexte de la journée ainsi que le programme. 
+On commence avec un petit jeu (5 minutes maximum) qui sert à deviner le sujet du jour. Les sujets sont toujours gardés secrets jusqu’au lancement de la journée, ce qui donne lieu à toutes sortes d’hypothèses les jours qui précèdent (“Oui, oui, bien sûr on va recoder toute notre plateforme dans un autre langage jeudi”).On fait monter la pression !  <br />
+L’objectif de ce premier jeu est d’énergiser un maximum nos collègues et de leur permettre de commencer à se projeter sur ce qu’ils vont pouvoir y faire. Le jeu change à chaque fois, pour garder un effet de surprise. 
+Ensuite, vient le temps de révéler la constitution des équipes qui changent elles aussi à chaque édition afin de permettre à chaque personne de côtoyer de nouveaux collègues.</p>
+  </li>
+  <li>
+    <p>⏰ 10h00 Les équipes partent travailler sur le sujet du jour, à leurs postes de travail</p>
+  </li>
+  <li>
+    <p>⏰ 12h30 - 13h30 Déjeuner</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>⏰ 13h30 Jeu de reprise (facultatif) : on se retrouve autour d’un blind test ou un gartic phone, histoire de passer un bon moment et de se remettre en jambe pour l’après-midi. C’est un court moment de <em>team building</em> qui est très apprécié la plupart du temps (sauf lorsque les équipes ne veulent pas perdre un minute pour venir à bout de leur objectif !)</p>
+  </li>
+  <li>
+    <p>⏰ 14h00 Les équipes reprennent le travail initié le matin et essayent de finir un maximum de choses</p>
+  </li>
+  <li>
+    <p>⏰ 17h30 On se retrouve en plénière pour le débrief de la journée : on fait le point sur le travail accompli, le décompte des points gagnés par chaque équipe et on fait le fameux podium ainsi que la remise des prix. 
+On récupère à chaud les premiers retours des participants.</p>
+  </li>
+  <li>
+    <p>⏰ 18h00 Le verre de l’amitié</p>
+  </li>
+</ul>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=La+gamification+contre+le+legacy%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2023%2F03%2F20%2FLa-gamification-contre-le-legacy.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2023/03/20/La-gamification-contre-le-legacy.html&title=La+gamification+contre+le+legacy%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2023/03/20/La-gamification-contre-le-legacy.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=La gamification contre le legacy%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2023/03/20/La-gamification-contre-le-legacy.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#infra">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> infra</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#legacy">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> legacy</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#retour+d%27exp%C3%A9rience">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> retour d'expérience</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="Bedrock Dev Facts #19" href="/2023/03/13/bedrock-dev-facts-19.html">
+            <p>Next post</p>
+            Bedrock Dev Facts #19
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

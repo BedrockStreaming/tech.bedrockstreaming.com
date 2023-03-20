@@ -1,4 +1,199 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-03-20T08:47:18+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock Dev Facts #19</title><link href="https://tech.bedrockstreaming.com/2023/03/13/bedrock-dev-facts-19.html" rel="alternate" type="text/html" title="Bedrock Dev Facts #19" /><published>2023-03-13T00:00:00+00:00</published><updated>2023-03-13T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/03/13/bedrock-dev-facts-19</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/03/13/bedrock-dev-facts-19.html">&lt;p&gt;La fin de l’hiver approche, il est temps de faire un bilan ! Quelles bêtises le froid aura-t-il apportées parmi les devs ? ❄️&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-03-20T16:29:53+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">La gamification contre le legacy</title><link href="https://tech.bedrockstreaming.com/2023/03/20/La-gamification-contre-le-legacy.html" rel="alternate" type="text/html" title="La gamification contre le legacy" /><published>2023-03-20T00:00:00+00:00</published><updated>2023-03-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/03/20/La-gamification-contre-le-legacy</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/03/20/La-gamification-contre-le-legacy.html">&lt;h2 id=&quot;ce-que-vous-ne-voulez-pas-voir-dans-vos-backlogs&quot;&gt;Ce que vous ne voulez pas voir dans vos backlogs…&lt;/h2&gt;
+
+&lt;p&gt;Elles sont là, tapies dans l’ombre de la colonne “To do” de vos backlogs, attendant que leur heure vienne. À chaque &lt;a href=&quot;https://blog.myagilepartner.fr/index.php/2017/01/17/la-product-backlog-refinement/&quot;&gt;backlog refinement&lt;/a&gt;, vous vous demandez s’il ne faut pas tout simplement les annuler, puisque personne ne les prend en charge… De quoi parle-t-on ? De ces user stories qui existent dans le backlog de chaque équipe technique, pour traiter “un jour” un sujet legacy. Ces petits aides-mémoire de sujets “à ne pas oublier” qui nous poursuivent mais ne sont que peu souvent traités, faute de priorisation.&lt;/p&gt;
+
+&lt;center&gt;&lt;img alt=&quot;Un exemple de backlog legacy&quot; src=&quot;/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-Target.png&quot; /&gt;&lt;/center&gt;
+&lt;center&gt;Un exemple de backlog legacy&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Clean de code mort, montées de versions de layers Terraform, projets de refactoring jamais débutés… autant de sujets pénibles à traiter qui nécessitent du temps… et de la résilience. Parce que bien souvent, débuter l’un de ces sujets revient à s’attaquer à toutes les dépendances liées, à gérer tous les impacts. Et parce qu’il s’agit aussi de tâches redondantes, non-automatisables, n’apportant quasiment aucune valeur business immédiatement mesurable.. Du “run”, pur et simple. Dans le Slack de Bedrock, il y a un emoji tout trouvé pour ce type de tâche : &lt;img alt=&quot;Gif exprimant la souffrance&quot; src=&quot;/images/posts/2023-03-16-la-gamification-contre-le-legacy/souffrir.gif&quot; height=&quot;30&quot; width=&quot;30&quot; style=&quot;padding: 0&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Bien sûr, on parvient parfois à dégager du temps pour s’atteler à ces user stories. Mais il faut souvent plus d’un sprint pour en venir à bout, et l’équipe en charge de leur réalisation peut rapidement se décourager devant l’ampleur et le caractère répétitif de la tâche.&lt;/p&gt;
+
+&lt;p&gt;Nos équipes Ops et DevOps sont responsables de 23 repositories Terraform. Lorsqu’il a été nécessaire d’upgrader tous nos layers en version 1.x, nous nous sommes d’abord donné pour consigne que chaque personne qui tombait sur un layer obsolète devait le mettre à jour avant de poursuivre son travail. Oui mais voilà, mettre à jour un layer ça ne se fait pas en deux minutes, et bien souvent on refuse d’abandonner ce sur quoi on travaillait jusqu’alors pour mettre à jour sa version de Terraform. La consigne a alors évolué : pour chaque layer à mettre à jour, on créé une US en colonne “to do”… Vous voyez où l’on veut en venir ? 😏&lt;/p&gt;
+
+&lt;p&gt;Pour tenter de venir à bout de ces sujets legacy que l’on traîne comme des boulets, nous avons mis en place depuis octobre 2022 les “Jeudis du fun”, dont l’organisation est prise en charge par la facilitatrice agile et la Project Manager Officer (PMO) du service Infrastructure (autrices de cet article).&lt;/p&gt;
+
+&lt;center&gt;&lt;img alt=&quot;Logo de la 1ère édition du “jeudi du fun”&quot; src=&quot;/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-logo.png&quot; /&gt;&lt;/center&gt;
+&lt;center&gt;Logo de la 1ère édition du “jeudi du fun”&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;éradiquer-en-gamifiant-challengeant-sentraidant&quot;&gt;Éradiquer en gamifiant, challengeant, s’entraidant.&lt;/h2&gt;
+
+&lt;p&gt;L’idée est simple : faire travailler ensemble, sur une journée, les cinq équipes de la verticale (trois équipes de SysAdmins et deux équipes DevOps) pour faire avancer un sujet legacy. Au cours de cette journée, les profils et les membres d’équipe seront mixés, afin de ne pas travailler avec les mêmes collègues qu’au quotidien. Leads, principal engineer, seniors et juniors : tout le monde participe à la corvée !&lt;/p&gt;
+
+&lt;p&gt;Il est difficile de convoquer 25 personnes sur une journée en leur disant que la journée est banalisée pour traiter des tâches pénibles. Elles viendraient à reculons. Deux axes ont été choisis pour faire de ces journées des journées “particulières” :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Gamifier&lt;/strong&gt; certains moments clés de la journée : la découverte du sujet, la composition des équipes, la remise en jambe du début d’après-midi…&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Challenger&lt;/strong&gt; les participants pour ne pas simplement leur demander de traiter du legacy, mais bien d’être la &lt;em&gt;meilleure&lt;/em&gt; équipe pour traiter du legacy. Celle qui ira le plus loin, qui en fera le plus.&lt;/li&gt;
+  &lt;li&gt;(Un troisième axe, plus convivial, est choisi pour la fin de journée : partager un verre tous ensemble.)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;center&gt;&lt;img alt=&quot;Le jeu de découverte du sujet de la 3ème édition : Ansible&quot; src=&quot;/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-jeu.png&quot; /&gt;&lt;/center&gt;
+&lt;center&gt;Le jeu de découverte du sujet de la 3ème édition : Ansible&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lors de la 1ère édition, en octobre 2022, nous avons proposé aux équipes un grand thème : le repository “SysAdmin/Terraform”, centre névralgique du travail de l’Infra. Il y a beaucoup à faire : les fameux upgrades de layers, du refactoring de code pour industrialiser nos process, des PRs ouvertes et restées en suspens depuis de nombreux mois… chacun peut y trouver son compte. Chacune des six équipes composées ce jour-là disposait de dix minutes pour définir à quel chantier elle s’attaquerait durant la journée. A l’issue de ces dix minutes, le représentant de l’équipe devait présenter aux autres le sujet choisi et l’indicateur qui permettrait de juger si le travail a été accompli ou non, en fin de journée. L’équipe ayant proposé le sujet le plus ambitieux s’est vue attribuer des points bonus, rentrant en compte pour le calcul du score final.&lt;/p&gt;
+
+&lt;p&gt;Pour la seconde édition le mois suivant, le sujet était imposé : toutes les équipes avaient pour objectif de mieux sécuriser les secrets contenus dans le code Bedrock. L’équipe qui en traiterait le plus grand nombre l’emporterait.&lt;/p&gt;
+
+&lt;p&gt;Lors de la dernière édition, en février dernier, la compétition reposait également sur le nombre de points gagnés par chaque équipe en fin de journée. Nous avons attribué un nombre de points à chaque tâche pouvant être traitée dans la journée, en fonction de sa complexité et/ou de sa priorité. Chaque équipe pouvait s’organiser librement : choisir plusieurs petites tâches ou deux plus importantes…&lt;/p&gt;
+
+&lt;p&gt;Bien sûr, pour que la compétition soit totale, chaque édition du jeudi du fun se termine par une remise de prix : distribution de goodies, de cartes “bonus” ou “malus” valables dans nos “vrais” sprints, de gourmandises… il faut que la récompense soit réelle pour que les participants se prennent au jeu.&lt;/p&gt;
+
+&lt;center&gt;&lt;img alt=&quot;Exemple de lot pouvant être remporté lors du “Jeudi du fun”&quot; src=&quot;/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-carte.png&quot; /&gt;&lt;/center&gt;
+&lt;center&gt;Exemple de lot pouvant être remporté lors du “Jeudi du fun”&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Le risque avec la compétition, c’est de se laisser déborder : gagner coûte que coûte, ajouter des points à son compteur en faisant du “quick &amp;amp; dirty”. Jusqu’à présent, la compétition dans la verticale Infra est restée bon enfant : les équipes se défient entre elles tout au long de la journée, des points “bonus” sont réclamés aux organisatrices au moindre prétexte… mais personne ne perd de vue l’objectif principal : venir à bout du sujet.&lt;/p&gt;
+
+&lt;p&gt;Les Jeudis du Fun reposent donc sur le challenge et le jeu. Mais nous avions sous-estimé un autre axe nous permettant de faire de ces journées un succès : l’entraide. A chaque édition, les retours les plus enthousiastes portent sur le fait de passer une journée à travailler en cross-team. SysAdmins et DevOps apprennent les uns des autres, les juniors ont l’occasion de former des leads… et chacun élargit son spectre de compétences. Au-delà du fait de venir à bout de sujets legacy, l’émulation engendrée par ces journées justifie à elle-seule leur organisation.&lt;/p&gt;
+
+&lt;p&gt;Et puis, quitte à faire des jeudis du fun des journées particulières, autant y aller franchement : certains membres de nos équipes n’hésitent pas à venir déguisés pour ajouter une dose de fun. Vous avez croisé une licorne, Pikachu ou un plombier dans l’open space de Bedrock ? Aucun doute, c’était un jeudi ! Un dress code a même été défini lors de l’édition de février 2023.&lt;/p&gt;
+
+&lt;h2 id=&quot;itérer-et-corriger-nos-erreurs-à-chaque-édition&quot;&gt;Itérer, et corriger nos erreurs à chaque édition&lt;/h2&gt;
+
+&lt;p&gt;Trois éditions du “jeudi du fun” ont été organisées jusqu’à présent. À la fin de chaque édition, les organisatrices recueillent le feed-back des participantes et participants, afin de corriger ce qui doit l’être et de capitaliser sur ce qui a marché. Voici le premier bilan que nous pouvons en tirer.&lt;/p&gt;
+
+&lt;h3 id=&quot;de-limportance-du-choix-du-sujet&quot;&gt;&lt;em&gt;De l’importance du choix du sujet&lt;/em&gt;&lt;/h3&gt;
+
+&lt;p&gt;Le succès de la journée repose sur le choix du sujet. En choisissant un sujet fédérateur, comme lors de notre première édition, et en laissant le soin à chaque équipe de définir quel chantier elle souhaitait mener, nous partions gagnantes. Le repo Sysadmin/Terraform sur lequel nous avons travaillé lors de cette journée est un point de douleur pour l’ensemble de nos équipes : chacun des participants a compris l’intérêt de jouer le jeu et de retrousser ses manches. Les équipes ont même eu du mal à clôturer la journée, car elles voulaient finir ce qu’elles avaient commencé.&lt;/p&gt;
+
+&lt;center&gt;&lt;img alt=&quot;Au cours de la 1ère journée du “Jeudi du fun”&quot; src=&quot;/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-slack.png&quot; /&gt;&lt;/center&gt;
+&lt;center&gt;Au cours de la 1ère journée du “Jeudi du fun”&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lors de la seconde édition en revanche, le sujet de cette édition a mis la journée en péril. Nous avions demandé aux équipes d’ajouter un niveau de sécurité à l’ensemble des secrets contenus dans la codebase de Bedrock. Cela a suscité quelques difficultés :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tout d’abord, il s’agissait de trouver une méthode pour identifier tous les secrets concernés. Toutes les équipes du jeudi du fun ont alors planché sur ce sujet, en utilisant des méthodes et outils différents. Au final, nous ne sommes parvenus que tardivement (2h après le lancement de la journée) à nous mettre d’accord sur une méthodologie. Autant de temps perdu que nous aurions pu consacrer au cœur du sujet, la sécurisation des secrets.&lt;/li&gt;
+  &lt;li&gt;En nous attaquant à l’ensemble des secrets de Bedrock, nous touchions forcément à des repositories projets dont nous ne sommes pas les &lt;em&gt;code owners.&lt;/em&gt; Ce n’est pas une véritable difficulté en soi, puisqu’au quotidien, nous intervenons fréquemment dans ces repos projets pour accompagner les équipes devs. En revanche, l’ajout d’un niveau de sécurité supplémentaire sur des secrets implique de pouvoir tester, puis de merger nos modifications. Impossible de réaliser ces actions sans les équipes back et front responsables des projets, ou sans impacter leur travail. Notre périmètre d’intervention lors de cette journée à été considérablement limité.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;La complexité du sujet et le constat de notre incapacité à avancer lors de cette journée ont rapidement conduit à un découragement des troupes. Nous sommes tout de même ressortis de cette édition avec des points positifs :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Une meilleure visibilité sur le périmètre de sécurisation à couvrir, en définissant le nombre de secrets concernés,&lt;/li&gt;
+  &lt;li&gt;Un workflow visant à détecter à l’avenir tout nouveau secret concerné&lt;/li&gt;
+  &lt;li&gt;… et la nécessité de mieux définir les guidelines pour le choix du sujet !&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;entendu-pendant-la-2nde-édition-du-jeudi-du-fun-&quot;&gt;Entendu pendant la 2nde édition du jeudi du fun 😅&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;👧🏻 : “Alors, qu’est-ce que tu fais de beau ?”&lt;/p&gt;
+
+  &lt;p&gt;👦 : “Je souffre”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ces guidelines nous ont aidé à définir le choix de la thématique de la 3ème édition du jeudi du fun. Le sujet devait répondre à ces critères :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Être réalisable en une journée,&lt;/li&gt;
+  &lt;li&gt;Permettre de terminer / accélérer un projet ou d’éradiquer du legacy,&lt;/li&gt;
+  &lt;li&gt;Être dans le périmètre dont l’infra est le code owner,&lt;/li&gt;
+  &lt;li&gt;Et être “morcelable” en sous-périmètres, un pour chaque équipe.&lt;/li&gt;
+  &lt;li&gt;Enfin, l’avancée du sujet doit être mesurable.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Pour l’édition de février 2023, nous avons donc “joué” avec la migration Ansible en cours de réalisation dans l’une de nos équipes de SysAdmins. 45 rôles Ansible restaient à migrer vers notre nouveau template Ansible, utilisé pour déployer nos machines on-prem : il y a du travail pour tout le monde, c’est parti !&lt;/p&gt;
+
+&lt;h3 id=&quot;et-finalement-est-ce-que-ça-marche-&quot;&gt;Et finalement, est-ce que ça marche ?&lt;/h3&gt;
+
+&lt;p&gt;Après trois éditions, il nous semble nécessaire de prendre un peu de recul pour analyser si ces journées portent leur fruit. Les équipes sont ravies de travailler ensemble, certes, mais l’objectif principal est-il rempli ? Les jeudis du fun permettent-ils de venir à bout de sujets legacy ?&lt;/p&gt;
+
+&lt;p&gt;La première édition a fortement contribué à éradiquer du legacy : nous avons mis à jour la quasi-totalité des layers Terraform, nous avons mergé ou fermé l’entièreté des PRs, et nous avons initié des travaux de rework. Cependant, nous n’avions pas défini d’indicateurs de réussite assez fiables lors de cette première itération pour quantifier réellement le travail accompli. Si toute la Verticale partage le sentiment d’avoir avancé lors de cette journée, nous ne savons pas le mesurer finement.&lt;/p&gt;
+
+&lt;center&gt;&lt;img alt=&quot;Capture d’écran du repo sysadmin/terraform au cours de la 1ère édition du “Jeudi du fun”&quot; src=&quot;/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-git.png&quot; /&gt;&lt;/center&gt;
+&lt;center&gt;Capture d’écran du repo sysadmin/terraform au cours de la 1ère édition du “Jeudi du fun”&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Pour pallier cette difficulté, nous avions défini un indicateur de suivi très simple pour la seconde édition du jeudi du fun : nombre de secrets à traiter / nombre de secrets traités. Ainsi, nous savons que, lors de cette (difficile) journée, nous avons traité environ un quart du périmètre.&lt;/p&gt;
+
+&lt;p&gt;Au lancement de la 3ème édition du jeudi du fun, nous avions 45 rôles à migrer vers notre nouveau template Ansible. À l’issue de cette journée, l’équipe responsable du sujet n’en avait plus que 10 à traiter. La mutualisation de nos forces a porté ses fruits !&lt;/p&gt;
+
+&lt;p&gt;Insuffisants lors de la première édition, les indicateurs de suivi mis en place dans les éditions suivantes sont cruciaux pour évaluer le ROI de ces journées de travail “particulières”.&lt;/p&gt;
+
+&lt;h2 id=&quot;les-coulisses-du-jeudi-du-fun&quot;&gt;Les coulisses du jeudi du fun&lt;/h2&gt;
+
+&lt;p&gt;Les jeudis du fun sont organisés par deux personnes au sein de la verticale infra. Si les séances de préparation de cette journée (qui débutent environ 3 semaines avant la tenue de l’événement) sont source de beaucoup de rires, il n’empêche qu’elles doivent également répondre à certaines problématiques.&lt;/p&gt;
+
+&lt;h3 id=&quot;sadapter-aux-habitudes-de-travail-de-chacun&quot;&gt;&lt;em&gt;S’adapter aux habitudes de travail de chacun&lt;/em&gt;&lt;/h3&gt;
+
+&lt;p&gt;En premier lieu, nous devons organiser une journée à laquelle tous les membres de nos équipes puissent prendre part, qu’ils soient au bureau ou en télétravail. Tous les moments de la journée doivent tenir compte de cet élément, qu’il s’agisse des phases de travail en petits groupes, des sessions en plénière (25 personnes) comme le lancement de la journée, la remise des prix ou les différents jeux qui ponctuent ces jeudis.&lt;/p&gt;
+
+&lt;p&gt;Les phases de travail en équipe sont les plus simples à gérer : nos équipes ont déjà l’habitude au quotidien de travailler avec des collègues à distance. Tout le monde se connecte sur une room de visioconférence, et le tour est joué.&lt;/p&gt;
+
+&lt;center&gt;&lt;img alt=&quot;Team mixte présentiel / distanciel lors du 1er “jeudi du fun”&quot; src=&quot;/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-team-hybride.png&quot; /&gt;&lt;/center&gt;
+&lt;center&gt;Team mixte présentiel / distanciel lors du 1er “jeudi du fun”&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Les moments en plénière sont en revanche plus délicats à gérer, car le brouhaha d’une vingtaine de personnes rassemblées dans une même pièce reste difficilement audible pour les personnes à distance. Un prochain challenge pourrait être d’organiser un jeudi du fun 100% distanciel.&lt;/p&gt;
+
+&lt;p&gt;Il est également nécessaire de tenir compte de la façon de travailler de chacun : si certaines personnes sont capables de travailler en faisant fi du bruit d’un open space, d’autres ont besoin de plus de calme. À chaque édition, nous tentons d’organiser le jeudi du fun sous différentes formes, pour tenir compte des besoins de chacun, mais nous n’avons pas encore trouvé la solution idéale.&lt;/p&gt;
+
+&lt;p&gt;Lors de la première édition, nous étions tous rassemblés dans le même open space, sans dispositif particulier pour les personnes ayant besoin d’un environnement silencieux, et cette journée leur a été difficile à supporter. De nombreuses autres équipes de Bedrock avec qui nous partageons d’habitude cet open space étaient en déplacement ce jour-là, ce qui a néanmoins permis de limiter nos nuisances sonores à notre seule verticale.&lt;/p&gt;
+
+&lt;p&gt;Pour la seconde édition, nous avions réservé un open space dans les locaux de Bedrock pour ne pas prendre le risque de déranger les autres équipes : l’ambiance y a été d’autant plus conviviale mais n’a apporté aucun mieux aux personnes ayant besoin de tranquillité pour travailler.&lt;/p&gt;
+
+&lt;p&gt;Lors de notre dernière édition, nous avons tenté une approche hybride : la plupart des équipes étaient rassemblées dans un même open space, et pour les personnes ayant besoin de s’isoler, une salle de réunion avait été réservée pour l’occasion. Il semble que cette organisation a apporté un mieux pour les personnes souffrant du bruit avec un écueil cependant : elles étaient isolées des autres équipes tout au long de la journée, et le jeudi du fun repose (aussi) sur l’émulation collective…&lt;/p&gt;
+
+&lt;h3 id=&quot;les-autres-limites-de-lorganisation&quot;&gt;&lt;em&gt;Les autres limites de l’organisation&lt;/em&gt;&lt;/h3&gt;
+
+&lt;p&gt;Au fil des éditions, nous avons rencontré, en tant qu’organisatrices, deux autres limites.&lt;/p&gt;
+
+&lt;p&gt;La première touche au choix du sujet. Si la définition de la thématique de la première journée a été évidente car le repository sysadmin/terraform est source de complaintes quotidiennes, très vite, nous avons eu besoin d’aide pour définir les sujets des éditions suivantes.  &lt;br /&gt;
+En effet, il est difficile pour nous d’appréhender un sujet dans sa globalité : y aura-t’il du travail pour chaque équipe ? Le sujet est-il accessible pour tous nos profils, sans montée en compétence préalable ? Quelles sont concrètement les actions à conduire pour venir à bout d’un sujet ? Pour pallier à ce problème, nous avons réalisé un tour de passe-passe : l’équipe qui remporte le jeudi du fun gagne le droit de définir avec nous le sujet de l’édition suivante. Et ça fonctionne ! Les gagnants participent avec plaisir au choix du prochain sujet &lt;del&gt;de torture&lt;/del&gt; de fun !&lt;/p&gt;
+
+&lt;p&gt;La seconde limite concerne la récurrence de l’événement. Initialement, nous avions prévu d’organiser un jeudi du fun par mois, pour venir à bout rapidement de nos sujets legacy. Après les deux premières éditions (organisées en octobre et novembre 2022), nous nous sommes aperçues que nous perdrions le fun de cette journée si elle revenait trop fréquemment. Pour que cet événement reste une journée de travail particulière à laquelle les personnes participent avec plaisir, nous avons fait le choix d’opter pour un format trimestriel.&lt;/p&gt;
+
+&lt;h2 id=&quot;next-steps-et-prochains-défis&quot;&gt;Next steps et prochains défis&lt;/h2&gt;
+
+&lt;p&gt;D’autres améliorations restent à apporter, notamment autour de la gestion du reste à faire. Comment finir correctement les travaux initiés dans cette journée, afin de ne pas créer de nouvelles user stories legacy ? Ce point est tout aussi important que celui sur le travail accompli au cours de ces journées. Entamer un rework et le laisser en chantier génère au moins autant de frustration que le manque de temps pour traiter du legacy.&lt;/p&gt;
+
+&lt;p&gt;Néanmoins, après trois éditions du jeudi du fun, il nous semblait important de partager notre expérience, ne serait-ce que pour convaincre des équipes de devs de Bedrock de venir jouer avec nous lors d’une prochaine édition !&lt;/p&gt;
+
+&lt;center&gt;&lt;img alt=&quot;Les participants du Jeudi du fun&quot; src=&quot;/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-team.png&quot; /&gt;&lt;/center&gt;
+&lt;center&gt;Les participants du Jeudi du fun&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Pour vous donner un aperçu de comment se déroulent ces fameux jeudis, voici &lt;em&gt;grosso modo&lt;/em&gt; le programme d’une journée :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;⏰ 9h00 Petit déjeuner convivial (car c’est très important de commencer une telle journée en prenant des forces)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;⏰ 9h30 &lt;strong&gt;Début officiel de la journée&lt;/strong&gt; : on se retrouve en plénière, dans une grande salle de réunion, avec tous les participants et on (ré)explique le contexte de la journée ainsi que le programme. 
+On commence avec un petit jeu (5 minutes maximum) qui sert à deviner le sujet du jour. Les sujets sont toujours gardés secrets jusqu’au lancement de la journée, ce qui donne lieu à toutes sortes d’hypothèses les jours qui précèdent (“Oui, oui, bien sûr on va recoder toute notre plateforme dans un autre langage jeudi”).On fait monter la pression !  &lt;br /&gt;
+L’objectif de ce premier jeu est d’énergiser un maximum nos collègues et de leur permettre de commencer à se projeter sur ce qu’ils vont pouvoir y faire. Le jeu change à chaque fois, pour garder un effet de surprise. 
+Ensuite, vient le temps de révéler la constitution des équipes qui changent elles aussi à chaque édition afin de permettre à chaque personne de côtoyer de nouveaux collègues.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;⏰ 10h00 Les équipes partent travailler sur le sujet du jour, à leurs postes de travail&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;⏰ 12h30 - 13h30 Déjeuner&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;⏰ 13h30 Jeu de reprise (facultatif) : on se retrouve autour d’un blind test ou un gartic phone, histoire de passer un bon moment et de se remettre en jambe pour l’après-midi. C’est un court moment de &lt;em&gt;team building&lt;/em&gt; qui est très apprécié la plupart du temps (sauf lorsque les équipes ne veulent pas perdre un minute pour venir à bout de leur objectif !)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;⏰ 14h00 Les équipes reprennent le travail initié le matin et essayent de finir un maximum de choses&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;⏰ 17h30 On se retrouve en plénière pour le débrief de la journée : on fait le point sur le travail accompli, le décompte des points gagnés par chaque équipe et on fait le fameux podium ainsi que la remise des prix. 
+On récupère à chaud les premiers retours des participants.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;⏰ 18h00 Le verre de l’amitié&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>[&quot;e_perrin&quot;, &quot;a_ferez&quot;]</name></author><category term="infra" /><category term="legacy" /><category term="retour d&apos;expérience" /><summary type="html">Elles sont là, tapies dans l’ombre de la colonne “To do” de vos backlogs, attendant que leur heure vienne. À chaque backlog refinement, vous vous demandez s’il ne faut pas tout simplement les annuler, puisque personne ne les prend en charge… De quoi parle-t-on ? De ces user stories qui existent dans le backlog…</summary></entry><entry><title type="html">Bedrock Dev Facts #19</title><link href="https://tech.bedrockstreaming.com/2023/03/13/bedrock-dev-facts-19.html" rel="alternate" type="text/html" title="Bedrock Dev Facts #19" /><published>2023-03-13T00:00:00+00:00</published><updated>2023-03-13T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/03/13/bedrock-dev-facts-19</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/03/13/bedrock-dev-facts-19.html">&lt;p&gt;La fin de l’hiver approche, il est temps de faire un bilan ! Quelles bêtises le froid aura-t-il apportées parmi les devs ? ❄️&lt;/p&gt;
 
 &lt;h1 id=&quot;la-confiance-&quot;&gt;La confiance 🤞&lt;/h1&gt;
 
@@ -1474,268 +1669,4 @@ Nous pouvons aussi nous rendre compte de notre travail quotidien et prendre du r
 Cette expérience anglophone était très enrichissante et les conférences proposées étaient variées.
 Il y avait de la résolution de problèmes techniques, des retours d’expériences ou encore de la télémétrie.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/posts/symfonycon2022/IMG-0773.jpg&quot; alt=&quot;Fresque Lego symfony&quot; /&gt;&lt;/p&gt;</content><author><name>backend</name></author><category term="conferences" /><category term="backend" /><category term="symfony" /><category term="php" /><summary type="html">En cette fin d’année, une petite équipe de chez Bedrock a assisté au grand retour de la SymfonyCon 2022 après 3 ans d’absence. Nous avons eu la chance de découvrir les nouveautés liées à Symfony 6.2 et d’assister aux conférences sur de nombreux sujets techs à Disneyland. La keynote présentée par Fabien Potencier, le créateur de Symfony, nous donne un avant-goût des nouvelles fonctionnalités qui seront présentes dans la future version de Symfony. Au programme, un nouveau composant Webhooks ainsi que l’évolution du composant Mailer.</summary></entry><entry><title type="html">Un onboarding facilité grâce à la revue de code!</title><link href="https://tech.bedrockstreaming.com/2022/11/15/onboarding-revue-code.html" rel="alternate" type="text/html" title="Un onboarding facilité grâce à la revue de code!" /><published>2022-11-15T00:00:00+00:00</published><updated>2022-11-15T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/11/15/onboarding-revue-code</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/11/15/onboarding-revue-code.html">&lt;p&gt;Au sein des équipes de développement, une activité bien connue est celle de la revue de code, et 
-plus 
-précisément de la &lt;strong&gt;revue du delta du code&lt;/strong&gt;. Il s’agit de l’inspection par nos 
-pairs du code proposé par nos soins, qui se trouve ainsi commenté pour répondre aux 
-exigences de qualité de l’équipe et du projet.&lt;/p&gt;
-
-&lt;p&gt;Les risques d’incompréhensions inhérents à la communication écrite, de malentendus
-ou encore les remarques &lt;em&gt;malheureuses&lt;/em&gt; peuvent rendre cet exercice redouté tant par les 
-relecteurs et relectrices 
-que 
-par celles et ceux dont le code est relu.&lt;/p&gt;
-
-&lt;p&gt;Avant d’arriver chez Bedrock, j’étais un peu 
-inquiète. Je savais déjà que les 9 personnes de ma future équipe font tou(te)s de la revue de code. 
-&lt;strong&gt;Comment échangerons-nous? Saurai-je faire “bonne impression” via mes commentaires 
-sur leur code ?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;En arrivant, j’ai été très 
-agréablement surprise de découvrir que l’équipe applique un 
-standard, celui des conventions de commentaires, &lt;a href=&quot;https://conventionalcomments.org/&quot;&gt;ou conventional comments&lt;/a&gt;. &lt;strong&gt;Grâce à cela, mon 
-onboarding a été grandement facilité&lt;/strong&gt; et j’ai découvert une façon plus efficace d’écrire mes 
-commentaires !&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt; : cet article est inspiré de ma conférence “&lt;em&gt;Revue de code : on n’est pas 
-venu-e-s pour
-souffrir !&lt;/em&gt;” donnée à l’occasion du meet-up anniversaire Duchess chez Dataiku en 2022 et &lt;a href=&quot;https://afup.org/talks/4038-revue-de-code-on-n-est-pas-venu-pour-souffrir&quot;&gt;au Forum
-PHP 2022&lt;/a&gt;.&lt;/p&gt;
-
-&lt;iframe width=&quot;1127&quot; height=&quot;773&quot; src=&quot;https://www.youtube.com/embed/LVh6iQtJW2I&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-
-&lt;h2 id=&quot;petit-rappel--pourquoi-faisons-nous-des-revues-de-code-&quot;&gt;Petit rappel : pourquoi faisons-nous des revues de code ?&lt;/h2&gt;
-
-&lt;p&gt;Passer en revue le code proposé par ses co-équipier(e)s est largement répandu dans les 
-équipes de développeurs et développeuses. Bien sûr, la qualité du code en elle-même se trouve 
-améliorée 
-car chacun apporte un regard neuf sur ce qui est proposé, mais ce n’est pas tout. La 
-revue de code est également une façon de nous tenir informé(e) de 
-l’implémentation de nouvelles features, d’apprendre autant du métier que de la 
-technique et enfin, d’apprendre à travailler ensemble.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-11-07-code-review-onboarding/code-review.png&quot; alt=&quot;Pourquoi faisons-nous de la code review ?&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Voici une 
-petite liste non exhaustive de l’intérêt de la revue de code :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Améliorer la qualité et la lisibilité du code grâce aux remarques de toutes les
-personnes de l’équipe&lt;/li&gt;
-  &lt;li&gt;Appliquer les standards adoptés par l’équipe (et les apprendre !)&lt;/li&gt;
-  &lt;li&gt;Détecter et corriger les éventuels bugs fonctionnels&lt;/li&gt;
-  &lt;li&gt;Favoriser la collaboration en équipe&lt;/li&gt;
-  &lt;li&gt;Former les développeurs et développeuses au fur et à mesure des remarques&lt;/li&gt;
-  &lt;li&gt;Partager les responsabilités : en approuvant une pull request ou une merge request, nous
-sommes responsables en tant qu’équipe du code ajouté/modifié au tronc commun !&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;et-parfois-on-souffre&quot;&gt;…Et parfois, on souffre&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-11-07-code-review-onboarding/parfois-on-souffre.png&quot; alt=&quot;parfois on souffre&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Mais parfois, ce n’est pas tout rose. Les commentaires qu’on laisse peuvent vexer. On 
-peut nous-même être vexé. Car certains jours, on peut manquer d’empathie. On peut avoir 
-l’impression d’être plus compétent(e) en 
-critiquant les autres, on veut se rassurer en se montrant plus qualifié(e). On peut également 
-être habitué(e) à une culture de la compétition, nous poussant ainsi à faire des remarques désagréables à nos pairs.&lt;/p&gt;
-
-&lt;h2 id=&quot;comment-le-formatage-de-commentaire-a-t-il-amélioré-mon-arrivée-dans-léquipe-&quot;&gt;Comment le formatage de commentaire a-t-il amélioré mon arrivée dans l’équipe ?&lt;/h2&gt;
-
-&lt;p&gt;La standardisation des commentaires a énormément amélioré mon intégration dans 
-l’équipe. En effet, grâce à cela :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;J’ai pu rapidement me rendre compte de ce qui était bloquant / non bloquant et ainsi me 
-&lt;strong&gt;concentrer sur les actions essentielles et prioritaires&lt;/strong&gt; à mener;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;je n’ai pas eu à me poser de questions sur le ton employé par mes collègues ni sur leur 
-intention&lt;/strong&gt;;&lt;/li&gt;
-  &lt;li&gt;j’ai pu rapidement faire moi-même des revues de code &lt;strong&gt;sans craindre d’être mal comprise&lt;/strong&gt;;&lt;/li&gt;
-  &lt;li&gt;j’ai eu des retours qui m’ont permis de &lt;strong&gt;progresser sur la connaissance du fonctionnel&lt;/strong&gt; et 
-des standards de la team.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;améliorer-sa-posture&quot;&gt;Améliorer sa posture&lt;/h2&gt;
-
-&lt;p&gt;Avant de parler du standard, je vous propose de nous interroger sur 
-notre posture en tant que développeur et développeuse. Recevoir ou donner des commentaires, ce 
-n’est pas aisé pour tous. &lt;strong&gt;Notre ego peut interférer et dégrader la qualité de nos 
-échanges avec nos collègues&lt;/strong&gt;. Aussi, avant de chercher à formater nos commentaires, nous pouvons 
-nous interroger sur leur contenu.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-11-07-code-review-onboarding/egoless.png&quot; alt=&quot;Egoless programming&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;L’Egoless Programming, proposé par &lt;a href=&quot;https://en.wikipedia.org/wiki/Gerald_Weinberg&quot;&gt;Gerald Weinberg&lt;/a&gt; en 1971 dans son livre &lt;em&gt;The Psychology of 
-Computer Programming&lt;/em&gt;, présente une dizaine de commandements pour nous 
-aider à progresser.&lt;/p&gt;
-
-&lt;p&gt;Le principe est le suivant : &lt;strong&gt;réduire au minimum les facteurs personnels lors des interactions 
-avec ses pairs&lt;/strong&gt;, pour favoriser le travail en équipe et produire le maximum de qualité.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Critiquez le code au lieu des personnes,&lt;/li&gt;
-  &lt;li&gt;Soyez factuels sur le code,&lt;/li&gt;
-  &lt;li&gt;N’attaquez jamais les personnes.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Je vous recommande de regarder cette excellente conférence sur l’egoless programming, où Olivier 
-Thelu prend le temps de revenir sur tous les concepts :&lt;/p&gt;
-
-&lt;iframe src=&quot;https://player.vimeo.com/video/728605321?h=60e48e1686&amp;amp;title=0&amp;amp;byline=0&amp;amp;portrait=0&quot; width=&quot;1127&quot; height=&quot;773&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-&lt;p&gt;&lt;a href=&quot;https://vimeo.com/728605321&quot;&gt;Les 10 commandements de la programmation sans &amp;eacute;go - Olivier Thelu - MiXiT 2022&lt;/a&gt; from &lt;a href=&quot;https://vimeo.com/mixitconf&quot;&gt;MiXiT&lt;/a&gt; on &lt;a href=&quot;https://vimeo.com&quot;&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Une autre excellente conférence de Kim Laï Trinh, lead développeur, et son &lt;a href=&quot;https://afup.org/talks/3415-auto-critique-de-la-revue-de-code-bienveillante&quot;&gt;“Auto-critique de la 
-revue de code
-bienveillante”&lt;/a&gt;.&lt;/p&gt;
-
-&lt;iframe width=&quot;1127&quot; height=&quot;773&quot; src=&quot;https://www.youtube.com/embed/jMzhP1n19e8&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-
-&lt;h2 id=&quot;formatez-vos-commentaires-&quot;&gt;Formatez vos commentaires !&lt;/h2&gt;
-
-&lt;p&gt;Une fois qu’on a adopté une posture qui nous aide à mieux recevoir et donner des commentaires dans le cadre de nos revues de code, on peut réfléchir à la façon dont on les formate.&lt;/p&gt;
-
-&lt;p&gt;Grâce au standard des &lt;a href=&quot;https://conventionalcomments.org/&quot;&gt;conventional comments&lt;/a&gt;, nous disposons d’une convention pour écrire des 
-commentaires clairs et visuels et limiter les incompréhensions. Chacun de nous est invité 
-à réfléchir à l’intention de son commentaire &lt;strong&gt;avant&lt;/strong&gt; de l’écrire.&lt;/p&gt;
-
-&lt;p&gt;Par exemple, avec ce commentaire qui peut prêter à confusion (le OMG qui signifie “Oh my god” 
-peut être autant interprété comme quelque chose de négatif que de positif, notamment ici puisque 
-nous n’avons pas le contexte 😈) :&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-11-07-code-review-onboarding/commentaire-omg.png&quot; alt=&quot;Utilisateur Kittycat dit : &amp;quot;Omg&amp;quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Ce commentaire peut être préfixé par &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;praise&lt;/code&gt;, ce qui signifie éloge. Cela change radicalement 
-le ton du commentaire.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-11-07-code-review-onboarding/commentaire-praise-omg.png&quot; alt=&quot;praise : Omg&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Voici un autre exemple laconique : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Poubelle&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-11-07-code-review-onboarding/commentaire-poubelle.png&quot; alt=&quot;Poubelle&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Celui-ci peut être amélioré en étant préfixé par l’étiquette &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nitpick&lt;/code&gt;, qui signifie 
-“tatillonner”, ce qui diminue également son ton dramatique. De plus, l’urgence peut être 
-indiquée (ici, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;non-bloquant&lt;/code&gt;) et le contexte est décrit et peut être exploité grâce à un patch 
-proposant un code de remplacement.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-11-07-code-review-onboarding/commentaire-nitpick.png&quot; alt=&quot;nitpick (non-bloquant): le résultat peut être directement retourné (patch)&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;La compréhension du commentaire est facilitée par l’effort fourni pour ajouter le maximum de
-contexte possible. On gagne en lisibilité grâce à la catégorisation (étiquette), qui nous permet
-également d’immédiatement savoir de quoi on parle. Par exemple, une &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;question&lt;/code&gt; ne sera pas lue
-de la même façon qu’une &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;suggestion&lt;/code&gt; !&lt;/p&gt;
-
-&lt;p&gt;La contextualisation permet de savoir si on traite le retour immédiatement ou si on ouvre une
-nouvelle pull request plus tard, pour rémedier au point soulevé. On limite ainsi les
-quiproquos ou les pertes de temps sur des actions non prioritaires.
-Et surtout, on limite les mauvaises impressions sur le ton employé.&lt;/p&gt;
-
-&lt;h3 id=&quot;description-du-standard&quot;&gt;Description du standard&lt;/h3&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;label&amp;gt; [decorations]: &amp;lt;subject&amp;gt;
-
-[discussion]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;étiquette (label)&lt;/strong&gt; : “étiquette” pour signifier de quel genre de commentaire il s’agit&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;sujet (subject)&lt;/strong&gt; : le commentaire en lui-même&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;contexte supplémentaire (decorations)&lt;/strong&gt; (optionnel)  : labels supplémentaires pour donner plus d’indications (entre parenthèses, séparés par des virgules).
-Exemple : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;non-blocking&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;blocking&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test&lt;/code&gt; …&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;discussion (optional)&lt;/strong&gt; : contexte, raisonnement ou tout autre élément pour aider à 
-comprendre le « pourquoi » et les « prochaines étapes » pour résoudre le commentaire&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;les-labels&quot;&gt;Les labels&lt;/h3&gt;
-
-&lt;p&gt;Voici la liste de labels ou étiquettes, extraits du standard :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;praise&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nitpick&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;suggestion&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;issue&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;todo&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;question&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;thought&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chore&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;typo&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;polish&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;quibble&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;L’équipe est, bien entendu, libre de choisir ou d’inventer ses labels ! Chez nous, le choix a été 
-fait de respecter le standard tel qu’il est proposé, mais cela pourrait être rediscuté si besoin.&lt;/p&gt;
-
-&lt;p&gt;Voici quelques définitions (pour le reste, &lt;a href=&quot;https://conventionalcomments.org/&quot;&gt;se référer au site du standard&lt;/a&gt;):&lt;/p&gt;
-
-&lt;h4 id=&quot;praise-éloge&quot;&gt;Praise (éloge)&lt;/h4&gt;
-
-&lt;p&gt;Grâce à ce commentaire, on souligne quelque chose de positif, on encourage la personne. Bien 
-entendu, pas de second degré !&lt;/p&gt;
-
-&lt;h4 id=&quot;suggestion-suggestion&quot;&gt;Suggestion (suggestion)&lt;/h4&gt;
-
-&lt;p&gt;Les suggestions sont la majorité des commentaires qu’on laisse, en général. Il s’agit 
-d’améliorations à apporter au sujet actuel. On cherchera à être explicite et clair,&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;expliquer en quoi il s’agit d’une amélioration;&lt;/li&gt;
-  &lt;li&gt;utiliser des patchs;&lt;/li&gt;
-  &lt;li&gt;utiliser des décorations &lt;strong&gt;blocking&lt;/strong&gt; ou &lt;strong&gt;non-blocking&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;issue-problème&quot;&gt;Issue (problème)&lt;/h4&gt;
-
-&lt;p&gt;Grâce aux issues, on met en évidence des problèmes spécifiques. Idéalement, on couple ce 
-commentaire avec une &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Suggestion&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h4 id=&quot;thought-pensée&quot;&gt;Thought (pensée)&lt;/h4&gt;
-
-&lt;p&gt;Les pensées sont des idées qui surgissent lors de la relecture du code. Celles-ci ne sont pas 
-bloquantes par nature, mais sont extrêmement précieuses, car elles peuvent conduire à des 
-possibilités de mentorat.&lt;/p&gt;
-
-&lt;h2 id=&quot;appropriez-vous-la-méthode-&quot;&gt;Appropriez-vous la méthode !&lt;/h2&gt;
-
-&lt;p&gt;Bien entendu, vous n’êtes pas obligé d’utiliser toute la liste de labels proposée par le 
-standard. Vous pouvez en choisir quelques uns, ou bien carrément vous en inspirer et créer les 
-vôtres. C’est le choix qu’ont fait Camille et son équipe, &lt;a href=&quot;https://www.24joursdeweb.fr/2021/conventional-comments-faire-des-revues-de-code-avec-le-smiley/&quot;&gt;qu’elle décrit dans cet excellent 
-article 
-sur les conventional Comments et l’utilisation des emojis&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Ainsi, l’équipe a porté son choix sur une liste d’étiquettes illustrées par des emojis, qui 
-traduisent à fois l’intention du commentaire et son urgence.
-Voici quelques exemples, tirés de l’article :&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;🥜 peanuts&lt;/code&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;❓ question&lt;/code&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;💬 discussion&lt;/code&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;🚨 alerte&lt;/code&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;🚫 no-go&lt;/code&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;👏 bravo&lt;/code&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;⚠️ warning&lt;/code&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;☠️ bad idea&lt;/code&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;✨ magic&lt;/code&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;🔥 burn-it-all&lt;/code&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;quelques-autres-bonnes-pratiques-donboarding&quot;&gt;Quelques autres bonnes pratiques d’onboarding&lt;/h2&gt;
-
-&lt;p&gt;Bien entendu, il y a plein d’autres façons d’aider vos nouveaux développeurs ou
-nouvelles développeuses à découvrir le code. Voici quelques autres idées :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;On peut se familiariser avec le workflow d’une publication de pull request ou de merge 
-request en faisant une petite modification (ajouter son nom dans un fichier, par exemple ?);&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;on peut être accompagné(e) d’un “buddy” qui nous est assigné à l’arrivée dans l’entreprise avec 
-qui on fait les premières revues de code en direct, et pas par écrit.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Une dernière bonne pratique très largement répandue : si les échanges par commentaires sont trop 
-nombreux sur une même pull request, pourquoi ne pas se retrouver directement et résoudre en pair 
-les 
-points discutés ?&lt;/p&gt;</content><author><name>Anne-Laure de Boissieu</name></author><category term="team" /><summary type="html">Au sein des équipes de développement, une activité bien connue est celle de la revue de code, et plus précisément de la revue du delta du code. Il s’agit de l’inspection par nos pairs du code proposé par nos soins, qui se trouve ainsi commenté pour répondre aux exigences de qualité de l’équipe et du projet.</summary></entry></feed>
+&lt;p&gt;&lt;img src=&quot;/images/posts/symfonycon2022/IMG-0773.jpg&quot; alt=&quot;Fresque Lego symfony&quot; /&gt;&lt;/p&gt;</content><author><name>backend</name></author><category term="conferences" /><category term="backend" /><category term="symfony" /><category term="php" /><summary type="html">En cette fin d’année, une petite équipe de chez Bedrock a assisté au grand retour de la SymfonyCon 2022 après 3 ans d’absence. Nous avons eu la chance de découvrir les nouveautés liées à Symfony 6.2 et d’assister aux conférences sur de nombreux sujets techs à Disneyland. La keynote présentée par Fabien Potencier, le créateur de Symfony, nous donne un avant-goût des nouvelles fonctionnalités qui seront présentes dans la future version de Symfony. Au programme, un nouveau composant Webhooks ainsi que l’évolution du composant Mailer.</summary></entry></feed>
