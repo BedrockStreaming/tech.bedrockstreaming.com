@@ -1,15 +1,21 @@
-{% assign author = site.data.authors[include.author] %}
+<div class="post-info">
+{% for authorId in include.authors %}
+{% assign author = site.data.authors[authorId] %}
 {% assign date = include.date | default: "today" | date: "%B %-d, %Y" %}
 
-<div class="post-info">
   {%- if author.url -%}<a href="{{ author.url | relative_url }}" target="_blank" rel="noopener">{%- endif -%}
-    {% if author.avatar  %}
-      <img alt="Author's avatar" src="{{ author.avatar | relative_url }}">
-    {% endif %}
-    <p class="meta">
-      {% if author.name %}{{ author.name }} - {% endif %}
-      {% assign x = date | date: "%m" | minus: 1 %}
-      {{ site.data.language.str_months[x] | default: date | date: "%B" }} {{ date | date: "%d, %Y" }}
-    </p>
+  {% if author.avatar  %}
+    <img alt="Author's avatar" src="{{ author.avatar | relative_url }}">
+  {% endif %}
+  <span class="meta">
+    {% if author.name %}{{ author.name }} -&#160;{% endif %}
+  </span>
   {%- if author.url -%}</a>{%- endif -%}
+{% endfor %}
+  <p class="meta">
+    {% assign x = date | date: "%m" | minus: 1 %}
+    {{ site.data.language.str_months[x] | default: date | date: "%B" }} {{ date | date: "%d, %Y" }}
+  </p>
 </div>
+
+
