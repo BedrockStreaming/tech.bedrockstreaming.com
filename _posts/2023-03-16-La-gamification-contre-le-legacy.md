@@ -11,19 +11,20 @@ thumbnail: /images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-Tar
 
 ## Ce que vous ne voulez pas voir dans vos backlogs…
 
-Elles sont là, tapies dans l’ombre de la colonne “To do” de vos backlogs, attendant que leur heure vienne. À chaque backlog refinement, vous vous demandez s’il ne faut pas tout simplement les annuler, puisque personne ne les prend en charge… De quoi parle-t-on ? De ces user stories qui existent dans le backlog de chaque équipe technique, pour traiter “un jour” un sujet legacy. Ces petits aides-mémoire de sujets “à ne pas oublier” qui nous poursuivent mais ne sont que peu souvent traités, faute de priorisation.
+Elles sont là, tapies dans l’ombre de la colonne “To do” de vos backlogs, attendant que leur heure vienne. À chaque [backlog refinement](https://blog.myagilepartner.fr/index.php/2017/01/17/la-product-backlog-refinement/), vous vous demandez s’il ne faut pas tout simplement les annuler, puisque personne ne les prend en charge… De quoi parle-t-on ? De ces user stories qui existent dans le backlog de chaque équipe technique, pour traiter “un jour” un sujet legacy. Ces petits aides-mémoire de sujets “à ne pas oublier” qui nous poursuivent mais ne sont que peu souvent traités, faute de priorisation.
 
 <center><img alt="Un exemple de backlog legacy" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-Target.png"></center>
 <center>Un exemple de backlog legacy</center>
 <br>
 
-Clean de code mort, montées de versions de layers Terraform, projets de refactoring jamais débutés… autant de sujets pénibles à traiter qui nécessitent du temps… et de la résilience. Parce que bien souvent, débuter l’un de ces sujets revient à s’attaquer à toutes les dépendances liées, à gérer tous les impacts. Et parce qu’il s’agit aussi de tâches redondantes, non-automatisables, n’apportant quasiment aucune valeur business immédiatement mesurable.. Du “run”, pur et simple. Dans le Slack de Bedrock, il y a un emoji tout trouvé pour ce type de tâche : :souffrir:
+Clean de code mort, montées de versions de layers Terraform, projets de refactoring jamais débutés… autant de sujets pénibles à traiter qui nécessitent du temps… et de la résilience. Parce que bien souvent, débuter l’un de ces sujets revient à s’attaquer à toutes les dépendances liées, à gérer tous les impacts. Et parce qu’il s’agit aussi de tâches redondantes, non-automatisables, n’apportant quasiment aucune valeur business immédiatement mesurable.. Du “run”, pur et simple. Dans le Slack de Bedrock, il y a un emoji tout trouvé pour ce type de tâche : <figure><img src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/souffrir.gif" alt="Gif exprimant la souffrance"/>
+</figure>
 
 Bien sûr, on parvient parfois à dégager du temps pour s’atteler à ces user stories. Mais il faut souvent plus d’un sprint pour en venir à bout, et l’équipe en charge de leur réalisation peut rapidement se décourager devant l’ampleur et le caractère répétitif de la tâche.
 
-Nos équipes Ops et DevOps sont responsables de 23 repositories Terraform. Lorsqu’il a été nécessaire d’upgrader tous nos layers en version 1.x, nous nous sommes d’abord donné pour consigne que chaque personne qui tombait sur un layer obsolète devait le mettre à jour avant de poursuivre son travail. Oui mais voilà, mettre à jour un layer ça ne se fait pas en deux minutes, et bien souvent on refuse d’abandonner ce sur quoi on travaillait jusqu’alors pour mettre à jour sa version de Terraform. La consigne a alors évolué : pour chaque layer à mettre à jour, on créé une US en colonne “to do”… Vous voyez où l’on veut en venir ?
+Nos équipes Ops et DevOps sont responsables de 23 repositories Terraform. Lorsqu’il a été nécessaire d’upgrader tous nos layers en version 1.x, nous nous sommes d’abord donné pour consigne que chaque personne qui tombait sur un layer obsolète devait le mettre à jour avant de poursuivre son travail. Oui mais voilà, mettre à jour un layer ça ne se fait pas en deux minutes, et bien souvent on refuse d’abandonner ce sur quoi on travaillait jusqu’alors pour mettre à jour sa version de Terraform. La consigne a alors évolué : pour chaque layer à mettre à jour, on créé une US en colonne “to do”… Vous voyez où l’on veut en venir ? 😏
 
-Pour tenter de venir à bout de ces sujets legacy que l’on traîne comme des boulets, nous avons mis en place depuis octobre 2022 les “Jeudis du fun”, dont l’organisation est prise en charge par la facilitatrice agile et la PMO du service Infrastructure (autrices de cet article).
+Pour tenter de venir à bout de ces sujets legacy que l’on traîne comme des boulets, nous avons mis en place depuis octobre 2022 les “Jeudis du fun”, dont l’organisation est prise en charge par la facilitatrice agile et la Project Manager Officer (PMO) du service Infrastructure (autrices de cet article).
 
 <center><img alt="Logo de la 1ère édition du “jeudi du fun”" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-logo.png"></center>
 <center>Logo de la 1ère édition du “jeudi du fun”</center>
@@ -57,7 +58,7 @@ Bien sûr, pour que la compétition soit totale, chaque édition du jeudi du fun
 
 Le risque avec la compétition, c’est de se laisser déborder : gagner coûte que coûte, ajouter des points à son compteur en faisant du “quick & dirty”. Jusqu’à présent, la compétition dans la verticale Infra est restée bon enfant : les équipes se défient entre elles tout au long de la journée, des points “bonus” sont réclamés aux organisatrices au moindre prétexte… mais personne ne perd de vue l’objectif principal : venir à bout du sujet.
 
-Les Jeudis du Fun reposent donc sur le challenge et le jeu. Mais nous avions sous-estimé un autre axe nous permettant de faire de ces journées un succès : l’entraide. A chaque édition, les retours les plus enthousiastes portent sur le fait de passer une journée à travailler en cross-team. SysAdmins et DevOps apprennent les uns des autres, les juniors ont l’occasion de former des leads… et chacun élargit son spectre de compétences. Au-delà du fait de venir à bout de sujets legacy, l’émulation engendrée par ces journées justifie à elle-seule l’organisation de ces journées.
+Les Jeudis du Fun reposent donc sur le challenge et le jeu. Mais nous avions sous-estimé un autre axe nous permettant de faire de ces journées un succès : l’entraide. A chaque édition, les retours les plus enthousiastes portent sur le fait de passer une journée à travailler en cross-team. SysAdmins et DevOps apprennent les uns des autres, les juniors ont l’occasion de former des leads… et chacun élargit son spectre de compétences. Au-delà du fait de venir à bout de sujets legacy, l’émulation engendrée par ces journées justifie à elle-seule leur organisation.
 
 Et puis, quitte à faire des jeudis du fun des journées particulières, autant y aller franchement : certains membres de nos équipes n’hésitent pas à venir déguisés pour ajouter une dose de fun. Vous avez croisé une licorne, Pikachu ou un plombier dans l’open space de Bedrock ? Aucun doute, c’était un jeudi ! Un dress code a même été défini lors de l’édition de février 2023.
 
@@ -74,7 +75,7 @@ Le succès de la journée repose sur le choix du sujet. En choisissant un sujet 
 <center>Au cours de la 1ère journée du “Jeudi du fun”</center>
 <br>
 
-Lors de la seconde édition en revanche, le sujet de cette édition a mis la journée en péril. Nous avions demandé aux équipes d’ajouter un niveau de sécurité à l’ensemble des secrets contenus dans le code de l’entreprise. Cela a suscité quelques difficultés :
+Lors de la seconde édition en revanche, le sujet de cette édition a mis la journée en péril. Nous avions demandé aux équipes d’ajouter un niveau de sécurité à l’ensemble des secrets contenus dans la codebase de Bedrock. Cela a suscité quelques difficultés :
 * Tout d’abord, il s’agissait de trouver une méthode pour identifier tous les secrets concernés. Toutes les équipes du jeudi du fun ont alors planché sur ce sujet, en utilisant des méthodes et outils différents. Au final, nous ne sommes parvenus que tardivement (2h après le lancement de la journée) à nous mettre d’accord sur une méthodologie. Autant de temps perdu que nous aurions pu consacrer au cœur du sujet, la sécurisation des secrets.
 * En nous attaquant à l’ensemble des secrets de Bedrock, nous touchions forcément à des repositories projets dont nous ne sommes pas les _code owners._ Ce n’est pas une véritable difficulté en soi, puisqu’au quotidien, nous intervenons fréquemment dans ces repos projets pour accompagner les équipes devs. En revanche, l’ajout d’un niveau de sécurité supplémentaire sur des secrets implique de pouvoir tester, puis de merger nos modifications. Impossible de réaliser ces actions sans les équipes back et front responsables des projets, ou sans impacter leur travail. Notre périmètre d’intervention lors de cette journée à été considérablement limité.
 
@@ -103,7 +104,7 @@ Pour l’édition de février 2023, nous avons donc “joué” avec la migratio
 
 Après trois éditions, il nous semble nécessaire de prendre un peu de recul pour analyser si ces journées portent leur fruit. Les équipes sont ravies de travailler ensemble, certes, mais l’objectif principal est-il rempli ? Les jeudis du fun permettent-ils de venir à bout de sujets legacy ?
 
-La première édition a fortement contribué à éradiquer du legacy : nous avons mis à jour la quasi-totalité des layers Terraform, nous avons mergé ou fermé l’entièreté des PRs, et nous avons initié des travaux de rework. Cependant, nous n’avions pas défini d’indicateurs de réussite assez fiables lors de cette première itération pour quantifier réellement le travail accompli. Si toute la verticale partage le sentiment d’avoir avancé lors de cette journée, nous ne savons pas le mesurer finement.
+La première édition a fortement contribué à éradiquer du legacy : nous avons mis à jour la quasi-totalité des layers Terraform, nous avons mergé ou fermé l’entièreté des PRs, et nous avons initié des travaux de rework. Cependant, nous n’avions pas défini d’indicateurs de réussite assez fiables lors de cette première itération pour quantifier réellement le travail accompli. Si toute la Verticale partage le sentiment d’avoir avancé lors de cette journée, nous ne savons pas le mesurer finement.
 
 <center><img alt="Capture d’écran du repo sysadmin/terraform au cours de la 1ère édition du “Jeudi du fun”" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-git.png"></center>
 <center>Capture d’écran du repo sysadmin/terraform au cours de la 1ère édition du “Jeudi du fun”</center>
@@ -161,22 +162,22 @@ Néanmoins, après trois éditions du jeudi du fun, il nous semblait important d
 <hr>
 Pour vous donner un aperçu de comment se déroulent ces fameux jeudis, voici _grosso modo_ le programme d’une journée : 
 
-⏰ 9h00 Petit déjeuner convivial (car c’est très important de commencer une telle journée en prenant des forces)
+- ⏰ 9h00 Petit déjeuner convivial (car c’est très important de commencer une telle journée en prenant des forces)
 
-⏰ 9h30 **Début officiel de la journée** : on se retrouve en plénière, dans une grande salle de réunion, avec tous les participants et on (ré)explique le contexte de la journée ainsi que le programme. 
+- ⏰ 9h30 **Début officiel de la journée** : on se retrouve en plénière, dans une grande salle de réunion, avec tous les participants et on (ré)explique le contexte de la journée ainsi que le programme. 
 On commence avec un petit jeu (5 minutes maximum) qui sert à deviner le sujet du jour. Les sujets sont toujours gardés secrets jusqu’au lancement de la journée, ce qui donne lieu à toutes sortes d’hypothèses les jours qui précèdent (“Oui, oui, bien sûr on va recoder toute notre plateforme dans un autre langage jeudi”).On fait monter la pression !  \
 L’objectif de ce premier jeu est d’énergiser un maximum nos collègues et de leur permettre de commencer à se projeter sur ce qu’ils vont pouvoir y faire. Le jeu change à chaque fois, pour garder un effet de surprise. 
 Ensuite, vient le temps de révéler la constitution des équipes qui changent elles aussi à chaque édition afin de permettre à chaque personne de côtoyer de nouveaux collègues.
 
-⏰ 10h00 Les équipes partent travailler sur le sujet du jour, à leurs postes de travail
+- ⏰ 10h00 Les équipes partent travailler sur le sujet du jour, à leurs postes de travail
 
-⏰ 12h30 - 13h30 Déjeuner 
+- ⏰ 12h30 - 13h30 Déjeuner 
 
-⏰ 13h30 Jeu de reprise (facultatif) : on se retrouve autour d’un blind test ou un gartic phone, histoire de passer un bon moment et de se remettre en jambe pour l’après-midi. C’est un court moment de _team building_ qui est très apprécié la plupart du temps (sauf lorsque les équipes ne veulent pas perdre un minute pour venir à bout de leur objectif !)
+- ⏰ 13h30 Jeu de reprise (facultatif) : on se retrouve autour d’un blind test ou un gartic phone, histoire de passer un bon moment et de se remettre en jambe pour l’après-midi. C’est un court moment de _team building_ qui est très apprécié la plupart du temps (sauf lorsque les équipes ne veulent pas perdre un minute pour venir à bout de leur objectif !)
 
-⏰ 14h00 Les équipes reprennent le travail initié le matin et essayent de finir un maximum de choses
+- ⏰ 14h00 Les équipes reprennent le travail initié le matin et essayent de finir un maximum de choses
 
-⏰ 17h30 On se retrouve en plénière pour le débrief de la journée : on fait le point sur le travail accompli, le décompte des points gagnés par chaque équipe et on fait le fameux podium ainsi que la remise des prix. 
+- ⏰ 17h30 On se retrouve en plénière pour le débrief de la journée : on fait le point sur le travail accompli, le décompte des points gagnés par chaque équipe et on fait le fameux podium ainsi que la remise des prix. 
 On récupère à chaud les premiers retours des participants.
 
-⏰ 18h00 Le verre de l’amitié
+- ⏰ 18h00 Le verre de l’amitié
