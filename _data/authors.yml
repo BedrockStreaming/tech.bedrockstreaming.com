@@ -4,6 +4,9 @@ a_caron:
   name: Antoine Caron
   avatar: /images/avatar/acaron.jpeg
   url: https://blog.slashgear.dev/
+a_ferez:
+  name : Amélie Ferez
+  avatar: /images/avatar/aferez.jpg
 arthurzinck:
   name: Arthur Zinck
   avatar: /images/avatar/arthurzinck.png
@@ -33,7 +36,8 @@ denis:
 e_carneau:
   name: Elise Carenau
 e_perrin:
-  name: Elodie e_perrin
+  name: Élodie Perrin
+  avatar: /images/avatar/eperrin.jpeg
 fvieudrin:
   name: Frederic Vieudrin
   url: https://twitter.com/fvieudrin
