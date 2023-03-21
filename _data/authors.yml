@@ -171,3 +171,13 @@ t_crespy:
   name: Timothé Crespy
   url: https://timothecrespy.fr/
   avatar: /images/avatar/t_crespy.jpg
+c_berard:
+  name: Clément BERARD
+  url: https://berard.dev
+pl_perez:
+  name: Pierre-Loup Perez
+  avatar: /images/avatar/pl_perez.jpeg
+l_penaguin:
+  name: Léo PENAGUIN
+  url: https://leopng.com
+  avatar: /images/avatar/l_penaguin.jpg
