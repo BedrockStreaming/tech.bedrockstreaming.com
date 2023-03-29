@@ -8,19 +8,19 @@ color: rgb(251,87,66)
 thumbnail: "images/posts/2023-kcd-france/KCD_LOGO_2023-color-2000px.png"
 ---
 
-**La première édition de KCD (Kubernetes Community Days) en France s’est déroulée le 7 mars au Centre Pompidou et a accueilli près de 1 000 participants pour une belle journée de conférences.**
+**La première édition de KCD (Kubernetes Community Days) en France s’est déroulée le 7 mars au Centre Pompidou et rassemblant près de 1000 participants pour une belle journée de conférences.**
 
 !["Accueil centre Pompidou"](/images/posts/2023-kcd-france/centre-pompidou.png)
 
 KCD a rassemblé les communautés tech françaises pour cette journée de partage d’expertise et de retours d’expérience autour de Kubernetes et des technologies Cloud Native et DevOps.
 
-Solomon Hykes, son acolyte Jérome Petazzoni et l’éducation nationale ont présenté la keynote d’ouverture.
-Cette première keynote à permis d’introduire le projet Santorin du ministère de l’éducation. C’est un système d’aide à la correction et à la notation pour lequel ils utilisent 3 clusters afin d’analyser 5 millions de copies.
+Solomon Hykes, son acolyte Jérome Petazzoni et l’Éducation Nationale ont présenté la keynote d’ouverture.
+Cette première keynote à permis d’introduire le projet Santorin du Ministère de l'Éducation. C’est un système d’aide à la correction et à la notation pour lequel ils utilisent 3 clusters afin d’analyser 5 millions de copies.
 
 !["Présentateurs de la Keynote"](/images/posts/2023-kcd-france/keynote.png)
 
-Les grands acteurs de la tech en France tels que Scaleway, OVHCloud, Shadow, eTF1, Back Market, vpTech, Doctolib, Deezer, Carrefour et l’éducation nationale étaient présents pour rapporter leurs expériences. 
-Les 3 salles nommées au couleurs du drapeau français étaient disponibles tout au long de la journée pour accueillir la quarantaine de conférences organisées par KCD.
+Des grands acteurs de la tech en France tels que Scaleway, OVHCloud, Shadow, eTF1, Back Market, vpTech, Doctolib, Deezer, Carrefour et l’Éducation Nationale étaient présents pour rapporter leurs expériences. 
+Les trois salles nommées aux couleurs du drapeau français étaient disponibles tout au long de la journée pour accueillir la quarantaine de conférences organisées par KCD.
 
 ### La plus-value d'un portail développeur chez Back Market <a name="BackMarket"></a>
 
@@ -95,3 +95,9 @@ La première infrastructure était managée via Ansible, ils utilisaient Traefik
 !["Kubernetes deployment evolution"](/images/posts/2023-kcd-france/veepee-1.jpg)
 
 Aujourd’hui, ils fournissent un produit Container as a Service nommé [Starfish](https://medium.com/vptech/standardized-deployment-at-vptech-7ebf8b8c6a1b){:target="_blank"}. C’est un outil qu’ils ont écrit en Go et qui permet de gérer les applications des équipes Veepee. Ils utilisent également Gitlab et [ArgoCD](https://argoproj.github.io/cd/){:target="_blank"}.
+
+### Conclusion
+
+La majorité de conférences auxquelles j'ai assisté étaient des retours d'expérience. C'était particulièrement intéressant car en plus de la présentation d'une technologie, nous avons un retour détaillé sur l'usage de cette dernière.
+
+Merci à tout les speakers pour leur partage de connaissances et aux organisateurs de KCD France.
