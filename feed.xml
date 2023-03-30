@@ -1,4 +1,245 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-03-20T16:29:53+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">La gamification contre le legacy</title><link href="https://tech.bedrockstreaming.com/2023/03/20/La-gamification-contre-le-legacy.html" rel="alternate" type="text/html" title="La gamification contre le legacy" /><published>2023-03-20T00:00:00+00:00</published><updated>2023-03-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/03/20/La-gamification-contre-le-legacy</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/03/20/La-gamification-contre-le-legacy.html">&lt;h2 id=&quot;ce-que-vous-ne-voulez-pas-voir-dans-vos-backlogs&quot;&gt;Ce que vous ne voulez pas voir dans vos backlogs…&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-03-30T09:13:45+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique</title><link href="https://tech.bedrockstreaming.com/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique-et-seule-une-approche-progressive-et-incrementale-etait-viable.html" rel="alternate" type="text/html" title="De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique" /><published>2023-03-25T00:00:00+00:00</published><updated>2023-03-25T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique-%E2%80%94-et-seule-une-approche-progressive-et-incrementale-etait-viable</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique-et-seule-une-approche-progressive-et-incrementale-etait-viable.html">&lt;p&gt;Difficile de faire évoluer des applications et améliorer une stack si l’ensemble est basé sur une version obsolète de Node.js… Dans cet article, nous verrons comment nous avons réussi à migrer vers une version récente et maintenue de Node.js grâce à une approche progressive et incrémentale.&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#contexte-général-et-fonctionnel&quot; id=&quot;markdown-toc-contexte-général-et-fonctionnel&quot;&gt;Contexte général et fonctionnel&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#contexte-technique&quot; id=&quot;markdown-toc-contexte-technique&quot;&gt;Contexte technique&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#objectif&quot; id=&quot;markdown-toc-objectif&quot;&gt;Objectif&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#une-première-stratégie-problématique--la-méthode-rhinocéros-&quot; id=&quot;markdown-toc-une-première-stratégie-problématique--la-méthode-rhinocéros-&quot;&gt;Une première stratégie problématique : la méthode “rhinocéros” 🦏&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#la-stratégie-gagnante--une-migration-progressive-&quot; id=&quot;markdown-toc-la-stratégie-gagnante--une-migration-progressive-&quot;&gt;La stratégie gagnante : une migration progressive 📶&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#motivation&quot; id=&quot;markdown-toc-motivation&quot;&gt;Motivation&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#plan-daction&quot; id=&quot;markdown-toc-plan-daction&quot;&gt;Plan d’action&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#difficultés-rencontrées&quot; id=&quot;markdown-toc-difficultés-rencontrées&quot;&gt;Difficultés rencontrées&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#non-découpage-des-étapes-de-migration&quot; id=&quot;markdown-toc-non-découpage-des-étapes-de-migration&quot;&gt;Non découpage des étapes de migration&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#méconnaissance-de-typescript&quot; id=&quot;markdown-toc-méconnaissance-de-typescript&quot;&gt;Méconnaissance de Typescript&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#suppression-précipitée-de-librairies-obsolètes&quot; id=&quot;markdown-toc-suppression-précipitée-de-librairies-obsolètes&quot;&gt;Suppression précipitée de librairies obsolètes&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#non-anticipation-de-la-complexité-liée-à-certaines-dépendances&quot; id=&quot;markdown-toc-non-anticipation-de-la-complexité-liée-à-certaines-dépendances&quot;&gt;Non anticipation de la complexité liée à certaines dépendances&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#entretien-des-applications-legacy-en-même-temps&quot; id=&quot;markdown-toc-entretien-des-applications-legacy-en-même-temps&quot;&gt;Entretien des applications legacy en même temps&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#autres-avantages&quot; id=&quot;markdown-toc-autres-avantages&quot;&gt;Autres avantages&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#uniformisation-des-technologies-au-sein-de-la-société&quot; id=&quot;markdown-toc-uniformisation-des-technologies-au-sein-de-la-société&quot;&gt;Uniformisation des technologies au sein de la société&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#attractivité-et-rétention-des-développeurs&quot; id=&quot;markdown-toc-attractivité-et-rétention-des-développeurs&quot;&gt;Attractivité et rétention des développeurs&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#conclusion&quot; id=&quot;markdown-toc-conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;contexte-général-et-fonctionnel&quot;&gt;Contexte général et fonctionnel&lt;/h1&gt;
+
+&lt;p&gt;Bedrock streaming est une co-entreprise (joint-venture) créée en 2020 par M6 Group et RTL Group, permettant à 7 diffuseurs et sociétés de médias dans 5 pays d’Europe de divertir 45 millions d’utilisateurs chaque jour, sur tous les écrans.&lt;/p&gt;
+
+&lt;p&gt;Pour gérer tous leurs utilisateurs ainsi que leurs contenus, notamment vidéos, les clients de Bedrock Streaming accèdent chacun à une constellation d’applications au sein d’un back-office centralisé (appelé BO par la suite).&lt;/p&gt;
+
+&lt;h1 id=&quot;contexte-technique&quot;&gt;Contexte technique&lt;/h1&gt;
+
+&lt;p&gt;De part sa conception initiale, le BO est une application monorepo. Elle fournit (à elle-même donc), des données via une API Symfony 4 (PHP 7.4), consommées uniquement par :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;des applications Vue.js 1 et Vue.js 2 gérées par la team backend (qui historiquement maintient le frontend de quelques applications) ;&lt;/li&gt;
+  &lt;li&gt;des applications Vue.js 2 gérées par la team frontend.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Le tout, dans un environnement &lt;a href=&quot;https://github.com/nodejs/Release/blob/main/schedule.json#L50&quot;&gt;Node.js 10&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;objectif&quot;&gt;Objectif&lt;/h1&gt;
+
+&lt;p&gt;Node.js 10 est arrivé en fin de vie le 30 avril 2021. Il n’est donc plus maintenu, que ce soit en terme de fonctionnalités ou en terme de sécurité. Naturellement, toutes les dépendances JS migrent progressivement vers un support des versions de Node.js supérieures, et abandonnent le support de cette version 10 devenue obsolète.&lt;/p&gt;
+
+&lt;p&gt;Il s’agit donc de migrer la version de Node.js vers une version supérieure, dans l’idéal LTS afin de se prémunir d’une obsolescence prématurée. Dans un premier temps, Node.js 12.&lt;/p&gt;
+
+&lt;p&gt;Voici plusieurs raisons qui poussent à migrer Node.js :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Nouvelles fonctionnalités (e.g. nouvelle implémentation pour l’ES6 Module Support expérimental, source : &lt;a href=&quot;https://nodejs.medium.com/announcing-a-new-experimental-modules-1be8d2d6c2ff&quot;&gt;https://nodejs.medium.com/announcing-a-new-experimental-modules-1be8d2d6c2ff&lt;/a&gt; ) ;&lt;/li&gt;
+  &lt;li&gt;Abandon de fonctionnalités défaillantes (e.g. via dépréciation) ;&lt;/li&gt;
+  &lt;li&gt;Performance (e.g. mise à jour de V8 engine, source : &lt;a href=&quot;https://nodejs.medium.com/introducing-node-js-12-76c41a1b3f3f&quot;&gt;https://nodejs.medium.com/introducing-node-js-12-76c41a1b3f3f&lt;/a&gt; ) ;&lt;/li&gt;
+  &lt;li&gt;Sécurité (e.g. mise à jour de TLS, source : &lt;a href=&quot;https://nodejs.medium.com/introducing-node-js-12-76c41a1b3f3f&quot;&gt;https://nodejs.medium.com/introducing-node-js-12-76c41a1b3f3f&lt;/a&gt; ) ;&lt;/li&gt;
+  &lt;li&gt;Évolutions des dépendances externes. (e.g. Cypress qui abandonne les versions de Node.js non maintenues et qui requiert Node.js 14, 16 ou 18+, source : &lt;a href=&quot;https://docs.cypress.io/guides/references/changelog#12-0-0&quot;&gt;https://docs.cypress.io/guides/references/changelog#12-0-0&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;une-première-stratégie-problématique--la-méthode-rhinocéros-&quot;&gt;Une première stratégie problématique : la méthode “rhinocéros” 🦏&lt;/h1&gt;
+
+&lt;p&gt;La décision a été prise de migrer le repository de Node.js 10 vers Node.js 12 en début d’année 2021.&lt;/p&gt;
+
+&lt;p&gt;Empiriquement, cette méthode a montré plusieurs limites :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;même si la compilation semblait bien se dérouler, des erreurs apparaissaient au moment de l’affichage de l’UI ➡ Il semblait donc nécessaire de parcourir l’intégralité des écrans afin de déceler toutes les anomalies possibles ➡ Le travail de la QA était alors conséquent ;&lt;/li&gt;
+  &lt;li&gt;même lorsqu’une anomalie est corrigée, une nouvelle peut apparaitre ➡ Il fallait re-parcourir les écrans concernés (par exemple, après avoir corrigé une anomalie qui empêche l’apparition d’une modale, de nouvelles anomalies peuvent être décelées au niveau des fonctionnalités que permet cette modale) ➡ Le travail de la QA augmentait de façon exponentielle au fil des corrections d’anomalies ;&lt;/li&gt;
+  &lt;li&gt;des dizaines voire centaines de dépendances dans le projet étaient dépendantes de Node.js 10 sans être encore compatibles avec Node.js 12 ➡ Il s’agissait donc de faire le point sur celles-ci, pour trouver des équivalents compatibles.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Après plusieurs mois, bien que bon nombre d’anomalies avaient pu être corrigées, la situation stagnait et la fin ne semblait pas plus proche qu’au début.&lt;/p&gt;
+
+&lt;p&gt;Les raisons de l’échec :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;L’ancienneté de certaines applications. Certaines d’entre elles avaient plus de 8 ans d’existence. En n’ayant subi que quelques corrections seulement. Les connaissances fonctionnelles et techniques s’étaient donc estompées naturellement, en raison d’une absence de documentation (autant fonctionnelle que technique). Il s’agit là des dettes fonctionnelle et technique. Lorsqu’elles sont là, elles sont relativement simples à identifier. Mais c’est déjà trop tard… ;&lt;/li&gt;
+  &lt;li&gt;L’absence de mise à jour des technologies. Certaines technologies devenues obsolètes (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jQuery 1.9&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Vue.js 1&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Bootstrap 2.3&lt;/code&gt;) imposait non plus un refactor lié à une migration, mais une véritable refonte ;&lt;/li&gt;
+  &lt;li&gt;L’absence de tests. La couverture de tests était alors faible voire nulle. Migrer sans régression relevait alors d’une chance non maitrisable ;&lt;/li&gt;
+  &lt;li&gt;La façon dont la migration a été lancée était trop téméraire : c’est la méthode rhinocéros.
+    &lt;ul&gt;
+      &lt;li&gt;création d’une nouvelle branche (et d’une PR pour cette branche)&lt;/li&gt;
+      &lt;li&gt;suppression de Node.js 10 et installation de Node.js 12&lt;/li&gt;
+      &lt;li&gt;correction de toutes les anomalies qui apparaissent !&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ce fonctionnement peut marcher pour des périmètres techniques plus petits ou du moins dont les contours sont précisément marqués ;&lt;/p&gt;
+
+&lt;p&gt;L’organisation en équipe devenait compliquée. Au fur et à mesure des découvertes des anomalies au sein d’une seule et unique PR, il devenait difficile de suivre tous les sujets, sans découpage précis et rigoureux.&lt;/p&gt;
+
+&lt;p&gt;Face à cette situation, dont les développeurs et testeurs ne semblaient plus voir le bout, il a été décidé d’employer une autre stratégie.&lt;/p&gt;
+
+&lt;h1 id=&quot;la-stratégie-gagnante--une-migration-progressive-&quot;&gt;La stratégie gagnante : une migration progressive 📶&lt;/h1&gt;
+
+&lt;p&gt;De part un essoufflement des développeurs et une nouvelle énergie insufflée par des départs et arrivées dans l’équipe, une nouvelle stratégie a émergé. Face à l’échec de la première, il a été proposé plus simplement de partir sur des bases saines, afin de migrer les applications sur des fondations plus solides car maitrisées.&lt;/p&gt;
+
+&lt;p&gt;Plus techniquement, cela s’est traduit par :&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Création d’un nouveau répertoire &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;modern-apps/&lt;/code&gt; dans le monorepo.&lt;/li&gt;
+  &lt;li&gt;Mise en place d’une architecture basée sur Node.js 16 (Oui oui, Node.js 16 directement ! Il s’agissait de la version LTS en cours en date de début 2022.) dans ce répertoire seulement.&lt;/li&gt;
+  &lt;li&gt;Migration des applications du BO, une par une, vers une stack plus moderne. En date de début 2023, cette migration est toujours en cours.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;motivation&quot;&gt;Motivation&lt;/h2&gt;
+
+&lt;p&gt;La motivation était principalement portée par :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;une volonté forte d’abandonner des outils et technologies vieillissantes voire obsolètes ;&lt;/li&gt;
+  &lt;li&gt;une pression engendrée par l’évolution rapide des technologies :
+    &lt;ul&gt;
+      &lt;li&gt;Node.js sort une version LTS tous les ans ;&lt;/li&gt;
+      &lt;li&gt;Vue.js 3 venait de sortir et l’effort des développeurs du framework allait se porter plutôt sur cette version que sur la version 2.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;une pression engendrée par les autres équipes de la société qui, elles, étaient à jour (pour certaines), dont celle qui proposait des outils JS et TS dont l’équipe pourrait avoir l’usage, comme par exemple une librairie de configuration pour &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;eslint&lt;/code&gt; couplé à &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vue&lt;/code&gt; ;&lt;/li&gt;
+  &lt;li&gt;une excitation liée à l’utilisation d’une stack récente et de &lt;em&gt;cutting-edge tools&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;plan-daction&quot;&gt;Plan d’action&lt;/h2&gt;
+
+&lt;p&gt;Cette page blanche a nécessité un plan d’action que voici :&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Création d’une application simplissime en guise de PoC, afin de montrer la viabilité d’un travail sous Node.js 16 dans une sous-partie du projet en parallèle d’un travail toujours actif sous Node.js 10 dans le reste du projet.&lt;/li&gt;
+  &lt;li&gt;Mise en place d’une certaines DX vis-à-vis des linters et formatters notamment (ainsi que d’extensions d’IDE), par l’application de règles simples mais strictes, qui évitent aux développeurs les tâches sans plus-value, comme ajuster manuellement l’indentation ou ajouter les points-virgules.&lt;/li&gt;
+  &lt;li&gt;Migration des librairies internes au monorepo.&lt;/li&gt;
+  &lt;li&gt;Migration du design system, ainsi que des outils afférents (Storybook).&lt;/li&gt;
+  &lt;li&gt;Migration d’une première application, la plus simple possible. L’objectif était alors de se rendre compte très concrètement des étapes de migration d’une application, afin d’en tirer une documentation exploitable pour les futures applications. Il en est ressorti que la majeure partie du travail consistait à refactor le code avec les nouvelles technologies choisies, en l’occurrence :
+    &lt;ol&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Vue.js 3&lt;/code&gt; et sa &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Composition API&lt;/code&gt; (framework JS),&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Vite&lt;/code&gt; (serveur de dev et de build),&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Pinia&lt;/code&gt; (global state management),&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Vitest&lt;/code&gt; (framework de test unitaire),&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cypress&lt;/code&gt; dans ses dernières versions (framework de test end-to-end)&lt;/li&gt;
+      &lt;li&gt;aussi et surtout &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Typescript&lt;/code&gt; (langage de programmation, sur-couche à JS).&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Migration du processus de build et d’intégration aux templates backend (via notamment une extension Twig implémentée par nos soins, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ViteAppExtension.php&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;Mise en place d’une CI pour ces nouvelles applications, calquée sur celle des anciennes applications : linting, tests pour celles qui en avaient, déploiement en preview, etc.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;En quelques mois seulement, il a été possible d’obtenir un résultat concret. Le répertoire &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;modern-apps/&lt;/code&gt; a été initié en février 2022, et dès avril de la même année, une première application migrée était livrée en production. Et cela, avec un seul développeur à plein temps sur le sujet.&lt;/p&gt;
+
+&lt;h1 id=&quot;difficultés-rencontrées&quot;&gt;Difficultés rencontrées&lt;/h1&gt;
+
+&lt;p&gt;Cette seconde stratégie n’a bien sûr pas été sans encombre. Voici les principales difficultés rencontrées, dont l’équipe a su se prémunir au fil du temps.&lt;/p&gt;
+
+&lt;h2 id=&quot;non-découpage-des-étapes-de-migration&quot;&gt;Non découpage des étapes de migration&lt;/h2&gt;
+
+&lt;p&gt;Lors de la migration d’une des premières applications dont la complexité était légèrement supérieure aux précédentes, nous nous sommes retrouvés embourbés dans une multitude de bugs techniques et fonctionnels. En effet, migrer implique plusieurs changements qui n’ont pas nécessairement de rapport les uns avec les autres :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ajouter des types TS&lt;/li&gt;
+  &lt;li&gt;migrer la librairie de Global State Management de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vuex&lt;/code&gt; vers &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pinia&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;migrer la Global API de Vue (de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;new Vue()&lt;/code&gt; vers &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;createApp()&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;migrer de l’&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Options API&lt;/code&gt; vers la &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Composition API&lt;/code&gt; de Vue&lt;/li&gt;
+  &lt;li&gt;etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Si tous ces changements sont opérés en même temps, comment réagir lors de l’apparition d’une anomalie ? Comment traquer efficacement cette anomalie ?&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Solution adoptée&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;Nous avons décidé de découper plus finement nos développements. Une PR doit concerner un périmètre réduit et bien défini. Par exemple, la PR de migration de la librairie de Global State Management ne doit comporter que des modifications à ce sujet, et doit fournir une application fonctionnelle dont les tests passent.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;méconnaissance-de-typescript&quot;&gt;Méconnaissance de Typescript&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Source : &lt;a href=&quot;https://www.typescriptlang.org/&quot;&gt;https://www.typescriptlang.org/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Ce langage de programmation, bien que son adoption parmi les développeurs JS explose, s’est avéré une complète nouveauté dans l’équipe. Il peut être tentant d’écrire des &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;any&lt;/code&gt; partout, ou de supprimer le &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;strict mode&lt;/code&gt;…&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Solution adoptée&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;Nous avons décidé d’intégrer TS progressivement sans se mettre trop de pression quant à l’intégralité du typage de nos applications. Typescript permet justement cette intégration progressive aux projets.&lt;/p&gt;
+
+  &lt;p&gt;Un très gros progrès a aussi été réalisé grâce à la génération automatique des types TS à partir de l’API (grâce à l’&lt;em&gt;introspection system&lt;/em&gt; de GraphQL). Les données reçues du backend se voyaient alors avoir une structure directement exploitable dans le frontend.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;suppression-précipitée-de-librairies-obsolètes&quot;&gt;Suppression précipitée de librairies obsolètes&lt;/h2&gt;
+
+&lt;p&gt;Lors du découpage des étapes de migration, une problématique est apparue. Par exemple, si nous souhaitons migrer de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vuex&lt;/code&gt; vers &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pinia&lt;/code&gt; dans un second temps, comment faire pour que l’application reste fonctionnelle avec &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vuex&lt;/code&gt; dans le premier temps ?&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Solution adoptée&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;Nous avons décidé de conserver certaines librairies, le temps de la migration des applications. Il peut être tentant de vouloir supprimer immédiatement ce qui nous semble obsolète, mais ces éléments ne seront vraiment obsolètes que lorsque toutes les applications seront migrées ; mais pas le temps qu’elles le soient.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;non-anticipation-de-la-complexité-liée-à-certaines-dépendances&quot;&gt;Non anticipation de la complexité liée à certaines dépendances&lt;/h2&gt;
+
+&lt;p&gt;Bien que cet aspect n’était pas une surprise, certaines librairies ont apporté plus de difficultés que d’autres lors de la migration. Par exemple, l’intégration de Vue 3 et la Composition API impliquait la montée de version de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vee-validate&lt;/code&gt;, un librairie de validation de formulaire. Il s’est avéré que l’implémentation imposée était radicalement différente de la version précédente (compatible avec Vue 2 et l’Options API), moins intuitive et plus complexe.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Solution adoptée&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;Ce cas de figure n’est pas vraiment impressionnant car nous nous y attendions. Nous avons décidé dans un premier temps d’effectuer une certaine veille technique, afin de remettre en cause le choix initial de cette librairie. Il s’est avéré que nous l’avons conservée, ce qui amenait dans un second temps une montée en compétence quant à l’utilisation de celle-ci, en vue de son intégration.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;entretien-des-applications-legacy-en-même-temps&quot;&gt;Entretien des applications legacy en même temps&lt;/h2&gt;
+
+&lt;p&gt;Une application donnée pouvait se retrouver d’une part en cours de migration, et d’autre part devoir recevoir une évolution ou une correction d’anomalie.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Solution adoptée&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;Le choix et l’ordre des applications à migrer a été choisi en fonction des priorités en cours. Nous avons choisi de migrer en premier les applications qui ne subissaient que très peu de modifications. Par la suite, et encore aujourd’hui, nous livrons en production rapidement chaque application migrée, afin de ne pas avoir à maintenir plusieurs versions en même temps (la version legacy étant tout de même conservée le temps de s’assurer que la version moderne tourne correctement en production auprès des clients). Dans les très rares cas où une application en cours de migration devait recevoir une évolution ou une correction d’anomalie, nous la traitions dans les 2 versions.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;autres-avantages&quot;&gt;Autres avantages&lt;/h1&gt;
+
+&lt;h2 id=&quot;uniformisation-des-technologies-au-sein-de-la-société&quot;&gt;Uniformisation des technologies au sein de la société&lt;/h2&gt;
+
+&lt;p&gt;Au sein de Bedrock, le back-office n’est pas la seule application. Il existe aussi des applications frontend sur les mêmes technologies pour adresser l’écran web ou les télévisions connectées. Bien que le framework utilisé pour celles-ci soit React.js et non Vue.js, l’outillage peut être uniformisé entre les projets et les équipes. La migration a permis de préparer le terrain pour mettre en place ces outils : TypeScript, PNPM, etc.&lt;/p&gt;
+
+&lt;h2 id=&quot;attractivité-et-rétention-des-développeurs&quot;&gt;Attractivité et rétention des développeurs&lt;/h2&gt;
+
+&lt;p&gt;Cette migration générale permet de mettre en place une stack résolument plus moderne et d’utiliser des outils et technologies plus récents. N’est-ce pas là un argument fort pour attirer des nouveaux développeurs et retenir ceux déjà en place ? Dans l’équipe, plusieurs personnes ont émis des doutes sur leur volonté de rester dans la société si la décision de migrer, et donc d’intégrer des technologies plus à jour, n’avait pas été prise. En date de début 2023, il fait peu de doutes que les projets en Vue 3 sont plus attractifs que les projets en Vue 2…&lt;/p&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;En fin de compte, cette approche progressive et incrémentale, toujours en cours, permet de maintenir dans un répertoire bien défini une stack récente dont les mises à jour sont simples car petites. Par exemple, nous avons récemment migré de Node.js 16 vers Node.js 18… en quelques jours !&lt;/p&gt;
+
+&lt;p&gt;Cette grande aventure, toujours en cours, nous a permis de vraiment prendre conscience qu’il faut entretenir certes les applications mais aussi les versions des frameworks et outils ! Utiliser un nouvel outil ou une nouvelle technologie est un choix fort qu’il faut être capable d’assumer dans le temps.&lt;/p&gt;
+
+&lt;p&gt;Il peut paraitre frustrant d’entretenir des outils, sans gagner en performance ni en productivité mais seulement pour ne pas devenir obsolète. Mettre l’accent sur ces points, tout en sachant bien jauger jusqu’où doivent aller ces upgrades, est la marque d’un certain professionnalisme.&lt;/p&gt;
+
+&lt;p&gt;Il est vrai que dans l’immédiat, la valeur ajoutée pour le client est modérée : les gains restent très techniques, notamment en termes de stabilité et de performances. Ce n’est que plus tard que les gains se feront concrètement sentir : plus d’efficacité et de productivité pour les évolutions, et plus de fiabilité.&lt;/p&gt;
+
+&lt;p&gt;Il est aussi important de savoir reconnaitre qu’une technologie utilisée (parfois avec fierté à ses débuts) est devenue obsolète, et qu’il faut s’en débarrasser pendant qu’il est encore temps.&lt;/p&gt;</content><author><name>Timothé Crespy</name></author><category term="node" /><category term="Node.js" /><category term="vue" /><category term="Vue.js" /><category term="vuex" /><category term="pinia" /><category term="vite" /><category term="Vite.js" /><category term="Vitest" /><category term="TypeScript" /><category term="developer retention" /><category term="migration" /><summary type="html">Difficile de faire évoluer des applications et améliorer une stack si l’ensemble est basé sur une version obsolète de Node.js… Dans cet article, nous verrons comment nous avons réussi à migrer vers une version récente et maintenue de Node.js grâce à une approche progressive et incrémentale.</summary></entry><entry><title type="html">La gamification contre le legacy</title><link href="https://tech.bedrockstreaming.com/2023/03/20/La-gamification-contre-le-legacy.html" rel="alternate" type="text/html" title="La gamification contre le legacy" /><published>2023-03-20T00:00:00+00:00</published><updated>2023-03-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/03/20/La-gamification-contre-le-legacy</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/03/20/La-gamification-contre-le-legacy.html">&lt;h2 id=&quot;ce-que-vous-ne-voulez-pas-voir-dans-vos-backlogs&quot;&gt;Ce que vous ne voulez pas voir dans vos backlogs…&lt;/h2&gt;
 
 &lt;p&gt;Elles sont là, tapies dans l’ombre de la colonne “To do” de vos backlogs, attendant que leur heure vienne. À chaque &lt;a href=&quot;https://blog.myagilepartner.fr/index.php/2017/01/17/la-product-backlog-refinement/&quot;&gt;backlog refinement&lt;/a&gt;, vous vous demandez s’il ne faut pas tout simplement les annuler, puisque personne ne les prend en charge… De quoi parle-t-on ? De ces user stories qui existent dans le backlog de chaque équipe technique, pour traiter “un jour” un sujet legacy. Ces petits aides-mémoire de sujets “à ne pas oublier” qui nous poursuivent mais ne sont que peu souvent traités, faute de priorisation.&lt;/p&gt;
 
@@ -1493,180 +1734,4 @@ On our scale, this saving represents several tens of thousands of dollars per ye
       &lt;p&gt;For these kind of calculations and reservations, we usually work in pair, as this involves large amounts of money. Lowering risk of doing a costly mistake is quite a good idea. &lt;a href=&quot;#fnref:pair-reserving&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
-&lt;/div&gt;</content><author><name>Pascal Martin</name></author><category term="aws" /><category term="dynamodb" /><category term="finops" /><summary type="html">Many of the microservices in our VOD and Replay platform use DynamoDB as their database. Performance is very good if the data is architected for it, scalability is reasonably fast, and the serverless aspect offloads a lot of the administration and hosting work. Whether it’s performance, resilience or time-to-market, DynamoDB helps us achieve our business goals. That said, when we spend several hundred thousand dollars on DynamoDB every year, any optimization is good for us! With DynamoDB, committing to a certain capacity for a year can help reduce costs – up to 50% savings on that capacity. But how do we know how much to reserve when traffic on our platform varies throughout the day?</summary></entry><entry><title type="html">Ce que nous avons retenu de la SymfonyCon - Disneyland Paris 2022</title><link href="https://tech.bedrockstreaming.com/2022/11/17/symfonycon.html" rel="alternate" type="text/html" title="Ce que nous avons retenu de la SymfonyCon - Disneyland Paris 2022" /><published>2022-11-17T00:00:00+00:00</published><updated>2022-11-17T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/11/17/symfonycon</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/11/17/symfonycon.html">&lt;p&gt;En cette fin d’année, une petite équipe de chez Bedrock a assisté au grand retour de la SymfonyCon 2022 après 3 ans d’absence. 
-Nous avons eu la chance de découvrir les nouveautés liées à Symfony 6.2 et d’assister aux conférences sur de nombreux sujets techs à Disneyland.
-La keynote présentée par &lt;a href=&quot;https://github.com/fabpot&quot;&gt;Fabien Potencier&lt;/a&gt;, le créateur de Symfony, nous donne un avant-goût des nouvelles fonctionnalités qui seront présentes dans la future version de Symfony.
-Au programme, un nouveau composant Webhooks ainsi que l’évolution du composant Mailer.&lt;/p&gt;
-
-&lt;h2 id=&quot;unleashing-the-power-of-lazy-objects-in-php&quot;&gt;Unleashing the power of lazy objects in PHP&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://connect.symfony.com/profile/nicolas-grekas&quot;&gt;Nicolas Grekas&lt;/a&gt;, habitué de la scène PHP et membre de la Symfony Core Team, nous a présenté les différentes façons d’utiliser les lazy objects en PHP et plus spécifiquement à l’aide de Symfony. &lt;/p&gt;
-
-&lt;p&gt;Les lazy objects sont des objets instanciés vides qui peuplent leurs propriétés eux-mêmes seulement quand ils sont utilisés.
-Ils sont utiles lors de l’instanciation de lourds objets peu appelés, cela permet de faire du lazy loading.&lt;/p&gt;
-
-&lt;p&gt;Nicolas nous a aussi présenté deux nouveaux traits prochainement disponibles sur Symfony 6.2 permettant de travailler avec ces objets.
-Les &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VirtualInheritanceProxies&lt;/code&gt; et les &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GhostsObjects&lt;/code&gt; sont deux nouvelles possibilités pour implémenter plus facilement des lazy objects en plus du &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ValueHolder&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;advanced-git-magic&quot;&gt;Advanced Git magic&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://connect.symfony.com/profile/paulinevos&quot;&gt;Pauline Vos&lt;/a&gt; nous représente GIT en dehors de son usage quotidien, comment aller plus loin que les pull, commit, push et merge habituels, elle nous livre donc une présentation sur une méthode de debug en utilisant GIT.&lt;/p&gt;
-
-&lt;p&gt;Retour dans un premier temps sur l’importance des commits dit “atomic” avec comme règles :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Chaque commit se résume à un fix ou une feature&lt;/li&gt;
-  &lt;li&gt;Chaque commit doit fonctionner (tous les tests doivent passer)&lt;/li&gt;
-  &lt;li&gt;Chaque message et description doivent être clairs et concis&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Pauline introduit ensuite la commande &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rebase -i&lt;/code&gt; qui permet un rebase interactif servant notamment à réécrire notre historique.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/symfonycon2022/IMG-0785.jpg&quot; alt=&quot;git rebase intéractif&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Vient ensuite l’utilisation de la commande &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git reflog&lt;/code&gt;, commande avec laquelle nous pouvons obtenir le détail des commandes lancées sur la branche, elle peut de ce fait être utile pour réparer une erreur.&lt;/p&gt;
-
-&lt;h4 id=&quot;comment-utiliser-toutes-ces-commandes-git-pour-debugger-&quot;&gt;Comment utiliser toutes ces commandes GIT pour debugger ?&lt;/h4&gt;
-&lt;p&gt;Une démonstration de la commande &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git bisect&lt;/code&gt; et de toutes ses options qui permettent d’identifier le commit qui a introduit le bug en faisant une recherche dichotomique.&lt;/p&gt;
-
-&lt;p&gt;Pauline pousse la réflexion plus loin en alliant la commande &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git bisect&lt;/code&gt; avec un script de debug ou un test unitaire.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;“Write it, push it and find where it breaks”&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Afin de tirer parti de cette méthode, il est important que chaque commit soit fonctionnel, tous les tests doivent donc passer.&lt;/p&gt;
-
-&lt;p&gt;Vous pouvez également retrouver &lt;a href=&quot;https://www.pauline-vos.nl/fix-bugs-%e2%9a%a1-fast-with-regression-tests-and-auto-bisect/&quot;&gt;un article de Pauline&lt;/a&gt; à ce sujet sur son blog personnel.&lt;/p&gt;
-
-&lt;h2 id=&quot;schrödingers-sql---the-sql-inside-the-doctrine-box&quot;&gt;Schrödinger’s SQL - The SQL inside the Doctrine box&lt;/h2&gt;
-
-&lt;p&gt;Au début de sa conférence &lt;a href=&quot;https://connect.symfony.com/profile/senseexception&quot;&gt;Claudio Zizza&lt;/a&gt; insiste sur le fait de bien connaître nos bases de données et le langage utilisé pour les requêter, il évoque notamment les différences entre MySQL et PostgreSQL. Ensuite, il nous a parlé de Doctrine ORM, des fonctions que nous apprécions tant, car elles nous facilitent la vie. 
-Puis, il a rappelé l’importance de savoir faire des requêtes SQL même si nous utilisons Doctrine. Comprendre le SQL peut nous permettre d’optimiser notre utilisation de Doctrine et donc de mieux appréhender son fonctionnement. 
-Il insiste aussi sur le fait que SQL “seul” est bien plus puissant que DQL (Doctrine Query Language). 
-Pour terminer, Claudio nous a donné quelques recommandations de lecture pour apprendre le SQL ainsi qu’un site permettant de tester nos requêtes.&lt;/p&gt;
-
-&lt;h2 id=&quot;advanced-test-driven-development&quot;&gt;Advanced Test Driven Development&lt;/h2&gt;
-
-&lt;p&gt;Durant cette conférence, &lt;a href=&quot;https://connect.symfony.com/profile/mollokhan&quot;&gt;Diego Aguiar&lt;/a&gt;, développeur de chez SymfonyCasts nous rappelle ce qu’est le &lt;strong&gt;TDD (Test Driven Development)&lt;/strong&gt;, son histoire, les différentes techniques ainsi que des astuces afin de nous débloquer et bien sûr les cas où il ne semble pas utile d’utiliser le TDD.&lt;/p&gt;
-
-&lt;p&gt;À retenir, le TDD est une discipline, il faut beaucoup d’entraînement et répéter continuellement ces exercices.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/symfonycon2022/IMG-0848.jpg&quot; alt=&quot;tdd discipline&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;“Fake it till you make it”&lt;/strong&gt;&lt;/em&gt;, il s’agit d’abord d’écrire son code de test en utilisant par exemple des assertions, des tests avec différentes sorties et ensuite de produire le code qui va résoudre ces tests.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/symfonycon2022/IMG-0852.jpg&quot; alt=&quot;Fake it till you make it&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;“ Write your test code, produce it and repeat.”&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;pourquoi-nous-retrouvons-nous-parfois-bloqués-&quot;&gt;Pourquoi nous retrouvons nous parfois bloqués ?&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Les tests écrits sont peut-être faux&lt;/li&gt;
-  &lt;li&gt;Les tests ne sont pas assez segmentés&lt;/li&gt;
-  &lt;li&gt;Le code écrit est peut-être trop spécifique&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;comment-se-débloquer-&quot;&gt;Comment se débloquer ?&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Continuer et trouver un test plus simple&lt;/li&gt;
-  &lt;li&gt;Refactoriser le code en production qui met en difficulté&lt;/li&gt;
-  &lt;li&gt;Écrire les différents use-cases&lt;/li&gt;
-  &lt;li&gt;Passer outre les tests un instant&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Les cas les plus favorables au TDD sont les nouvelles fonctionnalités qui n’ont pas de lien avec du code legacy. En ce qui concerne les cas non pertinent au TDD, nous retrouvons les cas de configuration, de découverte de code et de requêtes.&lt;/p&gt;
-
-&lt;p&gt;Pour conclure, Diego nous rappelle que le TDD est bien évidemment plus un outil qu’une règle.&lt;/p&gt;
-
-&lt;h2 id=&quot;dynamic-validation-with-symfony&quot;&gt;Dynamic Validation With Symfony&lt;/h2&gt;
-
-&lt;p&gt;Tout en se basant sur les évolutions des Pokémon, &lt;a href=&quot;https://connect.symfony.com/profile/marionleherisson&quot;&gt;Marion Hurteau&lt;/a&gt; a introduit le principe de validation dynamique. Par exemple, vérifier que le nom de notre Pokémon contient bien 10 caractères, ou encore les différentes règles d’évolution en fonction du type de Pokémon. 
-À l’aide d’exemples de code qui sont disponibles sur son repo Git, elle a passé en revue les façons d’implémenter des validations à l’aide du composant &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Symfony Validator&lt;/code&gt;.
-Au fil de sa présentation, la complexité des contraintes croît ce qui permet de voir un éventail de possibilités.&lt;/p&gt;
-
-&lt;h2 id=&quot;from-monolith-to-decoupledwait-why-is-that-one-getting-bigger&quot;&gt;From monolith to decoupled…wait, why is that one getting bigger?!?&lt;/h2&gt;
-&lt;p&gt;Lors de cette conférence, &lt;a href=&quot;https://connect.symfony.com/profile/shawnaspoor&quot;&gt;Shawna Spoor&lt;/a&gt; est venue nous parler de comment découper un monolithe en une multitude de microservices grâce au “Strangler Fig Pat”. Elle a commencé par nous rappeler les avantages et les inconvénients des microservices comparé à un monolithe.&lt;/p&gt;
-
-&lt;p&gt;Suite à cela, elle nous a donné les différentes étapes pour découper une application monolithe en micro-services et cela sans jamais arrêter le développement de nouvelles features:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Choisir une fonctionnalité qui peut être découpée&lt;/li&gt;
-  &lt;li&gt;Créé le nouveau Service&lt;/li&gt;
-  &lt;li&gt;Déplacer le trafic vers le nouveau service&lt;/li&gt;
-  &lt;li&gt;Recommencer jusqu’à la disparition du monolithe&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;On peut résumer ce pattern via l’image ci-dessous, le tronc représente le monolithe et les branches qui l’étranglent lentement correspondent aux micro-services.
-&lt;img src=&quot;https://w2j6m4k9.rocketcdn.me/wp-content/uploads/2019/09/Strangler-Tree-Header-Big-1024x576.png&quot; alt=&quot;Strangler Fig Paterne&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;from-a-legacy-monolith-to-a-symfony-service-oriented-architecture-with-zero-downtime&quot;&gt;From a legacy Monolith to a Symfony Service Oriented Architecture with zero downtime&lt;/h2&gt;
-&lt;p&gt;Lors de la conférence présentée par &lt;a href=&quot;https://connect.symfony.com/profile/skigun&quot;&gt;Clément Bertillon&lt;/a&gt;, nous avons pu voir comment son équipe a transformé leur ancienne application monolithe composée de milliers de fichiers PHP en un monorepo décomposé en micro-services en utilisant le &lt;strong&gt;Strangler Fig&lt;/strong&gt; pattern et cela sans aucune rupture de service ni arrêter le développement de nouvelles features.&lt;/p&gt;
-
-&lt;p&gt;De manière très simplifiée, ils ont installé Symfony, mis le code legacy dans un dossier à la racine du projet, le routeur symfony permet d’accéder au nouveau micro-service tout en redirigeant vers le legacy si aucun contrôleur n’a été trouvé. Il a conclu avec les règles d’or et comment analyser les performances via Blackfire.
-Ces deux conférences sur le &lt;strong&gt;Strangler fig&lt;/strong&gt; paterne, mon permis de mettre en place un micro projet dans un de nos projets, tout en le cloisonnant du code parent (règles d’or vérifié grâce à l’outil présenté &lt;a href=&quot;https://github.com/qossmic/deptrac&quot;&gt;deptrac&lt;/a&gt;). Ce principe nous permettra de le transformer en micro service très facilement.&lt;/p&gt;
-
-&lt;h2 id=&quot;phpstan-advanced-types&quot;&gt;PHPStan: Advanced Types&lt;/h2&gt;
-&lt;p&gt;Cette conférence centrée sur l’outil d’analyse statique de code : PHPStan, a été présentée par son créateur &lt;a href=&quot;https://connect.symfony.com/profile/mirtes&quot;&gt;Ondřej Mirtes&lt;/a&gt;.
-Il a commencé par nous rappeler quelle est la différence entre un langage compilé et un langage interprété, le premier ne se compile pas s’il y a des erreurs alors que le second ne plante qu’à l’exécution. Le but de PHPStan est de nous aider à identifier toutes les erreurs sans avoir besoin d’exécuter le code.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/symfonycon2022/phpstan.png&quot; alt=&quot;PHPstan&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Cet outil analyse toutes les fonctions, les propriétés, le typage PHP, mais aussi la PHPDoc. Ondřej nous a ensuite parlé de tous les types PHPStan avec des exemples, en voici quelques un qui ont marqué notre attention :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;non-empty-array&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;non-empty-string&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;literal-string&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;integer-range&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;integer-mask&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;integer-maskof&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;conditional return types, union types, intersection types&lt;/code&gt; …&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Il finit en nous rappelant que l’utilisation de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@var&lt;/code&gt; est une mauvaise pratique et qu’il vaut mieux renforcer le typage quitte à modifier la documentation des &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vendor&lt;/code&gt; via les &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Stub files&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;gnap-the-future-of-oauth&quot;&gt;GNAP: The future of OAuth&lt;/h2&gt;
-&lt;p&gt;[&lt;a href=&quot;https://slides.com/chalasr/gnap-the-future-of-oauth-2fefdf&quot;&gt;Slides&lt;/a&gt;]&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://connect.symfony.com/profile/chalas_r&quot;&gt;Robin Chalas&lt;/a&gt; @chalas_r nous a présenté GNAP (Grant Negotiation and Authorization Protocol) : une initiative pour développer la prochaine génération de protocoles d’autorisation.
-Pour mieux comprendre les enjeux, nous sommes repartis de l’historique d’oauth, ses évolutions et ses écueils. Le constat étant que même si de nombreux problèmes connus ont été résolus, aujourd’hui, pour bien utiliser OAuth 2, il faut lire une douzaine de RFC et s’assurer qu’elles soient pertinentes pour les différents cas d’utilisation.&lt;/p&gt;
-
-&lt;p&gt;L’augmentation de la complexité du protocole dégrade l’expérience du développeur, ce qui va à l’encontre de son objectif principal qui est la simplicité pour les développeurs de clients.&lt;/p&gt;
-
-&lt;p&gt;GNAP (prononcé “nap”) est une complète réécriture afin de répondre aux besoins en sécurité des applications modernes :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Pensé pour tous les clients, plateformes (pas uniquement web, possibilités de deeplinking mobile par exemple)&lt;/li&gt;
-  &lt;li&gt;les interactions sont un concept clé&lt;/li&gt;
-  &lt;li&gt;Du chiffrement partout et des mécanismes de rotation extensibles&lt;/li&gt;
-  &lt;li&gt;Plusieurs Access Tokens / grant request&lt;/li&gt;
-  &lt;li&gt;Gestion de l’identité intégrée&lt;/li&gt;
-  &lt;li&gt;Plus developer friendly&lt;/li&gt;
-  &lt;li&gt;Pas rétrocompatible avec OAUTH2&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Ce protocole est toujours à l’état de brouillon, le groupe de travail a été monté en octobre 2020 et lors du dernier rassemblement (nov. 2022), aucune modification du protocole n’a été actée. Le speaker conclut sur la nécessité de commencer à travailler sur l’implémentation de ce protocole dans l’écosystème PHP afin de supporter ce nouveau standard dont la finalisation ne devrait plus tarder. 
-Pour aller plus loin &lt;a href=&quot;https://oauth.xyz/&quot;&gt;https://oauth.xyz/&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;a-self-training-journey-to-the-certification-symfony&quot;&gt;A self-training journey to the certification Symfony&lt;/h2&gt;
-&lt;p&gt;Cette conférence traite de la méthodologie et des bonnes pratiques pour obtenir la fameuse certification Symfony.
-En effet, la conférencière, &lt;a href=&quot;https://connect.symfony.com/profile/ca-jou&quot;&gt;Camille Jouan&lt;/a&gt;, nous présente sa manière de préparer l’examen.
-Elle commence par énoncer son plan d’action :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Rassembler un maximum d’informations (Symfony doc, site pour la préparation à la certification, etc)&lt;/li&gt;
-  &lt;li&gt;Organiser un plan autour du quoi/comment/pourquoi&lt;/li&gt;
-  &lt;li&gt;Faire une timeline avec les étapes prévues&lt;/li&gt;
-  &lt;li&gt;Se fixer un objectif dans le temps&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;L’idée est d’accepter que cela ne sera pas parfait et que des retouches vont y être apportées&lt;/p&gt;
-
-&lt;p&gt;Pour Camille, l’idéal serait de pouvoir faire un test blanc au bout d’un certain temps de préparation sans “grandes convictions” : le but étant de se familiariser avec l’exercice.
-Si les fonds sont disponibles, &lt;a href=&quot;https://training.sensiolabs.com/fr/courses/SF5PRECERTIF-preparation-certifcation-symfony-5-online-sensiolabs-university&quot;&gt;un training est proposé par Sensiolabs&lt;/a&gt;.
-En fonction de cet examen blanc, ajuster son plan, se concentrer sur des parties qui doivent être approfondies.
-Un autre point sur lequel la conférencière a insisté est le monitoring : régulièrement faire un bilan sur son avancée pour s’adapter.
-Des outils comme Trello, Excel, Google permettent d’en avoir une vision globale.&lt;/p&gt;
-
-&lt;p&gt;Il est important de parler de ce projet autour de soi, notamment auprès de ses proches pour avoir du soutien, mais également auprès de son entreprise qui peut éventuellement proposer une subvention et ou un aménagement du temps de travail.&lt;/p&gt;
-
-&lt;p&gt;Elle conclut son intervention par un dernier conseil : cette méthodologie est adaptable à la vie quotidienne et peut être utile dans d’autres situations.&lt;/p&gt;
-
-&lt;h2 id=&quot;notre-retour-dexpérience&quot;&gt;Notre retour d’expérience&lt;/h2&gt;
-&lt;p&gt;Cette nouvelle édition de la SymfonyCon nous a permis de découvrir ou d’approfondir certaines connaissances. 
-Nous pouvons aussi nous rendre compte de notre travail quotidien et prendre du recul sur celui-ci.
-Cette expérience anglophone était très enrichissante et les conférences proposées étaient variées.
-Il y avait de la résolution de problèmes techniques, des retours d’expériences ou encore de la télémétrie.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/symfonycon2022/IMG-0773.jpg&quot; alt=&quot;Fresque Lego symfony&quot; /&gt;&lt;/p&gt;</content><author><name>backend</name></author><category term="conferences" /><category term="backend" /><category term="symfony" /><category term="php" /><summary type="html">En cette fin d’année, une petite équipe de chez Bedrock a assisté au grand retour de la SymfonyCon 2022 après 3 ans d’absence. Nous avons eu la chance de découvrir les nouveautés liées à Symfony 6.2 et d’assister aux conférences sur de nombreux sujets techs à Disneyland. La keynote présentée par Fabien Potencier, le créateur de Symfony, nous donne un avant-goût des nouvelles fonctionnalités qui seront présentes dans la future version de Symfony. Au programme, un nouveau composant Webhooks ainsi que l’évolution du composant Mailer.</summary></entry></feed>
+&lt;/div&gt;</content><author><name>Pascal Martin</name></author><category term="aws" /><category term="dynamodb" /><category term="finops" /><summary type="html">Many of the microservices in our VOD and Replay platform use DynamoDB as their database. Performance is very good if the data is architected for it, scalability is reasonably fast, and the serverless aspect offloads a lot of the administration and hosting work. Whether it’s performance, resilience or time-to-market, DynamoDB helps us achieve our business goals. That said, when we spend several hundred thousand dollars on DynamoDB every year, any optimization is good for us! With DynamoDB, committing to a certain capacity for a year can help reduce costs – up to 50% savings on that capacity. But how do we know how much to reserve when traffic on our platform varies throughout the day?</summary></entry></feed>
