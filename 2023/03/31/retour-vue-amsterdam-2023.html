@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/2023-03-31-retour-vue-amsterdam-2023/vue_amsterdam_logo.jpeg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Retour Conférence Vue Amsterdam 2023 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Retour Conférence Vue Amsterdam 2023" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Retour sur la conférence Vuejs à Amsterdam 2023" />
+<meta property="og:description" content="Retour sur la conférence Vuejs à Amsterdam 2023" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2023/03/31/retour-vue-amsterdam-2023.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2023/03/31/retour-vue-amsterdam-2023.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-03-31T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Retour Conférence Vue Amsterdam 2023" />
+<script type="application/ld+json">
+{"description":"Retour sur la conférence Vuejs à Amsterdam 2023","headline":"Retour Conférence Vue Amsterdam 2023","dateModified":"2023-03-31T00:00:00+00:00","datePublished":"2023-03-31T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2023/03/31/retour-vue-amsterdam-2023.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2023/03/31/retour-vue-amsterdam-2023.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Retour Conférence Vue Amsterdam 2023">
+    <meta name="twitter:description" content="C’est dans le Theater Amsterdam que se sont déroulés ces deux jours de VueJS Amsterdam, événement faisant partie de la JSWorld Conference, durant toute la se...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/2023-03-31-retour-vue-amsterdam-2023/vue_amsterdam_logo.jpeg">
+    <meta name="twitter:image:alt" content="Retour Conférence Vue Amsterdam 2023">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Retour Conférence Vue Amsterdam 2023 " aria-label="Retour Conférence Vue Amsterdam 2023" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Retour+Conf%C3%A9rence+Vue+Amsterdam+2023" class="title">Retour Conférence Vue Amsterdam 2023</h1>
+      <div class="post-info">
+
+  <p class="meta">
+    
+    December 
+  </p>
+</div>
+
+
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>C’est dans le Theater Amsterdam que se sont déroulés ces deux jours de VueJS Amsterdam, événement faisant partie de la JSWorld Conference, durant toute la semaine.</p>
+
+<p>De nombreux sponsors étaient là pour l’occasion, ainsi que des écoles comme VueMastery ou VueSchool (proposant une toute nouvelle certification Vue), et des partenaires plus connus comme Storyblok ou Nuxt Labs.</p>
+
+<p><img src="/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-002.jpg" alt="2023-03-31-retour-vue-amsterdam-2023" /></p>
+
+<p>L’ambiance était au rendez-vous dès le début avec une conférence en musique, avec Tim Benniks guitare en main !</p>
+
+<p>Nous avons ensuite pu profiter de conférences aussi nombreuses que variées. De l’accessibilité à la gestion de l’interface en Vue du leader mondial du transport de marchandises <a href="https://www.maersk.com/fr-fr/">Maersk</a>, en passant par les tests et le guide ultime pour publier un package NPM !</p>
+
+<p>Sans oublier la grande famille Nuxt qui était (presque) au complet !</p>
+
+<p>L’ensemble des conférences est visible sur <a href="https://www.youtube.com/@JSWORLDConference">la chaîne youtube du JSWorld Conference</a>.</p>
+
+<h2 id="state-of-vuenion">State of Vuenion</h2>
+
+<p>Evan You (créateur de <a href="https://vuejs.org/">Vue</a> et <a href="https://vitejs.dev/">Vite</a>) a présenté un état des lieux et des dernières avancées de Vue, épaulé par Alex Kyriakidis (fondateur de <a href="https://vueschool.io/">VueSchool</a>).</p>
+
+<p><img src="/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-003.jpg" alt="2023-03-31-retour-vue-amsterdam-2023" /></p>
+
+<p>Commençant par un retour sur les nombreuses nouveautés de ces trois dernières années, pour les plus connues Vue 3, Vite, Vitest et Pinia, Evan a d’abord fait un focus sur la position de Vue 3 en tant que version par défaut depuis le 7 février 2022.</p>
+
+<p>Il a aussi évoqué les avancées relatives à Vue 2.7 (dont l’intégration de la Composition API, du v-bind CSS, etc.) permettant de rapprocher les expériences développeurs entre Vue 2 et Vue 3.</p>
+
+<p>Evan a ensuite présenté les derniers travaux sur la version core de Vue en version 3. Principalement orientés sur des améliorations concernant la facilité d’utilisation, l’accélération des tests (avec Vitest) ainsi que la vitesse de build (avec Rollup).</p>
+
+<p>Enfin, Evan a présenté les projets à venir pour le core. La disparition de la Reactivity Transform jugée trop risquée, l’amélioration du server side rendering et la création d’un “vapor mode”, une nouvelle manière de compiler les Single Files Components en optimisant l’utilisation d’un Virtual DOM. Ce dernier permet d’approcher la vitesse de compilation d’une application en JS vanilla, en gardant la puissance du framework !</p>
+
+<blockquote>
+  <p>📺 <a href="https://www.youtube.com/watch?v=I5mGNB-4f0o">Conférence sur Youtube</a></p>
+</blockquote>
+
+<h2 id="la-fin-de-vie-de-vue-2">La fin de vie de Vue 2</h2>
+
+<p><img src="/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-end-of-vue2.JPG" alt="2023-03-31-retour-vue-amsterdam-2023" /></p>
+
+<p>Après avoir présenté l’état de l’écosystème qui gravite autour de Vue et Vite lors de sa conférence “State of the Vuenion 2023”, Evan You a terminé en dévoilant la date de fin de vie de Vue 2 au 31 décembre 2023.</p>
+
+<p>Après cette date, la version arrêtera de recevoir des mises à jour ; il sera néanmoins possible de bénéficier de mise à jour payante, bien qu’il soit vivement conseillé de migrer vers la dernière version du framework.</p>
+
+<p>Une <a href="https://v2.vuejs.org/lts/">page dans la documentation</a> a été mise en place, présentant les options qui s’offrent aux développeurs et aux organismes qui n’ont pas encore migré leurs applications.</p>
+
+<h2 id="il-était-une-fois-histoire">Il était une fois… Histoire</h2>
+
+<p><img src="/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-histoire.JPG" alt="2023-03-31-retour-vue-amsterdam-2023" /></p>
+
+<p>Guillaume Chau, un des membres de l’équipe de développement de Vue, a présenté l’outil <a href="https://histoire.dev/">Histoire</a> durant une petite demi-heure.</p>
+
+<p>L’outil est dans la même veine que Storybook. La plupart du temps, il sert à afficher et documenter des composants d’un design system en complète isolation.</p>
+
+<p>Contrairement à d’autres outils, Histoire est pensé pour s’intégrer parfaitement dans son environnement de développement, de façon à ce que l’écriture des “stories” s’apparente le plus possible à l’écriture et à l’utilisation native de composants Vue.</p>
+
+<p>Histoire utilise <a href="https://vitejs.dev/">Vite</a> ce qui lui permet de s’intégrer dans un projet qui l’utilise déjà avec très peu de configurations supplémentaires.</p>
+
+<blockquote>
+  <p>📺 <a href="https://www.youtube.com/watch?v=Q8LeAg-9ngs">Conférence sur Youtube</a></p>
+</blockquote>
+
+<h2 id="une-autre-histoire-de-migration-">Une autre histoire de… migration !</h2>
+
+<p><img src="/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-migration-vue3.JPG" alt="2023-03-31-retour-vue-amsterdam-2023" /></p>
+
+<p>La société <a href="https://www.maersk.com/fr-fr/">Maersk</a>, spécialiste dans la logistique des transports, nous a présenté son application destinée entre autres, à la gestion des conteneurs maritimes. Une occasion pour nous faire part de leur processus de migration de Vue 2 vers Vue 3 !</p>
+
+<p>Réalisant la même migration de version à <a href="https://bedrockstreaming.com/">Bedrock Streaming</a> sur la partie backoffice, nous constatons que nous partageons beaucoup de similitudes !</p>
+
+<p>Vous trouverez un article dédié sur la migration Vue 2 vers Vue 3 à Bedrock en suivant ce <a href="https://tech.bedrockstreaming.com/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique-et-seule-une-approche-progressive-et-incrementale-etait-viable.html">lien</a> ! 🎉</p>
+
+<blockquote>
+  <p>📺 <a href="https://www.youtube.com/watch?v=93KdAJ8sSjM">Conférence sur Youtube</a></p>
+</blockquote>
+
+<h2 id="lets-build-a-virtual-dom">“Let’s Build A Virtual DOM”</h2>
+
+<p><img src="/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-virtual-dom.jpg" alt="2023-03-31-retour-vue-amsterdam-2023" /></p>
+
+<p>Certaines conférences étaient aussi l’occasion de rappeler des fondamentaux. Beaucoup de développeurs sont conscients que Vue utilise un système de DOM virtuel pour générer ses pages mais peu savent vraiment ce que cela signifie.</p>
+
+<p>La conférence de Marc Backes a permis de démystifier cela en développant sur scène un DOM virtuel simple à travers plusieurs cas pratiques.</p>
+
+<p>Ce dernier a d’ailleurs publié le code écrit sur son Github : https://github.com/themarcba/vue-vdom.</p>
+
+<blockquote>
+  <p>📺 <a href="https://www.youtube.com/watch?v=Pf-N8WGu7iQ">Conférence sur Youtube</a></p>
+</blockquote>
+
+<h2 id="le-guide-complet-du-packaging-des-librairies">Le guide complet du packaging des librairies</h2>
+
+<p><img src="/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-packaging.jpg" alt="2023-03-31-retour-vue-amsterdam-2023" /></p>
+
+<p>Cette conférence était présentée par Bjorn Lu (core team member de Astro, Vite et Svelte), et expliquait comment créer un package d’une librairie et le publier “presque” sans peine.</p>
+
+<p>En prenant l’exemple d’une librairie extrêmement simple, proposant une fonction d’addition, Bjorn a parcouru les étapes de la création de ce package progressivement, en prenant en compte le fonctionnement d’ESModules, l’ajout du typage, puis le support de CommonJS pour les utilisations sur des anciennes versions de node et de l’export en parallèle des version ESM et CJS.</p>
+
+<p>Il présente ensuite les outils de build les plus courants ainsi que quelques outsiders, puis prend l’exemple de <a href="https://github.com/egoist/tsup">Tsup</a> pour montrer une commande de build.</p>
+
+<p>Une solution intéressante pour typer utilisant JSDoc et simplifiant beaucoup les étapes du build completera sa conférence, 
+pour enfin terminer par une série d’outils et de “do and don’t” très pratiques dont <a href="https://publint.dev/">publint.dev</a> fait parti.</p>
+
+<blockquote>
+  <p>📺 <a href="https://www.youtube.com/watch?v=bzYFCDz817I">Conférence sur Youtube</a></p>
+</blockquote>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p><img src="/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-bedrock-team.JPG" alt="2023-03-31-retour-vue-amsterdam-2023" /></p>
+
+<p>Ce séjour à Amsterdam pour assister à cette conférence de deux jours a été enrichissant à bien des égards.
+Non seulement la ville est belle et agréable à visiter, mais la découverte d’outils prometteurs répondant à nos besoins a également été un véritable apport pour notre entreprise.</p>
+
+<h2 id="pour-en-découvrir-plus">Pour en découvrir plus</h2>
+
+<ul>
+  <li><a href="https://vuejs.amsterdam/">Site VueJS Amsterdam</a></li>
+  <li><a href="https://www.facebook.com/media/set/?vanity=jsworldconf&amp;set=a.687856240008465">Gallerie photos</a></li>
+  <li><a href="https://www.youtube.com/@JSWORLDConference/videos">Replay des conférences sur Youtube</a></li>
+</ul>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Retour+Conf%C3%A9rence+Vue+Amsterdam+2023%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2023%2F03%2F31%2Fretour-vue-amsterdam-2023.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2023/03/31/retour-vue-amsterdam-2023.html&title=Retour+Conf%C3%A9rence+Vue+Amsterdam+2023%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2023/03/31/retour-vue-amsterdam-2023.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Retour Conférence Vue Amsterdam 2023%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2023/03/31/retour-vue-amsterdam-2023.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#Node">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Node</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#TypeScript">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> TypeScript</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#Vitest">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Vitest</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#developer">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> developer</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#javascript">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#node">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> node</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#pinia">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> pinia</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#vite">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> vite</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#vue">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> vue</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#vuex">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> vuex</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Bedrock au Kubernetes Community Days France 2023" href="/2023/04/03/kubernetes-community-days.html">
+            <p>Previous post</p>
+            Bedrock au Kubernetes Community Days France 2023
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique" href="/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique-et-seule-une-approche-progressive-et-incrementale-etait-viable.html">
+            <p>Next post</p>
+            De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

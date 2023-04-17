@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-04-03T07:46:46+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock au Kubernetes Community Days France 2023</title><link href="https://tech.bedrockstreaming.com/2023/04/03/kubernetes-community-days.html" rel="alternate" type="text/html" title="Bedrock au Kubernetes Community Days France 2023" /><published>2023-04-03T00:00:00+00:00</published><updated>2023-04-03T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/04/03/kubernetes-community-days</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/04/03/kubernetes-community-days.html">&lt;p&gt;&lt;strong&gt;La première édition de KCD (Kubernetes Community Days) en France s’est déroulée le 7 mars au Centre Pompidou et rassemblant près de 1000 participants pour une belle journée de conférences.&lt;/strong&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-04-17T14:33:40+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock au Kubernetes Community Days France 2023</title><link href="https://tech.bedrockstreaming.com/2023/04/03/kubernetes-community-days.html" rel="alternate" type="text/html" title="Bedrock au Kubernetes Community Days France 2023" /><published>2023-04-03T00:00:00+00:00</published><updated>2023-04-03T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/04/03/kubernetes-community-days</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/04/03/kubernetes-community-days.html">&lt;p&gt;&lt;strong&gt;La première édition de KCD (Kubernetes Community Days) en France s’est déroulée le 7 mars au Centre Pompidou et rassemblant près de 1000 participants pour une belle journée de conférences.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/2023-kcd-france/centre-pompidou.png&quot; alt=&quot;&amp;quot;Accueil centre Pompidou&amp;quot;&quot; /&gt;&lt;/p&gt;
 
@@ -98,7 +98,123 @@ La première infrastructure était managée via Ansible, ils utilisaient Traefik
 
 &lt;p&gt;La majorité de conférences auxquelles j’ai assisté étaient des retours d’expérience. C’était particulièrement intéressant car en plus de la présentation d’une technologie, nous avons un retour détaillé sur l’usage de cette dernière.&lt;/p&gt;
 
-&lt;p&gt;Merci à tout les speakers pour leur partage de connaissances et aux organisateurs de KCD France.&lt;/p&gt;</content><author><name>Christian VAN DER ZWAARD</name></author><category term="kubernetes" /><category term="cloud" /><category term="devops" /><category term="opensource" /><category term="community" /><category term="conference" /><category term="rex" /><summary type="html">La première édition de KCD (Kubernetes Community Days) en France s’est déroulée le 7 mars au Centre Pompidou et rassemblant près de 1000 participants pour une belle journée de conférences.</summary></entry><entry><title type="html">De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique</title><link href="https://tech.bedrockstreaming.com/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique-et-seule-une-approche-progressive-et-incrementale-etait-viable.html" rel="alternate" type="text/html" title="De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique" /><published>2023-03-25T00:00:00+00:00</published><updated>2023-03-25T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique-%E2%80%94-et-seule-une-approche-progressive-et-incrementale-etait-viable</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique-et-seule-une-approche-progressive-et-incrementale-etait-viable.html">&lt;p&gt;Difficile de faire évoluer des applications et améliorer une stack si l’ensemble est basé sur une version obsolète de Node.js… Dans cet article, nous verrons comment nous avons réussi à migrer vers une version récente et maintenue de Node.js grâce à une approche progressive et incrémentale.&lt;/p&gt;
+&lt;p&gt;Merci à tout les speakers pour leur partage de connaissances et aux organisateurs de KCD France.&lt;/p&gt;</content><author><name>Christian VAN DER ZWAARD</name></author><category term="kubernetes" /><category term="cloud" /><category term="devops" /><category term="opensource" /><category term="community" /><category term="conference" /><category term="rex" /><summary type="html">La première édition de KCD (Kubernetes Community Days) en France s’est déroulée le 7 mars au Centre Pompidou et rassemblant près de 1000 participants pour une belle journée de conférences.</summary></entry><entry><title type="html">Retour Conférence Vue Amsterdam 2023</title><link href="https://tech.bedrockstreaming.com/2023/03/31/retour-vue-amsterdam-2023.html" rel="alternate" type="text/html" title="Retour Conférence Vue Amsterdam 2023" /><published>2023-03-31T00:00:00+00:00</published><updated>2023-03-31T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/03/31/retour-vue-amsterdam-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/03/31/retour-vue-amsterdam-2023.html">&lt;p&gt;C’est dans le Theater Amsterdam que se sont déroulés ces deux jours de VueJS Amsterdam, événement faisant partie de la JSWorld Conference, durant toute la semaine.&lt;/p&gt;
+
+&lt;p&gt;De nombreux sponsors étaient là pour l’occasion, ainsi que des écoles comme VueMastery ou VueSchool (proposant une toute nouvelle certification Vue), et des partenaires plus connus comme Storyblok ou Nuxt Labs.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-002.jpg&quot; alt=&quot;2023-03-31-retour-vue-amsterdam-2023&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;L’ambiance était au rendez-vous dès le début avec une conférence en musique, avec Tim Benniks guitare en main !&lt;/p&gt;
+
+&lt;p&gt;Nous avons ensuite pu profiter de conférences aussi nombreuses que variées. De l’accessibilité à la gestion de l’interface en Vue du leader mondial du transport de marchandises &lt;a href=&quot;https://www.maersk.com/fr-fr/&quot;&gt;Maersk&lt;/a&gt;, en passant par les tests et le guide ultime pour publier un package NPM !&lt;/p&gt;
+
+&lt;p&gt;Sans oublier la grande famille Nuxt qui était (presque) au complet !&lt;/p&gt;
+
+&lt;p&gt;L’ensemble des conférences est visible sur &lt;a href=&quot;https://www.youtube.com/@JSWORLDConference&quot;&gt;la chaîne youtube du JSWorld Conference&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;state-of-vuenion&quot;&gt;State of Vuenion&lt;/h2&gt;
+
+&lt;p&gt;Evan You (créateur de &lt;a href=&quot;https://vuejs.org/&quot;&gt;Vue&lt;/a&gt; et &lt;a href=&quot;https://vitejs.dev/&quot;&gt;Vite&lt;/a&gt;) a présenté un état des lieux et des dernières avancées de Vue, épaulé par Alex Kyriakidis (fondateur de &lt;a href=&quot;https://vueschool.io/&quot;&gt;VueSchool&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-003.jpg&quot; alt=&quot;2023-03-31-retour-vue-amsterdam-2023&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Commençant par un retour sur les nombreuses nouveautés de ces trois dernières années, pour les plus connues Vue 3, Vite, Vitest et Pinia, Evan a d’abord fait un focus sur la position de Vue 3 en tant que version par défaut depuis le 7 février 2022.&lt;/p&gt;
+
+&lt;p&gt;Il a aussi évoqué les avancées relatives à Vue 2.7 (dont l’intégration de la Composition API, du v-bind CSS, etc.) permettant de rapprocher les expériences développeurs entre Vue 2 et Vue 3.&lt;/p&gt;
+
+&lt;p&gt;Evan a ensuite présenté les derniers travaux sur la version core de Vue en version 3. Principalement orientés sur des améliorations concernant la facilité d’utilisation, l’accélération des tests (avec Vitest) ainsi que la vitesse de build (avec Rollup).&lt;/p&gt;
+
+&lt;p&gt;Enfin, Evan a présenté les projets à venir pour le core. La disparition de la Reactivity Transform jugée trop risquée, l’amélioration du server side rendering et la création d’un “vapor mode”, une nouvelle manière de compiler les Single Files Components en optimisant l’utilisation d’un Virtual DOM. Ce dernier permet d’approcher la vitesse de compilation d’une application en JS vanilla, en gardant la puissance du framework !&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;📺 &lt;a href=&quot;https://www.youtube.com/watch?v=I5mGNB-4f0o&quot;&gt;Conférence sur Youtube&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;la-fin-de-vie-de-vue-2&quot;&gt;La fin de vie de Vue 2&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-end-of-vue2.JPG&quot; alt=&quot;2023-03-31-retour-vue-amsterdam-2023&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Après avoir présenté l’état de l’écosystème qui gravite autour de Vue et Vite lors de sa conférence “State of the Vuenion 2023”, Evan You a terminé en dévoilant la date de fin de vie de Vue 2 au 31 décembre 2023.&lt;/p&gt;
+
+&lt;p&gt;Après cette date, la version arrêtera de recevoir des mises à jour ; il sera néanmoins possible de bénéficier de mise à jour payante, bien qu’il soit vivement conseillé de migrer vers la dernière version du framework.&lt;/p&gt;
+
+&lt;p&gt;Une &lt;a href=&quot;https://v2.vuejs.org/lts/&quot;&gt;page dans la documentation&lt;/a&gt; a été mise en place, présentant les options qui s’offrent aux développeurs et aux organismes qui n’ont pas encore migré leurs applications.&lt;/p&gt;
+
+&lt;h2 id=&quot;il-était-une-fois-histoire&quot;&gt;Il était une fois… Histoire&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-histoire.JPG&quot; alt=&quot;2023-03-31-retour-vue-amsterdam-2023&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Guillaume Chau, un des membres de l’équipe de développement de Vue, a présenté l’outil &lt;a href=&quot;https://histoire.dev/&quot;&gt;Histoire&lt;/a&gt; durant une petite demi-heure.&lt;/p&gt;
+
+&lt;p&gt;L’outil est dans la même veine que Storybook. La plupart du temps, il sert à afficher et documenter des composants d’un design system en complète isolation.&lt;/p&gt;
+
+&lt;p&gt;Contrairement à d’autres outils, Histoire est pensé pour s’intégrer parfaitement dans son environnement de développement, de façon à ce que l’écriture des “stories” s’apparente le plus possible à l’écriture et à l’utilisation native de composants Vue.&lt;/p&gt;
+
+&lt;p&gt;Histoire utilise &lt;a href=&quot;https://vitejs.dev/&quot;&gt;Vite&lt;/a&gt; ce qui lui permet de s’intégrer dans un projet qui l’utilise déjà avec très peu de configurations supplémentaires.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;📺 &lt;a href=&quot;https://www.youtube.com/watch?v=Q8LeAg-9ngs&quot;&gt;Conférence sur Youtube&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;une-autre-histoire-de-migration-&quot;&gt;Une autre histoire de… migration !&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-migration-vue3.JPG&quot; alt=&quot;2023-03-31-retour-vue-amsterdam-2023&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;La société &lt;a href=&quot;https://www.maersk.com/fr-fr/&quot;&gt;Maersk&lt;/a&gt;, spécialiste dans la logistique des transports, nous a présenté son application destinée entre autres, à la gestion des conteneurs maritimes. Une occasion pour nous faire part de leur processus de migration de Vue 2 vers Vue 3 !&lt;/p&gt;
+
+&lt;p&gt;Réalisant la même migration de version à &lt;a href=&quot;https://bedrockstreaming.com/&quot;&gt;Bedrock Streaming&lt;/a&gt; sur la partie backoffice, nous constatons que nous partageons beaucoup de similitudes !&lt;/p&gt;
+
+&lt;p&gt;Vous trouverez un article dédié sur la migration Vue 2 vers Vue 3 à Bedrock en suivant ce &lt;a href=&quot;https://tech.bedrockstreaming.com/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique-et-seule-une-approche-progressive-et-incrementale-etait-viable.html&quot;&gt;lien&lt;/a&gt; ! 🎉&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;📺 &lt;a href=&quot;https://www.youtube.com/watch?v=93KdAJ8sSjM&quot;&gt;Conférence sur Youtube&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;lets-build-a-virtual-dom&quot;&gt;“Let’s Build A Virtual DOM”&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-virtual-dom.jpg&quot; alt=&quot;2023-03-31-retour-vue-amsterdam-2023&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Certaines conférences étaient aussi l’occasion de rappeler des fondamentaux. Beaucoup de développeurs sont conscients que Vue utilise un système de DOM virtuel pour générer ses pages mais peu savent vraiment ce que cela signifie.&lt;/p&gt;
+
+&lt;p&gt;La conférence de Marc Backes a permis de démystifier cela en développant sur scène un DOM virtuel simple à travers plusieurs cas pratiques.&lt;/p&gt;
+
+&lt;p&gt;Ce dernier a d’ailleurs publié le code écrit sur son Github : https://github.com/themarcba/vue-vdom.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;📺 &lt;a href=&quot;https://www.youtube.com/watch?v=Pf-N8WGu7iQ&quot;&gt;Conférence sur Youtube&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;le-guide-complet-du-packaging-des-librairies&quot;&gt;Le guide complet du packaging des librairies&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-packaging.jpg&quot; alt=&quot;2023-03-31-retour-vue-amsterdam-2023&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Cette conférence était présentée par Bjorn Lu (core team member de Astro, Vite et Svelte), et expliquait comment créer un package d’une librairie et le publier “presque” sans peine.&lt;/p&gt;
+
+&lt;p&gt;En prenant l’exemple d’une librairie extrêmement simple, proposant une fonction d’addition, Bjorn a parcouru les étapes de la création de ce package progressivement, en prenant en compte le fonctionnement d’ESModules, l’ajout du typage, puis le support de CommonJS pour les utilisations sur des anciennes versions de node et de l’export en parallèle des version ESM et CJS.&lt;/p&gt;
+
+&lt;p&gt;Il présente ensuite les outils de build les plus courants ainsi que quelques outsiders, puis prend l’exemple de &lt;a href=&quot;https://github.com/egoist/tsup&quot;&gt;Tsup&lt;/a&gt; pour montrer une commande de build.&lt;/p&gt;
+
+&lt;p&gt;Une solution intéressante pour typer utilisant JSDoc et simplifiant beaucoup les étapes du build completera sa conférence, 
+pour enfin terminer par une série d’outils et de “do and don’t” très pratiques dont &lt;a href=&quot;https://publint.dev/&quot;&gt;publint.dev&lt;/a&gt; fait parti.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;📺 &lt;a href=&quot;https://www.youtube.com/watch?v=bzYFCDz817I&quot;&gt;Conférence sur Youtube&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-bedrock-team.JPG&quot; alt=&quot;2023-03-31-retour-vue-amsterdam-2023&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ce séjour à Amsterdam pour assister à cette conférence de deux jours a été enrichissant à bien des égards.
+Non seulement la ville est belle et agréable à visiter, mais la découverte d’outils prometteurs répondant à nos besoins a également été un véritable apport pour notre entreprise.&lt;/p&gt;
+
+&lt;h2 id=&quot;pour-en-découvrir-plus&quot;&gt;Pour en découvrir plus&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://vuejs.amsterdam/&quot;&gt;Site VueJS Amsterdam&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.facebook.com/media/set/?vanity=jsworldconf&amp;amp;set=a.687856240008465&quot;&gt;Gallerie photos&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/@JSWORLDConference/videos&quot;&gt;Replay des conférences sur Youtube&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>[&quot;pl_perez&quot;, &quot;l_penaguin&quot;, &quot;c_berard&quot;]</name></author><category term="node" /><category term="Node" /><category term="vue" /><category term="vuex" /><category term="pinia" /><category term="vite" /><category term="Vitest" /><category term="TypeScript" /><category term="developer" /><category term="javascript" /><summary type="html">C’est dans le Theater Amsterdam que se sont déroulés ces deux jours de VueJS Amsterdam, événement faisant partie de la JSWorld Conference, durant toute la semaine.</summary></entry><entry><title type="html">De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique</title><link href="https://tech.bedrockstreaming.com/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique-et-seule-une-approche-progressive-et-incrementale-etait-viable.html" rel="alternate" type="text/html" title="De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique" /><published>2023-03-25T00:00:00+00:00</published><updated>2023-03-25T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique-%E2%80%94-et-seule-une-approche-progressive-et-incrementale-etait-viable</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique-et-seule-une-approche-progressive-et-incrementale-etait-viable.html">&lt;p&gt;Difficile de faire évoluer des applications et améliorer une stack si l’ensemble est basé sur une version obsolète de Node.js… Dans cet article, nous verrons comment nous avons réussi à migrer vers une version récente et maintenue de Node.js grâce à une approche progressive et incrémentale.&lt;/p&gt;
 
 &lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#contexte-général-et-fonctionnel&quot; id=&quot;markdown-toc-contexte-général-et-fonctionnel&quot;&gt;Contexte général et fonctionnel&lt;/a&gt;&lt;/li&gt;
@@ -1199,255 +1315,4 @@ In a context of scaling and of scarcity of resources, the scheduler will evict p
 &lt;p&gt;&lt;a href=&quot;https://github.com/IBM/varnish-operator&quot;&gt;The Github project&lt;/a&gt; is still young and lacks important features, we hope with this article to help draw attention to this project and potential contributors.&lt;/p&gt;
 
 &lt;center&gt;&lt;img alt=&quot;meme-contribute-pls&quot; src=&quot;/images/posts/2022-12-23-varnish-operator/image6.jpg&quot; /&gt;&lt;/center&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name>Arthur Zinck</name></author><category term="on-premise" /><category term="cloud" /><category term="cdn" /><category term="varnish" /><category term="aws" /><category term="cloud" /><category term="fastly" /><category term="varnish-operator" /><category term="cloudfront" /><category term="alb" /><summary type="html">At Bedrock we use Cloudfront or Fastly for two different reason. To protect our applications from potential Distributed Denial of Service Attack. And to provide a layer of cache in front of our applications. No need to go down to the app for an easily cacheable response.</summary></entry><entry><title type="html">Ce que nous retenons de la droidcon London 2022</title><link href="https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022.html" rel="alternate" type="text/html" title="Ce que nous retenons de la droidcon London 2022" /><published>2022-11-22T00:00:00+00:00</published><updated>2022-11-22T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022.html">&lt;p&gt;La communauté Android a apporté le soleil sur Londres les 27 et 28 octobre 2022. La droidcon London a réuni plus de 1400 développeurs autour de l’écosystème Android, de ses outils et enjeux actuels. Jetpack Compose, évidemment, mais aussi Gradle, modularisation, optimisation et autres sujets plus divers ont été abordés lors de ce rendez-vous incontournable pour la communauté.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-11-22-droidcon-london/entrance.jpg&quot; alt=&quot;droidcon London 2022 entrance&quot; /&gt;&lt;/p&gt;
-
-&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#ça-compile----rafi-panoyan&quot; id=&quot;markdown-toc-ça-compile----rafi-panoyan&quot;&gt;Ça compile ? - Rafi Panoyan&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#vous-reprendrez-bien-un-peu-de-gradle-enterprise-&quot; id=&quot;markdown-toc-vous-reprendrez-bien-un-peu-de-gradle-enterprise-&quot;&gt;Vous reprendrez bien un peu de Gradle Enterprise ?&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#dessine-moi-un-module&quot; id=&quot;markdown-toc-dessine-moi-un-module&quot;&gt;&lt;em&gt;Dessine-moi un module&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#trucs-et-astuces&quot; id=&quot;markdown-toc-trucs-et-astuces&quot;&gt;Trucs et astuces&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#design-the-world---damien-cuny&quot; id=&quot;markdown-toc-design-the-world---damien-cuny&quot;&gt;Design the world - Damien Cuny&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#to-compose&quot; id=&quot;markdown-toc-to-compose&quot;&gt;To Compose&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#design-system&quot; id=&quot;markdown-toc-design-system&quot;&gt;Design System&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#vers-linfini-et-au-delà&quot; id=&quot;markdown-toc-vers-linfini-et-au-delà&quot;&gt;Vers l’infini et au-delà&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#la-gestion-des-erreurs---david-yim&quot; id=&quot;markdown-toc-la-gestion-des-erreurs---david-yim&quot;&gt;&lt;strong&gt;La gestion des erreurs&lt;/strong&gt; - David Yim&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#vérification-des-entrées&quot; id=&quot;markdown-toc-vérification-des-entrées&quot;&gt;Vérification des entrées&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#le-type-either&quot; id=&quot;markdown-toc-le-type-either&quot;&gt;Le type Either&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#kotlin-result&quot; id=&quot;markdown-toc-kotlin-result&quot;&gt;Kotlin Result&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#conclusion&quot; id=&quot;markdown-toc-conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#à-la-prochaine-&quot; id=&quot;markdown-toc-à-la-prochaine-&quot;&gt;À la prochaine !&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;ça-compile----rafi-panoyan&quot;&gt;Ça compile ? - Rafi Panoyan&lt;/h2&gt;
-
-&lt;p&gt;Les sujets de compilation ont tenu une place très importante lors de cette édition de la droidcon Londres 2022. 
-Qu’il s’agisse d’optimiser ses temps de compilation, de repenser la création de modules et des dépendances entre eux, de factoriser les logiques des scripts de compilation, 
-nous avons eu une emphase claire sur l’importance d’adresser ces sujets.&lt;/p&gt;
-
-&lt;h3 id=&quot;vous-reprendrez-bien-un-peu-de-gradle-enterprise-&quot;&gt;Vous reprendrez bien un peu de Gradle Enterprise ?&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/nellyspageli&quot;&gt;Nelson Osacky&lt;/a&gt;, qui travaille chez Gradle, a présenté tous les outils que la formule &lt;a href=&quot;https://gradle.com/&quot;&gt;Gradle Entreprise&lt;/a&gt; met à disposition des développeurs pour analyser en détail les compilations.&lt;/p&gt;
-
-&lt;p&gt;Vous voulez vérifier que la compilation incrémentale est bien appliquée partout où cela est possible ? Un script permet de comparer, dans des conditions reproductibles, 
-les entrées et sorties de vos builds, et analyse les tâches empêchant ce mécanisme central dans la réduction des temps de compilation.&lt;/p&gt;
-
-&lt;p&gt;Vous voulez vous assurer que Gradle est bien capable de retrouver le cache de vos tâches sur un même poste ou bien depuis le cloud ? 
-Là aussi des outils vous permettent d’identifier précisemment les points qui ne tirent pas parti de ces mécanismes.&lt;/p&gt;
-
-&lt;p&gt;On regrettera que ces outils soient disponibles uniquement pour la formule payante de Gradle. Cependant, les &lt;a href=&quot;https://scans.gradle.com/&quot;&gt;scans Gradle&lt;/a&gt; sont, eux,
-gratuits et illimités, et permettent tout de même de mesurer et comparer des compilations et ainsi suivre l’impact des différentes optimisations que vous pourriez apporter.&lt;/p&gt;
-
-&lt;h3 id=&quot;dessine-moi-un-module&quot;&gt;&lt;em&gt;Dessine-moi un module&lt;/em&gt;&lt;/h3&gt;
-
-&lt;p&gt;La modularisation ayant un impact sur les temps de compilation, plusieurs conférences ont abordé ce sujet très en vogue dans la communauté Android.&lt;/p&gt;
-
-&lt;p&gt;Un point de vue intéressant de &lt;a href=&quot;https://twitter.com/josef_raska&quot;&gt;Josef Raska&lt;/a&gt; nous invite à nous poser la question de la pertinence de modulariser selon le contexte. 
-Ne pas suivre une tendance mais se poser la question de l’utilité d’un nouveau module, et encore plus de ses dépendances avec les autres modules. 
-Voilà des propos qui invitent à mesurer concrètement l’impact du chantier de la modularisation dans nos applications.&lt;/p&gt;
-
-&lt;p&gt;Ainsi, si on peut penser que modulariser permet de réduire les temps de compilation (en tirant parti de la parallélisation des tâches par exemple), 
-un chemin de dépendances trop long entre le module initial et la dépendance la plus profonde va entraîner une augmentation du temps de compilation.&lt;/p&gt;
-
-&lt;p&gt;Vigilance, donc, sur les “hubs de dépendances” (ces dépendances dont beaucoup de modules ont besoin, et qui ont besoin de beaucoup de modules).&lt;/p&gt;
-
-&lt;figure&gt;
-  &lt;img src=&quot;/images/posts/2022-11-22-droidcon-london/dep-hub.png&quot; alt=&quot;Dependency hub&quot; /&gt;
-  &lt;figcaption&gt;1. Hub de dépendances&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;De la même manière, un chemin de dépendances de trop grande profondeur ne permettra pas de tirer parti de la parallélisation des tâches de compilation.
-Sur le schéma ci-dessous, on peut voir qu’un chemin de profondeur 4 existe pour aller du module applicatif vers le module le plus bas dans la hiérarchie.&lt;/p&gt;
-
-&lt;figure&gt;
-  &lt;img src=&quot;/images/posts/2022-11-22-droidcon-london/dep-height.png&quot; alt=&quot;Dependency height&quot; /&gt;
-  &lt;figcaption&gt;2. Profondeur de dépendances&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;Josef Raska propose le schéma suivant avec un découpage API/implémentation afin de réduire au maximum cette profondeur, et ainsi compiler plus rapidement.&lt;/p&gt;
-
-&lt;figure&gt;
-  &lt;img src=&quot;/images/posts/2022-11-22-droidcon-london/dep-height-fix.png&quot; alt=&quot;Dependency height fix&quot; /&gt;
-  &lt;figcaption&gt;3. Profondeur de dépendances réduite&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;Android Studio et son analyse de dépendances peut être très utile pour vérifier et mesurer cela.
-Josef Raska a d’ailleurs créé un plugin Gradle afin de spécifier ces règles à l’echelle d’un projet et de s’assurer qu’elles soient respectées : &lt;a href=&quot;https://github.com/jraska/modules-graph-assert&quot;&gt;modules-graph-assert&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;trucs-et-astuces&quot;&gt;Trucs et astuces&lt;/h3&gt;
-
-&lt;p&gt;Après ces conseils très avisés mais structurellement chronophages à mettre en place (surtout sur de gros projets déjà créés), d’autres conférenciers se sont plutôt tournés vers les “quick-win”. Des changements peu coûteux, aux gains plus modestes mais qui s’additionnent, il en existe quelques-uns.&lt;/p&gt;
-
-&lt;p&gt;Ainsi, si Gradle nous permet d’activer des fonctionnalités de caching (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;org.gradle.unsafe.configuration-cache=true&lt;/code&gt; pour gagner du temps lors de la phase de configuration par exemple), il est aussi possible de désactiver des fonctionnalités du plugin Android si elles ne nous sont pas utiles.&lt;/p&gt;
-
-&lt;p&gt;Voici une petite liste des propriétés qui sont activées par défaut, même lorsqu’elles ne sont pas utilisées dans les modules :&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;android {
-  buildFeatures {
-    buildConfig false
-    aidl false
-    renderScript false
-    resValues false
-    shaders false
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Si vous n’utilisez pas les valeurs liées à la configuration de votre compilation, ne générez pas de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BuildConfig&lt;/code&gt;.
-Si vous n’avez pas de resources dans votre module, désactivez la génération de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;resValue&lt;/code&gt; !&lt;/p&gt;
-
-&lt;p&gt;Retrouvez ici la liste de ces fonctionnalités, leur utilité et leurs valeurs par défaut : &lt;a href=&quot;https://developer.android.com/reference/tools/gradle-api/4.1/com/android/build/api/dsl/BuildFeatures&quot;&gt;BuildFeatures&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;design-the-world---damien-cuny&quot;&gt;Design the world - Damien Cuny&lt;/h2&gt;
-
-&lt;p&gt;Il y a un peu plus d’un an sortait la version 1.0 de &lt;a href=&quot;https://developer.android.com/jetpack/compose&quot;&gt;Jetpack Compose&lt;/a&gt;, le nouveau toolkit déclaratif pour la création d’interfaces Android. D’autre part, le design system &lt;a href=&quot;https://m3.material.io/&quot;&gt;Material Design 3&lt;/a&gt; vient de sortir en version stable et son implémentation &lt;a href=&quot;https://developer.android.com/jetpack/androidx/releases/compose-material&quot;&gt;Compose Material&lt;/a&gt; sont également disponibles.&lt;br /&gt;
-Avec tout cela, le design a, cette année encore, tenu une place de choix dans l’agenda de cette droidcon 2022 à Londres.&lt;br /&gt;
-Mais comment utiliser tout cela correctement ? Comment s’en servir pour implémenter un design system personnalisé ? Jusqu’où peut-on aller ?
-Autant de questions auxquelles ont tenté de répondre les nombreuses présentations sur le sujet.&lt;/p&gt;
-
-&lt;h3 id=&quot;to-compose&quot;&gt;To Compose&lt;/h3&gt;
-
-&lt;p&gt;Compose facilite beaucoup de choses dans l’implémentation et le maintien d’interfaces sur Android. Cependant, cela nécessite de réapprendre à faire certaines choses que l’on maîtrise déjà avec le système de &lt;a href=&quot;https://developer.android.com/reference/android/view/View&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;View&lt;/code&gt;&lt;/a&gt;.&lt;br /&gt;
-Dessiner dans un canvas en est une, et &lt;a href=&quot;https://twitter.com/hi_man_shoe&quot;&gt;Himanshu Singh&lt;/a&gt; dans sa présentation &lt;em&gt;“Composing in your canvas”&lt;/em&gt;, nous montre les pièges à éviter pour réaliser cela avec Compose.&lt;/p&gt;
-
-&lt;p&gt;La recomposition peut également être source de problèmes et de latences si Compose est mal utilisé. Dans sa présentation &lt;em&gt;“Understanding recomposition performance pitfalls”&lt;/em&gt;, &lt;a href=&quot;https://twitter.com/jossiwolf&quot;&gt;Jossi Wolf&lt;/a&gt; et &lt;a href=&quot;https://twitter.com/shikasd_&quot;&gt;Andrei Shikov&lt;/a&gt; nous donnent, à partir d’un exemple concret, les meilleures astuces pour l’utiliser à bon escient.&lt;/p&gt;
-
-&lt;h3 id=&quot;design-system&quot;&gt;Design System&lt;/h3&gt;
-
-&lt;p&gt;En faisant le parallèle avec la saga épique de JRR Tolkien, &lt;a href=&quot;https://medium.com/@danielbbeleza&quot;&gt;Daniel Beleza&lt;/a&gt;, dans sa présentation &lt;em&gt;“One design system to rule them all”&lt;/em&gt;, nous explique comment il a réussi, tout en se passant de &lt;a href=&quot;https://material.io&quot;&gt;Material design&lt;/a&gt;, à unifier et automatiser son propre design system.&lt;br /&gt;
-Cela demande, évidemment, une collaboration totale de la part de l’équipe de design, mais une fois cette intégration faite, les bénéfices et l’autonomie se ressentent de part et d’autre.&lt;br /&gt;
-Des outils tel que &lt;a href=&quot;https://www.figma.com/&quot;&gt;Figma&lt;/a&gt;, &lt;a href=&quot;https://square.github.io/kotlinpoet/&quot;&gt;Kotlin Poet&lt;/a&gt; ou des plugins Android Studio custom lui ont permis d’automatiser ensuite ce processus.&lt;/p&gt;
-
-&lt;p&gt;Material Design est un design system. Il a l’avantage d’être bien documenté, uniforme et régulièrement enrichi. De plus, il est déjà implémenté dans l’ancien système de View Android et plus récemment dans Jetpack Compose avec &lt;a href=&quot;https://developer.android.com/jetpack/androidx/releases/compose-material&quot;&gt;Compose Material&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Une des différences majeures entre Compose et le système de View sur Android est son découpage. Dans Compose, Material n’est implémenté et n’apparaît que dans la partie la plus hautes alors que dans le système de View, son implémentation est répartie dans toutes les couches de la librairie.&lt;br /&gt;
-Il est donc assez complexe de se passer de Material avec le système de View mais cela est complétement envisageable, voire recommandé, dans certains cas avec Compose.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-11-22-droidcon-london/views-vs-compose.png&quot; alt=&quot;Views VS Compose&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Pour illustrer cela &lt;a href=&quot;https://twitter.com/seebrock3r&quot;&gt;Sebastiano Poggi&lt;/a&gt; (la moitié de &lt;a href=&quot;https://www.youtube.com/c/CodewiththeItalians&quot;&gt;Coding with the italians&lt;/a&gt;) est venu nous présenter, dans &lt;em&gt;“Compose beyond Material”&lt;/em&gt;, les questions à se poser avant de se lancer dans son design system et comment le package &lt;a href=&quot;https://developer.android.com/jetpack/androidx/releases/compose-foundation&quot;&gt;Foundation&lt;/a&gt; de Compose peut nous aider.&lt;/p&gt;
-
-&lt;p&gt;Pour terminer il nous donne de nombreux conseils concrets sur l’implémentation de composants sans Material. Le principal, rejoint la présentation d’introduction de cette droidcon, &lt;em&gt;“The Silver Bullet Syndrome Director’s Cut - Complexity Strikes Back!”&lt;/em&gt;, un bon design system est un design system qui correspond à nos besoins et qui y répond le plus simplement possible.&lt;/p&gt;
-
-&lt;h3 id=&quot;vers-linfini-et-au-delà&quot;&gt;Vers l’infini et au-delà&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/chrisbanes&quot;&gt;Chris Bane&lt;/a&gt; et &lt;a href=&quot;https://twitter.com/mrmans0n&quot;&gt;Nacho Lopez&lt;/a&gt; dans leur présentation &lt;em&gt;“Branching out Jetpack Compose”&lt;/em&gt;, nous ont raconté comment l’aventure du passage à Compose s’est déroulée chez Twitter, une des premières apps à l’adopter.&lt;br /&gt;
-Avec une code base aussi conséquente (plus de &lt;strong&gt;1000 modules&lt;/strong&gt;, dont 300 pour le design, répartis sur plus de 30 équipes), ils ont dû progressivement convaincre les équipes, les former et les accompagner.&lt;br /&gt;
-La question de continuer à utiliser Material Design s’est également posée chez eux. Ils l’ont dans un premier temps conservé pour faciliter le passage sur Compose, pour finalement le retirer complètement en se basant, eux aussi, sur le package Foundation.&lt;br /&gt;
-Leur présentation résume bien l’ensemble des étapes et des questions par lesquelles ils sont passés pour accomplir cette transition.&lt;/p&gt;
-
-&lt;p&gt;Afin de remettre les choses en perspective, &lt;a href=&quot;https://twitter.com/askashdavies&quot;&gt;Ash Davies&lt;/a&gt; nous rappelle que Compose est un simple pattern de développement multiplateforme. De ce fait, il peux être appliqué à autre chose qu’à de l’UI comme le propose Jetpack Compose. Il nous explique dans &lt;em&gt;“Demystifying Molecule: Running Your Own Compositions For Fun And Profit”&lt;/em&gt;, comment l’appliquer à la couche domaine d’un projet pour le “Fun”.&lt;/p&gt;
-
-&lt;h2 id=&quot;la-gestion-des-erreurs---david-yim&quot;&gt;&lt;strong&gt;La gestion des erreurs&lt;/strong&gt; - David Yim&lt;/h2&gt;
-
-&lt;p&gt;La gestion des erreurs a été le sujet de plusieurs présentations à la droidcon. Ces présentations avaient pour objectif de servir de piqûre de rappel sur l’importance de bien prendre en compte ce problème concernant tous les développeurs. Aujourd’hui, nous avons tous les outils pour gérer facilement nos erreurs. Cependant, par paresse et comme nous préférons penser de manière positive, nous ne pensons souvent qu’aux cas de succès et les cas d’erreurs sont souvent brouillons voire ne sont même pas spécifiés.&lt;/p&gt;
-
-&lt;p&gt;Les speakers m’ont marqué avec un exemple de mauvaise gestion d’erreur qui a coûté plusieurs centaines de milliers de dollars. L’exemple parlait d’une faille sur le site japonais de 7-Eleven, une chaîne de supérettes, dont elle a été victime. Dans la base de données de ce projet, les développeurs ont ajouté un champ “date de naissance” comme nullable. Plus tard, ce champ est devenu non-nullable. Par paresse, le développeur qui a rendu ce champ non-nullable a mis par défaut un 1er janvier 2019 sur cette date lorsqu’elle n’était pas renseignée, simplement pour satisfaire son compilateur. Le problème est que ce champ fut plus tard utilisé dans la fonctionnalité de mot de passe oublié du site. En utilisant la date par défaut du 1er janvier 2019, un hacker a pu récupérer des comptes utilisateurs et voler des informations bancaires. Cet exemple m’a marqué par l’habitude que nous avons en tant que développeur de nous soucier que de satisfaire notre compilateur plutôt que de vraiment discuter de solutions réfléchies à nos problèmes techniques.&lt;/p&gt;
-
-&lt;p&gt;Plusieurs méthodes de gestion des erreurs existent et les speakers en ont présentés quelques-unes.&lt;/p&gt;
-
-&lt;h4 id=&quot;vérification-des-entrées&quot;&gt;Vérification des entrées&lt;/h4&gt;
-
-&lt;p&gt;L’une des méthode pour être certain de ne pas avoir de problème est de vérifier les données que l’on reçoit. Prenons un exemple simple :&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;data class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Rien n’empêche d’instancier cette classe de la manière suivante :&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Cela peut créer des problèmes par le futur, alors qu’il y a un moyen d’éviter cela&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Regex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;EMAIL_FORMAT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;matches&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Email format is not correct&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;data class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Cette méthode peut paraître un peu exagérée dans cet exemple. Mais dans un contexte où la classe &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;User&lt;/code&gt; serait utilisée par un grand nombre d’équipes et que les règles métier de l’&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Email&lt;/code&gt; serait complexe, cette méthode prendrait tout son sens pour éviter d’avoir de mauvaises surprises !&lt;/p&gt;
-
-&lt;h4 id=&quot;le-type-either&quot;&gt;Le type Either&lt;/h4&gt;
-
-&lt;p&gt;Le type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Either&lt;/code&gt; est un moyen de différencier les cas de succès des cas d’erreurs. Il est disponible dans la &lt;a href=&quot;https://arrow-kt.io/&quot;&gt;librairie Arrow&lt;/a&gt; ou facilement reproduisible :&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;sealed&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Either&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Either&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Nothing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Either&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Nothing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;L’utilisation de ce type est qu’il est soit un type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;A&lt;/code&gt;, soit un type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;B&lt;/code&gt;. On peut ainsi définir par exemple que le &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;A&lt;/code&gt; est un cas de succès et que le type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;B&lt;/code&gt; est un cas d’erreur.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;data class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;either&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Either&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;either&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Either&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Left&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nf&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;The user is called ${(either as Either.Left&amp;lt;User&amp;gt;).value.name}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Either&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Right&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;either&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Either&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;printStackTrace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Grâce à ce type, on peut par exemple savoir si un appel à une API a réussi ou non, ce qui nous permet de gérer plus facilement nos cas d’erreurs.&lt;/p&gt;
-
-&lt;h4 id=&quot;kotlin-result&quot;&gt;Kotlin Result&lt;/h4&gt;
-
-&lt;p&gt;La classe &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Result&lt;/code&gt; est similaire au type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Either&lt;/code&gt; et a pour avantage d’être directement inclue dans Kotlin et que l’on n’a pas à se synchroniser pour savoir si le côté gauche est le cas de succès ou d’erreur.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;data class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isSuccess&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nf&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;The user is called ${result.getOrNull()?.name}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isFailure&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;exceptionOrNull&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;printStackTrace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;nc&quot;&gt;OU&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onSuccess&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nf&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;The user is called ${user.name}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onFailure&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;throwable&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;throwable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;printStackTrace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;p&gt;Plusieurs méthodes existent pour prendre en compte nos cas d’erreurs. Laquelle est la meilleure ? Eh bien vous vous y attendez sûrement, mais ça dépend ! On choisira une méthode ou une autre selon ce qui nous arrange par rapport à la situation, nos choix d’outils techniques ou nos effectifs. L’important étant de prendre en compte ces cas d’erreurs et de ne pas laisser leur résolution au hasard. Les cas d’erreurs ne sont en fait que d’autres usecases de l’utilisateur et souvent ne sont pas des edgecase. Ils méritent donc d’être tout autant réfléchis et spécifiés que les cas de succès !&lt;/p&gt;
-
-&lt;h2 id=&quot;à-la-prochaine-&quot;&gt;À la prochaine !&lt;/h2&gt;
-
-&lt;p&gt;Il est toujours intéressant de mesurer l’engouement pour tel ou tel sujet dans la communauté Android en analysant les présentations lors des différentes conférences technologiques.&lt;/p&gt;
-
-&lt;p&gt;Sans aucun doute, cette droidcon était sous le signe de Jetpack Compose, qui bénéficie d’un suivi et d’un engagement fort de Google et de toute la communauté.&lt;br /&gt;
-Tout l’enjeu ici est de rester au contact des innovations et de l’évolution de la plateforme Android, et Jetpack Compose offre un défi que nous avons commencé à relever chez Bedrock.&lt;/p&gt;
-
-&lt;p&gt;Nous attendons avec impatience de voir où va Android, et avons à coeur de participer à cette aventure qui nous lie tous !&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2022-11-22-droidcon-london/hall.jpg&quot; alt=&quot;Hall droidcon London 2022&quot; /&gt;&lt;/p&gt;</content><author><name>[&quot;rpanoyan&quot;, &quot;d_yim&quot;, &quot;d_cuny&quot;]</name></author><category term="android" /><category term="droidcon" /><category term="conference" /><summary type="html">La communauté Android a apporté le soleil sur Londres les 27 et 28 octobre 2022. La droidcon London a réuni plus de 1400 développeurs autour de l’écosystème Android, de ses outils et enjeux actuels. Jetpack Compose, évidemment, mais aussi Gradle, modularisation, optimisation et autres sujets plus divers ont été abordés lors de ce rendez-vous incontournable pour la communauté.</summary></entry></feed>
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name>Arthur Zinck</name></author><category term="on-premise" /><category term="cloud" /><category term="cdn" /><category term="varnish" /><category term="aws" /><category term="cloud" /><category term="fastly" /><category term="varnish-operator" /><category term="cloudfront" /><category term="alb" /><summary type="html">At Bedrock we use Cloudfront or Fastly for two different reason. To protect our applications from potential Distributed Denial of Service Attack. And to provide a layer of cache in front of our applications. No need to go down to the app for an easily cacheable response.</summary></entry></feed>
