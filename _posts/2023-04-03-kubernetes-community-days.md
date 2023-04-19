@@ -8,7 +8,7 @@ color: rgb(251,87,66)
 thumbnail: "images/posts/2023-kcd-france/KCD_LOGO_2023-color-2000px.png"
 ---
 
-**La première édition de KCD (Kubernetes Community Days) en France s’est déroulée le 7 mars au Centre Pompidou et rassemblant près de 1000 participants pour une belle journée de conférences.**
+La première édition de KCD (Kubernetes Community Days) en France s’est déroulée le 7 mars au Centre Pompidou et rassemblant près de 1000 participants pour une belle journée de conférences.
 
 !["Accueil centre Pompidou"](/images/posts/2023-kcd-france/centre-pompidou.png)
 

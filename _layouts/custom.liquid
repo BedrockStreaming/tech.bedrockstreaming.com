@@ -8,7 +8,7 @@ layout: default
         <h1 id="{{ page.title | cgi_escape }}" class="title">{{ page.title }}</h1>
         {% endunless %}
         {% if page.is_post %}
-        {% include blog/post_info.liquid author=page.author date=page.date %}
+        {% include blog/post_info.liquid authors=page.author date=page.date %}
         {% endif %}
     </header>
     <section class="post-content">{{ content }}</section>

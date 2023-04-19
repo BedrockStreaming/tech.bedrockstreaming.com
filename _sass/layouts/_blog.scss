@@ -51,9 +51,13 @@
     display: inline-block;
     background-size: cover;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    
+    .post-link, .post-info a.author {
+      color: var(--text);
 
-    p a {
-      @extend .body-link;
+      &:hover {
+        color: var(--link);
+      }
     }
 
     .post-img {

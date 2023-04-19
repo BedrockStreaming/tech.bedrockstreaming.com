@@ -45,29 +45,25 @@ header {
   }
 }
 
-.meta {
-  color: var(--meta);
-  letter-spacing: 0.1em;
-  margin: 0;
-  text-transform: uppercase;
-}
-
-/* --- Post info --- */
 .post-info {
-  /* For border in author
-  border: 1px solid var(--border);
-  padding-left: 0.5em;
-  */
-  border-radius: 1em;
-  padding-right: 0.5em;
   display: inline-flex;
   flex-wrap: wrap;
-  a {
+  
+  .author, .publication-date {
     display: flex;
     align-items: center;
+    text-transform: uppercase;
 
-    img {
-      height: auto;
+    .thumbnail {
+      border-radius: 50%;
+      padding: 0;
+      height: 1.5em;
+      width: 1.5em;
+      margin-right: 0.5em;
+    }
+
+    .name {
+      filter: opacity(0.7);
     }
 
     &:hover {
@@ -75,12 +71,13 @@ header {
     }
   }
 
-  img {
-    border-radius: 1em;
-    padding: 0;
-    width: 1.5em;
-    height: 100%;
-    margin-right: 0.5em;
+  .publication-date {
+    filter: opacity(0.7);
+  }
+
+  .spacer {
+    padding: 0 0.5em;
+    filter: opacity(0.7);
   }
 }
 
@@ -101,9 +98,8 @@ header {
     margin-bottom: 0;
     padding: $padding-large/2.5 $padding-large;
 
-    .meta {
+    a {
       color: var(--header-text);
-      filter: opacity(0.7);
     }
   }
 
