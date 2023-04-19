@@ -75,6 +75,11 @@ header {
     }
   }
 
+  span {
+    display: flex;
+    align-items: center;
+  }
+
   img {
     border-radius: 1em;
     padding: 0;
