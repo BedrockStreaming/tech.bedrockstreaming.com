@@ -1,4 +1,109 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-04-20T09:03:19+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock au Kubernetes Community Days France 2023</title><link href="https://tech.bedrockstreaming.com/2023/04/03/kubernetes-community-days.html" rel="alternate" type="text/html" title="Bedrock au Kubernetes Community Days France 2023" /><published>2023-04-03T00:00:00+00:00</published><updated>2023-04-03T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/04/03/kubernetes-community-days</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/04/03/kubernetes-community-days.html">&lt;p&gt;La première édition de KCD (Kubernetes Community Days) en France s’est déroulée le 7 mars au Centre Pompidou et rassemblant près de 1000 participants pour une belle journée de conférences.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-04-20T15:07:30+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock à l’AWS Summit Paris 2023</title><link href="https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html" rel="alternate" type="text/html" title="Bedrock à l’AWS Summit Paris 2023" /><published>2023-04-20T00:00:00+00:00</published><updated>2023-04-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html">&lt;p&gt;L’AWS Summit Paris 2023 s’est déroulé le 4 avril. C’était pour nous l’occasion de découvrir les dernières innovations au cœur des services AWS, comme la solution d’IA d’aide au développement nommée CodeWhisperer. De plus, &lt;a href=&quot;https://twitter.com/pascal_martin&quot;&gt;Pascal Martin, Principal Engineer&lt;/a&gt;, y assistait aussi en tant que speaker pour partager notre expérience en conception et maintenance de Systèmes Distribués.
+En plus des deux points précédemment cités, nous verrons aussi comment eTF1 s’est préparé pour la Coupe du Monde de la FIFA 2022, ou de souveraineté et de son application chez AWS.&lt;/p&gt;
+
+&lt;h2 id=&quot;à-vos-côtés-pour-les-grands-moments--aws-tf1-et-la-coupe-du-monde-de-la-fifa-2022&quot;&gt;À vos côtés pour les grands moments : AWS, TF1 et la Coupe du Monde de la FIFA 2022&lt;/h2&gt;
+
+&lt;p&gt;Conférence présentée par :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Imane Zeroual - Senior Technical Account Manager, AWS&lt;/li&gt;
+  &lt;li&gt;Djamel Arichi, Head of Managed Services and Support, eTF1&lt;/li&gt;
+  &lt;li&gt;Ali Oubabiz, Head of Digital Infrastructure, eTF1&lt;/li&gt;
+  &lt;li&gt;Remy Pinsonneau, Architecte, eTF1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-etf1.jpg&quot; alt=&quot;MyTF1 rq/s pendant un match&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tech.tf1.fr/&quot;&gt;eTF1&lt;/a&gt; partage son retour d’expérience sur la Coupe du Monde de foot 2022 et les défis surmontés pour que leur plateforme de replay myTF1 propose une parfaite expérience utilisateur tout au long de l’événement.&lt;/p&gt;
+
+&lt;p&gt;La présentation, coanimée par Imane, Senior Technical Manager de chez AWS, permet aussi d’en apprendre un peu plus sur le programme IEM d’accompagnement de clients AWS lors d’événements critiques. Nous avons d’ailleurs déjà exploité ce programme chez Bedrock Streaming.
+Challenge technique pour les équipes eTF1, la Coupe du Monde de football 2022 a battu plusieurs records de la plateforme, dont des pics à plus de 2,4 Millions d’utilisateurs simultanés. L’événement a été préparé en collaboration avec les équipes d’AWS pour adapter les infrastructures à recevoir de fortes charges.&lt;/p&gt;
+
+&lt;p&gt;Trois points critiques identifiés :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Authent/backend, les millions d’utilisateurs vont s’authentifier dans une fenêtre de 15 minutes.&lt;/li&gt;
+  &lt;li&gt;Delivery vidéo, tout au long de l’événement une forte charge, constante, est attendue.&lt;/li&gt;
+  &lt;li&gt;Publicité, pic de charge très important mais ponctuel.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Des scénarios de tests de performances ont été effectués à l’aide de K6, pour chacun des points. La préproduction a servi d’environnement de test, avant d’effectuer une validation finale sur la production. Du travail a été également réalisé sur les services AWS : par exemple, les tables DynamoDB ont été basculées en OnDemand afin de profiter de l’élasticité plus rapide du service, malgré les coûts supplémentaires, comparé au mode provisionné.
+Au niveau des clusters Kubernetes, les applications ont été redimensionnées à la hausse (mémoire, cpu, HPA) pour anticiper les pics de charge et ne pas seulement se reposer sur du scaling réactif.&lt;/p&gt;
+
+&lt;p&gt;Lors de la compétition, une War Room était ouverte suivant l’importance des matchs. Elle était composée d’intervenants AWS grâce au programme IEM, de personnels techniques eTF1 et de membres du service management pour pouvoir réagir en cas d’imprévus. 
+La War Room a d’ailleurs été mise à contribution puisque la plateforme à subi des attaques DDOS pendant certains matchs. Le CDN Cloudfront et WAF ont permis de les contenir.&lt;/p&gt;
+
+&lt;p&gt;Chez Bedrock Streaming, nous étions curieux de ce retour d’expérience : nous avons préparé ce même type d’événement lors de l’Euro de football 2020. Les défis à surmonter sont les mêmes que ceux que nous avions rencontrés et nous sommes arrivés à des conclusions similaires dans nos choix techniques. Nous avions d’ailleurs développé un outil pour répondre au problème de scalabilité dans kubernetes durant l’Euro 2020 et que nous utilisons toujours aujourd’hui, &lt;a href=&quot;https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html&quot;&gt;un article de blog à ce sujet est disponible ici&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;comment-bien-débuter-avec-amazon-codewhisperer&quot;&gt;Comment bien débuter avec Amazon CodeWhisperer&lt;/h2&gt;
+
+&lt;p&gt;Conférence présentée par :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Sébastien Butreau, Senior Partner Solutions Architect, AWS&lt;/li&gt;
+  &lt;li&gt;Sébastien Grazzini, Principal Solutions Architect, AWS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-amazon-code-whisperer.jpg&quot; alt=&quot;Amazon Code Whisperer&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Amazon annonce une sortie grand public, prochaine, de son assistant de développement par IA CodeWhisperer (update: depuis, &lt;a href=&quot;https://aws.amazon.com/blogs/aws/amazon-codewhisperer-free-for-individual-use-is-now-generally-available/&quot;&gt;CodeWhisperer est passé GA&lt;/a&gt;).&lt;br /&gt;
+Nous avons eu droit à une démonstration de l’outil. En quelques minutes et seulement à l’aide de quelques commentaires, les deux présentateurs ont produit un script python capable de prendre en entrée un répertoire de photos et donner en sortie un JSON qui, pour chaque photo, donnait le nom de la célébrité présente dessus.&lt;/p&gt;
+
+&lt;p&gt;Chez Bedrock Streaming, nous pensons qu’il est très important de suivre ce nouveau tournant que prend l’aide au développement via l’IA depuis quelques mois. Nous prévoyons de tester lors de nos journées R&amp;amp;D Github Copilot et Amazon CodeWhisperer.&lt;/p&gt;
+
+&lt;p&gt;L’outil d’Amazon a quelques atouts, notamment la fonctionnalité de suivi des références qui permet de savoir si du code proposé est similaire à du code utilisé pour l’apprentissage et peut-être protégé par une licence incompatible avec notre usage. De plus, l’intégration du SDK Amazon est assez poussée et cela prend tout son sens, notamment lors du développement pour des lambdas AWS où l’outil semble très performant.&lt;/p&gt;
+
+&lt;h2 id=&quot;bienvenue-dans-le-monde-merveilleux-des-systèmes-distribués&quot;&gt;Bienvenue dans le Monde Merveilleux des Systèmes Distribués&lt;/h2&gt;
+
+&lt;p&gt;Cette année encore, nous avons eu la chance de pouvoir partager notre expérience, lors d’une conférence donnée par &lt;a href=&quot;https://twitter.com/pascal_martin&quot;&gt;Pascal&lt;/a&gt;, Principal Engineer et &lt;a href=&quot;https://aws.amazon.com/developer/community/heroes/pascal-martin/&quot;&gt;AWS Hero&lt;/a&gt; : « Bienvenue dans le Monde Merveilleux des Systèmes Distribués »&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-pascal-martin.jpg&quot; alt=&quot;Pascal Martin en action !&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Pourquoi s’embêter avec des Systèmes distribués ? Comment en tirer profit ? Quels dangers ? Scalabilité, coordination et résilience : trois grands axes pour ce talk, basé sur l’expérience acquise par les équipes Bedrock, tant infra que devs, depuis plusieurs années.&lt;/p&gt;
+
+&lt;p&gt;En tant que speaker, pouvoir partager avec notre communauté est toujours aussi agréable ! Et, dans le public, il était assez intéressant d’entendre les réactions de nos voisins lorsque Pascal racontait certaines anecdotes ou présentait certains concepts. Les problématiques que nous rencontrons dans nos métiers, nous sommes nombreux à les rencontrer, et c’est tout l’intérêt des événements comme AWS Summit : apprendre les uns des autres !&lt;/p&gt;
+
+&lt;p&gt;Cette présentation n’a malheureusement pas été enregistrée lors du Summit, mais Pascal l’a redonnée depuis à MixIT, où elle a été enregistrée – et les vidéos devraient être bientôt publiées ;-)&lt;/p&gt;
+
+&lt;h2 id=&quot;la-souveraineté-des-données-chez-aws&quot;&gt;La souveraineté des données chez AWS&lt;/h2&gt;
+
+&lt;p&gt;Une des conférences portait sur les thèmes de la Souveraineté dans le Cloud AWS et du Règlement européen Général sur la Protection des Données (RGPD). Lors de cette présentation, Stephan Hadinger (Directeur de la Technologie chez AWS) a exposé le cadre de ce règlement et sa mise en application au sein de l’infrastructure AWS. C’est cette partie qui était, d’après nous, la plus intéressante, étant donnée sa dimension technique.&lt;/p&gt;
+
+&lt;p&gt;RGPD est un regroupement de règles qui régissent et protègent les droits des résidents d’Union Européenne. Il porte sur le respect de la confidentialité et la protection des données personnelles. Toute entreprise exerçant dans l’UE y est soumise. Dans le cas présent, la RGPD couvre à la fois les clients AWS (comme Bedrock) et les utilisateurs finaux (comme les utilisateurs des services Bedrock).&lt;/p&gt;
+
+&lt;p&gt;Chez AWS, la Souveraineté est synonyme d’autonomie stratégique et s’exprime de la façon suivante :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;la possession des données clients : tous les clients AWS ont le contrôle de leurs données et applications, et nous verrons comment ;&lt;/li&gt;
+  &lt;li&gt;le choix de la localisation des données, via la possibilité d’héberger l’intégralité des données sur le territoire de son choix, en France par exemple ;&lt;/li&gt;
+  &lt;li&gt;l’accès au meilleur de la technologie, qui favorise l’innovation ;&lt;/li&gt;
+  &lt;li&gt;et la possibilité de changer de solution (pas de lock-in).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Les clients sont les seuls possesseurs de leurs données, ils en ont le contrôle total : AWS n’a aucun droit d’usage des données de leurs clients. De plus, AWS n’a pas accès aux données et ne déplace pas (géographiquement) les données de ses clients.&lt;/p&gt;
+
+&lt;p&gt;L’implémentation technique de ces concepts repose, entre autres, sur le chiffrement systématique des données. AWS Nitro est une des briques d’architecture qui en est responsable pour les EC2 (depuis 2013 pour la partie réseau). Nitro permet le chiffrement de toute la chaîne de données (réseau, volumes de stockage) et comprend plusieurs composants :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Carte Nitro dédiée au échanges externes (réseau + accès aux EBS, stockage persistant)&lt;/li&gt;
+  &lt;li&gt;Carte Nitro pour le stockage local (stockage temporaire attaché à l’hôte)&lt;/li&gt;
+  &lt;li&gt;Hyperviseur Nitro (il s’agit d’un hyperviseur basé sur linux KVM, mais grandement modifié pour les besoins, pas de sshd, pas de systemd, pas de couche réseau)&lt;/li&gt;
+  &lt;li&gt;Puce de sécurité Nitro (qui empêche le client d’avoir accès aux composants de l’hôte, procède à la mise à jour des firmwares des composants du serveur et gère le sécure boot afin de contrôler l’état des firmwares des composants avant de démarrer l’hôte).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-nitro.jpg&quot; alt=&quot;AWS Nitro&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Au delà du chiffrement dont il est principalement question ici, Nitro permet aussi de grandement augmenter les performances des EC2 en limitant l’impact de l’hyperviseur sur le CPU utilisé par les clients. Dans le cas d’une virtualisation classique, toutes les tâches listées ci-dessus sont effectuées par le processeur lui-même, grignotant ainsi de la puissance des machines. Ici, Nitro permet de décharger le CPU de ces tâches en le rendant ainsi dédié aux EC2.&lt;/p&gt;
+
+&lt;p&gt;AWS utilise aussi des solutions telles que Key Management Service (KMS) pour chiffrer les données de plus d’une centaine de ses services. Il s’agit là aussi d’un système de protection des données des utilisateurs : seul l’opérateur possédant la clé de chiffrement est capable de lire les données de ces services. 
+Une version étendue de KMS est même disponible pour les clients les plus soucieux de la protection de leurs données : &lt;a href=&quot;https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html&quot;&gt;External Key Stores&lt;/a&gt;. XKS est un dispositif physique pouvant être hébergé en dehors des locaux d’AWS. Il est même capable de se “défendre” contre les attaques physiques en procédant à l’effacement des clés lors d’une tentative d’intrusion physique. Il s’agit probablement de l’ultime implémentation de sécurité et de souveraineté chez AWS.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-souverainete-donnees.jpg&quot; alt=&quot;AWS Summit 2023 - Souveraineté des données&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Tout au long de cette conférence, on a bien senti que le but d’AWS, afin de respecter les données de ses usagers, était de faire en sorte de ne pas pouvoir accéder aux données de ses clients.&lt;/p&gt;
+
+&lt;h1 id=&quot;le-mot-de-la-fin&quot;&gt;Le mot de la fin&lt;/h1&gt;
+
+&lt;p&gt;L’AWS Summit comportait plus d’une centaine de sessions et nous avons juste eu l’occasion d’effleurer le contenu proposé lors de cette journée.&lt;/p&gt;
+
+&lt;p&gt;Nous avons commencé à &lt;a href=&quot;https://leanpub.com/6cloud&quot;&gt;migrer vers Le Cloud&lt;/a&gt; en 2018 et notre premier AWS Summit Paris était en 2019 – nous y avions d’ailleurs &lt;a href=&quot;https://www.youtube.com/watch?v=xLELSIEt2xA&amp;amp;list=PL2ime9SGTcqcJWATAbNDvSVsTQyMridf3&amp;amp;index=11&quot;&gt;déjà parlé de cette migration au cours d’un autre événement&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Depuis, que de chemin parcouru ! Cette année, nous pensions moins à Kubernetes, à DynamoDB ou aux optimisations de coûts, sur lesquels nous avons bien bossé depuis 2019. Notre attention était plus attirée vers des sujets que nous avons commencé à travailler plus récemment et où nous avons encore des challenges majeurs, comme les approches pleinement serverless ;-)&lt;/p&gt;</content><author><name>[&quot;p_martin&quot;, &quot;l_caillet&quot;, &quot;v_chabrier&quot;]</name></author><category term="kubernetes" /><category term="cloud" /><category term="devops" /><category term="opensource" /><category term="community" /><category term="conference" /><category term="aws" /><category term="summit" /><category term="paris" /><category term="2023" /><summary type="html">L’AWS Summit Paris 2023 s’est déroulé le 4 avril. C’était pour nous l’occasion de découvrir les dernières innovations au cœur des services AWS, comme la solution d’IA d’aide au développement nommée CodeWhisperer. De plus, Pascal Martin, Principal Engineer, y assistait aussi en tant que speaker pour partager notre expérience en conception et maintenance de Systèmes Distribués. En plus des deux points précédemment cités, nous verrons aussi comment eTF1 s’est préparé pour la Coupe du Monde de la FIFA 2022, ou de souveraineté et de son application chez AWS.</summary></entry><entry><title type="html">Bedrock au Kubernetes Community Days France 2023</title><link href="https://tech.bedrockstreaming.com/2023/04/03/kubernetes-community-days.html" rel="alternate" type="text/html" title="Bedrock au Kubernetes Community Days France 2023" /><published>2023-04-03T00:00:00+00:00</published><updated>2023-04-03T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/04/03/kubernetes-community-days</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/04/03/kubernetes-community-days.html">&lt;p&gt;La première édition de KCD (Kubernetes Community Days) en France s’est déroulée le 7 mars au Centre Pompidou et rassemblant près de 1000 participants pour une belle journée de conférences.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/2023-kcd-france/centre-pompidou.png&quot; alt=&quot;&amp;quot;Accueil centre Pompidou&amp;quot;&quot; /&gt;&lt;/p&gt;
 
@@ -1232,87 +1337,4 @@ Dans cet article, nous n’avons pas pu faire mention de tout ce qui nous a int�
 
 &lt;p&gt;Cette conférence était aussi l’occasion d’échanger avec l’équipe HAProxy autour de sujets techniques qui nous concernent, de voir que nous utilisions déjà certaines bonnes pratiques, mais aussi que nous avions de quoi nous améliorer.&lt;/p&gt;
 
-&lt;p&gt;Suite à cette conférence, c’est HAProxy Fusion que nous attendons le plus. Fusion s’annonce comme l’outil idéal pour manager une flotte d’HAProxy. Jusqu’à présent, nous devions utiliser une solution maison &lt;a href=&quot;https://tech.bedrockstreaming.com/2021/11/18/hsdo&quot; target=&quot;_blank&quot;&gt;HSDO&lt;/a&gt;, fonctionnelle, mais très probablement moins bien intégrée qu’un outil directement fourni par HAProxy.&lt;/p&gt;</content><author><name>Bedrock</name></author><category term="haproxy" /><category term="haproxyconf" /><category term="conference" /><summary type="html">Bedrock était présent lors de la Conférence HAProxy qui se déroulait à Paris en novembre 2022 : en tant que speaker, avec la présentation de Vincent Gallissot, mais aussi en tant que spectateur. Cet article relate les points forts qui nous ont marqués.</summary></entry><entry><title type="html">How Micro-Services changed our caching architecture</title><link href="https://tech.bedrockstreaming.com/2022/12/23/varnish-operator.html" rel="alternate" type="text/html" title="How Micro-Services changed our caching architecture" /><published>2022-12-23T00:00:00+00:00</published><updated>2022-12-23T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2022/12/23/varnish-operator</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2022/12/23/varnish-operator.html">&lt;p&gt;At Bedrock we use Cloudfront or Fastly for two different reason. To protect our applications from potential Distributed Denial of Service Attack. And to provide a layer of cache in front of our applications. No need to go down to the app for an easily cacheable response.&lt;/p&gt;
-
-&lt;center&gt;&lt;img alt=&quot;before the project&quot; src=&quot;/images/posts/2022-12-23-varnish-operator/image0.png&quot; /&gt;&lt;/center&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;At least that is what we thought in 2018 when we were migrating from on premise to the Cloud.&lt;/p&gt;
-
-&lt;p&gt;At that time we had a Varnish instance caching everything at the border  of our on premise infrastructure. All the applications were running either on virtual machines or on bare metal servers. Those applications were mostly called by the end-user’s browser. Whenever an application called another application it did it through Varnish.&lt;/p&gt;
-
-&lt;p&gt;This is ideal if applications are mostly called from the outside world. The Varnish instance caches all cacheable content, and it does not cost too much time as it was in the same Data Center.&lt;/p&gt;
-
-&lt;center&gt;&lt;img alt=&quot;historically-before-2018&quot; src=&quot;/images/posts/2022-12-23-varnish-operator/image2.png&quot; /&gt;&lt;/center&gt;
-
-&lt;p&gt;&lt;br /&gt;
-In 2023, we think otherwise. We have now a &lt;a href=&quot;https://kops.sigs.k8s.io/&quot;&gt;KOps&lt;/a&gt; managed Kubernetes cluster running on EC2 spot instances in private subnets at AWS. As we migrated to the cloud we also embarked on the journey of splitting monolith into smaller more manageable microservices.&lt;/p&gt;
-
-&lt;p&gt;With less monoliths the Bedrock product is more resilient and easier to scale but it changes the topologies of network calls. Before there were far more calls coming from the internet from end-users browsers. Now with the new architecture coming into place inter-app requests have increased.&lt;/p&gt;
-
-&lt;p&gt;One solution would be to directly call the ingress of the applications, staying inside the cluster but without the benefit of caching as it is handled by the CDN. This would lead to unsustainable increase in CPU usage, and probably very little gain in terms of response time.&lt;/p&gt;
-
-&lt;p&gt;A better solution for us would be to have the caching of CDN inside the cluster. This would enable us to have fast response time and little to no increase in CPU usage.&lt;/p&gt;
-
-&lt;h1 id=&quot;enter-varnish-operator&quot;&gt;Enter Varnish-Operator&lt;/h1&gt;
-
-&lt;p&gt;We tested the project &lt;a href=&quot;https://github.com/IBM/varnish-operator&quot;&gt;IBM/Varnish-Operator&lt;/a&gt;. This project allows us to create Custom Resources for Kubernetes handled by the Varnish-Operator. This object is called a VarnishCluster, the configuration is pretty simple to get started. This enables us to have a caching layer, between the Ingress-Controller and the Application.&lt;/p&gt;
-
-&lt;center&gt;&lt;img alt=&quot;varnishcluster&quot; src=&quot;/images/posts/2022-12-23-varnish-operator/image1.png&quot; /&gt;&lt;/center&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;VarnishCluster also uses Varnish Configuration Language (VCL) which we are pretty familiar with since we use Varnish On-Premise since 2015, and developers use it regularly to configure Fastly distribution.&lt;/p&gt;
-
-&lt;p&gt;By adding cache using VarnishCluster to an application that is not fully cacheable, we almost divided it’s average response time by two. It is not a surprise as inter api calls used to look like the following graph:&lt;/p&gt;
-&lt;center&gt;&lt;img alt=&quot;before-varnishcluster&quot; src=&quot;/images/posts/2022-12-23-varnish-operator/image3.png&quot; /&gt;&lt;/center&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;We changed parameters in the application after adding VarnishCluster so that it calls other app inside the cluster like in the following graph:&lt;/p&gt;
-&lt;center&gt;&lt;img alt=&quot;after-varnishcluster&quot; src=&quot;/images/posts/2022-12-23-varnish-operator/image4.png&quot; /&gt;&lt;/center&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;a-few-details&quot;&gt;A few details&lt;/h1&gt;
-
-&lt;p&gt;Before I wrap this up, here are a few details about the implementations.&lt;/p&gt;
-
-&lt;p&gt;As you will be able to read in the Varnish documentation:&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;“By default Varnish will use 100 megabytes of malloc(3) storage for caching objects, if you want to cache more than that, you should look at the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-s&lt;/code&gt; argument.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;So if you give many Gigs of memory to your Varnish container it won’t be attributed to the Varnish process. You can set it with the argument &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-s storage=malloc,&amp;lt;Number&amp;gt;&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;As we use only Spot nodes that can be terminated by AWS at any moment with only 2 minutes notice, we want to give more resilience to our Varnish Clusters pod as cache is stored in RAM memory.
-You lose all your cache at each restart of the Varnish Container.&lt;/p&gt;
-
-&lt;p&gt;We configured &lt;a href=&quot;https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity&quot;&gt;podAntiAffinity&lt;/a&gt; between application pods and VarnishClusters’ to avoid scheduling those pods on the same node and be vulnerable to reclaims.&lt;/p&gt;
-
-&lt;p&gt;We added a &lt;a href=&quot;https://kubernetes.io/docs/tasks/run-application/configure-pdb/&quot;&gt;podDisruptionBudget&lt;/a&gt; to avoid losing all our pods at the same time. We also customized the VCL a bit to make Varnish serve stale content in case our application is unreachable.&lt;/p&gt;
-
-&lt;p&gt;We also added a Prometheus Service Monitor to make sure all Varnish metrics would be scraped by &lt;a href=&quot;https://tech.bedrockstreaming.com/2022/09/06/monitoring-at-scale-with-victoriametrics.html&quot;&gt;Victoria Metrics&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1 id=&quot;in-the-future&quot;&gt;In the Future&lt;/h1&gt;
-
-&lt;p&gt;In next versions we would like to add the possibility to configure &lt;a href=&quot;https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/#priorityclass&quot;&gt;PriorityClass&lt;/a&gt; of VarnishClusters pod. PriorityClasses are used to order workloads priority.
-In a context of scaling and of scarcity of resources, the scheduler will evict pods of lower priority to make room for the pod it is trying to schedule.&lt;/p&gt;
-
-&lt;p&gt;For now our VarnishCluster’s pods have the PriorityClass by default but it is more critical than any other applications as it holds a cache in its memory.&lt;/p&gt;
-
-&lt;p&gt;Also we do not have logs of Varnish. We would like to be able to stream VarnishLog content into &lt;a href=&quot;https://grafana.com/oss/loki/&quot;&gt;Loki&lt;/a&gt;. This would be super useful to debug and to investigate if we ever encounter bugs or unexpected behaviors.&lt;/p&gt;
-
-&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
-&lt;center&gt;&lt;img alt=&quot;average-Response-time after apps call through VarnishCluster&quot; src=&quot;/images/posts/2022-12-23-varnish-operator/image5.png&quot; /&gt;
-&lt;p&gt;Average response time going down, red bar is when we pushed it in production&lt;/p&gt;&lt;/center&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;With the generalization of microservices, Bedrock needed to rethink its architecture to optimize not only for browser to API calls but also for more API to API usage. By adding VarnishCluster in front of our applications and calling them directly from inside the cluster we improved significantly the Bedrock product.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/IBM/varnish-operator&quot;&gt;The Github project&lt;/a&gt; is still young and lacks important features, we hope with this article to help draw attention to this project and potential contributors.&lt;/p&gt;
-
-&lt;center&gt;&lt;img alt=&quot;meme-contribute-pls&quot; src=&quot;/images/posts/2022-12-23-varnish-operator/image6.jpg&quot; /&gt;&lt;/center&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name>Arthur Zinck</name></author><category term="on-premise" /><category term="cloud" /><category term="cdn" /><category term="varnish" /><category term="aws" /><category term="cloud" /><category term="fastly" /><category term="varnish-operator" /><category term="cloudfront" /><category term="alb" /><summary type="html">At Bedrock we use Cloudfront or Fastly for two different reason. To protect our applications from potential Distributed Denial of Service Attack. And to provide a layer of cache in front of our applications. No need to go down to the app for an easily cacheable response.</summary></entry></feed>
+&lt;p&gt;Suite à cette conférence, c’est HAProxy Fusion que nous attendons le plus. Fusion s’annonce comme l’outil idéal pour manager une flotte d’HAProxy. Jusqu’à présent, nous devions utiliser une solution maison &lt;a href=&quot;https://tech.bedrockstreaming.com/2021/11/18/hsdo&quot; target=&quot;_blank&quot;&gt;HSDO&lt;/a&gt;, fonctionnelle, mais très probablement moins bien intégrée qu’un outil directement fourni par HAProxy.&lt;/p&gt;</content><author><name>Bedrock</name></author><category term="haproxy" /><category term="haproxyconf" /><category term="conference" /><summary type="html">Bedrock était présent lors de la Conférence HAProxy qui se déroulait à Paris en novembre 2022 : en tant que speaker, avec la présentation de Vincent Gallissot, mais aussi en tant que spectateur. Cet article relate les points forts qui nous ont marqués.</summary></entry></feed>

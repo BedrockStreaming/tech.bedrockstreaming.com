@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-keynote.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Bedrock à l’AWS Summit Paris 2023 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Bedrock à l’AWS Summit Paris 2023" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Notre retour sur cette édition 2023 de l’AWS Summit Paris" />
+<meta property="og:description" content="Notre retour sur cette édition 2023 de l’AWS Summit Paris" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-04-20T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Bedrock à l’AWS Summit Paris 2023" />
+<script type="application/ld+json">
+{"description":"Notre retour sur cette édition 2023 de l’AWS Summit Paris","headline":"Bedrock à l’AWS Summit Paris 2023","dateModified":"2023-04-20T00:00:00+00:00","datePublished":"2023-04-20T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Bedrock à l'AWS Summit Paris 2023">
+    <meta name="twitter:description" content="L’AWS Summit Paris 2023 s’est déroulé le 4 avril. C’était pour nous l’occasion de découvrir les dernières innovations au cœur des services AWS, comme la solu...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-keynote.jpg">
+    <meta name="twitter:image:alt" content="Bedrock à l'AWS Summit Paris 2023">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Bedrock à l'AWS Summit Paris 2023 " aria-label="Bedrock à l'AWS Summit Paris 2023" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Bedrock+%C3%A0+l%27AWS+Summit+Paris+2023" class="title">Bedrock à l'AWS Summit Paris 2023</h1>
+      <div class="post-info">
+
+
+<a
+      href="https://twitter.com/pascal_martin"
+      target="_blank"
+      rel="noopener"
+      class="author">
+
+    
+      <span class="name">
+        Pascal Martin
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+<a
+      href="https://www.linkedin.com/in/laurent-caillet/"
+      target="_blank"
+      rel="noopener"
+      class="author">
+      <img alt="Author's avatar" src="/images/avatar/l_caillet.jpg" class="thumbnail">
+    
+
+    
+      <span class="name">
+        Laurent Caillet
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+<a
+      href="https://github.com/Eriwyr"
+      target="_blank"
+      rel="noopener"
+      class="author">
+
+    
+      <span class="name">
+        Valentin Chabrier
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    April 20, 2023
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>L’AWS Summit Paris 2023 s’est déroulé le 4 avril. C’était pour nous l’occasion de découvrir les dernières innovations au cœur des services AWS, comme la solution d’IA d’aide au développement nommée CodeWhisperer. De plus, <a href="https://twitter.com/pascal_martin">Pascal Martin, Principal Engineer</a>, y assistait aussi en tant que speaker pour partager notre expérience en conception et maintenance de Systèmes Distribués.
+En plus des deux points précédemment cités, nous verrons aussi comment eTF1 s’est préparé pour la Coupe du Monde de la FIFA 2022, ou de souveraineté et de son application chez AWS.</p>
+
+<h2 id="à-vos-côtés-pour-les-grands-moments--aws-tf1-et-la-coupe-du-monde-de-la-fifa-2022">À vos côtés pour les grands moments : AWS, TF1 et la Coupe du Monde de la FIFA 2022</h2>
+
+<p>Conférence présentée par :</p>
+<ul>
+  <li>Imane Zeroual - Senior Technical Account Manager, AWS</li>
+  <li>Djamel Arichi, Head of Managed Services and Support, eTF1</li>
+  <li>Ali Oubabiz, Head of Digital Infrastructure, eTF1</li>
+  <li>Remy Pinsonneau, Architecte, eTF1</li>
+</ul>
+
+<p><img src="/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-etf1.jpg" alt="MyTF1 rq/s pendant un match" /></p>
+
+<p><a href="https://tech.tf1.fr/">eTF1</a> partage son retour d’expérience sur la Coupe du Monde de foot 2022 et les défis surmontés pour que leur plateforme de replay myTF1 propose une parfaite expérience utilisateur tout au long de l’événement.</p>
+
+<p>La présentation, coanimée par Imane, Senior Technical Manager de chez AWS, permet aussi d’en apprendre un peu plus sur le programme IEM d’accompagnement de clients AWS lors d’événements critiques. Nous avons d’ailleurs déjà exploité ce programme chez Bedrock Streaming.
+Challenge technique pour les équipes eTF1, la Coupe du Monde de football 2022 a battu plusieurs records de la plateforme, dont des pics à plus de 2,4 Millions d’utilisateurs simultanés. L’événement a été préparé en collaboration avec les équipes d’AWS pour adapter les infrastructures à recevoir de fortes charges.</p>
+
+<p>Trois points critiques identifiés :</p>
+<ul>
+  <li>Authent/backend, les millions d’utilisateurs vont s’authentifier dans une fenêtre de 15 minutes.</li>
+  <li>Delivery vidéo, tout au long de l’événement une forte charge, constante, est attendue.</li>
+  <li>Publicité, pic de charge très important mais ponctuel.</li>
+</ul>
+
+<p>Des scénarios de tests de performances ont été effectués à l’aide de K6, pour chacun des points. La préproduction a servi d’environnement de test, avant d’effectuer une validation finale sur la production. Du travail a été également réalisé sur les services AWS : par exemple, les tables DynamoDB ont été basculées en OnDemand afin de profiter de l’élasticité plus rapide du service, malgré les coûts supplémentaires, comparé au mode provisionné.
+Au niveau des clusters Kubernetes, les applications ont été redimensionnées à la hausse (mémoire, cpu, HPA) pour anticiper les pics de charge et ne pas seulement se reposer sur du scaling réactif.</p>
+
+<p>Lors de la compétition, une War Room était ouverte suivant l’importance des matchs. Elle était composée d’intervenants AWS grâce au programme IEM, de personnels techniques eTF1 et de membres du service management pour pouvoir réagir en cas d’imprévus. 
+La War Room a d’ailleurs été mise à contribution puisque la plateforme à subi des attaques DDOS pendant certains matchs. Le CDN Cloudfront et WAF ont permis de les contenir.</p>
+
+<p>Chez Bedrock Streaming, nous étions curieux de ce retour d’expérience : nous avons préparé ce même type d’événement lors de l’Euro de football 2020. Les défis à surmonter sont les mêmes que ceux que nous avions rencontrés et nous sommes arrivés à des conclusions similaires dans nos choix techniques. Nous avions d’ailleurs développé un outil pour répondre au problème de scalabilité dans kubernetes durant l’Euro 2020 et que nous utilisons toujours aujourd’hui, <a href="https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html">un article de blog à ce sujet est disponible ici</a>.</p>
+
+<h2 id="comment-bien-débuter-avec-amazon-codewhisperer">Comment bien débuter avec Amazon CodeWhisperer</h2>
+
+<p>Conférence présentée par :</p>
+<ul>
+  <li>Sébastien Butreau, Senior Partner Solutions Architect, AWS</li>
+  <li>Sébastien Grazzini, Principal Solutions Architect, AWS</li>
+</ul>
+
+<p><img src="/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-amazon-code-whisperer.jpg" alt="Amazon Code Whisperer" /></p>
+
+<p>Amazon annonce une sortie grand public, prochaine, de son assistant de développement par IA CodeWhisperer (update: depuis, <a href="https://aws.amazon.com/blogs/aws/amazon-codewhisperer-free-for-individual-use-is-now-generally-available/">CodeWhisperer est passé GA</a>).<br />
+Nous avons eu droit à une démonstration de l’outil. En quelques minutes et seulement à l’aide de quelques commentaires, les deux présentateurs ont produit un script python capable de prendre en entrée un répertoire de photos et donner en sortie un JSON qui, pour chaque photo, donnait le nom de la célébrité présente dessus.</p>
+
+<p>Chez Bedrock Streaming, nous pensons qu’il est très important de suivre ce nouveau tournant que prend l’aide au développement via l’IA depuis quelques mois. Nous prévoyons de tester lors de nos journées R&amp;D Github Copilot et Amazon CodeWhisperer.</p>
+
+<p>L’outil d’Amazon a quelques atouts, notamment la fonctionnalité de suivi des références qui permet de savoir si du code proposé est similaire à du code utilisé pour l’apprentissage et peut-être protégé par une licence incompatible avec notre usage. De plus, l’intégration du SDK Amazon est assez poussée et cela prend tout son sens, notamment lors du développement pour des lambdas AWS où l’outil semble très performant.</p>
+
+<h2 id="bienvenue-dans-le-monde-merveilleux-des-systèmes-distribués">Bienvenue dans le Monde Merveilleux des Systèmes Distribués</h2>
+
+<p>Cette année encore, nous avons eu la chance de pouvoir partager notre expérience, lors d’une conférence donnée par <a href="https://twitter.com/pascal_martin">Pascal</a>, Principal Engineer et <a href="https://aws.amazon.com/developer/community/heroes/pascal-martin/">AWS Hero</a> : « Bienvenue dans le Monde Merveilleux des Systèmes Distribués »</p>
+
+<p><img src="/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-pascal-martin.jpg" alt="Pascal Martin en action !" /></p>
+
+<p>Pourquoi s’embêter avec des Systèmes distribués ? Comment en tirer profit ? Quels dangers ? Scalabilité, coordination et résilience : trois grands axes pour ce talk, basé sur l’expérience acquise par les équipes Bedrock, tant infra que devs, depuis plusieurs années.</p>
+
+<p>En tant que speaker, pouvoir partager avec notre communauté est toujours aussi agréable ! Et, dans le public, il était assez intéressant d’entendre les réactions de nos voisins lorsque Pascal racontait certaines anecdotes ou présentait certains concepts. Les problématiques que nous rencontrons dans nos métiers, nous sommes nombreux à les rencontrer, et c’est tout l’intérêt des événements comme AWS Summit : apprendre les uns des autres !</p>
+
+<p>Cette présentation n’a malheureusement pas été enregistrée lors du Summit, mais Pascal l’a redonnée depuis à MixIT, où elle a été enregistrée – et les vidéos devraient être bientôt publiées ;-)</p>
+
+<h2 id="la-souveraineté-des-données-chez-aws">La souveraineté des données chez AWS</h2>
+
+<p>Une des conférences portait sur les thèmes de la Souveraineté dans le Cloud AWS et du Règlement européen Général sur la Protection des Données (RGPD). Lors de cette présentation, Stephan Hadinger (Directeur de la Technologie chez AWS) a exposé le cadre de ce règlement et sa mise en application au sein de l’infrastructure AWS. C’est cette partie qui était, d’après nous, la plus intéressante, étant donnée sa dimension technique.</p>
+
+<p>RGPD est un regroupement de règles qui régissent et protègent les droits des résidents d’Union Européenne. Il porte sur le respect de la confidentialité et la protection des données personnelles. Toute entreprise exerçant dans l’UE y est soumise. Dans le cas présent, la RGPD couvre à la fois les clients AWS (comme Bedrock) et les utilisateurs finaux (comme les utilisateurs des services Bedrock).</p>
+
+<p>Chez AWS, la Souveraineté est synonyme d’autonomie stratégique et s’exprime de la façon suivante :</p>
+<ul>
+  <li>la possession des données clients : tous les clients AWS ont le contrôle de leurs données et applications, et nous verrons comment ;</li>
+  <li>le choix de la localisation des données, via la possibilité d’héberger l’intégralité des données sur le territoire de son choix, en France par exemple ;</li>
+  <li>l’accès au meilleur de la technologie, qui favorise l’innovation ;</li>
+  <li>et la possibilité de changer de solution (pas de lock-in).</li>
+</ul>
+
+<p>Les clients sont les seuls possesseurs de leurs données, ils en ont le contrôle total : AWS n’a aucun droit d’usage des données de leurs clients. De plus, AWS n’a pas accès aux données et ne déplace pas (géographiquement) les données de ses clients.</p>
+
+<p>L’implémentation technique de ces concepts repose, entre autres, sur le chiffrement systématique des données. AWS Nitro est une des briques d’architecture qui en est responsable pour les EC2 (depuis 2013 pour la partie réseau). Nitro permet le chiffrement de toute la chaîne de données (réseau, volumes de stockage) et comprend plusieurs composants :</p>
+<ul>
+  <li>Carte Nitro dédiée au échanges externes (réseau + accès aux EBS, stockage persistant)</li>
+  <li>Carte Nitro pour le stockage local (stockage temporaire attaché à l’hôte)</li>
+  <li>Hyperviseur Nitro (il s’agit d’un hyperviseur basé sur linux KVM, mais grandement modifié pour les besoins, pas de sshd, pas de systemd, pas de couche réseau)</li>
+  <li>Puce de sécurité Nitro (qui empêche le client d’avoir accès aux composants de l’hôte, procède à la mise à jour des firmwares des composants du serveur et gère le sécure boot afin de contrôler l’état des firmwares des composants avant de démarrer l’hôte).</li>
+</ul>
+
+<p><img src="/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-nitro.jpg" alt="AWS Nitro" /></p>
+
+<p>Au delà du chiffrement dont il est principalement question ici, Nitro permet aussi de grandement augmenter les performances des EC2 en limitant l’impact de l’hyperviseur sur le CPU utilisé par les clients. Dans le cas d’une virtualisation classique, toutes les tâches listées ci-dessus sont effectuées par le processeur lui-même, grignotant ainsi de la puissance des machines. Ici, Nitro permet de décharger le CPU de ces tâches en le rendant ainsi dédié aux EC2.</p>
+
+<p>AWS utilise aussi des solutions telles que Key Management Service (KMS) pour chiffrer les données de plus d’une centaine de ses services. Il s’agit là aussi d’un système de protection des données des utilisateurs : seul l’opérateur possédant la clé de chiffrement est capable de lire les données de ces services. 
+Une version étendue de KMS est même disponible pour les clients les plus soucieux de la protection de leurs données : <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html">External Key Stores</a>. XKS est un dispositif physique pouvant être hébergé en dehors des locaux d’AWS. Il est même capable de se “défendre” contre les attaques physiques en procédant à l’effacement des clés lors d’une tentative d’intrusion physique. Il s’agit probablement de l’ultime implémentation de sécurité et de souveraineté chez AWS.</p>
+
+<p><img src="/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-souverainete-donnees.jpg" alt="AWS Summit 2023 - Souveraineté des données" /></p>
+
+<p>Tout au long de cette conférence, on a bien senti que le but d’AWS, afin de respecter les données de ses usagers, était de faire en sorte de ne pas pouvoir accéder aux données de ses clients.</p>
+
+<h1 id="le-mot-de-la-fin">Le mot de la fin</h1>
+
+<p>L’AWS Summit comportait plus d’une centaine de sessions et nous avons juste eu l’occasion d’effleurer le contenu proposé lors de cette journée.</p>
+
+<p>Nous avons commencé à <a href="https://leanpub.com/6cloud">migrer vers Le Cloud</a> en 2018 et notre premier AWS Summit Paris était en 2019 – nous y avions d’ailleurs <a href="https://www.youtube.com/watch?v=xLELSIEt2xA&amp;list=PL2ime9SGTcqcJWATAbNDvSVsTQyMridf3&amp;index=11">déjà parlé de cette migration au cours d’un autre événement</a>.</p>
+
+<p>Depuis, que de chemin parcouru ! Cette année, nous pensions moins à Kubernetes, à DynamoDB ou aux optimisations de coûts, sur lesquels nous avons bien bossé depuis 2019. Notre attention était plus attirée vers des sujets que nous avons commencé à travailler plus récemment et où nous avons encore des challenges majeurs, comme les approches pleinement serverless ;-)</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Bedrock+%C3%A0+l%27AWS+Summit+Paris+2023%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2023%2F04%2F20%2Faws-summit-paris-2023.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html&title=Bedrock+%C3%A0+l%27AWS+Summit+Paris+2023%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Bedrock à l'AWS Summit Paris 2023%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#2023">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> 2023</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#aws">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> aws</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#cloud">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#community">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> community</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#devops">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> devops</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#kubernetes">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> kubernetes</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#opensource">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> opensource</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#paris">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> paris</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#summit">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> summit</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="Bedrock au Kubernetes Community Days France 2023" href="/2023/04/03/kubernetes-community-days.html">
+            <p>Next post</p>
+            Bedrock au Kubernetes Community Days France 2023
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>
