@@ -2,7 +2,7 @@
 layout: post
 title: "Retrouvez l'intervention du CTO de M6 Web, Martin Boronski, à la table ronde du Forum PHP 2012"
 description: ""
-author: oliviermansour
+author: o_mansour
 category: 
 tags: [forumphp,afup,video,php] 
 comments: true  

@@ -2,7 +2,7 @@
 layout: video
 title: "Encodage - packaging - DRM - tout sur la vidéo"
 description: ""
-author: oliviernoel 
+author: o_noel 
 tags: [video,codec,drm,lft]
 comments: true 
 youtubeId: fDDxP0-7Cfc

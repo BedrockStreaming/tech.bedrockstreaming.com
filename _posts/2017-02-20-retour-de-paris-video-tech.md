@@ -2,7 +2,7 @@
 layout: post
 title: "L'équipe Player de 6play.fr au Paris Video Tech"
 description: "Paris Video Tech : La plus grande rencontre des ingénieurs de la vidéo à Paris"
-author: fvieudrin 
+author: f_vieudrin 
 category:
 tags: [video, ott, react, dash, hls, mse, cmaf, 6play, html5]
 feature-img: "images/posts/retour-de-paris-video-tech/banner-paris-video-tech.jpg"

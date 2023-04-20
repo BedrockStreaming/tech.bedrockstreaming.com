@@ -2,7 +2,7 @@
 layout: post
 title: "M6Web au Forum PHP 2012 et au WebEvent #4"
 description: ""
-author: kenny
+author: k_dits
 category: 
 tags: [php,afup,monitoring,conference]
 comments: true  

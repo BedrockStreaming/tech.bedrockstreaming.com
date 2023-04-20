@@ -2,7 +2,7 @@
 layout: post
 title: "Composer installation without github.com (nor packagist) dependency - like a boss !"
 description: ""
-author: oliviermansour
+author: o_mansour
 category:
 tags: [satis,composer,aws,s3,github,packagist, cloud]
 feature-img: "images/posts/composer-installation-without-github/cloud.jpg"

@@ -2,7 +2,7 @@
 layout: post
 title: "Intégration continue avec Jenkins et Atoum"
 description: ""
-author: oliviermansour
+author: o_mansour
 category: 
 tags: [php,atoum,jenkins,ci]
 comments: true  

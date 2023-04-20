@@ -2,7 +2,7 @@
 layout: conference
 
 title: "La scalabilité d’une équipe / d’un pôle technique"
-author: mikaelrandy
+author: m_randy
 
 eventName: ForumPHP 2020
 eventUrl: https://event.afup.org/forum-php-2020/

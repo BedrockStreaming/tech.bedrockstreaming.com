@@ -2,7 +2,7 @@
 layout: post
 title: "M6 Web était présent au Forum PHP 2012"
 description: ""
-author: oliviermansour 
+author: o_mansour 
 category: 
 tags: [afup,forumphp,conference]
 comments: true  

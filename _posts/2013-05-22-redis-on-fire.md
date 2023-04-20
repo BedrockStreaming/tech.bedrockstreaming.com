@@ -2,7 +2,7 @@
 layout: video
 title: "Redis on fire !"
 description: ""
-author: oliviermansour
+author: o_mansour
 youtubeId: NyAK251jGds
 tags: [redis,nosql,lft,video]
 permalink: redis-on-fire

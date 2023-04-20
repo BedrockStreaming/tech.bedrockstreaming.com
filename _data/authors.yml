@@ -2,11 +2,11 @@ bedrock:
   name: Bedrock
 a_caron:
   name: Antoine Caron
-  avatar: /images/avatar/acaron.jpeg
+  avatar: /images/avatar/a_caron.jpeg
   url: https://blog.slashgear.dev/
 a_ferez:
   name: Amélie Ferez
-  avatar: /images/avatar/aferez.jpg
+  avatar: /images/avatar/a_ferez.jpg
 a_zinck:
   name: Arthur Zinck
   avatar: /images/avatar/a_zinck.png
@@ -23,27 +23,27 @@ c_chaplin:
   name: Cory Chaplin
   avatar: /images/avatar/c_chaplin.jpg
   url: https://twitter.com/corychaplin
-christianvdz:
+c_vanderzwaard:
   name: Christian VAN DER ZWAARD
-  avatar: /images/avatar/christianvdz.jpg
+  avatar: /images/avatar/c_vanderzwaard.jpg
   url: https://twitter.com/christianvdz
 cytron:
   name: Cytron Team
   avatar: /images/avatar/cytron.png
-denis:
+d_roussel:
   name: Denis
-  avatar: /images/avatar/denis.jpg
+  avatar: /images/avatar/d_roussel.jpg
 e_carneau:
   name: Elise Carenau
 e_perrin:
   name: Élodie Perrin
-  avatar: /images/avatar/eperrin.jpeg
-fvieudrin:
+  avatar: /images/avatar/e_perrin.jpeg
+f_vieudrin:
   name: Frederic Vieudrin
   url: https://twitter.com/fvieudrin
-florent:
+f_dubost:
   name: Florent Dubost
-  avatar: /images/avatar/florent.jpg
+  avatar: /images/avatar/f_dubost.jpg
   url: https://twitter.com/fooragnak
 f_lepretre:
   name: Florent Leprêtre
@@ -53,21 +53,21 @@ front:
   avatar: /images/avatar/front.jpg
 h_riffiod:
   name: Hugo Riffiod
-  avatar: /images/avatar/hugo.jpg
+  avatar: /images/avatar/h_riffiod.jpg
 j_mastounga:
   name: Jules Matsounga
 j_menan:
   name: Julien Menan
-  avatar: /images/avatar/jmenan.jpg
+  avatar: /images/avatar/j_menan.jpg
   url: https://twitter.com/julien_menan
 j_planckeel:
   name: Jérémy Planckeel
   url: https://github.com/jplanckeel
 j_nginn:
   name: Julie Nginn
-kenny:
+k_dits:
   name: Kenny Dits
-  avatar: /images/avatar/kenny.jpg
+  avatar: /images/avatar/k_dits.jpg
   url: https://twitter.com/kenny_dee
 l_caillet:
   name: Laurent Caillet
@@ -79,20 +79,20 @@ m_blanc:
   url: https://maximeblanc.fr
 m_lopez:
   name: Mathieu Lopez
-mikaelrandy:
+m_randy:
   name: Mikael Randy
-  avatar: /images/avatar/mikaelrandy.png
+  avatar: /images/avatar/m_randy.png
   url: https://twitter.com/mikaelrandy
 n_saby:
   name: Nastasia Saby
   url: https://twitter.com/saby_nastasia
-oliviermansour:
+o_mansour:
   name: Olivier Mansour
-  avatar: /images/avatar/oliviermansour.jpg
+  avatar: /images/avatar/o_mansour.jpg
   url: https://twitter.com/omansour
-oliviernoel:
+o_noel:
   name: Olivier Noel
-  avatar: /images/avatar/oliviernoel.jpg
+  avatar: /images/avatar/o_noel.jpg
 p_martin:
   name: Pascal Martin
   url: https://twitter.com/pascal_martin
@@ -126,14 +126,14 @@ v_gallissot:
   url: https://twitter.com/vgallissot
 m_alves:
   name: Mickael Alves
-  avatar: /images/avatar/malves.jpg
+  avatar: /images/avatar/m_alves.jpg
   url: https://twitter.com/CruuzAzul
-rpanoyan:
+r_panoyan:
   name: Rafi Panoyan
   url: https://twitter.com/rafipanoyan
 s_zoccarato:
   name: Sylvain Zoccarato
-jerome_foray:
+j_foray:
   name: Jérome Foray
 jy_camier:
   name: Jean-Yves Camier

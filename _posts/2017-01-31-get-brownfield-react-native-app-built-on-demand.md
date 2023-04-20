@@ -2,7 +2,7 @@
 layout: post
 title: "Get your brownfield React Native app built on demand"
 description: "Get your brownfield React Native app built on demand"
-author: kenny 
+author: k_dits 
 category:
 tags: [mobile, github, ci, react-native]
 feature-img: "images/posts/rn-brownfield/feature.jpg"

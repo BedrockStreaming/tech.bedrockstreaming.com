@@ -2,7 +2,7 @@
 layout: post
 title: "CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)"
 description: ""
-author: kenny 
+author: k_dits 
 category: 
 tags: [velocity,conference,webperf,devops,mobile]
 comments: true  

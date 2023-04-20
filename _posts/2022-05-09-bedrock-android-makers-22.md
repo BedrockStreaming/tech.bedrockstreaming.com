@@ -2,7 +2,7 @@
 layout: post
 title: Retour sur l'Android Makers 2022
 description: Notre équipe de développeurs Android était à l'Android Makers 2022 !
-author: rpanoyan
+author: r_panoyan
 tags: [android, mobile, conference, makers]
 color: rgb(251,87,66)
 thumbnail: "/images/posts/2022-05-09-bedrock-android-makers-2022/am2022.jpg"

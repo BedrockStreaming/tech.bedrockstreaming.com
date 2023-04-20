@@ -2,7 +2,7 @@
 layout: post
 title: "Organiser des conférences technique en interne"
 description: ""
-author: kenny 
+author: k_dits 
 category: 
 tags: [conference,culture,lft]
 comments: true  

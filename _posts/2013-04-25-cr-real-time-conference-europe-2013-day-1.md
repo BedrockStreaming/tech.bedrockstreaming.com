@@ -2,7 +2,7 @@
 layout: post
 title: "CR Real Time Conférence Europe 2013 - Day 1"
 description: ""
-author: kenny
+author: k_dits
 category: 
 tags: [conference,nodejs,zeromq,rabbitmq,realtime]
 image:

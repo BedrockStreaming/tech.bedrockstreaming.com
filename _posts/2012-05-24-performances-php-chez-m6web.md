@@ -2,7 +2,7 @@
 layout: post
 title: "Performances PHP chez M6Web"
 description: ""
-author: kenny
+author: k_dits
 category: 
 tags: [graphite,monitoring,nodejs,php,varnish,webperf,conference]
 

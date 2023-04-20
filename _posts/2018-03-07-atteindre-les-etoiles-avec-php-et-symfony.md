@@ -2,7 +2,7 @@
 layout: conference
 
 title: Atteindre les étoiles avec PHP et Symfony
-author: mikaelrandy
+author: m_randy
 
 eventName: Confoo Montreal 2018
 eventUrl: https://confoo.ca/fr/yul2018

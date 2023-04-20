@@ -2,7 +2,7 @@
 layout: post
 title: "Améliorer la webperf de son application JS avec GruntJs"
 description: "Comment automatiser les optimisations WebPerf sur son application AngularJS avec Grunt.Js"
-author: kenny
+author: k_dits
 category:
 tags: [webperf, angular, grunt, performance]
 thumbnail: "images/posts/webperf.jpg"
