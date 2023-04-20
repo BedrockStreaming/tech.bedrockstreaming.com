@@ -104,6 +104,6 @@ Tout au long de cette conférence, on a bien senti que le but d'AWS, afin de res
 
 L’AWS Summit comportait plus d’une centaine de sessions et nous avons juste eu l’occasion d’effleurer le contenu proposé lors de cette journée. 
 
-Nous avons commencé à [migrer vers Le Cloud](https://leanpub.com/6cloud) en 2018 et notre premier AWS Summit Paris était en 2019 -- nous y avions d’ailleurs déjà parlé de cette migration ([enregistrement de ce talk, dans un autre événement](https://www.youtube.com/watch?v=xLELSIEt2xA&list=PL2ime9SGTcqcJWATAbNDvSVsTQyMridf3&index=11)).
+Nous avons commencé à [migrer vers Le Cloud](https://leanpub.com/6cloud) en 2018 et notre premier AWS Summit Paris était en 2019 -- nous y avions d’ailleurs [déjà parlé de cette migration au cours d'un autre événement](https://www.youtube.com/watch?v=xLELSIEt2xA&list=PL2ime9SGTcqcJWATAbNDvSVsTQyMridf3&index=11).
 
 Depuis, que de chemin parcouru ! Cette année, nous pensions moins à Kubernetes, à DynamoDB ou aux optimisations de coûts, sur lesquels nous avons bien bossé depuis 2019. Notre attention était plus attirée vers des sujets que nous avons commencé à travailler plus récemment et où nous avons encore des challenges majeurs, comme les approches pleinement serverless ;-)
