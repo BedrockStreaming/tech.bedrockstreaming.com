@@ -2,7 +2,7 @@
  layout: post
  title: API Platform Conference 2022
  description: Venez avec nous assister aux conférences API Platform ! 
- author: backend
+ author: bedrock
  tags: [conferences, backend, api, php]
  color: rgb(251,87,66) # this is Bedrock color here
 ---

@@ -2,7 +2,7 @@
 layout: post
 title: "How to ingest 400GB of logs per hour?"
 description: "We wanted to exploit our CDN logs as they contain many valuable information."
-author: arthurzinck
+author: a_zinck
 tags: [onprem, cdn, logs, aws, cloud, nginx, vector, lambda, s3, glue, athena]
 color: rgb(251,87,66)
 thumbnail: "/images/posts/2022-08-08-privateCdnLogs/main.png"

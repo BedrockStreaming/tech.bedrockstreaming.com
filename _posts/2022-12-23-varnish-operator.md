@@ -2,7 +2,7 @@
 layout: post
 title: "How Micro-Services changed our caching architecture"
 description: "Varnish Operator is a good solution to problem caused by Microservices architecture in Kubernetes environment. Especially where most of the traffic comes from other API rather than from an end-user."
-author: arthurzinck
+author: a_zinck
 category:
 tags: [on-premise, cloud, cdn, varnish, aws, cloud, fastly, varnish-operator, cloudfront, alb]
 color: rgb(0, 150, 255)

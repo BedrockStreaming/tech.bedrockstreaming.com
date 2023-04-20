@@ -2,7 +2,7 @@
  layout: post
  title: Ce que nous avons retenu de la SymfonyCon - Disneyland Paris 2022
  description: "Nos retours de la SymfonyCon à Paris, les 17 et 18 novembre 2022"
- author: backend
+ author: bedrock
  tags: [conferences, backend, symfony, php]
  color: rgb(251,87,66) # this is Bedrock color here
  thumbnail: "images/posts/symfonycon2022/header.jpg"

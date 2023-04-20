@@ -5,11 +5,11 @@ a_caron:
   avatar: /images/avatar/acaron.jpeg
   url: https://blog.slashgear.dev/
 a_ferez:
-  name : Amélie Ferez
+  name: Amélie Ferez
   avatar: /images/avatar/aferez.jpg
-arthurzinck:
+a_zinck:
   name: Arthur Zinck
-  avatar: /images/avatar/arthurzinck.png
+  avatar: /images/avatar/a_zinck.png
   url: https://www.z3k.fr
 b_candellier:
   name: Baptiste Candellier
