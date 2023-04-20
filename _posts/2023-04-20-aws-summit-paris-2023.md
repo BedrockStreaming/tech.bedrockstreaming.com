@@ -9,7 +9,7 @@ thumbnail: "/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-keyno
 ---
 
 L’AWS Summit Paris 2023 s’est déroulé le 4 avril. C’était pour nous l’occasion de découvrir les dernières innovations au cœur des services AWS, comme la solution d’IA d’aide au développement nommée CodeWhisperer. De plus, [Pascal Martin, Principal Engineer](https://twitter.com/pascal_martin), y assistait aussi en tant que speaker pour partager notre expérience en conception et maintenance de Systèmes Distribués.
-En plus des deux points précédemment cités, nous verrons aussi comment eTF1 s’est préparé pour la coupe du monde de la FIFA 2022, ou de souveraineté et de son application chez AWS.
+En plus des deux points précédemment cités, nous verrons aussi comment eTF1 s’est préparé pour la Coupe du Monde de la FIFA 2022, ou de souveraineté et de son application chez AWS.
 
 
 
@@ -24,23 +24,23 @@ Conférence présentée par :
 
 ![MyTF1 rq/s pendant un match](/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-etf1.jpg)
 
-eTF1 partage son retour d’expérience sur la coupe du monde de foot 2022 et les défis surmontés pour que leur plateforme de replay myTF1 propose une parfaite expérience utilisateur tout au long de l’événement.
+[eTF1](https://tech.tf1.fr/) partage son retour d’expérience sur la Coupe du Monde de foot 2022 et les défis surmontés pour que leur plateforme de replay myTF1 propose une parfaite expérience utilisateur tout au long de l’événement.
 
 La présentation, coanimée par Imane, Senior Technical Manager de chez AWS, permet aussi d’en apprendre un peu plus sur le programme IEM d’accompagnement de clients AWS lors d’événements critiques. Nous avons d’ailleurs déjà exploité ce programme chez Bedrock Streaming.
-Challenge technique pour les équipes eTF1, la coupe du monde de football 2022 a battu plusieurs records de la plateforme, dont des pics à plus de 2,4 Millions d’utilisateurs simultanés. L’événement a été préparé en collaboration avec les équipes d’AWS pour adapter les infrastructures à recevoir de fortes charges.
+Challenge technique pour les équipes eTF1, la Coupe du Monde de football 2022 a battu plusieurs records de la plateforme, dont des pics à plus de 2,4 Millions d’utilisateurs simultanés. L’événement a été préparé en collaboration avec les équipes d’AWS pour adapter les infrastructures à recevoir de fortes charges.
 
 Trois points critiques identifiés :
 - Authent/backend, les millions d’utilisateurs vont s’authentifier dans une fenêtre de 15 minutes.
 - Delivery vidéo, tout au long de l’événement une forte charge, constante, est attendue. 
 - Publicité, pic de charge très important mais ponctuel.
 
-Des scénarios de tests de performances ont été effectués à l’aide de K6 pour chacun des points. La pre-production a servi d'environnement de tests avant d'effectuer une validation finale sur la vraie production. Du travail a été effectué également sur les services AWS : par exemple, les tables DynamoDB ont été basculées en OnDemand afin de profiter de l’élasticité plus rapide du service, malgré les coûts supplémentaires comparé au mode provisionné.
+Des scénarios de tests de performances ont été effectués à l’aide de K6, pour chacun des points. La préproduction a servi d'environnement de test, avant d'effectuer une validation finale sur la production. Du travail a été également réalisé sur les services AWS : par exemple, les tables DynamoDB ont été basculées en OnDemand afin de profiter de l’élasticité plus rapide du service, malgré les coûts supplémentaires, comparé au mode provisionné.
 Au niveau des clusters Kubernetes, les applications ont été redimensionnées à la hausse (mémoire, cpu, HPA) pour anticiper les pics de charge et ne pas seulement se reposer sur du scaling réactif. 
 
-Lors de la compétition, une War Room était ouverte suivant l’importance des matchs. Elle était composée d’intervenant AWS grâce au programme IEM, de personnels techniques eTF1 et de membres du service management pour pouvoir réagir en cas d’imprévus. 
+Lors de la compétition, une War Room était ouverte suivant l’importance des matchs. Elle était composée d’intervenants AWS grâce au programme IEM, de personnels techniques eTF1 et de membres du service management pour pouvoir réagir en cas d’imprévus. 
 La War Room a d’ailleurs été mise à contribution puisque la plateforme à subi des attaques DDOS pendant certains matchs. Le CDN Cloudfront et WAF ont permis de les contenir. 
 
-Chez Bedrock Streaming, nous étions curieux de ce retour d’expérience : nous avons préparé ce même type d’événement lors de l'Euro de football 2020. Les défis à surmonter sont les mêmes que ceux que nous avions rencontrés et nous sommes arrivés à des conclusions similaires dans nos choix techniques. Nous avions d’ailleurs développé un outils pour répondre au problème de scalabilité dans kubernetes durant l’euro 2020 et que nous utilisons toujours aujourd’hui, [un article de blog à ce sujet est disponible ici](https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html).
+Chez Bedrock Streaming, nous étions curieux de ce retour d’expérience : nous avons préparé ce même type d’événement lors de l'Euro de football 2020. Les défis à surmonter sont les mêmes que ceux que nous avions rencontrés et nous sommes arrivés à des conclusions similaires dans nos choix techniques. Nous avions d’ailleurs développé un outil pour répondre au problème de scalabilité dans kubernetes durant l’Euro 2020 et que nous utilisons toujours aujourd’hui, [un article de blog à ce sujet est disponible ici](https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html).
 
 ## Comment bien débuter avec Amazon CodeWhisperer
 
@@ -73,7 +73,7 @@ Cette présentation n’a malheureusement pas été enregistrée lors du Summit,
 
 Une des conférences portait sur les thèmes de la Souveraineté dans le Cloud AWS et du Règlement européen Général sur la Protection des Données (RGPD). Lors de cette présentation, Stephan Hadinger (Directeur de la Technologie chez AWS) a exposé le cadre de ce règlement et sa mise en application au sein de l'infrastructure AWS. C'est cette partie qui était, d'après nous, la plus intéressante, étant donnée sa dimension technique. 
 
-RGPD est un regroupement de règles qui régissent et protègent les droits des résidents d'Union Européenne. Il porte sur le respect de la confidentialité et la protection des données personnelles. Toute entreprise exerçant dans l'UE y est soumise. Dans le cas présent, RGPD couvre à la fois les clients AWS (comme Bedrock) et les utilisateurs finaux (comme les utilisateurs des services Bedrock).
+RGPD est un regroupement de règles qui régissent et protègent les droits des résidents d'Union Européenne. Il porte sur le respect de la confidentialité et la protection des données personnelles. Toute entreprise exerçant dans l'UE y est soumise. Dans le cas présent, la RGPD couvre à la fois les clients AWS (comme Bedrock) et les utilisateurs finaux (comme les utilisateurs des services Bedrock).
 
 Chez AWS, la Souveraineté est synonyme d'autonomie stratégique et s'exprime de la façon suivante :
 - la possession des données clients : tous les clients AWS ont le contrôle de leurs données et applications, et nous verrons comment ;
@@ -87,11 +87,11 @@ L'implémentation technique de ces concepts repose, entre autres, sur le chiffre
 - Carte Nitro dédiée au échanges externes (réseau + accès aux EBS, stockage persistant)
 - Carte Nitro pour le stockage local (stockage temporaire attaché à l'hôte)
 - Hyperviseur Nitro (il s'agit d'un hyperviseur basé sur linux KVM, mais grandement modifié pour les besoins, pas de sshd, pas de systemd, pas de couche réseau)
-- Puce de sécurité Nitro (qui empêche le client d'avoir accès aux composants de l'hôte, procède à la mise à jour des firmwares des composants du serveur, gère le sécure boot afin de contrôler l'état des firmwares des composants avant de démarrer l'hôte).
+- Puce de sécurité Nitro (qui empêche le client d'avoir accès aux composants de l'hôte, procède à la mise à jour des firmwares des composants du serveur et gère le sécure boot afin de contrôler l'état des firmwares des composants avant de démarrer l'hôte).
 
 ![AWS Nitro](/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-nitro.jpg)
 
-Au delà du chiffrement dont il est principalement question ici, Nitro permet aussi de grandement augmenter les performances des EC2 en limitant l'impact de l'hyperviseur sur le CPU utilisé par les clients. Dans le cas d'une virtualisation classique, toutes les tâches listées ci-dessus sont effectuées par le processeur lui-même, grignotant ainsi une partie de puissance. Ici, Nitro permet de décharger le CPU de ces tâches en le rendant ainsi dédié aux EC2.
+Au delà du chiffrement dont il est principalement question ici, Nitro permet aussi de grandement augmenter les performances des EC2 en limitant l'impact de l'hyperviseur sur le CPU utilisé par les clients. Dans le cas d'une virtualisation classique, toutes les tâches listées ci-dessus sont effectuées par le processeur lui-même, grignotant ainsi de la puissance des machines. Ici, Nitro permet de décharger le CPU de ces tâches en le rendant ainsi dédié aux EC2.
 
 AWS utilise aussi des solutions telles que Key Management Service (KMS) pour chiffrer les données de plus d'une centaine de ses services. Il s'agit là aussi d'un système de protection des données des utilisateurs : seul l’opérateur possédant la clé de chiffrement est capable de lire les données de ces services. 
 Une version étendue de KMS est même disponible pour les clients les plus soucieux de la protection de leurs données : [External Key Stores](https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html). XKS est un dispositif physique pouvant être hébergé en dehors des locaux d'AWS. Il est même capable de se “défendre" contre les attaques physiques en procédant à l'effacement des clés lors d'une tentative d'intrusion physique. Il s'agit probablement de l'ultime implémentation de sécurité et de souveraineté chez AWS.
