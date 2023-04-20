@@ -2,7 +2,7 @@
 layout: post
 title: Bedrock à l'AWS Summit Paris 2023
 description: Notre retour sur cette édition 2023 de l'AWS Summit Paris
-author: p_martin, l_caillet, v_chabrier
+author: [p_martin, l_caillet, v_chabrier]
 tags: [kubernetes, cloud, devops, opensource, community, conference, aws, summit, paris, 2023]
 color: rgb(251,87,66)
 thumbnail: "/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-keynote.jpg"
@@ -35,7 +35,7 @@ Trois points critiques identifiés :
 - Publicité, pic de charge très important mais ponctuel.
 
 Des scénarios de tests de performances ont été effectués à l’aide de K6 pour chacun des points. La pre-production a servi d'environnement de tests avant d'effectuer une validation finale sur la vraie production. Du travail a été effectué également sur les services AWS : par exemple, les tables DynamoDB ont été basculées en OnDemand afin de profiter de l’élasticité plus rapide du service, malgré les coûts supplémentaires comparé au mode provisionné.
-Au niveau des clusters kubernetes, les applications ont été redimensionnées à la hausse (mémoire, cpu, HPA) pour anticiper les pics de charge et ne pas seulement se reposer sur du scaling réactif. 
+Au niveau des clusters Kubernetes, les applications ont été redimensionnées à la hausse (mémoire, cpu, HPA) pour anticiper les pics de charge et ne pas seulement se reposer sur du scaling réactif. 
 
 Lors de la compétition, une War Room était ouverte suivant l’importance des matchs. Elle était composée d’intervenant AWS grâce au programme IEM, de personnels techniques eTF1 et de membres du service management pour pouvoir réagir en cas d’imprévus. 
 La War Room a d’ailleurs été mise à contribution puisque la plateforme à subi des attaques DDOS pendant certains matchs. Le CDN Cloudfront et WAF ont permis de les contenir. 
@@ -98,7 +98,7 @@ Une version étendue de KMS est même disponible pour les clients les plus souci
 
 ![AWS Summit 2023 - Souveraineté des données](/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-souverainete-donnees.jpg)
 
-Tout au long de cette conférence, on sentait bien que le but d'AWS, afin de respecter les données de ses usagers, est de faire en sorte de ne pas pouvoir accéder aux données de ses clients.
+Tout au long de cette conférence, on a bien senti que le but d'AWS, afin de respecter les données de ses usagers, était de faire en sorte de ne pas pouvoir accéder aux données de ses clients.
 
 # Le mot de la fin
 
