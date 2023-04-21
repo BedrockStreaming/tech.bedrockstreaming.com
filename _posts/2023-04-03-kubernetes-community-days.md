@@ -15,7 +15,7 @@ La première édition de KCD (Kubernetes Community Days) en France s’est déro
 KCD a rassemblé les communautés tech françaises pour cette journée de partage d’expertise et de retours d’expérience autour de Kubernetes et des technologies Cloud Native et DevOps.
 
 Solomon Hykes, son acolyte Jérome Petazzoni et l’Éducation Nationale ont présenté la [keynote d’ouverture](https://www.youtube.com/watch?v=OKIehz7p4ug){:target="_blank"}.
-Cette première keynote à permis d’introduire le projet Santorin du Ministère de l'Éducation. C’est un système d’aide à la correction et à la notation pour lequel ils utilisent 3 clusters afin d’analyser 5 millions de copies.
+Cette première keynote a permis d’introduire le projet Santorin du Ministère de l'Éducation. C’est un système d’aide à la correction et à la notation pour lequel ils utilisent 3 clusters afin d’analyser 5 millions de copies.
 
 <center>
   <img alt="Solomon Hykes et Jérôme Petazzoni" src="/images/posts/2023-kcd-france/keynote.png">
