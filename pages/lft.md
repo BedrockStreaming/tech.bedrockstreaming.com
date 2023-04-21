@@ -3,7 +3,7 @@ layout: video-list
 title: Last Friday Talks
 filter_tag: lft
 permalink: /lft/
-feature-img: "images/travel.jpg"
+feature-img: "images/common/travel.jpg"
 ---
 
 Last friday talks were at first internal technical conferences at the end of each month given by Bedrock employees about various subjects.

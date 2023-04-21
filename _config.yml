@@ -3,40 +3,40 @@ baseurl: ""
 url: "https://tech.bedrockstreaming.com"
 
 # THEME-SPECIFIC CONFIGURATION
-title: Bedrock Tech Blog                                # Site's title
-description: "Blog technique de Bedrock"                # used by search engines
-avatar: images/br-site-logo.jpg                         # Empty for no avatar in navbar
-favicon: assets/favicon.png                             # Icon displayed in the tab
+title: Bedrock Tech Blog # Site's title
+description: "Blog technique de Bedrock" # used by search engines
+avatar: images/common/br-site-logo.jpg # Empty for no avatar in navbar
+favicon: assets/favicon.png # Icon displayed in the tab
 
 # Header and footer text
-header_text: Creating Streaming Champions               # Change Blog header text
-header_feature_image: images/banner_xl.jpg
+header_text: Creating Streaming Champions # Change Blog header text
+header_feature_image: images/common/banner_xl.jpg
 header_feature_image_responsive: true
 footer_text: >
   Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
 
 # Blog
-excerpt: true                                           # Or "truncate" (first 250 characters), "false" to disable
+excerpt: true # Or "truncate" (first 250 characters), "false" to disable
 post_navigation: true
-color_image: /assets/img/lineart.png                    # A bit transparent for color posts.
+color_image: /assets/img/lineart.png # A bit transparent for color posts.
 
 # Features
 # More in the _data folder for share buttons, author and language
 # For layout customization, go to the "_sass > base" folder, and check "_variables.scss"
-katex: true                                             # Enable if using math markup
-matomo: true                                            # Enable matomo tracking tool
-mermaid: true                                           # Enable mermaid-js for sequence and diagrams
-google_analytics:                                       # Tracking ID, e.g. "UA-000000-01"
-cookie_consent: false                                   # To respect the usage of cookies
-color_theme: auto                                       # auto, dark or light
+katex: true # Enable if using math markup
+matomo: true # Enable matomo tracking tool
+mermaid: true # Enable mermaid-js for sequence and diagrams
+google_analytics: # Tracking ID, e.g. "UA-000000-01"
+cookie_consent: false # To respect the usage of cookies
+color_theme: auto # auto, dark or light
 
 # Comments
 comments:
-  disqus_shortname:                                     # Your discus shortname for comments
-  cusdis_app_id:                                        # Your cusdis data-app-id
-  utterances:                                           # Enable by filling below information. For more info, go to https://utteranc.es
-    repo:                                               # your public comments repository (e.g. owner/repo)
-    issue-term:                                         # Issue term (e.g. "comment" consider issues with this word in the title as comments)
+  disqus_shortname: # Your discus shortname for comments
+  cusdis_app_id: # Your cusdis data-app-id
+  utterances: # Enable by filling below information. For more info, go to https://utteranc.es
+    repo: # your public comments repository (e.g. owner/repo)
+    issue-term: # Issue term (e.g. "comment" consider issues with this word in the title as comments)
 
 # PAGINATION
 paginate: 10
@@ -45,8 +45,22 @@ paginate_path: "/blog/page:num"
 # BUILD SETTINGS
 sass:
   style: compressed
-plugins: [jekyll-paginate, jekyll-seo-tag, jekyll-feed, jekyll-redirect-from, jekyll-twitter-plugin]
-exclude: [".jekyll-cache", ".jekyll-metadata", ".idea", "vendor/*", "assets/node_modules/*"]
+plugins:
+  [
+    jekyll-paginate,
+    jekyll-seo-tag,
+    jekyll-feed,
+    jekyll-redirect-from,
+    jekyll-twitter-plugin,
+  ]
+exclude:
+  [
+    ".jekyll-cache",
+    ".jekyll-metadata",
+    ".idea",
+    "vendor/*",
+    "assets/node_modules/*",
+  ]
 
 # theme: type-on-strap                                  # if using the theme as a jekyll theme gem
-remote_theme: sylhare/Type-on-Strap                     # If using as a remote_theme in github
+remote_theme: sylhare/Type-on-Strap # If using as a remote_theme in github
