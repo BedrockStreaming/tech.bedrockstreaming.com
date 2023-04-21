@@ -2,7 +2,7 @@
 layout: page
 title: OSS
 permalink: /oss/
-feature-img: "images/travel.jpg"
+feature-img: "images/common/travel.jpg"
 tags: [open source, oss]
 ---
 
