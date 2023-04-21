@@ -17,7 +17,8 @@ KCD a rassemblé les communautés tech françaises pour cette journée de partag
 Solomon Hykes, son acolyte Jérome Petazzoni et l’Éducation Nationale ont présenté la keynote d’ouverture.
 Cette première keynote à permis d’introduire le projet Santorin du Ministère de l'Éducation. C’est un système d’aide à la correction et à la notation pour lequel ils utilisent 3 clusters afin d’analyser 5 millions de copies.
 
-!["Présentateurs de la Keynote"](/images/posts/2023-kcd-france/keynote.png)
+<center><img alt="Solomon Hykes et Jérôme Petazzoni" src="/images/posts/2023-kcd-france/keynote.png"></center>
+<center>Solomon Hykes & Jérôme Petazzoni</center>
 
 Des grands acteurs de la tech en France tels que Scaleway, OVHCloud, Shadow, eTF1, Back Market, vpTech, Doctolib, Deezer, Carrefour et l’Éducation Nationale étaient présents pour rapporter leurs expériences. 
 Les trois salles nommées aux couleurs du drapeau français étaient disponibles tout au long de la journée pour accueillir la quarantaine de conférences organisées par KCD.
