@@ -2,7 +2,7 @@
 layout: post
 title: "Useful (or not) M6Web OSS stuff"
 description: "Yeah, we are still open sourcing code !"
-author: oliviermansour
+author: o_mansour
 category: OSS
 tags: [OSS, Open source, php, js]
 color: rgb(255, 255, 255)

@@ -2,7 +2,7 @@
 layout: post
 title: "CR Real Time Conférence Europe 2013 - Day 2"
 description: ""
-author: oliviernoel
+author: o_noel
 category: 
 tags: [conference,nodejs,realtime]
 comments: true  

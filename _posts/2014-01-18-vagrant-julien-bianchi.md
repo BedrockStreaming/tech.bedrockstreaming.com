@@ -2,7 +2,7 @@
 layout: video
 title: "Vagrant & Cie, du Dév à la Prod avec Julien Bianchi"
 description: "Vagrant, Packer, Chef ... Du dév à la prod."
-author: oliviermansour
+author: o_mansour
 category:
 tags: [lft,vagrant,video]
 feature-img: "images/posts/vagrant/vagrant_header.png"

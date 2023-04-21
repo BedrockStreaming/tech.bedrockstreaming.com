@@ -2,11 +2,14 @@ bedrock:
   name: Bedrock
 a_caron:
   name: Antoine Caron
-  avatar: /images/avatar/acaron.jpeg
+  avatar: /images/avatar/a_caron.jpeg
   url: https://blog.slashgear.dev/
+al_deboissieu:
+  name: Anne-Laure de Boissieu
+  avatar: /images/avatar/al_deboissieu.jpeg
 a_ferez:
   name: Amélie Ferez
-  avatar: /images/avatar/aferez.jpg
+  avatar: /images/avatar/a_ferez.jpg
 a_zinck:
   name: Arthur Zinck
   avatar: /images/avatar/a_zinck.png
@@ -15,87 +18,135 @@ b_candellier:
   name: Baptiste Candellier
   avatar: https://s.gravatar.com/avatar/c638445b4e00f76960bf7ee2275d7014?s=80
   url: https://github.com/outadoc
+b_garcia:
+  name: Bénédicte Garcia
 b_viguier:
   name: Benoit Viguier
   avatar: /images/avatar/b_viguier.png
   url: https://twitter.com/b_viguier
+c_berard:
+  name: Clément BERARD
+  url: https://berard.dev
 c_chaplin:
   name: Cory Chaplin
   avatar: /images/avatar/c_chaplin.jpg
   url: https://twitter.com/corychaplin
-christianvdz:
+c_cousin:
+  name: Camille Cousin
+c_vanderzwaard:
   name: Christian VAN DER ZWAARD
-  avatar: /images/avatar/christianvdz.jpg
+  avatar: /images/avatar/c_vanderzwaard.jpg
   url: https://twitter.com/christianvdz
 cytron:
   name: Cytron Team
   avatar: /images/avatar/cytron.png
-denis:
+d_cuny:
+  name: Damien Cuny
+d_roussel:
   name: Denis
-  avatar: /images/avatar/denis.jpg
+  avatar: /images/avatar/d_roussel.jpg
+d_yim:
+  name: David Yim
 e_carneau:
   name: Elise Carenau
+e_doyon:
+  name: Etienne Doyon
+  avatar: /images/avatar/e_doyon.jpeg
 e_perrin:
   name: Élodie Perrin
-  avatar: /images/avatar/eperrin.jpeg
-fvieudrin:
-  name: Frederic Vieudrin
-  url: https://twitter.com/fvieudrin
-florent:
+  avatar: /images/avatar/e_perrin.jpeg
+f_desaintpern:
+  name: Fabien De Saint Pern
+f_dubost:
   name: Florent Dubost
-  avatar: /images/avatar/florent.jpg
+  avatar: /images/avatar/f_dubost.jpg
   url: https://twitter.com/fooragnak
+f_dumas:
+  name: Fabien Dumas
 f_lepretre:
   name: Florent Leprêtre
   url: https://twitter.com/SuperFlaw
+f_vieudrin:
+  name: Frederic Vieudrin
+  url: https://twitter.com/fvieudrin
 front:
   name: Front teams
   avatar: /images/avatar/front.jpg
 h_riffiod:
   name: Hugo Riffiod
-  avatar: /images/avatar/hugo.jpg
+  avatar: /images/avatar/h_riffiod.jpg
+jy_camier:
+  name: Jean-Yves Camier
+  url: https://twitter.com/Saaraahka
+j_foray:
+  name: Jérome Foray
 j_mastounga:
   name: Jules Matsounga
 j_menan:
   name: Julien Menan
-  avatar: /images/avatar/jmenan.jpg
+  avatar: /images/avatar/j_menan.jpg
   url: https://twitter.com/julien_menan
+j_nginn:
+  name: Julie Nginn
 j_planckeel:
   name: Jérémy Planckeel
   url: https://github.com/jplanckeel
-j_nginn:
-  name: Julie Nginn
-kenny:
+k_dits:
   name: Kenny Dits
-  avatar: /images/avatar/kenny.jpg
+  avatar: /images/avatar/k_dits.jpg
   url: https://twitter.com/kenny_dee
 l_caillet:
   name: Laurent Caillet
   avatar: /images/avatar/l_caillet.jpg
   url: https://www.linkedin.com/in/laurent-caillet/
+l_penaguin:
+  name: Léo PENAGUIN
+  url: https://leopng.com
+  avatar: /images/avatar/l_penaguin.jpg
+m_agack:
+  name: Moustapha Agack
+m_alves:
+  name: Mickael Alves
+  avatar: /images/avatar/m_alves.jpg
+  url: https://twitter.com/CruuzAzul
 m_blanc:
   name: Maxime Blanc
   avatar: /images/avatar/m_blanc.jpeg
   url: https://maximeblanc.fr
 m_lopez:
   name: Mathieu Lopez
-mikaelrandy:
+m_mure:
+  name: Mathieu Mure
+  url: https://twitter.com/mathieumure
+m_randy:
   name: Mikael Randy
-  avatar: /images/avatar/mikaelrandy.png
+  avatar: /images/avatar/m_randy.png
   url: https://twitter.com/mikaelrandy
+m_schneider:
+  name: Martin SCHNEIDER
+  url: https://github.com/martinschneider01
+  avatar: /images/avatar/m_schneider.png
 n_saby:
   name: Nastasia Saby
   url: https://twitter.com/saby_nastasia
-oliviermansour:
+o_balystky:
+  name: Oleksandr Balystky
+o_mansour:
   name: Olivier Mansour
-  avatar: /images/avatar/oliviermansour.jpg
+  avatar: /images/avatar/o_mansour.jpg
   url: https://twitter.com/omansour
-oliviernoel:
+o_noel:
   name: Olivier Noel
-  avatar: /images/avatar/oliviernoel.jpg
+  avatar: /images/avatar/o_noel.jpg
 p_martin:
   name: Pascal Martin
   url: https://twitter.com/pascal_martin
+pl_perez:
+  name: Pierre-Loup Perez
+  avatar: /images/avatar/pl_perez.jpeg
+r_panoyan:
+  name: Rafi Panoyan
+  url: https://twitter.com/rafipanoyan
 s_drode:
   name: Sebastien Drode
 s_guyon:
@@ -107,13 +158,23 @@ s_lescano:
   name: Sofia Lescano
   url: https://twitter.com/SofLesc
   avatar: /images/avatar/s_lescano.jpeg
+s_zoccarato:
+  name: Sylvain Zoccarato
 t_aufort:
   name: Timothée Aufort
   url: https://twitter.com/TimAufort
+t_courtoison:
+  name: Thibaud Courtoison
+t_crespy:
+  name: Timothé Crespy
+  url: https://timothecrespy.fr/
+  avatar: /images/avatar/t_crespy.jpg
 t_falconnet:
   name: Tanguy Falconnet
   url: https://twitter.com/TanguyFalconnet
   avatar: /images/avatar/t_falconnet.jpg
+t_sontag:
+  name: Thomas Sontag
 v_chabrier:
   name: Valentin Chabrier
   url: https://github.com/Eriwyr
@@ -124,64 +185,3 @@ v_claras:
 v_gallissot:
   name: Vincent Gallissot
   url: https://twitter.com/vgallissot
-m_alves:
-  name: Mickael Alves
-  avatar: /images/avatar/malves.jpg
-  url: https://twitter.com/CruuzAzul
-rpanoyan:
-  name: Rafi Panoyan
-  url: https://twitter.com/rafipanoyan
-s_zoccarato:
-  name: Sylvain Zoccarato
-jerome_foray:
-  name: Jérome Foray
-jy_camier:
-  name: Jean-Yves Camier
-  url: https://twitter.com/Saaraahka
-m_mure:
-  name: Mathieu Mure
-  url: https://twitter.com/mathieumure
-f_dspern:
-  name: Fabien De Saint Pern
-m_schneider:
-  name: Martin SCHNEIDER
-  url: https://github.com/martinschneider01
-  avatar: /images/avatar/m_schneider.png
-e_doyon:
-  name: Etienne Doyon
-  avatar: /images/avatar/e_doyon.jpeg
-o_balystky:
-  name: Oleksandr Balystky
-f_dumas:
-  name: Fabien Dumas
-c_cousin:
-  name: Camille Cousin
-t_courtoison:
-  name: Thibaud Courtoison
-t_sontag:
-  name: Thomas Sontag
-m_agack:
-  name: Moustapha Agack
-b_garcia:
-  name: Bénédicte Garcia
-al_deboissieu:
-  name: Anne-Laure de Boissieu
-  avatar: /images/avatar/al_deboissieu.jpeg
-d_yim:
-  name: David Yim
-d_cuny:
-  name: Damien Cuny
-t_crespy:
-  name: Timothé Crespy
-  url: https://timothecrespy.fr/
-  avatar: /images/avatar/t_crespy.jpg
-c_berard:
-  name: Clément BERARD
-  url: https://berard.dev
-pl_perez:
-  name: Pierre-Loup Perez
-  avatar: /images/avatar/pl_perez.jpeg
-l_penaguin:
-  name: Léo PENAGUIN
-  url: https://leopng.com
-  avatar: /images/avatar/l_penaguin.jpg

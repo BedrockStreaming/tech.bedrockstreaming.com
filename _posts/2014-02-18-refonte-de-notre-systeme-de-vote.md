@@ -2,7 +2,7 @@
 layout: post
 title: "Refonte de notre système de vote"
 description: "Création d'un nouveau service de vote communiquant avec une API REST"
-author: denis
+author: d_roussel
 category:
 tags: [api, symfony, redis, monitoring, qualite, cytron]
 thumbnail: "images/posts/cytron/polls.png"

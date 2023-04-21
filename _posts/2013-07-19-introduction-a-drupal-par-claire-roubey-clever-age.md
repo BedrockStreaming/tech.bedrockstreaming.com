@@ -2,7 +2,7 @@
 layout: video
 title: "Introduction à Drupal par Claire Roubey (Clever Age)"
 description: ""
-author: oliviermansour 
+author: o_mansour 
 category: 
 tags: [lft,drupal,video]
 image:

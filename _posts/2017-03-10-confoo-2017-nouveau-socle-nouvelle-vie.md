@@ -2,7 +2,7 @@
 layout: conference
 
 title: Nouveau socle pour une nouvelle vie
-author: mikaelrandy
+author: m_randy
 
 eventName: Confoo Montreal 2017
 eventUrl: https://confoo.ca/fr/yul2017

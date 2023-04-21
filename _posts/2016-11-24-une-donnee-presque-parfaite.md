@@ -3,7 +3,7 @@ layout: conference
 
 title: "Une donnée presque parfaite sur 6play"
 description: "La gestion de la mise à disposition des données sur 6play"
-author: oliviermansour 
+author: o_mansour 
 eventName: ForumPHP 2016
 eventUrl: https://event.afup.org/forum-php-2016/home-forum-php-2016/
 youtubeId: kSlYXpezjIQ

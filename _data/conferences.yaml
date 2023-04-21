@@ -1,13 +1,13 @@
 - title: "Le second écran chez M6Web, another (php) brick in the wall !"
   date: 2015-05-13
-  author: oliviermansour
+  author: o_mansour
   eventName: PHPTour Luxembourg 2015
   eventUrl: https://event.afup.org/phptourluxembourg2015__programme/
   youtubeId: VPYFnaX_5Tg
 
 - title: "Retour d’expérience : réaliser des Workers en PHP"
   date: 2016-05-23
-  author: f_dspern
+  author: f_desaintpern
   eventName: PHPTour Clermont‑Ferrand 2016
   eventUrl: https://event.afup.org/php-tour-2016/home-phptour-2016/
   youtubeId: 0A5tbrMarGA
@@ -62,9 +62,9 @@
   eventName: Devfest Nantes
   eventUrl: https://devfest2021.gdgnantes.com/sessions/_%EF%B8%8F_vite_%EF%B8%8Fthe_webpack_killer/
 
-- title: Comment ne pas jeter son application Frontend tous les deux ans ? 
+- title: Comment ne pas jeter son application Frontend tous les deux ans ?
   date: 2022-02-05
-  author: [florent, a_caron]
+  author: [f_dubost, a_caron]
   eventName: Snowcamp 2022
   eventUrl: https://snowcamp.io/fr/
 
@@ -97,4 +97,3 @@
   eventUrl: https://www.meetup.com/fr-FR/docker-lyon/events/285057478/
   sponsored: true
   hosted: true
-

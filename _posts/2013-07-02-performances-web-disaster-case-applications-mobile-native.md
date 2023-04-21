@@ -2,7 +2,7 @@
 layout: post
 title: "Performances web et \"Disaster case\" sur applications mobile native"
 description: ""
-author: kenny 
+author: k_dits 
 category: 
 tags: [webperf,mobile]
 image:

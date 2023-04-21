@@ -2,7 +2,7 @@
 layout: video
 title: "Introduction à Immutable.Js, Relay + GraphQL et React Native"
 description: "Compte rendu de la React Conférence ciblé sur 3 sujets : Immutable.Js, Relay + GraphQL et React Native"
-author: kenny
+author: k_dits
 category:
 tags: [javascript, react, reactnative, lft, video]
 feature-img: "images/posts/reactconf/reactnative.png"

@@ -2,7 +2,7 @@
 layout: video
 title: "La POO Canada Dry"
 description: ""
-author: kenny 
+author: k_dits 
 category: 
 tags: [php,poo,lft,video]
 comments: true  

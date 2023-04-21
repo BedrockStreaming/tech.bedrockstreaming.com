@@ -2,7 +2,7 @@
 layout: conference
 
 title: "Comment ne pas jeter son application Frontend tous les deux ans ?"
-author: [a_caron, florent]
+author: [a_caron, f_dubost]
 eventName: LyonJS Meetup
 eventUrl: https://www.meetup.com/fr-FR/lyonjs/events/285497869/
 youtubeId: t36UqNSmybM

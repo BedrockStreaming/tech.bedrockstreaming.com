@@ -2,7 +2,7 @@
 layout: post
 title: "CR Velocity Conférence Europe 2012 : Day 3"
 description: ""
-author: kenny 
+author: k_dits 
 category: 
 tags: [conference,velocity,webperf,mobile,devops]
 comments: true  
