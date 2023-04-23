@@ -138,6 +138,10 @@ o_mansour:
 o_noel:
   name: Olivier Noel
   avatar: /images/avatar/o_noel.jpg
+o_thebault:
+  name: Oliver Thébault
+  avatar: /images/avatar/o_thebault.png
+  url: https://oliver-thebault.com
 p_martin:
   name: Pascal Martin
   url: https://twitter.com/pascal_martin
@@ -185,3 +189,6 @@ v_claras:
 v_gallissot:
   name: Vincent Gallissot
   url: https://twitter.com/vgallissot
+y_clauss:
+  name: Yves Clauss
+  avatar: /images/avatar/y_clauss.png
