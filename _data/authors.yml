@@ -77,11 +77,11 @@ f_vieudrin:
 front:
   name: Front teams
   avatar: /images/avatar/front.jpg
+h_detang:
+  name: Hugo Detang
 h_riffiod:
   name: Hugo Riffiod
   avatar: /images/avatar/h_riffiod.jpg
-h_detang:
-  name: Hugo Detang
 jy_camier:
   name: Jean-Yves Camier
   url: https://twitter.com/Saaraahka
@@ -120,10 +120,6 @@ m_blanc:
   name: Maxime Blanc
   avatar: /images/avatar/m_blanc.jpeg
   url: https://maximeblanc.fr
-m_lemoal:
-  name: Maxime LE MOAL
-m_lopez:
-  name: Mathieu Lopez
 m_mure:
   name: Mathieu Mure
   url: https://twitter.com/mathieumure
@@ -131,6 +127,10 @@ m_randy:
   name: Mikael Randy
   avatar: /images/avatar/m_randy.png
   url: https://twitter.com/mikaelrandy
+m_lemoal:
+  name: Maxime LE MOAL
+m_lopez:
+  name: Mathieu Lopez
 m_schneider:
   name: Martin SCHNEIDER
   url: https://github.com/martinschneider01
@@ -147,27 +147,29 @@ o_mansour:
 o_noel:
   name: Olivier Noel
   avatar: /images/avatar/o_noel.jpg
+pt_guillot:
+  name: Pierre-Thomas GUILLOT
+p_halter:
+  name: Pascal HALTER
 p_martin:
   name: Pascal Martin
   url: https://twitter.com/pascal_martin
-p_halter:
-  name: Pascal HALTER
 pl_perez:
   name: Pierre-Loup Perez
   avatar: /images/avatar/pl_perez.jpeg
-pt_guillot:
-  name: Pierre-Thomas GUILLOT
+q_gillie:
+  name: Quentin GILLIE
 r_panoyan:
   name: Rafi Panoyan
   url: https://twitter.com/rafipanoyan
 s_drode:
   name: Sebastien Drode
+s_gougouzian:
+  name: Sylvain GOUGOUZIAN
 s_guyon:
   name: Sylvain Guyon
 s_masson:
   name: Sylvain MASSON
-s_gougouzian:
-  name: Sylvain GOUGOUZIAN
 s_haim:
   name: Sarah Haïm-Lubczanski
   url: https://twitter.com/sarahhaim
@@ -190,10 +192,10 @@ t_falconnet:
   name: Tanguy Falconnet
   url: https://twitter.com/TanguyFalconnet
   avatar: /images/avatar/t_falconnet.jpg
-t_sontag:
-  name: Thomas Sontag
 t_jarrand:
   name: Thomas JARRAND
+t_sontag:
+  name: Thomas Sontag
 v_chabrier:
   name: Valentin Chabrier
   url: https://github.com/Eriwyr
@@ -204,5 +206,3 @@ v_claras:
 v_gallissot:
   name: Vincent Gallissot
   url: https://twitter.com/vgallissot
-q_gillie:
-  name: Quentin GILLIE
