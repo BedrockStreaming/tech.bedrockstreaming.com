@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-04-21T10:09:13+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock à l’AWS Summit Paris 2023</title><link href="https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html" rel="alternate" type="text/html" title="Bedrock à l’AWS Summit Paris 2023" /><published>2023-04-20T00:00:00+00:00</published><updated>2023-04-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html">&lt;p&gt;L’AWS Summit Paris 2023 s’est déroulé le 4 avril. C’était pour nous l’occasion de découvrir les dernières innovations au cœur des services AWS, comme la solution d’IA d’aide au développement nommée CodeWhisperer. De plus, &lt;a href=&quot;https://twitter.com/pascal_martin&quot;&gt;Pascal Martin, Principal Engineer&lt;/a&gt;, y assistait aussi en tant que speaker pour partager notre expérience en conception et maintenance de Systèmes Distribués.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-04-24T07:59:01+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock à l’AWS Summit Paris 2023</title><link href="https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html" rel="alternate" type="text/html" title="Bedrock à l’AWS Summit Paris 2023" /><published>2023-04-20T00:00:00+00:00</published><updated>2023-04-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html">&lt;p&gt;L’AWS Summit Paris 2023 s’est déroulé le 4 avril. C’était pour nous l’occasion de découvrir les dernières innovations au cœur des services AWS, comme la solution d’IA d’aide au développement nommée CodeWhisperer. De plus, &lt;a href=&quot;https://twitter.com/pascal_martin&quot;&gt;Pascal Martin, Principal Engineer&lt;/a&gt;, y assistait aussi en tant que speaker pour partager notre expérience en conception et maintenance de Systèmes Distribués.
 En plus des deux points précédemment cités, nous verrons aussi comment eTF1 s’est préparé pour la Coupe du Monde de la FIFA 2022, ou de souveraineté et de son application chez AWS.&lt;/p&gt;
 
 &lt;h2 id=&quot;à-vos-côtés-pour-les-grands-moments--aws-tf1-et-la-coupe-du-monde-de-la-fifa-2022&quot;&gt;À vos côtés pour les grands moments : AWS, TF1 et la Coupe du Monde de la FIFA 2022&lt;/h2&gt;
@@ -109,10 +109,14 @@ Une version étendue de KMS est même disponible pour les clients les plus souci
 
 &lt;p&gt;KCD a rassemblé les communautés tech françaises pour cette journée de partage d’expertise et de retours d’expérience autour de Kubernetes et des technologies Cloud Native et DevOps.&lt;/p&gt;
 
-&lt;p&gt;Solomon Hykes, son acolyte Jérome Petazzoni et l’Éducation Nationale ont présenté la keynote d’ouverture.
-Cette première keynote à permis d’introduire le projet Santorin du Ministère de l’Éducation. C’est un système d’aide à la correction et à la notation pour lequel ils utilisent 3 clusters afin d’analyser 5 millions de copies.&lt;/p&gt;
+&lt;p&gt;Solomon Hykes, son acolyte Jérome Petazzoni et l’Éducation Nationale ont présenté la &lt;a href=&quot;https://www.youtube.com/watch?v=OKIehz7p4ug&quot; target=&quot;_blank&quot;&gt;keynote d’ouverture&lt;/a&gt;.
+Cette première keynote a permis d’introduire le projet Santorin du Ministère de l’Éducation. C’est un système d’aide à la correction et à la notation pour lequel ils utilisent 3 clusters afin d’analyser 5 millions de copies.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/posts/2023-kcd-france/keynote.png&quot; alt=&quot;&amp;quot;Présentateurs de la Keynote&amp;quot;&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+  &lt;img alt=&quot;Solomon Hykes et Jérôme Petazzoni&quot; src=&quot;/images/posts/2023-kcd-france/keynote.png&quot; /&gt;
+&lt;/center&gt;
+&lt;center&gt;Solomon Hykes &amp;amp; Jérôme Petazzoni&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;Des grands acteurs de la tech en France tels que Scaleway, OVHCloud, Shadow, eTF1, Back Market, vpTech, Doctolib, Deezer, Carrefour et l’Éducation Nationale étaient présents pour rapporter leurs expériences. 
 Les trois salles nommées aux couleurs du drapeau français étaient disponibles tout au long de la journée pour accueillir la quarantaine de conférences organisées par KCD.&lt;/p&gt;
@@ -151,6 +155,8 @@ En plus de demander du travail lors de leur création, les services n’étaient
 
 &lt;p&gt;C’est une vue qui permet d’obtenir la liste des applications monolithiques avec le taux de couplage le plus élevé.&lt;/p&gt;
 
+&lt;p&gt;Le replay de cette conférence est disponible &lt;a href=&quot;https://www.youtube.com/watch?v=2XghfHsbRtw&quot; target=&quot;_blank&quot;&gt;ici&lt;/a&gt;.&lt;/p&gt;
+
 &lt;h3 id=&quot;vpc-dans-k8s--pas-aussi-simple-que-ça-en-a-lair-&quot;&gt;VPC dans k8s : Pas aussi simple que ça en a l’air &lt;a name=&quot;Scaleway&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;Conférence présentée par :&lt;/p&gt;
@@ -171,6 +177,8 @@ C’est un besoin qui s’est présenté afin d’éviter que les échanges inte
 &lt;p&gt;Cette fonctionnalité est actuellement en bêta, elle sera bientôt disponible de manière régionale.&lt;/p&gt;
 
 &lt;p&gt;Parmi les implémentations futures, Scaleway prévoit de proposer la possibilité de retirer l’interface réseau publique afin que tous les échanges entre Kubelet et le Control Plane passent également via le réseau privé.&lt;/p&gt;
+
+&lt;p&gt;Le replay de cette conférence est disponible &lt;a href=&quot;https://www.youtube.com/watch?v=FobnKozk2Z8&quot; target=&quot;_blank&quot;&gt;ici&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;kubernetes-the-not-so-hard-veepee-way-&quot;&gt;Kubernetes the not so hard Veepee way &lt;a name=&quot;Veepee&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 
@@ -198,6 +206,8 @@ La première infrastructure était managée via Ansible, ils utilisaient Traefik
 &lt;p&gt;&lt;img src=&quot;/images/posts/2023-kcd-france/veepee-1.jpg&quot; alt=&quot;&amp;quot;Kubernetes deployment evolution&amp;quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Aujourd’hui, ils fournissent un produit Container as a Service nommé &lt;a href=&quot;https://medium.com/vptech/standardized-deployment-at-vptech-7ebf8b8c6a1b&quot; target=&quot;_blank&quot;&gt;Starfish&lt;/a&gt;. C’est un outil qu’ils ont écrit en Go et qui permet de gérer les applications des équipes Veepee. Ils utilisent également Gitlab et &lt;a href=&quot;https://argoproj.github.io/cd/&quot; target=&quot;_blank&quot;&gt;ArgoCD&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Le replay de cette conférence est disponible &lt;a href=&quot;https://www.youtube.com/watch?v=vD8bVD7-iZo&quot; target=&quot;_blank&quot;&gt;ici&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
 
