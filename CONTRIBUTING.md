@@ -7,8 +7,8 @@
 1. Install Docker or Podman on your machine
 2. Open the project in Visual Studio Code
 3. Install the recommended [Remote Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension
-3. When VS code prompts you, agree to "Reopen in Container"
-4. The blog should be built, refreshed and opened in a preview tab automagically. ✨
+4. When VS code prompts you, agree to "Reopen in Container"
+5. The blog should be built, refreshed and opened in a preview tab automagically. ✨
     - If not, you can run the "Jekyll Serve" VS Code task manually.
 
 ### With Ruby and Gem
@@ -55,7 +55,7 @@ color: rgb(251,87,66) # this is Bedrock color here
 ---
 ```
 
-We are using a community theme for Jekyll for this blog, you may find some usefull examples here:
+We are using a community theme for Jekyll for this blog, you may find some useful examples here:
 - [How to add Table of content for your blog post ?](https://sylhare.github.io/Type-on-Strap/2014/11/28/markdown-and-html.html)
 - [How to customize the color used on a post page ?](https://sylhare.github.io/Type-on-Strap/2019/05/18/color-post.html)
 - [How to use images in your post ?](https://sylhare.github.io/Type-on-Strap/2018/10/29/feature-images.html)
@@ -65,10 +65,6 @@ We are using a community theme for Jekyll for this blog, you may find some usefu
 - [How to add simple Diagrams with _Mermaids_?](https://sylhare.github.io/Type-on-Strap/2019/11/02/Tech-stuff-example.html#mermaid)
   Mermaid is a really powerful tool to generate Diagram dynamically with some text.
   Check [Mermaid documentation](https://mermaid-js.github.io/mermaid/#/).
-- How to add an author ? 
-  Edit `_data/authors.yml` file to add an author directly in the Yaml file.
-  Author could have a name, an URL and an avatar (which could be a distant file or an image hosted in _images/author_ directory).
-  Then use the author id in the post frontmatter configuration key named `author`.
 
 In order to add a new article, you should open a Pull Request on this repository.
 A preview will automatically be deployed on AWS thanks to AWS Amplify service.
@@ -76,32 +72,39 @@ A preview will automatically be deployed on AWS thanks to AWS Amplify service.
 Don't hesitate to share your new post of **#proj-blog-tech-bedrock** slack room to ask for reviews from Bedrockers.
 When you have 2 approves and no change requested, you can merge your Pull Request.
 
+## Add an author
 
-## Add an LFT replay
+Edit `_data/authors.yml` to add an author (authors are sorted alphabetically).
 
-1. Create a file in `__post` folder name matching this format `YYYY-MM-DD-slug-of-your-article.md`
-   Use the date the talk was first given in public.
-2. Add the configuration of metadatas at the begining of this file
+Authors could have a `name`, a `url` and an `avatar` (which could be a distant file or an image hosted in the `images/avatar` directory).
 
-> :warning: **To make your videos appear in either `Last Friday Talks`page, tag your post with `lft`.**
+Then you will be able to use the author ID in the frontmatter post configuration key named `author`.
 
-```markdown
----
-layout: video
-# Unique Id of the youtube video clip
-youtubeId: $$$$$$$ 
-# Title of the article
-title: Title of your article
-# Description of the page (for SEO and context purpose
-description: Description of your article visible in search page results
-author: author_of_your_article 
-# Use tags for grouping content in the blog. Use at least `lft` to group with other lft talks
-tags: [example, of, tags]
-# this is Bedrock color here
-color: rgb(251,87,66) 
----
-```
+## Add a LFT replay
 
+1. Create a file in the `__post` folder name matching this format `YYYY-MM-DD-slug-of-your-article.md`
+    Use the date the talk was first given in public.
+2. Add the configuration of metadata at the beginning of this file
+    > :warning: **To make your videos appear in either `Last Friday Talks`page, tag your post with `lft`.**
+    ```markdown
+    ---
+    layout: video
+    # Unique ID of the Youtube video clip
+    youtubeId: $$$$$$$ 
+    # Title of the article
+    title: Title of your article
+    # Description (for SEO and context purpose)
+    description: Description of your article visible in search page results
+    # Authors of the article (can also be a list of authors such as: [first_author, second_author, third_author])
+    # The complete list of valid author IDs is in `_data/authors.yml`
+    author: author_of_your_article
+    # Use tags for grouping content in the blog
+    # Add `lft` to group with other LFT talks
+    tags: [lft, and, other, tags]
+    # Bedrock color
+    color: rgb(251,87,66) 
+    ---
+    ```
 3. Add content to the markdown file in order to add context to the video you are sharing.
 
 
@@ -110,11 +113,11 @@ color: rgb(251,87,66)
 There are two ways to publish a conference where you were a speaker.
 Please note that creating a post is more likely to help our external communication.
 
-### Publish informations about the conference
+### Publish information about the conference
 
 If you just want to add a conference presentation to the listed ones, you can add your presentation in `_data/conferences.yaml`.
 
-Here is metadatas allowed to add a new conference :
+List of the metadata allowed to add a new conference:
 
 ```markdown
 - title: "Title of the conference"
@@ -124,49 +127,54 @@ Here is metadatas allowed to add a new conference :
   author: conference_speaker 
   # Public event name
   eventName: ******
-  # Url to redirect to event site (optionnal)
+  # Url to redirect to the event site (optional)
   eventUrl: ******
-  # Youtube video id (optionnal)
+  # Youtube video id (optional)
   youtubeId: ******
-  # Slideshare presentation key (from iframe integration) (optionnal)
+  # Slideshare presentation key (from iframe integration) (optional)
   slideshareKey: ******
+  # Bedrock sponsored the event? (default: false)
+  sponsored: true
+  # Bedrock hosted the event? (default: false)
+  hosted: true
 ```
 
-It's all folks ! Your conference will be displayed in "Meetups & Conferences" page, and if there is a `youtubeId` key, the video will be added to "Replay" section.
+That's all folks! Your conference will be displayed in "Meetups & Conferences" page. 
+If there is a `youtubeId` key, the video will also be added to the "Replay" section.
 
 
 ### Create a post to present the conference
 
 1. Create a file in `__post` folder name matching this format `YYYY-MM-DD-slug-of-your-article.md`
-   Use the date the talk was first given in public.
-2. Add the configuration of metadatas at the begining of this file
-
-```markdown
----
-layout: conference
-
-# Title of the conference
-title: Title of your conference
-# Description of the page (for SEO and context purpose)
-description: Description of your article visible in search page results
-# from _data/authors.yaml
-author: conference_speaker
-# Public event name
-eventName: ******
-# Url to redirect to event site (optionnal)
-eventUrl: ******
-# Youtube video id (optionnal)
-youtubeId: ******
-# Slideshare presentation key (from iframe integration) (optionnal)
-slideshareKey: ******
-
-# Use tags for grouping content in the blog.
-tags: [example, of, tags]
-# this is Bedrock color here
-color: rgb(251,87,66) 
----
-```
-
+    Use the date the talk was first given in public.
+2. Add the configuration of metadata at the beginning of this file:
+    ```markdown
+    ---
+    layout: conference
+    
+    # Title of the conference
+    title: Title of your conference
+    # Description of the page (for SEO and context purpose)
+    description: Description of your article visible in search page results
+    # from _data/authors.yaml
+    author: conference_speaker
+    # Public event name
+    eventName: ******
+    # Url to redirect to the event site (optional)
+    eventUrl: ******
+    # Youtube video id (optional)
+    youtubeId: ******
+    # Slideshare presentation key (from iframe integration) (optional)
+    slideshareKey: ******
+    # Bedrock sponsored the event? (default: false)
+    sponsored: true
+    # Bedrock hosted the event? (default: false)
+    hosted: true
+    
+    # Use tags for grouping content in the blog.
+    tags: [example, of, tags]
+    # this is Bedrock color here
+    color: rgb(251,87,66)
+    ---
+    ```
 3. Add content to the markdown file in order to add context to the presentation you are sharing.
-
-
