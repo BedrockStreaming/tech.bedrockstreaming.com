@@ -14,10 +14,14 @@ La première édition de KCD (Kubernetes Community Days) en France s’est déro
 
 KCD a rassemblé les communautés tech françaises pour cette journée de partage d’expertise et de retours d’expérience autour de Kubernetes et des technologies Cloud Native et DevOps.
 
-Solomon Hykes, son acolyte Jérome Petazzoni et l’Éducation Nationale ont présenté la keynote d’ouverture.
-Cette première keynote à permis d’introduire le projet Santorin du Ministère de l'Éducation. C’est un système d’aide à la correction et à la notation pour lequel ils utilisent 3 clusters afin d’analyser 5 millions de copies.
+Solomon Hykes, son acolyte Jérome Petazzoni et l’Éducation Nationale ont présenté la [keynote d’ouverture](https://www.youtube.com/watch?v=OKIehz7p4ug){:target="_blank"}.
+Cette première keynote a permis d’introduire le projet Santorin du Ministère de l'Éducation. C’est un système d’aide à la correction et à la notation pour lequel ils utilisent 3 clusters afin d’analyser 5 millions de copies.
 
-!["Présentateurs de la Keynote"](/images/posts/2023-kcd-france/keynote.png)
+<center>
+  <img alt="Solomon Hykes et Jérôme Petazzoni" src="/images/posts/2023-kcd-france/keynote.png">
+</center>
+<center>Solomon Hykes & Jérôme Petazzoni</center>
+<br>
 
 Des grands acteurs de la tech en France tels que Scaleway, OVHCloud, Shadow, eTF1, Back Market, vpTech, Doctolib, Deezer, Carrefour et l’Éducation Nationale étaient présents pour rapporter leurs expériences. 
 Les trois salles nommées aux couleurs du drapeau français étaient disponibles tout au long de la journée pour accueillir la quarantaine de conférences organisées par KCD.
@@ -54,6 +58,8 @@ Enfin, pour trouver les projets prioritaires pour la migration en microservices,
 
 C’est une vue qui permet d’obtenir la liste des applications monolithiques avec le taux de couplage le plus élevé.
 
+Le replay de cette conférence est disponible [ici](https://www.youtube.com/watch?v=2XghfHsbRtw){:target="_blank"}.
+
 ### VPC dans k8s : Pas aussi simple que ça en a l’air <a name="Scaleway"></a>
 
 Conférence présentée par : 
@@ -72,6 +78,8 @@ Pour utiliser le réseau privé dans Kaspule, ils ont ajouté une interface nomm
 Cette fonctionnalité est actuellement en bêta, elle sera bientôt disponible de manière régionale.
 
 Parmi les implémentations futures, Scaleway prévoit de proposer la possibilité de retirer l’interface réseau publique afin que tous les échanges entre Kubelet et le Control Plane passent également via le réseau privé.
+
+Le replay de cette conférence est disponible [ici](https://www.youtube.com/watch?v=FobnKozk2Z8){:target="_blank"}.
 
 ### Kubernetes the not so hard Veepee way <a name="Veepee"></a>
 
@@ -95,6 +103,8 @@ La première infrastructure était managée via Ansible, ils utilisaient Traefik
 !["Kubernetes deployment evolution"](/images/posts/2023-kcd-france/veepee-1.jpg)
 
 Aujourd’hui, ils fournissent un produit Container as a Service nommé [Starfish](https://medium.com/vptech/standardized-deployment-at-vptech-7ebf8b8c6a1b){:target="_blank"}. C’est un outil qu’ils ont écrit en Go et qui permet de gérer les applications des équipes Veepee. Ils utilisent également Gitlab et [ArgoCD](https://argoproj.github.io/cd/){:target="_blank"}.
+
+Le replay de cette conférence est disponible [ici](https://www.youtube.com/watch?v=vD8bVD7-iZo){:target="_blank"}.
 
 ### Conclusion
 

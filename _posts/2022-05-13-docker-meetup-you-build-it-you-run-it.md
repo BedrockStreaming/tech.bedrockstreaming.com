@@ -7,6 +7,8 @@ author: j_foray
 eventName: Docker meetup
 eventUrl: https://www.meetup.com/fr-FR/docker-lyon/events/285057478/
 youtubeId: SGgVKrNfTLc
+sponsored: true
+hosted: true
 
 tags: [conference, docker, meetup, devops]
 color: rgb(251,87,66)

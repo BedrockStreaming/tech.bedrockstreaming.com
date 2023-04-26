@@ -147,8 +147,10 @@ o_mansour:
 o_noel:
   name: Olivier Noel
   avatar: /images/avatar/o_noel.jpg
-pt_guillot:
-  name: Pierre-Thomas GUILLOT
+o_thebault:
+  name: Oliver Thébault
+  avatar: /images/avatar/o_thebault.png
+  url: https://oliver-thebault.com
 p_halter:
   name: Pascal HALTER
 p_martin:
@@ -157,6 +159,8 @@ p_martin:
 pl_perez:
   name: Pierre-Loup Perez
   avatar: /images/avatar/pl_perez.jpeg
+pt_guillot:
+  name: Pierre-Thomas GUILLOT
 q_gillie:
   name: Quentin GILLIE
 r_panoyan:
@@ -207,3 +211,6 @@ v_claras:
 v_gallissot:
   name: Vincent Gallissot
   url: https://twitter.com/vgallissot
+y_clauss:
+  name: Yves Clauss
+  avatar: /images/avatar/y_clauss.png
