@@ -5,7 +5,7 @@ a_caron:
   avatar: /images/avatar/a_caron.jpeg
   url: https://blog.slashgear.dev/
 al_deboissieu:
-  name: Anne-Laure de Boissieu
+  name: Anne-Laure De Boissieu
   avatar: /images/avatar/al_deboissieu.jpeg
 a_ferez:
   name: Amélie Ferez
@@ -25,7 +25,7 @@ b_viguier:
   avatar: /images/avatar/b_viguier.png
   url: https://twitter.com/b_viguier
 c_berard:
-  name: Clément BERARD
+  name: Clément Berard
   url: https://berard.dev
 c_chaplin:
   name: Cory Chaplin
@@ -37,9 +37,9 @@ c_niel:
   name: Camille Niel
   url: https://www.camilleniel.com/
 c_pettinelli:
-  name: Chiara PETTINELLI
+  name: Chiara Pettinelli
 c_vanderzwaard:
-  name: Christian VAN DER ZWAARD
+  name: Christian Van Der Zwaard
   avatar: /images/avatar/c_vanderzwaard.jpg
   url: https://twitter.com/christianvdz
 cytron:
@@ -57,6 +57,8 @@ e_carneau:
 e_doyon:
   name: Etienne Doyon
   avatar: /images/avatar/e_doyon.jpeg
+e_herve:
+  name: Emmanuel Herve
 e_perrin:
   name: Élodie Perrin
   avatar: /images/avatar/e_perrin.jpeg
@@ -77,6 +79,8 @@ f_vieudrin:
 front:
   name: Front teams
   avatar: /images/avatar/front.jpg
+g_forien:
+  name: Gabriel Forien
 h_detang:
   name: Hugo Detang
 h_riffiod:
@@ -107,7 +111,7 @@ l_caillet:
   avatar: /images/avatar/l_caillet.jpg
   url: https://www.linkedin.com/in/laurent-caillet/
 l_penaguin:
-  name: Léo PENAGUIN
+  name: Léo Penaguin
   url: https://leopng.com
   avatar: /images/avatar/l_penaguin.jpg
 m_agack:
@@ -128,11 +132,11 @@ m_randy:
   avatar: /images/avatar/m_randy.png
   url: https://twitter.com/mikaelrandy
 m_lemoal:
-  name: Maxime LE MOAL
+  name: Maxime Le Moal
 m_lopez:
   name: Mathieu Lopez
 m_schneider:
-  name: Martin SCHNEIDER
+  name: Martin Schneider
   url: https://github.com/martinschneider01
   avatar: /images/avatar/m_schneider.png
 n_saby:
@@ -140,6 +144,8 @@ n_saby:
   url: https://twitter.com/saby_nastasia
 o_balystky:
   name: Oleksandr Balystky
+o_janin:
+  name: Olivier Janin
 o_mansour:
   name: Olivier Mansour
   avatar: /images/avatar/o_mansour.jpg
@@ -152,7 +158,7 @@ o_thebault:
   avatar: /images/avatar/o_thebault.png
   url: https://oliver-thebault.com
 p_halter:
-  name: Pascal HALTER
+  name: Pascal Halter
 p_martin:
   name: Pascal Martin
   url: https://twitter.com/pascal_martin
@@ -160,20 +166,20 @@ pl_perez:
   name: Pierre-Loup Perez
   avatar: /images/avatar/pl_perez.jpeg
 pt_guillot:
-  name: Pierre-Thomas GUILLOT
+  name: Pierre-Thomas Guillot
 q_gillie:
-  name: Quentin GILLIE
+  name: Quentin Gillie
 r_panoyan:
   name: Rafi Panoyan
   url: https://twitter.com/rafipanoyan
 s_drode:
   name: Sebastien Drode
 s_gougouzian:
-  name: Sylvain GOUGOUZIAN
+  name: Sylvain Gougouzian
 s_guyon:
   name: Sylvain Guyon
 s_masson:
-  name: Sylvain MASSON
+  name: Sylvain Masson
 s_haim:
   name: Sarah Haïm-Lubczanski
   url: https://twitter.com/sarahhaim
@@ -187,6 +193,8 @@ s_zoccarato:
 t_aufort:
   name: Timothée Aufort
   url: https://twitter.com/TimAufort
+t_briset:
+  name: Thomas Briset
 t_courtoison:
   name: Thibaud Courtoison
 t_crespy:
@@ -198,14 +206,14 @@ t_falconnet:
   url: https://twitter.com/TanguyFalconnet
   avatar: /images/avatar/t_falconnet.jpg
 t_jarrand:
-  name: Thomas JARRAND
+  name: Thomas Jarrand
 t_sontag:
   name: Thomas Sontag
 v_chabrier:
   name: Valentin Chabrier
   url: https://github.com/Eriwyr
 v_claras:
-  name: Valentin CLARAS
+  name: Valentin Claras
   url: https://twitter.com/LarsVanCiental
   avatar: /images/avatar/v_claras.jpg
 v_gallissot:
