@@ -1,4 +1,100 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-04-29T10:20:10+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock à l’AWS Summit Paris 2023</title><link href="https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html" rel="alternate" type="text/html" title="Bedrock à l’AWS Summit Paris 2023" /><published>2023-04-20T00:00:00+00:00</published><updated>2023-04-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html">&lt;p&gt;L’AWS Summit Paris 2023 s’est déroulé le 4 avril. C’était pour nous l’occasion de découvrir les dernières innovations au cœur des services AWS, comme la solution d’IA d’aide au développement nommée CodeWhisperer. De plus, &lt;a href=&quot;https://twitter.com/pascal_martin&quot;&gt;Pascal Martin, Principal Engineer&lt;/a&gt;, y assistait aussi en tant que speaker pour partager notre expérience en conception et maintenance de Systèmes Distribués.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-05-25T12:56:45+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock à MiXiT Lyon (2023)</title><link href="https://tech.bedrockstreaming.com/2023/04/25/mixit-lyon-2023.html" rel="alternate" type="text/html" title="Bedrock à MiXiT Lyon (2023)" /><published>2023-04-25T00:00:00+00:00</published><updated>2023-04-25T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/04/25/mixit-lyon-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/04/25/mixit-lyon-2023.html">&lt;p&gt;Nous étions présent les 13 et 14 avril 2023 à CPE pour l’édition de MiXiT 2023, pour suivre les 
+conférences bien sûr et pour soutenir les collègues qui donnaient une conférence !&lt;/p&gt;
+
+&lt;h2 id=&quot;et-si-vos-prochaines-vacances-se-passaient-à-vélo-&quot;&gt;Et si vos prochaines vacances se passaient à vélo ?&lt;/h2&gt;
+
+&lt;p&gt;Conférence présentée par Thomas Jarrand&lt;/p&gt;
+&lt;iframe allowfullscreen=&quot;&quot; frameborder=&quot;0&quot; height=&quot;720&quot; mozallowfullscreen=&quot;&quot; src=&quot;https://player.vimeo.com/video/819907216&quot; title=&quot;Et si vos prochaines vacances se passaient à vélo ? - Thomas JARRAND - MiXiT23&quot; webkitallowfullscreen=&quot;&quot; width=&quot;1280&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;jay-z-maths-and-signals--how-to-clone-shazam-&quot;&gt;Jay-Z, Maths and Signals ! How to clone Shazam 🎧&lt;/h2&gt;
+
+&lt;p&gt;Conférence présentée par Moustapha Agack&lt;/p&gt;
+&lt;iframe allowfullscreen=&quot;&quot; frameborder=&quot;0&quot; height=&quot;720&quot; mozallowfullscreen=&quot;&quot; src=&quot;https://player.vimeo.com/video/819908055&quot; title=&quot;Jay-Z, Maths and Signals! How to clone Shazam - Moustapha AGACK - MiXiT23&quot; webkitallowfullscreen=&quot;&quot; width=&quot;1280&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;bienvenue-dans-le-monde-merveilleux-des-systèmes-distribués-&quot;&gt;Bienvenue dans le monde merveilleux des systèmes distribués !&lt;/h2&gt;
+
+&lt;p&gt;Conférence présentée par Pascal Martin&lt;/p&gt;
+&lt;iframe allowfullscreen=&quot;&quot; frameborder=&quot;0&quot; height=&quot;720&quot; mozallowfullscreen=&quot;&quot; src=&quot;https://player.vimeo.com/video/826105619&quot; title=&quot;Bienvenue dans le monde merveilleux des systèmes distribués - Pascal MARTIN - MiXiT23&quot; webkitallowfullscreen=&quot;&quot; width=&quot;1280&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;remotion--le-7ème-art-à-portée-de-composants-web-et-dapi-&quot;&gt;Remotion : le 7ème art à portée de composants web et d’API 🎬&lt;/h2&gt;
+
+&lt;p&gt;Conférence présentée par Antoine Caron et Mickael Alves&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/mixit-2023/antoine-mickael.jpg&quot; alt=&quot;Mickael et Antoine&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;conversations-avec-chatgpt-illusion-ou-réalité&quot;&gt;Conversations avec ChatGPT: illusion ou réalité?&lt;/h2&gt;
+
+&lt;p&gt;Conférence présentée par Marie-Alice Blete&lt;/p&gt;
+
+&lt;p&gt;Marie-Alice a pris le temps de réexpliquer ce qu’est ChatGPT et pourquoi ce générateur de texte 
+ne garantira jamais la véracité des informations fournies. En effet, si les réponses de ChatGPT 
+peuvent être très crédibles, le contenu proposé n’est en aucun cas vérifié 
+puisqu’il s’agit d’une suite de mots les plus probables. 
+En guise d’illustration, Marie-Alice a demandé à ChatGPT de se rendre sur son terminal Linux, et 
+de taper des commandes afin de cloner le projet chatGPT 4. Celui-ci s’exécute. Mais la 
+retranscription n’est pas la réalité, c’est ce qu’il y aurait probablement eu dans le terminal. Un 
+exemple bluffant !
+Pour Marie-Alice, tout le monde peut être trompé. De nouveau à titre d’exemple, elle cite le cas 
+d’un expert en IT qui a demandé à ChatGPT de résumer un article d’une revue scientifique. 
+ChatGPT a proposé un résumé imaginé à partir du titre - il n’a pas accès à l’article. Ce résumé 
+était si convaincant que l’expert a cru que ChatGPT avait accès à l’article.&lt;/p&gt;
+
+&lt;p&gt;Cette conférence a remis en place les attentes qu’on pouvait avoir à propos de ChatGPT, qui n’est qu’un outil avec ses limites.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.slideshare.net/MarieAliceBlete/conversations-avec-chatgpt-illusion-ou-ralit&quot;&gt;Voir les slides&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;fresque-anti-sexisme&quot;&gt;Fresque anti-sexisme&lt;/h2&gt;
+
+&lt;p&gt;Atelier présenté par &lt;a href=&quot;https://twitter.com/ComSaraDufour&quot;&gt;Sara Dufour&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Cet atelier, à l’image de la fresque du climat, nous a permis de construire, en plusieurs étapes,
+et par groupe de 5-6 personnes, un tableau dépeignant la vie actuelle.
+Les débats étaient constructifs et les faits, appuyés par les statistiques de l’INSEE, étaient effrayants.
+L’atelier était très intéressant, mais un peu démoralisant de voir qu’en 2023,
+il y a encore beaucoup à faire pour diminuer le sexisme aussi bien dans le milieu professionnel que privé.&lt;/p&gt;
+
+&lt;h2 id=&quot;lego-flow-game--le-waterfall-le-scrum-et-le-kanban-tu-différencieras-&quot;&gt;Lego Flow Game : le Waterfall, le Scrum et le Kanban tu différencieras !&lt;/h2&gt;
+
+&lt;p&gt;Atelier présenté par &lt;a href=&quot;https://twitter.com/klf37&quot;&gt;Fanny Klauk&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Cet atelier nous a permis de (re)voir les différentes organisations suivantes : le Waterfall, le Scrum, le Kanban.
+Nous avons formé des équipes de 5 personnes et utilisé des Lego :heart_eyes: pour illustrer les taches de constructions.
+Chaque personne jouait un rôle particulier qui représente les différents rôles d’une équipe de 
+développement standard.&lt;/p&gt;
+
+&lt;p&gt;L’objectif était de construire le plus de modèles d’un calendrier de l’avent Lego, donc des 
+modèles petits et (en général) assez simples, nous avions 6 minutes par type d’organisation. Les 
+rôles étaient les suivants :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Analyste : Prend une porte (du calendrier de l’avent), note le numéro de la porte (jour où le calendrier sera ouvert) sur une carte et accroche avec un trombone la carte sur le trombone. Il gère la priorité en fonction du numéro de la carte.&lt;/li&gt;
+  &lt;li&gt;Fournisseur : Prend la carte et va chercher le sachet correspondant. Il n’y a aucune indication sur le sachet qui permet de savoir lequel prendre&lt;/li&gt;
+  &lt;li&gt;Réalisateur : Construit le modèle&lt;/li&gt;
+  &lt;li&gt;Testeur : Vérifie que tout est ok&lt;/li&gt;
+  &lt;li&gt;Pilote : Remplit un tableau de suivi des différents postes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Première étape, le Waterfall : chaque rôle devait finir son travail pour 5 cartes avant de passer au suivant.
+Bilan, au bout des 6 minutes, l’analyste a fini son travail, le fournisseur est toujours en train de chercher des sachets, et les autres attendent et sont frustrés, car ils ne peuvent rien faire d’autre.&lt;/p&gt;
+
+&lt;p&gt;Deuxième étape, le Scrum : chaque rôle peut faire passer une carte au prochain dès que son 
+travail sur celle-ci est finie.
+3 itérations de 2 minutes seront faites pour illustrer les sprints et une estimation est faite avant chaque itération.
+Bilan : entre chaque itération, nous avions une petite rétrospective, celle-ci permettait de nous améliorer au tour d’après.
+Au final, nous avons pu terminer 4 cartes sur 5.&lt;/p&gt;
+
+&lt;p&gt;Dernière étape, le Kanban : comme pour le Scrum, une carte peut passer à l’étape d’après, dès 
+qu’elle est terminée.
+Pas d’estimation par contre, pas le droit d’avoir plus de 2 cartes à la même étape (pas de stock).
+Bilan : là aussi, nous avons fait des petites rétrospectives pour nous améliorer entre chaque itération.
+Au final, nous avons pu terminer 6 cartes (un bug est survenu en cours de route). Le Kanban a 
+permis une avancée plus importante, mais le suivi par le pilote était plus compliqué, car les cartes bougeaient très vite.&lt;/p&gt;
+
+&lt;p&gt;Personnellement, j’ai apprécié travailler en Kanban et suis content de travailler avec la méthode ScrumBan chez Bedrock, cette dernière mélangeant le Scrum et le Kanban.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-lannée-prochaine-&quot;&gt;A l’année prochaine !&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/mixit-2023/bedrock-mixit.jpg&quot; alt=&quot;Bedrock à MiXiT&quot; /&gt;
+&lt;img src=&quot;/images/posts/mixit-2023/bedrock-mixit-2.jpg&quot; alt=&quot;Bedrock à MiXiT&quot; /&gt;&lt;/p&gt;</content><author><name>[&quot;al_deboissieu&quot;]</name></author><category term="conference" /><category term="lyon" /><category term="tech" /><category term="agilité" /><summary type="html">Nous étions présent les 13 et 14 avril 2023 à CPE pour l’édition de MiXiT 2023, pour suivre les conférences bien sûr et pour soutenir les collègues qui donnaient une conférence !</summary></entry><entry><title type="html">Bedrock à l’AWS Summit Paris 2023</title><link href="https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html" rel="alternate" type="text/html" title="Bedrock à l’AWS Summit Paris 2023" /><published>2023-04-20T00:00:00+00:00</published><updated>2023-04-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html">&lt;p&gt;L’AWS Summit Paris 2023 s’est déroulé le 4 avril. C’était pour nous l’occasion de découvrir les dernières innovations au cœur des services AWS, comme la solution d’IA d’aide au développement nommée CodeWhisperer. De plus, &lt;a href=&quot;https://twitter.com/pascal_martin&quot;&gt;Pascal Martin, Principal Engineer&lt;/a&gt;, y assistait aussi en tant que speaker pour partager notre expérience en conception et maintenance de Systèmes Distribués.
 En plus des deux points précédemment cités, nous verrons aussi comment eTF1 s’est préparé pour la Coupe du Monde de la FIFA 2022, ou de souveraineté et de son application chez AWS.&lt;/p&gt;
 
 &lt;h2 id=&quot;à-vos-côtés-pour-les-grands-moments--aws-tf1-et-la-coupe-du-monde-de-la-fifa-2022&quot;&gt;À vos côtés pour les grands moments : AWS, TF1 et la Coupe du Monde de la FIFA 2022&lt;/h2&gt;
@@ -335,5 +431,4 @@ Non seulement la ville est belle et agréable à visiter, mais la découverte d�
   &lt;li&gt;&lt;a href=&quot;https://www.facebook.com/media/set/?vanity=jsworldconf&amp;amp;set=a.687856240008465&quot;&gt;Gallerie photos&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/@JSWORLDConference/videos&quot;&gt;Replay des conférences sur Youtube&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><author><name>[&quot;pl_perez&quot;, &quot;l_penaguin&quot;, &quot;c_berard&quot;]</name></author><category term="node" /><category term="Node" /><category term="vue" /><category term="vuex" /><category term="pinia" /><category term="vite" /><category term="Vitest" /><category term="TypeScript" /><category term="developer" /><category term="javascript" /><summary type="html">C’est dans le Theater Amsterdam que se sont déroulés ces deux jours de VueJS Amsterdam, événement faisant partie de la JSWorld Conference, durant toute la semaine.</summary></entry><entry><title type="html">REX-Shape Up, un LFT dont vous êtes les héros #LFT 31/03/23</title><link href="https://tech.bedrockstreaming.com/rex-shape-up" rel="alternate" type="text/html" title="REX-Shape Up, un LFT dont vous êtes les héros #LFT 31/03/23" /><published>2023-03-31T00:00:00+00:00</published><updated>2023-03-31T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/rex-shape-up</id><content type="html" xml:base="https://tech.bedrockstreaming.com/rex-shape-up">&lt;p&gt;REX-Shape Up, un LFT dont vous êtes les héros. 
-Présenté par Pierre-Thomas GUILLOT.&lt;/p&gt;</content><author><name>Pierre-Thomas Guillot</name></author><category term="lft" /><category term="tech" /><summary type="html">REX-Shape Up, un LFT dont vous êtes les héros. Présenté par Pierre-Thomas GUILLOT.</summary></entry><entry><title type="html">Twitch: du streaming mais pas en lit de pierre #LFT 31/03/23</title><link href="https://tech.bedrockstreaming.com/twitch-streaming" rel="alternate" type="text/html" title="Twitch: du streaming mais pas en lit de pierre #LFT 31/03/23" /><published>2023-03-31T00:00:00+00:00</published><updated>2023-03-31T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/twitch-du-streaming-mais-pas-en-lit-de-pierre</id><content type="html" xml:base="https://tech.bedrockstreaming.com/twitch-streaming">&lt;p&gt;Twitch: du streaming mais pas en lit de pierre.
-Présenté par Quentin GILLIE.&lt;/p&gt;</content><author><name>Quentin Gillie</name></author><category term="lft" /><category term="tech" /><summary type="html">Twitch: du streaming mais pas en lit de pierre. Présenté par Quentin GILLIE.</summary></entry></feed>
+Présenté par Pierre-Thomas GUILLOT.&lt;/p&gt;</content><author><name>Pierre-Thomas Guillot</name></author><category term="lft" /><category term="tech" /><summary type="html">REX-Shape Up, un LFT dont vous êtes les héros. Présenté par Pierre-Thomas GUILLOT.</summary></entry></feed>
