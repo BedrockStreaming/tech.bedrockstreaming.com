@@ -19,6 +19,8 @@ a_caron:
 a_ferez:
   name: Amélie Ferez
   avatar: /images/avatar/a_ferez.jpg
+a_pitel:
+  name: Antoine Pitel
 a_zinck:
   name: Arthur Zinck
   avatar: /images/avatar/a_zinck.png
@@ -56,6 +58,8 @@ c_vanderzwaard:
   url: https://twitter.com/christianvdz
 d_cuny:
   name: Damien Cuny
+d_larue:
+  name: David Larue
 d_roussel:
   name: Denis
   avatar: /images/avatar/d_roussel.jpg
@@ -145,6 +149,8 @@ m_schneider:
   name: Martin Schneider
   url: https://github.com/martinschneider01
   avatar: /images/avatar/m_schneider.png
+n_galais:
+  name: Nicolas Galais
 n_saby:
   name: Nastasia Saby
   url: https://twitter.com/saby_nastasia
