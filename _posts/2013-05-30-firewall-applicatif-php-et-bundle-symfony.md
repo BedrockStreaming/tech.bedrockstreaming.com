@@ -2,7 +2,7 @@
 layout: post
 title: "Firewall applicatif PHP et bundle Symfony"
 description: ""
-author: cytron
+author: team_cytron
 category:
 tags: [outil, php, symfony, open-source]
 feature-img: "images/posts/cytron/football.png"

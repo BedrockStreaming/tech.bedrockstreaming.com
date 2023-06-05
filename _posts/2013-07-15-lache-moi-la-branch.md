@@ -2,7 +2,7 @@
 layout: post
 title: "Lâche moi la branch !"
 description: ""
-author: cytron
+author: team_cytron
 category:
 tags: [qualite, jenkins, github]
 feature-img: "images/posts/cytron/branche.png"

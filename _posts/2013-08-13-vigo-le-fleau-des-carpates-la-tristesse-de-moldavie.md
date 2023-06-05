@@ -2,7 +2,7 @@
 layout: post
 title: "Vigo, le fléau des Carpates"
 description: ""
-author: cytron
+author: team_cytron
 category:
 tags: [outil, qualite, javascript, tests fonctionnels]
 feature-img: "images/posts/cytron/vigo.jpg"
