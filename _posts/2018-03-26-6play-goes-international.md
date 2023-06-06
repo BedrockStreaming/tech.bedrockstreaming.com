@@ -2,7 +2,7 @@
 layout: post
 title: "The 6play platform goes international"
 description: ""
-author:
+author: bedrock
 category: 6play
 tags: [6play, intl]
 color: rgb(45, 76, 141)

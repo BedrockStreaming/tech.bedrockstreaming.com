@@ -1,12 +1,21 @@
+# company
 bedrock:
   name: Bedrock
+
+# teams (alphabetically ordered)
+team_backend:
+  name: Backend teams
+team_cytron:
+  name: Cytron team
+  avatar: /images/avatar/cytron.png
+team_frontend:
+  name: Frontend teams
+
+# people (alphabetically ordered)
 a_caron:
   name: Antoine Caron
   avatar: /images/avatar/a_caron.jpeg
   url: https://blog.slashgear.dev/
-al_deboissieu:
-  name: Anne-Laure De Boissieu
-  avatar: /images/avatar/al_deboissieu.jpeg
 a_ferez:
   name: Amélie Ferez
   avatar: /images/avatar/a_ferez.jpg
@@ -14,6 +23,9 @@ a_zinck:
   name: Arthur Zinck
   avatar: /images/avatar/a_zinck.png
   url: https://www.z3k.fr
+al_deboissieu:
+  name: Anne-Laure De Boissieu
+  avatar: /images/avatar/al_deboissieu.jpeg
 b_candellier:
   name: Baptiste Candellier
   avatar: https://s.gravatar.com/avatar/c638445b4e00f76960bf7ee2275d7014?s=80
@@ -42,9 +54,6 @@ c_vanderzwaard:
   name: Christian Van Der Zwaard
   avatar: /images/avatar/c_vanderzwaard.jpg
   url: https://twitter.com/christianvdz
-cytron:
-  name: Cytron Team
-  avatar: /images/avatar/cytron.png
 d_cuny:
   name: Damien Cuny
 d_roussel:
@@ -76,9 +85,6 @@ f_lepretre:
 f_vieudrin:
   name: Frederic Vieudrin
   url: https://twitter.com/fvieudrin
-front:
-  name: Front teams
-  avatar: /images/avatar/front.jpg
 g_forien:
   name: Gabriel Forien
 h_detang:

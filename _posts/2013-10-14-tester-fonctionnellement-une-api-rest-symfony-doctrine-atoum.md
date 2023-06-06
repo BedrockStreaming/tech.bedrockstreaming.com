@@ -2,7 +2,7 @@
 layout: post
 title: "Tester fonctionnellement une API REST"
 description: ""
-author: cytron
+author: team_cytron
 category:
 tags: [qualite, symfony, atoum, tests fonctionnels]
 feature-img: "images/posts/cytron/husky.png"

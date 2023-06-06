@@ -2,7 +2,7 @@
 layout: post
 title: "Utilisation du StatsdBundle avec le composant Console"
 description: "Adaptation du StatsdBundle pour le composant Console de Symfony"
-author: cytron
+author: team_cytron
 category:
 tags: [statsd, php, symfony, console, monitoring, cytron]
 feature-img: "images/posts/cytron/console.png"

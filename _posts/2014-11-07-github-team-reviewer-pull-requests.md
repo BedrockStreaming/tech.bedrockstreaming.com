@@ -2,7 +2,7 @@
 layout: post
 title: "Github Team Reviewer pour gagner la course aux Pull Requests"
 description: "Voir toutes les pull requests de ses équipes en un seul endroit"
-author: cytron
+author: team_cytron
 category:
 tags: [outil, github, pull-requests, cytron, open-source]
 feature-img: "images/posts/cytron/gtr.png"
