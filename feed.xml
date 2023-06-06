@@ -1,4 +1,198 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-05-25T12:56:45+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock à MiXiT Lyon (2023)</title><link href="https://tech.bedrockstreaming.com/2023/04/25/mixit-lyon-2023.html" rel="alternate" type="text/html" title="Bedrock à MiXiT Lyon (2023)" /><published>2023-04-25T00:00:00+00:00</published><updated>2023-04-25T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/04/25/mixit-lyon-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/04/25/mixit-lyon-2023.html">&lt;p&gt;Nous étions présent les 13 et 14 avril 2023 à CPE pour l’édition de MiXiT 2023, pour suivre les 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-06-06T15:01:06+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock à l’AFUP Day Lyon (2023)</title><link href="https://tech.bedrockstreaming.com/2023/06/06/afup-day-lyon-2023.html" rel="alternate" type="text/html" title="Bedrock à l’AFUP Day Lyon (2023)" /><published>2023-06-06T00:00:00+00:00</published><updated>2023-06-06T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/06/06/afup-day-lyon-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/06/06/afup-day-lyon-2023.html">&lt;p&gt;Comme à l’accoutumée, les équipes backend de Bedrock étaient présentes le 12 mai 2023 à CPE (au Campus Lyontech) pour une nouvelle édition de l’AFUP Day.&lt;/p&gt;
+
+&lt;p&gt;Pour suivre les conférences qui gravitaient autour de PHP bien sûr, mais aussi pour soutenir notre collègue Pauline Rambaud qui était la star du jour (pour Bedrock du moins) 🤩 !&lt;/p&gt;
+
+&lt;p&gt;Et nous n’oublions pas non plus, les âmes braves de Bedrock qui ont revêti le maillot bleu de l’AFUP et qui ont donné de leur personne pour nous accueillir dans d’excellentes conditions.&lt;/p&gt;
+
+&lt;p&gt;Enfin &lt;strong&gt;bref&lt;/strong&gt; (🐘), voici le petit récap habituel des différentes conférences de cette journée 👇&lt;/p&gt;
+
+&lt;h2 id=&quot;tirer-parti-du-composant-expressionlanguage-de-symfony-laissez-les-utilisateurs-finaux-être-créatifs-&quot;&gt;Tirer parti du composant ExpressionLanguage de Symfony, laissez les utilisateurs finaux être créatifs !&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par Florian MERLE et Mathias ARLAUD&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Dans leur talk, Florian et Mathias nous parlent du composant Symfony Expression Language. 
+Ce composant fournit au développeur un moteur d’expressions et permet l’utilisation de ces dernières dans la configuration d’un projet ou bien encore comme fondation d’un moteur de règles métiers. 
+Si ce composant vous est inconnu, sachez qu’il est lui-même utilisé par Symfony : par exemple pour la sécurité sur les règles de validation des routes.&lt;/p&gt;
+
+&lt;p&gt;Florian et Mathias nous familiarisent avec le fonctionnement du composant : on peut définir des expressions simples qui ne requièrent pas d’être compilées en PHP (ex : “1+1”) et à l’inverse des expressions compilées en PHP qui vont correspondre à des règles personnalisées définies au sein de notre projet (“est_eligible_a_une_promo(client)”). 
+Pour mieux comprendre comment tout cela fonctionne en interne, nous avons ensuite une présentation de comment les expressions sont interprétées grâce à de l’analyse lexicale et le principe d’arbre syntaxique.&lt;/p&gt;
+
+&lt;p&gt;Pour finir ce talk, nous avons le droit à une démonstration du composant comme moteur de règles métiers. 
+On nous présente un petit site e-commerce où les administrateurs peuvent, via un formulaire, utiliser les règles métiers définies dans le projet et les ajuster pour correspondre au mieux à leurs besoins.&lt;/p&gt;
+
+&lt;h2 id=&quot;mentors--super-héros-ou-super-vilains-&quot;&gt;Mentors : super-héros ou super-vilains ?&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par Pauline RAMBAUD&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;On a choisi de ne rien vous dévoiler sur cette conférence donnée par notre collègue Pauline, il fallait être présent pour savourer l’instant 😉… 
+Ceci dit, Pauline sera sûrement ravie d’en parler avec vous &lt;a href=&quot;https://twitter.com/pauinegu&quot;&gt;sur Twitter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;monades--paradigme-unique-pour-la-programmation&quot;&gt;Monades : paradigme unique pour la programmation&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par Baptiste LANGLADE&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Dans cette &lt;a href=&quot;https://baptouuuu.github.io/talks/monads%20a-sync%20programming/&quot;&gt;conférence&lt;/a&gt;, Baptiste nous a fait un rapide tour d’horizon des solutions existantes pour faire de l’asynchrone en PHP. 
+Le conférencier nous a expliqué qu’il était difficile aujourd’hui de faire du synchrone et de l’asynchrone de la même manière, facilement.&lt;/p&gt;
+
+&lt;p&gt;C’est pour cela que le speaker a développé le composant &lt;a href=&quot;https://github.com/Innmind/Immutable#sequence&quot;&gt;Sequence&lt;/a&gt;. 
+Grâce à ce projet et sa &lt;a href=&quot;https://www.youtube.com/watch?v=RwCJwKfbDhE&quot;&gt;démo&lt;/a&gt;, nous avons pu voir comment, sans changer le code (hormis une dépendance), nous pouvons faire des appels synchrones ou asynchrones.&lt;/p&gt;
+
+&lt;p&gt;Nous avons, au passage, eu la présentation du composant &lt;a href=&quot;https://github.com/Innmind/Filesystem&quot;&gt;Filesystem&lt;/a&gt; qui apporte des outils intéressants pour la manipulation de fichiers.&lt;/p&gt;
+
+&lt;h2 id=&quot;le-zéro-downtime-deployment-en-pratique&quot;&gt;Le Zéro Downtime Deployment en pratique&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par Smaïne MILIANNI&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Smaïne nous a présenté la logique à avoir lorsque l’on veut faire du ZDD avec deux exemples et les limites de cette pratique.&lt;/p&gt;
+
+&lt;p&gt;Les deux règles d’or à respecter concernant les changements sont :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;être rétrocompatibles, c’est-à-dire que les nouvelles modifications doivent fonctionner avec l’existant. 
+Si le déploiement fail cela ne doit pas empêcher la version actuelle de fonctionner.&lt;/li&gt;
+  &lt;li&gt;être livré par release&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Cela implique de repenser la façon de construire une nouveauté et pour illustrer cela, Smaïne a donné l’exemple de l’ajout d’une colonne not null dans une base de données.&lt;/p&gt;
+
+&lt;p&gt;Objectif : ajouter une colonne not null dans une table&lt;/p&gt;
+
+&lt;p&gt;Découpage en deux releases :&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Release 1
+    &lt;ul&gt;
+      &lt;li&gt;ajout d’une colonne A null dans la table&lt;/li&gt;
+      &lt;li&gt;mise à jour de l’entité concernée dans le code initialisé à null&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Release 2
+    &lt;ul&gt;
+      &lt;li&gt;mettre à jour les lignes sans valeur dans la colonne A avec une valeur par défaut&lt;/li&gt;
+      &lt;li&gt;ajouter la contrainte NOT NULL sur la colonne A&lt;/li&gt;
+      &lt;li&gt;mettre à jour l’entité en spécifiant l’attribut comme non nullable&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Afin de s’assurer que chaque release peut fonctionner avec l’existant et anticiper les impacts que pourraient avoir les modifications, il ne faut pas hésiter à tester de façon automatique ou manuelle.&lt;/p&gt;
+
+&lt;p&gt;Suite à l’exemple, Smaïne a présenté les limites du ZDD qui sont :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;cette pratique a du sens si vous faites des releases fréquemment&lt;/li&gt;
+  &lt;li&gt;un changement majeur nécessitera toujours une maintenance&lt;/li&gt;
+  &lt;li&gt;tant que l’ensemble des releases prévues pour faire une modification ne sont pas en production, le système est considéré comme instable&lt;/li&gt;
+  &lt;li&gt;cette pratique nécessite de penser et de concevoir différemment les releases.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Pour conclure, le speaker a donné quelques clés pour se lancer dans le ZDD :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;former ses équipes&lt;/li&gt;
+  &lt;li&gt;documenter les processus mis en place&lt;/li&gt;
+  &lt;li&gt;itérer et s’améliorer avec chaque expérience&lt;/li&gt;
+  &lt;li&gt;tester et encore tester&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;démystifions-les-pratiques-du-software-craftsmanship-&quot;&gt;Démystifions les pratiques du Software craftsmanship !&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par Thomas BOILEAU&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Après une rapide présentation des différentes pratiques autour du &lt;em&gt;craftsmanship&lt;/em&gt; (Test Driven Development, Domain Driven Development, Clean Architecture, Architecture Hexagonale …), Thomas nous raconte comment il est tombé dans le piège du &lt;strong&gt;Gatekeeping&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Qu’est-ce que le &lt;strong&gt;Gatekeeping&lt;/strong&gt; ? D’après lui (cf. photo), c’est l’art de marquer son appartenance à un groupe en excluant les autres.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/afup-day-lyon-2023/gatekeeper.jpg&quot; alt=&quot;Gatekeeper&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Tout commence avec une remarque lue sur Internet, du style “Si tu ne fais pas de TDD, alors tu n’es pas un vrai développeur”, qui le complexera au point de le pousser à étudier et appliquer cette pratique jusqu’à son tour devenir l’auteur de ce genre de remarque.&lt;/p&gt;
+
+&lt;p&gt;En considérant le &lt;strong&gt;craftsmanship&lt;/strong&gt; comme la solution universelle et en l’appliquant de manière dogmatique, il se retrouve à proposer des solutions inadaptées à ses projets et donc à nuire à ses clients.&lt;/p&gt;
+
+&lt;p&gt;L’objet de cette conférence sera donc de nous parler de comment il a su se remettre en question et sortir de l’impasse.&lt;/p&gt;
+
+&lt;p&gt;Comment faire pour ne plus être un gatekeeper ? 
+Thomas nous parle alors de prendre du recul sur soi, d’être pragmatique et bien sûr de savoir faire preuve d’humilité. 
+Mais il existe aussi des pratiques reconnues dans notre milieu telles que l’&lt;em&gt;Egoless programming&lt;/em&gt;, le &lt;em&gt;Pair Programming&lt;/em&gt;, ou tout simplement reconnaître à chacun le droit à l’erreur et connaître ses propres limites.&lt;/p&gt;
+
+&lt;h2 id=&quot;comment-refondre-un-legacy-sans-cris-et-sans-larmes---retour-dexpérience-et-bonnes-pratiques&quot;&gt;Comment refondre un legacy sans cris et sans larmes - Retour d’expérience et bonnes pratiques&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par Kevin BALICOT&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;À travers son retour d’expérience d’une refonte d’un très vieux projet PHP, Kevin BALICOT nous a offert sa recette d’une refonte progressive sans cris ni larmes :&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Lister tous les problèmes de l’application&lt;/li&gt;
+  &lt;li&gt;Définir une stratégie et des objectifs&lt;/li&gt;
+  &lt;li&gt;Faire un inventaire de l’application&lt;/li&gt;
+  &lt;li&gt;Mettre en place un Golden Master&lt;/li&gt;
+  &lt;li&gt;Mettre des outils d’analyse de code&lt;/li&gt;
+  &lt;li&gt;Implémenter des Design Pattern et des architectures&lt;/li&gt;
+  &lt;li&gt;Consolider les choix avec des ADR et du Pair Programming&lt;/li&gt;
+  &lt;li&gt;Tester !&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Si vous souhaitez approfondir un de ces points, vous pouvez sans doute lui demander directement &lt;a href=&quot;https://twitter.com/kevinbalicot&quot;&gt;sur Twitter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;le-travail-invisible-en-entreprise--le-cas-du-glue-work&quot;&gt;Le travail invisible en entreprise : le cas du glue work&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par Camille CASTILLO&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Nous avons découvert le concept du “glue work” lors de la première conférence de Camille.&lt;/p&gt;
+
+&lt;p&gt;Enfin, nous avons un terme pour décrire cette idée que nous avions tous.tes en tête, mais qui manquait d’une définition concrète.&lt;/p&gt;
+
+&lt;p&gt;Le “glue work” représente toutes ces tâches accomplies par les employé.e.s, notamment les développeur.euse.s, lors de leur travail quotidien, qui ne sont généralement pas facilement quantifiables et rarement valorisées par l’entreprise.&lt;/p&gt;
+
+&lt;p&gt;Camille a identifié trois catégories de “glue work” : social, managérial et technique.&lt;/p&gt;
+
+&lt;p&gt;Par exemple, organiser une sortie au restaurant favorise les liens sociaux. Planifier une réunion avec des clients renforce les relations professionnelles. Et effectuer une veille et proposer de nouveaux outils de développement relève de la dimension technique.&lt;/p&gt;
+
+&lt;p&gt;Malheureusement, en effectuant ces tâches essentielles à la vie de l’entreprise et même à sa productivité, les employé.e.s consacrent logiquement moins de temps à leurs tâches principales, comme le développement.&lt;/p&gt;
+
+&lt;p&gt;Cela peut devenir problématique si l’entreprise ne reconnaît pas la valeur de ces activités.&lt;/p&gt;
+
+&lt;p&gt;Alors quelles solutions pour prendre en considération le glue work ?&lt;/p&gt;
+
+&lt;p&gt;Tout d’abord, le repérer et se porter volontaire.&lt;/p&gt;
+
+&lt;p&gt;Un manager peut aussi veiller à répartir ces tâches.&lt;/p&gt;
+
+&lt;p&gt;Camille conclut en indiquant que le glue work est nécessaire à l’entreprise, qu’il faut l’identifier et être acteur.ice.s chacun à son niveau pour le faire reconnaître.&lt;/p&gt;
+
+&lt;h2 id=&quot;transformer-efficacement-du-json-en-structure-php-fortement-typée&quot;&gt;Transformer efficacement du JSON en structure PHP fortement typée&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par Romain CANON&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Une chouette conférence qui présentait la librairie d’Object Mapping pour PHP &lt;a href=&quot;https://github.com/CuyZ/Valinor&quot;&gt;Valinor&lt;/a&gt;, permettant de tirer parti au maximum des types PHP au runtime.&lt;/p&gt;
+
+&lt;p&gt;D’ailleurs suite à ça, certaines de nos équipes ont commencé à l’utiliser à Bedrock… Peut-être un prochain article de REX à prévoir 😉&lt;/p&gt;
+
+&lt;h2 id=&quot;les-instruments-des-devs-augmentées&quot;&gt;Les instruments des devs augmenté·e·s&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par Gabriel PILLET&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;On a fini cette journée en beauté, par une vue d’ensemble des différents outils permettant dès aujourd’hui d’épauler les développeurs dans leur travail quotidien.&lt;/p&gt;
+
+&lt;p&gt;De PHPStan à GPT-4 en passant par GitHub Copilot, cette conférence, dont les slides étaient habillées d’images générées par une IA, nous a bien fait comprendre qu’on a tout intérêt à accueillir ces nouveaux outils, si on souhaite décupler notre productivité 🤞.&lt;/p&gt;
+
+&lt;h2 id=&quot;à-lannée-prochaine-&quot;&gt;À l’année prochaine !&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/afup-day-lyon-2023/team.jpg&quot; alt=&quot;Team backend&quot; /&gt;&lt;/p&gt;</content><author><name>Backend teams</name></author><category term="conference" /><category term="lyon" /><category term="tech" /><category term="php" /><category term="afup" /><summary type="html">Comme à l’accoutumée, les équipes backend de Bedrock étaient présentes le 12 mai 2023 à CPE (au Campus Lyontech) pour une nouvelle édition de l’AFUP Day.</summary></entry><entry><title type="html">Bedrock à MiXiT Lyon (2023)</title><link href="https://tech.bedrockstreaming.com/2023/04/25/mixit-lyon-2023.html" rel="alternate" type="text/html" title="Bedrock à MiXiT Lyon (2023)" /><published>2023-04-25T00:00:00+00:00</published><updated>2023-04-25T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/04/25/mixit-lyon-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/04/25/mixit-lyon-2023.html">&lt;p&gt;Nous étions présent les 13 et 14 avril 2023 à CPE pour l’édition de MiXiT 2023, pour suivre les 
 conférences bien sûr et pour soutenir les collègues qui donnaient une conférence !&lt;/p&gt;
 
 &lt;h2 id=&quot;et-si-vos-prochaines-vacances-se-passaient-à-vélo-&quot;&gt;Et si vos prochaines vacances se passaient à vélo ?&lt;/h2&gt;
@@ -94,7 +288,7 @@ permis une avancée plus importante, mais le suivi par le pilote était plus com
 &lt;h2 id=&quot;a-lannée-prochaine-&quot;&gt;A l’année prochaine !&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/mixit-2023/bedrock-mixit.jpg&quot; alt=&quot;Bedrock à MiXiT&quot; /&gt;
-&lt;img src=&quot;/images/posts/mixit-2023/bedrock-mixit-2.jpg&quot; alt=&quot;Bedrock à MiXiT&quot; /&gt;&lt;/p&gt;</content><author><name>[&quot;al_deboissieu&quot;]</name></author><category term="conference" /><category term="lyon" /><category term="tech" /><category term="agilité" /><summary type="html">Nous étions présent les 13 et 14 avril 2023 à CPE pour l’édition de MiXiT 2023, pour suivre les conférences bien sûr et pour soutenir les collègues qui donnaient une conférence !</summary></entry><entry><title type="html">Bedrock à l’AWS Summit Paris 2023</title><link href="https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html" rel="alternate" type="text/html" title="Bedrock à l’AWS Summit Paris 2023" /><published>2023-04-20T00:00:00+00:00</published><updated>2023-04-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html">&lt;p&gt;L’AWS Summit Paris 2023 s’est déroulé le 4 avril. C’était pour nous l’occasion de découvrir les dernières innovations au cœur des services AWS, comme la solution d’IA d’aide au développement nommée CodeWhisperer. De plus, &lt;a href=&quot;https://twitter.com/pascal_martin&quot;&gt;Pascal Martin, Principal Engineer&lt;/a&gt;, y assistait aussi en tant que speaker pour partager notre expérience en conception et maintenance de Systèmes Distribués.
+&lt;img src=&quot;/images/posts/mixit-2023/bedrock-mixit-2.jpg&quot; alt=&quot;Bedrock à MiXiT&quot; /&gt;&lt;/p&gt;</content><author><name>Anne-Laure De Boissieu</name></author><category term="conference" /><category term="lyon" /><category term="tech" /><category term="agilité" /><summary type="html">Nous étions présent les 13 et 14 avril 2023 à CPE pour l’édition de MiXiT 2023, pour suivre les conférences bien sûr et pour soutenir les collègues qui donnaient une conférence !</summary></entry><entry><title type="html">Bedrock à l’AWS Summit Paris 2023</title><link href="https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html" rel="alternate" type="text/html" title="Bedrock à l’AWS Summit Paris 2023" /><published>2023-04-20T00:00:00+00:00</published><updated>2023-04-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html">&lt;p&gt;L’AWS Summit Paris 2023 s’est déroulé le 4 avril. C’était pour nous l’occasion de découvrir les dernières innovations au cœur des services AWS, comme la solution d’IA d’aide au développement nommée CodeWhisperer. De plus, &lt;a href=&quot;https://twitter.com/pascal_martin&quot;&gt;Pascal Martin, Principal Engineer&lt;/a&gt;, y assistait aussi en tant que speaker pour partager notre expérience en conception et maintenance de Systèmes Distribués.
 En plus des deux points précédemment cités, nous verrons aussi comment eTF1 s’est préparé pour la Coupe du Monde de la FIFA 2022, ou de souveraineté et de son application chez AWS.&lt;/p&gt;
 
 &lt;h2 id=&quot;à-vos-côtés-pour-les-grands-moments--aws-tf1-et-la-coupe-du-monde-de-la-fifa-2022&quot;&gt;À vos côtés pour les grands moments : AWS, TF1 et la Coupe du Monde de la FIFA 2022&lt;/h2&gt;
@@ -430,5 +624,4 @@ Non seulement la ville est belle et agréable à visiter, mais la découverte d�
   &lt;li&gt;&lt;a href=&quot;https://vuejs.amsterdam/&quot;&gt;Site VueJS Amsterdam&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.facebook.com/media/set/?vanity=jsworldconf&amp;amp;set=a.687856240008465&quot;&gt;Gallerie photos&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/@JSWORLDConference/videos&quot;&gt;Replay des conférences sur Youtube&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>[&quot;pl_perez&quot;, &quot;l_penaguin&quot;, &quot;c_berard&quot;]</name></author><category term="node" /><category term="Node" /><category term="vue" /><category term="vuex" /><category term="pinia" /><category term="vite" /><category term="Vitest" /><category term="TypeScript" /><category term="developer" /><category term="javascript" /><summary type="html">C’est dans le Theater Amsterdam que se sont déroulés ces deux jours de VueJS Amsterdam, événement faisant partie de la JSWorld Conference, durant toute la semaine.</summary></entry><entry><title type="html">REX-Shape Up, un LFT dont vous êtes les héros #LFT 31/03/23</title><link href="https://tech.bedrockstreaming.com/rex-shape-up" rel="alternate" type="text/html" title="REX-Shape Up, un LFT dont vous êtes les héros #LFT 31/03/23" /><published>2023-03-31T00:00:00+00:00</published><updated>2023-03-31T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/rex-shape-up</id><content type="html" xml:base="https://tech.bedrockstreaming.com/rex-shape-up">&lt;p&gt;REX-Shape Up, un LFT dont vous êtes les héros. 
-Présenté par Pierre-Thomas GUILLOT.&lt;/p&gt;</content><author><name>Pierre-Thomas Guillot</name></author><category term="lft" /><category term="tech" /><summary type="html">REX-Shape Up, un LFT dont vous êtes les héros. Présenté par Pierre-Thomas GUILLOT.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>[&quot;pl_perez&quot;, &quot;l_penaguin&quot;, &quot;c_berard&quot;]</name></author><category term="node" /><category term="Node" /><category term="vue" /><category term="vuex" /><category term="pinia" /><category term="vite" /><category term="Vitest" /><category term="TypeScript" /><category term="developer" /><category term="javascript" /><summary type="html">C’est dans le Theater Amsterdam que se sont déroulés ces deux jours de VueJS Amsterdam, événement faisant partie de la JSWorld Conference, durant toute la semaine.</summary></entry></feed>
