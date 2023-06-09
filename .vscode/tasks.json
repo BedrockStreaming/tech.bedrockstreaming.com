@@ -3,7 +3,7 @@
     "tasks": [
         {
             "label": "Jekyll Serve",
-            "command": "bundle exec jekyll serve -w --drafts --destination /var/_site/ --port 8080 --incremental --livereload --livereload-port 35729",
+            "command": "rm -rf /var/_site && bundle exec jekyll serve --drafts --destination /var/_site/ --port 8080 --incremental --livereload --livereload-port 35729",
             "type": "shell",
             "runOptions": {
                 "runOn": "folderOpen"
