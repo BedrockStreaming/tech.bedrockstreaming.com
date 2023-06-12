@@ -4,7 +4,7 @@ title: Writing custom Gradle plugins for custom Gradle needs
 description: Convention plugins are the recommended way to modularize your builds. Let's see how to write one.
 author: b_candellier
 tags: [android, gradle, plugin]
-color: rgb(251,87,66)
+color: rgb(17, 46, 56)
 ---
 In the last couple of years, Gradle has been encouraging developers to work towards modularizing their projects. Of course, when implemented effectively, this approach offers several advantages, with build parallelization being a significant factor.
 
