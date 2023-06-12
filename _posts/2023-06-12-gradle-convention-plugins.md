@@ -6,13 +6,13 @@ author: b_candellier
 tags: [android, gradle, plugin]
 color: rgb(251,87,66)
 ---
-In the last couple of years, Gradle has been encouraging developers to work towards modularizing their projects. Of course, when well-realized, this has multiple advantages, with build parallelization being a major factor.
+In the last couple of years, Gradle has been encouraging developers to work towards modularizing their projects. Of course, when implemented effectively, this approach offers several advantages, with build parallelization being a significant factor.
 
 But splitting your Android project into many, many modules has a major drawback, at first: you need to write a build file for each of them.
 
 ## The naive approach
 
-You might be tempted to just create some "common" Groovy files (also known as "script plugins"), and import them into each module. We can also define some properties in the root project, which can then be used in each subproject.
+One might be tempted to create "common" Groovy files (also known as "script plugins") and import them into each module. We can also define some properties in the root project, which can then be used in each subproject.
 
 ```groovy
 apply plugin: 'com.android.library'
@@ -68,9 +68,9 @@ In addition to these issues, we wanted to start modularizing much of our project
 
 ### Centralizing version management
 
-A big issue that we relied on the root project for, and a common issue in the industry, is sharing dependencies and versions across the entire project. You don't want to hard-code the version of `okhttp` you use on every single module; you could, but it's probably a pain you really don't want to inflict on yourself. 
+A significant challenge we faced, which is also common in the industry, is managing dependencies and versions across the entire project. Hard-coding the version of okhttp for every module is not recommended, as it can be tedious and error-prone.
 
-And so, there are many known solutions to this problem: storing the versions in the root project, storing them in a `buildSrc` script, and I'm sure many more. But not only are some solutions bad for your build performance (see: reliance on the root project), almost all of them share an insoluble issue: tooling support.
+There are several known solutions to this problem, such as storing versions in the root project or using a `buildSrc` script. But not only are some solutions bad for your build performance (see: reliance on the root project), almost all of them share an insoluble issue: tooling support.
 
 If you want to know when your dependencies can be upgraded, you probably either rely on your IDE to highlight your outdated dependencies, which it does by trying to look for some string that… looks like a Gradle dependency, or you rely on a tool like Renovate, which does the same thing on your CI. In either case, you probably could use a standard solution, where there is some kind of standard to declare your centralized dependencies, which both humans and machines can rely on consistently. That's why Gradle introduced the version catalog:
 
@@ -107,13 +107,13 @@ dependencies {
 
 ### Code reuse
 
-It's pretty easy to see where the industry is heading when it comes to Gradle best practices; many talks and blog posts from big tech companies and Gradle alike all point to the same pattern: convention plugins.
+The direction of the industry's Gradle best practices is evident, with numerous talks and blog posts from big tech companies and even Gradle itself emphasizing the use of convention plugins.
 
-The name could sound scary, but it's actually scary simple: a convention plugin is a Gradle plugin that will be applied to each of your modules, and apply the same configuration to each of them. 
+While the name may sound intimidating, convention plugins are actually pretty straightforward. They are Gradle plugins that can be applied to each module, ensuring consistent configuration across all of them.
 
-This has the advantages of build scripts and de-duplicating common configuration, but without the drawback of having a dependency on the root project. The convention plugin is an isolated project, which could be stored in your monorepo, but could very well be stored in a completely different place. Unlike build scripts, it's compiled and instantiated only once, and is then *called* once for each module.
+Convention plugins offer the advantages of build scripts and the elimination of duplicate configuration, all without the need for a dependency on the root project. The convention plugin is an isolated project, which could be stored in your monorepo, but could very well be stored in a completely different place. Unlike build scripts, it's compiled and instantiated only once, and is then *called* once for each module.
 
-You just create it like any custom Gradle plugin. If you haven't had to do this yet, it looks like this:
+Creating a convention plugin is similar to creating any custom Gradle plugin. If you haven't had to do this yet, it looks like this:
 
 ```groovy
 // settings.gradle
@@ -275,4 +275,6 @@ You can reuse this principle and apply it to all your common configuration. You 
 
 ## In summary
 
-Migrating from included build scripts and root project dependencies has helped to make our project more scalable. Writing custom Gradle plugins is hard at first because the smallest mistake in understanding the way Gradle works makes your screen bleed with red squiggles everywhere; however, once you are set up, the maintenance is made really easier, and it feels much better to be working *with* Gradle instead of going against the optimizations that are introduced with every Gradle update, knowing we'll be taking advantage of them automatically. The version catalogs are also a very neat way to organize your dependencies, and the fact that the format is recognized by our tooling is really a big plus.
+The scalability of our project has been significantly improved through the migration from included build scripts and root project dependencies. Although writing custom Gradle plugins can initially pose challenges due to the potential for frustrating errors resulting from a minor misunderstanding of the Gradle API, once you are set up, the maintenance becomes much easier. It feels more rewarding to work in harmony with Gradle, rather than working against the optimizations introduced with each Gradle update, knowing that we can automatically benefit from them. The version catalogs provide a convenient method for organizing dependencies, and the fact that our tooling recognizes the format is a significant advantage.
+
+In conclusion, for developers working on medium-to-large Gradle projects, whether in the Android realm or elsewhere, I highly recommend exploring the use of convention plugins. Mastering them is not as difficult as it may seem, and they provide effective solutions to address real challenges that we all face day-to-day.
