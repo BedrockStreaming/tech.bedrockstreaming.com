@@ -78,6 +78,7 @@ If you want to know when your dependencies can be upgraded, you probably either 
 [versions]
 androidCompileSdk = "33"
 androidGradlePlugin = "7.4.2"
+jvm = "17"
 
 [libraries]
 android-billingclient-core = { module = "com.android.billingclient:billing", version.ref = "billing" }
@@ -122,7 +123,7 @@ includeBuild 'gradle-plugins/convention-plugin'
 
 This will include your convention plugin alongside your main project at build time, so you will be able to use its result for your main project's build system.
 
-You'll need a simple `settings.gradle` file for your plugin. If your plugin is located in your monorepo, it will be very useful to be able to access its Version Catalog, so you can even share your dependency versions in the build files of your plugin.
+You'll need a simple `settings.gradle(.kts)` file for your plugin. If your plugin is located in your monorepo, it will be very useful to be able to access its Version Catalog, so you can even share your dependency versions in the build files of your plugin.
 
 ```groovy
 dependencyResolutionManagement {
@@ -142,7 +143,7 @@ dependencyResolutionManagement {
 rootProject.name = 'gradle-plugin-convention'
 ```
 
-Then, you need a `build.gradle` configuration script for your custom plugin. The trick here, is that to configure *other* modules with the Android Gradle Plugin (AGP), for example, you will need access to the AGP's classpath *at build time* in your plugin. You might be tempted to apply the AGP as a plugin, but you actually need to import it as an *implementation*.
+Then, you need a `build.gradle(.kts)` configuration script for your custom plugin. The trick here, is that to configure *other* modules with the Android Gradle Plugin (AGP), for example, you will need access to the AGP's classpath *at build time* in your plugin. You might be tempted to apply the AGP as a plugin, but you actually need to import it as an *implementation*.
 
 ```kotlin
 group = "com.bedrockstreaming"
@@ -192,3 +193,87 @@ dependencies {
 }
 ```
 
+Then, you'll need an *extension*, which is Gradle speak to describe a configuration interface. Each option you will add to your extension will be usable from your module's `build.gradle(.kts)`, which is one of the most powerful advantages of custom plugins: you can reuse code and still make it configurable!
+
+```kotlin
+abstract class BaseConventionPluginExtension {
+
+    internal abstract val enableCompose: Property<Boolean>
+
+    /**
+     * Enable Jetpack Compose on this module, and add core libraries.
+     */
+    @Suppress("MemberVisibilityCanBePrivate")
+    fun composeToolkit() {
+        enableCompose.set(true)
+    }
+
+    // …
+}
+```
+
+Here's how that will look like when applying it to a simple library module:
+
+```groovy
+plugins {
+    alias(libs.plugins.bedrock.library.android)
+    alias(libs.plugins.kotlin.parcelize)
+}
+
+bedrock {
+    enableCompose()
+}
+
+dependencies {
+    // …
+}
+```
+
+Then, it's time to create the actual plugin class, the entry point for Gradle (specified in `implementationClass` above).
+
+```kotlin
+package com.bedrockstreaming.gradle.convention.android.library
+
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+import org.gradle.kotlin.dsl.create
+
+class AndroidLibraryPlugin : Plugin<Project> {
+
+    override fun apply(target: Project) {
+        // This is where we declare that our extension will be available in a bedrock {} block.
+        val extension = target.extensions.create<AndroidLibraryExtension>("bedrock")
+        // …
+    }
+}
+```
+
+That's it for boilerplate! You're free to architect the internals of your Gradle plugin however you want, but this `Plugin::apply` method will be the entry point for you to apply your configuration to each module on which your plugin has been applied.
+
+For example, here's how you might apply the `com.android.library` plugin to your module, and configure it: 
+
+```kotlin
+fun apply(target: Project) = with(target) {
+    // getPluginId is an extension function that reads the plugin ID from the version catalog
+    apply(plugin = getPluginId("android.library"))
+
+    configure<LibraryExtension> {
+        compileSdk = getVersion("androidCompileSdk").toInt()
+    }
+
+    androidComponents.finalizeDsl {
+        configure<LibraryExtension> {
+            defaultConfig {
+                minSdk = getVersion("androidMinSdk").toInt()
+                consumerProguardFiles("proguard-rules.pro")
+            }
+        }
+    }
+}
+```
+
+You can reuse this principle and apply it to all your common configuration. You can automatically add dependencies, add some unit testing configuration, set the correct JDK toolchain, build flags, and even configure other third-party plugins with the same mechanism. The sky's the limit!
+
+## In summary
+
+Migrating from included build scripts and root project dependencies has helped making our project more scalable. Writing custom Gradle plugins is hard at first, because the smallest mistake in understanding the way Gradle works makes your screen bleed red squiggles everywhere; however, once you are set up, the maintenance is made really easier, and it feels much better to be working *with* Gradle instead of going against the optimizations that are introduced with every Gradle update, knowing we'll be taking advantage of them automatically. The version catalogs are also a very neat way to organize your dependencies, and the fact that the format is recognized by our tooling is really a big plus.
