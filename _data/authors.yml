@@ -19,6 +19,8 @@ a_caron:
 a_ferez:
   name: Amélie Ferez
   avatar: /images/avatar/a_ferez.jpg
+a_martins:
+  name: Alexis Martins
 a_zinck:
   name: Arthur Zinck
   avatar: /images/avatar/a_zinck.png
@@ -87,6 +89,8 @@ f_vieudrin:
   url: https://twitter.com/fvieudrin
 g_forien:
   name: Gabriel Forien
+g_treme:
+  name: Guillaume Trémé
 h_detang:
   name: Hugo Detang
 h_riffiod:
