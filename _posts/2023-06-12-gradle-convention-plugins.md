@@ -57,18 +57,18 @@ dependencies {
 }
 ```
 
-This is the approach we were using before moving to a better system. It has some drawbacks, which makes this approach obsolete and not recommended by the Gradle maintainers.
+This is the approach we were using before moving to a better system. It has some drawbacks which make this approach obsolete and not recommended by the Gradle maintainers.
 
 - Script plugins need to be imported **individually** for each module in your project. This means that your heap will grow a lot, and this approach will scale terribly on a project with many modules.
-- Relying on the `rootProject` in your modules−or relying on `subprojects` from your root project for that matter−will add unwanted dependencies between your modules, which will in turn defeat optimization mechanisms designed by Gradle, such as [configuration-on-demand](https://docs.gradle.org/current/userguide/multi_project_configuration_and_execution.html#sec:configuration_on_demand) or [configuration cache](https://gradle.github.io/configuration-cache/). These are desgined to help bring down the time Gradle spends configuring your project (i.e. reading the configuration and building the task graph) each time you build; I don't have to tell you that getting this time to decrease will make for happier and more productive developers.
+- Relying on the `rootProject` in your modules−or relying on `subprojects` from your root project, for that matter−will add unwanted dependencies between your modules, which will in turn defeat optimization mechanisms designed by Gradle, such as [configuration-on-demand](https://docs.gradle.org/current/userguide/multi_project_configuration_and_execution.html#sec:configuration_on_demand) or [configuration cache](https://gradle.github.io/configuration-cache/). These are made to help bring down the time Gradle spends configuring your project (i.e. reading the configuration and building the task graph) each time you build; it goes without saying that getting this time to decrease will make for happier and more productive developers.
 
-In addition to these issues, we wanted to start modularizing a lot of our project. We already had about 150 modules, but we planned on making many more soon, so this would be a good time to find a future-proof architecture. Plus, this was a good opportunity to clear some tech debt: cleaning unused dependencies, moving to a version catalog…
+In addition to these issues, we wanted to start modularizing much of our project. We already had about 150 modules, but we planned on making many more soon, so this would be a good time to find a future-proof architecture. Plus, this was a good opportunity to clear some tech debt: cleaning unused dependencies, moving to a version catalog…
 
 ## Modern problems call for modern solutions
 
 ### Centralizing version management
 
-A big issue that we relied on the root project for, and a common issue in the industry, is sharing dependencies and versions across the entire project. You don't want to hard-code the version of `okhttp` you use on every single module; you could, but it's probably a pain you really don't want to inflict to yourself. 
+A big issue that we relied on the root project for, and a common issue in the industry, is sharing dependencies and versions across the entire project. You don't want to hard-code the version of `okhttp` you use on every single module; you could, but it's probably a pain you really don't want to inflict on yourself. 
 
 And so, there are many known solutions to this problem: storing the versions in the root project, storing them in a `buildSrc` script, and I'm sure many more. But not only are some solutions bad for your build performance (see: reliance on the root project), almost all of them share an insoluble issue: tooling support.
 
@@ -95,7 +95,7 @@ android-library = { id = "com.android.library", version.ref = "androidGradlePlug
 
 This format has been great, even for a project as big as ours. It's flexible: you can now store library versions, but plugin versions as well, and even just plain versions, which you can get from your custom plugin later on!
 
-And it's a standard format, so it works out-of-the-box with tools like Renovate or Android Studio.
+And it's a standard format, so it works out of the box with tools like Renovate or Android Studio.
 
 ```groovy
 dependencies {
@@ -111,7 +111,7 @@ It's pretty easy to see where the industry is heading when it comes to Gradle be
 
 The name could sound scary, but it's actually scary simple: a convention plugin is a Gradle plugin that will be applied to each of your modules, and apply the same configuration to each of them. 
 
-This has the advantages of build scripts, de-duplicating common configuration, but without the drawback of having a dependency on the root project. The convention plugin is an isolated project, which could be stored in your monorepo, but could very well be stored in a completely different place. Unlike build scripts, it's compiled and instantiated only once, and is then *called* once for each module.
+This has the advantages of build scripts and de-duplicating common configuration, but without the drawback of having a dependency on the root project. The convention plugin is an isolated project, which could be stored in your monorepo, but could very well be stored in a completely different place. Unlike build scripts, it's compiled and instantiated only once, and is then *called* once for each module.
 
 You just create it like any custom Gradle plugin. If you haven't had to do this yet, it looks like this:
 
@@ -143,7 +143,7 @@ dependencyResolutionManagement {
 rootProject.name = 'gradle-plugin-convention'
 ```
 
-Then, you need a `build.gradle(.kts)` configuration script for your custom plugin. The trick here, is that to configure *other* modules with the Android Gradle Plugin (AGP), for example, you will need access to the AGP's classpath *at build time* in your plugin. You might be tempted to apply the AGP as a plugin, but you actually need to import it as an *implementation*.
+Then, you need a `build.gradle(.kts)` configuration script for your custom plugin. The trick is that to configure *other* modules with the Android Gradle Plugin (AGP), for example, you will need access to the AGP's classpath *at build time* in your plugin. You might be tempted to apply the AGP as a plugin, but you actually need to import it as an *implementation*.
 
 ```kotlin
 group = "com.bedrockstreaming"
@@ -275,4 +275,4 @@ You can reuse this principle and apply it to all your common configuration. You 
 
 ## In summary
 
-Migrating from included build scripts and root project dependencies has helped making our project more scalable. Writing custom Gradle plugins is hard at first, because the smallest mistake in understanding the way Gradle works makes your screen bleed red squiggles everywhere; however, once you are set up, the maintenance is made really easier, and it feels much better to be working *with* Gradle instead of going against the optimizations that are introduced with every Gradle update, knowing we'll be taking advantage of them automatically. The version catalogs are also a very neat way to organize your dependencies, and the fact that the format is recognized by our tooling is really a big plus.
+Migrating from included build scripts and root project dependencies has helped to make our project more scalable. Writing custom Gradle plugins is hard at first because the smallest mistake in understanding the way Gradle works makes your screen bleed with red squiggles everywhere; however, once you are set up, the maintenance is made really easier, and it feels much better to be working *with* Gradle instead of going against the optimizations that are introduced with every Gradle update, knowing we'll be taking advantage of them automatically. The version catalogs are also a very neat way to organize your dependencies, and the fact that the format is recognized by our tooling is really a big plus.
