@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Writing custom Gradle plugins for custom Gradle needs
+title: You Need a Custom Gradle Plugin, and Here’s Why
 description: Convention plugins are the recommended way to modularize your builds. Let's see how to write one.
 author: b_candellier
 tags: [android, gradle, plugin]
