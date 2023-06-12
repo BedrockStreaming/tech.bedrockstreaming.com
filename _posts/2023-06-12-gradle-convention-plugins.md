@@ -203,7 +203,6 @@ abstract class BaseConventionPluginExtension {
     /**
      * Enable Jetpack Compose on this module, and add core libraries.
      */
-    @Suppress("MemberVisibilityCanBePrivate")
     fun composeToolkit() {
         enableCompose.set(true)
     }
