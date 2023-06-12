@@ -97,14 +97,6 @@ This format has been great, even for a project as big as ours. It's flexible: yo
 
 And it's a standard format, so it works out of the box with tools like Renovate or Android Studio.
 
-```groovy
-dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.collection.ktx)
-    implementation(libs.bundles.androidx.lifecycle)
-}
-```
-
 ### Code reuse
 
 The direction of the industry's Gradle best practices is evident, with numerous talks and blog posts from big tech companies and even Gradle itself emphasizing the use of convention plugins.
@@ -211,23 +203,6 @@ abstract class BaseConventionPluginExtension {
 }
 ```
 
-Here's how that will look like when applying it to a simple library module:
-
-```groovy
-plugins {
-    alias(libs.plugins.bedrock.library.android)
-    alias(libs.plugins.kotlin.parcelize)
-}
-
-bedrock {
-    enableCompose()
-}
-
-dependencies {
-    // …
-}
-```
-
 Then, it's time to create the actual plugin class, the entry point for Gradle (specified in `implementationClass` above).
 
 ```kotlin
@@ -272,6 +247,29 @@ fun apply(target: Project) = with(target) {
 ```
 
 You can reuse this principle and apply it to all your common configuration. You can automatically add dependencies, add some unit testing configuration, set the correct JDK toolchain, build flags, and even configure other third-party plugins with the same mechanism. The sky's the limit!
+
+## End result
+
+Remember our old build file, with its included Groovy scripts, referenced root project, custom extension functions? Here's what it looks like now!
+
+```groovy
+plugins {
+    alias(libs.plugins.bedrock.library.android)
+}
+
+bedrock {
+    moshi(codegen: true)
+    enableCompose()
+    unitTests()
+}
+
+dependencies {
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.paging.runtime.ktx)
+}
+```
+
+Much nicer, isn't it? 🤩
 
 ## In summary
 
