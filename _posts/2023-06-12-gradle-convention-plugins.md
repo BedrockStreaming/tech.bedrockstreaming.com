@@ -7,9 +7,9 @@ tags: [android, gradle, plugin]
 color: rgb(17, 46, 56)
 language: en
 ---
-In the last couple of years, Gradle has been encouraging developers to work towards modularizing their projects. Of course, when implemented effectively, this approach offers several advantages, with build parallelization being a significant factor.
+In the last couple of years, Gradle has been encouraging developers to work towards modularizing their projects. Of course, when effectively implemented, this approach offers several advantages, with build parallelization being a significant factor.
 
-But splitting your Android project into many, many modules has a major drawback, at first: you need to write a build file for each of them.
+But splitting your Android project into many modules has a major drawback, at first: you need to write a build file for each of them.
 
 ## The naive approach
 
@@ -58,7 +58,7 @@ dependencies {
 }
 ```
 
-This is the approach we were using before moving to a better system. It has some drawbacks which make this approach obsolete and not recommended by the Gradle maintainers.
+This is the approach we were using before moving to a better system. These few following drawbacks made it obsolete and not recommended by Gradle maintainers.
 
 - Script plugins need to be imported **individually** for each module in your project. This means that your heap will grow a lot, and this approach will scale terribly on a project with many modules.
 - Relying on the `rootProject` in your modules−or relying on `subprojects` from your root project, for that matter−will add unwanted dependencies between your modules, which will in turn defeat optimization mechanisms designed by Gradle, such as [configuration-on-demand](https://docs.gradle.org/current/userguide/multi_project_configuration_and_execution.html#sec:configuration_on_demand) or [configuration cache](https://gradle.github.io/configuration-cache/). These are made to help bring down the time Gradle spends configuring your project (i.e. reading the configuration and building the task graph) each time you build; it goes without saying that getting this time to decrease will make for happier and more productive developers.
@@ -73,7 +73,9 @@ A significant challenge we faced, which is also common in the industry, is manag
 
 There are several known solutions to this problem, such as storing versions in the root project or using a `buildSrc` script. But not only are some solutions bad for your build performance (see: reliance on the root project), almost all of them share an insoluble issue: tooling support.
 
-If you want to know when your dependencies can be upgraded, you probably either rely on your IDE to highlight your outdated dependencies, which it does by trying to look for some string that… looks like a Gradle dependency, or you rely on a tool like Renovate, which does the same thing on your CI. In either case, you probably could use a standard solution, where there is some kind of standard to declare your centralized dependencies, which both humans and machines can rely on consistently. That's why Gradle introduced the version catalog:
+There are multiple ways to be informed when your dependencies can be upgraded. You can rely on your IDE to highlight your outdated dependencies, which it does by trying to look for some string that… looks like a Gradle . You can also rely on a tool like Renovate, which does the same thing on your CI. In either case, you probably could use a standard solution, where there is some kind of standard to declare your centralized dependencies, which both humans and machines can rely on consistently. 
+
+To solve this problem, Gradle introduced the version catalog:
 
 ```toml
 [versions]
@@ -100,11 +102,11 @@ And it's a standard format, so it works out of the box with tools like Renovate 
 
 ### Code reuse
 
-The direction of the industry's Gradle best practices is evident, with numerous talks and blog posts from big tech companies and even Gradle itself emphasizing the use of convention plugins.
+The direction of Gradle best practices in our industry is evident, with numerous talks and blog posts from big tech companies and even Gradle itself emphasizing the use of convention plugins.
 
 While the name may sound intimidating, convention plugins are actually pretty straightforward. They are Gradle plugins that can be applied to each module, ensuring consistent configuration across all of them.
 
-Convention plugins offer the advantages of build scripts and the elimination of duplicate configuration, all without the need for a dependency on the root project. The convention plugin is an isolated project, which could be stored in your monorepo, but could very well be stored in a completely different place. Unlike build scripts, it's compiled and instantiated only once, and is then *called* once for each module.
+Convention plugins offer the advantages of build scripts and the elimination of duplicate configuration, all without the need for a dependency on the root project. The convention plugin is an isolated project, which could be stored in your monorepo, but could very well be stored in a completely different place. Unlike build scripts, it's compiled and instantiated only once, and is then ×*called** once for each module.
 
 Creating a convention plugin is similar to creating any custom Gradle plugin. If you haven't had to do this yet, it looks like this:
 
@@ -136,7 +138,7 @@ dependencyResolutionManagement {
 rootProject.name = 'gradle-plugin-convention'
 ```
 
-Then, you need a `build.gradle(.kts)` configuration script for your custom plugin. The trick is that to configure *other* modules with the Android Gradle Plugin (AGP), for example, you will need access to the AGP's classpath *at build time* in your plugin. You might be tempted to apply the AGP as a plugin, but you actually need to import it as an *implementation*.
+Then, you need a `build.gradle(.kts)` configuration script for your custom plugin. In order to configure **other** modules with the Android Gradle Plugin (AGP), for example, you will need access to the AGP's classpath **at build time** in your plugin. You might be tempted to apply the AGP as a plugin, but you actually need to import it as an **implementation**.
 
 ```kotlin
 group = "com.bedrockstreaming"
@@ -186,7 +188,7 @@ dependencies {
 }
 ```
 
-Then, you'll need an *extension*, which is Gradle speak to describe a configuration interface. Each option you will add to your extension will be usable from your module's `build.gradle(.kts)`, which is one of the most powerful advantages of custom plugins: you can reuse code and still make it configurable!
+Then, you'll need an **extension**, which is Gradle speak to describe a configuration interface. Each option you will add to your extension will be usable from your module's `build.gradle(.kts)`. This is one of the most powerful advantages of custom plugins: you can reuse code and still make it configurable!
 
 ```kotlin
 abstract class BaseConventionPluginExtension {
@@ -223,7 +225,7 @@ class AndroidLibraryPlugin : Plugin<Project> {
 }
 ```
 
-That's it for boilerplate! You're free to architect the internals of your Gradle plugin however you want, but this `Plugin::apply` method will be the entry point for you to apply your configuration to each module on which your plugin has been applied.
+That's it for boilerplate! You're free to architect the internals of your Gradle plugin however you want, but this `Plugin::apply` method will be the entry point for your configuration code. It will be called for each module on which your plugin has been applied.
 
 For example, here's how you might apply the `com.android.library` plugin to your module, and configure it: 
 
@@ -247,7 +249,7 @@ fun apply(target: Project) = with(target) {
 }
 ```
 
-You can reuse this principle and apply it to all your common configuration. You can automatically add dependencies, add some unit testing configuration, set the correct JDK toolchain, build flags, and even configure other third-party plugins with the same mechanism. The sky's the limit!
+You can reuse this principle and apply it to all your common configuration blocks. You can automatically add dependencies, add some unit testing configuration, set the correct JDK toolchain, build flags, and even configure other third-party plugins with the same mechanism. The sky is the limit!
 
 ## End result
 
@@ -260,7 +262,7 @@ plugins {
 
 bedrock {
     moshi(codegen: true)
-    enableCompose()
+    composeToolkit()
     unitTests()
 }
 
