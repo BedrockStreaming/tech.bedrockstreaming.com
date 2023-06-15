@@ -7,6 +7,7 @@ tags: [android, gradle, plugin]
 color: rgb(17, 46, 56)
 language: en
 thumbnail: "/images/posts/2023-06-12-gradle-convention-plugins/cover.jpg"
+feature-img: "/images/posts/2023-06-12-gradle-convention-plugins/cover.jpg"
 ---
 In the last couple of years, Gradle has been encouraging developers to work towards modularizing their projects. Of course, when effectively implemented, this approach offers several advantages, with build parallelization being a significant factor.
 
