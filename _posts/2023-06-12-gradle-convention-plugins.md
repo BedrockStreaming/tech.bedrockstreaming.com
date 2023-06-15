@@ -6,6 +6,7 @@ author: b_candellier
 tags: [android, gradle, plugin]
 color: rgb(17, 46, 56)
 language: en
+thumbnail: "/images/posts/2023-06-12-gradle-convention-plugins/cover.jpg"
 ---
 In the last couple of years, Gradle has been encouraging developers to work towards modularizing their projects. Of course, when effectively implemented, this approach offers several advantages, with build parallelization being a significant factor.
 
@@ -279,3 +280,5 @@ Much nicer, isn't it? 🤩
 The scalability of our project has been significantly improved through the migration from included build scripts and root project dependencies. Although writing custom Gradle plugins can initially pose challenges due to the potential for frustrating errors resulting from a minor misunderstanding of the Gradle API, once you are set up, the maintenance becomes much easier. It feels more rewarding to work in harmony with Gradle, rather than working against the optimizations introduced with each Gradle update, knowing that we can automatically benefit from them. The version catalogs provide a convenient method for organizing dependencies, and the fact that our tooling recognizes the format is a significant advantage.
 
 In conclusion, for developers working on medium-to-large Gradle projects, whether in the Android realm or elsewhere, I highly recommend exploring the use of convention plugins. Mastering them is not as difficult as it may seem, and they provide effective solutions to address real challenges that we all face day-to-day.
+
+<small>Cover image © Isis Petroni</small>
