@@ -1,4 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-06-19T14:56:50+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock à l’AFUP Day Lyon (2023)</title><link href="https://tech.bedrockstreaming.com/2023/06/06/afup-day-lyon-2023.html" rel="alternate" type="text/html" title="Bedrock à l’AFUP Day Lyon (2023)" /><published>2023-06-06T00:00:00+00:00</published><updated>2023-06-06T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/06/06/afup-day-lyon-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/06/06/afup-day-lyon-2023.html">&lt;p&gt;Comme à l’accoutumée, les équipes backend de Bedrock étaient présentes le 12 mai 2023 à CPE (au Campus Lyontech) pour une nouvelle édition de l’AFUP Day.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-06-19T15:24:30+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Deux jours à Android Makers by Droidcon 2023</title><link href="https://tech.bedrockstreaming.com/2023/06/19/android-makers-23.html" rel="alternate" type="text/html" title="Deux jours à Android Makers by Droidcon 2023" /><published>2023-06-19T00:00:00+00:00</published><updated>2023-06-19T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/06/19/android-makers-23</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/06/19/android-makers-23.html">&lt;p&gt;Il y a quelques semaines déjà, nous avons pu nous rendre à LA conférence annuelle Android en France : Android Makers. Conférence qui s’associe tout juste avec une initiative un peu plus internationale qui est DroidCon (cf. &lt;a href=&quot;https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022.html&quot;&gt;notre précédent article&lt;/a&gt;, par exemple).
+L’occasion d’assister à des conférences de speakers du monde entier mais également de networker et revoir avec plaisir beaucoup de têtes connues !&lt;/p&gt;
+
+&lt;p&gt;Voici pêle-mêle nos retours et les apprentissages que nous avons pu collecter durant ces 2 jours intenses !&lt;/p&gt;
+
+&lt;h3 id=&quot;par-antoine-pitel&quot;&gt;Par @Antoine Pitel&lt;/h3&gt;
+
+&lt;p&gt;Si on devait retenir une chose de la conférence &lt;strong&gt;The Rise and Fall of Feature Teams&lt;/strong&gt; de Danny Preussler, on pourrait dire en résumé que “Les développeurs ont besoin d’autres développeurs de la même technologie pour s’épanouir”. Le format en Feature Team peut facilement tomber dans le piège de l’isolement du développeur sur sa technologie. Il est fondamentale de s’assurer soit de multiplier les profils de même technos dans une team, soit d’organiser un partage de connaissance et du pair programming très récurrent.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/a40q41ghSks&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;La conférence &lt;strong&gt;Practical ADB usage to enhance your life!&lt;/strong&gt; de Benjamin Kadel était, pour moi, définitivement la plus passionnante (au sens propre du terme passionné). L’usage d’ADB pour optimiser le travail quotidien en développement comme en test me parait ultra efficace. On a pu y découvrir notamment une astuce particulièrement utile : il est possible via ADB de nettoyer, refuser ou accepter les permissions demandées au framework par l’app. Un gros gain de temps quand on doit développer sur une feature qui nécessite une permission spécifique (et le statut de celle-ci) .&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/DcU1czPxQ10&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Je ne me suis jamais vraiment penché sur Android Auto, shame on me 😉 Mais la conférence “Going on a road trip with Android Auto” de Carlos Mota nous a ouvert un tout nouvel univers de jeu que j’ai hâte d’explorer chez Bedrock ! En effet grâce aux dernières évolutions d’Android Auto il est désormais possible de publier, comme avant, des services audio (radio, podcast,..), mais désormais aussi des services vidéo ! L’accès vidéo n’étant disponible qu’à l’arrêt du véhicule, information que le framework Android Automotive fourni à travers la classe &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CarUxRestrictions&lt;/code&gt; du package &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;android.car.drivingstate&lt;/code&gt; et sa méthode &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;isRequiresDistractionOptimization()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/wguYRGmVeiw&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Il est tellement plaisant, mais rare, d’assister à des conférences qui parlent de CD et de publication ! En cela la conférence &lt;strong&gt;How to ship apps better, faster, stronger&lt;/strong&gt; de Fabien Devos était passionnante et pleine d’apprentissage à diffuser au plus grand nombre ! J’en retiendrai 2 de mon côté :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;La notion de “release Train” et cette métaphore du train qui part à heure fixe de manière régulière. Avec de plus l’info que la périodicité hebdomadaire semble être adaptée aux projets qui collaborent avec des stores comme App Store et Google Play Store ;&lt;/li&gt;
+  &lt;li&gt;L’absolue nécessité de disposer d’un système de feature flipping robuste et couvrant le maximum du fonctionnel du service. Un vaste chantier !&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/dyRuhfs2nsE&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&quot;par-baptiste-candellier&quot;&gt;Par @Baptiste Candellier&lt;/h3&gt;
+
+&lt;p&gt;Comme tous les ans, Android Makers nous propose des talks variés, des dernières nouveautés de Jetpack Compose au management d’équipe, en passant par l’habituelle keynote humoristique de Romain Guy et Chet Haase. J’ai sélectionné pour vous mes talks préférés.&lt;/p&gt;
+
+&lt;p&gt;Le talk &lt;strong&gt;90s Website … in 2023 on mobile in Compose … for science&lt;/strong&gt; de &lt;a href=&quot;https://androiddev.social/@maiatoday&quot;&gt;Maia Grotepass&lt;/a&gt; a été pour moi le plus original, intriguant et intéressant de la conférence. Maia nous a guidé à travers son projet de cœur : reproduire, grâce à Jetpack Compose, le &lt;em&gt;look-and-feel&lt;/em&gt; d’un site web des années 90. Un mélange de technologique moderne, qui est écrit pour tourner à la fois sur Android mais également sur desktop, grâce &lt;a href=&quot;https://github.com/JetBrains/compose-jb/&quot;&gt;aux efforts de Jetbrains sur le multi-plateforme&lt;/a&gt;. Un projet qui pourrait sembler futile au premier abord, mais Maia nous plonge dans son parcours nostalgique tout en nous expliquant de manière pédagogique les APIs d’animation et de dessin de Compose, que nous avons assez peu souvent l’occasion d’utiliser dans des projets professionnels, qui se reposent souvent sur des composants pré-conçus. À voir, que vous soyez amateur·ice de web old-school ou de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Canvas&lt;/code&gt;.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/yF8Z0tK3CFE&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Forging the path from monolith to multi-module app&lt;/strong&gt;, par &lt;a href=&quot;https://androiddev.social/@marcogom&quot;&gt;Marco Gomiero&lt;/a&gt;, séduira les adeptes d’architecture. Ce talk vante non seulement les avantages d’un projet Gradle multi-modules, mais nous détaille tous les choix architecturaux qui en découlent, de façon subjective. Un retour d’expérience sur ce sujet, qui est une trend relativement récente dans l’écosystème Android, est très intéressant et permet non seulement de guider nos décisions d’avenir, mais aussi de regarder d’un nouvel œil nos propres décisions architecturales. Marco nous propose un apercu de sujets tels que les types de modules, la gestion de la navigation, les version catalogs, les convention plugins — autant de sujets qui sont à l’état de l’art des projets Gradle, et qui mérient bien un partage d’expérience !&lt;/p&gt;
+
+&lt;p&gt;Marco apporte un bon équilibre en nous montrant le travail de son équipe sur l’app Tier, tout en nuançant sur le fait que l’architecture n’est pas une science exacte. On retiendra cette citation frappante :&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Sometimes the “best decision™” is not the best one&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/VsU7hsnSN5A&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;On termine pour ma part avec un talk qui parle encore d’architecture, mais cette fois en ce qui concerne la migration vers Compose. &lt;strong&gt;Un Design System, ça se Compose !&lt;/strong&gt;, avec Jean-Baptiste Vincey et Julie Gléonnec, nous présente la direction prise par les équipes de Deezer en ce qui concerne la migration de leur design system vers Jetpack Compose. C’est un sujet d’actualité et qui aura très certainement des ramifications sur les années à venir — Bedrock a entamé cette année, j’étais donc curieux de connaître les approches prises par d’autres équipes travaillant sur de grosses applications avec des design systems basés sur des vues XML.&lt;/p&gt;
+
+&lt;p&gt;Les équipes de Deezer ont choisi de réécrire entièrement leur implémentation du design system en Compose, et de migrer leur app écran par écran. Un choix qui a des avantages - la facilité de migration des nouveaux écrans, l’absence de legacy dans les nouveaux composants, mais aussi des inconvénients comme la nécessité de garder à jour deux versions des composants jusqu’à la migration complète de l’app. Deezer nous expose dans cette présentation passionnante leurs choix et leur chemin vers Compose.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/eEcYpImy_XY&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;</content><author><name>[&quot;b_candellier&quot;, &quot;a_pitel&quot;]</name></author><category term="android" /><category term="mobile" /><category term="conference" /><category term="makers" /><summary type="html">Il y a quelques semaines déjà, nous avons pu nous rendre à LA conférence annuelle Android en France : Android Makers. Conférence qui s’associe tout juste avec une initiative un peu plus internationale qui est DroidCon (cf. notre précédent article, par exemple). L’occasion d’assister à des conférences de speakers du monde entier mais également de networker et revoir avec plaisir beaucoup de têtes connues !</summary></entry><entry><title type="html">Bedrock à l’AFUP Day Lyon (2023)</title><link href="https://tech.bedrockstreaming.com/2023/06/06/afup-day-lyon-2023.html" rel="alternate" type="text/html" title="Bedrock à l’AFUP Day Lyon (2023)" /><published>2023-06-06T00:00:00+00:00</published><updated>2023-06-06T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/06/06/afup-day-lyon-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/06/06/afup-day-lyon-2023.html">&lt;p&gt;Comme à l’accoutumée, les équipes backend de Bedrock étaient présentes le 12 mai 2023 à CPE (au Campus Lyontech) pour une nouvelle édition de l’AFUP Day.&lt;/p&gt;
 
 &lt;p&gt;Pour suivre les conférences qui gravitaient autour de PHP bien sûr, mais aussi pour soutenir notre collègue Pauline Rambaud qui était la star du jour (pour Bedrock du moins) 🤩 !&lt;/p&gt;
 
@@ -508,120 +567,4 @@ Présenté par Sylvain MASSON.&lt;/p&gt;</content><author><name>Sylvain Masson</
 Présenté par Hugo DETANG.&lt;/p&gt;</content><author><name>Hugo Detang</name></author><category term="lft" /><category term="tech" /><summary type="html">Comment j’ai réussi à capturer la couleur et quelle est sa signification ? Présenté par Hugo DETANG.</summary></entry><entry><title type="html">Comment (enfin) sortir vos side projects #LFT 31/03/23</title><link href="https://tech.bedrockstreaming.com/comment-enfin-sortir-vos-side-projects" rel="alternate" type="text/html" title="Comment (enfin) sortir vos side projects #LFT 31/03/23" /><published>2023-03-31T00:00:00+00:00</published><updated>2023-03-31T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/comment-enfin-sortir-vos-side-projects</id><content type="html" xml:base="https://tech.bedrockstreaming.com/comment-enfin-sortir-vos-side-projects">&lt;p&gt;Comment (enfin) sortir vos side projects.
 Présenté par Thomas JARRAND.&lt;/p&gt;</content><author><name>Thomas Jarrand</name></author><category term="lft" /><category term="tech" /><summary type="html">Comment (enfin) sortir vos side projects. Présenté par Thomas JARRAND.</summary></entry><entry><title type="html">Comment gérer des journées de 35h #LFT 31/03/23</title><link href="https://tech.bedrockstreaming.com/comment-gerer-des-journees-de-35h" rel="alternate" type="text/html" title="Comment gérer des journées de 35h #LFT 31/03/23" /><published>2023-03-31T00:00:00+00:00</published><updated>2023-03-31T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/comment-gerer-des-journees-de-35h</id><content type="html" xml:base="https://tech.bedrockstreaming.com/comment-gerer-des-journees-de-35h">&lt;p&gt;Comment gérer des journées de 35h
 Présenté par Sylvain GOUGOUZIAN.&lt;/p&gt;</content><author><name>Sylvain Gougouzian</name></author><category term="lft" /><category term="tech" /><summary type="html">Comment gérer des journées de 35h Présenté par Sylvain GOUGOUZIAN.</summary></entry><entry><title type="html">Montres bracelets, le guide pratique de l’amateur d’horlogerie #LFT 31/03/23</title><link href="https://tech.bedrockstreaming.com/guide-pratique-amateur-horlogerie" rel="alternate" type="text/html" title="Montres bracelets, le guide pratique de l’amateur d’horlogerie #LFT 31/03/23" /><published>2023-03-31T00:00:00+00:00</published><updated>2023-03-31T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/guide-pratique-amateur-horlogerie</id><content type="html" xml:base="https://tech.bedrockstreaming.com/guide-pratique-amateur-horlogerie">&lt;p&gt;Montres bracelets, le guide pratique de l’amateur d’horlogerie.
-Présenté par Rafi PANOYAN.&lt;/p&gt;</content><author><name>Rafi Panoyan</name></author><category term="lft" /><category term="tech" /><summary type="html">Montres bracelets, le guide pratique de l’amateur d’horlogerie. Présenté par Rafi PANOYAN.</summary></entry><entry><title type="html">Retour Conférence Vue Amsterdam 2023</title><link href="https://tech.bedrockstreaming.com/2023/03/31/retour-vue-amsterdam-2023.html" rel="alternate" type="text/html" title="Retour Conférence Vue Amsterdam 2023" /><published>2023-03-31T00:00:00+00:00</published><updated>2023-03-31T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/03/31/retour-vue-amsterdam-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/03/31/retour-vue-amsterdam-2023.html">&lt;p&gt;C’est dans le Theater Amsterdam que se sont déroulés ces deux jours de VueJS Amsterdam, événement faisant partie de la JSWorld Conference, durant toute la semaine.&lt;/p&gt;
-
-&lt;p&gt;De nombreux sponsors étaient là pour l’occasion, ainsi que des écoles comme VueMastery ou VueSchool (proposant une toute nouvelle certification Vue), et des partenaires plus connus comme Storyblok ou Nuxt Labs.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-002.jpg&quot; alt=&quot;2023-03-31-retour-vue-amsterdam-2023&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;L’ambiance était au rendez-vous dès le début avec une conférence en musique, avec Tim Benniks guitare en main !&lt;/p&gt;
-
-&lt;p&gt;Nous avons ensuite pu profiter de conférences aussi nombreuses que variées. De l’accessibilité à la gestion de l’interface en Vue du leader mondial du transport de marchandises &lt;a href=&quot;https://www.maersk.com/fr-fr/&quot;&gt;Maersk&lt;/a&gt;, en passant par les tests et le guide ultime pour publier un package NPM !&lt;/p&gt;
-
-&lt;p&gt;Sans oublier la grande famille Nuxt qui était (presque) au complet !&lt;/p&gt;
-
-&lt;p&gt;L’ensemble des conférences est visible sur &lt;a href=&quot;https://www.youtube.com/@JSWORLDConference&quot;&gt;la chaîne youtube du JSWorld Conference&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;state-of-vuenion&quot;&gt;State of Vuenion&lt;/h2&gt;
-
-&lt;p&gt;Evan You (créateur de &lt;a href=&quot;https://vuejs.org/&quot;&gt;Vue&lt;/a&gt; et &lt;a href=&quot;https://vitejs.dev/&quot;&gt;Vite&lt;/a&gt;) a présenté un état des lieux et des dernières avancées de Vue, épaulé par Alex Kyriakidis (fondateur de &lt;a href=&quot;https://vueschool.io/&quot;&gt;VueSchool&lt;/a&gt;).&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-003.jpg&quot; alt=&quot;2023-03-31-retour-vue-amsterdam-2023&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Commençant par un retour sur les nombreuses nouveautés de ces trois dernières années, pour les plus connues Vue 3, Vite, Vitest et Pinia, Evan a d’abord fait un focus sur la position de Vue 3 en tant que version par défaut depuis le 7 février 2022.&lt;/p&gt;
-
-&lt;p&gt;Il a aussi évoqué les avancées relatives à Vue 2.7 (dont l’intégration de la Composition API, du v-bind CSS, etc.) permettant de rapprocher les expériences développeurs entre Vue 2 et Vue 3.&lt;/p&gt;
-
-&lt;p&gt;Evan a ensuite présenté les derniers travaux sur la version core de Vue en version 3. Principalement orientés sur des améliorations concernant la facilité d’utilisation, l’accélération des tests (avec Vitest) ainsi que la vitesse de build (avec Rollup).&lt;/p&gt;
-
-&lt;p&gt;Enfin, Evan a présenté les projets à venir pour le core. La disparition de la Reactivity Transform jugée trop risquée, l’amélioration du server side rendering et la création d’un “vapor mode”, une nouvelle manière de compiler les Single Files Components en optimisant l’utilisation d’un Virtual DOM. Ce dernier permet d’approcher la vitesse de compilation d’une application en JS vanilla, en gardant la puissance du framework !&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;📺 &lt;a href=&quot;https://www.youtube.com/watch?v=I5mGNB-4f0o&quot;&gt;Conférence sur Youtube&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;la-fin-de-vie-de-vue-2&quot;&gt;La fin de vie de Vue 2&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-end-of-vue2.JPG&quot; alt=&quot;2023-03-31-retour-vue-amsterdam-2023&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Après avoir présenté l’état de l’écosystème qui gravite autour de Vue et Vite lors de sa conférence “State of the Vuenion 2023”, Evan You a terminé en dévoilant la date de fin de vie de Vue 2 au 31 décembre 2023.&lt;/p&gt;
-
-&lt;p&gt;Après cette date, la version arrêtera de recevoir des mises à jour ; il sera néanmoins possible de bénéficier de mise à jour payante, bien qu’il soit vivement conseillé de migrer vers la dernière version du framework.&lt;/p&gt;
-
-&lt;p&gt;Une &lt;a href=&quot;https://v2.vuejs.org/lts/&quot;&gt;page dans la documentation&lt;/a&gt; a été mise en place, présentant les options qui s’offrent aux développeurs et aux organismes qui n’ont pas encore migré leurs applications.&lt;/p&gt;
-
-&lt;h2 id=&quot;il-était-une-fois-histoire&quot;&gt;Il était une fois… Histoire&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-histoire.JPG&quot; alt=&quot;2023-03-31-retour-vue-amsterdam-2023&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Guillaume Chau, un des membres de l’équipe de développement de Vue, a présenté l’outil &lt;a href=&quot;https://histoire.dev/&quot;&gt;Histoire&lt;/a&gt; durant une petite demi-heure.&lt;/p&gt;
-
-&lt;p&gt;L’outil est dans la même veine que Storybook. La plupart du temps, il sert à afficher et documenter des composants d’un design system en complète isolation.&lt;/p&gt;
-
-&lt;p&gt;Contrairement à d’autres outils, Histoire est pensé pour s’intégrer parfaitement dans son environnement de développement, de façon à ce que l’écriture des “stories” s’apparente le plus possible à l’écriture et à l’utilisation native de composants Vue.&lt;/p&gt;
-
-&lt;p&gt;Histoire utilise &lt;a href=&quot;https://vitejs.dev/&quot;&gt;Vite&lt;/a&gt; ce qui lui permet de s’intégrer dans un projet qui l’utilise déjà avec très peu de configurations supplémentaires.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;📺 &lt;a href=&quot;https://www.youtube.com/watch?v=Q8LeAg-9ngs&quot;&gt;Conférence sur Youtube&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;une-autre-histoire-de-migration-&quot;&gt;Une autre histoire de… migration !&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-migration-vue3.JPG&quot; alt=&quot;2023-03-31-retour-vue-amsterdam-2023&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;La société &lt;a href=&quot;https://www.maersk.com/fr-fr/&quot;&gt;Maersk&lt;/a&gt;, spécialiste dans la logistique des transports, nous a présenté son application destinée entre autres, à la gestion des conteneurs maritimes. Une occasion pour nous faire part de leur processus de migration de Vue 2 vers Vue 3 !&lt;/p&gt;
-
-&lt;p&gt;Réalisant la même migration de version à &lt;a href=&quot;https://bedrockstreaming.com/&quot;&gt;Bedrock Streaming&lt;/a&gt; sur la partie backoffice, nous constatons que nous partageons beaucoup de similitudes !&lt;/p&gt;
-
-&lt;p&gt;Vous trouverez un article dédié sur la migration Vue 2 vers Vue 3 à Bedrock en suivant ce &lt;a href=&quot;https://tech.bedrockstreaming.com/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique-et-seule-une-approche-progressive-et-incrementale-etait-viable.html&quot;&gt;lien&lt;/a&gt; ! 🎉&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;📺 &lt;a href=&quot;https://www.youtube.com/watch?v=93KdAJ8sSjM&quot;&gt;Conférence sur Youtube&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;lets-build-a-virtual-dom&quot;&gt;“Let’s Build A Virtual DOM”&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-virtual-dom.jpg&quot; alt=&quot;2023-03-31-retour-vue-amsterdam-2023&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Certaines conférences étaient aussi l’occasion de rappeler des fondamentaux. Beaucoup de développeurs sont conscients que Vue utilise un système de DOM virtuel pour générer ses pages mais peu savent vraiment ce que cela signifie.&lt;/p&gt;
-
-&lt;p&gt;La conférence de Marc Backes a permis de démystifier cela en développant sur scène un DOM virtuel simple à travers plusieurs cas pratiques.&lt;/p&gt;
-
-&lt;p&gt;Ce dernier a d’ailleurs publié le code écrit sur son Github : https://github.com/themarcba/vue-vdom.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;📺 &lt;a href=&quot;https://www.youtube.com/watch?v=Pf-N8WGu7iQ&quot;&gt;Conférence sur Youtube&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;le-guide-complet-du-packaging-des-librairies&quot;&gt;Le guide complet du packaging des librairies&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-packaging.jpg&quot; alt=&quot;2023-03-31-retour-vue-amsterdam-2023&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Cette conférence était présentée par Bjorn Lu (core team member de Astro, Vite et Svelte), et expliquait comment créer un package d’une librairie et le publier “presque” sans peine.&lt;/p&gt;
-
-&lt;p&gt;En prenant l’exemple d’une librairie extrêmement simple, proposant une fonction d’addition, Bjorn a parcouru les étapes de la création de ce package progressivement, en prenant en compte le fonctionnement d’ESModules, l’ajout du typage, puis le support de CommonJS pour les utilisations sur des anciennes versions de node et de l’export en parallèle des version ESM et CJS.&lt;/p&gt;
-
-&lt;p&gt;Il présente ensuite les outils de build les plus courants ainsi que quelques outsiders, puis prend l’exemple de &lt;a href=&quot;https://github.com/egoist/tsup&quot;&gt;Tsup&lt;/a&gt; pour montrer une commande de build.&lt;/p&gt;
-
-&lt;p&gt;Une solution intéressante pour typer utilisant JSDoc et simplifiant beaucoup les étapes du build completera sa conférence, 
-pour enfin terminer par une série d’outils et de “do and don’t” très pratiques dont &lt;a href=&quot;https://publint.dev/&quot;&gt;publint.dev&lt;/a&gt; fait parti.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;📺 &lt;a href=&quot;https://www.youtube.com/watch?v=bzYFCDz817I&quot;&gt;Conférence sur Youtube&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-bedrock-team.JPG&quot; alt=&quot;2023-03-31-retour-vue-amsterdam-2023&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Ce séjour à Amsterdam pour assister à cette conférence de deux jours a été enrichissant à bien des égards.
-Non seulement la ville est belle et agréable à visiter, mais la découverte d’outils prometteurs répondant à nos besoins a également été un véritable apport pour notre entreprise.&lt;/p&gt;
-
-&lt;h2 id=&quot;pour-en-découvrir-plus&quot;&gt;Pour en découvrir plus&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://vuejs.amsterdam/&quot;&gt;Site VueJS Amsterdam&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.facebook.com/media/set/?vanity=jsworldconf&amp;amp;set=a.687856240008465&quot;&gt;Gallerie photos&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/@JSWORLDConference/videos&quot;&gt;Replay des conférences sur Youtube&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>[&quot;pl_perez&quot;, &quot;l_penaguin&quot;, &quot;c_berard&quot;]</name></author><category term="node" /><category term="Node" /><category term="vue" /><category term="vuex" /><category term="pinia" /><category term="vite" /><category term="Vitest" /><category term="TypeScript" /><category term="developer" /><category term="javascript" /><summary type="html">C’est dans le Theater Amsterdam que se sont déroulés ces deux jours de VueJS Amsterdam, événement faisant partie de la JSWorld Conference, durant toute la semaine.</summary></entry></feed>
+Présenté par Rafi PANOYAN.&lt;/p&gt;</content><author><name>Rafi Panoyan</name></author><category term="lft" /><category term="tech" /><summary type="html">Montres bracelets, le guide pratique de l’amateur d’horlogerie. Présenté par Rafi PANOYAN.</summary></entry></feed>

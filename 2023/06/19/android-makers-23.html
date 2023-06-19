@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/2023-06-19-android-makers-23/cover.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Deux jours à Android Makers by Droidcon 2023 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Deux jours à Android Makers by Droidcon 2023" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Les équipes Android de Bedrock étaient à Android Makers 2023 − on vous résume tout." />
+<meta property="og:description" content="Les équipes Android de Bedrock étaient à Android Makers 2023 − on vous résume tout." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2023/06/19/android-makers-23.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2023/06/19/android-makers-23.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-06-19T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Deux jours à Android Makers by Droidcon 2023" />
+<script type="application/ld+json">
+{"description":"Les équipes Android de Bedrock étaient à Android Makers 2023 − on vous résume tout.","headline":"Deux jours à Android Makers by Droidcon 2023","dateModified":"2023-06-19T00:00:00+00:00","datePublished":"2023-06-19T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2023/06/19/android-makers-23.html"},"url":"https://tech.bedrockstreaming.com/2023/06/19/android-makers-23.html","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Deux jours à Android Makers by Droidcon 2023">
+    <meta name="twitter:description" content="Il y a quelques semaines déjà, nous avons pu nous rendre à LA conférence annuelle Android en France : Android Makers. Conférence qui s’associe tout juste ave...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/2023-06-19-android-makers-23/cover.jpg">
+    <meta name="twitter:image:alt" content="Deux jours à Android Makers by Droidcon 2023">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Deux jours à Android Makers by Droidcon 2023 " aria-label="Deux jours à Android Makers by Droidcon 2023" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Deux+jours+%C3%A0+Android+Makers+by+Droidcon+2023" class="title">Deux jours à Android Makers by Droidcon 2023</h1>
+      <div class="post-info">
+
+
+<a
+      href="https://baptiste.candellier.me"
+      target="_blank"
+      rel="noopener"
+      class="author">
+      <img alt="Author's avatar" src="https://s.gravatar.com/avatar/c638445b4e00f76960bf7ee2275d7014?s=80" class="thumbnail">
+    
+
+    
+      <span class="name">
+        Baptiste Candellier
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    
+      <span class="name">
+        Antoine Pitel
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    June 19, 2023
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Il y a quelques semaines déjà, nous avons pu nous rendre à LA conférence annuelle Android en France : Android Makers. Conférence qui s’associe tout juste avec une initiative un peu plus internationale qui est DroidCon (cf. <a href="https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022.html">notre précédent article</a>, par exemple).
+L’occasion d’assister à des conférences de speakers du monde entier mais également de networker et revoir avec plaisir beaucoup de têtes connues !</p>
+
+<p>Voici pêle-mêle nos retours et les apprentissages que nous avons pu collecter durant ces 2 jours intenses !</p>
+
+<h3 id="par-antoine-pitel">Par @Antoine Pitel</h3>
+
+<p>Si on devait retenir une chose de la conférence <strong>The Rise and Fall of Feature Teams</strong> de Danny Preussler, on pourrait dire en résumé que “Les développeurs ont besoin d’autres développeurs de la même technologie pour s’épanouir”. Le format en Feature Team peut facilement tomber dans le piège de l’isolement du développeur sur sa technologie. Il est fondamentale de s’assurer soit de multiplier les profils de même technos dans une team, soit d’organiser un partage de connaissance et du pair programming très récurrent.</p>
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/a40q41ghSks" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+
+<hr />
+
+<p>La conférence <strong>Practical ADB usage to enhance your life!</strong> de Benjamin Kadel était, pour moi, définitivement la plus passionnante (au sens propre du terme passionné). L’usage d’ADB pour optimiser le travail quotidien en développement comme en test me parait ultra efficace. On a pu y découvrir notamment une astuce particulièrement utile : il est possible via ADB de nettoyer, refuser ou accepter les permissions demandées au framework par l’app. Un gros gain de temps quand on doit développer sur une feature qui nécessite une permission spécifique (et le statut de celle-ci) .</p>
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/DcU1czPxQ10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+
+<hr />
+
+<p>Je ne me suis jamais vraiment penché sur Android Auto, shame on me 😉 Mais la conférence “Going on a road trip with Android Auto” de Carlos Mota nous a ouvert un tout nouvel univers de jeu que j’ai hâte d’explorer chez Bedrock ! En effet grâce aux dernières évolutions d’Android Auto il est désormais possible de publier, comme avant, des services audio (radio, podcast,..), mais désormais aussi des services vidéo ! L’accès vidéo n’étant disponible qu’à l’arrêt du véhicule, information que le framework Android Automotive fourni à travers la classe <code class="language-plaintext highlighter-rouge">CarUxRestrictions</code> du package <code class="language-plaintext highlighter-rouge">android.car.drivingstate</code> et sa méthode <code class="language-plaintext highlighter-rouge">isRequiresDistractionOptimization()</code>.</p>
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/wguYRGmVeiw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+
+<hr />
+
+<p>Il est tellement plaisant, mais rare, d’assister à des conférences qui parlent de CD et de publication ! En cela la conférence <strong>How to ship apps better, faster, stronger</strong> de Fabien Devos était passionnante et pleine d’apprentissage à diffuser au plus grand nombre ! J’en retiendrai 2 de mon côté :</p>
+<ul>
+  <li>La notion de “release Train” et cette métaphore du train qui part à heure fixe de manière régulière. Avec de plus l’info que la périodicité hebdomadaire semble être adaptée aux projets qui collaborent avec des stores comme App Store et Google Play Store ;</li>
+  <li>L’absolue nécessité de disposer d’un système de feature flipping robuste et couvrant le maximum du fonctionnel du service. Un vaste chantier !</li>
+</ul>
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/dyRuhfs2nsE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+
+<h3 id="par-baptiste-candellier">Par @Baptiste Candellier</h3>
+
+<p>Comme tous les ans, Android Makers nous propose des talks variés, des dernières nouveautés de Jetpack Compose au management d’équipe, en passant par l’habituelle keynote humoristique de Romain Guy et Chet Haase. J’ai sélectionné pour vous mes talks préférés.</p>
+
+<p>Le talk <strong>90s Website … in 2023 on mobile in Compose … for science</strong> de <a href="https://androiddev.social/@maiatoday">Maia Grotepass</a> a été pour moi le plus original, intriguant et intéressant de la conférence. Maia nous a guidé à travers son projet de cœur : reproduire, grâce à Jetpack Compose, le <em>look-and-feel</em> d’un site web des années 90. Un mélange de technologique moderne, qui est écrit pour tourner à la fois sur Android mais également sur desktop, grâce <a href="https://github.com/JetBrains/compose-jb/">aux efforts de Jetbrains sur le multi-plateforme</a>. Un projet qui pourrait sembler futile au premier abord, mais Maia nous plonge dans son parcours nostalgique tout en nous expliquant de manière pédagogique les APIs d’animation et de dessin de Compose, que nous avons assez peu souvent l’occasion d’utiliser dans des projets professionnels, qui se reposent souvent sur des composants pré-conçus. À voir, que vous soyez amateur·ice de web old-school ou de <code class="language-plaintext highlighter-rouge">Canvas</code>.</p>
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/yF8Z0tK3CFE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+
+<hr />
+
+<p><strong>Forging the path from monolith to multi-module app</strong>, par <a href="https://androiddev.social/@marcogom">Marco Gomiero</a>, séduira les adeptes d’architecture. Ce talk vante non seulement les avantages d’un projet Gradle multi-modules, mais nous détaille tous les choix architecturaux qui en découlent, de façon subjective. Un retour d’expérience sur ce sujet, qui est une trend relativement récente dans l’écosystème Android, est très intéressant et permet non seulement de guider nos décisions d’avenir, mais aussi de regarder d’un nouvel œil nos propres décisions architecturales. Marco nous propose un apercu de sujets tels que les types de modules, la gestion de la navigation, les version catalogs, les convention plugins — autant de sujets qui sont à l’état de l’art des projets Gradle, et qui mérient bien un partage d’expérience !</p>
+
+<p>Marco apporte un bon équilibre en nous montrant le travail de son équipe sur l’app Tier, tout en nuançant sur le fait que l’architecture n’est pas une science exacte. On retiendra cette citation frappante :</p>
+
+<blockquote>
+  <p>Sometimes the “best decision™” is not the best one</p>
+</blockquote>
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/VsU7hsnSN5A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+
+<hr />
+
+<p>On termine pour ma part avec un talk qui parle encore d’architecture, mais cette fois en ce qui concerne la migration vers Compose. <strong>Un Design System, ça se Compose !</strong>, avec Jean-Baptiste Vincey et Julie Gléonnec, nous présente la direction prise par les équipes de Deezer en ce qui concerne la migration de leur design system vers Jetpack Compose. C’est un sujet d’actualité et qui aura très certainement des ramifications sur les années à venir — Bedrock a entamé cette année, j’étais donc curieux de connaître les approches prises par d’autres équipes travaillant sur de grosses applications avec des design systems basés sur des vues XML.</p>
+
+<p>Les équipes de Deezer ont choisi de réécrire entièrement leur implémentation du design system en Compose, et de migrer leur app écran par écran. Un choix qui a des avantages - la facilité de migration des nouveaux écrans, l’absence de legacy dans les nouveaux composants, mais aussi des inconvénients comme la nécessité de garder à jour deux versions des composants jusqu’à la migration complète de l’app. Deezer nous expose dans cette présentation passionnante leurs choix et leur chemin vers Compose.</p>
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eEcYpImy_XY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Deux+jours+%C3%A0+Android+Makers+by+Droidcon+2023%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2023%2F06%2F19%2Fandroid-makers-23.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2023/06/19/android-makers-23.html&title=Deux+jours+%C3%A0+Android+Makers+by+Droidcon+2023%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2023/06/19/android-makers-23.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Deux jours à Android Makers by Droidcon 2023%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2023/06/19/android-makers-23.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#android">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> android</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#makers">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> makers</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#mobile">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> mobile</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="Bedrock à l'AFUP Day Lyon (2023)" href="/2023/06/06/afup-day-lyon-2023.html">
+            <p>Next post</p>
+            Bedrock à l'AFUP Day Lyon (2023)
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(254,91,73) !important; }
+  .share-buttons a { color: rgb(254,91,73) !important; }
+  .tag-list a:not(:hover) { color: rgb(254,91,73) !important; }
+  div#post-nav a { color: rgb(254,91,73) !important; }
+  footer a { color: rgb(254,91,73) !important; }
+  .site-header nav a:hover {  color: rgb(254,91,73) !important; }
+  a.button:hover {
+    background: rgb(254,91,73) !important;
+    border: 1px solid rgb(254,91,73) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(254,91,73) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>
