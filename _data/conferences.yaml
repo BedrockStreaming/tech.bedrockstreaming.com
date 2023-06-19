@@ -113,3 +113,15 @@
   eventUrl: https://www.meetup.com/fr-FR/rust-lyon/events/292283973/
   sponsored: true
   hosted: true
+
+- title: "Bienvenue dans le monde merveilleux des systèmes distribués !"
+  date: 2023-04-13
+  author: p_martin
+  eventName: MiXiT 2023
+  eventUrl: https://mixitconf.org/2023/bienvenue-dans-le-monde-merveilleux-des-systemes-distribues-
+
+- title: "Mentors : super-héros ou super-vilains ?"
+  date: 2023-05-12
+  author: p_rambaud
+  eventName: AFUP Day Lyon 2023
+  eventUrl: https://event.afup.org/afup-day-2023/afup-day-2023-lyon/programme/#4190
