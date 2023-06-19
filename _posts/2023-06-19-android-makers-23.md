@@ -28,7 +28,7 @@ La conférence **Practical ADB usage to enhance your life!** de Benjamin Kadel �
 
 ---
 
-Je ne me suis jamais vraiment penché sur Android Auto, shame on me :wink: Mais la conférence "Going on a road trip with Android Auto" de Carlos Mota nous a ouvert un tout nouvel univers de jeu que j'ai hâte d'explorer chez Bedrock ! En effet grâce aux dernières évolutions d'Android Auto il est désormais possible de publier, comme avant, des services audio (radio, podcast, ...), mais désormais aussi des services vidéo ! L'accès vidéo n'étant disponible qu'à l'arrêt du véhicule, information que le framework Android Automotive fourni à travers la classe `CarUxRestrictions` du package `android.car.drivingstate` et sa méthode `isRequiresDistractionOptimization()`.
+Je ne me suis jamais vraiment penché sur Android Auto, shame on me 😉 Mais la conférence "Going on a road trip with Android Auto" de Carlos Mota nous a ouvert un tout nouvel univers de jeu que j'ai hâte d'explorer chez Bedrock ! En effet grâce aux dernières évolutions d'Android Auto il est désormais possible de publier, comme avant, des services audio (radio, podcast,..), mais désormais aussi des services vidéo ! L'accès vidéo n'étant disponible qu'à l'arrêt du véhicule, information que le framework Android Automotive fourni à travers la classe `CarUxRestrictions` du package `android.car.drivingstate` et sa méthode `isRequiresDistractionOptimization()`.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/wguYRGmVeiw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
