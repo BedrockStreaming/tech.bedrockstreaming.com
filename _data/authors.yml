@@ -19,6 +19,8 @@ a_caron:
 a_ferez:
   name: Amélie Ferez
   avatar: /images/avatar/a_ferez.jpg
+a_martins:
+  name: Alexis Martins
 a_pitel:
   name: Antoine Pitel
 a_zinck:
@@ -91,6 +93,8 @@ f_vieudrin:
   url: https://twitter.com/fvieudrin
 g_forien:
   name: Gabriel Forien
+g_treme:
+  name: Guillaume Trémé
 h_detang:
   name: Hugo Detang
 h_riffiod:
@@ -112,6 +116,8 @@ j_nginn:
 j_planckeel:
   name: Jérémy Planckeel
   url: https://github.com/jplanckeel
+j_sulpis:
+  name: Julien Sulpis
 k_dits:
   name: Kenny Dits
   avatar: /images/avatar/k_dits.jpg
