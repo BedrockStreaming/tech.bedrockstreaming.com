@@ -147,4 +147,22 @@ communiquent via des interfaces. Le framework permet ensuite de déployer cette 
 Dans le cas d'un déploiement en Micro-services, le framework prend entièrement en charge la communication entre les
 modules, sans aucun impact sur le code ou le développeur.
 
+## Pour conclure
+
+Bedrock participe depuis longtemps directement ou indirectement à des événements liés aux différentes technologies
+utilisées en interne.
+
+Par exemple en 2023 : [Android Makers](https://tech.bedrockstreaming.com/2023/06/19/android-makers-23.html),
+[l'AFUP Day](https://tech.bedrockstreaming.com/2023/06/06/afup-day-lyon-2023.html),
+[le MiXiT](https://tech.bedrockstreaming.com/2023/04/25/mixit-lyon-2023.html),
+[l'AWS Summit](https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html),
+[Kubernetes Community Days](https://tech.bedrockstreaming.com/2023/04/03/kubernetes-community-days.html)
+et [Vue Amsterdam](https://tech.bedrockstreaming.com/2023/03/31/retour-vue-amsterdam-2023.html).
+
+C'est donc dans la même logique que Bedrock a choisi de faire participer certains membres du backend à la GopherCon.
+
+Parmi les 6 collègues présents à la conférence, certains viennent de commencer à l'utiliser tandis que d'autres
+commencent à avoir une certaine expérience. Ce fût donc l'occasion d'échanger, de partager et de découvrir, aussi bien
+entre nous qu'avec les autres participants, différents sujets au sein de l'écosystème Go.
+
 ![Le pont Oberbaum à Berlin](/images/posts/2023-07-10-gophercon-eu-2023-a-berlin/pont-oberbaum.jpg)
