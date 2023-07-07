@@ -83,7 +83,7 @@ Il note plusieurs inconvénients :
 fcors.NewCORS([]string{"https://example.com"}, 0, nil)
 ```
 
-Une première alternative est l'utilisation d'une config struc qui contiendrait toutes les options possibles et de passer
+Une première alternative est l'utilisation d'une struct `Config` qui contiendrait toutes les options possibles et de passer
 cette struct en paramètre :
 
 ```go
@@ -118,7 +118,7 @@ Les avantages qu'il y voit sont :
 - le système est facilement extensible
 - c'est beaucoup plus expressif
 
-Il a ensuite pu détailler certaines astuces pour aller plus loin avec ce pattern :
+Il a ensuite détaillé certaines astuces pour aller plus loin avec ce pattern :
 - « When order doesn't matter, users are happier »
 - « Multiple calls to the same option »
 - « Immutability »
