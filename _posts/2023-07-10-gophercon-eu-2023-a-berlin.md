@@ -11,7 +11,7 @@ thumbnail: "/images/posts/2023-07-10-gophercon-eu-2023-a-berlin/thumbnail.jpg"
 Depuis maintenant presque 1 an, la verticale Backend de Bedrock, s'ouvre à d'autres langages de programmation que PHP, à
 savoir Golang et Rust.
 C'est pourquoi cette année, pour la 1<sup>ère</sup> fois, 6 de nos collègues ont participé (2 en présentiel, 4 à
-distance) à la GopherCon EU ayant lieu à Berlin.
+distance) à la [GopherCon EU](https://gophercon.eu) ayant lieu à Berlin.
 
 ![Fabien et Nathan](/images/posts/2023-07-10-gophercon-eu-2023-a-berlin/bedrock-people.jpg)
 
