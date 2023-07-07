@@ -17,7 +17,9 @@ distance) à la [GopherCon EU](https://gophercon.eu) ayant lieu à Berlin.
 
 La GopherCon EU, c'est un peu comme le Forum PHP, mais pour le Go et à un niveau international. À cette édition, environ
 600 participants étaient présents sur place ou à distance depuis les 4 coins du monde (Brésil, États-Unis, Afrique du
-Nord, Europe, Asie, Australie…) et bien sûr d’autres Français.e. Elle se déroule sur 1 semaine entière :
+Nord, Europe, Asie, Australie…) et bien sûr d’autres français.es.
+
+Elle se déroule sur 1 semaine entière :
 
 - Jour 1 : Visite de Berlin et table ronde
 - Jour 2 : Atelier
@@ -46,7 +48,7 @@ jusqu’à aujourd’hui avec l’arrivée prochaine de [la version 1.21](https:
 - 2007 : Création de go par Google (utilisé à 20% sur les projets Google)
 - 2009 : Go devient open source
 - 2012 : Sortie de Go 1.0. Avec pour promesse d’assurer une plateforme stable et compatible dans le temps. Objectif : construire une plateforme pour le « software engineering »
-- 2015 : Go est amélioré. Sortie de Go 1.5. Augmentation des performances. Nouveautés : compiler et runtime écrit en go, mise en place du « low latency garbage collection »
+- 2015 : Go est amélioré. Sortie de Go 1.5. Augmentation des performances. Nouveautés : compiler et runtime écrits en go, mise en place du « low latency garbage collection »
 - 2018 : Introduction des modules. Amélioration de la sécurité. Nouveautés : SBOM, fuzzing
 - 2022 : Introduction des generics sans breaking changes
 
@@ -129,8 +131,8 @@ et cerise sur le gâteau, une librairie qui sert d'exemple existe : [repo](https
 ![Robert Grandl](/images/posts/2023-07-10-gophercon-eu-2023-a-berlin/conf-service-weaver.jpg)
 
 Cette conférence, présentée par [Robert Grandl](https://twitter.com/GrandlRobert), est intéressante pour une entreprise
-qui commence à utiliser Go. On peut se poser la question : Faut-il partir tout de suite sur des Micro-services ou bien
-commencer par un Monolithe ?
+qui commence à utiliser Go. On peut se poser la question : Faut-il partir tout de suite sur des micro-services ou bien
+commencer par un monolithe ?
 
 L'idée générale de [Service Weaver](https://serviceweaver.dev) est de permettre aux développeurs de se concentrer sur le
 développement de leur application sans se soucier de cette question d'architecture.
@@ -138,8 +140,8 @@ développement de leur application sans se soucier de cette question d'architect
 Grâce à ce framework, une application peut être développée comme une sorte de monolithe via des modules Go qui
 communiquent via des interfaces. Le framework permet ensuite de déployer cette application de deux façons différentes :
 
-- un Monolithe, où les modules communiquent via des appels direct dans un seul fichier binaire final
-- des Micro-services, où les modules communiquent via des appels réseaux (gRPC) et sont déployés dans des containers
+- un monolithe, où les modules communiquent via des appels directs dans un seul fichier binaire final
+- des micro-services, où les modules communiquent via des appels réseaux (gRPC) et sont déployés dans des containers
   séparés
 
 Dans le cas d'un déploiement en Micro-services, le framework prend entièrement en charge la communication entre les
