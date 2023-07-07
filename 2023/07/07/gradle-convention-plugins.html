@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/2023-07-07-gradle-convention-plugins/cover.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>You Need a Custom Gradle Plugin, and Here’s Why | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="You Need a Custom Gradle Plugin, and Here’s Why" />
+<meta name="author" content="Baptiste Candellier" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Convention plugins are the recommended way to modularize your builds. Let’s see how to write one." />
+<meta property="og:description" content="Convention plugins are the recommended way to modularize your builds. Let’s see how to write one." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2023/07/07/gradle-convention-plugins.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2023/07/07/gradle-convention-plugins.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-07-07T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="You Need a Custom Gradle Plugin, and Here’s Why" />
+<script type="application/ld+json">
+{"description":"Convention plugins are the recommended way to modularize your builds. Let’s see how to write one.","headline":"You Need a Custom Gradle Plugin, and Here’s Why","dateModified":"2023-07-07T00:00:00+00:00","datePublished":"2023-07-07T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2023/07/07/gradle-convention-plugins.html"},"url":"https://tech.bedrockstreaming.com/2023/07/07/gradle-convention-plugins.html","author":{"@type":"Person","name":"Baptiste Candellier"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="You Need a Custom Gradle Plugin, and Here’s Why">
+    <meta name="twitter:description" content="In the last couple of years, Gradle has been encouraging developers to work towards modularizing their projects. Of course, when effectively implemented, thi...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/2023-07-07-gradle-convention-plugins/cover.jpg">
+    <meta name="twitter:image:alt" content="You Need a Custom Gradle Plugin, and Here’s Why">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="You Need a Custom Gradle Plugin, and Here’s Why " aria-label="You Need a Custom Gradle Plugin, and Here’s Why" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="You+Need+a+Custom+Gradle+Plugin%2C+and+Here%E2%80%99s+Why" class="title">You Need a Custom Gradle Plugin, and Here’s Why</h1>
+      <div class="post-info">
+
+
+<a
+      href="https://baptiste.candellier.me"
+      target="_blank"
+      rel="noopener"
+      class="author">
+      <img alt="Author's avatar" src="https://s.gravatar.com/avatar/c638445b4e00f76960bf7ee2275d7014?s=80" class="thumbnail">
+    
+
+    
+      <span class="name">
+        Baptiste Candellier
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    July 07, 2023
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>In the last couple of years, Gradle has been encouraging developers to work towards modularizing their projects. Of course, when effectively implemented, this approach offers several advantages, with build parallelization being a significant factor.</p>
+
+<p>But splitting your Android project into many modules has a major drawback, at first: you need to write a build file for each of them.</p>
+
+<h2 id="the-naive-approach">The naive approach</h2>
+
+<p>One might be tempted to create “common” Groovy files (also known as “script plugins”) and import them into each module. We can also define some properties in the root project, which can then be used in each subproject.</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">'com.android.library'</span>
+<span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">'kotlin-android'</span>
+<span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">'kotlin-kapt'</span>
+
+<span class="c1">// This imports a Gradle file which we can use everywhere</span>
+<span class="n">apply</span> <span class="nl">from:</span> <span class="n">rootDir</span><span class="o">.</span><span class="na">path</span> <span class="o">+</span> <span class="s1">'/lib-common.gradle'</span>
+
+<span class="n">android</span> <span class="o">{</span>
+    <span class="c1">// compileSdkVersion is defined in the root project</span>
+    <span class="n">compileSdkVersion</span> <span class="n">rootProject</span><span class="o">.</span><span class="na">ext</span><span class="o">.</span><span class="na">compileSdkVersion</span>
+
+    <span class="n">defaultConfig</span> <span class="o">{</span>
+        <span class="n">minSdkVersion</span> <span class="n">rootProject</span><span class="o">.</span><span class="na">ext</span><span class="o">.</span><span class="na">minSdkVersion</span>
+        <span class="n">targetSdkVersion</span> <span class="n">rootProject</span><span class="o">.</span><span class="na">ext</span><span class="o">.</span><span class="na">targetSdkVersion</span>
+
+        <span class="n">consumerProguardFiles</span> <span class="s1">'proguard-rules.pro'</span>
+        <span class="n">testInstrumentationRunner</span> <span class="s2">"androidx.test.runner.AndroidJUnitRunner"</span>
+    <span class="o">}</span>
+
+    <span class="n">compileOptions</span> <span class="o">{</span>
+        <span class="n">sourceCompatibility</span> <span class="n">rootProject</span><span class="o">.</span><span class="na">ext</span><span class="o">.</span><span class="na">sourceCompatibility</span>
+        <span class="n">targetCompatibility</span> <span class="n">rootProject</span><span class="o">.</span><span class="na">ext</span><span class="o">.</span><span class="na">targetCompatibility</span>
+    <span class="o">}</span>
+
+    <span class="n">kotlinOptions</span> <span class="o">{</span>
+        <span class="n">jvmTarget</span> <span class="o">=</span> <span class="n">rootProject</span><span class="o">.</span><span class="na">ext</span><span class="o">.</span><span class="na">kotlinJvmTarget</span>
+        <span class="n">freeCompilerArgs</span> <span class="o">+=</span> <span class="n">rootProject</span><span class="o">.</span><span class="na">ext</span><span class="o">.</span><span class="na">kotlinCompilerArgs</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">dependencies</span> <span class="o">{</span>
+    <span class="c1">// Dependencies are defined in a map in the root project</span>
+    <span class="kt">def</span> <span class="n">dep</span> <span class="o">=</span> <span class="n">rootProject</span><span class="o">.</span><span class="na">ext</span><span class="o">.</span><span class="na">dependencies</span>
+    <span class="n">implementation</span> <span class="n">dep</span><span class="o">.</span><span class="s1">'androidx.core:core-ktx'</span>
+    <span class="n">implementation</span> <span class="n">dep</span><span class="o">.</span><span class="s1">'androidx.paging:paging-runtime-ktx'</span>
+    <span class="n">implementation</span> <span class="n">dep</span><span class="o">.</span><span class="s1">'com.squareup.okhttp3:okhttp'</span>
+
+    <span class="n">rootProject</span><span class="o">.</span><span class="na">applyTestDependenciesOn</span><span class="o">(</span><span class="n">dependencies</span><span class="o">)</span>
+    <span class="n">rootProject</span><span class="o">.</span><span class="na">applyToothpickDependenciesOn</span><span class="o">(</span><span class="n">dependencies</span><span class="o">)</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This is the approach we were using before moving to a better system. These few following drawbacks made it obsolete and not recommended by Gradle maintainers.</p>
+
+<ul>
+  <li>Script plugins need to be imported <strong>individually</strong> for each module in your project. This means that your heap will grow a lot, and this approach will scale terribly on a project with many modules.</li>
+  <li>Relying on the <code class="language-plaintext highlighter-rouge">rootProject</code> in your modules−or relying on <code class="language-plaintext highlighter-rouge">subprojects</code> from your root project, for that matter−will add unwanted dependencies between your modules, which will in turn defeat optimization mechanisms designed by Gradle, such as <a href="https://docs.gradle.org/current/userguide/multi_project_configuration_and_execution.html#sec:configuration_on_demand">configuration-on-demand</a> or <a href="https://gradle.github.io/configuration-cache/">configuration cache</a>. These are made to help bring down the time Gradle spends configuring your project (i.e. reading the configuration and building the task graph) each time you build; it goes without saying that getting this time to decrease will make for happier and more productive developers.</li>
+</ul>
+
+<p>In addition to these issues, we wanted to start modularizing much of our project. We already had about 150 modules, but we planned on making many more soon, so this would be a good time to find a future-proof architecture. Plus, this was a good opportunity to clear some tech debt: cleaning unused dependencies, moving to a version catalog…</p>
+
+<h2 id="modern-problems-call-for-modern-solutions">Modern problems call for modern solutions</h2>
+
+<h3 id="centralizing-version-management">Centralizing version management</h3>
+
+<p>A significant challenge we faced, which is also common in the industry, is managing dependencies and versions across the entire project. Hard-coding the version of okhttp for every module is not recommended, as it can be tedious and error-prone.</p>
+
+<p>There are several known solutions to this problem, such as storing versions in the root project or using a <code class="language-plaintext highlighter-rouge">buildSrc</code> script. But not only are some solutions bad for your build performance (see: reliance on the root project), almost all of them share an insoluble issue: tooling support.</p>
+
+<p>There are multiple ways to be informed when your dependencies can be upgraded. You can rely on your IDE to highlight your outdated dependencies, which it does by trying to look for some string that… looks like a Gradle . You can also rely on a tool like Renovate, which does the same thing on your CI. In either case, you probably could use a standard solution, where there is some kind of standard to declare your centralized dependencies, which both humans and machines can rely on consistently.</p>
+
+<p>To solve this problem, Gradle introduced the version catalog:</p>
+
+<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[versions]</span>
+<span class="py">androidCompileSdk</span> <span class="p">=</span> <span class="s">"33"</span>
+<span class="py">androidGradlePlugin</span> <span class="p">=</span> <span class="s">"7.4.2"</span>
+<span class="py">jvm</span> <span class="p">=</span> <span class="s">"17"</span>
+
+<span class="nn">[libraries]</span>
+<span class="nn">android-billingclient-core</span> <span class="o">=</span> <span class="p">{</span> <span class="py">module</span> <span class="p">=</span> <span class="s">"com.android.billingclient:billing"</span><span class="p">,</span> <span class="py">version.ref</span> <span class="p">=</span> <span class="s">"billing"</span> <span class="p">}</span>
+<span class="nn">android-billingclient-ktx</span> <span class="o">=</span> <span class="p">{</span> <span class="py">module</span> <span class="p">=</span> <span class="s">"com.android.billingclient:billing-ktx"</span><span class="p">,</span> <span class="py">version.ref</span> <span class="p">=</span> <span class="s">"billing"</span> <span class="p">}</span>
+<span class="nn">android-gradle</span> <span class="o">=</span> <span class="p">{</span> <span class="py">module</span> <span class="p">=</span> <span class="s">"com.android.tools.build:gradle"</span><span class="p">,</span> <span class="py">version.ref</span> <span class="p">=</span> <span class="s">"androidGradlePlugin"</span> <span class="p">}</span>
+<span class="nn">android-installreferrer</span> <span class="o">=</span> <span class="p">{</span> <span class="py">module</span> <span class="p">=</span> <span class="s">"com.android.installreferrer:installreferrer"</span><span class="p">,</span> <span class="py">version</span> <span class="p">=</span> <span class="s">"2.2"</span> <span class="p">}</span>
+<span class="nn">android-tools-desugar-jdk-libs</span> <span class="o">=</span> <span class="p">{</span> <span class="py">module</span> <span class="p">=</span> <span class="s">"com.android.tools:desugar_jdk_libs"</span><span class="p">,</span> <span class="py">version</span> <span class="p">=</span> <span class="s">"1.1.5"</span> <span class="p">}</span>
+<span class="nn">android-tools-lint-api</span> <span class="o">=</span> <span class="p">{</span> <span class="py">module</span> <span class="p">=</span> <span class="s">"com.android.tools.lint:lint-api"</span><span class="p">,</span> <span class="py">version.ref</span> <span class="p">=</span> <span class="s">"lint"</span> <span class="p">}</span>
+
+<span class="nn">[plugins]</span>
+<span class="nn">android-app</span> <span class="o">=</span> <span class="p">{</span> <span class="py">id</span> <span class="p">=</span> <span class="s">"com.android.application"</span><span class="p">,</span> <span class="py">version.ref</span> <span class="p">=</span> <span class="s">"androidGradlePlugin"</span> <span class="p">}</span>
+<span class="nn">android-library</span> <span class="o">=</span> <span class="p">{</span> <span class="py">id</span> <span class="p">=</span> <span class="s">"com.android.library"</span><span class="p">,</span> <span class="py">version.ref</span> <span class="p">=</span> <span class="s">"androidGradlePlugin"</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>This format has been great, even for a project as big as ours. It’s flexible: you can now store library versions, but plugin versions as well, and even just plain versions, which you can get from your custom plugin later on!</p>
+
+<p>And it’s a standard format, so it works out of the box with tools like Renovate or Android Studio.</p>
+
+<h3 id="code-reuse">Code reuse</h3>
+
+<p>The direction of Gradle best practices in our industry is evident, with numerous talks and blog posts from big tech companies and even Gradle itself emphasizing the use of convention plugins.</p>
+
+<p>While the name may sound intimidating, convention plugins are actually pretty straightforward. They are Gradle plugins that can be applied to each module, ensuring consistent configuration across all of them.</p>
+
+<p>Convention plugins offer the advantages of build scripts and the elimination of duplicate configuration, all without the need for a dependency on the root project. The convention plugin is an isolated project, which could be stored in your monorepo, but could very well be stored in a completely different place. Unlike build scripts, it’s compiled and instantiated only once, and is then ×*called** once for each module.</p>
+
+<p>Creating a convention plugin is similar to creating any custom Gradle plugin. If you haven’t had to do this yet, it looks like this:</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// settings.gradle</span>
+<span class="c1">// …</span>
+<span class="n">includeBuild</span> <span class="s1">'gradle-plugins/convention-plugin'</span>
+</code></pre></div></div>
+
+<p>This will include your convention plugin alongside your main project at build time, so you will be able to use its result for your main project’s build system.</p>
+
+<p>You’ll need a simple <code class="language-plaintext highlighter-rouge">settings.gradle(.kts)</code> file for your plugin. If your plugin is located in your monorepo, it will be very useful to be able to access its Version Catalog, so you can even share your dependency versions in the build files of your plugin.</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dependencyResolutionManagement</span> <span class="o">{</span>
+    <span class="n">versionCatalogs</span> <span class="o">{</span>
+        <span class="n">libs</span> <span class="o">{</span>
+            <span class="n">from</span><span class="o">(</span><span class="n">files</span><span class="o">(</span><span class="s2">"../../gradle/libs.versions.toml"</span><span class="o">))</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="n">repositories</span> <span class="o">{</span>
+        <span class="n">google</span><span class="o">()</span>
+        <span class="n">mavenCentral</span><span class="o">()</span>
+        <span class="n">gradlePluginPortal</span><span class="o">()</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">rootProject</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s1">'gradle-plugin-convention'</span>
+</code></pre></div></div>
+
+<p>Then, you need a <code class="language-plaintext highlighter-rouge">build.gradle(.kts)</code> configuration script for your custom plugin. In order to configure <strong>other</strong> modules with the Android Gradle Plugin (AGP), for example, you will need access to the AGP’s classpath <strong>at build time</strong> in your plugin. You might be tempted to apply the AGP as a plugin, but you actually need to import it as an <strong>implementation</strong>.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">group</span> <span class="p">=</span> <span class="s">"com.bedrockstreaming"</span>
+<span class="n">version</span> <span class="p">=</span> <span class="s">"1.0-SNAPSHOT"</span>
+
+<span class="nf">plugins</span> <span class="p">{</span>
+    <span class="c1">// This is a Gradle plugin written in Kotlin, import the Gradle Kotlin DSL</span>
+    <span class="n">`kotlin-dsl`</span>
+<span class="p">}</span>
+
+<span class="nf">java</span> <span class="p">{</span>
+    <span class="nf">toolchain</span> <span class="p">{</span>
+        <span class="c1">// This sets the JVM version needed to build this project.</span>
+        <span class="c1">// Notice that we set this version in the Version Catalog, and we can use it here!</span>
+        <span class="n">languageVersion</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="nc">JavaLanguageVersion</span><span class="p">.</span><span class="nf">of</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="n">versions</span><span class="p">.</span><span class="n">jvm</span><span class="p">.</span><span class="k">get</span><span class="p">()))</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nf">gradlePlugin</span> <span class="p">{</span>
+    <span class="nf">plugins</span> <span class="p">{</span>
+        <span class="c1">// Your custom plugin's module can actually contain many plugins.</span>
+        <span class="c1">// Create as many as you need - if you have multiple application modules, </span>
+        <span class="c1">// it might be useful to at least create one for library modules,</span>
+        <span class="c1">// and one for application modules.</span>
+
+        <span class="nf">create</span><span class="p">(</span><span class="s">"androidMobileAppPlugin"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">id</span> <span class="p">=</span> <span class="s">"com.bedrockstreaming.convention.application.mobile"</span>
+            <span class="n">implementationClass</span> <span class="p">=</span> <span class="s">"com.bedrockstreaming.gradle.convention.android.application.AndroidMobileApplicationPlugin"</span>
+        <span class="p">}</span>
+
+        <span class="nf">create</span><span class="p">(</span><span class="s">"androidLibraryPlugin"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">id</span> <span class="p">=</span> <span class="s">"com.bedrockstreaming.convention.library.android"</span>
+            <span class="n">implementationClass</span> <span class="p">=</span> <span class="s">"com.bedrockstreaming.gradle.convention.android.library.AndroidLibraryPlugin"</span>
+        <span class="p">}</span>
+
+        <span class="nf">create</span><span class="p">(</span><span class="s">"jvmLibraryPlugin"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">id</span> <span class="p">=</span> <span class="s">"com.bedrockstreaming.convention.library.jvm"</span>
+            <span class="n">implementationClass</span> <span class="p">=</span> <span class="s">"com.bedrockstreaming.gradle.convention.jvm.JvmLibraryPlugin"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nf">dependencies</span> <span class="p">{</span>
+    <span class="c1">// Note that we add the AGP and Kotlin plugin as implementations, which is unusual.</span>
+    <span class="nf">implementation</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="n">android</span><span class="p">.</span><span class="n">gradle</span><span class="p">)</span>
+    <span class="nf">implementation</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="n">kotlin</span><span class="p">.</span><span class="n">gradle</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Then, you’ll need an <strong>extension</strong>, which is Gradle speak to describe a configuration interface. Each option you will add to your extension will be usable from your module’s <code class="language-plaintext highlighter-rouge">build.gradle(.kts)</code>. This is one of the most powerful advantages of custom plugins: you can reuse code and still make it configurable!</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">abstract</span> <span class="kd">class</span> <span class="nc">BaseConventionPluginExtension</span> <span class="p">{</span>
+
+    <span class="k">internal</span> <span class="k">abstract</span> <span class="kd">val</span> <span class="py">enableCompose</span><span class="p">:</span> <span class="nc">Property</span><span class="p">&lt;</span><span class="nc">Boolean</span><span class="p">&gt;</span>
+
+    <span class="cm">/**
+     * Enable Jetpack Compose on this module, and add core libraries.
+     */</span>
+    <span class="k">fun</span> <span class="nf">composeToolkit</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">enableCompose</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="k">true</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c1">// …</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Then, it’s time to create the actual plugin class, the entry point for Gradle (specified in <code class="language-plaintext highlighter-rouge">implementationClass</code> above).</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="nn">com.bedrockstreaming.gradle.convention.android.library</span>
+
+<span class="k">import</span> <span class="nn">org.gradle.api.Plugin</span>
+<span class="k">import</span> <span class="nn">org.gradle.api.Project</span>
+<span class="k">import</span> <span class="nn">org.gradle.kotlin.dsl.create</span>
+
+<span class="kd">class</span> <span class="nc">AndroidLibraryPlugin</span> <span class="p">:</span> <span class="nc">Plugin</span><span class="p">&lt;</span><span class="nc">Project</span><span class="p">&gt;</span> <span class="p">{</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">apply</span><span class="p">(</span><span class="n">target</span><span class="p">:</span> <span class="nc">Project</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// This is where we declare that our extension will be available in a bedrock {} block.</span>
+        <span class="kd">val</span> <span class="py">extension</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="n">extensions</span><span class="p">.</span><span class="n">create</span><span class="p">&lt;</span><span class="nc">AndroidLibraryExtension</span><span class="p">&gt;(</span><span class="s">"bedrock"</span><span class="p">)</span>
+        <span class="c1">// …</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>That’s it for boilerplate! You’re free to architect the internals of your Gradle plugin however you want, but this <code class="language-plaintext highlighter-rouge">Plugin::apply</code> method will be the entry point for your configuration code. It will be called for each module on which your plugin has been applied.</p>
+
+<p>For example, here’s how you might apply the <code class="language-plaintext highlighter-rouge">com.android.library</code> plugin to your module, and configure it:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">apply</span><span class="p">(</span><span class="n">target</span><span class="p">:</span> <span class="nc">Project</span><span class="p">)</span> <span class="p">=</span> <span class="nf">with</span><span class="p">(</span><span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// getPluginId is an extension function that reads the plugin ID from the version catalog</span>
+    <span class="nf">apply</span><span class="p">(</span><span class="n">plugin</span> <span class="p">=</span> <span class="nf">getPluginId</span><span class="p">(</span><span class="s">"android.library"</span><span class="p">))</span>
+
+    <span class="n">configure</span><span class="p">&lt;</span><span class="nc">LibraryExtension</span><span class="p">&gt;</span> <span class="p">{</span>
+        <span class="n">compileSdk</span> <span class="p">=</span> <span class="nf">getVersion</span><span class="p">(</span><span class="s">"androidCompileSdk"</span><span class="p">).</span><span class="nf">toInt</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="n">androidComponents</span><span class="p">.</span><span class="nf">finalizeDsl</span> <span class="p">{</span>
+        <span class="n">configure</span><span class="p">&lt;</span><span class="nc">LibraryExtension</span><span class="p">&gt;</span> <span class="p">{</span>
+            <span class="nf">defaultConfig</span> <span class="p">{</span>
+                <span class="n">minSdk</span> <span class="p">=</span> <span class="nf">getVersion</span><span class="p">(</span><span class="s">"androidMinSdk"</span><span class="p">).</span><span class="nf">toInt</span><span class="p">()</span>
+                <span class="nf">consumerProguardFiles</span><span class="p">(</span><span class="s">"proguard-rules.pro"</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>You can reuse this principle and apply it to all your common configuration blocks. You can automatically add dependencies, add some unit testing configuration, set the correct JDK toolchain, build flags, and even configure other third-party plugins with the same mechanism. The sky is the limit!</p>
+
+<h2 id="end-result">End result</h2>
+
+<p>Remember our old build file, with its included Groovy scripts, referenced root project, custom extension functions? Here’s what it looks like now!</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plugins</span> <span class="o">{</span>
+    <span class="n">alias</span><span class="o">(</span><span class="n">libs</span><span class="o">.</span><span class="na">plugins</span><span class="o">.</span><span class="na">bedrock</span><span class="o">.</span><span class="na">library</span><span class="o">.</span><span class="na">android</span><span class="o">)</span>
+<span class="o">}</span>
+
+<span class="n">bedrock</span> <span class="o">{</span>
+    <span class="n">moshi</span><span class="o">(</span><span class="nl">codegen:</span> <span class="kc">true</span><span class="o">)</span>
+    <span class="n">composeToolkit</span><span class="o">()</span>
+    <span class="n">unitTests</span><span class="o">()</span>
+<span class="o">}</span>
+
+<span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">implementation</span><span class="o">(</span><span class="n">libs</span><span class="o">.</span><span class="na">androidx</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">ktx</span><span class="o">)</span>
+    <span class="n">implementation</span><span class="o">(</span><span class="n">libs</span><span class="o">.</span><span class="na">androidx</span><span class="o">.</span><span class="na">paging</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">ktx</span><span class="o">)</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Much nicer, isn’t it? 🤩</p>
+
+<h2 id="in-summary">In summary</h2>
+
+<p>The scalability of our project has been significantly improved through the migration from included build scripts and root project dependencies. Although writing custom Gradle plugins can initially pose challenges due to the potential for frustrating errors resulting from a minor misunderstanding of the Gradle API, once you are set up, the maintenance becomes much easier. It feels more rewarding to work in harmony with Gradle, rather than working against the optimizations introduced with each Gradle update, knowing that we can automatically benefit from them. The version catalogs provide a convenient method for organizing dependencies, and the fact that our tooling recognizes the format is a significant advantage.</p>
+
+<p>In conclusion, for developers working on medium-to-large Gradle projects, whether in the Android realm or elsewhere, I highly recommend exploring the use of convention plugins. Mastering them is not as difficult as it may seem, and they provide effective solutions to address real challenges that we all face day-to-day.</p>
+
+<p><small>Cover image © Isis Petroni</small></p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=You+Need+a+Custom+Gradle+Plugin%2C+and+Here%E2%80%99s+Why%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2023%2F07%2F07%2Fgradle-convention-plugins.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2023/07/07/gradle-convention-plugins.html&title=You+Need+a+Custom+Gradle+Plugin%2C+and+Here%E2%80%99s+Why%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2023/07/07/gradle-convention-plugins.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=You Need a Custom Gradle Plugin, and Here’s Why%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2023/07/07/gradle-convention-plugins.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#android">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> android</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#gradle">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> gradle</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#plugin">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> plugin</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="Deux jours à Android Makers by Droidcon 2023" href="/2023/06/19/android-makers-23.html">
+            <p>Next post</p>
+            Deux jours à Android Makers by Droidcon 2023
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(17, 46, 56) !important; }
+  .share-buttons a { color: rgb(17, 46, 56) !important; }
+  .tag-list a:not(:hover) { color: rgb(17, 46, 56) !important; }
+  div#post-nav a { color: rgb(17, 46, 56) !important; }
+  footer a { color: rgb(17, 46, 56) !important; }
+  .site-header nav a:hover {  color: rgb(17, 46, 56) !important; }
+  a.button:hover {
+    background: rgb(17, 46, 56) !important;
+    border: 1px solid rgb(17, 46, 56) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(17, 46, 56) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+  header#main { background-image: url('/images/posts/2023-07-07-gradle-convention-plugins/cover.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

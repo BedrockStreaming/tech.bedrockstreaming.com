@@ -1,4 +1,270 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-07-07T09:02:12+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Deux jours à Android Makers by Droidcon 2023</title><link href="https://tech.bedrockstreaming.com/2023/06/19/android-makers-23.html" rel="alternate" type="text/html" title="Deux jours à Android Makers by Droidcon 2023" /><published>2023-06-19T00:00:00+00:00</published><updated>2023-06-19T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/06/19/android-makers-23</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/06/19/android-makers-23.html">&lt;p&gt;Il y a quelques semaines déjà, nous avons pu nous rendre à LA conférence annuelle Android en France : Android Makers. Conférence qui s’associe tout juste avec une initiative un peu plus internationale qui est DroidCon (cf. &lt;a href=&quot;https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022.html&quot;&gt;notre précédent article&lt;/a&gt;, par exemple).
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-07-07T09:19:14+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">You Need a Custom Gradle Plugin, and Here’s Why</title><link href="https://tech.bedrockstreaming.com/2023/07/07/gradle-convention-plugins.html" rel="alternate" type="text/html" title="You Need a Custom Gradle Plugin, and Here’s Why" /><published>2023-07-07T00:00:00+00:00</published><updated>2023-07-07T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/07/07/gradle-convention-plugins</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/07/07/gradle-convention-plugins.html">&lt;p&gt;In the last couple of years, Gradle has been encouraging developers to work towards modularizing their projects. Of course, when effectively implemented, this approach offers several advantages, with build parallelization being a significant factor.&lt;/p&gt;
+
+&lt;p&gt;But splitting your Android project into many modules has a major drawback, at first: you need to write a build file for each of them.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-naive-approach&quot;&gt;The naive approach&lt;/h2&gt;
+
+&lt;p&gt;One might be tempted to create “common” Groovy files (also known as “script plugins”) and import them into each module. We can also define some properties in the root project, which can then be used in each subproject.&lt;/p&gt;
+
+&lt;div class=&quot;language-groovy highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;plugin:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;com.android.library&apos;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;plugin:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;kotlin-android&apos;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;plugin:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;kotlin-kapt&apos;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// This imports a Gradle file which we can use everywhere&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;from:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rootDir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;/lib-common.gradle&apos;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// compileSdkVersion is defined in the root project&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;compileSdkVersion&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rootProject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;compileSdkVersion&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;defaultConfig&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;minSdkVersion&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rootProject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;minSdkVersion&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;targetSdkVersion&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rootProject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;targetSdkVersion&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;consumerProguardFiles&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;proguard-rules.pro&apos;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;testInstrumentationRunner&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;androidx.test.runner.AndroidJUnitRunner&quot;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;compileOptions&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;sourceCompatibility&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rootProject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sourceCompatibility&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;targetCompatibility&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rootProject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;targetCompatibility&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;kotlinOptions&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;jvmTarget&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rootProject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;kotlinJvmTarget&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;freeCompilerArgs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rootProject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;kotlinCompilerArgs&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;dependencies&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Dependencies are defined in a map in the root project&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dep&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rootProject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;dependencies&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;implementation&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dep&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;androidx.core:core-ktx&apos;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;implementation&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dep&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;androidx.paging:paging-runtime-ktx&apos;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;implementation&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dep&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;com.squareup.okhttp3:okhttp&apos;&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;rootProject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;applyTestDependenciesOn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dependencies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;rootProject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;applyToothpickDependenciesOn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dependencies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is the approach we were using before moving to a better system. These few following drawbacks made it obsolete and not recommended by Gradle maintainers.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Script plugins need to be imported &lt;strong&gt;individually&lt;/strong&gt; for each module in your project. This means that your heap will grow a lot, and this approach will scale terribly on a project with many modules.&lt;/li&gt;
+  &lt;li&gt;Relying on the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rootProject&lt;/code&gt; in your modules−or relying on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;subprojects&lt;/code&gt; from your root project, for that matter−will add unwanted dependencies between your modules, which will in turn defeat optimization mechanisms designed by Gradle, such as &lt;a href=&quot;https://docs.gradle.org/current/userguide/multi_project_configuration_and_execution.html#sec:configuration_on_demand&quot;&gt;configuration-on-demand&lt;/a&gt; or &lt;a href=&quot;https://gradle.github.io/configuration-cache/&quot;&gt;configuration cache&lt;/a&gt;. These are made to help bring down the time Gradle spends configuring your project (i.e. reading the configuration and building the task graph) each time you build; it goes without saying that getting this time to decrease will make for happier and more productive developers.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In addition to these issues, we wanted to start modularizing much of our project. We already had about 150 modules, but we planned on making many more soon, so this would be a good time to find a future-proof architecture. Plus, this was a good opportunity to clear some tech debt: cleaning unused dependencies, moving to a version catalog…&lt;/p&gt;
+
+&lt;h2 id=&quot;modern-problems-call-for-modern-solutions&quot;&gt;Modern problems call for modern solutions&lt;/h2&gt;
+
+&lt;h3 id=&quot;centralizing-version-management&quot;&gt;Centralizing version management&lt;/h3&gt;
+
+&lt;p&gt;A significant challenge we faced, which is also common in the industry, is managing dependencies and versions across the entire project. Hard-coding the version of okhttp for every module is not recommended, as it can be tedious and error-prone.&lt;/p&gt;
+
+&lt;p&gt;There are several known solutions to this problem, such as storing versions in the root project or using a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;buildSrc&lt;/code&gt; script. But not only are some solutions bad for your build performance (see: reliance on the root project), almost all of them share an insoluble issue: tooling support.&lt;/p&gt;
+
+&lt;p&gt;There are multiple ways to be informed when your dependencies can be upgraded. You can rely on your IDE to highlight your outdated dependencies, which it does by trying to look for some string that… looks like a Gradle . You can also rely on a tool like Renovate, which does the same thing on your CI. In either case, you probably could use a standard solution, where there is some kind of standard to declare your centralized dependencies, which both humans and machines can rely on consistently.&lt;/p&gt;
+
+&lt;p&gt;To solve this problem, Gradle introduced the version catalog:&lt;/p&gt;
+
+&lt;div class=&quot;language-toml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[versions]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;androidCompileSdk&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;33&quot;&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;androidGradlePlugin&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;7.4.2&quot;&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;jvm&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;17&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nn&quot;&gt;[libraries]&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;android-billingclient-core&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;com.android.billingclient:billing&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;version.ref&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;billing&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;android-billingclient-ktx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;com.android.billingclient:billing-ktx&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;version.ref&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;billing&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;android-gradle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;com.android.tools.build:gradle&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;version.ref&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;androidGradlePlugin&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;android-installreferrer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;com.android.installreferrer:installreferrer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;version&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;2.2&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;android-tools-desugar-jdk-libs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;com.android.tools:desugar_jdk_libs&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;version&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;1.1.5&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;android-tools-lint-api&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;com.android.tools.lint:lint-api&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;version.ref&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;lint&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nn&quot;&gt;[plugins]&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;android-app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;com.android.application&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;version.ref&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;androidGradlePlugin&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;android-library&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;com.android.library&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;version.ref&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;androidGradlePlugin&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This format has been great, even for a project as big as ours. It’s flexible: you can now store library versions, but plugin versions as well, and even just plain versions, which you can get from your custom plugin later on!&lt;/p&gt;
+
+&lt;p&gt;And it’s a standard format, so it works out of the box with tools like Renovate or Android Studio.&lt;/p&gt;
+
+&lt;h3 id=&quot;code-reuse&quot;&gt;Code reuse&lt;/h3&gt;
+
+&lt;p&gt;The direction of Gradle best practices in our industry is evident, with numerous talks and blog posts from big tech companies and even Gradle itself emphasizing the use of convention plugins.&lt;/p&gt;
+
+&lt;p&gt;While the name may sound intimidating, convention plugins are actually pretty straightforward. They are Gradle plugins that can be applied to each module, ensuring consistent configuration across all of them.&lt;/p&gt;
+
+&lt;p&gt;Convention plugins offer the advantages of build scripts and the elimination of duplicate configuration, all without the need for a dependency on the root project. The convention plugin is an isolated project, which could be stored in your monorepo, but could very well be stored in a completely different place. Unlike build scripts, it’s compiled and instantiated only once, and is then ×*called** once for each module.&lt;/p&gt;
+
+&lt;p&gt;Creating a convention plugin is similar to creating any custom Gradle plugin. If you haven’t had to do this yet, it looks like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-groovy highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// settings.gradle&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// …&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;includeBuild&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;gradle-plugins/convention-plugin&apos;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This will include your convention plugin alongside your main project at build time, so you will be able to use its result for your main project’s build system.&lt;/p&gt;
+
+&lt;p&gt;You’ll need a simple &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;settings.gradle(.kts)&lt;/code&gt; file for your plugin. If your plugin is located in your monorepo, it will be very useful to be able to access its Version Catalog, so you can even share your dependency versions in the build files of your plugin.&lt;/p&gt;
+
+&lt;div class=&quot;language-groovy highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;dependencyResolutionManagement&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;versionCatalogs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;libs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;../../gradle/libs.versions.toml&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;repositories&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;google&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;mavenCentral&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;gradlePluginPortal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;rootProject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;gradle-plugin-convention&apos;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then, you need a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;build.gradle(.kts)&lt;/code&gt; configuration script for your custom plugin. In order to configure &lt;strong&gt;other&lt;/strong&gt; modules with the Android Gradle Plugin (AGP), for example, you will need access to the AGP’s classpath &lt;strong&gt;at build time&lt;/strong&gt; in your plugin. You might be tempted to apply the AGP as a plugin, but you actually need to import it as an &lt;strong&gt;implementation&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;group&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;com.bedrockstreaming&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;version&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;1.0-SNAPSHOT&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nf&quot;&gt;plugins&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// This is a Gradle plugin written in Kotlin, import the Gradle Kotlin DSL&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;`kotlin-dsl`&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nf&quot;&gt;java&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;toolchain&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// This sets the JVM version needed to build this project.&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Notice that we set this version in the Version Catalog, and we can use it here!&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;languageVersion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;JavaLanguageVersion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;libs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;versions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jvm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()))&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nf&quot;&gt;gradlePlugin&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;plugins&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Your custom plugin&apos;s module can actually contain many plugins.&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Create as many as you need - if you have multiple application modules, &lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// it might be useful to at least create one for library modules,&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// and one for application modules.&lt;/span&gt;
+
+        &lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;androidMobileAppPlugin&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;com.bedrockstreaming.convention.application.mobile&quot;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;implementationClass&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;com.bedrockstreaming.gradle.convention.android.application.AndroidMobileApplicationPlugin&quot;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;androidLibraryPlugin&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;com.bedrockstreaming.convention.library.android&quot;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;implementationClass&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;com.bedrockstreaming.gradle.convention.android.library.AndroidLibraryPlugin&quot;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;jvmLibraryPlugin&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;com.bedrockstreaming.convention.library.jvm&quot;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;implementationClass&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;com.bedrockstreaming.gradle.convention.jvm.JvmLibraryPlugin&quot;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nf&quot;&gt;dependencies&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Note that we add the AGP and Kotlin plugin as implementations, which is unusual.&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;implementation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;libs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gradle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;implementation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;libs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kotlin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gradle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then, you’ll need an &lt;strong&gt;extension&lt;/strong&gt;, which is Gradle speak to describe a configuration interface. Each option you will add to your extension will be usable from your module’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;build.gradle(.kts)&lt;/code&gt;. This is one of the most powerful advantages of custom plugins: you can reuse code and still make it configurable!&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BaseConventionPluginExtension&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;internal&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;enableCompose&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Property&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Boolean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/**
+     * Enable Jetpack Compose on this module, and add core libraries.
+     */&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;composeToolkit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;enableCompose&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// …&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then, it’s time to create the actual plugin class, the entry point for Gradle (specified in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;implementationClass&lt;/code&gt; above).&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.bedrockstreaming.gradle.convention.android.library&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.gradle.api.Plugin&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.gradle.api.Project&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.gradle.kotlin.dsl.create&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AndroidLibraryPlugin&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Plugin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Project&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Project&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// This is where we declare that our extension will be available in a bedrock {} block.&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;extension&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extensions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;AndroidLibraryExtension&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bedrock&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// …&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;That’s it for boilerplate! You’re free to architect the internals of your Gradle plugin however you want, but this &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Plugin::apply&lt;/code&gt; method will be the entry point for your configuration code. It will be called for each module on which your plugin has been applied.&lt;/p&gt;
+
+&lt;p&gt;For example, here’s how you might apply the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;com.android.library&lt;/code&gt; plugin to your module, and configure it:&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Project&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// getPluginId is an extension function that reads the plugin ID from the version catalog&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plugin&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getPluginId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;android.library&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;configure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LibraryExtension&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;compileSdk&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getVersion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;androidCompileSdk&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;toInt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;androidComponents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;finalizeDsl&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;configure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LibraryExtension&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;defaultConfig&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;minSdk&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getVersion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;androidMinSdk&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;toInt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+                &lt;span class=&quot;nf&quot;&gt;consumerProguardFiles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;proguard-rules.pro&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can reuse this principle and apply it to all your common configuration blocks. You can automatically add dependencies, add some unit testing configuration, set the correct JDK toolchain, build flags, and even configure other third-party plugins with the same mechanism. The sky is the limit!&lt;/p&gt;
+
+&lt;h2 id=&quot;end-result&quot;&gt;End result&lt;/h2&gt;
+
+&lt;p&gt;Remember our old build file, with its included Groovy scripts, referenced root project, custom extension functions? Here’s what it looks like now!&lt;/p&gt;
+
+&lt;div class=&quot;language-groovy highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;plugins&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;alias&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;libs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;plugins&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;bedrock&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;bedrock&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;moshi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;codegen:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;composeToolkit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;unitTests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;dependencies&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;implementation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;libs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;androidx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;core&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ktx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;implementation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;libs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;androidx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;paging&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;runtime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ktx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Much nicer, isn’t it? 🤩&lt;/p&gt;
+
+&lt;h2 id=&quot;in-summary&quot;&gt;In summary&lt;/h2&gt;
+
+&lt;p&gt;The scalability of our project has been significantly improved through the migration from included build scripts and root project dependencies. Although writing custom Gradle plugins can initially pose challenges due to the potential for frustrating errors resulting from a minor misunderstanding of the Gradle API, once you are set up, the maintenance becomes much easier. It feels more rewarding to work in harmony with Gradle, rather than working against the optimizations introduced with each Gradle update, knowing that we can automatically benefit from them. The version catalogs provide a convenient method for organizing dependencies, and the fact that our tooling recognizes the format is a significant advantage.&lt;/p&gt;
+
+&lt;p&gt;In conclusion, for developers working on medium-to-large Gradle projects, whether in the Android realm or elsewhere, I highly recommend exploring the use of convention plugins. Mastering them is not as difficult as it may seem, and they provide effective solutions to address real challenges that we all face day-to-day.&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;Cover image © Isis Petroni&lt;/small&gt;&lt;/p&gt;</content><author><name>Baptiste Candellier</name></author><category term="android" /><category term="gradle" /><category term="plugin" /><summary type="html">In the last couple of years, Gradle has been encouraging developers to work towards modularizing their projects. Of course, when effectively implemented, this approach offers several advantages, with build parallelization being a significant factor.</summary></entry><entry><title type="html">Deux jours à Android Makers by Droidcon 2023</title><link href="https://tech.bedrockstreaming.com/2023/06/19/android-makers-23.html" rel="alternate" type="text/html" title="Deux jours à Android Makers by Droidcon 2023" /><published>2023-06-19T00:00:00+00:00</published><updated>2023-06-19T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/06/19/android-makers-23</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/06/19/android-makers-23.html">&lt;p&gt;Il y a quelques semaines déjà, nous avons pu nous rendre à LA conférence annuelle Android en France : Android Makers. Conférence qui s’associe tout juste avec une initiative un peu plus internationale qui est DroidCon (cf. &lt;a href=&quot;https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022.html&quot;&gt;notre précédent article&lt;/a&gt;, par exemple).
 L’occasion d’assister à des conférences de speakers du monde entier mais également de networker et revoir avec plaisir beaucoup de têtes connues !&lt;/p&gt;
 
 &lt;p&gt;Voici pêle-mêle nos retours et les apprentissages que nous avons pu collecter durant ces 2 jours intenses !&lt;/p&gt;
@@ -393,109 +659,4 @@ permis une avancée plus importante, mais le suivi par le pilote était plus com
 &lt;h2 id=&quot;a-lannée-prochaine-&quot;&gt;A l’année prochaine !&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/mixit-2023/bedrock-mixit.jpg&quot; alt=&quot;Bedrock à MiXiT&quot; /&gt;
-&lt;img src=&quot;/images/posts/mixit-2023/bedrock-mixit-2.jpg&quot; alt=&quot;Bedrock à MiXiT&quot; /&gt;&lt;/p&gt;</content><author><name>Anne-Laure De Boissieu</name></author><category term="conference" /><category term="lyon" /><category term="tech" /><category term="agilité" /><summary type="html">Nous étions présent les 13 et 14 avril 2023 à CPE pour l’édition de MiXiT 2023, pour suivre les conférences bien sûr et pour soutenir les collègues qui donnaient une conférence !</summary></entry><entry><title type="html">Bedrock à l’AWS Summit Paris 2023</title><link href="https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html" rel="alternate" type="text/html" title="Bedrock à l’AWS Summit Paris 2023" /><published>2023-04-20T00:00:00+00:00</published><updated>2023-04-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html">&lt;p&gt;L’AWS Summit Paris 2023 s’est déroulé le 4 avril. C’était pour nous l’occasion de découvrir les dernières innovations au cœur des services AWS, comme la solution d’IA d’aide au développement nommée CodeWhisperer. De plus, &lt;a href=&quot;https://twitter.com/pascal_martin&quot;&gt;Pascal Martin, Principal Engineer&lt;/a&gt;, y assistait aussi en tant que speaker pour partager notre expérience en conception et maintenance de Systèmes Distribués.
-En plus des deux points précédemment cités, nous verrons aussi comment eTF1 s’est préparé pour la Coupe du Monde de la FIFA 2022, ou de souveraineté et de son application chez AWS.&lt;/p&gt;
-
-&lt;h2 id=&quot;à-vos-côtés-pour-les-grands-moments--aws-tf1-et-la-coupe-du-monde-de-la-fifa-2022&quot;&gt;À vos côtés pour les grands moments : AWS, TF1 et la Coupe du Monde de la FIFA 2022&lt;/h2&gt;
-
-&lt;p&gt;Conférence présentée par :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Imane Zeroual - Senior Technical Account Manager, AWS&lt;/li&gt;
-  &lt;li&gt;Djamel Arichi, Head of Managed Services and Support, eTF1&lt;/li&gt;
-  &lt;li&gt;Ali Oubabiz, Head of Digital Infrastructure, eTF1&lt;/li&gt;
-  &lt;li&gt;Remy Pinsonneau, Architecte, eTF1&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-etf1.jpg&quot; alt=&quot;MyTF1 rq/s pendant un match&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://tech.tf1.fr/&quot;&gt;eTF1&lt;/a&gt; partage son retour d’expérience sur la Coupe du Monde de foot 2022 et les défis surmontés pour que leur plateforme de replay myTF1 propose une parfaite expérience utilisateur tout au long de l’événement.&lt;/p&gt;
-
-&lt;p&gt;La présentation, coanimée par Imane, Senior Technical Manager de chez AWS, permet aussi d’en apprendre un peu plus sur le programme IEM d’accompagnement de clients AWS lors d’événements critiques. Nous avons d’ailleurs déjà exploité ce programme chez Bedrock Streaming.
-Challenge technique pour les équipes eTF1, la Coupe du Monde de football 2022 a battu plusieurs records de la plateforme, dont des pics à plus de 2,4 Millions d’utilisateurs simultanés. L’événement a été préparé en collaboration avec les équipes d’AWS pour adapter les infrastructures à recevoir de fortes charges.&lt;/p&gt;
-
-&lt;p&gt;Trois points critiques identifiés :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Authent/backend, les millions d’utilisateurs vont s’authentifier dans une fenêtre de 15 minutes.&lt;/li&gt;
-  &lt;li&gt;Delivery vidéo, tout au long de l’événement une forte charge, constante, est attendue.&lt;/li&gt;
-  &lt;li&gt;Publicité, pic de charge très important mais ponctuel.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Des scénarios de tests de performances ont été effectués à l’aide de K6, pour chacun des points. La préproduction a servi d’environnement de test, avant d’effectuer une validation finale sur la production. Du travail a été également réalisé sur les services AWS : par exemple, les tables DynamoDB ont été basculées en OnDemand afin de profiter de l’élasticité plus rapide du service, malgré les coûts supplémentaires, comparé au mode provisionné.
-Au niveau des clusters Kubernetes, les applications ont été redimensionnées à la hausse (mémoire, cpu, HPA) pour anticiper les pics de charge et ne pas seulement se reposer sur du scaling réactif.&lt;/p&gt;
-
-&lt;p&gt;Lors de la compétition, une War Room était ouverte suivant l’importance des matchs. Elle était composée d’intervenants AWS grâce au programme IEM, de personnels techniques eTF1 et de membres du service management pour pouvoir réagir en cas d’imprévus. 
-La War Room a d’ailleurs été mise à contribution puisque la plateforme à subi des attaques DDOS pendant certains matchs. Le CDN Cloudfront et WAF ont permis de les contenir.&lt;/p&gt;
-
-&lt;p&gt;Chez Bedrock Streaming, nous étions curieux de ce retour d’expérience : nous avons préparé ce même type d’événement lors de l’Euro de football 2020. Les défis à surmonter sont les mêmes que ceux que nous avions rencontrés et nous sommes arrivés à des conclusions similaires dans nos choix techniques. Nous avions d’ailleurs développé un outil pour répondre au problème de scalabilité dans kubernetes durant l’Euro 2020 et que nous utilisons toujours aujourd’hui, &lt;a href=&quot;https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html&quot;&gt;un article de blog à ce sujet est disponible ici&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;comment-bien-débuter-avec-amazon-codewhisperer&quot;&gt;Comment bien débuter avec Amazon CodeWhisperer&lt;/h2&gt;
-
-&lt;p&gt;Conférence présentée par :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Sébastien Butreau, Senior Partner Solutions Architect, AWS&lt;/li&gt;
-  &lt;li&gt;Sébastien Grazzini, Principal Solutions Architect, AWS&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-amazon-code-whisperer.jpg&quot; alt=&quot;Amazon Code Whisperer&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Amazon annonce une sortie grand public, prochaine, de son assistant de développement par IA CodeWhisperer (update: depuis, &lt;a href=&quot;https://aws.amazon.com/blogs/aws/amazon-codewhisperer-free-for-individual-use-is-now-generally-available/&quot;&gt;CodeWhisperer est passé GA&lt;/a&gt;).&lt;br /&gt;
-Nous avons eu droit à une démonstration de l’outil. En quelques minutes et seulement à l’aide de quelques commentaires, les deux présentateurs ont produit un script python capable de prendre en entrée un répertoire de photos et donner en sortie un JSON qui, pour chaque photo, donnait le nom de la célébrité présente dessus.&lt;/p&gt;
-
-&lt;p&gt;Chez Bedrock Streaming, nous pensons qu’il est très important de suivre ce nouveau tournant que prend l’aide au développement via l’IA depuis quelques mois. Nous prévoyons de tester lors de nos journées R&amp;amp;D Github Copilot et Amazon CodeWhisperer.&lt;/p&gt;
-
-&lt;p&gt;L’outil d’Amazon a quelques atouts, notamment la fonctionnalité de suivi des références qui permet de savoir si du code proposé est similaire à du code utilisé pour l’apprentissage et peut-être protégé par une licence incompatible avec notre usage. De plus, l’intégration du SDK Amazon est assez poussée et cela prend tout son sens, notamment lors du développement pour des lambdas AWS où l’outil semble très performant.&lt;/p&gt;
-
-&lt;h2 id=&quot;bienvenue-dans-le-monde-merveilleux-des-systèmes-distribués&quot;&gt;Bienvenue dans le Monde Merveilleux des Systèmes Distribués&lt;/h2&gt;
-
-&lt;p&gt;Cette année encore, nous avons eu la chance de pouvoir partager notre expérience, lors d’une conférence donnée par &lt;a href=&quot;https://twitter.com/pascal_martin&quot;&gt;Pascal&lt;/a&gt;, Principal Engineer et &lt;a href=&quot;https://aws.amazon.com/developer/community/heroes/pascal-martin/&quot;&gt;AWS Hero&lt;/a&gt; : « Bienvenue dans le Monde Merveilleux des Systèmes Distribués »&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-pascal-martin.jpg&quot; alt=&quot;Pascal Martin en action !&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Pourquoi s’embêter avec des Systèmes distribués ? Comment en tirer profit ? Quels dangers ? Scalabilité, coordination et résilience : trois grands axes pour ce talk, basé sur l’expérience acquise par les équipes Bedrock, tant infra que devs, depuis plusieurs années.&lt;/p&gt;
-
-&lt;p&gt;En tant que speaker, pouvoir partager avec notre communauté est toujours aussi agréable ! Et, dans le public, il était assez intéressant d’entendre les réactions de nos voisins lorsque Pascal racontait certaines anecdotes ou présentait certains concepts. Les problématiques que nous rencontrons dans nos métiers, nous sommes nombreux à les rencontrer, et c’est tout l’intérêt des événements comme AWS Summit : apprendre les uns des autres !&lt;/p&gt;
-
-&lt;p&gt;Cette présentation n’a malheureusement pas été enregistrée lors du Summit, mais Pascal l’a redonnée depuis à MixIT, où elle a été enregistrée – et les vidéos devraient être bientôt publiées ;-)&lt;/p&gt;
-
-&lt;h2 id=&quot;la-souveraineté-des-données-chez-aws&quot;&gt;La souveraineté des données chez AWS&lt;/h2&gt;
-
-&lt;p&gt;Une des conférences portait sur les thèmes de la Souveraineté dans le Cloud AWS et du Règlement européen Général sur la Protection des Données (RGPD). Lors de cette présentation, Stephan Hadinger (Directeur de la Technologie chez AWS) a exposé le cadre de ce règlement et sa mise en application au sein de l’infrastructure AWS. C’est cette partie qui était, d’après nous, la plus intéressante, étant donnée sa dimension technique.&lt;/p&gt;
-
-&lt;p&gt;RGPD est un regroupement de règles qui régissent et protègent les droits des résidents d’Union Européenne. Il porte sur le respect de la confidentialité et la protection des données personnelles. Toute entreprise exerçant dans l’UE y est soumise. Dans le cas présent, la RGPD couvre à la fois les clients AWS (comme Bedrock) et les utilisateurs finaux (comme les utilisateurs des services Bedrock).&lt;/p&gt;
-
-&lt;p&gt;Chez AWS, la Souveraineté est synonyme d’autonomie stratégique et s’exprime de la façon suivante :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;la possession des données clients : tous les clients AWS ont le contrôle de leurs données et applications, et nous verrons comment ;&lt;/li&gt;
-  &lt;li&gt;le choix de la localisation des données, via la possibilité d’héberger l’intégralité des données sur le territoire de son choix, en France par exemple ;&lt;/li&gt;
-  &lt;li&gt;l’accès au meilleur de la technologie, qui favorise l’innovation ;&lt;/li&gt;
-  &lt;li&gt;et la possibilité de changer de solution (pas de lock-in).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Les clients sont les seuls possesseurs de leurs données, ils en ont le contrôle total : AWS n’a aucun droit d’usage des données de leurs clients. De plus, AWS n’a pas accès aux données et ne déplace pas (géographiquement) les données de ses clients.&lt;/p&gt;
-
-&lt;p&gt;L’implémentation technique de ces concepts repose, entre autres, sur le chiffrement systématique des données. AWS Nitro est une des briques d’architecture qui en est responsable pour les EC2 (depuis 2013 pour la partie réseau). Nitro permet le chiffrement de toute la chaîne de données (réseau, volumes de stockage) et comprend plusieurs composants :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Carte Nitro dédiée au échanges externes (réseau + accès aux EBS, stockage persistant)&lt;/li&gt;
-  &lt;li&gt;Carte Nitro pour le stockage local (stockage temporaire attaché à l’hôte)&lt;/li&gt;
-  &lt;li&gt;Hyperviseur Nitro (il s’agit d’un hyperviseur basé sur linux KVM, mais grandement modifié pour les besoins, pas de sshd, pas de systemd, pas de couche réseau)&lt;/li&gt;
-  &lt;li&gt;Puce de sécurité Nitro (qui empêche le client d’avoir accès aux composants de l’hôte, procède à la mise à jour des firmwares des composants du serveur et gère le sécure boot afin de contrôler l’état des firmwares des composants avant de démarrer l’hôte).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-nitro.jpg&quot; alt=&quot;AWS Nitro&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Au delà du chiffrement dont il est principalement question ici, Nitro permet aussi de grandement augmenter les performances des EC2 en limitant l’impact de l’hyperviseur sur le CPU utilisé par les clients. Dans le cas d’une virtualisation classique, toutes les tâches listées ci-dessus sont effectuées par le processeur lui-même, grignotant ainsi de la puissance des machines. Ici, Nitro permet de décharger le CPU de ces tâches en le rendant ainsi dédié aux EC2.&lt;/p&gt;
-
-&lt;p&gt;AWS utilise aussi des solutions telles que Key Management Service (KMS) pour chiffrer les données de plus d’une centaine de ses services. Il s’agit là aussi d’un système de protection des données des utilisateurs : seul l’opérateur possédant la clé de chiffrement est capable de lire les données de ces services. 
-Une version étendue de KMS est même disponible pour les clients les plus soucieux de la protection de leurs données : &lt;a href=&quot;https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html&quot;&gt;External Key Stores&lt;/a&gt;. XKS est un dispositif physique pouvant être hébergé en dehors des locaux d’AWS. Il est même capable de se “défendre” contre les attaques physiques en procédant à l’effacement des clés lors d’une tentative d’intrusion physique. Il s’agit probablement de l’ultime implémentation de sécurité et de souveraineté chez AWS.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-souverainete-donnees.jpg&quot; alt=&quot;AWS Summit 2023 - Souveraineté des données&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Tout au long de cette conférence, on a bien senti que le but d’AWS, afin de respecter les données de ses usagers, était de faire en sorte de ne pas pouvoir accéder aux données de ses clients.&lt;/p&gt;
-
-&lt;h1 id=&quot;le-mot-de-la-fin&quot;&gt;Le mot de la fin&lt;/h1&gt;
-
-&lt;p&gt;L’AWS Summit comportait plus d’une centaine de sessions et nous avons juste eu l’occasion d’effleurer le contenu proposé lors de cette journée.&lt;/p&gt;
-
-&lt;p&gt;Nous avons commencé à &lt;a href=&quot;https://leanpub.com/6cloud&quot;&gt;migrer vers Le Cloud&lt;/a&gt; en 2018 et notre premier AWS Summit Paris était en 2019 – nous y avions d’ailleurs &lt;a href=&quot;https://www.youtube.com/watch?v=xLELSIEt2xA&amp;amp;list=PL2ime9SGTcqcJWATAbNDvSVsTQyMridf3&amp;amp;index=11&quot;&gt;déjà parlé de cette migration au cours d’un autre événement&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Depuis, que de chemin parcouru ! Cette année, nous pensions moins à Kubernetes, à DynamoDB ou aux optimisations de coûts, sur lesquels nous avons bien bossé depuis 2019. Notre attention était plus attirée vers des sujets que nous avons commencé à travailler plus récemment et où nous avons encore des challenges majeurs, comme les approches pleinement serverless ;-)&lt;/p&gt;</content><author><name>[&quot;p_martin&quot;, &quot;l_caillet&quot;, &quot;v_chabrier&quot;]</name></author><category term="kubernetes" /><category term="cloud" /><category term="devops" /><category term="opensource" /><category term="community" /><category term="conference" /><category term="aws" /><category term="summit" /><category term="paris" /><category term="2023" /><summary type="html">L’AWS Summit Paris 2023 s’est déroulé le 4 avril. C’était pour nous l’occasion de découvrir les dernières innovations au cœur des services AWS, comme la solution d’IA d’aide au développement nommée CodeWhisperer. De plus, Pascal Martin, Principal Engineer, y assistait aussi en tant que speaker pour partager notre expérience en conception et maintenance de Systèmes Distribués. En plus des deux points précédemment cités, nous verrons aussi comment eTF1 s’est préparé pour la Coupe du Monde de la FIFA 2022, ou de souveraineté et de son application chez AWS.</summary></entry></feed>
+&lt;img src=&quot;/images/posts/mixit-2023/bedrock-mixit-2.jpg&quot; alt=&quot;Bedrock à MiXiT&quot; /&gt;&lt;/p&gt;</content><author><name>Anne-Laure De Boissieu</name></author><category term="conference" /><category term="lyon" /><category term="tech" /><category term="agilité" /><summary type="html">Nous étions présent les 13 et 14 avril 2023 à CPE pour l’édition de MiXiT 2023, pour suivre les conférences bien sûr et pour soutenir les collègues qui donnaient une conférence !</summary></entry></feed>
