@@ -21,6 +21,8 @@ a_ferez:
   avatar: /images/avatar/a_ferez.jpg
 a_martins:
   name: Alexis Martins
+a_pitel:
+  name: Antoine Pitel
 a_zinck:
   name: Arthur Zinck
   avatar: /images/avatar/a_zinck.png
@@ -31,7 +33,7 @@ al_deboissieu:
 b_candellier:
   name: Baptiste Candellier
   avatar: https://s.gravatar.com/avatar/c638445b4e00f76960bf7ee2275d7014?s=80
-  url: https://github.com/outadoc
+  url: https://baptiste.candellier.me
 b_garcia:
   name: Bénédicte Garcia
 b_viguier:
@@ -58,6 +60,8 @@ c_vanderzwaard:
   url: https://twitter.com/christianvdz
 d_cuny:
   name: Damien Cuny
+d_larue:
+  name: David Larue
 d_roussel:
   name: Denis
   avatar: /images/avatar/d_roussel.jpg
@@ -151,6 +155,8 @@ m_schneider:
   name: Martin Schneider
   url: https://github.com/martinschneider01
   avatar: /images/avatar/m_schneider.png
+n_galais:
+  name: Nicolas Galais
 n_saby:
   name: Nastasia Saby
   url: https://twitter.com/saby_nastasia
@@ -174,6 +180,9 @@ p_halter:
 p_martin:
   name: Pascal Martin
   url: https://twitter.com/pascal_martin
+p_rambaud:
+  name: Pauline Rambaud
+  url: https://twitter.com/pauinegu
 pl_perez:
   name: Pierre-Loup Perez
   avatar: /images/avatar/pl_perez.jpeg
