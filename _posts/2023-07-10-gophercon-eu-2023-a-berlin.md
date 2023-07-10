@@ -168,7 +168,7 @@ goroutines/channels.
 `ErrorGroup` permet de prendre en charge la propagation des erreurs, si une tâche renvoie une erreur, la tâche
 principale peut agir en fonction.
 
-### x/sync - Single Flight (Do)
+#### x/sync - Single Flight (Do)
 
 `Do` de `singleflight` permet de ne pas exécuter deux fois la même tâche avec la même valeur d'entrée. Si une entrée
 similaire arrive avant la fin de la précédente, cette entrée va attendre le résultat de la précédente et retourner le
