@@ -37,6 +37,9 @@ une 2ᵉ track qui se tenait dans un entrepôt de ventes aux enchères.
 Lieux atypiques, pour nous, bonne ambiance, des gophers.euses très sympas, amicaux, respecteux.ses, tout pour assister à
 des conférences fantastiques.
 
+Nous ne pouvons vous présenter l'ensemble des conférences, mais en voici quelques-unes nous ayant marqués pour vous
+donner envie d'en voir davantage :
+
 ## Keynote - State of the Go Nation
 
 Les deux jours de conférences ont démarré par une Keynote donnée par [Cameron Balahan](https://twitter.com/cameronbalahan),
@@ -47,8 +50,8 @@ jusqu’à aujourd’hui avec l’arrivée prochaine de [la version 1.21](https:
 
 - 2007 : Création de go par Google (utilisé à 20% sur les projets Google)
 - 2009 : Go devient open source
-- 2012 : Sortie de Go 1.0. Avec pour promesse d’assurer une plateforme stable et compatible dans le temps. Objectif : construire une plateforme pour le « software engineering »
-- 2015 : Go est amélioré. Sortie de Go 1.5. Augmentation des performances. Nouveautés : compiler et runtime écrits en go, mise en place du « low latency garbage collection »
+- 2012 : Sortie de Go 1.0, avec pour objectif de construire une plateforme stable et compatible dans le temps
+- 2015 : Sortie de Go 1.5, qui apporte une augmentation des performances (via la mise en place du « low latency garbage collection »), un compilateur et runtime écrits en Go
 - 2018 : Introduction des modules. Amélioration de la sécurité. Nouveautés : SBOM, fuzzing
 - 2022 : Introduction des generics sans breaking changes
 
