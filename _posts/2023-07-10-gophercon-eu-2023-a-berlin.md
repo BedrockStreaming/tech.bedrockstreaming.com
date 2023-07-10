@@ -147,6 +147,36 @@ communiquent via des interfaces. Le framework permet ensuite de déployer cette 
 Dans le cas d'un déploiement en Micro-services, le framework prend entièrement en charge la communication entre les
 modules, sans aucun impact sur le code ou le développeur.
 
+## Go Sync or Go Home: Advanced Concurrency Techniques for Better Go Programs
+
+[Yarden Laifenfeld](https://twitter.com/YardenLaif), Software Engineer chez Rookout, nous a présentée les fonctionnalités moins connues des packages
+[sync](https://pkg.go.dev/sync) et [x/sync](https://pkg.go.dev/golang.org/x/sync).
+
+Voici les différents sous packages présentés lors de cette conférence :
+
+#### sync - Wait Group
+
+`WaitGroup` va permettre d'attendre que toutes les tâches soient terminées.
+Son utilisation simplifie l'implémentation, la lecture du code, mais aussi la performance comparée au couple
+goroutines/channels.
+
+#### x/sync - Error Group
+
+`ErrorGroup` permet de prendre en charge la propagation des erreurs, si une tâche renvoie une erreur, la tâche
+principale peut agir en fonction.
+
+### x/sync - Single Flight (Do)
+
+`Do` de `singleflight` permet de ne pas exécuter deux fois la même tâche avec la même valeur d'entrée. Si une entrée
+similaire arrive avant la fin de la précédente, cette entrée va attendre le résultat de la précédente et retourner le
+même résultat faisant ainsi gagner en performance.
+
+Yarden nous a indiqué que _Kubernetes_ utilise ce mécanisme dans le `cached token authenticator` depuis maintenant
+quelque temps.
+
+Nous allons regarder dans les prochaines semaines si nous avons la possibilité d'utiliser ces patterns dans notre
+codebase actuelle et l'avoir à l'esprit pour nos futurs développements.
+
 ## Pour conclure
 
 Bedrock participe depuis longtemps directement ou indirectement à des événements liés aux différentes technologies
