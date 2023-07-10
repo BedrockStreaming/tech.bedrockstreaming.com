@@ -193,6 +193,7 @@ C'est donc dans la même logique que Bedrock a choisi de faire participer certai
 
 Parmi les 6 collègues présents à la conférence, certains viennent de commencer à utiliser le langage de programmation Go
 tandis que d'autres commencent à avoir une certaine expérience. Ce fût donc l'occasion d'échanger, de partager et de
-découvrir, aussi bien entre nous qu'avec les autres participants, différents sujets au sein de l'écosystème Go.
+découvrir, aussi bien entre nous qu'avec les autres participants, différents sujets au sein de l'écosystème Go, qui
+prend une part croissante dans notre plateforme.
 
 ![Le pont Oberbaum à Berlin](/images/posts/2023-07-10-gophercon-eu-2023-a-berlin/pont-oberbaum.jpg)
