@@ -55,7 +55,7 @@ jusqu’à aujourd’hui avec l’arrivée prochaine de [la version 1.21](https:
 Une fois cet historique présenté, Cameron a parlé de l’avenir du Go et de son écosystème dans les années à venir. Pour
 l’équipe de développement (dont plusieurs membres étaient présents), le Go n’est pas juste un langage de programmation
 mais tout un écosystème : des outils pour les IDE (le plugin Go pour VS Code est maintenu par la team), la gestion des
-dépendances, les systèmes de test, le formatting, le profiling, le CLI, la rétro-compatibilité, la documentation web et
+dépendances, les systèmes de test, le formatting, le profiling, la CLI, la rétro-compatibilité, la documentation web et
 bien sûr le langage lui-même.
 
 La rétro-compatibilité est un point sur lequel il a beaucoup insisté, en parlant notamment de l’ajout des generics
@@ -124,7 +124,7 @@ Il a ensuite détaillé certaines astuces pour aller plus loin avec ce pattern :
 - « Immutability »
 
 Vous pouvez retrouver les slides de sa présentation [ici](https://github.com/jub0bs/talks/tree/main/2023/06/functional-options)
-et cerise sur le gâteau, une librairie qui sert d'exemple existe : [repo](https://github.com/jub0bs/fcors)
+et cerise sur le gâteau, une librairie qui sert d'exemple existe : [https://github.com/jub0bs/fcors](https://github.com/jub0bs/fcors)
 
 ## Towards modern development of cloud applications with service weaver
 
@@ -161,8 +161,8 @@ et [Vue Amsterdam](https://tech.bedrockstreaming.com/2023/03/31/retour-vue-amste
 
 C'est donc dans la même logique que Bedrock a choisi de faire participer certains membres du backend à la GopherCon.
 
-Parmi les 6 collègues présents à la conférence, certains viennent de commencer à l'utiliser tandis que d'autres
-commencent à avoir une certaine expérience. Ce fût donc l'occasion d'échanger, de partager et de découvrir, aussi bien
-entre nous qu'avec les autres participants, différents sujets au sein de l'écosystème Go.
+Parmi les 6 collègues présents à la conférence, certains viennent de commencer à utiliser le langage de programmation Go
+tandis que d'autres commencent à avoir une certaine expérience. Ce fût donc l'occasion d'échanger, de partager et de
+découvrir, aussi bien entre nous qu'avec les autres participants, différents sujets au sein de l'écosystème Go.
 
 ![Le pont Oberbaum à Berlin](/images/posts/2023-07-10-gophercon-eu-2023-a-berlin/pont-oberbaum.jpg)
