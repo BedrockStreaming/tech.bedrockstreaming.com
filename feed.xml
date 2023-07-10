@@ -1,4 +1,206 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-07-07T09:19:14+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">You Need a Custom Gradle Plugin, and Here’s Why</title><link href="https://tech.bedrockstreaming.com/2023/07/07/gradle-convention-plugins.html" rel="alternate" type="text/html" title="You Need a Custom Gradle Plugin, and Here’s Why" /><published>2023-07-07T00:00:00+00:00</published><updated>2023-07-07T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/07/07/gradle-convention-plugins</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/07/07/gradle-convention-plugins.html">&lt;p&gt;In the last couple of years, Gradle has been encouraging developers to work towards modularizing their projects. Of course, when effectively implemented, this approach offers several advantages, with build parallelization being a significant factor.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-07-10T16:01:52+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock à la GopherCon EU (2023)</title><link href="https://tech.bedrockstreaming.com/2023/07/10/gophercon-eu-2023-a-berlin.html" rel="alternate" type="text/html" title="Bedrock à la GopherCon EU (2023)" /><published>2023-07-10T00:00:00+00:00</published><updated>2023-07-10T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/07/10/gophercon-eu-2023-a-berlin</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/07/10/gophercon-eu-2023-a-berlin.html">&lt;p&gt;Depuis maintenant presque 1 an, la verticale Backend de Bedrock, s’ouvre à d’autres langages de programmation que PHP, à
+savoir Golang et Rust.
+C’est pourquoi cette année, pour la 1&lt;sup&gt;ère&lt;/sup&gt; fois, 6 de nos collègues ont participé (2 en présentiel, 4 à
+distance) à la &lt;a href=&quot;https://gophercon.eu&quot;&gt;GopherCon EU&lt;/a&gt; ayant lieu à Berlin.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-07-10-gophercon-eu-2023-a-berlin/bedrock-people.jpg&quot; alt=&quot;Fabien et Nathan&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;La GopherCon EU, c’est un peu comme le Forum PHP, mais pour le Go et à un niveau international. À cette édition, environ
+600 participants étaient présents sur place ou à distance depuis les 4 coins du monde (Brésil, États-Unis, Afrique du
+Nord, Europe, Asie, Australie…) et bien sûr d’autres français.es.&lt;/p&gt;
+
+&lt;p&gt;Elle se déroule sur 1 semaine entière :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Jour 1 : Visite de Berlin et table ronde&lt;/li&gt;
+  &lt;li&gt;Jour 2 : Atelier&lt;/li&gt;
+  &lt;li&gt;Jour 3 et 4 : Conférences&lt;/li&gt;
+  &lt;li&gt;Jour 5 : Interview avec les UX de l’équipe Go&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;L’évènement avait lieu dans un espace assez typique de l’Allemagne, un “Biergarten” que l’on pourrait traduire par
+“Brasserie en plein air”. On vous rassure tout de suite pas de bière pendant les conférences ;)&lt;/p&gt;
+
+&lt;p&gt;Les conférences se déroulaient principalement dans la salle de concert du Biergarten, cependant l’après-midi, il y avait
+une 2ᵉ track qui se tenait dans un entrepôt de ventes aux enchères.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-07-10-gophercon-eu-2023-a-berlin/festsaal-kreuzberg-berlin.jpg&quot; alt=&quot;Festsaal Kreuzberg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lieux atypiques, pour nous, bonne ambiance, des gophers.euses très sympas, amicaux, respecteux.ses, tout pour assister à
+des conférences fantastiques.&lt;/p&gt;
+
+&lt;p&gt;Nous ne pouvons vous présenter l’ensemble des conférences, mais en voici quelques-unes nous ayant marqués pour vous
+donner envie d’en voir davantage :&lt;/p&gt;
+
+&lt;h2 id=&quot;keynote---state-of-the-go-nation&quot;&gt;Keynote - State of the Go Nation&lt;/h2&gt;
+
+&lt;p&gt;Les deux jours de conférences ont démarré par une Keynote donnée par &lt;a href=&quot;https://twitter.com/cameronbalahan&quot;&gt;Cameron Balahan&lt;/a&gt;,
+le Product Lead pour le Go chez Google.&lt;/p&gt;
+
+&lt;p&gt;Cette keynote a été l’occasion de revenir sur l’historique de Go en tant que plateforme depuis sa création en 2007
+jusqu’à aujourd’hui avec l’arrivée prochaine de &lt;a href=&quot;https://tip.golang.org/doc/go1.21&quot;&gt;la version 1.21&lt;/a&gt; en août :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2007 : Création de go par Google (utilisé à 20% sur les projets Google)&lt;/li&gt;
+  &lt;li&gt;2009 : Go devient open source&lt;/li&gt;
+  &lt;li&gt;2012 : Sortie de Go 1.0, avec pour objectif de construire une plateforme stable et compatible dans le temps&lt;/li&gt;
+  &lt;li&gt;2015 : Sortie de Go 1.5, qui apporte une augmentation des performances (via la mise en place du « low latency garbage collection »), un compilateur et runtime écrits en Go&lt;/li&gt;
+  &lt;li&gt;2018 : Introduction des modules. Amélioration de la sécurité. Nouveautés : SBOM, fuzzing&lt;/li&gt;
+  &lt;li&gt;2022 : Introduction des generics sans breaking changes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Une fois cet historique présenté, Cameron a parlé de l’avenir du Go et de son écosystème dans les années à venir. Pour
+l’équipe de développement (dont plusieurs membres étaient présents), le Go n’est pas juste un langage de programmation
+mais tout un écosystème : des outils pour les IDE (le plugin Go pour VS Code est maintenu par la team), la gestion des
+dépendances, les systèmes de test, le formatting, le profiling, la CLI, la rétro-compatibilité, la documentation web et
+bien sûr le langage lui-même.&lt;/p&gt;
+
+&lt;p&gt;La rétro-compatibilité est un point sur lequel il a beaucoup insisté, en parlant notamment de l’ajout des generics
+dans &lt;a href=&quot;https://tip.golang.org/doc/go1.18&quot;&gt;la version 1.18&lt;/a&gt;, et ce, sans aucun breaking change. Cet ajout est pour la Core
+Team la modification la plus complexe ayant eu lieu sur le langage, et la plus complexe qu’il n’y aura jamais. Tout ça
+pour dire qu’ils ne voient pas de raison à ce qu’il existe un jour un Go 2.0 et que le langage restera donc toujours
+rétro-compatible dans ses futures versions.&lt;/p&gt;
+
+&lt;h2 id=&quot;useful-functional-options-tricks-for-better-libraries&quot;&gt;Useful Functional-Options Tricks For Better Libraries&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-07-10-gophercon-eu-2023-a-berlin/conf-useful-functional-options-tricks-for-better-libraries.jpg&quot; alt=&quot;Julien Cretel&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/jub0bs&quot;&gt;Julien Cretel&lt;/a&gt; nous a présenté le pattern &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;functional options&lt;/code&gt; à travers l’exemple d’une
+petite librairie de gestion de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CORS&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Pour faire cette première librairie, une première approche “classique” serait d’utiliser une fonction de création de
+cors avec des paramètres pour chacune des options.&lt;/p&gt;
+
+&lt;p&gt;Il note plusieurs inconvénients :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Pas très ergonomique&lt;/li&gt;
+  &lt;li&gt;Pas assez expressif&lt;/li&gt;
+  &lt;li&gt;Et pas extensible&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;fcors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NewCORS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://example.com&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Une première alternative est l’utilisation d’une struct &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Config&lt;/code&gt; qui contiendrait toutes les options possibles et de passer
+cette struct en paramètre :&lt;/p&gt;
+
+&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Config&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Origins&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;MaxAgeInSeconds&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;uint&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;RequestHeaders&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NewCORS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cfg&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Middleware&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;C’est plus extensible, mais certains inconvénients restent :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;pas de possibilité de ne pas passer un paramètre&lt;/li&gt;
+  &lt;li&gt;peu expressif&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Il propose alors une autre possibilité : le &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;functional options&lt;/code&gt; :&lt;/p&gt;
+
+&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NewCORS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;opts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Option&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Middleware&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FromOrigins&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;origins&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Option&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MaxAgeInSeconds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delta&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;uint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Option&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WithRequestHeaders&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;names&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Option&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;L’idée est d’utiliser des constructeurs nommés pour instancier des options selon les besoins et de passer ses options en
+paramètre !&lt;/p&gt;
+
+&lt;p&gt;Les avantages qu’il y voit sont :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;le système est facilement extensible&lt;/li&gt;
+  &lt;li&gt;c’est beaucoup plus expressif&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Il a ensuite détaillé certaines astuces pour aller plus loin avec ce pattern :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;« When order doesn’t matter, users are happier »&lt;/li&gt;
+  &lt;li&gt;« Multiple calls to the same option »&lt;/li&gt;
+  &lt;li&gt;« Immutability »&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Vous pouvez retrouver les slides de sa présentation &lt;a href=&quot;https://github.com/jub0bs/talks/tree/main/2023/06/functional-options&quot;&gt;ici&lt;/a&gt;
+et cerise sur le gâteau, une librairie qui sert d’exemple existe : &lt;a href=&quot;https://github.com/jub0bs/fcors&quot;&gt;https://github.com/jub0bs/fcors&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;towards-modern-development-of-cloud-applications-with-service-weaver&quot;&gt;Towards modern development of cloud applications with service weaver&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-07-10-gophercon-eu-2023-a-berlin/conf-service-weaver.jpg&quot; alt=&quot;Robert Grandl&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Cette conférence, présentée par &lt;a href=&quot;https://twitter.com/GrandlRobert&quot;&gt;Robert Grandl&lt;/a&gt;, est intéressante pour une entreprise
+qui commence à utiliser Go. On peut se poser la question : Faut-il partir tout de suite sur des micro-services ou bien
+commencer par un monolithe ?&lt;/p&gt;
+
+&lt;p&gt;L’idée générale de &lt;a href=&quot;https://serviceweaver.dev&quot;&gt;Service Weaver&lt;/a&gt; est de permettre aux développeurs de se concentrer sur le
+développement de leur application sans se soucier de cette question d’architecture.&lt;/p&gt;
+
+&lt;p&gt;Grâce à ce framework, une application peut être développée comme une sorte de monolithe via des modules Go qui
+communiquent via des interfaces. Le framework permet ensuite de déployer cette application de deux façons différentes :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;un monolithe, où les modules communiquent via des appels directs dans un seul fichier binaire final&lt;/li&gt;
+  &lt;li&gt;des micro-services, où les modules communiquent via des appels réseaux (gRPC) et sont déployés dans des containers
+séparés&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Dans le cas d’un déploiement en Micro-services, le framework prend entièrement en charge la communication entre les
+modules, sans aucun impact sur le code ou le développeur.&lt;/p&gt;
+
+&lt;h2 id=&quot;go-sync-or-go-home-advanced-concurrency-techniques-for-better-go-programs&quot;&gt;Go Sync or Go Home: Advanced Concurrency Techniques for Better Go Programs&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/YardenLaif&quot;&gt;Yarden Laifenfeld&lt;/a&gt;, Software Engineer chez Rookout, nous a présentée les fonctionnalités moins connues des packages
+&lt;a href=&quot;https://pkg.go.dev/sync&quot;&gt;sync&lt;/a&gt; et &lt;a href=&quot;https://pkg.go.dev/golang.org/x/sync&quot;&gt;x/sync&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Voici les différents sous packages présentés lors de cette conférence :&lt;/p&gt;
+
+&lt;h4 id=&quot;sync---wait-group&quot;&gt;sync - Wait Group&lt;/h4&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WaitGroup&lt;/code&gt; va permettre d’attendre que toutes les tâches soient terminées.
+Son utilisation simplifie l’implémentation, la lecture du code, mais aussi la performance comparée au couple
+goroutines/channels.&lt;/p&gt;
+
+&lt;h4 id=&quot;xsync---error-group&quot;&gt;x/sync - Error Group&lt;/h4&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ErrorGroup&lt;/code&gt; permet de prendre en charge la propagation des erreurs, si une tâche renvoie une erreur, la tâche
+principale peut agir en fonction.&lt;/p&gt;
+
+&lt;h4 id=&quot;xsync---single-flight-do&quot;&gt;x/sync - Single Flight (Do)&lt;/h4&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Do&lt;/code&gt; de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;singleflight&lt;/code&gt; permet de ne pas exécuter deux fois la même tâche avec la même valeur d’entrée. Si une entrée
+similaire arrive avant la fin de la précédente, cette entrée va attendre le résultat de la précédente et retourner le
+même résultat faisant ainsi gagner en performance.&lt;/p&gt;
+
+&lt;p&gt;Yarden nous a indiqué que &lt;em&gt;Kubernetes&lt;/em&gt; utilise ce mécanisme dans le &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cached token authenticator&lt;/code&gt; depuis maintenant
+quelque temps.&lt;/p&gt;
+
+&lt;p&gt;Nous allons regarder dans les prochaines semaines si nous avons la possibilité d’utiliser ces patterns dans notre
+codebase actuelle et l’avoir à l’esprit pour nos futurs développements.&lt;/p&gt;
+
+&lt;h2 id=&quot;pour-conclure&quot;&gt;Pour conclure&lt;/h2&gt;
+
+&lt;p&gt;Bedrock participe depuis longtemps directement ou indirectement à des événements liés aux différentes technologies
+utilisées en interne.&lt;/p&gt;
+
+&lt;p&gt;Par exemple en 2023 : &lt;a href=&quot;https://tech.bedrockstreaming.com/2023/06/19/android-makers-23.html&quot;&gt;Android Makers&lt;/a&gt;,
+&lt;a href=&quot;https://tech.bedrockstreaming.com/2023/06/06/afup-day-lyon-2023.html&quot;&gt;l’AFUP Day&lt;/a&gt;,
+&lt;a href=&quot;https://tech.bedrockstreaming.com/2023/04/25/mixit-lyon-2023.html&quot;&gt;le MiXiT&lt;/a&gt;,
+&lt;a href=&quot;https://tech.bedrockstreaming.com/2023/04/20/aws-summit-paris-2023.html&quot;&gt;l’AWS Summit&lt;/a&gt;,
+&lt;a href=&quot;https://tech.bedrockstreaming.com/2023/04/03/kubernetes-community-days.html&quot;&gt;Kubernetes Community Days&lt;/a&gt;
+et &lt;a href=&quot;https://tech.bedrockstreaming.com/2023/03/31/retour-vue-amsterdam-2023.html&quot;&gt;Vue Amsterdam&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;C’est donc dans la même logique que Bedrock a choisi de faire participer certains membres du backend à la GopherCon.&lt;/p&gt;
+
+&lt;p&gt;Parmi les 6 collègues présents à la conférence, certains viennent de commencer à utiliser le langage de programmation Go
+tandis que d’autres commencent à avoir une certaine expérience. Ce fût donc l’occasion d’échanger, de partager et de
+découvrir, aussi bien entre nous qu’avec les autres participants, différents sujets au sein de l’écosystème Go, qui
+prend une part croissante dans notre plateforme.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-07-10-gophercon-eu-2023-a-berlin/pont-oberbaum.jpg&quot; alt=&quot;Le pont Oberbaum à Berlin&quot; /&gt;&lt;/p&gt;</content><author><name>Backend teams</name></author><category term="conference" /><category term="berlin" /><category term="tech" /><category term="go" /><summary type="html">Depuis maintenant presque 1 an, la verticale Backend de Bedrock, s’ouvre à d’autres langages de programmation que PHP, à savoir Golang et Rust. C’est pourquoi cette année, pour la 1ère fois, 6 de nos collègues ont participé (2 en présentiel, 4 à distance) à la GopherCon EU ayant lieu à Berlin.</summary></entry><entry><title type="html">You Need a Custom Gradle Plugin, and Here’s Why</title><link href="https://tech.bedrockstreaming.com/2023/07/07/gradle-convention-plugins.html" rel="alternate" type="text/html" title="You Need a Custom Gradle Plugin, and Here’s Why" /><published>2023-07-07T00:00:00+00:00</published><updated>2023-07-07T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/07/07/gradle-convention-plugins</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/07/07/gradle-convention-plugins.html">&lt;p&gt;In the last couple of years, Gradle has been encouraging developers to work towards modularizing their projects. Of course, when effectively implemented, this approach offers several advantages, with build parallelization being a significant factor.&lt;/p&gt;
 
 &lt;p&gt;But splitting your Android project into many modules has a major drawback, at first: you need to write a build file for each of them.&lt;/p&gt;
 
@@ -563,100 +765,4 @@ Mais il existe aussi des pratiques reconnues dans notre milieu telles que l’&l
   &lt;p&gt;La randonnée à vélo, c’est économique, écologique, relaxant, dépaysant et c’est plus facile d’accès que ce que vous pourriez pensez. Alors on y va ? Un talk pour bien démarrer, faire découvrir, chasser les idées reçues, partager des astuces et donner l’envie de pédaler !&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Par &lt;a href=&quot;https://github.com/tom32i&quot;&gt;Thomas Jarrand&lt;/a&gt;&lt;/p&gt;</content><author><name>Thomas Jarrand</name></author><category term="lft" /><category term="tech" /><summary type="html">La randonnée à vélo, c’est économique, écologique, relaxant, dépaysant et c’est plus facile d’accès que ce que vous pourriez pensez. Alors on y va ? Un talk pour bien démarrer, faire découvrir, chasser les idées reçues, partager des astuces et donner l’envie de pédaler !</summary></entry><entry><title type="html">Bedrock à MiXiT Lyon (2023)</title><link href="https://tech.bedrockstreaming.com/2023/04/25/mixit-lyon-2023.html" rel="alternate" type="text/html" title="Bedrock à MiXiT Lyon (2023)" /><published>2023-04-25T00:00:00+00:00</published><updated>2023-04-25T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/04/25/mixit-lyon-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/04/25/mixit-lyon-2023.html">&lt;p&gt;Nous étions présent les 13 et 14 avril 2023 à CPE pour l’édition de MiXiT 2023, pour suivre les 
-conférences bien sûr et pour soutenir les collègues qui donnaient une conférence !&lt;/p&gt;
-
-&lt;h2 id=&quot;et-si-vos-prochaines-vacances-se-passaient-à-vélo-&quot;&gt;Et si vos prochaines vacances se passaient à vélo ?&lt;/h2&gt;
-
-&lt;p&gt;Conférence présentée par Thomas Jarrand&lt;/p&gt;
-&lt;iframe allowfullscreen=&quot;&quot; frameborder=&quot;0&quot; height=&quot;720&quot; mozallowfullscreen=&quot;&quot; src=&quot;https://player.vimeo.com/video/819907216&quot; title=&quot;Et si vos prochaines vacances se passaient à vélo ? - Thomas JARRAND - MiXiT23&quot; webkitallowfullscreen=&quot;&quot; width=&quot;1280&quot;&gt;&lt;/iframe&gt;
-
-&lt;h2 id=&quot;jay-z-maths-and-signals--how-to-clone-shazam-&quot;&gt;Jay-Z, Maths and Signals ! How to clone Shazam 🎧&lt;/h2&gt;
-
-&lt;p&gt;Conférence présentée par Moustapha Agack&lt;/p&gt;
-&lt;iframe allowfullscreen=&quot;&quot; frameborder=&quot;0&quot; height=&quot;720&quot; mozallowfullscreen=&quot;&quot; src=&quot;https://player.vimeo.com/video/819908055&quot; title=&quot;Jay-Z, Maths and Signals! How to clone Shazam - Moustapha AGACK - MiXiT23&quot; webkitallowfullscreen=&quot;&quot; width=&quot;1280&quot;&gt;&lt;/iframe&gt;
-
-&lt;h2 id=&quot;bienvenue-dans-le-monde-merveilleux-des-systèmes-distribués-&quot;&gt;Bienvenue dans le monde merveilleux des systèmes distribués !&lt;/h2&gt;
-
-&lt;p&gt;Conférence présentée par Pascal Martin&lt;/p&gt;
-&lt;iframe allowfullscreen=&quot;&quot; frameborder=&quot;0&quot; height=&quot;720&quot; mozallowfullscreen=&quot;&quot; src=&quot;https://player.vimeo.com/video/826105619&quot; title=&quot;Bienvenue dans le monde merveilleux des systèmes distribués - Pascal MARTIN - MiXiT23&quot; webkitallowfullscreen=&quot;&quot; width=&quot;1280&quot;&gt;&lt;/iframe&gt;
-
-&lt;h2 id=&quot;remotion--le-7ème-art-à-portée-de-composants-web-et-dapi-&quot;&gt;Remotion : le 7ème art à portée de composants web et d’API 🎬&lt;/h2&gt;
-
-&lt;p&gt;Conférence présentée par Antoine Caron et Mickael Alves&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/mixit-2023/antoine-mickael.jpg&quot; alt=&quot;Mickael et Antoine&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;conversations-avec-chatgpt-illusion-ou-réalité&quot;&gt;Conversations avec ChatGPT: illusion ou réalité?&lt;/h2&gt;
-
-&lt;p&gt;Conférence présentée par Marie-Alice Blete&lt;/p&gt;
-
-&lt;p&gt;Marie-Alice a pris le temps de réexpliquer ce qu’est ChatGPT et pourquoi ce générateur de texte 
-ne garantira jamais la véracité des informations fournies. En effet, si les réponses de ChatGPT 
-peuvent être très crédibles, le contenu proposé n’est en aucun cas vérifié 
-puisqu’il s’agit d’une suite de mots les plus probables. 
-En guise d’illustration, Marie-Alice a demandé à ChatGPT de se rendre sur son terminal Linux, et 
-de taper des commandes afin de cloner le projet chatGPT 4. Celui-ci s’exécute. Mais la 
-retranscription n’est pas la réalité, c’est ce qu’il y aurait probablement eu dans le terminal. Un 
-exemple bluffant !
-Pour Marie-Alice, tout le monde peut être trompé. De nouveau à titre d’exemple, elle cite le cas 
-d’un expert en IT qui a demandé à ChatGPT de résumer un article d’une revue scientifique. 
-ChatGPT a proposé un résumé imaginé à partir du titre - il n’a pas accès à l’article. Ce résumé 
-était si convaincant que l’expert a cru que ChatGPT avait accès à l’article.&lt;/p&gt;
-
-&lt;p&gt;Cette conférence a remis en place les attentes qu’on pouvait avoir à propos de ChatGPT, qui n’est qu’un outil avec ses limites.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.slideshare.net/MarieAliceBlete/conversations-avec-chatgpt-illusion-ou-ralit&quot;&gt;Voir les slides&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;fresque-anti-sexisme&quot;&gt;Fresque anti-sexisme&lt;/h2&gt;
-
-&lt;p&gt;Atelier présenté par &lt;a href=&quot;https://twitter.com/ComSaraDufour&quot;&gt;Sara Dufour&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Cet atelier, à l’image de la fresque du climat, nous a permis de construire, en plusieurs étapes,
-et par groupe de 5-6 personnes, un tableau dépeignant la vie actuelle.
-Les débats étaient constructifs et les faits, appuyés par les statistiques de l’INSEE, étaient effrayants.
-L’atelier était très intéressant, mais un peu démoralisant de voir qu’en 2023,
-il y a encore beaucoup à faire pour diminuer le sexisme aussi bien dans le milieu professionnel que privé.&lt;/p&gt;
-
-&lt;h2 id=&quot;lego-flow-game--le-waterfall-le-scrum-et-le-kanban-tu-différencieras-&quot;&gt;Lego Flow Game : le Waterfall, le Scrum et le Kanban tu différencieras !&lt;/h2&gt;
-
-&lt;p&gt;Atelier présenté par &lt;a href=&quot;https://twitter.com/klf37&quot;&gt;Fanny Klauk&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Cet atelier nous a permis de (re)voir les différentes organisations suivantes : le Waterfall, le Scrum, le Kanban.
-Nous avons formé des équipes de 5 personnes et utilisé des Lego :heart_eyes: pour illustrer les taches de constructions.
-Chaque personne jouait un rôle particulier qui représente les différents rôles d’une équipe de 
-développement standard.&lt;/p&gt;
-
-&lt;p&gt;L’objectif était de construire le plus de modèles d’un calendrier de l’avent Lego, donc des 
-modèles petits et (en général) assez simples, nous avions 6 minutes par type d’organisation. Les 
-rôles étaient les suivants :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Analyste : Prend une porte (du calendrier de l’avent), note le numéro de la porte (jour où le calendrier sera ouvert) sur une carte et accroche avec un trombone la carte sur le trombone. Il gère la priorité en fonction du numéro de la carte.&lt;/li&gt;
-  &lt;li&gt;Fournisseur : Prend la carte et va chercher le sachet correspondant. Il n’y a aucune indication sur le sachet qui permet de savoir lequel prendre&lt;/li&gt;
-  &lt;li&gt;Réalisateur : Construit le modèle&lt;/li&gt;
-  &lt;li&gt;Testeur : Vérifie que tout est ok&lt;/li&gt;
-  &lt;li&gt;Pilote : Remplit un tableau de suivi des différents postes&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Première étape, le Waterfall : chaque rôle devait finir son travail pour 5 cartes avant de passer au suivant.
-Bilan, au bout des 6 minutes, l’analyste a fini son travail, le fournisseur est toujours en train de chercher des sachets, et les autres attendent et sont frustrés, car ils ne peuvent rien faire d’autre.&lt;/p&gt;
-
-&lt;p&gt;Deuxième étape, le Scrum : chaque rôle peut faire passer une carte au prochain dès que son 
-travail sur celle-ci est finie.
-3 itérations de 2 minutes seront faites pour illustrer les sprints et une estimation est faite avant chaque itération.
-Bilan : entre chaque itération, nous avions une petite rétrospective, celle-ci permettait de nous améliorer au tour d’après.
-Au final, nous avons pu terminer 4 cartes sur 5.&lt;/p&gt;
-
-&lt;p&gt;Dernière étape, le Kanban : comme pour le Scrum, une carte peut passer à l’étape d’après, dès 
-qu’elle est terminée.
-Pas d’estimation par contre, pas le droit d’avoir plus de 2 cartes à la même étape (pas de stock).
-Bilan : là aussi, nous avons fait des petites rétrospectives pour nous améliorer entre chaque itération.
-Au final, nous avons pu terminer 6 cartes (un bug est survenu en cours de route). Le Kanban a 
-permis une avancée plus importante, mais le suivi par le pilote était plus compliqué, car les cartes bougeaient très vite.&lt;/p&gt;
-
-&lt;p&gt;Personnellement, j’ai apprécié travailler en Kanban et suis content de travailler avec la méthode ScrumBan chez Bedrock, cette dernière mélangeant le Scrum et le Kanban.&lt;/p&gt;
-
-&lt;h2 id=&quot;a-lannée-prochaine-&quot;&gt;A l’année prochaine !&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/mixit-2023/bedrock-mixit.jpg&quot; alt=&quot;Bedrock à MiXiT&quot; /&gt;
-&lt;img src=&quot;/images/posts/mixit-2023/bedrock-mixit-2.jpg&quot; alt=&quot;Bedrock à MiXiT&quot; /&gt;&lt;/p&gt;</content><author><name>Anne-Laure De Boissieu</name></author><category term="conference" /><category term="lyon" /><category term="tech" /><category term="agilité" /><summary type="html">Nous étions présent les 13 et 14 avril 2023 à CPE pour l’édition de MiXiT 2023, pour suivre les conférences bien sûr et pour soutenir les collègues qui donnaient une conférence !</summary></entry></feed>
+&lt;p&gt;Par &lt;a href=&quot;https://github.com/tom32i&quot;&gt;Thomas Jarrand&lt;/a&gt;&lt;/p&gt;</content><author><name>Thomas Jarrand</name></author><category term="lft" /><category term="tech" /><summary type="html">La randonnée à vélo, c’est économique, écologique, relaxant, dépaysant et c’est plus facile d’accès que ce que vous pourriez pensez. Alors on y va ? Un talk pour bien démarrer, faire découvrir, chasser les idées reçues, partager des astuces et donner l’envie de pédaler !</summary></entry></feed>
