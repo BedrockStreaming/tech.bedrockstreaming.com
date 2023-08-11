@@ -166,7 +166,7 @@ La fin de l'hiver approche, il est temps de faire un bilan ! Quelles bêtises le
 
 # Thomas the train 🚆
 
-![Message de status Slack indiquant 'Working remotely from the tchou tchuou'](/images/posts/dev-facts-19/tchou-tchou.png)
+![Message de status Slack indiquant 'Working remotely from the tchou tchou'](/images/posts/dev-facts-19/tchou-tchou.png)
 
 # Turlututu chapeau pointu !
 
