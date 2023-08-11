@@ -1,4 +1,300 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-07-10T16:01:52+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock à la GopherCon EU (2023)</title><link href="https://tech.bedrockstreaming.com/2023/07/10/gophercon-eu-2023-a-berlin.html" rel="alternate" type="text/html" title="Bedrock à la GopherCon EU (2023)" /><published>2023-07-10T00:00:00+00:00</published><updated>2023-07-10T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/07/10/gophercon-eu-2023-a-berlin</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/07/10/gophercon-eu-2023-a-berlin.html">&lt;p&gt;Depuis maintenant presque 1 an, la verticale Backend de Bedrock, s’ouvre à d’autres langages de programmation que PHP, à
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-08-11T12:52:32+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock at We Love Speed 2023</title><link href="https://tech.bedrockstreaming.com/2023/08/11/we-love-speed-2023.html" rel="alternate" type="text/html" title="Bedrock at We Love Speed 2023" /><published>2023-08-11T00:00:00+00:00</published><updated>2023-08-11T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/08/11/we-love-speed-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/08/11/we-love-speed-2023.html">&lt;p&gt;The Frontend Bedrock teams were present at the 2023 edition of the &lt;em&gt;We Love Speed&lt;/em&gt; conference in Paris on May 10. Its aim is to share as widely as possible knowledge and experience in the field of web performance.&lt;/p&gt;
+
+&lt;p&gt;Webperf, or web performance, refers to the set of techniques and best practices aimed at optimizing the loading speed and user experience (UX) of websites. It covers various aspects such as page loading time, interface responsiveness, animation fluidity, server request processing capacity, etc.&lt;/p&gt;
+
+&lt;p&gt;Webperf is still a major challenge in today’s web industry, influencing UX, website visibility and overall commercial success. This article summarizes the topics discussed at this year’s &lt;em&gt;We Love Speed&lt;/em&gt; conference and gives an overview of the 2023 approach to web performance.&lt;/p&gt;
+
+&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of contents&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#why-optimize-your-sites-webperf&quot;&gt;Why optimize your sites’ webperf?&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#its-all-about-money-&quot;&gt;It’s all about money 🤑&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#what-about-seo&quot;&gt;What about SEO?&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#how-do-you-take-up-a-performance-project&quot;&gt;How do you take up performance projects?&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#build-a-long-term-strategy-based-on-usages&quot;&gt;Build a long-term strategy based on usages&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#take-cognitive-biases-into-account-to-prioritise-optimisations&quot;&gt;Take cognitive biases into account to prioritise optimisations&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#performance-must-be-a-company-wide-concern&quot;&gt;Performance must be a company-wide concern&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#what-are-the-tools-to-measure-and-improve-performance&quot;&gt;What are the tools to measure and improve performance?&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#use-the-right-tools-to-understand-performance-issues&quot;&gt;Use the right tools to understand performance issues…&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#and-the-right-tools-to-fix-them&quot;&gt;…and the right approach to fix them&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#mpa-vs-spa&quot;&gt;MPA vs SPA&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#implement-performance-improvements&quot;&gt;Implement performance improvements&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#using-bfcache&quot;&gt;Using bfcache&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#preloading-preconnecting-and-html&quot;&gt;Preloading, Preconnecting and HTML&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#lazy&quot;&gt;Lazy…&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#taking-care-of-the-consent-management-platform-cmp&quot;&gt;Taking care of the Consent Management Platform (CMP)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#self-host-blocking-thirdparties&quot;&gt;Self-host blocking thirdparties&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#use-server-side-rendering-ssr&quot;&gt;Use Server-side Rendering (SSR) and optimize it!&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#103-early-hints&quot;&gt;103 Early hints&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#webperf-at-bedrock&quot;&gt;Webperf at Bedrock&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;why-optimize-your-sites-webperf&quot;&gt;Why optimize your sites’ webperf?&lt;/h2&gt;
+
+&lt;h3 id=&quot;its-all-about-money-&quot;&gt;It’s all about money 🤑&lt;/h3&gt;
+
+&lt;p&gt;Improving the webperf just for the technical challenge is not interesting in a company’s perspective and can’t make the approach durable. &lt;a href=&quot;https://www.youtube.com/watch?v=wh0zCqZRuSs&quot;&gt;Boris Schapira in his talk &lt;em&gt;“Parlons de valeur”&lt;/em&gt;&lt;/a&gt; 🇫🇷 shows how important it is to talk about &lt;strong&gt;value&lt;/strong&gt; to make optimisation projects part of an organisation’s strategy.&lt;/p&gt;
+
+&lt;p&gt;Web performance is essential, as it has a direct impact on user satisfaction, engagement and the overall success of a website. Fast performance enables users to access information quickly, interact without delay and navigate smoothly. On the other hand, slow loading times, frozen interfaces or high response times can lead to user frustration, lower engagement and higher bounce rates.&lt;/p&gt;
+
+&lt;p&gt;A lot of articles on the net have proved &lt;strong&gt;the impact of the webperf on users’ engagement&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Here is &lt;a href=&quot;https://web.dev/why-speed-matters/&quot;&gt;a great article from Google&lt;/a&gt; or &lt;a href=&quot;https://wpostats.com/&quot;&gt;hundreds of case studies&lt;/a&gt; from WPO stats, a site listing case studies demonstrating the impact of web performance optimization.&lt;/p&gt;
+
+  &lt;p&gt;Reducing perceived waiting time by 40% increased search engine traffic and sign-ups by 15% at Pinterest. For Mobify, each 100ms reduction in homepage loading speed yields an average increase in annual sales of almost $380,000!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So, depending on the site’s field, it’s relatively easy to link the webperf approach to an objective of user views or loyalty, but also with the brand image. And the company’s governance will be able to quickly measure the benefits in terms of return on investment.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-about-seo&quot;&gt;What about SEO?&lt;/h3&gt;
+
+&lt;p&gt;Moreover, search engines such as Google also give a relative importance on website performance in their ranking algorithms. More optimized sites often benefit from better positioning in search results, which can have an impact on their visibility and traffic.&lt;/p&gt;
+
+&lt;p&gt;However, &lt;a href=&quot;https://www.youtube.com/watch?v=uWqQCOX52i4&quot;&gt;Philippe Yonnet’s talk &lt;em&gt;“Quel est le véritable impact des problèmes de web performance sur le SEO ?”&lt;/em&gt;&lt;/a&gt; 🇫🇷 reveals that actually the Google webperf scoring is in reality quite low in all the parameters taken into account in the ranking algorithm. Relevant content is always the first factor in top positioning. As it was the case with responsive design a few years ago, the Google’s communication around webperf is aimed more at &lt;strong&gt;encouraging good practices&lt;/strong&gt; in the web community than at penalizing slow sites.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-do-you-take-up-performance-projects&quot;&gt;How do you take up performance projects?&lt;/h2&gt;
+
+&lt;h3 id=&quot;build-a-long-term-strategy-based-on-usages&quot;&gt;Build a long-term strategy based on usages&lt;/h3&gt;
+
+&lt;p&gt;You need a strategy and a speech! &lt;a href=&quot;https://www.youtube.com/watch?v=wh0zCqZRuSs&quot;&gt;Boris Schapira&lt;/a&gt; 🇫🇷 defines 5 steps:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Identify the sticking point&lt;/li&gt;
+  &lt;li&gt;Associate a value to the project for the business&lt;/li&gt;
+  &lt;li&gt;Invest time for the optimizations&lt;/li&gt;
+  &lt;li&gt;Evaluate the ROI&lt;/li&gt;
+  &lt;li&gt;Sustain the approach over time (it should never be a one shot project)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We now universally use the &lt;a href=&quot;https://web.dev/vitals/&quot;&gt;Google’s Core Web Vitals KPI&lt;/a&gt; (CWV) to model the UX:&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;Do users have a stable visual response? ➡️ it’s measured through the &lt;em&gt;Cumulative Layout Shift&lt;/em&gt; (CLS)&lt;/li&gt;
+    &lt;li&gt;Do users quickly see content they can trust? ➡️ it’s measured through the &lt;em&gt;Largest Contentful Paint&lt;/em&gt; (LCP)&lt;/li&gt;
+    &lt;li&gt;Can users quickly interact with the page in a qualitative way? ➡️ it’s measured through the &lt;em&gt;First Input Delay&lt;/em&gt; (FID)&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;But these KPI are a limited reflection of the UX, and it is hard to link it to a representative value. It’s possible to have a super-fast LCP and still have a feeling of slowness or discomfort on the user’s side. For example, a page that quickly displays the thumbnail of a film (LCP criterion) but takes a long time to display the film’s cast list (which is the content the user wants) won’t be great for the UX.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;You need to correlate these measures with usages&lt;/strong&gt;. There is no magic solution for this but segmenting sessions is a good practice to focus on relevant optimizations:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;take a period of time where the measure is representative (e.g. on our streaming sites, the activity period is mainly in the evening)&lt;/li&gt;
+  &lt;li&gt;take into account the fact that different actions or events on your site may not involve the same users (so not the same devices, etc.)&lt;/li&gt;
+  &lt;li&gt;take “short” indicators to measure the impact of the performance (e.g. if users are on a product list, monitor the viewing of the product page and not the purchase of the product)&lt;/li&gt;
+  &lt;li&gt;take into account the market you’re addressing (e.g. food click &amp;amp; collect users are more likely to wait the loading of the next page than users on a retail site)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;take-cognitive-biases-into-account-to-prioritise-optimisations&quot;&gt;Take cognitive biases into account to prioritise optimisations&lt;/h3&gt;
+
+&lt;p&gt;When it comes to prioritising performance subjects, there are several strategies to consider. &lt;a href=&quot;https://www.youtube.com/watch?v=6KwW5v5rce4&quot;&gt;Philip Tellis in his talk &lt;em&gt;“Understanding Cognitive Biases in Performance Measurement”&lt;/em&gt;&lt;/a&gt; 🇬🇧 shed light on the psychological aspect of performance, focusing on cognitive biases.&lt;/p&gt;
+
+&lt;p&gt;Philip made a powerful statement: &lt;em&gt;“If you have a brain, you have a bias&lt;/em&gt;”. Let’s explore three examples that demonstrate how biases can impact your work and how you can leverage them to your advantage.&lt;/p&gt;
+
+&lt;h4 id=&quot;slowest-is-the-norm&quot;&gt;Slowest is the norm&lt;/h4&gt;
+
+&lt;p&gt;The negativity bias reveals that negative experiences tend to leave a stronger impression than positive ones, even if their intensity is the same. This is crucial to keep in mind when optimizing your app’s performance. Ideally, the slowest page should not be more than 15 times slower than the fastest page. Users might perceive the slower page as the norm for your app.&lt;/p&gt;
+
+&lt;p&gt;To counteract this bias, it’s important to be transparent with your users. You can display a message indicating that the page is slow and assure them that efforts are underway to resolve the issue. Interestingly, slow pages have been associated with a 38% increase in heart rate, similar to watching a horror movie. &lt;strong&gt;By prioritizing performance and being honest with your users, you can mitigate stress and anxiety.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;take-care-at-the-beginning-and-end&quot;&gt;Take care at the beginning and end&lt;/h4&gt;
+
+&lt;p&gt;The serial position effect highlights that people tend to remember the beginning and end of an experience more vividly. This is particularly relevant for our work in developing applications for Smart TVs, where performance challenges arise in two areas: page loading and remote control navigation. Taking this bias into account, we’ve learned that &lt;strong&gt;investing more time in optimizing page load times can significantly increase end-user satisfaction&lt;/strong&gt;. Furthermore, statistics show that a 500ms increase in delay leads to a 26% rise in frustration.&lt;/p&gt;
+
+&lt;h4 id=&quot;take-care-at-the-beginning-&quot;&gt;Take care at the beginning 😅&lt;/h4&gt;
+
+&lt;p&gt;The escalation of commitment bias refers to the inclination to persist in an endeavor once a significant investment of money, effort, or time has been made. Applying this bias to our app development, we recognize the importance of ensuring that the initial pages users encounter are fast, as this positively influences user retention. &lt;strong&gt;There is a direct correlation between a smooth initial experience and increased user engagement.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;These are just three examples among many others that Philip presented in his thought-provoking talk. It was an insightful perspective on performance, viewed through the lens of our cognitive biases. We all possess biases, and as developers, our objective is to acknowledge them and harness their power to inform the future updates of our apps.&lt;/p&gt;
+
+&lt;h3 id=&quot;performance-must-be-a-company-wide-concern&quot;&gt;Performance must be a company-wide concern&lt;/h3&gt;
+
+&lt;p&gt;While optimizing specific parts of your app is essential, it’s important to remember that you work in a company composed of diverse individuals with varying roles, perspectives, and concerns. Therefore, it’s crucial to extend performance awareness across all departments of your organization.&lt;/p&gt;
+
+&lt;p&gt;La Redoute, an international clothing retailer, provides an excellent example of addressing this issue by creating a performance community within their company through the talk &lt;a href=&quot;https://www.youtube.com/watch?v=aGi-vxC6ttA&quot;&gt;&lt;em&gt;“Comment construire une communauté Web Perf dans son orga ?”&lt;/em&gt;&lt;/a&gt; 🇫🇷.&lt;/p&gt;
+
+&lt;p&gt;To provide some context, La Redoute faces not only performance issues but also challenges related to synchronization and contributions on their platform. To tackle these challenges, they established a community that brings together individuals from different departments, including technical, marketing, finance, design, product, SEO, and more.&lt;/p&gt;
+
+&lt;p&gt;It’s vital to ensure that performance is not solely the responsibility of one department, as &lt;strong&gt;each department can contribute valuable insights and support that ultimately benefit the entire company&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;This community meets weekly to exchange knowledge and share updates on performance-related topics. After six months, they began witnessing the initial benefits, and &lt;strong&gt;within one year, they deemed the community mature&lt;/strong&gt;. They continue to hold these meetings, recognizing that the objective is not to prevent all issues but rather to minimize their impact and respond swiftly.&lt;/p&gt;
+
+&lt;p&gt;La Redoute’s approach is truly inspiring and serves as a great example of fostering collaboration and cross-departmental engagement to address performance challenges.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-are-the-tools-to-measure-and-improve-performance&quot;&gt;What are the tools to measure and improve performance?&lt;/h2&gt;
+
+&lt;p&gt;When analyzing a website’s performance, it’s essential to take several key criteria into account in order to become the &lt;a href=&quot;https://www.youtube.com/watch?v=q65w_luvB3A&quot;&gt;“Sherlock Holmes of Web Performance” as would say Ludovic Lefebvre&lt;/a&gt; 🇫🇷. In addition of the CWV mentioned above, there are other commonly used performance analysis criteria:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-07-01-we-love-speed-2023/metric.png&quot; alt=&quot;metric.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To measure/evaluate your site’s performance according to these criteria, there are 3 types of sources: Local (devtools), Synthetic (CI/CD / online scan tools), RUM (Real User Monitoring).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-07-01-we-love-speed-2023/perf-data-source.png&quot; alt=&quot;metric.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;use-the-right-tools-to-understand-performance-issues&quot;&gt;Use the right tools to understand performance issues…&lt;/h3&gt;
+
+&lt;p&gt;Jean-Pierre Vincent gives more details about how to measure performance in his talk &lt;a href=&quot;https://www.youtube.com/watch?v=r-go-1z7XYw&quot;&gt;“Mesure ou meurs : diagnostics rapides”&lt;/a&gt; 🇫🇷, but here is a summary of the key tools:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Local development tools - devtools
+    &lt;ul&gt;
+      &lt;li&gt;Chrome &amp;amp; Firefox DevTools: a set of development tools integrated into the browser, for analyzing performance, debugging JavaScript code, inspecting DOM elements, etc.&lt;/li&gt;
+      &lt;li&gt;Lighthouse DevTools (Chrome): a Chrome DevTools extension that provides automated audits to evaluate performance, accessibility, SEO optimization, etc.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Synthetic testing - CI/CD and online analysis tools
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.webpagetest.org/&quot;&gt;WebPageTest&lt;/a&gt;: an online tool for evaluating website performance by running tests on different browser configurations, network connections and geographical locations.&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/GoogleChrome/lighthouse-ci&quot;&gt;Lighthouse CI&lt;/a&gt;: a Lighthouse-based continuous integration (CI) solution that automates web performance and quality audits with every deployment.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Real User Monitoring
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://newrelic.com&quot;&gt;New Relic&lt;/a&gt;: an application performance monitoring platform that provides real-time visibility into the performance of your web applications, including usage metrics, load times, etc.&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://grafana.com/&quot;&gt;Grafana&lt;/a&gt;: a data visualization platform that can be used to display and analyze performance monitoring data collected from a variety of sources, including RUM tools.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-07-01-we-love-speed-2023/logomosaic.png&quot; alt=&quot;logomosaic.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It’s important to note that each type of analysis data has its own advantages and is used in specific contexts. Local data is useful for real-time development and debugging, synthetic data enables performance to be compared and optimized in a reproducible way, while RUM data, just as explained by &lt;a href=&quot;https://www.youtube.com/watch?v=vfl-C1FZSwE&quot;&gt;Tim Vereecke in his “Noise Canceling RUM” talk&lt;/a&gt; 🇬🇧, provides a true view of UX. It is generally recommended to use a combination of these different data sources to identify/target problems or opportunities for performance improvement.&lt;/p&gt;
+
+&lt;h3 id=&quot;and-the-right-approach-to-fix-them&quot;&gt;…and the right approach to fix them&lt;/h3&gt;
+
+&lt;p&gt;Once you’ve identified the relevant performance criteria and used the analysis tools to measure your website’s current performance, it’s essential to stabilize the various criteria before setting improvement targets and finally implement said improvements. Here are the steps to follow:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Stabilize criteria
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Analyze the results&lt;/strong&gt; of the performance measurements for each criterion you’ve identified. Identify areas where improvements are needed, and problems that affect performance stability. For example, LCP depends on the appearance of the widest element on the page. It’s important that this element is always the same on the same page type, otherwise there will be no consistent result and optimization will be impossible.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Examine performance metrics&lt;/strong&gt; over a sufficiently long period of time to detect trends and variations. This will help you understand whether performance problems are constant or sporadic.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Identify factors&lt;/strong&gt; that could influence performance, such as code changes, server updates, new features, content contributions, etc.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Setting improvement targets
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Determine the performance levels&lt;/strong&gt; you want to achieve for each criterion, based on benchmarks, best practices or objectives specific to your application.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Define measurable and realistic objectives&lt;/strong&gt; for each performance criterion. For example, you could aim to reduce page load time by 20%, improve server response time by less than 200 ms, or reduce bounce rate by 15%.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Prioritize goals&lt;/strong&gt; according to their impact on your website’s UX and business objectives (see &lt;a href=&quot;#take-cognitive-biases-into-account-to-prioritise-optimisations&quot;&gt;above section about cognitive biases&lt;/a&gt;).&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Plan and implement improvements
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Identify the specific actions to be taken&lt;/strong&gt; to achieve each improvement objective. This may include code optimizations, server configuration adjustments, resource optimizations, caching, etc.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Establish an action plan&lt;/strong&gt; for each objective, defining the necessary steps, responsibilities, deadlines and resources required.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Implement improvements&lt;/strong&gt; iteratively, and measure performance regularly to assess the impact of changes.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Repeat the process&lt;/strong&gt; of analyzing, stabilizing and improving performance iteratively to continue optimizing your website.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;⚠️ It’s important to bear in mind that website performance is often an ongoing process, as needs, functionalities and conditions change over time. It is therefore advisable to regularly monitor performance and continue to identify new opportunities for improvement to deliver a superior UX.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;mpa-vs-spa&quot;&gt;MPA vs SPA&lt;/h3&gt;
+
+&lt;p&gt;The performance possibilities are not the same between &lt;strong&gt;Single Pages Applications (SPA)&lt;/strong&gt; and &lt;strong&gt;Multiple Pages Applications (MPA)&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;MPAs are simple to measure: each page is independent. The first page loads resources and then caches certain resources. It’s therefore important to be able to distinguish between measurements based on a user’s first visit and those based on browsing (which is much faster).&lt;/p&gt;
+
+&lt;p&gt;SPAs are more difficult, because apart from the initial page load, there is other page load. Initial loading is often heavier (because of JS framework), and therefore slower. Page changes can’t be measured simply since only the initial load is taken into account. Research is currently underway in browsers to improve the collection of information on page changes in SPAs. This new metric is called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;soft-navigation&lt;/code&gt; and is currently being tested on Chrome and specified by web organizations. Yoav Weiss explains this in his talk &lt;a href=&quot;https://www.youtube.com/watch?v=pQLRoABCnqg&quot;&gt;“Soft Navigations are hard!!”&lt;/a&gt; 🇬🇧.&lt;/p&gt;
+
+&lt;h2 id=&quot;implement-performance-improvements&quot;&gt;Implement performance improvements&lt;/h2&gt;
+
+&lt;p&gt;There are many technical tips for improving performance. While the list is far from exhaustive, we can go here through some of those mentioned at the conference.&lt;/p&gt;
+
+&lt;h3 id=&quot;using-bfcache&quot;&gt;Using bfcache&lt;/h3&gt;
+
+&lt;p&gt;At the time of writing, around 10% of a given user’s navigation consists of &lt;strong&gt;clicking on the “Go back” button&lt;/strong&gt; of their browser. More often than not, however, these users will then need to wait for the page to load again, despite the fact that the browser already did that work a few seconds beforehand.
+In order to help reduce that waiting time, browsers recently began to release what’s called the Back/Forward cache (Also known as bfcache).&lt;/p&gt;
+
+&lt;p&gt;Like its name suggests, it caches the page the user is leaving, so that if they go back using their browser features, they’ll see the cached page instead. Barry Pollard talks about the bfcache in the &lt;a href=&quot;https://youtu.be/fJrKeh-Np8c?t=1100&quot;&gt;“Top Core Web Vitals Recommendations for 2023”&lt;/a&gt; talk 🇬🇧.&lt;/p&gt;
+
+&lt;h3 id=&quot;preloading-preconnecting-and-html&quot;&gt;Preloading, Preconnecting and HTML&lt;/h3&gt;
+
+&lt;p&gt;Another possible improvement explained by Barry Pollard is to use HTML properties to preload and preconnect resources. He explains here that there is one important rule with HTML and the way it’s processed by web browsers: it is parsed &lt;strong&gt;line by line&lt;/strong&gt;, and it can be paused.&lt;/p&gt;
+
+&lt;p&gt;When a browser is trying to render a web page, if it runs across something trying to call an url (such as loading a CSS file), then it’ll wait until said CSS file is fully loaded, before being able to keep going.
+However this behavior can be somewhat altered by using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rel&lt;/code&gt; HTML property to prepare some of that stuff ahead. For example, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rel=”preload”&lt;/code&gt; will tell the browser to start loading said CSS asynchronously, as soon as a user opens the page. For an API, it will be the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rel=”preconnect”&lt;/code&gt; that will allow the website to start the handshake with an API as soon as possible.&lt;/p&gt;
+
+&lt;p&gt;If a resource needs to be even higher-priority, there is the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetchpriority&lt;/code&gt; attribute which will make the browser fetch that resource as soon as possible. If used correctly, &lt;a href=&quot;https://twitter.com/senthil_hi/status/1589676464215326720&quot;&gt;it can have immense benefit&lt;/a&gt; on LCP.&lt;/p&gt;
+
+&lt;h3 id=&quot;lazy&quot;&gt;Lazy…&lt;/h3&gt;
+
+&lt;p&gt;Images, and especially high-quality ones, can take up a lot of a website’s loading time, and are often considered the Largest Content of a website, &lt;strong&gt;dictating the LCP value&lt;/strong&gt;. However, usually a user isn’t seeing every image of a website at the same time. That’s where we can use lazy-loading.&lt;/p&gt;
+
+&lt;p&gt;The goal of lazy-loading is to make sure that a user is only loading the images they are seeing. Here again exists an HTML attribute that can take care of everything, named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;loading&lt;/code&gt;. It can receive the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lazy&lt;/code&gt; value in order to only load an image when approaching the screen.&lt;/p&gt;
+
+&lt;p&gt;However, that lazy-loading property is not limited to images only. A component can be lazyloaded as well, such as a chat component that doesn’t need to load until the user clicks on the chat icon.&lt;/p&gt;
+
+&lt;h3 id=&quot;taking-care-of-the-consent-management-platform-cmp&quot;&gt;Taking care of the Consent Management Platform (CMP)&lt;/h3&gt;
+
+&lt;p&gt;A lot of websites, us included, are using a lot of third parties. We are not judging their usefulness here, we need them. This is why Andy Davies dedicates an entire talk about &lt;a href=&quot;https://www.youtube.com/watch?v=q3M4he-QxCA&quot;&gt;how to tame the speed impact of 3rd-party tags&lt;/a&gt; 🇬🇧.&lt;/p&gt;
+
+&lt;p&gt;As he explains, &lt;strong&gt;each new thirdparty comes with its own compounding issues&lt;/strong&gt;. Adding another domain and thus another need to connect to a distant API, reheating the connection… A lot of these actions are taking network time, time that is actively needed to load a lot more data for a website.&lt;/p&gt;
+
+&lt;p&gt;It is important to understand how our thirdparties work, and the limitations they inherently have. For example, we &lt;strong&gt;CANNOT, and should NEVER&lt;/strong&gt; try to preconnect to them. Preconnecting to a thirdparty discloses a user IP address, which according to GDPR laws at the time of writing, is considered a personnel data. If our user did not consent to share their data, we should never try to connect in the first place.&lt;/p&gt;
+
+&lt;p&gt;Therefore, a big hurdle is that we need to collect the user’s consent to be able to connect to our thirdparties API. The first improvement to make is therefore to optimize the CMP, to make sure it loads fast and it shares the user’s consent with us as soon as possible.&lt;/p&gt;
+
+&lt;h3 id=&quot;self-host-blocking-thirdparties&quot;&gt;Self-host blocking thirdparties&lt;/h3&gt;
+
+&lt;p&gt;Sometimes, thirdparties can be needed to display anything at all to the user (e.g. for A/B testing). Since our user’s browser has limited network capabilities, it will try to prioritize its requests, and requests that are going to another domain are far down the line. For this exact reason, Andy Davies, &lt;a href=&quot;https://www.youtube.com/watch?v=q3M4he-QxCA&quot;&gt;in his talk&lt;/a&gt; 🇬🇧, recommends to self-host these thirdparties, so that they are on the same domain as our website and are prioritized by the browser.&lt;/p&gt;
+
+&lt;h3 id=&quot;use-server-side-rendering-ssr-and-optimize-it&quot;&gt;Use Server-Side Rendering (SSR) and optimize it!&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ℹ️ This is far from an easy to implement solution, and may require you to change your framework altogether.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Implementing SSR is a solution that is so powerful that it had a dedicated talk, where Kévin Raynel and Marting Guiller explained &lt;a href=&quot;https://www.youtube.com/watch?v=2b48sOTD4dc&quot;&gt;how Lazy Hydrate, Never Hydrate, and Resumable JS&lt;/a&gt; 🇫🇷 can be used to improve Web Performance.&lt;/p&gt;
+
+&lt;p&gt;By allowing the code of an application to be pre-rendered in a server before being sent to a browser, you can dramatically decrease the time it takes for a user to be able to interact with the page. At Bedrock, we understood the power of SSR very early on, when we implemented it with React in 2015 for the new JS version of &lt;a href=&quot;https://www.6play.fr&quot;&gt;6play.fr&lt;/a&gt;! Since then, we haven’t looked back, but we will need to fine-tune the hydratation to keep the best.&lt;/p&gt;
+
+&lt;h3 id=&quot;103-early-hints&quot;&gt;103 Early Hints&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Do note that this is an experimental feature ⚠️&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In his excellent &lt;a href=&quot;https://www.youtube.com/watch?v=0kKdMqIhvZs&quot;&gt;Web Protocols for Frontend Developers&lt;/a&gt; talk 🇬🇧, Robin Marx details extensively what is called the 103 Early Hints feature and how it can be used to improve your performance.&lt;/p&gt;
+
+&lt;p&gt;103 Early Hints is a status code used to send preliminary headers in a response, providing the client with potential resource information before the main response is sent. This enables the browser to optimize its call flow.&lt;/p&gt;
+
+&lt;p&gt;There are many other implementation tips covered by the conference, such as the new &lt;a href=&quot;https://developer.chrome.com/blog/prerender-pages/&quot;&gt;Speculation Rules API&lt;/a&gt;, but we can’t talk about everything here 😉&lt;/p&gt;
+
+&lt;h2 id=&quot;webperf-at-bedrock&quot;&gt;Webperf at Bedrock&lt;/h2&gt;
+
+&lt;p&gt;Bedrock’s technical teams have long been aware of the importance of web performance. Since we set up our first full JS frontend in 2015, we have been implementing best practices (SSR, lazy loading, prefetching, code spitting, image optimization, etc.) and we try to carry out regular optimization projects.&lt;/p&gt;
+
+&lt;p&gt;But we know that we still have a lot to do in this area, particularly in terms of long-term monitoring and company-wide concern.&lt;/p&gt;
+
+&lt;p&gt;Following this conference, there are lots of things we’d like to try out, such as using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fetchpriority&lt;/code&gt; attribute to improve our LCP, optimizing the hydration of our SSR (perhaps with the use of &lt;a href=&quot;https://vercel.com/blog/understanding-react-server-components&quot;&gt;React Server Components&lt;/a&gt;) or studying the new experimental features.&lt;/p&gt;
+
+&lt;p&gt;On our TV platforms developed in JS, hardware constraints are forcing us to go even further in optimizing performance, particularly in terms of memory usage. For example, a project is underway to use a global lazy loading to improve the management of rows of programs and videos. To be continued…&lt;/p&gt;
+
+&lt;h2 id=&quot;keep-at-it-&quot;&gt;Keep at it! 💪&lt;/h2&gt;
+
+&lt;p&gt;All in all, performance is definitely anything but an easy task to do. There is no magic formula that will make all your problems go away. Even if you manage to hold a long workshop of several weeks (or even months!) that will finally fix your performance issues, if it does not become a habit in your developer teams, it will never be over. &lt;strong&gt;Performance is a habit, built through practice and good communication&lt;/strong&gt;. But it can be achieved.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Authors: &lt;a href=&quot;https://github.com/EtienneDOYON&quot;&gt;Etienne Doyon&lt;/a&gt;, &lt;a href=&quot;https://github.com/agory&quot;&gt;Alexandre Gory&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/jeansmaug&quot;&gt;Maxime Blanc&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/fooragnak&quot;&gt;Florent Dubost&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Frontend teams</name></author><category term="conference" /><category term="paris" /><category term="tech" /><category term="webperf" /><summary type="html">The Frontend Bedrock teams were present at the 2023 edition of the We Love Speed conference in Paris on May 10. Its aim is to share as widely as possible knowledge and experience in the field of web performance.</summary></entry><entry><title type="html">Bedrock à la GopherCon EU (2023)</title><link href="https://tech.bedrockstreaming.com/2023/07/10/gophercon-eu-2023-a-berlin.html" rel="alternate" type="text/html" title="Bedrock à la GopherCon EU (2023)" /><published>2023-07-10T00:00:00+00:00</published><updated>2023-07-10T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/07/10/gophercon-eu-2023-a-berlin</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/07/10/gophercon-eu-2023-a-berlin.html">&lt;p&gt;Depuis maintenant presque 1 an, la verticale Backend de Bedrock, s’ouvre à d’autres langages de programmation que PHP, à
 savoir Golang et Rust.
 C’est pourquoi cette année, pour la 1&lt;sup&gt;ère&lt;/sup&gt; fois, 6 de nos collègues ont participé (2 en présentiel, 4 à
 distance) à la &lt;a href=&quot;https://gophercon.eu&quot;&gt;GopherCon EU&lt;/a&gt; ayant lieu à Berlin.&lt;/p&gt;
@@ -761,8 +1057,4 @@ Mais il existe aussi des pratiques reconnues dans notre milieu telles que l’&l
   &lt;p&gt;Apprenons à identifier ces rôles pour comprendre leurs effets sur nos relations avec nos collègues, puis nous explorerons comment en sortir pour des interactions plus constructives et positives. Mettons fin à cette spirale infernale !&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Par Elodie Perrin&lt;/p&gt;</content><author><name>Élodie Perrin</name></author><category term="lft" /><category term="tech" /><summary type="html">Persécuteur, victime, sauveur… lequel êtes-vous ? La situation suivante vous parle ? “J’en ai marre ! Quand je demande de la revue sur mon travail, les gens de mon équipe ne me donnent jamais de retours et je dois toujours les relancer au moins 10 fois avant d’obtenir une réponse… Heureusement que Michel, mon ancien collègue super sympa qui est maintenant dans l’équipe Warrior continue à me répondre, lui !” Oui ? C’est normal. Inconsciemment, nous jouons les rôles de persécuteur, victime ou sauveur. Et nos interactions en souffrent : rien de constructif ne peut émerger de cette spirale infernale. Apprenons à identifier ces rôles pour comprendre leurs effets sur nos relations avec nos collègues, puis nous explorerons comment en sortir pour des interactions plus constructives et positives. Mettons fin à cette spirale infernale !</summary></entry><entry><title type="html">Et si vos prochaines vacances se passaient à vélo ? #LFT 02/06/23</title><link href="https://tech.bedrockstreaming.com/vacances-a-velo" rel="alternate" type="text/html" title="Et si vos prochaines vacances se passaient à vélo ? #LFT 02/06/23" /><published>2023-06-02T00:00:00+00:00</published><updated>2023-06-02T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/vacances-velo-lft</id><content type="html" xml:base="https://tech.bedrockstreaming.com/vacances-a-velo">&lt;blockquote&gt;
-  &lt;p&gt;La randonnée à vélo, c’est économique, écologique, relaxant, dépaysant et c’est plus facile d’accès que ce que vous pourriez pensez. Alors on y va ? Un talk pour bien démarrer, faire découvrir, chasser les idées reçues, partager des astuces et donner l’envie de pédaler !&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Par &lt;a href=&quot;https://github.com/tom32i&quot;&gt;Thomas Jarrand&lt;/a&gt;&lt;/p&gt;</content><author><name>Thomas Jarrand</name></author><category term="lft" /><category term="tech" /><summary type="html">La randonnée à vélo, c’est économique, écologique, relaxant, dépaysant et c’est plus facile d’accès que ce que vous pourriez pensez. Alors on y va ? Un talk pour bien démarrer, faire découvrir, chasser les idées reçues, partager des astuces et donner l’envie de pédaler !</summary></entry></feed>
+&lt;p&gt;Par Elodie Perrin&lt;/p&gt;</content><author><name>Élodie Perrin</name></author><category term="lft" /><category term="tech" /><summary type="html">Persécuteur, victime, sauveur… lequel êtes-vous ? La situation suivante vous parle ? “J’en ai marre ! Quand je demande de la revue sur mon travail, les gens de mon équipe ne me donnent jamais de retours et je dois toujours les relancer au moins 10 fois avant d’obtenir une réponse… Heureusement que Michel, mon ancien collègue super sympa qui est maintenant dans l’équipe Warrior continue à me répondre, lui !” Oui ? C’est normal. Inconsciemment, nous jouons les rôles de persécuteur, victime ou sauveur. Et nos interactions en souffrent : rien de constructif ne peut émerger de cette spirale infernale. Apprenons à identifier ces rôles pour comprendre leurs effets sur nos relations avec nos collègues, puis nous explorerons comment en sortir pour des interactions plus constructives et positives. Mettons fin à cette spirale infernale !</summary></entry></feed>
