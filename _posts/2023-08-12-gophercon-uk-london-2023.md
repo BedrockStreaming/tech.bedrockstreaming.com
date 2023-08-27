@@ -349,7 +349,7 @@ Amir Malka stated that adhering to these practices elevates Go testing from triv
 11. **Code Coverage:** Use `-cover` flag to monitor and improve test coverage.
 
 ## Conclusion
-In closing, my journey through GopherCon UK 2023 has been exciting but also tiring for my first Golang Conference. I extend my gratitude to Bedrock for affording me the opportunity to partake in this experience. Your support has empowered me to dive deeper into the world of Go and will enhance my professional growth.
+In closing, my journey through GopherCon UK 2023 has been as exciting as tiring for my first Golang Conference. I thank a lot Bedrock for affording me the opportunity to partake in this experience. Participating to this event helped me to dive deeper into the world of Go and will enhance my professional growth.
 
 To the organizers of GopherCon UK 2023, your planning and dedication have resulted in a seamless event. Every aspect has been orchestrated to perfection. Congrats to you ! Also, thanks to the sponsors, for continuing to take part in these events during financially hard times.
 
