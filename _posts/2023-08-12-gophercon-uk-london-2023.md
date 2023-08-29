@@ -45,7 +45,7 @@ In the following lines, I'll be sharing the insights I gained during the worksho
 
 - ``` `http://site.name` ```  gives a raw string which can be useful when you have slashes in your string, to avoid having to escape them.
 
-- About concurency, I liked this image which gives an idea of computer latency compared to a human.
+- I liked this image which gives an idea of computer latency compared to a human.
 	<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Computer Latency at a Human Scale<br><br>Source: <a href="https://twitter.com/ProwessConsult?ref_src=twsrc%5Etfw">@ProwessConsult</a> (2017) <a href="https://t.co/5Uhw5nCzUJ">https://t.co/5Uhw5nCzUJ</a> <a href="https://t.co/YlVYnm3nGH">pic.twitter.com/YlVYnm3nGH</a></p>&mdash; Josh Jordan (@jordancurve) <a href="https://twitter.com/jordancurve/status/1108475342468120576?ref_src=twsrc%5Etfw">March 20, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 - a well known bug also known as the _for-loop gotcha_ where the `i` in the loop is not incrementing correctly.
@@ -115,7 +115,7 @@ Workshop given by Miki Tebeka, Ardan Labs was really great and gave the opportun
 
 # Day one
 
-Upon arrival, attendees were greeted with a delightful British-style Gopher plush, serving as a warm and wonderful welcome gift.
+Upon arrival, I was greeted with a delightful British-style Gopher plush, serving as a warm and wonderful welcome gift.
 
 <center>
 	<img src="/images/posts/gopherconuk2023/IMG_6870.jpeg" alt="Gopher plush">
