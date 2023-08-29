@@ -16,7 +16,7 @@ I travelled by train from Lyon to London, TGV and Eurostar. Train journey not on
 # What is GopherCon UK ?
 
 GopherCon UK 2023 spans three days, commencing with a workshop day on August 16th, followed by two conference days featuring multiple tracks on August 17th and 18th. The event takes place at The Brewery, at Barbican, situated in the heart of the City of London.
-Over 500 attendees, including delegates, speakers, and sponsors, come together for GopherCon UK. This event is all about sharing the latest in Go programming with lots of networking. Attendees can connect with international speakers and peers.
+We were over 500 attendees, including delegates, speakers, and sponsors. This event is all about sharing the latest in Go programming with lots of networking, good food and drinks.
 
 # Workshop day (Practical GO for developers)
 It was a first time for me to attend a workshop at an event like GopherCon. As a new Gopher, my exposure to writing Go code had been limited. However, I was looking forward to it.
