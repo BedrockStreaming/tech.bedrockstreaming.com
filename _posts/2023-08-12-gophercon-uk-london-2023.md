@@ -16,8 +16,7 @@ I travelled by train from Lyon to London, TGV and Eurostar. Train journey not on
 # What is GopherCon UK ?
 
 GopherCon UK 2023 spans three days, commencing with a workshop day on August 16th, followed by two conference days featuring multiple tracks on August 17th and 18th. The event takes place at The Brewery, at Barbican, situated in the heart of the City of London.
-
-Attracting over 500 participants, including delegates, speakers, and sponsors, GopherCon UK is dedicated to deliver up-to-date content about Go programming and its associated technologies. All this unfolds within a comfortable and professional atmosphere. The event offers abundant networking prospects, allowing attendees to connect with both international speakers and fellow delegates. This gathering is undeniably one that holds immense value and should not be missed.
+Over 500 attendees, including delegates, speakers, and sponsors, come together for GopherCon UK. This event is all about sharing the latest in Go programming with lots of networking. Attendees can connect with international speakers and peers.
 
 # Workshop day (Practical GO for developers)
 It was a first time for me to attend a workshop at an event like GopherCon. As a new Gopher, my exposure to writing Go code had been limited. However, I was looking forward to it.
@@ -126,7 +125,7 @@ Then, I enjoyed a truly good breakfast (kudos to @Formal for the exceptional cof
 
 ## Scaling Coffee with Goroutines (workshop tutorial)
 
-Sadie Freeman's enlightening tutorial walks us through the process of taking adventages from goroutines to achieve scalable codebase and platform effectively.
+Sadie Freeman's enlightening tutorial walks us through the process of taking advantages from goroutines to achieve scalable codebase and platform effectively.
 
 #### The coffee shop challenge
 
@@ -199,7 +198,7 @@ Substituting "panic" for proper error handling:
 
 ### Greed
 The desire to future-proof everything:
-> Avoid overengineering; simplicity often prevails.
+> Avoid over-engineering; simplicity often prevails.
 
 ### Sloth
 Focusing on "what" rather than "why" in comments:
@@ -274,8 +273,7 @@ Looking forward:
 - Strengthening vulnerability management.
 
 ### A Bonus for the Dev Community
-In the spirit of improving security, Balahan encourages developers to integrate the new `Govulncheck` tool into their CI pipelines. This tool developed by Go team stands as a sentinel, safeguarding against potential vulnerabilities within Go packages.
-
+In the spirit of improving security, Balahan encourages developers to integrate the new `Govulncheck` [tool](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck#hdr-Usage) into their CI pipelines. This tool developed by Go team stands as a sentinel, safeguarding against potential vulnerabilities within Go packages.
 
 ## Efficient Debugging and Logging with OpenTelemetry in Go
 In the past, our debugging approach was straightforward: Log everything, locally or remotely. However, the landscape has evolved, favoring a combination of logs, traces, and metrics to illuminate the path.
@@ -294,7 +292,7 @@ While logs remain indispensable, their role can now be enhanced.
 
 **Enter Distributed Tracing**:
 A game-changer in the debugging realm, distributed tracing offers a comprehensive view of a request's lifecycle. It stands as a potent tool to combat production issues effectively. With end-to-end visibility, distributed tracing is meant to level up your debugging power!
-
+We, Bedrock, already been using distributed tracings for a while in our PHP codebase, which allow us to rapidly debug and understand problems in production when incidents happen ;) 
 
 ## The Hacker's Guide to JWT Security
 JSON Web Tokens (JWTs) come with their own set of caveats that need to be carefully considered to ensure a robust security level.
@@ -325,6 +323,7 @@ Storing JWTs in local storage, which can be accessed by scripts, worsen this ris
 
 By adopting this practice, the risk of token theft through XSS is substantially reduced.
 
+To sum up, Bedrock already adapted these principles for a while, but nevertheless it was great to remind myself to think about security and vulnerabilities around JWTs. 
 
 ## How NOT to Write a Test in Go
 
@@ -348,11 +347,13 @@ Amir Malka stated that adhering to these practices elevates Go testing from triv
 10. **Test Automation:** Automate tests in CI pipelines to maintain consistent quality.
 11. **Code Coverage:** Use `-cover` flag to monitor and improve test coverage.
 
+Coming from PHP, I never thought about parallelism or Benchmarks while writing tests on a daily basis. All of these testing principles will help me and hopefully my team (when they would have read this post!) to write test the "Go way".
+
 ## Conclusion
-In closing, my journey through GopherCon UK 2023 has been as exciting as tiring for my first Golang Conference. I thank a lot Bedrock for affording me the opportunity to partake in this experience. Participating to this event helped me to dive deeper into the world of Go and will enhance my professional growth.
+In closing, my journey through GopherCon UK 2023 has been as exciting as tiring for my first Golang Conference. I thank a lot Bedrock for affording me the opportunity to partake in this experience. Participating in this event helped me to dive deeper into the world of Go and will enhance my professional growth.
 
 To the organizers of GopherCon UK 2023, your planning and dedication have resulted in a seamless event. Every aspect has been orchestrated to perfection. Congrats to you ! Also, thanks to the sponsors, for continuing to take part in these events during financially hard times.
 
-As I return to my daily routine armed with the knowledge gained, I am excited to share these learnings with my colleagues and hope to contribute even more effectively to my team. GopherCon UK 2023 has not only expanded my knowledge but has also strenghen my enthusiasm for Go.
+As I return to my daily routine armed with the knowledge gained, I am excited to share these learnings with my colleagues and hope to contribute even more effectively to my team. GopherCon UK 2023 has not only expanded my knowledge but has also strengthened my enthusiasm for Go.
 
 GopherCon UK 2024, hopefully, here I come (with other of my colleagues) ! Cheers!
