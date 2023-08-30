@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/gopherconuk2023/IMG_6877.jpeg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>GopherCon UK 2023 highlights | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="GopherCon UK 2023 highlights" />
+<meta name="author" content="Pierre-Alain BEDU" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="My highlights of GopherCon UK 2023" />
+<meta property="og:description" content="My highlights of GopherCon UK 2023" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2023/08/12/gophercon-uk-london-2023.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2023/08/12/gophercon-uk-london-2023.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-08-12T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="GopherCon UK 2023 highlights" />
+<script type="application/ld+json">
+{"description":"My highlights of GopherCon UK 2023","headline":"GopherCon UK 2023 highlights","dateModified":"2023-08-12T00:00:00+00:00","datePublished":"2023-08-12T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2023/08/12/gophercon-uk-london-2023.html"},"url":"https://tech.bedrockstreaming.com/2023/08/12/gophercon-uk-london-2023.html","author":{"@type":"Person","name":"Pierre-Alain BEDU"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="GopherCon UK 2023 highlights">
+    <meta name="twitter:description" content="Hello there! I’m Pierre-Alain, a senior back-end developer at Bedrock and I had the opportunity to go to London for the GopherCon UK.I travelled by train fro...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/gopherconuk2023/IMG_6877.jpeg">
+    <meta name="twitter:image:alt" content="GopherCon UK 2023 highlights">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="GopherCon UK 2023 highlights " aria-label="GopherCon UK 2023 highlights" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="GopherCon+UK+2023+highlights" class="title">GopherCon UK 2023 highlights</h1>
+      <div class="post-info">
+
+
+<a
+      href="https://twitter.com/pa_bedu"
+      target="_blank"
+      rel="noopener"
+      class="author">
+
+    
+      <span class="name">
+        Pierre-Alain BEDU
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    August 12, 2023
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Hello there! I’m Pierre-Alain, a senior back-end developer at Bedrock and I had the opportunity to go to London for the GopherCon UK.</p>
+
+<p>I travelled by train from Lyon to London, TGV and Eurostar. Train journey not only aligned with my commitment to minimize my carbon footprint for this trip, but is also a enjoyable travel choice. While the cost was higher than taking a plane, I would like to thank Bedrock for enabling me to take this option.</p>
+
+<p><img src="/images/posts/gopherconuk2023/IMG_6877.jpeg" alt="IMG_6877.jpeg" /></p>
+
+<h1 id="what-is-gophercon-uk-">What is GopherCon UK ?</h1>
+
+<p>GopherCon UK 2023 spans three days, commencing with a workshop day on August 16th, followed by two conference days featuring multiple tracks on August 17th and 18th. The event takes place at The Brewery, at Barbican, situated in the heart of the City of London.
+We were over 500 attendees, including delegates, speakers, and sponsors. This event is all about sharing the latest in Go programming with lots of networking, good food and drinks.</p>
+
+<h1 id="workshop-day-practical-go-for-developers">Workshop day (Practical GO for developers)</h1>
+<p>It was a first time for me to attend a workshop at an event like GopherCon. As a new Gopher, my exposure to writing Go code had been limited. However, I was looking forward to it.</p>
+
+<p>In the following lines, I’ll be sharing the insights I gained during the workshop — knowledge I’m excited to share to both you and my colleagues:</p>
+<ul>
+  <li>
+    <p>Because of some unicode characters, you should not use <code class="language-plaintext highlighter-rouge">len()</code> on a string in case you have emojis, hieroglyph or symbol (£世界). It is better to use <code class="language-plaintext highlighter-rouge">tf8.RuneCountInString()</code></p>
+  </li>
+  <li>use <code class="language-plaintext highlighter-rouge">fmt.Printf(...)</code> for debugging
+    <div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">package</span> <span class="n">main</span>
+
+  <span class="k">import</span> <span class="s">"fmt"</span>
+
+  <span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+      <span class="n">s</span> <span class="o">:=</span> <span class="k">struct</span> <span class="p">{</span>
+          <span class="n">E</span> <span class="kt">int</span>
+          <span class="n">A</span> <span class="kt">string</span>
+      <span class="p">}{</span><span class="m">1</span><span class="p">,</span> <span class="s">"string"</span><span class="p">}</span>
+
+      <span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%#v, %+v, (%T)"</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+      <span class="c">// output : struct { E int; A string }{E:1, A:"string"},</span>
+      <span class="c">//          {E:1 A:string},</span>
+      <span class="c">//          (struct { E int; A string })</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">`http://site.name`</code>  gives a raw string which can be useful when you have slashes in your string, to avoid having to escape them.</p>
+  </li>
+  <li>I liked this image which gives an idea of computer latency compared to a human.
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Computer Latency at a Human Scale<br /><br />Source: <a href="https://twitter.com/ProwessConsult?ref_src=twsrc%5Etfw">@ProwessConsult</a> (2017) <a href="https://t.co/5Uhw5nCzUJ">https://t.co/5Uhw5nCzUJ</a> <a href="https://t.co/YlVYnm3nGH">pic.twitter.com/YlVYnm3nGH</a></p>&mdash; Josh Jordan (@jordancurve) <a href="https://twitter.com/jordancurve/status/1108475342468120576?ref_src=twsrc%5Etfw">March 20, 2019</a></blockquote>
+    <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </li>
+  <li>a well known bug also known as the <em>for-loop gotcha</em> where the <code class="language-plaintext highlighter-rouge">i</code> in the loop is not incrementing correctly.
+    <div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">for</span> <span class="n">i</span> <span class="o">:=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="m">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">{</span>
+      <span class="k">go</span> <span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+          <span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"gr:%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+      <span class="p">}()</span>
+
+      <span class="c">//fix 1</span>
+      <span class="k">go</span> <span class="k">func</span><span class="p">(</span><span class="n">n</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+          <span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"gr:%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+      <span class="p">}(</span><span class="n">i</span><span class="p">)</span>
+
+      <span class="c">// fix 2</span>
+      <span class="n">i</span> <span class="o">:=</span> <span class="n">i</span>
+      <span class="k">go</span> <span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+          <span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"gr:%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+      <span class="p">}()</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Goroutine channel tricks
+    <blockquote>
+      <ul>
+        <li>send/receive will block until opposite operation (*)
+          <ul>
+            <li>buffered channel of cap n has n non-blocking sends</li>
+          </ul>
+        </li>
+        <li>receive from a closed channel will return the zero value without blocking</li>
+        <li>you can use <code class="language-plaintext highlighter-rouge">val,ok := &lt;- ch</code> as second left variable to know if value comes from channel or not</li>
+        <li>send or close to a closed channel will panic</li>
+        <li>send or receive on a nil channel will block forever…</li>
+      </ul>
+    </blockquote>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">doc.go</code> is used to add documentation to packages, example below:</p>
+
+    <div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">/*
+  Package nope does nothing as Go package.
+
+  ...
+  */</span>
+  <span class="k">package</span> <span class="n">nope</span>
+</code></pre></div>    </div>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">example_test.go</code> on a package, gives example tests to other developers</li>
+</ul>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">nope_test</span>
+
+<span class="k">import</span> <span class="p">(</span>
+  <span class="s">"fmt"</span>
+
+  <span class="s">"github.com/shipt/nlp"</span>
+<span class="p">)</span>
+
+<span class="k">func</span> <span class="n">ExampleTokenize</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">nothing</span> <span class="o">:=</span> <span class="n">nope</span><span class="o">.</span><span class="n">SayNothing</span><span class="p">()</span>
+  <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">nothing</span><span class="p">)</span>
+
+  <span class="c">// Output:</span>
+  <span class="c">// "nothing"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>you can create a <code class="language-plaintext highlighter-rouge">testdata</code> folder to store fixtures which would be avoided by compiler</p>
+  </li>
+  <li>
+    <p>we should use <code class="language-plaintext highlighter-rouge">testify/require</code>, <code class="language-plaintext highlighter-rouge">testify/mock</code> and <code class="language-plaintext highlighter-rouge">testify/suites</code> <em>evil laugh</em></p>
+  </li>
+</ul>
+
+<p>Workshop given by Miki Tebeka, Ardan Labs was really great and gave the opportunity to compare myself to what is expected from a new Gopher, and so far I would say I’m doing OK. I am now eager to tackle more projects in Go at Bedrock. \o/</p>
+
+<h1 id="day-one">Day one</h1>
+
+<p>Upon arrival, I was greeted with a delightful British-style Gopher plush, serving as a warm and wonderful welcome gift.</p>
+
+<center>
+	<img src="/images/posts/gopherconuk2023/IMG_6870.jpeg" alt="Gopher plush" />
+</center>
+
+<p>Then, I enjoyed a truly good breakfast (kudos to @Formal for the exceptional coffee baristas) and engaged in conversations with the sponsor booths positioned within the venue, and even entered their raffle giveaways.</p>
+
+<h2 id="scaling-coffee-with-goroutines-workshop-tutorial">Scaling Coffee with Goroutines (workshop tutorial)</h2>
+
+<p>Sadie Freeman’s enlightening tutorial walks us through the process of taking advantages from goroutines to achieve scalable codebase and platform effectively.</p>
+
+<h4 id="the-coffee-shop-challenge">The coffee shop challenge</h4>
+
+<p>Imagine a coffee shop aiming to do:</p>
+<ul>
+  <li>a lot of coffee</li>
+  <li>for a lot of people</li>
+  <li>as fast as possible</li>
+</ul>
+
+<p>For a coffee to be considered complete, three essential actions were required:</p>
+<ul>
+  <li>Accept payment</li>
+  <li>Steam milk</li>
+  <li>Make espresso</li>
+</ul>
+
+<p>Each of these actions takes approximately 2 seconds to execute.</p>
+
+<p>To break it down:</p>
+<ul>
+  <li>Serving one customer requires 2 seconds per action, totaling 6 seconds.</li>
+  <li>Serving three customers extends the total time to 18 seconds.</li>
+</ul>
+
+<h4 id="scaling-for-speed">Scaling for Speed</h4>
+
+<p>Initial attempts to introduce goroutines seem straightforward, by merely appending “go” before a method:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">go</span> <span class="n">MakeCoffee</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>However, for three customers, this results in a staggeringly brief 49 microseconds, practically an impossible feat. The solution wasn’t as straightforward as it may seem.</p>
+
+<h4 id="enter-the-syncwaitgroup">Enter the <code class="language-plaintext highlighter-rouge">sync.WaitGroup</code></h4>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sync</span><span class="o">.</span><span class="n">WaitGroup</span><span class="p">()</span>
+
+<span class="k">defer</span> <span class="n">wg</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span>
+
+<span class="n">wg</span><span class="o">.</span><span class="n">Wait</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Nonetheless, even with this approach, we still find ourselves waiting for each coffee to complete before initiating the next one. Consequently, serving three customers still demands 6 seconds.</p>
+
+<p>Optimization beckons; each action could potentially transform into its own goroutine. Ultimately, with this approach, serving three customers takes a mere 2 seconds, finally achieving efficient customer service.</p>
+
+<h4 id="scaling-for-load">Scaling for Load</h4>
+
+<p>Enter containerization! Deployment onto Kubernetes through Docker containers ensues. The coffee shop pods are allocated finite CPU and Memory resources.</p>
+
+<p>Consider a scenario where 300 customers arrive simultaneously on our webservice. This influx of customers causes the pod to become memory-intensive, ultimately leading to an Out of Memory (OOM) kill.</p>
+
+<p>But what happens when the challenge escalates to 3000 customers? This needs vertical scaling: allocating more resources. However, this approach can become prohibitively expensive.</p>
+
+<p>Enter the pragmatic solution of horizontal scaling - opening more pods (coffee shops). With 10 pods, each handling 300 customers, accommodating 3000 customers in about 2 seconds becomes feasible.</p>
+
+<p>While this tutorial doesn’t delve into the topic, an intriguing possibility would be to split responsibilities in different pod(payment, milk, espresso) for further optimization and efficiency.</p>
+
+<h2 id="the-7-deadly-sins-for-gophers">The 7 Deadly Sins for Gophers</h2>
+
+<p>John Gregory provided invaluable insights into the pitfalls to avoid for Gophers, whether seasoned or new. Here’s a condensed overview of the key takeaways:</p>
+
+<h3 id="lush">Lush</h3>
+<p>The urge to rush into production without due consideration. Concurrency might entice you with the “go” keyword, but remember:</p>
+<blockquote>
+  <p>Use goroutines judiciously, only when necessary.</p>
+</blockquote>
+
+<h3 id="wrath">Wrath</h3>
+<p>Substituting “panic” for proper error handling:</p>
+<blockquote>
+  <p>“Using a wall to stop a car instead of the brakes.”</p>
+
+  <p>Embrace defensive coding practices.</p>
+
+  <p>Reserved methods should be utilized outside user runtime; employ them at startup.</p>
+</blockquote>
+
+<h3 id="greed">Greed</h3>
+<p>The desire to future-proof everything:</p>
+<blockquote>
+  <p>Avoid over-engineering; simplicity often prevails.</p>
+</blockquote>
+
+<h3 id="sloth">Sloth</h3>
+<p>Focusing on “what” rather than “why” in comments:</p>
+<blockquote>
+  <p>Enhance error handling with contextual information. Seek semantic context.</p>
+
+  <p>Utilize <code class="language-plaintext highlighter-rouge">fmt.Errorf("this did not work: %w", err)</code> for enhanced error messages.</p>
+</blockquote>
+
+<h3 id="gluttony">Gluttony</h3>
+<p>Unnecessary reliance on frameworks:</p>
+<blockquote>
+  <p>Beware of vulnerabilities.</p>
+
+  <p>Begin with simplicity.</p>
+
+  <p>Embrace libraries with robust support.</p>
+</blockquote>
+
+<h3 id="envy">Envy</h3>
+<p>Forcing patterns where they aren’t required:</p>
+<blockquote>
+  <p>Interfaces aren’t always necessary.</p>
+
+  <p>Explore “Effective Go” principles.</p>
+</blockquote>
+
+<h3 id="pride">Pride</h3>
+<p>Assuming you possess the ultimate knowledge:</p>
+<blockquote>
+  <p>Avoid artificially restricting API access.</p>
+</blockquote>
+
+<p>John Gregory’s wisdom shines a light on the potential pitfalls Gophers may encounter. Steering clear of these seven deadly sins can lead to more effective and resilient Go programming practices.</p>
+
+<hr />
+<h3 id="social-event-with-food-and-drinks-responsibly">Social event with food and drinks (responsibly)</h3>
+<p>I (also) enjoyed video game, table tennis, a magician and a DJ !</p>
+
+<hr />
+
+<h1 id="day-two">Day two</h1>
+
+<p>I started this second day of conferences by having a Cup of tea (with milk) to get myself in the shoes of an English Gopher :)</p>
+
+<h2 id="state-of-the-go-nation">State of the Go Nation!</h2>
+<p>Cameron Balahan, Product Manager of the Go team, took us on a journey through the past, present, and future of Go. He shared insights into the language’s evolution, growth, and its roadmap ahead.</p>
+
+<h3 id="going-back-in-time">Going Back in Time</h3>
+<ul>
+  <li><strong>2007:</strong> Go’s inception within Google.</li>
+  <li><strong>2009:</strong> The pivotal moment when Go was opensourced.</li>
+  <li><strong>2012:</strong> The groundbreaking release of Go 1.0, marking its maturity.</li>
+</ul>
+
+<h3 id="the-stability-of-go-10">The Stability of Go 1.0</h3>
+<p>Balahan emphasized the continuity of Go 1.0, ensuring backward compatibility with all Go 1.* versions.</p>
+
+<h3 id="refinement-and-progress">Refinement and Progress</h3>
+<ul>
+  <li><strong>2015:</strong> Go’s strides in version 1.5:
+    <ul>
+      <li>Advancements in the compiler.</li>
+      <li>Introduction of a new garbage collector.</li>
+      <li>Adoption of semi-annual releases.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="the-flourishing-ecosystem-of-2018">The Flourishing Ecosystem of 2018</h3>
+<ul>
+  <li><strong>2018:</strong> Go’s ecosystem flourished, introducing key enhancements:
+    <ul>
+      <li>Go modules with caching and checksum features.</li>
+      <li>A focus on creating a secure platform.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="forever-go-1">Forever Go 1.*</h3>
+<p>Balahan said Go 2 “will never happen”, as keeping Go 1 program working with all Go 1.* version is their aim from the start.</p>
+
+<h3 id="todays-triumphs">Today’s Triumphs</h3>
+<p>In the present:</p>
+<ul>
+  <li>Go’s user base has multiplied by four since 2018.</li>
+  <li>High levels of user satisfaction persist among the Go community.</li>
+</ul>
+
+<h3 id="the-path-ahead">The Path Ahead</h3>
+<p>Looking forward:</p>
+<ul>
+  <li>Addressing the loop variable issue. (mostly done in Go 1.21)</li>
+  <li>Enhancing onboarding experiences.</li>
+  <li>Strengthening vulnerability management.</li>
+</ul>
+
+<h3 id="a-bonus-for-the-dev-community">A Bonus for the Dev Community</h3>
+<p>In the spirit of improving security, Balahan encourages developers to integrate the new <code class="language-plaintext highlighter-rouge">Govulncheck</code> <a href="https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck#hdr-Usage">tool</a> into their CI pipelines. This tool developed by Go team stands as a sentinel, safeguarding against potential vulnerabilities within Go packages.</p>
+
+<h2 id="efficient-debugging-and-logging-with-opentelemetry-in-go">Efficient Debugging and Logging with OpenTelemetry in Go</h2>
+<p>In the past, our debugging approach was straightforward: Log everything, locally or remotely. However, the landscape has evolved, favoring a combination of logs, traces, and metrics to illuminate the path.</p>
+
+<p>A quote I really liked:</p>
+
+<blockquote>
+  <p>“Logs are for your future self, left by your past self :)”</p>
+</blockquote>
+
+<p>While logs remain indispensable, their role can now be enhanced.</p>
+
+<ul>
+  <li>
+    <p><strong>Absence of Request Context</strong> - Log entries often contain detailed information about microservices, functions, or applications, yet they can fall short in providing the broader request context.</p>
+  </li>
+  <li>
+    <p><strong>Scale Demands Complexity</strong> - To grasp an application’s normal functioning, collating and analyzing numerous log entries becomes vital. This can require extensive indexing and complex tools to achieve at scale.</p>
+  </li>
+  <li>
+    <p><strong>Disparity Across Teams and Services</strong> - Uniformity in logs isn’t guaranteed across teams, adding complexity when attempting to link them cohesively.</p>
+  </li>
+</ul>
+
+<p><strong>Enter Distributed Tracing</strong>:
+A game-changer in the debugging realm, distributed tracing offers a comprehensive view of a request’s lifecycle. It stands as a potent tool to combat production issues effectively. With end-to-end visibility, distributed tracing is meant to level up your debugging power!
+We, Bedrock, already been using distributed tracings for a while in our PHP codebase, which allow us to rapidly debug and understand problems in production when incidents happen ;)</p>
+
+<h2 id="the-hackers-guide-to-jwt-security">The Hacker’s Guide to JWT Security</h2>
+<p>JSON Web Tokens (JWTs) come with their own set of caveats that need to be carefully considered to ensure a robust security level.</p>
+
+<h3 id="the-pronunciation-puzzle-how-to-pronounce-jwt">The Pronunciation Puzzle: How to Pronounce JWT?</h3>
+<p>Before we dive into the security aspects of JWTs, let’s clarify a common query: how do you pronounce JWT? According to the standards outlined in RFC 7519, JWT is pronounced as “jot”. So, the next time you discuss JWTs, remember it’s neither three separate letters nor “JWT Token” as some say in France…, but a concise “jot”.</p>
+
+<h3 id="the-encoding-vs-encryption-distinction">The Encoding vs. Encryption Distinction</h3>
+<p>One fundamental fact about JWTs is that they are designed for encoding, not encryption. This means that the data contained within a JWT is base64url encoded, which allows easy transmission between parties, but it’s not encrypted in a way that prevents unauthorized access to the actual content.</p>
+
+<h4 id="1-the-none-algorithm">1. The “none” Algorithm</h4>
+<p>In scenarios where the backend fails to verify the algorithm before checking the claims within the JWT, an attacker can exploit this weakness and craft a forged token. This issue lies not just in the hands of the RFC specifications but also in implementation.</p>
+
+<p>To address this concern, it’s imperative to implement rigorous checks at the backend level. Verification of the algorithm should precede the verification of claims. This approach ensures that only tokens with valid algorithms are processed, mitigating the risk of unauthorized access.</p>
+
+<h4 id="2-hs256-passwordkey-cracking-vulnerability">2. HS256: Password/Key Cracking Vulnerability</h4>
+<p>This algorithm employs a shared secret key for both encoding and decoding, making it susceptible to password or key cracking attacks. What’s particularly concerning is that even a single compromised token can lead to offline attacks, where no communication with the server is necessary while craking.</p>
+
+<p>To counter this threat, regularly update and rotate the secret keys, ensuring that even if one key is compromised, the potential damage is limited.</p>
+
+<h4 id="3-man-in-the-middle-on-internal-networks">3. Man in the Middle on Internal Networks</h4>
+<p>In a man-in-the-middle attack scenario, an attacker can intercept and manipulate JWTs exchanged within an unsecured network, potentially gaining unauthorized access.</p>
+
+<p>To minimise this risk, it’s recommended to adopt secure communication protocols such as HTTPS. Additionally, implementing strict network segmentation and proper access controls can minimize the attack surface within internal networks.</p>
+
+<h4 id="4-xss-vulnerabilities-safeguarding-tokens">4. XSS Vulnerabilities: Safeguarding Tokens</h4>
+<p>Storing JWTs in local storage, which can be accessed by scripts, worsen this risk to counter XSS threats: consider using cookies to store JWTs. Cookies are less susceptible to XSS attacks, as their content cannot be directly accessed by Javascript scripts.</p>
+
+<p>By adopting this practice, the risk of token theft through XSS is substantially reduced.</p>
+
+<p>To sum up, Bedrock already adapted these principles for a while, but nevertheless it was great to remind myself to think about security and vulnerabilities around JWTs.</p>
+
+<h2 id="how-not-to-write-a-test-in-go">How NOT to Write a Test in Go</h2>
+
+<p>Amir Malka stated that adhering to these practices elevates Go testing from trivial to masterful. Effective testing enhances code reliability and development predictability. Embracing these guidelines lays the foundation for successful software projects.</p>
+
+<h3 id="why-testing">Why Testing?</h3>
+<ul>
+  <li>Tests uncover bugs and validate code changes.</li>
+  <li>Tests build confidence in code correctness.</li>
+  <li>Tests serve as living documentation, illustrating code behavior.</li>
+</ul>
+
+<h3 id="key-testing-principles">Key Testing Principles</h3>
+<ol>
+  <li><strong>Fixture Placement:</strong> Organize test fixtures in a dedicated <code class="language-plaintext highlighter-rouge">testdata</code> directory, avoided by compiler.</li>
+  <li><strong>Structured Tests:</strong> Embrace table-driven tests for readability and comprehensive coverage.</li>
+  <li><strong>Parallelism:</strong> Use caution with parallel tests to avoid unintended interactions.</li>
+  <li><strong>Test Suites:</strong> Employ <code class="language-plaintext highlighter-rouge">testing.M</code> for related tests and control setup/teardown with <code class="language-plaintext highlighter-rouge">TestMain</code>.</li>
+  <li><strong>Categorization:</strong> Use build tags or environment variables to categorize and skip tests.</li>
+  <li><strong>Concurrency Safety:</strong> Detect data races with the <code class="language-plaintext highlighter-rouge">-race</code> flag during testing.</li>
+  <li><strong>Effective Mocking:</strong> Benefit from embedded interfaces for accurate mocks.</li>
+  <li><strong>Randomizing Tests:</strong> Introduce randomness with <code class="language-plaintext highlighter-rouge">-shuffle</code> flag to uncover hidden issues.</li>
+  <li><strong>Benchmarks:</strong> Gauge code performance with <code class="language-plaintext highlighter-rouge">testing.B</code>, setup/teardown carefully.</li>
+  <li><strong>Test Automation:</strong> Automate tests in CI pipelines to maintain consistent quality.</li>
+  <li><strong>Code Coverage:</strong> Use <code class="language-plaintext highlighter-rouge">-cover</code> flag to monitor and improve test coverage.</li>
+</ol>
+
+<p>Coming from PHP, I never thought about parallelism or Benchmarks while writing tests on a daily basis. All of these testing principles will help me and hopefully my team (when they would have read this post!) to write test the “Go way”.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>In closing, my journey through GopherCon UK 2023 has been as exciting as tiring for my first Golang Conference. I thank a lot Bedrock for affording me the opportunity to partake in this experience. Participating in this event helped me to dive deeper into the world of Go and will enhance my professional growth.</p>
+
+<p>To the organizers of GopherCon UK 2023, your planning and dedication have resulted in a seamless event. Every aspect has been orchestrated to perfection. Congrats to you ! Also, thanks to the sponsors, for continuing to take part in these events during financially hard times.</p>
+
+<p>As I return to my daily routine armed with the knowledge gained, I am excited to share these learnings with my colleagues and hope to contribute even more effectively to my team. GopherCon UK 2023 has not only expanded my knowledge but has also strengthened my enthusiasm for Go.</p>
+
+<p>GopherCon UK 2024, hopefully, here I come (with other of my colleagues) ! Cheers!</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=GopherCon+UK+2023+highlights%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2023%2F08%2F12%2Fgophercon-uk-london-2023.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2023/08/12/gophercon-uk-london-2023.html&title=GopherCon+UK+2023+highlights%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2023/08/12/gophercon-uk-london-2023.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=GopherCon UK 2023 highlights%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2023/08/12/gophercon-uk-london-2023.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#go">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> go</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#golang">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> golang</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#london">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> london</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#tech">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> tech</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="Bedrock at We Love Speed 2023" href="/2023/08/11/we-love-speed-2023.html">
+            <p>Next post</p>
+            Bedrock at We Love Speed 2023
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

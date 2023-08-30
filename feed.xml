@@ -1,4 +1,413 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-08-21T07:54:46+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock at We Love Speed 2023</title><link href="https://tech.bedrockstreaming.com/2023/08/11/we-love-speed-2023.html" rel="alternate" type="text/html" title="Bedrock at We Love Speed 2023" /><published>2023-08-11T00:00:00+00:00</published><updated>2023-08-11T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/08/11/we-love-speed-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/08/11/we-love-speed-2023.html">&lt;p&gt;The Frontend Bedrock teams were present at the 2023 edition of the &lt;em&gt;We Love Speed&lt;/em&gt; conference in Paris on May 10. Its aim is to share as widely as possible knowledge and experience in the field of web performance.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-08-30T08:34:15+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">GopherCon UK 2023 highlights</title><link href="https://tech.bedrockstreaming.com/2023/08/12/gophercon-uk-london-2023.html" rel="alternate" type="text/html" title="GopherCon UK 2023 highlights" /><published>2023-08-12T00:00:00+00:00</published><updated>2023-08-12T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/08/12/gophercon-uk-london-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/08/12/gophercon-uk-london-2023.html">&lt;p&gt;Hello there! I’m Pierre-Alain, a senior back-end developer at Bedrock and I had the opportunity to go to London for the GopherCon UK.&lt;/p&gt;
+
+&lt;p&gt;I travelled by train from Lyon to London, TGV and Eurostar. Train journey not only aligned with my commitment to minimize my carbon footprint for this trip, but is also a enjoyable travel choice. While the cost was higher than taking a plane, I would like to thank Bedrock for enabling me to take this option.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/gopherconuk2023/IMG_6877.jpeg&quot; alt=&quot;IMG_6877.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;what-is-gophercon-uk-&quot;&gt;What is GopherCon UK ?&lt;/h1&gt;
+
+&lt;p&gt;GopherCon UK 2023 spans three days, commencing with a workshop day on August 16th, followed by two conference days featuring multiple tracks on August 17th and 18th. The event takes place at The Brewery, at Barbican, situated in the heart of the City of London.
+We were over 500 attendees, including delegates, speakers, and sponsors. This event is all about sharing the latest in Go programming with lots of networking, good food and drinks.&lt;/p&gt;
+
+&lt;h1 id=&quot;workshop-day-practical-go-for-developers&quot;&gt;Workshop day (Practical GO for developers)&lt;/h1&gt;
+&lt;p&gt;It was a first time for me to attend a workshop at an event like GopherCon. As a new Gopher, my exposure to writing Go code had been limited. However, I was looking forward to it.&lt;/p&gt;
+
+&lt;p&gt;In the following lines, I’ll be sharing the insights I gained during the workshop — knowledge I’m excited to share to both you and my colleagues:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Because of some unicode characters, you should not use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;len()&lt;/code&gt; on a string in case you have emojis, hieroglyph or symbol (£世界). It is better to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tf8.RuneCountInString()&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fmt.Printf(...)&lt;/code&gt; for debugging
+    &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;fmt&quot;&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;E&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+      &lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%#v, %+v, (%T)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;c&quot;&gt;// output : struct { E int; A string }{E:1, A:&quot;string&quot;},&lt;/span&gt;
+      &lt;span class=&quot;c&quot;&gt;//          {E:1 A:string},&lt;/span&gt;
+      &lt;span class=&quot;c&quot;&gt;//          (struct { E int; A string })&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;`http://site.name`&lt;/code&gt;  gives a raw string which can be useful when you have slashes in your string, to avoid having to escape them.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;I liked this image which gives an idea of computer latency compared to a human.
+    &lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Computer Latency at a Human Scale&lt;br /&gt;&lt;br /&gt;Source: &lt;a href=&quot;https://twitter.com/ProwessConsult?ref_src=twsrc%5Etfw&quot;&gt;@ProwessConsult&lt;/a&gt; (2017) &lt;a href=&quot;https://t.co/5Uhw5nCzUJ&quot;&gt;https://t.co/5Uhw5nCzUJ&lt;/a&gt; &lt;a href=&quot;https://t.co/YlVYnm3nGH&quot;&gt;pic.twitter.com/YlVYnm3nGH&lt;/a&gt;&lt;/p&gt;&amp;mdash; Josh Jordan (@jordancurve) &lt;a href=&quot;https://twitter.com/jordancurve/status/1108475342468120576?ref_src=twsrc%5Etfw&quot;&gt;March 20, 2019&lt;/a&gt;&lt;/blockquote&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;a well known bug also known as the &lt;em&gt;for-loop gotcha&lt;/em&gt; where the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i&lt;/code&gt; in the loop is not incrementing correctly.
+    &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;go&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;gr:%d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}()&lt;/span&gt;
+
+      &lt;span class=&quot;c&quot;&gt;//fix 1&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;go&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;gr:%d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+      &lt;span class=&quot;c&quot;&gt;// fix 2&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;go&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;gr:%d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}()&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Goroutine channel tricks
+    &lt;blockquote&gt;
+      &lt;ul&gt;
+        &lt;li&gt;send/receive will block until opposite operation (*)
+          &lt;ul&gt;
+            &lt;li&gt;buffered channel of cap n has n non-blocking sends&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;receive from a closed channel will return the zero value without blocking&lt;/li&gt;
+        &lt;li&gt;you can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;val,ok := &amp;lt;- ch&lt;/code&gt; as second left variable to know if value comes from channel or not&lt;/li&gt;
+        &lt;li&gt;send or close to a closed channel will panic&lt;/li&gt;
+        &lt;li&gt;send or receive on a nil channel will block forever…&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;doc.go&lt;/code&gt; is used to add documentation to packages, example below:&lt;/p&gt;
+
+    &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;c&quot;&gt;/*
+  Package nope does nothing as Go package.
+
+  ...
+  */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nope&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;example_test.go&lt;/code&gt; on a package, gives example tests to other developers&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nope_test&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;&quot;fmt&quot;&lt;/span&gt;
+
+  &lt;span class=&quot;s&quot;&gt;&quot;github.com/shipt/nlp&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ExampleTokenize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;nothing&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nope&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SayNothing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nothing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;c&quot;&gt;// Output:&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;// &quot;nothing&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;you can create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;testdata&lt;/code&gt; folder to store fixtures which would be avoided by compiler&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;we should use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;testify/require&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;testify/mock&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;testify/suites&lt;/code&gt; &lt;em&gt;evil laugh&lt;/em&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Workshop given by Miki Tebeka, Ardan Labs was really great and gave the opportunity to compare myself to what is expected from a new Gopher, and so far I would say I’m doing OK. I am now eager to tackle more projects in Go at Bedrock. \o/&lt;/p&gt;
+
+&lt;h1 id=&quot;day-one&quot;&gt;Day one&lt;/h1&gt;
+
+&lt;p&gt;Upon arrival, I was greeted with a delightful British-style Gopher plush, serving as a warm and wonderful welcome gift.&lt;/p&gt;
+
+&lt;center&gt;
+	&lt;img src=&quot;/images/posts/gopherconuk2023/IMG_6870.jpeg&quot; alt=&quot;Gopher plush&quot; /&gt;
+&lt;/center&gt;
+
+&lt;p&gt;Then, I enjoyed a truly good breakfast (kudos to @Formal for the exceptional coffee baristas) and engaged in conversations with the sponsor booths positioned within the venue, and even entered their raffle giveaways.&lt;/p&gt;
+
+&lt;h2 id=&quot;scaling-coffee-with-goroutines-workshop-tutorial&quot;&gt;Scaling Coffee with Goroutines (workshop tutorial)&lt;/h2&gt;
+
+&lt;p&gt;Sadie Freeman’s enlightening tutorial walks us through the process of taking advantages from goroutines to achieve scalable codebase and platform effectively.&lt;/p&gt;
+
+&lt;h4 id=&quot;the-coffee-shop-challenge&quot;&gt;The coffee shop challenge&lt;/h4&gt;
+
+&lt;p&gt;Imagine a coffee shop aiming to do:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;a lot of coffee&lt;/li&gt;
+  &lt;li&gt;for a lot of people&lt;/li&gt;
+  &lt;li&gt;as fast as possible&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For a coffee to be considered complete, three essential actions were required:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Accept payment&lt;/li&gt;
+  &lt;li&gt;Steam milk&lt;/li&gt;
+  &lt;li&gt;Make espresso&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Each of these actions takes approximately 2 seconds to execute.&lt;/p&gt;
+
+&lt;p&gt;To break it down:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Serving one customer requires 2 seconds per action, totaling 6 seconds.&lt;/li&gt;
+  &lt;li&gt;Serving three customers extends the total time to 18 seconds.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;scaling-for-speed&quot;&gt;Scaling for Speed&lt;/h4&gt;
+
+&lt;p&gt;Initial attempts to introduce goroutines seem straightforward, by merely appending “go” before a method:&lt;/p&gt;
+
+&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;k&quot;&gt;go&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MakeCoffee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;However, for three customers, this results in a staggeringly brief 49 microseconds, practically an impossible feat. The solution wasn’t as straightforward as it may seem.&lt;/p&gt;
+
+&lt;h4 id=&quot;enter-the-syncwaitgroup&quot;&gt;Enter the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sync.WaitGroup&lt;/code&gt;&lt;/h4&gt;
+&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sync&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WaitGroup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;defer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Done&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;wg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Wait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Nonetheless, even with this approach, we still find ourselves waiting for each coffee to complete before initiating the next one. Consequently, serving three customers still demands 6 seconds.&lt;/p&gt;
+
+&lt;p&gt;Optimization beckons; each action could potentially transform into its own goroutine. Ultimately, with this approach, serving three customers takes a mere 2 seconds, finally achieving efficient customer service.&lt;/p&gt;
+
+&lt;h4 id=&quot;scaling-for-load&quot;&gt;Scaling for Load&lt;/h4&gt;
+
+&lt;p&gt;Enter containerization! Deployment onto Kubernetes through Docker containers ensues. The coffee shop pods are allocated finite CPU and Memory resources.&lt;/p&gt;
+
+&lt;p&gt;Consider a scenario where 300 customers arrive simultaneously on our webservice. This influx of customers causes the pod to become memory-intensive, ultimately leading to an Out of Memory (OOM) kill.&lt;/p&gt;
+
+&lt;p&gt;But what happens when the challenge escalates to 3000 customers? This needs vertical scaling: allocating more resources. However, this approach can become prohibitively expensive.&lt;/p&gt;
+
+&lt;p&gt;Enter the pragmatic solution of horizontal scaling - opening more pods (coffee shops). With 10 pods, each handling 300 customers, accommodating 3000 customers in about 2 seconds becomes feasible.&lt;/p&gt;
+
+&lt;p&gt;While this tutorial doesn’t delve into the topic, an intriguing possibility would be to split responsibilities in different pod(payment, milk, espresso) for further optimization and efficiency.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-7-deadly-sins-for-gophers&quot;&gt;The 7 Deadly Sins for Gophers&lt;/h2&gt;
+
+&lt;p&gt;John Gregory provided invaluable insights into the pitfalls to avoid for Gophers, whether seasoned or new. Here’s a condensed overview of the key takeaways:&lt;/p&gt;
+
+&lt;h3 id=&quot;lush&quot;&gt;Lush&lt;/h3&gt;
+&lt;p&gt;The urge to rush into production without due consideration. Concurrency might entice you with the “go” keyword, but remember:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Use goroutines judiciously, only when necessary.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;wrath&quot;&gt;Wrath&lt;/h3&gt;
+&lt;p&gt;Substituting “panic” for proper error handling:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;“Using a wall to stop a car instead of the brakes.”&lt;/p&gt;
+
+  &lt;p&gt;Embrace defensive coding practices.&lt;/p&gt;
+
+  &lt;p&gt;Reserved methods should be utilized outside user runtime; employ them at startup.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;greed&quot;&gt;Greed&lt;/h3&gt;
+&lt;p&gt;The desire to future-proof everything:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Avoid over-engineering; simplicity often prevails.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;sloth&quot;&gt;Sloth&lt;/h3&gt;
+&lt;p&gt;Focusing on “what” rather than “why” in comments:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Enhance error handling with contextual information. Seek semantic context.&lt;/p&gt;
+
+  &lt;p&gt;Utilize &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fmt.Errorf(&quot;this did not work: %w&quot;, err)&lt;/code&gt; for enhanced error messages.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;gluttony&quot;&gt;Gluttony&lt;/h3&gt;
+&lt;p&gt;Unnecessary reliance on frameworks:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Beware of vulnerabilities.&lt;/p&gt;
+
+  &lt;p&gt;Begin with simplicity.&lt;/p&gt;
+
+  &lt;p&gt;Embrace libraries with robust support.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;envy&quot;&gt;Envy&lt;/h3&gt;
+&lt;p&gt;Forcing patterns where they aren’t required:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Interfaces aren’t always necessary.&lt;/p&gt;
+
+  &lt;p&gt;Explore “Effective Go” principles.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;pride&quot;&gt;Pride&lt;/h3&gt;
+&lt;p&gt;Assuming you possess the ultimate knowledge:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Avoid artificially restricting API access.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;John Gregory’s wisdom shines a light on the potential pitfalls Gophers may encounter. Steering clear of these seven deadly sins can lead to more effective and resilient Go programming practices.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;social-event-with-food-and-drinks-responsibly&quot;&gt;Social event with food and drinks (responsibly)&lt;/h3&gt;
+&lt;p&gt;I (also) enjoyed video game, table tennis, a magician and a DJ !&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;day-two&quot;&gt;Day two&lt;/h1&gt;
+
+&lt;p&gt;I started this second day of conferences by having a Cup of tea (with milk) to get myself in the shoes of an English Gopher :)&lt;/p&gt;
+
+&lt;h2 id=&quot;state-of-the-go-nation&quot;&gt;State of the Go Nation!&lt;/h2&gt;
+&lt;p&gt;Cameron Balahan, Product Manager of the Go team, took us on a journey through the past, present, and future of Go. He shared insights into the language’s evolution, growth, and its roadmap ahead.&lt;/p&gt;
+
+&lt;h3 id=&quot;going-back-in-time&quot;&gt;Going Back in Time&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;2007:&lt;/strong&gt; Go’s inception within Google.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;2009:&lt;/strong&gt; The pivotal moment when Go was opensourced.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;2012:&lt;/strong&gt; The groundbreaking release of Go 1.0, marking its maturity.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;the-stability-of-go-10&quot;&gt;The Stability of Go 1.0&lt;/h3&gt;
+&lt;p&gt;Balahan emphasized the continuity of Go 1.0, ensuring backward compatibility with all Go 1.* versions.&lt;/p&gt;
+
+&lt;h3 id=&quot;refinement-and-progress&quot;&gt;Refinement and Progress&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;2015:&lt;/strong&gt; Go’s strides in version 1.5:
+    &lt;ul&gt;
+      &lt;li&gt;Advancements in the compiler.&lt;/li&gt;
+      &lt;li&gt;Introduction of a new garbage collector.&lt;/li&gt;
+      &lt;li&gt;Adoption of semi-annual releases.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;the-flourishing-ecosystem-of-2018&quot;&gt;The Flourishing Ecosystem of 2018&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;2018:&lt;/strong&gt; Go’s ecosystem flourished, introducing key enhancements:
+    &lt;ul&gt;
+      &lt;li&gt;Go modules with caching and checksum features.&lt;/li&gt;
+      &lt;li&gt;A focus on creating a secure platform.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;forever-go-1&quot;&gt;Forever Go 1.*&lt;/h3&gt;
+&lt;p&gt;Balahan said Go 2 “will never happen”, as keeping Go 1 program working with all Go 1.* version is their aim from the start.&lt;/p&gt;
+
+&lt;h3 id=&quot;todays-triumphs&quot;&gt;Today’s Triumphs&lt;/h3&gt;
+&lt;p&gt;In the present:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Go’s user base has multiplied by four since 2018.&lt;/li&gt;
+  &lt;li&gt;High levels of user satisfaction persist among the Go community.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;the-path-ahead&quot;&gt;The Path Ahead&lt;/h3&gt;
+&lt;p&gt;Looking forward:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Addressing the loop variable issue. (mostly done in Go 1.21)&lt;/li&gt;
+  &lt;li&gt;Enhancing onboarding experiences.&lt;/li&gt;
+  &lt;li&gt;Strengthening vulnerability management.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;a-bonus-for-the-dev-community&quot;&gt;A Bonus for the Dev Community&lt;/h3&gt;
+&lt;p&gt;In the spirit of improving security, Balahan encourages developers to integrate the new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Govulncheck&lt;/code&gt; &lt;a href=&quot;https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck#hdr-Usage&quot;&gt;tool&lt;/a&gt; into their CI pipelines. This tool developed by Go team stands as a sentinel, safeguarding against potential vulnerabilities within Go packages.&lt;/p&gt;
+
+&lt;h2 id=&quot;efficient-debugging-and-logging-with-opentelemetry-in-go&quot;&gt;Efficient Debugging and Logging with OpenTelemetry in Go&lt;/h2&gt;
+&lt;p&gt;In the past, our debugging approach was straightforward: Log everything, locally or remotely. However, the landscape has evolved, favoring a combination of logs, traces, and metrics to illuminate the path.&lt;/p&gt;
+
+&lt;p&gt;A quote I really liked:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Logs are for your future self, left by your past self :)”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;While logs remain indispensable, their role can now be enhanced.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Absence of Request Context&lt;/strong&gt; - Log entries often contain detailed information about microservices, functions, or applications, yet they can fall short in providing the broader request context.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Scale Demands Complexity&lt;/strong&gt; - To grasp an application’s normal functioning, collating and analyzing numerous log entries becomes vital. This can require extensive indexing and complex tools to achieve at scale.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Disparity Across Teams and Services&lt;/strong&gt; - Uniformity in logs isn’t guaranteed across teams, adding complexity when attempting to link them cohesively.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Enter Distributed Tracing&lt;/strong&gt;:
+A game-changer in the debugging realm, distributed tracing offers a comprehensive view of a request’s lifecycle. It stands as a potent tool to combat production issues effectively. With end-to-end visibility, distributed tracing is meant to level up your debugging power!
+We, Bedrock, already been using distributed tracings for a while in our PHP codebase, which allow us to rapidly debug and understand problems in production when incidents happen ;)&lt;/p&gt;
+
+&lt;h2 id=&quot;the-hackers-guide-to-jwt-security&quot;&gt;The Hacker’s Guide to JWT Security&lt;/h2&gt;
+&lt;p&gt;JSON Web Tokens (JWTs) come with their own set of caveats that need to be carefully considered to ensure a robust security level.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-pronunciation-puzzle-how-to-pronounce-jwt&quot;&gt;The Pronunciation Puzzle: How to Pronounce JWT?&lt;/h3&gt;
+&lt;p&gt;Before we dive into the security aspects of JWTs, let’s clarify a common query: how do you pronounce JWT? According to the standards outlined in RFC 7519, JWT is pronounced as “jot”. So, the next time you discuss JWTs, remember it’s neither three separate letters nor “JWT Token” as some say in France…, but a concise “jot”.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-encoding-vs-encryption-distinction&quot;&gt;The Encoding vs. Encryption Distinction&lt;/h3&gt;
+&lt;p&gt;One fundamental fact about JWTs is that they are designed for encoding, not encryption. This means that the data contained within a JWT is base64url encoded, which allows easy transmission between parties, but it’s not encrypted in a way that prevents unauthorized access to the actual content.&lt;/p&gt;
+
+&lt;h4 id=&quot;1-the-none-algorithm&quot;&gt;1. The “none” Algorithm&lt;/h4&gt;
+&lt;p&gt;In scenarios where the backend fails to verify the algorithm before checking the claims within the JWT, an attacker can exploit this weakness and craft a forged token. This issue lies not just in the hands of the RFC specifications but also in implementation.&lt;/p&gt;
+
+&lt;p&gt;To address this concern, it’s imperative to implement rigorous checks at the backend level. Verification of the algorithm should precede the verification of claims. This approach ensures that only tokens with valid algorithms are processed, mitigating the risk of unauthorized access.&lt;/p&gt;
+
+&lt;h4 id=&quot;2-hs256-passwordkey-cracking-vulnerability&quot;&gt;2. HS256: Password/Key Cracking Vulnerability&lt;/h4&gt;
+&lt;p&gt;This algorithm employs a shared secret key for both encoding and decoding, making it susceptible to password or key cracking attacks. What’s particularly concerning is that even a single compromised token can lead to offline attacks, where no communication with the server is necessary while craking.&lt;/p&gt;
+
+&lt;p&gt;To counter this threat, regularly update and rotate the secret keys, ensuring that even if one key is compromised, the potential damage is limited.&lt;/p&gt;
+
+&lt;h4 id=&quot;3-man-in-the-middle-on-internal-networks&quot;&gt;3. Man in the Middle on Internal Networks&lt;/h4&gt;
+&lt;p&gt;In a man-in-the-middle attack scenario, an attacker can intercept and manipulate JWTs exchanged within an unsecured network, potentially gaining unauthorized access.&lt;/p&gt;
+
+&lt;p&gt;To minimise this risk, it’s recommended to adopt secure communication protocols such as HTTPS. Additionally, implementing strict network segmentation and proper access controls can minimize the attack surface within internal networks.&lt;/p&gt;
+
+&lt;h4 id=&quot;4-xss-vulnerabilities-safeguarding-tokens&quot;&gt;4. XSS Vulnerabilities: Safeguarding Tokens&lt;/h4&gt;
+&lt;p&gt;Storing JWTs in local storage, which can be accessed by scripts, worsen this risk to counter XSS threats: consider using cookies to store JWTs. Cookies are less susceptible to XSS attacks, as their content cannot be directly accessed by Javascript scripts.&lt;/p&gt;
+
+&lt;p&gt;By adopting this practice, the risk of token theft through XSS is substantially reduced.&lt;/p&gt;
+
+&lt;p&gt;To sum up, Bedrock already adapted these principles for a while, but nevertheless it was great to remind myself to think about security and vulnerabilities around JWTs.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-not-to-write-a-test-in-go&quot;&gt;How NOT to Write a Test in Go&lt;/h2&gt;
+
+&lt;p&gt;Amir Malka stated that adhering to these practices elevates Go testing from trivial to masterful. Effective testing enhances code reliability and development predictability. Embracing these guidelines lays the foundation for successful software projects.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-testing&quot;&gt;Why Testing?&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tests uncover bugs and validate code changes.&lt;/li&gt;
+  &lt;li&gt;Tests build confidence in code correctness.&lt;/li&gt;
+  &lt;li&gt;Tests serve as living documentation, illustrating code behavior.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;key-testing-principles&quot;&gt;Key Testing Principles&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Fixture Placement:&lt;/strong&gt; Organize test fixtures in a dedicated &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;testdata&lt;/code&gt; directory, avoided by compiler.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Structured Tests:&lt;/strong&gt; Embrace table-driven tests for readability and comprehensive coverage.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Parallelism:&lt;/strong&gt; Use caution with parallel tests to avoid unintended interactions.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Test Suites:&lt;/strong&gt; Employ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;testing.M&lt;/code&gt; for related tests and control setup/teardown with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TestMain&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Categorization:&lt;/strong&gt; Use build tags or environment variables to categorize and skip tests.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Concurrency Safety:&lt;/strong&gt; Detect data races with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-race&lt;/code&gt; flag during testing.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Effective Mocking:&lt;/strong&gt; Benefit from embedded interfaces for accurate mocks.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Randomizing Tests:&lt;/strong&gt; Introduce randomness with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-shuffle&lt;/code&gt; flag to uncover hidden issues.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Benchmarks:&lt;/strong&gt; Gauge code performance with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;testing.B&lt;/code&gt;, setup/teardown carefully.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Test Automation:&lt;/strong&gt; Automate tests in CI pipelines to maintain consistent quality.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Code Coverage:&lt;/strong&gt; Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-cover&lt;/code&gt; flag to monitor and improve test coverage.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Coming from PHP, I never thought about parallelism or Benchmarks while writing tests on a daily basis. All of these testing principles will help me and hopefully my team (when they would have read this post!) to write test the “Go way”.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;In closing, my journey through GopherCon UK 2023 has been as exciting as tiring for my first Golang Conference. I thank a lot Bedrock for affording me the opportunity to partake in this experience. Participating in this event helped me to dive deeper into the world of Go and will enhance my professional growth.&lt;/p&gt;
+
+&lt;p&gt;To the organizers of GopherCon UK 2023, your planning and dedication have resulted in a seamless event. Every aspect has been orchestrated to perfection. Congrats to you ! Also, thanks to the sponsors, for continuing to take part in these events during financially hard times.&lt;/p&gt;
+
+&lt;p&gt;As I return to my daily routine armed with the knowledge gained, I am excited to share these learnings with my colleagues and hope to contribute even more effectively to my team. GopherCon UK 2023 has not only expanded my knowledge but has also strengthened my enthusiasm for Go.&lt;/p&gt;
+
+&lt;p&gt;GopherCon UK 2024, hopefully, here I come (with other of my colleagues) ! Cheers!&lt;/p&gt;</content><author><name>Pierre-Alain BEDU</name></author><category term="conference" /><category term="london" /><category term="tech" /><category term="golang" /><category term="go" /><summary type="html">Hello there! I’m Pierre-Alain, a senior back-end developer at Bedrock and I had the opportunity to go to London for the GopherCon UK.</summary></entry><entry><title type="html">Bedrock at We Love Speed 2023</title><link href="https://tech.bedrockstreaming.com/2023/08/11/we-love-speed-2023.html" rel="alternate" type="text/html" title="Bedrock at We Love Speed 2023" /><published>2023-08-11T00:00:00+00:00</published><updated>2023-08-11T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/08/11/we-love-speed-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/08/11/we-love-speed-2023.html">&lt;p&gt;The Frontend Bedrock teams were present at the 2023 edition of the &lt;em&gt;We Love Speed&lt;/em&gt; conference in Paris on May 10. Its aim is to share as widely as possible knowledge and experience in the field of web performance.&lt;/p&gt;
 
 &lt;p&gt;Webperf, or web performance, refers to the set of techniques and best practices aimed at optimizing the loading speed and user experience (UX) of websites. It covers various aspects such as page loading time, interface responsiveness, animation fluidity, server request processing capacity, etc.&lt;/p&gt;
 
@@ -1045,16 +1454,4 @@ Mais il existe aussi des pratiques reconnues dans notre milieu telles que l’&l
   &lt;p&gt;Je passerai rapidement sur toutes ces techniques, en comparant leurs performances et utilisations possibles, afin de vous laisser la liberté d’explorer plus en profondeur celles qui vous intéressent.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Présenté par &lt;a href=&quot;https://github.com/jsulpis&quot;&gt;Julien Sulpis&lt;/a&gt;.&lt;/p&gt;</content><author><name>Julien Sulpis</name></author><category term="lft" /><category term="tech" /><summary type="html">Parfois subtiles, parfois proéminentes, les animations sont un élément essentiel pour une expérience utilisateur agréable. Mais une fois qu’on a imaginé des animations plus ou moins folles, vient la question fatidique du “comment fait-on ça ?”, à laquelle j’aimerais vous aider à répondre. Pour pouvoir choisir la technique la mieux adaptée à chaque animation, il vaut mieux avoir une boîte à outils la plus complète possible. J’aimerais vous aider à construire la vôtre en vous présentant un panel le plus large possible de techniques d’animation sur le web : des APIs natives classiques (CSS, Web Animation API) aux plus complexes (Canvas API) en passant par les librairies spécialisées (FLIP, Lottie, Framer Motion, Rive…). Nous finirons avec WebGL et ses shaders GLSL, qui feraient trembler plus d’un développeur mais dont on retrouve les effets impressionnants sur tous les sites récompensés aux Awwwards. Je passerai rapidement sur toutes ces techniques, en comparant leurs performances et utilisations possibles, afin de vous laisser la liberté d’explorer plus en profondeur celles qui vous intéressent.</summary></entry><entry><title type="html">Situations conflictuelles : et si vous sortiez de la spirale infernale ? #LFT 02/06/23</title><link href="https://tech.bedrockstreaming.com/situations-conflictuelles" rel="alternate" type="text/html" title="Situations conflictuelles : et si vous sortiez de la spirale infernale ? #LFT 02/06/23" /><published>2023-06-02T00:00:00+00:00</published><updated>2023-06-02T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/situations-conflictuelles</id><content type="html" xml:base="https://tech.bedrockstreaming.com/situations-conflictuelles">&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Persécuteur, victime, sauveur… lequel êtes-vous ?&lt;/strong&gt;&lt;/p&gt;
-
-  &lt;p&gt;La situation suivante vous parle ?&lt;/p&gt;
-
-  &lt;p&gt;“J’en ai marre ! Quand je demande de la revue sur mon travail, les gens de mon équipe ne me donnent jamais de retours et je dois toujours les relancer au moins 10 fois avant d’obtenir une réponse… Heureusement que Michel, mon ancien collègue super sympa qui est maintenant dans l’équipe Warrior continue à me répondre, lui !”&lt;/p&gt;
-
-  &lt;p&gt;Oui ? C’est normal. Inconsciemment, nous jouons les rôles de persécuteur, victime ou sauveur. Et nos interactions en souffrent : rien de constructif ne peut émerger de cette spirale infernale.&lt;/p&gt;
-
-  &lt;p&gt;Apprenons à identifier ces rôles pour comprendre leurs effets sur nos relations avec nos collègues, puis nous explorerons comment en sortir pour des interactions plus constructives et positives. Mettons fin à cette spirale infernale !&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Par Elodie Perrin&lt;/p&gt;</content><author><name>Élodie Perrin</name></author><category term="lft" /><category term="tech" /><summary type="html">Persécuteur, victime, sauveur… lequel êtes-vous ? La situation suivante vous parle ? “J’en ai marre ! Quand je demande de la revue sur mon travail, les gens de mon équipe ne me donnent jamais de retours et je dois toujours les relancer au moins 10 fois avant d’obtenir une réponse… Heureusement que Michel, mon ancien collègue super sympa qui est maintenant dans l’équipe Warrior continue à me répondre, lui !” Oui ? C’est normal. Inconsciemment, nous jouons les rôles de persécuteur, victime ou sauveur. Et nos interactions en souffrent : rien de constructif ne peut émerger de cette spirale infernale. Apprenons à identifier ces rôles pour comprendre leurs effets sur nos relations avec nos collègues, puis nous explorerons comment en sortir pour des interactions plus constructives et positives. Mettons fin à cette spirale infernale !</summary></entry></feed>
+&lt;p&gt;Présenté par &lt;a href=&quot;https://github.com/jsulpis&quot;&gt;Julien Sulpis&lt;/a&gt;.&lt;/p&gt;</content><author><name>Julien Sulpis</name></author><category term="lft" /><category term="tech" /><summary type="html">Parfois subtiles, parfois proéminentes, les animations sont un élément essentiel pour une expérience utilisateur agréable. Mais une fois qu’on a imaginé des animations plus ou moins folles, vient la question fatidique du “comment fait-on ça ?”, à laquelle j’aimerais vous aider à répondre. Pour pouvoir choisir la technique la mieux adaptée à chaque animation, il vaut mieux avoir une boîte à outils la plus complète possible. J’aimerais vous aider à construire la vôtre en vous présentant un panel le plus large possible de techniques d’animation sur le web : des APIs natives classiques (CSS, Web Animation API) aux plus complexes (Canvas API) en passant par les librairies spécialisées (FLIP, Lottie, Framer Motion, Rive…). Nous finirons avec WebGL et ses shaders GLSL, qui feraient trembler plus d’un développeur mais dont on retrouve les effets impressionnants sur tous les sites récompensés aux Awwwards. Je passerai rapidement sur toutes ces techniques, en comparant leurs performances et utilisations possibles, afin de vous laisser la liberté d’explorer plus en profondeur celles qui vous intéressent.</summary></entry></feed>
