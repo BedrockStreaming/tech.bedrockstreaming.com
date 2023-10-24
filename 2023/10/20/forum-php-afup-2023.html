@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/forumphp2023/header.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Bedrock au Forum PHP 2023 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Bedrock au Forum PHP 2023" />
+<meta name="author" content="Backend teams" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Nos retours du Forum PHP à Paris, les 12 et 13 octobre 2023" />
+<meta property="og:description" content="Nos retours du Forum PHP à Paris, les 12 et 13 octobre 2023" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2023/10/20/forum-php-afup-2023.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2023/10/20/forum-php-afup-2023.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-10-20T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Bedrock au Forum PHP 2023" />
+<script type="application/ld+json">
+{"description":"Nos retours du Forum PHP à Paris, les 12 et 13 octobre 2023","headline":"Bedrock au Forum PHP 2023","dateModified":"2023-10-20T00:00:00+00:00","datePublished":"2023-10-20T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2023/10/20/forum-php-afup-2023.html"},"url":"https://tech.bedrockstreaming.com/2023/10/20/forum-php-afup-2023.html","author":{"@type":"Person","name":"Backend teams"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Bedrock au Forum PHP 2023">
+    <meta name="twitter:description" content="Cette année encore, Bedrock était présent au Forum PHP pour cette édition 2023.Nous étions sept au total : trois organisateurs, trois visiteurs et une confér...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/forumphp2023/header.jpg">
+    <meta name="twitter:image:alt" content="Bedrock au Forum PHP 2023">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Bedrock au Forum PHP 2023 " aria-label="Bedrock au Forum PHP 2023" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Bedrock+au+Forum+PHP+2023" class="title">Bedrock au Forum PHP 2023</h1>
+      <div class="post-info">
+
+
+<span class="author">
+
+    
+      <span class="name">
+        Backend teams
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    October 20, 2023
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Cette année encore, Bedrock était présent au Forum PHP pour cette édition 2023.</p>
+
+<p>Nous étions sept au total : trois organisateurs, trois visiteurs et une conférencière, Pauline Rambaud.</p>
+
+<h2 id="les-conférences-que-lon-retient">Les conférences que l’on retient</h2>
+
+<h3 id="why-is-php-still-awesome-in-2023-">Why is PHP still awesome in 2023 ?</h3>
+
+<blockquote>
+  <p>Conférence présentée par <a href="https://twitter.com/fkarlitschek">Frank Karlitschek</a>, co-fondateur de <a href="https://nextcloud.com">NextCloud</a></p>
+</blockquote>
+
+<p>La conférence s’est divisée en deux parties que l’on pourrait résumer de la
+manière suivante :</p>
+<ul>
+  <li>Une présentation assez détaillée de ce qu’est <em>NextCloud</em></li>
+  <li>Pourquoi le choix de <code class="language-plaintext highlighter-rouge">PHP</code>🐘 pour <code class="language-plaintext highlighter-rouge">NextCloud</code> ?</li>
+</ul>
+
+<h4 id="nextcloud">NextCloud</h4>
+
+<p><code class="language-plaintext highlighter-rouge">NextCloud</code> est un outil comparable à <em>Google Workspace</em>, car il permet la gestion
+de fichiers partagés, de documents de type Office, et propose aussi des outils
+de conversations textuelles et d’appels vidéos.</p>
+
+<p>Il existe en version desktop bien sûr, mais aussi en version mobile.
+On peut noter qu’il est utilisé par le <em>Gouvernement Français</em>, ou encore
+<em>l’Union Européenne</em>.</p>
+
+<p>En somme, il constitue aujourd’hui une alternative crédible à ses concurrents
+Américains ou Chinois.</p>
+
+<p>Une de ses différences majeure toutefois est qu’il est <em>open-source</em>.</p>
+
+<h4 id="pourquoi-choisir-php-pour-nextcloud-">Pourquoi choisir PHP pour NextCloud ?</h4>
+
+<p>Les raisons que Frank nous donne sont les suivantes :</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">PHP</code>🐘 est facile à déployer</li>
+  <li>Il est indépendant (il n’appartient pas à Google)</li>
+  <li>Son isolation des process garantie une bonne scalabilité</li>
+  <li>Il propose une bonne courbe d’apprentissage</li>
+  <li>Il évolue depuis longtemps et est donc robuste</li>
+  <li>Il a derrière lui une grosse communauté de développeur</li>
+  <li>Un important écosystème d’intégration et de frameworks</li>
+</ul>
+
+<p>Il évoque toutefois quelques limites qui subsistent à son sens :</p>
+
+<ul>
+  <li>il reste (de moins en moins) facile d’écrire du code non sécurisé, malgré
+le système de typehinting ou les enums</li>
+  <li>il reste des incohérences, par exemple dans les <code class="language-plaintext highlighter-rouge">array functions</code></li>
+  <li>il reste très limité dans la programmation fonctionnelle</li>
+</ul>
+
+<p>Toutefois, Franck conclura sur le fait que sans <code class="language-plaintext highlighter-rouge">PHP</code>, <code class="language-plaintext highlighter-rouge">NextCloud</code> n’aurait
+jamais été possible.</p>
+
+<h3 id="augmentez-votre-couverture--supprimez-des-tests">Augmentez votre couverture : supprimez des tests</h3>
+
+<p><img src="/images/posts/forumphp2023/augmentez-votre-couverture.jpeg" alt="Baptiste Langlade" /></p>
+
+<blockquote>
+  <p>Conférence présentée par <a href="https://twitter.com/Baptouuuu">Baptiste Langlade</a></p>
+</blockquote>
+
+<p>Avez-vous déjà été confronté à la problématique de l’augmentation exponentielle
+du nombre de tests de votre projet, et par conséquent, de l’augmentation du temps
+d’exécution de vos tests ?</p>
+
+<p>Ce fut le cas de Baptiste dans l’Application de gestion de Documents à laquelle
+il a participé.</p>
+
+<h4 id="vive-le-hasard">Vive le hasard</h4>
+
+<p>Sa réponse à ce problème fut la suivante : <em>jouer des tests au hasard</em>, autrement
+dit faire du <code class="language-plaintext highlighter-rouge">Property Based Testing</code>.</p>
+
+<p>L’idée est de générer aléatoirement des données pour couvrir le plus de cas
+possible.</p>
+
+<p>Ensuite, on écrit un test si un bug survient.</p>
+
+<p>Cette approche se base sur la fameuse loi de Murphy qui veut que lorsqu’un problème
+doit survenir, il arrive toujours trop tôt.</p>
+
+<p>On mise donc sur l’aléatoire pour faire remonter les bugs plus rapidement.
+Ainsi, on détermine que pour tout ensemble de donnée X, l’ensemble des tests
+doit être vrai.</p>
+
+<h4 id="blackbox">Blackbox</h4>
+
+<p>De cette approche est née <a href="https://github.com/Innmind/BlackBox">Blackbox</a>, une
+librairie compatible <code class="language-plaintext highlighter-rouge">PHPUnit</code> permettant de faciliter et d’automatiser la mise
+en place de tests basée sur le <code class="language-plaintext highlighter-rouge">Property Based Testing</code>.</p>
+
+<p>Elle permet notamment de faire en sorte que les jeux de données que l’on va
+insérer en input peuvent être vraiment divers et variés, et provoquer des
+cas critiques non répertoriés.</p>
+
+<p>Résultat : plus on joue les tests, plus notre confiance grandit dans l’application.</p>
+
+<h3 id="comment-contribuer-à-php-en-2023--georges-banyard">Comment contribuer à PHP en 2023 ? Georges Banyard</h3>
+
+<p><img src="/images/posts/forumphp2023/contribuer-a-php-en-2023.jpeg" alt="Georges Banyard" /></p>
+
+<blockquote>
+  <p>Conférence présentée par <a href="https://twitter.com/Girgias">Georges Banyard</a></p>
+</blockquote>
+
+<p>Tout d’abord Georges Banyard a introduit la notion de compilation minimale de PHP en C, pour cela il a utilisé son blog
+et nous a présenté les choses importantes à connaitre.</p>
+
+<p>Puis, il a fait la présentation du code source de PHP et du moteur de recherche qu’il utilise.</p>
+
+<p>Ensuite, il a commencé à nous montrer quelques ressources auxquelles se réferer si nous désirons contribuer à PHP.</p>
+
+<p>Rappelons que PHP est un langage de programmation open-source et que toute personne désireuse de l’améliorer peut
+proposer une implémentation.</p>
+
+<p>Les ressources que nous pourrions utiliser si notre souhait était de créer une nouvelle fonction dans PHP seraient :</p>
+
+<ul>
+  <li>des articles sur Zend (https://www.zend.com/resources/writing-php-extensions)</li>
+  <li>le PHP internal books (https://www.phpinternalsbook.com/)</li>
+  <li>ou bien encore la “Room 11” sur Stackoverflow où se retrouve de nombreux contributeurs PHP.</li>
+</ul>
+
+<p>Georges Banyard est ensuite passé à la pratique et a codé en direct une nouvelle fonction de tri dans un
+tableau <code class="language-plaintext highlighter-rouge">array_search</code>. Le but de cette conférence était de démystifier la contribution à PHP et de montrer aux gens que
+finalement ce n’est pas si compliqué, il suffit de plonger dedans !</p>
+
+<h3 id="utilisez-la-bibliothèque-standard-php-spl-au-quotidien">Utilisez la bibliothèque standard PHP (SPL) au quotidien</h3>
+
+<p><img src="/images/posts/forumphp2023/bibliotheque-standard-psl.jpeg" alt="Florian Merle" /></p>
+
+<blockquote>
+  <p>Conférence présentée par <a href="https://twitter.com/florianm__">Florian Merle</a></p>
+</blockquote>
+
+<p>La bibliothèque <a href="https://www.php.net/manual/fr/book.spl.php">SPL</a> ça vous dit quelque
+chose ? En réalité, vous l’utilisez déjà au quotidien à travers les <code class="language-plaintext highlighter-rouge">Exceptions</code>
+ou bien la fonction <code class="language-plaintext highlighter-rouge">spl_autoload_register</code> par exemple, mais Florian est venu
+nous parler de certains aspects moins connus et pourtant très utiles.</p>
+
+<h4 id="les-structures-de-données">Les structures de données</h4>
+
+<p>La plus évidente et la plus connue, qui a sans doute contribué à la facilité
+d’accès de <code class="language-plaintext highlighter-rouge">PHP</code>🐘 est bien évidemment l’<code class="language-plaintext highlighter-rouge">array</code>. Mais si son avantage majeur
+est le fait qu’il soit multi-usage, il se révèle en réalité assez peu optimisé
+pour les gros volumes de données.</p>
+
+<p>D’autres structures telles que les listes doublements chaînées
+(<a href="https://www.php.net/manual/fr/class.spldoublylinkedlist.php">SplDoublyLinkedList</a>),
+ou les <code class="language-plaintext highlighter-rouge">Heaps</code> (<a href="https://www.php.net/manual/fr/class.splheap.php">SplHeap</a>,
+<a href="https://www.php.net/manual/fr/class.splpriorityqueue.php">SplPriorityQueue</a> ont
+été abordées, mais on constate rapidement qu’elles présentent l’inconvénient majeur
+d’avoir de mauvaises performances par rapport à <code class="language-plaintext highlighter-rouge">array</code> et des nommages de méthode
+peu intuitif.</p>
+
+<h4 id="php-ds">PHP DS</h4>
+
+<p>Une alternative intéressante est <a href="https://www.php.net/manual/fr/book.ds.php">DS</a>,
+qui ne présente pas de problème de gestion de priorité et de meilleures performances.</p>
+
+<p>Florian nous a présenté notamment <a href="https://www.php.net/manual/en/class.ds-priorityqueue.php">DS\PriorityQueue</a>
+et <a href="https://www.php.net/manual/en/class.ds-vector">DS\Vector</a>, qui constitue une
+alternative intéressante à <code class="language-plaintext highlighter-rouge">array</code>.</p>
+
+<h4 id="les-iterators">Les iterators</h4>
+
+<p>Enfin, nous avons vu les iterators de la SPl avec :</p>
+
+<ul>
+  <li><a href="https://www.php.net/manual/fr/class.iteratoraggregate">IteratorAggregate</a>
+qui permet d’appliquer un traitement éventuel sur le tableau</li>
+  <li><a href="https://www.php.net/manual/fr/class.appenditerator">AppendIterator</a>
+qui permet d’insérer d’autres itérateurs</li>
+  <li><a href="https://www.php.net/manual/fr/class.iteratoriterator.php">IteratorIterator</a>
+qui renvoie un autre Iterator</li>
+  <li><a href="https://www.php.net/manual/fr/class.infiniteiterator.php">InfiniteIterator</a>
+qui permet de boucler à l’infini (pensez à la fonction lecture en boucle de votre player audio)</li>
+  <li><a href="https://www.php.net/manual/fr/class.callbackfilteriterator.php">CallbackFilterIterator</a>
+qui permet de filtrer les données à l’aide d’une callback.</li>
+</ul>
+
+<h3 id="apprendre-à-apprendre--petit-dev-deviendra-grand---aline-leroy">Apprendre à apprendre : petit dev deviendra grand - Aline Leroy</h3>
+
+<blockquote>
+  <p>Conférence présentée par Aline Leroy</p>
+</blockquote>
+
+<p>Aline Leroy nous parle ici de sa reconversion, et des différentes expériences qu’elle a vécues au cours de son
+apprentissage du code. Elle nous donne plein d’astuces et de clés pour améliorer notre façon d’apprendre et de
+travailler notre plasticité cérébrale. Tout d’abord, il faut gérer son temps, alterner concentration et dispersion, et
+comprendre qu’apprendre c’est créer des liens et des images mentales.</p>
+
+<p>Aline Leroy nous conseille de commencer par faire une introspection afin de déterminer quels sont nos points forts et
+faibles, quels sont nos objectifs et puis pour comprendre son propre fonctionnement. Ensuite, il faut faire preuve de
+curiosité et ne pas se limiter à un domaine (pensez création de lien, plus le champ est grand, plus vous allez faire
+des connexions). Nous pourrons aussi choisir de travailler par découpage, une partie des choses à apprendre, nous allons
+devoir travailler notre mémoire. Il est aussi important que l’apprentissage soit une démarche active, prise de notes,
+recherche, ne pas catégoriser et surtout, c’est un processus qui demande de la régularité.</p>
+
+<p>Elle insiste sur l’aspect bien-être qui est très important pour apprendre, se mettre au calme, couper ses notifications
+et puis on prend des pauses, car c’est là que tout le travail de liaison neuronale se fait. Une pause sportive et encore
+plus recommandée, bien sûr ces temps de dispersion doivent être sur un temps maitrisé.</p>
+
+<h3 id="you-build-it-you-run-it-lobservabilité-pour-les-devs">You Build It, You Run It, l’observabilité pour les devs</h3>
+
+<p><img src="/images/posts/forumphp2023/you-build-it-you-run-it.jpeg" alt="Smaine Milianni" /></p>
+
+<blockquote>
+  <p>Conférence présentée par <a href="https://twitter.com/SmaineDev">Smaine Milianni</a>, développeur chez Yousign</p>
+</blockquote>
+
+<p>L’observabilité est quelque chose de très important chez Bedrock, c’est pourquoi cette conférence était très
+intéressante.</p>
+
+<p>Smaine a découpé sa conférence en posant trois questions : pourquoi, comment et qui ?</p>
+
+<h4 id="pourquoi-faire-de-lobservabilité-">Pourquoi faire de l’observabilité ?</h4>
+
+<p>Une application va forcément planter à un moment, nous dit Smaine pour répondre à sa première question.</p>
+
+<p>L’observabilité permet non seulement de diminuer les risques que cela arrive, mais aussi d’anticiper les problèmes en
+amont.</p>
+
+<p>Au-delà des plantages, l’observabilité ouvre la porte à d’autres formes d’analyses :</p>
+<ul>
+  <li>détecter les problèmes/changements de performance</li>
+  <li>capter les comportements inhabituels</li>
+  <li>ou simplement s’assurer qu’un système fonctionne correctement</li>
+</ul>
+
+<h4 id="comment-fait-on-">Comment fait-on ?</h4>
+
+<p>Habituellement, l’observabilité s’appuie sur trois piliers : les logs, les métriques et les traces, auxquels Smaine
+ajoute un quatrième : les alertes.</p>
+
+<p>Pour résumer ces différents piliers :</p>
+<ul>
+  <li>les logs doivent être lus, et donc être disponibles dans un outil dédié</li>
+  <li>les métriques permettent d’observer l’état de santé d’une application
+    <ul>
+      <li>elles peuvent être techniques (CPU, temps de réponse d’une URL, etc)</li>
+      <li>ou métier (nombre de ventes par jour, nombre d’inscriptions, etc)</li>
+    </ul>
+  </li>
+  <li>les traces permettent de suivre le comportement d’une application
+    <ul>
+      <li>par exemple pour une requête HTTP, on aurait le temps passé dans chaque couche technique (base de données, un
+controller PHP, lecture de cache, etc)</li>
+    </ul>
+  </li>
+  <li>Et enfin, les alertes
+    <ul>
+      <li>elles ne doivent être envoyées qu’en cas de problème (pour éviter de lasser les lecteurs)</li>
+      <li>elles peuvent se baser sur les métriques (même métier)</li>
+      <li>elles peuvent être liées aux logs et aux traces pour aider à les comprendre</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Smaine nous a également rapidement parlé des post mortems, qui sont essentiels après un incident pour apprendre des
+erreurs et ne pas les reproduire.</p>
+
+<h4 id="qui-est-responsable-de-la-mise-en-place-">Qui est responsable de la mise en place ?</h4>
+
+<p>L’entreprise de Smaine, Yousign, a une organisation sous forme de squads.
+Un squad est composé de plusieurs métiers : dev, devops, PO, designer, chef de projet, etc.</p>
+
+<p>Ils sont alors responsables à la fois de leur périmètre, mais aussi de son observabilité. En gardant cette
+responsabilité au sein d’un squad, les équipes sont plus attentives et réactives en cas d’incident.</p>
+
+<h3 id="les-femmes-et-le-numérique">Les femmes et le numérique</h3>
+
+<p><img src="/images/posts/forumphp2023/les-femmes-et-le-numerique.jpeg" alt="Isabelle Collet" /></p>
+
+<blockquote>
+  <p>Conférence présentée par <a href="https://twitter.com/colletisabelle4">Isabelle Collet</a></p>
+</blockquote>
+
+<p>Isabelle Collet est ancienne développeuse et sociologue épanouie comme elle le dit elle-même. Ce qui lui donne matière à
+nous expliquer beaucoup de choses sur “le choix des femmes de ne pas venir dans la tech”. Et bien, oui, pourquoi
+sont-elles réticentes ?</p>
+
+<p>Tout d’abord, Isabelle Collet nous parle de pays qui sont des contre-exemples, comme en Malaisie où les femmes sont la
+majorité des postes informatiques et de développement, elles sont aussi responsables d’Université. Globalement, dans
+certains pays d’Asie, les femmes sont fortement représentées dans le secteur tertiaire, et pourquoi ?
+Car ces métiers sont considérés comme des “métiers de femmes”, non salissant, pas physique et surtout possibilité de
+télétravail ce qui leur permet de s’occuper de leur famille.</p>
+
+<p>Puis grâce à un petit retour dans le passé, nous découvrons que les femmes au départ étaient très présentes dans
+l’informatique et plus précisément dans le développement. Les hommes étaient chargés de la conception des ordinateurs,
+ce qui était bien vu dans la société, mais la programmation était un poste considéré comme inférieur. Ce qui va changer
+cela est l’apparition du micro-ordinateur qui va inverser la tendance et les hommes vont devenir plus nombreux à coder
+et les femmes vont progressivement “disparaître” du paysage informatique.</p>
+
+<p>Pour remédier à cela, Isabelle Collet nous présente deux initiatives universitaires où pour rééquilibrer le taux
+hommes/femmes des quotas ont été imposés pendant une dizaine d’années. Aujourd’hui l’équilibre de candidats se fait
+naturellement.</p>
+
+<p>En conclusion, les choses évoluent si on veut bien les faire évoluer. Il faut continuer les efforts d’inclusion et la
+lutte pour que les femmes soient plus nombreuses dans la tech.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Cette année, la fresque LEGO a célébré la diversité des membres de l’AFUP et bien sûr le PHP.</p>
+
+<p>Ce forum fût l’occasion d’échanger avec de nombreuses personnes, de découvrir des sujets aussi bien techniques que
+sociétaux. On ne peut que féliciter les conférencier·e·s et les bénévoles pour un Forum PHP encore très réussi !</p>
+
+<p><img src="/images/posts/forumphp2023/fresque-lego-communautaire.jpeg" alt="La fresque LEGO communautaire" /></p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Bedrock+au+Forum+PHP+2023%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2023%2F10%2F20%2Fforum-php-afup-2023.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2023/10/20/forum-php-afup-2023.html&title=Bedrock+au+Forum+PHP+2023%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2023/10/20/forum-php-afup-2023.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Bedrock au Forum PHP 2023%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2023/10/20/forum-php-afup-2023.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#afup">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> afup</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#forumphp">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> forumphp</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#php">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> php</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="GopherCon UK 2023 highlights" href="/2023/08/12/gophercon-uk-london-2023.html">
+            <p>Next post</p>
+            GopherCon UK 2023 highlights
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

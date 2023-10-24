@@ -1,4 +1,319 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-08-30T08:34:15+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">GopherCon UK 2023 highlights</title><link href="https://tech.bedrockstreaming.com/2023/08/12/gophercon-uk-london-2023.html" rel="alternate" type="text/html" title="GopherCon UK 2023 highlights" /><published>2023-08-12T00:00:00+00:00</published><updated>2023-08-12T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/08/12/gophercon-uk-london-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/08/12/gophercon-uk-london-2023.html">&lt;p&gt;Hello there! I’m Pierre-Alain, a senior back-end developer at Bedrock and I had the opportunity to go to London for the GopherCon UK.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-10-24T12:30:31+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock au Forum PHP 2023</title><link href="https://tech.bedrockstreaming.com/2023/10/20/forum-php-afup-2023.html" rel="alternate" type="text/html" title="Bedrock au Forum PHP 2023" /><published>2023-10-20T00:00:00+00:00</published><updated>2023-10-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/10/20/forum-php-afup-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/10/20/forum-php-afup-2023.html">&lt;p&gt;Cette année encore, Bedrock était présent au Forum PHP pour cette édition 2023.&lt;/p&gt;
+
+&lt;p&gt;Nous étions sept au total : trois organisateurs, trois visiteurs et une conférencière, Pauline Rambaud.&lt;/p&gt;
+
+&lt;h2 id=&quot;les-conférences-que-lon-retient&quot;&gt;Les conférences que l’on retient&lt;/h2&gt;
+
+&lt;h3 id=&quot;why-is-php-still-awesome-in-2023-&quot;&gt;Why is PHP still awesome in 2023 ?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par &lt;a href=&quot;https://twitter.com/fkarlitschek&quot;&gt;Frank Karlitschek&lt;/a&gt;, co-fondateur de &lt;a href=&quot;https://nextcloud.com&quot;&gt;NextCloud&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;La conférence s’est divisée en deux parties que l’on pourrait résumer de la
+manière suivante :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Une présentation assez détaillée de ce qu’est &lt;em&gt;NextCloud&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;Pourquoi le choix de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PHP&lt;/code&gt;🐘 pour &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NextCloud&lt;/code&gt; ?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;nextcloud&quot;&gt;NextCloud&lt;/h4&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NextCloud&lt;/code&gt; est un outil comparable à &lt;em&gt;Google Workspace&lt;/em&gt;, car il permet la gestion
+de fichiers partagés, de documents de type Office, et propose aussi des outils
+de conversations textuelles et d’appels vidéos.&lt;/p&gt;
+
+&lt;p&gt;Il existe en version desktop bien sûr, mais aussi en version mobile.
+On peut noter qu’il est utilisé par le &lt;em&gt;Gouvernement Français&lt;/em&gt;, ou encore
+&lt;em&gt;l’Union Européenne&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;En somme, il constitue aujourd’hui une alternative crédible à ses concurrents
+Américains ou Chinois.&lt;/p&gt;
+
+&lt;p&gt;Une de ses différences majeure toutefois est qu’il est &lt;em&gt;open-source&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;pourquoi-choisir-php-pour-nextcloud-&quot;&gt;Pourquoi choisir PHP pour NextCloud ?&lt;/h4&gt;
+
+&lt;p&gt;Les raisons que Frank nous donne sont les suivantes :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PHP&lt;/code&gt;🐘 est facile à déployer&lt;/li&gt;
+  &lt;li&gt;Il est indépendant (il n’appartient pas à Google)&lt;/li&gt;
+  &lt;li&gt;Son isolation des process garantie une bonne scalabilité&lt;/li&gt;
+  &lt;li&gt;Il propose une bonne courbe d’apprentissage&lt;/li&gt;
+  &lt;li&gt;Il évolue depuis longtemps et est donc robuste&lt;/li&gt;
+  &lt;li&gt;Il a derrière lui une grosse communauté de développeur&lt;/li&gt;
+  &lt;li&gt;Un important écosystème d’intégration et de frameworks&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Il évoque toutefois quelques limites qui subsistent à son sens :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;il reste (de moins en moins) facile d’écrire du code non sécurisé, malgré
+le système de typehinting ou les enums&lt;/li&gt;
+  &lt;li&gt;il reste des incohérences, par exemple dans les &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;array functions&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;il reste très limité dans la programmation fonctionnelle&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Toutefois, Franck conclura sur le fait que sans &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PHP&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NextCloud&lt;/code&gt; n’aurait
+jamais été possible.&lt;/p&gt;
+
+&lt;h3 id=&quot;augmentez-votre-couverture--supprimez-des-tests&quot;&gt;Augmentez votre couverture : supprimez des tests&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/forumphp2023/augmentez-votre-couverture.jpeg&quot; alt=&quot;Baptiste Langlade&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par &lt;a href=&quot;https://twitter.com/Baptouuuu&quot;&gt;Baptiste Langlade&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Avez-vous déjà été confronté à la problématique de l’augmentation exponentielle
+du nombre de tests de votre projet, et par conséquent, de l’augmentation du temps
+d’exécution de vos tests ?&lt;/p&gt;
+
+&lt;p&gt;Ce fut le cas de Baptiste dans l’Application de gestion de Documents à laquelle
+il a participé.&lt;/p&gt;
+
+&lt;h4 id=&quot;vive-le-hasard&quot;&gt;Vive le hasard&lt;/h4&gt;
+
+&lt;p&gt;Sa réponse à ce problème fut la suivante : &lt;em&gt;jouer des tests au hasard&lt;/em&gt;, autrement
+dit faire du &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Property Based Testing&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;L’idée est de générer aléatoirement des données pour couvrir le plus de cas
+possible.&lt;/p&gt;
+
+&lt;p&gt;Ensuite, on écrit un test si un bug survient.&lt;/p&gt;
+
+&lt;p&gt;Cette approche se base sur la fameuse loi de Murphy qui veut que lorsqu’un problème
+doit survenir, il arrive toujours trop tôt.&lt;/p&gt;
+
+&lt;p&gt;On mise donc sur l’aléatoire pour faire remonter les bugs plus rapidement.
+Ainsi, on détermine que pour tout ensemble de donnée X, l’ensemble des tests
+doit être vrai.&lt;/p&gt;
+
+&lt;h4 id=&quot;blackbox&quot;&gt;Blackbox&lt;/h4&gt;
+
+&lt;p&gt;De cette approche est née &lt;a href=&quot;https://github.com/Innmind/BlackBox&quot;&gt;Blackbox&lt;/a&gt;, une
+librairie compatible &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PHPUnit&lt;/code&gt; permettant de faciliter et d’automatiser la mise
+en place de tests basée sur le &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Property Based Testing&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Elle permet notamment de faire en sorte que les jeux de données que l’on va
+insérer en input peuvent être vraiment divers et variés, et provoquer des
+cas critiques non répertoriés.&lt;/p&gt;
+
+&lt;p&gt;Résultat : plus on joue les tests, plus notre confiance grandit dans l’application.&lt;/p&gt;
+
+&lt;h3 id=&quot;comment-contribuer-à-php-en-2023--georges-banyard&quot;&gt;Comment contribuer à PHP en 2023 ? Georges Banyard&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/forumphp2023/contribuer-a-php-en-2023.jpeg&quot; alt=&quot;Georges Banyard&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par &lt;a href=&quot;https://twitter.com/Girgias&quot;&gt;Georges Banyard&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Tout d’abord Georges Banyard a introduit la notion de compilation minimale de PHP en C, pour cela il a utilisé son blog
+et nous a présenté les choses importantes à connaitre.&lt;/p&gt;
+
+&lt;p&gt;Puis, il a fait la présentation du code source de PHP et du moteur de recherche qu’il utilise.&lt;/p&gt;
+
+&lt;p&gt;Ensuite, il a commencé à nous montrer quelques ressources auxquelles se réferer si nous désirons contribuer à PHP.&lt;/p&gt;
+
+&lt;p&gt;Rappelons que PHP est un langage de programmation open-source et que toute personne désireuse de l’améliorer peut
+proposer une implémentation.&lt;/p&gt;
+
+&lt;p&gt;Les ressources que nous pourrions utiliser si notre souhait était de créer une nouvelle fonction dans PHP seraient :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;des articles sur Zend (https://www.zend.com/resources/writing-php-extensions)&lt;/li&gt;
+  &lt;li&gt;le PHP internal books (https://www.phpinternalsbook.com/)&lt;/li&gt;
+  &lt;li&gt;ou bien encore la “Room 11” sur Stackoverflow où se retrouve de nombreux contributeurs PHP.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Georges Banyard est ensuite passé à la pratique et a codé en direct une nouvelle fonction de tri dans un
+tableau &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;array_search&lt;/code&gt;. Le but de cette conférence était de démystifier la contribution à PHP et de montrer aux gens que
+finalement ce n’est pas si compliqué, il suffit de plonger dedans !&lt;/p&gt;
+
+&lt;h3 id=&quot;utilisez-la-bibliothèque-standard-php-spl-au-quotidien&quot;&gt;Utilisez la bibliothèque standard PHP (SPL) au quotidien&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/forumphp2023/bibliotheque-standard-psl.jpeg&quot; alt=&quot;Florian Merle&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par &lt;a href=&quot;https://twitter.com/florianm__&quot;&gt;Florian Merle&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;La bibliothèque &lt;a href=&quot;https://www.php.net/manual/fr/book.spl.php&quot;&gt;SPL&lt;/a&gt; ça vous dit quelque
+chose ? En réalité, vous l’utilisez déjà au quotidien à travers les &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Exceptions&lt;/code&gt;
+ou bien la fonction &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spl_autoload_register&lt;/code&gt; par exemple, mais Florian est venu
+nous parler de certains aspects moins connus et pourtant très utiles.&lt;/p&gt;
+
+&lt;h4 id=&quot;les-structures-de-données&quot;&gt;Les structures de données&lt;/h4&gt;
+
+&lt;p&gt;La plus évidente et la plus connue, qui a sans doute contribué à la facilité
+d’accès de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PHP&lt;/code&gt;🐘 est bien évidemment l’&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;array&lt;/code&gt;. Mais si son avantage majeur
+est le fait qu’il soit multi-usage, il se révèle en réalité assez peu optimisé
+pour les gros volumes de données.&lt;/p&gt;
+
+&lt;p&gt;D’autres structures telles que les listes doublements chaînées
+(&lt;a href=&quot;https://www.php.net/manual/fr/class.spldoublylinkedlist.php&quot;&gt;SplDoublyLinkedList&lt;/a&gt;),
+ou les &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Heaps&lt;/code&gt; (&lt;a href=&quot;https://www.php.net/manual/fr/class.splheap.php&quot;&gt;SplHeap&lt;/a&gt;,
+&lt;a href=&quot;https://www.php.net/manual/fr/class.splpriorityqueue.php&quot;&gt;SplPriorityQueue&lt;/a&gt; ont
+été abordées, mais on constate rapidement qu’elles présentent l’inconvénient majeur
+d’avoir de mauvaises performances par rapport à &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;array&lt;/code&gt; et des nommages de méthode
+peu intuitif.&lt;/p&gt;
+
+&lt;h4 id=&quot;php-ds&quot;&gt;PHP DS&lt;/h4&gt;
+
+&lt;p&gt;Une alternative intéressante est &lt;a href=&quot;https://www.php.net/manual/fr/book.ds.php&quot;&gt;DS&lt;/a&gt;,
+qui ne présente pas de problème de gestion de priorité et de meilleures performances.&lt;/p&gt;
+
+&lt;p&gt;Florian nous a présenté notamment &lt;a href=&quot;https://www.php.net/manual/en/class.ds-priorityqueue.php&quot;&gt;DS\PriorityQueue&lt;/a&gt;
+et &lt;a href=&quot;https://www.php.net/manual/en/class.ds-vector&quot;&gt;DS\Vector&lt;/a&gt;, qui constitue une
+alternative intéressante à &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;array&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;les-iterators&quot;&gt;Les iterators&lt;/h4&gt;
+
+&lt;p&gt;Enfin, nous avons vu les iterators de la SPl avec :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.php.net/manual/fr/class.iteratoraggregate&quot;&gt;IteratorAggregate&lt;/a&gt;
+qui permet d’appliquer un traitement éventuel sur le tableau&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.php.net/manual/fr/class.appenditerator&quot;&gt;AppendIterator&lt;/a&gt;
+qui permet d’insérer d’autres itérateurs&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.php.net/manual/fr/class.iteratoriterator.php&quot;&gt;IteratorIterator&lt;/a&gt;
+qui renvoie un autre Iterator&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.php.net/manual/fr/class.infiniteiterator.php&quot;&gt;InfiniteIterator&lt;/a&gt;
+qui permet de boucler à l’infini (pensez à la fonction lecture en boucle de votre player audio)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.php.net/manual/fr/class.callbackfilteriterator.php&quot;&gt;CallbackFilterIterator&lt;/a&gt;
+qui permet de filtrer les données à l’aide d’une callback.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;apprendre-à-apprendre--petit-dev-deviendra-grand---aline-leroy&quot;&gt;Apprendre à apprendre : petit dev deviendra grand - Aline Leroy&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par Aline Leroy&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Aline Leroy nous parle ici de sa reconversion, et des différentes expériences qu’elle a vécues au cours de son
+apprentissage du code. Elle nous donne plein d’astuces et de clés pour améliorer notre façon d’apprendre et de
+travailler notre plasticité cérébrale. Tout d’abord, il faut gérer son temps, alterner concentration et dispersion, et
+comprendre qu’apprendre c’est créer des liens et des images mentales.&lt;/p&gt;
+
+&lt;p&gt;Aline Leroy nous conseille de commencer par faire une introspection afin de déterminer quels sont nos points forts et
+faibles, quels sont nos objectifs et puis pour comprendre son propre fonctionnement. Ensuite, il faut faire preuve de
+curiosité et ne pas se limiter à un domaine (pensez création de lien, plus le champ est grand, plus vous allez faire
+des connexions). Nous pourrons aussi choisir de travailler par découpage, une partie des choses à apprendre, nous allons
+devoir travailler notre mémoire. Il est aussi important que l’apprentissage soit une démarche active, prise de notes,
+recherche, ne pas catégoriser et surtout, c’est un processus qui demande de la régularité.&lt;/p&gt;
+
+&lt;p&gt;Elle insiste sur l’aspect bien-être qui est très important pour apprendre, se mettre au calme, couper ses notifications
+et puis on prend des pauses, car c’est là que tout le travail de liaison neuronale se fait. Une pause sportive et encore
+plus recommandée, bien sûr ces temps de dispersion doivent être sur un temps maitrisé.&lt;/p&gt;
+
+&lt;h3 id=&quot;you-build-it-you-run-it-lobservabilité-pour-les-devs&quot;&gt;You Build It, You Run It, l’observabilité pour les devs&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/forumphp2023/you-build-it-you-run-it.jpeg&quot; alt=&quot;Smaine Milianni&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par &lt;a href=&quot;https://twitter.com/SmaineDev&quot;&gt;Smaine Milianni&lt;/a&gt;, développeur chez Yousign&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;L’observabilité est quelque chose de très important chez Bedrock, c’est pourquoi cette conférence était très
+intéressante.&lt;/p&gt;
+
+&lt;p&gt;Smaine a découpé sa conférence en posant trois questions : pourquoi, comment et qui ?&lt;/p&gt;
+
+&lt;h4 id=&quot;pourquoi-faire-de-lobservabilité-&quot;&gt;Pourquoi faire de l’observabilité ?&lt;/h4&gt;
+
+&lt;p&gt;Une application va forcément planter à un moment, nous dit Smaine pour répondre à sa première question.&lt;/p&gt;
+
+&lt;p&gt;L’observabilité permet non seulement de diminuer les risques que cela arrive, mais aussi d’anticiper les problèmes en
+amont.&lt;/p&gt;
+
+&lt;p&gt;Au-delà des plantages, l’observabilité ouvre la porte à d’autres formes d’analyses :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;détecter les problèmes/changements de performance&lt;/li&gt;
+  &lt;li&gt;capter les comportements inhabituels&lt;/li&gt;
+  &lt;li&gt;ou simplement s’assurer qu’un système fonctionne correctement&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;comment-fait-on-&quot;&gt;Comment fait-on ?&lt;/h4&gt;
+
+&lt;p&gt;Habituellement, l’observabilité s’appuie sur trois piliers : les logs, les métriques et les traces, auxquels Smaine
+ajoute un quatrième : les alertes.&lt;/p&gt;
+
+&lt;p&gt;Pour résumer ces différents piliers :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;les logs doivent être lus, et donc être disponibles dans un outil dédié&lt;/li&gt;
+  &lt;li&gt;les métriques permettent d’observer l’état de santé d’une application
+    &lt;ul&gt;
+      &lt;li&gt;elles peuvent être techniques (CPU, temps de réponse d’une URL, etc)&lt;/li&gt;
+      &lt;li&gt;ou métier (nombre de ventes par jour, nombre d’inscriptions, etc)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;les traces permettent de suivre le comportement d’une application
+    &lt;ul&gt;
+      &lt;li&gt;par exemple pour une requête HTTP, on aurait le temps passé dans chaque couche technique (base de données, un
+controller PHP, lecture de cache, etc)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Et enfin, les alertes
+    &lt;ul&gt;
+      &lt;li&gt;elles ne doivent être envoyées qu’en cas de problème (pour éviter de lasser les lecteurs)&lt;/li&gt;
+      &lt;li&gt;elles peuvent se baser sur les métriques (même métier)&lt;/li&gt;
+      &lt;li&gt;elles peuvent être liées aux logs et aux traces pour aider à les comprendre&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Smaine nous a également rapidement parlé des post mortems, qui sont essentiels après un incident pour apprendre des
+erreurs et ne pas les reproduire.&lt;/p&gt;
+
+&lt;h4 id=&quot;qui-est-responsable-de-la-mise-en-place-&quot;&gt;Qui est responsable de la mise en place ?&lt;/h4&gt;
+
+&lt;p&gt;L’entreprise de Smaine, Yousign, a une organisation sous forme de squads.
+Un squad est composé de plusieurs métiers : dev, devops, PO, designer, chef de projet, etc.&lt;/p&gt;
+
+&lt;p&gt;Ils sont alors responsables à la fois de leur périmètre, mais aussi de son observabilité. En gardant cette
+responsabilité au sein d’un squad, les équipes sont plus attentives et réactives en cas d’incident.&lt;/p&gt;
+
+&lt;h3 id=&quot;les-femmes-et-le-numérique&quot;&gt;Les femmes et le numérique&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/forumphp2023/les-femmes-et-le-numerique.jpeg&quot; alt=&quot;Isabelle Collet&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par &lt;a href=&quot;https://twitter.com/colletisabelle4&quot;&gt;Isabelle Collet&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Isabelle Collet est ancienne développeuse et sociologue épanouie comme elle le dit elle-même. Ce qui lui donne matière à
+nous expliquer beaucoup de choses sur “le choix des femmes de ne pas venir dans la tech”. Et bien, oui, pourquoi
+sont-elles réticentes ?&lt;/p&gt;
+
+&lt;p&gt;Tout d’abord, Isabelle Collet nous parle de pays qui sont des contre-exemples, comme en Malaisie où les femmes sont la
+majorité des postes informatiques et de développement, elles sont aussi responsables d’Université. Globalement, dans
+certains pays d’Asie, les femmes sont fortement représentées dans le secteur tertiaire, et pourquoi ?
+Car ces métiers sont considérés comme des “métiers de femmes”, non salissant, pas physique et surtout possibilité de
+télétravail ce qui leur permet de s’occuper de leur famille.&lt;/p&gt;
+
+&lt;p&gt;Puis grâce à un petit retour dans le passé, nous découvrons que les femmes au départ étaient très présentes dans
+l’informatique et plus précisément dans le développement. Les hommes étaient chargés de la conception des ordinateurs,
+ce qui était bien vu dans la société, mais la programmation était un poste considéré comme inférieur. Ce qui va changer
+cela est l’apparition du micro-ordinateur qui va inverser la tendance et les hommes vont devenir plus nombreux à coder
+et les femmes vont progressivement “disparaître” du paysage informatique.&lt;/p&gt;
+
+&lt;p&gt;Pour remédier à cela, Isabelle Collet nous présente deux initiatives universitaires où pour rééquilibrer le taux
+hommes/femmes des quotas ont été imposés pendant une dizaine d’années. Aujourd’hui l’équilibre de candidats se fait
+naturellement.&lt;/p&gt;
+
+&lt;p&gt;En conclusion, les choses évoluent si on veut bien les faire évoluer. Il faut continuer les efforts d’inclusion et la
+lutte pour que les femmes soient plus nombreuses dans la tech.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Cette année, la fresque LEGO a célébré la diversité des membres de l’AFUP et bien sûr le PHP.&lt;/p&gt;
+
+&lt;p&gt;Ce forum fût l’occasion d’échanger avec de nombreuses personnes, de découvrir des sujets aussi bien techniques que
+sociétaux. On ne peut que féliciter les conférencier·e·s et les bénévoles pour un Forum PHP encore très réussi !&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/forumphp2023/fresque-lego-communautaire.jpeg&quot; alt=&quot;La fresque LEGO communautaire&quot; /&gt;&lt;/p&gt;</content><author><name>Backend teams</name></author><category term="afup" /><category term="php" /><category term="forumphp" /><category term="conference" /><summary type="html">Cette année encore, Bedrock était présent au Forum PHP pour cette édition 2023.</summary></entry><entry><title type="html">GopherCon UK 2023 highlights</title><link href="https://tech.bedrockstreaming.com/2023/08/12/gophercon-uk-london-2023.html" rel="alternate" type="text/html" title="GopherCon UK 2023 highlights" /><published>2023-08-12T00:00:00+00:00</published><updated>2023-08-12T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/08/12/gophercon-uk-london-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/08/12/gophercon-uk-london-2023.html">&lt;p&gt;Hello there! I’m Pierre-Alain, a senior back-end developer at Bedrock and I had the opportunity to go to London for the GopherCon UK.&lt;/p&gt;
 
 &lt;p&gt;I travelled by train from Lyon to London, TGV and Eurostar. Train journey not only aligned with my commitment to minimize my carbon footprint for this trip, but is also a enjoyable travel choice. While the cost was higher than taking a plane, I would like to thank Bedrock for enabling me to take this option.&lt;/p&gt;
 
@@ -1446,12 +1761,4 @@ Mais il existe aussi des pratiques reconnues dans notre milieu telles que l’&l
   &lt;p&gt;L’objectif de cette conférence serait de mettre en lumière cette discipline mal connue, mais également d’utiliser les méthodes OSINT pour effectuer une démonstration de sensibilisation sur le sujet des données personnelles.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Par Alexis Martins&lt;/p&gt;</content><author><name>Alexis Martins</name></author><category term="lft" /><category term="tech" /><summary type="html">L’Open Source Intelligence (OSINT), ou le renseignement en sources ouvertes (ROSO) en français, est un ensemble de méthodologies et de pratiques destinés à la collecte et l’analyse d’informations publiques et légales en ayant pour objectif de répondre à des questions ou de faire des choix. L’OSINT est utilisé dans le monde du public comme dans le monde du privé, et dans plusieurs domaines, incluant : l’intelligence économique, le journalisme, les services de renseignement, la recherche scientifique, la cybersécurité, ou encore la lutte contre la criminalité. L’objectif de cette conférence serait de mettre en lumière cette discipline mal connue, mais également d’utiliser les méthodes OSINT pour effectuer une démonstration de sensibilisation sur le sujet des données personnelles.</summary></entry><entry><title type="html">Du CSS aux shaders WebGL : panorama des techniques d’animation en 2023 #LFT 02/06/23</title><link href="https://tech.bedrockstreaming.com/panorama-css-animations" rel="alternate" type="text/html" title="Du CSS aux shaders WebGL : panorama des techniques d’animation en 2023 #LFT 02/06/23" /><published>2023-06-02T00:00:00+00:00</published><updated>2023-06-02T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/panorama-animation-css-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/panorama-css-animations">&lt;blockquote&gt;
-  &lt;p&gt;Parfois subtiles, parfois proéminentes, les animations sont un élément essentiel pour une expérience utilisateur agréable. Mais une fois qu’on a imaginé des animations plus ou moins folles, vient la question fatidique du “comment fait-on ça ?”, à laquelle j’aimerais vous aider à répondre.&lt;/p&gt;
-
-  &lt;p&gt;Pour pouvoir choisir la technique la mieux adaptée à chaque animation, il vaut mieux avoir une boîte à outils la plus complète possible. J’aimerais vous aider à construire la vôtre en vous présentant un panel le plus large possible de techniques d’animation sur le web : des APIs natives classiques (CSS, Web Animation API) aux plus complexes (Canvas API) en passant par les librairies spécialisées (FLIP, Lottie, Framer Motion, Rive…). Nous finirons avec WebGL et ses shaders GLSL, qui feraient trembler plus d’un développeur mais dont on retrouve les effets impressionnants sur tous les sites récompensés aux Awwwards.&lt;/p&gt;
-
-  &lt;p&gt;Je passerai rapidement sur toutes ces techniques, en comparant leurs performances et utilisations possibles, afin de vous laisser la liberté d’explorer plus en profondeur celles qui vous intéressent.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Présenté par &lt;a href=&quot;https://github.com/jsulpis&quot;&gt;Julien Sulpis&lt;/a&gt;.&lt;/p&gt;</content><author><name>Julien Sulpis</name></author><category term="lft" /><category term="tech" /><summary type="html">Parfois subtiles, parfois proéminentes, les animations sont un élément essentiel pour une expérience utilisateur agréable. Mais une fois qu’on a imaginé des animations plus ou moins folles, vient la question fatidique du “comment fait-on ça ?”, à laquelle j’aimerais vous aider à répondre. Pour pouvoir choisir la technique la mieux adaptée à chaque animation, il vaut mieux avoir une boîte à outils la plus complète possible. J’aimerais vous aider à construire la vôtre en vous présentant un panel le plus large possible de techniques d’animation sur le web : des APIs natives classiques (CSS, Web Animation API) aux plus complexes (Canvas API) en passant par les librairies spécialisées (FLIP, Lottie, Framer Motion, Rive…). Nous finirons avec WebGL et ses shaders GLSL, qui feraient trembler plus d’un développeur mais dont on retrouve les effets impressionnants sur tous les sites récompensés aux Awwwards. Je passerai rapidement sur toutes ces techniques, en comparant leurs performances et utilisations possibles, afin de vous laisser la liberté d’explorer plus en profondeur celles qui vous intéressent.</summary></entry></feed>
+&lt;p&gt;Par Alexis Martins&lt;/p&gt;</content><author><name>Alexis Martins</name></author><category term="lft" /><category term="tech" /><summary type="html">L’Open Source Intelligence (OSINT), ou le renseignement en sources ouvertes (ROSO) en français, est un ensemble de méthodologies et de pratiques destinés à la collecte et l’analyse d’informations publiques et légales en ayant pour objectif de répondre à des questions ou de faire des choix. L’OSINT est utilisé dans le monde du public comme dans le monde du privé, et dans plusieurs domaines, incluant : l’intelligence économique, le journalisme, les services de renseignement, la recherche scientifique, la cybersécurité, ou encore la lutte contre la criminalité. L’objectif de cette conférence serait de mettre en lumière cette discipline mal connue, mais également d’utiliser les méthodes OSINT pour effectuer une démonstration de sensibilisation sur le sujet des données personnelles.</summary></entry></feed>
