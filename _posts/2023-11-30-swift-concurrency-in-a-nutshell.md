@@ -311,7 +311,7 @@ class SalesDataViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         processingTask?.cancel()
-				processingTask = nil
+        processingTask = nil
     }
 }
 ```
