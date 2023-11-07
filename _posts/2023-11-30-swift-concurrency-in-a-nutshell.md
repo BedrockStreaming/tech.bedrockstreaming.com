@@ -68,9 +68,9 @@ The `await` keyword indicates potential **suspension points** in your code, whic
 
 ```swift
 func processRemoteData() async throws -> Resource {
-  let data = try await performRemoteOperation() // waiting for performRemoteOperation() to complete
-  let resource = await process(data)
-  return resource
+    let data = try await performRemoteOperation() // waiting for performRemoteOperation() to complete
+    let resource = await process(data)
+    return resource
 }
 ```
 
@@ -95,7 +95,7 @@ actor MessageThread {
     let playerTag: String
     var messages: [String]
 
-     init(playerTag: String, previousMessages: [String]) {
+    init(playerTag: String, previousMessages: [String]) {
         self.playerTag = playerTag
         self.messages = previousMessages
     }
@@ -146,7 +146,7 @@ Lastly, you can do a cross-actor reference on a mutable property with an asynchr
 
 ```swift
 func getMessages(thread: MessageThread) async {
-  print(await thread.messages) // works
+    print(await thread.messages) // works
 }
 ```
 
@@ -212,13 +212,13 @@ func backupUserProfile() async throws {
 
 ```swift
 func onSavePressed() {
-  Task {
-    do {
-      try await backupUserProfile()
-    } catch {
-      print("Error backing up profile: \(error.localizedDescription)")
+    Task {
+        do {
+            try await backupUserProfile()
+        } catch {
+            print("Error backing up profile: \(error.localizedDescription)")
+        }
     }
-  }
 }
 ```
 
@@ -276,10 +276,10 @@ To enable cancellation within Task Groups, tasks must be built for **Cooperative
 2. `if Task.isCancelled { break }` returns true if the Task is cancelled. Note that this approach might produce partial outputs, which should be documented.
 
 ```swift
- taskGroup.addTask(priority: .background) {
-   if Task.isCancelled { return nil } // Return empty or default Data
-   await process(item)
- }
+taskGroup.addTask(priority: .background) {
+    if Task.isCancelled { return nil } // Return empty or default Data
+    await process(item)
+}
 ```
 
 ### Reference and Cancel a Task
@@ -361,18 +361,18 @@ Apply the `@MainActor` attribute to properties, functions and classes.
 
 ```swift
 class MyClass {
-  @MainActor var image: Data // Update occurs on the main thread
+    @MainActor var image: Data // Update occurs on the main thread
   
-  @MainActor func updateUI() async {
-    // this is now called on the main thread
-  }
+    @MainActor func updateUI() async {
+        // this is now called on the main thread
+    }
 }
 
 // class properties and functions are now run on the MainActor
 @MainActor class MyClass {
-  var image: Data
+    var image: Data
   
-  func updateUI() async { }
+    func updateUI() async { }
 }
 ```
 
@@ -382,7 +382,7 @@ Incorporate `@MainActor` within a `Task` to switch its execution context to the 
 
 ```swift 
 Task { @MainActor in 
-	// Code runs on the main thread
+    // Code runs on the main thread
 }
 ```
 
@@ -392,11 +392,11 @@ Use `MainActor.run` within any `Task` or asynchronous function to force main-thr
 
 ```swift
 Task {
-  let data = await fetchAndProcessData()
-  await MainActor.run {
-    // Executed on main thread
-    await updateUI(with: data)
-  }
+    let data = await fetchAndProcessData()
+    await MainActor.run {
+        // Executed on main thread
+        await updateUI(with: data)
+    }
 }
 ```
 
@@ -420,15 +420,15 @@ When defining a protocol with async functions, you can [conform to the protocol]
 
 ```swift
 protocol MyProtocol {
-  func processData() async
+    func processData() async
 }
 
 struct TypeA: MyProtocol {
-  func processData() async
+    func processData() async
 }
 
 struct TypeB: MyProtocol {
-  func processData() // also valid
+    func processData() // also valid
 }
 ```
 
@@ -505,26 +505,26 @@ In Swift's concurrency model, child tasks inherit the properties of their parent
 
 ```swift
 struct MyView: View {
-  var body: some View {
-    ...
-  }
-  .task {
-    await fetchData()
-  }
+    var body: some View {
+        ...
+    }
+    .task {
+        await fetchData()
+    }
   
-  func fetchData() async {
-    Task {
-      // Inherits properties (e.g., priority, executor) from the parent Task
-      // The long job will execute on the main thread
-      await longJob()
-    }
+    func fetchData() async {
+        Task {
+            // Inherits properties (e.g., priority, executor) from the parent Task
+            // The long job will execute on the main thread
+            await longJob()
+        }
 
-    Task.detached(priority: .userInitiated) {
-      // Unstructured Task: Does not inherit any properties from parent Task
-      // The long job will execute outside the main thread
-      await longJob()
+        Task.detached(priority: .userInitiated) {
+            // Unstructured Task: Does not inherit any properties from parent Task
+            // The long job will execute outside the main thread
+            await longJob()
+        }
     }
-  }
 }
 ```
 
