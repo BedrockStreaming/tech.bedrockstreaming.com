@@ -273,7 +273,7 @@ To enable cancellation within Task Groups, tasks must be built for **Cooperative
 
 1. `try Task.checkCancellation()` throws an error if the current Task is cancelled..
 
-2. `if Task.isCancelled { break }` returns true if the Task is cancelled. Note that this could result in partial results, which should be documented.
+2. `if Task.isCancelled { break }` returns true if the Task is cancelled. Note that this approach might produce partial outputs, which should be documented.
 
 ```swift
  taskGroup.addTask(priority: .background) {
