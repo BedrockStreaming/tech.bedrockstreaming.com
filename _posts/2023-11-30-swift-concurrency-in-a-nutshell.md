@@ -6,8 +6,6 @@ author: d_petrilli
 tags: [swift, apple, xcode]
 color: rgb(251,87,66) # this is Bedrock color here
 ---
-## Introduction
-
 As modern apps grow in complexity and features, the need for multitasking to enhance the user experience becomes evident. Whether processing large datasets or querying multiple systems over the network, concurrency is essential.
 
 This article presents a concise, yet comprehensive overview of Swift's Concurrency, highlighting its key features and core concepts. Swift's approach to concurrency provides several benefits:
@@ -18,17 +16,17 @@ This article presents a concise, yet comprehensive overview of Swift's Concurren
 
 Before delving into Swift's concurrency paradigms,  let's familiarize ourselves with foundational terminology.
 
-### Concurrency
+#### Concurrency
 
 Concurrency is about structuring your code so that tasks can be executed independently. It provides mechanisms for synchronization, communication, and coordination between units of work to avoid race conditions and ensure proper execution. However, concurrency doesn't imply parallel execution; the actual mode of execution is determined separately.
 
 Designing your code effectively for concurrency makes adding parallelism nearly free.
 
-### Parallelism
+#### Parallelism
 
 Parallelism is the simultaneous execution of tasks across multiple processing units, guaranteeing genuine concurrent progression of operations. It's a specific form of concurrency where tasks are actually executed at the same time.
 
-### Structured Concurrency
+#### Structured Concurrency
 
 Traditionally, developers had to manually manage `threads`, `locks`, and `callbacks`, leading to code that is difficult to manage and error prone. Even with a lot of discipline, it was really hard to get right as the cognitive load was so high.
 
