@@ -248,20 +248,20 @@ While `async let` may suffice for handling a limited number of tasks, Task Group
 
 ```swift
 let processedData = await withTaskGroup(of: Data.self, returning: [Data].self) { taskGroup in 	
-	// Create a new Task within the Task Group for each item   
-	for item in items {
-    taskGroup.addTask(priority: .background) { // Create a new Task within the Task Group
-      await process(item)
+    // Create a new Task within the Task Group for each item   
+    for item in items {
+        taskGroup.addTask(priority: .background) { // Create a new Task within the Task Group
+            await process(item)
+        }
     }
-  }
 
-	var allData: [Data] = []
-	// Asynchronously collect the task results as they complete
-	for await result in taskGroup {
-		allData.append(result)
-	}
+    var allData: [Data] = []
+    // Asynchronously collect the task results as they complete
+    for await result in taskGroup {
+        allData.append(result)
+    }
 
-	return allData
+    return allData
 }
 ```
 
