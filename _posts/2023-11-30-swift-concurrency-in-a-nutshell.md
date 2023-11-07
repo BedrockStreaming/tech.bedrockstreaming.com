@@ -64,7 +64,7 @@ Use the `async` keyword to mark functions that perform asynchronous work.
 func performRemoteOperation(_ url: URL) async throws -> ResultType
 ```
 
-The `await` keyword indicates potential **suspension points** in your code, which are necessary for running an `async` functions. These markers also offer developers insight into the behavior and control flow of asynchronous operations. At these suspension points, the system can pause the current task to await the completion of an asynchronous operation.
+The `await` keyword indicates potential **suspension points** in your code, which are necessary for running `async` functions. These markers also offer developers insight into the behavior and control flow of asynchronous operations. At these suspension points, the system can pause the current task to await the completion of an asynchronous operation.
 
 ```swift
 func processRemoteData() async throws -> Resource {
@@ -86,7 +86,7 @@ As you may have noticed in the previous examples, Swift's concurrency model seam
 
 Swift's **Structured Concurrency** is designed to address data races in concurrency for functions and closures. However, working concurrently usually involve dealing with **shared mutable state**, requiring tedious manual synchronization. 
 
-To address this, Swift introduces **Actors**, a new **reference type** designed to encapsulate state within a specific concurrency domain, ensuring **data isolation** and **thread-safe** operations. Actors not only enhances safety and efficiency but also aligns with Swift's established patterns and features. 
+To address this, Swift introduces **Actors**, a new **reference type** designed to encapsulate states within a specific concurrency domain, ensuring **data isolation** and **thread-safe** operations. Actors not only enhances safety and efficiency but also align with Swift's established patterns and features. 
 
 To create an Actor, just use the keyword `actor`.
 
@@ -106,7 +106,7 @@ Actors are similar to `class`, the main difference is that they protect their mu
 
 #### Actor Isolation
 
-Actor Isolation enforces that any mutable properties managed by and actor can only be modified using `self`.
+Actor Isolation enforces that any mutable properties managed by an actor can only be modified using `self`.
 
 ```swift
 extension MessageThread {
