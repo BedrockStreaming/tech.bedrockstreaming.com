@@ -6,8 +6,6 @@ author: d_petrilli
 tags: [swift, apple, xcode]
 color: rgb(251,87,66) # this is Bedrock color here
 ---
-# Swift Concurrency in a Nutshell
-
 ## Introduction
 
 As modern apps grow in complexity and features, the need for multitasking to enhance the user experience becomes evident. Whether processing large datasets or querying multiple systems over the network, concurrency is essential.
@@ -112,7 +110,7 @@ Actors are similar to `class`, the main difference is that they protect their mu
 
 Actor Isolation enforces that any mutable properties managed by and actor can only be modified using `self`.
 
-```iswift
+```swift
 extension MessageThread {
     func send(_ message: String, to other: MessageThread) {}
         messages.append(message)
@@ -537,11 +535,11 @@ As we have seen, Swift Concurrency is a huge step forward in terms of safety and
 
 ## Further Reading & References
 
-[How async/await works internally in Swift](https://swiftrocks.com/how-async-await-works-internally-in-swift)
-[The Bleeding Edge of Swift Concurrency](https://youtu.be/HqjqwW12wpw?si=zTonWzxAatpTYfKr)
- https://github.com/apple/swift-evolution/blob/main/proposals/0304-structured-concurrency.md
-https://github.com/apple/swift-evolution/blob/main/proposals/0296-async-await.md
-https://github.com/apple/swift-evolution/blob/main/proposals/0317-async-let.md
-https://github.com/apple/swift-evolution/blob/main/proposals/0306-actors.md
-https://github.com/apple/swift-evolution/blob/main/proposals/0316-global-actors.md
-https://www.mastering-swift.com/post/parallelism-and-concurrency-in-swift
+- [How async/await works internally in Swift](https://swiftrocks.com/how-async-await-works-internally-in-swift)
+- [The Bleeding Edge of Swift Concurrency](https://youtu.be/HqjqwW12wpw?si=zTonWzxAatpTYfKr)
+- [Structured concurrency](https://github.com/apple/swift-evolution/blob/main/proposals/0304-structured-concurrency.md)
+- [Async/await](https://github.com/apple/swift-evolution/blob/main/proposals/0296-async-await.md)
+- [Async let](https://github.com/apple/swift-evolution/blob/main/proposals/0317-async-let.md)
+- [Actors](https://github.com/apple/swift-evolution/blob/main/proposals/0306-actors.md)
+- [Global Actors](https://github.com/apple/swift-evolution/blob/main/proposals/0316-global-actors.md)
+- [Concurrency is not Parallelism](https://youtu.be/oV9rvDllKEg?si=kwXQULVlNNT3K6LS)
