@@ -442,16 +442,16 @@ In Swift's concurrency model, a `Task` strongly retains any reference to `self`,
 
 ```swift
 class MyClass {
-  unowned var dataStorage: DataStorage!
-  
-  func refreshData()  {
-    Task { [weak self] in 
-      guard let self else { return } // temporarily retains self
-      
-      let newData = loadDataFromDisk()
-      self.dataStorage = newData // Safe
+    unowned var dataStorage: DataStorage!
+    
+    func refreshData() {
+        Task { [weak self] in
+            guard let self = self else { return } // temporarily retains self
+            
+            let newData = loadDataFromDisk()
+            self.dataStorage = newData // Safe
+        }
     }
-  }
 }
 ```
 
@@ -461,16 +461,16 @@ However, introducing a suspension point can lead to issues similar to those enco
 
 ```swift
 class MyClass {
-  unowned var dataStorage: DataStorage!
-  
-  func refreshData() {
-    Task { [weak self] in 
-    	guard let self else { return } // temporarily retains self
-      
-      let newData = await downloadData() // suspension point
-      self.dataStorage = newData // random crash
+    unowned var dataStorage: DataStorage!
+    
+    func refreshData() {
+        Task { [weak self] in
+            guard let self = self else { return } // temporarily retains self
+            
+            let newData = await downloadData() // suspension point
+            self.dataStorage = newData // random crash
+        }
     }
-  }
 }
 ```
 
@@ -483,15 +483,15 @@ Actor Reentrancy is a complex behavior that occurs when an actor method makes an
 ```swift
 actor Counter {
     var value = 0
-  
+
     func increment() {
         value += 1
     }
-  
+
     func process() async {
         increment()
-     		print(value) // 1
-        await doLonProcessing() // suspension point
+        print(value) // 1
+        await doLongProcessing() // suspension point
         print(value) // Unpredictable output (1?)
     }
 }
