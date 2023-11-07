@@ -328,27 +328,28 @@ Continuation wraps old-style block-based code and adapts it for use in an async 
 import HealthKit
 
 func getWorkouts() async throws -> [HKWorkout] {
-  return try await withCheckedThrowingContinuation { continuation in
-    let query = HKSampleQuery(
-      sampleType: HKObjectType.workoutType(),
-      predicate: nil,
-      limit: HKObjectQueryNoLimit,
-      sortDescriptors: nil) { query, results, error in
-
-      if let error = error {
-        continuation.resume(throwing: HealthError.myError)
-      } else {
-        guard let results = results as? [HKWorkout] else {
-          continuation.resume(throwing: HealthError.wrongType)
-          return
+    return try await withCheckedThrowingContinuation { continuation in
+        let query = HKSampleQuery(
+            sampleType: HKObjectType.workoutType(),
+            predicate: nil,
+            limit: HKObjectQueryNoLimit,
+            sortDescriptors: nil
+        ) { query, results, error in
+            if let error = error {
+                continuation.resume(throwing: HealthError.myError)
+            } else {
+                guard let results = results as? [HKWorkout] else {
+                    continuation.resume(throwing: HealthError.wrongType)
+                    return
+                }
+                continuation.resume(returning: results)
+            }
         }
-        continuation.resume(returning: results)
-      }
+        HKHealthStore().execute(query)
     }
-    HKHealthStore().execute(query)
-  }
 }
 ```
+Always ensure to resume a Continuation **exactly once**; failing to do so can lead to indefinite suspension of the task, resulting in a **memory leak**, as per Apple's guidelines. Resuming multiple times is considered **undefined behavior** and should be avoided.
 
 ### Executing Async Code on Main Thread with MainActor
 
