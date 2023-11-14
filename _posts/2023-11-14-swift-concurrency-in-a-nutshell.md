@@ -5,7 +5,7 @@ description: This article offers an overview of Swift's Concurrency, detailing i
 author: d_petrilli 
 tags: [swift, apple, xcode]
 color: rgb(251,87,66) # this is Bedrock color here
-thumbnail: /images/posts/2023-11-14-swift-concurrency-in-a-nutshell/thumbnail-2.jpg
+thumbnail: /images/posts/2023-11-14-swift-concurrency-in-a-nutshell/thumbnail.jpg
 ---
 As modern apps grow in complexity and features, the need for multitasking to enhance the user experience becomes evident. Whether processing large datasets or querying multiple systems over the network, concurrency is essential.
 
