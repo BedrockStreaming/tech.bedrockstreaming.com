@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Swift Concurrency in a Nutshell | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Swift Concurrency in a Nutshell" />
+<meta name="author" content="Damien Petrilli" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This article offers an overview of Swift’s Concurrency, detailing its main features and principles." />
+<meta property="og:description" content="This article offers an overview of Swift’s Concurrency, detailing its main features and principles." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2023/11/14/swift-concurrency-in-a-nutshell.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2023/11/14/swift-concurrency-in-a-nutshell.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-11-14T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Swift Concurrency in a Nutshell" />
+<script type="application/ld+json">
+{"description":"This article offers an overview of Swift’s Concurrency, detailing its main features and principles.","headline":"Swift Concurrency in a Nutshell","dateModified":"2023-11-14T00:00:00+00:00","datePublished":"2023-11-14T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2023/11/14/swift-concurrency-in-a-nutshell.html"},"url":"https://tech.bedrockstreaming.com/2023/11/14/swift-concurrency-in-a-nutshell.html","author":{"@type":"Person","name":"Damien Petrilli"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Swift Concurrency in a Nutshell">
+    <meta name="twitter:description" content="As modern apps grow in complexity and features, the need for multitasking to enhance the user experience becomes evident. Whether processing large datasets o...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg">
+    <meta name="twitter:image:alt" content="Swift Concurrency in a Nutshell">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Swift Concurrency in a Nutshell " aria-label="Swift Concurrency in a Nutshell" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Swift+Concurrency+in+a+Nutshell" class="title">Swift Concurrency in a Nutshell</h1>
+      <div class="post-info">
+
+
+<span class="author">
+
+    
+      <span class="name">
+        Damien Petrilli
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    November 14, 2023
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>As modern apps grow in complexity and features, the need for multitasking to enhance the user experience becomes evident. Whether processing large datasets or querying multiple systems over the network, concurrency is essential.</p>
+
+<p>This article presents a concise, yet comprehensive overview of Swift’s Concurrency, highlighting its key features and core concepts. Swift’s approach to concurrency provides several benefits:</p>
+
+<ul>
+  <li>Simplified code that’s easier to reason about and maintain</li>
+  <li>A noticeable reduction in bugs and performance issues</li>
+  <li>Ensured app responsiveness</li>
+</ul>
+
+<p>Before delving into Swift’s concurrency paradigms,  let’s familiarize ourselves with foundational terminology.</p>
+
+<h4 id="concurrency">Concurrency</h4>
+
+<p>Concurrency is about structuring your code so that tasks can be executed independently. It provides mechanisms for synchronization, communication, and coordination between units of work to avoid race conditions and ensure proper execution. However, concurrency doesn’t imply parallel execution; the actual mode of execution is determined separately.</p>
+
+<p>Designing your code effectively for concurrency makes adding parallelism nearly free.</p>
+
+<h4 id="parallelism">Parallelism</h4>
+
+<p>Parallelism is the simultaneous execution of tasks across multiple processing units, guaranteeing genuine concurrent progression of operations. It’s a specific form of concurrency where tasks are actually executed at the same time.</p>
+
+<h4 id="structured-concurrency">Structured Concurrency</h4>
+
+<p>Traditionally, developers had to manually manage <code class="language-plaintext highlighter-rouge">threads</code>, <code class="language-plaintext highlighter-rouge">locks</code>, and <code class="language-plaintext highlighter-rouge">callbacks</code>, leading to code that is difficult to manage and error prone. Even with a lot of discipline, it was really hard to get right as the cognitive load was so high.</p>
+
+<p><strong>Structured concurrency</strong> is a programming paradigm providing a higher level of abstraction, allowing you to manage concurrency in a structured and organized way. It simplifies the task management and their dependencies, making it easier to write correct and efficient concurrent code.</p>
+
+<h2 id="swift-concurrency">Swift Concurrency</h2>
+
+<p>One prime objective of Swift is safety, by removing <strong>undefined behaviors</strong> such as <code class="language-plaintext highlighter-rouge">null pointer</code>, array <code class="language-plaintext highlighter-rouge">out-of-bounds</code>, and <code class="language-plaintext highlighter-rouge">integer overflows</code>. Until recently, multithreading remained a weak spot in Swift’s safety features. Developers had to rely on <a href="https://developer.apple.com/documentation/DISPATCH">Grand Central Dispatch</a>, which wasn’t inherently designed to help with concurrency-related pitfalls like <a href="https://tclementdev.com/posts/what_went_wrong_with_the_libdispatch.html">thread explosion</a>.</p>
+
+<p><strong>Swift Concurrency</strong> fills this gap, enhancing the language’s overall safety by integrating the <strong>Task</strong> abstraction from Structured Concurrency, the <strong>async/await</strong> pattern and <strong>Actors</strong> for data isolation.</p>
+
+<h3 id="task">Task</h3>
+
+<p>With Swift Concurrency, Tasks become the primary unit of work and offer three core functionalities:</p>
+
+<ul>
+  <li>Carry scheduling information such as priority</li>
+  <li>Act as handles for task management</li>
+  <li>Hold user-defined and task-local data</li>
+</ul>
+
+<p>These attributes make tasks the cornerstone that guides the execution model in running, prioritizing, and suspending or canceling jobs. <strong>Every asynchronous function operates within a task</strong>. Tasks also serve as the entry point for synchronous functions to execute asynchronous code.</p>
+
+<h4 id="child-tasks">Child Tasks</h4>
+
+<p>A child task is a task spawned by another task, known as the parent task. Child tasks inherit some properties from their parent, such as priority levels, but are their own individual units of work that can be scheduled independently. One important characteristic of child tasks is their lifetime is tied to their parent task; if the parent task is cancelled, all its child tasks are also cancelled. This ensures a structured way to manage and reason about concurrent tasks in your code. However, cancellations do not propagate upward, requiring parent tasks to manually check the status of their child tasks.</p>
+
+<p>Child Tasks are created using <strong>Task Groups</strong> as we will see later.</p>
+
+<h3 id="async--await">async / await</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">async</code>/<code class="language-plaintext highlighter-rouge">await</code> pattern simplifies asynchronous code development, allowing a sequential-like structure, akin to traditional synchronous functions.</p>
+
+<p>Use the <code class="language-plaintext highlighter-rouge">async</code> keyword to mark functions that perform asynchronous work.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">performRemoteOperation</span><span class="p">(</span><span class="n">_</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">ResultType</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">await</code> keyword indicates potential <strong>suspension points</strong> in your code, which are necessary for running <code class="language-plaintext highlighter-rouge">async</code> functions. These markers also offer developers insight into the behavior and control flow of asynchronous operations. At these suspension points, the system can pause the current task to await the completion of an asynchronous operation.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">processRemoteData</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Resource</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">data</span> <span class="o">=</span> <span class="k">try</span> <span class="k">await</span> <span class="nf">performRemoteOperation</span><span class="p">()</span> <span class="c1">// waiting for performRemoteOperation() to complete</span>
+    <span class="k">let</span> <span class="nv">resource</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">process</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">resource</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="error-propagation">Error propagation</h4>
+
+<p>As you may have noticed in the previous examples, Swift’s concurrency model seamlessly integrates with the language’s native <strong>error-handling mechanism</strong>. This brings several advantages over the old completion-based concurrency:</p>
+
+<ul>
+  <li><strong>Clarity:</strong> Errors are propagated in a way that is consistent with how they are handled in synchronous Swift code. This means you don’t have to learn a new error-handling paradigm when moving to concurrent code.</li>
+  <li><strong>Safety:</strong> Because errors can be propagated and caught, you can handle exceptional conditions gracefully, making your concurrent code more robust.</li>
+  <li><strong>Maintainability:</strong> With explicit error types and propagation, debugging and maintaining concurrent code becomes easier. You can clearly understand what types of errors your asynchronous functions can throw and handle them appropriately.</li>
+</ul>
+
+<h3 id="actors">Actors</h3>
+
+<p>Swift’s <strong>Structured Concurrency</strong> is designed to address data races in concurrency for functions and closures. However, working concurrently usually involve dealing with <strong>shared mutable state</strong>, requiring tedious manual synchronization.</p>
+
+<p>To address this, Swift introduces <strong>Actors</strong>, a new <strong>reference type</strong> designed to encapsulate states within a specific concurrency domain, ensuring <strong>data isolation</strong> and <strong>thread-safe</strong> operations. Actors not only enhances safety and efficiency but also align with Swift’s established patterns and features.</p>
+
+<p>To create an Actor, just use the keyword <code class="language-plaintext highlighter-rouge">actor</code>.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">actor</span> <span class="kt">MessageThread</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">playerTag</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="k">var</span> <span class="nv">messages</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span>
+
+    <span class="nf">init</span><span class="p">(</span><span class="nv">playerTag</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">previousMessages</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">])</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">playerTag</span> <span class="o">=</span> <span class="n">playerTag</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">messages</span> <span class="o">=</span> <span class="n">previousMessages</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Actors are similar to <code class="language-plaintext highlighter-rouge">class</code>, the main difference is that they protect their mutable data from data races by implementing <strong>Actor Isolation</strong>.</p>
+
+<h4 id="actor-isolation">Actor Isolation</h4>
+
+<p>Actor Isolation enforces that any mutable properties managed by an actor can only be modified using <code class="language-plaintext highlighter-rouge">self</code>.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">MessageThread</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">send</span><span class="p">(</span><span class="n">_</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">to</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">MessageThread</span><span class="p">)</span> <span class="p">{}</span>
+        <span class="n">messages</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        <span class="n">other</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="o">...</span> <span class="c1">// error: trying to access another actor mutable property</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">playerTag</span><span class="p">)</span> <span class="c1">// works fine as read only</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In the example above, the compiler complains when trying to modify the mutable property of another actor (cross-actor reference). However, accessing read-only properties poses no issue.</p>
+
+<p>To address this, you can introduce another function allowing the other <code class="language-plaintext highlighter-rouge">MessageThread</code> actor to modify its own state.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">MessageThread</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">send</span><span class="p">(</span><span class="n">_</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">to</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">MessageThread</span><span class="p">)</span> <span class="k">async</span> <span class="p">{</span>
+        <span class="n">messages</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">other</span><span class="o">.</span><span class="nf">receive</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+    <span class="p">}</span>
+    
+    <span class="kd">func</span> <span class="nf">receive</span><span class="p">(</span><span class="n">_</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">messages</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+    <span class="p">}</span> 
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>With these modifications:</p>
+
+<ol>
+  <li>The <code class="language-plaintext highlighter-rouge">send</code> function is now <code class="language-plaintext highlighter-rouge">async</code>, because of the <code class="language-plaintext highlighter-rouge">await</code> suspension point required to call the <code class="language-plaintext highlighter-rouge">receive</code> function in the other actor’s asynchronous context.</li>
+  <li>While the <code class="language-plaintext highlighter-rouge">receive</code> function isn’t explicitly marked as <code class="language-plaintext highlighter-rouge">async</code> (since it doesn’t have suspension points and operates synchronously), actor isolation in Swift ensures functions behave as implicitly <code class="language-plaintext highlighter-rouge">async</code> when invoked from outside their own actor’s context.</li>
+</ol>
+
+<p><strong>Actors</strong> ensure safe execution by maintaining their own dedicated serial <strong>executor</strong> internally. Messages sent to an actor are termed <strong>partial tasks</strong>. While processing these tasks, the order of their execution is not strictly guaranteed, as priorities of partial tasks influence the sequence in which they are tackled.</p>
+
+<p>Lastly, you can do a cross-actor reference on a mutable property with an asynchronous call as long as it’s read only.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">getMessages</span><span class="p">(</span><span class="nv">thread</span><span class="p">:</span> <span class="kt">MessageThread</span><span class="p">)</span> <span class="k">async</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="k">await</span> <span class="n">thread</span><span class="o">.</span><span class="n">messages</span><span class="p">)</span> <span class="c1">// works</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="sendable">Sendable</h4>
+
+<p>Finally, to make Actors truly isolated we need to prevent cross-actor references from inadvertently sharing mutable state. The <code class="language-plaintext highlighter-rouge">Sendable</code> protocol was introduced to ensure that types shared across actor boundaries don’t introduce data races. This protocol doesn’t provide or dictate specific code behavior, but is leveraged by the compiler to ensure the safety of the concurrent code.</p>
+
+<p>Here are types that can conform to <code class="language-plaintext highlighter-rouge">Sendable</code> (some implicitely do):</p>
+
+<ul>
+  <li>Value types</li>
+  <li>Actors</li>
+  <li><code class="language-plaintext highlighter-rouge">final</code> classes with immutable and sendable properties (and without superclass).</li>
+  <li>Functions and closures when using the <code class="language-plaintext highlighter-rouge">@Sendable</code> attribute.</li>
+</ul>
+
+<p>For a detailed explanation, please refer to the official <a href="https://developer.apple.com/documentation/swift/sendable">Apple documentation</a>.</p>
+
+<h4 id="global-actor">Global Actor</h4>
+
+<p>Global actors are Actors providing a way to extend actor isolation to <strong>global and static variables</strong>, safeguarding them from concurrent access issues. Global actor can be referenced from anywhere in the program. A common global actor is the <strong>MainActor</strong> which allows you to execute your code on the main thread.</p>
+
+<h2 id="in-practice">In Practice</h2>
+
+<p>Theory covered, let’s dive into practical use-cases.</p>
+
+<h3 id="call-async-functions-sequentially">Call Async Functions Sequentially</h3>
+
+<p>While calling functions sequentially is straightforward in synchronous code, achieving the same in asynchronous code used to be cumbersome, often leading to the <a href="https://github.com/apple/swift-evolution/blob/main/proposals/0296-async-await.md#problem-1-pyramid-of-doom">Pyramid of doom</a>. Swift’s concurrency model radically simplifies this by using the <code class="language-plaintext highlighter-rouge">async/await</code> paradigm.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">fetchInfo</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">UserInfo</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="kd">func</span> <span class="nf">fetchImg</span><span class="p">()</span> <span class="k">async</span> <span class="o">-&gt;</span> <span class="kt">ProfileImage</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="kd">func</span> <span class="nf">fetchAct</span><span class="p">()</span> <span class="k">async</span> <span class="o">-&gt;</span> <span class="kt">UserActivity</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="kd">func</span> <span class="nf">saveDB</span><span class="p">(</span><span class="n">_</span> <span class="nv">info</span><span class="p">:</span> <span class="kt">UserInfo</span><span class="p">,</span> <span class="n">_</span> <span class="nv">img</span><span class="p">:</span> <span class="kt">ProfileImage</span><span class="p">,</span> <span class="n">_</span> <span class="nv">act</span><span class="p">:</span> <span class="kt">UserActivity</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">backupUserProfile</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">info</span> <span class="o">=</span> <span class="k">try</span> <span class="k">await</span> <span class="nf">fetchInfo</span><span class="p">()</span>
+    <span class="k">let</span> <span class="nv">img</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetchImg</span><span class="p">()</span>
+    <span class="k">let</span> <span class="nv">act</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetchAct</span><span class="p">()</span>
+    <span class="k">try</span> <span class="k">await</span> <span class="nf">saveDB</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">act</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The use of <code class="language-plaintext highlighter-rouge">await</code> ensures each async function completes before the next starts. This sequential execution offers the readability of synchronous code while retaining the benefits of asynchronicity.</p>
+
+<h3 id="call-async-functions-in-parallel">Call Async Functions in Parallel</h3>
+
+<p>When async functions are independent, running them in parallel can save time.  <code class="language-plaintext highlighter-rouge">async let</code> allows you to achieve this with minimal code changes. Consider the previous example, modified to execute tasks concurrently:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">backupUserProfile</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="p">{</span>
+    <span class="k">async</span> <span class="k">let</span> <span class="nv">info</span> <span class="o">=</span> <span class="k">try</span> <span class="nf">fetchInfo</span><span class="p">()</span>
+    <span class="k">async</span> <span class="k">let</span> <span class="nv">img</span> <span class="o">=</span> <span class="nf">fetchImg</span><span class="p">()</span>
+    <span class="k">async</span> <span class="k">let</span> <span class="nv">act</span> <span class="o">=</span> <span class="nf">fetchAct</span><span class="p">()</span>
+    <span class="k">try</span> <span class="k">await</span> <span class="nf">saveDB</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">act</span><span class="p">)</span> <span class="c1">// Await the results of async let tasks</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">async let</code> spawns child tasks, sets placeholders on the variables, and allows the code to continue running until it needs the results, which are obtained using <code class="language-plaintext highlighter-rouge">await</code> at the end of the function.</p>
+
+<h3 id="call-async-functions-from-a-synchronous-function">Call Async Functions from a Synchronous Function</h3>
+
+<p><code class="language-plaintext highlighter-rouge">Task</code> serves as a bridge between synchronous and asynchronous code, enabling you to use async-await without requiring the entire function chain to be asynchronous.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">onSavePressed</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">Task</span> <span class="p">{</span>
+        <span class="k">do</span> <span class="p">{</span>
+            <span class="k">try</span> <span class="k">await</span> <span class="nf">backupUserProfile</span><span class="p">()</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+            <span class="nf">print</span><span class="p">(</span><span class="s">"Error backing up profile: </span><span class="se">\(</span><span class="n">error</span><span class="o">.</span><span class="n">localizedDescription</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>An alternative is <a href="https://developer.apple.com/documentation/swift/task/detached(priority:operation:)-8a4p6">Task.detached</a>. This creates a new top-level task and decouples it from its originating context, allowing it to operate on a different Actor and with a different priority. A typical scenario involves initiating a task from the main thread to execute it on a different thread.</p>
+
+<h4 id="terminology-unstructured-concurrency">Terminology: Unstructured Concurrency</h4>
+
+<p>Creating a standalone <code class="language-plaintext highlighter-rouge">Task</code> is known as an <strong>Unstructured Task</strong>, as it lacks both a parent task and child tasks.</p>
+
+<p>Unstructured Tasks are useful for:</p>
+
+<ul>
+  <li>Calling a task from a non-async context</li>
+  <li>Tasks that must persist beyond a specific scope</li>
+</ul>
+
+<p>Note: Swift’s use of the terms <strong>Structured</strong> and <strong>Unstructured Concurrency</strong> relates only to the hierarchy of Tasks and should not be confused with the broader concept of <a href="#structured-concurrency">Structured Concurrency</a> described in the introduction.</p>
+
+<p>Quoting the <a href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/#Tasks-and-Task-Groups">swift documentation</a>.</p>
+
+<blockquote>
+  <p><strong>Structured concurrency</strong>: Tasks arranged in a hierarchy. Each task in a task group has the same parent task, and each task can have child tasks. Although you take on some of the responsibility for correctness, the explicit parent-child relationships between tasks let Swift handle some behaviors like propagating cancellation for you, and lets Swift detect some errors at compile time.</p>
+
+  <p><strong>Unstructured concurrency</strong>: Unlike tasks that are part of a task group, an <em>unstructured task</em> doesn’t have a parent task. You have complete flexibility to manage unstructured tasks in whatever way your program needs, but you’re also completely responsible for their correctness.</p>
+</blockquote>
+
+<h3 id="parallel-processing-with-task-groups">Parallel Processing with Task Groups</h3>
+
+<p>While <code class="language-plaintext highlighter-rouge">async let</code> may suffice for handling a limited number of tasks, Task Groups are recommended when a structured approach to parallelism is desired. Here’s an example that employs Task Groups along with an accumulator to safely process an array of data in parallel.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">processedData</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">withTaskGroup</span><span class="p">(</span><span class="nv">of</span><span class="p">:</span> <span class="kt">Data</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">returning</span><span class="p">:</span> <span class="p">[</span><span class="kt">Data</span><span class="p">]</span><span class="o">.</span><span class="k">self</span><span class="p">)</span> <span class="p">{</span> <span class="n">taskGroup</span> <span class="k">in</span> 	
+    <span class="c1">// Create a new Task within the Task Group for each item   </span>
+    <span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">items</span> <span class="p">{</span>
+        <span class="n">taskGroup</span><span class="o">.</span><span class="nf">addTask</span><span class="p">(</span><span class="nv">priority</span><span class="p">:</span> <span class="o">.</span><span class="n">background</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Create a new Task within the Task Group</span>
+            <span class="k">await</span> <span class="nf">process</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">var</span> <span class="nv">allData</span><span class="p">:</span> <span class="p">[</span><span class="kt">Data</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1">// Asynchronously collect the task results as they complete</span>
+    <span class="k">for</span> <span class="k">await</span> <span class="n">result</span> <span class="k">in</span> <span class="n">taskGroup</span> <span class="p">{</span>
+        <span class="n">allData</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">allData</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This code initializes a Task Group and spawns a child task for each item with <code class="language-plaintext highlighter-rouge">.background</code> priority. Then an <a href="https://developer.apple.com/documentation/swift/asyncsequence">AsyncSequence</a> <code class="language-plaintext highlighter-rouge">for await</code> loop asynchronously collects and stores the task results in the <code class="language-plaintext highlighter-rouge">allData</code> accumulator as they complete.</p>
+
+<h4 id="cooperative-cancellation">Cooperative Cancellation</h4>
+
+<p>To enable cancellation within Task Groups, tasks must be built for <strong>Cooperative Cancellation</strong>, which means the task periodically checks whether it should terminate early. Two methods can be used to check if a task has been cancelled:</p>
+
+<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">try Task.checkCancellation()</code> throws an error if the current Task is cancelled..</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">if Task.isCancelled { break }</code> returns true if the Task is cancelled. Note that this approach might produce partial outputs, which should be documented.</p>
+  </li>
+</ol>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">taskGroup</span><span class="o">.</span><span class="nf">addTask</span><span class="p">(</span><span class="nv">priority</span><span class="p">:</span> <span class="o">.</span><span class="n">background</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="kt">Task</span><span class="o">.</span><span class="n">isCancelled</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">nil</span> <span class="p">}</span> <span class="c1">// Return empty or default Data</span>
+    <span class="k">await</span> <span class="nf">process</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="reference-and-cancel-a-task">Reference and Cancel a Task</h3>
+
+<p>Until now, we’ve only used tasks for running isolated asynchronous operations. However, there are scenarios where maintaining a task reference for potential cancellation is beneficial, as shown in the following static sales dashboard example.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">SalesDataViewController</span><span class="p">:</span> <span class="kt">UIViewController</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="k">var</span> <span class="nv">processingTask</span><span class="p">:</span> <span class="kt">Task</span><span class="o">&lt;</span><span class="kt">Void</span><span class="p">,</span> <span class="kt">Never</span><span class="o">&gt;</span><span class="p">?</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
+
+        <span class="k">guard</span> <span class="n">processingTask</span> <span class="o">==</span> <span class="kc">nil</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+
+        <span class="n">processingTask</span> <span class="o">=</span> <span class="kt">Task</span> <span class="p">{</span>
+            <span class="k">do</span> <span class="p">{</span>
+                <span class="k">let</span> <span class="nv">rawData</span> <span class="o">=</span> <span class="k">try</span> <span class="k">await</span> <span class="nf">fetchSales</span><span class="p">()</span>
+              	<span class="k">let</span> <span class="nv">chartData</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">process</span><span class="p">(</span><span class="n">rawData</span><span class="p">)</span>
+                <span class="k">await</span> <span class="nf">showChartData</span><span class="p">(</span><span class="n">chartData</span><span class="p">)</span>
+            <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+                <span class="nf">handleError</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+            <span class="p">}</span>
+
+            <span class="n">processingTask</span> <span class="o">=</span> <span class="kc">nil</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidDisappear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">viewDidDisappear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
+        <span class="n">processingTask</span><span class="p">?</span><span class="o">.</span><span class="nf">cancel</span><span class="p">()</span>
+        <span class="n">processingTask</span> <span class="o">=</span> <span class="kc">nil</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In this <code class="language-plaintext highlighter-rouge">SalesDataViewController</code> class, we create and keep a reference to a new Task for fetching and processing sales data. If the user exits the view before the task completes, the task is canceled, preventing task accumulation during repeated view transitions.</p>
+
+<h3 id="convert-completion-based-api-to-async-functions-with-continuation">Convert completion based API to async functions with Continuation</h3>
+
+<p>Sometimes you encounter legacy APIs not designed to work with Swift’s Concurrency model, often the case with Objective-C-based APIs. Swift offers a solution via <a href="https://developer.apple.com/documentation/swift/checkedcontinuation">Continuation</a>.</p>
+
+<p>Continuation wraps old-style block-based code and adapts it for use in an async function. This enables you to return values or throw errors within that function. Here’s how to apply this with HealthKit as an example:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">HealthKit</span>
+
+<span class="kd">func</span> <span class="nf">getWorkouts</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">HKWorkout</span><span class="p">]</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">try</span> <span class="k">await</span> <span class="n">withCheckedThrowingContinuation</span> <span class="p">{</span> <span class="n">continuation</span> <span class="k">in</span>
+        <span class="k">let</span> <span class="nv">query</span> <span class="o">=</span> <span class="kt">HKSampleQuery</span><span class="p">(</span>
+            <span class="nv">sampleType</span><span class="p">:</span> <span class="kt">HKObjectType</span><span class="o">.</span><span class="nf">workoutType</span><span class="p">(),</span>
+            <span class="nv">predicate</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span>
+            <span class="nv">limit</span><span class="p">:</span> <span class="kt">HKObjectQueryNoLimit</span><span class="p">,</span>
+            <span class="nv">sortDescriptors</span><span class="p">:</span> <span class="kc">nil</span>
+        <span class="p">)</span> <span class="p">{</span> <span class="n">query</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span>
+            <span class="k">if</span> <span class="k">let</span> <span class="nv">error</span> <span class="o">=</span> <span class="n">error</span> <span class="p">{</span>
+                <span class="n">continuation</span><span class="o">.</span><span class="nf">resume</span><span class="p">(</span><span class="nv">throwing</span><span class="p">:</span> <span class="kt">HealthError</span><span class="o">.</span><span class="n">myError</span><span class="p">)</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">guard</span> <span class="k">let</span> <span class="nv">results</span> <span class="o">=</span> <span class="n">results</span> <span class="k">as?</span> <span class="p">[</span><span class="kt">HKWorkout</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="n">continuation</span><span class="o">.</span><span class="nf">resume</span><span class="p">(</span><span class="nv">throwing</span><span class="p">:</span> <span class="kt">HealthError</span><span class="o">.</span><span class="n">wrongType</span><span class="p">)</span>
+                    <span class="k">return</span>
+                <span class="p">}</span>
+                <span class="n">continuation</span><span class="o">.</span><span class="nf">resume</span><span class="p">(</span><span class="nv">returning</span><span class="p">:</span> <span class="n">results</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="kt">HKHealthStore</span><span class="p">()</span><span class="o">.</span><span class="nf">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Always ensure to resume a Continuation <strong>exactly once</strong>; failing to do so can lead to indefinite suspension of the task, resulting in a <strong>memory leak</strong>, as per Apple’s guidelines. Resuming multiple times is considered <strong>undefined behavior</strong> and should be avoided.</p>
+
+<h3 id="executing-async-code-on-main-thread-with-mainactor">Executing Async Code on Main Thread with MainActor</h3>
+
+<p>You can use the <code class="language-plaintext highlighter-rouge">MainActor</code> to execute code on the main thread via three ways:</p>
+
+<h4 id="annotate-your-code-with-mainactor">Annotate your code with <code class="language-plaintext highlighter-rouge">@MainActor</code></h4>
+
+<p>Apply the <code class="language-plaintext highlighter-rouge">@MainActor</code> attribute to properties, functions and classes.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">MyClass</span> <span class="p">{</span>
+    <span class="kd">@MainActor</span> <span class="k">var</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">Data</span> <span class="c1">// Update occurs on the main thread</span>
+  
+    <span class="kd">@MainActor</span> <span class="kd">func</span> <span class="nf">updateUI</span><span class="p">()</span> <span class="k">async</span> <span class="p">{</span>
+        <span class="c1">// this is now called on the main thread</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// class properties and functions are now run on the MainActor</span>
+<span class="kd">@MainActor</span> <span class="kd">class</span> <span class="kt">MyClass</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">Data</span>
+  
+    <span class="kd">func</span> <span class="nf">updateUI</span><span class="p">()</span> <span class="k">async</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="use-mainactor-in-task-closures">Use <code class="language-plaintext highlighter-rouge">@MainActor</code> in Task closures</h4>
+
+<p>Incorporate <code class="language-plaintext highlighter-rouge">@MainActor</code> within a <code class="language-plaintext highlighter-rouge">Task</code> to switch its execution context to the main thread.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Task</span> <span class="p">{</span> <span class="kd">@MainActor</span> <span class="k">in</span> 
+    <span class="c1">// Code runs on the main thread</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="use-mainactorrun">Use <code class="language-plaintext highlighter-rouge">MainActor.run</code></h4>
+
+<p>Use <code class="language-plaintext highlighter-rouge">MainActor.run</code> within any <code class="language-plaintext highlighter-rouge">Task</code> or asynchronous function to force main-thread execution.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Task</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetchAndProcessData</span><span class="p">()</span>
+    <span class="k">await</span> <span class="kt">MainActor</span><span class="o">.</span><span class="n">run</span> <span class="p">{</span>
+        <span class="c1">// Executed on main thread</span>
+        <span class="k">await</span> <span class="nf">updateUI</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">data</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="tips-and-pitfalls">Tips and pitfalls</h2>
+
+<h3 id="task-cheat-sheet">Task Cheat sheet</h3>
+
+<p>For quick reference, here’s a table taken from <a href="https://developer.apple.com/videos/play/wwdc2021/10134/">Explore structured concurrency in Swift</a> WWDC session.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th style="text-align: center">Launched by</th>
+      <th style="text-align: center">Launchable from</th>
+      <th style="text-align: center">Lifetime</th>
+      <th style="text-align: center">Cancellation</th>
+      <th style="text-align: center">Inherits from origin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>async-let tasks</strong></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">async let x</code></td>
+      <td style="text-align: center">async functions</td>
+      <td style="text-align: center">scoped to statement</td>
+      <td style="text-align: center">automatic</td>
+      <td style="text-align: center">priority, task-local values</td>
+    </tr>
+    <tr>
+      <td><strong>Group tasks</strong></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">group.async</code></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">withTaskGroup</code></td>
+      <td style="text-align: center">scoped to task group</td>
+      <td style="text-align: center">automatic</td>
+      <td style="text-align: center">priority, task-local values</td>
+    </tr>
+    <tr>
+      <td><strong>Unstructured tasks</strong></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">Task</code></td>
+      <td style="text-align: center">anywhere</td>
+      <td style="text-align: center">unscoped</td>
+      <td style="text-align: center">via <code class="language-plaintext highlighter-rouge">Task</code></td>
+      <td style="text-align: center">priority, task-local values, actor</td>
+    </tr>
+    <tr>
+      <td><strong>Detached tasks</strong></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">Task.detached</code></td>
+      <td style="text-align: center">anywhere</td>
+      <td style="text-align: center">unscoped</td>
+      <td style="text-align: center">via <code class="language-plaintext highlighter-rouge">Task</code></td>
+      <td style="text-align: center">nothing</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="async-protocol-conformance">Async Protocol Conformance</h3>
+
+<p>When defining a protocol with async functions, you can <a href="https://github.com/apple/swift-evolution/blob/main/proposals/0296-async-await.md#protocol-conformance">conform to the protocol</a> by implementing a synchronous function too.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">protocol</span> <span class="kt">MyProtocol</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">processData</span><span class="p">()</span> <span class="k">async</span>
+<span class="p">}</span>
+
+<span class="kd">struct</span> <span class="kt">TypeA</span><span class="p">:</span> <span class="kt">MyProtocol</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">processData</span><span class="p">()</span> <span class="k">async</span>
+<span class="p">}</span>
+
+<span class="kd">struct</span> <span class="kt">TypeB</span><span class="p">:</span> <span class="kt">MyProtocol</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">processData</span><span class="p">()</span> <span class="c1">// also valid</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="reentrancy">Reentrancy</h3>
+
+<p>In Swift concurrency, <a href="https://en.wikipedia.org/wiki/Reentrancy_(computing)">Reentrancy</a> refers to the situation where a suspended block of code resumes execution at a later time. Upon resumption, the mutable state of your code is not guaranteed to remain the same as it was before suspension, posing potential risks of unintended side effects.</p>
+
+<h4 id="task-suspension-and-unowned-references">Task Suspension and Unowned References</h4>
+
+<p>In Swift’s concurrency model, a <code class="language-plaintext highlighter-rouge">Task</code> strongly retains any reference to <code class="language-plaintext highlighter-rouge">self</code>, potentially extending the object’s lifecycle unexpectedly, especially if tasks remain active after their parent objects have been deallocated. To mitigate this, developers often employ <code class="language-plaintext highlighter-rouge">weak self</code>. However, introducing a suspension point using <code class="language-plaintext highlighter-rouge">await</code> within a <code class="language-plaintext highlighter-rouge">Task</code> can reintroduce issues associated with <code class="language-plaintext highlighter-rouge">unowned</code> references.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">MyClass</span> <span class="p">{</span>
+    <span class="k">unowned</span> <span class="k">var</span> <span class="nv">dataStorage</span><span class="p">:</span> <span class="kt">DataStorage</span><span class="o">!</span>
+    
+    <span class="kd">func</span> <span class="nf">refreshData</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kt">Task</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="k">in</span>
+            <span class="k">guard</span> <span class="k">let</span> <span class="nv">self</span> <span class="o">=</span> <span class="k">self</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span> <span class="c1">// temporarily retains self</span>
+            
+            <span class="k">let</span> <span class="nv">newData</span> <span class="o">=</span> <span class="nf">loadDataFromDisk</span><span class="p">()</span>
+            <span class="k">self</span><span class="o">.</span><span class="n">dataStorage</span> <span class="o">=</span> <span class="n">newData</span> <span class="c1">// Safe</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In this example, the code behaves as expected because it executes atomically. If <code class="language-plaintext highlighter-rouge">self</code> is available, it is temporarily retained, and <code class="language-plaintext highlighter-rouge">newData</code> is updated synchronously.</p>
+
+<p>However, introducing a suspension point can lead to issues similar to those encountered when neglecting to check for a weak <code class="language-plaintext highlighter-rouge">self</code>.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">MyClass</span> <span class="p">{</span>
+    <span class="k">unowned</span> <span class="k">var</span> <span class="nv">dataStorage</span><span class="p">:</span> <span class="kt">DataStorage</span><span class="o">!</span>
+    
+    <span class="kd">func</span> <span class="nf">refreshData</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kt">Task</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="k">in</span>
+            <span class="k">guard</span> <span class="k">let</span> <span class="nv">self</span> <span class="o">=</span> <span class="k">self</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span> <span class="c1">// temporarily retains self</span>
+            
+            <span class="k">let</span> <span class="nv">newData</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">downloadData</span><span class="p">()</span> <span class="c1">// suspension point</span>
+            <span class="k">self</span><span class="o">.</span><span class="n">dataStorage</span> <span class="o">=</span> <span class="n">newData</span> <span class="c1">// random crash</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Here, if the task suspends during the <code class="language-plaintext highlighter-rouge">await</code>, nothing prevents <code class="language-plaintext highlighter-rouge">dataStorage</code>’s owner from being deallocated. When the task resumes, attempting to access the <code class="language-plaintext highlighter-rouge">unowned</code> property can result in a fatal error since <code class="language-plaintext highlighter-rouge">dataStorage</code> is no longer in memory.</p>
+
+<h4 id="actor-reentrancy">Actor Reentrancy</h4>
+
+<p>Actor Reentrancy is a complex behavior that occurs when an actor method makes an asynchronous call, and while waiting for that call to complete, the actor processes other tasks. This can lead to unexpected states within the actor due to interleaved execution of its methods.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">actor</span> <span class="kt">Counter</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">value</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="kd">func</span> <span class="nf">increment</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">value</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">process</span><span class="p">()</span> <span class="k">async</span> <span class="p">{</span>
+        <span class="nf">increment</span><span class="p">()</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">// 1</span>
+        <span class="k">await</span> <span class="nf">doLongProcessing</span><span class="p">()</span> <span class="c1">// suspension point</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">// Unpredictable output (1?)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In this example, while <code class="language-plaintext highlighter-rouge">process()</code> is awaiting the completion of <code class="language-plaintext highlighter-rouge">doLongProcessing()</code>, there’s an opportunity for another task to call <code class="language-plaintext highlighter-rouge">increment()</code>. This undermines the expectation that an actor’s state remains consistent within a given method. So, the second <code class="language-plaintext highlighter-rouge">print(value)</code> may output an unpredictable result, illustrating the challenge of managing mutable state in an actor with reentrant behavior.</p>
+
+<h3 id="unintentional-task-inheritance">Unintentional Task Inheritance</h3>
+
+<p>In Swift’s concurrency model, child tasks inherit the properties of their parent tasks by default, including priority levels and task-local values. Lack of awareness about this behavior can lead to unexpected outcomes, particularly when generating Tasks through SwiftUI modifiers, as demonstrated below.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">MyView</span><span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="o">...</span>
+    <span class="p">}</span>
+    <span class="o">.</span><span class="n">task</span> <span class="p">{</span>
+        <span class="k">await</span> <span class="nf">fetchData</span><span class="p">()</span>
+    <span class="p">}</span>
+  
+    <span class="kd">func</span> <span class="nf">fetchData</span><span class="p">()</span> <span class="k">async</span> <span class="p">{</span>
+        <span class="kt">Task</span> <span class="p">{</span>
+            <span class="c1">// Inherits properties (e.g., priority, executor) from the parent Task</span>
+            <span class="c1">// The long job will execute on the main thread</span>
+            <span class="k">await</span> <span class="nf">longJob</span><span class="p">()</span>
+        <span class="p">}</span>
+
+        <span class="kt">Task</span><span class="o">.</span><span class="nf">detached</span><span class="p">(</span><span class="nv">priority</span><span class="p">:</span> <span class="o">.</span><span class="n">userInitiated</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Unstructured Task: Does not inherit any properties from parent Task</span>
+            <span class="c1">// The long job will execute outside the main thread</span>
+            <span class="k">await</span> <span class="nf">longJob</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>As we have seen, Swift Concurrency is a huge step forward in terms of safety and code maintainability. I hope you enjoyed reading this article and learned a few tricks. Dive in, experiment, and harness the power of Swift concurrency. Happy coding!</p>
+
+<h2 id="further-reading--references">Further Reading &amp; References</h2>
+
+<ul>
+  <li><a href="https://swiftrocks.com/how-async-await-works-internally-in-swift">How async/await works internally in Swift</a></li>
+  <li><a href="https://youtu.be/HqjqwW12wpw?si=zTonWzxAatpTYfKr">The Bleeding Edge of Swift Concurrency</a></li>
+  <li><a href="https://github.com/apple/swift-evolution/blob/main/proposals/0304-structured-concurrency.md">Structured concurrency</a></li>
+  <li><a href="https://github.com/apple/swift-evolution/blob/main/proposals/0296-async-await.md">Async/await</a></li>
+  <li><a href="https://github.com/apple/swift-evolution/blob/main/proposals/0317-async-let.md">Async let</a></li>
+  <li><a href="https://github.com/apple/swift-evolution/blob/main/proposals/0306-actors.md">Actors</a></li>
+  <li><a href="https://github.com/apple/swift-evolution/blob/main/proposals/0316-global-actors.md">Global Actors</a></li>
+  <li><a href="https://youtu.be/oV9rvDllKEg?si=kwXQULVlNNT3K6LS">Concurrency is not Parallelism</a></li>
+</ul>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Swift+Concurrency+in+a+Nutshell%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2023%2F11%2F14%2Fswift-concurrency-in-a-nutshell.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2023/11/14/swift-concurrency-in-a-nutshell.html&title=Swift+Concurrency+in+a+Nutshell%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2023/11/14/swift-concurrency-in-a-nutshell.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Swift Concurrency in a Nutshell%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2023/11/14/swift-concurrency-in-a-nutshell.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#apple">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> apple</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#swift">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> swift</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#xcode">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> xcode</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="Bedrock au Forum PHP 2023" href="/2023/10/20/forum-php-afup-2023.html">
+            <p>Next post</p>
+            Bedrock au Forum PHP 2023
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>
