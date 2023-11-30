@@ -60,6 +60,8 @@ c_vanderzwaard:
   url: https://twitter.com/christianvdz
 d_cuny:
   name: Damien Cuny
+d_krieger:
+  name: Damien Krieger
 d_larue:
   name: David Larue
 d_petrilli:
@@ -195,6 +197,8 @@ pt_guillot:
   name: Pierre-Thomas Guillot
 q_gillie:
   name: Quentin Gillie
+q_nambot:
+  name: Quentin Nambot
 r_panoyan:
   name: Rafi Panoyan
   url: https://twitter.com/rafipanoyan
