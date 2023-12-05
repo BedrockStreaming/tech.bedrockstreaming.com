@@ -4,14 +4,18 @@
     "name": "Jekyll Dev Environment",
     "context": "..",
     "dockerFile": "../Dockerfile",
-    "settings": {},
-    "extensions": [],
+    "customizations": {
+        "vscode": {
+            "settings": {},
+            "extensions": []
+        }
+    },
     "forwardPorts": [
-        8080,
+        35728,
         35729
     ],
     "portsAttributes": {
-        "8080": {
+        "35728": {
             "label": "Jekyll Preview",
             "onAutoForward": "openPreview"
         }

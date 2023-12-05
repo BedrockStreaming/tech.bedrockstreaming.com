@@ -76,6 +76,8 @@ e_carneau:
 e_doyon:
   name: Etienne Doyon
   avatar: /images/avatar/e_doyon.jpeg
+e_idoux:
+  name: Etienne Idoux
 e_herve:
   name: Emmanuel Herve
 e_perrin:
