@@ -386,6 +386,321 @@
     
     <div class="post-teaser">
         
+        <span>
+          <header>
+            <h1>
+              <a aria-label="Retour sur la Velocity New York Conference 2016" class="post-link" href="/2016/10/12/velocity-nyc-2016.html">
+                Retour sur la Velocity New York Conference 2016
+              </a>
+            </h1>
+            <div class="post-info">
+
+
+<span class="author">
+
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    </span><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    October 12, 2016
+  </span>
+</div>
+
+          </header>
+          
+              <div class="excerpt">
+                  
+                     <p>Nous étions cette année à New York, à quelques blocs de Time Square, pour suivre l’édition New Yorkaise de la Velocity Conference 2016.
+C’est une conférence que nous apprécions particulièrement et à laquelle nous nous rendons quasiment chaque année, soit dans son édition européenne (Berlin, Londres, Barcelone, et Amsterdam cette année en novembre), soit aux U.S. (précédemment Santa Clara, New York cette année, et San José l’année prochaine).
+C’est l’occasion de suivre une conf de très haute qualité composée de 4 ou 5 tracks en parallèle, dédiée aux problématiques de performance et de scalabilité.
+On remarque que d’année en année la conférence s’est réorientée autour du mouvement DevOps, alors qu’elle était précédemment beaucoup plus centrée sur la WebPerf (desktop et mobile).</p>
+
+                  
+              </div>
+          
+      </span>
+    </div>
+    
+    <div class="post-teaser">
+        
+        <span>
+          <header>
+            <h1>
+              <a aria-label="Use the Sensiolabs Security Checker to check potential vulnerabilities on Symfony projects" class="post-link" href="/2016/07/20/sf2-security-checker.html">
+                Use the Sensiolabs Security Checker to check potential vulnerabilities on Symfony projects
+              </a>
+            </h1>
+            <div class="post-info">
+
+
+<span class="author">
+
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    </span><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    July 20, 2016
+  </span>
+</div>
+
+          </header>
+          
+              <div class="excerpt">
+                  
+                     <p>Numerous vulnerabilities are detected every day. That’s a good thing and a key benefit of using open source products. At m6web we don’t want to be exposed to known vulnerabilities, so we use a service provided by Sensiolabs in our continuous integration tool (<a href="https://jenkins.io/">Jenkins</a>) to check it.</p>
+
+<p>Just add those lines in your ant build file (and adapt basedir) :</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c">&lt;!-- =================================================================== --&gt;</span>
+    <span class="c">&lt;!-- Security checker                                                    --&gt;</span>
+    <span class="c">&lt;!-- =================================================================== --&gt;</span>
+    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">"sf2-security-checker"</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;exec</span> <span class="na">executable=</span><span class="s">"bash"</span> <span class="na">dir=</span><span class="s">"${basedir}/sources/bin"</span> <span class="na">failonerror=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;arg</span> <span class="na">value=</span><span class="s">"-c"</span><span class="nt">/&gt;</span>
+         <span class="nt">&lt;arg</span> <span class="na">value=</span><span class="s">"curl -Os https://get.sensiolabs.org/security-checker.phar"</span> <span class="nt">/&gt;</span>
+     <span class="nt">&lt;/exec&gt;</span>
+     <span class="nt">&lt;exec</span> <span class="na">executable=</span><span class="s">"php"</span> <span class="na">dir=</span><span class="s">"${basedir}/sources"</span> <span class="na">failonerror=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;arg</span> <span class="na">line=</span><span class="s">"${basedir}/sources/bin/security-checker.phar security:check composer.lock"</span> <span class="nt">/&gt;</span>
+     <span class="nt">&lt;/exec&gt;</span>
+    <span class="nt">&lt;/target&gt;</span>
+</code></pre></div></div>
+
+                  
+              </div>
+          
+      </span>
+    </div>
+    
+    <div class="post-teaser">
+        
+        <span>
+          <header>
+            <h1>
+              <a aria-label="Retour d'expérience sur l'utilisation de Cassandra sur 6play en vidéo" class="post-link" href="/2016/07/04/rex-cassandra.html">
+                Retour d'expérience sur l'utilisation de Cassandra sur 6play en vidéo
+              </a>
+            </h1>
+            <div class="post-info">
+
+
+<a
+      href="https://twitter.com/omansour"
+      target="_blank"
+      rel="noopener"
+      class="author">
+      <img alt="Author's avatar" src="/images/avatar/o_mansour.jpg" class="thumbnail">
+    
+
+    
+      <span class="name">
+        Olivier Mansour
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    July 04, 2016
+  </span>
+</div>
+
+          </header>
+          
+              <div class="excerpt">
+                  
+                     <iframe width="853" height="480" src="https://www.youtube.com/embed/dOOjUNnwLC4" frameborder="0" allowfullscreen=""></iframe>
+
+                  
+              </div>
+          
+      </span>
+    </div>
+    
+    <div class="post-teaser">
+        
+        <div class="post-img">
+            <a aria-label="Migrate smoothly your Flux isomorphic app to Redux" href="/2016/07/04/migrate-smoothly-flux-isomorphic-app-to-redux.html">
+                <img alt="Migrate smoothly your Flux isomorphic app to Redux" src="/images/posts/redux.jpg">
+            </a>
+        </div>
+        
+        <span>
+          <header>
+            <h1>
+              <a aria-label="Migrate smoothly your Flux isomorphic app to Redux" class="post-link" href="/2016/07/04/migrate-smoothly-flux-isomorphic-app-to-redux.html">
+                Migrate smoothly your Flux isomorphic app to Redux
+              </a>
+            </h1>
+            <div class="post-info">
+
+
+<a
+      href="https://twitter.com/fooragnak"
+      target="_blank"
+      rel="noopener"
+      class="author">
+      <img alt="Author's avatar" src="/images/avatar/f_dubost.jpg" class="thumbnail">
+    
+
+    
+      <span class="name">
+        Florent Dubost
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    July 04, 2016
+  </span>
+</div>
+
+          </header>
+          
+              <div class="excerpt">
+                  
+                     <h2 id="flux-history-reminders">Flux, history reminders…</h2>
+
+                  
+              </div>
+          
+      </span>
+    </div>
+    
+    <div class="post-teaser">
+        
+        <span>
+          <header>
+            <h1>
+              <a aria-label="Retour d’expérience : réaliser des Workers en PHP - Fabien de Saint pern au PHP Tour 2016 " class="post-link" href="/2016/06/23/video-phptour-worker-php.html">
+                Retour d’expérience : réaliser des Workers en PHP - Fabien de Saint pern au PHP Tour 2016 
+              </a>
+            </h1>
+            <div class="post-info">
+
+
+<span class="author">
+
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    </span><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    June 23, 2016
+  </span>
+</div>
+
+          </header>
+          
+              <div class="excerpt">
+                  
+                     <p><a href="https://twitter.com/fabdsp">Fabien de Saint pern</a> - lead dev de notre team back-end 6play - était au PHP Tour et a fait une présentation sur la façon dont nous faisons des workers en PHP.</p>
+
+                  
+              </div>
+          
+      </span>
+    </div>
+    
+    <div class="post-teaser">
+        
         <div class="post-img">
             <a aria-label="Preview your Android & iOS React Native apps on your Github Pull Request" href="/2016/06/20/preview-android-ios-react-native-on-github-pull-request.html">
                 <img alt="Preview your Android & iOS React Native apps on your Github Pull Request" src="/images/posts/reactnative/nighttrain.jpg">
@@ -682,302 +997,6 @@ Ca parlera jenkins, gitlab, gitlab-ci, outil de gestion de projets, api, sentry,
               <div class="excerpt">
                   
                      <p><a href="https://twitter.com/fabdsp">Fabien de Saint Pern</a>, un des leads devs sur la plateforme <a href="https://www.6play.fr">6play</a>, aura l’occasion de présenter une conférence au PHPTour Clermont-Ferrand le 24 Mai. Il fera un retour d’expérience concret sur nos pratiques autour de <a href="https://event.afup.org/php-tour-2016/programme/#1761">la réalisation de workers asynchrones en PHP</a> (et oui !).</p>
-
-                  
-              </div>
-          
-      </span>
-    </div>
-    
-    <div class="post-teaser">
-        
-        <div class="post-img">
-            <a aria-label="La retrospective Agile ‘Garde à vous’" href="/2016/03/29/retro-agile-garde-a-vous.html">
-                <img alt="La retrospective Agile ‘Garde à vous’" src="/images/posts/retro/retroagile.png">
-            </a>
-        </div>
-        
-        <span>
-          <header>
-            <h1>
-              <a aria-label="La retrospective Agile ‘Garde à vous’" class="post-link" href="/2016/03/29/retro-agile-garde-a-vous.html">
-                La retrospective Agile ‘Garde à vous’
-              </a>
-            </h1>
-            <div class="post-info">
-
-
-<span class="author">
-
-    </span><span class="spacer"> - </span>
-
-
-
-<span class="author">
-
-    </span><span class="spacer"> - </span>
-
-
-
-<span class="author">
-
-    </span><span class="spacer"> - </span>
-
-
-
-<span class="author">
-
-    </span><span class="spacer"> - </span>
-
-
-
-<span class="author">
-
-    </span><span class="spacer"> - </span>
-
-
-
-<span class="author">
-
-    </span><span class="spacer"> - </span>
-
-
-
-  <span class="publication-date">
-    
-    March 29, 2016
-  </span>
-</div>
-
-          </header>
-          
-              <div class="excerpt">
-                  
-                     <p>Depuis quelques années les équipes d’M6Web se sont organisées autour des méthodes agiles. Scrum, Kanban, Lean, méthodes adaptées, nous nous efforçons de toujours garder en tête l’amélioration continue et le fun spirit au coeur du travail de nos équipes.</p>
-
-                  
-              </div>
-          
-      </span>
-    </div>
-    
-    <div class="post-teaser">
-        
-        <span>
-          <header>
-            <h1>
-              <a aria-label="M6Web Lyon recherche un développeur player vidéo JavaScript (H/F) en CDI" class="post-link" href="/2016/01/26/m6web-lyon-recherche-developpeur-player-video-web-h-f-en-cdi.html">
-                M6Web Lyon recherche un développeur player vidéo JavaScript (H/F) en CDI
-              </a>
-            </h1>
-            <div class="post-info">
-
-
-<span class="author">
-
-    </span><span class="spacer"> - </span>
-
-
-
-<span class="author">
-
-    </span><span class="spacer"> - </span>
-
-
-
-<span class="author">
-
-    </span><span class="spacer"> - </span>
-
-
-
-<span class="author">
-
-    </span><span class="spacer"> - </span>
-
-
-
-<span class="author">
-
-    </span><span class="spacer"> - </span>
-
-
-
-<span class="author">
-
-    </span><span class="spacer"> - </span>
-
-
-
-  <span class="publication-date">
-    
-    January 26, 2016
-  </span>
-</div>
-
-          </header>
-          
-              <div class="excerpt">
-                  
-                     <p>Mise jour : Le poste n’est à plus pourvoir. Merci</p>
-
-                  
-              </div>
-          
-      </span>
-    </div>
-    
-    <div class="post-teaser">
-        
-        <span>
-          <header>
-            <h1>
-              <a aria-label="On a testé fonctionnellement notre app JS" class="post-link" href="/2016/01/25/tests-fonctionnels-app-js.html">
-                On a testé fonctionnellement notre app JS
-              </a>
-            </h1>
-            <div class="post-info">
-
-
-<a
-      href="https://twitter.com/fooragnak"
-      target="_blank"
-      rel="noopener"
-      class="author">
-      <img alt="Author's avatar" src="/images/avatar/f_dubost.jpg" class="thumbnail">
-    
-
-    
-      <span class="name">
-        Florent Dubost
-      </span>
-    </a><span class="spacer"> - </span>
-
-
-
-  <span class="publication-date">
-    
-    January 25, 2016
-  </span>
-</div>
-
-          </header>
-          
-              <div class="excerpt">
-                  
-                     <p>L’utilité des tests fonctionnels pour les applications web n’est plus à démontrer (comment ça, vous ne testez pas encore vos apps ?). Malheureusement, tout ne peut pas être totalement testé fonctionnellement, ou de façon aisée : je pense par exemple au player chez nous, un composant stratégique mais pauvrement testé fonctionnellement de par sa nature un peu hybride (mélange de flash et de JS). Dans tous les cas, pour ce qui peut l’être, nous sommes partisans dans l’équipe Cytron d’user sans mesure (ou presque !) de cet outil de manière à être le plus zen possible au moment d’appuyer sur le bouton “deploy”.</p>
-
-                  
-              </div>
-          
-      </span>
-    </div>
-    
-    <div class="post-teaser">
-        
-        <div class="post-img">
-            <a aria-label="L'envers du décor du nouveau 6play" href="/2015/11/30/beta-nouveau-6play-backend.html">
-                <img alt="L'envers du décor du nouveau 6play" src="/images/posts/6play/logo.jpg">
-            </a>
-        </div>
-        
-        <span>
-          <header>
-            <h1>
-              <a aria-label="L'envers du décor du nouveau 6play" class="post-link" href="/2015/11/30/beta-nouveau-6play-backend.html">
-                L'envers du décor du nouveau 6play
-              </a>
-            </h1>
-            <div class="post-info">
-
-
-<span class="author">
-
-    
-      <span class="name">
-        Bedrock
-      </span>
-    </span><span class="spacer"> - </span>
-
-
-
-  <span class="publication-date">
-    
-    November 30, 2015
-  </span>
-</div>
-
-          </header>
-          
-              <div class="excerpt">
-                  
-                     <p>Il y a quelques semaines, nous vous parlions ici même de la <a href="/beta-nouveau-6play-react-isomorphic/">stack technique mise en place pour le nouveau front web de 6play</a>.</p>
-
-                  
-              </div>
-          
-      </span>
-    </div>
-    
-    <div class="post-teaser">
-        
-        <span>
-          <header>
-            <h1>
-              <a aria-label="M6Web Dev Facts #9" class="post-link" href="/2015/11/06/m6web-dev-facts-9.html">
-                M6Web Dev Facts #9
-              </a>
-            </h1>
-            <div class="post-info">
-
-
-<span class="author">
-
-    </span><span class="spacer"> - </span>
-
-
-
-<span class="author">
-
-    </span><span class="spacer"> - </span>
-
-
-
-<span class="author">
-
-    </span><span class="spacer"> - </span>
-
-
-
-<span class="author">
-
-    </span><span class="spacer"> - </span>
-
-
-
-<span class="author">
-
-    </span><span class="spacer"> - </span>
-
-
-
-<span class="author">
-
-    </span><span class="spacer"> - </span>
-
-
-
-  <span class="publication-date">
-    
-    November 06, 2015
-  </span>
-</div>
-
-          </header>
-          
-              <div class="excerpt">
-                  
-                     <h1 id="cest-le-digital">C’est le digital</h1>
 
                   
               </div>
