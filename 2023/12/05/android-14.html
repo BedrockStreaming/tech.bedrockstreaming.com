@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/2023-12-05-android-14/header.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Android 14 is out | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Android 14 is out" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Android 14 changes impacts" />
+<meta property="og:description" content="Android 14 changes impacts" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2023/12/05/android-14.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2023/12/05/android-14.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-12-05T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Android 14 is out" />
+<script type="application/ld+json">
+{"description":"Android 14 changes impacts","headline":"Android 14 is out","dateModified":"2023-12-05T00:00:00+00:00","datePublished":"2023-12-05T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2023/12/05/android-14.html"},"url":"https://tech.bedrockstreaming.com/2023/12/05/android-14.html","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Android 14 is out">
+    <meta name="twitter:description" content="Here’s what it means for users and developers.With each new OS version, new things, upgrades, deprecations and changes are introduced, affecting the way we u...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/2023-12-05-android-14/header.png">
+    <meta name="twitter:image:alt" content="Android 14 is out">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Android 14 is out " aria-label="Android 14 is out" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Android+14+is+out" class="title">Android 14 is out</h1>
+      <div class="post-info">
+
+
+<span class="author">
+
+    
+      <span class="name">
+        Cédric Goffoy
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    December 05, 2023
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Here’s what it means for users and developers.</p>
+
+<p>With each new OS version, new things, upgrades, deprecations and changes are introduced, affecting the way we use and develop our apps.
+Google keeps going in the direction of more privacy, more accessibility and more control over what the apps can do to maximize security and integrity.
+Android 14 is no exception and here’s what I compiled on different topics that I will try to vulgarize to keep everyone on board.</p>
+
+<h3 id="technical">Technical</h3>
+
+<p>Technical changes build over features and APIs already introduced in previous versions, mostly Android 12 and 13.
+They tend to modernize tools by catching up with some Java features and semantics, helping manufacturers and improving the developers’ IDE to embrace those changes.
+Due to the nature of the changes, this is the topic that has to remain…technical, sorry for that.</p>
+
+<ul>
+  <li>Mobile screens are getting bigger with more ratios to support, we’re moving further and further away from the binary world of phone vs tablet. To ensure the best experience on this wide range of devices, Android 14 introduces the <code class="language-plaintext highlighter-rouge">Large Screen Compatibility Mode</code> to help manufacturers improve the experience on their devices.</li>
+  <li>Updates to OpenJDK17 may require a bit of attention from apps using <code class="language-plaintext highlighter-rouge">Regex</code> that are not close enough to openJDK’s new semantics, throwing exceptions when confronted to an invalid groupe reference.</li>
+  <li>Generating a <code class="language-plaintext highlighter-rouge">UUID</code> from a string sees the validation become stricter and will now lead to exceptions due to deserialization issues. More than ever, it’s time to unit test UUID generation.</li>
+  <li>A bit of additional ruling may be needed to fix Proguard issues when shrinking / obfuscating code involving the <code class="language-plaintext highlighter-rouge">ClassValue</code> class coming with <code class="language-plaintext highlighter-rouge">API34</code>.</li>
+  <li>The new <code class="language-plaintext highlighter-rouge">Back APIs</code> are now strengthened by built-in animations and support for custom ones.</li>
+  <li>Making the <code class="language-plaintext highlighter-rouge">ForegroundService</code> type explicit is now mandatory, if the implementation was already properly done back in the Android 10 days when it was introduced, congratulations, nothing to do here.</li>
+  <li>Foreground services are also encouraged to be migrated to user-initiated jobs. A new <code class="language-plaintext highlighter-rouge">RUN_USER_INITIATED_JOBS</code> permission is introduced and new methods on the <code class="language-plaintext highlighter-rouge">JobInfo</code> builder allow to set the <code class="language-plaintext highlighter-rouge">userInitiated()</code> status along with the estimated amount of bytes the job will expect from the network. Scheduling the job is now done with the app foregrounded and the notification icon system remains the same so the user knows something is going on even if the app is backgrounded post launch.</li>
+</ul>
+
+<h3 id="battery-and-performance">Battery and performance</h3>
+
+<p>Without a single ounce of surprise, Google continues its effort to improve battery life and takes steps towards sanctioning bad actors that publish battery-draining or unstable apps.
+Today, not crashing is no longer enough, developers should take steps to push their app to their full potential and that means power management and performance monitoring.</p>
+
+<ul>
+  <li>Bad behaviours like <code class="language-plaintext highlighter-rouge">ANRs (screen freezes)</code> or <code class="language-plaintext highlighter-rouge">background crashes</code> now more aggressively flag the guilty apps and put them at the bottom of the priority list where apps are fighting for resources, meaning they’ll also be the first to go if the system needs some. No more filtering out <code class="language-plaintext highlighter-rouge">ANRs</code> and non-fatal crashes on Crashlytics, everything matters now.</li>
+  <li>While on the subject of fighting for resources, let’s also note that now, <code class="language-plaintext highlighter-rouge">context-registered broadcasts</code> are now queued when the app is backgrounded and the system will deliver them when the app is awake or system conditions allow it.</li>
+  <li>Another change to the cached state (aka when the app is backgrounded) impacts background tasks that can no longer be triggered unless one of the app components is awake. This change pushes devs to use framework’s <code class="language-plaintext highlighter-rouge">JobScheduler</code> and <code class="language-plaintext highlighter-rouge">WorkManager</code> more as they aren’t impacted by this change.</li>
+  <li>Still with <code class="language-plaintext highlighter-rouge">Jobscheduler</code>, jobs don’t just fail silently anymore if they don’t respond in time but trigger an <code class="language-plaintext highlighter-rouge">ANR</code>, it is advised to move to <code class="language-plaintext highlighter-rouge">WorkManager</code> with its out of the box async support.</li>
+  <li>If a job requires a special network state to be triggered, the <code class="language-plaintext highlighter-rouge">ACCESS_NETWORK_STATE</code> permission is now mandatory. Without it, a <code class="language-plaintext highlighter-rouge">SecurityException</code> will be raised.</li>
+  <li><code class="language-plaintext highlighter-rouge">Intents</code> keep getting more and more headache prone as the implicit and pending intents now can only be delivered to exported components. If you need to reach an unexported component, explicit intent is your go-to solution. Note that mutable pending intents now need to specify a component or it will throw an exception.</li>
+</ul>
+
+<h3 id="notifications">Notifications</h3>
+
+<p>Finding the right balance between informative presence and in-your-face nuisance has always been a challenge for notifications and it seems Google keeps pushing to make them less invasive and easier for the user to dismiss or delay them.</p>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">Fullscreen Intent</code> notifications that we see when our clock rings or when we receive a phone call are luckily already rarely used.
+They are now more restricted and available only to apps declaring <code class="language-plaintext highlighter-rouge">Call</code> or <code class="language-plaintext highlighter-rouge">Alarm</code> features, meaning we shouldn’t see bad actors abusing this feature that would allow them to bypass the lock screen amongst other things.</li>
+  <li>Non-dismissible <code class="language-plaintext highlighter-rouge">foreground notifications</code> are now dismissible in some cases but will remain non-dismissible
+    <ul>
+      <li>on top of the <code class="language-plaintext highlighter-rouge">Lock Screen</code> to prevent it from being swiped by anyone accessing a device behind the owner’s back.</li>
+      <li>from the <code class="language-plaintext highlighter-rouge">Clear all</code> feature to prevent misclicks.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="privacy-and-security">Privacy and security</h3>
+
+<p>This is, once again without surprise, where a lot of the changes happen and it is aligned with Google’s vision and goals when it comes to give users back the control of their data and permissions.
+Some of them seem so obvious that it’s surprising to see them in action only now. Maybe the EU pressure with GDPR starts to pay off? Maybe…</p>
+
+<ul>
+  <li>Android 14 introduces new places where the data sharing purposes are displayed. Until now, we could only check them from the PlayStore app page. 
+Now, it will also be displayed in the <code class="language-plaintext highlighter-rouge">runtime permission popups</code>, starting with those related to location to remind why the data is necessary and with whom it will be shared.</li>
+  <li>It will now be impossible to install apps that don’t target at least the <code class="language-plaintext highlighter-rouge">API 23</code> to prevent bad actors from exploiting security breaches discovered inside older Android versions.
+Be aware that installed apps won’t be removed and the system won’t warn you when starting one of those apps, maybe a new feature for Android 15?</li>
+  <li><code class="language-plaintext highlighter-rouge">Dynamic Code Loading</code> now requires to flag the file as read-only to avoid any tampering or code injection. In any case, DCL should be avoided when possible and only trusted files should obviously be loaded this way.</li>
+  <li>When saving a file inside the app storage, the system attributes to the file an owner id, this id being the app package name that saved it. 
+This feature allows apps to know which file they can open without requesting the external read permission. The issue was that by querying this id, other apps could access the owner ids that weren’t them and deducting the owner’s installed apps list. 
+To fix this, the name is now redacted, increasing again a little bit the user data protection, the list of the installed apps being considered a sensitive data by Google.</li>
+  <li>If an app features <code class="language-plaintext highlighter-rouge">screen</code> or <code class="language-plaintext highlighter-rouge">audio recording</code>, it is now required to be granted the user consent to do so before each session start and therefore be able to handle permission denied scenarios.</li>
+  <li>Zip files are also impacted as a fixed vulnerability with the <code class="language-plaintext highlighter-rouge">path transversal reading</code> now triggers an exception if some characters are found inside it. (Contains <code class="language-plaintext highlighter-rouge">..</code> Or starts with <code class="language-plaintext highlighter-rouge">/</code>)</li>
+  <li>Even though already required, the <code class="language-plaintext highlighter-rouge">BLUETOOTH_CONNECT</code> permission was not yet enforced to access the profile state, it is now the case.</li>
+  <li>Users are no more required to grant access to all <code class="language-plaintext highlighter-rouge">images</code> or <code class="language-plaintext highlighter-rouge">videos</code> to share or display a single media, Android 14 now upgrades the permission popup with an option to select only the media the app is allowed to access.</li>
+  <li>Apps can now react to a user <code class="language-plaintext highlighter-rouge">screenshot</code> event, they can’t manipulate the content but developers can now add a callback bound to the activity lifecycle. 
+Sensitive screens should still be protected with the secure flag.</li>
+  <li>Starting activities from the background with a <code class="language-plaintext highlighter-rouge">pending intent</code> or through another app in the foreground now requires the app to opt-in to this feature inside said activity and is no longer a default behaviour.</li>
+</ul>
+
+<h3 id="accessibility">Accessibility</h3>
+
+<p>It is no secret that mobile devices are now owned by more and more people every year, which includes people with a range of disabilities or personalities that may make an app usage more challenging.
+Android 14 helps them with new and upgraded features to ease their journey with a mobile device.</p>
+
+<ul>
+  <li>A step is taken towards low-vision users’ direction, the changes and impacts to the <code class="language-plaintext highlighter-rouge">font scaling</code> should be negligible to developers already properly using <code class="language-plaintext highlighter-rouge">SP</code> as their size units but a full testing pass with the scaling enabled should be scheduled to be safe and tweak improvable screens.</li>
+  <li>New tools inside Android studio are added to help developers handling <code class="language-plaintext highlighter-rouge">per-app language</code> more efficiently and easily.</li>
+  <li><code class="language-plaintext highlighter-rouge">Grammatical Inflection API</code> is introduced, offering developers working on apps with gendered languages new tools. It adds a layer of complexity to the strings files by having three gender-files by gendered language. In those files are added only the strings affected by gender inflections like <code class="language-plaintext highlighter-rouge">Vous êtes déconnecté</code> for masculine, <code class="language-plaintext highlighter-rouge">Vous êtes déconnectée</code> for feminine or <code class="language-plaintext highlighter-rouge">La déconnection est effective</code> for neutral in french. More work for developers and translators but an overall better experience for users.</li>
+</ul>
+
+<hr />
+
+<p>All in all, Android 14 is an update faithful to the Google roadmap. 
+Users today are very different than users 10 years ago. They care more about their data and their privacy; the Mobile ecosystem and business is also a lot more professional.
+It’s important for us developers to be aware of those changes in order to continuously improve the experience, be it related to our core business or simply to keep the user engaged in a safe environment.</p>
+
+<p>When this article is released, Android 14 should be freshly out and developer teams hands deep in the migration tasks.
+I hope you enjoyed the information and see you soon for more Android related articles!</p>
+
+<ul>
+  <li><a href="https://developer.android.com/about/versions/14/behavior-changes-all">Changes potentially affecting all apps</a></li>
+  <li><a href="https://developer.android.com/about/versions/14/behavior-changes-14">Changes affecting apps targetting Android 14</a></li>
+  <li><a href="https://developer.android.com/about/versions/14/features">New features introduced by Android 14</a></li>
+  <li><a href="https://developer.android.com/sdk/api_diff/34/changes">APIs changelog</a></li>
+  <li><a href="https://developer.android.com/about/versions/14/summary">Overview</a></li>
+</ul>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Android+14+is+out%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2023%2F12%2F05%2Fandroid-14.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2023/12/05/android-14.html&title=Android+14+is+out%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2023/12/05/android-14.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Android 14 is out%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2023/12/05/android-14.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#14">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> 14</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#android">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> android</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#google">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> google</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#mobile">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> mobile</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="STOP à l'espionnage ! Comment disparaître d'internet ? #LFT 24/11/23" href="/stop-a-l-espionnage-comment-disparaitre-d-internet">
+            <p>Next post</p>
+            STOP à l'espionnage ! Comment disparaître d'internet ? #LFT 24/11/23
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(254,91,73) !important; }
+  .share-buttons a { color: rgb(254,91,73) !important; }
+  .tag-list a:not(:hover) { color: rgb(254,91,73) !important; }
+  div#post-nav a { color: rgb(254,91,73) !important; }
+  footer a { color: rgb(254,91,73) !important; }
+  .site-header nav a:hover {  color: rgb(254,91,73) !important; }
+  a.button:hover {
+    background: rgb(254,91,73) !important;
+    border: 1px solid rgb(254,91,73) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(254,91,73) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>
