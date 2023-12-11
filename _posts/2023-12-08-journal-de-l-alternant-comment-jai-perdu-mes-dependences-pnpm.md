@@ -3,7 +3,7 @@ layout: post
 title: Journal de l'alternant - Comment j'ai perdu mes dépendances pnpm
 description: "Comment la non-compréhension du hoisting m'a fait perdre des dépendances"
 author: [j_poissonnet]
-tags: [pnpm, hoisting, `node_modules`, alternant]
+tags: [pnpm, hoisting, node_modules, alternant]
 color: rgb(254,91,73)
 language: fr
 ---
