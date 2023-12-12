@@ -12,7 +12,7 @@ language: fr
 
 Je suis alternant depuis un an à Bedrock et je travaille pour la première fois sur notre projet web interne. C’est un projet qui est très complexe, avec lequel vient énormément d’historique et dont la lecture du code relève parfois autant de l’histoire que du développement. 
 
-D’ailleurs à Bedrock, si on arrive à maintenir notre application web dans la durée, c'est grâce aux bonnes pratiques qu’on essaie de respecter au mieux. 
+> D’ailleurs à Bedrock, si on arrive à maintenir notre application web dans la durée, c'est grâce aux bonnes pratiques qu’on essaie de respecter au mieux. 
 
 En bref, je n’ai qu’une connaissance très superficielle du projet et des outils qu’il intègre.
 
@@ -26,7 +26,7 @@ Je commence à penser que je ne viens pas seulement de casser un test, mais j’
 
 En fait, il y manque également d’autres outils que je m’attendais à trouver comme prettier et eslint.
 
-Je me redis que la portée de mon problème vient de s’étendre de jest à mes `node_modules`.
+Je me redis que la portée de mon problème vient de s’étendre de jest à mes `node_modules`. 🫠
 
 Désespéré, je tente une recherche globale des mots clés : **prettier** et **eslint**. Je finis par trouver une correspondance intéressante dans le fichier `.npmrc`.
 
@@ -47,11 +47,11 @@ Je peux sentir qu’il s’agit d’une véritable piste parce que dans ce fichi
 ## Hoisting des dépendances
 Pour comprendre la configuration `public-hoist-pattern` il faut d’abord comprendre comment sont formés les `node_modules` par pnpm. Pnpm ne va mettre dans le dossier `node_modules` en racine uniquement les dépendances directes du projet, toutes les sous-dépendances seront placées dans un dossier caché .pnpm et un lien symbolique sera créé. 
 
-Je vous invite à lire la documentation écrite par pnpm disponible [à ce lien](https://pnpm.io/symlinked-node-modules-structure) afin de comprendre leur système de dépendances.
+> Je vous invite à lire la documentation écrite par pnpm disponible [à ce lien](https://pnpm.io/symlinked-node-modules-structure) afin de comprendre leur système de dépendances.
 
 Cela peut parfois poser des problèmes avec des libraries qui utilisent des dépendances fantômes. C’est pourquoi pnpm laisse quand même du contrôle sur ce comportement.
 
-On parle de dépendance fantôme pour désigner toutes les dépendances qui ne sont pas désignées dans le package.json root mais qui sont quand même nécessaire pour le bon fonctionnement de l’application.
+> On parle de dépendance fantôme pour désigner toutes les dépendances qui ne sont pas désignées dans le package.json root mais qui sont quand même nécessaire pour le bon fonctionnement de l’application.
 
 `public-hoist-pattern` permet d’indiquer quelles dépendances on veut forcer à être dans le dossier `node_modules` racine plutôt que `node_modules/.pnpm.
 
@@ -62,7 +62,7 @@ A cet instant je suis convaincu que c’est le fichier `.npmrc` qui est responsa
 
 C’est à ce moment que je me dis que si le problème ne vient pas de mes outils ni de la configuration locale, il faut peut-être que j’aille chercher dans ma configuration globale. En effet, en ouvrant cette dite configuration `~/.npmrc`, je m’aperçois que c’est de là que vient la ligne `shamefully-hoist=false`. C’est un soulagement, j’ai enfin trouvé d’où cette ligne mystique venait.
 
-Je suis encore à la recherche de la réponse à la question : pourquoi diable, ai-je mis cette configuration dans mon `.npmrc` global. Je pense me souvenir l’avoir fait en me disant que je voulais m’assurer que pnpm se comporte en faisant des symlinks. (l’intention n'était pas mauvaise, mais la conséquence pas joyeuse)
+> Je suis encore à la recherche de la réponse à la question : pourquoi diable, ai-je mis cette configuration dans mon `.npmrc` global. Je pense me souvenir l’avoir fait en me disant que je voulais m’assurer que pnpm se comporte en faisant des symlinks. (l’intention n'était pas mauvaise, mais la conséquence pas joyeuse)
 
 On peut lire dans la documentation de pnpm que : _Setting shamefully-hoist to true is the same as setting `public-hoist-pattern` to *._
 
