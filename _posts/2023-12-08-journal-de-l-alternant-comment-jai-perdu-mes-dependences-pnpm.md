@@ -16,11 +16,11 @@ Je suis alternant depuis un an à Bedrock et je travaille pour la première fois
 
 En bref, je n’ai qu’une connaissance très superficielle du projet et des outils qu’il intègre.
 
-Dans mes habitudes de code, il peut parfois m’arriver d’oublier de vérifier que le code que j’écris ne vienne pas casser les tests en place dans le code. Heureusement, notre CI qui nous est chère ne manque jamais de me rappeler mon manque rigueur. Cette fois-là, je casse un test à cause d’une erreur tellement anodine que je ne parviens pas à m’en rappeler. Je peux juste vous dire que j’ai eu le réflexe d’aller dans mon terminal de lancer le runner de test jest à l’aide de notre package manager pnpm dans une commande qui doit très certainement ressembler à : pnpm test <test-qui-casse>. Le test est rouge pour une raison qui me semble venir d’un problème de dépendances. Ayant beaucoup trituré mes `node_modules`, je me dis que repartir sur des bases propres ne devraient pas faire de mal au projet. Je décide donc, sans savoir ce qui m’attend, de lancer l’innocente commande : `pnpm i`
+Dans mes habitudes de code, il peut parfois m’arriver d’oublier de vérifier que le code que j’écris ne vienne pas casser les tests en place dans le code. Heureusement, notre CI qui nous est chère ne manque jamais de me rappeler mon manque de rigueur. Cette fois-là, je casse un test à cause d’une erreur tellement anodine que je ne parviens pas à m’en rappeler. Je peux juste vous dire que j’ai eu le réflexe d’aller dans mon terminal de lancer le runner de test jest à l’aide de notre package manager pnpm dans une commande qui doit très certainement ressembler à : `pnpm test TEST_QUI_CASSE`. Le test est rouge pour une raison qui me semble venir d’un problème de dépendances. Ayant beaucoup trituré mes `node_modules`, je me dis que repartir sur des bases propres ne devraient pas faire de mal au projet. Je décide donc, sans savoir ce qui m’attend, de lancer l’innocente commande : `pnpm i`
 
 J’observe que pnpm fait son travail, met à jour des dépendances, je devais effectivement avoir joué un peu trop avec mes `node_modules`.
 
-Je relance la commande à l’identique qui doit très certainement ressembler à : pnpm test <test-qui-casse> … et là quelle ne fut pas ma surprise quand mon terminal, sans trembler m’a affiché `Command: "jest" not found`.
+Je relance la commande à l’identique qui doit très certainement ressembler à : pnpm test <test-qui-casse> … et là quelle ne fut pas ma surprise quand mon terminal, sans trembler, m’a affiché `Command: "jest" not found`.
 
 Je commence à penser que je ne viens pas seulement de casser un test, mais j’ai également cassé jest. À ce moment-là, je venais de ressortir d’une bataille avec des dépendances et donc je venais de me familiariser avec le `node_modules` `.pnpm` et autre `.bin` . C’est dans ce dernier dossier que je me rends pour me rendre compte qu’effectivement, il y manque l’exécutable jest.
 
@@ -51,7 +51,7 @@ Pour comprendre la configuration `public-hoist-pattern` il faut d’abord compre
 
 Cela peut parfois poser des problèmes avec des libraries qui utilisent des dépendances fantômes. C’est pourquoi pnpm laisse quand même du contrôle sur ce comportement.
 
-> On parle de dépendance fantôme pour désigner toutes les dépendances qui ne sont pas désignées dans le package.json root mais qui sont quand même nécessaire pour le bon fonctionnement de l’application.
+> On parle de dépendance fantôme pour désigner toutes les dépendances qui ne sont pas désignées dans le `package.json` root mais qui sont quand même nécessaire pour le bon fonctionnement de l’application.
 
 `public-hoist-pattern` permet d’indiquer quelles dépendances on veut forcer à être dans le dossier `node_modules` racine plutôt que `node_modules/.pnpm`.
 
