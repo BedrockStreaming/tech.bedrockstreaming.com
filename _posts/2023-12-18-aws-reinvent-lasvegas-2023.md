@@ -20,7 +20,7 @@ Alongside these announcements, we had the opportunity to attend talks by some of
 
 ![Practice like you play](/images/posts/2023-12-18-aws-reinvent-lasvegas-2023/aws-reinvent-2023-resilience.jpg)
 
-Olga Hall, Director of Live Events Availability & Resilience at Amazon Prime Video, and Lauren Domb,Chief Technologist, WWP Federal Financial Services, WW Chaos Engineering Lead at AWS, discussed the importance of resilience in the streaming industry. 
+Olga Hall, Director of Live Events Availability & Resilience at Amazon Prime Video, and Lauren Domb,Chief Technologist, WWP Federal Financial Services, WW Chaos Engineering Lead at AWS, [discussed the importance of resilience in the streaming industry](https://www.youtube.com/watch?v=r3J0fEgNCLQ). 
 
 They highlighted the high cost of downtime and the impact on companies' ability to serve their customers. We're talking about an average of $300,000 per hour across the industry.  
 
@@ -38,7 +38,7 @@ These practices at Amazon Prime Video offer an interesting perspective on how we
 
 ## Surviving overloads: How Amazon Prime Day avoids congestion collapse
 
-Jim Roskind, Distinguished Engineer at Amazon.com, and Ankit Chadha Solution Architect at AWS shared their experiences and knowledge at the conference. Formerly of Google, where he oversaw Google Chrome metrics and performance, Jim now works for Amazon with a singular mission: to buy less of AWS products. This approach, aimed at reducing IT costs, is supported by AWS, which wants to teach all its customers how to optimize their spending.
+Jim Roskind, Distinguished Engineer at Amazon.com, and Ankit Chadha Solution Architect at AWS [shared their experiences and knowledge at the conference](https://www.youtube.com/watch?v=fOYOvp6X10g). Formerly of Google, where he oversaw Google Chrome metrics and performance, Jim now works for Amazon with a singular mission: to buy less of AWS products. This approach, aimed at reducing IT costs, is supported by AWS, which wants to teach all its customers how to optimize their spending.
 
 However, this quest for efficiency and cost reduction is not without risks. One of Jim's main concerns is congestion collapse, a phenomenon that can lead to a drop in productivity and even paralyze a system. To help us understand this phenomenon, Jim presented a series of pragmatic examples and theories on congestion collapse.
 
@@ -82,7 +82,7 @@ A long part of the conference was dedicated to the observability of the replicat
 
 While we don't yet work on the same scale as Netflix, attending this conference allowed us to reinforce our idea that caching is essential in the architecture of a platform such as Bedrock Streaming. And it gives us new ways for reflection...
 
-## Takeaways from Reinvent2023 - The newcomers’ point of view
+## Takeaways from Reinvent2023 - The newcomers’ point of view
 
 It's often said that "what happens in Vegas stays in Vegas", but for some of us, this edition of Re:invent was our first time at a conference of this magnitude. So it's hard not to share some of our feedback with you!
 
