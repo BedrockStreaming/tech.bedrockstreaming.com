@@ -101,7 +101,7 @@ While Adam Zelisky's conference was undoubtedly a masterpiece (production, new s
 Based on [the laws of the "frugal architect"](https://thefrugalarchitect.com/), this keynote spoke to everyone: technicians, business people, product managers... It took up the elementary concepts of what should motivate our design of IT solutions: cost awareness, the indispensable balance between commercial and technical needs, or the danger of never questioning oneself, quoting Grace Hopper: "One of the most dangerous phrases in the English language is: *'We've always done it this way'*"
 We encourage you to watch [the replay of this keynote](https://www.youtube.com/watch?v=UTRBVPvzt9w), a must-see!
 
-![Screenshot of one of the excellent edits made for the keynote of Werner Vogels](/images/posts/2023-12-18-aws-reinvent-lasvegas-2023/aws-reinvent-2023-google.jpeg)
+![Screenshot of one of the excellent edits made for the keynote of Werner Vogels](/images/posts/2023-12-18-aws-reinvent-lasvegas-2023/aws-reinvent-2023-werner.jpg)
 
 
 Beyond the gigantism of the event, let's look at what we've taken away from our participation in Reinvent. Attending a conference is always an opportunity to take a step back on our current work themes: we attended many conferences on resilience, scalability and new architectures: 
