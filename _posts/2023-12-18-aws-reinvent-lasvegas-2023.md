@@ -65,7 +65,7 @@ They were able to implement 2 solutions in particular.
 At Bedrock Streaming we already display a page in case of trouble, but we can improve it to suggest to the user to wait before retrying. Moreover, we use Cloudfront and WAF on almost all our services. We have a few rules on WAF that allow us to deny traffic that seems illegitimate, but we're going to work on a new rule to avoid transmitting untimely user retries in the event of an overloaded system. 
 
 ## Netflix caching 
-*“Who in this room is a netflix user?”* (90% of the room raises its hand): no doubt Prudhviraj Karumanchi, software engineer & Sriram Rangarajan, Senior Distributed Systems Engineer at Netflix, conference speakers, know how to introduce their talk and remind us that they are the market giants. [During their conference](https://www.youtube.com/watch?v=85TiFrDhCR4), they presented how Netflix uses the EVCache solution for multi-region cache replication.
+*“Who in this room is a netflix user?” (90% of the room raises its hand)*: no doubt Prudhviraj Karumanchi, software engineer & Sriram Rangarajan, Senior Distributed Systems Engineer at Netflix, conference speakers, know how to introduce their talk and remind us that they are the market giants. [During their conference](https://www.youtube.com/watch?v=85TiFrDhCR4), they presented how Netflix uses the EVCache solution for multi-region cache replication.
 
 Netflix likes to say that one of its missions is to spread joy. This involves two aspects: offering users a fully personalized homepage and 
 benefiting from a scalable, low-cost architecture (so that Netflix's techies are happy too). 
