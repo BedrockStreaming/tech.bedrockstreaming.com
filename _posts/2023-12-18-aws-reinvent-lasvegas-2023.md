@@ -20,7 +20,7 @@ Alongside these announcements, we had the opportunity to attend talks by some of
 
 ![Practice like you play](/images/posts/2023-12-18-aws-reinvent-lasvegas-2023/aws-reinvent-2023-resilience.jpg)
 
-Olga Hall, Director of Live Events Availability & Resilience at Amazon Prime Video, and Lauren Domb,Chief Technologist, WWP Federal Financial Services, WW Chaos Engineering Lead at AWS, [discussed the importance of resilience in the streaming industry](https://www.youtube.com/watch?v=r3J0fEgNCLQ). 
+Olga Hall, Director of Live Events Availability & Resilience at Amazon Prime Video, and Lauren Domb, Chief Technologist, WWP Federal Financial Services, WW Chaos Engineering Lead at AWS, [discussed the importance of resilience in the streaming industry](https://www.youtube.com/watch?v=r3J0fEgNCLQ).
 
 They highlighted the high cost of downtime and the impact on companies' ability to serve their customers. We're talking about an average of $300,000 per hour across the industry.  
 
