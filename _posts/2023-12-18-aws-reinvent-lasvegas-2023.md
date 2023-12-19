@@ -58,7 +58,7 @@ Jim mentions this issue, which has happened at amazon.com.
 
 They were able to implement 2 solutions in particular. 
 
-The first, when the servers can no longer respond, is to display a page with a message warning the user to wait a while and try again in a while. This had a surprisingly noticeable effect. Users were no longer repeatedly pressing the F5 button.
+- The first, when the servers can no longer respond, is to display a page with a message warning the user to wait a while and try again in a while. This had a surprisingly noticeable effect. Users were no longer repeatedly pressing the F5 button.
 
 Secondly, they have implemented mechanisms to detect massive retries and thus avoid transmitting traffic to their backend. In particular, they have implemented this in the WAF service.
 
