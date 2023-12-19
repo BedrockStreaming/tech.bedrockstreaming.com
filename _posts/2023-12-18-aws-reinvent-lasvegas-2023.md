@@ -105,7 +105,7 @@ We encourage you to watch [the replay of this keynote](https://www.youtube.com/w
 
 
 Beyond the gigantism of the event, let's look at what we've taken away from our participation in Reinvent. Attending a conference is always an opportunity to take a step back on our current work themes: we attended many conferences on resilience, scalability and new architectures: 
-it enabled us to compare our practices with those of major players in the sector (Prime, Spotify, Peacock...), 
+- it enabled us to compare our practices with those of major players in the sector (Prime, Spotify, Peacock...),
 - to transpose these themes into a context completely different from our own (“[1.5 million requests per second—a story from the Brazilian elections](https://www.youtube.com/watch?v=fGyvsNE4vh8)”)
 - or to appreciate the work we've done over the year, which sometimes goes beyond what's presented at conferences (“[Use new IAM Access Analyzer features on your journey to least privilege](https://www.youtube.com/watch?v=JpemUkU8INA)”)
 
