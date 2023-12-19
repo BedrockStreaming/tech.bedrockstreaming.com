@@ -98,7 +98,7 @@ We were able to attend two of them: Adam Zelipsky's (CEO of aws) - for which the
 
 While Adam Zelisky's conference was undoubtedly a masterpiece (production, new services announced, influential clients such as Lidia Fonseca, chief digital and technology officer at Pfizer, speaking), it was Dr. Vogels' conference that impressed us the most.
 
-Based on [the laws of the "frugal architect](https://thefrugalarchitect.com/), this keynote spoke to everyone: technicians, business people, product managers... It took up the elementary concepts of what should motivate our design of IT solutions: cost awareness, the indispensable balance between commercial and technical needs, or the danger of never questioning oneself, quoting Grace Hopper: "One of the most dangerous phrases in the English language is: 'We've always done it this way:' 'We've always done it that way'."
+Based on [the laws of the "frugal architect"](https://thefrugalarchitect.com/), this keynote spoke to everyone: technicians, business people, product managers... It took up the elementary concepts of what should motivate our design of IT solutions: cost awareness, the indispensable balance between commercial and technical needs, or the danger of never questioning oneself, quoting Grace Hopper: "One of the most dangerous phrases in the English language is: *'We've always done it this way'*"
 We encourage you to watch [the replay of this keynote](https://www.youtube.com/watch?v=UTRBVPvzt9w), a must-see!
 
 ![Screenshot of one of the excellent edits made for the keynote of Werner Vogels](/images/posts/2023-12-18-aws-reinvent-lasvegas-2023/aws-reinvent-2023-google.jpeg)
