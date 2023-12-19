@@ -82,7 +82,7 @@ A long part of the conference was dedicated to the observability of the replicat
 
 While we don't yet work on the same scale as Netflix, attending this conference allowed us to reinforce our idea that caching is essential in the architecture of a platform such as Bedrock Streaming. And it gives us new ways for reflection...
 
-## Takeaways from Reinvent2023 - The newcomers’ point of view
+## Takeaways from Reinvent2023. The newcomers’ point of view
 
 It's often said that "what happens in Vegas stays in Vegas", but for some of us, this edition of Re:invent was our first time at a conference of this magnitude. So it's hard not to share some of our feedback with you!
 
