@@ -78,7 +78,7 @@ The heart of the conference detailed the architecture implemented by Netflix tea
 
 It was also interesting to see that at Netflix, as with us, it's important to build with costs in mind: after analyzing the costs of their inter-region traffic, they finally decided to remove their network load-balancer to make their architecture more cost-efficient.
 
-A long part of the conference was dedicated to the observability of the replication stack: our teams have also done a lot of work on this issue in recent years. While it's still interesting to see how Netflix does it, we don't have any new best practices to take away from this conference.
+A long part of the conference was dedicated to the observability of the replication stack: our teams have also done a lot of work on this issue in recent years, so it was interesting to compare our practices on the subject of observability.
 
 While we don't yet work on the same scale as Netflix, attending this conference allowed us to reinforce our idea that caching is essential in the architecture of a platform such as Bedrock Streaming. And it gives us new ways for reflection...
 
