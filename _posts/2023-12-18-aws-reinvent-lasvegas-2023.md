@@ -60,7 +60,7 @@ They were able to implement 2 solutions in particular.
 
 - The first, when the servers can no longer respond, is to display a page with a message warning the user to wait a while and try again in a while. This had a surprisingly noticeable effect. Users were no longer repeatedly pressing the F5 button.
 
-Secondly, they have implemented mechanisms to detect massive retries and thus avoid transmitting traffic to their backend. In particular, they have implemented this in the WAF service.
+- Secondly, they have implemented mechanisms to detect massive retries and thus avoid transmitting traffic to their backend. In particular, they have implemented this in the WAF service.
 
 At Bedrock Streaming we already display a page in case of trouble, but we can improve it to suggest to the user to wait before retrying. Moreover, we use Cloudfront and WAF on almost all our services. We have a few rules on WAF that allow us to deny traffic that seems illegitimate, but we're going to work on a new rule to avoid transmitting untimely user retries in the event of an overloaded system. 
 
