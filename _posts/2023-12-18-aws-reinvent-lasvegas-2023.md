@@ -9,7 +9,7 @@ thumbnail: "/images/posts/2023-12-18-aws-reinvent-lasvegas-2023/aws-reinvent-202
 ---
 
 
-AWS re:Invent 2023 was a showcase for GenAI. It was the announcement of Amazon Q, Amazon's new AI assistant, that attracted the most interest. Designed to meet the specific needs of businesses.
+AWS re:Invent 2023 was a showcase for GenAI. It was the announcement of Amazon Q, Amazon's new AI assistant, that attracted the most interest, designed to meet the specific needs of businesses.
 
 Alongside these announcements, we had the opportunity to attend talks by some of the major players in streaming, such as Prime Video, Peacock, Netflix and Spotify. Their presentations offered valuable insights into their challenges, successes and lessons learned, enriching our own understanding of the sector.
 
