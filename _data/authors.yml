@@ -99,6 +99,8 @@ f_lepretre:
 f_vieudrin:
   name: Frederic Vieudrin
   url: https://twitter.com/fvieudrin
+g_bouyge:
+  name: Guillaume Bouyge
 g_forien:
   name: Gabriel Forien
 g_treme:
@@ -112,7 +114,9 @@ jy_camier:
   name: Jean-Yves Camier
   url: https://twitter.com/Saaraahka
 j_foray:
-  name: Jérome Foray
+  name: Jérôme Foray
+j_hardeman:
+  name: Jérôme Hardeman
 j_mastounga:
   name: Jules Matsounga
 j_menan:
@@ -130,6 +134,8 @@ k_dits:
   name: Kenny Dits
   avatar: /images/avatar/k_dits.jpg
   url: https://twitter.com/kenny_dee
+k_phan:
+  name: Kelly Phan
 l_caillet:
   name: Laurent Caillet
   avatar: /images/avatar/l_caillet.jpg
@@ -163,6 +169,8 @@ m_schneider:
   name: Martin Schneider
   url: https://github.com/martinschneider01
   avatar: /images/avatar/m_schneider.png
+n_alscher:
+  name: Nicolas Alscher
 n_galais:
   name: Nicolas Galais
 n_saby:
@@ -183,6 +191,8 @@ o_thebault:
   name: Oliver Thébault
   avatar: /images/avatar/o_thebault.png
   url: https://oliver-thebault.com
+o_weber:
+  name: Orann Weber
 p_halter:
   name: Pascal Halter
 p_martin:
@@ -239,6 +249,8 @@ t_falconnet:
   name: Tanguy Falconnet
   url: https://twitter.com/TanguyFalconnet
   avatar: /images/avatar/t_falconnet.jpg
+t_geindre:
+  name: Thierry Geindre
 t_jarrand:
   name: Thomas Jarrand
 t_sontag:
