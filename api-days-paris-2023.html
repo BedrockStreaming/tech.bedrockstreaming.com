@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/api-days-paris-2023/welcome-to-api-days-paris.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Bedrock aux API Days Paris (2023) | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Bedrock aux API Days Paris (2023)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Nous étions aux API Days à Paris pour l’édition 2023 !" />
+<meta property="og:description" content="Nous étions aux API Days à Paris pour l’édition 2023 !" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/api-days-paris-2023" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/api-days-paris-2023" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-12-20T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Bedrock aux API Days Paris (2023)" />
+<script type="application/ld+json">
+{"description":"Nous étions aux API Days à Paris pour l’édition 2023 !","headline":"Bedrock aux API Days Paris (2023)","dateModified":"2023-12-20T00:00:00+00:00","datePublished":"2023-12-20T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/api-days-paris-2023"},"url":"https://tech.bedrockstreaming.com/api-days-paris-2023","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Bedrock aux API Days Paris (2023)">
+    <meta name="twitter:description" content="Cette année Bedrock a envoyé 7 de ses collaborateurs et collaboratrices (i.e. nous, les auteurs de cet article) à l’édition 2023 des conférences “API Days” à...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/api-days-paris-2023/welcome-to-api-days-paris.png">
+    <meta name="twitter:image:alt" content="Bedrock aux API Days Paris (2023)">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Bedrock aux API Days Paris (2023) " aria-label="Bedrock aux API Days Paris (2023)" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Bedrock+aux+API+Days+Paris+%282023%29" class="title">Bedrock aux API Days Paris (2023)</h1>
+      <div class="post-info">
+
+
+<span class="author">
+
+    
+      <span class="name">
+        Guillaume Bouyge
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    
+      <span class="name">
+        Jérôme Hardeman
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    
+      <span class="name">
+        Kelly Phan
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    
+      <span class="name">
+        Nicolas Alscher
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+<a
+      href="https://oliver-thebault.com"
+      target="_blank"
+      rel="noopener"
+      class="author">
+      <img alt="Author's avatar" src="/images/avatar/o_thebault.png" class="thumbnail">
+    
+
+    
+      <span class="name">
+        Oliver Thébault
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    
+      <span class="name">
+        Orann Weber
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    
+      <span class="name">
+        Thierry Geindre
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    December 20, 2023
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Cette année Bedrock a envoyé 7 de ses collaborateurs et collaboratrices (i.e. nous, les auteurs de cet article) à l’édition 2023 des conférences “API Days” à Paris.</p>
+
+<p>L’événement a eu lieu au CNIT à La Défense (juste en face du marché de Noël) et a duré 3 jours, du Mercredi 06/12/23 au Vendredi 08/12/23.</p>
+
+<p><img src="/images/posts/api-days-paris-2023/la-defense.png" alt="La Défense à Paris" /></p>
+
+<p>En plus des 11 paires de chaussettes différentes 🧦 que nous avons réussi à débusquer en parlant aux différents partenaires sur place… En tout, <a href="https://www.apidays.global/paris/#schedule">ce sont plus de 100 talks, répartis dans 9 salles, qui nous ont été présentés</a>.</p>
+
+<p>Voici, un résumé de quelques-uns des talks que nous souhaitions mentionner sur ce blog 👇</p>
+
+<h2 id="making-the-most-of-your-openapi-spec">Making the Most of Your OpenAPI Spec</h2>
+
+<blockquote>
+  <p>Conférence présentée par Alexander Broadbent (Principal Engineer - SAPI)</p>
+</blockquote>
+
+<p>Cette conférence expliquait, en détail, une technique “design-first” permettant d’éradiquer les erreurs de “désynchronisation” entre la documentation d’une API et son comportement réel, tout en générant une partie du code.</p>
+
+<p><img src="/images/posts/api-days-paris-2023/what-we-are-doing.png" alt="What we are doing" /></p>
+
+<p><img src="/images/posts/api-days-paris-2023/how-we-are-winning.png" alt="How we are winning" /></p>
+
+<p>Cette technique peut se résumer en quelques points :</p>
+<ul>
+  <li>la documentation OpenAPI est la source de vérité et décrit l’intégralité des endpoints de l’application (celle-ci peut être fragmentée en plusieurs fichiers)</li>
+  <li>un outil (<a href="https://github.com/Redocly/redoc">redocly</a>) regroupe tous les documents OpenAPI dans un même fichier</li>
+  <li>un outil (<a href="https://github.com/drwpow/openapi-typescript">openapi-typescript</a>) génère le typage Typescript correspondant au fichier OpenAPI</li>
+  <li>un outil (<a href="https://github.com/seriousme/fastify-openapi-glue">fastify-openapi-glue</a>) applique le typage Typescript généré sur le code des différents endpoints de l’API <a href="https://fastify.dev/">Fastify</a> afin de s’assurer que le code produit par les développeurs est conforme à la documentation</li>
+</ul>
+
+<p>Et pour les détails d’implémentation, le repository GitHub de la démo d’Alexander est disponible ici : <a href="https://github.com/AlexBroadbent/openapi-demo">https://github.com/AlexBroadbent/openapi-demo</a></p>
+
+<h2 id="forget-typescript-choose-rust-to-build-robust-fast-and-cheap-apis">Forget TypeScript, Choose Rust to build Robust, Fast and Cheap APIs</h2>
+
+<blockquote>
+  <p>Conférence présentée par Zacaria Chtatar (Backend Software Engineer - HaveSomeCode)</p>
+</blockquote>
+
+<p>Cette conférence au titre subversif expliquait pourquoi Zacaria, développeur Typescript/NodeJS à ClubMed, en est arrivé à s’intéresser très fortement au langage de programmation Rust… Au point d’en faire la promotion, en anglais (respect), aux API Days.</p>
+
+<p>La première partie de sa conférence parlait du langage de programmation Typescript, en dressant une liste de ses qualités (fullstack, très largement déployé en entreprise, écosystème riche, …) et de ses défauts (gestion d’erreur optionnelle, typage éphémère, runtime principal peu performant, …). Cette première partie s’est achevée par un message clair : “Typescript is not enough”.</p>
+
+<p><img src="/images/posts/api-days-paris-2023/typescript-is-not-enough.png" alt="Typescript is not enough" /></p>
+
+<p>La suite et fin de la présentation, quant à elle, était une introduction à Rust.</p>
+
+<p><img src="/images/posts/api-days-paris-2023/introducing-rust.png" alt="Introducing Rust" /></p>
+
+<p>Bien que nous étions surpris de voir que <a href="https://survey.stackoverflow.co/2023/#section-admired-and-desired-programming-scripting-and-markup-languages">le langage de programmation préféré des développeurs</a> de ces 8 dernières années, et sur lequel <a href="https://foundation.rust-lang.org/members/">les plus grosses entreprises tech du monde misent aujourd’hui</a>, avait encore besoin d’être mis en avant en 2023… Zacaria a effectivement eu raison d’en remettre une couche, car encore trop peu d’entreprises françaises ont pris conscience des avantages qu’offre Rust.</p>
+
+<p>Cependant, cette 2ème partie de conférence avait un goût de déjà vu pour nous car un de nos collaborateurs a déjà donné le même genre de conférence à Bedrock durant <a href="https://tech.bedrockstreaming.com/lft/">nos LFT</a> 2 années auparavant (en partant de PHP plutôt que de Typescript)… Ceci étant, grâce à nos 2 ans d’expérience de Rust en production et pour les raisons évoquées par Zacaria durant son talk, Bedrock est en mesure de témoigner sa satisfaction d’avoir pris le temps de réécrire certaines des API les plus critiques de Bedrock en Rust. Et nous espérons que de nombreuses entreprises oseront suivre notre exemple, afin de permettre aux développeurs soucieux de la qualité de leur travail comme Zacaria, de disposer de ce merveilleux langage de programmation.</p>
+
+<p>Et si vous ne comprenez toujours pas l’intérêt de Rust, <a href="https://www.youtube.com/watch?v=eSo3e3ugn5g">le talk de Zacaria est disponible en replay sur Youtube</a>.</p>
+
+<h2 id="real-life-rest-api-versioning-strategies-and-best-practices">Real-Life REST API Versioning: Strategies and Best Practices</h2>
+
+<blockquote>
+  <p>Conférence présentée par Alexandre Touret (Senior Software Architect - Worldline)</p>
+</blockquote>
+
+<p>La gestion des versions dans le contexte des API au sein d’une entreprise peut souvent s’avérer être un défi complexe et délicat. En effet, les interfaces de programmation applicative (API) constituent le cœur des interactions entre différents services et applications au sein d’un écosystème numérique. La nécessité de versionner ces API devient impérative pour garantir une évolution harmonieuse tout en préservant la compatibilité avec les systèmes existants.</p>
+
+<p>Worldline fait partie des entreprises avec une architecture technique complexe, exposant à des clients finaux un modèle métier en constante évolution.
+Ce problème fait très fortement écho avec le business model de Bedrock.</p>
+
+<p>Dans sa conférence, Alexandre a présenté son retour d’expérience sur comment versionner une API. Et comment l’exercice est loin d’être un long fleuve tranquille. Voici les points clés que nous avons retenus :</p>
+
+<h4 id="toutes-les-apis-ne-nécessitent-pas-dêtre-versionnées">Toutes les APIs ne nécessitent pas d’être versionnées</h4>
+
+<p>Le versioning c’est compliqué. C’est un fait. Autant l’appliquer sur des APIs où ce principe est vraiment utile. Il est effectivement peut-être moins utile de versionner une API interne, non exposée sur internet ou avec un périmètre fonctionnel très limité ou stable.
+Voici les questions proposées par Alexandre qui peuvent nous aider dans notre décision : ai-je besoin de versionner ? Combien de versions dois-je gérer en parallèle ? Est-ce que ma plateforme est compatible ? Quels sont les impacts sur ma configuration, mon modèle de données, <strong>mon système d’authentification</strong> (Alexandre a bien insisté sur ce point. Il ne faut pas négliger l’authentification dans la problématique du versioning) ?</p>
+
+<h4 id="le-versioning-sapplique-aussi-sur-une-architecture-en-micro-service">Le versioning s’applique aussi sur une architecture en micro service</h4>
+
+<p>On a tendance à croire que seules “les grosses API” sont concernées par le versioning mais Alexandre nous a montré qu’il n’en est rien. Un micro service, aussi micro (voir macro) qu’il soit, gère à lui tout seul un périmètre fonctionnel. Il est donc légitime qu’il puisse évoluer au fil des versions.</p>
+
+<h4 id="comment-gérer-le-versioning">Comment gérer le versioning</h4>
+
+<p>Plusieurs solutions, directement dans l’URL, via header (plus facile avec une API existante)
+Alexandre a fortement déconseillé d’utiliser le versioning par content type. À la fois peu lisible et difficilement maintenable.</p>
+
+<p><img src="/images/posts/api-days-paris-2023/api-versioning.png" alt="Comment gérer le versionning" /></p>
+
+<h4 id="limpact-du-versioning">L’impact du versioning</h4>
+
+<p>Versionner une API change en profondeur nos manières de travailler. Et ce à plusieurs niveaux :</p>
+<ul>
+  <li>Le code source, la technique. Il est indéniable que le code source ainsi que l’architecture technique de vos projets s’en verra impactés. L’impact ne s’arrête pas au code en lui-même, mais sur tout ce qui gravite autour. Nos bases de données, nos scripts, nos configurations serveur ou nos images docker par exemple</li>
+  <li>Le produit. Nos API exposent le métier de notre produit. L’impact n’est donc pas que technique, mais aussi fonctionnel / produit. Une évolution de version technique entraine des breaking change et inversement. Il est donc très important, les équipes et produit travaillent de pair pour évoluer ensemble</li>
+  <li>La livraison. Avoir plusieurs versions d’un API complexifie la mise en production de cette dernière. Il faudra très certainement revoir nos pipelines d’intégration et de déploiement. Ce point est, lui aussi, à ne pas négliger et nécessitera un travail commun au sein des équipes techniques</li>
+</ul>
+
+<h4 id="lobservabilité">L’observabilité</h4>
+
+<p>Alexandre nous a aussi parlé de l’importance d’avoir de la visibilité sur ce qu’il se passe en production, et tout particulièrement à la maille des différentes versions de nos API.</p>
+
+<p>L’observabilité est quelque chose de plus en plus répandu dans notre métier. Mais le versioning porte le concept encore un cran au-dessus.</p>
+
+<p>Il est primordial d’être capable d’assurer une bonne observabilité de nos APIs à la maille :</p>
+<ul>
+  <li>De la version</li>
+  <li>Des clients (via des API Keys dédiées)</li>
+</ul>
+
+<p>Une bonne observabilité est la clé pour définir une bonne stratégie et être capable d’anticiper le dé commissionnement de versions obsolètes. Ce point est selon moi très important.</p>
+
+<p>Il est très (très) compliqué de maintenir un nombre trop élevé de versions pour une même API. Sans parler d’obsolescence programmée, il faut trouver le bon niveau de maintenance pour éviter de tomber dans le piège de la dette technique. Pas facile comme sujet !</p>
+
+<p>Pour finir, je tiens à remercier Alexandre pour sa conférence vraiment intéressante. Bourrée d’exemples concrets. J’ai vraiment senti une vraie maîtrise du sujet. Bravo ! Cette conférence est mon coup de cœur de l’API Days Paris 2023.</p>
+
+<h2 id="our-ongoing-journey-from-rest-to-graphql-on-android">Our Ongoing Journey From REST To GraphQL On Android</h2>
+
+<blockquote>
+  <p>Conférence présentée par Julien Salvi (Lead Android Engineer - Aircall)</p>
+</blockquote>
+
+<p>Durant cette présentation, Julien Salvi, Lead Android Engineer chez Aircall nous fait un retour d’expérience sur la migration de l’équipe Android d’une API REST à une API GraphQL. Ce choix a été motivé par plusieurs raisons :</p>
+<ul>
+  <li>Une problématique globale sur le scaling de leur API REST</li>
+  <li>L’efficacité et l’agrégation des données des API GraphQL</li>
+  <li>La recherche d’une alternative Serverless</li>
+  <li>L’objectif de limiter les perturbations pour les clients</li>
+</ul>
+
+<p>Leur aventure débute mi 2020 et est toujours en cours.</p>
+
+<p><img src="/images/posts/api-days-paris-2023/graphql-api-journey.png" alt="GraphQL API journey" /></p>
+
+<p>Pour répondre à ces demandes, les équipes ont dirigé leur choix vers GraphQL pour créer leur nouvelles API, qui a plusieurs avantages selon Julien notamment:</p>
+<ul>
+  <li>La possibilité pour les clients de récupérer seulement les données dont ils ont besoin, cela évite l’over-fetching et l’under-fetching</li>
+  <li>Les clients peuvent récupérer de multiples ressources dans une seule requête</li>
+  <li>GraphQL propose un moyen d’établir une connection constante entre le client et le serveur, ce qui augmente la scalabilité en temps réel</li>
+  <li>Le fort typage de GraphQL permet une communication claire, réduisant ainsi les erreurs</li>
+  <li>L’amélioration de la performance globale grâce au batching des requêtes</li>
+</ul>
+
+<p>L’équipe Android utilise le service <a href="https://aws.amazon.com/fr/appsync/">AppSync d’AWS</a>, facilitant le filtrage, permetttant de faire du realtime, assurer une scalabilité et une bonne intégration avec ElasticSearch et DynamoDB.</p>
+
+<p>Après les premières migrations vers les API GraphQL, le conférencier insiste sur l’importance du monitoring, qui chez eux est présent que ce soit pour les queries ou les mutations.</p>
+
+<p>Voici les points à retenir de leur expérience</p>
+
+<p><img src="/images/posts/api-days-paris-2023/key-takeaways.png" alt="Key takeaways" /></p>
+
+<p>Pour finir, revenons sur un de leur point à surveiller, Julien nous évoque l’importance de la collaboration entre les équipes front et backend qui est également selon nous très importante, notamment pour optimiser l’efficacité des API. On peut citer comme actions par exemple, se mettre d’accord sur les meilleurs timeout à adopter sur les API ou aussi créer les schémas OpenApi ensemble.</p>
+
+<h2 id="why-api-contracts-matters">Why API Contracts matters</h2>
+
+<blockquote>
+  <p>Conférence présentée par Stéve Sfartz (Principal Architect - Cisco)</p>
+</blockquote>
+
+<p>Cette présentation par le Principal Architect de Cisco nous explique pourquoi, dans une stratégie API First, le besoin d’avoir des contrats ainsi qu’un cycle de vie de l’API est primordial pour la cohérence du système.</p>
+
+<p>Ils formalisent leur contrats d’API via OpenAPI Spécification, un standard pour les contrats d’API REST, en complément de documents OpenAPI, pour former la définition de l’API. A côté de cette définition, on trouve la gestion du cycle de vie (lifecycle) de l’API, pour informer des deprecated, du changelog et des Breaking Changes lors des versions majeures (semantic versionning).</p>
+
+<p><img src="/images/posts/api-days-paris-2023/api-contract-definition-and-lifecycle.png" alt="Definition and Lifecycle for an API" /></p>
+
+<p>Lors de la mise en place de ces contrats pour les API à cisco, une qualité (qu’ils appellent aussi Health Contract) y a été associée pour avoir une vue d’ensemble de la documentation des API. Ayant environ 2000 API, cette qualité ne peut pas être évaluée à la main au cas par cas, et passe donc par des outils d’analyse tels qu’un linter Spectral, pour éviter les erreurs et automatiser la génération de ce statut.</p>
+
+<p><img src="/images/posts/api-days-paris-2023/api-contract-quality.png" alt="API Contract Quality" /></p>
+
+<p>Vient ensuite la gestion du drift entre la documentation et le code (par exemple si une annotation est oubliée, une route non documentée) : la vérification du drift doit être faite lors de la CI/CD.</p>
+
+<p>La conférence se conclut sur une question simple : “Quelle est la source de vérité pour vos API ?”. La réponse est bien évidemment le code, mais une documentation générée automatiquement permet justement de s’en rapprocher grandement. A Bedrock, nos API GraphQL ont leur documentation (schéma) généré automatiquement à partir du code lors du merge d’une PR, ce qui permet d’éviter les oublis de mise à jour.</p>
+
+<h2 id="lets-bring-science-into-api-docs">Let’s bring science into API docs</h2>
+
+<blockquote>
+  <p>Conférence présentée par Lana Novikova (Technical Writer - JetBrains)</p>
+</blockquote>
+
+<p>Au cours de cette conférence, Lana Novikova explore comment fusionner les principes scientifiques avec une communication technique efficace dans la documentation des API. 
+Elle partage également ses connaissances sur la façon dont les développeurs et développeuses consomment l’information en ligne, en mettant en lumière les liens avec différents styles cognitifs, le tout appuyé par des articles scientifiques. Elle explique de manière concrète comment ces principes peuvent être appliqués dans la documentation des API et comment ils peuvent contribuer à améliorer l’expérience des développeurs et développeuses.
+<a href="https://www.youtube.com/watch?v=9SdGWU867bs">Sa conférence est une extension d’un précédent talk qu’elle a donné en 2022 à la “Write The Docs Australia”</a></p>
+
+<p>La première étude que nous présente Lana s’intitule <a href="https://www.cs.mcgill.ca/~martin/papers/tse2013a.pdf">“Patterns of Knowledge in API Reference Documentation”</a>. 
+Elle parle de la nature et de l’organisation des connaissances contenues dans la documentation de référence de centaines d’API au sein de deux plateformes technologiques : Java SDK 6 et .NET 4.0. L’étude a, entre autres, consisté à élaborer une taxonomie des types de connaissances et a pu dresser la liste de 12 types de connaissances distinctes dans la documentation de l’API :</p>
+
+<p><img src="/images/posts/api-days-paris-2023/taxonomy-of-knowledge-types.png" alt="Taxonomy of Knowledge Types" /></p>
+
+<p>À travers cette étude, nous pouvons donc évaluer le contenu de la documentation de notre API en fonction des types de connaissances et ainsi développer des modèles de documentation adaptés aux connaissances communément associées aux différents types de composants de l’api. De plus, aujourd’hui, des projets comme <a href="https://thegooddocsproject.dev/">the good docs project</a> existent et proposent des templates de documentation basés sur ces données scientifiques.</p>
+
+<p>La deuxième étude exposée dans cette conférence a comme titre <a href="http://sigdoc.acm.org/wp-content/uploads/2019/01/CDQ18002_Meng_Steinhardt_Schubert.pdf">“How Developers Use API Documentation: An Observation Study”</a>. Sa méthodologie consiste à l’observation active, via des screencasts et des protocoles verbaux, des activités des personnes participantes pendant le test. Les chercheurs et chercheuses ont évalué le taux de réussite, le temps passé sur les tâches et l’utilisation de la documentation et des catégories de contenu. L’objectif principal est d’observer comment les développeurs et développeuses abordent les tâches avec une API qu’elles ne connaissent pas. Il s’agit également d’analyser comment les développeurs et développeuses utilisent les ressources d’information proposées par la documentation de l’API. Cela permet de caractériser les stratégies adoptées par les développeurs et développeuses lorsqu’elles commencent à travailler avec une nouvelle API. La conclusion que Lana nous partage est qu’en moyenne, les personnes participantes ont utilisé la documentation de l’API environ 49 % du temps (Min : 31 %, Max : 68 %). La catégorie de contenu à laquelle il est fait référence le plus souvent est “API reference”, suivie de “Recipes page”.</p>
+
+<p><img src="/images/posts/api-days-paris-2023/content-categories-of-the-api-documentation.png" alt="Content categories of the API documentation used for the test" /></p>
+
+<p><img src="/images/posts/api-days-paris-2023/proportion-of-time-spent-on-individual-content-categories.png" alt="Proportion of time spent on individual content categories" /></p>
+
+<p>Il se dégage que le temps que les personnes participantes consacrent aux différentes catégories de contenu varie considérablement d’une personne à l’autre. Sur la base de ces données, les chercheurs et chercheuses ont défini trois types de personnages de développeurs logiciels à la recherche d’informations ainsi que leurs approches lorsqu’ils opèrent celles-ci: Systematic learners, Opportunistic learners et Pragmatic learners. Pour les personnes curieuses d’approfondir le sujet, ces personae sont basés sur une autre étude intitulée <a href="https://www.researchgate.net/publication/30815675_What_is_an_End_User_Software_Engineer">“What is an end user software engineer?”</a>.</p>
+
+<p>Lana Novikova conclut en mettant l’accent sur le fait qu’il faut respecter les différentes stratégies adoptées par les développeurs et les développeuses lorsqu’elles abordent une nouvelle API et nous propose d’appliquer ces conseils :</p>
+<ul>
+  <li>Pour les “opportunistic learners”, donner des exemples de code complets et exhaustifs en donnant la possibilité de masquer tout le reste et de relier le texte au code.</li>
+  <li>Pour les “systematic learners”, fournir des informations importantes de manière redondante et donner des connaissances de base pertinentes.</li>
+  <li>Pour les “pragmatic learners” (et les autres), donner un moyen technique pour commencer à utiliser une API.</li>
+</ul>
+
+<p>Je tiens personnellement à souligner qu’il est rare d’assister à une conférence aussi complète se basant sur autant de données scientifiques. Je ressors de cette conférence agréablement surpris de la qualité de tout ce qui a été proposé et des ressources mises à disposition. Je vous laisse avec <a href="https://speakerdeck.com/lananovikova10/lets-bring-science-into-api-docs-c9bd5a57-df28-4fa3-9388-d2d9d9a044bd">un lien contenant toutes les slides de la présentation de Lana Novikova</a> qui expliquera bien mieux le propos que mon résumé. Bravo à elle et à son travail, en espérant voir de plus en plus de conférences de ce genre à l’avenir.</p>
+
+<h2 id="le-mot-de-la-fin">Le mot de la fin</h2>
+
+<p>Si on vous a donné envie d’en savoir plus :</p>
+<ul>
+  <li>le <a href="https://www.apidays.global/paris/">site officiel de la conférence</a></li>
+  <li>la majorité des <a href="https://www.youtube.com/watch?v=NdlhxIVlSEM&amp;list=PLmEaqnTJ40OryW56Qo3c-C7hXcaR89xii">talks sont disponibles sur Youtube</a></li>
+  <li>certains speakers ont mis à disposition <a href="https://fr.slideshare.net/APIdays_official/presentations">les slides de leur talk</a></li>
+</ul>
+
+<p>Bonnes fêtes de fin d’année !</p>
+
+<p><img src="/images/posts/api-days-paris-2023/team.jpg" alt="Team API Days Paris 2023" /></p>
+
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Bedrock+aux+API+Days+Paris+%282023%29%20https%3A%2F%2Ftech.bedrockstreaming.com%2Fapi-days-paris-2023"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/api-days-paris-2023&title=Bedrock+aux+API+Days+Paris+%282023%29%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/api-days-paris-2023"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Bedrock aux API Days Paris (2023)%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/api-days-paris-2023"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#api">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> api</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#eda">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> eda</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#paris">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> paris</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#tech">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> tech</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="Android 14 is out" href="/2023/12/05/android-14.html">
+            <p>Next post</p>
+            Android 14 is out
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

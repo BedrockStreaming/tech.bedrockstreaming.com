@@ -1,4 +1,216 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-12-05T09:58:35+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Android 14 is out</title><link href="https://tech.bedrockstreaming.com/2023/12/05/android-14.html" rel="alternate" type="text/html" title="Android 14 is out" /><published>2023-12-05T00:00:00+00:00</published><updated>2023-12-05T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/12/05/android-14</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/12/05/android-14.html">&lt;p&gt;Here’s what it means for users and developers.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-12-20T19:42:53+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock aux API Days Paris (2023)</title><link href="https://tech.bedrockstreaming.com/api-days-paris-2023" rel="alternate" type="text/html" title="Bedrock aux API Days Paris (2023)" /><published>2023-12-20T00:00:00+00:00</published><updated>2023-12-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/api-days-paris-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/api-days-paris-2023">&lt;p&gt;Cette année Bedrock a envoyé 7 de ses collaborateurs et collaboratrices (i.e. nous, les auteurs de cet article) à l’édition 2023 des conférences “API Days” à Paris.&lt;/p&gt;
+
+&lt;p&gt;L’événement a eu lieu au CNIT à La Défense (juste en face du marché de Noël) et a duré 3 jours, du Mercredi 06/12/23 au Vendredi 08/12/23.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/api-days-paris-2023/la-defense.png&quot; alt=&quot;La Défense à Paris&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;En plus des 11 paires de chaussettes différentes 🧦 que nous avons réussi à débusquer en parlant aux différents partenaires sur place… En tout, &lt;a href=&quot;https://www.apidays.global/paris/#schedule&quot;&gt;ce sont plus de 100 talks, répartis dans 9 salles, qui nous ont été présentés&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Voici, un résumé de quelques-uns des talks que nous souhaitions mentionner sur ce blog 👇&lt;/p&gt;
+
+&lt;h2 id=&quot;making-the-most-of-your-openapi-spec&quot;&gt;Making the Most of Your OpenAPI Spec&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par Alexander Broadbent (Principal Engineer - SAPI)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Cette conférence expliquait, en détail, une technique “design-first” permettant d’éradiquer les erreurs de “désynchronisation” entre la documentation d’une API et son comportement réel, tout en générant une partie du code.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/api-days-paris-2023/what-we-are-doing.png&quot; alt=&quot;What we are doing&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/api-days-paris-2023/how-we-are-winning.png&quot; alt=&quot;How we are winning&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Cette technique peut se résumer en quelques points :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;la documentation OpenAPI est la source de vérité et décrit l’intégralité des endpoints de l’application (celle-ci peut être fragmentée en plusieurs fichiers)&lt;/li&gt;
+  &lt;li&gt;un outil (&lt;a href=&quot;https://github.com/Redocly/redoc&quot;&gt;redocly&lt;/a&gt;) regroupe tous les documents OpenAPI dans un même fichier&lt;/li&gt;
+  &lt;li&gt;un outil (&lt;a href=&quot;https://github.com/drwpow/openapi-typescript&quot;&gt;openapi-typescript&lt;/a&gt;) génère le typage Typescript correspondant au fichier OpenAPI&lt;/li&gt;
+  &lt;li&gt;un outil (&lt;a href=&quot;https://github.com/seriousme/fastify-openapi-glue&quot;&gt;fastify-openapi-glue&lt;/a&gt;) applique le typage Typescript généré sur le code des différents endpoints de l’API &lt;a href=&quot;https://fastify.dev/&quot;&gt;Fastify&lt;/a&gt; afin de s’assurer que le code produit par les développeurs est conforme à la documentation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Et pour les détails d’implémentation, le repository GitHub de la démo d’Alexander est disponible ici : &lt;a href=&quot;https://github.com/AlexBroadbent/openapi-demo&quot;&gt;https://github.com/AlexBroadbent/openapi-demo&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;forget-typescript-choose-rust-to-build-robust-fast-and-cheap-apis&quot;&gt;Forget TypeScript, Choose Rust to build Robust, Fast and Cheap APIs&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par Zacaria Chtatar (Backend Software Engineer - HaveSomeCode)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Cette conférence au titre subversif expliquait pourquoi Zacaria, développeur Typescript/NodeJS à ClubMed, en est arrivé à s’intéresser très fortement au langage de programmation Rust… Au point d’en faire la promotion, en anglais (respect), aux API Days.&lt;/p&gt;
+
+&lt;p&gt;La première partie de sa conférence parlait du langage de programmation Typescript, en dressant une liste de ses qualités (fullstack, très largement déployé en entreprise, écosystème riche, …) et de ses défauts (gestion d’erreur optionnelle, typage éphémère, runtime principal peu performant, …). Cette première partie s’est achevée par un message clair : “Typescript is not enough”.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/api-days-paris-2023/typescript-is-not-enough.png&quot; alt=&quot;Typescript is not enough&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;La suite et fin de la présentation, quant à elle, était une introduction à Rust.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/api-days-paris-2023/introducing-rust.png&quot; alt=&quot;Introducing Rust&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Bien que nous étions surpris de voir que &lt;a href=&quot;https://survey.stackoverflow.co/2023/#section-admired-and-desired-programming-scripting-and-markup-languages&quot;&gt;le langage de programmation préféré des développeurs&lt;/a&gt; de ces 8 dernières années, et sur lequel &lt;a href=&quot;https://foundation.rust-lang.org/members/&quot;&gt;les plus grosses entreprises tech du monde misent aujourd’hui&lt;/a&gt;, avait encore besoin d’être mis en avant en 2023… Zacaria a effectivement eu raison d’en remettre une couche, car encore trop peu d’entreprises françaises ont pris conscience des avantages qu’offre Rust.&lt;/p&gt;
+
+&lt;p&gt;Cependant, cette 2ème partie de conférence avait un goût de déjà vu pour nous car un de nos collaborateurs a déjà donné le même genre de conférence à Bedrock durant &lt;a href=&quot;https://tech.bedrockstreaming.com/lft/&quot;&gt;nos LFT&lt;/a&gt; 2 années auparavant (en partant de PHP plutôt que de Typescript)… Ceci étant, grâce à nos 2 ans d’expérience de Rust en production et pour les raisons évoquées par Zacaria durant son talk, Bedrock est en mesure de témoigner sa satisfaction d’avoir pris le temps de réécrire certaines des API les plus critiques de Bedrock en Rust. Et nous espérons que de nombreuses entreprises oseront suivre notre exemple, afin de permettre aux développeurs soucieux de la qualité de leur travail comme Zacaria, de disposer de ce merveilleux langage de programmation.&lt;/p&gt;
+
+&lt;p&gt;Et si vous ne comprenez toujours pas l’intérêt de Rust, &lt;a href=&quot;https://www.youtube.com/watch?v=eSo3e3ugn5g&quot;&gt;le talk de Zacaria est disponible en replay sur Youtube&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;real-life-rest-api-versioning-strategies-and-best-practices&quot;&gt;Real-Life REST API Versioning: Strategies and Best Practices&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par Alexandre Touret (Senior Software Architect - Worldline)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;La gestion des versions dans le contexte des API au sein d’une entreprise peut souvent s’avérer être un défi complexe et délicat. En effet, les interfaces de programmation applicative (API) constituent le cœur des interactions entre différents services et applications au sein d’un écosystème numérique. La nécessité de versionner ces API devient impérative pour garantir une évolution harmonieuse tout en préservant la compatibilité avec les systèmes existants.&lt;/p&gt;
+
+&lt;p&gt;Worldline fait partie des entreprises avec une architecture technique complexe, exposant à des clients finaux un modèle métier en constante évolution.
+Ce problème fait très fortement écho avec le business model de Bedrock.&lt;/p&gt;
+
+&lt;p&gt;Dans sa conférence, Alexandre a présenté son retour d’expérience sur comment versionner une API. Et comment l’exercice est loin d’être un long fleuve tranquille. Voici les points clés que nous avons retenus :&lt;/p&gt;
+
+&lt;h4 id=&quot;toutes-les-apis-ne-nécessitent-pas-dêtre-versionnées&quot;&gt;Toutes les APIs ne nécessitent pas d’être versionnées&lt;/h4&gt;
+
+&lt;p&gt;Le versioning c’est compliqué. C’est un fait. Autant l’appliquer sur des APIs où ce principe est vraiment utile. Il est effectivement peut-être moins utile de versionner une API interne, non exposée sur internet ou avec un périmètre fonctionnel très limité ou stable.
+Voici les questions proposées par Alexandre qui peuvent nous aider dans notre décision : ai-je besoin de versionner ? Combien de versions dois-je gérer en parallèle ? Est-ce que ma plateforme est compatible ? Quels sont les impacts sur ma configuration, mon modèle de données, &lt;strong&gt;mon système d’authentification&lt;/strong&gt; (Alexandre a bien insisté sur ce point. Il ne faut pas négliger l’authentification dans la problématique du versioning) ?&lt;/p&gt;
+
+&lt;h4 id=&quot;le-versioning-sapplique-aussi-sur-une-architecture-en-micro-service&quot;&gt;Le versioning s’applique aussi sur une architecture en micro service&lt;/h4&gt;
+
+&lt;p&gt;On a tendance à croire que seules “les grosses API” sont concernées par le versioning mais Alexandre nous a montré qu’il n’en est rien. Un micro service, aussi micro (voir macro) qu’il soit, gère à lui tout seul un périmètre fonctionnel. Il est donc légitime qu’il puisse évoluer au fil des versions.&lt;/p&gt;
+
+&lt;h4 id=&quot;comment-gérer-le-versioning&quot;&gt;Comment gérer le versioning&lt;/h4&gt;
+
+&lt;p&gt;Plusieurs solutions, directement dans l’URL, via header (plus facile avec une API existante)
+Alexandre a fortement déconseillé d’utiliser le versioning par content type. À la fois peu lisible et difficilement maintenable.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/api-days-paris-2023/api-versioning.png&quot; alt=&quot;Comment gérer le versionning&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;limpact-du-versioning&quot;&gt;L’impact du versioning&lt;/h4&gt;
+
+&lt;p&gt;Versionner une API change en profondeur nos manières de travailler. Et ce à plusieurs niveaux :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Le code source, la technique. Il est indéniable que le code source ainsi que l’architecture technique de vos projets s’en verra impactés. L’impact ne s’arrête pas au code en lui-même, mais sur tout ce qui gravite autour. Nos bases de données, nos scripts, nos configurations serveur ou nos images docker par exemple&lt;/li&gt;
+  &lt;li&gt;Le produit. Nos API exposent le métier de notre produit. L’impact n’est donc pas que technique, mais aussi fonctionnel / produit. Une évolution de version technique entraine des breaking change et inversement. Il est donc très important, les équipes et produit travaillent de pair pour évoluer ensemble&lt;/li&gt;
+  &lt;li&gt;La livraison. Avoir plusieurs versions d’un API complexifie la mise en production de cette dernière. Il faudra très certainement revoir nos pipelines d’intégration et de déploiement. Ce point est, lui aussi, à ne pas négliger et nécessitera un travail commun au sein des équipes techniques&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;lobservabilité&quot;&gt;L’observabilité&lt;/h4&gt;
+
+&lt;p&gt;Alexandre nous a aussi parlé de l’importance d’avoir de la visibilité sur ce qu’il se passe en production, et tout particulièrement à la maille des différentes versions de nos API.&lt;/p&gt;
+
+&lt;p&gt;L’observabilité est quelque chose de plus en plus répandu dans notre métier. Mais le versioning porte le concept encore un cran au-dessus.&lt;/p&gt;
+
+&lt;p&gt;Il est primordial d’être capable d’assurer une bonne observabilité de nos APIs à la maille :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;De la version&lt;/li&gt;
+  &lt;li&gt;Des clients (via des API Keys dédiées)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Une bonne observabilité est la clé pour définir une bonne stratégie et être capable d’anticiper le dé commissionnement de versions obsolètes. Ce point est selon moi très important.&lt;/p&gt;
+
+&lt;p&gt;Il est très (très) compliqué de maintenir un nombre trop élevé de versions pour une même API. Sans parler d’obsolescence programmée, il faut trouver le bon niveau de maintenance pour éviter de tomber dans le piège de la dette technique. Pas facile comme sujet !&lt;/p&gt;
+
+&lt;p&gt;Pour finir, je tiens à remercier Alexandre pour sa conférence vraiment intéressante. Bourrée d’exemples concrets. J’ai vraiment senti une vraie maîtrise du sujet. Bravo ! Cette conférence est mon coup de cœur de l’API Days Paris 2023.&lt;/p&gt;
+
+&lt;h2 id=&quot;our-ongoing-journey-from-rest-to-graphql-on-android&quot;&gt;Our Ongoing Journey From REST To GraphQL On Android&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par Julien Salvi (Lead Android Engineer - Aircall)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Durant cette présentation, Julien Salvi, Lead Android Engineer chez Aircall nous fait un retour d’expérience sur la migration de l’équipe Android d’une API REST à une API GraphQL. Ce choix a été motivé par plusieurs raisons :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Une problématique globale sur le scaling de leur API REST&lt;/li&gt;
+  &lt;li&gt;L’efficacité et l’agrégation des données des API GraphQL&lt;/li&gt;
+  &lt;li&gt;La recherche d’une alternative Serverless&lt;/li&gt;
+  &lt;li&gt;L’objectif de limiter les perturbations pour les clients&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Leur aventure débute mi 2020 et est toujours en cours.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/api-days-paris-2023/graphql-api-journey.png&quot; alt=&quot;GraphQL API journey&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Pour répondre à ces demandes, les équipes ont dirigé leur choix vers GraphQL pour créer leur nouvelles API, qui a plusieurs avantages selon Julien notamment:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;La possibilité pour les clients de récupérer seulement les données dont ils ont besoin, cela évite l’over-fetching et l’under-fetching&lt;/li&gt;
+  &lt;li&gt;Les clients peuvent récupérer de multiples ressources dans une seule requête&lt;/li&gt;
+  &lt;li&gt;GraphQL propose un moyen d’établir une connection constante entre le client et le serveur, ce qui augmente la scalabilité en temps réel&lt;/li&gt;
+  &lt;li&gt;Le fort typage de GraphQL permet une communication claire, réduisant ainsi les erreurs&lt;/li&gt;
+  &lt;li&gt;L’amélioration de la performance globale grâce au batching des requêtes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;L’équipe Android utilise le service &lt;a href=&quot;https://aws.amazon.com/fr/appsync/&quot;&gt;AppSync d’AWS&lt;/a&gt;, facilitant le filtrage, permetttant de faire du realtime, assurer une scalabilité et une bonne intégration avec ElasticSearch et DynamoDB.&lt;/p&gt;
+
+&lt;p&gt;Après les premières migrations vers les API GraphQL, le conférencier insiste sur l’importance du monitoring, qui chez eux est présent que ce soit pour les queries ou les mutations.&lt;/p&gt;
+
+&lt;p&gt;Voici les points à retenir de leur expérience&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/api-days-paris-2023/key-takeaways.png&quot; alt=&quot;Key takeaways&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Pour finir, revenons sur un de leur point à surveiller, Julien nous évoque l’importance de la collaboration entre les équipes front et backend qui est également selon nous très importante, notamment pour optimiser l’efficacité des API. On peut citer comme actions par exemple, se mettre d’accord sur les meilleurs timeout à adopter sur les API ou aussi créer les schémas OpenApi ensemble.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-api-contracts-matters&quot;&gt;Why API Contracts matters&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par Stéve Sfartz (Principal Architect - Cisco)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Cette présentation par le Principal Architect de Cisco nous explique pourquoi, dans une stratégie API First, le besoin d’avoir des contrats ainsi qu’un cycle de vie de l’API est primordial pour la cohérence du système.&lt;/p&gt;
+
+&lt;p&gt;Ils formalisent leur contrats d’API via OpenAPI Spécification, un standard pour les contrats d’API REST, en complément de documents OpenAPI, pour former la définition de l’API. A côté de cette définition, on trouve la gestion du cycle de vie (lifecycle) de l’API, pour informer des deprecated, du changelog et des Breaking Changes lors des versions majeures (semantic versionning).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/api-days-paris-2023/api-contract-definition-and-lifecycle.png&quot; alt=&quot;Definition and Lifecycle for an API&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lors de la mise en place de ces contrats pour les API à cisco, une qualité (qu’ils appellent aussi Health Contract) y a été associée pour avoir une vue d’ensemble de la documentation des API. Ayant environ 2000 API, cette qualité ne peut pas être évaluée à la main au cas par cas, et passe donc par des outils d’analyse tels qu’un linter Spectral, pour éviter les erreurs et automatiser la génération de ce statut.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/api-days-paris-2023/api-contract-quality.png&quot; alt=&quot;API Contract Quality&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vient ensuite la gestion du drift entre la documentation et le code (par exemple si une annotation est oubliée, une route non documentée) : la vérification du drift doit être faite lors de la CI/CD.&lt;/p&gt;
+
+&lt;p&gt;La conférence se conclut sur une question simple : “Quelle est la source de vérité pour vos API ?”. La réponse est bien évidemment le code, mais une documentation générée automatiquement permet justement de s’en rapprocher grandement. A Bedrock, nos API GraphQL ont leur documentation (schéma) généré automatiquement à partir du code lors du merge d’une PR, ce qui permet d’éviter les oublis de mise à jour.&lt;/p&gt;
+
+&lt;h2 id=&quot;lets-bring-science-into-api-docs&quot;&gt;Let’s bring science into API docs&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Conférence présentée par Lana Novikova (Technical Writer - JetBrains)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Au cours de cette conférence, Lana Novikova explore comment fusionner les principes scientifiques avec une communication technique efficace dans la documentation des API. 
+Elle partage également ses connaissances sur la façon dont les développeurs et développeuses consomment l’information en ligne, en mettant en lumière les liens avec différents styles cognitifs, le tout appuyé par des articles scientifiques. Elle explique de manière concrète comment ces principes peuvent être appliqués dans la documentation des API et comment ils peuvent contribuer à améliorer l’expérience des développeurs et développeuses.
+&lt;a href=&quot;https://www.youtube.com/watch?v=9SdGWU867bs&quot;&gt;Sa conférence est une extension d’un précédent talk qu’elle a donné en 2022 à la “Write The Docs Australia”&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;La première étude que nous présente Lana s’intitule &lt;a href=&quot;https://www.cs.mcgill.ca/~martin/papers/tse2013a.pdf&quot;&gt;“Patterns of Knowledge in API Reference Documentation”&lt;/a&gt;. 
+Elle parle de la nature et de l’organisation des connaissances contenues dans la documentation de référence de centaines d’API au sein de deux plateformes technologiques : Java SDK 6 et .NET 4.0. L’étude a, entre autres, consisté à élaborer une taxonomie des types de connaissances et a pu dresser la liste de 12 types de connaissances distinctes dans la documentation de l’API :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/api-days-paris-2023/taxonomy-of-knowledge-types.png&quot; alt=&quot;Taxonomy of Knowledge Types&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;À travers cette étude, nous pouvons donc évaluer le contenu de la documentation de notre API en fonction des types de connaissances et ainsi développer des modèles de documentation adaptés aux connaissances communément associées aux différents types de composants de l’api. De plus, aujourd’hui, des projets comme &lt;a href=&quot;https://thegooddocsproject.dev/&quot;&gt;the good docs project&lt;/a&gt; existent et proposent des templates de documentation basés sur ces données scientifiques.&lt;/p&gt;
+
+&lt;p&gt;La deuxième étude exposée dans cette conférence a comme titre &lt;a href=&quot;http://sigdoc.acm.org/wp-content/uploads/2019/01/CDQ18002_Meng_Steinhardt_Schubert.pdf&quot;&gt;“How Developers Use API Documentation: An Observation Study”&lt;/a&gt;. Sa méthodologie consiste à l’observation active, via des screencasts et des protocoles verbaux, des activités des personnes participantes pendant le test. Les chercheurs et chercheuses ont évalué le taux de réussite, le temps passé sur les tâches et l’utilisation de la documentation et des catégories de contenu. L’objectif principal est d’observer comment les développeurs et développeuses abordent les tâches avec une API qu’elles ne connaissent pas. Il s’agit également d’analyser comment les développeurs et développeuses utilisent les ressources d’information proposées par la documentation de l’API. Cela permet de caractériser les stratégies adoptées par les développeurs et développeuses lorsqu’elles commencent à travailler avec une nouvelle API. La conclusion que Lana nous partage est qu’en moyenne, les personnes participantes ont utilisé la documentation de l’API environ 49 % du temps (Min : 31 %, Max : 68 %). La catégorie de contenu à laquelle il est fait référence le plus souvent est “API reference”, suivie de “Recipes page”.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/api-days-paris-2023/content-categories-of-the-api-documentation.png&quot; alt=&quot;Content categories of the API documentation used for the test&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/api-days-paris-2023/proportion-of-time-spent-on-individual-content-categories.png&quot; alt=&quot;Proportion of time spent on individual content categories&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Il se dégage que le temps que les personnes participantes consacrent aux différentes catégories de contenu varie considérablement d’une personne à l’autre. Sur la base de ces données, les chercheurs et chercheuses ont défini trois types de personnages de développeurs logiciels à la recherche d’informations ainsi que leurs approches lorsqu’ils opèrent celles-ci: Systematic learners, Opportunistic learners et Pragmatic learners. Pour les personnes curieuses d’approfondir le sujet, ces personae sont basés sur une autre étude intitulée &lt;a href=&quot;https://www.researchgate.net/publication/30815675_What_is_an_End_User_Software_Engineer&quot;&gt;“What is an end user software engineer?”&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Lana Novikova conclut en mettant l’accent sur le fait qu’il faut respecter les différentes stratégies adoptées par les développeurs et les développeuses lorsqu’elles abordent une nouvelle API et nous propose d’appliquer ces conseils :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Pour les “opportunistic learners”, donner des exemples de code complets et exhaustifs en donnant la possibilité de masquer tout le reste et de relier le texte au code.&lt;/li&gt;
+  &lt;li&gt;Pour les “systematic learners”, fournir des informations importantes de manière redondante et donner des connaissances de base pertinentes.&lt;/li&gt;
+  &lt;li&gt;Pour les “pragmatic learners” (et les autres), donner un moyen technique pour commencer à utiliser une API.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Je tiens personnellement à souligner qu’il est rare d’assister à une conférence aussi complète se basant sur autant de données scientifiques. Je ressors de cette conférence agréablement surpris de la qualité de tout ce qui a été proposé et des ressources mises à disposition. Je vous laisse avec &lt;a href=&quot;https://speakerdeck.com/lananovikova10/lets-bring-science-into-api-docs-c9bd5a57-df28-4fa3-9388-d2d9d9a044bd&quot;&gt;un lien contenant toutes les slides de la présentation de Lana Novikova&lt;/a&gt; qui expliquera bien mieux le propos que mon résumé. Bravo à elle et à son travail, en espérant voir de plus en plus de conférences de ce genre à l’avenir.&lt;/p&gt;
+
+&lt;h2 id=&quot;le-mot-de-la-fin&quot;&gt;Le mot de la fin&lt;/h2&gt;
+
+&lt;p&gt;Si on vous a donné envie d’en savoir plus :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;le &lt;a href=&quot;https://www.apidays.global/paris/&quot;&gt;site officiel de la conférence&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;la majorité des &lt;a href=&quot;https://www.youtube.com/watch?v=NdlhxIVlSEM&amp;amp;list=PLmEaqnTJ40OryW56Qo3c-C7hXcaR89xii&quot;&gt;talks sont disponibles sur Youtube&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;certains speakers ont mis à disposition &lt;a href=&quot;https://fr.slideshare.net/APIdays_official/presentations&quot;&gt;les slides de leur talk&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Bonnes fêtes de fin d’année !&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/api-days-paris-2023/team.jpg&quot; alt=&quot;Team API Days Paris 2023&quot; /&gt;&lt;/p&gt;</content><author><name>[&quot;g_bouyge&quot;, &quot;j_hardeman&quot;, &quot;k_phan&quot;, &quot;n_alscher&quot;, &quot;o_thebault&quot;, &quot;o_weber&quot;, &quot;t_geindre&quot;]</name></author><category term="conference" /><category term="paris" /><category term="tech" /><category term="api" /><category term="eda" /><summary type="html">Cette année Bedrock a envoyé 7 de ses collaborateurs et collaboratrices (i.e. nous, les auteurs de cet article) à l’édition 2023 des conférences “API Days” à Paris.</summary></entry><entry><title type="html">Android 14 is out</title><link href="https://tech.bedrockstreaming.com/2023/12/05/android-14.html" rel="alternate" type="text/html" title="Android 14 is out" /><published>2023-12-05T00:00:00+00:00</published><updated>2023-12-05T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/12/05/android-14</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/12/05/android-14.html">&lt;p&gt;Here’s what it means for users and developers.&lt;/p&gt;
 
 &lt;p&gt;With each new OS version, new things, upgrades, deprecations and changes are introduced, affecting the way we use and develop our apps.
 Google keeps going in the direction of more privacy, more accessibility and more control over what the apps can do to maximize security and integrity.
@@ -1051,8 +1263,4 @@ sociétaux. On ne peut que féliciter les conférencier·e·s et les bénévoles
   &lt;p&gt;Éditer un CV, imprimer des fiches de recette, écrire une lettre de motivation, rédiger un rapport … Tant de choses fastidieuses à écrire et chiantes à mettre en page (surtout quand on ne sait pas utiliser Word). C’est pourquoi j’ai développé un outil pour m’aider à faire tout ça en utilisant uniquement du JSON !&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Par &lt;strong&gt;Julie Nginn&lt;/strong&gt;&lt;/p&gt;</content><author><name>Julie Nginn</name></author><category term="lft" /><category term="tech" /><summary type="html">Éditer un CV, imprimer des fiches de recette, écrire une lettre de motivation, rédiger un rapport … Tant de choses fastidieuses à écrire et chiantes à mettre en page (surtout quand on ne sait pas utiliser Word). C’est pourquoi j’ai développé un outil pour m’aider à faire tout ça en utilisant uniquement du JSON !</summary></entry><entry><title type="html">La traversée du Finnmarksvidda: carnet de bord d’une aventure glaciale #LFT 29/09/23</title><link href="https://tech.bedrockstreaming.com/la-traversee-du-finnmarksvidda-carnet-de-bord-d-une-aventure-glaciale" rel="alternate" type="text/html" title="La traversée du Finnmarksvidda: carnet de bord d’une aventure glaciale #LFT 29/09/23" /><published>2023-09-29T00:00:00+00:00</published><updated>2023-09-29T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/la-traversee-du-finnmarksvidda-carnet-de-bord-d-une-aventure-glaciale</id><content type="html" xml:base="https://tech.bedrockstreaming.com/la-traversee-du-finnmarksvidda-carnet-de-bord-d-une-aventure-glaciale">&lt;blockquote&gt;
-  &lt;p&gt;Carnet de voyage de ma traversée en solitaire du plateau du Finnmarksvidda, en Norvège, entre Alta et Karasjok, en mars 2023.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Par &lt;strong&gt;Sylvain Guyon&lt;/strong&gt;&lt;/p&gt;</content><author><name>Sylvain Guyon</name></author><category term="lft" /><category term="tech" /><summary type="html">Carnet de voyage de ma traversée en solitaire du plateau du Finnmarksvidda, en Norvège, entre Alta et Karasjok, en mars 2023.</summary></entry></feed>
+&lt;p&gt;Par &lt;strong&gt;Julie Nginn&lt;/strong&gt;&lt;/p&gt;</content><author><name>Julie Nginn</name></author><category term="lft" /><category term="tech" /><summary type="html">Éditer un CV, imprimer des fiches de recette, écrire une lettre de motivation, rédiger un rapport … Tant de choses fastidieuses à écrire et chiantes à mettre en page (surtout quand on ne sait pas utiliser Word). C’est pourquoi j’ai développé un outil pour m’aider à faire tout ça en utilisant uniquement du JSON !</summary></entry></feed>
