@@ -1,5 +1,5 @@
 ---
-layout: video
+layout: post
 title: "Introduction à Drupal par Claire Roubey (Clever Age)"
 description: ""
 author: o_mansour 
@@ -9,8 +9,7 @@ image:
   feature: 
   credit: 
   creditlink: 
-comments: true  
-youtubeId: 1XTLnffrHNc
+comments: true
 permalink: introduction-à-drupal-par-claire-roubey-clever-age
 ---
 
@@ -19,3 +18,5 @@ Drupal, le CMS très très connu mais que nous on connait pas ! A notre demande 
 Malheureusement, la vidéo est coupée à environ la moitié de sa durée (fort dommage car les questions étaient très intéressantes). Les slides sont toutefois disponibles : [https://fr.slideshare.net/claire_/drupal-m6-web310513](https://fr.slideshare.net/claire_/drupal-m6-web310513).
 
 Un énorme merci Clever Age et Claire !
+
+Malheureusement, la vidéo n'est plus disponible...

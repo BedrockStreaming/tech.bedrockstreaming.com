@@ -1,5 +1,5 @@
 ---
-layout: video
+layout: post
 title: "Le NoSQL, Focus sur MongoDB par Cédric Derue (Altran)"
 description: ""
 author: bedrock
@@ -11,7 +11,6 @@ image:
   creditlink: 
 comments: true  
 permalink: le-nosql-focus-sur-mongodb-par-cedric-derue-altran
-youtubeId: NsG2smTBGuM
 ---
 
 Porte-étandard des bases de données NoSQL de type document, MongoDB nous a été présenté cet été par Cédric Derue ([@cderue](https://twitter.com/cderue)) , de la société Altran, lors de [nos conférences internes](/organiser-des-conferences-technique-en-interne).
@@ -25,3 +24,5 @@ Vous pouvez aussi retrouver d'autres sessions de nos Last Friday Talk :
 - [Introduction Drupal par Claire Roubey (Clever Age)](/introduction-%C3%A0-drupal-par-claire-roubey-clever-age)
 - [Redis on Fire](/redis-on-fire)
 - [La POO Canada Dry](/la-poo-canada-dry)
+
+Malheureusement, la vidéo n'est plus disponible...

@@ -1,11 +1,10 @@
 ---
-layout: video
+layout: post
 title: "Encodage - packaging - DRM - tout sur la vidéo"
 description: ""
 author: o_noel 
 tags: [video,codec,drm,lft]
 comments: true 
-youtubeId: fDDxP0-7Cfc
 permalink: encodage-packaging-drm-tout-sur-la-vidéo
 ---
 
@@ -18,3 +17,5 @@ Souvent le monde de vidéo est source d'imprécision, cette vidéo met à plat l
 - encodage, transcodage
 - packaging (transformation du conteneur vidéo)
 - DRM
+
+Malheureusement, la vidéo n'est plus disponible...
