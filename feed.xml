@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-12-20T19:42:53+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock aux API Days Paris (2023)</title><link href="https://tech.bedrockstreaming.com/api-days-paris-2023" rel="alternate" type="text/html" title="Bedrock aux API Days Paris (2023)" /><published>2023-12-20T00:00:00+00:00</published><updated>2023-12-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/api-days-paris-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/api-days-paris-2023">&lt;p&gt;Cette année Bedrock a envoyé 7 de ses collaborateurs et collaboratrices (i.e. nous, les auteurs de cet article) à l’édition 2023 des conférences “API Days” à Paris.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2023-12-21T09:05:42+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock aux API Days Paris (2023)</title><link href="https://tech.bedrockstreaming.com/api-days-paris-2023" rel="alternate" type="text/html" title="Bedrock aux API Days Paris (2023)" /><published>2023-12-20T00:00:00+00:00</published><updated>2023-12-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/api-days-paris-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/api-days-paris-2023">&lt;p&gt;Cette année Bedrock a envoyé 7 de ses collaborateurs et collaboratrices (i.e. nous, les auteurs de cet article) à l’édition 2023 des conférences “API Days” à Paris.&lt;/p&gt;
 
 &lt;p&gt;L’événement a eu lieu au CNIT à La Défense (juste en face du marché de Noël) et a duré 3 jours, du Mercredi 06/12/23 au Vendredi 08/12/23.&lt;/p&gt;
 
@@ -210,7 +210,108 @@ Elle parle de la nature et de l’organisation des connaissances contenues dans 
 
 &lt;p&gt;Bonnes fêtes de fin d’année !&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/posts/api-days-paris-2023/team.jpg&quot; alt=&quot;Team API Days Paris 2023&quot; /&gt;&lt;/p&gt;</content><author><name>[&quot;g_bouyge&quot;, &quot;j_hardeman&quot;, &quot;k_phan&quot;, &quot;n_alscher&quot;, &quot;o_thebault&quot;, &quot;o_weber&quot;, &quot;t_geindre&quot;]</name></author><category term="conference" /><category term="paris" /><category term="tech" /><category term="api" /><category term="eda" /><summary type="html">Cette année Bedrock a envoyé 7 de ses collaborateurs et collaboratrices (i.e. nous, les auteurs de cet article) à l’édition 2023 des conférences “API Days” à Paris.</summary></entry><entry><title type="html">Android 14 is out</title><link href="https://tech.bedrockstreaming.com/2023/12/05/android-14.html" rel="alternate" type="text/html" title="Android 14 is out" /><published>2023-12-05T00:00:00+00:00</published><updated>2023-12-05T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/12/05/android-14</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/12/05/android-14.html">&lt;p&gt;Here’s what it means for users and developers.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/posts/api-days-paris-2023/team.jpg&quot; alt=&quot;Team API Days Paris 2023&quot; /&gt;&lt;/p&gt;</content><author><name>[&quot;g_bouyge&quot;, &quot;j_hardeman&quot;, &quot;k_phan&quot;, &quot;n_alscher&quot;, &quot;o_thebault&quot;, &quot;o_weber&quot;, &quot;t_geindre&quot;]</name></author><category term="conference" /><category term="paris" /><category term="tech" /><category term="api" /><category term="eda" /><summary type="html">Cette année Bedrock a envoyé 7 de ses collaborateurs et collaboratrices (i.e. nous, les auteurs de cet article) à l’édition 2023 des conférences “API Days” à Paris.</summary></entry><entry><title type="html">Bedrock at 2023 AWS re:Invent Las Vegas</title><link href="https://tech.bedrockstreaming.com/2023/12/18/aws-reinvent-lasvegas-2023.html" rel="alternate" type="text/html" title="Bedrock at 2023 AWS re:Invent Las Vegas" /><published>2023-12-18T00:00:00+00:00</published><updated>2023-12-18T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/12/18/aws-reinvent-lasvegas-2023</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/12/18/aws-reinvent-lasvegas-2023.html">&lt;p&gt;AWS re:Invent 2023 was a showcase for GenAI. It was the announcement of Amazon Q, Amazon’s new AI assistant, that attracted the most interest, designed to meet the specific needs of businesses.&lt;/p&gt;
+
+&lt;p&gt;Alongside these announcements, we had the opportunity to attend talks by some of the major players in streaming, such as Prime Video, Peacock, Netflix and Spotify. Their presentations offered valuable insights into their challenges, successes and lessons learned, enriching our own understanding of the sector.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-amazon-scales-resilience-to-new-heights&quot;&gt;How Amazon scales resilience to new heights&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-12-18-aws-reinvent-lasvegas-2023/aws-reinvent-2023-resilience.jpg&quot; alt=&quot;Practice like you play&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Olga Hall, Director of Live Events Availability &amp;amp; Resilience at Amazon Prime Video, and Lauren Domb, Chief Technologist, WWP Federal Financial Services, WW Chaos Engineering Lead at AWS, &lt;a href=&quot;https://www.youtube.com/watch?v=r3J0fEgNCLQ&quot;&gt;discussed the importance of resilience in the streaming industry&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;They highlighted the high cost of downtime and the impact on companies’ ability to serve their customers. We’re talking about an average of $300,000 per hour across the industry.&lt;/p&gt;
+
+&lt;p&gt;In their view, preparing engineering teams for peak loads and streaming is very similar to preparing sports teams for major events. So they created a “resilience playbook”, a series of strategies and tactics inspired by the most successful sports teams, to help their teams become resilient in the face of the unpredictable.&lt;/p&gt;
+
+&lt;p&gt;They also shared their experience of broadcasting Thursday night soccer matches on Prime Video, highlighting how they had to manage unpredictable conditions, such as weather-related match delays, which extended the duration of the peak workload.&lt;/p&gt;
+
+&lt;p&gt;Availability is considered the number 1 feature at Amazon Prime Video. All projects and workflows are listed, budgeted and included in the list of expected features, with availability always at the top of the list.
+To guarantee the availability of their services, they run load tests three times a week in each region, scaled for peak usage. This enables them to detect bugs before they affect users, and ensure that their systems are ready to handle the highest loads.&lt;/p&gt;
+
+&lt;p&gt;At Bedrock Streaming, we share this focus on resilience. Our applications incorporate circuit breakers, we run load tests very regularly and practice chaos engineering. 
+These practices at Amazon Prime Video offer an interesting perspective on how we might further improve our resilience at Bedrock Streaming. We were particularly impressed by the resilience score per application approach. This is definitely something we’ll be exploring in conjunction with a feature flipping by service approach.&lt;/p&gt;
+
+&lt;h2 id=&quot;surviving-overloads-how-amazon-prime-day-avoids-congestion-collapse&quot;&gt;Surviving overloads: How Amazon Prime Day avoids congestion collapse&lt;/h2&gt;
+
+&lt;p&gt;Jim Roskind, Distinguished Engineer at Amazon.com, and Ankit Chadha Solution Architect at AWS &lt;a href=&quot;https://www.youtube.com/watch?v=fOYOvp6X10g&quot;&gt;shared their experiences and knowledge at the conference&lt;/a&gt;. Formerly of Google, where he oversaw Google Chrome metrics and performance, Jim now works for Amazon with a singular mission: to buy less of AWS products. This approach, aimed at reducing IT costs, is supported by AWS, which wants to teach all its customers how to optimize their spending.&lt;/p&gt;
+
+&lt;p&gt;However, this quest for efficiency and cost reduction is not without risks. One of Jim’s main concerns is congestion collapse, a phenomenon that can lead to a drop in productivity and even paralyze a system. To help us understand this phenomenon, Jim presented a series of pragmatic examples and theories on congestion collapse.&lt;/p&gt;
+
+&lt;p&gt;What is congestion collapse?&lt;/p&gt;
+
+&lt;p&gt;Congestion collapse occurs when demand exceeds a system’s capacity. This leads to the build-up of queues, reduced productivity and, in extreme cases, the complete cessation of productive work. This phenomenon is not uncommon and can occur in a variety of situations, from highways to web servers.&lt;/p&gt;
+
+&lt;p&gt;Jim shared some examples to illustrate this phenomenon, the main one was about 
+Amazon Prime Day 2018. Even giants like Amazon aren’t immune to congestion collapse. 
+He hadn’t anticipated customer interest in a particular product. They had a massive demand for a product display and the service ended up being unavailable. At this point, traffic increased again sharply as customers began reloading the page. Above all, it highlights the fact that, as their services are slow to respond, the answers are no longer relevant, leaving us with a system that is 100% loaded and no longer doing anything useful.&lt;/p&gt;
+
+&lt;p&gt;These examples show that congestion collapse is a real problem that requires constant attention and planning.&lt;/p&gt;
+
+&lt;p&gt;At bedrock we’ve also encountered congestion collapse. For example, during busy events such as soccer matches, we’ve already encountered the case where a massive influx of users would cause the platform to become unavailable, at which point all the users would press F5 at the same time, drastically increasing the traffic on an already struggling platform. Moreover, requests are queued up and we end up answering requests issued 1 or 2 min earlier, and therefore answering people who have surely already left.&lt;/p&gt;
+
+&lt;p&gt;Jim mentions this issue, which has happened at amazon.com.&lt;/p&gt;
+
+&lt;p&gt;They were able to implement 2 solutions in particular.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;The first, when the servers can no longer respond, is to display a page with a message warning the user to wait a while and try again in a while. This had a surprisingly noticeable effect. Users were no longer repeatedly pressing the F5 button.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Secondly, they have implemented mechanisms to detect massive retries and thus avoid transmitting traffic to their backend. In particular, they have implemented this in the WAF service.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;At Bedrock Streaming we already display a page in case of trouble, but we can improve it to suggest to the user to wait before retrying. Moreover, we use Cloudfront and WAF on almost all our services. We have a few rules on WAF that allow us to deny traffic that seems illegitimate, but we’re going to work on a new rule to avoid transmitting untimely user retries in the event of an overloaded system.&lt;/p&gt;
+
+&lt;h2 id=&quot;netflix-caching&quot;&gt;Netflix caching&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;“Who in this room is a netflix user?” (90% of the room raises its hand)&lt;/em&gt;: no doubt Prudhviraj Karumanchi, software engineer &amp;amp; Sriram Rangarajan, Senior Distributed Systems Engineer at Netflix, conference speakers, know how to introduce their talk and remind us that they are the market giants. &lt;a href=&quot;https://www.youtube.com/watch?v=85TiFrDhCR4&quot;&gt;During their conference&lt;/a&gt;, they presented how Netflix uses the EVCache solution for multi-region cache replication.&lt;/p&gt;
+
+&lt;p&gt;Netflix likes to say that one of its missions is to spread joy. This involves two aspects: offering users a fully personalized homepage and 
+benefiting from a scalable, low-cost architecture (so that Netflix’s techies are happy too).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-12-18-aws-reinvent-lasvegas-2023/aws-reinvent-2023-netflix.jpg&quot; alt=&quot;Quoting Marie Kondō, Netflix engineers remind us that one of their missions is to &amp;quot;spread joy&amp;quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This conference addressed many of the issues we are familiar with: a home page that calls on a large number of microservices to display content to the user, scaling issues, cost management…&lt;/p&gt;
+
+&lt;p&gt;The heart of the conference detailed the architecture implemented by Netflix teams to replicate cache across multiple regions using EVCache, Kafka and SQS.&lt;/p&gt;
+
+&lt;p&gt;It was also interesting to see that at Netflix, as with us, it’s important to build with costs in mind: after analyzing the costs of their inter-region traffic, they finally decided to remove their network load-balancer to make their architecture more cost-efficient.&lt;/p&gt;
+
+&lt;p&gt;A long part of the conference was dedicated to the observability of the replication stack: our teams have also done a lot of work on this issue in recent years, so it was interesting to compare our practices on the subject of observability.&lt;/p&gt;
+
+&lt;p&gt;While we don’t yet work on the same scale as Netflix, attending this conference allowed us to reinforce our idea that caching is essential in the architecture of a platform such as Bedrock Streaming. And it gives us new ways for reflection…&lt;/p&gt;
+
+&lt;h2 id=&quot;takeaways-from-reinvent2023-the-newcomers-point-of-view&quot;&gt;Takeaways from Reinvent2023. The newcomers’ point of view&lt;/h2&gt;
+
+&lt;p&gt;It’s often said that “what happens in Vegas stays in Vegas”, but for some of us, this edition of Re:invent was our first time at a conference of this magnitude. So it’s hard not to share some of our feedback with you!&lt;/p&gt;
+
+&lt;p&gt;First of all, a word about Vegas, the city of excess which hosts Re:invent every year, and which has been transformed for us into an open-air R&amp;amp;D ground! From Fremont Street to the brand-new Sphere, there are screens EVERYWHERE in this city, which has aroused our curiosity as video streaming professionals… 
+&lt;img src=&quot;/images/posts/2023-12-18-aws-reinvent-lasvegas-2023/aws-reinvent-2023-google.jpeg&quot; alt=&quot;A troll masterpiece: Google has been advertising on the sphere for the duration of Reinvent&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;On the eve of Reinvent, the city is transformed: tourists give way to speakers from all over the world, advertising screens talk of nothing but cloud solutions, scalability and artificial intelligence… It’s an incredible phenomenon to behold!&lt;/p&gt;
+
+&lt;p&gt;With over 70,000 participants, nothing can be left to chance in the organization of Reinvent. It’s impressive to see (Vegas traffic jams aside) how smoothly the whole conference runs. A sort of “human load-balancing” has even been arranged so that each speaker can have lunch in record time!&lt;/p&gt;
+
+&lt;p&gt;The keynotes organized during Reinvent (5 in all) are events within events! The expected crowds are so huge that several overflow rooms are planned in addition to the main ballroom where the speaker is based.
+We were able to attend two of them: Adam Zelipsky’s (CEO of aws) - for which the speakers were greeted by a fantastic rock band at 7:30 a.m., a guaranteed wake-up call - and Werner Vogels’ (CPO &amp;amp; VP of amazon.com), where this time the welcome was provided by a fantastic string quartet.&lt;/p&gt;
+
+&lt;p&gt;While Adam Zelisky’s conference was undoubtedly a masterpiece (production, new services announced, influential clients such as Lidia Fonseca, chief digital and technology officer at Pfizer, speaking), it was Dr. Vogels’ conference that impressed us the most.&lt;/p&gt;
+
+&lt;p&gt;Based on &lt;a href=&quot;https://thefrugalarchitect.com/&quot;&gt;the laws of the “frugal architect”&lt;/a&gt;, this keynote spoke to everyone: technicians, business people, product managers… It took up the elementary concepts of what should motivate our design of IT solutions: cost awareness, the indispensable balance between commercial and technical needs, or the danger of never questioning oneself, quoting Grace Hopper: “One of the most dangerous phrases in the English language is: &lt;em&gt;‘We’ve always done it this way’&lt;/em&gt;”
+We encourage you to watch &lt;a href=&quot;https://www.youtube.com/watch?v=UTRBVPvzt9w&quot;&gt;the replay of this keynote&lt;/a&gt;, a must-see!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2023-12-18-aws-reinvent-lasvegas-2023/aws-reinvent-2023-werner.jpg&quot; alt=&quot;Screenshot of one of the excellent edits made for the keynote of Werner Vogels&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Beyond the gigantism of the event, let’s look at what we’ve taken away from our participation in Reinvent. Attending a conference is always an opportunity to take a step back on our current work themes: we attended many conferences on resilience, scalability and new architectures:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;it enabled us to compare our practices with those of major players in the sector (Prime, Spotify, Peacock…),&lt;/li&gt;
+  &lt;li&gt;to transpose these themes into a context completely different from our own (“&lt;a href=&quot;https://www.youtube.com/watch?v=fGyvsNE4vh8&quot;&gt;1.5 million requests per second—a story from the Brazilian elections&lt;/a&gt;”)&lt;/li&gt;
+  &lt;li&gt;or to appreciate the work we’ve done over the year, which sometimes goes beyond what’s presented at conferences (“&lt;a href=&quot;https://www.youtube.com/watch?v=JpemUkU8INA&quot;&gt;Use new IAM Access Analyzer features on your journey to least privilege&lt;/a&gt;”)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For all these reasons, no doubt Bedrock Streaming teams will be betting on Reinvent again next year!&lt;/p&gt;</content><author><name>[&quot;a_ferez&quot;, &quot;v_chabrier&quot;]</name></author><category term="kubernetes" /><category term="cloud" /><category term="devops" /><category term="opensource" /><category term="community" /><category term="conference" /><category term="aws" /><category term="re:invent" /><category term="las vegas" /><category term="2023" /><summary type="html">AWS re:Invent 2023 was a showcase for GenAI. It was the announcement of Amazon Q, Amazon’s new AI assistant, that attracted the most interest, designed to meet the specific needs of businesses.</summary></entry><entry><title type="html">Android 14 is out</title><link href="https://tech.bedrockstreaming.com/2023/12/05/android-14.html" rel="alternate" type="text/html" title="Android 14 is out" /><published>2023-12-05T00:00:00+00:00</published><updated>2023-12-05T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/12/05/android-14</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/12/05/android-14.html">&lt;p&gt;Here’s what it means for users and developers.&lt;/p&gt;
 
 &lt;p&gt;With each new OS version, new things, upgrades, deprecations and changes are introduced, affecting the way we use and develop our apps.
 Google keeps going in the direction of more privacy, more accessibility and more control over what the apps can do to maximize security and integrity.
@@ -1259,8 +1360,4 @@ lutte pour que les femmes soient plus nombreuses dans la tech.&lt;/p&gt;
 &lt;p&gt;Ce forum fût l’occasion d’échanger avec de nombreuses personnes, de découvrir des sujets aussi bien techniques que
 sociétaux. On ne peut que féliciter les conférencier·e·s et les bénévoles pour un Forum PHP encore très réussi !&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/posts/forumphp2023/fresque-lego-communautaire.jpeg&quot; alt=&quot;La fresque LEGO communautaire&quot; /&gt;&lt;/p&gt;</content><author><name>Backend teams</name></author><category term="afup" /><category term="php" /><category term="forumphp" /><category term="conference" /><summary type="html">Cette année encore, Bedrock était présent au Forum PHP pour cette édition 2023.</summary></entry><entry><title type="html">Json au service des devs #LFT 29/09/23</title><link href="https://tech.bedrockstreaming.com/json-au-service-des-devs" rel="alternate" type="text/html" title="Json au service des devs #LFT 29/09/23" /><published>2023-09-29T00:00:00+00:00</published><updated>2023-09-29T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/json-au-service-des-devs</id><content type="html" xml:base="https://tech.bedrockstreaming.com/json-au-service-des-devs">&lt;blockquote&gt;
-  &lt;p&gt;Éditer un CV, imprimer des fiches de recette, écrire une lettre de motivation, rédiger un rapport … Tant de choses fastidieuses à écrire et chiantes à mettre en page (surtout quand on ne sait pas utiliser Word). C’est pourquoi j’ai développé un outil pour m’aider à faire tout ça en utilisant uniquement du JSON !&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Par &lt;strong&gt;Julie Nginn&lt;/strong&gt;&lt;/p&gt;</content><author><name>Julie Nginn</name></author><category term="lft" /><category term="tech" /><summary type="html">Éditer un CV, imprimer des fiches de recette, écrire une lettre de motivation, rédiger un rapport … Tant de choses fastidieuses à écrire et chiantes à mettre en page (surtout quand on ne sait pas utiliser Word). C’est pourquoi j’ai développé un outil pour m’aider à faire tout ça en utilisant uniquement du JSON !</summary></entry></feed>
+&lt;p&gt;&lt;img src=&quot;/images/posts/forumphp2023/fresque-lego-communautaire.jpeg&quot; alt=&quot;La fresque LEGO communautaire&quot; /&gt;&lt;/p&gt;</content><author><name>Backend teams</name></author><category term="afup" /><category term="php" /><category term="forumphp" /><category term="conference" /><summary type="html">Cette année encore, Bedrock était présent au Forum PHP pour cette édition 2023.</summary></entry></feed>
