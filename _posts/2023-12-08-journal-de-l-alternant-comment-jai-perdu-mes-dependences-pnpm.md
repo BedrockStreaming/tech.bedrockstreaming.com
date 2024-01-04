@@ -16,7 +16,7 @@ Je suis alternant depuis un an à Bedrock et je travaille pour la première fois
 
 En bref, je n’ai qu’une connaissance très superficielle du projet et des outils qu’il intègre.
 
-Dans mes habitudes de code, il peut parfois m’arriver d’oublier de vérifier que le code que j’écris ne vienne pas casser les tests en place dans le code. Heureusement, notre CI qui nous est chère ne manque jamais de me rappeler mon manque de rigueur. Cette fois-là, je casse un test à cause d’une erreur tellement anodine que je ne parviens pas à m’en rappeler. Je peux juste vous dire que j’ai eu le réflexe d’aller dans mon terminal de lancer le runner de test jest à l’aide de notre package manager [pnpm](https://pnpm.io/fr/) dans une commande qui ressemble à : `pnpm test TEST_QUI_CASSE`. Le test est rouge pour une raison qui me semble venir d’un problème de dépendances. Ayant beaucoup trituré mes `node_modules`, je me dis que repartir sur des bases propres ne devraient pas faire de mal au projet. Je décide donc, sans savoir ce qui m’attend, de lancer l’innocente commande : `pnpm install`
+Dans mes habitudes de code, il peut parfois m’arriver d’oublier de vérifier que le code que j’écris ne vienne pas casser les tests en place dans le code. Heureusement, notre CI qui nous est chère ne manque jamais de me rappeler mon manque de rigueur. Cette fois-là, je casse un test à cause d’une erreur tellement anodine que je ne parviens pas à m’en rappeler. Je peux juste vous dire que j’ai eu le réflexe d’aller dans mon terminal de lancer le runner de test jest à l’aide de notre package manager [pnpm](https://pnpm.io/fr/) dans une commande qui ressemble à : `pnpm test TEST_QUI_CASSE`. Le test est rouge pour une raison qui me semble venir d’un problème de dépendances. Ayant beaucoup trituré mes `node_modules`, je me dis que repartir sur des bases propres ne devrait pas faire de mal au projet. Je décide donc, sans savoir ce qui m’attend, de lancer l’innocente commande : `pnpm install`
 
 J’observe que pnpm fait son travail, met à jour des dépendances, je devais effectivement avoir joué un peu trop avec mes `node_modules`.
 
@@ -26,7 +26,7 @@ Je commence à penser que je ne viens pas seulement de casser un test, mais j’
 
 En fait, il y manque également d’autres outils que je m’attendais à trouver comme [prettier](https://prettier.io/) et [eslint](https://eslint.org/).
 
-Je me redis que la portée de mon problème vient de s’étendre de jest à mes `node_modules`. 🫠
+Je me dis que la portée de mon problème vient de s’étendre de jest à mes `node_modules`. 🫠
 
 Désespéré, je tente une recherche globale des mots clés : **prettier** et **eslint**. Je finis par trouver une correspondance intéressante dans le fichier `.npmrc`.
 
@@ -45,7 +45,7 @@ Je peux sentir qu’il s’agit d’une véritable piste parce que dans ce fichi
 
 ## Comprendre la configuration de pnpm
 ### Hoisting des dépendances
-Pour comprendre la configuration `public-hoist-pattern` il faut d’abord comprendre comment sont formés les `node_modules` par pnpm. Il ne va mettre dans le dossier `node_modules` en racine uniquement les dépendances directes du projet, toutes les sous-dépendances seront placées dans un dossier caché .pnpm et un lien symbolique sera créé. 
+Pour comprendre la configuration `public-hoist-pattern` il faut d’abord comprendre comment sont formés les `node_modules` par pnpm. Il ne va mettre dans le dossier `node_modules` en racine uniquement les dépendances directes du projet, toutes les sous-dépendances seront placées dans un dossier caché `.pnpm` et un lien symbolique sera créé. 
 
 > Je vous invite à lire la [documentation écrite par pnpm](https://pnpm.io/symlinked-node-modules-structure) afin de comprendre leur système de dépendances.
 
@@ -60,7 +60,7 @@ La ligne `public-hoist-pattern[]=*jest*` veut donc dire qu’on ajoute jest aux 
 ### Retour à l’histoire… let’s debug
 A cet instant je suis convaincu que c’est le fichier `.npmrc` qui est responsable de l’erreur `Command: "jest" not found`. Je ne vois rien d’anormal dans ce fichier qui pourrait me mettre la puce à l’oreille, c’est alors que je me dis que peut être pnpm ne lit pas la bonne configuration. En lisant la documentation, je tombe sur la commande parfaite : `pnpm config get`. Cette commande permet d’afficher la configuration que résout pnpm. La sortie de cette commande m’a mis sur une nouvelle piste puisque c’est là que j’ai vu apparaître la ligne problématique : `shamefully-hoist=false`. 
 
-Je tente de chercher dans le projet où est écrite cette ligne. Aucune trace de cette maudite ligne. Je retourne tout le projet à la recherche d’une ligne de code qui pourrait ajouter cette ligne de configuration. Je me mets à lire toute la documentation pnpm pour pouvoir comprendre d’où cette ligne peut venir. Après avoir désinstallé et réinstallé pnpm, node et redémarrer mon PC, je tente dans un dernier espoir de créer un dossier test-a-laide dans lequel je reclone le projet. Malheureusement, rien n’y fait. 
+Je tente de chercher dans le projet où est écrite cette ligne. Aucune trace de cette maudite ligne. Je retourne tout le projet à la recherche d’une ligne de code qui pourrait ajouter cette ligne de configuration. Je me mets à lire toute la documentation pnpm pour pouvoir comprendre d’où cette ligne peut venir. Après avoir désinstallé et réinstallé pnpm, node et redémarré mon PC, je tente dans un dernier espoir de créer un dossier `test-a-laide` dans lequel je reclone le projet. Malheureusement, rien n’y fait. 
 
 C’est à ce moment que je me dis que si le problème ne vient pas de mes outils ni de la configuration locale, il faut peut-être que j’aille chercher dans ma configuration globale. En effet, en ouvrant cette dite configuration `~/.npmrc`, je m’aperçois que c’est de là que vient la ligne `shamefully-hoist=false`. C’est un soulagement, j’ai enfin trouvé d’où cette ligne mystique venait.
 
