@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Journal de l’alternant - Comment j’ai perdu mes dépendances pnpm | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Journal de l’alternant - Comment j’ai perdu mes dépendances pnpm" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Comment la non-compréhension du hoisting m’a fait perdre des dépendances" />
+<meta property="og:description" content="Comment la non-compréhension du hoisting m’a fait perdre des dépendances" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2024/01/10/journal-de-l-alternant-comment-jai-perdu-mes-dependences-pnpm.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2024/01/10/journal-de-l-alternant-comment-jai-perdu-mes-dependences-pnpm.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-01-10T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Journal de l’alternant - Comment j’ai perdu mes dépendances pnpm" />
+<script type="application/ld+json">
+{"description":"Comment la non-compréhension du hoisting m’a fait perdre des dépendances","headline":"Journal de l’alternant - Comment j’ai perdu mes dépendances pnpm","dateModified":"2024-01-10T00:00:00+00:00","datePublished":"2024-01-10T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2024/01/10/journal-de-l-alternant-comment-jai-perdu-mes-dependences-pnpm.html"},"url":"https://tech.bedrockstreaming.com/2024/01/10/journal-de-l-alternant-comment-jai-perdu-mes-dependences-pnpm.html","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Journal de l'alternant - Comment j'ai perdu mes dépendances pnpm">
+    <meta name="twitter:description" content="À Bedrock, on m’a chargé de faire un POC (proof of concept) pour tester les avantages et les limites d’un double run entre notre app côté web (sur une base m...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg">
+    <meta name="twitter:image:alt" content="Journal de l'alternant - Comment j'ai perdu mes dépendances pnpm">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Journal de l'alternant - Comment j'ai perdu mes dépendances pnpm " aria-label="Journal de l'alternant - Comment j'ai perdu mes dépendances pnpm" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Journal+de+l%27alternant+-+Comment+j%27ai+perdu+mes+d%C3%A9pendances+pnpm" class="title">Journal de l'alternant - Comment j'ai perdu mes dépendances pnpm</h1>
+      <div class="post-info">
+
+
+<a
+      href="https://github.com/jpoissonnet"
+      target="_blank"
+      rel="noopener"
+      class="author">
+      <img alt="Author's avatar" src="/images/avatar/j_poissonnet.jpg" class="thumbnail">
+    
+
+    
+      <span class="name">
+        Jules Poissonnet
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    January 10, 2024
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>À Bedrock, on m’a chargé de faire un POC (<a href="https://fr.wikipedia.org/wiki/Preuve_de_concept">proof of concept</a>) pour tester les avantages et les limites d’un double run entre notre app côté web (sur <a href="https://tech.bedrockstreaming.com/2017/05/17/spa-mode-isomorphism-js.html">une base maison React Server Side Rendering</a>) en déléguant des pages progressivement vers une app <a href="https://nextjs.org/">Next.js</a>. Étant tout nouveau dans le dev et encore plus nouveau sur le projet, ma vie ces derniers temps est une suite d’obstacles, d’essais, d’erreurs et de triomphes (pas toujours, mais souvent) bien mérités. Je suis habitué à faire des erreurs plus lunaires les unes que les autres, mais je vais m’attarder dans cet article sur une erreur qui m’a retourné le cerveau. Au menu : erreurs soudaines, dépendances disparues et désespoir… Bonne lecture.</p>
+
+<p>Je suis alternant depuis un an à Bedrock et je travaille pour la première fois sur notre projet web interne. C’est un projet qui est très complexe, avec lequel vient énormément d’historique (premières briques écrite en 2014) et dont la lecture du code relève parfois autant de l’histoire que du développement.</p>
+
+<h1 id="en-route-pour-laventure">En route pour l’aventure</h1>
+
+<blockquote>
+  <p>D’ailleurs à Bedrock, si on arrive à maintenir notre application web dans la durée, c’est grâce aux <a href="https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html">bonnes pratiques qu’on essaie de respecter au mieux</a>.</p>
+</blockquote>
+
+<p>En bref, je n’ai qu’une connaissance très superficielle du projet et des outils qu’il intègre.</p>
+
+<p>Dans mes habitudes de code, il peut parfois m’arriver d’oublier de vérifier que le code que j’écris ne vienne pas casser les tests en place dans le code. Heureusement, notre CI qui nous est chère ne manque jamais de me rappeler mon manque de rigueur. Cette fois-là, je casse un test à cause d’une erreur tellement anodine que je ne parviens pas à m’en rappeler. Je peux juste vous dire que j’ai eu le réflexe d’aller dans mon terminal de lancer le runner de test jest à l’aide de notre package manager <a href="https://pnpm.io/fr/">pnpm</a> dans une commande qui ressemble à : <code class="language-plaintext highlighter-rouge">pnpm test TEST_QUI_CASSE</code>. Le test est rouge pour une raison qui me semble venir d’un problème de dépendances. Ayant beaucoup trituré mes <code class="language-plaintext highlighter-rouge">node_modules</code>, je me dis que repartir sur des bases propres ne devrait pas faire de mal au projet. Je décide donc, sans savoir ce qui m’attend, de lancer l’innocente commande : <code class="language-plaintext highlighter-rouge">pnpm install</code></p>
+
+<p>J’observe que pnpm fait son travail, met à jour des dépendances, je devais effectivement avoir joué un peu trop avec mes <code class="language-plaintext highlighter-rouge">node_modules</code>.</p>
+
+<p>Je relance le test et là quelle ne fut pas ma surprise quand mon terminal, sans trembler, m’a affiché <code class="language-plaintext highlighter-rouge">Command: "jest" not found</code>.</p>
+
+<p>Je commence à penser que je ne viens pas seulement de casser un test, mais j’ai également cassé <a href="https://jestjs.io/fr/">jest</a>. À ce moment-là, je venais de ressortir d’une bataille avec des dépendances et donc je venais de me familiariser avec le <code class="language-plaintext highlighter-rouge">node_modules</code> <code class="language-plaintext highlighter-rouge">.pnpm</code> et autre <code class="language-plaintext highlighter-rouge">.bin</code> . C’est dans ce dernier dossier que je me rends compte qu’effectivement, il y manque l’exécutable jest.</p>
+
+<p>En fait, il y manque également d’autres outils que je m’attendais à trouver comme <a href="https://prettier.io/">prettier</a> et <a href="https://eslint.org/">eslint</a>.</p>
+
+<p>Je me dis que la portée de mon problème vient de s’étendre de jest à mes <code class="language-plaintext highlighter-rouge">node_modules</code>. 🫠</p>
+
+<p>Désespéré, je tente une recherche globale des mots clés : <strong>prettier</strong> et <strong>eslint</strong>. Je finis par trouver une correspondance intéressante dans le fichier <code class="language-plaintext highlighter-rouge">.npmrc</code>.</p>
+
+<p>Voilà à quoi ressemble le fichier à ce moment-là :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public-hoist-pattern[]=*@testing-library/jest-dom*
+public-hoist-pattern[]=*@testing-library/react*
+public-hoist-pattern[]=*@testing-library/user-event*
+public-hoist-pattern[]=*enzyme*
+public-hoist-pattern[]=*jest*
+public-hoist-pattern[]=*redux-mock-store*
+public-hoist-pattern[]=*eslint*
+public-hoist-pattern[]=*prettier*
+</code></pre></div></div>
+<p>Je peux sentir qu’il s’agit d’une véritable piste parce que dans ce fichier sont listées toutes les dépendances qui sont cassées sur ma machine.</p>
+
+<h2 id="comprendre-la-configuration-de-pnpm">Comprendre la configuration de pnpm</h2>
+<h3 id="hoisting-des-dépendances">Hoisting des dépendances</h3>
+<p>Pour comprendre la configuration <code class="language-plaintext highlighter-rouge">public-hoist-pattern</code> il faut d’abord comprendre comment sont formés les <code class="language-plaintext highlighter-rouge">node_modules</code> par pnpm. Il ne va mettre dans le dossier <code class="language-plaintext highlighter-rouge">node_modules</code> en racine uniquement les dépendances directes du projet, toutes les sous-dépendances seront placées dans un dossier caché <code class="language-plaintext highlighter-rouge">.pnpm</code> et un lien symbolique sera créé.</p>
+
+<blockquote>
+  <p>Je vous invite à lire la <a href="https://pnpm.io/symlinked-node-modules-structure">documentation écrite par pnpm</a> afin de comprendre leur système de dépendances.</p>
+</blockquote>
+
+<p>Cela peut parfois poser des problèmes avec des libraries qui utilisent des dépendances fantômes. C’est pourquoi pnpm laisse quand même du contrôle sur ce comportement.</p>
+
+<blockquote>
+  <p>On parle de dépendance fantôme pour désigner toutes les dépendances qui ne sont pas désignées dans le <code class="language-plaintext highlighter-rouge">package.json</code> root mais qui sont quand même nécessaire pour le bon fonctionnement de l’application.</p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">public-hoist-pattern</code> permet d’indiquer les dépendances qu’on veut forcer à être dans le dossier <code class="language-plaintext highlighter-rouge">node_modules</code> racine plutôt que dans<code class="language-plaintext highlighter-rouge">node_modules/.pnpm</code>.</p>
+
+<p>La ligne <code class="language-plaintext highlighter-rouge">public-hoist-pattern[]=*jest*</code> veut donc dire qu’on ajoute jest aux dépendances qui sont accessibles depuis la racine et ainsi l’exécutable dans <code class="language-plaintext highlighter-rouge">node_modules/.bin</code> . Cela permet par exemple de déléguer la configuration et l’import de jest dans un package enfant du repository.</p>
+
+<h3 id="retour-à-lhistoire-lets-debug">Retour à l’histoire… let’s debug</h3>
+<p>A cet instant je suis convaincu que c’est le fichier <code class="language-plaintext highlighter-rouge">.npmrc</code> qui est responsable de l’erreur <code class="language-plaintext highlighter-rouge">Command: "jest" not found</code>. Je ne vois rien d’anormal dans ce fichier qui pourrait me mettre la puce à l’oreille, c’est alors que je me dis que peut être pnpm ne lit pas la bonne configuration. En lisant la documentation, je tombe sur la commande parfaite : <code class="language-plaintext highlighter-rouge">pnpm config get</code>. Cette commande permet d’afficher la configuration que résout pnpm. La sortie de cette commande m’a mis sur une nouvelle piste puisque c’est là que j’ai vu apparaître la ligne problématique : <code class="language-plaintext highlighter-rouge">shamefully-hoist=false</code>.</p>
+
+<p>Je tente de chercher dans le projet où est écrite cette ligne. Aucune trace de cette maudite ligne. Je retourne tout le projet à la recherche d’une ligne de code qui pourrait ajouter cette ligne de configuration. Je me mets à lire toute la documentation pnpm pour pouvoir comprendre d’où cette ligne peut venir. Après avoir désinstallé et réinstallé pnpm, node et redémarré mon PC, je tente dans un dernier espoir de créer un dossier <code class="language-plaintext highlighter-rouge">test-a-laide</code> dans lequel je reclone le projet. Malheureusement, rien n’y fait.</p>
+
+<p>C’est à ce moment que je me dis que si le problème ne vient pas de mes outils ni de la configuration locale, il faut peut-être que j’aille chercher dans ma configuration globale. En effet, en ouvrant cette dite configuration <code class="language-plaintext highlighter-rouge">~/.npmrc</code>, je m’aperçois que c’est de là que vient la ligne <code class="language-plaintext highlighter-rouge">shamefully-hoist=false</code>. C’est un soulagement, j’ai enfin trouvé d’où cette ligne mystique venait.</p>
+
+<blockquote>
+  <p>Je suis encore à la recherche de la réponse à la question : pourquoi diable, ai-je mis cette configuration dans mon <code class="language-plaintext highlighter-rouge">.npmrc</code> global. Je pense me souvenir l’avoir fait en me disant que je voulais m’assurer que pnpm se comporte en faisant des symlinks (l’intention n’était pas mauvaise, mais la conséquence pas joyeuse).</p>
+</blockquote>
+
+<p>On peut lire dans la documentation de pnpm que : <em>Setting shamefully-hoist to true is the same as setting <code class="language-plaintext highlighter-rouge">public-hoist-pattern</code> to *.</em></p>
+
+<p>En d’autres termes <code class="language-plaintext highlighter-rouge">shamefully-hoist</code> à une influence sur le hoisting de toutes les dépendances du projet.</p>
+
+<p>J’ai deux problèmes avec la documentation à ce sujet :</p>
+
+<ul>
+  <li>Tout d’abord, il n’est pas explicité le cas inverse à savoir si on met <code class="language-plaintext highlighter-rouge">shamefully-hoist=false</code> alors ça revient à écraser toutes les configurations de <code class="language-plaintext highlighter-rouge">public-hoist-pattern</code></li>
+  <li>Le comportement, qu’il soit un bug ou un cas à la marge, de la configuration globale de <code class="language-plaintext highlighter-rouge">shamefully-hoist</code> qui écrase la configuration locale de <code class="language-plaintext highlighter-rouge">public-hoist-pattern</code> n’est pas spécifié</li>
+</ul>
+
+<p>Bref, après avoir déduit que c’était cette ligne qui cassait mon hoisting, je retire la ligne et je lance un pnpm install. Bingo ! Je récupère toutes mes dépendances perdues.</p>
+
+<h2 id="enseignements">Enseignements</h2>
+<p>J’essaie a posteriori de déchiffrer pourquoi j’ai eu ce problème et comment faire en sorte que cela n’arrive pas. Je pense être tombé sur un comportement étrange de pnpm. Je ne sais pas s’il s’agit d’un bug ou d’une feature. En effet, intuitivement, j’aurais tendance à dire qu’une configuration globale de <code class="language-plaintext highlighter-rouge">shamefully-hoist</code> ne devrait pas override la configuration locale de <code class="language-plaintext highlighter-rouge">public-hoist-pattern</code>. Je suis prêt à entendre que le comportement est attendu et voulu, mais dans ce cas je pense qu’un peu plus de documentation à ce sujet ne peinera personne. À cet égard j’ai ouvert <a href="https://github.com/pnpm/pnpm/issues/7312">une issue</a> sur le Github de pnpm.</p>
+
+<p>Je retire plusieurs enseignements de cette aventure :</p>
+<ul>
+  <li>Douter de la configuration qui est lue par les outils</li>
+  <li>La documentation ne contient pas toujours tous les comportements</li>
+  <li>Il faut penser à voir plus loin que son fichier local de config et penser aux potentielles surcharges…</li>
+</ul>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Journal+de+l%27alternant+-+Comment+j%27ai+perdu+mes+d%C3%A9pendances+pnpm%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2024%2F01%2F10%2Fjournal-de-l-alternant-comment-jai-perdu-mes-dependences-pnpm.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2024/01/10/journal-de-l-alternant-comment-jai-perdu-mes-dependences-pnpm.html&title=Journal+de+l%27alternant+-+Comment+j%27ai+perdu+mes+d%C3%A9pendances+pnpm%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2024/01/10/journal-de-l-alternant-comment-jai-perdu-mes-dependences-pnpm.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Journal de l'alternant - Comment j'ai perdu mes dépendances pnpm%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2024/01/10/journal-de-l-alternant-comment-jai-perdu-mes-dependences-pnpm.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#alternant">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> alternant</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#hoisting">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> hoisting</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#node_modules">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> node_modules</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#pnpm">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> pnpm</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="Bedrock aux API Days Paris (2023)" href="/api-days-paris-2023">
+            <p>Next post</p>
+            Bedrock aux API Days Paris (2023)
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(254,91,73) !important; }
+  .share-buttons a { color: rgb(254,91,73) !important; }
+  .tag-list a:not(:hover) { color: rgb(254,91,73) !important; }
+  div#post-nav a { color: rgb(254,91,73) !important; }
+  footer a { color: rgb(254,91,73) !important; }
+  .site-header nav a:hover {  color: rgb(254,91,73) !important; }
+  a.button:hover {
+    background: rgb(254,91,73) !important;
+    border: 1px solid rgb(254,91,73) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(254,91,73) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>
