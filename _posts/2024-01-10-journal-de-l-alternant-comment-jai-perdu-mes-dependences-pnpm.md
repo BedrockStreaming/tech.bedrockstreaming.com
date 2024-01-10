@@ -12,6 +12,8 @@ language: fr
 
 Je suis alternant depuis un an à Bedrock et je travaille pour la première fois sur notre projet web interne. C’est un projet qui est très complexe, avec lequel vient énormément d’historique (premières briques écrite en 2014) et dont la lecture du code relève parfois autant de l’histoire que du développement. 
 
+# En route pour l'aventure
+
 > D’ailleurs à Bedrock, si on arrive à maintenir notre application web dans la durée, c'est grâce aux [bonnes pratiques qu’on essaie de respecter au mieux](https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html). 
 
 En bref, je n’ai qu’une connaissance très superficielle du projet et des outils qu’il intègre.
