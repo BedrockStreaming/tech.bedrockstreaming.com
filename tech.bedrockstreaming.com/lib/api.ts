@@ -1,11 +1,21 @@
 import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
+// @ts-ignore
+import authors from "./authors.yml";
 
 const postsDirectory = join(process.cwd(), "_posts");
 
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
+}
+
+export function getAuthor(id: string): { name: string; picture: string } {
+  const author = authors[id];
+  return {
+    name: author?.name || null,
+    picture: author?.avatar || null,
+  };
 }
 
 export function getPostBySlug(slug: string, fields: string[] = []) {
@@ -29,8 +39,25 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
       items[field] = content;
     }
 
+    if (field === "date") {
+      if (!items[field]) {
+        items[field] = realSlug.slice(0, 10);
+      }
+    }
+
     if (typeof data[field] !== "undefined") {
       items[field] = data[field];
+    }
+
+    if (field === "author" && typeof data[field] !== "undefined") {
+      if (Array.isArray(data[field])) {
+        items[field] = data[field].map((id) => getAuthor(id));
+        /*items[field] = { name: data[field].toString().replace(",", " ") };*/
+      } else if (typeof data[field] === "string") {
+        items[field] = [getAuthor(data[field])];
+      } else {
+        items[field] = [data[field]];
+      }
     }
   });
 
