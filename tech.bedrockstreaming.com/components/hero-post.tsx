@@ -31,7 +31,7 @@ const HeroPost = ({
           <h3 className="mb-4 text-4xl lg:text-5xl leading-tight">
             <Link
               as={`/posts/${slug}`}
-              href="/posts/[slug]"
+              href="/tech.bedrockstreaming.com/app/posts/[slug]"
               className="hover:underline"
             >
               {title}
@@ -42,7 +42,11 @@ const HeroPost = ({
           </div>
         </div>
         <div>
-          <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
+          <p
+            className="text-lg leading-relaxed mb-4"
+            dangerouslySetInnerHTML={{ __html: excerpt }}
+            suppressHydrationWarning
+          />
           <Authors authors={author} />
         </div>
       </div>

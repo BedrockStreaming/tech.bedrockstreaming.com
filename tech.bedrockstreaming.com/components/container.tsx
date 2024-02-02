@@ -1,5 +1,7 @@
+import React, { ReactNode } from "react";
+
 type Props = {
-  children?: React.ReactNode;
+  children?: ReactNode;
 };
 
 const Container = ({ children }: Props) => {

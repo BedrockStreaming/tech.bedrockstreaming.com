@@ -8,7 +8,7 @@ type Props = {
   title: string;
   coverImage: string;
   date: string;
-  author: Author;
+  author: Author[];
 };
 
 const PostHeader = ({ title, coverImage, date, author }: Props) => {
