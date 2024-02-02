@@ -14,8 +14,8 @@
     "next-mdx-remote": "^4.4.1",
     "next-yaml": "^1.0.1",
     "prettier": "^3.2.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "18.3.0-canary-feed8f3f9-20240118",
+    "react-dom": "18.3.0-canary-feed8f3f9-20240118",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
     "typescript": "^4.7.4"

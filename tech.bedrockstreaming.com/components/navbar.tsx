@@ -22,13 +22,13 @@ const Navbar = () => {
             width={50}
             height={50}
           />
-          <h1 className={"text-2xl font-bold accent-slate-50"}>
+          <h1 className={"text-2xl font-bold accent-slate-50 mr-2"}>
             Bedrock Tech Blog
           </h1>
         </Link>
         <MobileNavbar />
-        <nav className={"ml-2 hidden md:block"}>
-          <ul className={"list-none gap-5"}>
+        <nav className={"hidden md:block"}>
+          <ul className={"flex gap-5"}>
             <Link href={"/lft"}>Last Friday Talks</Link>
             <Link href={"/meetups"}>Meetups & Conferences</Link>
             <Link href={"/oss"}>OSS</Link>

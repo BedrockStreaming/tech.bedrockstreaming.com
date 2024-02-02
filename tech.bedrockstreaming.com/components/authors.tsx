@@ -6,7 +6,7 @@ const Authors = ({ authors }: { authors: Author[] }) => {
   return (
     <>
       {authors?.map(({ name, picture }, index) => (
-        <span className={"inline-flex"}>
+        <span className={"inline-flex"} key={name}>
           {picture && (
             <img src={picture} className="h-6 rounded-full mr-1.5" alt={name} />
           )}
