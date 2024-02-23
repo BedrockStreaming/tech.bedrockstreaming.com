@@ -12,7 +12,7 @@ const AllPosts = ({ posts }: Props) => {
   const searchParams = useSearchParams();
   const { replace } = useRouter();
   const query = searchParams.get("page");
-  const page = query ? parseInt(query) : 1;
+  const page = !!query ? parseInt(query) : 1;
   const postsPerPage = 10;
   const start = (page - 1) * postsPerPage;
   const end = start + postsPerPage;
@@ -33,19 +33,28 @@ const AllPosts = ({ posts }: Props) => {
           />
         ))}
       </section>
-      <div className={"flex gap-4"}>
+      <div className={"flex items-center justify-between gap-4"}>
         <button
-          className={"bg-black text-white p-3 rounded"}
+          className={"border border-black text-black font-medium text-lg hover:bg-black hover:text-white transition-all p-3 rounded"}
           onClick={() => replace(page !== 0 ? "/?page=" + (page - 1) : "/")}
         >
-          Previous page
+          ← Prev
         </button>
-        <button
-          onClick={() => replace("/?page=" + (page + 1))}
-          className={"bg-black text-white p-3 rounded"}
-        >
-          Next page
-        </button>
+        <p>{page + 1} / {Math.ceil(posts.length/postsPerPage)}</p>
+        <div className={"flex gap-3"}>
+          <button
+              onClick={() => replace("/?page=" + (page + 1))}
+              className={"border border-black text-black font-medium text-lg hover:bg-black hover:text-white transition-all p-3 rounded"}
+          >
+            Next →
+          </button>
+          <button
+              onClick={() => replace("/?page=" + (page + 1))}
+              className={"border border-black text-black font-medium text-lg hover:bg-black hover:text-white transition-all p-3 rounded"}
+          >
+            {">>"}
+          </button>
+        </div>
       </div>
     </main>
   );

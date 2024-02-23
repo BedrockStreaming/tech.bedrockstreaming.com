@@ -22,25 +22,24 @@ const PostPreview = ({
   slug,
 }: Props) => {
   return (
-    <article>
+    <article className={"py-[5%]"}>
       <div className="mb-5">
         <CoverImage slug={slug} title={title} src={coverImage} />
       </div>
-      <h3 className="text-3xl mb-3 leading-snug">
+      <h3 className="text-5xl font-bold mb-3 leading-snug">
         <Link
-          as={`/posts/${slug}`}
-          href="/tech.bedrockstreaming.com/app/posts/[slug]"
-          className="hover:underline"
+          href={`/posts/${slug}`}
+          className="hover:text-orange-500"
         >
           {title}
         </Link>
       </h3>
-      <div className="mb-4 inline-flex flex-wrap items-center gap-1 text-xl font-medium">
+      <div className="mb-4 inline-flex flex-wrap items-center gap-1 text-lg text-neutral-500">
         <Authors authors={author} />
         <span>-</span>
         <DateFormatter dateString={date} />
       </div>
-      <p dangerouslySetInnerHTML={{ __html: excerpt }} />
+      <p className={"text-lg"} dangerouslySetInnerHTML={{ __html: excerpt }} />
     </article>
   );
 };

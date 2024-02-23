@@ -17,15 +17,16 @@ const CoverImage = ({ title, src, slug }: Props) => {
       src={src || "/assets/blog/dynamic-routing/cover.jpg"}
       alt={`Cover Image for ${title}`}
       className={cn("shadow-sm w-full", {
-        "hover:shadow-lg transition-shadow duration-200": slug,
+        "hover:shadow-lg transition-shadow duration-200 rounded": slug,
       })}
-      width={1300}
-      height={630}
-      priority
+      fill={true}
+      style={{
+        objectFit: "cover",
+      }}
     />
   );
   return (
-    <div className="sm:mx-0">
+    <div className="sm:mx-0 relative w-full h-64">
       {slug ? (
         <Link
           as={`/posts/${slug}`}
