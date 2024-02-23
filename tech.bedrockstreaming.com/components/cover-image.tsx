@@ -28,11 +28,7 @@ const CoverImage = ({ title, src, slug }: Props) => {
   return (
     <div className="sm:mx-0 relative w-full h-64">
       {slug ? (
-        <Link
-          as={`/posts/${slug}`}
-          href="/tech.bedrockstreaming.com/app/posts/[slug]"
-          aria-label={title}
-        >
+        <Link href={`/posts/${slug}`} aria-label={title}>
           {image}
         </Link>
       ) : (
