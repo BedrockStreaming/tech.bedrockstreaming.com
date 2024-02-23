@@ -47,11 +47,11 @@ export default async function Index({}) {
         >
           <h1 className={"text-center my-5"}>Creating Streaming Champions</h1>
         </section>
-        <Container>
+        <main className={"container mx-auto"}>
           <Suspense>
             <AllPosts posts={allPosts} />
           </Suspense>
-        </Container>
+        </main>
       </Layout>
     </>
   );

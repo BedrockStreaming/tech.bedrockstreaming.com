@@ -9,10 +9,46 @@
   @apply my-6;
 }
 
+.markdown h1 {
+  @apply text-4xl mt-12 mb-4 leading-snug;
+}
+
 .markdown h2 {
   @apply text-3xl mt-12 mb-4 leading-snug;
 }
 
 .markdown h3 {
   @apply text-2xl mt-8 mb-4 leading-snug;
+}
+
+.markdown a {
+  @apply text-orange-500
+}
+
+.markdown ul {
+  @apply list-disc pl-8;
+}
+
+.markdown ol {
+  @apply list-decimal pl-8;
+}
+
+.markdown blockquote {
+  @apply border-l-4 border-gray-300 pl-4;
+}
+
+.markdown img {
+  @apply mx-auto my-8;
+}
+
+.markdown pre {
+  @apply my-6 p-4 bg-gray-100 rounded-md;
+}
+
+.markdown pre code {
+  @apply p-0;
+}
+
+.markdown code {
+  @apply font-mono text-sm bg-gray-100 rounded-md p-1;
 }

@@ -3,6 +3,7 @@
 import PostPreview from "./post-preview";
 import type Post from "../interfaces/post";
 import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 type Props = {
   posts: Post[];
@@ -34,26 +35,34 @@ const AllPosts = ({ posts }: Props) => {
         ))}
       </section>
       <div className={"flex items-center justify-between gap-4"}>
-        <button
-          className={"border border-black text-black font-medium text-lg hover:bg-black hover:text-white transition-all p-3 rounded"}
-          onClick={() => replace(page !== 0 ? "/?page=" + (page - 1) : "/")}
+        <Link
+          className={
+            "border border-black text-black font-medium text-lg hover:bg-black hover:text-white transition-all p-3 rounded"
+          }
+          href={"/?page=" + (page - 1)}
         >
           ← Prev
-        </button>
-        <p>{page + 1} / {Math.ceil(posts.length/postsPerPage)}</p>
+        </Link>
+        <p>
+          {page} / {Math.ceil(posts.length / postsPerPage)}
+        </p>
         <div className={"flex gap-3"}>
-          <button
-              onClick={() => replace("/?page=" + (page + 1))}
-              className={"border border-black text-black font-medium text-lg hover:bg-black hover:text-white transition-all p-3 rounded"}
+          <Link
+            href={"/?page=" + (page + 1)}
+            className={
+              "border border-black text-black font-medium text-lg hover:bg-black hover:text-white transition-all p-3 rounded"
+            }
           >
             Next →
-          </button>
-          <button
-              onClick={() => replace("/?page=" + (page + 1))}
-              className={"border border-black text-black font-medium text-lg hover:bg-black hover:text-white transition-all p-3 rounded"}
+          </Link>
+          <Link
+            href={"/?page=" + Math.ceil(posts.length / postsPerPage)}
+            className={
+              "border border-black text-black font-medium text-lg hover:bg-black hover:text-white transition-all p-3 rounded"
+            }
           >
             {">>"}
-          </button>
+          </Link>
         </div>
       </div>
     </main>

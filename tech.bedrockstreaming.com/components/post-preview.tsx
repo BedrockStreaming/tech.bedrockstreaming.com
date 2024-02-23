@@ -3,6 +3,7 @@ import DateFormatter from "./date-formatter";
 import CoverImage from "./cover-image";
 import Link from "next/link";
 import type Author from "../interfaces/author";
+import markdownStyles from "./markdown-styles.module.css";
 
 type Props = {
   title: string;
@@ -26,11 +27,8 @@ const PostPreview = ({
       <div className="mb-5">
         <CoverImage slug={slug} title={title} src={coverImage} />
       </div>
-      <h3 className="text-5xl font-bold mb-3 leading-snug">
-        <Link
-          href={`/posts/${slug}`}
-          className="hover:text-orange-500"
-        >
+      <h3 className="text-5xl font-bold mb-3 tracking-tight">
+        <Link href={`/posts/${slug}`} className="hover:text-orange-500">
           {title}
         </Link>
       </h3>
@@ -39,7 +37,10 @@ const PostPreview = ({
         <span>-</span>
         <DateFormatter dateString={date} />
       </div>
-      <p className={"text-lg"} dangerouslySetInnerHTML={{ __html: excerpt }} />
+      <p
+        className={"text-lg " + markdownStyles["markdown"]}
+        dangerouslySetInnerHTML={{ __html: excerpt }}
+      />
     </article>
   );
 };

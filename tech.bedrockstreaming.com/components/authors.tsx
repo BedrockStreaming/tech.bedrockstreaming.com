@@ -7,7 +7,7 @@ const Authors = ({ authors }: { authors: Author[] }) => {
     <>
       {authors?.map(({ name, picture, url }, index) => {
         let authorTag = (
-          <span className={"inline-flex uppercase"} key={name}>
+          <div className={"flex items-center uppercase"} key={name}>
             {picture && (
               <img
                 src={picture}
@@ -17,7 +17,7 @@ const Authors = ({ authors }: { authors: Author[] }) => {
             )}
             {name}
             {index + 1 < authors.length && `  -`}
-          </span>
+          </div>
         );
 
         if (url) {
