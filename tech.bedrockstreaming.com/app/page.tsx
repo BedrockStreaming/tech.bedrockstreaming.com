@@ -1,4 +1,3 @@
-import Container from "../components/container";
 import AllPosts from "../components/all-posts";
 import Layout from "../components/layout";
 import { getAllPosts } from "../lib/api";
