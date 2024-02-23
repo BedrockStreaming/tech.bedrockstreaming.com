@@ -10,14 +10,13 @@ export function generateStaticParams() {
   const pathnames = getPostSlugs();
 
   return pathnames.map((pathname) => ({
-    params: {
-      slug: pathname.replace(/\.md$/, ""),
-    },
+    slug: pathname.replace(/\.md$/, ""),
   }));
 }
 
-export default async function Post({ params }) {
-  const post = getPostBySlug(params.slug, [
+export default async function Post({ params }: { params: { slug: string } }) {
+  const { slug } = params;
+  const post = getPostBySlug(slug, [
     "title",
     "date",
     "slug",
