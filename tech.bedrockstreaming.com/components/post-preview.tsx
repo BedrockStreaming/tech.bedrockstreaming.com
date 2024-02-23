@@ -3,7 +3,10 @@ import DateFormatter from "./date-formatter";
 import CoverImage from "./cover-image";
 import Link from "next/link";
 import type Author from "../interfaces/author";
-import markdownStyles from "./markdown-styles.module.css";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import { Suspense } from "react";
+import rehypeTruncate from "rehype-truncate";
+import remarkExcerpt from "remark-excerpt";
 
 type Props = {
   title: string;
@@ -14,7 +17,7 @@ type Props = {
   slug: string;
 };
 
-const PostPreview = ({
+const PostPreview = async ({
   title,
   coverImage,
   date,
@@ -23,7 +26,7 @@ const PostPreview = ({
   slug,
 }: Props) => {
   return (
-    <article className={"py-[5%]"}>
+    <article className={"p-[5%]"}>
       <div className="mb-5">
         <CoverImage slug={slug} title={title} src={coverImage} />
       </div>
@@ -37,9 +40,20 @@ const PostPreview = ({
         <span>-</span>
         <DateFormatter dateString={date} />
       </div>
-      <p
-        className={"text-lg " + markdownStyles["markdown"]}
-        dangerouslySetInnerHTML={{ __html: excerpt }}
+      <MDXRemote
+        source={excerpt}
+        options={{
+          mdxOptions: {
+            format: "md",
+            remarkPlugins: [remarkExcerpt],
+            rehypePlugins: [
+              [
+                rehypeTruncate,
+                { maxChars: 2, ignoreTags: ["p"], ellipses: "" },
+              ],
+            ],
+          },
+        }}
       />
     </article>
   );
