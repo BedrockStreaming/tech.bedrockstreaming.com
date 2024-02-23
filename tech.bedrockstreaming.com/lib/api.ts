@@ -4,6 +4,7 @@ import matter from "gray-matter";
 // @ts-expect-error module resolution can't find yml
 import authors from "./authors.yml";
 import Post from "../interfaces/post";
+import Author from "../interfaces/author";
 
 const postsDirectory = join(process.cwd(), "_posts");
 
@@ -11,11 +12,12 @@ export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
 }
 
-export function getAuthor(id: string): { name: string; picture: string } {
+export function getAuthor(id: string): Author {
   const author = authors[id];
   return {
     name: author?.name || null,
     picture: author?.avatar || null,
+    url: author?.url || null,
   };
 }
 
