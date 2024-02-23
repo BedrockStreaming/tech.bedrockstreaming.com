@@ -4,7 +4,7 @@ import { getAllPosts } from "../lib/api";
 import Head from "next/head";
 import { CMS_NAME } from "../lib/constants";
 import markdownToHtml from "../lib/markdownToHtml";
-import { cache, Suspense } from "react";
+import { Suspense } from "react";
 
 function getFirstParagraph(html: string) {
   const regex = /<p>(.*?)<\/p>/;
@@ -29,10 +29,8 @@ const fetchPosts = async () =>
     })),
   );
 
-const getPosts = cache(fetchPosts);
-
 export default async function Index({}) {
-  const allPosts = await getPosts();
+  const allPosts = await fetchPosts();
 
   return (
     <>

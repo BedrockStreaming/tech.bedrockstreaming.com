@@ -2,7 +2,7 @@
 
 import PostPreview from "./post-preview";
 import type Post from "../interfaces/post";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 type Props = {
@@ -11,7 +11,6 @@ type Props = {
 
 const AllPosts = ({ posts }: Props) => {
   const searchParams = useSearchParams();
-  const { replace } = useRouter();
   const query = searchParams.get("page");
   const page = !!query ? parseInt(query) : 1;
   const postsPerPage = 10;
