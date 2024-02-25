@@ -7,6 +7,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { Suspense } from "react";
 import rehypeTruncate from "rehype-truncate";
 import remarkExcerpt from "remark-excerpt";
+import { components } from "./mdx-components";
 
 type Props = {
   title: string;
@@ -42,6 +43,7 @@ const PostPreview = async ({
       </div>
       <MDXRemote
         source={excerpt}
+        components={components}
         options={{
           mdxOptions: {
             format: "md",
