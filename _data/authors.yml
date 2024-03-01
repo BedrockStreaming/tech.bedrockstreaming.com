@@ -10,6 +10,8 @@ team_cytron:
   avatar: /images/avatar/cytron.png
 team_frontend:
   name: Frontend teams
+team_lft:
+  name: LFTeam
 
 # people (alphabetically ordered)
 a_caron:
@@ -228,6 +230,8 @@ s_guyon:
   name: Sylvain Guyon
 s_masson:
   name: Sylvain Masson
+s_menassa:
+  name: Serge Menassa
 s_haim:
   name: Sarah Haïm-Lubczanski
   url: https://twitter.com/sarahhaim
@@ -255,6 +259,8 @@ t_falconnet:
   avatar: /images/avatar/t_falconnet.jpg
 t_geindre:
   name: Thierry Geindre
+t_gianella:
+  name: Théo Gianella
 t_jarrand:
   name: Thomas Jarrand
 t_sontag:
