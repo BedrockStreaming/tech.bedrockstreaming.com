@@ -4,7 +4,6 @@ import CoverImage from "./cover-image";
 import Link from "next/link";
 import type Author from "../interfaces/author";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { Suspense } from "react";
 import rehypeTruncate from "rehype-truncate";
 import remarkExcerpt from "remark-excerpt";
 import { components } from "./mdx-components";
@@ -51,7 +50,7 @@ const PostPreview = async ({
             rehypePlugins: [
               [
                 rehypeTruncate,
-                { maxChars: 2, ignoreTags: ["p"], ellipses: "" },
+                { maxChars: 240, ignoreTags: ["img", "pre", "code"] },
               ],
             ],
           },
