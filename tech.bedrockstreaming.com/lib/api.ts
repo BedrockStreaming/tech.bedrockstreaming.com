@@ -3,6 +3,8 @@ import { join } from "path";
 import matter from "gray-matter";
 // @ts-expect-error module resolution can't find yml
 import authors from "./authors.yml";
+// @ts-expect-error module resolution can't find yaml
+import conferences from "../_data/conferences.yaml";
 import Post from "../interfaces/post";
 import Author from "../interfaces/author";
 
@@ -103,4 +105,17 @@ export function getLfts() {
     "tags",
     "youtubeId",
   ]).filter((post) => post.tags.includes("lft"));
+}
+
+export interface Conference {
+  title: string;
+  date: Date;
+  description: string;
+  eventName: string;
+  eventUrl: string;
+  sponsored: boolean;
+  hosted: boolean;
+}
+export function getConferences() /*: Array<Partial<Conference>>*/ {
+  return conferences;
 }
