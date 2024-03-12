@@ -1,13 +1,22 @@
 import Author from "../interfaces/author";
 import Link from "next/link";
 
-const Authors = ({ authors }: { authors: Author[] }) => {
+const Authors = ({
+  authors,
+  uppercase = true,
+}: {
+  authors: Author[];
+  uppercase?: boolean;
+}) => {
   if (!authors) return null;
   return (
     <>
       {authors?.map(({ name, picture, url }, index) => {
         let authorTag = (
-          <div className={"flex items-center uppercase"} key={name}>
+          <div
+            className={"flex items-center" + (uppercase ? " uppercase" : "")}
+            key={name}
+          >
             {picture && (
               <img
                 src={picture}

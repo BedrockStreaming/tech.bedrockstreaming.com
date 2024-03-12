@@ -6,6 +6,7 @@ import Link from "next/link";
 import { getLfts } from "../../lib/api";
 import Image from "next/image";
 import Authors from "../../components/authors";
+import DateFormatter from "../../components/date-formatter";
 
 const getYouTubeThumbnail = (youtubeId: string) => {
   return `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
@@ -33,7 +34,7 @@ const Page = async ({ searchParams }) => {
           <h1 className={"text-center my-5"}>Last Friday Talks</h1>
         </section>
         <main className={"px-[15%]"}>
-          <section className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+          <section className="mb-16 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
             {lfts.map((lft) => (
               <article key={lft.slug} className={"p-3"}>
                 <Link href={`/posts/${lft.slug}`}>
@@ -45,9 +46,13 @@ const Page = async ({ searchParams }) => {
                       className={"object-cover"}
                     />
                   </div>
-                  <h4 className={"text-2xl font-bold mt-2"}>{lft.title}</h4>
-                  <p className={"text-gray-500"}>{lft.date}</p>
-                  <Authors authors={lft.author} />
+                  <h4 className={"font-bold mt-2"}>{lft.title}</h4>
+                  <div
+                    className={"flex w-full justify-between gap-2 flex-wrap"}
+                  >
+                    <DateFormatter dateString={lft.date} />
+                    <Authors authors={lft.author} uppercase={false} />
+                  </div>
                 </Link>
               </article>
             ))}
