@@ -69,6 +69,14 @@ export function getPostBySlug(slug: string, fields: Array<keyof Post> = []) {
     if (field === "excerpt") {
       items[field] = content;
     }
+
+    if (field === "tags") {
+      items[field] = data[field] || [];
+    }
+
+    if (field === "youtubeId") {
+      items[field] = data[field];
+    }
   });
 
   return items;
@@ -82,4 +90,17 @@ export function getAllPosts(fields: Array<keyof Post> = []) {
       // sort posts by date in descending order
       .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
   );
+}
+
+export function getLfts() {
+  return getAllPosts([
+    "title",
+    "date",
+    "slug",
+    "author",
+    "coverImage",
+    "excerpt",
+    "tags",
+    "youtubeId",
+  ]).filter((post) => post.tags.includes("lft"));
 }

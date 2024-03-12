@@ -3,8 +3,7 @@ import PostHeader from "../../../components/post-header";
 import Layout from "../../../components/layout";
 import { getPostBySlug, getPostSlugs } from "../../../lib/api";
 import Head from "next/head";
-import { CMS_NAME } from "../../../lib/constants";
-import markdownToHtml from "../../../lib/markdownToHtml";
+import React from "react";
 
 export function generateStaticParams() {
   const pathnames = getPostSlugs();
@@ -24,27 +23,37 @@ export default async function Post({ params }: { params: { slug: string } }) {
     "content",
     "ogImage",
     "coverImage",
+    "youtubeId",
   ]);
-  const content = await markdownToHtml(post.content || "");
-  const title = `${post.title} | Next.js Blog Example with ${CMS_NAME}`;
 
   return (
     <Layout>
-      <>
-        <article className="mb-32">
-          <Head>
-            <title>{title}</title>
-            {/*<meta property="og:image" content={post.ogImage.url} />*/}
-          </Head>
-          <PostHeader
-            title={post.title}
-            coverImage={post.coverImage}
-            date={post.date}
-            author={post.author}
-          />
-          <PostBody content={content} />
-        </article>
-      </>
+      <Head>
+        <title>{post.title}</title>
+        {/*<meta property="og:image" content={post.ogImage.url} />*/}
+      </Head>
+      <article className="mb-32">
+        <PostHeader
+          title={post.title}
+          coverImage={post.coverImage}
+          date={post.date}
+          author={post.author}
+        />
+        <PostBody content={post.content} />
+        {post.youtubeId && (
+          <div className="max-w-screen-lg mx-auto pt-10">
+            <iframe
+              width="100%"
+              height="auto"
+              className={"aspect-video"}
+              src={`https://www.youtube-nocookie.com/embed/${post.youtubeId}`}
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        )}
+      </article>
     </Layout>
   );
 }

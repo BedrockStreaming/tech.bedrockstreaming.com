@@ -11,6 +11,8 @@ type PostType = {
     url: string;
   };
   content: string;
+  tags: string[];
+  youtubeId: string;
 };
 
 export default PostType;
