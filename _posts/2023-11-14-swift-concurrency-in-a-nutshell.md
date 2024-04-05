@@ -539,3 +539,4 @@ As we have seen, Swift Concurrency is a huge step forward in terms of safety and
 - [Global Actors](https://github.com/apple/swift-evolution/blob/main/proposals/0316-global-actors.md)
 - [Concurrency is not Parallelism](https://youtu.be/oV9rvDllKEg?si=kwXQULVlNNT3K6LS)
 - [How to determine where code runs in Swift Concurrency](https://www.youtube.com/watch?v=8T4XuCM0abI)
+- [Your Brain 🧠 on Swift Concurrency - iOS Conf SG 2023](https://www.youtube.com/watch?v=zgCtube1DSg)
