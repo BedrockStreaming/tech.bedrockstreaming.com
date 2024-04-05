@@ -500,32 +500,27 @@ actor Counter {
 
 In this example, while `process()` is awaiting the completion of `doLongProcessing()`, there's an opportunity for another task to call `increment()`. This undermines the expectation that an actor's state remains consistent within a given method. So, the second `print(value)` may output an unpredictable result, illustrating the challenge of managing mutable state in an actor with reentrant behavior.
 
-### Unintentional Task Inheritance
+### Async Function Execution Contexts
 
-In Swift's concurrency model, child tasks inherit the properties of their parent tasks by default, including priority levels and task-local values. Lack of awareness about this behavior can lead to unexpected outcomes, particularly when generating Tasks through SwiftUI modifiers, as demonstrated below.
+Contrary to the behavior in Grand Central Dispatch (GCD), where all code executed within the scope of a block is performed on the same thread, Swift's concurrency model executes any `async` function on a global executor unless explicitly specified otherwise, such as with the `@MainActor` annotation.
 
 ```swift
 struct MyView: View {
-    var body: some View {
-        ...
-    }
+  var body: some View {
+    ...
     .task {
-        await fetchData()
+      // Code within this block is executed on the Main Actor.
+      print("hello")
+      // Executed on a Global Executor despite being called from the Main Actor.
+      await fetchData()
+      // Executed on the Main Actor because we explicitly used @MainActor below.
+      await updateUI() 
     }
-  
-    func fetchData() async {
-        Task {
-            // Inherits properties (e.g., priority, executor) from the parent Task
-            // The long job will execute on the main thread
-            await longJob()
-        }
+  }
 
-        Task.detached(priority: .userInitiated) {
-            // Unstructured Task: Does not inherit any properties from parent Task
-            // The long job will execute outside the main thread
-            await longJob()
-        }
-    }
+
+  func fetchData() async { ... }
+  @MainActor func updateUI() async { ... }
 }
 ```
 
@@ -543,3 +538,4 @@ As we have seen, Swift Concurrency is a huge step forward in terms of safety and
 - [Actors](https://github.com/apple/swift-evolution/blob/main/proposals/0306-actors.md)
 - [Global Actors](https://github.com/apple/swift-evolution/blob/main/proposals/0316-global-actors.md)
 - [Concurrency is not Parallelism](https://youtu.be/oV9rvDllKEg?si=kwXQULVlNNT3K6LS)
+- [How to determine where code runs in Swift Concurrency](https://www.youtube.com/watch?v=8T4XuCM0abI)
