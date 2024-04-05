@@ -504,6 +504,8 @@ In this example, while `process()` is awaiting the completion of `doLongProcessi
 
 Contrary to the behavior in Grand Central Dispatch (GCD), where all code executed within the scope of a block is performed on the same thread, Swift's concurrency model executes any `async` function on a global executor unless explicitly specified otherwise, such as with the `@MainActor` annotation.
 
+Note: a `.task{}` in SwiftUI [runs implicitely](https://oleb.net/2022/swiftui-task-mainactor/) on the MainActor when set within the `body` of a SwiftUI View.
+
 ```swift
 struct MyView: View {
   var body: some View {
@@ -540,3 +542,4 @@ As we have seen, Swift Concurrency is a huge step forward in terms of safety and
 - [Concurrency is not Parallelism](https://youtu.be/oV9rvDllKEg?si=kwXQULVlNNT3K6LS)
 - [How to determine where code runs in Swift Concurrency](https://www.youtube.com/watch?v=8T4XuCM0abI)
 - [Your Brain 🧠 on Swift Concurrency - iOS Conf SG 2023](https://www.youtube.com/watch?v=zgCtube1DSg)
+- [Where View.task gets its main-actor isolation from](https://oleb.net/2022/swiftui-task-mainactor/)
