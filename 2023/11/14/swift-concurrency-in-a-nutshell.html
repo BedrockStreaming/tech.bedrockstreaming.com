@@ -919,31 +919,28 @@
 
 <p>In this example, while <code class="language-plaintext highlighter-rouge">process()</code> is awaiting the completion of <code class="language-plaintext highlighter-rouge">doLongProcessing()</code>, there’s an opportunity for another task to call <code class="language-plaintext highlighter-rouge">increment()</code>. This undermines the expectation that an actor’s state remains consistent within a given method. So, the second <code class="language-plaintext highlighter-rouge">print(value)</code> may output an unpredictable result, illustrating the challenge of managing mutable state in an actor with reentrant behavior.</p>
 
-<h3 id="unintentional-task-inheritance">Unintentional Task Inheritance</h3>
+<h3 id="async-function-execution-contexts">Async Function Execution Contexts</h3>
 
-<p>In Swift’s concurrency model, child tasks inherit the properties of their parent tasks by default, including priority levels and task-local values. Lack of awareness about this behavior can lead to unexpected outcomes, particularly when generating Tasks through SwiftUI modifiers, as demonstrated below.</p>
+<p>Contrary to the behavior in Grand Central Dispatch (GCD), where all code executed within the scope of a block is performed on the same thread, Swift’s concurrency model executes any <code class="language-plaintext highlighter-rouge">async</code> function on a global executor unless explicitly specified otherwise, such as with the <code class="language-plaintext highlighter-rouge">@MainActor</code> annotation.</p>
+
+<p>Note: a <code class="language-plaintext highlighter-rouge">.task{}</code> in SwiftUI <a href="https://oleb.net/2022/swiftui-task-mainactor/">runs implicitely</a> on the MainActor when set within the <code class="language-plaintext highlighter-rouge">body</code> of a SwiftUI View.</p>
 
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">MyView</span><span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
-    <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
-        <span class="o">...</span>
-    <span class="p">}</span>
+  <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="o">...</span>
     <span class="o">.</span><span class="n">task</span> <span class="p">{</span>
-        <span class="k">await</span> <span class="nf">fetchData</span><span class="p">()</span>
+      <span class="c1">// Code within this block is executed on the Main Actor.</span>
+      <span class="nf">print</span><span class="p">(</span><span class="s">"hello"</span><span class="p">)</span>
+      <span class="c1">// Executed on a Global Executor despite being called from the Main Actor.</span>
+      <span class="k">await</span> <span class="nf">fetchData</span><span class="p">()</span>
+      <span class="c1">// Executed on the Main Actor because we explicitly used @MainActor below.</span>
+      <span class="k">await</span> <span class="nf">updateUI</span><span class="p">()</span> 
     <span class="p">}</span>
-  
-    <span class="kd">func</span> <span class="nf">fetchData</span><span class="p">()</span> <span class="k">async</span> <span class="p">{</span>
-        <span class="kt">Task</span> <span class="p">{</span>
-            <span class="c1">// Inherits properties (e.g., priority, executor) from the parent Task</span>
-            <span class="c1">// The long job will execute on the main thread</span>
-            <span class="k">await</span> <span class="nf">longJob</span><span class="p">()</span>
-        <span class="p">}</span>
+  <span class="p">}</span>
 
-        <span class="kt">Task</span><span class="o">.</span><span class="nf">detached</span><span class="p">(</span><span class="nv">priority</span><span class="p">:</span> <span class="o">.</span><span class="n">userInitiated</span><span class="p">)</span> <span class="p">{</span>
-            <span class="c1">// Unstructured Task: Does not inherit any properties from parent Task</span>
-            <span class="c1">// The long job will execute outside the main thread</span>
-            <span class="k">await</span> <span class="nf">longJob</span><span class="p">()</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+
+  <span class="kd">func</span> <span class="nf">fetchData</span><span class="p">()</span> <span class="k">async</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+  <span class="kd">@MainActor</span> <span class="kd">func</span> <span class="nf">updateUI</span><span class="p">()</span> <span class="k">async</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -962,6 +959,9 @@
   <li><a href="https://github.com/apple/swift-evolution/blob/main/proposals/0306-actors.md">Actors</a></li>
   <li><a href="https://github.com/apple/swift-evolution/blob/main/proposals/0316-global-actors.md">Global Actors</a></li>
   <li><a href="https://youtu.be/oV9rvDllKEg?si=kwXQULVlNNT3K6LS">Concurrency is not Parallelism</a></li>
+  <li><a href="https://www.youtube.com/watch?v=8T4XuCM0abI">How to determine where code runs in Swift Concurrency</a></li>
+  <li><a href="https://www.youtube.com/watch?v=zgCtube1DSg">Your Brain 🧠 on Swift Concurrency - iOS Conf SG 2023</a></li>
+  <li><a href="https://oleb.net/2022/swiftui-task-mainactor/">Where View.task gets its main-actor isolation from</a></li>
 </ul>
 
     
