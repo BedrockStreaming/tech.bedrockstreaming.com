@@ -108,7 +108,7 @@ With cilium: no more KubeProxy, and no more IPtables, which for large clusters i
 
 Cilium also enables network traffic to be filtered with NetworkPolicies inbound and outbound.
 
-Another feature that we particularly like is "[cluster-mesh](https://cilium.io/use-cases/cluster-mesh/)”, which allows you to communicate between several clusters in a fairly simple way, at least on paper 😊! (conference available [⏩ here](https://www.youtube.com/watch?v=qbB3TEiOb24))
+Another feature we particularly like is "[cluster-mesh](https://cilium.io/use-cases/cluster-mesh/)”, which allows you to communicate between several clusters in a fairly simple way, at least on paper 😊! (conference available [⏩ here](https://www.youtube.com/watch?v=qbB3TEiOb24))
 
 We were also able to see new features such as GatewayAPI support from version 1.15, and the use of [`stateDB`](https://github.com/cilium/statedb) from version 1.16 to manage the state of cilium objects (and therefore reconciliation in the event of inconsistent state (conference available [⏩ here](https://www.youtube.com/watch?v=YX0sql_3dt8&list=PLj6h78yzYM2PHDqy_nINY8-462uYzb18d&index=2))).
 
@@ -117,7 +117,7 @@ We were also able to see new features such as GatewayAPI support from version 1.
 KubeCon is also a great way to discover or re-discover new technologies or tools. We won’t share an exhaustive list (see you there next year!), but here are a few we are excited about:
 
  * WebAssembly (especially [SpinKube](https://www.spinkube.dev/): we are running some workloads at-edge on WASM and see a huge potential there. WASM in Kubernetes is intriguing, maybe as a way to reduce pods startup time?
- * [OpenFeature](https://openfeature.dev/): for feature-flipping, A/B testing… Glad to see an open standard emerge!
+ * [OpenFeature](https://openfeature.dev/): for feature-flipping, A/B testing… Glad to see the emergence of an open standard!
  * Working with multiple Kubernetes clusters: not something we think we need for now, but after hearing about Federation years ago, [Karmada](https://karmada.io/) seems to be the current tool for this.
  * [mirrord](​​https://mirrord.dev/): to develop locally as-if inside a Kubernetes cluster, forwarding network and file accesses.
 
@@ -146,7 +146,7 @@ There are some prerequisites to allow cluster mesh though:
  * All clusters need to use Cilium as their CNI
 * Cluster Mesh option has to be enabled on each cluster
 
-Liz Rice did a live presentation of cluster mesh capabilities with some use cases and functionalities like :
+Liz Rice did a live presentation of cluster mesh capabilities with some use cases and functionalities like:
 
  * Creation of global services
  * The ability to setup affinity rules for local cluster and remote one, to prefer the usage of local cluster pods and fallback to remote if needed.
@@ -160,7 +160,7 @@ Cilium is now the new standard and we are glad to have chosen it on our clusters
 
 ⏩ [Federated IAM for Kubernetes with OpenFGA - Jonathan Whitaker, Okta](https://www.youtube.com/watch?v=UaK1EnRgrng)
 
-Among the presentations that stood out for me, the one from [OpenFGA](https://openfga.dev/) really grabbed my attention. OpenFGA, or Fine Grained Authorization, is an open source project that promises to transform the way we manage authorization and identity federation in modern applications.
+Among the presentations that stood out for us, the one from [OpenFGA](https://openfga.dev/) really grabbed our attention. OpenFGA, or Fine Grained Authorization, is an open source project that promises to transform the way we manage authorization and identity federation in modern applications.
 
 OpenFGA is a universal authorization solution that enables complex authorizations to be modeled in a granular way. Inspired by Google's Zanzibar project, OpenFGA offers a developer-friendly API, while guaranteeing performance and security.
 
