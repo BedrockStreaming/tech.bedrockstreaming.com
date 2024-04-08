@@ -94,7 +94,7 @@ We have partially solved some of these issues, both with technical solutions *(H
 
 In our ongoing quest to improve the efficiency of our Kubernetes clusters, we recently opted for Kubernetes Event-driven Autoscaling (KEDA), a project supported by the Cloud Native Computing Foundation (CNCF) and enjoying growing adoption by the community. This choice is in line with our desire to go further than the capabilities offered by our previous tool, the Prometheus adapter, thanks in particular to more refined scaling management based on various external metrics.
 
-One of KEDA's real strengths is its ability to adjust scaling via 'scaling modifiers', allowing precise adjustment of the number of pods as required based on a calculation. At Bedrock Streaming this will enable us to refine our prescaling strategy, previously [based on an external metric provided by a go service](/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html), we'll be able to upgrade our system to something simpler and more precise. Maybe evolve from a simple calculation of minimum pods and multipliers, to a more sophisticated approach.
+One of KEDA's real strengths is its ability to adjust scaling via *'scaling modifiers'*, allowing precise adjustment of the number of pods as required based on a calculation. At Bedrock Streaming this will enable us to refine our prescaling strategy, previously [based on an external metric provided by a go service](/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html), we'll be able to upgrade our system to something simpler and more precise. Maybe evolve from a simple calculation of minimum pods and multipliers, to a more sophisticated approach.
 
 The presentation by Zbynek Roubalik and Jorge Turrado, KEDA maintainers, highlighted KEDA's effectiveness in meeting various load requirements through the use of a variety of external metrics, making scaling more accurate.
 
@@ -114,9 +114,9 @@ We were also able to see new features such as GatewayAPI support from version 1.
 
 ## Tools and idea we want to try 💪 
 
-KubeCon is also a great way to discover or re-discover new technologies or tools. We won’t share an exhaustive list (see you there next year!), but here are a few we are excited about:
+KubeCon is also a great way to discover or re-discover new technologies or tools. We won’t share an exhaustive list *(see you there next year!)*, but here are a few we are excited about:
 
- * WebAssembly (especially [SpinKube](https://www.spinkube.dev/): we are running some workloads at-edge on WASM and see a huge potential there. WASM in Kubernetes is intriguing, maybe as a way to reduce pods startup time?
+ * WebAssembly *(especially [SpinKube](https://www.spinkube.dev/))*: we are running some workloads at-edge on WASM and see a huge potential there. WASM in Kubernetes is intriguing, maybe as a way to reduce pods startup time?
  * [OpenFeature](https://openfeature.dev/): for feature-flipping, A/B testing… Glad to see the emergence of an open standard!
  * Working with multiple Kubernetes clusters: not something we think we need for now, but after hearing about Federation years ago, [Karmada](https://karmada.io/) seems to be the current tool for this.
  * [mirrord](​​https://mirrord.dev/): to develop locally as-if inside a Kubernetes cluster, forwarding network and file accesses.
@@ -125,7 +125,7 @@ KubeCon is also a great way to discover or re-discover new technologies or tools
 
 ⏩ [The Party Must Go on - Resume Pods After Spot Instance Shut Down - Muvaffak Onuş, QA Wolf](https://www.youtube.com/watch?v=c2MbSM9-7Xs)
 
-During the conference held by Muaffak Onuş of the CNCF, an innovative solution was highlighted to mitigate the instability of spot instances: the CRIK project, which leverages CRIU to provide backup and restore functionality for Kubernetes pods. By leveraging CRIU, CRIK can capture the state of processes within a pod before a spot instance shutdown, and then restore them, making it easier to resume work after a spot reclaim for exemple.
+During the conference held by Muaffak Onuş of the CNCF, an innovative solution was highlighted to mitigate the instability of spot instances: the [CRIK](https://github.com/qawolf/crik) project, which leverages [CRIU](https://criu.org/Main_Page) to provide backup and restore functionality for Kubernetes pods. By leveraging CRIU, CRIK can capture the state of processes within a pod before a spot instance shutdown, and then restore them, making it easier to resume work after a spot reclaim for exemple.
 
 A kubernetes controller is deployed, which monitors the state of nodes. When a pod with the required criu configuration is going to be deleted it consults the controller to check if the node is going to be deleted to dump all it’s processes, file descriptors etc… Before being restored on another one.
 
@@ -179,7 +179,7 @@ The OpenFGA tool represents a major advance in the field of IT security. Its fle
 Why do we keep going to KubeCon -- and other conferences? Well, three goals:
 
  * discovering new approaches and tools that might help us better serve our customers in the future;
- * confirming the solutions we are working with are used by many others in the community, which (probably) means they are (still) the right tools;
+ * confirming the solutions we are working with are used by many others in the community, which *(probably)* means they are *(still)* the right tools;
  * and learning how to do some things better every day.
 
 And it’s funny how each of us noticed different matters, depending on which parts of our platform we work on and depending on our experience and knowledge in Cloud Native solutions!
@@ -187,7 +187,7 @@ And it’s funny how each of us noticed different matters, depending on which pa
 If we were to suggest a few things to KubeCon’s organizers:
 
  * 30 minutes talks is sometimes a bit short and longer talks could go deeper into technical details;
- * rooms were not big enough for popular talks -- and we’re talking about “tech” talks, not GenAI ;-)
+ * rooms were not big enough for popular talks -- and we’re talking about “tech” talks ;-)
  * food 😵. I mean, we’re French 😅
 
 Once again, we come back from KubeCon full of energy and ideas, ready for an exciting new year!
