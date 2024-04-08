@@ -56,6 +56,8 @@ At kubeCon 2024, we were able to discover a number of interesting tools that we'
 
 [Kepler](https://sustainable-computing.io/) is a CNCF Sandbox project that uses eBPF to collect performance counters and other system statistics. Kepler estimates energy consumption per pod based on this data and exports it as Prometheus metrics.
 
+![Kepler](/images/posts/2024-04-09-kubecon-europe-2024/kepler.jpeg)
+
 #### PEAKS
 
 ⏩ [Empowering Efficiency: PEAKS - Orchestrating Power-Aware Kubernetes Scheduling](https://www.youtube.com/watch?v=WPrSnZ4lyjw)
