@@ -18,15 +18,19 @@ First of all, these four days clearly highlighted some wide topics.
 
 Seems like “AI” was the impossible-to-miss subject vendors were trying to push, this year! Still, while many are running experiments, not many have deployed and maintained workloads in production yet.
 
-Like many, we have started using a few “AI” tools and are working on some ideas (not hosting them ourselves yet, though), but we can’t help but feel “AI” and especially the “Generative AI” term is a bit over-used and some solutions we’ve seen were closer to good-old-ML.
+Like many, we have started using a few “AI” tools and are working on some ideas *(not hosting them ourselves yet, though)*, but we can’t help but feel “AI” and especially the “Generative AI” term is a bit over-used and some solutions we’ve seen were closer to good-old-ML.
 
-As we are not planning on running our GenAI workloads on Kubernetes anytime soon, we haven’t been to many talks on this matter. Still, between re:Invent last year and KubeCon, you’ll find plenty of contents if that’s your thing 💪.
+As we are not planning on running our GenAI workloads on Kubernetes anytime soon, we haven’t been to many talks on this matter. Still, between re:Invent last year and KubeCon this year, you’ll find plenty of contents if that’s your thing 💪.
 
 ### Platform engineering is the new DevOps?
 
-Next up, looks like DevOps is dead and Platform Engineering is the new DevOps! On one hand, we clearly see having everything related to all your projects in one place brings tremendous value (and we have a couple dashboards that go this way). Same with providing a common basis (Terraform, Golang Skeleton, Helm chart) most projects build upon instead of re-inventing it again and again. On the other hand, we don’t think, today, “being able to create a new service in one click and 15 seconds” is a goal we should aim for. We’d rather rationalize micro-services and reduce network overhead. Remember, distributed systems are “easy”.
+Next up, looks like *DevOps is dead* and *Platform Engineering is the new DevOps*!
 
-Still, Backstage has gained in traction over the past two years, and it would be the first tool we’d try if (or when) we’d wanted to invest on this path.
+On one hand, we clearly see having everything related to all your projects in one place brings tremendous value *(and we have a couple dashboards that go this way)*. Same with providing a common basis *(Terraform, Golang Skeleton, Helm chart)* most projects build upon instead of re-inventing it again and again.
+
+On the other hand, we don’t think, today, *“being able to create a new service in one click and 15 seconds”* is a goal we should aim for. We’d rather rationalize micro-services and reduce network overhead. Remember, distributed systems are *“easy”*.
+
+Still, Backstage has gained in traction over the past two years, and it would be the first tool we’d try if *(or when)* we’d wanted to invest on this path.
 
 ### Green Computing
 
@@ -62,25 +66,25 @@ At kubeCon 2024, we were able to discover a number of interesting tools that we'
 
 ⏩ [Empowering Efficiency: PEAKS - Orchestrating Power-Aware Kubernetes Scheduling](https://www.youtube.com/watch?v=WPrSnZ4lyjw)
 
-Peaks aims to optimize the energy consumption of a kubernetes cluster during scheduling. Peaks relies on pre-trained ML models vs energy consumption to predict the most suitable nodes. The tool is not yet available, but development is progressing and a `Kubernetes Enhancement Proposal` will be opened in the sig-scheduling project.
+Peaks aims to optimize the energy consumption of a kubernetes cluster during scheduling. Peaks relies on pre-trained ML models vs energy consumption to predict the most suitable nodes. The tool is not yet available, but development is progressing and a *Kubernetes Enhancement Proposal* will be opened in the sig-scheduling project.
 
 Both tools represent significant advances towards more sustainable computing, and reflect the Kubernetes community's commitment to responsible innovation.
 
 ### Finops
 
-Reducing -- or optimizing -- infrastructure costs has been a recurring topic at KubeCon for as long as we remember. Every year, there are talks about basic tools like HPA or ideas like using Spot instances (like we do, for 100% our worker nodes!). This time, Karpenter has clearly become a leader.
+Reducing -- or optimizing -- infrastructure costs has been a recurring topic at KubeCon for as long as we remember. Every year, there are talks about basic tools like HPA or ideas like using Spot instances *(like we do, for 100% our worker nodes!)*. This time, Karpenter has clearly become a leader.
 
 The basics being covered, costs are still too high, and reducing them is getting even more complex than before as more stuff is deployed to Kubernetes. Thinks GPU-based or long-running workloads, for example.
 
-We are beginning to see more and more approaches using machine learning to forecast how much resources will be needed at a given time, depending on past data. We, like others, have implemented [our own pre-scaling mechanism](/2022/02/03/prescaling.html) -- not based on ML yet, though.
+We are beginning to see more and more approaches using **machine learning to forecast how much resources will be needed at a given time**, depending on past data. We, like others, have implemented [our own pre-scaling mechanism](/2022/02/03/prescaling.html) -- not based on ML yet, though.
 
 ### Kubernetes and Developer experience
 
-DevOps and Ops, who manipulate Kubernetes and its objects everyday, we tend to forget: Kubernetes is not (perceived as) easy for our developers colleagues, who only write manifests every once in a while or use kubectl when their app fails.
+DevOps and Ops, who manipulate Kubernetes and its objects everyday, we tend to forget: Kubernetes is not *(perceived as)* easy for our developers colleagues, who only write manifests every once in a while or use kubectl when their app fails.
 
-During “Developers Demand UX for K8s”, Mairin Duffy and Conor Cowman presented the results of an UX research they did amongst Kubernetes users and identified the main issues developers encounter with it. Debugging network issues, YAML (indentation, lack of validation, clean export), the infamous Crash Loop (and disappering logs), CLI vs GUI… Yeah, we’ve had all of those!
+During “Developers Demand UX for K8s”, Mairin Duffy and Conor Cowman presented the results of an UX research they did amongst Kubernetes users and identified the main issues developers encounter with it. Debugging network issues, YAML *(indentation, lack of validation, clean export)*, the infamous Crash Loop *(and disappering logs)*, CLI vs GUI… Yeah, we’ve had all of those!
 
-We have partially solved some of these issues, both with technical solutions (Helm + Helmfile, reusable Github Action workflows) and training sessions, but debugging is still a pain :-/
+We have partially solved some of these issues, both with technical solutions *(Helm + Helmfile, reusable Github Action workflows)* and training sessions, but debugging is still a pain :-/
 
 ## Things we are currently working on
 
