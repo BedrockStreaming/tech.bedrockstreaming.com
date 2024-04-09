@@ -107,6 +107,9 @@ g_forien:
   name: Gabriel Forien
 g_treme:
   name: Guillaume Trémé
+g_sanchez:
+  name: Grégory SANCHEZ
+  url: https://github.com/chubchubsancho
 h_detang:
   name: Hugo Detang
 h_riffiod:
@@ -274,6 +277,9 @@ v_claras:
 v_gallissot:
   name: Vincent Gallissot
   url: https://twitter.com/vgallissot
+v_pelus:
+  name: Valentin Pelus
+  url: https://github.com/valentinpelus
 y_clauss:
   name: Yves Clauss
   avatar: /images/avatar/y_clauss.png
