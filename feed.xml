@@ -1,4 +1,200 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2024-04-08T14:24:47+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Au-delà des industries : Le pouvoir de l’état d’esprit #LFT 02/02/24</title><link href="https://tech.bedrockstreaming.com/au-dela-des-industries-le-pouvoir-de-l-etat-d-esprit" rel="alternate" type="text/html" title="Au-delà des industries : Le pouvoir de l’état d’esprit #LFT 02/02/24" /><published>2024-02-02T00:00:00+00:00</published><updated>2024-02-02T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/au-dela-des-industries-le-pouvoir-de-l-etat-d-esprit</id><content type="html" xml:base="https://tech.bedrockstreaming.com/au-dela-des-industries-le-pouvoir-de-l-etat-d-esprit">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2024-04-09T09:41:21+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">KubeCon Europe 2024, Paris</title><link href="https://tech.bedrockstreaming.com/2024/04/09/kubecon-europe-2024.html" rel="alternate" type="text/html" title="KubeCon Europe 2024, Paris" /><published>2024-04-09T00:00:00+00:00</published><updated>2024-04-09T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/04/09/kubecon-europe-2024</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/04/09/kubecon-europe-2024.html">&lt;p&gt;Two weeks ago, six of us were at KubeCon in Paris. For a few, it was their first KubeCon! For one, it was the fourth one. Since Copenhagen in 2018, which was before we started &lt;a href=&quot;https://leanpub.com/tci/&quot;&gt;moving to AWS and Kubernetes&lt;/a&gt;, so much has changed – and so much has not ;-)&lt;/p&gt;
+
+&lt;h2 id=&quot;big-ideas&quot;&gt;Big ideas&lt;/h2&gt;
+
+&lt;p&gt;First of all, these four days clearly highlighted some wide topics.&lt;/p&gt;
+
+&lt;h3 id=&quot;ai-and-gpus-everywhere&quot;&gt;AI and GPUs everywhere&lt;/h3&gt;
+
+&lt;p&gt;Seems like “AI” was the impossible-to-miss subject vendors were trying to push, this year! Still, while many are running experiments, not many have deployed and maintained workloads in production yet.&lt;/p&gt;
+
+&lt;p&gt;Like many, we have started using a few “AI” tools and are working on some ideas &lt;em&gt;(not hosting them ourselves yet, though)&lt;/em&gt;, but we can’t help but feel “AI” and especially the “Generative AI” term is a bit over-used and some solutions we’ve seen were closer to good-old-ML.&lt;/p&gt;
+
+&lt;p&gt;As we are not planning on running our GenAI workloads on Kubernetes anytime soon, we haven’t been to many talks on this matter. Still, between re:Invent last year and KubeCon this year, you’ll find plenty of contents if that’s your thing 💪.&lt;/p&gt;
+
+&lt;h3 id=&quot;platform-engineering-is-the-new-devops&quot;&gt;Platform engineering is the new DevOps?&lt;/h3&gt;
+
+&lt;p&gt;Next up, looks like &lt;em&gt;DevOps is dead&lt;/em&gt; and &lt;em&gt;Platform Engineering is the new DevOps&lt;/em&gt;!&lt;/p&gt;
+
+&lt;p&gt;On one hand, we clearly see having everything related to all your projects in one place brings tremendous value &lt;em&gt;(and we have a couple dashboards that go this way)&lt;/em&gt;. Same with providing a common basis &lt;em&gt;(Terraform, Golang Skeleton, Helm chart)&lt;/em&gt; most projects build upon instead of re-inventing it again and again.&lt;/p&gt;
+
+&lt;p&gt;On the other hand, we don’t think, today, &lt;em&gt;“being able to create a new service in one click and 15 seconds”&lt;/em&gt; is a goal we should aim for. We’d rather rationalize micro-services and reduce network overhead. Remember, distributed systems are &lt;em&gt;“easy”&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Still, Backstage has gained in traction over the past two years, and it would be the first tool we’d try if &lt;em&gt;(or when)&lt;/em&gt; we’d wanted to invest on this path.&lt;/p&gt;
+
+&lt;h3 id=&quot;green-computing&quot;&gt;Green Computing&lt;/h3&gt;
+
+&lt;p&gt;⏩ &lt;a href=&quot;https://www.youtube.com/watch?v=H5NES1Is7rw&quot;&gt;Heating Pools with Cloud Power: A New Wave in Green Computing - Saiyam Pathak, Civo &amp;amp; Mark Bjornsgaard, Deep Green Technologies&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Nowadays, data centers’ electricity consumption uses 2% of the world’s electricity and the demand is growing exponentially due to more and more data centers being built. A very large percentage of future consumption will be dedicated to AI through high consumption GPUs.&lt;/p&gt;
+
+&lt;p&gt;In this context, Deep Green is embracing a generational shift as a company building a new kind of data centers. They aim to build small edge data centers as close as possible to heat consumers in order to recapture and distribute the heat. Indeed, in classic data centers, a huge chunk of energy is wasted into heat not being used. Chance with datacenter is that a very large amount of heat is produced in the same place (in comparison with other kind of industry). Deep Green’s computers are immersed into biodegradable oil which captures generated heat. Then, heat is transferred through heat exchangers to targets which can be swimming pools, private houses, offices… The process is simple and known for decades, but the smart move is to associate small edge data centers to heat consumers.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-04-09-kubecon-europe-2024/deep-green.png&quot; alt=&quot;How deep green heats a pool&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And what about CNCF and kubernetes? CNCF tools are allowing them to make this work as efficient as possible by:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;monitoring heat consumption and carbon emissions with tools like Kepler&lt;/li&gt;
+  &lt;li&gt;adapting workloads sizes&lt;/li&gt;
+  &lt;li&gt;managing intelligent workload scheduling: scheduling the workload to the datacenter which is actually requiring to heat up a particular consumer (using ArgoCD deployment, for instance)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;scaling-depending-on-energy-usage-of-instances&quot;&gt;Scaling depending on energy usage of instances&lt;/h3&gt;
+
+&lt;p&gt;In recent years, sustainable IT has become a major issue for companies. At Bedrock streaming, we are committed to reducing the environmental impact of our platforms. One of the first steps in this transition is to understand the impact of our applications.&lt;/p&gt;
+
+&lt;p&gt;At kubeCon 2024, we were able to discover a number of interesting tools that we’ll be testing in the near future.&lt;/p&gt;
+
+&lt;h4 id=&quot;kepler&quot;&gt;Kepler&lt;/h4&gt;
+
+&lt;p&gt;⏩ &lt;a href=&quot;https://www.youtube.com/watch?v=7_a9mCTcxkk&quot;&gt;Sustainable Computing: Measuring Application Energy Consumption in Kubernetes Environments with Kepler&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://sustainable-computing.io/&quot;&gt;Kepler&lt;/a&gt; is a CNCF Sandbox project that uses eBPF to collect performance counters and other system statistics. Kepler estimates energy consumption per pod based on this data and exports it as Prometheus metrics.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-04-09-kubecon-europe-2024/kepler.jpeg&quot; alt=&quot;Kepler&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;peaks&quot;&gt;PEAKS&lt;/h4&gt;
+
+&lt;p&gt;⏩ &lt;a href=&quot;https://www.youtube.com/watch?v=WPrSnZ4lyjw&quot;&gt;Empowering Efficiency: PEAKS - Orchestrating Power-Aware Kubernetes Scheduling&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Peaks aims to optimize the energy consumption of a kubernetes cluster during scheduling. Peaks relies on pre-trained ML models vs energy consumption to predict the most suitable nodes. The tool is not yet available, but development is progressing and a &lt;em&gt;Kubernetes Enhancement Proposal&lt;/em&gt; will be opened in the sig-scheduling project.&lt;/p&gt;
+
+&lt;p&gt;Both tools represent significant advances towards more sustainable computing, and reflect the Kubernetes community’s commitment to responsible innovation.&lt;/p&gt;
+
+&lt;h3 id=&quot;finops&quot;&gt;Finops&lt;/h3&gt;
+
+&lt;p&gt;Reducing – or optimizing – infrastructure costs has been a recurring topic at KubeCon for as long as we remember. Every year, there are talks about basic tools like HPA or ideas like using Spot instances &lt;em&gt;(like we do, for 100% our worker nodes!)&lt;/em&gt;. This time, Karpenter has clearly become a leader.&lt;/p&gt;
+
+&lt;p&gt;The basics being covered, costs are still too high, and reducing them is getting even more complex than before as more stuff is deployed to Kubernetes. Thinks GPU-based or long-running workloads, for example.&lt;/p&gt;
+
+&lt;p&gt;We are beginning to see more and more approaches using &lt;strong&gt;machine learning to forecast how much resources will be needed at a given time&lt;/strong&gt;, depending on past data. We, like others, have implemented &lt;a href=&quot;/2022/02/03/prescaling.html&quot;&gt;our own pre-scaling mechanism&lt;/a&gt; – not based on ML yet, though.&lt;/p&gt;
+
+&lt;h3 id=&quot;kubernetes-and-developer-experience&quot;&gt;Kubernetes and Developer experience&lt;/h3&gt;
+
+&lt;p&gt;DevOps and Ops, who manipulate Kubernetes and its objects everyday, we tend to forget: Kubernetes is not &lt;em&gt;(perceived as)&lt;/em&gt; easy for our developers colleagues, who only write manifests every once in a while or use kubectl when their app fails.&lt;/p&gt;
+
+&lt;p&gt;During “Developers Demand UX for K8s”, Mairin Duffy and Conor Cowman presented the results of an UX research they did amongst Kubernetes users and identified the main issues developers encounter with it. Debugging network issues, YAML &lt;em&gt;(indentation, lack of validation, clean export)&lt;/em&gt;, the infamous Crash Loop &lt;em&gt;(and disappering logs)&lt;/em&gt;, CLI vs GUI… Yeah, we’ve had all of those!&lt;/p&gt;
+
+&lt;p&gt;We have partially solved some of these issues, both with technical solutions &lt;em&gt;(Helm + Helmfile, reusable Github Action workflows)&lt;/em&gt; and training sessions, but debugging is still a pain :-/&lt;/p&gt;
+
+&lt;h2 id=&quot;things-we-are-currently-working-on&quot;&gt;Things we are currently working on&lt;/h2&gt;
+
+&lt;h3 id=&quot;keda&quot;&gt;Keda&lt;/h3&gt;
+
+&lt;p&gt;⏩ &lt;a href=&quot;https://www.youtube.com/watch?v=_5_njiPr5vg&quot;&gt;Scaling New Heights with KEDA: Performance, Extensions, and Beyond - Jorge Turrado, SCRM Lidl International Hub &amp;amp; Zbynek Roubalik, Kedify&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In our ongoing quest to improve the efficiency of our Kubernetes clusters, we recently opted for Kubernetes Event-driven Autoscaling (KEDA), a project supported by the Cloud Native Computing Foundation (CNCF) and enjoying growing adoption by the community. This choice is in line with our desire to go further than the capabilities offered by our previous tool, the Prometheus adapter, thanks in particular to more refined scaling management based on various external metrics.&lt;/p&gt;
+
+&lt;p&gt;One of KEDA’s real strengths is its ability to adjust scaling via &lt;em&gt;‘scaling modifiers’&lt;/em&gt;, allowing precise adjustment of the number of pods as required based on a calculation. At Bedrock Streaming this will enable us to refine our prescaling strategy, previously &lt;a href=&quot;/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html&quot;&gt;based on an external metric provided by a go service&lt;/a&gt;, we’ll be able to upgrade our system to something simpler and more precise. Maybe evolve from a simple calculation of minimum pods and multipliers, to a more sophisticated approach.&lt;/p&gt;
+
+&lt;p&gt;The presentation by Zbynek Roubalik and Jorge Turrado, KEDA maintainers, highlighted KEDA’s effectiveness in meeting various load requirements through the use of a variety of external metrics, making scaling more accurate.&lt;/p&gt;
+
+&lt;h3 id=&quot;cilium&quot;&gt;Cilium&lt;/h3&gt;
+
+&lt;p&gt;Cilium (and eBPF) were well represented at KubeCon, with a number of conferences on the subject.&lt;/p&gt;
+
+&lt;p&gt;This came at just the right time, as we are currently in the process of migrating to this CNI. This one, based on eBPF (with all that that implies) seemed to us to be a good replacement for our current CNI.&lt;/p&gt;
+
+&lt;p&gt;With cilium: no more KubeProxy, and no more IPtables, which for large clusters is a major performance factor.&lt;/p&gt;
+
+&lt;p&gt;Cilium also enables network traffic to be filtered with NetworkPolicies inbound and outbound.&lt;/p&gt;
+
+&lt;p&gt;Another feature we particularly like is “&lt;a href=&quot;https://cilium.io/use-cases/cluster-mesh/&quot;&gt;cluster-mesh&lt;/a&gt;”, which allows you to communicate between several clusters in a fairly simple way, at least on paper 😊! (conference available &lt;a href=&quot;https://www.youtube.com/watch?v=qbB3TEiOb24&quot;&gt;⏩ here&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;We were also able to see new features such as GatewayAPI support from version 1.15, and the use of &lt;a href=&quot;https://github.com/cilium/statedb&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;stateDB&lt;/code&gt;&lt;/a&gt; from version 1.16 to manage the state of cilium objects (and therefore reconciliation in the event of inconsistent state (conference available &lt;a href=&quot;https://www.youtube.com/watch?v=YX0sql_3dt8&amp;amp;list=PLj6h78yzYM2PHDqy_nINY8-462uYzb18d&amp;amp;index=2&quot;&gt;⏩ here&lt;/a&gt;)).&lt;/p&gt;
+
+&lt;h2 id=&quot;tools-and-idea-we-want-to-try-&quot;&gt;Tools and idea we want to try 💪&lt;/h2&gt;
+
+&lt;p&gt;KubeCon is also a great way to discover or re-discover new technologies or tools. We won’t share an exhaustive list &lt;em&gt;(see you there next year!)&lt;/em&gt;, but here are a few we are excited about:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;WebAssembly &lt;em&gt;(especially &lt;a href=&quot;https://www.spinkube.dev/&quot;&gt;SpinKube&lt;/a&gt;)&lt;/em&gt;: we are running some workloads at-edge on WASM and see a huge potential there. WASM in Kubernetes is intriguing, maybe as a way to reduce pods startup time?&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://openfeature.dev/&quot;&gt;OpenFeature&lt;/a&gt;: for feature-flipping, A/B testing… Glad to see the emergence of an open standard!&lt;/li&gt;
+  &lt;li&gt;Working with multiple Kubernetes clusters: not something we think we need for now, but after hearing about Federation years ago, &lt;a href=&quot;https://karmada.io/&quot;&gt;Karmada&lt;/a&gt; seems to be the current tool for this.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;​​https://mirrord.dev/&quot;&gt;mirrord&lt;/a&gt;: to develop locally as-if inside a Kubernetes cluster, forwarding network and file accesses.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;crik--criu-creating-snapshots-for-interrupted-pods&quot;&gt;Crik &amp;amp; Criu: creating snapshots for interrupted pods&lt;/h3&gt;
+
+&lt;p&gt;⏩ &lt;a href=&quot;https://www.youtube.com/watch?v=c2MbSM9-7Xs&quot;&gt;The Party Must Go on - Resume Pods After Spot Instance Shut Down - Muvaffak Onuş, QA Wolf&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;During the conference held by Muaffak Onuş of the CNCF, an innovative solution was highlighted to mitigate the instability of spot instances: the &lt;a href=&quot;https://github.com/qawolf/crik&quot;&gt;CRIK&lt;/a&gt; project, which leverages &lt;a href=&quot;https://criu.org/Main_Page&quot;&gt;CRIU&lt;/a&gt; to provide backup and restore functionality for Kubernetes pods. By leveraging CRIU, CRIK can capture the state of processes within a pod before a spot instance shutdown, and then restore them, making it easier to resume work after a spot reclaim for exemple.&lt;/p&gt;
+
+&lt;p&gt;A kubernetes controller is deployed, which monitors the state of nodes. When a pod with the required criu configuration is going to be deleted it consults the controller to check if the node is going to be deleted to dump all it’s processes, file descriptors etc… Before being restored on another one.&lt;/p&gt;
+
+&lt;p&gt;This technology is particularly relevant for Bedrock Streaming, where our entire Kubernetes clusters are based on EC2 spot instances. The use of CRIK could transform the way we manage extended jobs, particularly for our machine learning / AI teams, by ensuring the continuity of jobs lasting several hours despite instance interruptions. The integration of CRIK promises to substantially improve the resilience and efficiency of our cloud operations. We plan to test Crik at one of our future r&amp;amp;d days.&lt;/p&gt;
+
+&lt;h3 id=&quot;cilium-as-cluster-mesh&quot;&gt;Cilium as cluster-mesh&lt;/h3&gt;
+
+&lt;p&gt;⏩ &lt;a href=&quot;https://www.youtube.com/watch?v=qbB3TEiOb24&quot;&gt;Simplifying Multi-Cluster and Multi-Cloud Deployments with Cilium - Liz Rice, Isovalent&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;One thing that caught our attention was the native Cluster-Mesh feature which could allow us to connect multiple clusters between them with little effort and potentially multiple cloud providers between them.&lt;/p&gt;
+
+&lt;p&gt;To allow each Cilium’s components to communicate between them an internal load-balancer is deployed in each cluster.&lt;/p&gt;
+
+&lt;p&gt;There are some prerequisites to allow cluster mesh though:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;CIDR block must not overlapped&lt;/li&gt;
+  &lt;li&gt;Each cluster needs to have their own unique ID and name&lt;/li&gt;
+  &lt;li&gt;All clusters need to use Cilium as their CNI&lt;/li&gt;
+  &lt;li&gt;Cluster Mesh option has to be enabled on each cluster&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Liz Rice did a live presentation of cluster mesh capabilities with some use cases and functionalities like:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Creation of global services&lt;/li&gt;
+  &lt;li&gt;The ability to setup affinity rules for local cluster and remote one, to prefer the usage of local cluster pods and fallback to remote if needed.&lt;/li&gt;
+  &lt;li&gt;Setup of network policies to cluster level with the Cilium’s ability to add custom labels to pods to identify the cluster they’re running on.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Even if for now the usage of multi-cluster through different cloud providers is not a common use case the fact that Isovalent succeeded to make it that simple is very impressive&lt;/p&gt;
+
+&lt;p&gt;Cilium is now the new standard and we are glad to have chosen it on our clusters.&lt;/p&gt;
+
+&lt;h3 id=&quot;openfga&quot;&gt;OpenFGA&lt;/h3&gt;
+
+&lt;p&gt;⏩ &lt;a href=&quot;https://www.youtube.com/watch?v=UaK1EnRgrng&quot;&gt;Federated IAM for Kubernetes with OpenFGA - Jonathan Whitaker, Okta&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Among the presentations that stood out for us, the one from &lt;a href=&quot;https://openfga.dev/&quot;&gt;OpenFGA&lt;/a&gt; really grabbed our attention. OpenFGA, or Fine Grained Authorization, is an open source project that promises to transform the way we manage authorization and identity federation in modern applications.&lt;/p&gt;
+
+&lt;p&gt;OpenFGA is a universal authorization solution that enables complex authorizations to be modeled in a granular way. Inspired by Google’s Zanzibar project, OpenFGA offers a developer-friendly API, while guaranteeing performance and security.&lt;/p&gt;
+
+&lt;p&gt;OpenFGA gives us the ability to define detailed access policies, which is crucial for identity and access management in dynamic environments like Kubernetes.&lt;/p&gt;
+
+&lt;p&gt;The OpenFGA tool represents a major advance in the field of IT security. Its flexibility, performance and open approach make it an ideal candidate for companies looking to implement robust identity federation. The presentation at KubeCon 2024 only confirmed the immense potential of this tool.&lt;/p&gt;
+
+&lt;h2 id=&quot;things-that-are-no-longer-problems&quot;&gt;Things that are no longer “problems”&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Basic reactive auto-scaling. Still challenges: using &amp;gt;50% of resources, predictive pre-scaling, long-running tasks.&lt;/li&gt;
+  &lt;li&gt;Basic Kubernetes observability. Still challenges: observability at large-scale and/or for large distributed systems that go beyond Kubernetes.&lt;/li&gt;
+  &lt;li&gt;Using EC2 Spot instances – we’ve been doing it for years for 100% our worker nodes. Now, with Karpenter, others seem to be doing it more and more.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Why do we keep going to KubeCon – and other conferences? Well, three goals:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;discovering new approaches and tools that might help us better serve our customers in the future;&lt;/li&gt;
+  &lt;li&gt;confirming the solutions we are working with are used by many others in the community, which &lt;em&gt;(probably)&lt;/em&gt; means they are &lt;em&gt;(still)&lt;/em&gt; the right tools;&lt;/li&gt;
+  &lt;li&gt;and learning how to do some things better every day.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And it’s funny how each of us noticed different matters, depending on which parts of our platform we work on and depending on our experience and knowledge in Cloud Native solutions!&lt;/p&gt;
+
+&lt;p&gt;If we were to suggest a few things to KubeCon’s organizers:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;30 minutes talks is sometimes a bit short and longer talks could go deeper into technical details;&lt;/li&gt;
+  &lt;li&gt;rooms were not big enough for popular talks – and we’re talking about “tech” talks ;-)&lt;/li&gt;
+  &lt;li&gt;food 😵. I mean, we’re French 😅&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Once again, we come back from KubeCon full of energy and ideas, ready for an exciting new year!&lt;/p&gt;</content><author><name>[&quot;g_sanchez&quot;, &quot;j_menan&quot;, &quot;l_caillet&quot;, &quot;p_martin&quot;, &quot;v_chabrier&quot;, &quot;v_pelus&quot;]</name></author><category term="kubernetes" /><category term="cloud" /><category term="devops" /><category term="opensource" /><category term="community" /><category term="conference" /><category term="2024" /><summary type="html">Two weeks ago, six of us were at KubeCon in Paris. For a few, it was their first KubeCon! For one, it was the fourth one. Since Copenhagen in 2018, which was before we started moving to AWS and Kubernetes, so much has changed – and so much has not ;-)</summary></entry><entry><title type="html">Au-delà des industries : Le pouvoir de l’état d’esprit #LFT 02/02/24</title><link href="https://tech.bedrockstreaming.com/au-dela-des-industries-le-pouvoir-de-l-etat-d-esprit" rel="alternate" type="text/html" title="Au-delà des industries : Le pouvoir de l’état d’esprit #LFT 02/02/24" /><published>2024-02-02T00:00:00+00:00</published><updated>2024-02-02T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/au-dela-des-industries-le-pouvoir-de-l-etat-d-esprit</id><content type="html" xml:base="https://tech.bedrockstreaming.com/au-dela-des-industries-le-pouvoir-de-l-etat-d-esprit">&lt;blockquote&gt;
   &lt;p&gt;Je souhaite explorer l’idée selon laquelle le succès n’est pas défini par une industrie, une discipline ou un secteur spécifique, mais repose plutôt sur notre état d’esprit. À travers mes expériences personnelles variées - en cosmétique, marketing, e-commerce, ainsi que dans le domaine des bars, restaurants et de l’industrie - je mets en avant l’idée que les principes du succès sont universels. Cette présentation souligne l’importance de la mentalité, de la persévérance, des stratégies adoptées et d’une méthode, indépendamment du secteur professionnel. 
 L’objectif est d’inspirer et de redéfinir la perception du succès, en dépassant les barrières spécifiques à chaque domaine.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -453,104 +649,4 @@ We encourage you to watch &lt;a href=&quot;https://www.youtube.com/watch?v=UTRBV
   &lt;li&gt;or to appreciate the work we’ve done over the year, which sometimes goes beyond what’s presented at conferences (“&lt;a href=&quot;https://www.youtube.com/watch?v=JpemUkU8INA&quot;&gt;Use new IAM Access Analyzer features on your journey to least privilege&lt;/a&gt;”)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;For all these reasons, no doubt Bedrock Streaming teams will be betting on Reinvent again next year!&lt;/p&gt;</content><author><name>[&quot;a_ferez&quot;, &quot;v_chabrier&quot;]</name></author><category term="kubernetes" /><category term="cloud" /><category term="devops" /><category term="opensource" /><category term="community" /><category term="conference" /><category term="aws" /><category term="re:invent" /><category term="las vegas" /><category term="2023" /><summary type="html">AWS re:Invent 2023 was a showcase for GenAI. It was the announcement of Amazon Q, Amazon’s new AI assistant, that attracted the most interest, designed to meet the specific needs of businesses.</summary></entry><entry><title type="html">Android 14 is out</title><link href="https://tech.bedrockstreaming.com/2023/12/05/android-14.html" rel="alternate" type="text/html" title="Android 14 is out" /><published>2023-12-05T00:00:00+00:00</published><updated>2023-12-05T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2023/12/05/android-14</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2023/12/05/android-14.html">&lt;p&gt;Here’s what it means for users and developers.&lt;/p&gt;
-
-&lt;p&gt;With each new OS version, new things, upgrades, deprecations and changes are introduced, affecting the way we use and develop our apps.
-Google keeps going in the direction of more privacy, more accessibility and more control over what the apps can do to maximize security and integrity.
-Android 14 is no exception and here’s what I compiled on different topics that I will try to vulgarize to keep everyone on board.&lt;/p&gt;
-
-&lt;h3 id=&quot;technical&quot;&gt;Technical&lt;/h3&gt;
-
-&lt;p&gt;Technical changes build over features and APIs already introduced in previous versions, mostly Android 12 and 13.
-They tend to modernize tools by catching up with some Java features and semantics, helping manufacturers and improving the developers’ IDE to embrace those changes.
-Due to the nature of the changes, this is the topic that has to remain…technical, sorry for that.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Mobile screens are getting bigger with more ratios to support, we’re moving further and further away from the binary world of phone vs tablet. To ensure the best experience on this wide range of devices, Android 14 introduces the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Large Screen Compatibility Mode&lt;/code&gt; to help manufacturers improve the experience on their devices.&lt;/li&gt;
-  &lt;li&gt;Updates to OpenJDK17 may require a bit of attention from apps using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Regex&lt;/code&gt; that are not close enough to openJDK’s new semantics, throwing exceptions when confronted to an invalid groupe reference.&lt;/li&gt;
-  &lt;li&gt;Generating a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UUID&lt;/code&gt; from a string sees the validation become stricter and will now lead to exceptions due to deserialization issues. More than ever, it’s time to unit test UUID generation.&lt;/li&gt;
-  &lt;li&gt;A bit of additional ruling may be needed to fix Proguard issues when shrinking / obfuscating code involving the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ClassValue&lt;/code&gt; class coming with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;API34&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;The new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Back APIs&lt;/code&gt; are now strengthened by built-in animations and support for custom ones.&lt;/li&gt;
-  &lt;li&gt;Making the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ForegroundService&lt;/code&gt; type explicit is now mandatory, if the implementation was already properly done back in the Android 10 days when it was introduced, congratulations, nothing to do here.&lt;/li&gt;
-  &lt;li&gt;Foreground services are also encouraged to be migrated to user-initiated jobs. A new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RUN_USER_INITIATED_JOBS&lt;/code&gt; permission is introduced and new methods on the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JobInfo&lt;/code&gt; builder allow to set the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;userInitiated()&lt;/code&gt; status along with the estimated amount of bytes the job will expect from the network. Scheduling the job is now done with the app foregrounded and the notification icon system remains the same so the user knows something is going on even if the app is backgrounded post launch.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;battery-and-performance&quot;&gt;Battery and performance&lt;/h3&gt;
-
-&lt;p&gt;Without a single ounce of surprise, Google continues its effort to improve battery life and takes steps towards sanctioning bad actors that publish battery-draining or unstable apps.
-Today, not crashing is no longer enough, developers should take steps to push their app to their full potential and that means power management and performance monitoring.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Bad behaviours like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ANRs (screen freezes)&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;background crashes&lt;/code&gt; now more aggressively flag the guilty apps and put them at the bottom of the priority list where apps are fighting for resources, meaning they’ll also be the first to go if the system needs some. No more filtering out &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ANRs&lt;/code&gt; and non-fatal crashes on Crashlytics, everything matters now.&lt;/li&gt;
-  &lt;li&gt;While on the subject of fighting for resources, let’s also note that now, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;context-registered broadcasts&lt;/code&gt; are now queued when the app is backgrounded and the system will deliver them when the app is awake or system conditions allow it.&lt;/li&gt;
-  &lt;li&gt;Another change to the cached state (aka when the app is backgrounded) impacts background tasks that can no longer be triggered unless one of the app components is awake. This change pushes devs to use framework’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JobScheduler&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WorkManager&lt;/code&gt; more as they aren’t impacted by this change.&lt;/li&gt;
-  &lt;li&gt;Still with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Jobscheduler&lt;/code&gt;, jobs don’t just fail silently anymore if they don’t respond in time but trigger an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ANR&lt;/code&gt;, it is advised to move to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WorkManager&lt;/code&gt; with its out of the box async support.&lt;/li&gt;
-  &lt;li&gt;If a job requires a special network state to be triggered, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ACCESS_NETWORK_STATE&lt;/code&gt; permission is now mandatory. Without it, a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SecurityException&lt;/code&gt; will be raised.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Intents&lt;/code&gt; keep getting more and more headache prone as the implicit and pending intents now can only be delivered to exported components. If you need to reach an unexported component, explicit intent is your go-to solution. Note that mutable pending intents now need to specify a component or it will throw an exception.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;notifications&quot;&gt;Notifications&lt;/h3&gt;
-
-&lt;p&gt;Finding the right balance between informative presence and in-your-face nuisance has always been a challenge for notifications and it seems Google keeps pushing to make them less invasive and easier for the user to dismiss or delay them.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Fullscreen Intent&lt;/code&gt; notifications that we see when our clock rings or when we receive a phone call are luckily already rarely used.
-They are now more restricted and available only to apps declaring &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Call&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Alarm&lt;/code&gt; features, meaning we shouldn’t see bad actors abusing this feature that would allow them to bypass the lock screen amongst other things.&lt;/li&gt;
-  &lt;li&gt;Non-dismissible &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;foreground notifications&lt;/code&gt; are now dismissible in some cases but will remain non-dismissible
-    &lt;ul&gt;
-      &lt;li&gt;on top of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Lock Screen&lt;/code&gt; to prevent it from being swiped by anyone accessing a device behind the owner’s back.&lt;/li&gt;
-      &lt;li&gt;from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Clear all&lt;/code&gt; feature to prevent misclicks.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;privacy-and-security&quot;&gt;Privacy and security&lt;/h3&gt;
-
-&lt;p&gt;This is, once again without surprise, where a lot of the changes happen and it is aligned with Google’s vision and goals when it comes to give users back the control of their data and permissions.
-Some of them seem so obvious that it’s surprising to see them in action only now. Maybe the EU pressure with GDPR starts to pay off? Maybe…&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Android 14 introduces new places where the data sharing purposes are displayed. Until now, we could only check them from the PlayStore app page. 
-Now, it will also be displayed in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;runtime permission popups&lt;/code&gt;, starting with those related to location to remind why the data is necessary and with whom it will be shared.&lt;/li&gt;
-  &lt;li&gt;It will now be impossible to install apps that don’t target at least the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;API 23&lt;/code&gt; to prevent bad actors from exploiting security breaches discovered inside older Android versions.
-Be aware that installed apps won’t be removed and the system won’t warn you when starting one of those apps, maybe a new feature for Android 15?&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dynamic Code Loading&lt;/code&gt; now requires to flag the file as read-only to avoid any tampering or code injection. In any case, DCL should be avoided when possible and only trusted files should obviously be loaded this way.&lt;/li&gt;
-  &lt;li&gt;When saving a file inside the app storage, the system attributes to the file an owner id, this id being the app package name that saved it. 
-This feature allows apps to know which file they can open without requesting the external read permission. The issue was that by querying this id, other apps could access the owner ids that weren’t them and deducting the owner’s installed apps list. 
-To fix this, the name is now redacted, increasing again a little bit the user data protection, the list of the installed apps being considered a sensitive data by Google.&lt;/li&gt;
-  &lt;li&gt;If an app features &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;screen&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;audio recording&lt;/code&gt;, it is now required to be granted the user consent to do so before each session start and therefore be able to handle permission denied scenarios.&lt;/li&gt;
-  &lt;li&gt;Zip files are also impacted as a fixed vulnerability with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;path transversal reading&lt;/code&gt; now triggers an exception if some characters are found inside it. (Contains &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;..&lt;/code&gt; Or starts with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/&lt;/code&gt;)&lt;/li&gt;
-  &lt;li&gt;Even though already required, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BLUETOOTH_CONNECT&lt;/code&gt; permission was not yet enforced to access the profile state, it is now the case.&lt;/li&gt;
-  &lt;li&gt;Users are no more required to grant access to all &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;images&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;videos&lt;/code&gt; to share or display a single media, Android 14 now upgrades the permission popup with an option to select only the media the app is allowed to access.&lt;/li&gt;
-  &lt;li&gt;Apps can now react to a user &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;screenshot&lt;/code&gt; event, they can’t manipulate the content but developers can now add a callback bound to the activity lifecycle. 
-Sensitive screens should still be protected with the secure flag.&lt;/li&gt;
-  &lt;li&gt;Starting activities from the background with a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pending intent&lt;/code&gt; or through another app in the foreground now requires the app to opt-in to this feature inside said activity and is no longer a default behaviour.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;accessibility&quot;&gt;Accessibility&lt;/h3&gt;
-
-&lt;p&gt;It is no secret that mobile devices are now owned by more and more people every year, which includes people with a range of disabilities or personalities that may make an app usage more challenging.
-Android 14 helps them with new and upgraded features to ease their journey with a mobile device.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;A step is taken towards low-vision users’ direction, the changes and impacts to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;font scaling&lt;/code&gt; should be negligible to developers already properly using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SP&lt;/code&gt; as their size units but a full testing pass with the scaling enabled should be scheduled to be safe and tweak improvable screens.&lt;/li&gt;
-  &lt;li&gt;New tools inside Android studio are added to help developers handling &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;per-app language&lt;/code&gt; more efficiently and easily.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grammatical Inflection API&lt;/code&gt; is introduced, offering developers working on apps with gendered languages new tools. It adds a layer of complexity to the strings files by having three gender-files by gendered language. In those files are added only the strings affected by gender inflections like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Vous êtes déconnecté&lt;/code&gt; for masculine, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Vous êtes déconnectée&lt;/code&gt; for feminine or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;La déconnection est effective&lt;/code&gt; for neutral in french. More work for developers and translators but an overall better experience for users.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;All in all, Android 14 is an update faithful to the Google roadmap. 
-Users today are very different than users 10 years ago. They care more about their data and their privacy; the Mobile ecosystem and business is also a lot more professional.
-It’s important for us developers to be aware of those changes in order to continuously improve the experience, be it related to our core business or simply to keep the user engaged in a safe environment.&lt;/p&gt;
-
-&lt;p&gt;When this article is released, Android 14 should be freshly out and developer teams hands deep in the migration tasks.
-I hope you enjoyed the information and see you soon for more Android related articles!&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developer.android.com/about/versions/14/behavior-changes-all&quot;&gt;Changes potentially affecting all apps&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developer.android.com/about/versions/14/behavior-changes-14&quot;&gt;Changes affecting apps targetting Android 14&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developer.android.com/about/versions/14/features&quot;&gt;New features introduced by Android 14&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developer.android.com/sdk/api_diff/34/changes&quot;&gt;APIs changelog&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developer.android.com/about/versions/14/summary&quot;&gt;Overview&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>[&quot;c_goffoy&quot;]</name></author><category term="android" /><category term="mobile" /><category term="google" /><category term="14" /><summary type="html">Here’s what it means for users and developers.</summary></entry></feed>
+&lt;p&gt;For all these reasons, no doubt Bedrock Streaming teams will be betting on Reinvent again next year!&lt;/p&gt;</content><author><name>[&quot;a_ferez&quot;, &quot;v_chabrier&quot;]</name></author><category term="kubernetes" /><category term="cloud" /><category term="devops" /><category term="opensource" /><category term="community" /><category term="conference" /><category term="aws" /><category term="re:invent" /><category term="las vegas" /><category term="2023" /><summary type="html">AWS re:Invent 2023 was a showcase for GenAI. It was the announcement of Amazon Q, Amazon’s new AI assistant, that attracted the most interest, designed to meet the specific needs of businesses.</summary></entry></feed>

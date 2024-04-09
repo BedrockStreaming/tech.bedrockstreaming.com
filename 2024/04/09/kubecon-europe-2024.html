@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/2024-04-09-kubecon-europe-2024/bienvenue-kubecon.jpeg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>KubeCon Europe 2024, Paris | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="KubeCon Europe 2024, Paris" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A few notes and ideas, coming back from KubeCon EU 2024 Paris." />
+<meta property="og:description" content="A few notes and ideas, coming back from KubeCon EU 2024 Paris." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2024/04/09/kubecon-europe-2024.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2024/04/09/kubecon-europe-2024.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-04-09T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="KubeCon Europe 2024, Paris" />
+<script type="application/ld+json">
+{"description":"A few notes and ideas, coming back from KubeCon EU 2024 Paris.","headline":"KubeCon Europe 2024, Paris","dateModified":"2024-04-09T00:00:00+00:00","datePublished":"2024-04-09T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2024/04/09/kubecon-europe-2024.html"},"url":"https://tech.bedrockstreaming.com/2024/04/09/kubecon-europe-2024.html","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="KubeCon Europe 2024, Paris">
+    <meta name="twitter:description" content="Two weeks ago, six of us were at KubeCon in Paris. For a few, it was their first KubeCon! For one, it was the fourth one. Since Copenhagen in 2018, which was...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/2024-04-09-kubecon-europe-2024/bienvenue-kubecon.jpeg">
+    <meta name="twitter:image:alt" content="KubeCon Europe 2024, Paris">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="KubeCon Europe 2024, Paris " aria-label="KubeCon Europe 2024, Paris" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="KubeCon+Europe+2024%2C+Paris" class="title">KubeCon Europe 2024, Paris</h1>
+      <div class="post-info">
+
+
+<a
+      href="https://github.com/chubchubsancho"
+      target="_blank"
+      rel="noopener"
+      class="author">
+
+    
+      <span class="name">
+        Grégory SANCHEZ
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+<a
+      href="https://twitter.com/julien_menan"
+      target="_blank"
+      rel="noopener"
+      class="author">
+      <img alt="Author's avatar" src="/images/avatar/j_menan.jpg" class="thumbnail">
+    
+
+    
+      <span class="name">
+        Julien Menan
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+<a
+      href="https://www.linkedin.com/in/laurent-caillet/"
+      target="_blank"
+      rel="noopener"
+      class="author">
+      <img alt="Author's avatar" src="/images/avatar/l_caillet.jpg" class="thumbnail">
+    
+
+    
+      <span class="name">
+        Laurent Caillet
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+<a
+      href="https://twitter.com/pascal_martin"
+      target="_blank"
+      rel="noopener"
+      class="author">
+
+    
+      <span class="name">
+        Pascal Martin
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+<a
+      href="https://github.com/Eriwyr"
+      target="_blank"
+      rel="noopener"
+      class="author">
+
+    
+      <span class="name">
+        Valentin Chabrier
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+<a
+      href="https://github.com/valentinpelus"
+      target="_blank"
+      rel="noopener"
+      class="author">
+
+    
+      <span class="name">
+        Valentin Pelus
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    April 09, 2024
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Two weeks ago, six of us were at KubeCon in Paris. For a few, it was their first KubeCon! For one, it was the fourth one. Since Copenhagen in 2018, which was before we started <a href="https://leanpub.com/tci/">moving to AWS and Kubernetes</a>, so much has changed – and so much has not ;-)</p>
+
+<h2 id="big-ideas">Big ideas</h2>
+
+<p>First of all, these four days clearly highlighted some wide topics.</p>
+
+<h3 id="ai-and-gpus-everywhere">AI and GPUs everywhere</h3>
+
+<p>Seems like “AI” was the impossible-to-miss subject vendors were trying to push, this year! Still, while many are running experiments, not many have deployed and maintained workloads in production yet.</p>
+
+<p>Like many, we have started using a few “AI” tools and are working on some ideas <em>(not hosting them ourselves yet, though)</em>, but we can’t help but feel “AI” and especially the “Generative AI” term is a bit over-used and some solutions we’ve seen were closer to good-old-ML.</p>
+
+<p>As we are not planning on running our GenAI workloads on Kubernetes anytime soon, we haven’t been to many talks on this matter. Still, between re:Invent last year and KubeCon this year, you’ll find plenty of contents if that’s your thing 💪.</p>
+
+<h3 id="platform-engineering-is-the-new-devops">Platform engineering is the new DevOps?</h3>
+
+<p>Next up, looks like <em>DevOps is dead</em> and <em>Platform Engineering is the new DevOps</em>!</p>
+
+<p>On one hand, we clearly see having everything related to all your projects in one place brings tremendous value <em>(and we have a couple dashboards that go this way)</em>. Same with providing a common basis <em>(Terraform, Golang Skeleton, Helm chart)</em> most projects build upon instead of re-inventing it again and again.</p>
+
+<p>On the other hand, we don’t think, today, <em>“being able to create a new service in one click and 15 seconds”</em> is a goal we should aim for. We’d rather rationalize micro-services and reduce network overhead. Remember, distributed systems are <em>“easy”</em>.</p>
+
+<p>Still, Backstage has gained in traction over the past two years, and it would be the first tool we’d try if <em>(or when)</em> we’d wanted to invest on this path.</p>
+
+<h3 id="green-computing">Green Computing</h3>
+
+<p>⏩ <a href="https://www.youtube.com/watch?v=H5NES1Is7rw">Heating Pools with Cloud Power: A New Wave in Green Computing - Saiyam Pathak, Civo &amp; Mark Bjornsgaard, Deep Green Technologies</a></p>
+
+<p>Nowadays, data centers’ electricity consumption uses 2% of the world’s electricity and the demand is growing exponentially due to more and more data centers being built. A very large percentage of future consumption will be dedicated to AI through high consumption GPUs.</p>
+
+<p>In this context, Deep Green is embracing a generational shift as a company building a new kind of data centers. They aim to build small edge data centers as close as possible to heat consumers in order to recapture and distribute the heat. Indeed, in classic data centers, a huge chunk of energy is wasted into heat not being used. Chance with datacenter is that a very large amount of heat is produced in the same place (in comparison with other kind of industry). Deep Green’s computers are immersed into biodegradable oil which captures generated heat. Then, heat is transferred through heat exchangers to targets which can be swimming pools, private houses, offices… The process is simple and known for decades, but the smart move is to associate small edge data centers to heat consumers.</p>
+
+<p><img src="/images/posts/2024-04-09-kubecon-europe-2024/deep-green.png" alt="How deep green heats a pool" /></p>
+
+<p>And what about CNCF and kubernetes? CNCF tools are allowing them to make this work as efficient as possible by:</p>
+
+<ul>
+  <li>monitoring heat consumption and carbon emissions with tools like Kepler</li>
+  <li>adapting workloads sizes</li>
+  <li>managing intelligent workload scheduling: scheduling the workload to the datacenter which is actually requiring to heat up a particular consumer (using ArgoCD deployment, for instance)</li>
+</ul>
+
+<h3 id="scaling-depending-on-energy-usage-of-instances">Scaling depending on energy usage of instances</h3>
+
+<p>In recent years, sustainable IT has become a major issue for companies. At Bedrock streaming, we are committed to reducing the environmental impact of our platforms. One of the first steps in this transition is to understand the impact of our applications.</p>
+
+<p>At kubeCon 2024, we were able to discover a number of interesting tools that we’ll be testing in the near future.</p>
+
+<h4 id="kepler">Kepler</h4>
+
+<p>⏩ <a href="https://www.youtube.com/watch?v=7_a9mCTcxkk">Sustainable Computing: Measuring Application Energy Consumption in Kubernetes Environments with Kepler</a></p>
+
+<p><a href="https://sustainable-computing.io/">Kepler</a> is a CNCF Sandbox project that uses eBPF to collect performance counters and other system statistics. Kepler estimates energy consumption per pod based on this data and exports it as Prometheus metrics.</p>
+
+<p><img src="/images/posts/2024-04-09-kubecon-europe-2024/kepler.jpeg" alt="Kepler" /></p>
+
+<h4 id="peaks">PEAKS</h4>
+
+<p>⏩ <a href="https://www.youtube.com/watch?v=WPrSnZ4lyjw">Empowering Efficiency: PEAKS - Orchestrating Power-Aware Kubernetes Scheduling</a></p>
+
+<p>Peaks aims to optimize the energy consumption of a kubernetes cluster during scheduling. Peaks relies on pre-trained ML models vs energy consumption to predict the most suitable nodes. The tool is not yet available, but development is progressing and a <em>Kubernetes Enhancement Proposal</em> will be opened in the sig-scheduling project.</p>
+
+<p>Both tools represent significant advances towards more sustainable computing, and reflect the Kubernetes community’s commitment to responsible innovation.</p>
+
+<h3 id="finops">Finops</h3>
+
+<p>Reducing – or optimizing – infrastructure costs has been a recurring topic at KubeCon for as long as we remember. Every year, there are talks about basic tools like HPA or ideas like using Spot instances <em>(like we do, for 100% our worker nodes!)</em>. This time, Karpenter has clearly become a leader.</p>
+
+<p>The basics being covered, costs are still too high, and reducing them is getting even more complex than before as more stuff is deployed to Kubernetes. Thinks GPU-based or long-running workloads, for example.</p>
+
+<p>We are beginning to see more and more approaches using <strong>machine learning to forecast how much resources will be needed at a given time</strong>, depending on past data. We, like others, have implemented <a href="/2022/02/03/prescaling.html">our own pre-scaling mechanism</a> – not based on ML yet, though.</p>
+
+<h3 id="kubernetes-and-developer-experience">Kubernetes and Developer experience</h3>
+
+<p>DevOps and Ops, who manipulate Kubernetes and its objects everyday, we tend to forget: Kubernetes is not <em>(perceived as)</em> easy for our developers colleagues, who only write manifests every once in a while or use kubectl when their app fails.</p>
+
+<p>During “Developers Demand UX for K8s”, Mairin Duffy and Conor Cowman presented the results of an UX research they did amongst Kubernetes users and identified the main issues developers encounter with it. Debugging network issues, YAML <em>(indentation, lack of validation, clean export)</em>, the infamous Crash Loop <em>(and disappering logs)</em>, CLI vs GUI… Yeah, we’ve had all of those!</p>
+
+<p>We have partially solved some of these issues, both with technical solutions <em>(Helm + Helmfile, reusable Github Action workflows)</em> and training sessions, but debugging is still a pain :-/</p>
+
+<h2 id="things-we-are-currently-working-on">Things we are currently working on</h2>
+
+<h3 id="keda">Keda</h3>
+
+<p>⏩ <a href="https://www.youtube.com/watch?v=_5_njiPr5vg">Scaling New Heights with KEDA: Performance, Extensions, and Beyond - Jorge Turrado, SCRM Lidl International Hub &amp; Zbynek Roubalik, Kedify</a></p>
+
+<p>In our ongoing quest to improve the efficiency of our Kubernetes clusters, we recently opted for Kubernetes Event-driven Autoscaling (KEDA), a project supported by the Cloud Native Computing Foundation (CNCF) and enjoying growing adoption by the community. This choice is in line with our desire to go further than the capabilities offered by our previous tool, the Prometheus adapter, thanks in particular to more refined scaling management based on various external metrics.</p>
+
+<p>One of KEDA’s real strengths is its ability to adjust scaling via <em>‘scaling modifiers’</em>, allowing precise adjustment of the number of pods as required based on a calculation. At Bedrock Streaming this will enable us to refine our prescaling strategy, previously <a href="/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html">based on an external metric provided by a go service</a>, we’ll be able to upgrade our system to something simpler and more precise. Maybe evolve from a simple calculation of minimum pods and multipliers, to a more sophisticated approach.</p>
+
+<p>The presentation by Zbynek Roubalik and Jorge Turrado, KEDA maintainers, highlighted KEDA’s effectiveness in meeting various load requirements through the use of a variety of external metrics, making scaling more accurate.</p>
+
+<h3 id="cilium">Cilium</h3>
+
+<p>Cilium (and eBPF) were well represented at KubeCon, with a number of conferences on the subject.</p>
+
+<p>This came at just the right time, as we are currently in the process of migrating to this CNI. This one, based on eBPF (with all that that implies) seemed to us to be a good replacement for our current CNI.</p>
+
+<p>With cilium: no more KubeProxy, and no more IPtables, which for large clusters is a major performance factor.</p>
+
+<p>Cilium also enables network traffic to be filtered with NetworkPolicies inbound and outbound.</p>
+
+<p>Another feature we particularly like is “<a href="https://cilium.io/use-cases/cluster-mesh/">cluster-mesh</a>”, which allows you to communicate between several clusters in a fairly simple way, at least on paper 😊! (conference available <a href="https://www.youtube.com/watch?v=qbB3TEiOb24">⏩ here</a>)</p>
+
+<p>We were also able to see new features such as GatewayAPI support from version 1.15, and the use of <a href="https://github.com/cilium/statedb"><code class="language-plaintext highlighter-rouge">stateDB</code></a> from version 1.16 to manage the state of cilium objects (and therefore reconciliation in the event of inconsistent state (conference available <a href="https://www.youtube.com/watch?v=YX0sql_3dt8&amp;list=PLj6h78yzYM2PHDqy_nINY8-462uYzb18d&amp;index=2">⏩ here</a>)).</p>
+
+<h2 id="tools-and-idea-we-want-to-try-">Tools and idea we want to try 💪</h2>
+
+<p>KubeCon is also a great way to discover or re-discover new technologies or tools. We won’t share an exhaustive list <em>(see you there next year!)</em>, but here are a few we are excited about:</p>
+
+<ul>
+  <li>WebAssembly <em>(especially <a href="https://www.spinkube.dev/">SpinKube</a>)</em>: we are running some workloads at-edge on WASM and see a huge potential there. WASM in Kubernetes is intriguing, maybe as a way to reduce pods startup time?</li>
+  <li><a href="https://openfeature.dev/">OpenFeature</a>: for feature-flipping, A/B testing… Glad to see the emergence of an open standard!</li>
+  <li>Working with multiple Kubernetes clusters: not something we think we need for now, but after hearing about Federation years ago, <a href="https://karmada.io/">Karmada</a> seems to be the current tool for this.</li>
+  <li><a href="​​https://mirrord.dev/">mirrord</a>: to develop locally as-if inside a Kubernetes cluster, forwarding network and file accesses.</li>
+</ul>
+
+<h3 id="crik--criu-creating-snapshots-for-interrupted-pods">Crik &amp; Criu: creating snapshots for interrupted pods</h3>
+
+<p>⏩ <a href="https://www.youtube.com/watch?v=c2MbSM9-7Xs">The Party Must Go on - Resume Pods After Spot Instance Shut Down - Muvaffak Onuş, QA Wolf</a></p>
+
+<p>During the conference held by Muaffak Onuş of the CNCF, an innovative solution was highlighted to mitigate the instability of spot instances: the <a href="https://github.com/qawolf/crik">CRIK</a> project, which leverages <a href="https://criu.org/Main_Page">CRIU</a> to provide backup and restore functionality for Kubernetes pods. By leveraging CRIU, CRIK can capture the state of processes within a pod before a spot instance shutdown, and then restore them, making it easier to resume work after a spot reclaim for exemple.</p>
+
+<p>A kubernetes controller is deployed, which monitors the state of nodes. When a pod with the required criu configuration is going to be deleted it consults the controller to check if the node is going to be deleted to dump all it’s processes, file descriptors etc… Before being restored on another one.</p>
+
+<p>This technology is particularly relevant for Bedrock Streaming, where our entire Kubernetes clusters are based on EC2 spot instances. The use of CRIK could transform the way we manage extended jobs, particularly for our machine learning / AI teams, by ensuring the continuity of jobs lasting several hours despite instance interruptions. The integration of CRIK promises to substantially improve the resilience and efficiency of our cloud operations. We plan to test Crik at one of our future r&amp;d days.</p>
+
+<h3 id="cilium-as-cluster-mesh">Cilium as cluster-mesh</h3>
+
+<p>⏩ <a href="https://www.youtube.com/watch?v=qbB3TEiOb24">Simplifying Multi-Cluster and Multi-Cloud Deployments with Cilium - Liz Rice, Isovalent</a></p>
+
+<p>One thing that caught our attention was the native Cluster-Mesh feature which could allow us to connect multiple clusters between them with little effort and potentially multiple cloud providers between them.</p>
+
+<p>To allow each Cilium’s components to communicate between them an internal load-balancer is deployed in each cluster.</p>
+
+<p>There are some prerequisites to allow cluster mesh though:</p>
+
+<ul>
+  <li>CIDR block must not overlapped</li>
+  <li>Each cluster needs to have their own unique ID and name</li>
+  <li>All clusters need to use Cilium as their CNI</li>
+  <li>Cluster Mesh option has to be enabled on each cluster</li>
+</ul>
+
+<p>Liz Rice did a live presentation of cluster mesh capabilities with some use cases and functionalities like:</p>
+
+<ul>
+  <li>Creation of global services</li>
+  <li>The ability to setup affinity rules for local cluster and remote one, to prefer the usage of local cluster pods and fallback to remote if needed.</li>
+  <li>Setup of network policies to cluster level with the Cilium’s ability to add custom labels to pods to identify the cluster they’re running on.</li>
+</ul>
+
+<p>Even if for now the usage of multi-cluster through different cloud providers is not a common use case the fact that Isovalent succeeded to make it that simple is very impressive</p>
+
+<p>Cilium is now the new standard and we are glad to have chosen it on our clusters.</p>
+
+<h3 id="openfga">OpenFGA</h3>
+
+<p>⏩ <a href="https://www.youtube.com/watch?v=UaK1EnRgrng">Federated IAM for Kubernetes with OpenFGA - Jonathan Whitaker, Okta</a></p>
+
+<p>Among the presentations that stood out for us, the one from <a href="https://openfga.dev/">OpenFGA</a> really grabbed our attention. OpenFGA, or Fine Grained Authorization, is an open source project that promises to transform the way we manage authorization and identity federation in modern applications.</p>
+
+<p>OpenFGA is a universal authorization solution that enables complex authorizations to be modeled in a granular way. Inspired by Google’s Zanzibar project, OpenFGA offers a developer-friendly API, while guaranteeing performance and security.</p>
+
+<p>OpenFGA gives us the ability to define detailed access policies, which is crucial for identity and access management in dynamic environments like Kubernetes.</p>
+
+<p>The OpenFGA tool represents a major advance in the field of IT security. Its flexibility, performance and open approach make it an ideal candidate for companies looking to implement robust identity federation. The presentation at KubeCon 2024 only confirmed the immense potential of this tool.</p>
+
+<h2 id="things-that-are-no-longer-problems">Things that are no longer “problems”</h2>
+
+<ul>
+  <li>Basic reactive auto-scaling. Still challenges: using &gt;50% of resources, predictive pre-scaling, long-running tasks.</li>
+  <li>Basic Kubernetes observability. Still challenges: observability at large-scale and/or for large distributed systems that go beyond Kubernetes.</li>
+  <li>Using EC2 Spot instances – we’ve been doing it for years for 100% our worker nodes. Now, with Karpenter, others seem to be doing it more and more.</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Why do we keep going to KubeCon – and other conferences? Well, three goals:</p>
+
+<ul>
+  <li>discovering new approaches and tools that might help us better serve our customers in the future;</li>
+  <li>confirming the solutions we are working with are used by many others in the community, which <em>(probably)</em> means they are <em>(still)</em> the right tools;</li>
+  <li>and learning how to do some things better every day.</li>
+</ul>
+
+<p>And it’s funny how each of us noticed different matters, depending on which parts of our platform we work on and depending on our experience and knowledge in Cloud Native solutions!</p>
+
+<p>If we were to suggest a few things to KubeCon’s organizers:</p>
+
+<ul>
+  <li>30 minutes talks is sometimes a bit short and longer talks could go deeper into technical details;</li>
+  <li>rooms were not big enough for popular talks – and we’re talking about “tech” talks ;-)</li>
+  <li>food 😵. I mean, we’re French 😅</li>
+</ul>
+
+<p>Once again, we come back from KubeCon full of energy and ideas, ready for an exciting new year!</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=KubeCon+Europe+2024%2C+Paris%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2024%2F04%2F09%2Fkubecon-europe-2024.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2024/04/09/kubecon-europe-2024.html&title=KubeCon+Europe+2024%2C+Paris%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2024/04/09/kubecon-europe-2024.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=KubeCon Europe 2024, Paris%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2024/04/09/kubecon-europe-2024.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#2024">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> 2024</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#cloud">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#community">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> community</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#devops">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> devops</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#kubernetes">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> kubernetes</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#opensource">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> opensource</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="Mon premier jeu sur BGA #LFT 02/02/24" href="/mon-premier-jeu-sur-bga">
+            <p>Next post</p>
+            Mon premier jeu sur BGA #LFT 02/02/24
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>
