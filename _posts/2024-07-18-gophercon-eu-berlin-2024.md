@@ -16,8 +16,8 @@ The 2024 GopherCon Europe took place in Berlin. Four of us had the opportunity t
 
 Cameron Balahan, a Product Manager at the Golang Team, kicked off GopherCon 2024 with a compelling talk on the business side of Go. He shared insights into the strategic decisions that shape the development of the Go language, emphasizing the importance of balancing innovation with stability to meet the needs of both enterprise users and the broader developer community.
 
-![todo](/images/posts/2024-07-18-gophercon-eu-berlin-2024/01-the-business-of-go-01.png)
-![todo](/images/posts/2024-07-18-gophercon-eu-berlin-2024/02-the-business-of-go-02.png)
+![Business of Go, developpers stack in 2024](/images/posts/2024-07-18-gophercon-eu-berlin-2024/01-the-business-of-go-01.png)
+![Business of Go, growth in open source contribution leads to growth in adoption](/images/posts/2024-07-18-gophercon-eu-berlin-2024/02-the-business-of-go-02.png)
 
 ## Memory Optimization - Diana Shevchenko
 
@@ -31,7 +31,7 @@ Diana Shevchenko from Datadog delivered an enlightening session on memory manage
 
 Robert, a principal engineer, shared valuable insights on simplifying Go projects using Domain-Driven Design (DDD). He highlighted a recurring challenge: project complexity. Both accidental complexity, stemming from over-engineering, and essential complexity, inherent in each feature, were identified as major hurdles. Ignoring essential complexity often leads to increased accidental complexity, making projects cumbersome and prone to becoming legacy systems quickly.
 
-![todo](/images/posts/2024-07-18-gophercon-eu-berlin-2024/03-ddd-01.png)
+![DDD, don't need it yet ?](/images/posts/2024-07-18-gophercon-eu-berlin-2024/03-ddd-01.png)
 
 
 To illustrate the problem, the engineer introduced a fictional company, Bing Mate, which developed an API for issuing invoices and processing payments. Initially, the company delivered new features weekly. However, a year later, despite maintaining a healthy codebase, they struggled to implement similar features promptly, triggering concerns about their productivity.
@@ -55,7 +55,7 @@ Bing Mate attempted to solve their issue by hiring more developers and transitio
 
 While these patterns provide a solid starting point, they represent just a fraction of what DDD offers. Domain-Driven Design encompasses a wide array of techniques that address various aspects of software development, from architecture to requirement gathering. By integrating these patterns into their projects, developers can create more maintainable and scalable systems, ultimately leading to more efficient software delivery.
 
-![todo](/images/posts/2024-07-18-gophercon-eu-berlin-2024/04-ddd-02.png)
+![Github wild-workouts-go-ddd-example repository for DDD example application in GO](/images/posts/2024-07-18-gophercon-eu-berlin-2024/04-ddd-02.png)
 
 The engineer concluded the talk by emphasizing the importance of understanding and utilizing DDD, especially in complex projects. They also provided materials and resources for further learning, encouraging developers to explore and implement DDD in their own projects.
 
@@ -71,13 +71,9 @@ Agniva De Sarker of Mattermost delivered a detailed presentation on the intricac
 
 Agniva's insights into database connection pooling underscored the importance of an efficiently designed database schema, which defines how data is logically organized within a relational database. This includes logical constraints such as table names, fields, data types, and the relationships between these entities, all crucial for optimal performance and scalability in Go applications.
 
-![todo](/images/posts/2024-07-18-gophercon-eu-berlin-2024/05-db-connection-pool-01.png)
-![todo](/images/posts/2024-07-18-gophercon-eu-berlin-2024/06-db-connection-pool-02.png)
-![todo](/images/posts/2024-07-18-gophercon-eu-berlin-2024/07-db-connection-pool-03.png)
-
-## Java to Go - Martin Gallauner
-
-Empty, to be removed I guess?
+![DB connection pool, DB hierarchy](/images/posts/2024-07-18-gophercon-eu-berlin-2024/05-db-connection-pool-01.png)
+![DB connection pool, ideal scenario](/images/posts/2024-07-18-gophercon-eu-berlin-2024/06-db-connection-pool-02.png)
+![DB connection pool, github.com/mattermost/perseus](/images/posts/2024-07-18-gophercon-eu-berlin-2024/07-db-connection-pool-03.png)
 
 ## AI Application in Go - Travis Cline
 
@@ -96,25 +92,22 @@ Travis Cline introduced LangChainGo, a library designed to integrate Go with the
  - Advanced Agent Support
  - Deeper Integration
 
-![todo](/images/posts/2024-07-18-gophercon-eu-berlin-2024/08-ai-app-in-go-01.png)
-![todo](/images/posts/2024-07-18-gophercon-eu-berlin-2024/09-ai-app-in-go-02.png)
-![todo](/images/posts/2024-07-18-gophercon-eu-berlin-2024/10-ai-app-in-go-04.png)
+![Generative AI Ecosystem: Major Suppliers](/images/posts/2024-07-18-gophercon-eu-berlin-2024/08-ai-app-in-go-01.png)
+![Generative AI Ecosystem: Infrastructure Stack](/images/posts/2024-07-18-gophercon-eu-berlin-2024/09-ai-app-in-go-02.png)
+![LangchainGO: Using LangchainGo](/images/posts/2024-07-18-gophercon-eu-berlin-2024/10-ai-app-in-go-04.png)
 
-## Data Handling  - Chioma Onyekpere
-
-:warning: **todo**
 
 ## Concurrent Go - Raghav Roy
 
 :warning: **todo**
 
-![todo](/images/posts/2024-07-18-gophercon-eu-berlin-2024/11-concurrent-go-01.png)
+![TLA+ Definition](/images/posts/2024-07-18-gophercon-eu-berlin-2024/11-concurrent-go-01.png)
 
 ## Go Team Panel
 
 :warning: **todo**
 
-![todo](/images/posts/2024-07-18-gophercon-eu-berlin-2024/12-go-team-panel-01.png)
+![Go team panel, question time](/images/posts/2024-07-18-gophercon-eu-berlin-2024/12-go-team-panel-01.png)
 
 ## HTTP Routing - Jonathan Amsterdam
 
@@ -131,12 +124,23 @@ Hila Fish provided a comprehensive guide on creating effective technical documen
  - Code README
  - Onboarding Docs
  - Project Planning Docs
+ - Docs as Code
  - Slack Pinned Messages
+ - Slack bot
 
 ### General Guidelines
 
- 1. **Know Your Audience**: Tailor documentation for internal maintainers or external users.
+ 1. **Know Your Audience**: Tailor documentation for internal maintainers or external users. Make sure people understand it
  2. **Decide/Abide by Documentation Type**: Use markdown for docs as code, integrate diagrams, and ensure CI/CD validations.
+
+![Your code is now no more self documented](/images/posts/2024-07-18-gophercon-eu-berlin-2024/18-documentation-01.png)
+
+Her tips aim to have a well-documented code and not a self-documented one. She recommends that we should not feel forced to write everything but at least documente whatever we can and keep it simple.
+
+Below are some of the suggested links shared to help us:
+1. [Go Official Style Guide](https://go.dev/blog/godoc)
+2. [Google Style Guide](https://google.github.io/styleguide/go/)
+3. [Technical Writing Tips](https://docs.google.com/document/u/0/d/1naq4pq0otqb78hkQ8enJBLd_yHqLeMC93fFJAnaK0Rc/mobilebasic) by Hila Fish
 
 ## Frames & Pointers - Felix Geisendörfer
 
@@ -149,9 +153,9 @@ Felix Geisendörfer's session focused on performance profiling and tracing tools
  - Gotraceui
  - Traceutils
 
-![todo](/images/posts/2024-07-18-gophercon-eu-berlin-2024/13-frames-and-pointers-01.png)
-![todo](/images/posts/2024-07-18-gophercon-eu-berlin-2024/14-frames-and-pointers-02.png)
-![todo](/images/posts/2024-07-18-gophercon-eu-berlin-2024/15-frames-and-pointers-03.png)
+![Frames and pointer - tracing](/images/posts/2024-07-18-gophercon-eu-berlin-2024/13-frames-and-pointers-01.png)
+![Frames and pointer - Execution Tracer Data](/images/posts/2024-07-18-gophercon-eu-berlin-2024/14-frames-and-pointers-02.png)
+![Frames and pointer - Why is this a big deal?](/images/posts/2024-07-18-gophercon-eu-berlin-2024/15-frames-and-pointers-03.png)
 
 ## Securing Containers - Zvonimir Pavlinovic
 
@@ -177,14 +181,5 @@ Rabieh proposes some good practices:
  - when using generics is relevant
  - that can be resumed in “don’t reinvent the wheel” i.e. use native go functions instead of home made code can have impact on performances. He shares simple examples and validates them with simple benchmarks.
 
-![todo](/images/posts/2024-07-18-gophercon-eu-berlin-2024/16-anti-patterns-01.png)
-![todo](/images/posts/2024-07-18-gophercon-eu-berlin-2024/17-anti-patterns-02.png)
-
-
-## Go in Devops - Jonathan Amsterdam, Hila Fish, Mat Ryer, Johnny Boursiquot
-
-:warning: **todo**
-
-## Lightning talks
-
-:warning: **todo**
+![Antipattern](/images/posts/2024-07-18-gophercon-eu-berlin-2024/16-anti-patterns-01.png)
+![Antipattern - Error Handling](/images/posts/2024-07-18-gophercon-eu-berlin-2024/17-anti-patterns-02.png)
