@@ -99,7 +99,9 @@ Travis Cline introduced LangChainGo, a library designed to integrate Go with the
 
 ## Concurrent Go - Raghav Roy
 
-:warning: **todo**
+Raghav Roy introduced the TLA+ specification language, a formal method for verifying distributed and concurrent systems. 
+
+He demonstrated how TLA+ can be used to model and verify concurrent Go programs, ensuring that they are free from unexpected behaviors.  
 
 ![TLA+ Definition](/images/posts/2024-07-18-gophercon-eu-berlin-2024/11-concurrent-go-01.png)
 
