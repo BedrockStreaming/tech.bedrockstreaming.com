@@ -165,6 +165,8 @@ m_blanc:
   name: Maxime Blanc
   avatar: /images/avatar/m_blanc.jpeg
   url: https://maximeblanc.fr
+m_millet:
+  name: Morgan Millet
 m_mure:
   name: Mathieu Mure
   url: https://twitter.com/mathieumure
@@ -182,6 +184,8 @@ m_schneider:
   avatar: /images/avatar/m_schneider.png
 n_alscher:
   name: Nicolas Alscher
+n_boiron:
+  name: Nathan Boiron
 n_galais:
   name: Nicolas Galais
 n_saby:
@@ -283,6 +287,8 @@ v_gallissot:
 v_pelus:
   name: Valentin Pelus
   url: https://github.com/valentinpelus
+y_chauvel:
+  name: Yann Chauvel
 y_clauss:
   name: Yves Clauss
   avatar: /images/avatar/y_clauss.png
