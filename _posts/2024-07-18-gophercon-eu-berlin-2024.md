@@ -26,7 +26,7 @@ developer community.
 ## Memory Optimization - Diana Shevchenko
 
 Diana Shevchenko from Datadog delivered an enlightening session on memory management in Go, particularly focusing on how
-data on the heap is stored in chunks known as mspans. She highlighted the benefits of this approach, such as efficient
+data on the heap is stored in chunks known as `mspans`. She highlighted the benefits of this approach, such as efficient
 memory access and CPU cache optimization, while also discussing potential pitfalls like logical grouping and code
 readability challenges.
 
@@ -43,7 +43,6 @@ leads to increased accidental complexity, making projects cumbersome and prone t
 
 ![DDD, don't need it yet ?](/images/posts/2024-07-18-gophercon-eu-berlin-2024/03-ddd-01.png)
 
-
 To illustrate the problem, the engineer introduced a fictional company, Bing Mate, which developed an API for issuing
 invoices and processing payments. Initially, the company delivered new features weekly. However, a year later, despite
 maintaining a healthy codebase, they struggled to implement similar features promptly, triggering concerns about their
@@ -57,27 +56,27 @@ delivery. This led to a realization that the complexity of their microservices a
 
 In this Fake company, Emily conducted an investigation. She discovered that Bing Mate had split their monolithic
 application by database tables, resulting in closely related services that increased complexity. The solution proposed
-was to merge these related services into a more cohesive microservice, or a "micro-monolith," reducing the need for
+was to merge these related services into a more cohesive microservice, or a "micro-monolith", reducing the need for
 extensive inter-service communication. To manage the complexity of this new service, Domain-Driven Design (DDD) was
 introduced.
 
 ### Key DDD Patterns To Take Home
 
- 1. Always Keep Valid State in Memory:
- The first pattern emphasizes maintaining valid state within the application. By encapsulating the state and ensuring
-2. that only valid data can be instantiated, the integrity of the application is preserved. This is achieved by using
-3. private properties and constructors that enforce validation rules, ensuring that no invalid state can exist in memory.
+1. Always Keep Valid State in Memory:
+The first pattern emphasizes maintaining valid state within the application. By encapsulating the state and ensuring
+that only valid data can be instantiated, the integrity of the application is preserved. This is achieved by using
+private properties and constructors that enforce validation rules, ensuring that no invalid state can exist in memory.
 
- 2. Keep Domain Database-Agnostic:
- The second pattern involves separating domain logic from database logic. By using the repository pattern, interactions
-3. with the database are abstracted, allowing the domain logic to remain clean and focused on business rules. This
-4. separation not only makes the code more maintainable but also facilitates easier testing and potential database
-5. changes in the future.
+2. Keep Domain Database-Agnostic:
+The second pattern involves separating domain logic from database logic. By using the repository pattern, interactions
+with the database are abstracted, allowing the domain logic to remain clean and focused on business rules. This
+separation not only makes the code more maintainable but also facilitates testing and potential database changes in the
+future.
 
- 3. Reflect Business Logic in Code:
- The third pattern advocates for aligning code with business terminology. By using the same language and terms that
-4. business stakeholders use, the code becomes more readable and understandable for non-technical team members. This
-5. alignment enhances communication and ensures that the software accurately represents business requirements.
+3. Reflect Business Logic in Code:
+The third pattern advocates for aligning code with business terminology. By using the same language and terms that
+business stakeholders use, the code becomes more readable and understandable for non-technical team members. This
+alignment enhances communication and ensures that the software accurately represents business requirements.
 
 ### Conclusion
 
@@ -95,6 +94,7 @@ implement DDD in their own projects.
 ## DB Connection Pool - Agniva De Sarker
 
 Agniva De Sarker of Mattermost delivered a detailed presentation on the intricacies of database connection pooling in Go.
+
 He emphasized the importance of using an efficient database schema for logical database operations and discussed the
 limitations of pgbouncer. Agniva highlighted that the ideal solution is a single pool serving multiple requests,
 although Mattermost itself is not designed to be multi-tenant.
@@ -103,7 +103,7 @@ although Mattermost itself is not designed to be multi-tenant.
 
  - **Key Concepts**: Efficient database schema, pgbouncer.
  - **Project**: Mattermost's Perseus project was discontinued due to security concerns.
- - **Resource**: Mattermost Perseus Project
+ - **Resource**: [Mattermost Perseus Project](https://github.com/mattermost/perseus)
 
 Agniva's insights into database connection pooling underscored the importance of an efficiently designed database
 schema, which defines how data is logically organized within a relational database. This includes logical constraints
@@ -116,10 +116,10 @@ performance and scalability in Go applications.
 
 ## AI Application in Go - Travis Cline
 
-Travis Cline introduced LangChainGo, a library designed to integrate Go with the generative AI ecosystem. This library
-simplifies writing LLM-based programs in Go, supporting various models like ChatGPT. Travis outlined current
+Travis Cline introduced `LangChainGo`, a library designed to integrate Go with the generative AI ecosystem. This library
+simplifies writing LLM-based programs in Go, supporting various models like `ChatGPT`. Travis outlined current
 capabilities and future plans for LangChainGo, including core simplification, advanced agent support, and deeper
-integration with tools like LangSmith.
+integration with tools like `LangSmith`.
 
 ### Capabilities
 
@@ -138,10 +138,9 @@ integration with tools like LangSmith.
 ![Generative AI Ecosystem: Infrastructure Stack](/images/posts/2024-07-18-gophercon-eu-berlin-2024/09-ai-app-in-go-02.png)
 ![LangchainGO: Using LangchainGo](/images/posts/2024-07-18-gophercon-eu-berlin-2024/10-ai-app-in-go-04.png)
 
-
 ## Concurrent Go - Raghav Roy
 
-Raghav Roy introduced the TLA+ specification language, a formal method for verifying distributed and concurrent systems. 
+Raghav Roy introduced the `TLA+` specification language, a formal method for verifying distributed and concurrent systems. 
 
 He demonstrated how TLA+ can be used to model and verify concurrent Go programs, ensuring that they are free from unexpected behaviors.  
 
@@ -209,8 +208,8 @@ understand and optimize their Go applications.
 
 ## Securing Containers - Zvonimir Pavlinovic
 
-Zvonimir Pavlinovic discussed container security, introducing govulncheck, a vulnerability scanning tool developed by
-the Go team. He presented data on vulnerability findings in containers and discussed the capabilities of Scalibr, a
+Zvonimir Pavlinovic discussed container security, introducing `govulncheck`, a vulnerability scanning tool developed by
+the Go team. He presented data on vulnerability findings in containers and discussed the capabilities of `Scalibr`, a
 software composition analysis library that works across different types of binaries.
 
 ### Key Points
@@ -221,7 +220,7 @@ software composition analysis library that works across different types of binar
 
 ### Resources
 
- - [govulncheck](https://github.com/google/osv-scalibr)
+ - [govulncheck](https://go.dev/doc/security/vuln/)
  - [Scalibr](https://github.com/google/osv-scalibr)
 
 GopherCon 2024 provided a wealth of knowledge and insights into the Go programming language, from memory management and
@@ -233,7 +232,7 @@ its growing ecosystem, showcasing the dedication and innovation of the Go commun
 Rabieh proposes some good practices:
 
  - when using generics is relevant
- - that can be resumed in “don’t reinvent the wheel” i.e. use native go functions instead of home made code can have
+ - that can be resumed in “don’t reinvent the wheel” i.e. use native go functions instead of homemade code can have
  - impact on performances. He shares simple examples and validates them with simple benchmarks.
 
 ![Antipattern](/images/posts/2024-07-18-gophercon-eu-berlin-2024/16-anti-patterns-01.png)
