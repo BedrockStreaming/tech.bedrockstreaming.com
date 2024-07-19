@@ -140,9 +140,9 @@ integration with tools like `LangSmith`.
 
 ## Concurrent Go - Raghav Roy
 
-Raghav Roy introduced the `TLA+` specification language, a formal method for verifying distributed and concurrent systems. 
+Raghav Roy introduced the `TLA+` specification language, a formal method for verifying distributed and concurrent systems.
 
-He demonstrated how TLA+ can be used to model and verify concurrent Go programs, ensuring that they are free from unexpected behaviors.  
+He demonstrated how TLA+ can be used to model and verify concurrent Go programs, ensuring that they are free from unexpected behaviors.
 
 ![TLA+ Definition](/images/posts/2024-07-18-gophercon-eu-berlin-2024/11-concurrent-go-01.png)
 
@@ -237,3 +237,8 @@ Rabieh proposes some good practices:
 
 ![Antipattern](/images/posts/2024-07-18-gophercon-eu-berlin-2024/16-anti-patterns-01.png)
 ![Antipattern - Error Handling](/images/posts/2024-07-18-gophercon-eu-berlin-2024/17-anti-patterns-02.png)
+
+## Conclusion
+
+These two days were a great chance to meet people involved in the language's development and learn more about a wide range of topics related to the Go language. Because the event was so well-organized, we were able to exchange in general benevolence with a large number of GO users.
+Our only regret is the somewhat short duration of the talks, which occasionally prevented us from digging deeper into certain subjects and the lack of a Q&A period with the speakers at the conclusion of their presentation though you can still ask them questions all along the event.
