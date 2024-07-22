@@ -146,16 +146,6 @@ He demonstrated how TLA+ can be used to model and verify concurrent Go programs,
 
 ![TLA+ Definition](/images/posts/2024-07-18-gophercon-eu-berlin-2024/11-concurrent-go-01.png)
 
-## Go Team Panel
-
-:warning: **todo**
-
-![Go team panel, question time](/images/posts/2024-07-18-gophercon-eu-berlin-2024/12-go-team-panel-01.png)
-
-## HTTP Routing - Jonathan Amsterdam
-
-:warning: **todo**
-
 ## Technical Docs - Hila Fish
 
 Hila Fish provided a comprehensive guide on creating effective technical documentation. She stressed the importance of
@@ -238,7 +228,7 @@ Rabieh proposes some good practices:
 ![Antipattern](/images/posts/2024-07-18-gophercon-eu-berlin-2024/16-anti-patterns-01.png)
 ![Antipattern - Error Handling](/images/posts/2024-07-18-gophercon-eu-berlin-2024/17-anti-patterns-02.png)
 
-## Conclusion
+# Conclusion
 
 These two days were a great chance to meet people involved in the language's development and learn more about a wide range of topics related to the Go language. Because the event was so well-organized, we were able to exchange in general benevolence with a large number of GO users.
 Our only regret is the somewhat short duration of the talks, which occasionally prevented us from digging deeper into certain subjects and the lack of a Q&A period with the speakers at the conclusion of their presentation though you can still ask them questions all along the event.
