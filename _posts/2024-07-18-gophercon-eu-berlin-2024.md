@@ -221,9 +221,9 @@ its growing ecosystem, showcasing the dedication and innovation of the Go commun
 
 Rabieh proposes some good practices:
 
- - when using generics is relevant
- - that can be resumed in “don’t reinvent the wheel” i.e. use native go functions instead of homemade code can have
- - impact on performances. He shares simple examples and validates them with simple benchmarks.
+- when using generics is relevant
+- that can be resumed in “don’t reinvent the wheel” i.e. use native go functions instead of homemade code can have
+  impact on performances. He shares simple examples and validates them with simple benchmarks.
 
 ![Antipattern](/images/posts/2024-07-18-gophercon-eu-berlin-2024/16-anti-patterns-01.png)
 ![Antipattern - Error Handling](/images/posts/2024-07-18-gophercon-eu-berlin-2024/17-anti-patterns-02.png)
