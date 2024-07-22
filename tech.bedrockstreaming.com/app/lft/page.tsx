@@ -33,7 +33,27 @@ const Page = async ({ searchParams }) => {
         >
           <h1 className={"text-center my-5"}>Last Friday Talks</h1>
         </section>
-        <main className={"px-[15%]"}>
+        <main className={"px-[15%] mt-4"}>
+          <section className={"flex flex-col gap-5"}>
+            <p>
+              Last friday talks were at first internal technical conferences at
+              the end of each month given by Bedrock employees about various
+              subjects.{" "}
+              <Link
+                href={
+                  "/posts/2012-12-05-organiser-des-conferences-technique-en-interne"
+                }
+                className={"text-orange-600"}
+              >
+                The concept of LFT has been introduced in this article 🇫🇷.
+              </Link>
+            </p>
+            <p>
+              Since this article, the event has evolved to include non-technical
+              talks. Everyone can share their passion.{" "}
+            </p>
+            <p>Here are some replays of LFT available on Youtube:</p>
+          </section>
           <section className="mb-16 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
             {lfts.map((lft) => (
               <article key={lft.slug} className={"p-3"}>
@@ -43,21 +63,21 @@ const Page = async ({ searchParams }) => {
                       src={getYouTubeThumbnail(lft.youtubeId)}
                       alt={lft.title}
                       fill={true}
-                      className={"object-cover"}
+                      className={
+                        "object-cover hover:filter hover:brightness-75"
+                      }
                     />
                   </div>
                   <h4 className={"font-bold mt-2"}>{lft.title}</h4>
-                  <div
-                    className={"flex w-full justify-between gap-2 flex-wrap"}
-                  >
-                    <DateFormatter dateString={lft.date} />
-                    <Authors authors={lft.author} uppercase={false} />
-                  </div>
                 </Link>
+                <div className={"flex w-full justify-between gap-2 flex-wrap"}>
+                  <DateFormatter dateString={lft.date} />
+                  <Authors authors={lft.author} uppercase={false} />
+                </div>
               </article>
             ))}
           </section>
-          <div className={"flex items-center justify-between gap-4"}>
+          <div className={"flex items-center justify-between gap-4 mb-4"}>
             <Link
               className={
                 "border border-black text-black font-medium text-lg hover:bg-black hover:text-white transition-all p-3 rounded"

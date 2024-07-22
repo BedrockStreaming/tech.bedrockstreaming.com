@@ -26,7 +26,7 @@ const CoverImage = ({ title, src, slug }: Props) => {
     />
   );
   return (
-    <div className="sm:mx-0 relative w-full h-64">
+    <div className="sm:mx-0 relative w-full h-64 hover:scale-110 transition">
       {slug ? (
         <Link href={`/posts/${slug}`} aria-label={title}>
           {image}

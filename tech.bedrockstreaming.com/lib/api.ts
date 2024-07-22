@@ -115,6 +115,7 @@ export interface Conference {
   eventUrl: string;
   sponsored: boolean;
   hosted: boolean;
+  author_id: string;
 }
 export function getConferences() /*: Array<Partial<Conference>>*/ {
   return conferences;

@@ -27,7 +27,7 @@ const PostPreview = async ({
 }: Props) => {
   return (
     <article className={"p-[5%]"}>
-      <div className="mb-5">
+      <div className="mb-5 overflow-hidden">
         <CoverImage slug={slug} title={title} src={coverImage} />
       </div>
       <h3 className="text-5xl font-bold mb-3 tracking-tight">

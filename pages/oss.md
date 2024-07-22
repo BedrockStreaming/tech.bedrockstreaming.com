@@ -1,11 +1,3 @@
----
-layout: page
-title: OSS
-permalink: /oss/
-feature-img: "images/common/travel.jpg"
-tags: [open source, oss]
----
-
 # Open source
 
 At [Bedrock](https://www.bedrockstreaming.com/) we strongly believe in open source. We push our team members to publish their work and demand the same for our contractors.

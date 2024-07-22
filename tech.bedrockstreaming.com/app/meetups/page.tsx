@@ -4,26 +4,17 @@ import { Conference, getConferences } from "../../lib/api";
 
 export default async function Page() {
   const conferences: Conference[] = getConferences();
-  const sortedConferences = {};
-  conferences.forEach((conference) => {
-    if (!sortedConferences[conference.date.getFullYear()]) {
-      sortedConferences[conference.date.getFullYear()] = [];
+  const sortedConferences = conferences.reduce((acc, conference) => {
+    const year = conference.date.getFullYear();
+    if (!acc[year]) {
+      acc[year] = {};
     }
-    if (
-      !sortedConferences[conference.date.getFullYear()][
-        conference.eventName ?? ""
-      ]
-    ) {
-      sortedConferences[conference.date.getFullYear()][
-        conference.eventName ?? ""
-      ] = [];
+    if (!acc[year][conference.title]) {
+      acc[year][conference.title] = [];
     }
-    sortedConferences[conference.date.getFullYear()][
-      conference.eventName ?? ""
-    ].push(conference);
-  });
-
-  //TODO: display sortedConferences
+    acc[year][conference.title].push(conference);
+    return acc;
+  }, {});
   return (
     <Layout>
       <section
@@ -37,11 +28,36 @@ export default async function Page() {
           Bedrock through its actions, sponsors events in France, hosts Meetup
           and conferences in its auditorium. Each of those events is an
           opportunity for Bedrock members to give conferences in France or
-          abroad.{" "}
+          abroad.
         </p>
         <p className={"italic"}>⭐ sponsored by Bedrock 🏠 hosted by Bedrock</p>
       </section>
-      <p>{}</p>
+      <section className={"px-[15%] mb-16"}>
+        {Object.keys(sortedConferences)
+          .sort((a, b) => parseInt(b) - parseInt(a))
+          .map((year) => (
+            <div key={year}>
+              <h2 className={"text-2xl font-bold"}>{year}</h2>
+              {Object.keys(sortedConferences[year]).map((title) => (
+                <div key={title}>
+                  <ul>
+                    {sortedConferences[year][title].map(
+                      (conference: Conference) => {
+                        return (
+                          <li key={conference.title}>
+                            {`${conference.date
+                              .toLocaleDateString("fr")
+                              .slice(0, -5)} : ${conference.title}`}
+                          </li>
+                        );
+                      },
+                    )}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ))}
+      </section>
     </Layout>
   );
 }
