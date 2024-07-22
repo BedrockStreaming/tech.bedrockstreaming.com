@@ -230,5 +230,10 @@ Rabieh proposes some good practices:
 
 # Conclusion
 
-These two days were a great chance to meet people involved in the language's development and learn more about a wide range of topics related to the Go language. Because the event was so well-organized, we were able to exchange in general benevolence with a large number of GO users.
-Our only regret is the somewhat short duration of the talks, which occasionally prevented us from digging deeper into certain subjects and the lack of a Q&A period with the speakers at the conclusion of their presentation though you can still ask them questions all along the event.
+These two days were a great chance to meet people involved in the language's development and learn more about a wide
+range of topics related to the Go language. Because the event was so well-organized, we were able to exchange in general
+benevolence with a large number of GO users.
+
+Our only regret is the somewhat short duration of the talks, which occasionally prevented us from digging deeper into
+certain subjects and the lack of a Q&A period with the speakers at the conclusion of their presentation though you can
+still ask them questions all along the event.
