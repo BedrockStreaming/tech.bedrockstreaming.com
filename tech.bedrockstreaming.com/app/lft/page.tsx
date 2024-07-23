@@ -12,14 +12,8 @@ const getYouTubeThumbnail = (youtubeId: string) => {
   return `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
 };
 
-const Page = async ({ searchParams }) => {
+const Page = async () => {
   const lfts = getLfts();
-  const query = searchParams.page;
-  const page = !!query ? parseInt(query) : 1;
-  const lftsPerPage = 10;
-  const start = (page - 1) * lftsPerPage;
-  const end = start + lftsPerPage;
-  const filteredPosts = lfts.slice(start, end);
 
   return (
     <>
@@ -77,37 +71,6 @@ const Page = async ({ searchParams }) => {
               </article>
             ))}
           </section>
-          <div className={"flex items-center justify-between gap-4 mb-4"}>
-            <Link
-              className={
-                "border border-black text-black font-medium text-lg hover:bg-black hover:text-white transition-all p-3 rounded"
-              }
-              href={"/?page=" + (page - 1)}
-            >
-              ← Prev
-            </Link>
-            <p>
-              {page} / {Math.ceil(lfts.length / lftsPerPage)}
-            </p>
-            <div className={"flex gap-3"}>
-              <Link
-                href={"/?page=" + (page + 1)}
-                className={
-                  "border border-black text-black font-medium text-lg hover:bg-black hover:text-white transition-all p-3 rounded"
-                }
-              >
-                Next →
-              </Link>
-              <Link
-                href={"/?page=" + Math.ceil(lfts.length / lftsPerPage)}
-                className={
-                  "border border-black text-black font-medium text-lg hover:bg-black hover:text-white transition-all p-3 rounded"
-                }
-              >
-                {">>"}
-              </Link>
-            </div>
-          </div>
         </main>
       </Layout>
     </>

@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../../components/layout";
 import Search from "../../components/search";
-import { getAllPosts } from "../../lib/api";
+import { getAllPosts, getAllTags } from "../../lib/api";
 
 const Page = async () => {
   const posts = getAllPosts([
@@ -13,6 +13,8 @@ const Page = async () => {
     "excerpt",
     "tags",
   ]);
+  const tags = getAllTags();
+
   return (
     <Layout>
       <section
@@ -21,10 +23,8 @@ const Page = async () => {
       >
         <h1 className={"text-center my-5"}>Search</h1>
       </section>
-      <main>
-        <div className="max-w-2xl mx-auto container">
-          <Search posts={posts} />
-        </div>
+      <main className="max-w-screen-md mx-auto container">
+        <Search posts={posts} tags={tags} />
       </main>
     </Layout>
   );

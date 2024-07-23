@@ -94,6 +94,14 @@ export function getAllPosts(fields: Array<keyof Post> = []) {
   );
 }
 
+export function getAllTags() {
+  const tags = new Set<string>();
+  getAllPosts(["tags"]).forEach((post) => {
+    post.tags.forEach((tag) => tags.add(tag));
+  });
+  return Array.from(tags);
+}
+
 export function getLfts() {
   return getAllPosts([
     "title",
@@ -115,7 +123,7 @@ export interface Conference {
   eventUrl: string;
   sponsored: boolean;
   hosted: boolean;
-  author_id: string;
+  author: string;
 }
 export function getConferences() /*: Array<Partial<Conference>>*/ {
   return conferences;
