@@ -213,10 +213,6 @@ software composition analysis library that works across different types of binar
  - [govulncheck](https://go.dev/doc/security/vuln/)
  - [Scalibr](https://github.com/google/osv-scalibr)
 
-GopherCon 2024 provided a wealth of knowledge and insights into the Go programming language, from memory management and
-database pooling to AI integration and container security. The conference highlighted the continuous evolution of Go and
-its growing ecosystem, showcasing the dedication and innovation of the Go community.
-
 ## Anti Patterns - Rabieh Fashwall
 
 Rabieh proposes some good practices:
