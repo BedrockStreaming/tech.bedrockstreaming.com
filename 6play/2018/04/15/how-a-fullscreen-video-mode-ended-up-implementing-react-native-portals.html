@@ -76,7 +76,7 @@
     
     <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>How a fullscreen video mode ended up implementing React Native Portals? | Bedrock Tech Blog</title>
-<meta name="generator" content="Jekyll v4.2.2" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="How a fullscreen video mode ended up implementing React Native Portals?" />
 <meta name="author" content="Marvin Frachet (Zenika consultant)" />
 <meta property="og:locale" content="en_US" />
@@ -90,7 +90,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="How a fullscreen video mode ended up implementing React Native Portals?" />
 <script type="application/ld+json">
-{"description":"Blog technique de Bedrock","headline":"How a fullscreen video mode ended up implementing React Native Portals?","dateModified":"2018-04-15T00:00:00+00:00","datePublished":"2018-04-15T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/6play/2018/04/15/how-a-fullscreen-video-mode-ended-up-implementing-react-native-portals.html"},"url":"https://tech.bedrockstreaming.com/6play/2018/04/15/how-a-fullscreen-video-mode-ended-up-implementing-react-native-portals.html","author":{"@type":"Person","name":"Marvin Frachet (Zenika consultant)"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Blog technique de Bedrock","url":"https://tech.bedrockstreaming.com/6play/2018/04/15/how-a-fullscreen-video-mode-ended-up-implementing-react-native-portals.html","headline":"How a fullscreen video mode ended up implementing React Native Portals?","dateModified":"2018-04-15T00:00:00+00:00","datePublished":"2018-04-15T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/6play/2018/04/15/how-a-fullscreen-video-mode-ended-up-implementing-react-native-portals.html"},"author":{"@type":"Person","name":"Marvin Frachet (Zenika consultant)"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -558,10 +558,10 @@ See https://github.com/facebook/yoga for more details on how position differs be
 
 <p>It’s possible, using React Native, to use the module responsible of view management: UIManager (available directly from react-native module):</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nf">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
       <span class="c1">// Permute child at indice 0 and 1 of parent tag 6</span>
-      <span class="nx">UIManager</span><span class="p">.</span><span class="nx">manageChildren</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]);</span>
+      <span class="nx">UIManager</span><span class="p">.</span><span class="nf">manageChildren</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]);</span>
     <span class="p">},</span> <span class="mi">3000</span><span class="p">);</span>
   <span class="p">}</span>
 </code></pre></div></div>

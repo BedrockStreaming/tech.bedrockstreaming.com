@@ -76,7 +76,7 @@
     
     <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Configuration dynamique avec Symfony ExpressionLanguage | Bedrock Tech Blog</title>
-<meta name="generator" content="Jekyll v4.2.2" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="Configuration dynamique avec Symfony ExpressionLanguage" />
 <meta name="author" content="Cytron team" />
 <meta property="og:locale" content="en_US" />
@@ -90,7 +90,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Configuration dynamique avec Symfony ExpressionLanguage" />
 <script type="application/ld+json">
-{"description":"Comment utiliser le composant ExpressionLanguage de Symfony pour rendre dynamique la configuration.","headline":"Configuration dynamique avec Symfony ExpressionLanguage","dateModified":"2014-11-17T00:00:00+00:00","datePublished":"2014-11-17T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/symfony-expression-language"},"url":"https://tech.bedrockstreaming.com/symfony-expression-language","author":{"@type":"Person","name":"Cytron team"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Comment utiliser le composant ExpressionLanguage de Symfony pour rendre dynamique la configuration.","url":"https://tech.bedrockstreaming.com/symfony-expression-language","headline":"Configuration dynamique avec Symfony ExpressionLanguage","dateModified":"2014-11-17T00:00:00+00:00","datePublished":"2014-11-17T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/symfony-expression-language"},"author":{"@type":"Person","name":"Cytron team"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -409,9 +409,9 @@ Nous souhaiterions maintenant avoir aussi d’autres informations plus dynamique
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">services</span><span class="pi">:</span>
   <span class="na">m6_web_monolog_extra.expression_language</span><span class="pi">:</span>
     <span class="na">class</span><span class="pi">:</span> <span class="s">Symfony\Component\ExpressionLanguage\ExpressionLanguage</span>
-    <span class="na">public</span><span class="pi">:</span> <span class="no">false</span>
+    <span class="na">public</span><span class="pi">:</span> <span class="kc">false</span>
   <span class="na">m6_web_monolog_extra.processor.contextInformation</span><span class="pi">:</span>
-    <span class="na">abstract</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">abstract</span><span class="pi">:</span> <span class="kc">true</span>
     <span class="na">class</span><span class="pi">:</span> <span class="s">M6Web\Bundle\MonologExtraBundle\Processor\ContextInformationProcessor</span>
     <span class="na">arguments</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="err">@</span><span class="s">service_container</span>

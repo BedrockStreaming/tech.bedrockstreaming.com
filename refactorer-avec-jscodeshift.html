@@ -76,7 +76,7 @@
     
     <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Comment appliquer automatiquement des modifications sur une codebase JS 🤖 | Bedrock Tech Blog</title>
-<meta name="generator" content="Jekyll v4.2.2" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="Comment appliquer automatiquement des modifications sur une codebase JS 🤖" />
 <meta name="author" content="Martin Schneider" />
 <meta property="og:locale" content="en_US" />
@@ -90,7 +90,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Comment appliquer automatiquement des modifications sur une codebase JS 🤖" />
 <script type="application/ld+json">
-{"description":"Ou comment j’ai appris à ne plus m’en faire et à aimer JSCodeshift","headline":"Comment appliquer automatiquement des modifications sur une codebase JS 🤖","dateModified":"2022-07-26T00:00:00+00:00","datePublished":"2022-07-26T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift"},"url":"https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift","author":{"@type":"Person","name":"Martin Schneider"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Ou comment j’ai appris à ne plus m’en faire et à aimer JSCodeshift","url":"https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift","headline":"Comment appliquer automatiquement des modifications sur une codebase JS 🤖","dateModified":"2022-07-26T00:00:00+00:00","datePublished":"2022-07-26T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift"},"author":{"@type":"Person","name":"Martin Schneider"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -439,14 +439,14 @@ Si une dépendance est utilisée dans différentes parties du code et qu’un br
 
 <p>Plus simplement, quelques exemples de transformations :</p>
 <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Before</span>
-<span class="kd">const</span> <span class="nx">title1</span> <span class="o">=</span> <span class="nx">t</span><span class="p">(</span><span class="dl">'</span><span class="s1">translationKeyExample</span><span class="dl">'</span><span class="p">)</span>
-<span class="kd">const</span> <span class="nx">title2</span> <span class="o">=</span> <span class="nx">t</span><span class="p">(</span><span class="nx">labelKey</span><span class="p">,</span> <span class="p">{</span> <span class="nx">someData</span> <span class="p">},</span> <span class="nx">aNumber</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">title3</span> <span class="o">=</span> <span class="nx">t</span><span class="p">(</span><span class="dl">'</span><span class="s1">translationKeyExample</span><span class="dl">'</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">title1</span> <span class="o">=</span> <span class="nf">t</span><span class="p">(</span><span class="dl">'</span><span class="s1">translationKeyExample</span><span class="dl">'</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">title2</span> <span class="o">=</span> <span class="nf">t</span><span class="p">(</span><span class="nx">labelKey</span><span class="p">,</span> <span class="p">{</span> <span class="nx">someData</span> <span class="p">},</span> <span class="nx">aNumber</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">title3</span> <span class="o">=</span> <span class="nf">t</span><span class="p">(</span><span class="dl">'</span><span class="s1">translationKeyExample</span><span class="dl">'</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 
 <span class="c1">// After</span>
-<span class="kd">const</span> <span class="nx">title1</span> <span class="o">=</span> <span class="nx">t</span><span class="p">(</span><span class="dl">'</span><span class="s1">translationKeyExample</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Basic usecase with only one argument, nothing changed on this one</span>
-<span class="kd">const</span> <span class="nx">title2</span> <span class="o">=</span> <span class="nx">t</span><span class="p">(</span><span class="nx">labelKey</span><span class="p">,</span> <span class="p">{</span> <span class="na">data</span><span class="p">:</span> <span class="p">{</span> <span class="nx">someData</span> <span class="p">},</span> <span class="na">number</span><span class="p">:</span> <span class="nx">aNumber</span> <span class="p">});</span>
-<span class="kd">const</span> <span class="nx">title3</span> <span class="o">=</span> <span class="nx">t</span><span class="p">(</span><span class="dl">'</span><span class="s1">translationKeyExample</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span> <span class="na">number</span><span class="p">:</span> <span class="mi">0</span> <span class="p">});</span>
+<span class="kd">const</span> <span class="nx">title1</span> <span class="o">=</span> <span class="nf">t</span><span class="p">(</span><span class="dl">'</span><span class="s1">translationKeyExample</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Basic usecase with only one argument, nothing changed on this one</span>
+<span class="kd">const</span> <span class="nx">title2</span> <span class="o">=</span> <span class="nf">t</span><span class="p">(</span><span class="nx">labelKey</span><span class="p">,</span> <span class="p">{</span> <span class="na">data</span><span class="p">:</span> <span class="p">{</span> <span class="nx">someData</span> <span class="p">},</span> <span class="na">number</span><span class="p">:</span> <span class="nx">aNumber</span> <span class="p">});</span>
+<span class="kd">const</span> <span class="nx">title3</span> <span class="o">=</span> <span class="nf">t</span><span class="p">(</span><span class="dl">'</span><span class="s1">translationKeyExample</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span> <span class="na">number</span><span class="p">:</span> <span class="mi">0</span> <span class="p">});</span>
 </code></pre></div></div>
 
 <p>Dans le cas le plus basique sans les arguments optionnels <code class="language-plaintext highlighter-rouge">t(‘translationKey’)</code> nous n’avons rien à modifier, mais dans les autres cas, il y a du changement à faire. 🧹</p>
@@ -492,25 +492,25 @@ Ces scripts s’appellent des <em>codemods</em>.</p>
 
 <h2 id="en-application-">En application 💪</h2>
 
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">file</span><span class="p">:</span> <span class="nx">FileInfo</span><span class="p">,</span> <span class="nx">api</span><span class="p">:</span> <span class="nx">API</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nf">function </span><span class="p">(</span><span class="nx">file</span><span class="p">:</span> <span class="nx">FileInfo</span><span class="p">,</span> <span class="nx">api</span><span class="p">:</span> <span class="nx">API</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">const</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">jscodeshift</span><span class="p">;</span>
 
   <span class="c1">// If we don't find any "Translate" string inside our file, we can assume that it's safe to skip it</span>
-  <span class="kd">const</span> <span class="nx">regex</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="dl">'</span><span class="s1">Translate[(]</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">i</span><span class="dl">'</span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">regex</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nx">source</span><span class="p">))</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">regex</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RegExp</span><span class="p">(</span><span class="dl">'</span><span class="s1">Translate[(]</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">i</span><span class="dl">'</span><span class="p">);</span>
+  <span class="k">if </span><span class="p">(</span><span class="o">!</span><span class="nx">regex</span><span class="p">.</span><span class="nf">test</span><span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nx">source</span><span class="p">))</span> <span class="p">{</span>
     <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="k">return</span> <span class="nx">j</span><span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nx">source</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">j</span><span class="p">.</span><span class="nx">CallExpression</span><span class="p">,</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nf">j</span><span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nx">source</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="nx">j</span><span class="p">.</span><span class="nx">CallExpression</span><span class="p">,</span> <span class="p">{</span>
       <span class="na">callee</span><span class="p">:</span> <span class="p">{</span>
         <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Identifier</span><span class="dl">'</span><span class="p">,</span>
         <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">t</span><span class="dl">'</span><span class="p">,</span>
       <span class="p">},</span>
     <span class="p">})</span>
-    <span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">filterOutSimpleUsages</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">mutatePath</span><span class="p">(</span><span class="nx">j</span><span class="p">))</span>
-    <span class="p">.</span><span class="nx">toSource</span><span class="p">();</span>
+    <span class="p">.</span><span class="nf">filter</span><span class="p">(</span><span class="nx">filterOutSimpleUsages</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="nf">mutatePath</span><span class="p">(</span><span class="nx">j</span><span class="p">))</span>
+    <span class="p">.</span><span class="nf">toSource</span><span class="p">();</span>
 <span class="p">};</span>
 </code></pre></div></div>
 
@@ -521,29 +521,29 @@ Ceci permet de gagner un peu de temps sur l’exécution. ⌛️</p>
 
 <p>On passe dans un filtre qui va nous permettre d’enlever les usages de la fonction <code class="language-plaintext highlighter-rouge">t</code> avec un seul argument qui ne posent pas de problème.</p>
 
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">requiredPropertiesKeys</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">data</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">number</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">general</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">renderers</span><span class="dl">'</span><span class="p">]</span> <span class="k">as</span> <span class="kd">const</span><span class="p">;</span>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">requiredPropertiesKeys</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">data</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">number</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">general</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">renderers</span><span class="dl">'</span><span class="p">]</span> <span class="kd">as const</span><span class="p">;</span>
 
 <span class="c1">// Filter function to ensure that we enter the mutation function only if needed</span>
 <span class="kd">const</span> <span class="nx">filterOutSimpleUsages</span> <span class="o">=</span> <span class="p">(</span><span class="nx">p</span><span class="p">:</span> <span class="nx">ASTPath</span><span class="o">&lt;</span><span class="nx">CallExpression</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="kd">const</span> <span class="nx">args</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">arguments</span><span class="p">;</span>
 
   <span class="c1">// If we only have the translation key, we don't need to refactor this usage</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">args</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if </span><span class="p">(</span><span class="nx">args</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="c1">// More than 2 arguments is an absolute sign of an old usage</span>
   <span class="c1">// If second argument is not an object, we need to manually fix this case</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">args</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="o">||</span> <span class="nx">args</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="kd">type</span> <span class="o">!==</span> <span class="dl">'</span><span class="s1">ObjectExpression</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if </span><span class="p">(</span><span class="nx">args</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="o">||</span> <span class="nx">args</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="kd">type</span> <span class="o">!==</span> <span class="dl">'</span><span class="s1">ObjectExpression</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="c1">// If none of the above properties is found in second argument, we can say that this is an old usage</span>
-  <span class="k">return</span> <span class="nx">requiredPropertiesKeys</span><span class="p">.</span><span class="nx">every</span><span class="p">(</span>
+  <span class="k">return</span> <span class="nx">requiredPropertiesKeys</span><span class="p">.</span><span class="nf">every</span><span class="p">(</span>
     <span class="p">(</span><span class="nx">requiredPropertyKey</span><span class="p">)</span> <span class="o">=&gt;</span>
-      <span class="o">!</span><span class="p">(</span><span class="nx">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">as</span> <span class="nx">ObjectExpression</span><span class="p">).</span><span class="nx">properties</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span>
+      <span class="o">!</span><span class="p">(</span><span class="nx">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="kd">as </span><span class="nx">ObjectExpression</span><span class="p">).</span><span class="nx">properties</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span>
         <span class="c1">// I needed to do some TS trickery to avoid getting warnings everywhere, sorry for that</span>
-        <span class="p">(</span><span class="nx">property</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">((</span><span class="nx">property</span> <span class="k">as</span> <span class="nx">ObjectProperty</span><span class="p">).</span><span class="nx">key</span> <span class="k">as</span> <span class="nx">Identifier</span><span class="p">).</span><span class="nx">name</span> <span class="o">===</span> <span class="nx">requiredPropertyKey</span><span class="p">,</span>
+        <span class="p">(</span><span class="nx">property</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">((</span><span class="nx">property</span> <span class="kd">as </span><span class="nx">ObjectProperty</span><span class="p">).</span><span class="nx">key</span> <span class="kd">as </span><span class="nx">Identifier</span><span class="p">).</span><span class="nx">name</span> <span class="o">===</span> <span class="nx">requiredPropertyKey</span><span class="p">,</span>
       <span class="p">),</span>
   <span class="p">);</span>
 <span class="p">};</span>
@@ -553,24 +553,24 @@ Ceci permet de gagner un peu de temps sur l’exécution. ⌛️</p>
 
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Mutation function, we apply our modification to the AST</span>
 <span class="kd">const</span> <span class="nx">mutatePath</span> <span class="o">=</span> <span class="p">(</span><span class="nx">j</span><span class="p">:</span> <span class="nx">JSCodeshift</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nx">p</span><span class="p">:</span> <span class="nx">ASTPath</span><span class="o">&lt;</span><span class="nx">CallExpression</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="nx">objectProperties</span> <span class="o">=</span> <span class="nx">requiredPropertiesKeys</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">propertyKey</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">objectProperties</span> <span class="o">=</span> <span class="nx">requiredPropertiesKeys</span><span class="p">.</span><span class="nf">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">propertyKey</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="kd">const</span> <span class="nx">argument</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">arguments</span><span class="p">[</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
     <span class="c1">// If no argument or argument is a spread type, we don't take it in consideration</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">argument</span> <span class="o">||</span> <span class="nx">argument</span><span class="p">.</span><span class="kd">type</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">SpreadElement</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if </span><span class="p">(</span><span class="o">!</span><span class="nx">argument</span> <span class="o">||</span> <span class="nx">argument</span><span class="p">.</span><span class="kd">type</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">SpreadElement</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="nx">acc</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="c1">// If argument is undefined, we skip it</span>
-    <span class="k">if</span> <span class="p">((</span><span class="nx">argument</span> <span class="k">as</span> <span class="nx">Identifier</span><span class="p">).</span><span class="nx">name</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">argument</span> <span class="k">as</span> <span class="nx">Identifier</span><span class="p">).</span><span class="nx">name</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">undefined</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if </span><span class="p">((</span><span class="nx">argument</span> <span class="kd">as </span><span class="nx">Identifier</span><span class="p">).</span><span class="nx">name</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">argument</span> <span class="kd">as </span><span class="nx">Identifier</span><span class="p">).</span><span class="nx">name</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">undefined</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="nx">acc</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="c1">// We create a new object property with an identifier (the object key) and put our argument inside</span>
-    <span class="k">return</span> <span class="p">[...</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">j</span><span class="p">.</span><span class="nx">objectProperty</span><span class="p">(</span><span class="nx">j</span><span class="p">.</span><span class="nx">identifier</span><span class="p">(</span><span class="nx">propertyKey</span><span class="p">),</span> <span class="nx">argument</span><span class="p">)];</span>
-  <span class="p">},</span> <span class="p">[]</span> <span class="k">as</span> <span class="nx">ObjectProperty</span><span class="p">[]);</span>
+    <span class="k">return</span> <span class="p">[...</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">j</span><span class="p">.</span><span class="nf">objectProperty</span><span class="p">(</span><span class="nx">j</span><span class="p">.</span><span class="nf">identifier</span><span class="p">(</span><span class="nx">propertyKey</span><span class="p">),</span> <span class="nx">argument</span><span class="p">)];</span>
+  <span class="p">},</span> <span class="p">[]</span> <span class="kd">as </span><span class="nx">ObjectProperty</span><span class="p">[]);</span>
 
   <span class="c1">// Finally, we keep our translation key in first position and our newly created object in second argument</span>
-  <span class="nx">p</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">arguments</span> <span class="o">=</span> <span class="p">[</span><span class="nx">p</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">j</span><span class="p">.</span><span class="nx">objectExpression</span><span class="p">(</span><span class="nx">objectProperties</span><span class="p">)];</span>
+  <span class="nx">p</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">arguments</span> <span class="o">=</span> <span class="p">[</span><span class="nx">p</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">j</span><span class="p">.</span><span class="nf">objectExpression</span><span class="p">(</span><span class="nx">objectProperties</span><span class="p">)];</span>
 
   <span class="k">return</span> <span class="nx">p</span><span class="p">;</span>
 <span class="p">};</span>

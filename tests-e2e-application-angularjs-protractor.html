@@ -76,7 +76,7 @@
     
     <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Tests E2E sur son application AngularJS avec Protractor | Bedrock Tech Blog</title>
-<meta name="generator" content="Jekyll v4.2.2" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="Tests E2E sur son application AngularJS avec Protractor" />
 <meta name="author" content="Cytron team" />
 <meta property="og:locale" content="en_US" />
@@ -90,7 +90,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Tests E2E sur son application AngularJS avec Protractor" />
 <script type="application/ld+json">
-{"description":"Comment mettre en place des tests E2E sur son application AngularJS : outils et problématiques.","headline":"Tests E2E sur son application AngularJS avec Protractor","dateModified":"2014-09-24T00:00:00+00:00","datePublished":"2014-09-24T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/tests-e2e-application-angularjs-protractor.html"},"url":"https://tech.bedrockstreaming.com/tests-e2e-application-angularjs-protractor.html","author":{"@type":"Person","name":"Cytron team"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Comment mettre en place des tests E2E sur son application AngularJS : outils et problématiques.","url":"https://tech.bedrockstreaming.com/tests-e2e-application-angularjs-protractor.html","headline":"Tests E2E sur son application AngularJS avec Protractor","dateModified":"2014-09-24T00:00:00+00:00","datePublished":"2014-09-24T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/tests-e2e-application-angularjs-protractor.html"},"author":{"@type":"Person","name":"Cytron team"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -434,7 +434,7 @@
 <p>Puis on ajoute les tâches Grunt :</p>
 
 <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="cm">/* Gruntfile.js */</span>
-<span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+<span class="nx">grunt</span><span class="p">.</span><span class="nf">initConfig</span><span class="p">({</span>
   <span class="na">connect</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">dist</span><span class="p">:</span> <span class="p">{</span>
       <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
@@ -453,7 +453,7 @@
   <span class="p">}</span>
 <span class="p">});</span>
 
-<span class="nx">grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="dl">'</span><span class="s1">test</span><span class="dl">'</span><span class="p">,</span> <span class="p">[</span>
+<span class="nx">grunt</span><span class="p">.</span><span class="nf">registerTask</span><span class="p">(</span><span class="dl">'</span><span class="s1">test</span><span class="dl">'</span><span class="p">,</span> <span class="p">[</span>
   <span class="dl">'</span><span class="s1">build</span><span class="dl">'</span><span class="p">,</span>
   <span class="dl">'</span><span class="s1">connect:dist</span><span class="dl">'</span><span class="p">,</span>
   <span class="dl">'</span><span class="s1">protractor:local</span><span class="dl">'</span>
@@ -499,7 +499,7 @@
 <p>Notons que l’on peut lancer ses tests sur autant de couples OS/navigateurs que l’on souhaite en remplissant le tableau <code class="language-plaintext highlighter-rouge">multiCapabilities</code>. Le fichier de configuartion Grunt doit être adapté pour lancer <em>SauceConnect</em>, l’interface entre SauceLabs et l’application, avant le démarrage des tests :</p>
 
 <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="cm">/* Gruntfile.js */</span>
-<span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+<span class="nx">grunt</span><span class="p">.</span><span class="nf">initConfig</span><span class="p">({</span>
   <span class="na">connect</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">dist</span><span class="p">:</span> <span class="p">{</span>
       <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
@@ -550,22 +550,22 @@
 <span class="p">});</span>
   
 
-<span class="nx">grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="dl">'</span><span class="s1">test-e2e</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">grunt</span><span class="p">.</span><span class="nf">registerTask</span><span class="p">(</span><span class="dl">'</span><span class="s1">test-e2e</span><span class="dl">'</span><span class="p">,</span> <span class="nf">function </span><span class="p">(</span><span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">tasks</span> <span class="o">=</span> <span class="p">[</span>
     <span class="dl">'</span><span class="s1">build</span><span class="dl">'</span><span class="p">,</span>
     <span class="dl">'</span><span class="s1">connect:dist</span><span class="dl">'</span>
   <span class="p">];</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="nx">target</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">local</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">tasks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">protractor:local</span><span class="dl">'</span><span class="p">);</span>
+  <span class="k">if </span><span class="p">(</span><span class="nx">target</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">local</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">tasks</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">protractor:local</span><span class="dl">'</span><span class="p">);</span>
   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="nx">tasks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">run:installsc</span><span class="dl">'</span><span class="p">);</span>
-    <span class="nx">tasks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">run:sauceconnect</span><span class="dl">'</span><span class="p">);</span>
-    <span class="nx">tasks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">protractor:saucelabs</span><span class="dl">'</span><span class="p">);</span>
-    <span class="nx">tasks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">stop:sauceconnect</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">tasks</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">run:installsc</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">tasks</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">run:sauceconnect</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">tasks</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">protractor:saucelabs</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">tasks</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">stop:sauceconnect</span><span class="dl">'</span><span class="p">);</span>
   <span class="p">}</span>
 
-  <span class="nx">grunt</span><span class="p">.</span><span class="nx">task</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">tasks</span><span class="p">);</span>
+  <span class="nx">grunt</span><span class="p">.</span><span class="nx">task</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="nx">tasks</span><span class="p">);</span>
 <span class="p">});</span></code></pre></figure>
 
 <p>Avec cette configuration, nous lançons les tests en local sur notre machine avec la commande <code class="language-plaintext highlighter-rouge">grunt test-e2e:local</code> ou à distance sur SauceLabs avec <code class="language-plaintext highlighter-rouge">grunt test-e2e</code>.</p>
@@ -574,10 +574,10 @@
 
 <p>Le premier test que nous avons écrit pour valider l’architecture est plutôt basique :</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">Controller: MainCtrl</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">should work</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nx">browser</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">browser</span><span class="p">.</span><span class="nx">baseUrl</span><span class="p">);</span>
-    <span class="nx">expect</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nf">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">Controller: MainCtrl</span><span class="dl">'</span><span class="p">,</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="nf">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">should work</span><span class="dl">'</span><span class="p">,</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="nx">browser</span><span class="p">.</span><span class="nx">baseUrl</span><span class="p">);</span>
+    <span class="nf">expect</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="nf">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
   <span class="p">})</span>
 <span class="p">});</span></code></pre></figure>
 
@@ -605,23 +605,23 @@
 
 <p>Comme souvent dans les projets AngularJS, nous utilisons un module pour définir nos variables de configuration :</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="dl">"</span><span class="s2">config</span><span class="dl">"</span><span class="p">,</span> <span class="p">[])</span>
-  <span class="p">.</span><span class="nx">constant</span><span class="p">(</span><span class="dl">"</span><span class="s2">config</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nf">module</span><span class="p">(</span><span class="dl">"</span><span class="s2">config</span><span class="dl">"</span><span class="p">,</span> <span class="p">[])</span>
+  <span class="p">.</span><span class="nf">constant</span><span class="p">(</span><span class="dl">"</span><span class="s2">config</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span>
     <span class="dl">'</span><span class="s1">ma_variable</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">une_valeur</span><span class="dl">'</span>
   <span class="p">});</span></code></pre></figure>
 
 <p>Dans les tests e2e, on veut tout tester, en particulier les comportements qui diffèrent en fonction des valeurs de configuration. Comment faire puisque ce module est chargé une fois pour toute au lancement de l’application ? Protractor introduit la fonction <code class="language-plaintext highlighter-rouge">addMockModule</code> qui permet de bouchonner à la volée un module Angular.</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">comportement avec une autre valeur</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">browser</span><span class="p">.</span><span class="nx">addMockModule</span><span class="p">(</span><span class="dl">'</span><span class="s1">config</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  	<span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="dl">'</span><span class="s1">config</span><span class="dl">'</span><span class="p">,</span> <span class="p">[]).</span><span class="nx">constant</span><span class="p">(</span><span class="dl">'</span><span class="s1">config</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nf">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">comportement avec une autre valeur</span><span class="dl">'</span><span class="p">,</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">browser</span><span class="p">.</span><span class="nf">addMockModule</span><span class="p">(</span><span class="dl">'</span><span class="s1">config</span><span class="dl">'</span><span class="p">,</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  	<span class="nx">angular</span><span class="p">.</span><span class="nf">module</span><span class="p">(</span><span class="dl">'</span><span class="s1">config</span><span class="dl">'</span><span class="p">,</span> <span class="p">[]).</span><span class="nf">constant</span><span class="p">(</span><span class="dl">'</span><span class="s1">config</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
     		<span class="dl">'</span><span class="s1">ma_variable</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">une_autre_valeur</span><span class="dl">'</span>
   	<span class="p">});</span>
   <span class="p">});</span>
 
   <span class="c1">// mon test</span>
   
-  <span class="nx">browser</span><span class="p">.</span><span class="nx">removeMockModule</span><span class="p">(</span><span class="dl">'</span><span class="s1">config</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">browser</span><span class="p">.</span><span class="nf">removeMockModule</span><span class="p">(</span><span class="dl">'</span><span class="s1">config</span><span class="dl">'</span><span class="p">);</span>
 <span class="p">});</span></code></pre></figure>
 
 <h3 id="mocker-le-service-http">Mocker le service <code class="language-plaintext highlighter-rouge">$http</code></h3>
@@ -630,35 +630,35 @@
 
 <p>La difficulté dans notre cas réside dans le fait de pouvoir simuler le changement d’état du fichier distant dans un même test pour pouvoir vérifier les changements de vue qui en découlent. Il est possible de le faire directement via <code class="language-plaintext highlighter-rouge">$httpBackend</code> moyennant quelques acrobaties, mais la librairie <a href="https://github.com/nchaulet/httpbackend">HttpBackend</a> simplifie grandement son utilisation pour ce type de tests <sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>.</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">HttpBackend</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">httpbackend</span><span class="dl">'</span><span class="p">);</span>  
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">HttpBackend</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">httpbackend</span><span class="dl">'</span><span class="p">);</span>  
 <span class="kd">var</span> <span class="nx">backend</span><span class="p">;</span>
 
-<span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">Test workflow</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>  
-  <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">backend</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpBackend</span><span class="p">(</span><span class="nx">browser</span><span class="p">);</span>
+<span class="nf">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">Test workflow</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>  
+  <span class="nf">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">backend</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HttpBackend</span><span class="p">(</span><span class="nx">browser</span><span class="p">);</span>
   <span class="p">});</span>
 
-  <span class="nx">afterEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">backend</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+  <span class="nf">afterEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">backend</span><span class="p">.</span><span class="nf">clear</span><span class="p">();</span>
   <span class="p">});</span>
 
-  <span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">should display result when status is changed to RESULT</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">backend</span><span class="p">.</span><span class="nx">whenJSONP</span><span class="p">(</span><span class="sr">/status.json/</span><span class="p">).</span><span class="nx">respond</span><span class="p">({</span><span class="na">status</span><span class="p">:</span> <span class="dl">'</span><span class="s1">initial</span><span class="dl">'</span><span class="p">});</span>
+  <span class="nf">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">should display result when status is changed to RESULT</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">backend</span><span class="p">.</span><span class="nf">whenJSONP</span><span class="p">(</span><span class="sr">/status.json/</span><span class="p">).</span><span class="nf">respond</span><span class="p">({</span><span class="na">status</span><span class="p">:</span> <span class="dl">'</span><span class="s1">initial</span><span class="dl">'</span><span class="p">});</span>
 
-    <span class="nx">browser</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">browser</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">);</span>
 
-    <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">element</span><span class="p">(</span><span class="nx">by</span><span class="p">.</span><span class="nx">binding</span><span class="p">(</span><span class="dl">'</span><span class="s1">result</span><span class="dl">'</span><span class="p">));</span>
-    <span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">getText</span><span class="p">()).</span><span class="nx">toEqual</span><span class="p">(</span><span class="dl">'</span><span class="s1">no result</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nf">element</span><span class="p">(</span><span class="nx">by</span><span class="p">.</span><span class="nf">binding</span><span class="p">(</span><span class="dl">'</span><span class="s1">result</span><span class="dl">'</span><span class="p">));</span>
+    <span class="nf">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nf">getText</span><span class="p">()).</span><span class="nf">toEqual</span><span class="p">(</span><span class="dl">'</span><span class="s1">no result</span><span class="dl">'</span><span class="p">);</span>
     
-    <span class="nx">backend</span><span class="p">.</span><span class="nx">whenJSONP</span><span class="p">(</span><span class="sr">/status.json/</span><span class="p">).</span><span class="nx">respond</span><span class="p">({</span><span class="na">status</span><span class="p">:</span> <span class="dl">'</span><span class="s1">result</span><span class="dl">'</span><span class="p">,</span> <span class="na">percentage</span><span class="p">:</span> <span class="mi">70</span><span class="p">});</span>
+    <span class="nx">backend</span><span class="p">.</span><span class="nf">whenJSONP</span><span class="p">(</span><span class="sr">/status.json/</span><span class="p">).</span><span class="nf">respond</span><span class="p">({</span><span class="na">status</span><span class="p">:</span> <span class="dl">'</span><span class="s1">result</span><span class="dl">'</span><span class="p">,</span> <span class="na">percentage</span><span class="p">:</span> <span class="mi">70</span><span class="p">});</span>
     
-    <span class="nx">browser</span><span class="p">.</span><span class="nx">wait</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="nx">browser</span><span class="p">.</span><span class="nx">getLocationAbsUrl</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">currentUrl</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">.</span><span class="nf">wait</span><span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">browser</span><span class="p">.</span><span class="nf">getLocationAbsUrl</span><span class="p">().</span><span class="nf">then</span><span class="p">(</span><span class="nf">function </span><span class="p">(</span><span class="nx">currentUrl</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nx">currentUrl</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">https://localhost:9000/#/result</span><span class="dl">'</span><span class="p">;</span>
       <span class="p">});</span>
-    <span class="p">},</span> <span class="mi">5000</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-      <span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">getText</span><span class="p">()).</span><span class="nx">toEqual</span><span class="p">(</span><span class="dl">'</span><span class="s1">70 %</span><span class="dl">'</span><span class="p">);</span>
-      <span class="nx">done</span><span class="p">();</span>
+    <span class="p">},</span> <span class="mi">5000</span><span class="p">).</span><span class="nf">then</span><span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+      <span class="nf">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nf">getText</span><span class="p">()).</span><span class="nf">toEqual</span><span class="p">(</span><span class="dl">'</span><span class="s1">70 %</span><span class="dl">'</span><span class="p">);</span>
+      <span class="nf">done</span><span class="p">();</span>
     <span class="p">});</span>
   <span class="p">});</span>
 <span class="p">});</span></code></pre></figure>

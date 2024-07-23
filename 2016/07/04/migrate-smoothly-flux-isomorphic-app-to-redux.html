@@ -76,7 +76,7 @@
     
     <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Migrate smoothly your Flux isomorphic app to Redux | Bedrock Tech Blog</title>
-<meta name="generator" content="Jekyll v4.2.2" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="Migrate smoothly your Flux isomorphic app to Redux" />
 <meta name="author" content="Florent Dubost" />
 <meta property="og:locale" content="en_US" />
@@ -90,7 +90,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Migrate smoothly your Flux isomorphic app to Redux" />
 <script type="application/ld+json">
-{"description":"How we upgraded your big isomorphic web app from Fluxible to Redux, examples and tips.","headline":"Migrate smoothly your Flux isomorphic app to Redux","dateModified":"2016-07-04T00:00:00+00:00","datePublished":"2016-07-04T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2016/07/04/migrate-smoothly-flux-isomorphic-app-to-redux.html"},"url":"https://tech.bedrockstreaming.com/2016/07/04/migrate-smoothly-flux-isomorphic-app-to-redux.html","author":{"@type":"Person","name":"Florent Dubost"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"How we upgraded your big isomorphic web app from Fluxible to Redux, examples and tips.","url":"https://tech.bedrockstreaming.com/2016/07/04/migrate-smoothly-flux-isomorphic-app-to-redux.html","headline":"Migrate smoothly your Flux isomorphic app to Redux","dateModified":"2016-07-04T00:00:00+00:00","datePublished":"2016-07-04T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2016/07/04/migrate-smoothly-flux-isomorphic-app-to-redux.html"},"author":{"@type":"Person","name":"Florent Dubost"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -436,12 +436,12 @@
 <span class="k">import</span> <span class="nx">myReducer1</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./modules/myModule1/myModule1.reducer</span><span class="dl">'</span><span class="p">;</span>
 <span class="k">import</span> <span class="nx">myReducer2</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./modules/myModule2/myModule2.reducer</span><span class="dl">'</span><span class="p">;</span>
 
-<span class="k">export</span> <span class="k">default</span> <span class="nx">initialState</span> <span class="o">=&gt;</span> <span class="nx">createStore</span><span class="p">(</span>
-  <span class="nx">combineReducers</span><span class="p">({</span><span class="nx">myReducer1</span><span class="p">,</span> <span class="nx">myReducer2</span><span class="p">}),</span>
+<span class="k">export</span> <span class="k">default</span> <span class="nx">initialState</span> <span class="o">=&gt;</span> <span class="nf">createStore</span><span class="p">(</span>
+  <span class="nf">combineReducers</span><span class="p">({</span><span class="nx">myReducer1</span><span class="p">,</span> <span class="nx">myReducer2</span><span class="p">}),</span>
   <span class="nx">initialState</span><span class="p">,</span>
-  <span class="nx">compose</span><span class="p">(</span>
-    <span class="nx">applyMiddleware</span><span class="p">([</span><span class="nx">thunk</span><span class="p">]),</span>
-    <span class="nx">canUseDOM</span> <span class="o">&amp;&amp;</span> <span class="nb">window</span><span class="p">.</span><span class="nx">devToolsExtension</span> <span class="p">?</span> <span class="nb">window</span><span class="p">.</span><span class="nx">devToolsExtension</span><span class="p">()</span> <span class="p">:</span> <span class="nx">f</span> <span class="o">=&gt;</span> <span class="nx">f</span>
+  <span class="nf">compose</span><span class="p">(</span>
+    <span class="nf">applyMiddleware</span><span class="p">([</span><span class="nx">thunk</span><span class="p">]),</span>
+    <span class="nx">canUseDOM</span> <span class="o">&amp;&amp;</span> <span class="nb">window</span><span class="p">.</span><span class="nx">devToolsExtension</span> <span class="p">?</span> <span class="nb">window</span><span class="p">.</span><span class="nf">devToolsExtension</span><span class="p">()</span> <span class="p">:</span> <span class="nx">f</span> <span class="o">=&gt;</span> <span class="nx">f</span>
   <span class="p">)</span>
 <span class="p">);</span></code></pre></figure>
 
@@ -453,30 +453,30 @@
 <span class="k">import</span> <span class="p">{</span><span class="nx">match</span><span class="p">,</span> <span class="nx">RouterContext</span><span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react-router</span><span class="dl">'</span><span class="p">;</span>
 <span class="k">import</span> <span class="nx">configureStore</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./configureStore</span><span class="dl">'</span><span class="p">;</span>
 
-<span class="nx">processAppRequest</span><span class="p">()</span> <span class="p">{</span>
+<span class="nf">processAppRequest</span><span class="p">()</span> <span class="p">{</span>
   <span class="c1">// ...</span>
 
-  <span class="kd">const</span> <span class="nx">fluxibleContext</span> <span class="o">=</span> <span class="nx">FluxibleApp</span><span class="p">.</span><span class="nx">createContext</span><span class="p">();</span>
-  <span class="kd">const</span> <span class="nx">reduxStore</span> <span class="o">=</span> <span class="nx">configureStore</span><span class="p">(</span><span class="nx">initialState</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">fluxibleContext</span> <span class="o">=</span> <span class="nx">FluxibleApp</span><span class="p">.</span><span class="nf">createContext</span><span class="p">();</span>
+  <span class="kd">const</span> <span class="nx">reduxStore</span> <span class="o">=</span> <span class="nf">configureStore</span><span class="p">(</span><span class="nx">initialState</span><span class="p">);</span>
 
-  <span class="nx">match</span><span class="p">({</span><span class="na">routes</span><span class="p">:</span> <span class="nx">FluxibleApp</span><span class="p">.</span><span class="nx">getComponent</span><span class="p">(),</span> <span class="na">location</span><span class="p">:</span> <span class="nx">url</span><span class="p">},</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">redirectLocation</span><span class="p">,</span> <span class="nx">routerState</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nf">match</span><span class="p">({</span><span class="na">routes</span><span class="p">:</span> <span class="nx">FluxibleApp</span><span class="p">.</span><span class="nf">getComponent</span><span class="p">(),</span> <span class="na">location</span><span class="p">:</span> <span class="nx">url</span><span class="p">},</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">redirectLocation</span><span class="p">,</span> <span class="nx">routerState</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="c1">// ...</span>
 
     <span class="c1">// Original Fluxible root element</span>
-    <span class="kd">const</span> <span class="nx">rootElement</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span>
-      <span class="nx">provideContext</span><span class="p">(</span><span class="nx">RouterContext</span><span class="p">,</span> <span class="nx">customContextTypes</span><span class="p">),</span>
-      <span class="p">{...</span><span class="nx">routerState</span><span class="p">,</span> <span class="na">context</span><span class="p">:</span> <span class="nx">fluxibleContext</span><span class="p">.</span><span class="nx">getComponentContext</span><span class="p">()}</span>
+    <span class="kd">const</span> <span class="nx">rootElement</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nf">createElement</span><span class="p">(</span>
+      <span class="nf">provideContext</span><span class="p">(</span><span class="nx">RouterContext</span><span class="p">,</span> <span class="nx">customContextTypes</span><span class="p">),</span>
+      <span class="p">{...</span><span class="nx">routerState</span><span class="p">,</span> <span class="na">context</span><span class="p">:</span> <span class="nx">fluxibleContext</span><span class="p">.</span><span class="nf">getComponentContext</span><span class="p">()}</span>
     <span class="p">);</span>
 
     <span class="c1">// Now with Redux</span>
-    <span class="kd">const</span> <span class="nx">markup</span> <span class="o">=</span> <span class="nx">ReactDOMServer</span><span class="p">.</span><span class="nx">renderToString</span><span class="p">(</span>
-      <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">Provider</span><span class="p">,</span> <span class="p">{</span><span class="na">store</span><span class="p">:</span> <span class="nx">reduxStore</span><span class="p">},</span> <span class="nx">rootElement</span><span class="p">)</span>
+    <span class="kd">const</span> <span class="nx">markup</span> <span class="o">=</span> <span class="nx">ReactDOMServer</span><span class="p">.</span><span class="nf">renderToString</span><span class="p">(</span>
+      <span class="nx">React</span><span class="p">.</span><span class="nf">createElement</span><span class="p">(</span><span class="nx">Provider</span><span class="p">,</span> <span class="p">{</span><span class="na">store</span><span class="p">:</span> <span class="nx">reduxStore</span><span class="p">},</span> <span class="nx">rootElement</span><span class="p">)</span>
     <span class="p">);</span>
 
     <span class="c1">// Build state for client</span>
     <span class="kd">const</span> <span class="nx">finalState</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="p">...</span><span class="nx">FluxibleApp</span><span class="p">.</span><span class="nx">dehydrate</span><span class="p">(</span><span class="nx">fluxibleContext</span><span class="p">),</span>
-      <span class="na">reduxStoreState</span><span class="p">:</span> <span class="nx">reduxStore</span><span class="p">.</span><span class="nx">getState</span><span class="p">()</span>
+      <span class="p">...</span><span class="nx">FluxibleApp</span><span class="p">.</span><span class="nf">dehydrate</span><span class="p">(</span><span class="nx">fluxibleContext</span><span class="p">),</span>
+      <span class="na">reduxStoreState</span><span class="p">:</span> <span class="nx">reduxStore</span><span class="p">.</span><span class="nf">getState</span><span class="p">()</span>
     <span class="p">};</span>
 
     <span class="c1">// Then build the response layout with the markup and the whole state as usual</span>
@@ -493,23 +493,23 @@
 <span class="k">import</span> <span class="nx">configureStore</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./configureStore</span><span class="dl">'</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">dehydratedState</span> <span class="o">=</span> <span class="nb">window</span><span class="p">[</span><span class="nx">stateVarName</span><span class="p">];</span>
-<span class="kd">const</span> <span class="nx">reduxStore</span> <span class="o">=</span> <span class="nx">configureStore</span><span class="p">(</span><span class="nx">dehydratedState</span><span class="p">.</span><span class="nx">reduxStoreState</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">reduxStore</span> <span class="o">=</span> <span class="nf">configureStore</span><span class="p">(</span><span class="nx">dehydratedState</span><span class="p">.</span><span class="nx">reduxStoreState</span><span class="p">);</span>
 
 <span class="c1">// Fluxible rehydrate its state</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">rehydrate</span><span class="p">(</span><span class="nx">dehydratedState</span><span class="p">,</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">fluxibleContext</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="nx">app</span><span class="p">.</span><span class="nf">rehydrate</span><span class="p">(</span><span class="nx">dehydratedState</span><span class="p">,</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">fluxibleContext</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="c1">// ...</span>
 
   <span class="c1">// Original Fluxible root element</span>
-  <span class="kd">const</span> <span class="nx">rootElement</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">provideContext</span><span class="p">(</span><span class="nx">Router</span><span class="p">,</span> <span class="nx">customContextTypes</span><span class="p">),</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">rootElement</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nf">createElement</span><span class="p">(</span><span class="nf">provideContext</span><span class="p">(</span><span class="nx">Router</span><span class="p">,</span> <span class="nx">customContextTypes</span><span class="p">),</span> <span class="p">{</span>
     <span class="na">history</span><span class="p">:</span> <span class="nx">browserHistory</span><span class="p">,</span>
-    <span class="na">routes</span><span class="p">:</span> <span class="nx">app</span><span class="p">.</span><span class="nx">getComponent</span><span class="p">(),</span>
-    <span class="na">context</span><span class="p">:</span> <span class="nx">fluxibleContext</span><span class="p">.</span><span class="nx">getComponentContext</span><span class="p">()</span>
+    <span class="na">routes</span><span class="p">:</span> <span class="nx">app</span><span class="p">.</span><span class="nf">getComponent</span><span class="p">(),</span>
+    <span class="na">context</span><span class="p">:</span> <span class="nx">fluxibleContext</span><span class="p">.</span><span class="nf">getComponentContext</span><span class="p">()</span>
   <span class="p">});</span>
 
   <span class="c1">// Now with Redux</span>
-  <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
-    <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">Provider</span><span class="p">,</span> <span class="p">{</span><span class="na">store</span><span class="p">:</span> <span class="nx">reduxStore</span><span class="p">},</span> <span class="nx">rootElement</span><span class="p">),</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">rootId</span><span class="p">)</span>
+  <span class="nx">ReactDOM</span><span class="p">.</span><span class="nf">render</span><span class="p">(</span>
+    <span class="nx">React</span><span class="p">.</span><span class="nf">createElement</span><span class="p">(</span><span class="nx">Provider</span><span class="p">,</span> <span class="p">{</span><span class="na">store</span><span class="p">:</span> <span class="nx">reduxStore</span><span class="p">},</span> <span class="nx">rootElement</span><span class="p">),</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="nx">rootId</span><span class="p">)</span>
   <span class="p">);</span>
 <span class="p">});</span></code></pre></figure>
 
@@ -542,15 +542,15 @@
 
 <span class="c1">// Redux</span>
 <span class="k">export</span> <span class="kd">const</span> <span class="nx">mapStateToProps</span> <span class="o">=</span> <span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">props</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">{</span><span class="na">dataFromRedux</span><span class="p">:</span> <span class="nx">getSomeDataFromState</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">props</span><span class="p">.</span><span class="nx">myProps2</span><span class="p">)};</span>
+  <span class="k">return</span> <span class="p">{</span><span class="na">dataFromRedux</span><span class="p">:</span> <span class="nf">getSomeDataFromState</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">props</span><span class="p">.</span><span class="nx">myProps2</span><span class="p">)};</span>
 <span class="p">};</span>
 
 <span class="c1">// Fluxible</span>
-<span class="k">export</span> <span class="k">default</span> <span class="nx">connectToStores</span><span class="p">(</span>
-  <span class="nx">connect</span><span class="p">(</span><span class="nx">mapStateToProps</span><span class="p">)(</span><span class="nx">MyComponent</span><span class="p">),</span>
+<span class="k">export</span> <span class="k">default</span> <span class="nf">connectToStores</span><span class="p">(</span>
+  <span class="nf">connect</span><span class="p">(</span><span class="nx">mapStateToProps</span><span class="p">)(</span><span class="nx">MyComponent</span><span class="p">),</span>
   <span class="p">[</span><span class="nx">MyFluxibleStore</span><span class="p">],</span>
   <span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">props</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
-    <span class="na">dataFromFluxible</span><span class="p">:</span> <span class="nx">context</span><span class="p">.</span><span class="nx">getStore</span><span class="p">(</span><span class="nx">MyFluxibleStore</span><span class="p">).</span><span class="nx">getSomeData</span><span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">myProps1</span><span class="p">)</span>
+    <span class="na">dataFromFluxible</span><span class="p">:</span> <span class="nx">context</span><span class="p">.</span><span class="nf">getStore</span><span class="p">(</span><span class="nx">MyFluxibleStore</span><span class="p">).</span><span class="nf">getSomeData</span><span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">myProps1</span><span class="p">)</span>
   <span class="p">})</span>
 <span class="p">);</span></code></pre></figure>
 
@@ -581,20 +581,20 @@
 <span class="k">import</span> <span class="p">{</span><span class="nx">getSomeDataFromState</span><span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../myModule.selectors</span><span class="dl">'</span><span class="p">;</span>
 
 <span class="c1">// Fluxible wrapper depends on data from Redux state</span>
-<span class="kd">const</span> <span class="nx">MyComponentFluxibleConnector</span> <span class="o">=</span> <span class="nx">connectToStores</span><span class="p">(</span>
+<span class="kd">const</span> <span class="nx">MyComponentFluxibleConnector</span> <span class="o">=</span> <span class="nf">connectToStores</span><span class="p">(</span>
 <span class="nx">MyComponent</span><span class="p">,</span>    
   <span class="p">[</span><span class="nx">MyFluxibleStore</span><span class="p">],</span>
   <span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">props</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
-    <span class="na">dataFromFluxible</span><span class="p">:</span> <span class="nx">context</span><span class="p">.</span><span class="nx">getStore</span><span class="p">(</span><span class="nx">MyFluxibleStore</span><span class="p">).</span><span class="nx">getSomeDataFromReduxState</span><span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">myPropsFromRedux</span><span class="p">)</span>
+    <span class="na">dataFromFluxible</span><span class="p">:</span> <span class="nx">context</span><span class="p">.</span><span class="nf">getStore</span><span class="p">(</span><span class="nx">MyFluxibleStore</span><span class="p">).</span><span class="nf">getSomeDataFromReduxState</span><span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">myPropsFromRedux</span><span class="p">)</span>
   <span class="p">})</span>
 <span class="p">);</span>
 
 <span class="c1">// Redux</span>
 <span class="k">export</span> <span class="kd">const</span> <span class="nx">mapStateToProps</span> <span class="o">=</span> <span class="nx">state</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">{</span><span class="na">myPropsFromRedux</span><span class="p">:</span> <span class="nx">getSomeDataFromState</span><span class="p">(</span><span class="nx">state</span><span class="p">)};</span>
+  <span class="k">return</span> <span class="p">{</span><span class="na">myPropsFromRedux</span><span class="p">:</span> <span class="nf">getSomeDataFromState</span><span class="p">(</span><span class="nx">state</span><span class="p">)};</span>
 <span class="p">};</span>
 
-<span class="k">export</span> <span class="k">default</span> <span class="nx">connect</span><span class="p">(</span><span class="nx">mapStateToProps</span><span class="p">)(</span><span class="nx">MyComponentFluxibleConnector</span><span class="p">);</span></code></pre></figure>
+<span class="k">export</span> <span class="k">default</span> <span class="nf">connect</span><span class="p">(</span><span class="nx">mapStateToProps</span><span class="p">)(</span><span class="nx">MyComponentFluxibleConnector</span><span class="p">);</span></code></pre></figure>
 
 <ul>
   <li>If the higher connection is made on Fluxible stores (like first example of <code class="language-plaintext highlighter-rouge">myComponent.connector.js</code>), data passed to props must be immutable otherwise it can cause edge effects. Indeed, Redux wrapper component checks if it has to rerender when props change by <a href="https://github.com/reactjs/react-redux/blob/v4.4.5/src/components/connect.js#L216">comparing their references</a>. So, if we mutate data in Fluxible store when dispatch is handled, references don’t change and Redux wrapper (and sub-components) will not rerender (unless you tell the <code class="language-plaintext highlighter-rouge">connect</code> method that your component isn’t <a href="https://github.com/reactjs/react-redux/blob/v4.4.5/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options">“pure”</a>).</li>

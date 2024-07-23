@@ -76,7 +76,7 @@
     
     <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>API à consommer avec modération | Bedrock Tech Blog</title>
-<meta name="generator" content="Jekyll v4.2.2" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="API à consommer avec modération" />
 <meta name="author" content="Cytron team" />
 <meta property="og:locale" content="en_US" />
@@ -90,7 +90,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="API à consommer avec modération" />
 <script type="application/ld+json">
-{"description":"Authentification des API par nom de domaine","headline":"API à consommer avec modération","dateModified":"2014-01-08T00:00:00+00:00","datePublished":"2014-01-08T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2014/01/08/api-a-consommer-avec-moderation.html"},"url":"https://tech.bedrockstreaming.com/2014/01/08/api-a-consommer-avec-moderation.html","author":{"@type":"Person","name":"Cytron team"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Authentification des API par nom de domaine","url":"https://tech.bedrockstreaming.com/2014/01/08/api-a-consommer-avec-moderation.html","headline":"API à consommer avec modération","dateModified":"2014-01-08T00:00:00+00:00","datePublished":"2014-01-08T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2014/01/08/api-a-consommer-avec-moderation.html"},"author":{"@type":"Person","name":"Cytron team"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -423,14 +423,14 @@ Dans notre cas, chaque utilisateur possède son propre fichier de configuration 
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">firewall</span><span class="pi">:</span>
     <span class="na">user_access</span><span class="pi">:</span>
-        <span class="na">default_state</span><span class="pi">:</span> <span class="no">false</span>
+        <span class="na">default_state</span><span class="pi">:</span> <span class="kc">false</span>
         <span class="na">lists</span><span class="pi">:</span>
-            <span class="na">m6_prod</span><span class="pi">:</span> <span class="no">true</span>
-            <span class="na">m6_preprod</span><span class="pi">:</span> <span class="no">true</span>
-            <span class="na">m6_dev</span><span class="pi">:</span> <span class="no">true</span>
-            <span class="na">m6_lan</span><span class="pi">:</span> <span class="no">true</span>
-            <span class="na">m6_local</span><span class="pi">:</span> <span class="no">true</span>
-            <span class="na">m6_public</span><span class="pi">:</span> <span class="no">true</span></code></pre></figure>
+            <span class="na">m6_prod</span><span class="pi">:</span> <span class="kc">true</span>
+            <span class="na">m6_preprod</span><span class="pi">:</span> <span class="kc">true</span>
+            <span class="na">m6_dev</span><span class="pi">:</span> <span class="kc">true</span>
+            <span class="na">m6_lan</span><span class="pi">:</span> <span class="kc">true</span>
+            <span class="na">m6_local</span><span class="pi">:</span> <span class="kc">true</span>
+            <span class="na">m6_public</span><span class="pi">:</span> <span class="kc">true</span></code></pre></figure>
 
 <p>Pour plus de précisions, voir la <a href="https://github.com/BedrockStreaming/FirewallBundle#firewall-bundle-">documentation du FirewallBundle</a>.</p>
 
@@ -439,13 +439,13 @@ Dans notre cas, chaque utilisateur possède son propre fichier de configuration 
 <p>Pour gérer les autorisations d’accès des utilisateurs aux différentes routes, nous avons créé un EventListener qui écoute <code class="language-plaintext highlighter-rouge">kernel.request</code> et qui décide de laisser passer la requête ou non en fonction de la configuration de l’utilisateur.</p>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">allow</span><span class="pi">:</span>
-    <span class="na">default</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">default</span><span class="pi">:</span> <span class="kc">true</span>
     <span class="na">methods</span><span class="pi">:</span>
-        <span class="na">delete</span><span class="pi">:</span> <span class="no">false</span>
+        <span class="na">delete</span><span class="pi">:</span> <span class="kc">false</span>
     <span class="na">resources</span><span class="pi">:</span>
-        <span class="na">exam</span><span class="pi">:</span> <span class="no">false</span>
+        <span class="na">exam</span><span class="pi">:</span> <span class="kc">false</span>
     <span class="na">routes</span><span class="pi">:</span>
-        <span class="na">get_articles</span><span class="pi">:</span> <span class="no">false</span></code></pre></figure>
+        <span class="na">get_articles</span><span class="pi">:</span> <span class="kc">false</span></code></pre></figure>
 
 <p>Dans cet exemple, l’utilisateur a accès par défaut à toutes les routes sauf les méthodes <code class="language-plaintext highlighter-rouge">DELETE</code>, les routes concernant les <code class="language-plaintext highlighter-rouge">exams</code> et la route spécifique <code class="language-plaintext highlighter-rouge">get_articles</code>.</p>
 
@@ -460,8 +460,8 @@ Nous avons là-aussi créé un EventListener qui écoute cette fois <code class=
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">entities</span><span class="pi">:</span>
     <span class="na">article</span><span class="pi">:</span>
-        <span class="na">active</span><span class="pi">:</span> <span class="no">true</span>
-        <span class="na">publication</span><span class="pi">:</span> <span class="no">false</span></code></pre></figure>
+        <span class="na">active</span><span class="pi">:</span> <span class="kc">true</span>
+        <span class="na">publication</span><span class="pi">:</span> <span class="kc">false</span></code></pre></figure>
 
 <p>Afin de ne pas modifier le comportement par défaut de Doctrine, nous avons ajouté une méthode <a href="https://gist.github.com/oziks/8180382"><code class="language-plaintext highlighter-rouge">findWithContext</code></a> à nos repositories qui reprend les mêmes paramètres que la méthode <code class="language-plaintext highlighter-rouge">findBy</code> en injectant le <code class="language-plaintext highlighter-rouge">SecurityContext</code>. Cette méthode permet donc de récupérer des entités filtrées en fonction des paramètres d’un client :</p>
 

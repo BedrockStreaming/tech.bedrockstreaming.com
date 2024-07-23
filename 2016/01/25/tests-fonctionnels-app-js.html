@@ -76,7 +76,7 @@
     
     <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>On a testé fonctionnellement notre app JS | Bedrock Tech Blog</title>
-<meta name="generator" content="Jekyll v4.2.2" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="On a testé fonctionnellement notre app JS" />
 <meta name="author" content="Florent Dubost" />
 <meta property="og:locale" content="en_US" />
@@ -90,7 +90,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="On a testé fonctionnellement notre app JS" />
 <script type="application/ld+json">
-{"description":"Faire des tests fonctionnels avec Cucumber.js, WebdriverIO et PhantomJS sur une app JS isomorphique.","headline":"On a testé fonctionnellement notre app JS","dateModified":"2016-01-25T00:00:00+00:00","datePublished":"2016-01-25T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2016/01/25/tests-fonctionnels-app-js.html"},"url":"https://tech.bedrockstreaming.com/2016/01/25/tests-fonctionnels-app-js.html","author":{"@type":"Person","name":"Florent Dubost"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Faire des tests fonctionnels avec Cucumber.js, WebdriverIO et PhantomJS sur une app JS isomorphique.","url":"https://tech.bedrockstreaming.com/2016/01/25/tests-fonctionnels-app-js.html","headline":"On a testé fonctionnellement notre app JS","dateModified":"2016-01-25T00:00:00+00:00","datePublished":"2016-01-25T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2016/01/25/tests-fonctionnels-app-js.html"},"author":{"@type":"Person","name":"Florent Dubost"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -449,11 +449,11 @@ Feature: Scenarios about the cookie banner
 <p>Le fichier <code class="language-plaintext highlighter-rouge">world.js</code> est le point de départ pour Cucumber.js. C’est ici que nous initialisons WebdriverIO et que nous mettons un place un contexte qui sera disponible pour tous les tests.</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// tests/support/world.js</span>
-<span class="kd">var</span> <span class="nx">Webdriver</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">webdriverio</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./config.json</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">assert</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">Webdriver</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">webdriverio</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./config.json</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">assert</span><span class="dl">'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">browser</span> <span class="o">=</span> <span class="nx">Webdriver</span><span class="p">.</span><span class="nx">remote</span><span class="p">({</span>
+<span class="kd">var</span> <span class="nx">browser</span> <span class="o">=</span> <span class="nx">Webdriver</span><span class="p">.</span><span class="nf">remote</span><span class="p">({</span>
   <span class="na">logLevel</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">logLevel</span> <span class="o">||</span> <span class="dl">'</span><span class="s1">silent</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">host</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">webdriver</span><span class="p">.</span><span class="nx">host</span><span class="p">,</span>
   <span class="na">port</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">webdriver</span><span class="p">.</span><span class="nx">port</span><span class="p">,</span>
@@ -461,23 +461,23 @@ Feature: Scenarios about the cookie banner
   <span class="na">desiredCapabilities</span><span class="p">:</span> <span class="p">{</span><span class="na">browserName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">phantomjs</span><span class="dl">'</span><span class="p">}</span>
 <span class="p">});</span>
 
-<span class="kd">function</span> <span class="nx">WorldConstructor</span><span class="p">()</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nf">WorldConstructor</span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">world</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">browser</span><span class="p">:</span> <span class="nx">browser</span><span class="p">,</span>
 
     <span class="c1">// Global visit method</span>
-    <span class="na">visit</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">baseUrl</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
-      <span class="kd">var</span> <span class="nx">pathUrl</span> <span class="o">=</span> <span class="nx">url</span><span class="p">.</span><span class="nx">format</span><span class="p">({</span>
+    <span class="na">visit</span><span class="p">:</span> <span class="nf">function </span><span class="p">(</span><span class="nx">baseUrl</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">pathUrl</span> <span class="o">=</span> <span class="nx">url</span><span class="p">.</span><span class="nf">format</span><span class="p">({</span>
         <span class="na">pathname</span><span class="p">:</span> <span class="nx">baseUrl</span><span class="p">,</span>
         <span class="na">query</span><span class="p">:</span> <span class="nx">params</span>
       <span class="p">});</span>
 
-      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">browser</span><span class="p">.</span><span class="nx">url</span><span class="p">(</span><span class="nx">pathUrl</span><span class="p">);</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">browser</span><span class="p">.</span><span class="nf">url</span><span class="p">(</span><span class="nx">pathUrl</span><span class="p">);</span>
     <span class="p">},</span>
 
     <span class="c1">// Take screenshot</span>
-    <span class="na">screenshot</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">filename</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="nx">browser</span><span class="p">.</span><span class="nx">saveScreenshot</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">screenshot</span><span class="p">.</span><span class="nx">path</span><span class="p">,</span> <span class="nx">filename</span><span class="p">));</span>
+    <span class="na">screenshot</span><span class="p">:</span> <span class="nf">function </span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">browser</span><span class="p">.</span><span class="nf">saveScreenshot</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">screenshot</span><span class="p">.</span><span class="nx">path</span><span class="p">,</span> <span class="nx">filename</span><span class="p">));</span>
     <span class="p">},</span>
 
     <span class="na">assert</span><span class="p">:</span> <span class="p">{</span>
@@ -487,7 +487,7 @@ Feature: Scenarios about the cookie banner
        * @param selector    {String}   Can be query multiple DOM elements
        * @param failMessage {String}   Fail message if no visible
        */</span>
-      <span class="na">visible</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">selector</span><span class="p">,</span> <span class="nx">failMessage</span><span class="p">)</span> <span class="p">{</span>
+      <span class="na">visible</span><span class="p">:</span> <span class="nf">function </span><span class="p">(</span><span class="nx">selector</span><span class="p">,</span> <span class="nx">failMessage</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// ...</span>
       <span class="p">},</span>
     <span class="p">}</span>
@@ -504,30 +504,30 @@ Feature: Scenarios about the cookie banner
 <p>Cucumber.js permet de déclencher des traitements sur <a href="https://github.com/cucumber/cucumber-js#hooks">certains évènements clés</a> lors de l’exécution de la suite de tests. Nous utilisons ce système pour réaliser une capture d’écran sur chaque scénario de test en échec qui viendra s’ajouter dans le dossier <code class="language-plaintext highlighter-rouge">screenshots</code>.</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// tests/support/hook.js</span>
-<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./config.json</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">sprintf</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">sprintf-js</span><span class="dl">'</span><span class="p">).</span><span class="nx">sprintf</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./config.json</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">sprintf</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">sprintf-js</span><span class="dl">'</span><span class="p">).</span><span class="nx">sprintf</span><span class="p">;</span>
 
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">Before</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">scenario</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">browser</span><span class="p">.</span><span class="nx">init</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">browser</span><span class="p">.</span><span class="nx">setViewportSize</span><span class="p">({</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nc">Before</span><span class="p">(</span><span class="nf">function </span><span class="p">(</span><span class="nx">scenario</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">browser</span><span class="p">.</span><span class="nf">init</span><span class="p">().</span><span class="nf">then</span><span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">browser</span><span class="p">.</span><span class="nf">setViewportSize</span><span class="p">({</span>
         <span class="na">width</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">screenshot</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span>
         <span class="na">height</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">screenshot</span><span class="p">.</span><span class="nx">height</span>
       <span class="p">});</span>
-    <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+    <span class="p">}.</span><span class="nf">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
   <span class="p">});</span>
 
-  <span class="k">this</span><span class="p">.</span><span class="nx">After</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">scenario</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">scenario</span><span class="p">.</span><span class="nx">isFailed</span><span class="p">())</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">screenshot</span><span class="p">(</span><span class="nx">sprintf</span><span class="p">(</span>
+  <span class="k">this</span><span class="p">.</span><span class="nc">After</span><span class="p">(</span><span class="nf">function </span><span class="p">(</span><span class="nx">scenario</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if </span><span class="p">(</span><span class="nx">scenario</span><span class="p">.</span><span class="nf">isFailed</span><span class="p">())</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nf">screenshot</span><span class="p">(</span><span class="nf">sprintf</span><span class="p">(</span>
         <span class="dl">'</span><span class="s1">%s_%d.png</span><span class="dl">'</span><span class="p">,</span>
-        <span class="nx">scenario</span><span class="p">.</span><span class="nx">getName</span><span class="p">().</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">-</span><span class="dl">'</span><span class="p">),</span>
-        <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">()</span>
-      <span class="p">)).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">browser</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
-      <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+        <span class="nx">scenario</span><span class="p">.</span><span class="nf">getName</span><span class="p">().</span><span class="nf">toLowerCase</span><span class="p">().</span><span class="nf">replace</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">-</span><span class="dl">'</span><span class="p">),</span>
+        <span class="k">new</span> <span class="nc">Date</span><span class="p">().</span><span class="nf">getTime</span><span class="p">()</span>
+      <span class="p">)).</span><span class="nf">then</span><span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">browser</span><span class="p">.</span><span class="nf">end</span><span class="p">();</span>
+      <span class="p">}.</span><span class="nf">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">browser</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">browser</span><span class="p">.</span><span class="nf">end</span><span class="p">();</span>
     <span class="p">}</span>
   <span class="p">});</span>
 <span class="p">};</span></code></pre></figure>
@@ -536,9 +536,9 @@ Feature: Scenarios about the cookie banner
 <p>Ce sont les fichiers qui font le lien entre les features (écrit en langage naturel) et WebdriverIO (initialisé dans <code class="language-plaintext highlighter-rouge">world.js</code>).</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// tests/step_definitions/cookie.steps.js</span>
-<span class="kd">var</span> <span class="nx">sprintf</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">sprintf-js</span><span class="dl">'</span><span class="p">).</span><span class="nx">sprintf</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">sprintf</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">sprintf-js</span><span class="dl">'</span><span class="p">).</span><span class="nx">sprintf</span><span class="p">;</span>
 
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
   <span class="cm">/**
    * Visit a page
    *
@@ -546,10 +546,10 @@ Feature: Scenarios about the cookie banner
    *
    * @require config routes object
    */</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">When</span><span class="p">(</span><span class="sr">/^I visit the "</span><span class="se">([^</span><span class="sr">"</span><span class="se">]</span><span class="sr">*</span><span class="se">)</span><span class="sr">" page$/</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">page</span><span class="p">)</span> <span class="p">{</span>    
-    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getRoute</span><span class="p">(</span><span class="nx">page</span><span class="p">)).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">assert</span><span class="p">.</span><span class="nx">existing</span><span class="p">(</span><span class="dl">'</span><span class="s1">#__main</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">React application is not loaded.</span><span class="dl">'</span><span class="p">);</span>
-    <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+  <span class="k">this</span><span class="p">.</span><span class="nc">When</span><span class="p">(</span><span class="sr">/^I visit the "</span><span class="se">([^</span><span class="sr">"</span><span class="se">]</span><span class="sr">*</span><span class="se">)</span><span class="sr">" page$/</span><span class="p">,</span> <span class="nf">function </span><span class="p">(</span><span class="nx">page</span><span class="p">)</span> <span class="p">{</span>    
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nf">visit</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nf">getRoute</span><span class="p">(</span><span class="nx">page</span><span class="p">)).</span><span class="nf">then</span><span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">assert</span><span class="p">.</span><span class="nf">existing</span><span class="p">(</span><span class="dl">'</span><span class="s1">#__main</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">React application is not loaded.</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}.</span><span class="nf">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
   <span class="p">});</span>
 
   <span class="cm">/**
@@ -557,10 +557,10 @@ Feature: Scenarios about the cookie banner
    *
    * @param label {String}   DOM selector label
    */</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">When</span><span class="p">(</span><span class="sr">/^I click on "</span><span class="se">([^</span><span class="sr">"</span><span class="se">]</span><span class="sr">*</span><span class="se">)</span><span class="sr">"$/</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">label</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">selector</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getDOMSelector</span><span class="p">(</span><span class="nx">label</span><span class="p">);</span>
+  <span class="k">this</span><span class="p">.</span><span class="nc">When</span><span class="p">(</span><span class="sr">/^I click on "</span><span class="se">([^</span><span class="sr">"</span><span class="se">]</span><span class="sr">*</span><span class="se">)</span><span class="sr">"$/</span><span class="p">,</span> <span class="nf">function </span><span class="p">(</span><span class="nx">label</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">selector</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nf">getDOMSelector</span><span class="p">(</span><span class="nx">label</span><span class="p">);</span>
     
-    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="nx">selector</span><span class="p">);</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nf">click</span><span class="p">(</span><span class="nx">selector</span><span class="p">);</span>
   <span class="p">});</span>
 
   <span class="cm">/**
@@ -570,11 +570,11 @@ Feature: Scenarios about the cookie banner
    *
    * @require config DOMSelectors object
    */</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">Then</span><span class="p">(</span><span class="sr">/^I should see a "</span><span class="se">([^</span><span class="sr">"</span><span class="se">]</span><span class="sr">*</span><span class="se">)</span><span class="sr">"$/</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">label</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">selector</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getDOMSelector</span><span class="p">(</span><span class="nx">label</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">failMessage</span> <span class="o">=</span> <span class="nx">sprintf</span><span class="p">(</span><span class="dl">'</span><span class="s1">%s is not visible</span><span class="dl">'</span><span class="p">,</span> <span class="nx">label</span><span class="p">);</span>
+  <span class="k">this</span><span class="p">.</span><span class="nc">Then</span><span class="p">(</span><span class="sr">/^I should see a "</span><span class="se">([^</span><span class="sr">"</span><span class="se">]</span><span class="sr">*</span><span class="se">)</span><span class="sr">"$/</span><span class="p">,</span> <span class="nf">function </span><span class="p">(</span><span class="nx">label</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">selector</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nf">getDOMSelector</span><span class="p">(</span><span class="nx">label</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">failMessage</span> <span class="o">=</span> <span class="nf">sprintf</span><span class="p">(</span><span class="dl">'</span><span class="s1">%s is not visible</span><span class="dl">'</span><span class="p">,</span> <span class="nx">label</span><span class="p">);</span>
     
-    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">assert</span><span class="p">.</span><span class="nx">visible</span><span class="p">(</span><span class="nx">selector</span><span class="p">,</span> <span class="nx">failMessage</span><span class="p">);</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">assert</span><span class="p">.</span><span class="nf">visible</span><span class="p">(</span><span class="nx">selector</span><span class="p">,</span> <span class="nx">failMessage</span><span class="p">);</span>
   <span class="p">});</span>
 
   <span class="c1">// ...</span>

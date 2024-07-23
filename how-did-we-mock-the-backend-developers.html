@@ -76,7 +76,7 @@
     
     <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>How did we mock the backend developers? | Bedrock Tech Blog</title>
-<meta name="generator" content="Jekyll v4.2.2" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="How did we mock the backend developers?" />
 <meta name="author" content="Cytron team" />
 <meta property="og:locale" content="en_US" />
@@ -90,7 +90,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="How did we mock the backend developers?" />
 <script type="application/ld+json">
-{"description":"Presentation of the superagent-mock library, a superagent plugin allowing to simulate HTTP calls by returning data fixtures based on the requested URL.","headline":"How did we mock the backend developers?","dateModified":"2015-03-30T00:00:00+00:00","datePublished":"2015-03-30T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/how-did-we-mock-the-backend-developers"},"url":"https://tech.bedrockstreaming.com/how-did-we-mock-the-backend-developers","author":{"@type":"Person","name":"Cytron team"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Presentation of the superagent-mock library, a superagent plugin allowing to simulate HTTP calls by returning data fixtures based on the requested URL.","url":"https://tech.bedrockstreaming.com/how-did-we-mock-the-backend-developers","headline":"How did we mock the backend developers?","dateModified":"2015-03-30T00:00:00+00:00","datePublished":"2015-03-30T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/how-did-we-mock-the-backend-developers"},"author":{"@type":"Person","name":"Cytron team"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -428,7 +428,7 @@
   <span class="p">{</span>
     <span class="na">pattern</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://tech.bedrockstreaming.com/api/authors</span><span class="dl">'</span><span class="p">,</span>
     <span class="na">fixtures</span><span class="p">:</span> <span class="dl">'</span><span class="s1">./authors.js</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">callback</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">match</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="na">callback</span><span class="p">:</span> <span class="nf">function </span><span class="p">(</span><span class="nx">match</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="p">{</span> <span class="na">body</span> <span class="p">:</span> <span class="nx">data</span> <span class="p">};</span>
     <span class="p">}</span>
 <span class="p">];</span></code></pre></figure>
@@ -442,7 +442,7 @@
 <p>Next, you have to create the fixture file. This is a JS file exposing a function returning the mocked data.</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// ./authors.js file</span>
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="na">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -456,9 +456,9 @@
 <p>Finally, at the top of the file called by node, you have to patch <a href="https://visionmedia.github.io/superagent/">superagent</a> with <a href="https://github.com/BedrockStreaming/superagent-mock">superagent-mock</a> this way:</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// ./server.js file</span>
-<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">superagent</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./config.js</span><span class="dl">'</span><span class="p">);</span>
-<span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">superagent-mock</span><span class="dl">'</span><span class="p">)(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">config</span><span class="p">);</span></code></pre></figure>
+<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">superagent</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./config.js</span><span class="dl">'</span><span class="p">);</span>
+<span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">superagent-mock</span><span class="dl">'</span><span class="p">)(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">config</span><span class="p">);</span></code></pre></figure>
 
 <p>Those few lines allow us to overload some superagent methods to apply the configuration of the mocked requests (check the <a href="https://github.com/BedrockStreaming/superagent-mock/blob/master/superagent-mock.js">source code</a>).</p>
 

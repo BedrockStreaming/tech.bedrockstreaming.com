@@ -76,7 +76,7 @@
     
     <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>You Need a Custom Gradle Plugin, and Here’s Why | Bedrock Tech Blog</title>
-<meta name="generator" content="Jekyll v4.2.2" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="You Need a Custom Gradle Plugin, and Here’s Why" />
 <meta name="author" content="Baptiste Candellier" />
 <meta property="og:locale" content="en_US" />
@@ -90,7 +90,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="You Need a Custom Gradle Plugin, and Here’s Why" />
 <script type="application/ld+json">
-{"description":"Convention plugins are the recommended way to modularize your builds. Let’s see how to write one.","headline":"You Need a Custom Gradle Plugin, and Here’s Why","dateModified":"2023-07-07T00:00:00+00:00","datePublished":"2023-07-07T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2023/07/07/gradle-convention-plugins.html"},"url":"https://tech.bedrockstreaming.com/2023/07/07/gradle-convention-plugins.html","author":{"@type":"Person","name":"Baptiste Candellier"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Convention plugins are the recommended way to modularize your builds. Let’s see how to write one.","url":"https://tech.bedrockstreaming.com/2023/07/07/gradle-convention-plugins.html","headline":"You Need a Custom Gradle Plugin, and Here’s Why","dateModified":"2023-07-07T00:00:00+00:00","datePublished":"2023-07-07T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2023/07/07/gradle-convention-plugins.html"},"author":{"@type":"Person","name":"Baptiste Candellier"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -472,16 +472,16 @@
 <span class="py">jvm</span> <span class="p">=</span> <span class="s">"17"</span>
 
 <span class="nn">[libraries]</span>
-<span class="nn">android-billingclient-core</span> <span class="o">=</span> <span class="p">{</span> <span class="py">module</span> <span class="p">=</span> <span class="s">"com.android.billingclient:billing"</span><span class="p">,</span> <span class="py">version.ref</span> <span class="p">=</span> <span class="s">"billing"</span> <span class="p">}</span>
-<span class="nn">android-billingclient-ktx</span> <span class="o">=</span> <span class="p">{</span> <span class="py">module</span> <span class="p">=</span> <span class="s">"com.android.billingclient:billing-ktx"</span><span class="p">,</span> <span class="py">version.ref</span> <span class="p">=</span> <span class="s">"billing"</span> <span class="p">}</span>
-<span class="nn">android-gradle</span> <span class="o">=</span> <span class="p">{</span> <span class="py">module</span> <span class="p">=</span> <span class="s">"com.android.tools.build:gradle"</span><span class="p">,</span> <span class="py">version.ref</span> <span class="p">=</span> <span class="s">"androidGradlePlugin"</span> <span class="p">}</span>
-<span class="nn">android-installreferrer</span> <span class="o">=</span> <span class="p">{</span> <span class="py">module</span> <span class="p">=</span> <span class="s">"com.android.installreferrer:installreferrer"</span><span class="p">,</span> <span class="py">version</span> <span class="p">=</span> <span class="s">"2.2"</span> <span class="p">}</span>
-<span class="nn">android-tools-desugar-jdk-libs</span> <span class="o">=</span> <span class="p">{</span> <span class="py">module</span> <span class="p">=</span> <span class="s">"com.android.tools:desugar_jdk_libs"</span><span class="p">,</span> <span class="py">version</span> <span class="p">=</span> <span class="s">"1.1.5"</span> <span class="p">}</span>
-<span class="nn">android-tools-lint-api</span> <span class="o">=</span> <span class="p">{</span> <span class="py">module</span> <span class="p">=</span> <span class="s">"com.android.tools.lint:lint-api"</span><span class="p">,</span> <span class="py">version.ref</span> <span class="p">=</span> <span class="s">"lint"</span> <span class="p">}</span>
+<span class="py">android-billingclient-core</span> <span class="o">=</span> <span class="p">{</span> <span class="py">module</span> <span class="p">=</span> <span class="s">"com.android.billingclient:billing"</span><span class="p">,</span> <span class="py">version.ref</span> <span class="p">=</span> <span class="s">"billing"</span> <span class="p">}</span>
+<span class="py">android-billingclient-ktx</span> <span class="o">=</span> <span class="p">{</span> <span class="py">module</span> <span class="p">=</span> <span class="s">"com.android.billingclient:billing-ktx"</span><span class="p">,</span> <span class="py">version.ref</span> <span class="p">=</span> <span class="s">"billing"</span> <span class="p">}</span>
+<span class="py">android-gradle</span> <span class="o">=</span> <span class="p">{</span> <span class="py">module</span> <span class="p">=</span> <span class="s">"com.android.tools.build:gradle"</span><span class="p">,</span> <span class="py">version.ref</span> <span class="p">=</span> <span class="s">"androidGradlePlugin"</span> <span class="p">}</span>
+<span class="py">android-installreferrer</span> <span class="o">=</span> <span class="p">{</span> <span class="py">module</span> <span class="p">=</span> <span class="s">"com.android.installreferrer:installreferrer"</span><span class="p">,</span> <span class="py">version</span> <span class="p">=</span> <span class="s">"2.2"</span> <span class="p">}</span>
+<span class="py">android-tools-desugar-jdk-libs</span> <span class="o">=</span> <span class="p">{</span> <span class="py">module</span> <span class="p">=</span> <span class="s">"com.android.tools:desugar_jdk_libs"</span><span class="p">,</span> <span class="py">version</span> <span class="p">=</span> <span class="s">"1.1.5"</span> <span class="p">}</span>
+<span class="py">android-tools-lint-api</span> <span class="o">=</span> <span class="p">{</span> <span class="py">module</span> <span class="p">=</span> <span class="s">"com.android.tools.lint:lint-api"</span><span class="p">,</span> <span class="py">version.ref</span> <span class="p">=</span> <span class="s">"lint"</span> <span class="p">}</span>
 
 <span class="nn">[plugins]</span>
-<span class="nn">android-app</span> <span class="o">=</span> <span class="p">{</span> <span class="py">id</span> <span class="p">=</span> <span class="s">"com.android.application"</span><span class="p">,</span> <span class="py">version.ref</span> <span class="p">=</span> <span class="s">"androidGradlePlugin"</span> <span class="p">}</span>
-<span class="nn">android-library</span> <span class="o">=</span> <span class="p">{</span> <span class="py">id</span> <span class="p">=</span> <span class="s">"com.android.library"</span><span class="p">,</span> <span class="py">version.ref</span> <span class="p">=</span> <span class="s">"androidGradlePlugin"</span> <span class="p">}</span>
+<span class="py">android-app</span> <span class="o">=</span> <span class="p">{</span> <span class="py">id</span> <span class="p">=</span> <span class="s">"com.android.application"</span><span class="p">,</span> <span class="py">version.ref</span> <span class="p">=</span> <span class="s">"androidGradlePlugin"</span> <span class="p">}</span>
+<span class="py">android-library</span> <span class="o">=</span> <span class="p">{</span> <span class="py">id</span> <span class="p">=</span> <span class="s">"com.android.library"</span><span class="p">,</span> <span class="py">version.ref</span> <span class="p">=</span> <span class="s">"androidGradlePlugin"</span> <span class="p">}</span>
 </code></pre></div></div>
 
 <p>This format has been great, even for a project as big as ours. It’s flexible: you can now store library versions, but plugin versions as well, and even just plain versions, which you can get from your custom plugin later on!</p>

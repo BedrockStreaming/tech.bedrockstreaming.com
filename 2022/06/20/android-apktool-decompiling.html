@@ -76,7 +76,7 @@
     
     <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Debugging and reviewing your Android dependencies with apktool | Bedrock Tech Blog</title>
-<meta name="generator" content="Jekyll v4.2.2" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="Debugging and reviewing your Android dependencies with apktool" />
 <meta name="author" content="Baptiste Candellier" />
 <meta property="og:locale" content="en_US" />
@@ -90,7 +90,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Debugging and reviewing your Android dependencies with apktool" />
 <script type="application/ld+json">
-{"description":"How decompiling your Android app using apktool can help you find the source of instrumentation issues at the bytecode level, as well as improve your review process.","headline":"Debugging and reviewing your Android dependencies with apktool","dateModified":"2022-06-20T00:00:00+00:00","datePublished":"2022-06-20T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html"},"url":"https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html","author":{"@type":"Person","name":"Baptiste Candellier"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"How decompiling your Android app using apktool can help you find the source of instrumentation issues at the bytecode level, as well as improve your review process.","url":"https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html","headline":"Debugging and reviewing your Android dependencies with apktool","dateModified":"2022-06-20T00:00:00+00:00","datePublished":"2022-06-20T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html"},"author":{"@type":"Person","name":"Baptiste Candellier"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -642,19 +642,19 @@ invoke-virtual                                                                  
 <div class="language-diff highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gd">--- normal/smali/com/squareup/picasso/NetworkRequestHandler.smali	2022-01-05 11:09:22.000000000 +0100
 </span><span class="gi">+++ instrumented/smali/com/squareup/picasso/NetworkRequestHandler.smali	2022-01-05 11:08:34.000000000 +0100
 </span><span class="p">@@ -128,10 +128,26 @@</span>
-
-     .line 103
+<span class="err">
+</span>     .line 103
      :cond_4
 <span class="gi">+    instance-of v2, v1, Lokhttp3/Request$Builder;
 +
 +    if-nez v2, :cond_5
 +
 </span>     invoke-virtual {v1}, Lokhttp3/Request$Builder;-&gt;build()Lokhttp3/Request;
-
-     move-result-object v2
-
-+    goto :goto_1
-<span class="gi">+
+<span class="err">
+</span>     move-result-object v2
+<span class="err">
+</span><span class="gi">+    goto :goto_1
++
 +    :cond_5
 +    move-object v2, v1
 +
@@ -743,9 +743,9 @@ Install command complete in 445 ms
 
 <div class="language-diff highlighter-rouge"><div class="highlight"><pre class="highlight"><code> .../okhttp3/internal/http/CallServerInterceptor.smali         | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali b/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali
-<span class="gh">index c916149f..c26eab15 100644
+<span class="err">
+</span><span class="gh">diff --git a/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali b/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali
+index c916149f..c26eab15 100644
 </span><span class="gd">--- a/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali
 </span><span class="gi">+++ b/apk/smali_classes2/okhttp3/internal/http/CallServerInterceptor.smali
 </span><span class="p">@@ -510,7 +510,7 @@</span>

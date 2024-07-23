@@ -76,7 +76,7 @@
     
     <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>React/Redux: pitfalls and best practices | Bedrock Tech Blog</title>
-<meta name="generator" content="Jekyll v4.2.2" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="React/Redux: pitfalls and best practices" />
 <meta name="author" content="Antoine Caron" />
 <meta property="og:locale" content="en_US" />
@@ -90,7 +90,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="React/Redux: pitfalls and best practices" />
 <script type="application/ld+json">
-{"description":"We use React and Redux for almost 4 years at Bedrock on our video platform named 6play.Good practices and mistakes to be avoided have been gathered in this article.","headline":"React/Redux: pitfalls and best practices","dateModified":"2020-04-27T00:00:00+00:00","datePublished":"2020-04-27T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html"},"url":"https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html","author":{"@type":"Person","name":"Antoine Caron"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"We use React and Redux for almost 4 years at Bedrock on our video platform named 6play.Good practices and mistakes to be avoided have been gathered in this article.","url":"https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html","headline":"React/Redux: pitfalls and best practices","dateModified":"2020-04-27T00:00:00+00:00","datePublished":"2020-04-27T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html"},"author":{"@type":"Person","name":"Antoine Caron"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -452,7 +452,7 @@ Some very good articles explain it notably through the use of <a href="https://e
 <span class="k">import</span> <span class="p">{</span> <span class="nx">product</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./modules/user/product.reducer.js</span><span class="dl">'</span>
 <span class="k">import</span> <span class="p">{</span> <span class="nx">account</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./modules/user/account.reducer.js</span><span class="dl">'</span>
 
-<span class="k">export</span> <span class="kd">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span><span class="nx">combineReducers</span><span class="p">({</span> <span class="nx">user</span><span class="p">,</span> <span class="nx">product</span><span class="p">,</span> <span class="nx">account</span> <span class="p">}))</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nf">createStore</span><span class="p">(</span><span class="nf">combineReducers</span><span class="p">({</span> <span class="nx">user</span><span class="p">,</span> <span class="nx">product</span><span class="p">,</span> <span class="nx">account</span> <span class="p">}))</span>
 </code></pre></div></div>
 
 <p>By following this principle, you will:</p>
@@ -477,13 +477,13 @@ This can also allow you to select only the props needed for the component by dec
 <p>You can also pass parameters to a <code class="language-plaintext highlighter-rouge">selector</code> by wrapping it with a function.</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">getProduct</span> <span class="o">=</span> <span class="nx">productId</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="na">product</span><span class="p">:</span> <span class="p">{</span> <span class="nx">list</span> <span class="p">}</span> <span class="p">})</span> <span class="o">=&gt;</span>
-  <span class="nx">list</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">product</span> <span class="o">=&gt;</span> <span class="nx">product</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nx">productId</span><span class="p">)</span>
+  <span class="nx">list</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="nx">product</span> <span class="o">=&gt;</span> <span class="nx">product</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nx">productId</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>This will allow you to use them in your components using the <a href="https://redux.js.org/recipes/usage-with-typescript#typing-the-useselector-hook">useSelector</a> hook.</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">MyComponent</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="nx">product</span> <span class="o">=</span> <span class="nx">useSelector</span><span class="p">(</span><span class="nx">getProduct</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span>
+  <span class="kd">const</span> <span class="nx">product</span> <span class="o">=</span> <span class="nf">useSelector</span><span class="p">(</span><span class="nf">getProduct</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span>
   <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">product</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span><span class="p">}</span>
 </code></pre></div></div>
@@ -546,17 +546,17 @@ This function will return a new <code class="language-plaintext highlighter-roug
 
 <p>This is the standard structure for testing <a href="https://redux.js.org/basics/reducers">reducer</a>s with <a href="https://jestjs.io/">Jest</a>:</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">ReducerName</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="nx">beforeEach</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">ReducerName</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nf">beforeEach</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="c1">// Init a new state</span>
   <span class="p">})</span>
-  <span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">ACTION</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nf">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">ACTION</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="c1">// Group tests by action type</span>
-    <span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">should test action with some params</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{})</span>
-    <span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">should test action with other params</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{})</span>
+    <span class="nf">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">should test action with some params</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{})</span>
+    <span class="nf">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">should test action with other params</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{})</span>
   <span class="p">})</span>
-  <span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">SECOND_ACTION</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">should test action with some params</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{})</span>
+  <span class="nf">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">SECOND_ACTION</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nf">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">should test action with some params</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{})</span>
   <span class="p">})</span>
 <span class="p">})</span>
 </code></pre></div></div>
@@ -608,7 +608,7 @@ This package is much easier to use than tools like <a href="https://immutable-js
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="kd">set</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">immutable-set</span><span class="dl">'</span>
 
-<span class="kd">const</span> <span class="nx">newState</span> <span class="o">=</span> <span class="kd">set</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="s2">`Rhone.Villeurbanne.postal`</span><span class="p">,</span> <span class="dl">'</span><span class="s1">69100</span><span class="dl">'</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">newState</span> <span class="o">=</span> <span class="nf">set</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="s2">`Rhone.Villeurbanne.postal`</span><span class="p">,</span> <span class="dl">'</span><span class="s1">69100</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h2 id="do-not-use-the-default-case">Do not use the default case</h2>
@@ -623,8 +623,8 @@ A <code class="language-plaintext highlighter-rouge">switch</code> must always d
   <span class="na">index</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
 <span class="p">}</span>
 
-<span class="kd">function</span> <span class="nx">reducer</span><span class="p">(</span><span class="nx">initialState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nf">reducer</span><span class="p">(</span><span class="nx">initialState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">switch </span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">case</span> <span class="dl">'</span><span class="s1">FOO</span><span class="dl">'</span><span class="p">:</span>
       <span class="k">return</span> <span class="p">{</span>
         <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">foo</span><span class="dl">'</span><span class="p">,</span>
@@ -652,8 +652,8 @@ This should be avoided.</p>
 
 <p>If you want to modify the state with an action from another module, you can do so by adding a <code class="language-plaintext highlighter-rouge">case</code> on that action.</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">reducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">initialState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">reducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">initialState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">switch </span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">case</span> <span class="dl">'</span><span class="s1">FOO</span><span class="dl">'</span><span class="p">:</span>
       <span class="k">return</span> <span class="p">{</span>
         <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">foo</span><span class="dl">'</span><span class="p">,</span>
@@ -676,15 +676,15 @@ When you’re a developer, “copy-paste” is never the right way.</p>
 <p>The most common example is handling HTTP calls during an action that uses <code class="language-plaintext highlighter-rouge">redux-thunk</code>.</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span>
-  <span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://example.com/api/foo</span><span class="dl">'</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">FOO</span><span class="dl">'</span><span class="p">,</span> <span class="nx">data</span> <span class="p">}))</span>
+  <span class="nf">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://example.com/api/foo</span><span class="dl">'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">FOO</span><span class="dl">'</span><span class="p">,</span> <span class="nx">data</span> <span class="p">}))</span>
     <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
       <span class="c1">// Do something</span>
     <span class="p">})</span>
 
 <span class="k">export</span> <span class="kd">const</span> <span class="nx">bar</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span>
-  <span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://example.com/api/bar</span><span class="dl">'</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">BAR</span><span class="dl">'</span><span class="p">,</span> <span class="nx">data</span> <span class="p">}))</span>
+  <span class="nf">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://example.com/api/bar</span><span class="dl">'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">BAR</span><span class="dl">'</span><span class="p">,</span> <span class="nx">data</span> <span class="p">}))</span>
     <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
       <span class="c1">// Do something</span>
     <span class="p">})</span>
@@ -702,19 +702,19 @@ When you’re a developer, “copy-paste” is never the right way.</p>
 <p>We could very well define a middleware that would take care of this behavior.</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">store</span> <span class="o">=&gt;</span> <span class="nx">next</span> <span class="o">=&gt;</span> <span class="k">async</span> <span class="nx">action</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">http</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if </span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">http</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">try</span> <span class="p">{</span>
-      <span class="nx">action</span><span class="p">.</span><span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">http</span><span class="p">)</span>
-    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">action</span><span class="p">.</span><span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">http</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">catch </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
       <span class="c1">// Do something</span>
     <span class="p">}</span>
   <span class="p">}</span>
-  <span class="k">return</span> <span class="nx">next</span><span class="p">(</span><span class="nx">action</span><span class="p">)</span>
+  <span class="k">return</span> <span class="nf">next</span><span class="p">(</span><span class="nx">action</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="c1">// in redux store init</span>
-<span class="kd">const</span> <span class="nx">exampleApp</span> <span class="o">=</span> <span class="nx">combineReducers</span><span class="p">(</span><span class="nx">reducers</span><span class="p">)</span>
-<span class="kd">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span><span class="nx">exampleApp</span><span class="p">,</span> <span class="nx">applyMiddleware</span><span class="p">(</span><span class="nx">http</span><span class="p">))</span>
+<span class="kd">const</span> <span class="nx">exampleApp</span> <span class="o">=</span> <span class="nf">combineReducers</span><span class="p">(</span><span class="nx">reducers</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nf">createStore</span><span class="p">(</span><span class="nx">exampleApp</span><span class="p">,</span> <span class="nf">applyMiddleware</span><span class="p">(</span><span class="nx">http</span><span class="p">))</span>
 </code></pre></div></div>
 
 <p>Thus the two preceding actions could be written much more simpler:</p>
@@ -743,7 +743,7 @@ Just beware of the following traps.</p>
 <p>Let’s imagine the next <em>selector</em>:</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">getUserById</span> <span class="o">=</span> <span class="nx">userId</span> <span class="o">=&gt;</span> <span class="nx">state</span> <span class="o">=&gt;</span>
-  <span class="nx">state</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">user</span> <span class="o">=&gt;</span> <span class="nx">user</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nx">userId</span><span class="p">)</span> <span class="o">||</span> <span class="p">{}</span>
+  <span class="nx">state</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="nx">user</span> <span class="o">=&gt;</span> <span class="nx">user</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nx">userId</span><span class="p">)</span> <span class="o">||</span> <span class="p">{}</span>
 </code></pre></div></div>
 
 <p>The developer here wanted to ensure that its <em>selector</em> is null safe and always returns an <em>object</em>.
@@ -769,7 +769,7 @@ Otherwise, the default value must be extracted into a constant so that the refer
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">defaultUser</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="kd">const</span> <span class="nx">getUserById</span> <span class="o">=</span> <span class="nx">userId</span> <span class="o">=&gt;</span> <span class="nx">state</span> <span class="o">=&gt;</span>
-  <span class="nx">state</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">user</span> <span class="o">=&gt;</span> <span class="nx">user</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nx">userId</span><span class="p">)</span> <span class="o">||</span> <span class="nx">defaultUser</span>
+  <span class="nx">state</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="nx">user</span> <span class="o">=&gt;</span> <span class="nx">user</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nx">userId</span><span class="p">)</span> <span class="o">||</span> <span class="nx">defaultUser</span>
 </code></pre></div></div>
 
 <p>The same goes for the selector usage that returns a new ref at each call.
@@ -779,8 +779,8 @@ The use of the <code class="language-plaintext highlighter-rouge">filter</code> 
 Basically you should never do this:</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">getUserById</span> <span class="o">=</span> <span class="nx">state</span> <span class="o">=&gt;</span> <span class="nx">userId</span> <span class="o">=&gt;</span>
-  <span class="nx">state</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">user</span> <span class="o">=&gt;</span> <span class="nx">user</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nx">userId</span><span class="p">)</span>
-<span class="kd">const</span> <span class="nx">uider</span> <span class="o">=</span> <span class="nx">useSelector</span><span class="p">(</span><span class="nx">getUserById</span><span class="p">)(</span><span class="nx">userId</span><span class="p">)</span>
+  <span class="nx">state</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="nx">user</span> <span class="o">=&gt;</span> <span class="nx">user</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nx">userId</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">uider</span> <span class="o">=</span> <span class="nf">useSelector</span><span class="p">(</span><span class="nx">getUserById</span><span class="p">)(</span><span class="nx">userId</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>A selector should not return a <em>view</em> (a copy) of the state but directly what it contains.
@@ -793,9 +793,9 @@ Utilities such as <a href="https://www.npmjs.com/package/reselect">reselect</a> 
 We would quickly tend to generate it in the component directly.</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">MyComponent</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">useSelector</span><span class="p">(</span><span class="nx">getUser</span><span class="p">)</span>
+  <span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nf">useSelector</span><span class="p">(</span><span class="nx">getUser</span><span class="p">)</span>
 
-  <span class="k">return</span> <span class="p">(</span>
+  <span class="k">return </span><span class="p">(</span>
     <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
       <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
 </span>      <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="s2">`https://profil-pic.com/</span><span class="p">${</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="s2">`</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
@@ -807,7 +807,7 @@ We would quickly tend to generate it in the component directly.</p>
 <p>Here, the url of the image is dynamically computed in the component, and thus at each render.
 We prefer to modify our reducers in order to include a <code class="language-plaintext highlighter-rouge">profileUrl</code> attribute so that this information is directly accessible.</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">switch </span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">case</span> <span class="s2">`user/SET_USER`</span><span class="p">:</span>
     <span class="k">return</span> <span class="p">{</span>
       <span class="p">...</span><span class="nx">state</span><span class="p">,</span>

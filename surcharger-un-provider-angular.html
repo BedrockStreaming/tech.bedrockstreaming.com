@@ -76,7 +76,7 @@
     
     <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Providers AngularJS et configuration dynamique | Bedrock Tech Blog</title>
-<meta name="generator" content="Jekyll v4.2.2" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="Providers AngularJS et configuration dynamique" />
 <meta name="author" content="Cytron team" />
 <meta property="og:locale" content="en_US" />
@@ -90,7 +90,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Providers AngularJS et configuration dynamique" />
 <script type="application/ld+json">
-{"description":"Comment surcharger un provider AngularJS pour le rendre configurable dynamiquement.","headline":"Providers AngularJS et configuration dynamique","dateModified":"2014-10-09T00:00:00+00:00","datePublished":"2014-10-09T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/surcharger-un-provider-angular"},"url":"https://tech.bedrockstreaming.com/surcharger-un-provider-angular","author":{"@type":"Person","name":"Cytron team"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Comment surcharger un provider AngularJS pour le rendre configurable dynamiquement.","url":"https://tech.bedrockstreaming.com/surcharger-un-provider-angular","headline":"Providers AngularJS et configuration dynamique","dateModified":"2014-10-09T00:00:00+00:00","datePublished":"2014-10-09T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/surcharger-un-provider-angular"},"author":{"@type":"Person","name":"Cytron team"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -399,9 +399,9 @@
 
 <p>Nous allons donc mettre les mains dans l’<code class="language-plaintext highlighter-rouge">$injector</code> pour récupérer et modifier à la volée le provider :</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="dl">'</span><span class="s1">myModule</span><span class="dl">'</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">$injector</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">AnalyticsProvider</span> <span class="o">=</span> <span class="nx">$injector</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">AnalyticsProvider</span><span class="dl">'</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nf">module</span><span class="p">(</span><span class="dl">'</span><span class="s1">myModule</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">.</span><span class="nf">config</span><span class="p">(</span><span class="nf">function </span><span class="p">(</span><span class="nx">$injector</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">AnalyticsProvider</span> <span class="o">=</span> <span class="nx">$injector</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">AnalyticsProvider</span><span class="dl">'</span><span class="p">);</span>
     <span class="kd">var</span> <span class="nx">$get</span>              <span class="o">=</span> <span class="nx">AnalyticsProvider</span><span class="p">.</span><span class="nx">$get</span><span class="p">;</span>
     <span class="c1">// ...</span>
   <span class="p">});</span></code></pre></figure>
@@ -418,13 +418,13 @@
 <span class="c1">// on la remplace par notre dépendance</span>
 <span class="nx">$get</span><span class="p">[</span><span class="nx">$get</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">$route</span><span class="dl">'</span><span class="p">;</span>
 <span class="c1">// on ajoute notre nouvelle fonction à la fin du tableau</span>
-<span class="nx">$get</span><span class="p">[</span><span class="nx">$get</span><span class="p">.</span><span class="nx">length</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<span class="nx">$get</span><span class="p">[</span><span class="nx">$get</span><span class="p">.</span><span class="nx">length</span><span class="p">]</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// $route est le dernier argument</span>
     <span class="kd">var</span> <span class="nx">$route</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
     <span class="c1">// on fait notre traitement</span>
-    <span class="nx">AnalyticsProvider</span><span class="p">.</span><span class="nx">setAccount</span><span class="p">(</span><span class="nx">$route</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">partner</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">partner-account</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">own-account</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">AnalyticsProvider</span><span class="p">.</span><span class="nf">setAccount</span><span class="p">(</span><span class="nx">$route</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">partner</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">partner-account</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">own-account</span><span class="dl">'</span><span class="p">);</span>
     <span class="c1">// et qui rappelle la fonction originale</span>
-    <span class="k">return</span> <span class="nx">origFn</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">AnalyticsProvider</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">origFn</span><span class="p">.</span><span class="nf">apply</span><span class="p">(</span><span class="nx">AnalyticsProvider</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>
 <span class="p">};</span></code></pre></figure>
 
 <p>On peut noter l’utilisation de l’objet <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments"><code class="language-plaintext highlighter-rouge">arguments</code></a> qui permet de rester générique et de garder la compatibilité en cas de changement des dépendances du module surchargé.</p>
