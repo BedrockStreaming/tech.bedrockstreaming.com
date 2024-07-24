@@ -12,9 +12,8 @@ Bien que cela fasse près de 18 mois que nous n'avons pas publié une nouvelle f
 Et du coup, double fournée !!
 
 ## Tester, c'est douter
-> > Attention, je vais peut-être (je l'espère) faire sonner [la prod]
->
-> A, toujours là pour utiliser la prod comme son bac à sable
+> - A : Attention, je vais peut-être (je l'espère) faire sonner [la prod]
+> - B : A, toujours là pour utiliser la prod comme son bac à sable
 
 
 ## J'ai appris à lire, je ne souhaite ça à personne
@@ -31,10 +30,10 @@ Et du coup, double fournée !!
 > C'est le moment où je croise les fesses
 
 ## Le débat, mode d'emploi
-> - A: en fait c’était vachement mieux
-> - B: ben non
-> - A: ¯\\_(ツ)_/¯
-> - C:  j’aime les débats argumentés 🤣
+> - A : en fait c’était vachement mieux
+> - B : ben non
+> - A : ¯\\_(ツ)_/¯
+> - C :  j’aime les débats argumentés 🤣
 
 ## Quand les admins découvrent la vie réelle
 > Super faut respecter les règles quoi
@@ -46,7 +45,7 @@ Et du coup, double fournée !!
 > C'est cute dans le côté dégueulasse
 
 ## Le télétravail v2
-> - A: Il fait plus chaud dans les couloirs que dans les bureaux.
+> - A : Il fait plus chaud dans les couloirs que dans les bureaux.
 > - B : On a qu'à déplacer les bureaux dans les couloirs. On fera du téléprésentiel
 
 ## L'entrainement, c'est important
@@ -73,7 +72,7 @@ Et du coup, double fournée !!
 ## C'est pas faux
 > Ca sert à rien d'avoir un truc qui sert à rien
 
-## L'ingénuosité
+## L'ingéniosité
 > Ah ? Ma molette est en panne .... tant pis je vais scroller au clic
 
 ## C'est pas faux, bis
@@ -114,7 +113,7 @@ Et du coup, double fournée !!
 ## Il fait aussi du thé ?
 > Je n'ai pas la science infuse, je suis juste un connard qui fait des commentaires.
 
-## C'est pas faux - ter
+## C'est pas faux, ter
 > Alors c'est moche, parce qu'en vrai, c'est pas très beau
 
 ## Je ne dirais pas que ça a échoué, je dirais que ça n'a pas marché
@@ -149,9 +148,9 @@ Et du coup, double fournée !!
 > le jwt actuel expire le  26/11/5189 20:26:26. (j’espère que ça suffira)
 
 ## On m'a dit de regarder s'il y a des erreurs, pas s'il marche
-> - A : "Dites, quelqu'un arrive a accéder a notre outil de monitoring ?"
-> - B : "Non, mais je crois que Vendredi dernier il était déjà cassé"
-> - C : "... Mais tu as mis RAS sur ton rapport de Monitoring ?"
+> - A : Dites, quelqu'un arrive a accéder a notre outil de monitoring ?
+> - B : Non, mais je crois que Vendredi dernier il était déjà cassé
+> - C : ... Mais tu as mis RAS sur ton rapport de Monitoring ?
 
 ## C'est pour engager un engagement
 > Il faut qu’on sache ce qu’il y a contractuellement dans le contrat...
@@ -164,7 +163,7 @@ Et du coup, double fournée !!
 ## Il n'a pas l'habitude
 > Oulaaa, mon PC il aime pas quand je travaille
 
-## C'est pas faux
+## C'est pas faux, quarter
 > Dell c'est le Apple de Windows
 
 ## Et tout ça, pour pas cher
@@ -177,16 +176,16 @@ Et du coup, double fournée !!
 > Là on pourrait tout casser sans rien faire marcher
 
 ## Sudo make me a sandwich
-> - A : "Ma commande marche pas"
-> - B : "Ca me dit un truc, je regarde sur StackOverflow... Ah oui tient le lien vers le site est violet"
-> - A : "Et du coup ?"
-> - B : "Rajoute un --force."
+> - A : Ma commande marche pas
+> - B : Ca me dit un truc, je regarde sur StackOverflow... Ah oui tient le lien vers le site est violet
+> - A : Et du coup ?
+> - B : Rajoute un --force.
 
 ## Et si on utilise des carottes jaunes ?
 > J'ai néanmoins le sentiment que le client compare des carottes et des patates. Par hasard au début les carottes et les patates (douces) avaient la même couleur, et que maintenant qu'on a des vraies patates, ca marche plus
 
 ## Optimisme, définition
-> Pour le burrndown, si on enlève tous les jours ou ça stagne, ça descend
+> Pour le burndown, si on enlève tous les jours ou ça stagne, ça descend
 
 ## Si, mais tu les comprends plus tard, quand tu n'en as plus besoin
 > De toutes façon les blagues de front on ne peux pas les comprendre, elles sont asynchrone
@@ -203,7 +202,7 @@ Et du coup, double fournée !!
 ## Ça nous est tous arrivé
 > Putain, je viens de faire un commit que j'ai appelé `--amend`
 
-## La mémoire motrice
+## Le pianiste
 > C'est mes doigts qui connaissent mon mot de passe, c'est pas moi
 
 ## Ça explique des choses ...
@@ -215,7 +214,7 @@ Et du coup, double fournée !!
 ## Du coup, on passe la prod en staging ?
 > La validation a conclut que ça marchait en prod mais pas en staging
 
-## En morse ?
+## En signal de fumée ?
 > Je sais pas comment je vais dev, ce qui est branché a mon écran c'est une cigarette électronique
 
 ## C'était au tour du chien de surveiller l'alerting ?
@@ -224,8 +223,8 @@ Et du coup, double fournée !!
 > - A : Je voulais dire dans notre alerting
 
 ## Merci
-> A : On sait faire un test atoum
-> B : À tes souhaits
+> - A : On sait faire un test atoum
+> - B : À tes souhaits
 
 ## Il échoue rapidement peut-être ?
 > Putain le code est tellement optimisé qu'il marche plus
@@ -243,7 +242,7 @@ Et du coup, double fournée !!
 > - A : He is on *AirTiTi* (RTT)
 > - B : Quoi ?
 > - A : En RTT
-> - B: Oh, on *AirTiTi*
+> - B : Oh, on *AirTiTi*
 
 ## You have to be curious
 > On a la salle bi curieux
@@ -254,7 +253,7 @@ Et du coup, double fournée !!
 ## C'est beau ou beau ?
 > Je t’ai demandé de constater à quel point c’est beau, pas de me dire que c’est moche
 
-## ...
+## Quand tu vas trop loin dans l'intimité des gens
 > Sachez que Mark Zuckerberg transpire beaucoup.
 
 ## Les solutions les plus simples
@@ -264,7 +263,7 @@ Et du coup, double fournée !!
 > - On va tous mourrir, le BOv3 aussi, mais lui c'est son jour. J'ai dit pareil pour ma mamie
 > - Moi aussi, mais j'ai pas pu la redémarrer après
 > - T'as oublié de la recompiler
-> - (effrayé) J'ai pas recompilé mamie !
+> - 😱 J'ai pas recompilé mamie !
 
 ## Au moins, il est indispensable
 > Moi avec le temps, je me suis spécialisé dans les sujets qu'aiment pas le reste de la team
@@ -272,7 +271,7 @@ Et du coup, double fournée !!
 ## Et pour prendre un wget ?
 > T'as pas d'ami prends un Curly, t'as pas d'âme prends un curl
 
-## C'est pas faux non plus
+## C'est pas faux, quinquies
 > Notre monitoring n'est fiable que si on peut s'y fier
 
 ## Lynchez le !
