@@ -1,4 +1,463 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2024-07-23T08:46:52+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock GopherCon Berlin 2024</title><link href="https://tech.bedrockstreaming.com/2024/07/18/gophercon-eu-berlin-2024.html" rel="alternate" type="text/html" title="Bedrock GopherCon Berlin 2024" /><published>2024-07-18T00:00:00+00:00</published><updated>2024-07-18T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/07/18/gophercon-eu-berlin-2024</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/07/18/gophercon-eu-berlin-2024.html">&lt;p&gt;The 2024 GopherCon Europe took place in Berlin. Four of us had the opportunity to take part in the event in-person while
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2024-07-26T13:28:35+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock Dev Facts #20</title><link href="https://tech.bedrockstreaming.com/2024/07/26/bedrock-dev-facts-20.html" rel="alternate" type="text/html" title="Bedrock Dev Facts #20" /><published>2024-07-26T00:00:00+00:00</published><updated>2024-07-26T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/07/26/bedrock-dev-facts-20</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/07/26/bedrock-dev-facts-20.html">&lt;p&gt;Bien que cela fasse près de 18 mois que nous n’avons pas publié une nouvelle fournée de Dev Facts, nos équipes ont continués à alimenter la pile des perles des développeurs.
+Et du coup, double fournée !!&lt;/p&gt;
+
+&lt;h2 id=&quot;tester-cest-douter&quot;&gt;Tester, c’est douter&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;A : Attention, je vais peut-être (je l’espère) faire sonner [la prod]&lt;/li&gt;
+    &lt;li&gt;B : A, toujours là pour utiliser la prod comme son bac à sable&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;jai-appris-à-lire-je-ne-souhaite-ça-à-personne&quot;&gt;J’ai appris à lire, je ne souhaite ça à personne&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Nan mais en plus je sais même pas ce qu’il faut faire ! Le ticket il est là, y a plein de mots !&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;professionnel-jusquà-lassiette&quot;&gt;Professionnel jusqu’à l’assiette&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;A : Mais moi quand je commande ma salade moulin, je fais gaffe a prendre des trucs qui vont ensembles ! Genre, chou rouge et betterave, c’est des couleurs complémentaires !&lt;/li&gt;
+    &lt;li&gt;B : Ah bah tout de suite on voit le dev qui se débrouille en CSS ici&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;la-mutualisation&quot;&gt;La mutualisation&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;c’est l’avantage d’avoir une solution core, tu retrouveras sûrement les mêmes bugs chez les autres clients&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;les-doigts-devraient-suffir&quot;&gt;Les doigts devraient suffir&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;C’est le moment où je croise les fesses&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;le-débat-mode-demploi&quot;&gt;Le débat, mode d’emploi&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;A : en fait c’était vachement mieux&lt;/li&gt;
+    &lt;li&gt;B : ben non&lt;/li&gt;
+    &lt;li&gt;A : ¯\&lt;em&gt;(ツ)&lt;/em&gt;/¯&lt;/li&gt;
+    &lt;li&gt;C :  j’aime les débats argumentés 🤣&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;quand-les-admins-découvrent-la-vie-réelle&quot;&gt;Quand les admins découvrent la vie réelle&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Super faut respecter les règles quoi&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;quand-il-faut-éteindre-un-client&quot;&gt;Quand il faut éteindre un client&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;J’ai l’impression de supprimer mon skyblog&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;cest-un-peu-plus-moins-bien&quot;&gt;C’est un peu plus moins bien&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;C’est cute dans le côté dégueulasse&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;le-télétravail-v2&quot;&gt;Le télétravail v2&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;A : Il fait plus chaud dans les couloirs que dans les bureaux.&lt;/li&gt;
+    &lt;li&gt;B : On a qu’à déplacer les bureaux dans les couloirs. On fera du téléprésentiel&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;lentrainement-cest-important&quot;&gt;L’entrainement, c’est important&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Mon temps de réaction en réunion n’est plus très bon depuis que j’ai arrêté de jouer a StarCraft.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;un-développeur-un-vrai-avec-pleins-de-doigts&quot;&gt;Un développeur, un vrai, avec pleins de doigts&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Je fais pas un copier-coller, je retape doigt par doigt&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;léchelle-sociale-en-entreprise&quot;&gt;L’échelle sociale en entreprise&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Un alternant : Je peux avoir un stagiaire moi aussi ?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;quand-le-respect-sest-enfui&quot;&gt;Quand le respect s’est enfui&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Vas-y répète, je n’écoutais pas&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;ou-alors-cest-le-9ème-jour-de-la-semaine&quot;&gt;Ou alors, c’est le 9ème jour de la semaine&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;C’est le 5 le dernier vendredi du mois ?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;quand-ça-échoue-vraiment&quot;&gt;Quand ça échoue vraiment&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Au lieu d’échouer avec succès ça échoue avec échec&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;pas-vu-pas-pris&quot;&gt;Pas vu, pas pris&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;C’est une feature potentiellement pas impactante tant que tu ne l’utilises pas&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;cest-pas-faux&quot;&gt;C’est pas faux&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Ca sert à rien d’avoir un truc qui sert à rien&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;lingéniosité&quot;&gt;L’ingéniosité&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Ah ? Ma molette est en panne …. tant pis je vais scroller au clic&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;cest-pas-faux-bis&quot;&gt;C’est pas faux, bis&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;C’est cool les choses bien&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;ils-ne-savaient-pas-que-cétait-impossible-alors-ils-lont-fait&quot;&gt;Ils ne savaient pas que c’était impossible, alors ils l’ont fait&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;On est obligés de pouvoir puisque c’est la seule solution&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;il-na-visiblement-pas-eu-son-stagiaire&quot;&gt;Il n’a visiblement pas eu son stagiaire&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Un alternant: Je vois pas mon code si je pleure&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;vous-faites-quoi-mercredi-soir-&quot;&gt;Vous faites quoi mercredi soir ?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;J’ai une nouvelle passion purée de piments qui m’a bien occupée durant le dernier week-end&lt;/p&gt;
+  &lt;/blockquote&gt;
+
+  &lt;p&gt;J’adore ce genre de phrases. Je suis 100% susceptible d’en faire sur plein de sujets cuisine. Mais à chaque fois je ne peux m’empécher de penser qu’on pourrait être invité à un diner de cons avec ce genre de phrase 😂&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;de-la-sagesse-il-faut-faire-preuve&quot;&gt;De la sagesse, il faut faire preuve&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;La vie est un breaking-change&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;le-positivisme&quot;&gt;Le positivisme&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;“Non”, c’est pas négatif&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;a-la-pointe-de-la-technologie&quot;&gt;A la pointe de la technologie&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;On a commencé les travaux de refonte auj 😄. (injection de dependance, puis on enchaine sur l’utilisation des “nouvelles” api apple (qui datent d’il y a 4 ans déjà 😄))&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;linflation-cest-compliqué&quot;&gt;L’inflation, c’est compliqué&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Ouais y a l’inflation, c’est bien pour ça que tu me gonfles ?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;la-quadrature-du-cercle-new-gen&quot;&gt;La quadrature du cercle new gen&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Je suis entrain de tourner en rond dans un triangle&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;but-why-&quot;&gt;But why ?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Parce que parler lascivement a une chaise, j’ai jamais tenté&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;exemple-très-parlant&quot;&gt;Exemple très parlant&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;C’est écrit plus petit que derrière les paquets de céréales&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;il-fait-aussi-du-thé-&quot;&gt;Il fait aussi du thé ?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Je n’ai pas la science infuse, je suis juste un connard qui fait des commentaires.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;cest-pas-faux-ter&quot;&gt;C’est pas faux, ter&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Alors c’est moche, parce qu’en vrai, c’est pas très beau&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;je-ne-dirais-pas-que-ça-a-échoué-je-dirais-que-ça-na-pas-marché&quot;&gt;Je ne dirais pas que ça a échoué, je dirais que ça n’a pas marché&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;C’est pas du DDOS, c’est un stress test pas vraiment sous contrôle&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;the-yes-need-the-no-to-win-against-the-no&quot;&gt;The yes need the no, to win, against the no&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Ca peut être long à écrire très vite&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;avoir-une-passion-cest-important&quot;&gt;Avoir une passion, c’est important&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Casser les couilles, c’est ma passion&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;le-trou-noir-de-la-productivité&quot;&gt;Le trou noir de la productivité&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;‘Tain je sais pas si c’est votre ilot, mais j’ai vraiment l’impression de rien foutre ici&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;un-chef-cest-fait-pour-cheffer&quot;&gt;Un chef, c’est fait pour cheffer&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;A : C’est marrant mais on a jamais fait de pair ensemble !&lt;/li&gt;
+    &lt;li&gt;B : En même temps, je dev pas… et toi non plus…&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;lagenda-cest-so-2010&quot;&gt;L’agenda, c’est so 2010&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Un lead à un membre (appelons le T) de son équipe : Bon, tu nous rejoins ?&lt;/li&gt;
+    &lt;li&gt;T : ah on a réunion ?&lt;/li&gt;
+    &lt;li&gt;Le lead : ben on est en retro surtout là&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;tout-dépend-de-la-zone&quot;&gt;Tout dépend de la zone&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;A : Tout depend de la policy&lt;/li&gt;
+    &lt;li&gt;B : et pas de la gendarmerie ?&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;rtfm&quot;&gt;RTFM&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Putain lire la doc ça sert !&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;pour-un-peu-quil-soit-caché-on-est-foutu&quot;&gt;Pour un peu qu’il soit caché, on est foutu&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;le jwt actuel expire le  26/11/5189 20:26:26. (j’espère que ça suffira)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;on-ma-dit-de-regarder-sil-y-a-des-erreurs-pas-sil-marche&quot;&gt;On m’a dit de regarder s’il y a des erreurs, pas s’il marche&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;A : Dites, quelqu’un arrive a accéder a notre outil de monitoring ?&lt;/li&gt;
+    &lt;li&gt;B : Non, mais je crois que Vendredi dernier il était déjà cassé&lt;/li&gt;
+    &lt;li&gt;C : … Mais tu as mis RAS sur ton rapport de Monitoring ?&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;cest-pour-engager-un-engagement&quot;&gt;C’est pour engager un engagement&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Il faut qu’on sache ce qu’il y a contractuellement dans le contrat…&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;après-le-no-code-le-code-à-emporter&quot;&gt;Après le no code, le code à emporter&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;A :  On se fait un point “plan d’actions” si tu veux.&lt;/li&gt;
+    &lt;li&gt;B : Pourquoi pas maintenant ! Tu es sur place ?&lt;/li&gt;
+    &lt;li&gt;A : Non, à emporter !&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;il-na-pas-lhabitude&quot;&gt;Il n’a pas l’habitude&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Oulaaa, mon PC il aime pas quand je travaille&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;cest-pas-faux-quarter&quot;&gt;C’est pas faux, quarter&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Dell c’est le Apple de Windows&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;et-tout-ça-pour-pas-cher&quot;&gt;Et tout ça, pour pas cher&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Avec rien, tu ne fais pas grand chose&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;du-coup-ça-ne-fait-pas-grand-chose-&quot;&gt;Du coup, ça ne fait pas grand chose ?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Ca allait bien jusqu’à ce qu’on ne fasse rien&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;quand-tu-développes-à-base-de-tnt&quot;&gt;Quand tu développes à base de TNT&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Là on pourrait tout casser sans rien faire marcher&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;sudo-make-me-a-sandwich&quot;&gt;Sudo make me a sandwich&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;A : Ma commande marche pas&lt;/li&gt;
+    &lt;li&gt;B : Ca me dit un truc, je regarde sur StackOverflow… Ah oui tient le lien vers le site est violet&lt;/li&gt;
+    &lt;li&gt;A : Et du coup ?&lt;/li&gt;
+    &lt;li&gt;B : Rajoute un –force.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;et-si-on-utilise-des-carottes-jaunes-&quot;&gt;Et si on utilise des carottes jaunes ?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;J’ai néanmoins le sentiment que le client compare des carottes et des patates. Par hasard au début les carottes et les patates (douces) avaient la même couleur, et que maintenant qu’on a des vraies patates, ca marche plus&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;optimisme-définition&quot;&gt;Optimisme, définition&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Pour le burndown, si on enlève tous les jours ou ça stagne, ça descend&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;si-mais-tu-les-comprends-plus-tard-quand-tu-nen-as-plus-besoin&quot;&gt;Si, mais tu les comprends plus tard, quand tu n’en as plus besoin&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;De toutes façon les blagues de front on ne peux pas les comprendre, elles sont asynchrone&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;en-plus-il-faut-lire-des-choses&quot;&gt;En plus, il faut lire des choses&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;A : J’ai résolu notre problème&lt;/li&gt;
+    &lt;li&gt;B : Ah cool, c’était du coup ?&lt;/li&gt;
+    &lt;li&gt;A : C’était une mauvaise lecture de la doc&lt;/li&gt;
+    &lt;li&gt;B : Ouais mais leurs docs elles sont trop longues !&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;le-legacy-de-demain-qui-a-été-fait-hier-mais-vu-daujourdhui&quot;&gt;Le legacy de demain, qui a été fait hier, mais vu d’aujourd’hui&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;C’est un legacy futur&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;ça-nous-est-tous-arrivé&quot;&gt;Ça nous est tous arrivé&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Putain, je viens de faire un commit que j’ai appelé &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--amend&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;le-pianiste&quot;&gt;Le pianiste&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;C’est mes doigts qui connaissent mon mot de passe, c’est pas moi&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;ça-explique-des-choses-&quot;&gt;Ça explique des choses …&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Hier j’ai utilisé mes compétences de dev front, j’ai fait un gâteau au chocolat&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;cest-presque-ça&quot;&gt;C’est presque ça&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;J’veux pas faire des features sur la comète&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;du-coup-on-passe-la-prod-en-staging-&quot;&gt;Du coup, on passe la prod en staging ?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;La validation a conclut que ça marchait en prod mais pas en staging&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;en-signal-de-fumée-&quot;&gt;En signal de fumée ?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Je sais pas comment je vais dev, ce qui est branché a mon écran c’est une cigarette électronique&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;cétait-au-tour-du-chien-de-surveiller-lalerting-&quot;&gt;C’était au tour du chien de surveiller l’alerting ?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;A : C’est quoi qui sonne comme ça ?&lt;/li&gt;
+    &lt;li&gt;B : C’est le collier de mon chien quand il bouge la tête&lt;/li&gt;
+    &lt;li&gt;A : Je voulais dire dans notre alerting&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;merci&quot;&gt;Merci&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;A : On sait faire un test atoum&lt;/li&gt;
+    &lt;li&gt;B : À tes souhaits&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;il-échoue-rapidement-peut-être-&quot;&gt;Il échoue rapidement peut-être ?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Putain le code est tellement optimisé qu’il marche plus&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;mais-comme-personne-ne-lit-la-doc-&quot;&gt;Mais comme personne ne lit la doc …&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;C’est pas de la magie, c’est documenté&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;une-histoire-de-marsche&quot;&gt;Une histoire de mar(s|c)h(e)&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Si on Unmarshal puis Marshal, ça doit marcher&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;4g-ou-5g-&quot;&gt;4G ou 5G ?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Avez-vous un cable Wi-fi à me prêter ?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;nous-avons-affaire-à-un-serial-killer&quot;&gt;Nous avons affaire à un &lt;em&gt;serial killer&lt;/em&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;A : He is on &lt;em&gt;AirTiTi&lt;/em&gt; (RTT)&lt;/li&gt;
+    &lt;li&gt;B : Quoi ?&lt;/li&gt;
+    &lt;li&gt;A : En RTT&lt;/li&gt;
+    &lt;li&gt;B : Oh, on &lt;em&gt;AirTiTi&lt;/em&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;you-have-to-be-curious&quot;&gt;You have to be curious&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;On a la salle bi curieux&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;on-a-dit-que-le-chef-est-là-pour-cheffer&quot;&gt;On a dit que le chef est là pour cheffer&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;J’aimerais bien un assistant, genre un team lead&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;cest-beau-ou-beau-&quot;&gt;C’est beau ou beau ?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Je t’ai demandé de constater à quel point c’est beau, pas de me dire que c’est moche&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;quand-tu-vas-trop-loin-dans-lintimité-des-gens&quot;&gt;Quand tu vas trop loin dans l’intimité des gens&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Sachez que Mark Zuckerberg transpire beaucoup.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;les-solutions-les-plus-simples&quot;&gt;Les solutions les plus simples&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Mon script qui sort mon PC de veille c’est mon chien qui passe vers le PC en bougeant la souris&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;encore-quelquun-qui-na-pas-lu-la-doc-avant&quot;&gt;Encore quelqu’un qui n’a pas lu la doc avant&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;On va tous mourrir, le BOv3 aussi, mais lui c’est son jour. J’ai dit pareil pour ma mamie&lt;/li&gt;
+    &lt;li&gt;Moi aussi, mais j’ai pas pu la redémarrer après&lt;/li&gt;
+    &lt;li&gt;T’as oublié de la recompiler&lt;/li&gt;
+    &lt;li&gt;😱 J’ai pas recompilé mamie !&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;au-moins-il-est-indispensable&quot;&gt;Au moins, il est indispensable&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Moi avec le temps, je me suis spécialisé dans les sujets qu’aiment pas le reste de la team&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;et-pour-prendre-un-wget-&quot;&gt;Et pour prendre un wget ?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;T’as pas d’ami prends un Curly, t’as pas d’âme prends un curl&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;cest-pas-faux-quinquies&quot;&gt;C’est pas faux, quinquies&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Notre monitoring n’est fiable que si on peut s’y fier&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;lynchez-le-&quot;&gt;Lynchez le !&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Mais quoi ? Zelda c’est pas le personnage principal qu’on joue dans Zelda&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;et-le-meilleur-pour-la-fin&quot;&gt;Et le meilleur pour la fin&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Y a peu de temps j’étais en train de faire du python, là je reviens sur du JS. Et du coup je suis en train de debugger mon site, quand d’un coup sans que je comprenne pourquoi à chaque fois que je le reload il imprime une feuille de papier. J’ai mis une heure à chercher avant de voir que par réflexe, j’ai debuggé mon code en utilisant la commande &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;print&lt;/code&gt; au lieu de faire un &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;console.log&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name>Bedrock</name></author><category term="devfacts" /><category term="humour" /><summary type="html">Bien que cela fasse près de 18 mois que nous n’avons pas publié une nouvelle fournée de Dev Facts, nos équipes ont continués à alimenter la pile des perles des développeurs. Et du coup, double fournée !!</summary></entry><entry><title type="html">Bedrock GopherCon Berlin 2024</title><link href="https://tech.bedrockstreaming.com/2024/07/18/gophercon-eu-berlin-2024.html" rel="alternate" type="text/html" title="Bedrock GopherCon Berlin 2024" /><published>2024-07-18T00:00:00+00:00</published><updated>2024-07-18T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/07/18/gophercon-eu-berlin-2024</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/07/18/gophercon-eu-berlin-2024.html">&lt;p&gt;The 2024 GopherCon Europe took place in Berlin. Four of us had the opportunity to take part in the event in-person while
 others could attend the talks virtually.&lt;/p&gt;
 
 &lt;h1 id=&quot;talks&quot;&gt;Talks&lt;/h1&gt;
@@ -582,92 +1041,4 @@ Comment vivre avec, mes conseils, mes craintes et mes peurs…mais surtout comme
   &lt;p&gt;Introduction au jeu de société Velonimo et à la plateforme de jeux en ligne Board Game Arena, suivie d’un retour d’expérience de l’implémentation de ce jeu sur cette plateforme en tant que développeur Web.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Par &lt;strong&gt;Oliver Thébault&lt;/strong&gt;&lt;/p&gt;</content><author><name>Oliver Thébault</name></author><category term="lft" /><category term="tech" /><summary type="html">Introduction au jeu de société Velonimo et à la plateforme de jeux en ligne Board Game Arena, suivie d’un retour d’expérience de l’implémentation de ce jeu sur cette plateforme en tant que développeur Web.</summary></entry><entry><title type="html">Journal de l’alternant - Comment j’ai perdu mes dépendances pnpm</title><link href="https://tech.bedrockstreaming.com/2024/01/10/journal-de-l-alternant-comment-jai-perdu-mes-dependences-pnpm.html" rel="alternate" type="text/html" title="Journal de l’alternant - Comment j’ai perdu mes dépendances pnpm" /><published>2024-01-10T00:00:00+00:00</published><updated>2024-01-10T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/01/10/journal-de-l-alternant-comment-jai-perdu-mes-dependences-pnpm</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/01/10/journal-de-l-alternant-comment-jai-perdu-mes-dependences-pnpm.html">&lt;p&gt;À Bedrock, on m’a chargé de faire un POC (&lt;a href=&quot;https://fr.wikipedia.org/wiki/Preuve_de_concept&quot;&gt;proof of concept&lt;/a&gt;) pour tester les avantages et les limites d’un double run entre notre app côté web (sur &lt;a href=&quot;https://tech.bedrockstreaming.com/2017/05/17/spa-mode-isomorphism-js.html&quot;&gt;une base maison React Server Side Rendering&lt;/a&gt;) en déléguant des pages progressivement vers une app &lt;a href=&quot;https://nextjs.org/&quot;&gt;Next.js&lt;/a&gt;. Étant tout nouveau dans le dev et encore plus nouveau sur le projet, ma vie ces derniers temps est une suite d’obstacles, d’essais, d’erreurs et de triomphes (pas toujours, mais souvent) bien mérités. Je suis habitué à faire des erreurs plus lunaires les unes que les autres, mais je vais m’attarder dans cet article sur une erreur qui m’a retourné le cerveau. Au menu : erreurs soudaines, dépendances disparues et désespoir… Bonne lecture.&lt;/p&gt;
-
-&lt;p&gt;Je suis alternant depuis un an à Bedrock et je travaille pour la première fois sur notre projet web interne. C’est un projet qui est très complexe, avec lequel vient énormément d’historique (premières briques écrite en 2014) et dont la lecture du code relève parfois autant de l’histoire que du développement.&lt;/p&gt;
-
-&lt;h1 id=&quot;en-route-pour-laventure&quot;&gt;En route pour l’aventure&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;D’ailleurs à Bedrock, si on arrive à maintenir notre application web dans la durée, c’est grâce aux &lt;a href=&quot;https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html&quot;&gt;bonnes pratiques qu’on essaie de respecter au mieux&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;En bref, je n’ai qu’une connaissance très superficielle du projet et des outils qu’il intègre.&lt;/p&gt;
-
-&lt;p&gt;Dans mes habitudes de code, il peut parfois m’arriver d’oublier de vérifier que le code que j’écris ne vienne pas casser les tests en place dans le code. Heureusement, notre CI qui nous est chère ne manque jamais de me rappeler mon manque de rigueur. Cette fois-là, je casse un test à cause d’une erreur tellement anodine que je ne parviens pas à m’en rappeler. Je peux juste vous dire que j’ai eu le réflexe d’aller dans mon terminal de lancer le runner de test jest à l’aide de notre package manager &lt;a href=&quot;https://pnpm.io/fr/&quot;&gt;pnpm&lt;/a&gt; dans une commande qui ressemble à : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pnpm test TEST_QUI_CASSE&lt;/code&gt;. Le test est rouge pour une raison qui me semble venir d’un problème de dépendances. Ayant beaucoup trituré mes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;node_modules&lt;/code&gt;, je me dis que repartir sur des bases propres ne devrait pas faire de mal au projet. Je décide donc, sans savoir ce qui m’attend, de lancer l’innocente commande : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pnpm install&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;J’observe que pnpm fait son travail, met à jour des dépendances, je devais effectivement avoir joué un peu trop avec mes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;node_modules&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Je relance le test et là quelle ne fut pas ma surprise quand mon terminal, sans trembler, m’a affiché &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Command: &quot;jest&quot; not found&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Je commence à penser que je ne viens pas seulement de casser un test, mais j’ai également cassé &lt;a href=&quot;https://jestjs.io/fr/&quot;&gt;jest&lt;/a&gt;. À ce moment-là, je venais de ressortir d’une bataille avec des dépendances et donc je venais de me familiariser avec le &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;node_modules&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.pnpm&lt;/code&gt; et autre &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.bin&lt;/code&gt; . C’est dans ce dernier dossier que je me rends compte qu’effectivement, il y manque l’exécutable jest.&lt;/p&gt;
-
-&lt;p&gt;En fait, il y manque également d’autres outils que je m’attendais à trouver comme &lt;a href=&quot;https://prettier.io/&quot;&gt;prettier&lt;/a&gt; et &lt;a href=&quot;https://eslint.org/&quot;&gt;eslint&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Je me dis que la portée de mon problème vient de s’étendre de jest à mes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;node_modules&lt;/code&gt;. 🫠&lt;/p&gt;
-
-&lt;p&gt;Désespéré, je tente une recherche globale des mots clés : &lt;strong&gt;prettier&lt;/strong&gt; et &lt;strong&gt;eslint&lt;/strong&gt;. Je finis par trouver une correspondance intéressante dans le fichier &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.npmrc&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Voilà à quoi ressemble le fichier à ce moment-là :&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public-hoist-pattern[]=*@testing-library/jest-dom*
-public-hoist-pattern[]=*@testing-library/react*
-public-hoist-pattern[]=*@testing-library/user-event*
-public-hoist-pattern[]=*enzyme*
-public-hoist-pattern[]=*jest*
-public-hoist-pattern[]=*redux-mock-store*
-public-hoist-pattern[]=*eslint*
-public-hoist-pattern[]=*prettier*
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Je peux sentir qu’il s’agit d’une véritable piste parce que dans ce fichier sont listées toutes les dépendances qui sont cassées sur ma machine.&lt;/p&gt;
-
-&lt;h2 id=&quot;comprendre-la-configuration-de-pnpm&quot;&gt;Comprendre la configuration de pnpm&lt;/h2&gt;
-&lt;h3 id=&quot;hoisting-des-dépendances&quot;&gt;Hoisting des dépendances&lt;/h3&gt;
-&lt;p&gt;Pour comprendre la configuration &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public-hoist-pattern&lt;/code&gt; il faut d’abord comprendre comment sont formés les &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;node_modules&lt;/code&gt; par pnpm. Il ne va mettre dans le dossier &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;node_modules&lt;/code&gt; en racine uniquement les dépendances directes du projet, toutes les sous-dépendances seront placées dans un dossier caché &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.pnpm&lt;/code&gt; et un lien symbolique sera créé.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Je vous invite à lire la &lt;a href=&quot;https://pnpm.io/symlinked-node-modules-structure&quot;&gt;documentation écrite par pnpm&lt;/a&gt; afin de comprendre leur système de dépendances.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Cela peut parfois poser des problèmes avec des libraries qui utilisent des dépendances fantômes. C’est pourquoi pnpm laisse quand même du contrôle sur ce comportement.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;On parle de dépendance fantôme pour désigner toutes les dépendances qui ne sont pas désignées dans le &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;package.json&lt;/code&gt; root mais qui sont quand même nécessaire pour le bon fonctionnement de l’application.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public-hoist-pattern&lt;/code&gt; permet d’indiquer les dépendances qu’on veut forcer à être dans le dossier &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;node_modules&lt;/code&gt; racine plutôt que dans&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;node_modules/.pnpm&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;La ligne &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public-hoist-pattern[]=*jest*&lt;/code&gt; veut donc dire qu’on ajoute jest aux dépendances qui sont accessibles depuis la racine et ainsi l’exécutable dans &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;node_modules/.bin&lt;/code&gt; . Cela permet par exemple de déléguer la configuration et l’import de jest dans un package enfant du repository.&lt;/p&gt;
-
-&lt;h3 id=&quot;retour-à-lhistoire-lets-debug&quot;&gt;Retour à l’histoire… let’s debug&lt;/h3&gt;
-&lt;p&gt;A cet instant je suis convaincu que c’est le fichier &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.npmrc&lt;/code&gt; qui est responsable de l’erreur &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Command: &quot;jest&quot; not found&lt;/code&gt;. Je ne vois rien d’anormal dans ce fichier qui pourrait me mettre la puce à l’oreille, c’est alors que je me dis que peut être pnpm ne lit pas la bonne configuration. En lisant la documentation, je tombe sur la commande parfaite : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pnpm config get&lt;/code&gt;. Cette commande permet d’afficher la configuration que résout pnpm. La sortie de cette commande m’a mis sur une nouvelle piste puisque c’est là que j’ai vu apparaître la ligne problématique : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shamefully-hoist=false&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Je tente de chercher dans le projet où est écrite cette ligne. Aucune trace de cette maudite ligne. Je retourne tout le projet à la recherche d’une ligne de code qui pourrait ajouter cette ligne de configuration. Je me mets à lire toute la documentation pnpm pour pouvoir comprendre d’où cette ligne peut venir. Après avoir désinstallé et réinstallé pnpm, node et redémarré mon PC, je tente dans un dernier espoir de créer un dossier &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test-a-laide&lt;/code&gt; dans lequel je reclone le projet. Malheureusement, rien n’y fait.&lt;/p&gt;
-
-&lt;p&gt;C’est à ce moment que je me dis que si le problème ne vient pas de mes outils ni de la configuration locale, il faut peut-être que j’aille chercher dans ma configuration globale. En effet, en ouvrant cette dite configuration &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.npmrc&lt;/code&gt;, je m’aperçois que c’est de là que vient la ligne &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shamefully-hoist=false&lt;/code&gt;. C’est un soulagement, j’ai enfin trouvé d’où cette ligne mystique venait.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Je suis encore à la recherche de la réponse à la question : pourquoi diable, ai-je mis cette configuration dans mon &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.npmrc&lt;/code&gt; global. Je pense me souvenir l’avoir fait en me disant que je voulais m’assurer que pnpm se comporte en faisant des symlinks (l’intention n’était pas mauvaise, mais la conséquence pas joyeuse).&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;On peut lire dans la documentation de pnpm que : &lt;em&gt;Setting shamefully-hoist to true is the same as setting &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public-hoist-pattern&lt;/code&gt; to *.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;En d’autres termes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shamefully-hoist&lt;/code&gt; à une influence sur le hoisting de toutes les dépendances du projet.&lt;/p&gt;
-
-&lt;p&gt;J’ai deux problèmes avec la documentation à ce sujet :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Tout d’abord, il n’est pas explicité le cas inverse à savoir si on met &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shamefully-hoist=false&lt;/code&gt; alors ça revient à écraser toutes les configurations de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public-hoist-pattern&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Le comportement, qu’il soit un bug ou un cas à la marge, de la configuration globale de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shamefully-hoist&lt;/code&gt; qui écrase la configuration locale de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public-hoist-pattern&lt;/code&gt; n’est pas spécifié&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Bref, après avoir déduit que c’était cette ligne qui cassait mon hoisting, je retire la ligne et je lance un pnpm install. Bingo ! Je récupère toutes mes dépendances perdues.&lt;/p&gt;
-
-&lt;h2 id=&quot;enseignements&quot;&gt;Enseignements&lt;/h2&gt;
-&lt;p&gt;J’essaie a posteriori de déchiffrer pourquoi j’ai eu ce problème et comment faire en sorte que cela n’arrive pas. Je pense être tombé sur un comportement étrange de pnpm. Je ne sais pas s’il s’agit d’un bug ou d’une feature. En effet, intuitivement, j’aurais tendance à dire qu’une configuration globale de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shamefully-hoist&lt;/code&gt; ne devrait pas override la configuration locale de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public-hoist-pattern&lt;/code&gt;. Je suis prêt à entendre que le comportement est attendu et voulu, mais dans ce cas je pense qu’un peu plus de documentation à ce sujet ne peinera personne. À cet égard j’ai ouvert &lt;a href=&quot;https://github.com/pnpm/pnpm/issues/7312&quot;&gt;une issue&lt;/a&gt; sur le Github de pnpm.&lt;/p&gt;
-
-&lt;p&gt;Je retire plusieurs enseignements de cette aventure :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Douter de la configuration qui est lue par les outils&lt;/li&gt;
-  &lt;li&gt;La documentation ne contient pas toujours tous les comportements&lt;/li&gt;
-  &lt;li&gt;Il faut penser à voir plus loin que son fichier local de config et penser aux potentielles surcharges…&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>[&quot;j_poissonnet&quot;]</name></author><category term="pnpm" /><category term="hoisting" /><category term="node_modules" /><category term="alternant" /><summary type="html">À Bedrock, on m’a chargé de faire un POC (proof of concept) pour tester les avantages et les limites d’un double run entre notre app côté web (sur une base maison React Server Side Rendering) en déléguant des pages progressivement vers une app Next.js. Étant tout nouveau dans le dev et encore plus nouveau sur le projet, ma vie ces derniers temps est une suite d’obstacles, d’essais, d’erreurs et de triomphes (pas toujours, mais souvent) bien mérités. Je suis habitué à faire des erreurs plus lunaires les unes que les autres, mais je vais m’attarder dans cet article sur une erreur qui m’a retourné le cerveau. Au menu : erreurs soudaines, dépendances disparues et désespoir… Bonne lecture.</summary></entry></feed>
+&lt;p&gt;Par &lt;strong&gt;Oliver Thébault&lt;/strong&gt;&lt;/p&gt;</content><author><name>Oliver Thébault</name></author><category term="lft" /><category term="tech" /><summary type="html">Introduction au jeu de société Velonimo et à la plateforme de jeux en ligne Board Game Arena, suivie d’un retour d’expérience de l’implémentation de ce jeu sur cette plateforme en tant que développeur Web.</summary></entry></feed>
