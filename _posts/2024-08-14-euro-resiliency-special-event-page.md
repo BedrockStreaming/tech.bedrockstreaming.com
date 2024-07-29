@@ -1,7 +1,7 @@
 ---
 layout: post
-title: ""
-description: ""
+title: "Euro 2024 - How to improve user experience while safeguarding our app ?"
+description: "Earlier this year took place the Euro : With the increase of traffic that was expected, we developed a way to both enhance user experience, allowing them to access easier than ever their soccer match, and protect our backend servers at the same time. But how did we do that ?"
 author: bedrock 
 category: resilience, frontend, back-for-front
 tags: []
