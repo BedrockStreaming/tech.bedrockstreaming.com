@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Euro 2024 - How to improve user experience while safeguarding our app ?"
+title: Euro 2024 - How to improve user experience while safeguarding our app ?
 description: "Earlier this year took place the Euro : With the increase of traffic that was expected, we developed a way to both enhance user experience, allowing them to access easier than ever their soccer match, and protect our backend servers at the same time. But how did we do that ?"
 author: bedrock 
-category: resilience, frontend, back-for-front
-tags: []
+tags: [ resilience, frontend, back-for-front, 2024 ]
 color: rgb(251,87,66)
+thumbnail: "/images/posts/2024-08-14-euro-resiliency-special-event-page/Euro2024.png"
 ---
 
 Earlier this year took place the [Euro soccer competition](https://www.uefa.com/euro2024/), spanning over a month and with thousands of people tuning all over the world to watch the matches. One of our customers, [M6+](https://www.6play.fr/), was streaming several of these matches - And during the competition, hundreds of thousands of browsers, phones and TVs were able to seamlessly stream the matches with no major issue at all. It was, however, no easy feat to reach that state : How did we do that ? What were the challenges we faced, the solutions we envisioned ? In this article, we'll discuss one of the features we developed specifically for the Euro : Something that we called the "Special Event Page".
