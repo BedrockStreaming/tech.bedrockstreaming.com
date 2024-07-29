@@ -7,3 +7,4 @@ node_modules
 vagrant/.vagrant/
 .jekyll-cache
 .jekyll-metadata
+.idea/*
