@@ -8,7 +8,7 @@ tags: []
 color: rgb(251,87,66)
 ---
 
-Earlier this year took place the [Euro soccer competition](https://www.uefa.com/euro2024/), spanning over a month and with thousands of people tuning all over the world to watch the matches. One of our customers, [M6+](https://www.6play.fr/), was streaming several of these matches - And during the competition, hundreds of thousands of browsers, phones and TVs were able to seamlessly stream the matches with no major issue at all. It was, however, no easy feat to reach that state : How did we do that ? What were the challenges we faced, the solutions we envisionned ? In this article, we'll discuss one of the features we developed specifically for the Euro : Something that we called the "Special Event Page".
+Earlier this year took place the [Euro soccer competition](https://www.uefa.com/euro2024/), spanning over a month and with thousands of people tuning all over the world to watch the matches. One of our customers, [M6+](https://www.6play.fr/), was streaming several of these matches - And during the competition, hundreds of thousands of browsers, phones and TVs were able to seamlessly stream the matches with no major issue at all. It was, however, no easy feat to reach that state : How did we do that ? What were the challenges we faced, the solutions we envisioned ? In this article, we'll discuss one of the features we developed specifically for the Euro : Something that we called the "Special Event Page".
 
 ## The need for a Special Event Page
 
@@ -34,8 +34,6 @@ After consideration, we decided to opt for a Cookie-based solution. When one of 
 The Special event page content would be a simple static JSON file, hosted in the cloud, that we would then be able to edit on the fly without bothering the frontend teams.
 
 ![Request/Response graph showing the CDN send a Special Event page to a request without cookie, and the usual page if the cookie is present](/images/posts/2024-08-14-euro-resiliency-special-event-page/Request_Response_graph.png)
-
-# // TODO Schéma qui montre comment le truc échange avec le front
 
 With this solution, we also reaped another benefit : Phone apps. When a new version of the application is released, not everyone always updates theirs. We could require an update, but often it translates into a slight portion of our audience choosing to uninstall the app instead, so that's a mean we wish to avoid as much as possible. With the solution described above, managing everything using nothing but cookies and http headers meant that not a single line of code needed to be written by our frontend teams, so no new app version was needed !
 
