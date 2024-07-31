@@ -1,7 +1,7 @@
 import React from "react";
 
 // @ts-ignore
-import Oss from "../../../pages/oss.md";
+import Oss from "./oss.md";
 import { components } from "../../components/mdx-components";
 import Layout from "../../components/layout";
 
