@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Fuse from "fuse.js";
 import Post from "../interfaces/post";
 import DateFormatter from "./date-formatter";
@@ -24,52 +24,58 @@ const options = {
   ],
 };
 
-const people = [
-  { id: 1, name: "Tom Cook" },
-  { id: 2, name: "Wade Cooper" },
-  { id: 3, name: "Tanya Fox" },
-  { id: 4, name: "Arlene Mccoy" },
-  { id: 5, name: "Devon Webb" },
-];
-
-const Search = ({ posts, tags }: { posts: Post[]; tags: string[] }) => {
+const Search = ({
+  posts,
+  tags,
+}: {
+  posts: Post[];
+  tags: Array<string | number>;
+}) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterType, setFilterType] = useState<"ALL" | "LFT" | "POST">("ALL");
   const [results, setResults] = useState<{ item: Post; refIndex: number }[]>(
     posts.map((item, refIndex) => ({ item, refIndex })),
   );
+  const [tagsQuery, setTagsQuery] = useState("");
+  const [selected, setSelected] = useState("");
   const { current: fuse } = useRef(new Fuse(posts, options));
-  console.log(tags);
 
   useEffect(() => {
-    if (searchQuery.length < 2) {
-      return;
-    }
     const results = fuse.search(searchQuery);
     setResults(
-      results.filter(({ item }) => {
-        if (filterType === "ALL") {
-          return true;
-        }
-        if (filterType === "LFT") {
-          return item.tags.includes("lft");
-        }
-        if (filterType === "POST") {
-          return !item.tags.includes("lft");
-        }
-      }),
+      results
+        .filter(({ item }) => {
+          if (filterType === "ALL") {
+            return true;
+          }
+          if (filterType === "LFT") {
+            return item.tags.includes("lft");
+          }
+          if (filterType === "POST") {
+            return !item.tags.includes("lft");
+          }
+        })
+        .filter(({ item }) => {
+          if (selected === "") {
+            return true;
+          }
+          return item.tags.includes(selected);
+        }),
     );
-  }, [searchQuery, filterType]);
+  }, [searchQuery, filterType, selected]);
 
-  const [tagsQuery, setTagsQuery] = useState("");
-  const [selected, setSelected] = useState(people[1]);
-
-  const filteredPeople =
-    tagsQuery === ""
-      ? people
-      : people.filter((person) => {
-          return person.name.toLowerCase().includes(tagsQuery.toLowerCase());
-        });
+  const filteredTags = useMemo(
+    () =>
+      tagsQuery === ""
+        ? tags
+        : tags.filter((tag) => {
+            if (typeof tag === "number") {
+              return true;
+            }
+            return tag.toLowerCase().includes(tagsQuery.toLowerCase());
+          }),
+    [tagsQuery],
+  );
 
   return (
     <>
@@ -125,7 +131,6 @@ const Search = ({ posts, tags }: { posts: Post[]; tags: string[] }) => {
           <div className="relative">
             <ComboboxInput
               className={clsx("w-full h-10 px-3 border rounded-md")}
-              displayValue={(person) => person?.name}
               onChange={(event) => setTagsQuery(event.target.value)}
             />
             <ComboboxButton className="group absolute inset-y-0 right-0 px-2.5">
@@ -141,16 +146,16 @@ const Search = ({ posts, tags }: { posts: Post[]; tags: string[] }) => {
               "transition duration-100 ease-in data-[leave]:data-[closed]:opacity-0",
             )}
           >
-            {filteredPeople.map((person) => (
+            {filteredTags.map((tag) => (
               <ComboboxOption
-                key={person.id}
-                value={person}
+                key={tag}
+                value={tag}
                 className="group flex cursor-default items-center gap-2 rounded-lg py-1.5 px-3 select-none data-[focus]:bg-white/10"
               >
                 <span className="invisible size-4 fill-white group-data-[selected]:visible">
                   ✅
                 </span>
-                <div className="text-black">{person.name}</div>
+                <div className="text-black">{tag}</div>
               </ComboboxOption>
             ))}
           </ComboboxOptions>
