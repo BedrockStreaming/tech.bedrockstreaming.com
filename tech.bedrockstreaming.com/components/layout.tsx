@@ -12,7 +12,7 @@ const Layout = ({ preview, children }: Props) => {
     <>
       <Meta />
       <Navbar />
-      <div className="min-h-screen">{children}</div>
+      <>{children}</>
       <Footer />
     </>
   );
