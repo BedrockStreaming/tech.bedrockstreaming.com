@@ -5,7 +5,7 @@ description: "Earlier this year took place the Euro : With the increase of traff
 author: bedrock 
 tags: [ resilience, frontend, back-for-front, 2024 ]
 color: rgb(251,87,66)
-thumbnail: "/images/posts/2024-08-14-euro-resiliency-special-event-page/Euro2024.png"
+thumbnail: "/images/posts/2024-08-06-euro-resiliency-special-event-page/Euro2024.png"
 ---
 
 Earlier this year took place the [Euro soccer competition](https://www.uefa.com/euro2024/), spanning over a month and with thousands of people tuning all over the world to watch the matches. One of our customers, [M6+](https://www.6play.fr/), was streaming several of these games - And during the competition, hundreds of thousands of browsers, phones and TVs were able to seamlessly stream the matches with no major issue at all. It was, however, no easy feat to reach that state : How did we do that ? What were the challenges we faced, the solutions we envisioned ? In this article, we'll discuss one of the features we developed specifically for the Euro : Something that we called the "Special Event Page".
