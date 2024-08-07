@@ -5,7 +5,6 @@ description: "Earlier this year took place the Euro: with the increase of traffi
 author: bedrock 
 tags: [ resilience, frontend, back-for-front, 2024 ]
 color: rgb(251,87,66)
-feature-img: "/images/posts/2024-08-06-euro-resiliency-special-event-page/Euro2024.png"
 thumbnail: "/images/posts/2024-08-06-euro-resiliency-special-event-page/Euro2024.png"
 ---
 
