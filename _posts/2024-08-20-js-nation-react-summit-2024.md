@@ -1,0 +1,45 @@
+---
+layout: post
+title: JS Nation x React Summit 2024 highlights
+description: "A few notes on the combo JS Nation x React Summit Amsterdam 2024 conferences"
+author: team_frontend
+tags: [conference, frontend, react, javascript]
+color: rgb(251,87,66)
+thumbnail: "/images/posts/2024-08-20-js-nation-react-summit-2024/teamBedrock.jpg"
+---
+
+The Frontend Bedrock teams were present at the 2024 edition of the _JS Nation_ and _React Summit_ conferences in Amsterdam on 13 & 14 June. We would like to highlight and share some of the subjects we find relevant about our favourite language and framework 🙂 Feel free to explore them further if you are interested.
+
+> 📹 You can watch all the video recording of the [JS Nation](https://gitnation.com/events/jsnation-2024/talks) and the [React Summit](https://gitnation.com/events/react-summit-2024/talks) talks.
+
+### Lessons for Building Resilient Codebases - Alex Moldovan
+
+> 📹 Watch the [video](https://gitnation.com/contents/lessons-for-building-resilient-codebases)
+
+One of my favourite types of presentation, with concrete things that you can then apply in your daily life as a developer.
+
+Alex sums up his speech in 5 points:
+
+- **Accept imperfections** in your codebase: perfect is the ennemy of good, shortcuts and exceptions can be taken if they are well documented
+- **[Colocate code](https://alexmoldovan.dev/code-bites/colocation-is-king)** according to concerns is a way of improving readability and therefore maintainability and efficiency.
+- **Reusability** is not always the better choice vs **duplication**, you should find the right balance, abstraction should come when a piece of code is proven as a long term solution.
+- **Readability and understandability** of the code is very important for the future developpers, leaves comments, break conditions with more than 3 members using intermediate variables.
+- Use **Typescript** intensively and try to handle all the possible states of your data
+
+At Bedrock, we've always tried to apply a maximum of [best practices](https://tech.bedrockstreaming.com/2021/09/01/bonnes-pratiques-web.html) 🇫🇷 including some developped here by Alex, to ensure the maintenability of our web codebases. It seems to be working pretty good since this JS project is now 10 years old!
+
+Why Your Performance Work Is Not Seen - Vinicius Dallacqua
+
+UI with no code
+
+Testing: do more with less - Eugene Fidelin
+
+Facing Frontend's Existencial Crisis - Ryan Carniato
+
+Invisible Hand of React Performance - Ivan Akulov
+
+The Suspense Quest - Inside React's Magic - Charlotte Isambert
+
+Why You Should Use Redux in 2024 - Mark Erikson
+
+Case Study: Building Accessible Reusable React Components at GitHub - Siddharth Kshetrapal
