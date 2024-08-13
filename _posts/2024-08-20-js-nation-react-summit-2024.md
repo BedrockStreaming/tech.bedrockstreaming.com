@@ -64,3 +64,15 @@ And much more besides, check out all Scott's tips on this [site](https://tolin.s
 ### Why You Should Use Redux in 2024 - Mark Erikson
 
 ### Case Study: Building Accessible Reusable React Components at GitHub - Siddharth Kshetrapal
+
+> 📹 Watch the [video](https://gitnation.com/contents/case-study-building-accessible-reusable-react-components-at-github)
+
+The talk by Sid focuses on building accessible React components, emphasizing the importance of using the correct HTML elements and [ARIA roles](https://www.w3.org/TR/wai-aria-1.2/) to enhance web accessibility.
+
+Sid highlights practical examples, such as [navigating tab lists](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/) and [handling conditional checkboxes](https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/), explaining how ARIA roles and properties can make web interfaces more accessible, particularly for screen reader users. 
+
+What we will remember from this talk:
+- importance of using correct HTML elements and ARIA roles for accessibility.
+- implementation of ARIA roles like `tablist`, `tab`, and `aria-selected`.
+- significance of keyboard navigation and ARIA states/properties in accessibility.
+- design considerations for accessibility, including using `aria-disabled` over `disabled`.
