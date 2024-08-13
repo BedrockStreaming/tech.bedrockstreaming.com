@@ -26,20 +26,28 @@ Alex sums up his speech in 5 points:
 - **Readability and understandability** of the code is very important for the future developpers, leaves comments, break conditions with more than 3 members using intermediate variables.
 - Use **Typescript** intensively and try to handle all the possible states of your data
 
-At Bedrock, we've always tried to apply a maximum of [best practices](https://tech.bedrockstreaming.com/2021/09/01/bonnes-pratiques-web.html) 🇫🇷 including some developped here by Alex, to ensure the maintenability of our web codebases. It seems to be working pretty good since this JS project is now 10 years old!
+At Bedrock, we've always tried to apply a maximum of [best practices](https://tech.bedrockstreaming.com/2021/09/01/bonnes-pratiques-web.html) 🇫🇷 including some developped here by Alex, to ensure the maintenability of our web codebase. It seems to be working pretty good since this JS project is now 10 years old!
 
-Why Your Performance Work Is Not Seen - Vinicius Dallacqua
+### Why Your Performance Work Is Not Seen - Vinicius Dallacqua
 
-UI with no code
+> 📹 Watch the [video](https://gitnation.com/contents/why-your-performance-work-is-not-seen)
 
-Testing: do more with less - Eugene Fidelin
+Vinicius addresses an important subject for us, as frontend engineers. We all are concerned about performance and we want to deliver the most optimized product, but we often come up against major obstacles in this area. We already talked about this topic last year when [we attended the We Love Speed conference](https://tech.bedrockstreaming.com/2023/08/11/we-love-speed-2023.html).
 
-Facing Frontend's Existencial Crisis - Ryan Carniato
+To prove values of performance work, **Lab tools** (like [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview?hl=fr)) & **RUM** (Real User Monitoring) has to been used together. Data collected must be analysed, optimised and framed to make connections with product concerns. Performance needs to **matter to engineering and product** for a sustainable governance model.
 
-Invisible Hand of React Performance - Ivan Akulov
+As in many areas, the key is to set realistic and achievable objectives and to proceed by iteration: **monitor, measure, report and repeat**.
 
-The Suspense Quest - Inside React's Magic - Charlotte Isambert
+### UI with no code
 
-Why You Should Use Redux in 2024 - Mark Erikson
+### Testing: do more with less - Eugene Fidelin
 
-Case Study: Building Accessible Reusable React Components at GitHub - Siddharth Kshetrapal
+### Facing Frontend's Existencial Crisis - Ryan Carniato
+
+### Invisible Hand of React Performance - Ivan Akulov
+
+### The Suspense Quest - Inside React's Magic - Charlotte Isambert
+
+### Why You Should Use Redux in 2024 - Mark Erikson
+
+### Case Study: Building Accessible Reusable React Components at GitHub - Siddharth Kshetrapal
