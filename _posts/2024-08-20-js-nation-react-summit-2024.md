@@ -92,6 +92,14 @@ A [tweet](https://x.com/rauchg/status/807626710350839808) from [Guillermo Rauch]
 
 ### Facing Frontend's Existencial Crisis - Ryan Carniato
 
+> 📹 Watch the [video](https://gitnation.com/contents/solidjs-tba)
+
+Ryan shows why JS frameworks, especially React, have recently evolved using new concepts to reduce the runtime at page load.
+
+...
+
+If you want more details about concepts developped by Ryan, you can read his [article](https://dev.to/this-is-learning/islands-server-components-resumability-oh-my-319d) on this subject.
+
 ### Invisible Hand of React Performance - Ivan Akulov
 
 ### The Suspense Quest - Inside React's Magic - Charlotte Isambert
