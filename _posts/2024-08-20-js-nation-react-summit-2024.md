@@ -5,12 +5,13 @@ description: "A few notes on the combo JS Nation x React Summit Amsterdam 2024 c
 author: team_frontend
 tags: [conference, frontend, react, javascript]
 color: rgb(251,87,66)
+feature-img: "/images/posts/2024-08-20-js-nation-react-summit-2024/teamBedrock.jpg"
 thumbnail: "/images/posts/2024-08-20-js-nation-react-summit-2024/teamBedrock.jpg"
 ---
 
 The Frontend Bedrock teams were present at the 2024 edition of the _JS Nation_ and _React Summit_ conferences in Amsterdam on 13 & 14 June. We would like to highlight and share some of the subjects we find relevant about our favourite language and framework 🙂 Feel free to explore them further if you are interested.
 
-> 📹 You can watch all the video recording of the [JS Nation](https://gitnation.com/events/jsnation-2024/talks) and the [React Summit](https://gitnation.com/events/react-summit-2024/talks) talks.
+> 📹 You can watch all the video recordings of the [JS Nation](https://gitnation.com/events/jsnation-2024/talks) and the [React Summit](https://gitnation.com/events/react-summit-2024/talks) talks.
 
 ### Lessons for Building Resilient Codebases - Alex Moldovan
 
@@ -18,15 +19,15 @@ The Frontend Bedrock teams were present at the 2024 edition of the _JS Nation_ a
 
 One of my favourite types of presentation, with concrete things that you can then apply in your daily life as a developer.
 
-Alex sumed up his speech in 5 points:
+Alex summed up his speech in 5 points:
 
 - **Accept imperfections** in your codebase: perfect is the ennemy of good, shortcuts and exceptions can be taken if they are well documented.
 - **[Colocate code](https://alexmoldovan.dev/code-bites/colocation-is-king)** according to concerns is a way of improving readability and therefore maintainability and efficiency.
 - **Reusability** is not always the better choice vs **duplication**, you should find the right balance, abstraction should come when a piece of code is proven as a long term solution.
-- **Readability and understandability** of the code is very important for the future developpers, leaves comments, break conditions with more than 3 members using intermediate variables.
+- **Readability and understandability** of the code is very important for the future developpers that will maintain your code, leaves comments, break conditions with more than 3 members using intermediate variables.
 - Use **Typescript** intensively and try to handle all the possible states of your data.
 
-At Bedrock, we've always tried to apply a maximum of [best practices](https://tech.bedrockstreaming.com/2021/09/01/bonnes-pratiques-web.html) 🇫🇷 including some developped here by Alex, to ensure the maintenability of our web codebase. It seems to be working pretty good since this JS project is now 10 years old!
+At Bedrock, we've always tried to apply a maximum of [best practices](https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html) including some developped here by Alex, to ensure the maintenability of our web codebase. It seems to be working pretty good since this JS project is now 10 years old!
 
 ### Why Your Performance Work Is Not Seen - Vinicius Dallacqua
 
@@ -54,6 +55,40 @@ He showed for example:
 And much more besides, check out all Scott's tips on this [site](https://tolin.ski/talks/install-nothing).
 
 ### Testing: do more with less - Eugene Fidelin
+
+> 📹 Watch the [video](https://gitnation.com/contents/testing-do-more-with-less)
+
+Testing has been a guide and a real challenge since we begin the JS web project at Bedrock in 2015. We are convinced that this is an important part of the sustainability and reliability of the codebase. As a result, we listened to Eugene's point of view with curiosity.
+
+[DORA metrics](https://www.datadoghq.com/knowledge-center/dora-metrics/) should be adopted to measure how good your are for shippping software with **4 indicators**:
+
+- deployment frequency,
+- lead time for changes,
+- change failure rate,
+- time to restore service.
+
+The first three are affected by the testing strategy. The _[Testing Trophy](https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications)_ can help to write the right tests given the **return on investment** of the different forms.
+
+![Testing Trophy: return on investment of the different forms of testing](/images/posts/2024-08-20-js-nation-react-summit-2024/testingTrophy.png)
+
+Eugene discribes the various steps to build a relibale testing strategy:
+
+- step 0: enable **static** linters and **type** checks
+- step 1: create **integration** tests for all happy and non-happy flows
+- step 2: write **unit** tests for reusable parts and code without coverage
+- step 3: write very few **e2e** tests only for the most business critical flows
+- step 4: use **metrics, tracing, logging** to identify anomalies on production
+
+[In Bedrock's frontend teams](https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html), we are aligned with these strategy:
+
+- Static testing is a compulsory stage in any project start-up.
+- We have a lot of unit and integration tests (which can be view as e2e tests but we only test the frontend part with mocked backend and 3rd parties).
+- A manual homologation phase before deploying any new release run e2e tests: this is a current project to automate most of these tests to save time in the process.
+- Production monitoring is one of our mantras: our former boss used to say that _"a non-monitored project is not in production"_.
+
+A [tweet](https://x.com/rauchg/status/807626710350839808) from [Guillermo Rauch](https://x.com/rauchg) can perfectly conclude this topic:
+
+> Write tests. Not too many. Mostly integration.
 
 ### Facing Frontend's Existencial Crisis - Ryan Carniato
 
