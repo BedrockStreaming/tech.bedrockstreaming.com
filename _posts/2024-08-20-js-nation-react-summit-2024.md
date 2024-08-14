@@ -5,7 +5,7 @@ description: "A few notes on the combo JS Nation x React Summit Amsterdam 2024 c
 author: team_frontend
 tags: [conference, frontend, react, javascript]
 color: rgb(251,87,66)
-feature-img: "/images/posts/2024-08-20-js-nation-react-summit-2024/teamBedrock.jpg"
+feature-img: "/images/posts/2024-08-20-js-nation-react-summit-2024/reactSummit.jpg"
 thumbnail: "/images/posts/2024-08-20-js-nation-react-summit-2024/teamBedrock.jpg"
 ---
 
@@ -106,9 +106,9 @@ The talk by Sid focuses on building accessible React components, emphasizing the
 
 Sid highlights practical examples, such as [navigating tab lists](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/) and [handling conditional checkboxes](https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/), explaining how ARIA roles and properties can make web interfaces more accessible, particularly for screen reader users.
 
-What we will remember from this talk:
+What we remember from this talk:
 
-- importance of using correct HTML elements and ARIA roles for accessibility.
-- implementation of ARIA roles like `tablist`, `tab`, and `aria-selected`.
-- significance of keyboard navigation and ARIA states/properties in accessibility.
+- importance of using correct HTML elements and ARIA roles for accessibility,
+- implementation of ARIA roles like `tablist`, `tab`, and `aria-selected`,
+- significance of keyboard navigation and ARIA states/properties in accessibility,
 - design considerations for accessibility, including using `aria-disabled` over `disabled`.
