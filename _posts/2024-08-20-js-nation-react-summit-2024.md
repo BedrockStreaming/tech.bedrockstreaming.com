@@ -95,13 +95,33 @@ A [tweet](https://x.com/rauchg/status/807626710350839808) from [Guillermo Rauch]
 
 Ryan shows why JS frameworks, especially React, have recently evolved using new concepts to reduce the runtime at page load.
 
-...
+The size of pages has been increasing over the years. In particular because [SPAs](https://en.wikipedia.org/wiki/Single-page_application) have gained ground in the web world. SPAs are costly because of:
+
+- **code execution and evaluation**,
+- **code bundle size**,
+- **payload (HTML & data) size**.
+
+At the same time, devices have improved their performance, but not all of them. As a result, we are faced with a real fact: an app with client-side rendering is slower to display and interact than an app with server-side rendering.
+
+In order to reduce each of these three costly aspects, Ryan mentions three concepts that new versions of recent JS frameworks, such as React 19, are developing:
+
+- **islands**: splitting the page in several blocks and render those which never change only on server side,
+- **server components**: close to the island concept but with the ability to handle state persistence over the client navigation,
+- **resumability**: the ability to defer the hydratation of components until an interaction is requested.
 
 If you want more details about concepts developped by Ryan, you can read his [article](https://dev.to/this-is-learning/islands-server-components-resumability-oh-my-319d) on this subject.
 
 ### Invisible Hand of React Performance - Ivan Akulov
 
-### The Suspense Quest - Inside React's Magic - Charlotte Isambert
+> 📹 Watch the [video](https://gitnation.com/contents/solidjs-tba)
+
+Like [Charlotte Isambert's explanation of how Suspense works](https://gitnation.com/contents/react-performance-past-and-future), this talk takes us into the inner workings of React. It is often interesting to understand how the library you are using works under the hood so that you can use it properly.
+
+By comparing behaviors between the lastest React versions, Ivan explains:
+
+- how `useEffect` has optimized the browser layout and paint calculation flow comparing to `componentDidMount`,
+- how `setState` batching have been optimized in React 18,
+- how the freeze experience if the user interacts during the hydratation phase is much more better by using `Suspense`.
 
 ### Why You Should Use Redux in 2024 - Mark Erikson
 
