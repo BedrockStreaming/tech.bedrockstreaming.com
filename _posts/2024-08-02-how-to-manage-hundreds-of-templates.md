@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "How to manage hundreds of view templates?"
-description: ""
+title: How to manage hundreds of view templates?
+description: Let's dive together into the deep of template versionning at large scale in production for a white label streaming application.
 author: [d_cuny, m_oudji]
-category: 
 tags: [android, versioning, design, atomic design, design system]
 color: rgb(251,87,66)
 language: en
-comments: true
+thumbnail: "/images/posts/2024-08-02-how-to-manage-hundreds-of-templates/thumbnail.png"
 ---
+Let's dive together into the deep of template versionning at large scale in production for a white label streaming application.
 
 ## The context
 
@@ -28,14 +28,14 @@ At their disposal, they have a **design system**: a set of visual assets they ca
 - 62 **molecules**: group of atoms that forms a visual unity (ex: Card, Poster, HorizontalCard, Button, CTA, Portrait, Totem...)
 - 12 **organisms**: complex visual item or part of the interface (ex: Jumbotron, Hero, Solo, Banner...)
 
-_Sample screens composed of design system components_
+Following some sample screens composed of design system components for different customers: 
 
 :-:|:-:|:-:  
 ![](/images/posts/2024-08-02-how-to-manage-hundreds-of-templates/home-m6plus.png) | ![](/images/posts/2024-08-02-how-to-manage-hundreds-of-templates/home-videoland.png) | ![](/images/posts/2024-08-02-how-to-manage-hundreds-of-templates/home-rtlhu.png)  
 
 This results in, approximately, one hundred design elements per client. However, not all components are always specific, and an **inheritance** system is in place to allow clients to reuse default atoms, molecules, or organisms while applying the tokens corresponding to their brand.  
 
-The objectives and expectations vary greatly among clients, resulting in **numerous graphical element evolutions**. Managing the creation and progression of these elements through different processes is a major challenge in tracking designs across each platform. These demands sometimes lead to **different integrations**. Whether or not the default design is inherited is crucial information to avoid manually comparing the app designs with documentation, which can lead to misunderstandings and wasted time during validation and approval processes.
+The objectives and expectations regarding the design vary greatly among clients, resulting in **numerous graphical element evolutions**. Managing the creation and progression of these elements through different processes is a major challenge in tracking designs across each platform. These demands sometimes lead to **different integrations**. Whether or not the default design is inherited is crucial information to avoid manually comparing the app designs with documentation, which can lead to misunderstandings and wasted time during validation and approval processes. To achieve all these objectives, we need to be able to carrefully follow the evolution of the Design system on each plateform.  
 
 ## One versioning to rule them all 
 
@@ -45,6 +45,8 @@ To ensure its interest and effectiveness, this system had to address several iss
 - Allow **visualizing the inheritance** between the default design system and the client's specific part on the same platform. We also wanted the ability to add comments on implementation details.  
 - Be **directly accessible** with each build to stay in touch with the application it represents. On mobile, many builds are generated daily, making it difficult to track the arrival of new features.  
 - Stay **up-to-date** with the constant evolutions of the design system to maintain the source of truth.
+
+Exemple of a Design System release note:
 
 ![Release note of the Design system](/images/posts/2024-08-02-how-to-manage-hundreds-of-templates/design-release-note.png)  
  
@@ -63,7 +65,7 @@ Each frontend team was then responsible for implementing an equivalent versionin
 - **Limiting** versioning differences between frontends
 - Sharing **industrialization** ideas
 
-## A concrete sample: Android
+## Case study : Android versioning challenges
 
 On Android side, we sometimes have different component implementations between mobile and TV, evolving at different paces. This required **two separate versionings** to represent them. Moreover, we currently use comments to track the migration to Google's new view system (Compose), which is happening alongside graphical evolutions.  
 Each client has their **versioning file** containing all the components available on the targeted platform. Regarding component inheritance from the default design system, there are two possibilities:
@@ -76,14 +78,17 @@ Default Versioning file | Customer Versioning file
               
 From these **versioning files**, we have been able to generate **reports** for each platform containing only the available graphical elements and their version, whether inherited or not. To track their growing number, we opted for automatic generation of these reports with each build in our continuous integration system using a KGP (Kotlin Gradle Plugin) script integrated on our continuous deployment and integration (CI/CD): [Bitrise](https://bitrise.io/).
 
+Automatically generated Template versioning report for M6 customer:
+
 ![Template versioning report for a customer](/images/posts/2024-08-02-how-to-manage-hundreds-of-templates/template-versioning-report.png)  
 
 ## Conclusion
 
-This system generally addresses our issue, and these reports allow a **quick and exhaustive overview** of the design system at any given moment for any of our customers.
+Design system versioning reports allow a **quick and exhaustive overview** of the design system at any given moment for any of our customers and simplifies the QA teams validation work. It is now an essential tool for tracking design progress across all supported platforms.
+
 However, improvements are always possible:
 - Currently, developers are responsible for **updating the versioning file** when adding or modifying graphical elements, which can lead to errors and omissions. To avoid this, we would like to link the concrete implementation of the component and its version in the versioning file. But as we are still using the android legacy view system, component can be class but also xml style or theme or even resource files. This should be easier after the migration to the new Android view system Compose.
 - The reports are currently generated in **XML format**, which does not facilitate their use; using the PDF format would be preferable.
 - **Access through Bitrise** is not ideal. We currently centralize all generated builds (using CI as well) in [Airtable](https://www.airtable.com/). A link would be preferable and more visible.  
 
-Versioning allows us to know the state of all components on a platform at a given time and simplifies the QA teams validation work. It is an essential tool for tracking design progress across all supported platforms.
+These last improvement will perhaps be the subject of a follow-up to this article. Thank you for reading, we hope you find some useful informations that can help you better follow the graphical evolution of your project. Do not hesitate to contact us if you have some questions or suggestions. 
