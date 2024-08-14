@@ -4,8 +4,7 @@ title: JS Nation x React Summit 2024 highlights
 description: "A few notes on the combo JS Nation x React Summit Amsterdam 2024 conferences"
 author: team_frontend
 tags: [conference, frontend, react, javascript]
-color: rgb(251,87,66)
-feature-img: "/images/posts/2024-08-20-js-nation-react-summit-2024/reactSummit.jpg"
+feature-img: "/images/posts/2024-08-20-js-nation-react-summit-2024/reactSummit.png"
 thumbnail: "/images/posts/2024-08-20-js-nation-react-summit-2024/teamBedrock.jpg"
 ---
 
