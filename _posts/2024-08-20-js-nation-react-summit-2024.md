@@ -129,7 +129,7 @@ By comparing behaviors between the latest React versions, Ivan explains:
 
 At Bedrock, [we have been using Redux since 2016](https://tech.bedrockstreaming.com/2016/07/04/migrate-smoothly-flux-isomorphic-app-to-redux.html), and we continue to use it. So Mark's arguments will certainly confirm our choice!
 
-Mark is the creator of [Redux Toolkit](https://redux-toolkit.js.org/). He begin by detailing the pros and cons of using Redux in relation to various aspects:
+Mark is the creator of [Redux Toolkit](https://redux-toolkit.js.org/). He begins by detailing the pros and cons of using Redux in relation to various aspects:
 
 - flux-style indirection via dispatching actions instead of direct state mutations,
 - single global centralized store,
