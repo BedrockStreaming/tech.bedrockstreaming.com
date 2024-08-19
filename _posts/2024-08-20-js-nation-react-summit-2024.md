@@ -113,9 +113,9 @@ If you want more details about concepts developped by Ryan, you can read his [ar
 
 ### Invisible Hand of React Performance - Ivan Akulov
 
-> 📹 Watch the [video](https://gitnation.com/contents/solidjs-tba)
+> 📹 Watch the [video](https://gitnation.com/contents/react-performance-past-and-future)
 
-Like [Charlotte Isambert's explanation of how Suspense works](https://gitnation.com/contents/react-performance-past-and-future), this talk takes us into the inner workings of React. It is often interesting to understand how the library you are using works under the hood so that you can use it properly.
+Like [Charlotte Isambert's explanation of how Suspense works](https://gitnation.com/contents/react-internals), this talk takes us into the inner workings of React. It is often interesting to understand how the library you are using works under the hood so that you can use it properly.
 
 By comparing behaviors between the lastest React versions, Ivan explains:
 
