@@ -105,7 +105,7 @@ At the same time, devices have improved their performance, but not all of them. 
 
 In order to reduce each of these three costly aspects, Ryan mentions three concepts that new versions of recent JS frameworks, such as React 19, are developing:
 
-- **islands**: splitting the page in several blocks and render those which never change only on server side,
+- **islands**: splitting the page in several blocks, and render those which never change on server-side only,
 - **server components**: close to the island concept but with the ability to handle state persistence over the client navigation,
 - **resumability**: the ability to defer the hydratation of components until an interaction is requested.
 
