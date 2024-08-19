@@ -139,10 +139,10 @@ Then Mark presents the arguments why he thinks using Redux in 2024 is a good cho
 
 - Provides a consistent architecture pattern for apps
 - Better understanding of what's happening in the app
-- Widely used,
-- Well documented,
-- Better update behavior than React Context,
-- Redux Toolkit provides built-in tools standard use cases,
+- Widely used
+- Well documented
+- Better update behavior than React Context
+- Redux Toolkit provides built-in tools standard use cases
 - [RTK Query](https://redux-toolkit.js.org/rtk-query/overview) data fetching and caching layer
 - Works great with Typescript
 - Designed to work with React but still UI-agnostic
