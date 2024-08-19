@@ -7,6 +7,7 @@ tags: [android, versioning, design, atomic design, design system]
 color: rgb(251,87,66)
 language: en
 thumbnail: "/images/posts/2024-08-02-how-to-manage-hundreds-of-templates/thumbnail.png"
+feature-img: "/images/posts/2024-08-02-how-to-manage-hundreds-of-templates/thumbnail.png"
 ---
 Let’s dive together into the depths of a large scale template versioning for a white label streaming application.
 
