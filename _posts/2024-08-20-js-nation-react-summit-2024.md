@@ -109,7 +109,7 @@ In order to reduce each of these three costly aspects, Ryan mentions three conce
 - **server components**: close to the island concept but with the ability to handle state persistence over the client navigation,
 - **resumability**: the ability to defer the hydratation of components until an interaction is requested.
 
-If you want more details about concepts developped by Ryan, you can read his [article](https://dev.to/this-is-learning/islands-server-components-resumability-oh-my-319d) on this subject.
+If you want more details about concepts developed by Ryan, you can read his [article](https://dev.to/this-is-learning/islands-server-components-resumability-oh-my-319d) on this subject.
 
 ### Invisible Hand of React Performance - Ivan Akulov
 
