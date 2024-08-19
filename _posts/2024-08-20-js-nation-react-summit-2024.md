@@ -137,15 +137,15 @@ Mark is the creator of [Redux Toolkit](https://redux-toolkit.js.org/). He begins
 
 Then Mark presents the arguments why he thinks using Redux in 2024 is a good choice:
 
-- provides a consistent architecture pattern for apps,
-- better understanding of what's happening in the app,
-- widely used,
-- well documented,
-- better update behavior than React Context,
+- Provides a consistent architecture pattern for apps
+- Better understanding of what's happening in the app
+- Widely used,
+- Well documented,
+- Better update behavior than React Context,
 - Redux Toolkit provides built-in tools standard use cases,
-- [RTK Query](https://redux-toolkit.js.org/rtk-query/overview) data fetching and caching layer,
-- works great with Typescript,
-- designed to work with React but still UI-agnostic.
+- [RTK Query](https://redux-toolkit.js.org/rtk-query/overview) data fetching and caching layer
+- Works great with Typescript
+- Designed to work with React but still UI-agnostic
 
 At Bedrock, since 2016, we have been trying to standardise the way we use Redux in JS projects by applying [some best practices](https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html).
 We also have been adopting [Redux Toolkit](https://tech.bedrockstreaming.com/2022/06/08/migration-progressive-vers-redux-toolkit.html) for some time with this in mind. And we are always open to new ways of managing state in apps. For example, we are currently testing [XState](https://tech.bedrockstreaming.com/2023/02/08/projet-xstate.html) to manage the state of our player.
