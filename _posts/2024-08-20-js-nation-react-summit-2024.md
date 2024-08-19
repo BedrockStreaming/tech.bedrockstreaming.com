@@ -23,7 +23,7 @@ Alex sums up his speech in 5 points:
 - **Accept imperfections** in your codebase: perfect is the enemy of good, shortcuts and exceptions can be taken if they are well documented.
 - **[Colocate code](https://alexmoldovan.dev/code-bites/colocation-is-king)** according to concerns is a way of improving readability and therefore maintainability and efficiency.
 - **Reusability** is not always the better choice vs **duplication**, you should find the right balance, abstraction should come when a piece of code is proven as a long term solution.
-- **Readability and understandability** of the code is very important for the future developpers that will maintain your code, leaves comments, break conditions with more than 3 members using intermediate variables.
+- **Readability and understandability** of the code is very important for the future developers that will maintain your code, leaves comments, break conditions with more than 3 members using intermediate variables.
 - Use **Typescript** intensively and try to handle all the possible states of your data.
 
 At Bedrock, we've always tried to apply a maximum of [best practices](https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html) including some developped here by Alex, to ensure the maintainability of our web codebase. It seems to be working pretty good since this JS project is now 10 years old!
