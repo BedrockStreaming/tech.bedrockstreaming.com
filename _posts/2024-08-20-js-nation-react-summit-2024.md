@@ -131,9 +131,9 @@ At Bedrock, [we have been using Redux since 2016](https://tech.bedrockstreaming.
 
 Mark is the creator of [Redux Toolkit](https://redux-toolkit.js.org/). He begins by detailing the pros and cons of using Redux in relation to various aspects:
 
-- flux-style indirection via dispatching actions instead of direct state mutations,
-- single global centralized store,
-- state updates via reducers and slices.
+- Flux-style indirection via dispatching actions instead of direct state mutations
+- A single global centralized store
+- State updates via reducers and slices
 
 Then Mark presents the arguments why he thinks using Redux in 2024 is a good choice:
 
