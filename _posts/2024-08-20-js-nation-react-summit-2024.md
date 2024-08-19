@@ -160,7 +160,7 @@ Sid highlights specific examples, such as [navigating tab lists](https://www.w3.
 
 What we remember from this talk:
 
-- importance of using correct HTML elements and ARIA roles for accessibility,
-- implementation of ARIA roles like `tablist`, `tab`, and `aria-selected`,
-- significance of keyboard navigation and ARIA states/properties in accessibility,
-- design considerations for accessibility, including using `aria-disabled` over `disabled`.
+- Importance of using correct HTML elements and ARIA roles for accessibility
+- Implementation of ARIA roles like `tablist`, `tab`, and `aria-selected`
+- Significance of keyboard navigation and ARIA states/properties in accessibility
+- Design considerations for accessibility, including using `aria-disabled` over `disabled`
