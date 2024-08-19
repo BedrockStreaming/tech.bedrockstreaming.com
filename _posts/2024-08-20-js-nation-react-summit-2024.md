@@ -81,7 +81,7 @@ Eugene describes the various steps to build a reliable testing strategy:
 [In Bedrock's frontend teams](https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html), we are aligned with these strategy:
 
 - Static testing is a compulsory stage in any project start-up.
-- We have a lot of unit and integration tests (which can be view as e2e tests but we only test the frontend part with mocked backend and 3rd parties).
+- We have a lot of unit and integration tests (which can be viewed as e2e tests, but we only test the frontend part with mocked backend and 3rd parties).
 - A manual homologation phase before deploying any new release run e2e tests: this is a current project to automate most of these tests to save time in the process.
 - Production monitoring is one of our mantras: our former boss used to say that _"a non-monitored project is not in production"_.
 
