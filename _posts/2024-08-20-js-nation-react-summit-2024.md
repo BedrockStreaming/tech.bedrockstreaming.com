@@ -117,7 +117,7 @@ If you want more details about concepts developed by Ryan, you can read his [art
 
 Like [Charlotte Isambert's explanation of how Suspense works](https://gitnation.com/contents/react-internals), this talk takes us into the inner workings of React. It is often interesting to understand how the library you are using works under the hood so that you can use it properly.
 
-By comparing behaviors between the lastest React versions, Ivan explains:
+By comparing behaviors between the latest React versions, Ivan explains:
 
 - how `useEffect` has optimized the browser layout and paint calculation flow comparing to `componentDidMount`,
 - how `setState` batching have been optimized in React 18,
