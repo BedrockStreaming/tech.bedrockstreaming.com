@@ -70,7 +70,7 @@ The first three are affected by the testing strategy. The _[Testing Trophy](http
 
 ![Testing Trophy: return on investment of the different forms of testing](/images/posts/2024-08-20-js-nation-react-summit-2024/testingTrophy.png)
 
-Eugene discribes the various steps to build a relibale testing strategy:
+Eugene describes the various steps to build a reliable testing strategy:
 
 - step 0: enable **static** linters and **type** checks
 - step 1: create **integration** tests for all happy and non-happy flows
