@@ -61,10 +61,10 @@ Testing has been a guide and a real challenge since we began the JS web project 
 
 [DORA metrics](https://www.datadoghq.com/knowledge-center/dora-metrics/) should be adopted to measure how good your are for shippping software with **4 indicators**:
 
-- deployment frequency,
-- lead time for changes,
-- change failure rate,
-- time to restore service.
+- Deployment frequency
+- Lead time for changes
+- Change failure rate
+- Time to restore service
 
 The first three are affected by the testing strategy. The _[Testing Trophy](https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications)_ can help to write the right tests given the **return on investment** of the different forms.
 
