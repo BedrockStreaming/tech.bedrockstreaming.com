@@ -42,7 +42,7 @@ As in many areas, the key is to set realistic and achievable objectives and to p
 
 > 📹 Watch the [video](https://gitnation.com/contents/install-nothing-app-uis-with-native-browser-apis)
 
-Scott reveals that we can use the browser's native APIs to build certain UI components easily, whereas we've been using sometimes complex JS to do this for years.
+Scott reveals that we can use the browser's native APIs to build certain UI components easily, whereas we've sometimes been using complex JS to do this for years.
 
 He shows for example:
 
