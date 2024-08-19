@@ -20,7 +20,7 @@ One of my favourite types of presentation, with concrete things that you can the
 
 Alex sums up his speech in 5 points:
 
-- **Accept imperfections** in your codebase: perfect is the ennemy of good, shortcuts and exceptions can be taken if they are well documented.
+- **Accept imperfections** in your codebase: perfect is the enemy of good, shortcuts and exceptions can be taken if they are well documented.
 - **[Colocate code](https://alexmoldovan.dev/code-bites/colocation-is-king)** according to concerns is a way of improving readability and therefore maintainability and efficiency.
 - **Reusability** is not always the better choice vs **duplication**, you should find the right balance, abstraction should come when a piece of code is proven as a long term solution.
 - **Readability and understandability** of the code is very important for the future developpers that will maintain your code, leaves comments, break conditions with more than 3 members using intermediate variables.
