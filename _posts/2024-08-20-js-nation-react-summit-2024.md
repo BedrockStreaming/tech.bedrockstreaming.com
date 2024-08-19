@@ -57,7 +57,7 @@ And much more besides, check out all Scott's tips on this [site](https://tolin.s
 
 > 📹 Watch the [video](https://gitnation.com/contents/testing-do-more-with-less)
 
-Testing has been a guide and a real challenge since we begin the JS web project at Bedrock in 2015. We are convinced that this is an important part of the sustainability and reliability of the codebase. As a result, we listened to Eugene's point of view with curiosity.
+Testing has been a guide and a real challenge since we began the JS web project at Bedrock in 2015. We are convinced that this is an important part of the sustainability and reliability of the codebase. As a result, we listened to Eugene's point of view with curiosity.
 
 [DORA metrics](https://www.datadoghq.com/knowledge-center/dora-metrics/) should be adopted to measure how good your are for shippping software with **4 indicators**:
 
