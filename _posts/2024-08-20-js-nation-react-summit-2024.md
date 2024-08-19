@@ -121,7 +121,7 @@ By comparing behaviors between the latest React versions, Ivan explains:
 
 - how `useEffect` has optimized the browser layout and paint calculation flow comparing to `componentDidMount`,
 - how `setState` batching have been optimized in React 18,
-- why the freeze experience if the user interacts during the hydratation phase is much more better by using `Suspense`.
+- why the freeze experience if the user interacts during the hydratation phase is much better by using `Suspense`.
 
 ### Why You Should Use Redux in 2024 - Mark Erikson
 
