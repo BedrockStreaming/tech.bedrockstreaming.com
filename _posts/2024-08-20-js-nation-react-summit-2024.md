@@ -154,7 +154,7 @@ We also have been adopting [Redux Toolkit](https://tech.bedrockstreaming.com/202
 
 > 📹 Watch the [video](https://gitnation.com/contents/case-study-building-accessible-reusable-react-components-at-github)
 
-The talk by Sid focuses on building accessible React components, emphasizing the importance of using the correct HTML elements and [ARIA roles](https://www.w3.org/TR/wai-aria-1.2/) to enhance web accessibility.
+The talk by Sid focuses on building accessible React components, and emphasises on the importance of using the correct HTML elements and [ARIA roles](https://www.w3.org/TR/wai-aria-1.2/) to enhance web accessibility.
 
 Sid highlights specific examples, such as [navigating tab lists](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/) and [handling conditional checkboxes](https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/), explaining how ARIA roles and properties can make web interfaces more accessible, especially for screen reader users.
 
