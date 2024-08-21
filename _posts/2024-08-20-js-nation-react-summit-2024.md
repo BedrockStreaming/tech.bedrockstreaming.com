@@ -101,7 +101,7 @@ The size of pages has been increasing over the years. In particular because [SPA
 - **code bundle size**,
 - **payload (HTML & data) size**.
 
-At the same time, devices have improved their performance, but not all of them. As a result, we are faced with a real fact: an app with client-side rendering is slower to display and interact than an app with server-side rendering.
+At the same time, devices have improved their performance, but not all of them. Connectivity can also be a limiting factor, depending on the context of use. As a result, we are faced with a real fact: an app with client-side rendering is slower to display and interact than an app with server-side rendering.
 
 In order to reduce each of these three costly aspects, Ryan mentions three concepts that new versions of recent JS frameworks, such as React 19, are developing:
 
