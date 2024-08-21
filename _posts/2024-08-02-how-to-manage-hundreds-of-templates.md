@@ -52,7 +52,7 @@ Exemple of a Design System release note:
 
 ![Release note of the design system](/images/posts/2024-08-02-how-to-manage-hundreds-of-templates/design-release-note.png)  
  
-Initially, the design team started by versioning its releases and all available components, which are accessible to technical teams in our online design documentation (hosted on [ZeroHeight](https://zeroheight.com/)). This versioning is **common to all platforms** and all clients if there are no specificities for the component in question. Ultimately, versioning helps product and technical teams track the delivery progress of new designs. The version number follows these rules:
+Initially, the design team started by versioning its releases and all available components, which are accessible to technical teams in our online design documentation (hosted on [zeroheight](https://zeroheight.com/)). This versioning is **common to all platforms** and all clients if there are no specificities for the component in question. Ultimately, versioning helps product and technical teams track the delivery progress of new designs. The version number follows these rules:
 
 Code status | Stage | Rule | Example  
 :-:|:-:|:-:|:-:  
@@ -67,7 +67,7 @@ Each frontend team were then responsible for implementing an equivalent versioni
 - **Limiting** versioning differences between all fronts
 - Sharing **industrialization** ideas
 
-## Case study : Android versioning challenges
+## Case study: Android versioning challenges
 
 For Android, we sometimes have different component implementations between mobile and TV, evolving at different paces. This required **two separate versionings** to represent them. Moreover, we currently use comments to track the migration to Google's new view system (Compose), which is happening alongside graphical evolutions.  
 Each client has its **versioning file** containing all the components available on the targeted platform. Regarding component inheritance from the default design system, there are two possibilities:
@@ -78,7 +78,7 @@ Default Versioning file | Customer Versioning file
 :-------------------------:|:-------------------------:  
 ![](/images/posts/2024-08-02-how-to-manage-hundreds-of-templates/versioning-file-default.png) | ![](/images/posts/2024-08-02-how-to-manage-hundreds-of-templates/versioning-file-customer.png)  
               
-From these **versioning files**, we have been able to generate **reports** for each platform containing only the available graphical elements and their version, whether inherited or not. To track their growing number, we opted for automatic generation of these reports with each build in our continuous integration system using a KGP (Kotlin Gradle Plugin) script integrated on our continuous deployment and integration (CI/CD): [Bitrise](https://bitrise.io/).
+From these **versioning files**, we have been able to generate **reports** for each platform containing only the available graphical elements and their version, whether inherited or not. To track their growing number, we opted for automatic generation of these reports with each build using a Gradle Plugin integrated on our continuous deployment and integration (CI/CD): [Bitrise](https://bitrise.io/). Now, they are generated using a [Mkdocs](https://www.mkdocs.org/) plugin to be published online automatically with our technical documentation.
 
 Automatically generated template versioning report for M6+:
 
@@ -90,7 +90,6 @@ Design system versioning reports offer a **quick and exhaustive overview** of th
 
 However, improvements are always possible:
 - Currently, developers are responsible for **updating the versioning file** when adding or modifying graphical elements, which can lead to errors and omissions. To avoid this, we would like to link the concrete implementation of the component and its version in the versioning file. But as we are still using the android legacy view system, component can be a class but also some xml style or theme or even resource files. This should be easier after the migration to the new Android view system Compose.
-- The reports are currently generated in **XML format**, which does not facilitate their use; using the PDF format would be preferable.
 - **Access through Bitrise** is not ideal. We currently centralize all generated builds (using CI as well) in [Airtable](https://www.airtable.com/). A link would be preferable and more visible.  
 
 These last improvements will perhaps be the subject of a follow-up to this article. Thank you for reading, we hope you found some useful information that can help you to better follow the graphical evolution of your project. Do not hesitate to contact us if you have some questions or suggestions. 
