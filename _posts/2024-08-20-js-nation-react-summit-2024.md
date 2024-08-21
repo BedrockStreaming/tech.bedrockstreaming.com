@@ -34,7 +34,7 @@ At Bedrock, we've always tried to apply a maximum of [best practices](https://te
 
 Vinicius addresses an important subject for us, as frontend engineers. We are all concerned about performance and we want to deliver the most optimized product, but we often come up against major obstacles in this area. We already talked about this topic last year when [we attended the We Love Speed conference](https://tech.bedrockstreaming.com/2023/08/11/we-love-speed-2023.html).
 
-To demonstrate the worth of working on performances, **Lab tools** (like [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview?hl=fr)) & **RUM** (Real User Monitoring) have to be used together. Data collected must be analyzed, optimized and framed to make connections with product concerns. Performance needs to **matter to engineering and product** for a sustainable governance model.
+To demonstrate the worth of working on performances, **Lab tools** (like [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview?hl=fr)) & **RUM** (Real User Monitoring) have to be used together. Collected data must be analyzed, optimized and framed to make connections with product concerns. Performance needs to **matter to engineering and product** for a sustainable governance model.
 
 As in many areas, the key is to set realistic and achievable objectives and to proceed by iteration: **monitor, measure, report and repeat**.
 
