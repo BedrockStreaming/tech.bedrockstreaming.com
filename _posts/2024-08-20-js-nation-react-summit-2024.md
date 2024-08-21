@@ -164,3 +164,7 @@ What we remember from this talk:
 - Implementation of ARIA roles like `tablist`, `tab`, and `aria-selected`
 - Significance of keyboard navigation and ARIA states/properties in accessibility
 - Design considerations for accessibility, including using `aria-disabled` over `disabled`
+
+### What's next for us
+
+We came away from these conferences with the feeling that we had adopted the right approach in the past few years for our JS projects, whether in terms of architecture, maintainability or testing strategy. However, we saw that we shouldn't miss the next steps regarding **accessibility** (an improvement project is underway for the end of year) and **performances**, especially taking into account the new way of rendering server-side with React 19 (while [we pioneered the use of React with SSR in 2014](https://tech.bedrockstreaming.com/2014/12/04/isomorphic-single-page-app-parfaite-react-flux)). We will be sure to keep you informed of our progress!
