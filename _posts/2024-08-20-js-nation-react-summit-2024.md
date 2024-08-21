@@ -26,7 +26,7 @@ Alex sums up his speech in 5 points:
 - **Readability and understandability** of the code is very important for the future developers that will maintain your code: leave comments, break conditions with more than 3 members using intermediate variables, etc.
 - Use **Typescript** intensively and try to handle all the possible states of your data.
 
-At Bedrock, we've always tried to apply a maximum of [best practices](https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html) including some developped here by Alex, to ensure the maintainability of our web codebase. It seems to be working pretty good since this JS project is now 10 years old!
+At Bedrock, we've always tried to apply a maximum of [best practices](https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html) including some addressed here by Alex, to ensure the maintainability of our web codebase. It seems to be working pretty good since this JS project is now 10 years old!
 
 ### Why Your Performance Work Is Not Seen - Vinicius Dallacqua
 
@@ -34,7 +34,7 @@ At Bedrock, we've always tried to apply a maximum of [best practices](https://te
 
 Vinicius addresses an important subject for us, as frontend engineers. We are all concerned about performance and we want to deliver the most optimized product, but we often come up against major obstacles in this area. We already talked about this topic last year when [we attended the We Love Speed conference](https://tech.bedrockstreaming.com/2023/08/11/we-love-speed-2023.html).
 
-To prove values of performance work, **Lab tools** (like [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview?hl=fr)) & **RUM** (Real User Monitoring) have to be used together. Data collected must be analyzed, optimized and framed to make connections with product concerns. Performance needs to **matter to engineering and product** for a sustainable governance model.
+To demonstrate the worth of working on performances, **Lab tools** (like [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview?hl=fr)) & **RUM** (Real User Monitoring) have to be used together. Data collected must be analyzed, optimized and framed to make connections with product concerns. Performance needs to **matter to engineering and product** for a sustainable governance model.
 
 As in many areas, the key is to set realistic and achievable objectives and to proceed by iteration: **monitor, measure, report and repeat**.
 
@@ -46,12 +46,12 @@ Scott reveals that we can use the browser's native APIs to build certain UI comp
 
 He shows for example:
 
-- How to build modals with [`<dialog>`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/dialog) element
+- How to build modals with the [`<dialog>`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/dialog) element
 - How to easily create animated transitions with [View Transition API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API) or with [`@starting-style`](https://developer.mozilla.org/en-US/docs/Web/CSS/@starting-style)
-- How to create menu with [`<popover>`](https://developer.mozilla.org/fr/docs/Web/HTML/Global_attributes/popover) element
+- How to create a menu with the [`<popover>`](https://developer.mozilla.org/fr/docs/Web/HTML/Global_attributes/popover) element
 - How to build slideshows with [`scroll-snap`](https://developer.mozilla.org/fr/docs/Web/CSS/scroll-snap-align) CSS properties
 
-And much more besides, check out all Scott's tips on this [site](https://tolin.ski/talks/install-nothing).
+Check all these tips out and much more besides on Scott's [site](https://tolin.ski/talks/install-nothing)!
 
 ### Testing: do more with less - Eugene Fidelin
 
@@ -147,14 +147,14 @@ Then Mark presents the arguments why he thinks using Redux in 2024 is a good cho
 - Works great with Typescript
 - Designed to work with React but still UI-agnostic
 
-At Bedrock, since 2016, we have been trying to standardise the way we use Redux in JS projects by applying [some best practices](https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html).
+Since 2016 we have been trying at Bedrock to streamline the way we use Redux in JS projects by applying [some best practices](https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html).
 We also have been adopting [Redux Toolkit](https://tech.bedrockstreaming.com/2022/06/08/migration-progressive-vers-redux-toolkit.html) for some time with this in mind. And we are always open to new ways of managing state in apps. For example, we are currently testing [XState](https://tech.bedrockstreaming.com/2023/02/08/projet-xstate.html) to manage the state of our player.
 
 ### Case Study: Building Accessible Reusable React Components at GitHub - Siddharth Kshetrapal
 
 > 📹 Watch the [video](https://gitnation.com/contents/case-study-building-accessible-reusable-react-components-at-github)
 
-The talk by Sid focuses on building accessible React components, and emphasises on the importance of using the correct HTML elements and [ARIA roles](https://www.w3.org/TR/wai-aria-1.2/) to enhance web accessibility.
+The talk by Sid focuses on building accessible React components, and emphasises on the importance of using the [correct HTML elements](https://developer.mozilla.org/en-US/docs/Glossary/Semantics) and [ARIA roles](https://www.w3.org/TR/wai-aria-1.2/) to enhance web accessibility.
 
 Sid highlights specific examples, such as [navigating tab lists](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/) and [handling conditional checkboxes](https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/), explaining how ARIA roles and properties can make web interfaces more accessible, especially for screen reader users.
 
