@@ -16,7 +16,7 @@ The Frontend Bedrock teams were present at the 2024 edition of the _JS Nation_ a
 
 > 📹 Watch the [video](https://gitnation.com/contents/lessons-for-building-resilient-codebases)
 
-One of my favourite types of presentation, with concrete things that you can then apply in your daily life as a developer.
+One of my favourite types of presentation, with practical things that you can then apply in your daily life as a developer.
 
 Alex sums up his speech in 5 points:
 
