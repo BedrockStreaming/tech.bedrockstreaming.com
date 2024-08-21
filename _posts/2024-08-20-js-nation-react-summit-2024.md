@@ -22,7 +22,7 @@ Alex sums up his speech in 5 points:
 
 - **Accept imperfections** in your codebase: perfect is the enemy of good, shortcuts and exceptions can be taken if they are well documented.
 - **[Colocating code](https://alexmoldovan.dev/code-bites/colocation-is-king)** according to concerns is a way of improving readability and therefore maintainability and efficiency.
-- **Reusability** is not always the better choice vs **duplication**, you should find the right balance, abstraction should come when a piece of code is proven as a long term solution.
+- **Reusability** is not always the better choice vs **duplication**, you should find the right balance, abstraction should only come when a piece of code is proven to be a long term solution.
 - **Readability and understandability** of the code is very important for the future developers that will maintain your code: leave comments, break conditions with more than 3 members using intermediate variables, etc.
 - Use **Typescript** intensively and try to handle all the possible states of your data.
 
