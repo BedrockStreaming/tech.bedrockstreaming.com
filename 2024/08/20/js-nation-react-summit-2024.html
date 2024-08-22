@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/2024-08-20-js-nation-react-summit-2024/teamBedrock.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>JS Nation x React Summit 2024 highlights | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="JS Nation x React Summit 2024 highlights" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A few notes on the combo JS Nation x React Summit Amsterdam 2024 conferences" />
+<meta property="og:description" content="A few notes on the combo JS Nation x React Summit Amsterdam 2024 conferences" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2024/08/20/js-nation-react-summit-2024.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2024/08/20/js-nation-react-summit-2024.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-08-20T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="JS Nation x React Summit 2024 highlights" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","description":"A few notes on the combo JS Nation x React Summit Amsterdam 2024 conferences","url":"https://tech.bedrockstreaming.com/2024/08/20/js-nation-react-summit-2024.html","headline":"JS Nation x React Summit 2024 highlights","dateModified":"2024-08-20T00:00:00+00:00","datePublished":"2024-08-20T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2024/08/20/js-nation-react-summit-2024.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="JS Nation x React Summit 2024 highlights">
+    <meta name="twitter:description" content="The Frontend Bedrock teams were present at the 2024 edition of the JS Nation and React Summit conferences in Amsterdam on 13 &amp; 14 June. We would like to ...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/2024-08-20-js-nation-react-summit-2024/teamBedrock.jpg">
+    <meta name="twitter:image:alt" content="JS Nation x React Summit 2024 highlights">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="JS Nation x React Summit 2024 highlights " aria-label="JS Nation x React Summit 2024 highlights" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="JS+Nation+x+React+Summit+2024+highlights" class="title">JS Nation x React Summit 2024 highlights</h1>
+      <div class="post-info">
+
+
+<a
+      href="https://twitter.com/fooragnak"
+      target="_blank"
+      rel="noopener"
+      class="author">
+      <img alt="Author's avatar" src="/images/avatar/f_dubost.jpg" class="thumbnail">
+    
+
+    
+      <span class="name">
+        Florent Dubost
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+<a
+      href="https://github.com/yfrommelt"
+      target="_blank"
+      rel="noopener"
+      class="author">
+      <img alt="Author's avatar" src="/images/avatar/y_frommelt.jpeg" class="thumbnail">
+    
+
+    
+      <span class="name">
+        Yoann Frommelt
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    August 20, 2024
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>The Frontend Bedrock teams were present at the 2024 edition of the <em>JS Nation</em> and <em>React Summit</em> conferences in Amsterdam on 13 &amp; 14 June. We would like to highlight and share some of the subjects we find relevant about our favourite language and framework 🙂 Feel free to explore them further if you are interested.</p>
+
+<blockquote>
+  <p>📹 You can watch all the video recordings of the <a href="https://gitnation.com/events/jsnation-2024/talks">JS Nation</a> and the <a href="https://gitnation.com/events/react-summit-2024/talks">React Summit</a> talks.</p>
+</blockquote>
+
+<h3 id="lessons-for-building-resilient-codebases---alex-moldovan">Lessons for Building Resilient Codebases - Alex Moldovan</h3>
+
+<blockquote>
+  <p>📹 Watch the <a href="https://gitnation.com/contents/lessons-for-building-resilient-codebases">video</a></p>
+</blockquote>
+
+<p>One of my favourite types of presentation, with practical things that you can then apply in your daily life as a developer.</p>
+
+<p>Alex sums up his speech in 5 points:</p>
+
+<ul>
+  <li><strong>Accept imperfections</strong> in your codebase: perfect is the enemy of good, shortcuts and exceptions can be taken if they are well documented.</li>
+  <li><strong><a href="https://alexmoldovan.dev/code-bites/colocation-is-king">Colocating code</a></strong> according to concerns is a way of improving readability and therefore maintainability and efficiency.</li>
+  <li><strong>Reusability</strong> is not always the better choice vs <strong>duplication</strong>, you should find the right balance, abstraction should only come when a piece of code is proven to be a long term solution.</li>
+  <li><strong>Readability and understandability</strong> of the code is very important for the future developers that will maintain your code: leave comments, break conditions with more than 3 members using intermediate variables, etc.</li>
+  <li>Use <strong>Typescript</strong> intensively and try to handle all the possible states of your data.</li>
+</ul>
+
+<p>At Bedrock, we’ve always tried to apply a maximum of <a href="https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html">best practices</a> including some addressed here by Alex, to ensure the maintainability of our web codebase. It seems to be working pretty good since this <a href="https://tech.bedrockstreaming.com/comment-ne-pas-jeter-son-application-frontend-tout-les-deux-ans">JS project is now 10 years old</a>!</p>
+
+<h3 id="why-your-performance-work-is-not-seen---vinicius-dallacqua">Why Your Performance Work Is Not Seen - Vinicius Dallacqua</h3>
+
+<blockquote>
+  <p>📹 Watch the <a href="https://gitnation.com/contents/why-your-performance-work-is-not-seen">video</a></p>
+</blockquote>
+
+<p>Vinicius addresses an important subject for us, as frontend engineers. We are all concerned about performance and we want to deliver the most optimized product, but we often come up against major obstacles in this area. We already talked about this topic last year when <a href="https://tech.bedrockstreaming.com/2023/08/11/we-love-speed-2023.html">we attended the We Love Speed conference</a>.</p>
+
+<p>To demonstrate the worth of working on performances, <strong>Lab tools</strong> (like <a href="https://developer.chrome.com/docs/lighthouse/overview?hl=fr">Lighthouse</a>) &amp; <strong>RUM</strong> (Real User Monitoring) have to be used together. Collected data must be analyzed, optimized and framed to make connections with product concerns. Performance needs to <strong>matter to engineering and product</strong> for a sustainable governance model.</p>
+
+<p>As in many areas, the key is to set realistic and achievable objectives and to proceed by iteration: <strong>monitor, measure, report and repeat</strong>.</p>
+
+<h3 id="install-nothing-app-uis-with-native-browser-apis---scott-tolinski">Install Nothing: App UIs With Native Browser APIs - Scott Tolinski</h3>
+
+<blockquote>
+  <p>📹 Watch the <a href="https://gitnation.com/contents/install-nothing-app-uis-with-native-browser-apis">video</a></p>
+</blockquote>
+
+<p>Scott reveals that we can use the browser’s native APIs to build certain UI components easily, whereas we’ve sometimes been using complex JS to do this for years.</p>
+
+<p>He shows for example:</p>
+
+<ul>
+  <li>How to build modals with the <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/dialog"><code class="language-plaintext highlighter-rouge">&lt;dialog&gt;</code></a> element</li>
+  <li>How to easily create animated transitions with <a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API">View Transition API</a> or with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@starting-style"><code class="language-plaintext highlighter-rouge">@starting-style</code></a></li>
+  <li>How to create a menu with the <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Global_attributes/popover"><code class="language-plaintext highlighter-rouge">&lt;popover&gt;</code></a> element</li>
+  <li>How to build slideshows with <a href="https://developer.mozilla.org/fr/docs/Web/CSS/scroll-snap-align"><code class="language-plaintext highlighter-rouge">scroll-snap</code></a> CSS properties</li>
+</ul>
+
+<p>Check all these tips out and much more besides on Scott’s <a href="https://tolin.ski/talks/install-nothing">site</a>!</p>
+
+<h3 id="testing-do-more-with-less---eugene-fidelin">Testing: do more with less - Eugene Fidelin</h3>
+
+<blockquote>
+  <p>📹 Watch the <a href="https://gitnation.com/contents/testing-do-more-with-less">video</a></p>
+</blockquote>
+
+<p>Testing has been a guide and a real challenge since we began the JS web project at Bedrock in 2015. We are convinced that this is an important part of the sustainability and reliability of the codebase. As a result, we listened to Eugene’s point of view with curiosity.</p>
+
+<p><a href="https://www.datadoghq.com/knowledge-center/dora-metrics/">DORA metrics</a> should be adopted to measure how good your are for shipping software with <strong>4 indicators</strong>:</p>
+
+<ul>
+  <li>Deployment frequency</li>
+  <li>Lead time for changes</li>
+  <li>Change failure rate</li>
+  <li>Time to restore service</li>
+</ul>
+
+<p>The first three are affected by the testing strategy. The <em><a href="https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications">Testing Trophy</a></em> can help to write the right tests given the <strong>return on investment</strong> of the different forms.</p>
+
+<p><img src="/images/posts/2024-08-20-js-nation-react-summit-2024/testingTrophy.png" alt="Testing Trophy: return on investment of the different forms of testing" /></p>
+
+<p>Eugene describes the various steps to build a reliable testing strategy:</p>
+
+<ul>
+  <li>step 0: enable <strong>static</strong> linters and <strong>type</strong> checks</li>
+  <li>step 1: create <strong>integration</strong> tests for all happy and non-happy flows</li>
+  <li>step 2: write <strong>unit</strong> tests for reusable parts and code without coverage</li>
+  <li>step 3: write very few <strong>e2e</strong> tests only for the most business critical flows</li>
+  <li>step 4: use <strong>metrics, tracing, logging</strong> to identify anomalies on production</li>
+</ul>
+
+<p><a href="https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html">In Bedrock’s frontend teams</a>, we are aligned with these strategy:</p>
+
+<ul>
+  <li>Static testing is a compulsory stage in any project start-up.</li>
+  <li>We have a lot of unit and integration tests (which can be viewed as e2e tests, but we only test the frontend part with mocked backend and 3rd parties).</li>
+  <li>A manual homologation phase before deploying any new release run e2e tests: this is a current project to automate most of these tests to save time in the process.</li>
+  <li>Production monitoring is one of our mantras: our former boss used to say that <em>“a non-monitored project is not in production”</em>.</li>
+</ul>
+
+<p>A <a href="https://x.com/rauchg/status/807626710350839808">tweet</a> from <a href="https://x.com/rauchg">Guillermo Rauch</a> can perfectly conclude this topic:</p>
+
+<blockquote>
+  <p>Write tests. Not too many. Mostly integration.</p>
+</blockquote>
+
+<h3 id="facing-frontends-existencial-crisis---ryan-carniato">Facing Frontend’s Existencial Crisis - Ryan Carniato</h3>
+
+<blockquote>
+  <p>📹 Watch the <a href="https://gitnation.com/contents/solidjs-tba">video</a></p>
+</blockquote>
+
+<p>Ryan shows why JS frameworks, especially React, have recently evolved using new concepts to reduce the runtime at page load.</p>
+
+<p>The size of pages has been increasing over the years. In particular because <a href="https://en.wikipedia.org/wiki/Single-page_application">SPAs</a> have gained ground in the web world. SPAs are costly because of:</p>
+
+<ul>
+  <li><strong>code execution and evaluation</strong>,</li>
+  <li><strong>code bundle size</strong>,</li>
+  <li><strong>payload (HTML &amp; data) size</strong>.</li>
+</ul>
+
+<p>At the same time, devices have improved their performance, but not all of them. Connectivity can also be a limiting factor, depending on the context of use. As a result, we are faced with a real fact: an app with client-side rendering is slower to display and interact than an app with server-side rendering.</p>
+
+<p>In order to reduce each of these three costly aspects, Ryan mentions three concepts that new versions of recent JS frameworks, such as React 19, are developing:</p>
+
+<ul>
+  <li><strong>islands</strong>: splitting the page in several blocks, and render those which never change on server-side only,</li>
+  <li><strong>server components</strong>: close to the island concept but with the ability to handle state persistence over the client navigation,</li>
+  <li><strong>resumability</strong>: the ability to defer the hydratation of components until an interaction is requested.</li>
+</ul>
+
+<p>If you want more details about concepts developed by Ryan, you can read his <a href="https://dev.to/this-is-learning/islands-server-components-resumability-oh-my-319d">article</a> on this subject.</p>
+
+<h3 id="invisible-hand-of-react-performance---ivan-akulov">Invisible Hand of React Performance - Ivan Akulov</h3>
+
+<blockquote>
+  <p>📹 Watch the <a href="https://gitnation.com/contents/react-performance-past-and-future">video</a></p>
+</blockquote>
+
+<p>Like <a href="https://gitnation.com/contents/react-internals">Charlotte Isambert’s explanation of how Suspense works</a>, this talk takes us into the inner workings of React. It is often interesting to understand how the library you are using works under the hood so that you can use it properly.</p>
+
+<p>By comparing behaviors between the latest React versions, Ivan explains:</p>
+
+<ul>
+  <li>How <code class="language-plaintext highlighter-rouge">useEffect</code> has optimized the browser layout and paint calculation flow comparing to <code class="language-plaintext highlighter-rouge">componentDidMount</code></li>
+  <li>How <code class="language-plaintext highlighter-rouge">setState</code> batching have been optimized in React 18</li>
+  <li>Why the freeze experience if the user interacts during the hydratation phase is much better by using <code class="language-plaintext highlighter-rouge">Suspense</code>.</li>
+</ul>
+
+<h3 id="why-you-should-use-redux-in-2024---mark-erikson">Why You Should Use Redux in 2024 - Mark Erikson</h3>
+
+<blockquote>
+  <p>📹 Watch the <a href="https://gitnation.com/contents/why-you-should-use-redux-in-2024">video</a></p>
+</blockquote>
+
+<p>At Bedrock, <a href="https://tech.bedrockstreaming.com/2016/07/04/migrate-smoothly-flux-isomorphic-app-to-redux.html">we have been using Redux since 2016</a>, and we continue to use it. So Mark’s arguments will certainly confirm our choice!</p>
+
+<p>Mark is the creator of <a href="https://redux-toolkit.js.org/">Redux Toolkit</a>. He begins by detailing the pros and cons of using Redux in relation to various aspects:</p>
+
+<ul>
+  <li>Flux-style indirection via dispatching actions instead of direct state mutations</li>
+  <li>A single global centralized store</li>
+  <li>State updates via reducers and slices</li>
+</ul>
+
+<p>Then Mark presents the arguments why he thinks using Redux in 2024 is a good choice:</p>
+
+<ul>
+  <li>Provides a consistent architecture pattern for apps</li>
+  <li>Better understanding of what’s happening in the app</li>
+  <li>Widely used</li>
+  <li>Well documented</li>
+  <li>Better update behavior than React Context</li>
+  <li>Redux Toolkit provides built-in tools standard use cases</li>
+  <li><a href="https://redux-toolkit.js.org/rtk-query/overview">RTK Query</a> data fetching and caching layer</li>
+  <li>Works great with Typescript</li>
+  <li>Designed to work with React but still UI-agnostic</li>
+</ul>
+
+<p>Since 2016 we have been trying at Bedrock to streamline the way we use Redux in JS projects by applying <a href="https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html">some best practices</a>.
+We also have been adopting <a href="https://tech.bedrockstreaming.com/2022/06/08/migration-progressive-vers-redux-toolkit.html">Redux Toolkit</a> for some time with this in mind. And we are always open to new ways of managing state in apps. For example, we are currently testing <a href="https://tech.bedrockstreaming.com/2023/02/08/projet-xstate.html">XState</a> to manage the state of our player.</p>
+
+<h3 id="case-study-building-accessible-reusable-react-components-at-github---siddharth-kshetrapal">Case Study: Building Accessible Reusable React Components at GitHub - Siddharth Kshetrapal</h3>
+
+<blockquote>
+  <p>📹 Watch the <a href="https://gitnation.com/contents/case-study-building-accessible-reusable-react-components-at-github">video</a></p>
+</blockquote>
+
+<p>The talk by Sid focuses on building accessible React components, and emphasises on the importance of using the <a href="https://developer.mozilla.org/en-US/docs/Glossary/Semantics">correct HTML elements</a> and <a href="https://www.w3.org/TR/wai-aria-1.2/">ARIA roles</a> to enhance web accessibility.</p>
+
+<p>Sid highlights specific examples, such as <a href="https://www.w3.org/WAI/ARIA/apg/patterns/tabs/">navigating tab lists</a> and <a href="https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/">handling conditional checkboxes</a>, explaining how ARIA roles and properties can make web interfaces more accessible, especially for screen reader users.</p>
+
+<p>What we remember from this talk:</p>
+
+<ul>
+  <li>Importance of using correct HTML elements and ARIA roles for accessibility</li>
+  <li>Implementation of ARIA roles like <code class="language-plaintext highlighter-rouge">tablist</code>, <code class="language-plaintext highlighter-rouge">tab</code>, and <code class="language-plaintext highlighter-rouge">aria-selected</code></li>
+  <li>Significance of keyboard navigation and ARIA states/properties in accessibility</li>
+  <li>Design considerations for accessibility, including using <code class="language-plaintext highlighter-rouge">aria-disabled</code> over <code class="language-plaintext highlighter-rouge">disabled</code></li>
+</ul>
+
+<h3 id="whats-next-for-us">What’s next for us</h3>
+
+<p>We came away from these conferences with the feeling that we had adopted the right approach in the past few years for our JS projects, whether in terms of architecture, maintainability or testing strategy. However, we saw that we shouldn’t miss the next steps regarding <strong>accessibility</strong> (an improvement project is underway for the end of year) and <strong>performances</strong>, especially taking into account the new way of rendering server-side with React 19 (while <a href="https://tech.bedrockstreaming.com/2014/12/04/isomorphic-single-page-app-parfaite-react-flux">we pioneered the use of React with SSR in 2014</a>). We will be sure to keep you informed of our progress!</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=JS+Nation+x+React+Summit+2024+highlights%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2024%2F08%2F20%2Fjs-nation-react-summit-2024.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2024/08/20/js-nation-react-summit-2024.html&title=JS+Nation+x+React+Summit+2024+highlights%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2024/08/20/js-nation-react-summit-2024.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=JS Nation x React Summit 2024 highlights%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2024/08/20/js-nation-react-summit-2024.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#frontend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#javascript">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#react">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> react</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="How Special Event Page allowed us to handle more than 1 million of users" href="/2024/08/07/euro-resiliency-special-event-page.html">
+            <p>Next post</p>
+            How Special Event Page allowed us to handle more than 1 million of users
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+
+  
+  header#main { background-image: url('/images/posts/2024-08-20-js-nation-react-summit-2024/reactSummit.png'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

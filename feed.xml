@@ -1,4 +1,205 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2024-08-07T12:31:18+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">How Special Event Page allowed us to handle more than 1 million of users</title><link href="https://tech.bedrockstreaming.com/2024/08/07/euro-resiliency-special-event-page.html" rel="alternate" type="text/html" title="How Special Event Page allowed us to handle more than 1 million of users" /><published>2024-08-07T00:00:00+00:00</published><updated>2024-08-07T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/08/07/euro-resiliency-special-event-page</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/08/07/euro-resiliency-special-event-page.html">&lt;p&gt;Earlier this year took place the &lt;a href=&quot;https://www.uefa.com/euro2024/&quot;&gt;Euro soccer competition&lt;/a&gt;, spanning over a month and with thousands of people tuning all over the world to watch the matches. One of our customers, &lt;a href=&quot;https://www.6play.fr/&quot;&gt;M6+&lt;/a&gt;, was streaming several of these games - And during the competition, hundreds of thousands of browsers, phones and TVs were able to seamlessly stream the matches with no major issue at all. It was, however, no easy feat to reach that state. How did we do that? What were the challenges we faced, the solutions we envisioned? In this article, we’ll discuss one of the features we developed specifically for the Euro: something that we called the &lt;strong&gt;“Special Event Page”&lt;/strong&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2024-08-22T08:07:34+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">JS Nation x React Summit 2024 highlights</title><link href="https://tech.bedrockstreaming.com/2024/08/20/js-nation-react-summit-2024.html" rel="alternate" type="text/html" title="JS Nation x React Summit 2024 highlights" /><published>2024-08-20T00:00:00+00:00</published><updated>2024-08-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/08/20/js-nation-react-summit-2024</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/08/20/js-nation-react-summit-2024.html">&lt;p&gt;The Frontend Bedrock teams were present at the 2024 edition of the &lt;em&gt;JS Nation&lt;/em&gt; and &lt;em&gt;React Summit&lt;/em&gt; conferences in Amsterdam on 13 &amp;amp; 14 June. We would like to highlight and share some of the subjects we find relevant about our favourite language and framework 🙂 Feel free to explore them further if you are interested.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;📹 You can watch all the video recordings of the &lt;a href=&quot;https://gitnation.com/events/jsnation-2024/talks&quot;&gt;JS Nation&lt;/a&gt; and the &lt;a href=&quot;https://gitnation.com/events/react-summit-2024/talks&quot;&gt;React Summit&lt;/a&gt; talks.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;lessons-for-building-resilient-codebases---alex-moldovan&quot;&gt;Lessons for Building Resilient Codebases - Alex Moldovan&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;📹 Watch the &lt;a href=&quot;https://gitnation.com/contents/lessons-for-building-resilient-codebases&quot;&gt;video&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;One of my favourite types of presentation, with practical things that you can then apply in your daily life as a developer.&lt;/p&gt;
+
+&lt;p&gt;Alex sums up his speech in 5 points:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Accept imperfections&lt;/strong&gt; in your codebase: perfect is the enemy of good, shortcuts and exceptions can be taken if they are well documented.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://alexmoldovan.dev/code-bites/colocation-is-king&quot;&gt;Colocating code&lt;/a&gt;&lt;/strong&gt; according to concerns is a way of improving readability and therefore maintainability and efficiency.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Reusability&lt;/strong&gt; is not always the better choice vs &lt;strong&gt;duplication&lt;/strong&gt;, you should find the right balance, abstraction should only come when a piece of code is proven to be a long term solution.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Readability and understandability&lt;/strong&gt; of the code is very important for the future developers that will maintain your code: leave comments, break conditions with more than 3 members using intermediate variables, etc.&lt;/li&gt;
+  &lt;li&gt;Use &lt;strong&gt;Typescript&lt;/strong&gt; intensively and try to handle all the possible states of your data.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;At Bedrock, we’ve always tried to apply a maximum of &lt;a href=&quot;https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html&quot;&gt;best practices&lt;/a&gt; including some addressed here by Alex, to ensure the maintainability of our web codebase. It seems to be working pretty good since this &lt;a href=&quot;https://tech.bedrockstreaming.com/comment-ne-pas-jeter-son-application-frontend-tout-les-deux-ans&quot;&gt;JS project is now 10 years old&lt;/a&gt;!&lt;/p&gt;
+
+&lt;h3 id=&quot;why-your-performance-work-is-not-seen---vinicius-dallacqua&quot;&gt;Why Your Performance Work Is Not Seen - Vinicius Dallacqua&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;📹 Watch the &lt;a href=&quot;https://gitnation.com/contents/why-your-performance-work-is-not-seen&quot;&gt;video&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Vinicius addresses an important subject for us, as frontend engineers. We are all concerned about performance and we want to deliver the most optimized product, but we often come up against major obstacles in this area. We already talked about this topic last year when &lt;a href=&quot;https://tech.bedrockstreaming.com/2023/08/11/we-love-speed-2023.html&quot;&gt;we attended the We Love Speed conference&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To demonstrate the worth of working on performances, &lt;strong&gt;Lab tools&lt;/strong&gt; (like &lt;a href=&quot;https://developer.chrome.com/docs/lighthouse/overview?hl=fr&quot;&gt;Lighthouse&lt;/a&gt;) &amp;amp; &lt;strong&gt;RUM&lt;/strong&gt; (Real User Monitoring) have to be used together. Collected data must be analyzed, optimized and framed to make connections with product concerns. Performance needs to &lt;strong&gt;matter to engineering and product&lt;/strong&gt; for a sustainable governance model.&lt;/p&gt;
+
+&lt;p&gt;As in many areas, the key is to set realistic and achievable objectives and to proceed by iteration: &lt;strong&gt;monitor, measure, report and repeat&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;install-nothing-app-uis-with-native-browser-apis---scott-tolinski&quot;&gt;Install Nothing: App UIs With Native Browser APIs - Scott Tolinski&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;📹 Watch the &lt;a href=&quot;https://gitnation.com/contents/install-nothing-app-uis-with-native-browser-apis&quot;&gt;video&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Scott reveals that we can use the browser’s native APIs to build certain UI components easily, whereas we’ve sometimes been using complex JS to do this for years.&lt;/p&gt;
+
+&lt;p&gt;He shows for example:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;How to build modals with the &lt;a href=&quot;https://developer.mozilla.org/fr/docs/Web/HTML/Element/dialog&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;dialog&amp;gt;&lt;/code&gt;&lt;/a&gt; element&lt;/li&gt;
+  &lt;li&gt;How to easily create animated transitions with &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API&quot;&gt;View Transition API&lt;/a&gt; or with &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/@starting-style&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@starting-style&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;How to create a menu with the &lt;a href=&quot;https://developer.mozilla.org/fr/docs/Web/HTML/Global_attributes/popover&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;popover&amp;gt;&lt;/code&gt;&lt;/a&gt; element&lt;/li&gt;
+  &lt;li&gt;How to build slideshows with &lt;a href=&quot;https://developer.mozilla.org/fr/docs/Web/CSS/scroll-snap-align&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;scroll-snap&lt;/code&gt;&lt;/a&gt; CSS properties&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Check all these tips out and much more besides on Scott’s &lt;a href=&quot;https://tolin.ski/talks/install-nothing&quot;&gt;site&lt;/a&gt;!&lt;/p&gt;
+
+&lt;h3 id=&quot;testing-do-more-with-less---eugene-fidelin&quot;&gt;Testing: do more with less - Eugene Fidelin&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;📹 Watch the &lt;a href=&quot;https://gitnation.com/contents/testing-do-more-with-less&quot;&gt;video&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Testing has been a guide and a real challenge since we began the JS web project at Bedrock in 2015. We are convinced that this is an important part of the sustainability and reliability of the codebase. As a result, we listened to Eugene’s point of view with curiosity.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.datadoghq.com/knowledge-center/dora-metrics/&quot;&gt;DORA metrics&lt;/a&gt; should be adopted to measure how good your are for shipping software with &lt;strong&gt;4 indicators&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Deployment frequency&lt;/li&gt;
+  &lt;li&gt;Lead time for changes&lt;/li&gt;
+  &lt;li&gt;Change failure rate&lt;/li&gt;
+  &lt;li&gt;Time to restore service&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The first three are affected by the testing strategy. The &lt;em&gt;&lt;a href=&quot;https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications&quot;&gt;Testing Trophy&lt;/a&gt;&lt;/em&gt; can help to write the right tests given the &lt;strong&gt;return on investment&lt;/strong&gt; of the different forms.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-08-20-js-nation-react-summit-2024/testingTrophy.png&quot; alt=&quot;Testing Trophy: return on investment of the different forms of testing&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Eugene describes the various steps to build a reliable testing strategy:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;step 0: enable &lt;strong&gt;static&lt;/strong&gt; linters and &lt;strong&gt;type&lt;/strong&gt; checks&lt;/li&gt;
+  &lt;li&gt;step 1: create &lt;strong&gt;integration&lt;/strong&gt; tests for all happy and non-happy flows&lt;/li&gt;
+  &lt;li&gt;step 2: write &lt;strong&gt;unit&lt;/strong&gt; tests for reusable parts and code without coverage&lt;/li&gt;
+  &lt;li&gt;step 3: write very few &lt;strong&gt;e2e&lt;/strong&gt; tests only for the most business critical flows&lt;/li&gt;
+  &lt;li&gt;step 4: use &lt;strong&gt;metrics, tracing, logging&lt;/strong&gt; to identify anomalies on production&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html&quot;&gt;In Bedrock’s frontend teams&lt;/a&gt;, we are aligned with these strategy:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Static testing is a compulsory stage in any project start-up.&lt;/li&gt;
+  &lt;li&gt;We have a lot of unit and integration tests (which can be viewed as e2e tests, but we only test the frontend part with mocked backend and 3rd parties).&lt;/li&gt;
+  &lt;li&gt;A manual homologation phase before deploying any new release run e2e tests: this is a current project to automate most of these tests to save time in the process.&lt;/li&gt;
+  &lt;li&gt;Production monitoring is one of our mantras: our former boss used to say that &lt;em&gt;“a non-monitored project is not in production”&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A &lt;a href=&quot;https://x.com/rauchg/status/807626710350839808&quot;&gt;tweet&lt;/a&gt; from &lt;a href=&quot;https://x.com/rauchg&quot;&gt;Guillermo Rauch&lt;/a&gt; can perfectly conclude this topic:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Write tests. Not too many. Mostly integration.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;facing-frontends-existencial-crisis---ryan-carniato&quot;&gt;Facing Frontend’s Existencial Crisis - Ryan Carniato&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;📹 Watch the &lt;a href=&quot;https://gitnation.com/contents/solidjs-tba&quot;&gt;video&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ryan shows why JS frameworks, especially React, have recently evolved using new concepts to reduce the runtime at page load.&lt;/p&gt;
+
+&lt;p&gt;The size of pages has been increasing over the years. In particular because &lt;a href=&quot;https://en.wikipedia.org/wiki/Single-page_application&quot;&gt;SPAs&lt;/a&gt; have gained ground in the web world. SPAs are costly because of:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;code execution and evaluation&lt;/strong&gt;,&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;code bundle size&lt;/strong&gt;,&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;payload (HTML &amp;amp; data) size&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;At the same time, devices have improved their performance, but not all of them. Connectivity can also be a limiting factor, depending on the context of use. As a result, we are faced with a real fact: an app with client-side rendering is slower to display and interact than an app with server-side rendering.&lt;/p&gt;
+
+&lt;p&gt;In order to reduce each of these three costly aspects, Ryan mentions three concepts that new versions of recent JS frameworks, such as React 19, are developing:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;islands&lt;/strong&gt;: splitting the page in several blocks, and render those which never change on server-side only,&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;server components&lt;/strong&gt;: close to the island concept but with the ability to handle state persistence over the client navigation,&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;resumability&lt;/strong&gt;: the ability to defer the hydratation of components until an interaction is requested.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you want more details about concepts developed by Ryan, you can read his &lt;a href=&quot;https://dev.to/this-is-learning/islands-server-components-resumability-oh-my-319d&quot;&gt;article&lt;/a&gt; on this subject.&lt;/p&gt;
+
+&lt;h3 id=&quot;invisible-hand-of-react-performance---ivan-akulov&quot;&gt;Invisible Hand of React Performance - Ivan Akulov&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;📹 Watch the &lt;a href=&quot;https://gitnation.com/contents/react-performance-past-and-future&quot;&gt;video&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Like &lt;a href=&quot;https://gitnation.com/contents/react-internals&quot;&gt;Charlotte Isambert’s explanation of how Suspense works&lt;/a&gt;, this talk takes us into the inner workings of React. It is often interesting to understand how the library you are using works under the hood so that you can use it properly.&lt;/p&gt;
+
+&lt;p&gt;By comparing behaviors between the latest React versions, Ivan explains:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;How &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;useEffect&lt;/code&gt; has optimized the browser layout and paint calculation flow comparing to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;componentDidMount&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;How &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setState&lt;/code&gt; batching have been optimized in React 18&lt;/li&gt;
+  &lt;li&gt;Why the freeze experience if the user interacts during the hydratation phase is much better by using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Suspense&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;why-you-should-use-redux-in-2024---mark-erikson&quot;&gt;Why You Should Use Redux in 2024 - Mark Erikson&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;📹 Watch the &lt;a href=&quot;https://gitnation.com/contents/why-you-should-use-redux-in-2024&quot;&gt;video&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;At Bedrock, &lt;a href=&quot;https://tech.bedrockstreaming.com/2016/07/04/migrate-smoothly-flux-isomorphic-app-to-redux.html&quot;&gt;we have been using Redux since 2016&lt;/a&gt;, and we continue to use it. So Mark’s arguments will certainly confirm our choice!&lt;/p&gt;
+
+&lt;p&gt;Mark is the creator of &lt;a href=&quot;https://redux-toolkit.js.org/&quot;&gt;Redux Toolkit&lt;/a&gt;. He begins by detailing the pros and cons of using Redux in relation to various aspects:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Flux-style indirection via dispatching actions instead of direct state mutations&lt;/li&gt;
+  &lt;li&gt;A single global centralized store&lt;/li&gt;
+  &lt;li&gt;State updates via reducers and slices&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Then Mark presents the arguments why he thinks using Redux in 2024 is a good choice:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Provides a consistent architecture pattern for apps&lt;/li&gt;
+  &lt;li&gt;Better understanding of what’s happening in the app&lt;/li&gt;
+  &lt;li&gt;Widely used&lt;/li&gt;
+  &lt;li&gt;Well documented&lt;/li&gt;
+  &lt;li&gt;Better update behavior than React Context&lt;/li&gt;
+  &lt;li&gt;Redux Toolkit provides built-in tools standard use cases&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://redux-toolkit.js.org/rtk-query/overview&quot;&gt;RTK Query&lt;/a&gt; data fetching and caching layer&lt;/li&gt;
+  &lt;li&gt;Works great with Typescript&lt;/li&gt;
+  &lt;li&gt;Designed to work with React but still UI-agnostic&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Since 2016 we have been trying at Bedrock to streamline the way we use Redux in JS projects by applying &lt;a href=&quot;https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html&quot;&gt;some best practices&lt;/a&gt;.
+We also have been adopting &lt;a href=&quot;https://tech.bedrockstreaming.com/2022/06/08/migration-progressive-vers-redux-toolkit.html&quot;&gt;Redux Toolkit&lt;/a&gt; for some time with this in mind. And we are always open to new ways of managing state in apps. For example, we are currently testing &lt;a href=&quot;https://tech.bedrockstreaming.com/2023/02/08/projet-xstate.html&quot;&gt;XState&lt;/a&gt; to manage the state of our player.&lt;/p&gt;
+
+&lt;h3 id=&quot;case-study-building-accessible-reusable-react-components-at-github---siddharth-kshetrapal&quot;&gt;Case Study: Building Accessible Reusable React Components at GitHub - Siddharth Kshetrapal&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;📹 Watch the &lt;a href=&quot;https://gitnation.com/contents/case-study-building-accessible-reusable-react-components-at-github&quot;&gt;video&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The talk by Sid focuses on building accessible React components, and emphasises on the importance of using the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Glossary/Semantics&quot;&gt;correct HTML elements&lt;/a&gt; and &lt;a href=&quot;https://www.w3.org/TR/wai-aria-1.2/&quot;&gt;ARIA roles&lt;/a&gt; to enhance web accessibility.&lt;/p&gt;
+
+&lt;p&gt;Sid highlights specific examples, such as &lt;a href=&quot;https://www.w3.org/WAI/ARIA/apg/patterns/tabs/&quot;&gt;navigating tab lists&lt;/a&gt; and &lt;a href=&quot;https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/&quot;&gt;handling conditional checkboxes&lt;/a&gt;, explaining how ARIA roles and properties can make web interfaces more accessible, especially for screen reader users.&lt;/p&gt;
+
+&lt;p&gt;What we remember from this talk:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Importance of using correct HTML elements and ARIA roles for accessibility&lt;/li&gt;
+  &lt;li&gt;Implementation of ARIA roles like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tablist&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tab&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aria-selected&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Significance of keyboard navigation and ARIA states/properties in accessibility&lt;/li&gt;
+  &lt;li&gt;Design considerations for accessibility, including using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aria-disabled&lt;/code&gt; over &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;disabled&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;whats-next-for-us&quot;&gt;What’s next for us&lt;/h3&gt;
+
+&lt;p&gt;We came away from these conferences with the feeling that we had adopted the right approach in the past few years for our JS projects, whether in terms of architecture, maintainability or testing strategy. However, we saw that we shouldn’t miss the next steps regarding &lt;strong&gt;accessibility&lt;/strong&gt; (an improvement project is underway for the end of year) and &lt;strong&gt;performances&lt;/strong&gt;, especially taking into account the new way of rendering server-side with React 19 (while &lt;a href=&quot;https://tech.bedrockstreaming.com/2014/12/04/isomorphic-single-page-app-parfaite-react-flux&quot;&gt;we pioneered the use of React with SSR in 2014&lt;/a&gt;). We will be sure to keep you informed of our progress!&lt;/p&gt;</content><author><name>[&quot;f_dubost&quot;, &quot;y_frommelt&quot;]</name></author><category term="conference" /><category term="frontend" /><category term="react" /><category term="javascript" /><summary type="html">The Frontend Bedrock teams were present at the 2024 edition of the JS Nation and React Summit conferences in Amsterdam on 13 &amp;amp; 14 June. We would like to highlight and share some of the subjects we find relevant about our favourite language and framework 🙂 Feel free to explore them further if you are interested.</summary></entry><entry><title type="html">How Special Event Page allowed us to handle more than 1 million of users</title><link href="https://tech.bedrockstreaming.com/2024/08/07/euro-resiliency-special-event-page.html" rel="alternate" type="text/html" title="How Special Event Page allowed us to handle more than 1 million of users" /><published>2024-08-07T00:00:00+00:00</published><updated>2024-08-07T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/08/07/euro-resiliency-special-event-page</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/08/07/euro-resiliency-special-event-page.html">&lt;p&gt;Earlier this year took place the &lt;a href=&quot;https://www.uefa.com/euro2024/&quot;&gt;Euro soccer competition&lt;/a&gt;, spanning over a month and with thousands of people tuning all over the world to watch the matches. One of our customers, &lt;a href=&quot;https://www.6play.fr/&quot;&gt;M6+&lt;/a&gt;, was streaming several of these games - And during the competition, hundreds of thousands of browsers, phones and TVs were able to seamlessly stream the matches with no major issue at all. It was, however, no easy feat to reach that state. How did we do that? What were the challenges we faced, the solutions we envisioned? In this article, we’ll discuss one of the features we developed specifically for the Euro: something that we called the &lt;strong&gt;“Special Event Page”&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;the-need-behind-the-special-event-page&quot;&gt;The need behind the Special Event Page&lt;/h2&gt;
 
@@ -1087,8 +1288,4 @@ Et…je n’ai &lt;strong&gt;jamais eu confiance en moi&lt;/strong&gt; (j’aura
 Comment vivre avec, mes conseils, mes craintes et mes peurs…mais surtout comment vous pouvez vous aider et aider ceux qui le possède également.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Par &lt;strong&gt;Mathieu Mure&lt;/strong&gt;&lt;/p&gt;</content><author><name>Mathieu Mure</name></author><category term="lft" /><category term="tech" /><summary type="html">Je ne suis pas expert de mon métier et ce n’est pas parce que j’en parle facilement que je pense le devenir un jour. Je n’ai jamais su être un leader, et tous les leaders m’impressionnent. Je pense que les autres sont meilleurs que moi et que je ne pourrai pas être leur égal. J’ai été nommé par chance à un poste de leader alors que je n’en avais pas la légitimité. Et…je n’ai jamais eu confiance en moi (j’aurais peut-être du commencer par ça)</summary></entry><entry><title type="html">Le LFT du LFT - PUB LFT #LFT 02/02/24</title><link href="https://tech.bedrockstreaming.com/le-lft-du-lft" rel="alternate" type="text/html" title="Le LFT du LFT - PUB LFT #LFT 02/02/24" /><published>2024-02-02T00:00:00+00:00</published><updated>2024-02-02T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/le-lft-du-lft</id><content type="html" xml:base="https://tech.bedrockstreaming.com/le-lft-du-lft">&lt;blockquote&gt;
-  &lt;p&gt;Comment aider les LFTs ?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Par &lt;strong&gt;la LFTeam&lt;/strong&gt;&lt;/p&gt;</content><author><name>LFTeam</name></author><category term="lft" /><category term="tech" /><summary type="html">Comment aider les LFTs ?</summary></entry></feed>
+&lt;p&gt;Par &lt;strong&gt;Mathieu Mure&lt;/strong&gt;&lt;/p&gt;</content><author><name>Mathieu Mure</name></author><category term="lft" /><category term="tech" /><summary type="html">Je ne suis pas expert de mon métier et ce n’est pas parce que j’en parle facilement que je pense le devenir un jour. Je n’ai jamais su être un leader, et tous les leaders m’impressionnent. Je pense que les autres sont meilleurs que moi et que je ne pourrai pas être leur égal. J’ai été nommé par chance à un poste de leader alors que je n’en avais pas la légitimité. Et…je n’ai jamais eu confiance en moi (j’aurais peut-être du commencer par ça)</summary></entry></feed>
