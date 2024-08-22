@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/2024-08-22-how-to-manage-hundreds-of-templates/thumbnail.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>How to manage hundreds of view templates? | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="How to manage hundreds of view templates?" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Let’s dive together into the depths of a large scale template versioning for a white label streaming application." />
+<meta property="og:description" content="Let’s dive together into the depths of a large scale template versioning for a white label streaming application." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2024/08/22/how-to-manage-hundreds-of-templates.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2024/08/22/how-to-manage-hundreds-of-templates.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-08-22T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How to manage hundreds of view templates?" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","description":"Let’s dive together into the depths of a large scale template versioning for a white label streaming application.","url":"https://tech.bedrockstreaming.com/2024/08/22/how-to-manage-hundreds-of-templates.html","headline":"How to manage hundreds of view templates?","dateModified":"2024-08-22T00:00:00+00:00","datePublished":"2024-08-22T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2024/08/22/how-to-manage-hundreds-of-templates.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="How to manage hundreds of view templates?">
+    <meta name="twitter:description" content="Let’s dive together into the depths of a large scale template versioning for a white label streaming application.The contextToday, at Bedrock, we are providi...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/2024-08-22-how-to-manage-hundreds-of-templates/thumbnail.png">
+    <meta name="twitter:image:alt" content="How to manage hundreds of view templates?">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="How to manage hundreds of view templates? " aria-label="How to manage hundreds of view templates?" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="How+to+manage+hundreds+of+view+templates%3F" class="title">How to manage hundreds of view templates?</h1>
+      <div class="post-info">
+
+
+<span class="author">
+
+    
+      <span class="name">
+        Damien Cuny
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    
+      <span class="name">
+        Maeva Oudji
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    August 22, 2024
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Let’s dive together into the depths of a large scale template versioning for a white label streaming application.</p>
+
+<h2 id="the-context">The context</h2>
+
+<p>Today, at <strong>Bedrock</strong>, we are providing a streaming service on:</p>
+<ul>
+  <li>11 common <strong>CTV</strong> platforms: Tizen, Philips, WebOS, Hisense, Panasonic, Orange, Xbox, PS4, Orsay, Smart Alliance, WhaleOS</li>
+  <li>6 <strong>Android</strong> platforms: mobile, AndroidTV, Bytel, Free, SFR, FireTV</li>
+  <li>2 <strong>Apple</strong> platforms: iOS / tvOS</li>
+  <li>1 <strong>Web</strong> platform</li>
+  <li>a lot of specific devices</li>
+</ul>
+
+<p>Each of these platforms has their own guidelines and usage (interaction, screen sizes, etc) and is managed by a dedicated team in our organization. They also have their own native <strong>design components</strong> which our implementations rely on to offer the best possible experience.</p>
+
+<p>Bedrock has several clients (M6+, Videoland and others), that all have their dedicated application on each platform. But they also have their own design expectations and branding guidelines.<br />
+We provide them with a <strong>design system</strong>: a set of visual assets they can use to render pages. These components follow the atomic design model, which means that each layer is a composition of the previous one. Here is the list of the layers with their name and some items that belong to it:</p>
+<ul>
+  <li>14 <strong>tokens</strong>: base element that defines the brand (ex: Colors, FontSystem, Radius, Shadow, Breakpoints, Treatments…)</li>
+  <li>9 <strong>atoms</strong>: simplest design item that cannot be decomposed (ex: Icons, Avatar, CheckBox, ProgressBar, ServiceIcon, Separator…)</li>
+  <li>62 <strong>molecules</strong>: group of atoms that forms a visual unity (ex: Card, Poster, HorizontalCard, Button, CTA, Portrait, Totem…)</li>
+  <li>12 <strong>organisms</strong>: complex visual item or part of the interface (ex: Jumbotron, Hero, Solo, Banner…)</li>
+</ul>
+
+<p>Hereunder are some sample screens composed of design system components for different customers:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/home-m6plus.png" alt="" /></td>
+      <td><img src="/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/home-videoland.png" alt="" /></td>
+      <td><img src="/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/home-rtlhu.png" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This results in approximately one hundred design elements per client. However, not all components are always specific, and an <strong>inheritance</strong> system is in place to allow clients to reuse default atoms, molecules, or organisms while applying the tokens corresponding to their brand.</p>
+
+<p>The objectives and expectations regarding the design vary greatly among clients, resulting in <strong>numerous graphical element evolutions</strong>. Managing the creation and progression of these elements through different processes is a major challenge in tracking designs across each platform. These demands sometimes lead to <strong>different integrations</strong>. Whether or not the default design is inherited is crucial information to avoid manually comparing the app designs with documentation, which can lead to misunderstandings and wasted time during validation and approval processes.<br />
+To achieve all these objectives, we need to be able to carefully follow the evolution of the design system on each plateform.</p>
+
+<h2 id="one-versioning-to-rule-them-all">One versioning to rule them all</h2>
+
+<p>Therefore, implementing a versioning system became essential to continue enriching and evolving our client’s design systems.<br />
+To ensure its interest and effectiveness, this system had to address several issues:</p>
+<ul>
+  <li><strong>Be specific</strong> per platform and per client: evolution progress does not occur at the same pace across all platforms. This also allows for comparing design progress between platforms.</li>
+  <li>Allow <strong>visualizing the inheritance</strong> between the default design system and the client’s specific part on the same platform. We also wanted the ability to add comments on implementation details.</li>
+  <li>Be <strong>directly accessible</strong> with each build to stay in touch with the application it represents. On mobile, many builds are generated daily, making it difficult to track the arrival of new features.</li>
+  <li>Stay <strong>up-to-date</strong> with the constant evolutions of the design system to maintain the source of truth.</li>
+</ul>
+
+<p>Exemple of a Design System release note:</p>
+
+<p><img src="/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/design-release-note.png" alt="Release note of the design system" /></p>
+
+<p>Initially, the design team started by versioning its releases and all available components, which are accessible to technical teams in our online design documentation (hosted on <a href="https://zeroheight.com/">zeroheight</a>). This versioning is <strong>common to all platforms</strong> and all clients if there are no specificities for the component in question. Ultimately, versioning helps product and technical teams track the delivery progress of new designs. The version number follows these rules:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Code status</th>
+      <th style="text-align: center">Stage</th>
+      <th style="text-align: center">Rule</th>
+      <th style="text-align: center">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">First release</td>
+      <td style="text-align: center">New collection</td>
+      <td style="text-align: center">1.0.0</td>
+      <td style="text-align: center">1.0.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Documentation update without impact on the anatomy of design element</td>
+      <td style="text-align: center">Documentation update</td>
+      <td style="text-align: center">Increment the third digit</td>
+      <td style="text-align: center">1.0.1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">New backward-compatible feature</td>
+      <td style="text-align: center">Minor release</td>
+      <td style="text-align: center">Increment the 2nd digit and reset the third</td>
+      <td style="text-align: center">1.1.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Change on element that breaks backward compatibility</td>
+      <td style="text-align: center">Major release</td>
+      <td style="text-align: center">Increment the first digit and reset the second and the third</td>
+      <td style="text-align: center">2.0.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Each frontend team were then responsible for implementing an equivalent versioning system representing the state of their platform. This was done through a <strong>feature team</strong> including all front-end teams, design system managers, and the product team. This organization brought numerous benefits:</p>
+<ul>
+  <li>Facilitating the <strong>synchronization</strong> and homogeneity of product templates</li>
+  <li><strong>Sharing</strong> development challenges</li>
+  <li><strong>Limiting</strong> versioning differences between all fronts</li>
+  <li>Sharing <strong>industrialization</strong> ideas</li>
+</ul>
+
+<h2 id="case-study-android-versioning-challenges">Case study: Android versioning challenges</h2>
+
+<p>For Android, we sometimes have different component implementations between mobile and TV, evolving at different paces. This required <strong>two separate versionings</strong> to represent them. Moreover, we currently use comments to track the migration to Google’s new view system (Compose), which is happening alongside graphical evolutions.<br />
+Each client has its <strong>versioning file</strong> containing all the components available on the targeted platform. Regarding component inheritance from the default design system, there are two possibilities:</p>
+<ul>
+  <li>The component is <strong>inherited</strong> and thus has no specificities and no version in the client’s versioning file, using the generic Bedrock customer version</li>
+  <li>It has its <strong>own implementation</strong> and its associated version</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Default Versioning file</th>
+      <th style="text-align: center">Customer Versioning file</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/versioning-file-default.png" alt="" /></td>
+      <td style="text-align: center"><img src="/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/versioning-file-customer.png" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>From these <strong>versioning files</strong>, we have been able to generate <strong>reports</strong> for each platform containing only the available graphical elements and their version, whether inherited or not. To track their growing number, we opted for automatic generation of these reports with each build using a Gradle Plugin integrated on our continuous deployment and integration (CI/CD): <a href="https://bitrise.io/">Bitrise</a>. Now, they are generated using a <a href="https://www.mkdocs.org/">Mkdocs</a> plugin to be published online automatically with our technical documentation.</p>
+
+<p>Automatically generated template versioning report for M6+:</p>
+
+<p><img src="/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/template-versioning-report.png" alt="Template versioning report for a customer" /></p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Design system versioning reports offer a <strong>quick and exhaustive overview</strong> of the design system at any given moment for any of our customers and simplifies the QA teams validation work. It is now an essential tool for tracking design progress across all supported platforms.</p>
+
+<p>However, improvements are always possible:</p>
+<ul>
+  <li>Currently, developers are responsible for <strong>updating the versioning file</strong> when adding or modifying graphical elements, which can lead to errors and omissions. To avoid this, we would like to link the concrete implementation of the component and its version in the versioning file. But as we are still using the android legacy view system, component can be a class but also some xml style or theme or even resource files. This should be easier after the migration to the new Android view system Compose.</li>
+  <li><strong>Access through Bitrise</strong> is not ideal. We currently centralize all generated builds (using CI as well) in <a href="https://www.airtable.com/">Airtable</a>. A link would be preferable and more visible.</li>
+</ul>
+
+<p>These last improvements will perhaps be the subject of a follow-up to this article. Thank you for reading, we hope you found some useful information that can help you to better follow the graphical evolution of your project. Do not hesitate to contact us if you have some questions or suggestions.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=How+to+manage+hundreds+of+view+templates%3F%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2024%2F08%2F22%2Fhow-to-manage-hundreds-of-templates.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2024/08/22/how-to-manage-hundreds-of-templates.html&title=How+to+manage+hundreds+of+view+templates%3F%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2024/08/22/how-to-manage-hundreds-of-templates.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=How to manage hundreds of view templates?%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2024/08/22/how-to-manage-hundreds-of-templates.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#android">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> android</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#atomic+design">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> atomic design</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#design">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> design</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#design+system">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> design system</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#versioning">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> versioning</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="JS Nation x React Summit 2024 highlights" href="/2024/08/20/js-nation-react-summit-2024.html">
+            <p>Next post</p>
+            JS Nation x React Summit 2024 highlights
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+  header#main { background-image: url('/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/thumbnail.png'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

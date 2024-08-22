@@ -1,4 +1,147 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2024-08-22T08:07:34+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">JS Nation x React Summit 2024 highlights</title><link href="https://tech.bedrockstreaming.com/2024/08/20/js-nation-react-summit-2024.html" rel="alternate" type="text/html" title="JS Nation x React Summit 2024 highlights" /><published>2024-08-20T00:00:00+00:00</published><updated>2024-08-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/08/20/js-nation-react-summit-2024</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/08/20/js-nation-react-summit-2024.html">&lt;p&gt;The Frontend Bedrock teams were present at the 2024 edition of the &lt;em&gt;JS Nation&lt;/em&gt; and &lt;em&gt;React Summit&lt;/em&gt; conferences in Amsterdam on 13 &amp;amp; 14 June. We would like to highlight and share some of the subjects we find relevant about our favourite language and framework 🙂 Feel free to explore them further if you are interested.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2024-08-22T15:10:33+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">How to manage hundreds of view templates?</title><link href="https://tech.bedrockstreaming.com/2024/08/22/how-to-manage-hundreds-of-templates.html" rel="alternate" type="text/html" title="How to manage hundreds of view templates?" /><published>2024-08-22T00:00:00+00:00</published><updated>2024-08-22T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/08/22/how-to-manage-hundreds-of-templates</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/08/22/how-to-manage-hundreds-of-templates.html">&lt;p&gt;Let’s dive together into the depths of a large scale template versioning for a white label streaming application.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-context&quot;&gt;The context&lt;/h2&gt;
+
+&lt;p&gt;Today, at &lt;strong&gt;Bedrock&lt;/strong&gt;, we are providing a streaming service on:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;11 common &lt;strong&gt;CTV&lt;/strong&gt; platforms: Tizen, Philips, WebOS, Hisense, Panasonic, Orange, Xbox, PS4, Orsay, Smart Alliance, WhaleOS&lt;/li&gt;
+  &lt;li&gt;6 &lt;strong&gt;Android&lt;/strong&gt; platforms: mobile, AndroidTV, Bytel, Free, SFR, FireTV&lt;/li&gt;
+  &lt;li&gt;2 &lt;strong&gt;Apple&lt;/strong&gt; platforms: iOS / tvOS&lt;/li&gt;
+  &lt;li&gt;1 &lt;strong&gt;Web&lt;/strong&gt; platform&lt;/li&gt;
+  &lt;li&gt;a lot of specific devices&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Each of these platforms has their own guidelines and usage (interaction, screen sizes, etc) and is managed by a dedicated team in our organization. They also have their own native &lt;strong&gt;design components&lt;/strong&gt; which our implementations rely on to offer the best possible experience.&lt;/p&gt;
+
+&lt;p&gt;Bedrock has several clients (M6+, Videoland and others), that all have their dedicated application on each platform. But they also have their own design expectations and branding guidelines.&lt;br /&gt;
+We provide them with a &lt;strong&gt;design system&lt;/strong&gt;: a set of visual assets they can use to render pages. These components follow the atomic design model, which means that each layer is a composition of the previous one. Here is the list of the layers with their name and some items that belong to it:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;14 &lt;strong&gt;tokens&lt;/strong&gt;: base element that defines the brand (ex: Colors, FontSystem, Radius, Shadow, Breakpoints, Treatments…)&lt;/li&gt;
+  &lt;li&gt;9 &lt;strong&gt;atoms&lt;/strong&gt;: simplest design item that cannot be decomposed (ex: Icons, Avatar, CheckBox, ProgressBar, ServiceIcon, Separator…)&lt;/li&gt;
+  &lt;li&gt;62 &lt;strong&gt;molecules&lt;/strong&gt;: group of atoms that forms a visual unity (ex: Card, Poster, HorizontalCard, Button, CTA, Portrait, Totem…)&lt;/li&gt;
+  &lt;li&gt;12 &lt;strong&gt;organisms&lt;/strong&gt;: complex visual item or part of the interface (ex: Jumbotron, Hero, Solo, Banner…)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Hereunder are some sample screens composed of design system components for different customers:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/home-m6plus.png&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/home-videoland.png&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/home-rtlhu.png&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;This results in approximately one hundred design elements per client. However, not all components are always specific, and an &lt;strong&gt;inheritance&lt;/strong&gt; system is in place to allow clients to reuse default atoms, molecules, or organisms while applying the tokens corresponding to their brand.&lt;/p&gt;
+
+&lt;p&gt;The objectives and expectations regarding the design vary greatly among clients, resulting in &lt;strong&gt;numerous graphical element evolutions&lt;/strong&gt;. Managing the creation and progression of these elements through different processes is a major challenge in tracking designs across each platform. These demands sometimes lead to &lt;strong&gt;different integrations&lt;/strong&gt;. Whether or not the default design is inherited is crucial information to avoid manually comparing the app designs with documentation, which can lead to misunderstandings and wasted time during validation and approval processes.&lt;br /&gt;
+To achieve all these objectives, we need to be able to carefully follow the evolution of the design system on each plateform.&lt;/p&gt;
+
+&lt;h2 id=&quot;one-versioning-to-rule-them-all&quot;&gt;One versioning to rule them all&lt;/h2&gt;
+
+&lt;p&gt;Therefore, implementing a versioning system became essential to continue enriching and evolving our client’s design systems.&lt;br /&gt;
+To ensure its interest and effectiveness, this system had to address several issues:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Be specific&lt;/strong&gt; per platform and per client: evolution progress does not occur at the same pace across all platforms. This also allows for comparing design progress between platforms.&lt;/li&gt;
+  &lt;li&gt;Allow &lt;strong&gt;visualizing the inheritance&lt;/strong&gt; between the default design system and the client’s specific part on the same platform. We also wanted the ability to add comments on implementation details.&lt;/li&gt;
+  &lt;li&gt;Be &lt;strong&gt;directly accessible&lt;/strong&gt; with each build to stay in touch with the application it represents. On mobile, many builds are generated daily, making it difficult to track the arrival of new features.&lt;/li&gt;
+  &lt;li&gt;Stay &lt;strong&gt;up-to-date&lt;/strong&gt; with the constant evolutions of the design system to maintain the source of truth.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Exemple of a Design System release note:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/design-release-note.png&quot; alt=&quot;Release note of the design system&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Initially, the design team started by versioning its releases and all available components, which are accessible to technical teams in our online design documentation (hosted on &lt;a href=&quot;https://zeroheight.com/&quot;&gt;zeroheight&lt;/a&gt;). This versioning is &lt;strong&gt;common to all platforms&lt;/strong&gt; and all clients if there are no specificities for the component in question. Ultimately, versioning helps product and technical teams track the delivery progress of new designs. The version number follows these rules:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Code status&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Stage&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Rule&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Example&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;First release&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;New collection&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1.0.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1.0.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Documentation update without impact on the anatomy of design element&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Documentation update&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Increment the third digit&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1.0.1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;New backward-compatible feature&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Minor release&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Increment the 2nd digit and reset the third&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1.1.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Change on element that breaks backward compatibility&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Major release&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Increment the first digit and reset the second and the third&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2.0.0&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Each frontend team were then responsible for implementing an equivalent versioning system representing the state of their platform. This was done through a &lt;strong&gt;feature team&lt;/strong&gt; including all front-end teams, design system managers, and the product team. This organization brought numerous benefits:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Facilitating the &lt;strong&gt;synchronization&lt;/strong&gt; and homogeneity of product templates&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Sharing&lt;/strong&gt; development challenges&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Limiting&lt;/strong&gt; versioning differences between all fronts&lt;/li&gt;
+  &lt;li&gt;Sharing &lt;strong&gt;industrialization&lt;/strong&gt; ideas&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;case-study-android-versioning-challenges&quot;&gt;Case study: Android versioning challenges&lt;/h2&gt;
+
+&lt;p&gt;For Android, we sometimes have different component implementations between mobile and TV, evolving at different paces. This required &lt;strong&gt;two separate versionings&lt;/strong&gt; to represent them. Moreover, we currently use comments to track the migration to Google’s new view system (Compose), which is happening alongside graphical evolutions.&lt;br /&gt;
+Each client has its &lt;strong&gt;versioning file&lt;/strong&gt; containing all the components available on the targeted platform. Regarding component inheritance from the default design system, there are two possibilities:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;The component is &lt;strong&gt;inherited&lt;/strong&gt; and thus has no specificities and no version in the client’s versioning file, using the generic Bedrock customer version&lt;/li&gt;
+  &lt;li&gt;It has its &lt;strong&gt;own implementation&lt;/strong&gt; and its associated version&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Default Versioning file&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Customer Versioning file&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/versioning-file-default.png&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/versioning-file-customer.png&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;From these &lt;strong&gt;versioning files&lt;/strong&gt;, we have been able to generate &lt;strong&gt;reports&lt;/strong&gt; for each platform containing only the available graphical elements and their version, whether inherited or not. To track their growing number, we opted for automatic generation of these reports with each build using a Gradle Plugin integrated on our continuous deployment and integration (CI/CD): &lt;a href=&quot;https://bitrise.io/&quot;&gt;Bitrise&lt;/a&gt;. Now, they are generated using a &lt;a href=&quot;https://www.mkdocs.org/&quot;&gt;Mkdocs&lt;/a&gt; plugin to be published online automatically with our technical documentation.&lt;/p&gt;
+
+&lt;p&gt;Automatically generated template versioning report for M6+:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/template-versioning-report.png&quot; alt=&quot;Template versioning report for a customer&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Design system versioning reports offer a &lt;strong&gt;quick and exhaustive overview&lt;/strong&gt; of the design system at any given moment for any of our customers and simplifies the QA teams validation work. It is now an essential tool for tracking design progress across all supported platforms.&lt;/p&gt;
+
+&lt;p&gt;However, improvements are always possible:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Currently, developers are responsible for &lt;strong&gt;updating the versioning file&lt;/strong&gt; when adding or modifying graphical elements, which can lead to errors and omissions. To avoid this, we would like to link the concrete implementation of the component and its version in the versioning file. But as we are still using the android legacy view system, component can be a class but also some xml style or theme or even resource files. This should be easier after the migration to the new Android view system Compose.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Access through Bitrise&lt;/strong&gt; is not ideal. We currently centralize all generated builds (using CI as well) in &lt;a href=&quot;https://www.airtable.com/&quot;&gt;Airtable&lt;/a&gt;. A link would be preferable and more visible.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These last improvements will perhaps be the subject of a follow-up to this article. Thank you for reading, we hope you found some useful information that can help you to better follow the graphical evolution of your project. Do not hesitate to contact us if you have some questions or suggestions.&lt;/p&gt;</content><author><name>[&quot;d_cuny&quot;, &quot;m_oudji&quot;]</name></author><category term="android" /><category term="versioning" /><category term="design" /><category term="atomic design" /><category term="design system" /><summary type="html">Let’s dive together into the depths of a large scale template versioning for a white label streaming application.</summary></entry><entry><title type="html">JS Nation x React Summit 2024 highlights</title><link href="https://tech.bedrockstreaming.com/2024/08/20/js-nation-react-summit-2024.html" rel="alternate" type="text/html" title="JS Nation x React Summit 2024 highlights" /><published>2024-08-20T00:00:00+00:00</published><updated>2024-08-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/08/20/js-nation-react-summit-2024</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/08/20/js-nation-react-summit-2024.html">&lt;p&gt;The Frontend Bedrock teams were present at the 2024 edition of the &lt;em&gt;JS Nation&lt;/em&gt; and &lt;em&gt;React Summit&lt;/em&gt; conferences in Amsterdam on 13 &amp;amp; 14 June. We would like to highlight and share some of the subjects we find relevant about our favourite language and framework 🙂 Feel free to explore them further if you are interested.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;📹 You can watch all the video recordings of the &lt;a href=&quot;https://gitnation.com/events/jsnation-2024/talks&quot;&gt;JS Nation&lt;/a&gt; and the &lt;a href=&quot;https://gitnation.com/events/react-summit-2024/talks&quot;&gt;React Summit&lt;/a&gt; talks.&lt;/p&gt;
@@ -1275,17 +1418,4 @@ L’objectif est d’inspirer et de redéfinir la perception du succès, en dép
   &lt;p&gt;N’hésitez surtout pas à venir même sans la moindre connaissance technique, le but de cette conférence est que même votre grand-mère puisse y venir, et en ressortir en étant capable d’expliquer ce qu’est une IA !&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Par &lt;strong&gt;Etienne Doyon&lt;/strong&gt;&lt;/p&gt;</content><author><name>Etienne Doyon</name></author><category term="lft" /><category term="tech" /><summary type="html">Pourquoi l’intelligence artificielle doit-elle s’entraîner pour devenir meilleure, et comment fait-elle ? C’est quoi un réseau de neurones ? Comment Dall-E arrive-t-il à dessiner de si belles images ?</summary></entry><entry><title type="html">Le leader imposteur #LFT 02/02/24</title><link href="https://tech.bedrockstreaming.com/le-leader-imposteur" rel="alternate" type="text/html" title="Le leader imposteur #LFT 02/02/24" /><published>2024-02-02T00:00:00+00:00</published><updated>2024-02-02T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/le-leader-imposteur</id><content type="html" xml:base="https://tech.bedrockstreaming.com/le-leader-imposteur">&lt;blockquote&gt;
-  &lt;p&gt;Je ne suis &lt;strong&gt;pas expert&lt;/strong&gt; de mon métier et ce n’est pas parce que j’en parle facilement que je pense le devenir un jour.
-Je n’ai jamais su être un leader, et tous les &lt;strong&gt;leaders m’impressionnent&lt;/strong&gt;.
-Je pense que &lt;strong&gt;les autres sont meilleurs&lt;/strong&gt; que moi et que je ne pourrai pas être leur égal.
-J’ai été nommé &lt;strong&gt;par chance&lt;/strong&gt; à un poste de &lt;strong&gt;leader&lt;/strong&gt; alors que je n’en avais pas la légitimité.
-Et…je n’ai &lt;strong&gt;jamais eu confiance en moi&lt;/strong&gt; (j’aurais peut-être du commencer par ça)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Ceci est une histoire, MON histoire, et je vais vous parler de mon syndrome de l’imposteur.
-Comment vivre avec, mes conseils, mes craintes et mes peurs…mais surtout comment vous pouvez vous aider et aider ceux qui le possède également.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Par &lt;strong&gt;Mathieu Mure&lt;/strong&gt;&lt;/p&gt;</content><author><name>Mathieu Mure</name></author><category term="lft" /><category term="tech" /><summary type="html">Je ne suis pas expert de mon métier et ce n’est pas parce que j’en parle facilement que je pense le devenir un jour. Je n’ai jamais su être un leader, et tous les leaders m’impressionnent. Je pense que les autres sont meilleurs que moi et que je ne pourrai pas être leur égal. J’ai été nommé par chance à un poste de leader alors que je n’en avais pas la légitimité. Et…je n’ai jamais eu confiance en moi (j’aurais peut-être du commencer par ça)</summary></entry></feed>
+&lt;p&gt;Par &lt;strong&gt;Etienne Doyon&lt;/strong&gt;&lt;/p&gt;</content><author><name>Etienne Doyon</name></author><category term="lft" /><category term="tech" /><summary type="html">Pourquoi l’intelligence artificielle doit-elle s’entraîner pour devenir meilleure, et comment fait-elle ? C’est quoi un réseau de neurones ? Comment Dall-E arrive-t-il à dessiner de si belles images ?</summary></entry></feed>
