@@ -6,7 +6,7 @@ author: [m_benali, m_julieron]
 tags: [monitoring, production, newrelic, shared practice, alerting]
 color: rgb(251,87,66)
 language: en
-thumbnail: "/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/thumbnail.png"
+thumbnail: "/images/posts/2024-09-09-enhancing-production-monitoring-with-newrelic/main.png"
 ---
 
 ## Enhancing Production Monitoring with New Relic 
