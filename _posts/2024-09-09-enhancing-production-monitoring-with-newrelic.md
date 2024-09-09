@@ -108,7 +108,7 @@ This funnel query tracks user sessions through key steps in an email verificatio
 
 How It Renders: The funnel chart visualizes the sequence of user actions, showing the number of users at each step of the email verification process. This makes it easy to see where users drop off and which steps might need improvement. 
 
-   ![Funnel chart rendering](/images/posts/2024-09-09-enhancing-production-monitoring-with-newrelic/billboardchart.png)
+   ![Funnel chart rendering](/images/posts/2024-09-09-enhancing-production-monitoring-with-newrelic/funnelchart.png)
 
 ## Configuring Alerts with New Relic 
 
@@ -197,6 +197,6 @@ Overall, this solution has proven to be more effective and practical for our pro
 
  
 ### Reference: 
-https://newrelic.com/es/blog/how-to-relic/steal-this-dashboard 
+[Steal this dashboard](https://newrelic.com/es/blog/how-to-relic/steal-this-dashboard )
 
  
