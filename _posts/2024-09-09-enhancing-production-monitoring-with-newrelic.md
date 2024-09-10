@@ -80,7 +80,7 @@ How It Renders: The pie chart visualizes the distribution of login errors across
 
  ```
  SELECT 100 - percentage(count(*), WHERE status = 'error')  
- as `Successfull login` 
+ as `Successful login` 
  FROM Actions 
  WHERE actionName = 'LoginAction' 
  SINCE 2 hours ago 
