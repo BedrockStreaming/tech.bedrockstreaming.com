@@ -8,8 +8,6 @@ color: rgb(251,87,66)
 language: en
 thumbnail: "/images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/main.png"
 ---
-
-## Enhancing Production Monitoring with New Relic 
  
 At *Bedrock*, we develop a streaming solution tailored for European media companies. Our application is a customizable white-label product used by millions across Europe. Bedrock’s clients have high expectations for stability, early incident detection, quick resolution, and effective communication during those times. Naturally, our goal is to deliver a stable product, and we dedicate significant effort toward this objective. 
 
