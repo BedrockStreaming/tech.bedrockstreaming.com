@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/main.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Enhancing Production Monitoring with New Relic | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Enhancing Production Monitoring with New Relic" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="How did we improve the monitoring practices on the mobile service? Let’s find out." />
+<meta property="og:description" content="How did we improve the monitoring practices on the mobile service? Let’s find out." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-10-03T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Enhancing Production Monitoring with New Relic" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","description":"How did we improve the monitoring practices on the mobile service? Let’s find out.","url":"https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html","headline":"Enhancing Production Monitoring with New Relic","dateModified":"2024-10-03T00:00:00+00:00","datePublished":"2024-10-03T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Enhancing Production Monitoring with New Relic">
+    <meta name="twitter:description" content="At Bedrock, we develop a streaming solution tailored for European media companies. Our application is a customizable white-label product used by millions acr...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/main.png">
+    <meta name="twitter:image:alt" content="Enhancing Production Monitoring with New Relic">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Enhancing Production Monitoring with New Relic " aria-label="Enhancing Production Monitoring with New Relic" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Enhancing+Production+Monitoring+with+New+Relic" class="title">Enhancing Production Monitoring with New Relic</h1>
+      <div class="post-info">
+
+
+<span class="author">
+      <img alt="Author's avatar" src="/images/avatar/m_benali.jpg" class="thumbnail">
+    
+
+    
+      <span class="name">
+        Marwa Ben Ali
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+      <img alt="Author's avatar" src="/images/avatar/m_julieron.jpg" class="thumbnail">
+    
+
+    
+      <span class="name">
+        Marine Julieron
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    October 03, 2024
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>At <em>Bedrock</em>, we develop a streaming solution tailored for European media companies. Our application is a customizable white-label product used by millions across Europe. Bedrock’s clients have high expectations for stability, early incident detection, quick resolution, and effective communication during those times. Naturally, our goal is to deliver a stable product, and we dedicate significant effort toward this objective.</p>
+
+<p>However, about two and a half years ago, our mobile team faced serious challenges in monitoring production. The tagging systems were pushing events into a tool that developers were not kin to use. The graphs were not intuitive and difficult to generate, making them hard to interpret. Each team across the company was managing its own monitoring practices. Monitoring was largely manual.<br />
+Too many problems were brought to the attention of the team by a complaint of our client to the support team. We knew we had to make a change.</p>
+
+<p>Several organization-wide measures were implemented (like tools to streamline incident reporting and improved communication processes with our clients), but on the tech side, we also needed to play our part.</p>
+
+<h2 id="setting-our-goals-and-expectations">Setting Our Goals and Expectations</h2>
+
+<p>We began by defining our goals:</p>
+
+<ul>
+  <li>Confidence in Releases: We needed certainty that what we shipped was functioning as expected.</li>
+  <li>Standardized Practices: It was crucial to align monitoring practices and tagging plans across teams.</li>
+  <li>Early Problem Detection: Our goal was to identify issues as early as possible.</li>
+  <li>Quick Data for Support Teams: We aimed to swiftly provide support with relevant metrics, such as the number of users impacted and the duration of incidents.</li>
+  <li>Developer Adoption: The selected tool had to be user-friendly, offering easy graph creation, visually appealing layouts, straightforward querying, and an ergonomic interface.</li>
+  <li>Automated Alerts: We needed a system that could automatically alert us of potential issues.</li>
+  <li>Configuration Portability: Regularly exporting our dashboards and alerts configuration was key, ensuring we could redeploy the setup if needed.</li>
+</ul>
+
+<p>Bedrock chose New Relic. It’s important to note that this is not the only monitoring tool available, and we’re not claiming that others can’t meet our needs (we didn’t explore them deeply enough to say). What we do know is that New Relic has been widely adopted across our tech teams and has proven to be an effective solution to reach our requirements.</p>
+
+<h2 id="our-implementation-path">Our Implementation Path</h2>
+
+<p>Here’s the approach we took:</p>
+
+<ul>
+  <li>Shared Documentation: We created unified documentation for technical tagging plans across front-end teams, organized by domain and feature.</li>
+  <li>Common Dashboards: We developed shared dashboards for the Android and iOS teams, organized by domain (e.g., one for the Player, one for the Core, one for User Life Cycle, and one for iOS-specific features).</li>
+  <li>Automated Notifications: A Slack notification system was set up to alert teams whenever the documentation changes, ensuring everyone stays informed.</li>
+</ul>
+
+<h2 id="advanced-queries-with-new-relic-insights">Advanced Queries with New Relic Insights</h2>
+
+<p>New Relic Insights, powered by NRQL (New Relic Query Language), allows developers to create powerful queries to extract specific information. Below, we illustrate how various NRQL queries translate into different types of graphs and charts on our dashboard:</p>
+
+<h3 id="example-1-count-query-with-line-chart">Example 1: Count Query with Line chart</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> SELECT count(*) 
+ FROM Actions 
+ WHERE actionName = 'LoginAction' 
+ FACET status, authenticationMethod 
+ TIMESERIES auto 
+</code></pre></div></div>
+
+<p>This query counts the number of occurrences of the ‘LoginAction’ event, faceted by the status and authenticationMethod fields. The <code class="language-plaintext highlighter-rouge">TIMESERIES</code> auto clause visualizes this count over time, showing trends or spikes in login activity.</p>
+
+<p>How It Renders: The line chart displays the count of login actions over time, with different lines for each combination of status and authentication method (Google, Apple, Email). This allows us to track how login activity changes over time and to compare different types of logins or statuses.</p>
+
+<p><img src="/images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/barchart.png" alt="Bar chart rendering" /></p>
+
+<h3 id="example-2-count-query-with-pie-chart">Example 2: Count Query with Pie chart</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> SELECT count(*), WHERE status = 'error' 
+ FROM Actions 
+ WHERE actionName = 'LoginAction' 
+ FACET authenticationMethod, errorCode 
+</code></pre></div></div>
+
+<p>This query counts the number of login actions that resulted in errors, faceting by authenticationMethod (Google, Apple, Email) and errorCode. It helps identify which authentication methods and error codes are most common.</p>
+
+<p>How It Renders: The pie chart visualizes the distribution of login errors across different authentication methods and error codes. Each slice represents the proportion of errors associated with a particular method or error code, making it easy to see which are most problematic.</p>
+
+<p><img src="/images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/piechart.png" alt="Pie chart rendering" /></p>
+
+<h3 id="example-3-percentage-query-with-billboard-chart">Example 3: Percentage Query with Billboard chart</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> SELECT 100 - percentage(count(*), WHERE status = 'error')  
+ as `Successful login` 
+ FROM Actions 
+ WHERE actionName = 'LoginAction' 
+ SINCE 2 hours ago 
+ COMPARE WITH 1 day ago  
+</code></pre></div></div>
+
+<p>This query calculates the percentage of successful login actions (i.e., those that did not result in errors) within the last two hours, compared to the same period one day ago. It helps track success rates and identify any improvements or declines in login performance.</p>
+
+<p>How It Renders: The billboard chart prominently displays the percentage of successful logins as a large, bold number. The comparison with the previous day is also displayed, allowing for quick assessment of whether the success rate has improved or worsened.</p>
+
+<p><img src="/images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/billboardchart.png" alt="Billboard chart rendering" /></p>
+
+<h3 id="example-4-funnel-query">Example 4: Funnel Query</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   SELECT funnel(sessionId AS session, 
+   WHERE name = 'EmailValidationStatus' AND isVerified IS false AS 'email not verified', 
+   WHERE name = 'EmailNotVerifiedPageOpe' AS 'email validation page opened'), 
+   WHERE name = 'LayoutPageOpen’ AS 'one layout event is called ') 
+   FROM Actions 
+</code></pre></div></div>
+
+<p>This funnel query tracks user sessions through key steps in an email verification process. It identifies users with unverified emails and checks if they opened the email validation page. This helps monitor conversion rates and potential drop-offs in the user journey.</p>
+
+<p>How It Renders: The funnel chart visualizes the sequence of user actions, showing the number of users at each step of the email verification process. This makes it easy to see where users drop off and which steps might need improvement.</p>
+
+<p><img src="/images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/funnelchart.png" alt="Funnel chart rendering" /></p>
+
+<h2 id="configuring-alerts-with-new-relic">Configuring Alerts with New Relic</h2>
+
+<p>When setting up New Relic alerts, we used both static and anomaly thresholds based on the feature’s behaviour:</p>
+
+<ul>
+  <li>
+    <p>Static Thresholds: Applied to features with predictable, consistent performance, where specific limits are well-defined.<br />
+For example, we used static thresholds for the Login/Register and Consent features, where behaviour is stable and deviations are easily identifiable.</p>
+  </li>
+  <li>
+    <p>Anomaly Detection: Used for features with dynamic patterns where a fixed threshold isn’t suitable. 
+We applied anomaly detection for example to the Payment feature since transaction patterns can vary significantly based on many factors.</p>
+  </li>
+</ul>
+
+<p>This combination allows us to accurately monitor both stable and variable features.</p>
+
+<h3 id="alert-policies">Alert Policies</h3>
+
+<p>An alert policy determines who should be notified when an alert is triggered. It defines notification channels, user groups, and actions to take. To create an alert policy:</p>
+
+<ul>
+  <li>Go to “Alerts &amp; AI” in your New Relic dashboard.</li>
+  <li>Create a new alert policy and define the actions to take when an alert is triggered.</li>
+  <li>Associate the policy with the channels or emails that should receive the alert notifications.</li>
+</ul>
+
+<h3 id="alert-conditions">Alert Conditions</h3>
+
+<p>Alert conditions define the thresholds at which an alert should be triggered. To configure an alert condition:</p>
+
+<ul>
+  <li>In your New Relic dashboard, go to “Alerts &amp; AI.”</li>
+  <li>Create a new alert condition by specifying criteria such as response time or error rate.</li>
+  <li>Define the thresholds and conditions necessary to trigger the alert. You can use anomaly detection or static thresholds depending on your feature needs.</li>
+  <li>Associate this condition with the specific alert policy you have defined.</li>
+</ul>
+
+<h3 id="code-of-alerts-with-terraform">Code of alerts with Terraform</h3>
+
+<p>Here’s a simple example of Terraform code to configure an alert condition that triggers when a spike in login errors (critical or warning) is detected:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  resource "newrelic_nrql_alert_condition" "authentication_login_error" { 
+  account_id                   = "account_id" 
+  policy_id                    = "policy_id" 
+  type                         = "static" 
+  name                         = "authentication_login_error" 
+  description                  = "This alert fires when the % of login errors gets too high in a given time" 
+  enabled                      = true 
+  violation_time_limit_seconds = 259200 
+
+  nrql { 
+    query = "SELECT percentage(count(*), WHERE status = 'error') * IF(count(*)&lt;100, 0, 1) FROM Actions WHERE actionName = 'LoginAction'" 
+  } 
+
+  critical { 
+    operator              = "above" 
+    threshold             = 10 
+    threshold_duration    = 3600 
+    threshold_occurrences = "all" 
+    
+  } 
+
+  warning { 
+    operator              = "above" 
+    threshold             = 8 
+    threshold_duration    = 3600 
+    threshold_occurrences = "all" 
+
+  } 
+
+  fill_option        = "none" 
+  aggregation_window = 3600 
+  aggregation_method = "event_flow" 
+  aggregation_delay  = 600 
+} 
+</code></pre></div></div>
+
+<p>Explanation:</p>
+
+<p>This Terraform script configures an NRQL static alert condition for monitoring login errors. The alert triggers if the percentage of login errors exceeds a threshold. The NRQL query calculates the error percentage and multiplies it by 0 if the event count is less than 100 (to avoid false positives from low activity). The critical condition triggers if the error rate is above 10% for at least 1 hour. The warning condition triggers if the error rate is above 8% for the same duration.  The script also sets up an aggregation window and delay to smooth out any short-lived spikes. Once this condition is met, an alert is sent to the Slack channel configured in the previous steps.</p>
+
+<h2 id="brighter-outlook-with-enhanced-monitoring">Brighter Outlook with Enhanced Monitoring</h2>
+
+<p>Now, with our new monitoring solution in place, we’re seeing a significant improvement in how we handle critical issues. Alerts are delivered instantly, allowing us to respond to problems as they arise. Even when we receive warnings, we can act proactively to prevent potential issues from escalating.</p>
+
+<p>This immediate and precise alerting system ensures that our dedicated teams whether they handle backend issues or other areas are promptly informed and can address concerns before they impact our users. This proactive approach not only enhances our overall performance but also improves our operational efficiency.</p>
+
+<p>Overall, this solution has proven to be more effective and practical for our project, enabling us to maintain higher levels of stability and deliver a better experience for our clients. We’re confident that this improvement will continue to support our success and growth moving forward.</p>
+
+<h3 id="reference">Reference:</h3>
+<p><a href="https://newrelic.com/blog/how-to-relic/steal-this-dashboard">Steal this dashboard</a></p>
+
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Enhancing+Production+Monitoring+with+New+Relic%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2024%2F10%2F03%2Fenhancing-production-monitoring-with-newrelic.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html&title=Enhancing+Production+Monitoring+with+New+Relic%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Enhancing Production Monitoring with New Relic%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#alerting">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> alerting</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#monitoring">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> monitoring</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#newrelic">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> newrelic</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#production">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> production</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#shared+practice">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> shared practice</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="How to manage hundreds of view templates?" href="/2024/08/22/how-to-manage-hundreds-of-templates.html">
+            <p>Next post</p>
+            How to manage hundreds of view templates?
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

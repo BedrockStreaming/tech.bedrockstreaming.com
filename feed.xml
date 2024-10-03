@@ -1,4 +1,192 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2024-08-22T15:10:33+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">How to manage hundreds of view templates?</title><link href="https://tech.bedrockstreaming.com/2024/08/22/how-to-manage-hundreds-of-templates.html" rel="alternate" type="text/html" title="How to manage hundreds of view templates?" /><published>2024-08-22T00:00:00+00:00</published><updated>2024-08-22T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/08/22/how-to-manage-hundreds-of-templates</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/08/22/how-to-manage-hundreds-of-templates.html">&lt;p&gt;Let’s dive together into the depths of a large scale template versioning for a white label streaming application.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2024-10-03T12:45:03+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Enhancing Production Monitoring with New Relic</title><link href="https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html" rel="alternate" type="text/html" title="Enhancing Production Monitoring with New Relic" /><published>2024-10-03T00:00:00+00:00</published><updated>2024-10-03T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html">&lt;p&gt;At &lt;em&gt;Bedrock&lt;/em&gt;, we develop a streaming solution tailored for European media companies. Our application is a customizable white-label product used by millions across Europe. Bedrock’s clients have high expectations for stability, early incident detection, quick resolution, and effective communication during those times. Naturally, our goal is to deliver a stable product, and we dedicate significant effort toward this objective.&lt;/p&gt;
+
+&lt;p&gt;However, about two and a half years ago, our mobile team faced serious challenges in monitoring production. The tagging systems were pushing events into a tool that developers were not kin to use. The graphs were not intuitive and difficult to generate, making them hard to interpret. Each team across the company was managing its own monitoring practices. Monitoring was largely manual.&lt;br /&gt;
+Too many problems were brought to the attention of the team by a complaint of our client to the support team. We knew we had to make a change.&lt;/p&gt;
+
+&lt;p&gt;Several organization-wide measures were implemented (like tools to streamline incident reporting and improved communication processes with our clients), but on the tech side, we also needed to play our part.&lt;/p&gt;
+
+&lt;h2 id=&quot;setting-our-goals-and-expectations&quot;&gt;Setting Our Goals and Expectations&lt;/h2&gt;
+
+&lt;p&gt;We began by defining our goals:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Confidence in Releases: We needed certainty that what we shipped was functioning as expected.&lt;/li&gt;
+  &lt;li&gt;Standardized Practices: It was crucial to align monitoring practices and tagging plans across teams.&lt;/li&gt;
+  &lt;li&gt;Early Problem Detection: Our goal was to identify issues as early as possible.&lt;/li&gt;
+  &lt;li&gt;Quick Data for Support Teams: We aimed to swiftly provide support with relevant metrics, such as the number of users impacted and the duration of incidents.&lt;/li&gt;
+  &lt;li&gt;Developer Adoption: The selected tool had to be user-friendly, offering easy graph creation, visually appealing layouts, straightforward querying, and an ergonomic interface.&lt;/li&gt;
+  &lt;li&gt;Automated Alerts: We needed a system that could automatically alert us of potential issues.&lt;/li&gt;
+  &lt;li&gt;Configuration Portability: Regularly exporting our dashboards and alerts configuration was key, ensuring we could redeploy the setup if needed.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Bedrock chose New Relic. It’s important to note that this is not the only monitoring tool available, and we’re not claiming that others can’t meet our needs (we didn’t explore them deeply enough to say). What we do know is that New Relic has been widely adopted across our tech teams and has proven to be an effective solution to reach our requirements.&lt;/p&gt;
+
+&lt;h2 id=&quot;our-implementation-path&quot;&gt;Our Implementation Path&lt;/h2&gt;
+
+&lt;p&gt;Here’s the approach we took:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Shared Documentation: We created unified documentation for technical tagging plans across front-end teams, organized by domain and feature.&lt;/li&gt;
+  &lt;li&gt;Common Dashboards: We developed shared dashboards for the Android and iOS teams, organized by domain (e.g., one for the Player, one for the Core, one for User Life Cycle, and one for iOS-specific features).&lt;/li&gt;
+  &lt;li&gt;Automated Notifications: A Slack notification system was set up to alert teams whenever the documentation changes, ensuring everyone stays informed.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;advanced-queries-with-new-relic-insights&quot;&gt;Advanced Queries with New Relic Insights&lt;/h2&gt;
+
+&lt;p&gt;New Relic Insights, powered by NRQL (New Relic Query Language), allows developers to create powerful queries to extract specific information. Below, we illustrate how various NRQL queries translate into different types of graphs and charts on our dashboard:&lt;/p&gt;
+
+&lt;h3 id=&quot;example-1-count-query-with-line-chart&quot;&gt;Example 1: Count Query with Line chart&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; SELECT count(*) 
+ FROM Actions 
+ WHERE actionName = &apos;LoginAction&apos; 
+ FACET status, authenticationMethod 
+ TIMESERIES auto 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This query counts the number of occurrences of the ‘LoginAction’ event, faceted by the status and authenticationMethod fields. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TIMESERIES&lt;/code&gt; auto clause visualizes this count over time, showing trends or spikes in login activity.&lt;/p&gt;
+
+&lt;p&gt;How It Renders: The line chart displays the count of login actions over time, with different lines for each combination of status and authentication method (Google, Apple, Email). This allows us to track how login activity changes over time and to compare different types of logins or statuses.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/barchart.png&quot; alt=&quot;Bar chart rendering&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;example-2-count-query-with-pie-chart&quot;&gt;Example 2: Count Query with Pie chart&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; SELECT count(*), WHERE status = &apos;error&apos; 
+ FROM Actions 
+ WHERE actionName = &apos;LoginAction&apos; 
+ FACET authenticationMethod, errorCode 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This query counts the number of login actions that resulted in errors, faceting by authenticationMethod (Google, Apple, Email) and errorCode. It helps identify which authentication methods and error codes are most common.&lt;/p&gt;
+
+&lt;p&gt;How It Renders: The pie chart visualizes the distribution of login errors across different authentication methods and error codes. Each slice represents the proportion of errors associated with a particular method or error code, making it easy to see which are most problematic.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/piechart.png&quot; alt=&quot;Pie chart rendering&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;example-3-percentage-query-with-billboard-chart&quot;&gt;Example 3: Percentage Query with Billboard chart&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; SELECT 100 - percentage(count(*), WHERE status = &apos;error&apos;)  
+ as `Successful login` 
+ FROM Actions 
+ WHERE actionName = &apos;LoginAction&apos; 
+ SINCE 2 hours ago 
+ COMPARE WITH 1 day ago  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This query calculates the percentage of successful login actions (i.e., those that did not result in errors) within the last two hours, compared to the same period one day ago. It helps track success rates and identify any improvements or declines in login performance.&lt;/p&gt;
+
+&lt;p&gt;How It Renders: The billboard chart prominently displays the percentage of successful logins as a large, bold number. The comparison with the previous day is also displayed, allowing for quick assessment of whether the success rate has improved or worsened.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/billboardchart.png&quot; alt=&quot;Billboard chart rendering&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;example-4-funnel-query&quot;&gt;Example 4: Funnel Query&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   SELECT funnel(sessionId AS session, 
+   WHERE name = &apos;EmailValidationStatus&apos; AND isVerified IS false AS &apos;email not verified&apos;, 
+   WHERE name = &apos;EmailNotVerifiedPageOpe&apos; AS &apos;email validation page opened&apos;), 
+   WHERE name = &apos;LayoutPageOpen’ AS &apos;one layout event is called &apos;) 
+   FROM Actions 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This funnel query tracks user sessions through key steps in an email verification process. It identifies users with unverified emails and checks if they opened the email validation page. This helps monitor conversion rates and potential drop-offs in the user journey.&lt;/p&gt;
+
+&lt;p&gt;How It Renders: The funnel chart visualizes the sequence of user actions, showing the number of users at each step of the email verification process. This makes it easy to see where users drop off and which steps might need improvement.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/funnelchart.png&quot; alt=&quot;Funnel chart rendering&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;configuring-alerts-with-new-relic&quot;&gt;Configuring Alerts with New Relic&lt;/h2&gt;
+
+&lt;p&gt;When setting up New Relic alerts, we used both static and anomaly thresholds based on the feature’s behaviour:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Static Thresholds: Applied to features with predictable, consistent performance, where specific limits are well-defined.&lt;br /&gt;
+For example, we used static thresholds for the Login/Register and Consent features, where behaviour is stable and deviations are easily identifiable.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Anomaly Detection: Used for features with dynamic patterns where a fixed threshold isn’t suitable. 
+We applied anomaly detection for example to the Payment feature since transaction patterns can vary significantly based on many factors.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This combination allows us to accurately monitor both stable and variable features.&lt;/p&gt;
+
+&lt;h3 id=&quot;alert-policies&quot;&gt;Alert Policies&lt;/h3&gt;
+
+&lt;p&gt;An alert policy determines who should be notified when an alert is triggered. It defines notification channels, user groups, and actions to take. To create an alert policy:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Go to “Alerts &amp;amp; AI” in your New Relic dashboard.&lt;/li&gt;
+  &lt;li&gt;Create a new alert policy and define the actions to take when an alert is triggered.&lt;/li&gt;
+  &lt;li&gt;Associate the policy with the channels or emails that should receive the alert notifications.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;alert-conditions&quot;&gt;Alert Conditions&lt;/h3&gt;
+
+&lt;p&gt;Alert conditions define the thresholds at which an alert should be triggered. To configure an alert condition:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;In your New Relic dashboard, go to “Alerts &amp;amp; AI.”&lt;/li&gt;
+  &lt;li&gt;Create a new alert condition by specifying criteria such as response time or error rate.&lt;/li&gt;
+  &lt;li&gt;Define the thresholds and conditions necessary to trigger the alert. You can use anomaly detection or static thresholds depending on your feature needs.&lt;/li&gt;
+  &lt;li&gt;Associate this condition with the specific alert policy you have defined.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;code-of-alerts-with-terraform&quot;&gt;Code of alerts with Terraform&lt;/h3&gt;
+
+&lt;p&gt;Here’s a simple example of Terraform code to configure an alert condition that triggers when a spike in login errors (critical or warning) is detected:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  resource &quot;newrelic_nrql_alert_condition&quot; &quot;authentication_login_error&quot; { 
+  account_id                   = &quot;account_id&quot; 
+  policy_id                    = &quot;policy_id&quot; 
+  type                         = &quot;static&quot; 
+  name                         = &quot;authentication_login_error&quot; 
+  description                  = &quot;This alert fires when the % of login errors gets too high in a given time&quot; 
+  enabled                      = true 
+  violation_time_limit_seconds = 259200 
+
+  nrql { 
+    query = &quot;SELECT percentage(count(*), WHERE status = &apos;error&apos;) * IF(count(*)&amp;lt;100, 0, 1) FROM Actions WHERE actionName = &apos;LoginAction&apos;&quot; 
+  } 
+
+  critical { 
+    operator              = &quot;above&quot; 
+    threshold             = 10 
+    threshold_duration    = 3600 
+    threshold_occurrences = &quot;all&quot; 
+    
+  } 
+
+  warning { 
+    operator              = &quot;above&quot; 
+    threshold             = 8 
+    threshold_duration    = 3600 
+    threshold_occurrences = &quot;all&quot; 
+
+  } 
+
+  fill_option        = &quot;none&quot; 
+  aggregation_window = 3600 
+  aggregation_method = &quot;event_flow&quot; 
+  aggregation_delay  = 600 
+} 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Explanation:&lt;/p&gt;
+
+&lt;p&gt;This Terraform script configures an NRQL static alert condition for monitoring login errors. The alert triggers if the percentage of login errors exceeds a threshold. The NRQL query calculates the error percentage and multiplies it by 0 if the event count is less than 100 (to avoid false positives from low activity). The critical condition triggers if the error rate is above 10% for at least 1 hour. The warning condition triggers if the error rate is above 8% for the same duration.  The script also sets up an aggregation window and delay to smooth out any short-lived spikes. Once this condition is met, an alert is sent to the Slack channel configured in the previous steps.&lt;/p&gt;
+
+&lt;h2 id=&quot;brighter-outlook-with-enhanced-monitoring&quot;&gt;Brighter Outlook with Enhanced Monitoring&lt;/h2&gt;
+
+&lt;p&gt;Now, with our new monitoring solution in place, we’re seeing a significant improvement in how we handle critical issues. Alerts are delivered instantly, allowing us to respond to problems as they arise. Even when we receive warnings, we can act proactively to prevent potential issues from escalating.&lt;/p&gt;
+
+&lt;p&gt;This immediate and precise alerting system ensures that our dedicated teams whether they handle backend issues or other areas are promptly informed and can address concerns before they impact our users. This proactive approach not only enhances our overall performance but also improves our operational efficiency.&lt;/p&gt;
+
+&lt;p&gt;Overall, this solution has proven to be more effective and practical for our project, enabling us to maintain higher levels of stability and deliver a better experience for our clients. We’re confident that this improvement will continue to support our success and growth moving forward.&lt;/p&gt;
+
+&lt;h3 id=&quot;reference&quot;&gt;Reference:&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://newrelic.com/blog/how-to-relic/steal-this-dashboard&quot;&gt;Steal this dashboard&lt;/a&gt;&lt;/p&gt;</content><author><name>[&quot;m_benali&quot;, &quot;m_julieron&quot;]</name></author><category term="monitoring" /><category term="production" /><category term="newrelic" /><category term="shared practice" /><category term="alerting" /><summary type="html">At Bedrock, we develop a streaming solution tailored for European media companies. Our application is a customizable white-label product used by millions across Europe. Bedrock’s clients have high expectations for stability, early incident detection, quick resolution, and effective communication during those times. Naturally, our goal is to deliver a stable product, and we dedicate significant effort toward this objective.</summary></entry><entry><title type="html">How to manage hundreds of view templates?</title><link href="https://tech.bedrockstreaming.com/2024/08/22/how-to-manage-hundreds-of-templates.html" rel="alternate" type="text/html" title="How to manage hundreds of view templates?" /><published>2024-08-22T00:00:00+00:00</published><updated>2024-08-22T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/08/22/how-to-manage-hundreds-of-templates</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/08/22/how-to-manage-hundreds-of-templates.html">&lt;p&gt;Let’s dive together into the depths of a large scale template versioning for a white label streaming application.&lt;/p&gt;
 
 &lt;h2 id=&quot;the-context&quot;&gt;The context&lt;/h2&gt;
 
@@ -1402,20 +1590,4 @@ L’objectif est d’inspirer et de redéfinir la perception du succès, en dép
   &lt;p&gt;Comme ce jeu se joue idéalement sur des plateaux sans limite de taille, la question des performances de l’implémentation est capitale. Pour du développement web, cet exemple permet à la fois de voir les limites de JavaScript pour effectuer un grand nombre de calculs et de présenter une solution complémentaire à la réduction de la complexité algorithmique : une implémentation en WebAssembly qui permet de déléguer la charge de calcul à un langage compilé plus performant, Rust.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Par &lt;strong&gt;Théo Gianella&lt;/strong&gt;&lt;/p&gt;</content><author><name>Théo Gianella</name></author><category term="lft" /><category term="tech" /><summary type="html">Le jeu de la vie est un drôle de jeu qui a la particularité de n’avoir pas de joueur. Il se joue de lui-même et produit des configurations qui semblent évoluer de manière autonome, sans intervention extérieure. A partir de règles très basiques, des structures d’une très grande complexité peuvent émerger d’une manière qui évoque l’apparition de la vie sur Terre à partir d’éléments inertes, d’où le nom mystérieux de jeu de la vie.</summary></entry><entry><title type="html">Du code à l’image : Aller et Retour #LFT 02/02/24</title><link href="https://tech.bedrockstreaming.com/du-code-a-l-image-aller-et-retour" rel="alternate" type="text/html" title="Du code à l’image : Aller et Retour #LFT 02/02/24" /><published>2024-02-02T00:00:00+00:00</published><updated>2024-02-02T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/du-code-a-l-image-aller-et-retour</id><content type="html" xml:base="https://tech.bedrockstreaming.com/du-code-a-l-image-aller-et-retour">&lt;blockquote&gt;
-  &lt;p&gt;Pourquoi l’intelligence artificielle doit-elle s’entraîner pour devenir meilleure, et comment fait-elle ? C’est quoi un réseau de neurones ? Comment Dall-E arrive-t-il à dessiner de si belles images ?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Depuis peu, l’intelligence artificielle fait énormément parler d’elle. Pourtant, derrière les termes de “Deep learning” et de “Réseau de neurones”, il est rare de comprendre exactement ce qui se passe dans la machine. Et si on explorait ça ?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Découvrons ensemble, dans une présentation ne demandant strictement aucune compétence technique, les bases de l’apprentissage de ces intelligences, afin de comprendre un peu plus ce qui se passe derrière les rouages et toute cette magie !&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;N’hésitez surtout pas à venir même sans la moindre connaissance technique, le but de cette conférence est que même votre grand-mère puisse y venir, et en ressortir en étant capable d’expliquer ce qu’est une IA !&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Par &lt;strong&gt;Etienne Doyon&lt;/strong&gt;&lt;/p&gt;</content><author><name>Etienne Doyon</name></author><category term="lft" /><category term="tech" /><summary type="html">Pourquoi l’intelligence artificielle doit-elle s’entraîner pour devenir meilleure, et comment fait-elle ? C’est quoi un réseau de neurones ? Comment Dall-E arrive-t-il à dessiner de si belles images ?</summary></entry></feed>
+&lt;p&gt;Par &lt;strong&gt;Théo Gianella&lt;/strong&gt;&lt;/p&gt;</content><author><name>Théo Gianella</name></author><category term="lft" /><category term="tech" /><summary type="html">Le jeu de la vie est un drôle de jeu qui a la particularité de n’avoir pas de joueur. Il se joue de lui-même et produit des configurations qui semblent évoluer de manière autonome, sans intervention extérieure. A partir de règles très basiques, des structures d’une très grande complexité peuvent émerger d’une manière qui évoque l’apparition de la vie sur Terre à partir d’éléments inertes, d’où le nom mystérieux de jeu de la vie.</summary></entry></feed>
