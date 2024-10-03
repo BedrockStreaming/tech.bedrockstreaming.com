@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Enhancing Production Monitoring with New Relic
-description: How did we improve the monitoring practices on the mobile service ? Let's find out.
+description: How did we improve the monitoring practices on the mobile service? Let's find out.
 author: [m_benali, m_julieron]
 tags: [monitoring, production, newrelic, shared practice, alerting]
 color: rgb(251,87,66)
@@ -14,7 +14,7 @@ thumbnail: "/images/posts/2024-10-03-enhancing-production-monitoring-with-newrel
 At *Bedrock*, we develop a streaming solution tailored for European media companies. Our application is a customizable white-label product used by millions across Europe. Bedrock’s clients have high expectations for stability, early incident detection, quick resolution, and effective communication during those times. Naturally, our goal is to deliver a stable product, and we dedicate significant effort toward this objective. 
 
 However, about two and a half years ago, our mobile team faced serious challenges in monitoring production. The tagging systems were pushing events into a tool that developers were not kin to use. The graphs were not intuitive and difficult to generate, making them hard to interpret. Each team across the company was managing its own monitoring practices. Monitoring was largely manual.  
-Too many problems were brought to the attention of the team by a complain of our client to the support team. We knew we had to make a change. 
+Too many problems were brought to the attention of the team by a complaint of our client to the support team. We knew we had to make a change. 
 
 Several organization-wide measures were implemented (like tools to streamline incident reporting and improved communication processes with our clients), but on the tech side, we also needed to play our part. 
 
@@ -55,7 +55,7 @@ New Relic Insights, powered by NRQL (New Relic Query Language), allows developer
  TIMESERIES auto 
  ```
 
-This query counts the number of occurrences of the 'LoginAction' event, faceting by the status and authenticationMethod fields. The `TIMESERIES` auto clause visualizes this count over time, showing trends or spikes in login activity. 
+This query counts the number of occurrences of the 'LoginAction' event, faceted by the status and authenticationMethod fields. The `TIMESERIES` auto clause visualizes this count over time, showing trends or spikes in login activity. 
 
 How It Renders: The line chart displays the count of login actions over time, with different lines for each combination of status and authentication method (Google, Apple, Email). This allows us to track how login activity changes over time and to compare different types of logins or statuses. 
 
