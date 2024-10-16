@@ -1,3 +1,20 @@
 ---
+import { getCollection } from 'astro:content';
+
+const allBlogPosts = await getCollection('posts');
+
+export async function getStaticPaths() {
+    const posts = await getCollection('posts');
+    return posts.map((post) => ({
+        params: { slug: post.slug }
+    }));
+}
 ---
 <h1>List of posts</h1>
+<ul>
+    {allBlogPosts.map((post) => (
+        <li>
+            <a href=`/posts/${post.slug}`>{post.data.title}</a>
+        </li>
+    ))}
+</ul>
