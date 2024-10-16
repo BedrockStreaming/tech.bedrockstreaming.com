@@ -1,0 +1,15 @@
+---
+export function getStaticPaths() {
+    return [
+        {params: {post: 'clifford'}},
+        {params: {post: 'rover'}},
+        {params: {post: 'spot'}},
+    ];
+}
+
+const { post } = Astro.params;
+---
+
+<section>
+    <h1>Posts : {post}</h1>
+</section>
