@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Performances web et \"Disaster case\" sur applications mobile native"
 description: ""
 author: k_dits 
@@ -47,7 +47,7 @@ Récupérons ensuite notre adresse Ip via les "Préférences Système", section 
 
 
 
-![Performances web et "Disaster case" sur applications mobile native](../../../../images/posts/imgob/0-00-30-83-201306-ob_9f332944f7f96d84b86805a14041a546_recup-ip.png)
+![Performances web et "Disaster case" sur applications mobile native](../../../../../../../images/posts/imgob/0-00-30-83-201306-ob_9f332944f7f96d84b86805a14041a546_recup-ip.png)
 
 
 
@@ -66,7 +66,7 @@ Une fois la connexion lancée avec le Proxy activé et Charles bien lancé sur v
 
 
 
-![Performances web et "Disaster case" sur applications mobile native](../../../../images/posts/imgob/0-00-30-83-201306-ob_5fdf154fbea7025d99bd2e09dcd8e6cb_autorisation-charles.png)
+![Performances web et "Disaster case" sur applications mobile native](../../../../../../../images/posts/imgob/0-00-30-83-201306-ob_5fdf154fbea7025d99bd2e09dcd8e6cb_autorisation-charles.png)
 
 Aller ensuite sur un site mobile via Safari pour vérifier que le trafic est bien capturé par votre Proxy.
 
@@ -84,7 +84,7 @@ Pour prendre une mesure avec Charles, allez dans le menu "Proxy", décochez le "
 
 
 
-![Performances web et "Disaster case" sur applications mobile native](../../../../images/posts/imgob/0-00-30-83-201306-ob_689b14b9dc97e42b31a007ecfe7343f1_cleaner-charles.png)
+![Performances web et "Disaster case" sur applications mobile native](../../../../../../../images/posts/imgob/0-00-30-83-201306-ob_689b14b9dc97e42b31a007ecfe7343f1_cleaner-charles.png)
 
 Vous n'avez ensuite plus qu'a lancer une application pour mesurer la liste des requêtes HTTP nécessaire à son démarrage.
 
@@ -94,7 +94,7 @@ Sélectionnez toutes les requêtes, puis cliquez sur "Chart" sur la droite, pour
 
 
 
-![Performances web et "Disaster case" sur applications mobile native](../../../../images/posts/imgob/0-00-30-83-201306-ob_a5ed4b66cceafe170170112a0c5bc5ae_recording-charles-chart.png)
+![Performances web et "Disaster case" sur applications mobile native](../../../../../../../images/posts/imgob/0-00-30-83-201306-ob_a5ed4b66cceafe170170112a0c5bc5ae_recording-charles-chart.png)
 
 
 
@@ -110,7 +110,7 @@ Décochez la case "Validate data before processing?" pour être moins embêté p
 
 
 
-![Performances web et "Disaster case" sur applications mobile native](../../../../images/posts/imgob/0-00-30-83-201306-ob_1ca8d35846fcf94af13302079edba29d_harviewer.png)
+![Performances web et "Disaster case" sur applications mobile native](../../../../../../../images/posts/imgob/0-00-30-83-201306-ob_1ca8d35846fcf94af13302079edba29d_harviewer.png)
 
 Ensuite, faites un Drag & Drop de votre fichier .har dans le textarea de HarViewer pour obtenir votre waterfall, très proche de l'onglet Réseau de Firebug ou Network de la console de Chrome.
 
@@ -118,7 +118,7 @@ Vous retrouvez donc pour chaque requête tous les élements classique, avec dét
 
 
 
-![Performances web et "Disaster case" sur applications mobile native](../../../../images/posts/imgob/0-00-30-83-201306-ob_592bf871e7372f057e87d3bad159ca0d_waterfall-har-viewer.png)
+![Performances web et "Disaster case" sur applications mobile native](../../../../../../../images/posts/imgob/0-00-30-83-201306-ob_592bf871e7372f057e87d3bad159ca0d_waterfall-har-viewer.png)
 
 
 
@@ -134,7 +134,7 @@ Ensuite, toujours dans le menu "Proxy", activé l'option "Throttle" et vous pour
 
 
 
-![Performances web et "Disaster case" sur applications mobile native](../../../../images/posts/imgob/0-00-30-83-201306-ob_e2de8973ef740d2832a1e475cc632226_throttling.png)
+![Performances web et "Disaster case" sur applications mobile native](../../../../../../../images/posts/imgob/0-00-30-83-201306-ob_e2de8973ef740d2832a1e475cc632226_throttling.png)
 
 
 
@@ -152,7 +152,7 @@ Pour ce besoin, nous allons utiliser le Blackhole fourni par [Patrick Meenan](ht
 
 
 
-![Performances web et "Disaster case" sur applications mobile native](../../../../images/posts/imgob/0-00-30-83-201307-ob_f21590aa8b7234c9f7bc596f31f3d6d3_mapremote.png)
+![Performances web et "Disaster case" sur applications mobile native](../../../../../../../images/posts/imgob/0-00-30-83-201307-ob_f21590aa8b7234c9f7bc596f31f3d6d3_mapremote.png)
 
 Vous pouvez ensuite jouer avec les domaines, et regarder comment se comporte votre application dans le cas où l'un d'entre eux est inaccessible.
 
@@ -160,7 +160,7 @@ Sur notre iPhone 4 de test, on remarque d'ailleurs un timeout sur les requêtes 
 
 
 
-![Performances web et "Disaster case" sur applications mobile native](../../../../images/posts/imgob/0-00-30-83-201307-ob_08a2d492e28867e560b7a8863c328022_spof.png)
+![Performances web et "Disaster case" sur applications mobile native](../../../../../../../images/posts/imgob/0-00-30-83-201307-ob_08a2d492e28867e560b7a8863c328022_spof.png)
 
 Voilà, vous avez désormais une solution vous permettant de générer des Waterfall Charts pour vos apps natives, et de tester des conditions de mauvaises connexions, ou d'indisponibilité de service.
 

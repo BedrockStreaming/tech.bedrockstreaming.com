@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Célébrons nos réussites grâce au Brag Document ! #LFT 02/06/23"
 description: ""
 author: al_deboissieu

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Comment faire un trailer vidéo qui déchire avec les technos web ? #LFT 03/06/22"
 description: ""
 author: [m_alves, a_caron]

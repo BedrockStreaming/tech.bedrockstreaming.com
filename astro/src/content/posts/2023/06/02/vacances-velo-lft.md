@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Et si vos prochaines vacances se passaient à vélo ? #LFT 02/06/23"
 description: ""
 author: t_jarrand

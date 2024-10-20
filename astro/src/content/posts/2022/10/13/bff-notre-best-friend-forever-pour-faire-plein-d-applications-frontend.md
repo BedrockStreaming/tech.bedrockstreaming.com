@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/conference.astro
+layout: ../../../../../layouts/conference.astro
 title: "BFF, notre best friend forever pour faire plein d’applications frontend ?"
 description: "Un Back For Front afin d’unifier et faciliter les interactions backend et frontend."
 author: v_claras

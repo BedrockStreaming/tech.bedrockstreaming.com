@@ -1,11 +1,11 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Bedrock au Forum PHP 2023"
 description: "Nos retours du Forum PHP à Paris, les 12 et 13 octobre 2023"
 author: team_backend
 tags: [afup, php, forumphp, conference]
 color: rgb(251,87,66)
-thumbnail: "../../../../images/posts/forumphp2023/header.jpg"
+thumbnail: "../../../../../../../images/posts/forumphp2023/header.jpg"
 language: fr
 comments: true
 ---
@@ -64,7 +64,7 @@ jamais été possible.
 
 ### Augmentez votre couverture : supprimez des tests
 
-![Baptiste Langlade](../../../../images/posts/forumphp2023/augmentez-votre-couverture.jpeg)
+![Baptiste Langlade](../../../../../../../images/posts/forumphp2023/augmentez-votre-couverture.jpeg)
 
 > Conférence présentée par [Baptiste Langlade](https://twitter.com/Baptouuuu)
 
@@ -106,7 +106,7 @@ Résultat : plus on joue les tests, plus notre confiance grandit dans l'applicat
 
 ### Comment contribuer à PHP en 2023 ? Georges Banyard
 
-![Georges Banyard](../../../../images/posts/forumphp2023/contribuer-a-php-en-2023.jpeg)
+![Georges Banyard](../../../../../../../images/posts/forumphp2023/contribuer-a-php-en-2023.jpeg)
 
 > Conférence présentée par [Georges Banyard](https://twitter.com/Girgias)
 
@@ -132,7 +132,7 @@ finalement ce n’est pas si compliqué, il suffit de plonger dedans !
 
 ### Utilisez la bibliothèque standard PHP (SPL) au quotidien
 
-![Florian Merle](../../../../images/posts/forumphp2023/bibliotheque-standard-psl.jpeg)
+![Florian Merle](../../../../../../../images/posts/forumphp2023/bibliotheque-standard-psl.jpeg)
 
 > Conférence présentée par [Florian Merle](https://twitter.com/florianm__)
 
@@ -202,7 +202,7 @@ plus recommandée, bien sûr ces temps de dispersion doivent être sur un temps 
 
 ### You Build It, You Run It, l’observabilité pour les devs
 
-![Smaine Milianni](../../../../images/posts/forumphp2023/you-build-it-you-run-it.jpeg)
+![Smaine Milianni](../../../../../../../images/posts/forumphp2023/you-build-it-you-run-it.jpeg)
 
 > Conférence présentée par [Smaine Milianni](https://twitter.com/SmaineDev), développeur chez Yousign
 
@@ -254,7 +254,7 @@ responsabilité au sein d’un squad, les équipes sont plus attentives et réac
 
 ### Les femmes et le numérique
 
-![Isabelle Collet](../../../../images/posts/forumphp2023/les-femmes-et-le-numerique.jpeg)
+![Isabelle Collet](../../../../../../../images/posts/forumphp2023/les-femmes-et-le-numerique.jpeg)
 
 > Conférence présentée par [Isabelle Collet](https://twitter.com/colletisabelle4)
 
@@ -288,4 +288,4 @@ Cette année, la fresque LEGO a célébré la diversité des membres de l’AFUP
 Ce forum fût l’occasion d’échanger avec de nombreuses personnes, de découvrir des sujets aussi bien techniques que
 sociétaux. On ne peut que féliciter les conférencier·e·s et les bénévoles pour un Forum PHP encore très réussi !
 
-![La fresque LEGO communautaire](../../../../images/posts/forumphp2023/fresque-lego-communautaire.jpeg)
+![La fresque LEGO communautaire](../../../../../../../images/posts/forumphp2023/fresque-lego-communautaire.jpeg)

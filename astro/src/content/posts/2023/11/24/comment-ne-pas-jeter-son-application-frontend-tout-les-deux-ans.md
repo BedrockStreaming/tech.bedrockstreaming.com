@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Comment ne pas jeter son application Frontend tout les deux ans ? #LFT 24/11/23"
 description: ""
 author: [f_dubost, a_caron]

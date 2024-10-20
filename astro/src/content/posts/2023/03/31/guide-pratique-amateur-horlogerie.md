@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Montres bracelets, le guide pratique de l'amateur d'horlogerie #LFT 31/03/23"
 description: ""
 author: r_panoyan

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Comment j'ai réussi à capturer la couleur et quelle est sa signification ? #LFT 31/03/23"
 description: ""
 author: h_detang

@@ -1,12 +1,12 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "How did we mock the backend developers?"
 description: "Presentation of the superagent-mock library, a superagent plugin allowing to simulate HTTP calls by returning data fixtures based on the requested URL."
 author: team_cytron
 category:
 tags: [javascript, superagent, mock, isomorphic, cytron, open-source]
-feature-img: "../../../../images/posts/cytron/superagent-mock.jpg"
-thumbnail: "../../../../images/posts/cytron/superagent-mock.jpg"
+feature-img: "../../../../../../../images/posts/cytron/superagent-mock.jpg"
+thumbnail: "../../../../../../../images/posts/cytron/superagent-mock.jpg"
 comments: true
 permalink: how-did-we-mock-the-backend-developers
 other_language: comment-a-t-on-bouchonne-les-developpeurs-backend

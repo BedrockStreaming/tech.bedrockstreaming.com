@@ -1,12 +1,12 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "The 6play platform goes international"
 description: ""
 author: bedrock
 category: 6play
 tags: [6play, intl]
 color: rgb(45, 76, 141)
-thumbnail: "../../../../images/posts/6play-intl/feature.png"
+thumbnail: "../../../../../../../images/posts/6play-intl/feature.png"
 comments: true
 language: en
 ---
@@ -25,18 +25,18 @@ These deployments include:
 
 ## RTL Play (Belgium)
 
-![RTL Play Belgium](../../../../images/posts/6play-intl/rtl_play_be.png)
+![RTL Play Belgium](../../../../../../../images/posts/6play-intl/rtl_play_be.png)
 
 https://www.rtlplay.be/
 
 ## RTL Play (Croatia)
 
-![RTL Play Croatia](../../../../images/posts/6play-intl/rtl_play_hr.png)
+![RTL Play Croatia](../../../../../../../images/posts/6play-intl/rtl_play_hr.png)
 
 https://play.rtl.hr/
 
 ## RTL Most (Hungary)
 
-![RTL Play Hungary](../../../../images/posts/6play-intl/rtl_most.png)
+![RTL Play Hungary](../../../../../../../images/posts/6play-intl/rtl_most.png)
 
 https://www.rtlmost.hu/

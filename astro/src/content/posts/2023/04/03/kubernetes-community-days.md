@@ -1,16 +1,16 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: Bedrock au Kubernetes Community Days France 2023
 description: Notre retour sur cette édition de Kubernetes Community Days en France
 author: c_vanderzwaard
 tags: [kubernetes, cloud, devops, opensource, community, conference, rex]
 color: rgb(251,87,66)
-thumbnail: "../../../../images/posts/2023-kcd-france/KCD_LOGO_2023-color-2000px.png"
+thumbnail: "../../../../../../../images/posts/2023-kcd-france/KCD_LOGO_2023-color-2000px.png"
 ---
 
 La première édition de KCD (Kubernetes Community Days) en France s’est déroulée le 7 mars au Centre Pompidou et rassemblant près de 1000 participants pour une belle journée de conférences.
 
-!["Accueil centre Pompidou"](../../../../images/posts/2023-kcd-france/centre-pompidou.png)
+!["Accueil centre Pompidou"](../../../../../../../images/posts/2023-kcd-france/centre-pompidou.png)
 
 KCD a rassemblé les communautés tech françaises pour cette journée de partage d’expertise et de retours d’expérience autour de Kubernetes et des technologies Cloud Native et DevOps.
 
@@ -35,7 +35,7 @@ Conférence présentée par :
 Back Market, entreprise française de commerce électronique, est venue nous parler de leur implémentation 
 d’un “DevPortal” basé sur le projet [Backstage.io](https://backstage.io/){:target="_blank"}.
 
-!["Backstage Main features"](../../../../images/posts/2023-kcd-france/backmarket-devportal-1.jpg)
+!["Backstage Main features"](../../../../../../../images/posts/2023-kcd-france/backmarket-devportal-1.jpg)
 
 La création de ce portail développeur à été initié en 2021 suite au projet de mise à l’échelle et de passage en microservices de leur applications.
 
@@ -44,17 +44,17 @@ En plus de demander du travail lors de leur création, les services n’étaient
 
 Le but était donc d’obtenir une vue centralisée sur les projets et de permettre aux développeurs de créer de nouveaux services eux-mêmes.
 
-!["Central Hub: Goal"](../../../../images/posts/2023-kcd-france/backmarket-devportal-2.jpg)
+!["Central Hub: Goal"](../../../../../../../images/posts/2023-kcd-france/backmarket-devportal-2.jpg)
 
 La création de ce portail à également permis à Back Market d’initier l’utilisation d’un modèle pour la création de services, ainsi d’uniformiser les architectures et de faciliter le passage en microservices.
 
 Ils ont également implémenté une vue relationnelle concernant les projets et les équipes qui y sont associées.
 
-!["Entity Relationships Graph"](../../../../images/posts/2023-kcd-france/backmarket-devportal-3.jpg)
+!["Entity Relationships Graph"](../../../../../../../images/posts/2023-kcd-france/backmarket-devportal-3.jpg)
 
 Enfin, pour trouver les projets prioritaires pour la migration en microservices, ils ont créé une vue nommée Coupling scores :
 
-!["Coupling scores dashboard"](../../../../images/posts/2023-kcd-france/backmarket-devportal-4.jpg)
+!["Coupling scores dashboard"](../../../../../../../images/posts/2023-kcd-france/backmarket-devportal-4.jpg)
 
 C’est une vue qui permet d’obtenir la liste des applications monolithiques avec le taux de couplage le plus élevé.
 
@@ -69,11 +69,11 @@ Conférence présentée par :
 Au tour de Scaleway qui nous ont présenté comment ils ont implémenté les VPC privés dans le service Kaspule, leur Kubernetes managé.
 C’est un besoin qui s’est présenté afin d’éviter que les échanges inter-noeuds transitent via le réseau public.
 
-!["Kaspule sans VPC privé"](../../../../images/posts/2023-kcd-france/scaleway-vpc-1.jpg)
+!["Kaspule sans VPC privé"](../../../../../../../images/posts/2023-kcd-france/scaleway-vpc-1.jpg)
 
 Pour utiliser le réseau privé dans Kaspule, ils ont ajouté une interface nommée “kapsule0” sur les instances utilisées dans la création du cluster. Cette interface est ensuite attachée à [Cilium](https://cilium.io/){:target="_blank"} dans le cluster.
 
-!["Kaspule avec VPC privé"](../../../../images/posts/2023-kcd-france/scaleway-vpc-2.jpg)
+!["Kaspule avec VPC privé"](../../../../../../../images/posts/2023-kcd-france/scaleway-vpc-2.jpg)
 
 Cette fonctionnalité est actuellement en bêta, elle sera bientôt disponible de manière régionale.
 
@@ -100,7 +100,7 @@ Ces machines hébergaient les applications de Veepee via diverses technologies :
 En 2019, pour anticiper la gestion de la vente des tickets pour le concert de Céline Dion, ils ont choisi de migrer leurs services sur des clusters Kubernetes.
 La première infrastructure était managée via Ansible, ils utilisaient Traefik et un cert manager home made.
 
-!["Kubernetes deployment evolution"](../../../../images/posts/2023-kcd-france/veepee-1.jpg)
+!["Kubernetes deployment evolution"](../../../../../../../images/posts/2023-kcd-france/veepee-1.jpg)
 
 Aujourd’hui, ils fournissent un produit Container as a Service nommé [Starfish](https://medium.com/vptech/standardized-deployment-at-vptech-7ebf8b8c6a1b){:target="_blank"}. C’est un outil qu’ils ont écrit en Go et qui permet de gérer les applications des équipes Veepee. Ils utilisent également Gitlab et [ArgoCD](https://argoproj.github.io/cd/){:target="_blank"}.
 

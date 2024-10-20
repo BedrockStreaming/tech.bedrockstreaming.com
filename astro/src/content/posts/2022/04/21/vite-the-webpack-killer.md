@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/conference.astro
+layout: ../../../../../layouts/conference.astro
 
 title: "⚡️ Vite ⚡️ the Webpack killer"
 author: [a_caron, m_mure]

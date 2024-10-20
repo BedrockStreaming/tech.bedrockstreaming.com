@@ -1,11 +1,11 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: Bedrock GopherCon Berlin 2024
 description: The 2024 GopherCon Europe took place in Berlin. Four of us had the opportunity to take part in the event in-person while others could attend the talks virtually.
 author: [k_phan, m_millet, n_boiron, pa_bedu, t_geindre, y_chauvel]
 tags: [golang, opensource, community, conference, 2024]
 color: rgb(251,87,66)
-thumbnail: "../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/thumbnail.png"
+thumbnail: "../../../../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/thumbnail.png"
 ---
 
 The 2024 GopherCon Europe took place in Berlin. Four of us had the opportunity to take part in the event in-person while
@@ -20,8 +20,8 @@ side of Go. He shared insights into the strategic decisions that shape the devel
 the importance of balancing innovation with stability to meet the needs of both enterprise users and the broader
 developer community.
 
-![Business of Go, developpers stack in 2024](../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/01-the-business-of-go-01.png)
-![Business of Go, growth in open source contribution leads to growth in adoption](../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/02-the-business-of-go-02.png)
+![Business of Go, developpers stack in 2024](../../../../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/01-the-business-of-go-01.png)
+![Business of Go, growth in open source contribution leads to growth in adoption](../../../../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/02-the-business-of-go-02.png)
 
 ## Memory Optimization - Diana Shevchenko
 
@@ -41,7 +41,7 @@ highlighted a recurring challenge: project complexity. Both accidental complexit
 essential complexity, inherent in each feature, were identified as major hurdles. Ignoring essential complexity often
 leads to increased accidental complexity, making projects cumbersome and prone to becoming legacy systems quickly.
 
-![DDD, don't need it yet ?](../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/03-ddd-01.png)
+![DDD, don't need it yet ?](../../../../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/03-ddd-01.png)
 
 To illustrate the problem, the engineer introduced a fictional company, Bing Mate, which developed an API for issuing
 invoices and processing payments. Initially, the company delivered new features weekly. However, a year later, despite
@@ -85,7 +85,7 @@ Design encompasses a wide array of techniques that address various aspects of so
 requirement gathering. By integrating these patterns into their projects, developers can create more maintainable and
 scalable systems, ultimately leading to more efficient software delivery.
 
-![Github wild-workouts-go-ddd-example repository for DDD example application in GO](../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/04-ddd-02.png)
+![Github wild-workouts-go-ddd-example repository for DDD example application in GO](../../../../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/04-ddd-02.png)
 
 The engineer concluded the talk by emphasizing the importance of understanding and utilizing DDD, especially in complex
 projects. They also provided materials and resources for further learning, encouraging developers to explore and
@@ -110,9 +110,9 @@ schema, which defines how data is logically organized within a relational databa
 such as table names, fields, data types, and the relationships between these entities, all crucial for optimal
 performance and scalability in Go applications.
 
-![DB connection pool, DB hierarchy](../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/05-db-connection-pool-01.png)
-![DB connection pool, ideal scenario](../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/06-db-connection-pool-02.png)
-![DB connection pool, github.com/mattermost/perseus](../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/07-db-connection-pool-03.png)
+![DB connection pool, DB hierarchy](../../../../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/05-db-connection-pool-01.png)
+![DB connection pool, ideal scenario](../../../../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/06-db-connection-pool-02.png)
+![DB connection pool, github.com/mattermost/perseus](../../../../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/07-db-connection-pool-03.png)
 
 ## AI Application in Go - Travis Cline
 
@@ -134,9 +134,9 @@ integration with tools like `LangSmith`.
  - Advanced Agent Support
  - Deeper Integration
 
-![Generative AI Ecosystem: Major Suppliers](../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/08-ai-app-in-go-01.png)
-![Generative AI Ecosystem: Infrastructure Stack](../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/09-ai-app-in-go-02.png)
-![LangchainGO: Using LangchainGo](../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/10-ai-app-in-go-04.png)
+![Generative AI Ecosystem: Major Suppliers](../../../../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/08-ai-app-in-go-01.png)
+![Generative AI Ecosystem: Infrastructure Stack](../../../../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/09-ai-app-in-go-02.png)
+![LangchainGO: Using LangchainGo](../../../../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/10-ai-app-in-go-04.png)
 
 ## Concurrent Go - Raghav Roy
 
@@ -144,7 +144,7 @@ Raghav Roy introduced the `TLA+` specification language, a formal method for ver
 
 He demonstrated how TLA+ can be used to model and verify concurrent Go programs, ensuring that they are free from unexpected behaviors.
 
-![TLA+ Definition](../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/11-concurrent-go-01.png)
+![TLA+ Definition](../../../../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/11-concurrent-go-01.png)
 
 ## Technical Docs - Hila Fish
 
@@ -169,7 +169,7 @@ increasing developer velocity.
  1. **Know Your Audience**: Tailor documentation for internal maintainers or external users. Make sure people understand it
  2. **Decide/Abide by Documentation Type**: Use markdown for docs as code, integrate diagrams, and ensure CI/CD validations.
 
-![Your code is now no more self documented](../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/18-documentation-01.png)
+![Your code is now no more self documented](../../../../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/18-documentation-01.png)
 
 Her tips aim to have a well-documented code and not a self-documented one. She recommends that we should not feel forced
 to write everything but at least documente whatever we can and keep it simple.
@@ -192,9 +192,9 @@ understand and optimize their Go applications.
  - Gotraceui
  - Traceutils
 
-![Frames and pointer - tracing](../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/13-frames-and-pointers-01.png)
-![Frames and pointer - Execution Tracer Data](../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/14-frames-and-pointers-02.png)
-![Frames and pointer - Why is this a big deal?](../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/15-frames-and-pointers-03.png)
+![Frames and pointer - tracing](../../../../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/13-frames-and-pointers-01.png)
+![Frames and pointer - Execution Tracer Data](../../../../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/14-frames-and-pointers-02.png)
+![Frames and pointer - Why is this a big deal?](../../../../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/15-frames-and-pointers-03.png)
 
 ## Securing Containers - Zvonimir Pavlinovic
 
@@ -221,8 +221,8 @@ Rabieh proposes some good practices:
 - that can be resumed in “don’t reinvent the wheel” i.e. use native go functions instead of homemade code can have
   impact on performances. He shares simple examples and validates them with simple benchmarks.
 
-![Antipattern](../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/16-anti-patterns-01.png)
-![Antipattern - Error Handling](../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/17-anti-patterns-02.png)
+![Antipattern](../../../../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/16-anti-patterns-01.png)
+![Antipattern - Error Handling](../../../../../../../images/posts/2024-07-18-gophercon-eu-berlin-2024/17-anti-patterns-02.png)
 
 # Conclusion
 

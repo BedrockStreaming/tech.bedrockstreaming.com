@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Nearby interaction, Airtags or how your iPhone shares your location #LFT 30/09/22"
 description: ""
 author: o_balystky

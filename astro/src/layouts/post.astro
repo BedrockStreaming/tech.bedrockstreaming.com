@@ -1,6 +1,16 @@
 ---
-const {frontmatter} = Astro.props;
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+    const posts = await getCollection("posts");
+    return posts.map((post) => ({
+        params: { slug: post.slug },
+        props: post,
+    }));
+}
+
+const post = Astro.props;
 ---
-<h1>{frontmatter.title}</h1>
+<h1>{post.data}</h1>
 <slot/>
 

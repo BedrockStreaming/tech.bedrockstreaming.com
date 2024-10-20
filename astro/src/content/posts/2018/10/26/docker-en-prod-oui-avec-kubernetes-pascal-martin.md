@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/conference.astro
+layout: ../../../../../layouts/conference.astro
 
 title: "Docker en prod ? Oui, avec Kubernetes !"
 description: "Kubernetes. À en croire certains articles, c’est une solution miracle. Développeurs, vous avez peut-être entendu ce mot ? C’est l’outil qui vous permettra de déployer du Docker en production ! Parce qu’autant utiliser Docker en dev c’est facile, autant en prod…"

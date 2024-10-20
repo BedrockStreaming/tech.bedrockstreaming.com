@@ -1,12 +1,12 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Coke, pour bien sniffer son code"
 description: ""
 author: team_cytron
 category:
 tags: [outil, qualite, php, open-source]
-feature-img: "../../../../images/posts/cytron/sniff.jpg"
-thumbnail: "../../../../images/posts/cytron/sniff.jpg"
+feature-img: "../../../../../../../images/posts/cytron/sniff.jpg"
+thumbnail: "../../../../../../../images/posts/cytron/sniff.jpg"
 comments: true
 permalink: coke-pour-bien-sniffer-son-code
 ---

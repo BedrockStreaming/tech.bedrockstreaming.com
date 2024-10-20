@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Json au service des devs #LFT 29/09/23"
 description: ""
 author: j_nginn

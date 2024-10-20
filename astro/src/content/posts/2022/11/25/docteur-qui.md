@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Docteur qui ? #LFT 25/11/22"
 description: ""
 author: s_haim

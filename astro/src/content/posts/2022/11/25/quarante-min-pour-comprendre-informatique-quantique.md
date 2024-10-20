@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "40 min pour (tenter de) comprendre l'informatique quantique #LFT 25/11/22"
 description: ""
 author: g_forien

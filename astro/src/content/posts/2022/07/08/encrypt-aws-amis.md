@@ -1,11 +1,11 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Encrypt AWS AMIs: one way to do it wrong"
 description: "By encrypting our AMIs, we wanted to overzealously increase our security. In the end, we reduced it and lost time. Here is the REX of this failure that we had to rollback."
 author: t_falconnet
 tags: [cloud, aws]
 color: rgb(251,87,66)
-thumbnail: "../../../../images/posts/2022-07-08-encrypt-aws-amis/encrypt-aws-amis.png"
+thumbnail: "../../../../../../../images/posts/2022-07-08-encrypt-aws-amis/encrypt-aws-amis.png"
 language: en
 comments: true
 ---
@@ -38,7 +38,7 @@ As our AMI has to be shared to other accounts, it was impossible to encrypt our 
 
 And it worked! We had our beautiful encrypted AMI, ready to be used in all our accounts.
 
-![How we build our encrypted AMIs](../../../../images/posts/2022-07-08-encrypt-aws-amis/build_encrypted_amis.png)
+![How we build our encrypted AMIs](../../../../../../../images/posts/2022-07-08-encrypt-aws-amis/build_encrypted_amis.png)
 
 <center><ins>How we build our encrypted AMIs</ins></center>
 
@@ -65,7 +65,7 @@ There are two methods to do that, for two different needs.
 
 To authorize an external customer managed role (ours), we had to authorize our role in KMS Key dedicated policy to use it, then authorize KMS Key in our role policy to be used. It is some kind of symmetric reference hard to correctly maintain with IaC (Terraform). And we had to do the same for KMS Key replicas in other regions, because they have a dedicated policy.
 
-![Policy method](../../../../images/posts/2022-07-08-encrypt-aws-amis/policy_method.png)
+![Policy method](../../../../../../../images/posts/2022-07-08-encrypt-aws-amis/policy_method.png)
 
 <center><ins>Policy method</ins></center>
 
@@ -76,7 +76,7 @@ One important thing to know here: some KMS Key permissions aren't available for 
 To authorize an AWS managed role, like `AWSServiceRoleForAutoScaling` (to launch our EC2), we also needed to allow it to use our key. It is impossible to add a new policy on an AWS Managed role. So instead of using a policy method like before, we had to create a grant on that role to use our key. We tried to create that grant from the source account (where the key is created), but it didn't work. We had to create that grant from the destination account (where `AWSServiceRoleForAutoScaling` is), using a role in the destination account that is allowed to create a grant... So we had to allow a role from the destination account to create a grant with Policy method, then use the previous role to allow an AWS Managed Role to use our KMS Key with Grant method. Pretty fun, right?
 
 
-![Grant method](../../../../images/posts/2022-07-08-encrypt-aws-amis/grant_method.png)
+![Grant method](../../../../../../../images/posts/2022-07-08-encrypt-aws-amis/grant_method.png)
 
 <center><ins>Grant method</ins></center>
 

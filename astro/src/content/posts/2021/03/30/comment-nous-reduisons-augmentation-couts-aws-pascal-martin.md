@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/conference.astro
+layout: ../../../../../layouts/conference.astro
 
 title: "Comment nous réduisons l’augmentation de nos coûts AWS"
 description: "Malgré les promesses du Cloud, votre facture AWS vous fait peur ? Je vous comprends !"

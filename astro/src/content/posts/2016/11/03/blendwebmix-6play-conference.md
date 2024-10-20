@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Enquête exclusive au coeur de la technique de 6play. Les slides."
 description: "Plus d'un milliard de vidéos vues par an sur 6play - Enquête exclusive au coeur de la technique"
 author: Kenny Dits, Olivier Mansour, François Jomier
@@ -10,7 +10,7 @@ author: Kenny Dits, Olivier Mansour, François Jomier
   
 category:
 tags: [conference]
-feature-img: "../../../../images/posts/blend2016.jpg"
+feature-img: "../../../../../../../images/posts/blend2016.jpg"
 comments: true
 ---
 

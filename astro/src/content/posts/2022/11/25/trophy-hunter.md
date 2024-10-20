@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Trophy Hunter #LFT 25/11/22"
 description: ""
 author: o_thebault

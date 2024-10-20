@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/conference.astro
+layout: ../../../../../layouts/conference.astro
 
 title: "Arrêtons de perdre du temps à débuguer !"
 author: n_saby

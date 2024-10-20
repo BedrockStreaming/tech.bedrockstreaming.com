@@ -1,14 +1,14 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: Bedrock à l'AWS Summit 2022
 description: Cinq de nos DevOps, Ops et Développeurs étaient à l'AWS Summit Paris 2022, voici leur retour d'expérience.
 author: bedrock
 tags: [aws, summit, cloud, sysadmin, conference, kubernetes]
 color: rgb(251,87,66)
-thumbnail: "../../../../images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/main-image.jpg"
+thumbnail: "../../../../../../../images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/main-image.jpg"
 ---
 
-!["AWS Summit Paris 2022"](../../../../images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/main-image.jpg)
+!["AWS Summit Paris 2022"](../../../../../../../images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/main-image.jpg)
 
 ## Retour à l'AWS Summit <a name="BackToSummit"></a>
 
@@ -45,7 +45,7 @@ Conférence présentée par :
 * Olivier Sutter - AWS Solution Architect
 * Yoann Grondin - IA Team Leader Canal+
 
-!["SageMaker"](../../../../images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/sagemaker.jpg)
+!["SageMaker"](../../../../../../../images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/sagemaker.jpg)
 
 Cette conférence présentait le produit [Amazon SageMaker](https://aws.amazon.com/sagemaker/){:target="_blank"}, d’abord dans sa globalité, puis appliqué au cas des équipes de Data Scientist chez Canal+.
 
@@ -76,7 +76,7 @@ Conférence présentée par :
 * Matthieu Parmentier - Responsable de l'Al factory, France Télévisions
 * Nicolas Pierre - Al factory Lead Tech, France Télévisions
 
-!["Live subtitling diagram"](../../../../images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/live-subtitling.jpg)
+!["Live subtitling diagram"](../../../../../../../images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/live-subtitling.jpg)
 
 Nous avons assisté à une conférence présentée par les responsables Média et AI de France Télévisions et Raphaël Goldwaser Solutions Architect chez AWS. Ils nous ont parlé de l’évolution de leur usage du cloud dans la diffusion de vidéo en direct et des différentes étapes de la construction d’un système de sous-titrage automatique en direct.
 

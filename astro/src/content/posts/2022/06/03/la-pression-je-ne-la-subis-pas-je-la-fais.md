@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "La pression je ne la subis pas, je la fais #LFT 03/06/22" 
 description: ""
 tags: [homemade, diy, beer, brewing, lft, partage]

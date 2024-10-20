@@ -1,17 +1,17 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "GopherCon UK 2023 highlights"
 description: My highlights of GopherCon UK 2023
 author: pa_bedu
 tags: [conference, london, tech, golang, go]
 color: rgb(251,87,66)
-thumbnail: ../../../../images/posts/gopherconuk2023/IMG_6877.jpeg
+thumbnail: ../../../../../../../images/posts/gopherconuk2023/IMG_6877.jpeg
 ---
 Hello there! I'm Pierre-Alain, a senior back-end developer at Bedrock and I had the opportunity to go to London for the GopherCon UK.
 
 I travelled by train from Lyon to London, TGV and Eurostar. Train journey not only aligned with my commitment to minimize my carbon footprint for this trip, but is also a enjoyable travel choice. While the cost was higher than taking a plane, I would like to thank Bedrock for enabling me to take this option.
 
-![IMG_6877.jpeg](../../../../images/posts/gopherconuk2023/IMG_6877.jpeg)
+![IMG_6877.jpeg](../../../../../../../images/posts/gopherconuk2023/IMG_6877.jpeg)
 
 # What is GopherCon UK ?
 

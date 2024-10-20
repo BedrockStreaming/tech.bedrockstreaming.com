@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Le leader imposteur #LFT 02/02/24"
 description: ""
 author: m_mure

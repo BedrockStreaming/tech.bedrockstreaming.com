@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "AFUP Day Lyon 2019"
 description: "Nos retours sur le PHP DAY 2019 à LYON"
 author: team_backend
@@ -14,7 +14,7 @@ language: fr
 
 Pour une première, c'était très réussie. Un programme au top et varié, qui mettait en avant de nombreuses problématiques techs et sociétales. 
 
-![La team](../../../../images/posts/afup-day-2019/afup-day-2019.jpg)
+![La team](../../../../../../../images/posts/afup-day-2019/afup-day-2019.jpg)
 (photo : [Benjamin Lévêque](https://twitter.com/benji__07))
 
 Nos conférences préférées : 

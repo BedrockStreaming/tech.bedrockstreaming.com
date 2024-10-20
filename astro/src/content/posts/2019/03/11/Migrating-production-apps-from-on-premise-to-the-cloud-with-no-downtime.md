@@ -1,11 +1,11 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Migrating production applications from on-premise to the cloud with no downtime"
 description: "How did we proceed, what lessons we learned and what tools we used"
 author: v_gallissot
 category:
 tags: [Cloud, AWS, Kubernetes, Kops, HAProxy, GOReplay]
-feature-img: "../../../../images/posts/migrating-production-apps-to-the-cloud/kaushik-panchal-37070-unsplash.jpg"
+feature-img: "../../../../../../../images/posts/migrating-production-apps-to-the-cloud/kaushik-panchal-37070-unsplash.jpg"
 comments: true
 language: en
 ---
@@ -71,7 +71,7 @@ It was all OK, so we were confident to go to production.
 ## Migration steps
 
 Before its migration, the application infrastructure looked like this:
-![Application before the migration to AWS & Kubernetes](../../../../images/posts/migrating-production-apps-to-the-cloud/application_pre_migration.png)
+![Application before the migration to AWS & Kubernetes](../../../../../../../images/posts/migrating-production-apps-to-the-cloud/application_pre_migration.png)
 
 We inserted HAProxy servers in that schema, so the traffic passes through them before being sent to the caches.
 That way, HAProxy controls where traffic is sent.
@@ -80,7 +80,7 @@ In the same time, developers have deployed all mandatory resources (RDS, DynamoD
 When ready, both ops and devs gave their approval to send traffic to the cloud.
 
 We started by load-balancing 1% to the AWS ELB with HAProxy:
-![Application while migrating 1% to AWS & Kubernetes](../../../../images/posts/migrating-production-apps-to-the-cloud/application_migrating.png)
+![Application while migrating 1% to AWS & Kubernetes](../../../../../../../images/posts/migrating-production-apps-to-the-cloud/application_migrating.png)
 
 We compared everything we could:
 - 2xx, 3xx, 4xx and 5xx percentages
@@ -92,19 +92,19 @@ We compared everything we could:
 We were amazed: only 3ms in average difference between on-prem and our Kubernetes cluster in AWS cloud.
 And no error. Everything worked as expected. It was almost suspicious.
 
-![Average connect times from HAProxy to backends](../../../../images/posts/migrating-production-apps-to-the-cloud/haproxy_cloud_connect_time_avg.png)
+![Average connect times from HAProxy to backends](../../../../../../../images/posts/migrating-production-apps-to-the-cloud/haproxy_cloud_connect_time_avg.png)
 This graph shows the average connect times from HAProxy.
 
 We're using Paris as AWS zone and our datacenters are located in Paris too, so that explains the few milliseconds to go back and forth from HAProxy (on prem) to the cloud. In fact, this one to two millisecond between our on-prem servers and AWS is one of the reasons adding HAProxy in the mix was possible.
 
 
-![Average response times from HAProxy to backends](../../../../images/posts/migrating-production-apps-to-the-cloud/haproxy_cloud_response_time_avg.png)
+![Average response times from HAProxy to backends](../../../../../../../images/posts/migrating-production-apps-to-the-cloud/haproxy_cloud_response_time_avg.png)
 This graph shows the average response times from the application.
 
 We also had some PHP configurations to update to be ISO prod (OPCache, APCu, etc.). Why? Well, at first, we created a quick’n dirty (working, but not optimized) Docker image for our application and it went straight to production, before our sysadmins could take a better look at it.
 
 
-![HTTP codes 2xx](../../../../images/posts/migrating-production-apps-to-the-cloud/haproxy_cloud_http2xx_codes.png)
+![HTTP codes 2xx](../../../../../../../images/posts/migrating-production-apps-to-the-cloud/haproxy_cloud_http2xx_codes.png)
 This graph shows the number of 2xx HTTP codes with 25% of traffic sent to AWS.
 
 Once those PHP optimisations were fixed, we had only 2ms difference between our on-premise and our Kubernetes on AWS. It's low enough to allow us to test this setup a bit longer without any visible user impact.
@@ -160,7 +160,7 @@ So we raised HAProxy load-balancing to 50% on our application in the cloud.
 After seven days without any error, we pushed it to 75%.
 After another seven days, we passed the on-prem server as a backup in HAProxy, making the application in kubernetes receiving 100% traffic.
 
-![HTTP codes 2xx with 100% traffic sent to AWS](../../../../images/posts/migrating-production-apps-to-the-cloud/haproxy_cloud_http2xx_codes_100pc.png)
+![HTTP codes 2xx with 100% traffic sent to AWS](../../../../../../../images/posts/migrating-production-apps-to-the-cloud/haproxy_cloud_http2xx_codes_100pc.png)
 
 We stayed with that configuration for 2 months.
 That gave us plenty of time to adapt pods Requests and Limits.
@@ -193,7 +193,7 @@ Only specific paths were affected by this rewrite.
 So we decided to use HAProxy to migrate those applications, path by path.
 We also used GOReplay to replicate production traffic for each path, to be sure we didn't messed up things before sending end-users traffic.
 
-![Application while migrating 50% to AWS & Kubernetes for specific v2 path](../../../../images/posts/migrating-production-apps-to-the-cloud/application_migrating_specific_v2_path.png)
+![Application while migrating 50% to AWS & Kubernetes for specific v2 path](../../../../../../../images/posts/migrating-production-apps-to-the-cloud/application_migrating_specific_v2_path.png)
 This schema shows how HAProxy were routing traffic according to specific paths.
 
 The workflow is almost the same as above, with few changes:
@@ -267,7 +267,7 @@ We're using this script and not directly the gor command, to do a slow ramp-up o
 Otherwise, since the application is not stressed before traffic is replicated, replicating 100% of traffic all of a sudden would not be representative of real user behavior. It would led to unwanted alerts that would disappear in minutes with auto-scaling, but that would have rang anyway. So we chose to avoid that noise by doing a slow ramp-up to make traffic replication more real.
 
 We could follow the replication with HAProxy dashboard, like the following graph:
-![Replicating production traffic with gor](../../../../images/posts/migrating-production-apps-to-the-cloud/gor-traffic-replication.png)
+![Replicating production traffic with gor](../../../../../../../images/posts/migrating-production-apps-to-the-cloud/gor-traffic-replication.png)
 
 
 ### HAProxy configuration

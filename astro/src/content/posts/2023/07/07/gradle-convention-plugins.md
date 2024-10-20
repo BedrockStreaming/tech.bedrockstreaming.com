@@ -1,13 +1,13 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: You Need a Custom Gradle Plugin, and Here’s Why
 description: Convention plugins are the recommended way to modularize your builds. Let's see how to write one.
 author: b_candellier
 tags: [android, gradle, plugin]
 color: rgb(17, 46, 56)
 language: en
-thumbnail: "../../../../images/posts/2023-07-07-gradle-convention-plugins/cover.jpg"
-feature-img: "../../../../images/posts/2023-07-07-gradle-convention-plugins/cover.jpg"
+thumbnail: "../../../../../../../images/posts/2023-07-07-gradle-convention-plugins/cover.jpg"
+feature-img: "../../../../../../../images/posts/2023-07-07-gradle-convention-plugins/cover.jpg"
 ---
 In the last couple of years, Gradle has been encouraging developers to work towards modularizing their projects. Of course, when effectively implemented, this approach offers several advantages, with build parallelization being a significant factor.
 

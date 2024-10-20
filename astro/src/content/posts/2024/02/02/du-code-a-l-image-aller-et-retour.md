@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Du code à l'image : Aller et Retour #LFT 02/02/24"
 description: ""
 author: e_doyon

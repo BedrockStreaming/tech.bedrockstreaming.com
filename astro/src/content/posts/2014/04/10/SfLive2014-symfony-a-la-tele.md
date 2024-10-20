@@ -1,11 +1,11 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Conférence au Symfony Live 2014 : Symfony à la télé"
 description: "M6Web était présent au Symfony Live 2014"
 author: o_mansour
 category:
 tags: [symfony, conference]
-thumbnail: "../../../../images/posts/sflive2014/header_sflive2014.jpg"
+thumbnail: "../../../../../../../images/posts/sflive2014/header_sflive2014.jpg"
 comments: true
 ---
 

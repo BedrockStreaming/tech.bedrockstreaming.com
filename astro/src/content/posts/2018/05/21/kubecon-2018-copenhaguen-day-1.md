@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "KubeCon 2018 Copenhagen, day 1"
 description: "Our notes for the conferences we saw during the first day of KubeCon 2018 in Copenhagen"
 author: Vincent Gallissot, Pascal Martin
@@ -10,7 +10,7 @@ author: Vincent Gallissot, Pascal Martin
   
 category:
 tags: [kubernetes, KubeCon]
-feature-img: "../../../../images/posts/kubecon-2018/title-kubecon.jpg"
+feature-img: "../../../../../../../images/posts/kubecon-2018/title-kubecon.jpg"
 comments: true
 language: en
 ---
@@ -28,7 +28,7 @@ During this keynote, I realized the CNCF is helping a lot more projects than I t
 
 OK, so, sometimes, it actually is *rocket-science* (or pretty close to it). It's nice seeing Kubernetes used for science and research, on a federation of around 400 clusters!
 
-![Waiting for the Keynotes to start](../../../../images/posts/kubecon-2018/boat.jpg)
+![Waiting for the Keynotes to start](../../../../../../../images/posts/kubecon-2018/boat.jpg)
 
 
 # Whats Up With All The Different Container Runtimes? - Ricardo Aravena, Branch Metrics
@@ -207,4 +207,4 @@ Prometheus is *the* monitoring stack everyone seems to be using now. This keynot
 
 This first day ended with a nice buffet at Bella Center, next to the sponsor booths. As we each one went to see different talks, it allowed us to chat about what we saw and heard, even if we didn't stick around too long, after such a long day -- especially knowing there would be two more just after!
 
-![There is so much wind in Copenhagen there was a sign at the corner of the conference center!](../../../../images/posts/kubecon-2018/windy-in-copenhagen.jpg)
+![There is so much wind in Copenhagen there was a sign at the corner of the conference center!](../../../../../../../images/posts/kubecon-2018/windy-in-copenhagen.jpg)

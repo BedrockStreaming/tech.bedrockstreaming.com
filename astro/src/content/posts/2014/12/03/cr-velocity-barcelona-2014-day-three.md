@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Retour sur la Velocity Barcelone - troisième journée"
 description: "Retour sur la Vélocity Europe 2014 à Barcelone - Troisième journée"
 author: Baptiste, François Verron et Olivier Mansour
@@ -10,8 +10,8 @@ author: Baptiste, François Verron et Olivier Mansour
   
 category:
 tags: [conference,velocity,webperf,devops,sysadmin]
-feature-img: "../../../../images/posts/velocity2014/velocity_banner3.jpg"
-thumbnail: "../../../../images/posts/velocity2014/velocity_banner3.jpg"
+feature-img: "../../../../../../../images/posts/velocity2014/velocity_banner3.jpg"
+thumbnail: "../../../../../../../images/posts/velocity2014/velocity_banner3.jpg"
 comments: true
 permalink: velocity-europe-2014-day-3
 ---
@@ -24,7 +24,7 @@ Le troisième jour étant dédié aux tutoriaux, on passe de conférence de 45mi
 
 Maximiliano Firtman nous a dressé un portrait vraiment exhaustif du web mobile et de l'état actuel des navigateurs. 
 
-![browser_mess](../../../../images/posts/velocity2014/browser_mess.jpg)
+![browser_mess](../../../../../../../images/posts/velocity2014/browser_mess.jpg)
 
 En gros c'est compliqué. Le marché est très fragmenté, certains constructeurs comme Samsung ajoute du bruit en diffusant massivement un navigateur modifié. L'usage des sites en webview depuis une application native n'arrange pas les choses (par exemple, l'application Facebook).
 
@@ -209,4 +209,4 @@ Une vidéo de la même conférence à New York est également en ligne :
 
 Une conférence dense et intéressante, qui nous a donné l'opportunité de rencontrer pleins de gens intéressants et même de visiter (un peu) Barcelone !
 
-![sagrada](../../../../images/posts/velocity2014/sagrada.jpg)
+![sagrada](../../../../../../../images/posts/velocity2014/sagrada.jpg)

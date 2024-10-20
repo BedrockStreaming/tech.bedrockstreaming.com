@@ -1,12 +1,12 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Forum PHP 2022 - L’éléphant bleu n’a pas peur de la souris aux grandes oreilles"
 description: "Nos retours du Forum PHP à Paris, les 13 et 14 octobre 2022"
 author: bedrock
 category:
 tags: [afup, php, forumphp, conference]
 color: rgb(251,87,66)
-thumbnail: "../../../../images/posts/forumphp2022/header.jpg"
+thumbnail: "../../../../../../../images/posts/forumphp2022/header.jpg"
 language: fr
 comments: true
 ---
@@ -19,7 +19,7 @@ venir nous rencontrer sur notre stand et nous avons été ravis de pouvoir écha
 La richesse et la diversité des conférences ont fait de cette édition une grande réussite. Nous ne pouvons
 malheureusement pas aborder toutes les conférences dans cet article, mais voici une sélection de 10 d’entre elles.
 
-![Le stand Bedrock](../../../../images/posts/forumphp2022/stand-bedrock.jpg)
+![Le stand Bedrock](../../../../../../../images/posts/forumphp2022/stand-bedrock.jpg)
 
 ## Bedrock au Forum PHP
 
@@ -36,7 +36,7 @@ Durant ces deux journées, le stand Bedrock a été un point de rendez-vous agr�
 Cette participation, au-delà d’être très formatrice pour la communauté Bedrock, a même parfois été assimilée à un « team building » pour reprendre les termes de nos collaborateurs, leur permettant de se retrouver dans un autre environnement et de participer à l’attractivité de leur entreprise.
 Les équipes Backend & RH étaient fières de représenter Bedrock en participant à la vie du stand et de répondre aux questions des passants.
 
-![Nos 2 Backend managers, Mikael et FX en train d’animer l’épreuve des casse-têtes](../../../../images/posts/forumphp2022/backend-managers.jpg)
+![Nos 2 Backend managers, Mikael et FX en train d’animer l’épreuve des casse-têtes](../../../../../../../images/posts/forumphp2022/backend-managers.jpg)
 
 ## Les conférences qu’on retient
 
@@ -187,7 +187,7 @@ Ensuite vient la présentation des promesses de ce nouveau standard (OpenTelemet
 piliers du monitoring : logs, metrics et les traces, avec la volonté de rendre interopérable ces données collectées avec
 n’importe quel service et ce qu’importe le langage.
 
-![Schéma OpenTelemetry](../../../../images/posts/forumphp2022/open-telemetry.png)
+![Schéma OpenTelemetry](../../../../../../../images/posts/forumphp2022/open-telemetry.png)
 
 Afin de permettre cette interopérabilité pour la collecte, le traitement et l’envoi des données entre nos applications
 et nos APMs, OpenTelemetry propose l’utilisation d’un [collecteur](https://opentelemetry.io/docs/collector/). Ce collecteur possède trois composants par lesquels
@@ -227,7 +227,7 @@ Ensuite, il nous a expliqué le principe de **substitution de Liskov** de diffé
 
 Mathématique, en C mais aussi en image :
 
-![Schéma mathématique](../../../../images/posts/forumphp2022/schema-maths.png)
+![Schéma mathématique](../../../../../../../images/posts/forumphp2022/schema-maths.png)
 
 En version très simplifiée, la substitution de Liskov permet de substituer un type par un autre type s'il est
 mieux-disant. C’est par exemple sur ce principe que sont fondées [la co-variance et la contra-variance](https://www.php.net/manual/en/language.oop5.variance.php) en PHP.
@@ -277,7 +277,7 @@ Il faut voir la documentation comme une spécification de notre API. *“Une doc
 l’état actuel de l'application.”* Rien de mieux donc que d’intégrer la validation de notre documentation par rapport à
 notre code, et inversement : que notre documentation valide notre code !
 
-![schéma de validation](../../../../images/posts/forumphp2022/presentation-validation-openapi.png)
+![schéma de validation](../../../../../../../images/posts/forumphp2022/presentation-validation-openapi.png)
 
 [*thephpleague*](https://thephpleague.com/) nous propose une solution pour faire ça : [openapi-psr7-validator](https://github.com/thephpleague/openapi-psr7-validator).
 Ce paquet peut valider les messages PSR-7 par rapport aux spécifications OpenAPI (3.0.x) exprimées en YAML ou JSON.
@@ -309,7 +309,7 @@ prometteuse. Il est probable que nous ne tardions pas à l’essayer pour voir s
 
 ## Les conférenciers Bedrock
 
-![Anne-Laure durant sa présentation](../../../../images/posts/forumphp2022/presentation-anne-laure.jpg)
+![Anne-Laure durant sa présentation](../../../../../../../images/posts/forumphp2022/presentation-anne-laure.jpg)
 
 Cette année, ce ne sont pas moins de 4 présentations qui étaient données par des personnes de chez Bedrock.
 
@@ -366,6 +366,6 @@ Les nombreuses activités proposées entre chaque conférence permettaient d'éc
 
 Merci à tou(te)s les conférencier(e)s pour leur travail incroyable et merci l'AFUP pour l'organisation de ce superbe évènement !
 
-![La fresque Lego communautaire](../../../../images/posts/forumphp2022/fresque-lego-communautaire.jpg)
+![La fresque Lego communautaire](../../../../../../../images/posts/forumphp2022/fresque-lego-communautaire.jpg)
 
 Vivement l'année prochaine ! 

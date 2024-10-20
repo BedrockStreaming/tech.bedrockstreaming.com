@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Qu’est-ce que l’oignon dans le Web ? #LFT 27/01/23"
 description: ""
 author: e_doyon

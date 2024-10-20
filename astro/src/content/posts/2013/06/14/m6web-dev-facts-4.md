@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "M6Web Dev Facts #4"
 description: ""
 author: bedrock
@@ -58,7 +58,7 @@ Parceque c'est dredi et que ca nous fait toujours rire de partager les phrases c
 
 # Fatal error *never* die
 
-> PHP : Fatal error: date() [<a href='function.date'>function.date</a>]: Timezone database is corrupt - this should *never* happen! in /**/**/**/error.php on line 105
+> PHP : Fatal error: date() [<a href='function.date'>function.date</a>]: Timezone database is corrupt - this should *never* happen! i../../../../../../../error.php on line 105
 
 
 

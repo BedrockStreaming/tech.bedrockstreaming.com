@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "BFF's error definition, and handling connections to multiple API"
 description: "What is an error, a failing API? How is the BFF handling connections to multiple API?"
 author: v_claras

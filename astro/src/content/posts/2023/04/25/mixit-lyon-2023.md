@@ -1,11 +1,11 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: Bedrock à MiXiT Lyon (2023)
 description: Nous étions à MiXiT pour l'édition 2023 !
 author: al_deboissieu
 tags: [conference, lyon, tech, agilité]
 color: rgb(251,87,66)
-thumbnail: "../../../../images/posts/mixit-2023/mixit-2023.jpg"
+thumbnail: "../../../../../../../images/posts/mixit-2023/mixit-2023.jpg"
 ---
 
 Nous étions présent les 13 et 14 avril 2023 à CPE pour l'édition de MiXiT 2023, pour suivre les 
@@ -30,7 +30,7 @@ Conférence présentée par Pascal Martin
 
 Conférence présentée par Antoine Caron et Mickael Alves
 
-![Mickael et Antoine](../../../../images/posts/mixit-2023/antoine-mickael.jpg)
+![Mickael et Antoine](../../../../../../../images/posts/mixit-2023/antoine-mickael.jpg)
 
 ## Conversations avec ChatGPT: illusion ou réalité?
 
@@ -102,5 +102,5 @@ Personnellement, j'ai apprécié travailler en Kanban et suis content de travail
 
 ## A l'année prochaine !
 
-![Bedrock à MiXiT](../../../../images/posts/mixit-2023/bedrock-mixit.jpg)
-![Bedrock à MiXiT](../../../../images/posts/mixit-2023/bedrock-mixit-2.jpg)
+![Bedrock à MiXiT](../../../../../../../images/posts/mixit-2023/bedrock-mixit.jpg)
+![Bedrock à MiXiT](../../../../../../../images/posts/mixit-2023/bedrock-mixit-2.jpg)

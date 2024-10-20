@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/conference.astro
+layout: ../../../../../layouts/conference.astro
 
 title: "Une application résiliente, dans un monde partiellement dégradé"
 description: "Dans un monde en perpétuelle évolution, pouvons-nous toujours atteindre « four-nines » de disponibilité ? Cloud et Kubernetes. APIs et Microservices… Nos architectures s’enrichissent et se complexifient. Au prix d’une certaine fragilité ?"

@@ -1,11 +1,11 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: QCon London 2024
 description: A few notes and ideas, coming back from this QCon conference at London.
 author: [c_petit, j_foray, v_gallissot]
 tags: [cloud, devops, conference, 2024]
 color: rgb(251,87,66)
-thumbnail: "../../../../images/posts/2024-04-17-qcon-london-2024/2024-04-09-Qcon-London-arrival.jpg"
+thumbnail: "../../../../../../../images/posts/2024-04-17-qcon-london-2024/2024-04-09-Qcon-London-arrival.jpg"
 ---
 
 We really enjoyed this [QCon conference in London](https://qconlondon.com/). It's based on 5 tracks a day, covering resilience, scalability, architecture, monitoring, performance, management and all the subjects that speak to tech companies. None of these tracks are sponsored: they're all about feedback, with no marketing whatsoever. There is a 6th track where sponsorship is permitted, and it's the only one. There aren't many sponsorship stands, and you go to this conference to talk to your peers first and foremost.
@@ -56,7 +56,7 @@ The architect's vision is to understand the choices and make compromises between
 
 Including sustainability in our business processes is a recent but no less important necessity. And do you know what? As it turns out, it often means cutting costs, increasing performances and resiliency! 
 
-![What makes software green?](../../../../images/posts/2024-04-17-qcon-london-2024/2024-04-10-what-makes-software-green.jpg)
+![What makes software green?](../../../../../../../images/posts/2024-04-17-qcon-london-2024/2024-04-10-what-makes-software-green.jpg)
 
 What we can sum up is that we have the power to act at our own level. Choose services that auto-scale, prefer ARM instances, select partners who measure and try to improve their Carbon emissions. In many cases, Serverless or Compute@Edge can be a very good choice for applications that can take huge load spikes as much as a few requests (quickly scalable and extremely elastic). When possible, try to run jobs during the night, when load spikes are over.
 
@@ -77,7 +77,7 @@ As for scaling your infrastructure, you need to realise that you will need to ma
 
 The last day of the conference offered a dedicated track on platform engineering, where we listened to the insights shared by the speakers. As they delved into their own experiences and learnings, we found striking parallels with our own journey at Bedrock over the past few years.
 
-![Lessons from Trainline](../../../../images/posts/2024-04-17-qcon-london-2024/2024-04-09-Trainline-lessons.jpg)
+![Lessons from Trainline](../../../../../../../images/posts/2024-04-17-qcon-london-2024/2024-04-09-Trainline-lessons.jpg)
 
 One of the most resonant themes was the importance of treating the platform as a product: a perspective shift that has significantly influenced our approach. By emphasising the need for a smoother experience that balances consistency, performance, security, and development speed, the speakers reinforced the notion that our platform isn't just a set of tools; it's a crucial enabler for our developers' success.
 

@@ -1,11 +1,11 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Three years running Kubernetes on production at Bedrock"
 description: "Running all our workloads on Kubernetes is not that simple. We've learned a lot and are still learning, but we can already share what we're doing"
 author: v_gallissot
 category:
 tags: [Infrastructure, Cloud, Kubernetes, Kops, AWS, HAProxy]
-feature-img: "../../../../images/posts/2020-12-08-three-years-running-kubernetes/ihor-dvoretskyi-UGKfiS5CcZI-unsplash.jpg"
+feature-img: "../../../../../../../images/posts/2020-12-08-three-years-running-kubernetes/ihor-dvoretskyi-UGKfiS5CcZI-unsplash.jpg"
 comments: true
 language: en
 redirect_from:
@@ -214,7 +214,7 @@ As a result, we had ASGs like:
 [AZ rebalancing](https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-benefits.html#AutoScalingBehavior.InstanceUsage) doesn’t work anymore when using more than one ASG. It becomes totally unpredictable and uncontrollable. It is even a total nightmare with a dozen ASGs.  
 
 You can see the difference of outgoing traffic between our 3 NAT Gateway over 4 hours time range :
-![difference of outgoing traffic between our 3 NAT Gateway](../../../../images/posts/2020-12-08-three-years-running-kubernetes/aws-nat-gateway-unbalanced.png)
+![difference of outgoing traffic between our 3 NAT Gateway](../../../../../../../images/posts/2020-12-08-three-years-running-kubernetes/aws-nat-gateway-unbalanced.png)
 The blue NAT gateway is used way more than the two others between 19h00 and 22h00. The green NAT gateway is used half as much as the other two during peak usage times.  
 This is because AZ-rebalacing has resulted in twice as many instances in one AZ than in the others.  
 
@@ -267,7 +267,7 @@ sum by (pod) (rate(container_cpu_cfs_throttled_seconds_total{job="kubelet", imag
 After Prometheus, we later isolated Victoria Metrics and Grafana Loki on their own ASGs.  
 We’re also isolating “admin” tools, like CoreDNS, cluster-autoscaler, HAProxy Ingress Controller, on dedicated “admin nodes” group. That way, admin tools can’t mess with applications pods and vice versa.  
 
-![Nodes separations on groups](../../../../images/posts/2020-12-08-three-years-running-kubernetes/dedicated_admin_nodes.png)
+![Nodes separations on groups](../../../../../../../images/posts/2020-12-08-three-years-running-kubernetes/dedicated_admin_nodes.png)
 Developers only deploy to Worker nodes. An application’s pods can only be scheduled on 4 ASGs, including 2 on-demand backups.  
 
 Our admin nodes are on-demand. Having an ASG of few nodes all Spot is a risk we didn’t want to take regarding the criticality of those pods.  
@@ -291,7 +291,7 @@ Enforcing QOS Guaranteed Daemonsets:
 
 We automatically scale our EC2 Instances with cluster-autoscaler.  
 
-![Autoscaling nodes](../../../../images/posts/2020-12-08-three-years-running-kubernetes/overprovisioning-total-node-count.png)
+![Autoscaling nodes](../../../../../../../images/posts/2020-12-08-three-years-running-kubernetes/overprovisioning-total-node-count.png)
 
 As mentioned before, we have several AutoScalingGroups per cluster.  
 We use the service discovery feature of cluster-autoscaler to find all ASGs to work with and to control them automatically.  
@@ -329,7 +329,7 @@ With a dozen ASGs, most of them being Spot, we’ve already waited for 45 minute
 
 Launching an EC2 instance sometimes fails with _InsufficientInstanceCapacity_, especially for Spot instances. With the autoscaler recommendation to split ASGs by the same amount of CPU/RAM, there were just too many ASGs to try before falling back on-demand. We’ve reduced the cluster-autoscaler fallback timeout to 5 minutes and still are facing many scaling problems at Paris, where it seems there are not many Spot instances available.  
 
-![InsufficientInstanceCapacity](../../../../images/posts/2020-12-08-three-years-running-kubernetes/aws-could-not-launch-instance-insufficientisntancecapacity.png)
+![InsufficientInstanceCapacity](../../../../../../../images/posts/2020-12-08-three-years-running-kubernetes/aws-could-not-launch-instance-insufficientisntancecapacity.png)
 
 Expander priority allows us to have resilience through an automatic fall back to on-demand when there is no more Spot.  
 We have already faced, multiple times, a fallback to on-demand instances even with a dozen different instance types. _InsufficientInstanceCapacity_ errors are not a myth. Even on-demand instances can be in _InsufficientInstanceCapacity_, which we hope to never face with expander priority, 10+ Spot instance types, 10+ on-demand instance types and low `--max-node-provision-time`.  
@@ -379,11 +379,11 @@ Most applications are using the “default” one, so they don’t even have to 
 Workers doing asynchronous tasks can be cut off for several tens of minutes without any business impact. These are the ones with the “low” PriorityClass we sacrifice when needed.  
 
 Here is an example, during a heavy load :
-![A lot of unavailable pods](../../../../images/posts/2020-12-08-three-years-running-kubernetes/kubernetes-unavailable-pods-all-priorityclass-included.png)
+![A lot of unavailable pods](../../../../../../../images/posts/2020-12-08-three-years-running-kubernetes/kubernetes-unavailable-pods-all-priorityclass-included.png)
 Hundreds of unavailable pods for 10 minutes.  
 
 If we filter out “low” PriorityClass pods in the graph above, there’s only one application having unavailable pods:
-![Not so many high priority unavailable pods](../../../../images/posts/2020-12-08-three-years-running-kubernetes/kubernetes-unavailable-pods-low-priorityclass-excluded.png)
+![Not so many high priority unavailable pods](../../../../../../../images/posts/2020-12-08-three-years-running-kubernetes/kubernetes-unavailable-pods-low-priorityclass-excluded.png)
 New pods for this application stayed in the Unavailable state for 15 seconds.  
 
 
@@ -398,17 +398,17 @@ We can’t wait so long during our peaks, so we generally define HPA targets at 
 
 
 On the following graphs, we can see two nice peaks at 20h52 and 21h02:
-![two nice peaks](../../../../images/posts/2020-12-08-three-years-running-kubernetes/load-spikes-impact-on-cpu-consumption.png)
+![two nice peaks](../../../../../../../images/posts/2020-12-08-three-years-running-kubernetes/load-spikes-impact-on-cpu-consumption.png)
 Above, in green, the number of consumed CPUs for one specific application: +55% in one minute.  
 
 Below, in blue, new pods are created in response to the peak.  
-![pods created in response to the peak](../../../../images/posts/2020-12-08-three-years-running-kubernetes/load-spikes-impact-on-pods-scaling.png)
+![pods created in response to the peak](../../../../../../../images/posts/2020-12-08-three-years-running-kubernetes/load-spikes-impact-on-pods-scaling.png)
 
 This is obviously not a good way of managing resources, as we waste them as soon as the load balances.  
 This waste effect is amplified with the load: the more pods we have, the more we waste.  
 
 You can see it in this graph that shows the number of CPU reserved but not consumed:
-![](../../../../images/posts/2020-12-08-three-years-running-kubernetes/wasting-resources-number-of-cpu-reserved-but-not-used.png)
+![](../../../../../../../images/posts/2020-12-08-three-years-running-kubernetes/wasting-resources-number-of-cpu-reserved-but-not-used.png)
 
 We consume more CPU during peaks and therefore, we use more efficiently the reservations that do not have time to move, because we do not yet have scale-up.  
 As soon as the new pods added in response to the peak are `Ready`, 40% of CPU are wasted again.  
@@ -436,7 +436,7 @@ We’ve seen blog posts where people turn off autoscaling for those very situati
 Failure is not an extreme case. Failure is expected. Autoscaling strategies must adapt to it.  
 
 You can see that one waits 30 minutes after an upscale, before downscaling:
-![30mns of stabilization after a scale-up](../../../../images/posts/2020-12-08-three-years-running-kubernetes/kubernetes-pods-horizontalpodautoscaler-long-downscaling-duration.png)
+![30mns of stabilization after a scale-up](../../../../../../../images/posts/2020-12-08-three-years-running-kubernetes/kubernetes-pods-horizontalpodautoscaler-long-downscaling-duration.png)
 
 [Documentation](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-cooldown-delay) specifies that: “this duration specifies how long the autoscaler has to wait before another downscale operation can be performed after the current one has completed.”
 
@@ -519,7 +519,7 @@ Our developers catch most of their logs and send them directly to Elasticsearch.
 
 Fluentd uses around 200MB of memory per node and so we look at replacing it by promtail which uses only 40MB in our case.  
 
-![Grafana Loki](../../../../images/posts/2020-12-08-three-years-running-kubernetes/grafana-loki.png)
+![Grafana Loki](../../../../../../../images/posts/2020-12-08-three-years-running-kubernetes/grafana-loki.png)
 We’re happy with Loki, because we have few logs to parse. We’ve tested to get our Ingress Controller access logs sent to Loki and it was a nightmare. Too many entries to parse.  
 
 There’s a default limit of 1000 log entries when querying, which we raised but then Grafana became very slow. Very very slow. 3000 log entries is the best fit for us.  
@@ -567,7 +567,7 @@ Indeed, but that was only the first step.
 We created AWS accounts for [salto.fr](https://www.salto.fr/) platform, for which we did a lot of load tests with on-demand servers.  
 That's when **we reclaimed our own instances** on our other accounts.  
 
-![ec2 instances per cluster](../../../../images/posts/2020-12-08-three-years-running-kubernetes/ec2-spot-instances-got-reclaims-across-accounts.gif)
+![ec2 instances per cluster](../../../../../../../images/posts/2020-12-08-three-years-running-kubernetes/ec2-spot-instances-got-reclaims-across-accounts.gif)
 
 Your accounts are not “linked” to each other in terms of Spot reclaims. Having resources in the same region with different accounts creates a relationship itself that we had never though about.  
 In this case, launching on-demand instances on one account triggered reclaims on our other accounts in the same region.  
@@ -600,7 +600,7 @@ We were already using **node-problem-detector**, so we added **draino**, to dete
 Since then, we use on-demand only when there’s no Spot left and only for a few hours.  
 
 We can see on this graph, that we added automated on-demand fallback and we never stopped having on-demand instances, until we added draino:
-![nodes per lifecycle](../../../../images/posts/2020-12-08-three-years-running-kubernetes/aws-ec2-nodes-per-lifecycle.png)
+![nodes per lifecycle](../../../../../../../images/posts/2020-12-08-three-years-running-kubernetes/aws-ec2-nodes-per-lifecycle.png)
 
 
 #### Spot Tips

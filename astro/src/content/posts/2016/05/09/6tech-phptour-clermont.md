@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "M6web sera présent au PHPTour Clermont-Ferrand"
 description: "Fabien de Saint Pern, lead développeur sur 6play, y donnera une conférence sur la réalisation de workers en PHP / Symfony2."
 author: TechM6Web

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Useful (or not) M6Web OSS stuff"
 description: "Yeah, we are still open sourcing code !"
 author: o_mansour

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Couleur, Typographie, Logo: Analyse dune charte graphique #LFT 31/03/23"
 description: ""
 author: s_masson

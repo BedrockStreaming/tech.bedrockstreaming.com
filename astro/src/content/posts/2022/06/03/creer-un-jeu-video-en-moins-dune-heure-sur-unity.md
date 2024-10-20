@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Créer un jeu vidéo en moins d’une heure sur Unity #LFT 03/06/22"
 description: ""
 author: j_nginn

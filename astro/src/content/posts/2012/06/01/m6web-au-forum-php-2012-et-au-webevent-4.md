@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "M6Web au Forum PHP 2012 et au WebEvent #4"
 description: ""
 author: k_dits
@@ -30,12 +30,12 @@ Rendez-vous là bas ? ;-)
 
 Bannière du Forum PHP 2012
 
-[![Bannière du Forum PHP 2012](../../../../images/posts/imgob/0-00-30-83-201206-ob_152c4d_bandeau-forum-php-2012-fr-large.jpg)
+[![Bannière du Forum PHP 2012](../../../../../../../images/posts/imgob/0-00-30-83-201206-ob_152c4d_bandeau-forum-php-2012-fr-large.jpg)
 
 
 Bannière du Web Event Lyon
 
-[![Bannière du Web Event Lyon](../../../../images/posts/imgob/0-00-30-83-201206-ob_681156_webeventlyon-jyserai-dark.png)
+[![Bannière du Web Event Lyon](../../../../../../../images/posts/imgob/0-00-30-83-201206-ob_681156_webeventlyon-jyserai-dark.png)
 
 
 

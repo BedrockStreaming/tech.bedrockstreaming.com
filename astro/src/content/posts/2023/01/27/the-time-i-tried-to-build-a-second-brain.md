@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "The time I tried to build a Second Brain #LFT 27/01/23"
 description: ""
 author: s_zoccarato

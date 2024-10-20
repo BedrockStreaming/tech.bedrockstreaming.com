@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Le LFT du LFT - PUB LFT #LFT 02/02/24"
 description: ""
 author: team_lft

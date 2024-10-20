@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "STOP à l'espionnage ! Comment disparaître d'internet ? #LFT 24/11/23"
 description: ""
 author: [e_idoux, m_alves]

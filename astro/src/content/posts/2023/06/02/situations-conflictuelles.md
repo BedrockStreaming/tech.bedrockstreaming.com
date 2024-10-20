@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Situations conflictuelles : et si vous sortiez de la spirale infernale ? #LFT 02/06/23"
 description: ""
 author: e_perrin

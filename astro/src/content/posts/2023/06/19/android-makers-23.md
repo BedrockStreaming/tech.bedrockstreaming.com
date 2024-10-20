@@ -1,12 +1,12 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: Deux jours à Android Makers by Droidcon 2023
 description: "Les équipes Android de Bedrock étaient à Android Makers 2023 − on vous résume tout."
 author: [b_candellier, a_pitel]
 tags: [android, mobile, conference, makers]
 color: rgb(254,91,73)
 language: fr
-thumbnail: "../../../../images/posts/2023-06-19-android-makers-23/cover.jpg"
+thumbnail: "../../../../../../../images/posts/2023-06-19-android-makers-23/cover.jpg"
 ---
 
 Il y a quelques semaines déjà, nous avons pu nous rendre à LA conférence annuelle Android en France : Android Makers. Conférence qui s'associe tout juste avec une initiative un peu plus internationale qui est DroidCon (cf. [notre précédent article](https://tech.bedrockstreaming.com/2022/11/22/droidcon-london-2022.html), par exemple).

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Au-delà des industries : Le pouvoir de l'état d'esprit #LFT 02/02/24"
 description: ""
 author: s_menassa

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Le festival de cannes de sa naissance à aujourd’hui #LFT 27/01/23"
 description: ""
 author: m_lemoal

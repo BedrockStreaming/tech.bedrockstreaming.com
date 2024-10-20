@@ -1,12 +1,12 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "More efficient Load Balancing and Caching at AWS, using Consistent Hashing and HAProxy"
 description: "Why and how, we implement consistent hashing based load balancing at AWS with HSDO"
 author: t_falconnet
 category:
 tags: [aws, cloud, sysadmin, HAProxy, video, opensource, high availability]
 comments: true
-thumbnail: "../../../../images/posts/2021-11-18-hsdo/hsdo.png"
+thumbnail: "../../../../../../../images/posts/2021-11-18-hsdo/hsdo.png"
 language: en
 redirect_from:
   - /hsdo/
@@ -21,7 +21,7 @@ At Bedrock we use both ALB & NLB for different use-cases (like [in front of our 
 
 Round-Robin is a widely used balancing algorithms.
 
-![Round robin or Least Outstanding Requests algorithms](../../../../images/posts/2021-11-18-hsdo/image8.png)
+![Round robin or Least Outstanding Requests algorithms](../../../../../../../images/posts/2021-11-18-hsdo/image8.png)
 <center><ins>Round robin or Least Outstanding Requests algorithms</ins></center>
 
 The load balancer cycles through cache servers sequentially, so each cache server should receive an equal share of requests. Each cache server has to possibly store every requested object (♠️, ♥️, ♦️, and ♣️ represent different objects).
@@ -30,19 +30,19 @@ With Least Outstanding Requests, load balancers send requests to the cache serve
 
 Consistent Hashing is a very interesting balancing algorithm for caching purposes.
 
-![Consistent Hashing algorithm](../../../../images/posts/2021-11-18-hsdo/image9.png)
+![Consistent Hashing algorithm](../../../../../../../images/posts/2021-11-18-hsdo/image9.png)
 <center><ins>Consistent Hashing algorithm</ins></center>
 
 This algorithm allows to distribute the load so that all requests for the same object will always go to the same cache server. This way, each cache server has to store half of the objects.
 
 And more cache servers means more load balancing between the servers.
 
-![Consistent Hashing at scale](../../../../images/posts/2021-11-18-hsdo/image10.png)
+![Consistent Hashing at scale](../../../../../../../images/posts/2021-11-18-hsdo/image10.png)
 <center><ins>Consistent Hashing at scale</ins></center>
 
 While at scale, Round-Robin or Least Outstanding Requests will look like this:
 
-![Round Robin or Least Outstanding Requests at scale](../../../../images/posts/2021-11-18-hsdo/image5.png)
+![Round Robin or Least Outstanding Requests at scale](../../../../../../../images/posts/2021-11-18-hsdo/image5.png)
 
 <center><ins>Round Robin or Least Outstanding Requests at scale</ins></center>
 
@@ -60,7 +60,7 @@ HAproxy is fast and reliable. We use it often, we know it well, and it can use c
 
 This is how we architected it. 
 
-![Load Balanced Cache Architecture Schema](../../../../images/posts/2021-11-18-hsdo/image6.png)
+![Load Balanced Cache Architecture Schema](../../../../../../../images/posts/2021-11-18-hsdo/image6.png)
 <center><ins>Load Balanced Cache Architecture</ins></center>
 
 HAProxy servers and Cache servers are deployed with Auto Scaling Groups (ASG). A Target Group is registering HAProxy ASG instances so NLB will load balance between them. Having separated ASG for HAProxy and Cache allows it to have dedicated automatic scaling and management.
@@ -71,7 +71,7 @@ We need to implement something for HAProxy so it could discover and register Cac
 
 All HAProxy instances need to have the same configuration with the same list of servers, or requests will be split differently depending on HAproxy instances.
 
-![Consistent Hashing with different list of servers per HAProxy](../../../../images/posts/2021-11-18-hsdo/image11.png)
+![Consistent Hashing with different list of servers per HAProxy](../../../../../../../images/posts/2021-11-18-hsdo/image11.png)
 <center><ins>Consistent Hashing with different list of servers per HAProxy</ins></center>
 
 You have a higher chance to have a miss on your cache request as a single object may be at different locations depending on the HAproxy instance.
@@ -91,7 +91,7 @@ backend cache
 
 will be seen as the following:
 
-![Consistent Configuration Schema 1](../../../../images/posts/2021-11-18-hsdo/image3.png)
+![Consistent Configuration Schema 1](../../../../../../../images/posts/2021-11-18-hsdo/image3.png)
 
 To keep consistent hashing efficient, cache servers need to change ID rarely. HAProxy backend server list must be consistent across all HAProxy instances.
 
@@ -107,7 +107,7 @@ backend cache
 
 CacheC backend server is now [disabled](http://cbonte.github.io/haproxy-dconv/2.0/configuration.html#5.2-disabled) until another Cache server takes its place.
 
-![Consistent Configuration Schema 2](../../../../images/posts/2021-11-18-hsdo/image4.png)
+![Consistent Configuration Schema 2](../../../../../../../images/posts/2021-11-18-hsdo/image4.png)
 
 With consistent configuration: ♠️, ♣️ and ♥️ requests are always balanced to the same cache servers, while ♦️ requests are balanced to another available cache server.  
 Without consistent configuration: all requests could be rebalanced to other cache servers. This would mean that for each cache server scale up or down, we no longer have the cached objects: we MISS the cache. This would be inefficient: we would lose the advantage of the cache.
@@ -144,7 +144,7 @@ Its job is to keep track EC2 instances of one or multiple Cache ASGs and update 
 HSDO server provides a consistent sorted list of instances. Every time a new cache server appears in the ASG, it is added to the list at a given ID that will never change.
 This list is stored in DynamoDB.
 
-![DynamoDB Items View](../../../../images/posts/2021-11-18-hsdo/image2.png)
+![DynamoDB Items View](../../../../../../../images/posts/2021-11-18-hsdo/image2.png)
 <center><ins>DynamoDB Items View</ins></center>
 
 ### HSDO Client
@@ -156,7 +156,7 @@ HSDO client is reading the DynamoDB table to get the cache servers. The client r
 
 Brown lines are disabled servers, while green lines are servers stored in DynamoDB as seen above.
 
-![HSDO in Load Balanced Cache Architecture Schema](../../../../images/posts/2021-11-18-hsdo/image7.png)
+![HSDO in Load Balanced Cache Architecture Schema](../../../../../../../images/posts/2021-11-18-hsdo/image7.png)
 <center><ins>HSDO in Load Balanced Cache Architecture Schema</ins></center>
 
 With this architecture, we achieve a centralized and consistent configuration to make consistent hashing work at scale for cache servers.

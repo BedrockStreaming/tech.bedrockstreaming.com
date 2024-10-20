@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "M6Web Lyon recherche un développeur player vidéo JavaScript (H/F) en CDI"
 description: "M6Web Lyon recherche un développeur de lecteur vidéo JavaScript (H/F) en CDI"
 author: M6Web  

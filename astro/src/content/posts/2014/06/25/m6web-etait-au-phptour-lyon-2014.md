@@ -1,12 +1,12 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "M6Web était présent au PHPTour Lyon 2014"
 description: "M6Web était présent au PHPTour Lyon 2014 organisé par l'AFUP"
 author: M6Web
 category:
 tags: [afup, phptour, conference, video]
-feature-img: "../../../../images/posts/phptour2014/elephant.jpg"
-thumbnail: "../../../../images/posts/phptour2014/elephant.jpg"
+feature-img: "../../../../../../../images/posts/phptour2014/elephant.jpg"
+thumbnail: "../../../../../../../images/posts/phptour2014/elephant.jpg"
 comments: true
 ---
 

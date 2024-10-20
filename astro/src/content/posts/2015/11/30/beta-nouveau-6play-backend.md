@@ -1,12 +1,12 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "L'envers du décor du nouveau 6play"
 description: "Présentation du backend derrière les nouvelles applications 6play"
 author: bedrock   
 category:
 tags: [6play, REST, Symfony, Elasticsearch, Cassandra]
-feature-img: "../../../../images/posts/6play/logo.jpg"
-thumbnail: "../../../../images/posts/6play/logo.jpg"
+feature-img: "../../../../../../../images/posts/6play/logo.jpg"
+thumbnail: "../../../../../../../images/posts/6play/logo.jpg"
 comments: true
 ---
 

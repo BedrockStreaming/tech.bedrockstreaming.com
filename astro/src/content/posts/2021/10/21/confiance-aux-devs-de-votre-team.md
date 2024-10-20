@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/conference.astro
+layout: ../../../../../layouts/conference.astro
 
 title: "Faites confiance aux développeurs.euses de votre équipe : voyez plus loin que les fonctionnalités"
 author: s_lescano

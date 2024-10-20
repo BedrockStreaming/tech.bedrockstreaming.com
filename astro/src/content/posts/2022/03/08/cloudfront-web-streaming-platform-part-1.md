@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "How AWS Cloudfront is helping us deliver our Web streaming platform? - Part 1"
 description: "What is a CDN, how is it useful for us? Feedback on the use of the AWS Cloudfront service for the deployment of high traffic web applications. Configuration example, best practices."
 author: a_caron
@@ -34,7 +34,7 @@ With a large number of POPs (Point Of Presence) around the world, it helps us pr
 This allows us to significantly reduce the time to first byte of our responses.
 Different [price classes](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html) allow you to choose the global "area" in which your application should be available in order to achieve savings.
 
-![Worldmap of AWS cloudfront edges from Cloudfront official documentation](../../../../images/posts/cloudfront-web-streaming-platform/edges.png)
+![Worldmap of AWS cloudfront edges from Cloudfront official documentation](../../../../../../../images/posts/cloudfront-web-streaming-platform/edges.png)
 
 Being in Lyon (France), we sometimes get answers from the POP of Milan (Italia).
 Indeed, Lyon ↔ Milan is almost as closer as Lyon ↔ Paris.
@@ -67,7 +67,7 @@ Reducing objects size make our applications load even faster for our users.
 
 **Here is our _Cache hit ratio_ in production on 6play.fr website.**
 
-![cache hit ratio graph showing that we have 99.10% of cache hit rate for our main website](../../../../images/posts/cloudfront-web-streaming-platform/cache-hit-ratio.png)
+![cache hit ratio graph showing that we have 99.10% of cache hit rate for our main website](../../../../../../../images/posts/cloudfront-web-streaming-platform/cache-hit-ratio.png)
 
 Cloudfront also allows us to do "Edge computing": run code directly in Amazon edges and POPs instead of doing it in our applications.
 
@@ -76,7 +76,7 @@ Lambda at edge (on regional edges servers), Cloudfront function (function that r
 Finally, by using regional Pop, hundreds of end server edges do not contact your origin (your application) when the cache is invalidated or exceeded.
 You can even activate the [Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) feature that allows you to further limit the load on your origins.
 
-[![regional edge usage with Cloudfront](../../../../images/posts/cloudfront-web-streaming-platform/regional.png)](../../../../images/posts/cloudfront-web-streaming-platform/regional.png)
+[![regional edge usage with Cloudfront](../../../../../../../images/posts/cloudfront-web-streaming-platform/regional.png)](../../../../../../../images/posts/cloudfront-web-streaming-platform/regional.png)
 
 Good per-level cache management even allowed us to completely invalidate the cache of a Cloudfront distribution a few minutes before the start of an event without generating huge traffic on our servers.
 

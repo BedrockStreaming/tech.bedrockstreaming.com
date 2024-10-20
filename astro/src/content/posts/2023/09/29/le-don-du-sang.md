@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Le Don du Sang (et +) #LFT 29/09/23"
 description: ""
 author: q_nambot

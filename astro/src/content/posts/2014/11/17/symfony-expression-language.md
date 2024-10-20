@@ -1,12 +1,12 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Configuration dynamique avec Symfony ExpressionLanguage"
 description: "Comment utiliser le composant ExpressionLanguage de Symfony pour rendre dynamique la configuration."
 author: team_cytron
 category:
 tags: [configuration, symfony, cytron]
-feature-img: "../../../../images/posts/cytron/symfonyexpressionlanguage.jpg"
-thumbnail: "../../../../images/posts/cytron/symfonyexpressionlanguage.jpg"
+feature-img: "../../../../../../../images/posts/cytron/symfonyexpressionlanguage.jpg"
+thumbnail: "../../../../../../../images/posts/cytron/symfonyexpressionlanguage.jpg"
 comments: true
 permalink: symfony-expression-language
 ---

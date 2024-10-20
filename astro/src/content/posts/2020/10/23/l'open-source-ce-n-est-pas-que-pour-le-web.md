@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/conference.astro
+layout: ../../../../../layouts/conference.astro
 
 title: L'open source, ce n'est pas que pour le web
 description: Un tour d’horizon des initiatives open source dans d’autres domaines que l’informatique, pour en apprendre un peu plus sur la culture du libre.

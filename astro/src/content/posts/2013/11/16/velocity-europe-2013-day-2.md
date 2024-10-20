@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Velocity Europe 2013 - Day 2"
 description: ""
 author: Baptiste, Denis Roussel et Kenny Dits
@@ -13,7 +13,7 @@ comments: true
 permalink: velocity-europe-2013-day-2
 ---
 
-![Velocity Europe 2013 - Day 2](../../../../images/posts/imgob/0-00-30-83-201311-ob_9ce448_10859879244-aef165bef0-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 2](../../../../../../../images/posts/imgob/0-00-30-83-201311-ob_9ce448_10859879244-aef165bef0-z-jpg.jpeg)
 
 De retour à l'hôtel Hilton de Londres, afin de commencer cette deuxième journée qui s’annonce très chargée : jusqu’4 tracks en parallèle. Performance, Mobile, Ops, et Sponsors.
 
@@ -23,7 +23,7 @@ De retour à l'hôtel Hilton de Londres, afin de commencer cette deuxième journ
 
 Paul Downey [@psd](https://twitter.com/psd)
 
-![Velocity Europe 2013 - Day 2](../../../../images/posts/imgob/0-00-30-83-201311-ob_56b889_10859955903-a209ea1ac8-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 2](../../../../../../../images/posts/imgob/0-00-30-83-201311-ob_56b889_10859955903-a209ea1ac8-z-jpg.jpeg)
 
 Paul est un “Technical Architect” pour le gouvernement anglais. Il nous explique comment ils gèrent et priorisent les problématiques de performances pour offrir des services internet centrés sur les besoins des utilisateurs avant ceux du gouvernement.
 
@@ -39,7 +39,7 @@ Le tout est entièrement documenté en ligne, en accès public, et regorge d’i
 
 Mitun zavery (keynote)
 
-![Velocity Europe 2013 - Day 2](../../../../images/posts/imgob/0-00-30-83-201311-ob_1fdf80_10859777974-7501eff881-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 2](../../../../../../../images/posts/imgob/0-00-30-83-201311-ob_1fdf80_10859777974-7501eff881-z-jpg.jpeg)
 
 Mitun travaille chez Keynote, et fait une démonstration de deux de leurs outils :
 
@@ -66,7 +66,7 @@ Dommage que l’on oublie les Macs dans l’histoire.
 
 Sam adams (lmax exchange) [@LMAX](https://twitter.com/LMAX)
 
-![Velocity Europe 2013 - Day 2](../../../../images/posts/imgob/0-00-30-83-201311-ob_4d7e5f_10859672196-d79c68cb41-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 2](../../../../../../../images/posts/imgob/0-00-30-83-201311-ob_4d7e5f_10859672196-d79c68cb41-z-jpg.jpeg)
 
 Pour ceux qui ne seraient pas encore convaincu de l'intérêt des tests automatisés, Lmax exchange (site sur l’univers boursier gèrant des sommes d’argent assez phénoménales) présente le workflow de développement basé sur les tests pour déployer du code le plus souvent possible en évitant au maximum les régressions.
 
@@ -79,7 +79,7 @@ Pour ceux qui ne seraient pas encore convaincu de l'intérêt des tests automati
 
 klaus enzenhofer (compuware) [@kenzenhofer](https://twitter.com/kenzenhofer)
 
-![Velocity Europe 2013 - Day 2](../../../../images/posts/imgob/0-00-30-83-201311-ob_80bd15_10859963953-9809187919-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 2](../../../../../../../images/posts/imgob/0-00-30-83-201311-ob_80bd15_10859963953-9809187919-z-jpg.jpeg)
 
 Courte présentation de Compuware qui édite des solutions de monitoring, et aussi [Dynatrace Ajax](https://www.compuware.com/en_us/application-performance-management/products/ajax-free-edition/overview.html) avec une étude de cas assez simple sur la détection d’anomalies sur un site (142 domaines de 3rd party chargés !).
 
@@ -93,7 +93,7 @@ Courte présentation de Compuware qui édite des solutions de monitoring, et aus
 
 Andrew Betts [@triblondon](https://twitter.com/triblondon)
 
-![Velocity Europe 2013 - Day 2](../../../../images/posts/imgob/0-00-30-83-201311-ob_1c7575_10859780954-053107c07e-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 2](../../../../../../../images/posts/imgob/0-00-30-83-201311-ob_1c7575_10859780954-053107c07e-z-jpg.jpeg)
 
 Les équipes du Financial Times sont très actifs dans le domaine de la webperf, avec notamment l’outil [FastClick](https://github.com/ftlabs/fastclick) qui permet d’enlever le delay du touch sur mobile (entre 100 et 300 ms!). Ils developpent aussi une webapp html5 très riche, et expliquent comment rendre la problématique de performance importante aux yeux du “produit”. On apprend pas mal d’astuces pour mesurer la performance, gérer le appcache, éviter les sprites etc …
 
@@ -107,7 +107,7 @@ Vous pouvez retrouvez les slides ici : [https://triblondon.github.io/talk-making
 
 James Smith (Devopsguys) [@thedevmgr](https://twitter.com/thedevmgr)
 
-![Velocity Europe 2013 - Day 2](../../../../images/posts/imgob/0-00-30-83-201311-ob_b73fac_10859783724-8228a62e39-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 2](../../../../../../../images/posts/imgob/0-00-30-83-201311-ob_b73fac_10859783724-8228a62e39-z-jpg.jpeg)
 
 James est venu présenter lors d’une lightning démo : [worldwidepagetest.com](https://worldwidepagetest.com/)
 
@@ -122,7 +122,7 @@ Un outil permettant de tester partout dans le monde les performances de son site
 
 Ilya Grigorik [@igrigorik](https://twitter.com/igrigorik)
 
-![Velocity Europe 2013 - Day 2](../../../../images/posts/imgob/0-00-30-83-201311-ob_13d430_10859782544-d28ccd39a8-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 2](../../../../../../../images/posts/imgob/0-00-30-83-201311-ob_13d430_10859782544-d28ccd39a8-z-jpg.jpeg)
 
 L’impressionnante quantité de données agrégées par [HTTP Archive](https://httparchive.org ) est maintenant disponible dans [Google BigQuery](https://bigquery.cloud.google.com) : toutes les données statistiques sur les requêtes et réponses HTTP de plusieurs centaines de milliers de site différents sont donc simplement requêtables et disponibles la vitesse de la lumière (c’est une expression à la mode en ce moment par ici).
 
@@ -265,13 +265,13 @@ C’était une présentation assez polémique mais particulièrement intéressan
 
 Ilya Grigorik (Google)
 
-![Velocity Europe 2013 - Day 2](../../../../images/posts/imgob/0-00-30-83-201311-ob_dd9097_10859873934-1ce54696bc-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 2](../../../../../../../images/posts/imgob/0-00-30-83-201311-ob_dd9097_10859873934-1ce54696bc-z-jpg.jpeg)
 
 Comment arriver afficher sa page web sans dépasser la barrière de 1000 ms ! Un dur challenge dont les épreuves sont détaillés par Ilya.
 
 
 
-![Velocity Europe 2013 - Day 2](../../../../images/posts/imgob/0-00-30-83-201311-ob_c53a35_breaking-the-1000-ms-mobile-barrier-velocity-goog.png)
+![Velocity Europe 2013 - Day 2](../../../../../../../images/posts/imgob/0-00-30-83-201311-ob_c53a35_breaking-the-1000-ms-mobile-barrier-velocity-goog.png)
 
 Des problèmatiques de latence sur le “Touch” mobile, sur les communications 3G/4G, du fonctionnement TCP, du critical rendering path au niveau CSS et JS, mod_page_speed et ngx_page_speed, ainsi que des évolutions venir sur Page Speed Insights, c’est un panel ultra complet de la WebPerf qui été couvert sur cette heure ultra dense, mais oh combien indispensable. C’est donc, comment souvent avec Ilya Grigorik, un must read absolu pour ceux que la Performance Front-End et Mobile, ainsi que la latence, passionne.
 

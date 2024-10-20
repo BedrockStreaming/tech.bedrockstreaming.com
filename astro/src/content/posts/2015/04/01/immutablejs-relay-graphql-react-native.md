@@ -1,12 +1,12 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Introduction à Immutable.Js, Relay + GraphQL et React Native"
 description: "Compte rendu de la React Conférence ciblé sur 3 sujets : Immutable.Js, Relay + GraphQL et React Native"
 author: k_dits
 category:
 tags: [javascript, react, reactnative, lft, video]
-feature-img: "../../../../images/posts/reactconf/reactnative.png"
-thumbnail: "../../../../images/posts/reactconf/reactnative.png"
+feature-img: "../../../../../../../images/posts/reactconf/reactnative.png"
+thumbnail: "../../../../../../../images/posts/reactconf/reactnative.png"
 comments: true
 ---
 Voici un petit compte rendu vidéo, filmé lors de notre [Last Friday Talk](/organiser-des-conferences-technique-en-interne) de Mars, d'un retour de veille techno suite à la [React Conférence](https://conf.reactjs.com/).

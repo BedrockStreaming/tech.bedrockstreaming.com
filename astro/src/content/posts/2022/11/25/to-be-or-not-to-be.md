@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "To be or not to be, ou quelques réflexions sur la dette technique et humaine #LFT 25/11/22"
 description: ""
 author: e_herve

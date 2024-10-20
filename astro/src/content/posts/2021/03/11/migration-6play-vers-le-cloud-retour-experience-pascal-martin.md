@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/conference.astro
+layout: ../../../../../layouts/conference.astro
 
 title: "Migration de 6play vers Le Cloud, retour d’expérience."
 description: "En 2018, nous avons entamé la migration de la plateforme 6play vers Le Cloud. À présent, nous pilotons notre infrastructure AWS avec Terraform, utilisons des services managés et déployons nos applications sous Kubernetes."

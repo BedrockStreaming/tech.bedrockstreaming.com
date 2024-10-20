@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "REX-Shape Up, un LFT dont vous êtes les héros #LFT 31/03/23"
 description: ""
 author: pt_guillot

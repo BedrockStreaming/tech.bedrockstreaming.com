@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "PHP Tour Montpellier 2018"
 description: "Nos retours du PHP Tour à Montpellier, les 17 et 18 mai 2018"
 author: Guillaume Bouyge, Valentin Claras, Fabien De Saint Pern, Francois-Xavier Gaberan, Héléna Hiraux, Pascal Martin
@@ -10,7 +10,7 @@ author: Guillaume Bouyge, Valentin Claras, Fabien De Saint Pern, Francois-Xavier
   
 category:
 tags: [phptour, php, afup, 2018]
-feature-img: "../../../../images/posts/phptour2018/team.jpg"
+feature-img: "../../../../../../../images/posts/phptour2018/team.jpg"
 comments: true
 language: fr
 ---

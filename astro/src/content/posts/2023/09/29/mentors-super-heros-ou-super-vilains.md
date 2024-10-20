@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Mentors: super-héros ou super-vilains ? #LFT 29/09/23"
 description: ""
 author: p_rambaud

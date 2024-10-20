@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Use the Sensiolabs Security Checker to check potential vulnerabilities on Symfony projects"
 description: "Use the Sensiolabs Security Checker to check potential vulnerabilities on Symfony projects"
 author: TechM6Web
@@ -40,6 +40,6 @@ And automatically check your `composer.lock` againts vulnerabilities. Your build
 
 For example, with the recent [Guzzle](https://security.sensiolabs.org/database?package=guzzlehttp/guzzle) one : 
 
-![guzzle](../../../../images/posts/sf2-checker/checker.jpg)
+![guzzle](../../../../../../../images/posts/sf2-checker/checker.jpg)
 
 You can contribute to the [vulnerabilities database](https://github.com/FriendsOfPHP/security-advisories) and the [checker](https://github.com/sensiolabs/security-checker) via Github.com.

@@ -1,11 +1,11 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "On a testé fonctionnellement notre app JS"
 description: "Faire des tests fonctionnels avec Cucumber.js, WebdriverIO et PhantomJS sur une app JS isomorphique."
 author: f_dubost 
 category:
 tags: [tests fonctionnels, javascript, phantomjs, webdriver, Cytron]
-feature-img: "../../../../images/posts/cytron/moon.jpg"
+feature-img: "../../../../../../../images/posts/cytron/moon.jpg"
 comments: true
 ---
 

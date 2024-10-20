@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "M6Web Lyon recherche un Lead Developpeur / Architecte web (H/F) en CDI"
 description: ""
 author: bedrock
@@ -9,7 +9,7 @@ comments: false
 permalink: m6web-lyon-recherche-un-lead-developpeur-architecte-web-h-f-en-cdi
 ---
 
-![M6Web Lyon recherche un Lead Developpeur / Architecte web (H/F) en CDI](../../../../images/posts/imgob/0-00-30-83-201302-ob_e427fc_05646956-photo-galaxie-m6-web-jpg.png)
+![M6Web Lyon recherche un Lead Developpeur / Architecte web (H/F) en CDI](../../../../../../../images/posts/imgob/0-00-30-83-201302-ob_e427fc_05646956-photo-galaxie-m6-web-jpg.png)
 
 Mise jour : Le poste n'est à plus pourvoir. Merci
 

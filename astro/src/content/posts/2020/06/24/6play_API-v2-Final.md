@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/conference.astro
+layout: ../../../../../layouts/conference.astro
 
 title: "6play_API-v2-Final(1).doc"
 description: "Votre API est confrontée à des contraintes techniques mais elle doit surtout répondre à vos problématiques métier qui ne cessent d'évoluer. Nous avons souvent vécu cette situation pour 6play (service de Replay du Groupe M6), et il nous a fallu plusieurs générations d'API avant d'arriver à une version adaptée à nos besoins. Micro-services, Rest/GraphQL, Developer eXperience… Un récit et des conseils pragmatiques pour concevoir et maintenir votre API."

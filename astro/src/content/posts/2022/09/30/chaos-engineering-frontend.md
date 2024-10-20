@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Chaos engineering dans le frontend #LFT 30/09/22"
 description: ""
 author: t_courtoison

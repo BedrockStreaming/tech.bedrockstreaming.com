@@ -1,11 +1,11 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: KubeCon Europe 2024, Paris
 description: A few notes and ideas, coming back from KubeCon EU 2024 Paris.
 author: [g_sanchez, j_menan, l_caillet, p_martin, v_chabrier, v_pelus]
 tags: [kubernetes, cloud, devops, opensource, community, conference, 2024]
 color: rgb(251,87,66)
-thumbnail: "../../../../images/posts/2024-04-09-kubecon-europe-2024/bienvenue-kubecon.jpeg"
+thumbnail: "../../../../../../../images/posts/2024-04-09-kubecon-europe-2024/bienvenue-kubecon.jpeg"
 ---
 
 Two weeks ago, six of us were at KubeCon in Paris. For a few, it was their first KubeCon! For one, it was the fourth one. Since Copenhagen in 2018, which was before we started [moving to AWS and Kubernetes](https://leanpub.com/tci/), so much has changed -- and so much has not ;-)
@@ -40,7 +40,7 @@ Nowadays, data centers' electricity consumption uses 2% of the world's electrici
 
 In this context, Deep Green is embracing a generational shift as a company building a new kind of data centers. They aim to build small edge data centers as close as possible to heat consumers in order to recapture and distribute the heat. Indeed, in classic data centers, a huge chunk of energy is wasted into heat not being used. Chance with datacenter is that a very large amount of heat is produced in the same place (in comparison with other kind of industry). Deep Green's computers are immersed into biodegradable oil which captures generated heat. Then, heat is transferred through heat exchangers to targets which can be swimming pools, private houses, offices... The process is simple and known for decades, but the smart move is to associate small edge data centers to heat consumers.
 
-![How deep green heats a pool](../../../../images/posts/2024-04-09-kubecon-europe-2024/deep-green.png)
+![How deep green heats a pool](../../../../../../../images/posts/2024-04-09-kubecon-europe-2024/deep-green.png)
 
 And what about CNCF and kubernetes? CNCF tools are allowing them to make this work as efficient as possible by:
 
@@ -60,7 +60,7 @@ At kubeCon 2024, we were able to discover a number of interesting tools that we'
 
 [Kepler](https://sustainable-computing.io/) is a CNCF Sandbox project that uses eBPF to collect performance counters and other system statistics. Kepler estimates energy consumption per pod based on this data and exports it as Prometheus metrics.
 
-![Kepler](../../../../images/posts/2024-04-09-kubecon-europe-2024/kepler.jpeg)
+![Kepler](../../../../../../../images/posts/2024-04-09-kubecon-europe-2024/kepler.jpeg)
 
 #### PEAKS
 

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "La traversée du Finnmarksvidda: carnet de bord d’une aventure glaciale #LFT 29/09/23"
 description: ""
 author: s_guyon

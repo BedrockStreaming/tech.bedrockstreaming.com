@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Errances à Kiilopää #LFT 03/06/22"
 description: ""
 author: s_guyon

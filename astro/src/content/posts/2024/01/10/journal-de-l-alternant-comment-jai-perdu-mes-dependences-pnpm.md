@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: Journal de l'alternant - Comment j'ai perdu mes dépendances pnpm
 description: "Comment la non-compréhension du hoisting m'a fait perdre des dépendances"
 author: [j_poissonnet]

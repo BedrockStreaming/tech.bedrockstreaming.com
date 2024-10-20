@@ -1,12 +1,12 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "CR React Europe Conférence 2015 - Day 1"
 description: "Compte rendu de la React Europe - Jour 1"
 author: Frédéric Vieudrin, Matthieu Guillermin, Florent Dubost, Kenny Dits
 category:
 tags: [javascript, react, reactnative, video, graphql]
-feature-img: "../../../../images/posts/reacteurope/reacteurope1.png"
-thumbnail: "../../../../images/posts/reacteurope/reacteurope1.png"
+feature-img: "../../../../../../../images/posts/reacteurope/reacteurope1.png"
+thumbnail: "../../../../../../../images/posts/reacteurope/reacteurope1.png"
 comments: true
 ---
 
@@ -219,7 +219,7 @@ Le développeur fait ses composants React naturellement, et Relay s’occupe de 
 
 # Don't Rewrite, React! 
 
-![If you ever feel bad about yourself](https://s-media-cache-ak0.pinimg.com/736x/ca/d8/e0/cad8e05c8879918e17fd4d575dfed06e.jpg)
+![If you ever feel bad about yourself](https://s-media-cache-ak0.pinimg.com/73../../../../../../../cad8e05c8879918e17fd4d575dfed06e.jpg)
 
 Ryan Florence [@ryanflorence](https://twitter.com/ryanflorence) nous propose de profiter de la réécriture de code d’application historique pour introduire de nouvelles technologies et outils.
 

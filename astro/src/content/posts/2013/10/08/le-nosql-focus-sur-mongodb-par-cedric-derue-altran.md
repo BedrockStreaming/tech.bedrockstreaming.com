@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Le NoSQL, Focus sur MongoDB par Cédric Derue (Altran)"
 description: ""
 author: bedrock

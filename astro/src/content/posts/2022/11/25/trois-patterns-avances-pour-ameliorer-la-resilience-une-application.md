@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Trois patterns avancés pour améliorer la résilience d’une application #LFT 25/11/22"
 description: ""
 author: p_martin

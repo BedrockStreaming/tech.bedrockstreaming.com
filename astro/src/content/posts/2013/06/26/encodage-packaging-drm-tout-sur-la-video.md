@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Encodage - packaging - DRM - tout sur la vidéo"
 description: ""
 author: o_noel 
@@ -8,7 +8,7 @@ comments: true
 permalink: encodage-packaging-drm-tout-sur-la-vidéo
 ---
 
-![Encodage - packaging - DRM - tout sur la vidéo](../../../../images/posts/imgob/0-00-30-83-201306-ob_249f74_1372237975-243eac44ed956db01c71e248156531e7-jpg.jpeg)
+![Encodage - packaging - DRM - tout sur la vidéo](../../../../../../../images/posts/imgob/0-00-30-83-201306-ob_249f74_1372237975-243eac44ed956db01c71e248156531e7-jpg.jpeg)
 
 Une nouvelle vidéo de l'année dernière provenant d'un [Last Friday Talk](/tags/#lft).
 

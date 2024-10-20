@@ -1,12 +1,12 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Babitch, the story behind our table soccer web application"
 description: "Babitch, the story behind our table soccer/foosball web application"
 author: M6Web
 category:
 tags: [opensource, babyfoot, angularjs, d3js, symfony]
-feature-img: "../../../../images/posts/babitch/tablesoccer.jpg"
-thumbnail: "../../../../images/posts/babitch/tablesoccer.jpg"
+feature-img: "../../../../../../../images/posts/babitch/tablesoccer.jpg"
+thumbnail: "../../../../../../../images/posts/babitch/tablesoccer.jpg"
 comments: true
 language: en
 ---
@@ -70,7 +70,7 @@ The client is divided into four major parts:
 
 ## New Game
 
-![Main View](../../../../images/posts/babitch/mainview.png)
+![Main View](../../../../../../../images/posts/babitch/mainview.png)
 
 This is the main feature, it allows to begin a new game, choose 4 players, and assign each goals to the right players.
 The game is saved only when the last goal is made.
@@ -78,7 +78,7 @@ Each player is represented by his [Gravatar](https://fr.gravatar.com/) for a nic
 
 ## Live
 
-![Live View](../../../../images/posts/babitch/liveview.png)
+![Live View](../../../../../../../images/posts/babitch/liveview.png)
 
 The table soccer is not at the same floor than we are, so we are using our monitoring screen to show at lunch time the live state of the table score !
 
@@ -93,7 +93,7 @@ The live part use a [Faye](https://faye.jcoglan.com/) server, which you can host
 
 ## Stats
 
-![Stats View](../../../../images/posts/babitch/statsview.png)
+![Stats View](../../../../../../../images/posts/babitch/statsview.png)
 
 All of this would be useless if you don't have any way to compare your ... stats to others competitors, right ?
 So stats section is here for that purpose.

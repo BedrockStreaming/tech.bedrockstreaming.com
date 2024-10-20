@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "M6Web Dev Facts #10"
 description: "Les plus belles phrases de nos équipes technique"
 author: bedrock 
@@ -48,9 +48,9 @@ comments: true
 
 Petite nouveauté, voici quelques mèmes maison !
 
-![mep](../../../../images/posts/dev-facts-10/mep.jpg)
+![mep](../../../../../../../images/posts/dev-facts-10/mep.jpg)
 
-![bug](../../../../images/posts/dev-facts-10/bug.jpg)
+![bug](../../../../../../../images/posts/dev-facts-10/bug.jpg)
 
-![bug](../../../../images/posts/dev-facts-10/build.png)
+![bug](../../../../../../../images/posts/dev-facts-10/build.png)
 

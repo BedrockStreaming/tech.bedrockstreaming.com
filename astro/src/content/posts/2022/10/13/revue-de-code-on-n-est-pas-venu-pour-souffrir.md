@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/conference.astro
+layout: ../../../../../layouts/conference.astro
 title: "Revue de code : on n’est pas venu pour souffrir !"
 description: Un cadre positif et formateur pour les revues de code ? C'est possible !
 author: al_deboissieu

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/conference.astro
+layout: ../../../../../layouts/conference.astro
 
 title: "Une donnée presque parfaite sur 6play"
 description: "La gestion de la mise à disposition des données sur 6play"
@@ -10,7 +10,7 @@ youtubeId: kSlYXpezjIQ
 
 category:
 tags: [lyon, conference, elasticsearch, video]
-thumbnail: "../../../../images/posts/conf-afup-viguier/6play.jpg"
+thumbnail: "../../../../../../../images/posts/conf-afup-viguier/6play.jpg"
 color: rgb(42, 153, 213)
 comments: true
 ---

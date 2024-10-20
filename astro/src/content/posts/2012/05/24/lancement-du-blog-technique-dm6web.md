@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Lancement du blog technique d'M6Web"
 description: ""
 author: M6Web

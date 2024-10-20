@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Comment (enfin) sortir vos side projects #LFT 31/03/23"
 description: ""
 author: t_jarrand

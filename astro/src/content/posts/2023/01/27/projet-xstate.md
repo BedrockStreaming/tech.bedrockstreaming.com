@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Projet XState #LFT 27/01/23"
 description: ""
 author: m_blanc

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Comment j'ai retrouvé le sens de la vie grâce à WebAssembly #LFT 02/02/24"
 description: ""
 author: t_gianella

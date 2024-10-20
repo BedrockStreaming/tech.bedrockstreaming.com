@@ -1,12 +1,12 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Firewall applicatif PHP et bundle Symfony"
 description: ""
 author: team_cytron
 category:
 tags: [outil, php, symfony, open-source]
-feature-img: "../../../../images/posts/cytron/football.png"
-thumbnail: "../../../../images/posts/cytron/football.png"
+feature-img: "../../../../../../../images/posts/cytron/football.png"
+thumbnail: "../../../../../../../images/posts/cytron/football.png"
 comments: true
 permalink: firewall-applicatif-php-et-bundle-symfony
 ---

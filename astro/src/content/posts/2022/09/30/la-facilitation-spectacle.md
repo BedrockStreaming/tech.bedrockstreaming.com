@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "La facilitation spectacle : Entre artifices et intention #LFT 30/09/22"
 description: ""
 author: c_cousin

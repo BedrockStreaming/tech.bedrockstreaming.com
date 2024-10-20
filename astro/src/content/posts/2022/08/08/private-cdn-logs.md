@@ -1,11 +1,11 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "How to ingest 400GB of logs per hour?"
 description: "We wanted to exploit our CDN logs as they contain many valuable information."
 author: a_zinck
 tags: [onprem, cdn, logs, aws, cloud, nginx, vector, lambda, s3, glue, athena]
 color: rgb(251,87,66)
-thumbnail: "../../../../images/posts/2022-08-08-privateCdnLogs/main.png"
+thumbnail: "../../../../../../../images/posts/2022-08-08-privateCdnLogs/main.png"
 language: en
 comments: true
 excerpt: "At Bedrock, we have a CDN that outputs on average 400GB of uncompressed logs per hour. In this article, we present the architecture we have setup to collect these logs and extract value from them."
@@ -47,7 +47,7 @@ At Bedrock, we like to keep things simple. We think our CDN main mission is to s
 
 The real benefit to using S3 is that you can easily plug it into Glue and Athena which allows you to request TeraBytes of data easily.
 
-![technical Solution](../../../../images/posts/2022-08-08-privateCdnLogs/image1.png)
+![technical Solution](../../../../../../../images/posts/2022-08-08-privateCdnLogs/image1.png)
 
 ### Sending logs to S3: Vector
  

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Tentative d'explication des Fast-Forward sous Git"
 description: ""
 category: 
@@ -9,7 +9,7 @@ comments: true
 permalink: tentative-d-explication-des-fast-forward-sous-git
 ---
 
-![Tentative d'explication des Fast-Forward sous Git](../../../../images/posts/git-ff.png)
+![Tentative d'explication des Fast-Forward sous Git](../../../../../../../images/posts/git-ff.png)
 
 Tous les projets M6Web sont passés récemment sous le système de gestion de contenu [Git.](https://fr.wikipedia.org/wiki/Git)
 

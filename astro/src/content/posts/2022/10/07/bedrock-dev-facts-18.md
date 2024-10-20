@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Bedrock Dev Facts #18"
 description: "Les plus belles phrases de nos équipes techniques"
 author: bedrock 

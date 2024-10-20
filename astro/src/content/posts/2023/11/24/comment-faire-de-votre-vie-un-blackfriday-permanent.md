@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Comment faire de votre vie un BlackFriday permanent #LFT 24/11/23"
 description: ""
 author: t_sontag

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "CR Velocity Conference 2012 : Day 1 (Dev/Webperf)"
 description: ""
 author: k_dits 
@@ -13,7 +13,7 @@ Nous voici à Santa Clara, CA, ce lundi 25 juin pour notre première Velocity Co
 
 
 
-![CR Velocity Conference 2012 : Day 1 (Dev/Webperf)](../../../../images/posts/velocityus2012-welcome.jpg)
+![CR Velocity Conference 2012 : Day 1 (Dev/Webperf)](../../../../../../../images/posts/velocityus2012-welcome.jpg)
 
 L'évenement se situe au Convention Center, et la première chose que nous remarquons, c'est la taille démesurée du lieu ! Et pour cause, 800 personnes sont attendues !
 
@@ -168,7 +168,7 @@ Je vous invite aussi à regarder son interview ci dessous.
 
 <iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/TpkxPEurk9M?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
-![CR Velocity Conference 2012 : Day 1 (Dev/Webperf)](../../../../images/posts/velocityus-akamai-pool.jpg)
+![CR Velocity Conference 2012 : Day 1 (Dev/Webperf)](../../../../../../../images/posts/velocityus-akamai-pool.jpg)
 
 #### [Event] Akamai Pool Party
 
@@ -176,7 +176,7 @@ Cette journée touche à sa fin avec une Pool Party extérieure par Akamai avec 
 
 
 
-![DevOps drinking session / @jstinson](../../../../images/posts/velocityus-akamai-pool2.jpg)
+![DevOps drinking session / @jstinson](../../../../../../../images/posts/velocityus-akamai-pool2.jpg)
 DevOps drinking session / @jstinson
 
 
@@ -198,7 +198,7 @@ J'espère que les vidéos seront disponible car c'était juste hilarant au possi
 
 
 
-![CR Velocity Conference 2012 : Day 1 (Dev/Webperf)](../../../../images/posts/velocityus2012-vide.jpg)
+![CR Velocity Conference 2012 : Day 1 (Dev/Webperf)](../../../../../../../images/posts/velocityus2012-vide.jpg)
 
 #### Conclusion
 

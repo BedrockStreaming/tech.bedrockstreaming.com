@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Jeux vidéo, websocket et binaire: temps réel efficace pour navigateur #LFT 24/11/23"
 description: ""
 author: t_jarrand

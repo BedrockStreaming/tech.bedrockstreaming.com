@@ -1,13 +1,13 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "React Europe 2019"
 description: "Our feedbacks about the European React Conference 2019"
 author: Florent Dubost, Nicolas Afresne, Antoine Caron
    front.png
 category:
 tags: [React, JS, 6play, Conference, 2019]
-thumbnail: "../../../../images/posts/react-europe-2019/brendan-church-182747-unsplash.jpg"
-feature-img: "../../../../images/posts/react-europe-2019/brendan-church-182747-unsplash.jpg"
+thumbnail: "../../../../../../../images/posts/react-europe-2019/brendan-church-182747-unsplash.jpg"
+feature-img: "../../../../../../../images/posts/react-europe-2019/brendan-church-182747-unsplash.jpg"
 comments: true
 language: en
 ---
@@ -82,7 +82,7 @@ The second, [**Build Tracker**](https://buildtracker.dev/), which allows us to t
 
 Here is an example of a message posted by our in-house build tracker on a Pull Request.
 
-![our version of Build tracker](../../../../images/posts/react-europe-2019/our-build-tracker.png)
+![our version of Build tracker](../../../../../../../images/posts/react-europe-2019/our-build-tracker.png)
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ikn_dBSski8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

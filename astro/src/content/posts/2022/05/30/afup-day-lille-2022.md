@@ -1,14 +1,14 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: Retour sur l'AFUP Day Lille 2022
 description: Une partie de notre équipe backend s'est rendue à l'AFUP Day Lille 2022
 author: bedrock
 tags: [backend, php, conference]
 color: rgb(251,87,66)
-thumbnail: "../../../../images/posts/2022-05-30-afup-day-2022/team.jpg"
+thumbnail: "../../../../../../../images/posts/2022-05-30-afup-day-2022/team.jpg"
 ---
 
-!["L'équipe à l'AFUP Day Lille 2022"](../../../../images/posts/2022-05-30-afup-day-2022/team.jpg)
+!["L'équipe à l'AFUP Day Lille 2022"](../../../../../../../images/posts/2022-05-30-afup-day-2022/team.jpg)
 
 Cette année encore, Bedrock participait à l'[*AFUP Day 2022*](https://event.afup.org/afup-day-2022/), nous avons eu la chance de profiter de conférences de qualité et aux sujets variés.
 
@@ -52,7 +52,7 @@ Dans sa version 8.1, PHP apporte aussi les [*types d'intersections*](https://www
 
 [*Mathias ARLAUD*](https://twitter.com/matarld) nous a ensuite parlé d'ElasticSearch et de comment il est possible d\'attribuer un score de corrélation entre un texte donné et une multitude d\'autres.
 
-!["Formule de scoring d'ElasticSearch"](../../../../images/posts/2022-05-30-afup-day-2022/formula.png)\
+!["Formule de scoring d'ElasticSearch"](../../../../../../../images/posts/2022-05-30-afup-day-2022/formula.png)\
 Il a décortiqué cette équation (déjà simplifiée) en nous expliquant les mécanismes en place pour calculer ce score.\
 Il nous a parlé de ***Term Frequency*** (la fréquence à laquelle un mot apparaît dans un document), d'***Inverse Document Frequency*** (la pertinence des mots) ainsi que de ***Coordination Factor*** (le fait de valoriser un document avec le plus haut pourcentage de mots présents dans la requête).\
 Avec un exemple simple (***Les Développeurs 🥰 développer avec,VIM&excl;***), il nous a montré comment les filtres de caractères tels que *html_strip*, le *mapping*, les générateurs de tokens (*whitespace* -\> 1 token = 1 mot) ou bien encore les filtres de tokens (*phonetic*, *stopwords*) permettent d'enlever le bruit des phrases humaines pour ne récupérer que les informations les plus pertinentes pour calculer ce score de corrélation. Après application de ces différentes étapes, son exemple se transforme en **\[developp\] \[aim\] \[developp\] \[vim\]**, ce qui permet alors à ElasticSearch d'éliminer des documents non pertinents et qui seraient remontés si ces filtres n'avaient pas été appliqués.\
@@ -134,4 +134,4 @@ Encore une fois, l'AFUP a réussi à faire un événement chaleureux, intéressa
 
 Nous sommes ravis d'avoir pu participer à cette manifestation qui nous a permis de rencontrer les membres de la communauté ainsi que de visiter rapidement la ville de Lille et manger des Welsh.
 
-!["Welsh"](../../../../images/posts/2022-05-30-afup-day-2022/welsh.jpeg)!["Visite nocturne de Lilles"](../../../../images/posts/2022-05-30-afup-day-2022/rues_de_lille.jpg)
+!["Welsh"](../../../../../../../images/posts/2022-05-30-afup-day-2022/welsh.jpeg)!["Visite nocturne de Lilles"](../../../../../../../images/posts/2022-05-30-afup-day-2022/rues_de_lille.jpg)

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Retour sur la Velocity New York Conference 2016"
 description: "Velocity New York 2016 - Performance, Scalabilité, Devops"
 author: Kenny Dits et Fabien de Saint pern

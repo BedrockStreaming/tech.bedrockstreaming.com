@@ -1,12 +1,12 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Providers AngularJS et configuration dynamique"
 description: "Comment surcharger un provider AngularJS pour le rendre configurable dynamiquement."
 author: team_cytron
 category:
 tags: [configuration, angular, cytron]
-feature-img: "../../../../images/posts/cytron/providersangular.jpg"
-thumbnail: "../../../../images/posts/cytron/providersangular.jpg"
+feature-img: "../../../../../../../images/posts/cytron/providersangular.jpg"
+thumbnail: "../../../../../../../images/posts/cytron/providersangular.jpg"
 comments: true
 permalink: surcharger-un-provider-angular
 ---

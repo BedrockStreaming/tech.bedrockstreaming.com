@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/conference.astro
+layout: ../../../../../layouts/conference.astro
 
 title: "Migration de 6PLAY - l'amour est dans le cloud"
 description: "Vidéo de la conférence de Pascal Martin à la Duck Conf"
@@ -10,8 +10,8 @@ youtubeId: xLELSIEt2xA
 
 category: 
 tags: [conference, video]
-feature-img: "../../../../images/posts/6play/logo.jpg"
-thumbnail: "../../../../images/posts/6play/logo.jpg"
+feature-img: "../../../../../../../images/posts/6play/logo.jpg"
+thumbnail: "../../../../../../../images/posts/6play/logo.jpg"
 comments: true
 redirect_from:
   - /pascal-martin-laduckconf/

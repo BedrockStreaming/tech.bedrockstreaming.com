@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Créer son association #LFT 02/06/23"
 description: ""
 author: g_treme

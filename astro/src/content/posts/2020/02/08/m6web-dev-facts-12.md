@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "M6Web Dev Facts #12"
 description: "Les plus belles phrases de nos équipes techniques"
 author: bedrock 
@@ -34,7 +34,7 @@ Reprenons un rythme soutenu des [devfacts](/tags/#devfacts) !
 > Si on fait ce choix, c’est comme tuer un chaton
 
 # Objets trouvés
-![team](../../../../images/posts/dev-facts-12/objet-trouvé.jpg)
+![team](../../../../../../../images/posts/dev-facts-12/objet-trouvé.jpg)
 
 # Manger ou décider il faut choisir
 > Une réunion sans nourriture devrait être un email.
@@ -55,7 +55,7 @@ Reprenons un rythme soutenu des [devfacts](/tags/#devfacts) !
 > Vivement qu'on passe slack sous le SSO, comme ça les gens ne viendront plus nous dire sur slack qu'ils n'ont pas accès au SSO
 
 # Aquarium
-![team](../../../../images/posts/dev-facts-12/mention-team-aquarium.gif)
+![team](../../../../../../../images/posts/dev-facts-12/mention-team-aquarium.gif)
 
 # Toutou
 > J’ai fait un fichier waf.tf dans le module waf, ca fait waf waf 
@@ -70,7 +70,7 @@ Reprenons un rythme soutenu des [devfacts](/tags/#devfacts) !
 > Un dev PHP: "C'est du JS mais ça se comprend presque"
 
 # La persévérance
-![perséverance](../../../../images/posts/dev-facts-12/perseverance.png)
+![perséverance](../../../../../../../images/posts/dev-facts-12/perseverance.png)
 
 # Les coûts
 > C’est le type de projet où il y a plus de jour-homme que d’utilisateurs

@@ -1,12 +1,12 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Simplifiez vous la vie avec les hooks Git"
 description: "Comment simplifier son quotidien de développeur Symfony2 avec nos hooks Git"
 author: m_randy
 category:
 tags: [git, hooks, workflow, composer, coke]
-feature-img: "../../../../images/posts/git-hooks.png"
-thumbnail: "../../../../images/posts/git-hooks.png"
+feature-img: "../../../../../../../images/posts/git-hooks.png"
+thumbnail: "../../../../../../../images/posts/git-hooks.png"
 comments: true
 ---
 

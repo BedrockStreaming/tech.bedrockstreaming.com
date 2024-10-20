@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "La POO Canada Dry"
 description: ""
 author: k_dits 

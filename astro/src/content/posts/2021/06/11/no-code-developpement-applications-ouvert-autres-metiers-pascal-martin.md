@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/conference.astro
+layout: ../../../../../layouts/conference.astro
 
 title: "No-code, ou le développement d’applications ouvert à d’autres métiers !"
 description: "Construire une application sans coder ? C’est une idée que j’entends depuis le début de mes études… Et c’est la promesse de no-code !"

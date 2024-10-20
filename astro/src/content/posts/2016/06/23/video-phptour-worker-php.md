@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Retour d’expérience : réaliser des Workers en PHP - Fabien de Saint pern au PHP Tour 2016 "
 description: "Vidéo présentée à Clermont Ferrand. Retour d’expérience : réaliser des Workers en PHP - Fabien de Saint pern - PHP Tour 2016 "
 author: TechM6Web

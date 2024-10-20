@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/conference.astro
+layout: ../../../../../layouts/conference.astro
 title: "Sauve un-e dév, écris une doc !"
 description: ""
 author: s_haim

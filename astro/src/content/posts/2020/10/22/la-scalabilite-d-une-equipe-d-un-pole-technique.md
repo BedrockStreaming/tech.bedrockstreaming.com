@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/conference.astro
+layout: ../../../../../layouts/conference.astro
 
 title: "La scalabilité d’une équipe / d’un pôle technique"
 author: m_randy

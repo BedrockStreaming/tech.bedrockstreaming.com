@@ -1,12 +1,12 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Les spikes : quand, comment, pour quoi faire ?"
 description: "Décomposer une tâche complexe, de A à Z"
 author: e_doyon
 tags: [spike, methodologie, cytron, tech]
 language: fr
 color: rgb(255,128,0)
-feature-img: "../../../../images/posts/how-to-spike/cactus.jpg"
+feature-img: "../../../../../../../images/posts/how-to-spike/cactus.jpg"
 permalink: how-to-spike
 ---
 

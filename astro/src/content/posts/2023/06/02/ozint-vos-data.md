@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "OZINT - Vos traces vous trahissent ! #LFT 02/06/23"
 description: ""
 author: a_martins

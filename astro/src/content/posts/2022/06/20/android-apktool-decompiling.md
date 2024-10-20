@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Debugging and reviewing your Android dependencies with apktool"
 description: "How decompiling your Android app using apktool can help you find the source of instrumentation issues at the bytecode level, as well as improve your review process."
 author: b_candellier

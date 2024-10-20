@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Fabriquer sa table avec plateau live edge : tout ce qu'il faut faire... ou pas ! #LFT 25/11/22"
 description: ""
 author: t_crespy

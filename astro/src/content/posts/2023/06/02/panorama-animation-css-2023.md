@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Du CSS aux shaders WebGL : panorama des techniques d'animation en 2023 #LFT 02/06/23"
 description: ""
 author: j_sulpis

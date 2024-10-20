@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Mon premier jeu sur BGA #LFT 02/02/24"
 description: ""
 author: o_thebault

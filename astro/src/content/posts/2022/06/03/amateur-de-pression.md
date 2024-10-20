@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Amateur de pression #LFT 03/06/22"
 description: ""
 author: h_riffiod

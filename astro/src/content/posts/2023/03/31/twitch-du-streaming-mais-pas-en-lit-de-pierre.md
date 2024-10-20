@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Twitch: du streaming mais pas en lit de pierre #LFT 31/03/23"
 description: ""
 author: q_gillie

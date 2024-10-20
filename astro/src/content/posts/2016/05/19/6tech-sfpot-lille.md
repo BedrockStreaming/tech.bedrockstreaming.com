@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "M6web sera présent au sfpot de Lille du 16/06/16"
 description: "Pierre Marichez, Renaud Bougré et Nicolas Beze y donneront une conférence sur l'industrialisation des développements chez M6Web."
 author: TechM6Web
@@ -10,7 +10,7 @@ author: TechM6Web
   
 category:
 tags: [6tech, lille, sfpot, conference]
-thumbnail: "../../../../images/posts/sfpot-lille/sfpot_juin.jpg"
+thumbnail: "../../../../../../../images/posts/sfpot-lille/sfpot_juin.jpg"
 comments: true
 ---
 

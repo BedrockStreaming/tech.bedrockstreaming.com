@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/conference.astro
+layout: ../../../../../layouts/conference.astro
 
 title: "DevOps ? Je n'ai jamais voulu faire ça, et pourtant …"
 author: s_lescano

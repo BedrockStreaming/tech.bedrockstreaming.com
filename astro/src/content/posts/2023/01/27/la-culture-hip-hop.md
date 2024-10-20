@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "La culture Hip-Hop #LFT 27/01/23"
 description: ""
 author: p_halter

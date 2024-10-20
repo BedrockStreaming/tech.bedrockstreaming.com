@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Nourrir nos IA #LFT 29/09/23"
 description: ""
 author: n_saby

@@ -1,12 +1,12 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "CR React Conférence 2015 - Day 1"
 description: "Compte rendu de la conférence React - Facebook HQ - Menlo Park - Day 1"
 author: k_dits
 category:
 tags: [javascript, react, flux, isomorphic, conference]
-feature-img: "../../../../images/posts/reactconf/reactconf.png"
-thumbnail: "../../../../images/posts/reactconf/reactconf.png"
+feature-img: "../../../../../../../images/posts/reactconf/reactconf.png"
+thumbnail: "../../../../../../../images/posts/reactconf/reactconf.png"
 comments: true
 ---
 
@@ -107,7 +107,7 @@ Ont été abordé :
 * Ainsi qu’une bonne pratique pour la réalisation des composants, qui est revenue plusieurs fois pendant la conf, consistant à englober le composant, dans un autre composant de type container ne contenant aucune « props ».
 
 En résumé : 
-![React Basic concepts for optimization](../../../../images/posts/reactconf/react-basic-concept-optim.png)
+![React Basic concepts for optimization](../../../../../../../images/posts/reactconf/react-basic-concept-optim.png)
 
 <iframe width="720" height="405" src="https://www.youtube.com/embed/KYzlpRvWZ6c" frameborder="0" allowfullscreen></iframe>
 

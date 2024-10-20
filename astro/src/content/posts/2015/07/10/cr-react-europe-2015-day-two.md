@@ -1,12 +1,12 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "CR React Europe Conférence 2015 - Day 2"
 description: "Compte rendu de la React Europe - Jour 2"
 author: Frédéric Vieudrin, Matthieu Guillermin, Florent Dubost, Kenny Dits
 category:
 tags: [javascript, react, reactnative, video, graphql]
-feature-img: "../../../../images/posts/reacteurope/reacteurope2.png"
-thumbnail: "../../../../images/posts/reacteurope/reacteurope2.png"
+feature-img: "../../../../../../../images/posts/reacteurope/reacteurope2.png"
+thumbnail: "../../../../../../../images/posts/reacteurope/reacteurope2.png"
 comments: true
 ---
 

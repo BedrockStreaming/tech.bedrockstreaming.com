@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "M6Web Dev Facts #7"
 description: "Les plus belles phrases de nos équipes technique"
 author: M6Web  

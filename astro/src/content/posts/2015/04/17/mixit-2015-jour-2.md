@@ -1,12 +1,12 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Mix-IT 2015 - Jour 2"
 description: "Retour des conférences vues lors du jour 2 du Mix-IT 2015"
 author: m_randy
 category:
 tags: [mixit, conference, agile, technique]
-feature-img: "../../../../images/posts/mixit2015/logo-mixit.png"
-thumbnail: "../../../../images/posts/mixit2015/logo-mixit.png"
+feature-img: "../../../../../../../images/posts/mixit2015/logo-mixit.png"
+thumbnail: "../../../../../../../images/posts/mixit2015/logo-mixit.png"
 comments: true
 ---
 

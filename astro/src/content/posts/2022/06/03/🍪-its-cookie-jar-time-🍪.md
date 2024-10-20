@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "🍪 It’s Cookie Jar Time 🍪 #LFT 03/06/22"
 description: ""
 author: e_carneau

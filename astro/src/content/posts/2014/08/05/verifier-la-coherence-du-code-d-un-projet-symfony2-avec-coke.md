@@ -1,12 +1,12 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Contrôlez facilement votre cohérence de code sur votre projet Symfony2 avec coke"
 description: "Voici comment facilement et rapidement mettre en place un système de contrôle de la cohérence du code d'un projet Symfony2 avec coke"
 author: m_randy
 category:
 tags: [code sniffing, coke, Symfony2]
-feature-img: "../../../../images/posts/coke-et-symfony2/feature.png"
-thumbnail: "../../../../images/posts/coke-et-symfony2/feature.png"
+feature-img: "../../../../../../../images/posts/coke-et-symfony2/feature.png"
+thumbnail: "../../../../../../../images/posts/coke-et-symfony2/feature.png"
 comments: true
 ---
 

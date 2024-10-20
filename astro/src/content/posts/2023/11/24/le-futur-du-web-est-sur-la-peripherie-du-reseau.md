@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Le futur du web est sur la périphérie du réseau #LFT 24/11/23"
 description: ""
 author: j_sulpis

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "La philo et les livres : mes compagnons de route pour les défis sportifs #LFT 27/01/23"
 description: ""
 author: c_pettinelli

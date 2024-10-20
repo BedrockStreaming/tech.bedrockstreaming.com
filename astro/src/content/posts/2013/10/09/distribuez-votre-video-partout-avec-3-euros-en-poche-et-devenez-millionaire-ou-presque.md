@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Distribuez votre vidéo partout avec 3 euros en poche et devenez millionaire. Ou presque."
 description: ""
 author: o_mansour 

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/conference.astro
+layout: ../../../../../layouts/conference.astro
 
 title: "Comment ne pas jeter son application Frontend tous les deux ans ?"
 author: [a_caron, f_dubost]

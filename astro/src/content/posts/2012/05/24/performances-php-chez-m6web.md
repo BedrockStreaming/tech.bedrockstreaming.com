@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Performances PHP chez M6Web"
 description: ""
 author: k_dits

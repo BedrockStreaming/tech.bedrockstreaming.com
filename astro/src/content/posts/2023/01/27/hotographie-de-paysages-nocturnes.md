@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "La photographie de paysages nocturnes #LFT 27/01/23"
 description: ""
 author: c_niel

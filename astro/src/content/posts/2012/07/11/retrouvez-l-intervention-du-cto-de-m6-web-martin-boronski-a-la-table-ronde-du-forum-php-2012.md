@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/post.astro
+layout: ../../../../../layouts/post.astro
 title: "Retrouvez l'intervention du CTO de M6 Web, Martin Boronski, à la table ronde du Forum PHP 2012"
 description: ""
 author: o_mansour

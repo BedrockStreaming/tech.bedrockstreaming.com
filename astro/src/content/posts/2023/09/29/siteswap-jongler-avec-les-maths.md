@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/video.astro
+layout: ../../../../../layouts/video.astro
 title: "Siteswap: jongler avec les maths #LFT 29/09/23"
 description: ""
 author: d_krieger

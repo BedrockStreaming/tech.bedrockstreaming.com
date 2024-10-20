@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/conference.astro
+layout: ../../../../../layouts/conference.astro
 title: Comprenez comment PHP fonctionne, vos applications marcheront mieux, Forum PHP 2022
 description: |
     Cycle de vie de PHP, communication entre nginx et php-fpm, approche shared-nothing, compilation et cache d’opcodes, 
