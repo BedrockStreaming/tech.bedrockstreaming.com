@@ -27,11 +27,11 @@ VPC peering is a point-to-point connection between 2 VPCs.
 It is a great example of complex network management because it adds a new topology to the network architecture.  
 On this diagram you can see an example of VPC peering usage. It's not that messy yet but at scale it will be.
 
-![Network architecture without Transit Gateway](/images/posts/2023-03-02-aws_tgw/tgw.png)
+![Network architecture without Transit Gateway](../../../../images/posts/2023-03-02-aws_tgw/tgw.png)
 
 By acting as a “cloud router”, TGW centralizes network connections and takes control of packet forwarding between VPCs.  
 
-![Network architecture with Transit Gateway](/images/posts/2023-03-02-aws_tgw/tgw2.png)
+![Network architecture with Transit Gateway](../../../../images/posts/2023-03-02-aws_tgw/tgw2.png)
 
 VPC peerings are not required anymore, we go back to a simpler star network topology thanks to Transit Gateway which really does address the complexity and restrictions of VPC peerings.  
 At that point, TGW seems to be the perfect answer for a simpler network architecture.

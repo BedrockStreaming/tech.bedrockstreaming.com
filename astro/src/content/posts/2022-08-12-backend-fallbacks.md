@@ -32,7 +32,7 @@ This means that we focus on the business, as described by our Product Owner. We 
 
 A picture is always easier to understand.
 
-![asking for a layout to the domain means asking a interface for](/images/posts/2022-08-12-backend-fallbacks/ddd-page-min.png)
+![asking for a layout to the domain means asking a interface for](../../../../images/posts/2022-08-12-backend-fallbacks/ddd-page-min.png)
 
 Above, we can see that when a user ask for a layout A, we are looking to resolve who is `A`.
 From the domain point of view, the page collection is only an interface. 
@@ -41,7 +41,7 @@ In the picture below, we see the "Page collection implem (Infra)".
 It's a layer implementing the interface defined in the domain. It uses multiple clients that call the services behind.
 It's its responsibility to chose which service to look on for the page.
 
-![page collection implementation chose the correct data source](/images/posts/2022-08-12-backend-fallbacks/ddd-page-full.png)
+![page collection implementation chose the correct data source](../../../../images/posts/2022-08-12-backend-fallbacks/ddd-page-full.png)
 
 DDD is a too large subjects to be perfectly defined in this article. If you want to dig deeper into it, there are multiple great reads, feel free to check them out!
 Now, how does this help us?
@@ -116,7 +116,7 @@ Luckily, we can rely on the stale cache.
 Stale cache is an old cache entry which is expired. When the cache finds such entry, it usually ignores it and asks for a new version of the response.
 In case of failure, we can use the available staled version.
 
-![following first example, when the http fails to answer, we use the stale cached response](/images/posts/2022-08-12-backend-fallbacks/stale-cache-usage.png)
+![following first example, when the http fails to answer, we use the stale cached response](../../../../images/posts/2022-08-12-backend-fallbacks/stale-cache-usage.png)
 
 _The limitation is that a response must have been cached at least once, in order to have a staled version._
 

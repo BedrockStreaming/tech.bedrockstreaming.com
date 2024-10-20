@@ -14,7 +14,7 @@ Earlier this year took place the [Euro soccer competition](https://www.uefa.com/
 
 This feature was actually first developed back in 2021, for a similar reason: yet another Euro soccer tournament! Back then, it was a very simple feature: display a page to the user, once per session and prior to any kind of backend call, that would prompt them to go to the football. Here's what it looked like:
 
-![Photo of the old Special Event page, in 2021](/images/posts/2024-08-07-euro-resiliency-special-event-page/Old_SEP.png)
+![Photo of the old Special Event page, in 2021](../../../../images/posts/2024-08-07-euro-resiliency-special-event-page/Old_SEP.png)
 
 It was a very simple page (no background, only the two teams and two buttons were displayed), which was only developed for the Web clients, but it served its purpose.
 For every soccer evening, we would handle far more traffic than what we usually handled. If each one of these users would load a personalized homepage, search for a program, navigate around the app and do all kind of other actions, then it wouldn't take long for our backend servers to explode under the pressure, especially as most users who want to watch a football match arrive “at the same time”, over a few minutes before it starts, which makes it difficult for our servers to scale accordingly. Each user that saw that Special Event page and clicked on the Live button was one that was immediately directed to their content, **without any kind of backend call**. It was a very simple solution, it worked very well, felt great for our users, and it allowed us to alleviate a lot of the pressure our backend APIs would have otherwise faced.
@@ -35,7 +35,7 @@ One of our first goals was to make sure that most platforms (with a target goal 
 After consideration, we decided to go for **a Cookie-based solution**. When one of our fronts would request the homepage, for example, the request would first be caught by our CDN. It'd check for the existence of a given cookie in that request. If the cookie was present, then the user already saw the special event page and we'd let the request go through. If the cookie was not present, then we'd return the Special Event page to the user, along with **a new `Set-Cookie` header that would save that cookie to the user's device**, preventing them from seeing the Special Event page again for a given duration.
 The Special event page content would be a static, non-personalized version of a page that resembled one our backend API could return for the homepage, hosted in the cloud. We’d then be able to edit that page on the fly without bothering the frontend teams.
 
-![Request/Response graph showing the CDN send a Special Event page to a request without cookie, and the usual page if the cookie is present](/images/posts/2024-08-07-euro-resiliency-special-event-page/Request_Response_graph.png)
+![Request/Response graph showing the CDN send a Special Event page to a request without cookie, and the usual page if the cookie is present](../../../../images/posts/2024-08-07-euro-resiliency-special-event-page/Request_Response_graph.png)
 
 With this solution, we also reaped another benefit: phone apps. When a new version of the application is released, not everyone always updates theirs. We could require an update, but it’s not really a good experience for a user to be prompted to update their app ever-so-often (and it can translate into a slight portion of our audience choosing to uninstall the app instead), so that's a mean we wish to avoid as much as possible. With the solution described above, managing everything using nothing but cookies and http headers meant that not a single line of code needed to be written by our frontend teams, so aside from one small change to enable cookie storage (That we could plan for long in advance), **no new version was needed**!
 
@@ -53,12 +53,12 @@ The second issue we encountered was with **Server-Side Rendering**, that the Web
 
 With these small issues now behind us, the Special Event was ready to be released. We prepared the static files, configured the last details for the cookie duration, and voilà!
 
-![Photo of the new Special Event page, in 2024](/images/posts/2024-08-07-euro-resiliency-special-event-page/New_SEP.png)
+![Photo of the new Special Event page, in 2024](../../../../images/posts/2024-08-07-euro-resiliency-special-event-page/New_SEP.png)
 
 As soon as the feature came live, we could instantly see the impact it had on our traffic, with **the pressure on our servers diminishing drastically**.
 
-![Graph displaying the proportion of Special Event page distributed, with around 70% of pages being the Special Event Page once enabled](/images/posts/2024-08-07-euro-resiliency-special-event-page/SEP_graph_effic.png)
-![Graph displaying the amount of specific pages response, decreasing by almost 2 times when the Special Event page was displayed](/images/posts/2024-08-07-euro-resiliency-special-event-page/SEP_response_decrease.png)
+![Graph displaying the proportion of Special Event page distributed, with around 70% of pages being the Special Event Page once enabled](../../../../images/posts/2024-08-07-euro-resiliency-special-event-page/SEP_graph_effic.png)
+![Graph displaying the amount of specific pages response, decreasing by almost 2 times when the Special Event page was displayed](../../../../images/posts/2024-08-07-euro-resiliency-special-event-page/SEP_response_decrease.png)
 
 While the Special Event page was a success, enabling our users to reach the soccer matches with nothing more than **one single click**, while at the same time allowing us to reduce a lot of the incoming traffic on our backend servers, it was not the only feature that we developed to prepare for such a massive event. We also worked on quite a few topics, such as the *layout at edge*, or a huge workshop on a way to *load-test efficiently our services*. We will communicate about these at some point in the future, so keep an eye out for this!
 

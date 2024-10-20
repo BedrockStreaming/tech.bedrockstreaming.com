@@ -85,4 +85,4 @@ So far, I don't really see the point of having a lot of clusters and even less o
 
 For the evening, we went to an all-attendees party at [Tivoli Gardens](https://en.wikipedia.org/wiki/Tivoli_Gardens), an amusement park and pleasure garden right in the middle of Copenhagen. We walked around for a bit, before settling for a beer and a few snacks, talking with other French Kubenetes fans.
 
-![Pascal and Vincent at Tivoli](/images/posts/kubecon-2018/tivoli-gardens-pascal-and-vincent.jpg)
+![Pascal and Vincent at Tivoli](../../../../images/posts/kubecon-2018/tivoli-gardens-pascal-and-vincent.jpg)

@@ -76,7 +76,7 @@ m6_statsd:
                 increment: errors.<status_code>.yourapp
 {% endhighlight %}
 
-![example of simple PHP dashboard](/images/posts/statsd/php_metrics.jpg)
+![example of simple PHP dashboard](../../../../images/posts/statsd/php_metrics.jpg)
 
 Offering this to the tech team means that I am now pretty sure that almost all new PHP apps pop with those metrics out of the box.
 
@@ -96,14 +96,14 @@ About 120K metrics are collected on our platform. That's a lot.
 
 Graphite dashboards are quite rustic. But surprisingly lots of non-techs people use this tool: SEO experts, advertising managers, contributors, ...
 
-![SEO](/images/posts/statsd/crawl.png)
+![SEO](../../../../images/posts/statsd/crawl.png)
 
-![video](/images/posts/statsd/dash_video.png)
+![video](../../../../images/posts/statsd/dash_video.png)
 
 
 For now we keep using Graphite. We try to keep our dashboards organised and well named.
 
-For alerting purpose, [a tool based on Graphite JSON output has been developed](/images/posts/statsd/mayday.jpg). It sends emails when it reaches some user defined conditions. Honestly, it does the job, but frankly we are still looking for something else, more flexible with more notification systems than emails.
+For alerting purpose, [a tool based on Graphite JSON output has been developed](../../../../images/posts/statsd/mayday.jpg). It sends emails when it reaches some user defined conditions. Honestly, it does the job, but frankly we are still looking for something else, more flexible with more notification systems than emails.
 
 If you use such a tool, and you're happy with it, please let us know in the comments.
 

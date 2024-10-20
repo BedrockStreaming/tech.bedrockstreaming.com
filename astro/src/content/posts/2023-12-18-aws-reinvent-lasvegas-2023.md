@@ -18,7 +18,7 @@ Alongside these announcements, we had the opportunity to attend talks by some of
 
 ## How Amazon scales resilience to new heights 
 
-![Practice like you play](/images/posts/2023-12-18-aws-reinvent-lasvegas-2023/aws-reinvent-2023-resilience.jpg)
+![Practice like you play](../../../../images/posts/2023-12-18-aws-reinvent-lasvegas-2023/aws-reinvent-2023-resilience.jpg)
 
 Olga Hall, Director of Live Events Availability & Resilience at Amazon Prime Video, and Lauren Domb, Chief Technologist, WWP Federal Financial Services, WW Chaos Engineering Lead at AWS, [discussed the importance of resilience in the streaming industry](https://www.youtube.com/watch?v=r3J0fEgNCLQ).
 
@@ -70,7 +70,7 @@ At Bedrock Streaming we already display a page in case of trouble, but we can im
 Netflix likes to say that one of its missions is to spread joy. This involves two aspects: offering users a fully personalized homepage and 
 benefiting from a scalable, low-cost architecture (so that Netflix's techies are happy too). 
 
-![Quoting Marie Kondō, Netflix engineers remind us that one of their missions is to "spread joy"](/images/posts/2023-12-18-aws-reinvent-lasvegas-2023/aws-reinvent-2023-netflix.jpg)
+![Quoting Marie Kondō, Netflix engineers remind us that one of their missions is to "spread joy"](../../../../images/posts/2023-12-18-aws-reinvent-lasvegas-2023/aws-reinvent-2023-netflix.jpg)
 
 This conference addressed many of the issues we are familiar with: a home page that calls on a large number of microservices to display content to the user, scaling issues, cost management...
 
@@ -87,7 +87,7 @@ While we don't yet work on the same scale as Netflix, attending this conference 
 It's often said that "what happens in Vegas stays in Vegas", but for some of us, this edition of Re:invent was our first time at a conference of this magnitude. So it's hard not to share some of our feedback with you!
 
 First of all, a word about Vegas, the city of excess which hosts Re:invent every year, and which has been transformed for us into an open-air R&D ground! From Fremont Street to the brand-new Sphere, there are screens EVERYWHERE in this city, which has aroused our curiosity as video streaming professionals... 
-![A troll masterpiece: Google has been advertising on the sphere for the duration of Reinvent](/images/posts/2023-12-18-aws-reinvent-lasvegas-2023/aws-reinvent-2023-google.jpeg)
+![A troll masterpiece: Google has been advertising on the sphere for the duration of Reinvent](../../../../images/posts/2023-12-18-aws-reinvent-lasvegas-2023/aws-reinvent-2023-google.jpeg)
 
 On the eve of Reinvent, the city is transformed: tourists give way to speakers from all over the world, advertising screens talk of nothing but cloud solutions, scalability and artificial intelligence... It's an incredible phenomenon to behold!
 
@@ -101,7 +101,7 @@ While Adam Zelisky's conference was undoubtedly a masterpiece (production, new s
 Based on [the laws of the "frugal architect"](https://thefrugalarchitect.com/), this keynote spoke to everyone: technicians, business people, product managers... It took up the elementary concepts of what should motivate our design of IT solutions: cost awareness, the indispensable balance between commercial and technical needs, or the danger of never questioning oneself, quoting Grace Hopper: "One of the most dangerous phrases in the English language is: *'We've always done it this way'*"
 We encourage you to watch [the replay of this keynote](https://www.youtube.com/watch?v=UTRBVPvzt9w), a must-see!
 
-![Screenshot of one of the excellent edits made for the keynote of Werner Vogels](/images/posts/2023-12-18-aws-reinvent-lasvegas-2023/aws-reinvent-2023-werner.jpg)
+![Screenshot of one of the excellent edits made for the keynote of Werner Vogels](../../../../images/posts/2023-12-18-aws-reinvent-lasvegas-2023/aws-reinvent-2023-werner.jpg)
 
 
 Beyond the gigantism of the event, let's look at what we've taken away from our participation in Reinvent. Attending a conference is always an opportunity to take a step back on our current work themes: we attended many conferences on resilience, scalability and new architectures: 

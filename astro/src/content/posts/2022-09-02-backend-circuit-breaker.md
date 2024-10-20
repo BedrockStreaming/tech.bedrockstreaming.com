@@ -35,7 +35,7 @@ Here are some examples:
 Displaying a video progress bar is useful for end users, but it's better to not display this information instead of risking the entire page to not be displayed!
 If the service that stores video viewing sessions is (slowing) down, we can stop asking for this information and stop displaying the video progress bar.
 
-![a video with a progress bar](/images/posts/2022-09-02-backend-circuit-breaker/progress-bar.png)
+![a video with a progress bar](../../../../images/posts/2022-09-02-backend-circuit-breaker/progress-bar.png)
 
 *User geolocation*
 
@@ -70,12 +70,12 @@ To see when the circuit breaker is open, we catch the ganesha's `RejectedExcepti
 This allows us to look for the exact number of calls avoided.
 Below lies an example of a monitoring chart showing some errors happening during a usual night.
 
-![monitoring excluding less reliable services](/images/posts/2022-09-02-backend-circuit-breaker/monitoring-1.png)
+![monitoring excluding less reliable services](../../../../images/posts/2022-09-02-backend-circuit-breaker/monitoring-1.png)
 
 We also have to query slower services that often trigger our circuit breaker because they cannot answer in the short timeout we impose.
 Thereafter, the same monitoring chart including such services.
 
-![monitoring including less reliable service](/images/posts/2022-09-02-backend-circuit-breaker/monitoring-2.png)
+![monitoring including less reliable service](../../../../images/posts/2022-09-02-backend-circuit-breaker/monitoring-2.png)
 
 
 ## Going further

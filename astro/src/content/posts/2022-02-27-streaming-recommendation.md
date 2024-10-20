@@ -60,11 +60,11 @@ We asked Amazon to help us and they changed the option for us.
 
 If you're a big fan of reality TV shows, you will see that:
 
-![recommendations of reality TV shows](/images/posts/2022-02-27-streaming-recommendation/tv_reality_show.png)
+![recommendations of reality TV shows](../../../../images/posts/2022-02-27-streaming-recommendation/tv_reality_show.png)
 
 If you prefer reports, you will see that instead:
 
-![recommendations of reports](/images/posts/2022-02-27-streaming-recommendation/header.png)
+![recommendations of reports](../../../../images/posts/2022-02-27-streaming-recommendation/header.png)
 
 ## What now?
 

@@ -30,7 +30,7 @@ Trying to run Machine Learning on Kubernetes? Working with Jupyter and Tensorflo
 Even if we *never fall*, running with scissors could be dangerous. We wouldn't run with scissors, would we? Then, why do we keep running containers with privileges they should not need? And why do we mount more directories than needed as volumes?
 
 
-![Just before the Keynotes](/images/posts/kubecon-2018/pascal-and-vincent-at-kubecon.jpg)
+![Just before the Keynotes](../../../../images/posts/kubecon-2018/pascal-and-vincent-at-kubecon.jpg)
 
 
 # Chaos Engineering WG Deep Dive – Sylvain Hellegouarch, ChaosIQ
@@ -114,4 +114,4 @@ I heard about [Vitess](https://vitess.io/) for the first time during this KubeCo
 
 The weather was nice and our plane was only on Saturday, so we finished the day with a walk in the City.
 
-![Doing some sightseeing in the city after KubeCon](/images/posts/kubecon-2018/a-boat-in-the-city.jpg)
+![Doing some sightseeing in the city after KubeCon](../../../../images/posts/kubecon-2018/a-boat-in-the-city.jpg)

@@ -32,7 +32,7 @@ We provide them with a **design system**: a set of visual assets they can use to
 Hereunder are some sample screens composed of design system components for different customers: 
 
 :-:|:-:|:-:  
-![](/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/home-m6plus.png) | ![](/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/home-videoland.png) | ![](/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/home-rtlhu.png)  
+![](../../../../images/posts/2024-08-22-how-to-manage-hundreds-of-templates/home-m6plus.png) | ![](../../../../images/posts/2024-08-22-how-to-manage-hundreds-of-templates/home-videoland.png) | ![](../../../../images/posts/2024-08-22-how-to-manage-hundreds-of-templates/home-rtlhu.png)  
 
 This results in approximately one hundred design elements per client. However, not all components are always specific, and an **inheritance** system is in place to allow clients to reuse default atoms, molecules, or organisms while applying the tokens corresponding to their brand.  
 
@@ -50,7 +50,7 @@ To ensure its interest and effectiveness, this system had to address several iss
 
 Exemple of a Design System release note:
 
-![Release note of the design system](/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/design-release-note.png)  
+![Release note of the design system](../../../../images/posts/2024-08-22-how-to-manage-hundreds-of-templates/design-release-note.png)  
  
 Initially, the design team started by versioning its releases and all available components, which are accessible to technical teams in our online design documentation (hosted on [zeroheight](https://zeroheight.com/)). This versioning is **common to all platforms** and all clients if there are no specificities for the component in question. Ultimately, versioning helps product and technical teams track the delivery progress of new designs. The version number follows these rules:
 
@@ -76,13 +76,13 @@ Each client has its **versioning file** containing all the components available 
 
 Default Versioning file | Customer Versioning file  
 :-------------------------:|:-------------------------:  
-![](/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/versioning-file-default.png) | ![](/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/versioning-file-customer.png)  
+![](../../../../images/posts/2024-08-22-how-to-manage-hundreds-of-templates/versioning-file-default.png) | ![](../../../../images/posts/2024-08-22-how-to-manage-hundreds-of-templates/versioning-file-customer.png)  
               
 From these **versioning files**, we have been able to generate **reports** for each platform containing only the available graphical elements and their version, whether inherited or not. To track their growing number, we opted for automatic generation of these reports with each build using a Gradle Plugin integrated on our continuous deployment and integration (CI/CD): [Bitrise](https://bitrise.io/). Now, they are generated using a [Mkdocs](https://www.mkdocs.org/) plugin to be published online automatically with our technical documentation.
 
 Automatically generated template versioning report for M6+:
 
-![Template versioning report for a customer](/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/template-versioning-report.png)  
+![Template versioning report for a customer](../../../../images/posts/2024-08-22-how-to-manage-hundreds-of-templates/template-versioning-report.png)  
 
 ## Conclusion
 

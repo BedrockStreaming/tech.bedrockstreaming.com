@@ -107,7 +107,7 @@ Ont été abordé :
 * Ainsi qu’une bonne pratique pour la réalisation des composants, qui est revenue plusieurs fois pendant la conf, consistant à englober le composant, dans un autre composant de type container ne contenant aucune « props ».
 
 En résumé : 
-![React Basic concepts for optimization](/images/posts/reactconf/react-basic-concept-optim.png)
+![React Basic concepts for optimization](../../../../images/posts/reactconf/react-basic-concept-optim.png)
 
 <iframe width="720" height="405" src="https://www.youtube.com/embed/KYzlpRvWZ6c" frameborder="0" allowfullscreen></iframe>
 

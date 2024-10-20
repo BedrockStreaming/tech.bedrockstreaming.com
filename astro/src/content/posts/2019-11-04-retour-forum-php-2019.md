@@ -54,7 +54,7 @@ La dernière conférence du premier jour de ce Forum, par [Marie-Cécile GODWIN]
 
 Celle du second jour était plus légère : Roland LEHOUCQ nous a parlé de physique, en tirant ses exemples et anecdotes de Star Wars. Qu’est-ce que la Force ? Quelle puissance est capable d’exploiter Palpatine ? Ou combien de gigawatts extrait un sabre-laser ? Une très bonne clôture pour ce Forum !
 
-![Quelle est la puissance d'un sabre laser ?](/images/posts/forumphp2019/puissance-sabre-laser.jpg)
+![Quelle est la puissance d'un sabre laser ?](../../../../images/posts/forumphp2019/puissance-sabre-laser.jpg)
 
 Nous avons aussi présenté deux conférences, autour de sujets que nous pratiquons au quotidien chez M6 Distribution :
 
@@ -63,4 +63,4 @@ Nous avons aussi présenté deux conférences, autour de sujets que nous pratiqu
 
 L’[AFUP Day 2020 Lyon](https://event.afup.org/afup-day-2020/afup-day-2020-lyon/) est déjà en train de s’organiser ! Nous y serons sans doute en nombre et espérons vous y rencontrer à nouveau !
 
-![They did not know it was impossible, so they did it… in PHP!](/images/posts/forumphp2019/impossible-did-it-in-php.jpg)
+![They did not know it was impossible, so they did it… in PHP!](../../../../images/posts/forumphp2019/impossible-did-it-in-php.jpg)

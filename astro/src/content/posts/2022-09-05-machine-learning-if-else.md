@@ -15,7 +15,7 @@ It was a joke but this one made me think.
 
 *This is a running gag: machine learning is only a series of if and else.*
 
-![unicorn in the forest](/images/posts/2022-09-05-machine-learning-if-else/unicorn_forest.jpg)
+![unicorn in the forest](../../../../images/posts/2022-09-05-machine-learning-if-else/unicorn_forest.jpg)
 
 Beyond the joke, it is true?
 
@@ -26,7 +26,7 @@ Yes! …and no. As always, it depends.
 ## A recap of machine learning
 The idea of machine learning is: you have some data, and you apply an algorithm to these to detect a pattern. You put this pattern into a function.
 
-![machine learning representation schema](/images/posts/2022-09-05-machine-learning-if-else/ML%20recap.png)
+![machine learning representation schema](../../../../images/posts/2022-09-05-machine-learning-if-else/ML%20recap.png)
 
 Then, you'll be able to use this function on new data to extract new information.
 
@@ -34,7 +34,7 @@ Then, you'll be able to use this function on new data to extract new information
 
 There are different types of machine learning. If you decide to build a decision tree (a famous way to do machine learning) to know the form of a diamond, you’ll get something like that:
 
-![decision tree](/images/posts/2022-09-05-machine-learning-if-else/decision_tree.png)
+![decision tree](../../../../images/posts/2022-09-05-machine-learning-if-else/decision_tree.png)
 
 If you translate it with code, you’ll get something like that:
 
@@ -85,7 +85,7 @@ But, you don’t write directly this code. You generate it using… mathematical
 
 As an example, you can get the result of a decision tree using an optimisation algorithm with the Shannon Entropy formula:
 
-![shannon entropy formula](/images/posts/2022-09-05-machine-learning-if-else/formula.png)
+![shannon entropy formula](../../../../images/posts/2022-09-05-machine-learning-if-else/formula.png)
 
 Let's suppose you want to guess the form (pentagon or plate) of a diamond according to its attributes. You have three diamonds:
 
@@ -107,7 +107,7 @@ The process is the following:
 
 Then, by keeping the *if* you get something like that:
   
-![decision tree - first step](/images/posts/2022-09-05-machine-learning-if-else/decision_tree_first_step.png)
+![decision tree - first step](../../../../images/posts/2022-09-05-machine-learning-if-else/decision_tree_first_step.png)
 
 The translation with a code is:
 
@@ -128,7 +128,7 @@ Note that you have a branch (below *low*) with a plate and a pentagon. It corres
   
 By keeping the new *if*, you get another branch:
 
-![decision tree - second step](/images/posts/2022-09-05-machine-learning-if-else/decision_tree_second_step.png)
+![decision tree - second step](../../../../images/posts/2022-09-05-machine-learning-if-else/decision_tree_second_step.png)
 
 The translation with a code is:
 ```python
@@ -139,7 +139,7 @@ else:
 ```
 
 At the end, you get a final tree decision:
-![decision tree - final](/images/posts/2022-09-05-machine-learning-if-else/decision_tree_final.png)
+![decision tree - final](../../../../images/posts/2022-09-05-machine-learning-if-else/decision_tree_final.png)
 
 with a final code:
 

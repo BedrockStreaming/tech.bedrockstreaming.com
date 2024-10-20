@@ -34,13 +34,13 @@ Ce Forum a aussi été l’occasion de voir (ou revoir) quelques principes fonda
 
 Ils ont présenté des exemples concrets, des mises en application de certains *Design Patterns* incontournables, toujours dans l’optique de découpler notre logique métier, de mieux réutiliser notre code et en améliorer la maintenabilité. Le *Domain Driven Design* a donc logiquement été mis à l’honneur, ainsi que le typage fort pour donner du sens au code et favoriser sa bonne utilisation. Pour éviter la dette technique, il faut *"acheter en avance la capacité de changer"*.
 
-![Create better object](/images/posts/forumphp2018/Create-better-object.jpg)
+![Create better object](../../../../images/posts/forumphp2018/Create-better-object.jpg)
 
 ### "We got rid of management"
 
 [Michelle Sanver](https://twitter.com/michellesanver) nous a présenté l’holacratie : un système d’organisation basé sur l’intelligence collective, utilisé chez Liip. Elle a démarré la conférence en expliquant les défauts de la hiérarchie pyramidale (la photo de la slide parle d’elle-même ;-)) :
 
-![Create better object](/images/posts/forumphp2018/We-got-rif-of-management.jpg)
+![Create better object](../../../../images/posts/forumphp2018/We-got-rif-of-management.jpg)
 
 En holacratie, la société s’organise en cercles et sous cercles de responsabilité et chaque collaborateur se voit donner des rôles et les moyens de l’assumer. Les décisions sont prises collectivement et le pouvoir n’est pas centralisé dans les mains de quelques personnes. Tout est basé sur la transparence, en particulier la rémunération et les budgets. Le but principal est d’assurer des conditions de travail bienveillantes et que chacun se sente en sécurité pour exprimer au mieux ses talents et réduire les tensions. Notamment, toutes les réunions sont facultatives :-D
 

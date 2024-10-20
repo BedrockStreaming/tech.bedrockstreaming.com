@@ -17,7 +17,7 @@ language: en
 
 Several libraries propose tools to implement Flux pattern easily. If no one stood out from the crowd at the beginning, now [Redux](https://redux.js.org/), created by [Dan Abramov](https://twitter.com/dan_abramov), is clearly the one that the community have chosen as you can see below. Most Flux based React start kits you can find are based on Redux.
 
-![Redux popularity](/images/posts/redux/redux-popularity.png)
+![Redux popularity](../../../../images/posts/redux/redux-popularity.png)
 
 At M6Web, our [6play web application](/beta-nouveau-6play-react-isomorphic/) is not designed with Redux, but we use [Fluxible](https://fluxible.io/). Fluxible is another Flux library, developed by Yahoo. We chose it back in December 2014, when we started the project, because Fluxible was at the time one of the few tool designed for [isomorphic applications](/isomorphic-single-page-app-parfaite-react-flux/). Moreover it was already used in production by Yahoo.
 
@@ -181,7 +181,7 @@ We export `mapStateToProps` function because in a few cases it contains logic th
 
 In this example, the link to Fluxible store is higher in components tree than the Redux one as we can see below.
 
-![Component tree](/images/posts/redux/component-tree.png)
+![Component tree](../../../../images/posts/redux/component-tree.png)
 
 It means that if Redux state changes, the Fluxible wrapper component won’t be reloaded but in the reverse case, both Fluxible and Redux wrapper components will rerender. In most scenarios, it doesn’t matter. Connection order of Redux and Fluxible is significant in two situations:
 

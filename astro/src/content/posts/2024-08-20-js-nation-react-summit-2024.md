@@ -68,7 +68,7 @@ Testing has been a guide and a real challenge since we began the JS web project 
 
 The first three are affected by the testing strategy. The _[Testing Trophy](https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications)_ can help to write the right tests given the **return on investment** of the different forms.
 
-![Testing Trophy: return on investment of the different forms of testing](/images/posts/2024-08-20-js-nation-react-summit-2024/testingTrophy.png)
+![Testing Trophy: return on investment of the different forms of testing](../../../../images/posts/2024-08-20-js-nation-react-summit-2024/testingTrophy.png)
 
 Eugene describes the various steps to build a reliable testing strategy:
 

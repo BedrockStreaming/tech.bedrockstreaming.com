@@ -14,9 +14,9 @@ Erratum : dans les phases de questions réponses, j'annonce une phase de test à
  
 Lors du match Suisse vs France, diffusé sur M6 pendant la coupe d'Europe de football, la brique users est montée à 75K RPM (soit 1200 rps) et 84K pour Islande vs France.
 
-![75K rpm](/images/posts/rex-cassandra/75K.jpg)
+![75K rpm](../../../../images/posts/rex-cassandra/75K.jpg)
 
-![84K rpm](/images/posts/rex-cassandra/84K.jpg)
+![84K rpm](../../../../images/posts/rex-cassandra/84K.jpg)
 
 
   

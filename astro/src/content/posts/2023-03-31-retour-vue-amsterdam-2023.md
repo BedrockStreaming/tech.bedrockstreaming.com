@@ -12,7 +12,7 @@ C’est dans le Theater Amsterdam que se sont déroulés ces deux jours de VueJS
 
 De nombreux sponsors étaient là pour l’occasion, ainsi que des écoles comme VueMastery ou VueSchool (proposant une toute nouvelle certification Vue), et des partenaires plus connus comme Storyblok ou Nuxt Labs.
 
-![2023-03-31-retour-vue-amsterdam-2023](/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-002.jpg)
+![2023-03-31-retour-vue-amsterdam-2023](../../../../images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-002.jpg)
 
 L’ambiance était au rendez-vous dès le début avec une conférence en musique, avec Tim Benniks guitare en main !
 
@@ -26,7 +26,7 @@ L’ensemble des conférences est visible sur [la chaîne youtube du JSWorld Con
 
 Evan You (créateur de [Vue](https://vuejs.org/) et [Vite](https://vitejs.dev/)) a présenté un état des lieux et des dernières avancées de Vue, épaulé par Alex Kyriakidis (fondateur de [VueSchool](https://vueschool.io/)).
 
-![2023-03-31-retour-vue-amsterdam-2023](/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-003.jpg)
+![2023-03-31-retour-vue-amsterdam-2023](../../../../images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-003.jpg)
 
 Commençant par un retour sur les nombreuses nouveautés de ces trois dernières années, pour les plus connues Vue 3, Vite, Vitest et Pinia, Evan a d'abord fait un focus sur la position de Vue 3 en tant que version par défaut depuis le 7 février 2022.
 
@@ -40,7 +40,7 @@ Enfin, Evan a présenté les projets à venir pour le core. La disparition de la
 
 ## La fin de vie de Vue 2
 
-![2023-03-31-retour-vue-amsterdam-2023](/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-end-of-vue2.JPG)
+![2023-03-31-retour-vue-amsterdam-2023](../../../../images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-end-of-vue2.JPG)
 
 Après avoir présenté l’état de l'écosystème qui gravite autour de Vue et Vite lors de sa conférence “State of the Vuenion 2023”, Evan You a terminé en dévoilant la date de fin de vie de Vue 2 au 31 décembre 2023.
 
@@ -50,7 +50,7 @@ Une [page dans la documentation](https://v2.vuejs.org/lts/) a été mise en plac
 
 ## Il était une fois… Histoire
 
-![2023-03-31-retour-vue-amsterdam-2023](/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-histoire.JPG)
+![2023-03-31-retour-vue-amsterdam-2023](../../../../images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-histoire.JPG)
 
 Guillaume Chau, un des membres de l’équipe de développement de Vue, a présenté l’outil [Histoire](https://histoire.dev/) durant une petite demi-heure.
 
@@ -64,7 +64,7 @@ Histoire utilise [Vite](https://vitejs.dev/) ce qui lui permet de s'intégrer da
 
 ## Une autre histoire de... migration !
 
-![2023-03-31-retour-vue-amsterdam-2023](/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-migration-vue3.JPG)
+![2023-03-31-retour-vue-amsterdam-2023](../../../../images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-migration-vue3.JPG)
 
 La société [Maersk](https://www.maersk.com/fr-fr/), spécialiste dans la logistique des transports, nous a présenté son application destinée entre autres, à la gestion des conteneurs maritimes. Une occasion pour nous faire part de leur processus de migration de Vue 2 vers Vue 3 !
 
@@ -77,7 +77,7 @@ Vous trouverez un article dédié sur la migration Vue 2 vers Vue 3 à Bedrock e
 
 ## "Let's Build A Virtual DOM"
 
-![2023-03-31-retour-vue-amsterdam-2023](/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-virtual-dom.jpg)
+![2023-03-31-retour-vue-amsterdam-2023](../../../../images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-virtual-dom.jpg)
 
 Certaines conférences étaient aussi l’occasion de rappeler des fondamentaux. Beaucoup de développeurs sont conscients que Vue utilise un système de DOM virtuel pour générer ses pages mais peu savent vraiment ce que cela signifie.
 
@@ -89,7 +89,7 @@ Ce dernier a d’ailleurs publié le code écrit sur son Github : https://github
 
 ## Le guide complet du packaging des librairies
 
-![2023-03-31-retour-vue-amsterdam-2023](/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-packaging.jpg)
+![2023-03-31-retour-vue-amsterdam-2023](../../../../images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-packaging.jpg)
 
 Cette conférence était présentée par Bjorn Lu (core team member de Astro, Vite et Svelte), et expliquait comment créer un package d’une librairie et le publier “presque” sans peine.
 
@@ -104,7 +104,7 @@ pour enfin terminer par une série d'outils et de “do and don’t” très pra
 
 ## Conclusion
 
-![2023-03-31-retour-vue-amsterdam-2023](/images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-bedrock-team.JPG)
+![2023-03-31-retour-vue-amsterdam-2023](../../../../images/posts/2023-03-31-retour-vue-amsterdam-2023/bedrock-vue-amsterdam-2023-bedrock-team.JPG)
 
 Ce séjour à Amsterdam pour assister à cette conférence de deux jours a été enrichissant à bien des égards.
 Non seulement la ville est belle et agréable à visiter, mais la découverte d'outils prometteurs répondant à nos besoins a également été un véritable apport pour notre entreprise.

@@ -25,18 +25,18 @@ These deployments include:
 
 ## RTL Play (Belgium)
 
-![RTL Play Belgium](/images/posts/6play-intl/rtl_play_be.png)
+![RTL Play Belgium](../../../../images/posts/6play-intl/rtl_play_be.png)
 
 https://www.rtlplay.be/
 
 ## RTL Play (Croatia)
 
-![RTL Play Croatia](/images/posts/6play-intl/rtl_play_hr.png)
+![RTL Play Croatia](../../../../images/posts/6play-intl/rtl_play_hr.png)
 
 https://play.rtl.hr/
 
 ## RTL Most (Hungary)
 
-![RTL Play Hungary](/images/posts/6play-intl/rtl_most.png)
+![RTL Play Hungary](../../../../images/posts/6play-intl/rtl_most.png)
 
 https://www.rtlmost.hu/

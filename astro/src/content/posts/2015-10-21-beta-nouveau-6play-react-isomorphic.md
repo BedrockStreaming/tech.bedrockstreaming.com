@@ -31,6 +31,6 @@ Au niveau tests, et parce que nous ne concevons plus de développer de tels proj
 
 Depuis lundi, vous pouvez désormais tester la bêta de ce service vidéo à l'adresse suivante : [https://beta.6play.fr](https://beta.6play.fr)
 
-[![6play Beta](/images/posts/6play/screen.jpg)](https://beta.6play.fr)
+[![6play Beta](../../../../images/posts/6play/screen.jpg)](https://beta.6play.fr)
 
 Pour ceux qui veulent en savoir plus sur cette refonte (notamment front-end), une conférence sera tenue par Kenny Dits ([@kenny_dee](https://twitter.com/kenny_dee)) lors de [Blend Web Mix](https://www.blendwebmix.com/programme.html), le 29 octobre à Lyon à 16h.

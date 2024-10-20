@@ -21,7 +21,7 @@ My teammate ([Laetitia BONANNI](https://medium.com/@LaetitiaBonanni)) and I are 
 
 The module, called Refresh, is a list of videos that are playing while the user is scrolling. It also provides a “theater mode” which is a way to create an immersive user experience by obscuring the cards that are not focused:
 
-![“Refresh” from 6Play application](/images/posts/refresh/refresh-detail.gif)
+![“Refresh” from 6Play application](../../../../images/posts/refresh/refresh-detail.gif)
 
 As any other video application, it provides a fullscreen experience to the user by rotating the device.
 
@@ -35,7 +35,7 @@ Dealing with React Native and its style APIs (which really looks like the web on
 
 That’s why our main idea was to manage the fullscreen mode by adding a style that takes the screen size and an absolute position. Thus, the video would have followed the device edges while rotating:
 
-![](/images/posts/refresh/refresh-web-way.png)
+![](../../../../images/posts/refresh/refresh-web-way.png)
 
 ### React Native styles are not the same as the web ones
 
@@ -65,7 +65,7 @@ And even if we would have found a way (we could have cheated by calculating nega
 
 _There are actually multiple opened issues concerning this problem. [Grabbou](https://github.com/grabbou) gave a shot on this one [#7229](https://github.com/facebook/react-native/issues/7229):_
 
-![Mike GRABOWSKI on 2017-11-27 concerning overflow on Android](/images/posts/refresh/grabowski.png)
+![Mike GRABOWSKI on 2017-11-27 concerning overflow on Android](../../../../images/posts/refresh/grabowski.png)
 
 ## Let’s make a fullscreen, the native way
 
@@ -73,11 +73,11 @@ Hopefully, we are working with native developers, from both platforms. We have s
 
 This time, while rotating the device, we would have hidden everything around the VideoPlayer component. No more headers, no more footers, nothing except the player. Then, we would have set the player size so that it matches the device size:
 
-![](/images/posts/refresh/refresh-mobile-way.png)
+![](../../../../images/posts/refresh/refresh-mobile-way.png)
 
 Here’s the result we have got:
 
-![Refresh’s fullscreen](/images/posts/refresh/refresh-mobile-way-image.gif)
+![Refresh’s fullscreen](../../../../images/posts/refresh/refresh-mobile-way-image.gif)
 
 ### What is happening on here?
 
@@ -121,7 +121,7 @@ So, how can we avoid this “yo-yo” behaviour ?
 
 Recently, we heard about [React portals](https://reactjs.org/docs/portals.html). It seems that it could have saved us from this specific situation. The idea is quite simple, we would have teleported the player from its current location to somewhere higher in the component tree, like the React Native documentation encourages us to, **without triggering special state based rendering-cycles (aka: Headers + Footers removals):**
 
-![React portal concept](/images/posts/refresh/refresh-treeview.gif)
+![React portal concept](../../../../images/posts/refresh/refresh-treeview.gif)
 
 The problem is that React Native doesn’t support them natively: portals are part of [ReactDOM](https://reactjs.org/docs/portals.html), not React itself. We can’t use it in our application.
 
@@ -139,7 +139,7 @@ Since we had the chance to be at the [React Native Europe](https://medium.zenika
 
 To demonstrate this idea, let’s take an example :
 
-![](/images/posts/refresh/refresh-unique-id.gif)
+![](../../../../images/posts/refresh/refresh-unique-id.gif)
 
 This is a simple application which provides two <Text> components and displays some content. On the right, we can see the native tree view. The cursor shows the two native views that need to permute. The idea is to make <Text>First</Text> taking place of <Text>Second</Text> and vice versa.
 
@@ -156,7 +156,7 @@ It’s possible, using React Native, to use the module responsible of view manag
 
 This will end up making something like:
 
-![Wait 3 seconds to check the view permutation](/images/posts/refresh/refresh-unique-id-2.gif)
+![Wait 3 seconds to check the view permutation](../../../../images/posts/refresh/refresh-unique-id-2.gif)
 
 It seems that creating a portal-like behaviour is possible using ReactNative.
 
@@ -211,11 +211,11 @@ In our context, it means that when the state isFullscreen is true, we are able t
 
 Here’s the result we’ve got:
 
-![Using reparenting](/images/posts/refresh/refresh-final.gif)
+![Using reparenting](../../../../images/posts/refresh/refresh-final.gif)
 
 ## Comparing both variants
 
-![Before — After](/images/posts/refresh/both-variants.gif)
+![Before — After](../../../../images/posts/refresh/both-variants.gif)
 
 It took us time to get this result, but we finally have something that meets our needs.
 

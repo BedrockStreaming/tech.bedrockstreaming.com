@@ -144,7 +144,7 @@ Action names are prefixed by the name of the `module` in which it is located.
 This gives a full name: `user/SET_USERS`.
 A big advantage of this naming rule is that you can easily filter the action in [redux-devtools](https://github.com/reduxjs/redux-devtools).
 
-![redux devtools screenshot](/images/posts/react-redux/redux-devtools.png)
+![redux devtools screenshot](../../../../images/posts/react-redux/redux-devtools.png)
 
 ### Always test your reducers
 
@@ -271,7 +271,7 @@ A `dispatch` action will pass through each of the reducers associated with this 
 An action at the other end of your application could affect this state without being expressed in the code.
 This should be avoided.
 
-![combine reducer schema](/images/posts/react-redux/combineReducer.png)
+![combine reducer schema](../../../../images/posts/react-redux/combineReducer.png)
 
 If you want to modify the state with an action from another module, you can do so by adding a `case` on that action.
 
@@ -468,7 +468,7 @@ Moreover, by using redux instead of the [useReducer] hook you can take advantage
 
 - [Use react with redux doc](https://redux.js.org/basics/usage-with-react)
 - [redux flow animated by Dan Abramov](https://github.com/reduxjs/redux/issues/653#issuecomment-216844781)
-  ![redux flow animated by Dan Abramov](/images/posts/react-redux/redux-flow.gif)
+  ![redux flow animated by Dan Abramov](../../../../images/posts/react-redux/redux-flow.gif)
 - [redux documentation about middlewares](https://redux.js.org/api/applymiddleware)
 - [immutable-set]
 

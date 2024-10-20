@@ -47,7 +47,7 @@ At Bedrock, we like to keep things simple. We think our CDN main mission is to s
 
 The real benefit to using S3 is that you can easily plug it into Glue and Athena which allows you to request TeraBytes of data easily.
 
-![technical Solution](/images/posts/2022-08-08-privateCdnLogs/image1.png)
+![technical Solution](../../../../images/posts/2022-08-08-privateCdnLogs/image1.png)
 
 ### Sending logs to S3: Vector
  

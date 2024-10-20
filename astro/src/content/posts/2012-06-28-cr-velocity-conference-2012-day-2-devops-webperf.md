@@ -14,7 +14,7 @@ Compte rendu des tracks DevOps/WebPerf de cette deuxième journée de cette Vél
 
 La matinée offrait un track unique dans une salle gigantesque.
 
-![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](/images/posts/velocityus2012-day2.jpg)
+![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](../../../../images/posts/velocityus2012-day2.jpg)
 
 Vidéo d'intro à la Vélocity !
 
@@ -22,7 +22,7 @@ Vidéo d'intro à la Vélocity !
 
 
 L'ouverture officielle est donc présentée par Steve Souders (Google) et John Allspaw (Etsy), toujours dans un show l'américaine, et même déguisés. 
-![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](/images/posts/velocityus2012-intro.jpg)
+![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](../../../../images/posts/velocityus2012-intro.jpg)
 
 S'enchaine ensuite un condensé de session plutôt courte par des acteurs très prestigieux du web.
 
@@ -53,7 +53,7 @@ Une explication sur les procédures de déploiement chez Facebook et leur gestio
 
 
 
-![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](/images/posts/velocityus2012-facebook.jpg)
+![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](../../../../images/posts/velocityus2012-facebook.jpg)
 Et pour finir, une anecdote assez drôle sur un incident ayant eu lieu chez Facebook, où toutes les fonctionnalités "non terminées" se sont un jour retrouvées en production.
 
 Bref, une conférence intéressante, mais très dense, dont je vous conseille de regarder la vidéo çi dessous.
@@ -120,7 +120,7 @@ Tout cela donne des idéées sur la façon de prédire ce que vont faire les int
 
 <iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/RnMI-dCWgec?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
-![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](/images/posts/velocityus2012-jason.jpg)
+![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](../../../../images/posts/velocityus2012-jason.jpg)
 
 #### [WebPerf] Performance Implications of Responsive Web Design, par Jason Grigsby (Cloud Four)
 
@@ -140,7 +140,7 @@ La conférence n'étant pas disponible en vidéo, vous pouvez déjécouter Jason
 Jason Grigsby interview la Vélocity Conf 2012
 
 
-![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](/images/posts/velocity2012-jason.jpg)
+![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](../../../../images/posts/velocity2012-jason.jpg)
 
 #### [WebPerf] RUM for Breakfast - Distilling Insights From the Noise, par Buddy Brewer (LogNormal), Philip Tellis (LogNormal, Inc) & Carlos Bueno (Facebook)
 
@@ -152,7 +152,7 @@ Slides : [https://www.slideshare.net/buddybrewer/rum-for-breakfast-distilling-in
 
 
 
-![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](/images/posts/velocityus2012-bouncerate.jpg)
+![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](../../../../images/posts/velocityus2012-bouncerate.jpg)
 
 #### [WebPerf] Rendering Slow? Too Much CSS3? Ask RSlow, par Marcel Duran (Twitter Inc.), David Calhoun (CBS Interactive)
 

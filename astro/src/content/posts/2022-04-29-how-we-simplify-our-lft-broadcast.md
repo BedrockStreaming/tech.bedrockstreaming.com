@@ -8,7 +8,7 @@ tags: [lft, talks, live, stream, obs, streamyard, conference]
 color: rgb(251,87,66)
 thumbnail: "../../../../images/posts/lft-streamyard/head.png"
 ---
-![LFT logo](/images/posts/lft-streamyard/head.png)
+![LFT logo](../../../../images/posts/lft-streamyard/head.png)
 
 Some time ago, we shared with you [an article explaining how we managed to capture and broadcast our conferences in the Bedrock auditorium](/2021/10/14/live-streaming-lft). 
 We must admit, it worked great, but we wanted to make it simpler.
@@ -50,9 +50,9 @@ This solution allows Bedrock employees to manage the LFT from any computer.
 
 Here are some sample images and overviews of the Streamyard UI:
 
-![Stream yard screenshot](/images/posts/lft-streamyard/streamyard.png)
+![Stream yard screenshot](../../../../images/posts/lft-streamyard/streamyard.png)
 
-![Stream yard screenshot with comment from chat](/images/posts/lft-streamyard/comment-from-chat.png)
+![Stream yard screenshot with comment from chat](../../../../images/posts/lft-streamyard/comment-from-chat.png)
 
 The positive points of Streamyard:
 
@@ -69,11 +69,11 @@ As a reminder, here is the organization of our auditorium during the live broadc
 The room is large enough to accommodate all Bedrockers who wish to attend in person the presentations of their colleagues. 
 The remote speakers have their conference broadcasted on the two screens of the room.
 
-![Auditorium plan](/images/posts/lft-streamyard/plan.jpg)
+![Auditorium plan](../../../../images/posts/lft-streamyard/plan.jpg)
 
-![Control desk](/images/posts/lft-streamyard/control-desk.png)
+![Control desk](../../../../images/posts/lft-streamyard/control-desk.png)
 
-![Auditorium room](/images/posts/lft-streamyard/amphi-bedrock.jpg)
+![Auditorium room](../../../../images/posts/lft-streamyard/amphi-bedrock.jpg)
 
 What has changed since we switched to Streamyard is mainly related to the way we capture the image and sound of what is displayed on the screen.
 Previously, we were using an Elgato HD60S+ device, to capture the HDMI output from the speaker broadcast. 
@@ -91,9 +91,9 @@ Just pass them the Streamyard link and they can use their webcam and their own m
 
 This is what our Stream setup now looks like with the cabling:
 
-![Speaker setup schema](/images/posts/lft-streamyard/setup.jpg)
+![Speaker setup schema](../../../../images/posts/lft-streamyard/setup.jpg)
 
-![Control desk setup](/images/posts/lft-streamyard/setup-desk.jpg)
+![Control desk setup](../../../../images/posts/lft-streamyard/setup-desk.jpg)
 
 ### What did we achieve?
 
@@ -112,7 +112,7 @@ Also, by going through the youtube chat, we can share questions directly on the 
 
 The LFT replays are also available on Bedrock's Youtube channel in a private way accessible to all employees.
 
-![Youtube video replay screenshot](/images/posts/lft-streamyard/replay.png)
+![Youtube video replay screenshot](../../../../images/posts/lft-streamyard/replay.png)
 
 ## Next steps
 

@@ -32,7 +32,7 @@ Les keynotes du matin semblaient être scénarisées sur différents points que 
 Steven Shorrock n’est pas un homme de l’IT, mais travaille autour de la sécurité aérienne. Il se définit comme un ergonomiste des systèmes. Il a présenté comment, autour des erreurs humaines, “les mots créaient le monde” et entrainaient immédiatement un jugement social (“négligence" est évidement plus connoté que “erreur d’attention”). Il peut y avoir des erreurs dans la définition d’une erreur. Qualifier une erreur demandait une définition précise de standards et de contextes.   
 Il a également conseillé d’étudier les cas de fonctionnement normaux ; ne pas faire seulement des *post-mortem* mais des *pre* et des *no* mortem.
 
-![hal](/images/posts/velocity2014/hal.jpg)
+![hal](../../../../images/posts/velocity2014/hal.jpg)
 
 Une présentation intéressante sur l’incident et l’erreur.
 
@@ -81,9 +81,9 @@ La dernière keynote était vraiment excellente. Mark Zeman, venu de Nouvelle Z�
 - de partager le savoir sous forme d’informations visuelles (graphique mais aussi sous forme [d'un bookmarklet](https://github.com/zeman/perfmap) indiquant quelle partie d'un site met du temps à charger)
 
 
-![better_perf_with_better_design1](/images/posts/velocity2014/better_perf_with_better_design1.jpg)
+![better_perf_with_better_design1](../../../../images/posts/velocity2014/better_perf_with_better_design1.jpg)
 
-![better_perf_with_better_design2](/images/posts/velocity2014/better_perf_with_better_design2.jpg)
+![better_perf_with_better_design2](../../../../images/posts/velocity2014/better_perf_with_better_design2.jpg)
 
 Je vous invite vivement à regarder sa vidéo : 
 
@@ -95,7 +95,7 @@ Je vous invite vivement à regarder sa vidéo :
 
 Ce manager au Financial Times a expliqué comment le journal a été touché de plein fouet par la révolution du web mobile et a dû s’adapter très rapidement. 
 
-![transfo_mobile_FT](/images/posts/velocity2014/transfo_mobile_FT.jpg)
+![transfo_mobile_FT](../../../../images/posts/velocity2014/transfo_mobile_FT.jpg)
 
 Il a expliqué quelle stratégie il a adoptée pour tuer ou refaire les vieux systèmes et comment, en premier lieu, il a vendu le projet à ses supérieurs.  
 Il a tout d’abord présenté le TCO de ce qu’il a appelé la version *”classic”* de ft.com (la carotte) puis a appuyé sur la peur de l’incident et les problèmes de sécurité (le bâton ; le journal ayant été la cible des pirates syriens). 
@@ -125,7 +125,7 @@ La conférence la plus geek de la journée. La conférencière a ouvert un termi
 brew install feminism
 ```
 
-![marni1](/images/posts/velocity2014/marni1.jpg)
+![marni1](../../../../images/posts/velocity2014/marni1.jpg)
 
 
 
@@ -269,6 +269,6 @@ Chose à savoir: Twitter va publier un package R contenant ces fonctions et algo
 
 Une première journée intéressante et intense, sous le soleil de Barcelone !
  
-![sun of Barcelona](/images/posts/velocity2014/sun.jpg) 
+![sun of Barcelona](../../../../images/posts/velocity2014/sun.jpg) 
 
 Le résumé de [la seconde journée]({% post_url 2014-11-24-cr-velocity-barcelona-2014-day-two %}) est également disponible.

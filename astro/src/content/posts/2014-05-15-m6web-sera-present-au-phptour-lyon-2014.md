@@ -12,7 +12,7 @@ comments: true
 
 M6Web sera bien représenté au [PHPTour 2014](https://www.phptour.org) organisé par l'[AFUP](https://www.afup.org) et est très heureux de soutenir l'évènement en étant sponsor Argent.
 
-![M6Web sponsor argent du PHPTour](/images/posts/phptour/PHPTourLyon2014_banner.png)
+![M6Web sponsor argent du PHPTour](../../../../images/posts/phptour/PHPTourLyon2014_banner.png)
 
 Venez nombreux [augmenter votre pilosité faciale](https://www.afup.org/pages/phptourlyon2014/sessions.php#1036), tel un vrai sysadmin.
 

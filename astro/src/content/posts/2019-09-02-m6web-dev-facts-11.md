@@ -106,14 +106,14 @@ $programId = 'chapeaupointu'
 > Pourriez-vous péter la prod plus souvent ? 
 
 
-![Urgence](/images/posts/dev-facts-11/37cycv.jpg)
+![Urgence](../../../../images/posts/dev-facts-11/37cycv.jpg)
 
-![Wat](/images/posts/dev-facts-11/37cygl.jpg)
+![Wat](../../../../images/posts/dev-facts-11/37cygl.jpg)
 
-![La migration](/images/posts/dev-facts-11/38ig7z.jpg)
+![La migration](../../../../images/posts/dev-facts-11/38ig7z.jpg)
 
-![Je l'aurai un jour](/images/posts/dev-facts-11/38ig77.jpg)
+![Je l'aurai un jour](../../../../images/posts/dev-facts-11/38ig77.jpg)
 
-![Futur](/images/posts/dev-facts-11/38igjr.jpg)
+![Futur](../../../../images/posts/dev-facts-11/38igjr.jpg)
 
-![Tf](/images/posts/dev-facts-11/38igr8.jpg)
+![Tf](../../../../images/posts/dev-facts-11/38igr8.jpg)

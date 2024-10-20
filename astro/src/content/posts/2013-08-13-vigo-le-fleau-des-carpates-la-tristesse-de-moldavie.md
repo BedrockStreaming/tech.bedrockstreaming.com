@@ -31,13 +31,13 @@ Tous les paramètres ajoutés à la ligne de commande et dans la configuration s
 
 Nous avons aussi amélioré l’affichage des résultats des tests. Il est ainsi possible de préciser pour chaque test : un titre et une description personnalisés afin de rendre les comptes-rendus plus compréhensible pour les utilisateurs. De même des commentaires utilisateurs peuvent être ajoutés plus simplement dans le déroulement des tests.
 
-![Affichage dans le terminal](/images/posts/imgob/0-00-30-83-201308-ob_a1e6705b03efdc2518ba5e18c284550a_vigo-console-5.png)
+![Affichage dans le terminal](../../../../images/posts/imgob/0-00-30-83-201308-ob_a1e6705b03efdc2518ba5e18c284550a_vigo-console-5.png)
 
 #### Intégration continue
 
 [CasperJS](https://casperjs.org/) génère nativement des rapports xUnit. [VigoJS](https://github.com/BedrockStreaming/VigoJS) intègre donc cette fonctionnalité pour être utilisé sur une plateforme d’intégration continue comme [Jenkins](https://jenkins-ci.org/). Il est aussi possible de modifier le paramètre *classPath* dans le fichier xUnit pour améliorer la lisibilité des résultats :
 
-![Affichage des résultats des tests dans Jenkins](/images/posts/imgob/0-00-30-83-201308-ob_5138f3_capture-d-e-cran-2013-08-01-a-15-57-02.png)
+![Affichage des résultats des tests dans Jenkins](../../../../images/posts/imgob/0-00-30-83-201308-ob_5138f3_capture-d-e-cran-2013-08-01-a-15-57-02.png)
 
 Le chemin dans lequel est généré le rapport est configurable par l’option *--buildPath* (ou dans la configuration) :
 

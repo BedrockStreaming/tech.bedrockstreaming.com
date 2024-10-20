@@ -12,7 +12,7 @@ comments: true
 
 La communauté Android a apporté le soleil sur Londres les 27 et 28 octobre 2022. La droidcon London a réuni plus de 1400 développeurs autour de l'écosystème Android, de ses outils et enjeux actuels. Jetpack Compose, évidemment, mais aussi Gradle, modularisation, optimisation et autres sujets plus divers ont été abordés lors de ce rendez-vous incontournable pour la communauté.
 
-![droidcon London 2022 entrance](/images/posts/2022-11-22-droidcon-london/entrance.jpg)
+![droidcon London 2022 entrance](../../../../images/posts/2022-11-22-droidcon-london/entrance.jpg)
 
 * TOC
 {:toc}
@@ -125,7 +125,7 @@ Material Design est un design system. Il a l'avantage d'être bien documenté, u
 Une des différences majeures entre Compose et le système de View sur Android est son découpage. Dans Compose, Material n'est implémenté et n’apparaît que dans la partie la plus hautes alors que dans le système de View, son implémentation est répartie dans toutes les couches de la librairie.  
 Il est donc assez complexe de se passer de Material avec le système de View mais cela est complétement envisageable, voire recommandé, dans certains cas avec Compose.  
 
-![Views VS Compose](/images/posts/2022-11-22-droidcon-london/views-vs-compose.png)
+![Views VS Compose](../../../../images/posts/2022-11-22-droidcon-london/views-vs-compose.png)
 
 Pour illustrer cela [Sebastiano Poggi](https://twitter.com/seebrock3r) (la moitié de [Coding with the italians](https://www.youtube.com/c/CodewiththeItalians)) est venu nous présenter, dans *"Compose beyond Material"*, les questions à se poser avant de se lancer dans son design system et comment le package [Foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) de Compose peut nous aider.  
 
@@ -249,4 +249,4 @@ Tout l'enjeu ici est de rester au contact des innovations et de l'évolution de 
 
 Nous attendons avec impatience de voir où va Android, et avons à coeur de participer à cette aventure qui nous lie tous !
 
-![Hall droidcon London 2022](/images/posts/2022-11-22-droidcon-london/hall.jpg)
+![Hall droidcon London 2022](../../../../images/posts/2022-11-22-droidcon-london/hall.jpg)

@@ -12,7 +12,7 @@ La fin de l'hiver approche, il est temps de faire un bilan ! Quelles bêtises le
 
 # La confiance 🤞
 
-![Image d'une Pull Request indiquant 'How to test ? Trust me'](/images/posts/dev-facts-19/how-to-test.png)
+![Image d'une Pull Request indiquant 'How to test ? Trust me'](../../../../images/posts/dev-facts-19/how-to-test.png)
 
 # Mieux qu'un readme
 
@@ -52,7 +52,7 @@ La fin de l'hiver approche, il est temps de faire un bilan ! Quelles bêtises le
 
 # On a tous un env de test. Certains ont aussi un env de prod.
 
-![Extrait de code définissant la variable DEV_ENV comme égal à prod](/images/posts/dev-facts-19/dev-env.png)
+![Extrait de code définissant la variable DEV_ENV comme égal à prod](../../../../images/posts/dev-facts-19/dev-env.png)
 
 # Peur de rien, sauf d'une chose...
 
@@ -108,7 +108,7 @@ La fin de l'hiver approche, il est temps de faire un bilan ! Quelles bêtises le
 
 # Partir comme un roi 👑
 
-![Image d'une pull request nommée "Wesh je fais ce squash et je touche plus a rien. Mic drop.](/images/posts/dev-facts-19/mic-drop.png)
+![Image d'une pull request nommée "Wesh je fais ce squash et je touche plus a rien. Mic drop.](../../../../images/posts/dev-facts-19/mic-drop.png)
 
 # Les grandes questions de la vie 🥐
 
@@ -154,7 +154,7 @@ La fin de l'hiver approche, il est temps de faire un bilan ! Quelles bêtises le
 
 # Error : Task completed successfully
 
-![Screen de popup d'erreur indiquant 'Build failed to complete successfully'](/images/posts/dev-facts-19/error-success.png)
+![Screen de popup d'erreur indiquant 'Build failed to complete successfully'](../../../../images/posts/dev-facts-19/error-success.png)
 
 # La confiance, 3.0 🤞
 
@@ -166,7 +166,7 @@ La fin de l'hiver approche, il est temps de faire un bilan ! Quelles bêtises le
 
 # Thomas the train 🚆
 
-![Message de status Slack indiquant 'Working remotely from the tchou tchou'](/images/posts/dev-facts-19/tchou-tchou.png)
+![Message de status Slack indiquant 'Working remotely from the tchou tchou'](../../../../images/posts/dev-facts-19/tchou-tchou.png)
 
 # Turlututu chapeau pointu !
 

@@ -13,13 +13,13 @@ Sur ce début 2022 les équipes de Bedrock se sont lachées ça promet pour le r
 
 # Promis !
 
-![Screenshot montrant un échange de message slack : une personne notifie qu’un de ses collègues a indiqué dans un message épinglé il y a un an que cela n’était pas encore fait. Et l'individu rajouta « Demain promis »](/images/posts/dev-facts-16/slack-screenshot.png)
+![Screenshot montrant un échange de message slack : une personne notifie qu’un de ses collègues a indiqué dans un message épinglé il y a un an que cela n’était pas encore fait. Et l'individu rajouta « Demain promis »](../../../../images/posts/dev-facts-16/slack-screenshot.png)
 
 # L'arbre qui cache la forêt
 
 > Quand c'est la couleur des noms de fichiers qui te permet de te repérer dans l'arborescence du projet… 
 
-![Screenshot d'une arborescence de fichiers où trois fichiers ont le même nom dans trois doissiers imbriqués](/images/posts/dev-facts-16/arbo-fichiers.png)
+![Screenshot d'une arborescence de fichiers où trois fichiers ont le même nom dans trois doissiers imbriqués](../../../../images/posts/dev-facts-16/arbo-fichiers.png)
 
 # La boucle a bouclé
 
@@ -129,7 +129,7 @@ Did you forget a "use" statement for another namespace?
 
 # Une histoire de dev enrhumé
 
-![Curé se trouvant devant la porte d'une abbaye et demandant "C'est ici l'abbaye REST ?"](/images/posts/dev-facts-16/abbaye-rest.jpeg)
+![Curé se trouvant devant la porte d'une abbaye et demandant "C'est ici l'abbaye REST ?"](../../../../images/posts/dev-facts-16/abbaye-rest.jpeg)
 
 # Qui s'appeleriot le CPU
 

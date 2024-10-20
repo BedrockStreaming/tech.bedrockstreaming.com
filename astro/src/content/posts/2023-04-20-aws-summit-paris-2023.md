@@ -22,7 +22,7 @@ Conférence présentée par :
 - Remy Pinsonneau, Architecte, eTF1
 
 
-![MyTF1 rq/s pendant un match](/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-etf1.jpg)
+![MyTF1 rq/s pendant un match](../../../../images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-etf1.jpg)
 
 [eTF1](https://tech.tf1.fr/) partage son retour d’expérience sur la Coupe du Monde de foot 2022 et les défis surmontés pour que leur plateforme de replay myTF1 propose une parfaite expérience utilisateur tout au long de l’événement.
 
@@ -48,7 +48,7 @@ Conférence présentée par :
 - Sébastien Butreau, Senior Partner Solutions Architect, AWS 
 - Sébastien Grazzini, Principal Solutions Architect, AWS
 
-![Amazon Code Whisperer](/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-amazon-code-whisperer.jpg)
+![Amazon Code Whisperer](../../../../images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-amazon-code-whisperer.jpg)
 
 Amazon annonce une sortie grand public, prochaine, de son assistant de développement par IA CodeWhisperer (update: depuis, [CodeWhisperer est passé GA](https://aws.amazon.com/blogs/aws/amazon-codewhisperer-free-for-individual-use-is-now-generally-available/)).  
 Nous avons eu droit à une démonstration de l’outil. En quelques minutes et seulement à l’aide de quelques commentaires, les deux présentateurs ont produit un script python capable de prendre en entrée un répertoire de photos et donner en sortie un JSON qui, pour chaque photo, donnait le nom de la célébrité présente dessus. 
@@ -61,7 +61,7 @@ L’outil d’Amazon a quelques atouts, notamment la fonctionnalité de suivi de
 
 Cette année encore, nous avons eu la chance de pouvoir partager notre expérience, lors d’une conférence donnée par [Pascal](https://twitter.com/pascal_martin), Principal Engineer et [AWS Hero](https://aws.amazon.com/developer/community/heroes/pascal-martin/) : « Bienvenue dans le Monde Merveilleux des Systèmes Distribués »
 
-![Pascal Martin en action !](/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-pascal-martin.jpg)
+![Pascal Martin en action !](../../../../images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-pascal-martin.jpg)
 
 Pourquoi s’embêter avec des Systèmes distribués ? Comment en tirer profit ? Quels dangers ? Scalabilité, coordination et résilience : trois grands axes pour ce talk, basé sur l’expérience acquise par les équipes Bedrock, tant infra que devs, depuis plusieurs années.
 
@@ -89,14 +89,14 @@ L'implémentation technique de ces concepts repose, entre autres, sur le chiffre
 - Hyperviseur Nitro (il s'agit d'un hyperviseur basé sur linux KVM, mais grandement modifié pour les besoins, pas de sshd, pas de systemd, pas de couche réseau)
 - Puce de sécurité Nitro (qui empêche le client d'avoir accès aux composants de l'hôte, procède à la mise à jour des firmwares des composants du serveur et gère le sécure boot afin de contrôler l'état des firmwares des composants avant de démarrer l'hôte).
 
-![AWS Nitro](/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-nitro.jpg)
+![AWS Nitro](../../../../images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-nitro.jpg)
 
 Au delà du chiffrement dont il est principalement question ici, Nitro permet aussi de grandement augmenter les performances des EC2 en limitant l'impact de l'hyperviseur sur le CPU utilisé par les clients. Dans le cas d'une virtualisation classique, toutes les tâches listées ci-dessus sont effectuées par le processeur lui-même, grignotant ainsi de la puissance des machines. Ici, Nitro permet de décharger le CPU de ces tâches en le rendant ainsi dédié aux EC2.
 
 AWS utilise aussi des solutions telles que Key Management Service (KMS) pour chiffrer les données de plus d'une centaine de ses services. Il s'agit là aussi d'un système de protection des données des utilisateurs : seul l’opérateur possédant la clé de chiffrement est capable de lire les données de ces services. 
 Une version étendue de KMS est même disponible pour les clients les plus soucieux de la protection de leurs données : [External Key Stores](https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html). XKS est un dispositif physique pouvant être hébergé en dehors des locaux d'AWS. Il est même capable de se “défendre" contre les attaques physiques en procédant à l'effacement des clés lors d'une tentative d'intrusion physique. Il s'agit probablement de l'ultime implémentation de sécurité et de souveraineté chez AWS.
 
-![AWS Summit 2023 - Souveraineté des données](/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-souverainete-donnees.jpg)
+![AWS Summit 2023 - Souveraineté des données](../../../../images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-souverainete-donnees.jpg)
 
 Tout au long de cette conférence, on a bien senti que le but d'AWS, afin de respecter les données de ses usagers, était de faire en sorte de ne pas pouvoir accéder aux données de ses clients.
 

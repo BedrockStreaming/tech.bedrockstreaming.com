@@ -36,7 +36,7 @@ Retour dans un premier temps sur l’importance des commits dit “atomic” ave
 
 Pauline introduit ensuite la commande `git rebase -i` qui permet un rebase interactif servant notamment à réécrire notre historique.
 
-![git rebase intéractif](/images/posts/symfonycon2022/IMG-0785.jpg)
+![git rebase intéractif](../../../../images/posts/symfonycon2022/IMG-0785.jpg)
 
 Vient ensuite l’utilisation de la commande `git reflog`, commande avec laquelle nous pouvons obtenir le détail des commandes lancées sur la branche, elle peut de ce fait être utile pour réparer une erreur.
 
@@ -66,11 +66,11 @@ Durant cette conférence, [Diego Aguiar](https://connect.symfony.com/profile/mol
 
 À retenir, le TDD est une discipline, il faut beaucoup d'entraînement et répéter continuellement ces exercices.
 
-![tdd discipline](/images/posts/symfonycon2022/IMG-0848.jpg)
+![tdd discipline](../../../../images/posts/symfonycon2022/IMG-0848.jpg)
 
 _**“Fake it till you make it”**_, il s’agit d’abord d’écrire son code de test en utilisant par exemple des assertions, des tests avec différentes sorties et ensuite de produire le code qui va résoudre ces tests.
 
-![Fake it till you make it](/images/posts/symfonycon2022/IMG-0852.jpg)
+![Fake it till you make it](../../../../images/posts/symfonycon2022/IMG-0852.jpg)
 
 **“ Write your test code, produce it and repeat.”**
 
@@ -119,7 +119,7 @@ Ces deux conférences sur le **Strangler fig** paterne, mon permis de mettre en 
 Cette conférence centrée sur l’outil d'analyse statique de code : PHPStan, a été présentée par son créateur [Ondřej Mirtes](https://connect.symfony.com/profile/mirtes).
 Il a commencé par nous rappeler quelle est la différence entre un langage compilé et un langage interprété, le premier ne se compile pas s’il y a des erreurs alors que le second ne plante qu'à l'exécution. Le but de PHPStan est de nous aider à identifier toutes les erreurs sans avoir besoin d'exécuter le code.
 
-![PHPstan](/images/posts/symfonycon2022/phpstan.png)
+![PHPstan](../../../../images/posts/symfonycon2022/phpstan.png)
 
 Cet outil analyse toutes les fonctions, les propriétés, le typage PHP, mais aussi la PHPDoc. Ondřej nous a ensuite parlé de tous les types PHPStan avec des exemples, en voici quelques un qui ont marqué notre attention : 
 - `non-empty-array`, `non-empty-string`
@@ -176,4 +176,4 @@ Nous pouvons aussi nous rendre compte de notre travail quotidien et prendre du r
 Cette expérience anglophone était très enrichissante et les conférences proposées étaient variées.
 Il y avait de la résolution de problèmes techniques, des retours d'expériences ou encore de la télémétrie.
 
-![Fresque Lego symfony](/images/posts/symfonycon2022/IMG-0773.jpg)
+![Fresque Lego symfony](../../../../images/posts/symfonycon2022/IMG-0773.jpg)

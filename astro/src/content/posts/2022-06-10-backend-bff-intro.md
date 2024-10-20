@@ -25,7 +25,7 @@ For years, we have been using a microservices pattern [(1)](#notes). Each with t
 Backend and frontend development have long been decoupled.
 Every frontend applications had to know about all microservices, call them and know what to do with their data.
 
-![old architecture](/images/posts/2022-06-10-backend-bff-intro/architecture-old.png)
+![old architecture](../../../../images/posts/2022-06-10-backend-bff-intro/architecture-old.png)
 
 This approach had three main limitations from a frontend point of view:
 * It forced Bedrock to duplicate logic in each application.
@@ -44,7 +44,7 @@ That's what we call a *Back For Front*!
 
 ### Abstracting the microservices
 
-![Our new BFF API Gateway + microservices architecture](/images/posts/2022-06-10-backend-bff-intro/architecture-new.png)
+![Our new BFF API Gateway + microservices architecture](../../../../images/posts/2022-06-10-backend-bff-intro/architecture-new.png)
 
 The first main advantage is to abstract the backend complexity for the frontend teams.
 In the previous model, each application had to know where each data came from, how to parse it, and what to do with it.
@@ -60,11 +60,11 @@ All those changes will happen without any frontend application noticing it.
 
 Another advantage is to simplify the data representation.
 
-![old presentation with multiple data structure behind](/images/posts/2022-06-10-backend-bff-intro/presentation-old.png)
+![old presentation with multiple data structure behind](../../../../images/posts/2022-06-10-backend-bff-intro/presentation-old.png)
 
 By taking all this responsibility in a single API, it now translates the data from the APIs to a single unified representation that all applications can use.
 
-![new presentation with a single data structure](/images/posts/2022-06-10-backend-bff-intro/presentation-new.png)
+![new presentation with a single data structure](../../../../images/posts/2022-06-10-backend-bff-intro/presentation-new.png)
 
 This representation is maintained by the BFF in a single openapi schema [(4)](#notes). It shares the same concepts between the multiple endpoints of the API.
 
@@ -86,7 +86,7 @@ It's important to understand that the BFF does not return HTML! It returns a JSO
 Every application still has to care about its design system, what font to use, which iconography.
 This means that a template `Card` might not be displayed exactly the same between a computer, a mobile phone or a television; even if the data are the same.
 
-![presentation explanation](/images/posts/2022-06-10-backend-bff-intro/presentation-explanation.png)
+![presentation explanation](../../../../images/posts/2022-06-10-backend-bff-intro/presentation-explanation.png)
 
 There are other usages to the BFF [(5)](#notes), such as handling downloads, and some others to come, but it shares the same concept by answering to the front something to display.
 
@@ -112,7 +112,7 @@ We've been using this model for more than 3 years now. It has undergone some maj
 
 We plan to expand this pattern to handle even more logic inside the BFF in the coming years and keep being frontend application's best friend.
 
-![BFF stands for Back for Front, and not Best Friends Forever here](/images/posts/2022-06-10-backend-bff-intro/bff.png)
+![BFF stands for Back for Front, and not Best Friends Forever here](../../../../images/posts/2022-06-10-backend-bff-intro/bff.png)
 
 
 That's all for today's post!

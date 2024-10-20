@@ -24,7 +24,7 @@ Within Bedrock (and before that within M6 where our team was born), we embraced 
 
 ## First iteration: the Dream Team
 
-![Dream team](/images/posts/data-org-challenge/dream-team.jpg)
+![Dream team](../../../../images/posts/data-org-challenge/dream-team.jpg)
 
 The first step M6 took was to hire an amazing, PhD qualified, Business focused, Data Scientist whose mission was to build a Data Science team and explore the company's data to find valuable use cases. A few months later, we added an experienced Product owner (me) to help set the vision, the roadmap and lead our Data initiatives. And some months later we were joined by a rock star Data/Machine learning Engineer who was to create an engineering team and the data platform we could build upon.
 
@@ -34,7 +34,7 @@ Each one of us had many ideas on how to make that happen, and quite different ap
 - Our lead Data Engineer wanted to start with small use cases, build a production infrastructure and enrich the science step by step later down the road.
 - I wanted to align with our stakeholders and management to build a shared vision, prioritize ideas and then organize the team work to iterate and increase value on a regular basis.
 
-![Split teams](/images/posts/data-org-challenge/3blocks.png)
+![Split teams](../../../../images/posts/data-org-challenge/3blocks.png)
 
 This misalignment led to an early split between the Data Scientists who did a lot of exploration + POC's and the Data Engineers who worked on an industrial production platform. The projects were of different nature and everything was pretty smooth except for some frustration on my side because I was playing little to no role in the Data Science part of things. Overall, everybody was happy, and we started to deliver value... until our first real business (beyond tooling) cases entered the roadmap.
 
@@ -58,20 +58,20 @@ My personal take away on our collective difficulties boils down to 2 things:
 - Letting things slip towards a comfortable separation of 2 expertise teams with 2 very different organisations and agenda's instead of insisting on aligning them led to a form of cold war with no collaboration at all.
 
 
-![Cold war](/images/posts/data-org-challenge/cold-war.jpg)
+![Cold war](../../../../images/posts/data-org-challenge/cold-war.jpg)
 
 ## Second iteration: pluridisciplinary teams
 
 The conclusion of the management's deep dive was that we needed to split the historic teams in a more official and long term way.
 The Data Scientists would form the Data Lab in which they would do research and produce POC's and whitepapers + staff their own engineers if they needed any. And we would create the Data Factory that would be focused on delivery with the Data Engineers and some new Data Scientists that would work on the team's backlog with the Data Engineers on a daily basis.
 
-![Teams](/images/posts/data-org-challenge/embedded-teams.jpg)
+![Teams](../../../../images/posts/data-org-challenge/embedded-teams.jpg)
 
 From the Data Lab perspective, that relieved most of the stress because they were now officially free to set a very scientific agenda for themselves. At the start it was cool, but over time (this was 3 years back), their disconnection from "production" put them very far away from the real world. The internal stakeholders turned away from them because their target was to make real things. It ultimately led them to having small business impact and a poor dynamic, ultimately reducing the team down.
 From the Data Factory perspective, the new organisation fixed it! Over the past couple of years, we have been building the vision and roadmap within the team with no distinction between the Data Science and Data Engineering roadmap. Our work with the stakeholders feels like we're now walking on our 2 feet, the solutions we imagine for their challenges mix plain data engineering solutions with algorithms and statistics seamlessly, and we're definitely delivering more value. And of course, there is no debate on what goes to production, everything the team does will end up live! At the time I’m writing, the Data Factory has scaled from ~10 people to more than 40 members.
 
 
-![Teamwork](/images/posts/data-org-challenge/teamwork.jpg)
+![Teamwork](../../../../images/posts/data-org-challenge/teamwork.jpg)
 
 ## Organization is one thing, collaboration is another
 

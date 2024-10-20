@@ -18,7 +18,7 @@ At Bedrock, we build and run streaming applications on a wide variety of OTT dev
 
 To address the growing number of CTVs vendors in the market, we have a one-and-only monorepo project named “TVJS”. It is a React application which we can deploy almost everywhere almost anywhere with the same code, UI and UX. The magic part? There isn’t much manufacturer-specific code in that application, most of those particularities are handled by our homemade JS library named PELO (Platform Easy Life Officer). *For non-French readers, “pélo” is a Lyon/Grenoble city slang to designate “someone”.*
 
-![Pelo](/images/posts/2023-01-10-bedrock-app-launcher/pelo-cli.png)
+![Pelo](../../../../images/posts/2023-01-10-bedrock-app-launcher/pelo-cli.png)
 
 In a few words, PELO is a set of libraries showing a unified front API for TV developers, so they don’t have to keep in mind every TV specific details and custom APIs (like lifecycle, keyboard, storage handling, and more). PELO also provides several CLI tools allowing the use of proprietary manufacturer SDKs, with a common shared API.
 
@@ -64,7 +64,7 @@ I’ve developed a TV application to quickly and efficiently start a specific en
 
 Typing long texts is painful for TV users. So, when selecting the preview environment, it shows another set of options where users can input a specific PR number. A background process will ask our Github if it knows the PR number, if it is deployed on the selected customer/manufacturer and will pre-fill the branch name. If not specified, it will default back to our master preview that is updated whenever we merge code to the master branch.
 
-![Launcher demo](/images/posts/2023-01-10-bedrock-app-launcher/launcher-demo.gif)
+![Launcher demo](../../../../images/posts/2023-01-10-bedrock-app-launcher/launcher-demo.gif)
 
 ### Technical Architecture
 
@@ -74,7 +74,7 @@ For the first iterations of development of the launcher, I hosted it on AWS Ampl
 
 An automatic process builds the javascript bundle and assets and sends everything to AWS S3. The launcher will then be served through Fastly CDN. We build and deploy a unique launcher per compatible manufacturer on their own domain names (as-of-writing, Samsung Tizen, LG webOS and Hisense). For security reasons, those Fastly services are only accessible from our office networks.
 
-![Launcher technical architecture](/images/posts/2023-01-10-bedrock-app-launcher/launcher-tech-arch.png)
+![Launcher technical architecture](../../../../images/posts/2023-01-10-bedrock-app-launcher/launcher-tech-arch.png)
 
 ### Unreliability of launcher app installation
 
@@ -89,9 +89,9 @@ That period of time varies. For Samsung Tizen, we’re not absolutely sure, but 
 Specifically for LG, I did set up a CRON that automatically extends the Developer Mode, but sometimes it is being disconnected without reason... Or a mishandling by team members can cause the CRON to fail.
 
 
-![LG webOS CRON configuration to extend Developer Mode](/images/posts/2023-01-10-bedrock-app-launcher/webos-cron.png)
+![LG webOS CRON configuration to extend Developer Mode](../../../../images/posts/2023-01-10-bedrock-app-launcher/webos-cron.png)
 
-![Programmatically extending the Developer Mode on LG webOS](/images/posts/2023-01-10-bedrock-app-launcher/webos-extend-devmode.gif)
+![Programmatically extending the Developer Mode on LG webOS](../../../../images/posts/2023-01-10-bedrock-app-launcher/webos-extend-devmode.gif)
 
 Therefore, we aren’t 100% sure the launcher application will be up and ready on all the office devices when work begins in the morning, which means developers will have to manually re-install the launcher when asked by another Bedrock employee. It generates frustration for both QA and developers as they are wasting precious time to re-install the launcher.
 
