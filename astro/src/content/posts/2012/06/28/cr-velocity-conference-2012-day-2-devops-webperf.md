@@ -140,7 +140,7 @@ La conférence n'étant pas disponible en vidéo, vous pouvez déjécouter Jason
 Jason Grigsby interview la Vélocity Conf 2012
 
 
-![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](../../../../../../../images/posts/velocity2012-jason.jpg)
+![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](../../../../../../../images/posts/velocityus2012-jason.jpg)
 
 #### [WebPerf] RUM for Breakfast - Distilling Insights From the Noise, par Buddy Brewer (LogNormal), Philip Tellis (LogNormal, Inc) & Carlos Bueno (Facebook)
 
