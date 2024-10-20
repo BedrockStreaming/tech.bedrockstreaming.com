@@ -46,7 +46,7 @@ Make sure to complete the _frontmatter_ part of your Markdown file in order to d
 
 ```markdown
 ---
-layout: post
+layout: ../../layouts/post.astro
 title: Title of your article
 description: Description of your article visible in search page results
 author: author_of_your_article 
@@ -88,7 +88,7 @@ Then you will be able to use the author ID in the frontmatter post configuration
     > :warning: **To make your videos appear in either `Last Friday Talks`page, tag your post with `lft`.**
     ```markdown
     ---
-    layout: video
+    layout: ../../layouts/video.astro
     # Unique ID of the Youtube video clip
     youtubeId: $$$$$$$ 
     # Title of the article
@@ -150,7 +150,7 @@ If there is a `youtubeId` key, the video will also be added to the "Replay" sect
 2. Add the configuration of metadata at the beginning of this file:
     ```markdown
     ---
-    layout: conference
+    layout: ../../layouts/conference.astro
     
     # Title of the conference
     title: Title of your conference
