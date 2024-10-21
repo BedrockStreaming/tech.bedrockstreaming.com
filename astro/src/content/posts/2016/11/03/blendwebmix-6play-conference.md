@@ -10,7 +10,7 @@ author: Kenny Dits, Olivier Mansour, François Jomier
   
 category:
 tags: [conference]
-feature-img: "../../../../../../../images/posts/blend2016.jpg"
+feature-img: "./blend2016.jpg"
 comments: true
 ---
 

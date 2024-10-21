@@ -5,8 +5,8 @@ description: "Comment automatiser les optimisations WebPerf sur son application 
 author: k_dits
 category:
 tags: [webperf, angular, grunt, performance]
-thumbnail: "../../../../../../../images/posts/webperf.jpg"
-feature-img: "../../../../../../../images/posts/webperf.jpg"
+thumbnail: "./webperf.jpg"
+feature-img: "./webperf.jpg"
 comments: true
 ---
 

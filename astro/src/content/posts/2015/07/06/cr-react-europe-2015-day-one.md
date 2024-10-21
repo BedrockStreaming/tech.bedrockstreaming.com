@@ -5,8 +5,8 @@ description: "Compte rendu de la React Europe - Jour 1"
 author: Frédéric Vieudrin, Matthieu Guillermin, Florent Dubost, Kenny Dits
 category:
 tags: [javascript, react, reactnative, video, graphql]
-feature-img: "../../../../../../../images/posts/reacteurope/reacteurope1.png"
-thumbnail: "../../../../../../../images/posts/reacteurope/reacteurope1.png"
+feature-img: "./reacteurope1.png"
+thumbnail: "./reacteurope1.png"
 comments: true
 ---
 

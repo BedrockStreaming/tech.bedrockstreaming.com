@@ -5,7 +5,7 @@ description: Une partie des équipes infra Bedrock étaient à la KubeCon 2022, 
 author: bedrock
 tags: [kubecon, kubernetes, cloud, k8s, conference]
 color: rgb(251,87,66)
-thumbnail: "../../../../../../../images/posts/2022-06-13-kubecon-2022/part3.jpg"
+thumbnail: "./part3.jpg"
 ---
 
 Pour notre troisième article de cette série sur ce que nous avons retenu de la KubeCon Europe 2022, après 
@@ -14,7 +14,7 @@ Pour notre troisième article de cette série sur ce que nous avons retenu de la
 passons à la Developper eXperience, à l’outillage, à la CI/CD, aux rollback, à l’observabilité et aux incidents !
 
 
-!["KubeCon 2022 part3"](../../../../../../../images/posts/2022-06-13-kubecon-2022/part3.jpg)
+!["KubeCon 2022 part3"](./part3.jpg)
 <center><i>Une nouvelle journée commence, @ KubeCon 2022 !</i></center>
 
 
@@ -32,7 +32,7 @@ Mais si nous devions les résumer : l'automatisation de bout en bout demande un
 
 Et comme il est dit dans une des slides :
 
-!["With great GitOps power…"](../../../../../../../images/posts/2022-06-13-kubecon-2022/part3-gitops-power-responsibility.png)
+!["With great GitOps power…"](./part3-gitops-power-responsibility.png)
 
 
 ## Debugger, en production, avec des conteneurs éphémères
@@ -92,5 +92,5 @@ Plus globalement, nous sommes contents de voir que l’outillage autour de Kuber
 
 
 
-!["Après une journée de conférences, une promenade à Valencia !"](../../../../../../../images/posts/2022-06-13-kubecon-2022/end-part3.jpg)
+!["Après une journée de conférences, une promenade à Valencia !"](./end-part3.jpg)
 <center><i>Rejoignez-nos équipes et venez vivre les prochaines conférences avec nous l’an prochain</i></center>

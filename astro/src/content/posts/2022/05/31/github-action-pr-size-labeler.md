@@ -8,7 +8,7 @@ tags: [oss, github, devops]
 color: rgb(251,87,66)
 ---
 
-![laurel branch with a white paper label](../../../../../../../images/posts/pr-size-labeler/helena-hertz-wWZzXlDpMog-unsplash.jpg)
+![laurel branch with a white paper label](./helena-hertz-wWZzXlDpMog-unsplash.jpg)
 
 ## Smaller PR for a reduced mental load
 
@@ -51,12 +51,12 @@ It happens from time to time, and it's not bad.
 You should rather look at the distribution of PR sizes of a dev.
 
 Let's take the example of a dev named Bob who would have this distribution over the last month:
-![PR size distribution for Bob over the last month.](../../../../../../../images/posts/pr-size-labeler/PR-size-distribution-for-Bob-over-the-last-month.png)
+![PR size distribution for Bob over the last month.](./PR-size-distribution-for-Bob-over-the-last-month.png)
 
 Here we see that Bob is globally making large PRs (taking arbitrary t-shirt sizes), seeing this we can say: _As a TechLead, how can I best accompany Bob to make smaller PRs?_
 
 Next, let's look at Alice's profile, which has a more centered distribution:
-![PR size distribution for Alice over the last month.](../../../../../../../images/posts/pr-size-labeler/pr-size-distribution-for-alice-over-the-last-month.png)
+![PR size distribution for Alice over the last month.](./pr-size-distribution-for-alice-over-the-last-month.png)
 
 Here, we can say that overall the majority of RPs are of moderate size (in this absolute scale), so the mental load should be lower than for Bob.
 _This remains an interpretation that will require some discussion to be sure._

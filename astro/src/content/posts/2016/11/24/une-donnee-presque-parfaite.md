@@ -10,7 +10,7 @@ youtubeId: kSlYXpezjIQ
 
 category:
 tags: [lyon, conference, elasticsearch, video]
-thumbnail: "../../../../../../../images/posts/conf-afup-viguier/6play.jpg"
+thumbnail: "./6play.jpg"
 color: rgb(42, 153, 213)
 comments: true
 ---

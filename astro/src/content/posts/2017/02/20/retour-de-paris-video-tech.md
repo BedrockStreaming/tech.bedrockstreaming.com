@@ -5,12 +5,12 @@ description: "Paris Video Tech : La plus grande rencontre des ingénieurs de la 
 author: f_vieudrin 
 category:
 tags: [video, ott, react, dash, hls, mse, cmaf, 6play, html5]
-feature-img: "../../../../../../../images/posts/retour-de-paris-video-tech/banner-paris-video-tech.jpg"
+feature-img: "./banner-paris-video-tech.jpg"
 comments: true
 language: fr
 ---
 
-![Logo Paris Video Tech](../../../../../../../images/posts/retour-de-paris-video-tech/logo-paris-video-tech.png)
+![Logo Paris Video Tech](./logo-paris-video-tech.png)
 
 # Présentation du Paris Video Tech
 Mercredi 1er février avait lieu la [troisième édition du Paris Video Tech](https://parisvideotech.com/pvt-3-a-react-based-mse-player-cmaf-demystified-and-roland-garros-360/), un meetup orienté autour de tous les sujets techniques de la vidéo : players HTML5, formats, encodage, distribution, publicité, ...
@@ -24,7 +24,7 @@ La rencontre se déroulait dans les locaux de France Télévision à Paris et pr
 * **Retour d'Expérience de Roland Garros 360** *par l'équipe innovation de France Télévision*
 
 
-![Logo Team Tube](../../../../../../../images/posts/retour-de-paris-video-tech/logo-team-tube.png)
+![Logo Team Tube](./logo-team-tube.png)
 
 # 6play : un player MSE en React
 
@@ -34,14 +34,14 @@ Dans la première partie, nous avons présenté le contexte technique de [6play.
 
 Après un rappel de l'historique des players du site de Replay des [chaînes du Groupe M6](https://www.groupem6.fr/le-groupe/activites/antenne/), nous avons présenté les enjeux de la refonte de notre précédent player et évoqué nos contraintes.
 
-![Slide Historique Techno Player](../../../../../../../images/posts/retour-de-paris-video-tech/slide-techno-player.png)
+![Slide Historique Techno Player](./slide-techno-player.png)
 
 
 
 ### Architecture du player en React / Redux
 
-![Logo React](../../../../../../../images/posts/retour-de-paris-video-tech/logo-react.png)
-![Logo Redux](../../../../../../../images/posts/retour-de-paris-video-tech/logo-redux.png)
+![Logo React](./logo-react.png)
+![Logo Redux](./logo-redux.png)
 
 En octobre 2015 sortait [le nouveau 6play.fr](https://www.6play.fr), une [Single Page App développée en React-Redux et Isomorphique](/isomorphic-single-page-app-parfaite-react-flux/). Le succès de cette refonte nous a poussé à étudier le refonte du player 6play sur la même stack technique, historiquement en Video.js.
 

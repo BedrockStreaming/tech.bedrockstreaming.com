@@ -5,8 +5,8 @@ description: "Développer une SPA référencable et performante avec React.Js et
 author: k_dits
 category:
 tags: [javascript, webperf, angular, react, flux, isomorphic]
-feature-img: "../../../../../../../images/posts/reflection.jpg"
-thumbnail: "../../../../../../../images/posts/reflection.jpg"
+feature-img: "./reflection.jpg"
+thumbnail: "./reflection.jpg"
 comments: true
 ---
 

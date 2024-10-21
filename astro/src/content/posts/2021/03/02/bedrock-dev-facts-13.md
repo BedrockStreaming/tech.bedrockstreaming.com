@@ -19,7 +19,7 @@ Reprenons un rythme soutenu des [devfacts](/tags/#devfacts) !
 
 Trouvé dans l'historique
 
-![screenshot d'un commit nommé 'fix(fix):fix'](../../../../../../../images/posts/dev-facts-13/fix.png)
+![screenshot d'un commit nommé 'fix(fix):fix'](./fix.png)
 
 # Time is relative
 
@@ -85,7 +85,7 @@ Trouvé dans l'historique
 
 # ? Question ? 
 
-![screenshot d'une PR ou plusieurs personnes commentent avec juste un ?](../../../../../../../images/posts/dev-facts-13/question.png)
+![screenshot d'une PR ou plusieurs personnes commentent avec juste un ?](./question.png)
 
 # 🍗 Mnom Mnom
 
@@ -107,7 +107,7 @@ Trouvé dans l'historique
 
 En parlant de lignes supprimées.
 
-![A: Where did this go? 🤔 B: In a black hole. 😞](../../../../../../../images/posts/dev-facts-13/review.png)
+![A: Where did this go? 🤔 B: In a black hole. 😞](./review.png)
 
 # Technique de sioux
 
@@ -115,7 +115,7 @@ En parlant de lignes supprimées.
 
 # On peut revert une fois, mais pas quinze !
 
-![Screenshot d'un commit dont le titre commence par: "Revert "Revert "Revert ..."](../../../../../../../images/posts/dev-facts-13/revert.png)
+![Screenshot d'un commit dont le titre commence par: "Revert "Revert "Revert ..."](./revert.png)
 
 # Définition AWS
 

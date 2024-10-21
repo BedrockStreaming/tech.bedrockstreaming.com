@@ -5,8 +5,8 @@ description: "Vagrant, Packer, Chef ... Du dév à la prod."
 author: o_mansour
 category:
 tags: [lft,vagrant,video]
-feature-img: "../../../../../../../images/posts/vagrant/vagrant_header.png"
-thumbnail: "../../../../../../../images/posts/vagrant/vagrant_header.png"
+feature-img: "./vagrant_header.png"
+thumbnail: "./vagrant_header.png"
 comments: true
 ---
 

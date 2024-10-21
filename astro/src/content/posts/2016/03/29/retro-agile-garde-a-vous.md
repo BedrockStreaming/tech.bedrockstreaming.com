@@ -5,8 +5,8 @@ description: "Présentation d’un format original de Rétrospéctive Agile réa
 author: pt_guillot  
 category: 
 tags: [agile, scrum]
-feature-img: "../../../../../../../images/posts/retro/retroagile.png"
-thumbnail: "../../../../../../../images/posts/retro/retroagile.png"
+feature-img: "./retroagile.png"
+thumbnail: "./retroagile.png"
 comments: true
 ---
 
@@ -28,7 +28,7 @@ Au menu de ce premier jeu, nous avions choisi de profiter de l’arrivée de [l�
 Votre équipe est sélectionnée pour une retro spéciale. Un défi difficile qui les mènera à dépasser leur limite. 
 Épreuve physique et mentale, il y en aura pour tous. Mais surtout c’est en groupe qu’ils réussiront les épreuves. :) 
 
-![Retro garde à vous - decor](../../../../../../../images/posts/retro/retro-gav1b.png)
+![Retro garde à vous - decor](./retro-gav1b.png)
 
 # Objectifs :
 
@@ -50,7 +50,7 @@ Votre équipe est sélectionnée pour une retro spéciale. Un défi difficile qu
 * Pour l’étape #4 : 2 Nerfs, 4 canettes vides, 4 peluches (ou autre), 4 balles en mousse, une poubelle, tapis de sol.
 * La feuille des scores. 
 
-![Retro garde à vous - decor](../../../../../../../images/posts/retro/retro-gav2b.png)
+![Retro garde à vous - decor](./retro-gav2b.png)
 
 
 # Le déroulement : 
@@ -150,7 +150,7 @@ Ceci afin de répartir les personnes sur plusieurs stands.
 
 Feuille des scores : Notez le score de chacun.
 
-![Retro garde à vous - décor](../../../../../../../images/posts/retro/retro-gav3b.png)
+![Retro garde à vous - décor](./retro-gav3b.png)
 
 # Conclusion :
 

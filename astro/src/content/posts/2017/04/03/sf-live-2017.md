@@ -10,15 +10,15 @@ author: Guillaume BOUYGE, Fabien De Saint Pern, Benoit Viguier
   
 category:
 tags: [symfony, symfony live]
-feature-img: "../../../../../../../images/posts/sflive2017/SfLive2017.jpg"
-thumbnail: "../../../../../../../images/posts/sflive2017/SfLive2017.jpg"
+feature-img: "./SfLive2017.jpg"
+thumbnail: "./SfLive2017.jpg"
 comments: true
 language: en
 ---
 
 In March we attended [Symfony Live Paris 2017](https://paris2017.live.symfony.com/speakers), and it was very interesting.
 Here are some special feedbacks about some of our favorite talks.
-![Cité Universitaire](../../../../../../../images/posts/sflive2017/CitéUniversitaire.jpg)
+![Cité Universitaire](./CitéUniversitaire.jpg)
 
 ## Varnish tags and invalidation
 ### Speaker : Jérémy Derussé

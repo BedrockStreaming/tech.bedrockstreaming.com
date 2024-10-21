@@ -5,7 +5,7 @@ description: "M6Web était présent au Symfony Live 2014"
 author: o_mansour
 category:
 tags: [symfony, conference]
-thumbnail: "../../../../../../../images/posts/sflive2014/header_sflive2014.jpg"
+thumbnail: "./header_sflive2014.jpg"
 comments: true
 ---
 

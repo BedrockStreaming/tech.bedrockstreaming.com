@@ -10,7 +10,7 @@ author: TechM6Web
   
 category:
 tags: [6tech, lille, sfpot, conference]
-thumbnail: "../../../../../../../images/posts/sfpot-lille/sfpot_juin.jpg"
+thumbnail: "./sfpot_juin.jpg"
 comments: true
 ---
 

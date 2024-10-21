@@ -6,18 +6,18 @@ author: [e_perrin, a_ferez]
 tags: [infra, legacy, retour d'expérience]
 color: rgb(251,87,66) # this is Bedrock color here
 excerpt: "Elles sont là, tapies dans l’ombre de la colonne “To do” de vos backlogs, attendant que leur heure vienne. À chaque backlog refinement, vous vous demandez s’il ne faut pas tout simplement les annuler, puisque personne ne les prend en charge… De quoi parle-t-on ? De ces user stories qui existent dans le backlog…"
-thumbnail: ../../../../../../../images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-Target.png
+thumbnail: ./Article-Target.png
 ---
 
 ## Ce que vous ne voulez pas voir dans vos backlogs…
 
 Elles sont là, tapies dans l’ombre de la colonne “To do” de vos backlogs, attendant que leur heure vienne. À chaque [backlog refinement](https://blog.myagilepartner.fr/index.php/2017/01/17/la-product-backlog-refinement/), vous vous demandez s’il ne faut pas tout simplement les annuler, puisque personne ne les prend en charge… De quoi parle-t-on ? De ces user stories qui existent dans le backlog de chaque équipe technique, pour traiter “un jour” un sujet legacy. Ces petits aides-mémoire de sujets “à ne pas oublier” qui nous poursuivent mais ne sont que peu souvent traités, faute de priorisation.
 
-<center><img alt="Un exemple de backlog legacy" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-Target.png"></center>
+<center><img alt="Un exemple de backlog legacy" src="./Article-Target.png"></center>
 <center>Un exemple de backlog legacy</center>
 <br>
 
-Clean de code mort, montées de versions de layers Terraform, projets de refactoring jamais débutés… autant de sujets pénibles à traiter qui nécessitent du temps… et de la résilience. Parce que bien souvent, débuter l’un de ces sujets revient à s’attaquer à toutes les dépendances liées, à gérer tous les impacts. Et parce qu’il s’agit aussi de tâches redondantes, non-automatisables, n’apportant quasiment aucune valeur business immédiatement mesurable.. Du “run”, pur et simple. Dans le Slack de Bedrock, il y a un emoji tout trouvé pour ce type de tâche : <img alt="Gif exprimant la souffrance" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/souffrir.gif" height="30" width="30" style="padding: 0">
+Clean de code mort, montées de versions de layers Terraform, projets de refactoring jamais débutés… autant de sujets pénibles à traiter qui nécessitent du temps… et de la résilience. Parce que bien souvent, débuter l’un de ces sujets revient à s’attaquer à toutes les dépendances liées, à gérer tous les impacts. Et parce qu’il s’agit aussi de tâches redondantes, non-automatisables, n’apportant quasiment aucune valeur business immédiatement mesurable.. Du “run”, pur et simple. Dans le Slack de Bedrock, il y a un emoji tout trouvé pour ce type de tâche : <img alt="Gif exprimant la souffrance" src="./souffrir.gif" height="30" width="30" style="padding: 0">
 
 Bien sûr, on parvient parfois à dégager du temps pour s’atteler à ces user stories. Mais il faut souvent plus d’un sprint pour en venir à bout, et l’équipe en charge de leur réalisation peut rapidement se décourager devant l’ampleur et le caractère répétitif de la tâche.
 
@@ -25,7 +25,7 @@ Nos équipes Ops et DevOps sont responsables de 23 repositories Terraform. Lorsq
 
 Pour tenter de venir à bout de ces sujets legacy que l’on traîne comme des boulets, nous avons mis en place depuis octobre 2022 les “Jeudis du fun”, dont l’organisation est prise en charge par la facilitatrice agile et la Project Manager Officer (PMO) du service Infrastructure (autrices de cet article).
 
-<center><img alt="Logo de la 1ère édition du “jeudi du fun”" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-logo.png"></center>
+<center><img alt="Logo de la 1ère édition du “jeudi du fun”" src="./Article-logo.png"></center>
 <center>Logo de la 1ère édition du “jeudi du fun”</center>
 <br>
 
@@ -39,7 +39,7 @@ Il est difficile de convoquer 25 personnes sur une journée en leur disant que l
 * **Challenger** les participants pour ne pas simplement leur demander de traiter du legacy, mais bien d’être la _meilleure_ équipe pour traiter du legacy. Celle qui ira le plus loin, qui en fera le plus.
 * (Un troisième axe, plus convivial, est choisi pour la fin de journée : partager un verre tous ensemble.)
 
-<center><img alt="Le jeu de découverte du sujet de la 3ème édition : Ansible" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-jeu.png"></center>
+<center><img alt="Le jeu de découverte du sujet de la 3ème édition : Ansible" src="./Article-jeu.png"></center>
 <center>Le jeu de découverte du sujet de la 3ème édition : Ansible</center>
 <br>
 
@@ -51,7 +51,7 @@ Lors de la dernière édition, en février dernier, la compétition reposait ég
 
 Bien sûr, pour que la compétition soit totale, chaque édition du jeudi du fun se termine par une remise de prix : distribution de goodies, de cartes “bonus” ou “malus” valables dans nos “vrais” sprints, de gourmandises… il faut que la récompense soit réelle pour que les participants se prennent au jeu.
 
-<center><img alt="Exemple de lot pouvant être remporté lors du “Jeudi du fun”" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-carte.png"></center>
+<center><img alt="Exemple de lot pouvant être remporté lors du “Jeudi du fun”" src="./Article-carte.png"></center>
 <center>Exemple de lot pouvant être remporté lors du “Jeudi du fun”</center>
 <br>
 
@@ -70,7 +70,7 @@ Trois éditions du “jeudi du fun” ont été organisées jusqu’à présent.
 
 Le succès de la journée repose sur le choix du sujet. En choisissant un sujet fédérateur, comme lors de notre première édition, et en laissant le soin à chaque équipe de définir quel chantier elle souhaitait mener, nous partions gagnantes. Le repo Sysadmin/Terraform sur lequel nous avons travaillé lors de cette journée est un point de douleur pour l’ensemble de nos équipes : chacun des participants a compris l’intérêt de jouer le jeu et de retrousser ses manches. Les équipes ont même eu du mal à clôturer la journée, car elles voulaient finir ce qu’elles avaient commencé.
 
-<center><img alt="Au cours de la 1ère journée du “Jeudi du fun”" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-slack.png"></center>
+<center><img alt="Au cours de la 1ère journée du “Jeudi du fun”" src="./Article-slack.png"></center>
 <center>Au cours de la 1ère journée du “Jeudi du fun”</center>
 <br>
 
@@ -105,7 +105,7 @@ Après trois éditions, il nous semble nécessaire de prendre un peu de recul po
 
 La première édition a fortement contribué à éradiquer du legacy : nous avons mis à jour la quasi-totalité des layers Terraform, nous avons mergé ou fermé l’entièreté des PRs, et nous avons initié des travaux de rework. Cependant, nous n’avions pas défini d’indicateurs de réussite assez fiables lors de cette première itération pour quantifier réellement le travail accompli. Si toute la Verticale partage le sentiment d’avoir avancé lors de cette journée, nous ne savons pas le mesurer finement.
 
-<center><img alt="Capture d’écran du repo sysadmin/terraform au cours de la 1ère édition du “Jeudi du fun”" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-git.png"></center>
+<center><img alt="Capture d’écran du repo sysadmin/terraform au cours de la 1ère édition du “Jeudi du fun”" src="./Article-git.png"></center>
 <center>Capture d’écran du repo sysadmin/terraform au cours de la 1ère édition du “Jeudi du fun”</center>
 <br>
 
@@ -125,7 +125,7 @@ En premier lieu, nous devons organiser une journée à laquelle tous les membres
 
 Les phases de travail en équipe sont les plus simples à gérer : nos équipes ont déjà l’habitude au quotidien de travailler avec des collègues à distance. Tout le monde se connecte sur une room de visioconférence, et le tour est joué.
 
-<center><img alt="Team mixte présentiel / distanciel lors du 1er “jeudi du fun”" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-team-hybride.png"></center>
+<center><img alt="Team mixte présentiel / distanciel lors du 1er “jeudi du fun”" src="./Article-team-hybride.png"></center>
 <center>Team mixte présentiel / distanciel lors du 1er “jeudi du fun”</center>
 <br>
 
@@ -154,7 +154,7 @@ D’autres améliorations restent à apporter, notamment autour de la gestion du
 
 Néanmoins, après trois éditions du jeudi du fun, il nous semblait important de partager notre expérience, ne serait-ce que pour convaincre des équipes de devs de Bedrock de venir jouer avec nous lors d’une prochaine édition !
 
-<center><img alt="Les participants du Jeudi du fun" src="/images/posts/2023-03-16-la-gamification-contre-le-legacy/Article-team.png"></center>
+<center><img alt="Les participants du Jeudi du fun" src="./Article-team.png"></center>
 <center>Les participants du Jeudi du fun</center>
 <br>
 

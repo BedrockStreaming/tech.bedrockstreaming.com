@@ -5,8 +5,8 @@ description: "How we use isomorphism to ensure a high availability of our app."
 author: f_dubost
 category:
 tags: [SPA, SSR, isomorphic, javascript, node.js, high availability]
-feature-img: "../../../../../../../images/posts/spamode/spamode.jpg"
-thumbnail: "../../../../../../../images/posts/spamode/spamode.jpg"
+feature-img: "./spamode.jpg"
+thumbnail: "./spamode.jpg"
 comments: true
 language: en
 ---
@@ -17,7 +17,7 @@ For more than a year and a half, we use [Node.js](https://nodejs.org/en/) and [R
 
 Here is the architecture we use for the 6play web app.
 
-![6play server architecture](../../../../../../../images/posts/spamode/archi.png)
+![6play server architecture]"./archi.png)
 
 You can see that Node.js server responses are cached with [Varnish](https://varnish-cache.org/). Indeed, React is not efficient with server side rendering because it just has not been designed for that. The React `renderToString` method blocks the event loop. Consequently the server can not process an acceptable responses rate for a service like 6play that can reach a lot of requests per second without cache. Particularly when the European Football Championship final bring together France and Portugal and is live or when the last episode of « Les Marseillais », one of the teenagers favorite programs, has just been released on the platform. So caching server responses, with a quite low caching time, is required for our application health!
 
@@ -27,7 +27,7 @@ Isomorphism enables search engines to parse our website without executing any li
 
 In this case, we would switch to a [Nginx](https://nginx.org/en/) server that simply delivers a blank page with the client JavaScript code. The server was responsible for the app state initialization before, the user browser has to do so now. Then it can render the page: our application becomes a simple SPA. And this is almost imperceptible for the user, the first render is just a little longer. This way secures the availability of our service.
 
-![SPA mode](../../../../../../../images/posts/spamode/fallback.png)
+![SPA mode]"./fallback.png)
 
 The Varnish servers check the status of the Node ones via a specific route. When every instance is down, they route all requests to a static HTML file on the Nginx server.
 

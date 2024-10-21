@@ -5,8 +5,8 @@ description: "Comment surcharger un provider AngularJS pour le rendre configurab
 author: team_cytron
 category:
 tags: [configuration, angular, cytron]
-feature-img: "../../../../../../../images/posts/cytron/providersangular.jpg"
-thumbnail: "../../../../../../../images/posts/cytron/providersangular.jpg"
+feature-img: "./providersangular.jpg"
+thumbnail: "./providersangular.jpg"
 comments: true
 permalink: surcharger-un-provider-angular
 ---

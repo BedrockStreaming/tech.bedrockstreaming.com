@@ -5,8 +5,8 @@ description: "Présentation du backend derrière les nouvelles applications 6pla
 author: bedrock   
 category:
 tags: [6play, REST, Symfony, Elasticsearch, Cassandra]
-feature-img: "../../../../../../../images/posts/6play/logo.jpg"
-thumbnail: "../../../../../../../images/posts/6play/logo.jpg"
+feature-img: "../../../../../assets/images/logo.jpg"
+thumbnail: "../../../../../assets/images/logo.jpg"
 comments: true
 ---
 

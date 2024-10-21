@@ -5,8 +5,8 @@ description: "Comment mettre en place des tests E2E sur son application AngularJ
 author: team_cytron
 category:
 tags: [qualite, tests, javascript, angular, protractor, cytron]
-feature-img: "../../../../../../../images/posts/cytron/protractor.jpg"
-thumbnail: "../../../../../../../images/posts/cytron/protractor.jpg"
+feature-img: "./protractor.jpg"
+thumbnail: "./protractor.jpg"
 comments: true
 permalink: tests-e2e-application-angularjs-protractor.html
 ---

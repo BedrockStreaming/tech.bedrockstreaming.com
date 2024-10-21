@@ -5,8 +5,8 @@ description: "Compte rendu de la conférence React - Facebook HQ - Menlo Park - 
 author: k_dits
 category:
 tags: [javascript, react, flux, isomorphic, conference]
-feature-img: "../../../../../../../images/posts/reactconf/reactconf.png"
-thumbnail: "../../../../../../../images/posts/reactconf/reactconf.png"
+feature-img: "../reactconf.png"
+thumbnail: "../reactconf.png"
 comments: true
 ---
 

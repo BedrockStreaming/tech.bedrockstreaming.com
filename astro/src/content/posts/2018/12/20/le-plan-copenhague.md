@@ -5,7 +5,7 @@ description: "Comment nous avons migré la plateforme 6play vers Le Cloud, sur A
 author: p_martin
 category:
 tags: [cloud, kubernetes, aws, terraform, livre]
-feature-img: "../../../../../../../images/posts/le-plan-copenhague/header.jpg"
+feature-img: "./header.jpg"
 comments: true
 language: fr
 ---

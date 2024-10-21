@@ -4,8 +4,8 @@ title: "Nos retours sur l'HAProxyConf Paris 2022"
 description: "Retour sur la virée de Bedrock à l'HAProxyconf Paris 2022, et ce que nous en retenons"
 author: bedrock
 tags: [haproxy, haproxyconf, conference]
-feature-img: "../../../../../../../images/posts/2022-12-23-haproxyconf-paris-2022/haproxyconf_2022_paris.png"
-thumbnail: "../../../../../../../images/posts/2022-12-23-haproxyconf-paris-2022/haproxyconf_2022_paris.png"
+feature-img: "./haproxyconf_2022_paris.png"
+thumbnail: "./haproxyconf_2022_paris.png"
 color: rgb(251,87,66)
 language: fr
 comments: true
@@ -15,7 +15,7 @@ Bedrock était présent lors de la Conférence HAProxy qui se déroulait à Pari
 
 La présentation de Vincent Gallissot, Lead Cloud Architect chez Bedrock, mettait en valeur l’usage d’HAProxy en tant que brique essentielle de notre infrastructure. Chez Bedrock, nous développons et maintenons une plateforme de streaming qui a été migrée dans le Cloud en 2019. Cette présentation était grandement inspirée de l’article intitulé [“Scaling Bedrock video delivery to 50 million users”](https://tech.bedrockstreaming.com/2021/12/15/scaling-bedrock-video-delivery-to-50-million-users.html){:target="_blank"}, dans lequel vous trouverez pléthore d’informations concernant nos utilisations d’HAProxy.
 
-![Vincent Gallissot presentation](../../../../../../../images/posts/2022-12-23-haproxyconf-paris-2022/keynote_conf_2022_bedrockstreaming.jpg)
+![Vincent Gallissot presentation](./keynote_conf_2022_bedrockstreaming.jpg)
 
 **Sommaire**
 
@@ -43,14 +43,14 @@ En les déplaçant vers un CDN, le système peut rapidement et simplement double
 
 Suite à cela, une première amélioration d'architecture serait d'ajouter un NLB (Network Load Balancer) en amont du système qui distribuerait les requêtes entrantes vers plusieurs unités de calculs. 
 
-![next architecture schematic keynote](../../../../../../../images/posts/2022-12-23-haproxyconf-paris-2022/keynote_conf_2022_request_arch.png)
+![next architecture schematic keynote](./keynote_conf_2022_request_arch.png)
 
 Schéma d’architecture, première version
 
 Dans le cas présent, les requêtes entrantes sont distribuées de façon aléatoire entre les différentes unités de traitement. Chacun de ces backends se connectant à la même et unique base de données.  
 Le benchmark ci-dessous (efficacité, au sens nombre de requêtes traitées en fonction du nombre d'unités de calcul), ne montre pas une croissance linéaire. Il s’agit d’une courbe tendant vers une pente nulle (voir négative pour les plus grosses architectures).
 
-![stats of nlb with backends](../../../../../../../images/posts/2022-12-23-haproxyconf-paris-2022/keynote_conf_2022_nlb_stats.png)
+![stats of nlb with backends](./keynote_conf_2022_nlb_stats.png)
 
 Graphique représentant l’efficacité du système en fonction du nombre de backends
 
@@ -157,7 +157,7 @@ Cela pourrait nous permettre, avec un HAProxy en frontal, d'agréger plus fineme
 
 Ajouter cette fonctionnalité serait la belle cerise au kirsch au sommet de ce sandwich de HAProxy.
 
-![cake illustration](../../../../../../../images/posts/2022-12-23-haproxyconf-paris-2022/keynote_conf_2022_cake.png)
+![cake illustration](./keynote_conf_2022_cake.png)
 
 “Il est bizarre ton sandwich”
 

@@ -5,7 +5,7 @@ description: "Faire des tests fonctionnels avec Cucumber.js, WebdriverIO et Phan
 author: f_dubost 
 category:
 tags: [tests fonctionnels, javascript, phantomjs, webdriver, Cytron]
-feature-img: "../../../../../../../images/posts/cytron/moon.jpg"
+feature-img: "./moon.jpg"
 comments: true
 ---
 

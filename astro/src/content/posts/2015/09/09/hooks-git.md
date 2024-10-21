@@ -5,8 +5,8 @@ description: "Comment simplifier son quotidien de développeur Symfony2 avec nos
 author: m_randy
 category:
 tags: [git, hooks, workflow, composer, coke]
-feature-img: "../../../../../../../images/posts/git-hooks.png"
-thumbnail: "../../../../../../../images/posts/git-hooks.png"
+feature-img: "./git-hooks.png"
+thumbnail: "./git-hooks.png"
 comments: true
 ---
 

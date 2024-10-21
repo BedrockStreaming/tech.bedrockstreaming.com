@@ -5,7 +5,7 @@ description: "Comment ne pas jeter son projet au bout de 2 ans ? Retour d'expér
 author: a_caron
 category:
 tags: [js, react, web, frontend]
-feature-img: "../../../../../../../images/posts/bonnes-pratiques-web/bedrock.jpg"
+feature-img: "./bedrock.jpg"
 comments: true
 canonical: "https://slashgear.github.io/fr/comment-ne-pas-jeter-son-application-au-bout-de-deux-ans/"
 language: fr
@@ -24,7 +24,7 @@ Certaines ne sont pas toute jeune.
 En effet, l'application sur laquelle je travaille principalement est un site web dont les développements ont commencé en 2014.
 Je l'ai d'ailleurs déjà évoquée dans différents articles de [ce blog](https://slashgear.github.io/).
 
-![impression d'écran du nombre de commit sur master de notre projet 15668](../../../../../../../images/posts/bonnes-pratiques-web/commit-count.png)
+![impression d'écran du nombre de commit sur master de notre projet 15668](../commit-count.png)
 
 Vous pourriez vous dire: _"Oh les pauvres maintenir une application vieille de presque 10 ans ça doit être un enfer !"_
 
@@ -34,13 +34,13 @@ J'ai travaillé sur des projets bien moins vieux mais sur lesquels le développe
 Aujourd'hui le projet reste à jour techniquement, on doit être sur la dernière version de React alors que celui-ci avait commencé sur une version _0.x.x_.
 Dans ce monde des technologies web souvent décrié (ex: les nombreux articles sur la _Javascript Fatigue_) dont les outils et les pratiques évoluent constamment, conserver un projet "à jour" reste un vrai challenge.
 
-![nombre de versions de l'application 1445](../../../../../../../images/posts/bonnes-pratiques-web/releases.png)
+![nombre de versions de l'application 1445](../releases.png)
 
 De plus, dans le contexte de ce projet, en presque 10 ans, nous avons connu une centaine de contributeurs.
 Certains ne sont restés que quelques mois/années.
 Comment garder au maximum la connaissance sur "Comment on fait les choses et comment ça marche ?" dans un contexte humain si mouvant ?
 
-![liste des 100 contributeurs du projet](../../../../../../../images/posts/bonnes-pratiques-web/contributors.png)
+![liste des 100 contributeurs du projet](../contributors.png)
 
 C'est ce que je vous propose de vous présenter.
 
@@ -81,7 +81,7 @@ Dans ce modèle, la review sert donc plus au partage de connaissance qu'au flica
 Dans ce principe, il faut donc essayer de bannir les règles orales.
 Le temps des druides est terminé, s'il faut transmettre oralement toutes les bonnes pratiques d'un projet, l'accompagnement de nouveaux développeurs dans votre équipe n'en sera que plus long.
 
-![la recette de la potion magique de panoramix est perdue car secrète](../../../../../../../images/posts/bonnes-pratiques-web/panoramix.gif)
+![la recette de la potion magique de panoramix est perdue car secrète](../panoramix.gif)
 
 Un projet n'est pas figé. Ces règles évoluent donc avec le temps.
 On préfèrera alors l'ajout de règles qui possèdent un script qui _autofixera_ toute la codebase intelligemment.
@@ -103,7 +103,7 @@ Mais si la règle qu'on souhaite s'imposer n'est pas disponible dans Eslint ou d
 
 ### La liste _presque_ exhaustive 🤞
 
-![Notre workflow d'intégration continue](../../../../../../../images/posts/bonnes-pratiques-web/ci-workflow.png)
+![Notre workflow d'intégration continue](../ci-workflow.png)
 
 - Le format des fichiers est suivi géré par [Editorconfig](https://editorconfig.org/), [prettier](https://prettier.io/) et [Eslint](https://eslint.org/).
   Nous avons opensourcé [notre propre configuration](https://github.com/BedrockStreaming/eslint-tools), si jamais celle-ci peut vous être utile.
@@ -181,11 +181,11 @@ Feature: Playground
 
 Et ça donne ça en local avec mon navigateur Chrome !
 
-![Exemple d'exécution de test fonctionnel](../../../../../../../images/posts/bonnes-pratiques-web/e2e-example.gif)
+![Exemple d'exécution de test fonctionnel](../e2e-example.gif)
 
 Voilà un schéma qui explique comment cette stack fonctionne:
 
-![schéma qui explique le fonctionnement de notre stack](../../../../../../../images/posts/bonnes-pratiques-web/e2e-archi.png)
+![schéma qui explique le fonctionnement de notre stack](../e2e-archi.png)
 
 Aujourd'hui, l'application web de Bedrock possède plus de 800 scénarios de tests E2E qui tournent sur chacune de nos _Pull Request_ et sur la branche `master`.
 Ils nous assurent que nous n'introduisons pas de régression fonctionnelle et c'est juste génial !
@@ -242,7 +242,7 @@ On utilise ces tests pour différentes raisons qui couvrent des besoins que nos 
 Avec ces tests, on se met au niveau d'une fonction utilitaire, d'une action Redux, d'un reducer, d'un composant React.
 On se base essentiellement sur [la fonctionnalité d'`automock` de Jest](https://slashgear.github.io/discover-jest-hidden-feature-automock/) qui nous propose d'isoler nos modules JS lorsqu'on teste.
 
-![représentation visuelle de l'automock](../../../../../../../images/posts/bonnes-pratiques-web/mocked-modules.jpg)
+![représentation visuelle de l'automock](../mocked-modules.jpg)
 
 L'image précédente représente la métaphore qui nous permet d'expliquer notre stratégie de tests unitaires aux nouveaux arrivant.
 
@@ -330,7 +330,7 @@ Pour vous donner un exemple plus concret, entre 2018 et 2020 nous avons complèt
 Cette évolution graphique n'était qu'une clé de featureFlipping.
 La refonte graphique n'a donc pas été la remise à zéro du projet, on continue encore aujourd'hui de vivre avec les deux versions (tant que la bascule de tous nos clients n'est pas terminée).
 
-![screenshot comparatif v4 / v5 sur 6play](../../../../../../../images/posts/bonnes-pratiques-web/compare-v4-v5.jpg)
+![screenshot comparatif v4 / v5 sur 6play](../compare-v4-v5.jpg)
 
 ### L'A/B testing
 
@@ -376,7 +376,7 @@ Pour vous donner un exemple, à chaque fois qu'un utilisateur commence une sessi
 On a alors plus qu'à définir un dashboard qui affiche dans un graphique l'évolution de ce nombre.
 Si on observe une variation trop importante, cela peut nous permettre de détecter un incident.
 
-![exemple de dashboard de suivi](../../../../../../../images/posts/bonnes-pratiques-web/grafana-monitoring-example.png)
+![exemple de dashboard de suivi](../grafana-monitoring-example.png)
 
 Le monitoring nous offre aussi des solutions pour comprendre et analyser un bug qui s'est produit dans le passé.
 Comprendre un incident, l'expliquer, en trouver sa _root cause_ sont les possibilités qui s'offrent à vous si vous monitorez votre application.
@@ -391,7 +391,7 @@ Nous essayons cependant de toujours déclencher des alertes uniquement quand cel
 Dans d'autres termes, si une alerte sonne, nous avons quelque chose à faire.
 Faire sonner des alertes qui ne nécessitent aucune action immédiate humaine génèrent du bruit et de la perte de temps.
 
-![alerte générale](../../../../../../../images/posts/bonnes-pratiques-web/alerte-taxi.gif)
+![alerte générale](../alerte-taxi.gif)
 
 ## Limiter, surveiller et mettre à jour ses dépendances
 
@@ -427,7 +427,7 @@ Parfois nous avons décidé ces changements mais parfois nous les avons subi (un
 
 **Notre projet n'est pas complètement _"state of art"_ et on l'assume.**
 
-![ça tiendra !](../../../../../../../images/posts/bonnes-pratiques-web/leak.gif)
+![ça tiendra !](../leak.gif)
 
 Nous essayons de prioriser nos sujets de _refactoring_ sur les parties de l'application sur lequel on a le plus de souci, le plus de peine.
 On considère qu'une partie de l'application qui ne nous plaît pas mais sur laquelle on n'a pas besoin de travailler (apporter des évolutions) ne mérite pas qu'on la refactorise.

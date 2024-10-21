@@ -19,7 +19,7 @@ On commence dans la joie et la bonne humeur avec la "Seven Databases Song" :D
 
 #### [Mobile WebPerf] The Performance of Web vs. Apps, par Ben Galbraith (Walmart.com) & Dion Almaer (Walmart.com)
 
-![CR Velocity Conference 2012 : Day 3 (DevOps/WebPerf)](../../../../../../../images/posts/velocityus2012-walmart.jpg)
+![CR Velocity Conference 2012 : Day 3 (DevOps/WebPerf)](./velocityus2012-walmart.jpg)
 
 Petit sujet assez trollesque sur les WebApps vs Apps. Conférence hyper énérgétique et très drôle ! Notamment le passage à 12mn dans la vidéo, où l'on compare le mode de distribution des apps natives à ce que cela donnerait si les show tv devraient être distribués de la même manière en prenant l'exemple de la série Friends : Hilarant !
 
@@ -31,7 +31,7 @@ L'idée intéressante sur la fin du talk, concerne le rendu de l'application, qu
 
 #### [WebPerf] Akamai Internet Insights, Stephen Ludin (Akamai)
 
-![CR Velocity Conference 2012 : Day 3 (DevOps/WebPerf)](../../../../../../../images/posts/velocityus2012-akamai.jpg)
+![CR Velocity Conference 2012 : Day 3 (DevOps/WebPerf)](./velocityus2012-akamai.jpg)
 
 Petit talk de Stephen Ludin "Chief Architect for Akamai’s Site Acceleration and Security group".
 
@@ -54,7 +54,7 @@ Et slides ici :
 
 #### Lightning Demos, par Marcel Duran (Twitter Inc.), Nat Duca (Google), Lindsey Simon (Twist)
 
-![CR Velocity Conference 2012 : Day 3 (DevOps/WebPerf)](../../../../../../../images/posts/velocityus2012-marcel.jpg)
+![CR Velocity Conference 2012 : Day 3 (DevOps/WebPerf)](./velocityus2012-marcel.jpg)
 
 Ensuite, viennent trois sessions de Lightning Talk : 5 minutes pour présenter un sujet.
 
@@ -72,7 +72,7 @@ J'ai hâte d'implémenter tout ca chez M6Web :) Une vidéo à voir donc absolume
 
 <iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/XocIVwbfc1k?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
-![CR Velocity Conference 2012 : Day 3 (DevOps/WebPerf)](../../../../../../../images/posts/velocityus2012-nat.jpg)
+![CR Velocity Conference 2012 : Day 3 (DevOps/WebPerf)](./velocityus2012-nat.jpg)
 
 On continue dans le lourd, avec Nat Duca qui travaille sur le développement du navigateur Chrome et qui nous démontrer une feature très bas niveau mais au combien intéressante : le [chrome://tracing/](chrome://tracing/)
 
@@ -82,7 +82,7 @@ Cette fonctionnalité va vous permettre de profiler les actions du navigateur au
 
 <iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/g19aMgHCfWU?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 
-![CR Velocity Conference 2012 : Day 3 (DevOps/WebPerf)](../../../../../../../images/posts/velocityus2012-browserscope.jpg)
+![CR Velocity Conference 2012 : Day 3 (DevOps/WebPerf)](./velocityus2012-browserscope.jpg)
 
 Et pour finir cette jolie session de Lightning Talk, Lindsey Simon, nous présenté Browserscope : [https://www.browserscope.org/](https://www.browserscope.org/)
 
@@ -123,7 +123,7 @@ Pour info, Google a peu de temps après annoncé [la présence de Chrome sur iOs
 
 #### [DevOps] Simple log analysis and trending, par Mike Brittain (Etsy)
 
-![CR Velocity Conference 2012 : Day 3 (DevOps/WebPerf)](../../../../../../../images/posts/velocityus2012-brittain.jpg)
+![CR Velocity Conference 2012 : Day 3 (DevOps/WebPerf)](./velocityus2012-brittain.jpg)
 
 On retrouve Mike sur un sujet un peu différent : Comment analyser des logs Apache pour en sortir des graphites. Quelques astuces sur la fonction PHP [apache_note()](https://us.php.net/apache_note) sont mentionnées, sur le traitement des logs avec les commandes linux "awk" et "sed", et l'utilisation assez étonnante de Gnuplot pour grapher : [https://www.gnuplot.info/](https://www.gnuplot.info/) !
 
@@ -132,7 +132,7 @@ Les slides sont dispos ici : [https://www.mikebrittain.com/blog/2012/06/22/veloc
 Encore pas mal d'idées piocher ! (Ca commence faire beaucoup d'idées ...)
 
 
-![CR Velocity Conference 2012 : Day 3 (DevOps/WebPerf)](../../../../../../../images/posts/velocityus2012-stoyan.jpg)
+![CR Velocity Conference 2012 : Day 3 (DevOps/WebPerf)](./velocityus2012-stoyan.jpg)
 
 #### [WebPerf] Social Button BFFs, par Stoyan Stefanov (Facebook)
 
@@ -185,5 +185,5 @@ Merci tous !
 
 
 
-![Le Job Board assez hallucinant !](../../../../../../../images/posts/velocityus2012-jobboard.jpg)
+![Le Job Board assez hallucinant !](./velocityus2012-jobboard.jpg)
 Le Job Board assez hallucinant !

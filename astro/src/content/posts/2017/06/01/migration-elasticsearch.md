@@ -5,8 +5,8 @@ description: "Migration de Elasticsearch 1.7 à 5.2 sans interruption de service
 author: b_viguier
 category:
 tags: [Elasticsearch, Php]
-feature-img: "../../../../../../../images/posts/migration-es/migration.jpg"
-thumbnail: "../../../../../../../images/posts/migration-es/migration.jpg"
+feature-img: "./migration.jpg"
+thumbnail: "./migration.jpg"
 comments: true
 language: fr
 ---
@@ -18,7 +18,7 @@ Nous étions alors sur la [version 1.7](https://www.elastic.co/downloads/past-re
 Après plusieurs mois d'efforts pour effectuer cette migration sans interruption de service ni gel technique, nous voici en version… [5.2](https://www.elastic.co/downloads/past-releases/elasticsearch-5-2-2)!
 Voici le récit de cette grande migration, et ce que l'on a appris tout au long de ce périple.
 
-![ES5 Covfefe](../../../../../../../images/posts/migration-es/ES5-covfefe.jpg)
+![ES5 Covfefe](./ES5-covfefe.jpg)
 
 ## La théorie
 
@@ -38,13 +38,13 @@ Nous utilisons [des *workers* Php](/2016/06/23/video-phptour-worker-php) pour d�
 suite à quoi un message est publié dans une file d'attente pour être traité par un autre *worker* qui se chargera de synchroniser les entités entre MySQL et Elasticsearch.
 Il était primordial que le cluster de production ne soit pas impacté par les éventuelles erreurs rencontrées sur le nouveau cluster.
 Une de nos premières intentions était de publier le message de mise à jour dans une deuxième file d'attente, consommée par des workers dédiés eux aussi au nouveau cluster.
-![Plusieurs files d'attentes](../../../../../../../images/posts/migration-es/Multi-queues.png)
+![Plusieurs files d'attentes](./Multi-queues.png)
 
 
 Le gros inconvénient est que cela impliquait de doubler toutes les lectures sur la BDD, toutes les requêtes devaient être executées une fois par cluster,
 cela risquait donc d'impacter d'autres services.
 Nous sommes donc partis sur une solution purement logicielle, puisque pour chaque entité mise à jour ce sont les workers qui les envoient sur chaque cluster.
-![File d'attente unique](../../../../../../../images/posts/migration-es/Mono-queue.png)
+![File d'attente unique](./Mono-queue.png)
 
 
 Il est par contre nécessaire de gérer correctement les erreurs, que faire si une erreur intervient sur un cluster mais pas l'autre?
@@ -91,7 +91,7 @@ Quand on avait de la chance, ce *bug* faisait échouer nos tests, mais il est ma
 ## Conclusions
 
 Cette migration fut longue et parfois douloureuse, heureusement les résultats sont maintenant au rendez-vous!
-![Temps de réponse des APIs](../../../../../../../images/posts/migration-es/response-time.png)
+![Temps de réponse des APIs](./response-time.png)
 
 
 De plus, cela nous a donné l'occasion d'investir un peu de temps pour améliorer nos tests fonctionnels, et pour développer un système robuste pour la réplication des données sur plusieurs clusters Elasticsearch.

@@ -5,9 +5,9 @@ description: Plusieurs Bedrockiens étaient présents à MiXiT 2022, voici un r�
 author: [s_haim,e_perrin,j_mastounga,s_zoccarato]
 tags: [conference, agile]
 color: rgb(251,87,66)
-thumbnail: "../../../../../../../images/posts/mixit-crepes.jpg"
+thumbnail: "./mixit-crepes.jpg"
 ---
-!["MiXiT, la conférence avec des crêpes et du cœur"](../../../../../../../images/posts/mixit-crepes.jpg)
+!["MiXiT, la conférence avec des crêpes et du cœur"](./mixit-crepes.jpg)
 
 [MiXiT](https://mixitconf.org/) est une conférence "avec des crêpes et du cœur" qui se déroule à Lyon. Les sujets sont assez variés abordant autant l'agilité, que la programmation, le droit ou encore l'histoire de l'informatique.
 

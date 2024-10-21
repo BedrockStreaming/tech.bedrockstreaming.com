@@ -28,7 +28,7 @@ We wanted to migrate for bugs fixes in general and in a performance purpose too.
 
 # I) Workflow
 
-![Process](../../../../../../../images/posts/spark-2/process.png)
+![Process](./process.png)
 
 ## a) Spark 1.5 to Spark 1.6
 
@@ -68,7 +68,7 @@ Of course, the main change is that "dataFrame" does not exist anymore. You must 
 
 Actually, "DataFrame" and "Dataset" were unified with Spark 2.0. In reality, for untyped API like Python, "DataFrame" still exists. But, we work with Java.
 
-![Dataset](../../../../../../../images/posts/spark-2/dataset.png)
+![Dataset](./dataset.png)
 
 Using "Dataset\<T\>" is a way to apply a schema at the compilation. If there is a problem, you will get a logical exception. Before, with "DataFrame", you could only have runtime exceptions.
 

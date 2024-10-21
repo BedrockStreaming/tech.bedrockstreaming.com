@@ -10,7 +10,7 @@ youtubeId: 8nnDOT8b5Oc
 
 tags: [remotion, react, video, js, frontend, conference, lyonjs]
 color: rgb(251,87,66)
-thumbnail: "../../../../../../../images/posts/2022-04-04-comment-faire-un-trailer-qui-dechire-avec-des-technos-web/main-image.png"
+thumbnail: "./main-image.png"
 ---
 
 Avec Antoine Caron on est allé mettre des paillettes dans les yeux des participants du LyonJS en leur montrant comment créer des vidéos avec des technos web ! ✨

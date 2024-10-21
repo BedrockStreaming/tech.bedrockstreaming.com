@@ -6,7 +6,7 @@ author: a_zinck
 category:
 tags: [on-premise, cloud, cdn, varnish, aws, cloud, fastly, varnish-operator, cloudfront, alb]
 color: rgb(0, 150, 255)
-thumbnail: "../../../../../../../images/posts/2022-12-23-varnish-operator/main.png"
+thumbnail: "./main.png"
 feature-img:
 language: en
 comments: true
@@ -14,7 +14,7 @@ comments: true
 
 At Bedrock we use Cloudfront or Fastly for two different reason. To protect our applications from potential Distributed Denial of Service Attack. And to provide a layer of cache in front of our applications. No need to go down to the app for an easily cacheable response.
 
-<center><img alt="before the project" src="/images/posts/2022-12-23-varnish-operator/image0.png"></center>
+<center><img alt="before the project" src="./2022-12-23-varnish-operator/image0.png"></center>
 
 <br>
 
@@ -24,7 +24,7 @@ At that time we had a Varnish instance caching everything at the border  of our 
 
 This is ideal if applications are mostly called from the outside world. The Varnish instance caches all cacheable content, and it does not cost too much time as it was in the same Data Center. 
 
-<center><img alt="historically-before-2018" src="/images/posts/2022-12-23-varnish-operator/image2.png"></center>
+<center><img alt="historically-before-2018" src="./2022-12-23-varnish-operator/image2.png"></center>
 
 <br>
 In 2023, we think otherwise. We have now a [KOps](https://kops.sigs.k8s.io/) managed Kubernetes cluster running on EC2 spot instances in private subnets at AWS. As we migrated to the cloud we also embarked on the journey of splitting monolith into smaller more manageable microservices.
@@ -39,19 +39,19 @@ A better solution for us would be to have the caching of CDN inside the cluster.
 
 We tested the project [IBM/Varnish-Operator](https://github.com/IBM/varnish-operator). This project allows us to create Custom Resources for Kubernetes handled by the Varnish-Operator. This object is called a VarnishCluster, the configuration is pretty simple to get started. This enables us to have a caching layer, between the Ingress-Controller and the Application.
 
-<center><img alt="varnishcluster" src="/images/posts/2022-12-23-varnish-operator/image1.png"></center>
+<center><img alt="varnishcluster" src="./2022-12-23-varnish-operator/image1.png"></center>
 
 <br>
 
 VarnishCluster also uses Varnish Configuration Language (VCL) which we are pretty familiar with since we use Varnish On-Premise since 2015, and developers use it regularly to configure Fastly distribution.
 
 By adding cache using VarnishCluster to an application that is not fully cacheable, we almost divided it's average response time by two. It is not a surprise as inter api calls used to look like the following graph:
-<center><img alt="before-varnishcluster" src="/images/posts/2022-12-23-varnish-operator/image3.png"></center>
+<center><img alt="before-varnishcluster" src="./2022-12-23-varnish-operator/image3.png"></center>
 
 <br>
 
 We changed parameters in the application after adding VarnishCluster so that it calls other app inside the cluster like in the following graph:
-<center><img alt="after-varnishcluster" src="/images/posts/2022-12-23-varnish-operator/image4.png"></center>
+<center><img alt="after-varnishcluster" src="./2022-12-23-varnish-operator/image4.png"></center>
 
 <br>
 
@@ -84,7 +84,7 @@ For now our VarnishCluster's pods have the PriorityClass by default but it is mo
 Also we do not have logs of Varnish. We would like to be able to stream VarnishLog content into [Loki](https://grafana.com/oss/loki/). This would be super useful to debug and to investigate if we ever encounter bugs or unexpected behaviors.
 
 # Conclusion
-<center><img alt="average-Response-time after apps call through VarnishCluster" src="/images/posts/2022-12-23-varnish-operator/image5.png">
+<center><img alt="average-Response-time after apps call through VarnishCluster" src="../../../../../assets/images/image5.png">
 <p>Average response time going down, red bar is when we pushed it in production</p></center>
 
 <br>
@@ -93,5 +93,5 @@ With the generalization of microservices, Bedrock needed to rethink its architec
 
 [The Github project](https://github.com/IBM/varnish-operator) is still young and lacks important features, we hope with this article to help draw attention to this project and potential contributors. 
 
-<center><img alt="meme-contribute-pls" src="/images/posts/2022-12-23-varnish-operator/image6.jpg"></center>
+<center><img alt="meme-contribute-pls" src="./2022-12-23-varnish-operator/image6.jpg"></center>
 <br>

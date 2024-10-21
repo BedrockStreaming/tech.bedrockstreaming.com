@@ -15,7 +15,7 @@ permalink: velocity-europe-2013-day-1.html
 
 ### Introduction :
 
-![Velocity Europe 2013 - Day 1](../../../../../../../images/posts/imgob/0-00-30-83-201311-ob_0fc84f_9083212144-c916b6f5e1-jpg.jpeg)
+![Velocity Europe 2013 - Day 1](/0-00-30-83-201311-ob_0fc84f_9083212144-c916b6f5e1-jpg.jpeg)
 
 Nous voici de retour à Londres pour la troisième édition de la Vélocity Europe, qui se déroule, pour la deuxième fois à Londres (la précédente était à Berlin).
 
@@ -32,7 +32,7 @@ Pour rappel, la Vélocity est la conférence autour de la performance web. Qu'el
 
 Addy Osmani (Google Chrome) [@addyosmani](https://twitter.com/addyosmani)
 
-![Velocity Europe 2013 - Day 1](../../../../../../../images/posts/imgob/0-00-30-83-201311-ob_69d331_10845977003-b429d75241-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 1](/0-00-30-83-201311-ob_69d331_10845977003-b429d75241-z-jpg.jpeg)
 
 [Addy](https://addyosmani.com/blog/) est une figure incontournable du web. Créateur de [TodoMVC](https://todomvc.com/), Lead dév de [Yeoman](https://yeoman.io/) et travail dans la Google Chrome Team sur les outils à destination des développeurs autour du navigateur.
 
@@ -74,7 +74,7 @@ Vidéo de la même conférence (donnée à la Smashing Conf 2013)
 
 Jon Cowie (Etsy) [@jonlives](https://twitter.com/jonlives)
 
-![Velocity Europe 2013 - Day 1](../../../../../../../images/posts/imgob/0-00-30-83-201311-ob_83eb3a_10845796864-8dbb9f704e-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 1](/0-00-30-83-201311-ob_83eb3a_10845796864-8dbb9f704e-z-jpg.jpeg)
 
 Jon est “Ops Engineer” chez [Etsy](https://etsy.com/) (Dont le VP, John Allspaw, co-organise avec Steve Souders, la Vélocity).
 
@@ -152,7 +152,7 @@ Les slides sont disponible ici : [https://www.slideshare.net/jonlives/bring-the-
 
 Yoav Weiss (WL Square) [@yoavweiss](https://twitter.com/yoavweiss)
 
-![Velocity Europe 2013 - Day 1](../../../../../../../images/posts/imgob/0-00-30-83-201311-ob_f5459e_10845647355-e5150145e4-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 1](/0-00-30-83-201311-ob_f5459e_10845647355-e5150145e4-z-jpg.jpeg)
 
 Yoav est un spécialiste de la WebPerf et travaille sur les problématiques des images liées au Responsive Web Design. Il est aussi Technical Lead au RICG (Responsive images community Group)
 
@@ -180,7 +180,7 @@ L’étude et les retours sont extrêmement complet, et immanquable, si vous tra
 
 Ben Evans (JClarity) [@kittylyst](https://twitter.com/kittylyst)
 
-![Velocity Europe 2013 - Day 1](../../../../../../../images/posts/imgob/0-00-30-83-201311-ob_f988cd_10845641605-306fa359cc-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 1](/0-00-30-83-201311-ob_f988cd_10845641605-306fa359cc-z-jpg.jpeg)
 
 La performance et la complexité des applications qui fonctionnent sur la JVM ont suivi l'évolution de la loi de Moore. Malgré que nous ayons gagné de la puissance et des transistors, notre code s'est complexifié d'année en année et d'autant plus avec le boom d'Internet.
 
@@ -195,7 +195,7 @@ Il a présenté quelques optimisations indispensables selon lui, et a insisté s
 
 Ilya Grigorik (Google) [@igrigorik](https://twitter.com/igrigorik)
 
-![Velocity Europe 2013 - Day 1](../../../../../../../images/posts/imgob/0-00-30-83-201311-ob_0bd89e_10845984653-f790e99456-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 1](/0-00-30-83-201311-ob_0bd89e_10845984653-f790e99456-z-jpg.jpeg)
 
 AKA comment condenser un livre dans un tutorial d’1H30. Exercice encore plus difficile lorsqu'il faut résumer le résumé d'un livre aussi dense et complet. Ilya en tant que spécialiste de la webperf a examiné les mécanismes de la latence et de la bande passante, le fonctionnement du protocole TCP, la gestion de congestion, les problèmes structurels de HTTP 1.0 et HTTP 1.1, l'impact de TLS (le chiffrement) sur les performances. Il a donné ses recommandations pour optimiser TCP et bien utilisé TLS.
 
@@ -221,7 +221,7 @@ Il est d’ailleurs disponible gratuitement ici : [https://chimera.labs.oreilly.
 
 James wickett (Mentor Graphics) [@wickett](https://twitter.com/wickett)
 
-![Velocity Europe 2013 - Day 1](../../../../../../../images/posts/imgob/0-00-30-83-201311-ob_a85c76_10845714576-42269f839c-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 1](/0-00-30-83-201311-ob_a85c76_10845714576-42269f839c-z-jpg.jpeg)
 
 Cette présentation fut le seul et unique vrai “Workshop” du jour, dans le sens où une machine virtuelle (monter avec Vagrant) était fournie pour réaliser l’atelier au fur et mesure de la présentation sur sa machine.
 
@@ -252,7 +252,7 @@ Si vous voulez tester l’outil, qui à l’air très prometteur, vous pouvez su
 
 Andy Davies (Asteno) [@andydavies](https://twitter.com/andydavies) , Tobias Baldauf (Freelancer) [@tbaldauf](https://twitter.com/tbaldauf)
 
-![Velocity Europe 2013 - Day 1](../../../../../../../images/posts/imgob/0-00-30-83-201311-ob_78440c_10845987613-5d3296cfbd-z-jpg.jpeg)
+![Velocity Europe 2013 - Day 1](/0-00-30-83-201311-ob_78440c_10845987613-5d3296cfbd-z-jpg.jpeg)
 
 Dernière session de la journée, avec Andy et Tobias, sur un workshop axé Performance Web.
 

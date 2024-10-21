@@ -5,8 +5,8 @@ description: "From using a market DMP to creating our second Hadoop platform"
 author: c_chaplin
 category: Data
 tags: [Data,Hadoop,BigData,Airflow,Hive,Spark,DMP]
-feature-img: "../../../../../../../images/posts/cerebro/data-lake.jpg"
-thumbnail: "../../../../../../../images/posts/cerebro/data-lake.jpg"
+feature-img: "./data-lake.jpg"
+thumbnail: "./data-lake.jpg"
 comments: true
 language: en
 ---
@@ -15,7 +15,7 @@ language: en
 At M6 we work hard to leverage Data to help our ad sales team, our CRM teams and our product innovation process.
 Over the past 2 years, we have gone from using a market DMP to creating our second Hadoop platform. We now feel that our stack is stable, reliable and scalable so it feels like the right time to share our experience with the community.
 
-![Cerebro](../../../../../../../images/posts/cerebro/logo_cerebro.png)
+![Cerebro]"./logo_cerebro.png)
 
 
 Step 1: embracing the DMP
@@ -36,7 +36,7 @@ We chose Krux (now Salesforce) and deployed it over our ~30 sites and applicatio
 At the end of the day, Krux's DMP did the job. In November 2015 we launched Smart6tem, our Data platform & advertisement offer based on segments (announcement [here](https://m6pub.fr/innovation-smart-6tem-lecosysteme-data-du-groupe-m6/), articles [here](https://www.airofmelty.fr/groupe-m6-lancement-de-la-plateforme-data-smart-6-tem-strategie-pub-renforcee-a468873.html) [here](https://www.offremedia.com/le-groupe-m6-lance-son-ecosysteme-data-avec-smart-6tem) or [here](https://www.cbnews.fr/digital/le-groupe-m6-lance-sa-plateforme-data-a1023616)). This move had a very positive effect on our advertisement market, and allowed to start making Data mean something at M6.
 To give some detail of our use of the DMP, it turned out building our own segments was very successful, but we didn't use any 3rd party interconnection because we didn't find any valuable Data to buy and didn't want to reduce the value of our own Data by sharing it out.
 
-![Krux’s segment builder](../../../../../../../images/posts/cerebro/krux-segment-builder.png)
+![Krux’s segment builder](./krux-segment-builder.png)
 
 Krux’s segment builder
 
@@ -145,7 +145,7 @@ The AWS and Google sales teams were very convincing, but we finally declined for
 The next step was to choose between the 3 hosting options. On a side note, we compared the price for x4 and x10 resources compared to our v1 platform.
 At the end of the process we wrote up an evaluation grid. Here is the summary version.
 
-![Hosing platform comparison](../../../../../../../images/posts/cerebro/comparison-grid.png)
+![Hosing platform comparison](./comparison-grid.png)
 
 The decision was there, we went for a fully on premise stack with Odiso.
 To detail some of that evaluation, here's a few insights on what it came down to.
@@ -219,7 +219,7 @@ d) Install Hadoop and all our tools
 
 One of the fun parts of our design process was to choose a name for our new cluster. We called it Cerebro (in reference to X-Men and the global view of Professor Xavier), and created a logo :)
 
-![Cerebro](../../../../../../../images/posts/cerebro/logo_cerebro.png)
+![Cerebro]"./logo_cerebro.png)
 
 Setting this stack up felt very simple from my perspective, but that's surely because our awesome team overcame the issues silently.
 On the timeline, the biggest part of the setup was receiving the physical servers. That took about 3 months because some parts (SSD disks) were out of stock for a long time.

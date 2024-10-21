@@ -5,7 +5,7 @@ description: Nous étions à l'AFUP Day à Lyon pour l'édition 2023 !
 author: team_backend
 tags: [conference, lyon, tech, php, afup]
 color: rgb(251,87,66)
-thumbnail: "../../../../../../../images/posts/afup-day-lyon-2023/thumbnail.jpg"
+thumbnail: "./thumbnail.jpg"
 ---
 
 Comme à l'accoutumée, les équipes backend de Bedrock étaient présentes le 12 mai 2023 à CPE (au Campus Lyontech) pour une nouvelle édition de l'AFUP Day. 
@@ -95,7 +95,7 @@ Après une rapide présentation des différentes pratiques autour du _craftsmans
 
 Qu'est-ce que le **Gatekeeping** ? D'après lui (cf. photo), c'est l'art de marquer son appartenance à un groupe en excluant les autres.
 
-![Gatekeeper](../../../../../../../images/posts/afup-day-lyon-2023/gatekeeper.jpg)
+![Gatekeeper](./gatekeeper.jpg)
 
 Tout commence avec une remarque lue sur Internet, du style "Si tu ne fais pas de TDD, alors tu n'es pas un vrai développeur", qui le complexera au point de le pousser à étudier et appliquer cette pratique jusqu'à son tour devenir l'auteur de ce genre de remarque.
 
@@ -168,4 +168,4 @@ De PHPStan à GPT-4 en passant par GitHub Copilot, cette conférence, dont les s
 
 ## À l'année prochaine !
 
-![Team backend](../../../../../../../images/posts/afup-day-lyon-2023/team.jpg)
+![Team backend](./team.jpg)

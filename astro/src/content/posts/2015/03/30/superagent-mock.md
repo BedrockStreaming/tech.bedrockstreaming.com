@@ -5,8 +5,8 @@ description: "Présentation de la librairie superagent-mock, un plugin superagen
 author: team_cytron
 category:
 tags: [javascript, superagent, mock, isomorphic, cytron, open-source]
-feature-img: "../../../../../../../images/posts/cytron/superagent-mock.jpg"
-thumbnail: "../../../../../../../images/posts/cytron/superagent-mock.jpg"
+feature-img: "./superagent-mock.jpg"
+thumbnail: "./superagent-mock.jpg"
 comments: true
 permalink: comment-a-t-on-bouchonne-les-developpeurs-backend
 other_language: how-did-we-mock-the-backend-developers

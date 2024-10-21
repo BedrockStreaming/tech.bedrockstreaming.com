@@ -71,19 +71,19 @@ Et vu les derniers devfacts des équipes Bedrock, il semblerait qu'il soit temps
 
 # C'est beau le mob programming
 
-![Image d'un commit de H disant "little bug for E", puis d'un commit de E disant "fix H's shit](../../../../../../../images/posts/dev-facts-17/mob-programming.png)
+![Image d'un commit de H disant "little bug for E", puis d'un commit de E disant "fix H's shit](./mob-programming.png)
 
 # Meurs un autre jour
 
 *Quand tu veux vraiment être sûr que ton code est exécuté mais que tu oublies de nettoyer l'historique*
-![Image du code PHP d'un commit où il reste un `die('HEEEEERE')](../../../../../../../images/posts/dev-facts-17/die-to-test.png)
+![Image du code PHP d'un commit où il reste un `die('HEEEEERE')](./die-to-test.png)
 
 # C'est pas compliqué l'informatique
 
 > * Comment tu as fait ça ?
 > * J'ai appuyé sur des touches de mon clavier
 
-![Image d'un ticket où le développeur indique qu'il a changé une valeur de 20 à 30 en expliquant le "comment" par "en appuyant sur le clavier"](../../../../../../../images/posts/dev-facts-17/type-30-keyboard.png)
+![Image d'un ticket où le développeur indique qu'il a changé une valeur de 20 à 30 en expliquant le "comment" par "en appuyant sur le clavier"](./type-30-keyboard.png)
 
 # Google translate n'est pas toujours ton ami
 

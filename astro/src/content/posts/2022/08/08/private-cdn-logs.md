@@ -5,7 +5,7 @@ description: "We wanted to exploit our CDN logs as they contain many valuable in
 author: a_zinck
 tags: [onprem, cdn, logs, aws, cloud, nginx, vector, lambda, s3, glue, athena]
 color: rgb(251,87,66)
-thumbnail: "../../../../../../../images/posts/2022-08-08-privateCdnLogs/main.png"
+thumbnail: "./main.png"
 language: en
 comments: true
 excerpt: "At Bedrock, we have a CDN that outputs on average 400GB of uncompressed logs per hour. In this article, we present the architecture we have setup to collect these logs and extract value from them."
@@ -47,7 +47,7 @@ At Bedrock, we like to keep things simple. We think our CDN main mission is to s
 
 The real benefit to using S3 is that you can easily plug it into Glue and Athena which allows you to request TeraBytes of data easily.
 
-![technical Solution](../../../../../../../images/posts/2022-08-08-privateCdnLogs/image1.png)
+![technical Solution](./image1.png)
 
 ### Sending logs to S3: Vector
  
@@ -57,7 +57,7 @@ To send logs from our CDN servers to Amazon S3 bucket, we had many options, but 
 After a quick evaluation, we decided to go with [Vector as it seemed more memory efficient](https://medium.com/ibm-cloud/log-collectors-performance-benchmarking-8c5218a08fea) and output more Logs Per Second under heavy load than Fluentd.
 
 
-<center><img alt="Log per second" src="/images/posts/2022-08-08-privateCdnLogs/image4.png"></center>
+<center><img alt="Log per second" src="./2022-08-08-privateCdnLogs/image4.png"></center>
 <center>Source: <a href="https://medium.com/ibm-cloud/log-collectors-performance-benchmarking-8c5218a08fea" target="blank">Who is the winner — Comparing Vector, Fluent Bit, Fluentd performance from Ajay Gupta</a></center>
 <br>
 
@@ -78,19 +78,19 @@ Once logs are stored in S3 bucket, we need to classify and sort them in order to
 
 We have 2 different parts in this lambda stack. 
 
-<center><img alt="Move Acess Logs" src="/images/posts/2022-08-08-privateCdnLogs/image3.png"></center>
+<center><img alt="Move Acess Logs" src="./2022-08-08-privateCdnLogs/image3.png"></center>
 <center>source: <a href="https://github.com/aws-samples/amazon-cloudfront-access-logs-queries/blob/mainline/images/moveAccessLogs.png" target="blanck">moveAccessLogs</a></center>
 <br>
 The first part is called by S3 Event when a new file is pushed to a specific path. This lambda moves the file to a path assigned per server and per hour. This way, logs are stored for each server, each month, each day and each hour in a separate prefix.
 
-<center><img alt="Transform Partition" src="/images/posts/2022-08-08-privateCdnLogs/image2.png"></center>
+<center><img alt="Transform Partition" src="./2022-08-08-privateCdnLogs/image2.png"></center>
 <center>source: <a href="https://github.com/aws-samples/amazon-cloudfront-access-logs-queries/blob/mainline/images/transformPartition.png" target="blank">transformPartition</a></center>
 <br>
 Then, another lambda transforms logs into [Parquet format](https://parquet.apache.org/). Parquet is an open source format from the Apache Foundation. It is commonly used in big data. It takes up little space and is very effective. 
 
 We chose to use AWS glue in order to create a database of our logs. The columns of the table are based on our log format. We can then request everything we want in Athena.
 
-<center><img alt="Athena Query" src="/images/posts/2022-08-08-privateCdnLogs/image5.png"></center>
+<center><img alt="Athena Query" src="../../../../../assets/images/image5.png"></center>
 
 We are now capable of extracting the bytes sent from a particular virtual host and sum it over a month for all CDN servers to bill our customers.
 Those logs are now available for all the teams who may need them to improve their application or to debug an issue they are facing.

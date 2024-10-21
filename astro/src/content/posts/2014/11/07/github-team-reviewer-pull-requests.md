@@ -5,8 +5,8 @@ description: "Voir toutes les pull requests de ses équipes en un seul endroit"
 author: team_cytron
 category:
 tags: [outil, github, pull-requests, cytron, open-source]
-feature-img: "../../../../../../../images/posts/cytron/gtr.png"
-thumbnail: "../../../../../../../images/posts/cytron/gtr.png"
+feature-img: "./gtr.png"
+thumbnail: "./gtr.png"
 comments: true
 permalink: github-team-reviewer-pull-requests.html
 ---

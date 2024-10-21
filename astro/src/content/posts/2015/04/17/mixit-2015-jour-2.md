@@ -5,8 +5,8 @@ description: "Retour des conférences vues lors du jour 2 du Mix-IT 2015"
 author: m_randy
 category:
 tags: [mixit, conference, agile, technique]
-feature-img: "../../../../../../../images/posts/mixit2015/logo-mixit.png"
-thumbnail: "../../../../../../../images/posts/mixit2015/logo-mixit.png"
+feature-img: "../logo-mixit.png"
+thumbnail: "../logo-mixit.png"
 comments: true
 ---
 

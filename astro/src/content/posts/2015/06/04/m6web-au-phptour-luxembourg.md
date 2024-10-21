@@ -10,8 +10,8 @@ author: Baptiste, Mikael Randy et Olivier Mansour
   
 category:
 tags: [conference,afup,phptour]
-feature-img: "../../../../../../../images/posts/phptourlux/inphinity.jpg"
-thumbnail: "../../../../../../../images/posts/phptourlux/inphinity.jpg"
+feature-img: "./inphinity.jpg"
+thumbnail: "./inphinity.jpg"
 comments: true
 permalink: 
 ---
@@ -22,7 +22,7 @@ permalink:
 
 Le voyage fut un peu épique, surtout les quelques kilomètres en plus quand le meilleur d'entre nous a oublié son sac à dos dans une station à 150 km de là :)
 
-![m6web car](../../../../../../../images/posts/phptourlux/m6web_car.jpg)
+![m6web car]"./m6web_car.jpg)
 
 Et on n'a pas pu battre la team [Blablacar](https://twitter.com/BlaBlaCarTech) et [Jolicode](https://jolicode.com/) au concours de levé de coudes - on est forfait les gars !
 

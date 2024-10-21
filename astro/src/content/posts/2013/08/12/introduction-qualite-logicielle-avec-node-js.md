@@ -13,7 +13,7 @@ comments: true
 permalink: introduction-qualite-logicielle-avec-node-js
 ---
 
-![(Source : https://www.flickr.com/photos/dieselbug2007/414348333/)](../../../../../../../images/posts/imgob/0-00-30-83-201307-ob_0f27a1_414348333-b72ff906de-b-jpg.jpeg)
+![(Source : https://www.flickr.com/photos/dieselbug2007/414348333/)](/0-00-30-83-201307-ob_0f27a1_414348333-b72ff906de-b-jpg.jpeg)
 
 (Source : https://www.flickr.com/photos/dieselbug2007/414348333/)
 
@@ -41,13 +41,13 @@ Pour tout ce qui est "tests", nous avons choisi le très bon duo :
 
 
 
-![Introduction à la qualité logicielle avec Node.js](../../../../../../../images/posts/imgob/0-00-30-83-201307-ob_d472509f78a8e21ad02b2e74ec9f03a0_15f75683-mocha-logo-png.png)
+![Introduction à la qualité logicielle avec Node.js](/0-00-30-83-201307-ob_d472509f78a8e21ad02b2e74ec9f03a0_15f75683-mocha-logo-png.png)
 
 [Mocha](https://visionmedia.github.io/mocha/) c'est un "test-runner" javascript qui fonctionne aussi bien sur Node que dans un navigateur web. Plus simplement mocha est l'outil qui va contenir nos tests: il va exécuter les tests et afficher les résultats.
 
 
 
-![Introduction à la qualité logicielle avec Node.js](../../../../../../../images/posts/imgob/0-00-30-83-201307-ob_99cf18_636ffadd667e8f9abe354403692aeb73.png)
+![Introduction à la qualité logicielle avec Node.js](/0-00-30-83-201307-ob_99cf18_636ffadd667e8f9abe354403692aeb73.png)
 
 [Chai](https://chaijs.com/) est une librairie d'assertion assez complète, permettant plusieurs syntaxe :
 
@@ -89,7 +89,7 @@ Toutes ces métriques sont récoltées grâce à [Jenkins-CI](https://jenkins-ci
 
 <script src="https://gist.github.com/nchaulet/5857025.js"></script>
 
-![Le résultat de l'intégration continue dans jenkins.](../../../../../../../images/posts/imgob/0-00-30-83-201306-ob_56a4f738660c069741e43ca3dad5a7d7_jenkins.png)
+![Le résultat de l'intégration continue dans jenkins.](/0-00-30-83-201306-ob_56a4f738660c069741e43ca3dad5a7d7_jenkins.png)
 
 Le résultat de l'intégration continue dans jenkins.
 

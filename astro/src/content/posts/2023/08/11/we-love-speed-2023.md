@@ -5,7 +5,7 @@ description: We tell you all about web performance in 2023!
 author: team_frontend
 tags: [conference, paris, tech, webperf]
 color: rgb(251,87,66)
-thumbnail: ../../../../../../../images/posts/we-love-speed-2023/thumbnail.jpeg
+thumbnail: ./thumbnail.jpeg
 ---
 
 The Frontend Bedrock teams were present at the 2023 edition of the _We Love Speed_ conference in Paris on May 10. Its aim is to share as widely as possible knowledge and experience in the field of web performance.
@@ -126,11 +126,11 @@ La Redoute's approach is truly inspiring and serves as a great example of foster
 
 When analyzing a website's performance, it's essential to take several key criteria into account in order to become the ["Sherlock Holmes of Web Performance" as would say Ludovic Lefebvre](https://www.youtube.com/watch?v=q65w_luvB3A) 🇫🇷. In addition of the CWV mentioned above, there are other commonly used performance analysis criteria:
 
-![metric.png](../../../../../../../images/posts/2023-07-01-we-love-speed-2023/metric.png)
+![metric.png](./metric.png)
 
 To measure/evaluate your site's performance according to these criteria, there are 3 types of sources: Local (devtools), Synthetic (CI/CD / online scan tools), RUM (Real User Monitoring).
 
-![metric.png](../../../../../../../images/posts/2023-07-01-we-love-speed-2023/perf-data-source.png)
+![metric.png](./perf-data-source.png)
 
 ### Use the right tools to understand performance issues...
 
@@ -146,7 +146,7 @@ Jean-Pierre Vincent gives more details about how to measure performance in his t
   - [New Relic](https://newrelic.com): an application performance monitoring platform that provides real-time visibility into the performance of your web applications, including usage metrics, load times, etc.
   - [Grafana](https://grafana.com/): a data visualization platform that can be used to display and analyze performance monitoring data collected from a variety of sources, including RUM tools.
 
-![logomosaic.png](../../../../../../../images/posts/2023-07-01-we-love-speed-2023/logomosaic.png)
+![logomosaic.png](./logomosaic.png)
 
 It's important to note that each type of analysis data has its own advantages and is used in specific contexts. Local data is useful for real-time development and debugging, synthetic data enables performance to be compared and optimized in a reproducible way, while RUM data, just as explained by [Tim Vereecke in his "Noise Canceling RUM" talk](https://www.youtube.com/watch?v=vfl-C1FZSwE) 🇬🇧, provides a true view of UX. It is generally recommended to use a combination of these different data sources to identify/target problems or opportunities for performance improvement.
 

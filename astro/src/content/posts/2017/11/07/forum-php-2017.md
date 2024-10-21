@@ -13,7 +13,7 @@ M6Web était sponsor de cette édition du Forum PHP organisée par l’[AFUP](ht
 Ce forum était vraiment inédit de par sa taille sans précédent : plus de 650 participants ! Il a été aussi pour l’équipe l'occasion de voir des présentations de grande qualité et très inspirantes. (sans compter celle de nos collègues Fabien et Nastasia sur l'AB testing).
 
 
-![la team](../../../../../../../images/posts/forumphp2017/team.jpg)
+![la team]"./team.jpg)
 
 
 De très nombreux retours exhaustifs sont disponibles sur le web et je pense que les vidéos seront rapidement en ligne sur [la page listant tous les talks organisés par l’AFUP](https://afup.org/talks/). On peut noter, comme à chaque Forum, les tendances qui se dégagent de l’ensemble des talks et suite aux discussions endiablées qui suivent les présentations : 

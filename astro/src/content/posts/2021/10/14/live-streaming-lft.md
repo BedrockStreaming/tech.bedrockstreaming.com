@@ -5,8 +5,8 @@ description: "Discover how we live streamed our Last Friday Talks of September 2
 author: p_martin
 category:
 tags: [lft, talks, live, stream, obs]
-feature-img: "../../../../../../../images/posts/lft/live-streaming/header.jpg"
-thumbnail: "../../../../../../../images/posts/lft/live-streaming/header.jpg"
+feature-img: "./header.jpg"
+thumbnail: "./header.jpg"
 comments: true
 language: en
 redirect_from:
@@ -48,13 +48,13 @@ How did we capture and stream slides (or even code and video!), audio, and video
 
 Let's start from the room where we broadcast: our amphitheater.
 
-![Our amphitheater, top view](../../../../../../../images/posts/lft/live-streaming/schema-01-amphi.jpg)
+![Our amphitheater, top view](./schema-01-amphi.jpg)
 
 You can see the room below. This photo is taken[^photo-front-room] from the first row of the bleachers, on the right on the picture above:
 
 [^photo-front-room]: Photo taken while projecting talks of the Demuxed conference, for those who wanted to see them on a big screen and together...
 
-![Photo of the room, from a first row seat](../../../../../../../images/posts/lft/live-streaming/amphi-bedrock.jpg)
+![Photo of the room, from a first row seat](./amphi-bedrock.jpg)
 
 So, the configuration of the room:
 
@@ -100,11 +100,11 @@ Equipment:
 
 We want to broadcast to the live stream what the speaker is projecting in the room. To do this, we place an HDMI capture box between her PC and the projector:
 
-![An HDMI capture box, view from the room](../../../../../../../images/posts/lft/live-streaming/schema-04-hdmi-capture.jpg)
+![An HDMI capture box, view from the room](./schema-04-hdmi-capture.jpg)
 
 This capture box has an HDMI input *(= the cable coming out of the speaker's PC)*, an HDMI output *(= the cable going to the projector)* and a USB-C output *(= the cable going to the control / broadcast PC)*.
 
-![An HDMI capture box, close-up view](../../../../../../../images/posts/lft/live-streaming/schema-05-hdmi-capture.jpg)
+![An HDMI capture box, close-up view](./schema-05-hdmi-capture.jpg)
 
 On the control / broadcast PC, the capture box connected via USB is recognized as a webcam. It is then used as a video input device in OBS.
 
@@ -121,7 +121,7 @@ It would be even cooler if the remote audience could see the speaker! As a matte
 
 So let's position a camera in the room, at the level of the audience sitting in the stands, to give the impression the speakers are looking at the camera when they are looking at the audience.
 
-![A camera to film the speaker, seen from the audience](../../../../../../../images/posts/lft/live-streaming/schema-03-camera.jpg)
+![A camera to film the speaker, seen from the audience](./schema-03-camera.jpg)
 
 We did not have a real camera at hand. So we used an iPhone 11 Pro Max[^iphone-good-enough]. It has only a Lightning port... And, with an adapter, we can connect an HDMI cable. And the *Filmic Pro[^filmic-pro]* application knows how to stream a *clean HDMI[^clean-hdmi]* video.
 
@@ -133,7 +133,7 @@ We did not have a real camera at hand. So we used an iPhone 11 Pro Max[^iphone-g
 
 To capture the HDMI signal from the iPhone to the PC, we used a second capture box, simpler than the previous one: it has an HDMI input *(= to connect the iPhone)* and a USB output *(= connected to the PC)*:
 
-![A camera to film the presenter, close-up view](../../../../../../../images/posts/lft/live-streaming/schema-06-camera.jpg)
+![A camera to film the presenter, close-up view](./schema-06-camera.jpg)
 
 Fearing the iPhone's battery wouldn't last all day while filming, we powered it via an external battery[^external-battery]. The Lightning-to-HDMI adapter happens to include a lightning plug for power.
 
@@ -160,7 +160,7 @@ Our amphitheater is equipped with microphones and speakers, but we don't yet kno
 
 With the resources and time we had, the best we could do for the speakers was a wireless lapel mic:
 
-![A microphone, wireless](../../../../../../../images/posts/lft/live-streaming/schema-07-microphone.jpg)
+![A microphone, wireless](./schema-07-microphone.jpg)
 
 We didn't have a wireless mic, but we had something that could act as such, and we ended up with a 3.5" jack to plug into the microphone port of the control PC. This microphone is then used as an audio source in the Google Meet.
 
@@ -203,25 +203,25 @@ On the control PC, in OBS, we configured several scenes to highlight the speaker
 
 To display large code examples, videos...
 
-![Screen only, live-stream screenshot](../../../../../../../images/posts/lft/live-streaming/live-stream-screen-only.png)
+![Screen only, live-stream screenshot](./live-stream-screen-only.png)
 
 ##### Large screen
 
 With speaker overlay in the bottom right corner: for slides written small, while reflecting an idea of the gestures. And we also had the same thing with the speaker inlay in another corner, for slides with important texts in the bottom right of the screen.
 
-![Incrustation, live-stream screenshot](../../../../../../../images/posts/lft/live-streaming/live-stream-incrustation.png)
+![Incrustation, live-stream screenshot](./live-stream-incrustation.png)
 
 ##### Mosaiq
 
 Screen on the left half of the screen, video of the speaker on the right half: for large written slides and to allow people at a distance to see the speaker clearly. We used this view a lot when the camera was on the side of the room -- and we didn't use it anymore once the camera was in front of the speaker.
 
-![Mosaiq, live-stream screenshot](../../../../../../../images/posts/lft/live-streaming/live-stream-mosaiq.png)
+![Mosaiq, live-stream screenshot](./live-stream-mosaiq.png)
 
 ##### Speaker only
 
 Only the speaker's video, framed to include one of the two screens. We used this view "as if the person watching the stream was sitting in the stands" for much of the afternoon, when the camera was placed in the middle of the audience.
 
-![Speaker only, live-stream screenshot](../../../../../../../images/posts/lft/live-streaming/live-stream-speaker-only.png)
+![Speaker only, live-stream screenshot](./live-stream-speaker-only.png)
 
 #### For the practical aspects of managing the live stream
 
@@ -234,7 +234,7 @@ Hardware:
  * [Elgato Stream Deck](https://www.elgato.com/en/stream-deck);
  * since it connects to USB-A: an adapter or a USB hub.
 
-![An Elgato Stream Deck](../../../../../../../images/posts/lft/live-streaming/stream-deck.jpg)
+![An Elgato Stream Deck](./stream-deck.jpg)
 
 #### The control desk, in photo
 
@@ -242,7 +242,7 @@ A lot of unorganized cables... Here is what the table looked like with the contr
 
 [^control-pc-mess]: Yes, it's a bit of a mess... And, no, you can't see everything: when we took this picture, we didn't think we would post it ^^
 
-![The control table](../../../../../../../images/posts/lft/live-streaming/control-table.jpg)
+![The control table](./control-table.jpg)
 
 ## Some things to improve
 

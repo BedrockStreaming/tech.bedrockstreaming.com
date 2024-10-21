@@ -5,8 +5,8 @@ description: "Création d'un nouveau service de vote communiquant avec une API R
 author: d_roussel
 category:
 tags: [api, symfony, redis, monitoring, qualite, cytron]
-thumbnail: "../../../../../../../images/posts/cytron/polls.png"
-feature-img: "../../../../../../../images/posts/cytron/polls.png"
+thumbnail: "./polls.png"
+feature-img: "./polls.png"
 comments: true
 ---
 
@@ -71,9 +71,9 @@ Dans un premier temps, nous avons légèrement ajusté notre modèle de données
 
 Nous avons enfin supprimé la vérification de deux contraintes d'intégrité sans importance. Le code retour en cas d'erreur est juste un peu moins cohérent (`400` au lieu de `422`) mais cela n'impacte ni l'intégrité des votes ni la sécurité du service.
 
-![Suppression de la première contrainte](../../../../../../../images/posts/cytron/polls/contrainte1.png)
+![Suppression de la première contrainte](./contrainte1.png)
 
-![Suppression de la deuxieme contrainte et transaction Redis](../../../../../../../images/posts/cytron/polls/contrainte2-transaction.png)
+![Suppression de la deuxieme contrainte et transaction Redis](./contrainte2-transaction.png)
 
 Afin de savoir si nous n'avions pas complètement pris une mauvaise direction dans notre utilisation de Symfony, nous avons alors fait appel à [Alexandre Salomé](https://twitter.com/alexandresalome), consultant SensioLabs, pour auditer notre code.
 
@@ -81,7 +81,7 @@ Lors de cette journée, durant laquelle nous avons beaucoup appris, nous avons s
 
 Une fois cette modification apportée, nous avons gagné les ultimes millisecondes nous permettant de passer sous la barre symbolique des 10ms de temps de réponse sur notre route critique.
 
-![Suppression des bundles superflus](../../../../../../../images/posts/cytron/polls/bundles.png)
+![Suppression des bundles superflus](./bundles.png)
 
 Vous remarquerez que nous avons d'abord déployé le système en production avant de chercher à l'optimiser : nous pouvions ainsi mesurer en temps réel l'impact de nos développements sur une multitude d'indicateurs dont le temps de réponse.
 
@@ -89,7 +89,7 @@ Vous remarquerez que nous avons d'abord déployé le système en production avan
 
 Le service Polls a facilement tenu la charge pour la première émission mettant en avant le *second écran* : un épisode de Hawaï 5-0 durant lequel les internautes pouvaient [choisir le coupable](https://www.programme-tv.net/news/series-tv/39233-hawaii-5-0-m6-ce-soir-vous-decidez-fin-episode/) avec un sondage (sur leur téléphone, tablette ou PC).
 
-![Nombre de votes pour Hawai 5-0](../../../../../../../images/posts/cytron/polls/hawai50.png)
+![Nombre de votes pour Hawai 5-0](./hawai50.png)
 
 Plus précisément, nous sommes montés à 150 requêtes par secondes (ce qui est évidemment bien moins que nos tests de charge), mais nous savons que nous pourrons maintenant nous adapter très simplement à une charge beaucoup plus forte en ajoutant des serveurs web. Notamment lors d'émissions faisant grandement appel au *second écran*.
 

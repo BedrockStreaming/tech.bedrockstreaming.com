@@ -5,8 +5,8 @@ description: "Staging environment for your Android and iOS React Native apps on 
 author: k_dits
 category:
 tags: [reactnative, react, mobile, github, jenkins, fastlane, appetize]
-feature-img: "../../../../../../../images/posts/reactnative/nighttrain.jpg"
-thumbnail: "../../../../../../../images/posts/reactnative/nighttrain.jpg"
+feature-img: "./nighttrain.jpg"
+thumbnail: "./nighttrain.jpg"
 comments: true
 language: en
 ---
@@ -15,11 +15,11 @@ We are playing since a few weeks with [React Native](https://facebook.github.io/
 
 Here is the workflow we use for web development:
 
-* Branch ![allthethings](../../../../../../../images/posts/reactnative/allthethings.png) : every bugfix or feature is developed on a new git branch,
-* Pull Request (PR) ![allthethings](../../../../../../../images/posts/reactnative/allthethings.png) : we make PR for each bugfix or feature to propose the modification to the « master » git branch,
-* Code Review ![allthethings](../../../../../../../images/posts/reactnative/allthethings.png) : other teammates have to review each PR and add :+1: when they agree with the modification,
-* Test ![allthethings](../../../../../../../images/posts/reactnative/allthethings.png) : a CI system ([Jenkins](https://jenkins.io/)) runs Unit and Integration tests, and Lint on each PR,
-* Preview ![allthethings](../../../../../../../images/posts/reactnative/allthethings.png) : an internal tool (Github Hooker) is called with a Github webhook on each PR to create a staging environment.
+* Branch ![allthethings]"./allthethings.png) : every bugfix or feature is developed on a new git branch,
+* Pull Request (PR) ![allthethings]"./allthethings.png) : we make PR for each bugfix or feature to propose the modification to the « master » git branch,
+* Code Review ![allthethings]"./allthethings.png) : other teammates have to review each PR and add :+1: when they agree with the modification,
+* Test ![allthethings]"./allthethings.png) : a CI system ([Jenkins](https://jenkins.io/)) runs Unit and Integration tests, and Lint on each PR,
+* Preview ![allthethings]"./allthethings.png) : an internal tool (Github Hooker) is called with a Github webhook on each PR to create a staging environment.
 
 When every step is ok, the PR is merged.
 
@@ -41,7 +41,7 @@ We use [Fastlane.tools](https://fastlane.tools/) to automate build and credentia
 
 In order to preview iOS and Android app in a web browser, we use the amazing SAAS service [Appetize.io](https://appetize.io/) (free for 100min/month).
 
-![Appetize](../../../../../../../images/posts/reactnative/appetize.png)
+![Appetize]"./appetize.png)
 
 ## How did we do ?
 
@@ -266,7 +266,7 @@ Fastlane android deployAppetize
 
 You have now two new checks on each PR with a link to the iOS or Android instance on Appetize.io.
 
-![Github Pull Request with preview url](../../../../../../../images/posts/reactnative/githubpr.png)
+![Github Pull Request with preview url]"./githubpr.png)
 
 The complete `Fastfile` on a Github Gist : [FastFile](https://gist.github.com/kennydee/e5dbefb1b75eb79cf1de3b47b9fdf00a)
 

@@ -36,7 +36,7 @@ When our Kubernetes clusters manage a large number of pods, a constraint quickly
 
 _> The cardinality of a metric is the number of TimeSeries of that metric with single-valued labels._
 
-![schema of cardinality](../../../../../../../images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/cardinality-example.png)
+![schema of cardinality](./cardinality-example.png)
 
 In the example above, the `status_code` label has a cardinality of 5, app has a cardinality of 2 and the overall cardinality of the `server_reponses` metric is 10.
 
@@ -52,8 +52,8 @@ During a high load event, Prometheus could consume up to 200 GB of RAM before be
 This also impacts us on scalability in our Kubernetes clusters, as we use [CustomMetrics](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#scaling-on-custom-metrics) very heavily in HPAs to scale the number of pods in our applications.
 
 _RAM and CPU consumption of our prometheus instances (the red lines represent the reboots of our instances, we also see a loss of metrics)_
-![RAM consumption of prometheus ](../../../../../../../images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/prometheus-ram.png)
-![RAM consumption of prometheus ](../../../../../../../images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/prometheus-cpu.png)
+![RAM consumption of prometheus ](./prometheus-ram.png)
+![RAM consumption of prometheus ](./prometheus-cpu.png)
 
 Prometheus is still a good solution, which has served its purpose well for several years, but we have reached its limits in our production environments.
 
@@ -104,10 +104,10 @@ Comparative table between Prometheus and Victoria Metrics :
 | Max cardinality      | 4 metrics > 100K | 10+ metrics > 1M |
 
 _Graph on the CPU consumption of Victoria Metrics components_
-![cpu-usage-poc-vm](../../../../../../../images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/cpu-poc-vm.png)
+![cpu-usage-poc-vm](./cpu-poc-vm.png)
 
 _Number of active "TimeSeries" in Victoria Metrics_
-![active-ts-poc-vm](../../../../../../../images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/active-ts-poc-vm.png)
+![active-ts-poc-vm](./active-ts-poc-vm.png)
 
 Our benchmark persuaded us to use Victoria Metrics as a replacement for Prometheus.
 
@@ -127,7 +127,7 @@ Alerting is also managed via a VMAlert component, which will execute the alertin
 One of the advantages of using this Helm chart is that it will deploy essential components to properly monitor a Kubernetes cluster such as _Kube-state-metrics_ or _prometheus-node-exporter_, but also scraping configurations for services such as _Kubelet, KubeApiServer, KubeControllerManager, KubeDNS, KubeEtcd, KubeScheduler, KubeProxy_
 
 _This is what our monitoring and alerting stack based on this Helm chart looks like._
-![stack-vm](../../../../../../../images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/stack-vm.png)
+![stack-vm](./stack-vm.png)
 
 # Resumption of the history
 We wanted to keep historical metrics of our Kubernetes clusters. Victoria Metrics provides a tool to manage the export and import of data from different TSDB: [vmctl](https://docs.victoriametrics.com/vmctl.html).
@@ -190,11 +190,11 @@ Here are some indicators of the victoria metrics stack performance of one of our
 - sample rate : up to 4.99M (average 343K)
 - scrape target : up to 49K (average 4.4K)
 
-![total-datapoint-vm-last-6m](../../../../../../../images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/total-datapoint-vm-last-6m.png)
-![active-ts-vm-last-6m](../../../../../../../images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/active-ts-vm-last-6m.png)
-![ingestion-rate-vm-last-6m](../../../../../../../images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/ingestion-rate-vm-last-6m.png)
-![cpu-usage-vm-last-6m](../../../../../../../images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/cpu-usage-vm-last-6m.png)
-![ram-usage-vm-last-6m](../../../../../../../images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/ram-usage-vm-last-6m.png)
-![churn-rate-vm-last-6m](../../../../../../../images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/churn-rate-vm-last-6m.png)
-![sample-rate-vm-last-6m](../../../../../../../images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/sample-rate-vm-last-6m.png)
-![scrape-target-vm-last-6m](../../../../../../../images/posts/2022-09-06-monitoring-at-scale-with-victoriametrics/scrape-target-vm-last-6m.png)
+![total-datapoint-vm-last-6m](./total-datapoint-vm-last-6m.png)
+![active-ts-vm-last-6m](./active-ts-vm-last-6m.png)
+![ingestion-rate-vm-last-6m](./ingestion-rate-vm-last-6m.png)
+![cpu-usage-vm-last-6m](./cpu-usage-vm-last-6m.png)
+![ram-usage-vm-last-6m](./ram-usage-vm-last-6m.png)
+![churn-rate-vm-last-6m](./churn-rate-vm-last-6m.png)
+![sample-rate-vm-last-6m](./sample-rate-vm-last-6m.png)
+![scrape-target-vm-last-6m](./scrape-target-vm-last-6m.png)

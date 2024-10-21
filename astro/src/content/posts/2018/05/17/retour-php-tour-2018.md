@@ -10,7 +10,7 @@ author: Guillaume Bouyge, Valentin Claras, Fabien De Saint Pern, Francois-Xavier
   
 category:
 tags: [phptour, php, afup, 2018]
-feature-img: "../../../../../../../images/posts/phptour2018/team.jpg"
+feature-img: "./team.jpg"
 comments: true
 language: fr
 ---

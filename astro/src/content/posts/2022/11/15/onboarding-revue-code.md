@@ -49,7 +49,7 @@ revue de code est également une façon de nous tenir informé(e) de
 l'implémentation de nouvelles features, d'apprendre autant du métier que de la 
 technique et enfin, d'apprendre à travailler ensemble. 
 
-![Pourquoi faisons-nous de la code review ?](../../../../../../../images/posts/2022-11-07-code-review-onboarding/code-review.png)
+![Pourquoi faisons-nous de la code review ?](./code-review.png)
 
 Voici une 
 petite liste non exhaustive de l'intérêt de la revue de code : 
@@ -65,7 +65,7 @@ petite liste non exhaustive de l'intérêt de la revue de code :
 
 ## ...Et parfois, on souffre
 
-![parfois on souffre](../../../../../../../images/posts/2022-11-07-code-review-onboarding/parfois-on-souffre.png)
+![parfois on souffre](./parfois-on-souffre.png)
 
 Mais parfois, ce n'est pas tout rose. Les commentaires qu'on laisse peuvent vexer. On 
 peut nous-même être vexé. Car certains jours, on peut manquer d'empathie. On peut avoir 
@@ -94,7 +94,7 @@ n'est pas aisé pour tous. **Notre ego peut interférer et dégrader la qualité
 échanges avec nos collègues**. Aussi, avant de chercher à formater nos commentaires, nous pouvons 
 nous interroger sur leur contenu.
 
-![Egoless programming](../../../../../../../images/posts/2022-11-07-code-review-onboarding/egoless.png)
+![Egoless programming](./egoless.png)
 
 L’Egoless Programming, proposé par [Gerald Weinberg](https://en.wikipedia.org/wiki/Gerald_Weinberg) en 1971 dans son livre _The Psychology of 
 Computer Programming_, présente une dizaine de commandements pour nous 
@@ -131,23 +131,23 @@ Par exemple, avec ce commentaire qui peut prêter à confusion (le OMG qui signi
 peut être autant interprété comme quelque chose de négatif que de positif, notamment ici puisque 
 nous n'avons pas le contexte 😈) : 
 
-![Utilisateur Kittycat dit : "Omg"](../../../../../../../images/posts/2022-11-07-code-review-onboarding/commentaire-omg.png)
+![Utilisateur Kittycat dit : "Omg"](./commentaire-omg.png)
 
 Ce commentaire peut être préfixé par `praise`, ce qui signifie éloge. Cela change radicalement 
 le ton du commentaire. 
 
-![praise : Omg](../../../../../../../images/posts/2022-11-07-code-review-onboarding/commentaire-praise-omg.png)
+![praise : Omg](./commentaire-praise-omg.png)
 
 Voici un autre exemple laconique : `Poubelle`. 
 
-![Poubelle](../../../../../../../images/posts/2022-11-07-code-review-onboarding/commentaire-poubelle.png)
+![Poubelle](./commentaire-poubelle.png)
 
 Celui-ci peut être amélioré en étant préfixé par l'étiquette `nitpick`, qui signifie 
 "tatillonner", ce qui diminue également son ton dramatique. De plus, l'urgence peut être 
 indiquée (ici, `non-bloquant`) et le contexte est décrit et peut être exploité grâce à un patch 
 proposant un code de remplacement.
 
-![nitpick (non-bloquant): le résultat peut être directement retourné (patch)](../../../../../../../images/posts/2022-11-07-code-review-onboarding/commentaire-nitpick.png)
+![nitpick (non-bloquant): le résultat peut être directement retourné (patch)](./commentaire-nitpick.png)
 
 La compréhension du commentaire est facilitée par l'effort fourni pour ajouter le maximum de
 contexte possible. On gagne en lisibilité grâce à la catégorisation (étiquette), qui nous permet

@@ -5,14 +5,14 @@ description: ""
 author: o_mansour
 category:
 tags: [satis,composer,aws,s3,github,packagist, cloud]
-feature-img: "../../../../../../../images/posts/composer-installation-without-github/cloud.jpg"
-thumbnail: "../../../../../../../images/posts/composer-installation-without-github/cloud.jpg"
+feature-img: "./cloud.jpg"
+thumbnail: "./cloud.jpg"
 comments: true
 permalink: composer-installation-without-github
 language: en
 ---
 
-![github is down ! ok carry on](../../../../../../../images/posts/composer-installation-without-github/github_down.png)
+![github is down ! ok carry on](./github_down.png)
 
 First a thought about [github](https://github.com/), [composer](https://getcomposer.org/doc/), [packagist](https://www.packagist.org) : we like / adore / thanks the contributors, for those great services and all the open source people dropping great software on it.
 
@@ -20,13 +20,13 @@ That said, picture yourself operating an online PHP service, generating hundreds
 
 If you use [Symfony2](https://symfony.com/) and other public packages, like us, you’re probably deploying your application using composer.
 
-![basic composer usage](../../../../../../../images/posts/composer-installation-without-github/1.png)
+![basic composer usage](./1.png)
 
 Suddenly the service is dealing with more and more and more traffic (maybe someone talk about on national tv … or Justin Bieber tweet something … maybe :) ). No problem, says the system administrator (yes our sysadmins are cool), lets pop more virtual machines and deploy more instance of the service !
 
 And then :
 
-![github is down](../../../../../../../images/posts/composer-installation-without-github/2.png)
+![github is down](./2.png)
 
 boum ! =>``composer install`` command can't download distant packages on api.github.com (website is down, or the network connection or whatever).
 
@@ -36,7 +36,7 @@ This is our situation. So here how we deal with that.
 
 # Principles.
 
-![principles](../../../../../../../images/posts/composer-installation-without-github/3.png)
+![principles](./3.png)
 
 We chose to use [Satis](https://getcomposer.org/doc/articles/handling-private-packages-with-satis.md) - a great tool provided by the Composer team. The main idea is, regulary download packages and their informations on our local servers. We (at M6Web) deployed services on our local infrastructure and on S3 servers in Amazon Web Services.
 
@@ -143,7 +143,7 @@ Remove your composer.lock and vendors then run ``composer update`` on the projec
 
 ## Sync our 2 satis servers with an S3 bucket.
 
-![full system with s3 syncing](../../../../../../../images/posts/composer-installation-without-github/4.jpeg)
+![full system with s3 syncing](./4.jpeg)
 
 On satis servers, use [s3cmd](https://s3tools.org/s3cmd) to keep in sync the S3 bucket. Let’s say : yourcloud-satis.
 
@@ -180,7 +180,7 @@ In your projects, edit the composer.json and replace the repositories entry by
 
 ## Enable the AWS plugin in EC2 servers
 
-Add our repositories in `~./composer/composer.json` file of the user used to deploy your code.
+Add our repositories in `"./composer.json` file of the user used to deploy your code.
 
     "repositories": [
         {

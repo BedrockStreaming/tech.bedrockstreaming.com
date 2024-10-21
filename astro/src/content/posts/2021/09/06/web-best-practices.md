@@ -5,7 +5,7 @@ description: "How not to throw away your project after 2 years? Feedback based o
 author: a_caron
 category:
 tags: [js, react, web, frontend]
-feature-img: "../../../../../../../images/posts/bonnes-pratiques-web/bedrock.jpg"
+feature-img: "./bedrock.jpg"
 comments: true
 canonical: "https://slashgear.github.io/how-not-to-throw-away-your-web-application-after-two-years/"
 language: en
@@ -25,7 +25,7 @@ Some of those applications are not very young.
 In fact, the application I'm mainly working on is a website whose developments started in 2014.
 I have already mentioned it in different articles of [this blog](https://slashgear.github.io/).
 
-![screenshot of the number of commits on master of our project 15668](../../../../../../../images/posts/bonnes-pratiques-web/commit-count.png)
+![screenshot of the number of commits on master of our project 15668](../commit-count.png)
 
 You might think: "Oh poor people, maintaining an almost 10 year old application must be hell!"
 
@@ -35,13 +35,13 @@ I have worked on projects that are much less old but where the development of ne
 Today the project is technically up to date, we must be on the latest version of React while it had started on a version _0.x.x_.
 In this world of often criticized web technologies where tools and practices are constantly evolving (eg: the many articles on the _Javascript Fatigue_), to keep a project "up to date" remains a real challenge.
 
-![number of versions of the application 1445](../../../../../../../images/posts/bonnes-pratiques-web/releases.png)
+![number of versions of the application 1445](../releases.png)
 
 Moreover, in the context of this project, in almost 10 years, we have had about 100 contributors.
 Some have only stayed a few months/years.
 How can we keep the maximum knowledge on "How we do things and how it works?" in such a moving human context?
 
-![list of the 100 contributors of the project](../../../../../../../images/posts/bonnes-pratiques-web/contributors.png)
+![list of the 100 contributors of the project](../contributors.png)
 
 This is what I would like to demonstrate in this post.
 
@@ -82,7 +82,7 @@ In this model, the review is more for knowledge sharing than for typo copying an
 In this principle, we must therefore try to banish oral rules.
 The time of the druids is over, if all the good practices of a project have to be transmitted orally, it will only take longer to guide new developers into your team.
 
-![the recipe of the magic potion of panoramix is lost because secret](../../../../../../../images/posts/bonnes-pratiques-web/panoramix.gif)
+![the recipe of the magic potion of panoramix is lost because secret](../panoramix.gif)
 
 A project is not set in stone. These rules evolve with time.
 It is therefore preferable to add rules that have a script that will _autofix_ the whole codebase intelligently.
@@ -104,7 +104,7 @@ But if the rule we want to impose on ourselves is not available in Eslint or oth
 
 ### The _almost_ exhaustive list 🤞
 
-![Our continuous integration workflow](../../../../../../../images/posts/bonnes-pratiques-web/ci-workflow.png)
+![Our continuous integration workflow](../ci-workflow.png)
 
 - The file format is managed by [Editorconfig](https://editorconfig.org/), [prettier](https://prettier.io/) and [Eslint](https://eslint.org/).
   We have opensourced [our own configuration](https://github.com/BedrockStreaming/eslint-tools), if it is of any use to you.
@@ -182,11 +182,11 @@ Feature: Playground
 
 And it looks like this in local with my Chrome browser!
 
-![Example of functional test execution](../../../../../../../images/posts/bonnes-pratiques-web/e2e-example.gif)
+![Example of functional test execution](../e2e-example.gif)
 
 Here is a diagram that explains how this stack works:
 
-![diagram that explains how our stack works](../../../../../../../images/posts/bonnes-pratiques-web/e2e-archi.png)
+![diagram that explains how our stack works](../e2e-archi.png)
 
 Today, Bedrock's web application has over 800 E2E test cases running on each of our _Pull Request_ and the `master` branch.
 They assure us that we are not introducing any functional regression and that's just great!
@@ -243,7 +243,7 @@ We use these tests for different reasons that cover needs that our functional te
 With these tests, we put ourselves at the level of a utility function, a Redux action, a reducer, a React component.
 We rely mainly on [the `automock` functionality of Jest](https://slashgear.github.io/discover-jest-hidden-feature-automock/) which allows us to isolate our JS modules when we test.
 
-![visual representation of the automock](../../../../../../../images/posts/bonnes-pratiques-web/mocked-modules.jpg)
+![visual representation of the automock](../mocked-modules.jpg)
 
 The previous image represents the metaphor that allows us to explain our unit testing strategy to newcomers.
 
@@ -331,7 +331,7 @@ To give you a more concrete example, between 2018 and 2020 we completely overhau
 This graphical evolution was just a featureFlipping key.
 The graphical redesign was not a reset of the project, we still live with both versions (as long as the switchover of all our customers is not completed).
 
-![screenshot comparing v4 / v5 on 6play](../../../../../../../images/posts/bonnes-pratiques-web/compare-v4-v5.jpg)
+![screenshot comparing v4 / v5 on 6play](../compare-v4-v5.jpg)
 
 ### A/B testing
 
@@ -377,7 +377,7 @@ To give you an example, each time a user starts a browsing session we send an an
 We then have to define a dashboard that displays the evolution of this number in a graph.
 If we observe a too important variation, it can allow us to detect an incident.
 
-![example of monitoring dashboard](../../../../../../../images/posts/bonnes-pratiques-web/grafana-monitoring-example.png)
+![example of monitoring dashboard](../grafana-monitoring-example.png)
 
 Monitoring also offers us solutions to understand and analyze a bug that occurred in the past.
 Understanding an incident, explaining it, finding its root cause are the possibilities that are open to you if you monitor your application.
@@ -392,7 +392,7 @@ However, we try to always trigger alerts only when it is actionable.
 In other words, if an alert sounds, we have something to do.
 Sounding alerts that do not require immediate human action generates noise and wastes time.
 
-![general alert](../../../../../../../images/posts/bonnes-pratiques-web/alerte-taxi.gif)
+![general alert](../alerte-taxi.gif)
 
 ## Limit, monitor and update your dependencies
 
@@ -428,7 +428,7 @@ Sometimes we decided these changes but sometimes we underwent them (an example, 
 
 **Our project is not completely _"state of art"_ and we assume it.**
 
-![It will hold!](../../../../../../../images/posts/bonnes-pratiques-web/leak.gif)
+![It will hold!](../leak.gif)
 
 We try to prioritize our _refactoring_ topics on the parts of the application on which we have the most concern, the most pain.
 We consider that a part of the application that we don't like but on which we don't need to work (bring evolutions) doesn't deserve that we refactor it.

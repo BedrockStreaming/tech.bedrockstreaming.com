@@ -5,7 +5,7 @@ description: Notre équipe de développeurs Android était à l'Android Makers 2
 author: r_panoyan
 tags: [android, mobile, conference, makers]
 color: rgb(251,87,66)
-thumbnail: "../../../../../../../images/posts/2022-05-09-bedrock-android-makers-2022/am2022.jpg"
+thumbnail: "./am2022.jpg"
 ---
 
 ## Que c'est bon de se retrouver !
@@ -13,7 +13,7 @@ thumbnail: "../../../../../../../images/posts/2022-05-09-bedrock-android-makers-
 Après deux ans sans conférence en présentiel, l'Android Makers a fait son grand retour les 25 et 26 avril 2022, pour le plus grand bonheur de la communauté Android. 
 L'équipe de développeurs Android de Bedrock (dont je fais partie) a partagé ce bonheur en assistant à ce rendez-vous incontournable. Jetpack Compose, accessibilité, optimisation de build et autres sont autant de sujets en maturation constante : essayons d'en faire le tour ensemble.
 
-!["Android Makers 2022"](../../../../../../../images/posts/2022-05-09-bedrock-android-makers-2022/am2022.jpg)
+!["Android Makers 2022"](./am2022.jpg)
 
 * TOC
 {:toc}
@@ -97,7 +97,7 @@ Leur présentation a mis en lumière la philosophie d'un UI Toolkit mais a aussi
 
 ### En conclusion <a name="Conclusion"></a>
 
-!["Conclusion"](../../../../../../../images/posts/2022-05-09-bedrock-android-makers-2022/end.jpg)
+!["Conclusion"](./end.jpg)
 
 Cette édition de l'Android Makers 2022 s'est conclue sur une conférence humoristique inédite de la part de Chet Haase et Romain Guy. Il a été question de tourner en dérision la communauté des développeurs sur le nombre de nouveaux patterns de développement qui sortent régulièrement et les discussions acharnées (et parfois virulentes) autour de ces derniers.  
 Cela a été une très bonne manière de prendre du recul sur notre communauté Android, et de se féliciter, tout de même, de la recherche constante d'amélioration des pratiques de développement au service de la qualité de nos produits et de leur accessibilité.

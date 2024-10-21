@@ -5,8 +5,8 @@ description: ""
 author: team_cytron
 category:
 tags: [outil, jenkins, ci, cytron, open-source]
-thumbnail: "../../../../../../../images/posts/cytron/jenkinslight.png"
-feature-img: "../../../../../../../images/posts/cytron/jenkinslight.png"
+thumbnail: "./jenkinslight.png"
+feature-img: "./jenkinslight.png"
 comments: true
 permalink: jenkinslight-mettez-en-lumiere-vos-jobs-jenkins
 ---

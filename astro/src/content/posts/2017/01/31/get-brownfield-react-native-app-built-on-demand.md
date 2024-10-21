@@ -5,8 +5,8 @@ description: "Get your brownfield React Native app built on demand"
 author: k_dits 
 category:
 tags: [mobile, github, ci, react-native]
-feature-img: "../../../../../../../images/posts/rn-brownfield/feature.jpg"
-thumbnail: "../../../../../../../images/posts/rn-brownfield/feature.jpg"
+feature-img: "./feature.jpg"
+thumbnail: "./feature.jpg"
 comments: true
 language: en
 ---
@@ -247,7 +247,7 @@ node_modules/.bin/react-native bundle --platform android --entry-file index.andr
 
 The only thing you have to do in the buddybuild dashboard is to create the app for each platform and activate the build on pull request only (see screenshot below). Buddybuild will automatically trigger an iOS & Android build on each pull request for the native repositories.
 
-![buddybuild branch configuration](../../../../../../../images/posts/rn-brownfield/buddybuild-branch.png)
+![buddybuild branch configuration](./buddybuild-branch.png)
 
 ## Build the iOS & Android apps on each pull request from the React Native repository
 
@@ -327,7 +327,7 @@ curl -X POST -H  'Authorization: Bearer '$ACCESS_TOKEN_BB” -d 'branch=master�
 
 Now, you can activate the `master` build on the native iOS & Android buddybuild build, and you’ll have those apps up-to-date with the master branch.
 
-![buddybuild master configuration](../../../../../../../images/posts/rn-brownfield/buddybuild-master.png)
+![buddybuild master configuration](./buddybuild-master.png)
 
 ## Cross platform feature (both native & React Native)
 

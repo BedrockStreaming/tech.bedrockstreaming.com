@@ -5,8 +5,8 @@ description: ""
 author: Team Burton  
 category:
 tags: [afup, php, forumphp, conference]
-thumbnail: "../../../../../../../images/posts/forumphp2014/cover.jpg"
-feature-img: "../../../../../../../images/posts/forumphp2014/cover.jpg"
+thumbnail: "./cover.jpg"
+feature-img: "./cover.jpg"
 comments: true
 permalink: 
 ---
@@ -105,7 +105,7 @@ Dans une config apache :
 
 ## Frameworks: A History of Violence
 
-![president](../../../../../../../images/posts/forumphp2014/francoisz.jpg)
+![president]"./francoisz.jpg)
 
 Francois Zaninotto nous a offert un vrai show en se mettant dans la peau d'un homme politique candidat à la présidence du parti des développeurs. Avec beaucoup d'humour il a fait un retour sur l'évolution (sa propre évolution ?) du développement web et son futur hypothétique, tout en distillant (son programme) de précieux conseils pour être un meilleur développeur.
 
@@ -126,7 +126,7 @@ Une conférence donnée par un de nos confrères d’ARTE sur des problématique
 
 Il a ensuite expliqué en détail l’implémentation de {json:api} dans Symfony2, en mettant en avant de nombreuses contributions open-source.
 
-![archi de l'API ARTE](../../../../../../../images/posts/forumphp2014/arte.jpg)
+![archi de l'API ARTE]"./arte.jpg)
 
 Une conférence didactique et claire. 
 
@@ -159,7 +159,7 @@ Au final, Laravel est sûrement une alternative intéressante pour les nostalgiq
 
 [Olivier Dolbeau](https://twitter.com/odolbeau) nous a fait un retour sur la problématique d'accès et l'interprétation des logs sur les serveurs de production.
 
-![Olivier on stage](../../../../../../../images/posts/forumphp2014/dolbeau.jpg)  
+![Olivier on stage]"./dolbeau.jpg)  
 
 Il nous as donc présenté la solution qu'il utilise, à savoir la stack ELK, pour [ElasticSearch](https://www.elasticsearch.org/)/[LogStash](https://logstash.net/)/[Kibana](https://www.elasticsearch.org/overview/kibana/), qui permet à chaque serveur d'envoyer ses logs vers un serveur central, qui a pour charge de les agréger, et de permettre leur utilisation avancée.
 Fini la recherche dans des fichiers textes plats qu'il faut commencer par comprendre, désormais vos applicatifs peuvent enrichir leurs logs, les envoyer sur un système dédié à la gestion des logs disposant de vraies interfaces de recherche et de consultation.
@@ -181,6 +181,6 @@ Une honte ! En plus les slides n’avaient aucun sens ! :) Bravo à [Mc Kenny](h
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/Ln12meWM1pE" frameborder="0" allowfullscreen></iframe>
 
-![Les participants au karaoké](../../../../../../../images/posts/forumphp2014/ss_karaoke.jpg)   
+![Les participants au karaoké]"./ss_karaoke.jpg)   
    
 Un grand merci à l’AFUP pour ce joli évènement ! Retrouvez pas mal de ressources partagés pendant l'event sur [eventifier](https://eventifier.com/event/frmphp/).

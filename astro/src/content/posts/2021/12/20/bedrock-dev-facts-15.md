@@ -48,7 +48,7 @@ Quand tu envisages de refacto un bout de code, que tu regardes la PR à l’orig
 
 # Le retour du first try
 
-![liste de commit affichés dans Github avec une série de fixup qui marquent un certain échec](../../../../../../../images/posts/dev-facts-15/first-try.png)
+![liste de commit affichés dans Github avec une série de fixup qui marquent un certain échec](./first-try.png)
 
 # Un bug ? Où ça un bug ?
 
@@ -64,7 +64,7 @@ Quand tu envisages de refacto un bout de code, que tu regardes la PR à l’orig
 
 # TODO
 
-![commentaire 'TODO' indiquant de faire une modification après juillet 2017, oups](../../../../../../../images/posts/dev-facts-15/todo.png)
+![commentaire 'TODO' indiquant de faire une modification après juillet 2017, oups](./todo.png)
 
 # Un bon conseil
 
@@ -72,7 +72,7 @@ Quand tu envisages de refacto un bout de code, que tu regardes la PR à l’orig
 
 # Le re-retour du first try
 
-![Encore une liste de commit affichés dans Github avec une série de fixup qui marquent un certain échec](../../../../../../../images/posts/dev-facts-15/first-try-return.png)
+![Encore une liste de commit affichés dans Github avec une série de fixup qui marquent un certain échec](./first-try-return.png)
 
 # Tout est planifié depuis le début
 
@@ -172,7 +172,7 @@ Montre un raccourci clavier dans un outil de gestion de tickets
 
 # Ne t'inquiète pas, on va trouver ça dans les log
 
-![capture d'écran d'une ligne de log ne contenant aucune information intéressante à cause de valeurs undefined](../../../../../../../images/posts/dev-facts-15/log.png)
+![capture d'écran d'une ligne de log ne contenant aucune information intéressante à cause de valeurs undefined](./log.png)
 
 # Fatigue du soir
 

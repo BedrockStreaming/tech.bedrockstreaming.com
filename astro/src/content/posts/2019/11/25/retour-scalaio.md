@@ -5,8 +5,8 @@ description: "Nos retours sur la ScalaIO à Lyon, les 30 et 31 octobre 2019"
 author: data
 category:
 tags: [scalaio, scala, lyon, 2019]
-feature-img: "../../../../../../../images/posts/scalaio2019/header.jpg"
-thumbnail: "../../../../../../../images/posts/scalaio2019/header.jpg"
+feature-img: "./header.jpg"
+thumbnail: "./header.jpg"
 comments: true
 language: fr
 ---

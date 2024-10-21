@@ -6,8 +6,8 @@ author: t_aufort
 category:
 tags: [kubernetes, scaling, high availability, aws, cloud]
 comments: false
-feature-img: "../../../../../../../images/posts/2022-02-03-prescaling/davide_ragusa_unsplash.jpg"
-thumbnail: "../../../../../../../images/posts/2022-02-03-prescaling/davide_ragusa_unsplash.jpg"
+feature-img: "./davide_ragusa_unsplash.jpg"
+thumbnail: "./davide_ragusa_unsplash.jpg"
 language: en
 redirect_from:
   - /prescaling/
@@ -44,7 +44,7 @@ sudden arrival of several hundred thousand users.
 
 Load and traffic have always varied over time on our platform:
 
-![CPU per instance over time](../../../../../../../images/posts/2022-02-03-prescaling/cpu_varies_over_time.png)
+![CPU per instance over time](./cpu_varies_over_time.png)
 <center><i>CPU per instance over time</i></center>
 
 To deal with these load variations, several tools help us to automatically adapt our Kubernetes clusters’ capacity:
@@ -74,14 +74,14 @@ beforehand. That’s why our prescaling solution was born.
 On an ordinary evening, when the multiple Kubernetes scaling tools were kicking in, here is basically what was 
 happening:
 
-![Traffic normal evening](../../../../../../../images/posts/2022-02-03-prescaling/traffic_normal_evening.png)
+![Traffic normal evening](./traffic_normal_evening.png)
 
 As the load increased, our capacity was increasing as well and we always had spare capacity. We were able to double our 
 initial capacity every 5 minutes thanks to reactive scaling when load started to rise.
 
 After a while and on some special evenings, we began to see this kind of behavior:
 
-![Traffic special evening](../../../../../../../images/posts/2022-02-03-prescaling/traffic_special_evening.png)
+![Traffic special evening](./traffic_special_evening.png)
 
 Sometimes, load was increasing faster than what reactive scaling could handle, that is to say about x2 in capacity 
 every 5 minutes. The consequence is that we could not serve everyone. For a while, our platform would fail for some 
@@ -96,7 +96,7 @@ Let's see how reactive scaling works to understand how we can leverage it to pre
 For a Deployment to be autoscaled (reactively, according to varying load), the number of replicas of a Kubernetes 
 Deployment is reconfigured by an HorizontalPodAutoscaler:
 
-![HPA Deployment Pods](../../../../../../../images/posts/2022-02-03-prescaling/hpa_deployment_pods.png)
+![HPA Deployment Pods](./hpa_deployment_pods.png)
 
 Its manifest usually looks like this:
 ```yaml
@@ -131,13 +131,13 @@ specified for all metrics, the HPA will remove Pods (= scale in).
 At Bedrock, we use three types of metrics to scale: `Resource`, `Custom` and `External`. Here is an example of 
 an application scaling out on a `Custom` metric:
 
-![Reactive scaling process percentage](../../../../../../../images/posts/2022-02-03-prescaling/reactive_scaling_process_percentage.png)
+![Reactive scaling process percentage](./reactive_scaling_process_percentage.png)
 <center><i>Process status (%) over time</i></center>
 
 In this graph, around 20:52:30 and 20:55:00, the percentage of active processes rises to go above 
 the target `40` we saw in the YAML example before. This triggers the scale out of the HPA of this application:
 
-![Reactive scaling pods](../../../../../../../images/posts/2022-02-03-prescaling/reactive_scaling_pods.png)
+![Reactive scaling pods](./reactive_scaling_pods.png)
 <center><i>Pod status over time</i></center>
 
 We can see that around 20:53:00 (30 seconds after we first go above the target), the number of `unavailable` pods rises. 
@@ -147,7 +147,7 @@ The scale-out has just started. A few moments after, the pods become `available`
 
 Scaling in Kubernetes with HPA is not instantaneous:
 
-![Reactive scaling timeline](../../../../../../../images/posts/2022-02-03-prescaling/reactive_scaling_timeline.png)
+![Reactive scaling timeline](./reactive_scaling_timeline.png)
 
 * Metrics are updated every 30 seconds (for CPU or memory) or every 60 seconds (for external and custom metrics) or so.
 * HPA analyses the metrics to know if scale-out is required every 30 seconds or more.
@@ -238,7 +238,7 @@ collect metrics from Pods. This article will not present our Prometheus stack in
 
 Here is how the prescaling exporter works:
 
-![Prescaling v1](../../../../../../../images/posts/2022-02-03-prescaling/prescaling_v1.png)
+![Prescaling v1](./prescaling_v1.png)
 
 1. Every 15 seconds or so, Prometheus scrapes the prescaling exporter pod to get the metrics it exposes.
 2. Scrapping triggers the generation of the metrics. Before they are exposed, the exporter first 
@@ -254,7 +254,7 @@ on the content of the annotations you configured on the HPA.
 
 Here is how a Prometheus metric of the prescaling exporter looks like:
 
-![Prometheus metric](../../../../../../../images/posts/2022-02-03-prescaling/prometheus_metric.png)
+![Prometheus metric](./prometheus_metric.png)
 
 In each metric, you will find several labels. I chose to put only one here to simplify.
 The metric can take one of three values, depending on the content of the annotations we saw earlier:
@@ -272,7 +272,7 @@ the minimum chosen in the prescaling annotation `annotations.scaling.exporter.re
 
 Here is what it looks like on Grafana for the application `service-6play-images` during the evening:
 
-![annotation_scaling_min_replica over time](../../../../../../../images/posts/2022-02-03-prescaling/annotation_scaling_min_replica_over_time.png)
+![annotation_scaling_min_replica over time](./annotation_scaling_min_replica_over_time.png)
 <center><i>annotation_scaling_min_replica over time</i></center>
 
 In this example:
@@ -291,7 +291,7 @@ To understand how the HPAs can prescale, we need to talk about
 [the prometheus adapter](https://github.com/kubernetes-sigs/prometheus-adapter). It is an implementation 
 of the Kubernetes metrics APIs. We use it to expose custom and external metrics for HPAs to use in order to scale:
 
-![HPA scale](../../../../../../../images/posts/2022-02-03-prescaling/hpa_scale.png)
+![HPA scale](./hpa_scale.png)
 
 1. Prometheus adapter collects metrics from prometheus once every minute and exposes them as `External` and
 `Custom` metrics.
@@ -308,7 +308,7 @@ For more information: [HPA Kubernetes documentation](https://kubernetes.io/docs/
 After prescaling has been deployed into production and teams started to add annotations in their projects, 
 this is what happened:
 
-![Number of pods regarding their status over time](../../../../../../../images/posts/2022-02-03-prescaling/pods_status_over_time.png)
+![Number of pods regarding their status over time](./pods_status_over_time.png)
 <center><i>Number of pods regarding their status over time</i></center>
 
 Around 19:30, the number of pods for this application goes from 25 to a bit more than 55. It means its HPA was 
@@ -319,7 +319,7 @@ scaled out, based on the prescaling metric of that application. Mission accompli
 Some days, during very special events, “normal” prescaling was not enough to handle the load that was rising 
 way faster than what we usually see on our platform:
 
-![Huge special event](../../../../../../../images/posts/2022-02-03-prescaling/huge_special_event.png)
+![Huge special event](./huge_special_event.png)
 
 As you can see, even with prescaling doing its job before the start of the TV program (we can see capacity 
 rising at the beginning of the graph), the traffic rises so quickly at 20:55 that we are still unable to scale fast 
@@ -339,7 +339,7 @@ easily maintainable through Terraform code. By “event”, understand a footbal
 Top Chef. Those settings define when and how we must enlarge the platform to sustain bigger 
 traffic spikes than on standard days (= on normal prescaling evenings).
 
-![Prescaling v2](../../../../../../../images/posts/2022-02-03-prescaling/prescaling_v2.png)
+![Prescaling v2](./prescaling_v2.png)
 
 With this API, our prescaling workflow has evolved:
 
@@ -357,7 +357,7 @@ calls the Prescaling API server to get the current special event if there is one
 
 Here is how the number of pods evolves with a special prescaling event configured:
 
-![Number of pods regarding their status over time](../../../../../../../images/posts/2022-02-03-prescaling/pods_status_over_time.png)
+![Number of pods regarding their status over time](./pods_status_over_time.png)
 <center><i>Number of pods by status over time</i></center>
 
 For this specific application, we had around 25 pods during the day and standard prescaling was configured at 

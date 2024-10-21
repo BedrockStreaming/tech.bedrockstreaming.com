@@ -5,8 +5,8 @@ description: "Comment utiliser le composant ExpressionLanguage de Symfony pour r
 author: team_cytron
 category:
 tags: [configuration, symfony, cytron]
-feature-img: "../../../../../../../images/posts/cytron/symfonyexpressionlanguage.jpg"
-thumbnail: "../../../../../../../images/posts/cytron/symfonyexpressionlanguage.jpg"
+feature-img: "./symfonyexpressionlanguage.jpg"
+thumbnail: "./symfonyexpressionlanguage.jpg"
 comments: true
 permalink: symfony-expression-language
 ---

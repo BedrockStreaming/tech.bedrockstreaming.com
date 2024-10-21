@@ -10,8 +10,8 @@ youtubeId: xLELSIEt2xA
 
 category: 
 tags: [conference, video]
-feature-img: "../../../../../../../images/posts/6play/logo.jpg"
-thumbnail: "../../../../../../../images/posts/6play/logo.jpg"
+feature-img: "../../../../../assets/images/logo.jpg"
+thumbnail: "../../../../../assets/images/logo.jpg"
 comments: true
 redirect_from:
   - /pascal-martin-laduckconf/

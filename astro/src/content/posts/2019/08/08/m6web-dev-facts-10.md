@@ -48,9 +48,9 @@ comments: true
 
 Petite nouveauté, voici quelques mèmes maison !
 
-![mep](../../../../../../../images/posts/dev-facts-10/mep.jpg)
+![mep](./mep.jpg)
 
-![bug](../../../../../../../images/posts/dev-facts-10/bug.jpg)
+![bug](./bug.jpg)
 
-![bug](../../../../../../../images/posts/dev-facts-10/build.png)
+![bug](./build.png)
 

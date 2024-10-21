@@ -5,8 +5,8 @@ description: ""
 author: team_cytron
 category:
 tags: [qualite, symfony, atoum, tests fonctionnels]
-feature-img: "../../../../../../../images/posts/cytron/husky.png"
-thumbnail: "../../../../../../../images/posts/cytron/husky.png"
+feature-img: "./husky.png"
+thumbnail: "./husky.png"
 comments: true
 permalink: 2013/10/tester-fonctionnellement-une-api-rest-symfony-doctrine-atoum
 ---

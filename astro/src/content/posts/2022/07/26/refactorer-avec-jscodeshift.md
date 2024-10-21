@@ -19,7 +19,7 @@ Cette tâche exige souvent d’un développeur plus de travail que de simplement
 Si une dépendance est utilisée dans différentes parties du code et qu’un breaking-change est introduit, on peut vite se retrouver avec **des centaines** de fichiers à modifier manuellement.
 
 <center>
-<a href="https://www.monkeyuser.com/2018/implementation/"><img src="/images/posts/refactorer-avec-jscodeshift/102-implementation.png" alt="Caricature de projet avec ses dependencies"/></a>
+<a href="https://www.monkeyuser.com/2018/implementation/"><img src="./refactorer-avec-jscodeshift/102-implementation.png" alt="Caricature de projet avec ses dependencies"/></a>
 <br/>
 ℹ️ <em>Exemple d'un project Javascript qui ne respecte pas cette règle</em>
 </center> <br/>
@@ -88,7 +88,7 @@ Pour en savoir un peu plus sur *l’Abstract Syntax Tree*, je vous conseille de 
 Quelques librairies ont proposé des _codemods_ lors de leurs grosses mises à jour, par exemple [React avec react-codemod](https://github.com/reactjs/react-codemod).
 
 <center>
-<a href="https://astexplorer.net/"><img src="/images/posts/refactorer-avec-jscodeshift/astexplorer.png" alt="Capture d'écran du site ASTExplorer"/></a>
+<a href="https://astexplorer.net/"><img src="./refactorer-avec-jscodeshift/astexplorer.png" alt="Capture d'écran du site ASTExplorer"/></a>
 <br/>
 ℹ️ <em>Capture d'écran du site ASTExplorer</em>
 </center> <br/>

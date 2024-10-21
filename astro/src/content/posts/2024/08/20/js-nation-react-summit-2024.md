@@ -4,8 +4,8 @@ title: JS Nation x React Summit 2024 highlights
 description: "A few notes on the combo JS Nation x React Summit Amsterdam 2024 conferences"
 author: [f_dubost, y_frommelt]
 tags: [conference, frontend, react, javascript]
-feature-img: "../../../../../../../images/posts/2024-08-20-js-nation-react-summit-2024/reactSummit.png"
-thumbnail: "../../../../../../../images/posts/2024-08-20-js-nation-react-summit-2024/teamBedrock.jpg"
+feature-img: "./reactSummit.png"
+thumbnail: "./teamBedrock.jpg"
 ---
 
 The Frontend Bedrock teams were present at the 2024 edition of the _JS Nation_ and _React Summit_ conferences in Amsterdam on 13 & 14 June. We would like to highlight and share some of the subjects we find relevant about our favourite language and framework 🙂 Feel free to explore them further if you are interested.
@@ -68,7 +68,7 @@ Testing has been a guide and a real challenge since we began the JS web project 
 
 The first three are affected by the testing strategy. The _[Testing Trophy](https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications)_ can help to write the right tests given the **return on investment** of the different forms.
 
-![Testing Trophy: return on investment of the different forms of testing](../../../../../../../images/posts/2024-08-20-js-nation-react-summit-2024/testingTrophy.png)
+![Testing Trophy: return on investment of the different forms of testing](./testingTrophy.png)
 
 Eugene describes the various steps to build a reliable testing strategy:
 

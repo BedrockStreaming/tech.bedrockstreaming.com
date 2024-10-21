@@ -5,8 +5,8 @@ description: "How many DynamoDB RCU and WCU should we reserve to achieve maximum
 author: p_martin
 category:
 tags: [aws, dynamodb, finops]
-feature-img: "../../../../../../../images/posts/aws/dynamodb-reservations/cost-explorer-reserved-vs-not-reserved-CENSORED-inverted-colors.png"
-thumbnail: "../../../../../../../images/posts/aws/dynamodb-reservations/cost-explorer-reserved-vs-not-reserved-CENSORED-inverted-colors.png"
+feature-img: "./cost-explorer-reserved-vs-not-reserved-CENSORED-inverted-colors.png"
+thumbnail: "./cost-explorer-reserved-vs-not-reserved-CENSORED-inverted-colors.png"
 comments: true
 language: en
 excerpt_separator: <!--more-->
@@ -54,7 +54,7 @@ Each DynamoDB table can be configured in either *on-demand* or *provisioned* bil
 In the second case, we pay for RCUs *(Read Capacity Units)* and WCUs *(Write Capacity Units)*, depending on the capacity we provision for each table.  
 Reservations only matter for these RCUs and WCUs, in purple in the screenshot below.
 
-![Cost by API Operation](../../../../../../../images/posts/aws/dynamodb-reservations/01-ddb-cost-by-api-operation.png)
+![Cost by API Operation](./01-ddb-cost-by-api-operation.png)
 
 Over the past year, our WCU and RCU costs in provisioned mode represent about half of our DynamoDB costs.  
 Storage and backups have costs that we consider negligible today.
@@ -137,7 +137,7 @@ Also, we count provisioned WCU and RCU and not what is actually consumed -- so b
 
 On the DynamoDB Web Console home screen, we can see, for an account and a region, how many WCUs and RCUs are provisioned at the current time:
 
-![DynamoDB Capacity used, right now, in one account and region](../../../../../../../images/posts/aws/dynamodb-reservations/02-ddb-capacity-used-right-now-in-one-account-and-region.png)
+![DynamoDB Capacity used, right now, in one account and region](./02-ddb-capacity-used-right-now-in-one-account-and-region.png)
 
 But these numbers only give a view at a given instant, in a single AWS account and in a single region.  
 We deploy our platform across dozens of accounts and multiple regions, with traffic that changes throughout the day, so this is not enough.
@@ -146,7 +146,7 @@ We deploy our platform across dozens of accounts and multiple regions, with traf
 
 For a global view of all tables in an account in a region, we can query Cloudwatch Metrics, analyzing the `ProvisionedWriteCapacityUnits` or `ProvisionedReadCapacityUnits` metrics:
 
-![Write capacity per table, Cloudwatch metrics](../../../../../../../images/posts/aws/dynamodb-reservations/03-ddb-write-capacity-per-table-cloudwatch-metrics-CENSORED.png)
+![Write capacity per table, Cloudwatch metrics](./03-ddb-write-capacity-per-table-cloudwatch-metrics-CENSORED.png)
 
 The Stacked Area view shows, at any given time, the total WCUs (or RCUs) provisioned for all of our tables, in an account and a region.
 
@@ -154,14 +154,14 @@ The Stacked Area view shows, at any given time, the total WCUs (or RCUs) provisi
 
 We also need to count the WCUs/RCUs of the Global Secondary Indexes -- and these are different metrics! Or, at least, the metrics are shown in a different category in the Cloudwatch web console.
 
-![Write capacity per GSI, Cloudwatch metrics](../../../../../../../images/posts/aws/dynamodb-reservations/04-ddb-write-capacity-per-gsi-cloudwatch-metrics-CENSORED.png)
+![Write capacity per GSI, Cloudwatch metrics](./04-ddb-write-capacity-per-gsi-cloudwatch-metrics-CENSORED.png)
 
 ### So, in total...
 
 To get the total, you have to consider this metric for the tables and for the Global Secondary Indexes! In the Cloudwatch console, you have to search in two categories.  
 Graphing it all :
 
-![Total write capacity, Cloudwatch metrics](../../../../../../../images/posts/aws/dynamodb-reservations/05-ddb-write-capacity-all-cloudwatch-metrics-CENSORED.png)
+![Total write capacity, Cloudwatch metrics](./05-ddb-write-capacity-all-cloudwatch-metrics-CENSORED.png)
 
 Of course, this is to be looked at for WCUs, but also for RCUs, following exactly the same principle.  
 And, again, we're working in multiple accounts and regions.
@@ -226,7 +226,7 @@ Running this script for a *representative week*, we have enough data to calculat
 Importing this data into a Google Spreadsheet, we get two columns: a date+time and a number of WCUs.  
 And this is for each one-hour range during an entire week:
 
-![Date and usage](../../../../../../../images/posts/aws/dynamodb-reservations/spreadsheet-01-date-and-conso-english.png)
+![Date and usage](./spreadsheet-01-date-and-conso-english.png)
 
 > **ℹ️ Only twelve hours**  
 > Here, I only reproduce twelve rows corresponding to twelve hours, but keep in mind that there are actually 168 rows in my spreadsheet: one row per hour, 24 hours per day, for 7 days.  
@@ -236,7 +236,7 @@ The next step is to integrate the cost of these WCUs.
 Easy anough, we multiply the number of WCUs by the cost of a WCU in Paris, i.e. $0.000772.  
 And the sum of the cost of each line gives us the total cost, without reservation:
 
-![Costs, without any reservation](../../../../../../../images/posts/aws/dynamodb-reservations/spreadsheet-02-cost-without-reservation-english.png)
+![Costs, without any reservation](./spreadsheet-02-cost-without-reservation-english.png)
 
 ### The calculations, on an assumption
 
@@ -253,7 +253,7 @@ In addition:
 Adding these data, we obtain a different hourly cost, often lower than the one determined above.  
 And, therefore, we get a lower total cost as well:
 
-![Costs, with reservations](../../../../../../../images/posts/aws/dynamodb-reservations/spreadsheet-03-cout-including-reservations-english.png)
+![Costs, with reservations](./spreadsheet-03-cout-including-reservations-english.png)
 
 With this hypothesis of a 25,000 WCU reservation, over these twelve hours, we would pay 135 dollars instead of 229 dollars without reservation.  
 We would then realize 40.96% savings!
@@ -262,17 +262,17 @@ We would then realize 40.96% savings!
 
 Of course, during the hours when we consume less than 25,000 WCU, we are wasting capacity: we are paying for it, without using it.
 
-![Wasted reservations](../../../../../../../images/posts/aws/dynamodb-reservations/spreadsheet-04-waste-english.png)
+![Wasted reservations](./spreadsheet-04-waste-english.png)
 
 The goal of the game is to find the *right number* of WCUs to reserve: we want to reduce the total cost as much as possible, maximizing the percentage of savings.
 
 To do so, we try different values for the number of WCUs reserved, until we find the one that maximizes the percentage of savings:
 
-![Maximizing savings percentages (table)](../../../../../../../images/posts/aws/dynamodb-reservations/spreadsheet-05-maximize-percentage-savings-table-english.png)
+![Maximizing savings percentages (table)](./spreadsheet-05-maximize-percentage-savings-table-english.png)
 
 Here's the same thing as a graph:
 
-![Maximizing savings percentages (graph)](../../../../../../../images/posts/aws/dynamodb-reservations/spreadsheet-05-maximize-percentage-savings-graphic-english.png)
+![Maximizing savings percentages (graph)](./spreadsheet-05-maximize-percentage-savings-graphic-english.png)
 
 Here, over these twelve hours, the optimal approach would be to reserve 23,000 WCU.
 
@@ -324,22 +324,22 @@ To reserve, we go through the AWS DynamoDB Web console, in our payer account, in
 On this screen, you can see how many WCUs and RCUs we have already reserved.  
 Since we make several reservations during the year, the reservations already in progress are to be subtracted from the values calculated above!
 
-![Reservations history](../../../../../../../images/posts/aws/dynamodb-reservations/ddb-reservations-history-CENSORED.png)
+![Reservations history](./ddb-reservations-history-CENSORED.png)
 
 To create a new reservation, click on *"Purchase reserved capacity"* and fill in the form ;-)
 
-![Reserving 23,000 WCU: this is not free!](../../../../../../../images/posts/aws/dynamodb-reservations/creating-a-reservation-23k.png)
+![Reserving 23,000 WCU: this is not free!](./creating-a-reservation-23k.png)
 
 ## After reserving, viewing the costs
 
 Once the reservations are made, in AWS Cost Explorer, the upfront cost is clearly visible.  
 It is charged at once, on the day we opened the reservation:
 
-![Cost Explorer, after reserving](../../../../../../../images/posts/aws/dynamodb-reservations/cost-explorer-after-reservation-01-CENSORED.png)
+![Cost Explorer, after reserving](./cost-explorer-after-reservation-01-CENSORED.png)
 
 To have a daily view of WCU/RCU costs *(reserved + provisioned in addition to reservations)*, remember to fill in *"Show costs as: Amortized costs"* to smooth the monthly price of reservations over all days of the month:
 
-![Amortized view](../../../../../../../images/posts/aws/dynamodb-reservations/cost-explorer-after-reservation-02-amortized-CENSORED.png)
+![Amortized view](./cost-explorer-after-reservation-02-amortized-CENSORED.png)
 
 > **Reservations and one payer account**  
 > Since reservations, which cover the bulk of our DynamoDB costs, are made on our payer account, the bulk of our DynamoDB costs go back to this account... And not to the tenant/environment accounts.  

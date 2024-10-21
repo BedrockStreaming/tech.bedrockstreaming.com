@@ -9,7 +9,7 @@ comments: true
 permalink: cr-real-time-conference-europe-2013-day-2
 ---
 
-![Crédit : https://www.flickr.com/photos/andyet-photos/8679275805/in/set-72157633306379029](../../../../../../../images/posts/imgob/0-00-30-83-201304-ob_9cf041_8679275805-4983128ec8-c-jpg.jpeg)
+![Crédit : https://www.flickr.com/photos/andyet-photos/8679275805/in/set-72157633306379029](/0-00-30-83-201304-ob_9cf041_8679275805-4983128ec8-c-jpg.jpeg)
 
 Crédit : https://www.flickr.com/photos/andyet-photos/8679275805/in/set-72157633306379029
 
@@ -22,7 +22,7 @@ Crédit : https://www.flickr.com/photos/andyet-photos/8679275805/in/set-72157633
 
 
 
-![Crédit : https://twitter.com/OriPekelman/status/326600103475425281/photo/1](../../../../../../../images/posts/imgob/0-00-30-83-201304-ob_12f478_bihree-cmaezm5x-jpg-large.jpeg)
+![Crédit : https://twitter.com/OriPekelman/status/326600103475425281/photo/1](/0-00-30-83-201304-ob_12f478_bihree-cmaezm5x-jpg-large.jpeg)
 
 Crédit : https://twitter.com/OriPekelman/status/326600103475425281/photo/1
 
@@ -43,7 +43,7 @@ Il nous indique différentes ressources pour approfondir le sujet :
 
 
 
-![Crédit : https://twitter.com/OriPekelman/status/326607298556489728/photo/1](../../../../../../../images/posts/imgob/0-00-30-83-201304-ob_e5031c_bihxm4vccaep4av-jpg-large.jpeg)
+![Crédit : https://twitter.com/OriPekelman/status/326607298556489728/photo/1](/0-00-30-83-201304-ob_e5031c_bihxm4vccaep4av-jpg-large.jpeg)
 
 Crédit : https://twitter.com/OriPekelman/status/326607298556489728/photo/1
 
@@ -68,7 +68,7 @@ En résumé, il recommande de passer par un outil de serialisation des données 
 
 
 
-![Crédit : https://twitter.com/OriPekelman/status/326613272969228288/photo/1](../../../../../../../images/posts/imgob/0-00-30-83-201304-ob_bf8753_bihdcplcmaabdq-jpg-large.jpeg)
+![Crédit : https://twitter.com/OriPekelman/status/326613272969228288/photo/1](/0-00-30-83-201304-ob_bf8753_bihdcplcmaabdq-jpg-large.jpeg)
 
 Crédit : https://twitter.com/OriPekelman/status/326613272969228288/photo/1
 
@@ -94,7 +94,7 @@ La société a déjà fait d'autres sessions lors d'autres conférences tel que 
 
 
 
-![Crédit : https://www.flickr.com/photos/andyet-photos/8680450402/in/set-72157633306379029](../../../../../../../images/posts/imgob/0-00-30-83-201304-ob_637fb3_8680450402-4048e3b2df-jpg.jpeg)
+![Crédit : https://www.flickr.com/photos/andyet-photos/8680450402/in/set-72157633306379029](/0-00-30-83-201304-ob_637fb3_8680450402-4048e3b2df-jpg.jpeg)
 
 Crédit : https://www.flickr.com/photos/andyet-photos/8680450402/in/set-72157633306379029
 
@@ -113,7 +113,7 @@ Ils utilisent pour cela : MySQL puis HDFS et enfin tout est re-manipulé dans [E
 
 
 
-![Crédit : https://twitter.com/OriPekelman/status/326635400175161344/photo/1](../../../../../../../images/posts/imgob/0-00-30-83-201304-ob_e1ca08_bihxknbceae7ckp-jpg-large.jpeg)
+![Crédit : https://twitter.com/OriPekelman/status/326635400175161344/photo/1](/0-00-30-83-201304-ob_e1ca08_bihxknbceae7ckp-jpg-large.jpeg)
 
 Crédit : https://twitter.com/OriPekelman/status/326635400175161344/photo/1
 
@@ -136,7 +136,7 @@ Pierre Couzy travaille depuis plus de 10 ans chez Microsoft. Il nous présente u
 
 
 
-![Crédit : https://www.flickr.com/photos/andyet-photos/8679336549/in/set-72157633306379029](../../../../../../../images/posts/imgob/0-00-30-83-201304-ob_045020_8679336549-cc73704704-jpg.jpeg)
+![Crédit : https://www.flickr.com/photos/andyet-photos/8679336549/in/set-72157633306379029](/0-00-30-83-201304-ob_045020_8679336549-cc73704704-jpg.jpeg)
 
 Crédit : https://www.flickr.com/photos/andyet-photos/8679336549/in/set-72157633306379029
 
@@ -158,7 +158,7 @@ A noter que cette présentation est l'une des rares qui n'a pas été réalisée
 
 
 
-![Crédit : https://twitter.com/OriPekelman/status/326670519371980800/photo/1](../../../../../../../images/posts/imgob/0-00-30-83-201304-ob_0617d7_biirg0ocyaacsmb-jpg-large.jpeg)
+![Crédit : https://twitter.com/OriPekelman/status/326670519371980800/photo/1](/0-00-30-83-201304-ob_0617d7_biirg0ocyaacsmb-jpg-large.jpeg)
 
 Crédit : https://twitter.com/OriPekelman/status/326670519371980800/photo/1
 
@@ -185,7 +185,7 @@ Vous pouvez retrouver l'ensemble des slides sur [Github](https://github.com/crea
 
 
 
-![Crédit : https://www.flickr.com/photos/andyet-photos/8680421388/in/set-72157633306379029](../../../../../../../images/posts/imgob/0-00-30-83-201304-ob_05a059_8680421388-75c8b026cc-jpg.jpeg)
+![Crédit : https://www.flickr.com/photos/andyet-photos/8680421388/in/set-72157633306379029](/0-00-30-83-201304-ob_05a059_8680421388-75c8b026cc-jpg.jpeg)
 
 Crédit : https://www.flickr.com/photos/andyet-photos/8680421388/in/set-72157633306379029
 
@@ -203,7 +203,7 @@ Vous pourrez retrouver l'ensemble des slides sur [Github](https://github.com/dsc
 
 
 
-![Crédit : https://twitter.com/OriPekelman/status/326684373090963456/photo/1](../../../../../../../images/posts/imgob/0-00-30-83-201304-ob_dbdd43_biidtnxceaasggc-jpg-large.jpeg)
+![Crédit : https://twitter.com/OriPekelman/status/326684373090963456/photo/1](/0-00-30-83-201304-ob_dbdd43_biidtnxceaasggc-jpg-large.jpeg)
 
 Crédit : https://twitter.com/OriPekelman/status/326684373090963456/photo/1
 
@@ -212,7 +212,7 @@ Cependant, tout le monde n'utilise pas correctement les échanges binaires. Le s
 
 
 
-![Crédit : https://twitter.com/noel_olivier/status/326686457257406464](../../../../../../../images/posts/imgob/0-00-30-83-201304-ob_5c9f0a_biifmh4cmaagumx-jpg-large.jpeg)
+![Crédit : https://twitter.com/noel_olivier/status/326686457257406464](/0-00-30-83-201304-ob_5c9f0a_biifmh4cmaagumx-jpg-large.jpeg)
 
 Crédit : https://twitter.com/noel_olivier/status/326686457257406464
 
@@ -244,7 +244,7 @@ Pour répondre aux différentes problématiques, il nous présente [Faye](https:
 
 
 
-![Crédit : https://twitter.com/OriPekelman/status/326711206209527809/photo/1](../../../../../../../images/posts/imgob/0-00-30-83-201304-ob_f74ac1_bii2hg7ciaag4bk-jpg-large.jpeg)
+![Crédit : https://twitter.com/OriPekelman/status/326711206209527809/photo/1](/0-00-30-83-201304-ob_f74ac1_bii2hg7ciaag4bk-jpg-large.jpeg)
 
 Crédit : https://twitter.com/OriPekelman/status/326711206209527809/photo/1
 
@@ -260,7 +260,7 @@ Crédit : https://twitter.com/OriPekelman/status/326711206209527809/photo/1
 
 
 
-![CR Real Time Conférence Europe 2013 - Day 2](../../../../../../../images/posts/imgob/0-00-30-83-201304-ob_b2ee1c90b3554e2214b30ef5e4587667_imag0378.jpg)
+![CR Real Time Conférence Europe 2013 - Day 2](/0-00-30-83-201304-ob_b2ee1c90b3554e2214b30ef5e4587667_imag0378.jpg)
 
 En résumé, l'interface et le design sont importants également pour s'approcher d'une expérience utilisateur temps-réel.
 

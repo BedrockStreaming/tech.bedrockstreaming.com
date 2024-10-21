@@ -5,8 +5,8 @@ description: "How we set up prettier for 6play"
 author: f_lepretre 
 category:
 tags: [prettier, javascript, react, lint, eslint, 6play]
-feature-img: "../../../../../../../images/posts/prettier/military.jpg"
-thumbnail: "../../../../../../../images/posts/prettier/military.jpg"
+feature-img: "./military.jpg"
+thumbnail: "./military.jpg"
 comments: true
 language: en
 ---

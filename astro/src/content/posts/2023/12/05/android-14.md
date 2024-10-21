@@ -6,7 +6,7 @@ author: [c_goffoy]
 tags: [android, mobile, google, "14"]
 color: rgb(254,91,73)
 language: en
-thumbnail: "../../../../../../../images/posts/2023-12-05-android-14/header.png"
+thumbnail: "./header.png"
 ---
 Here’s what it means for users and developers.
 

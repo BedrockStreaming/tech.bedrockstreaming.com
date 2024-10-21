@@ -5,7 +5,7 @@ description: Nous étions à Berlin pour l'édition 2023 de la GopherCon EU !
 author: team_backend
 tags: [conference, berlin, tech, go]
 color: rgb(251,87,66)
-thumbnail: "../../../../../../../images/posts/2023-07-10-gophercon-eu-2023-a-berlin/thumbnail.jpg"
+thumbnail: "./thumbnail.jpg"
 ---
 
 Depuis maintenant presque 1 an, la verticale Backend de Bedrock, s'ouvre à d'autres langages de programmation que PHP, à
@@ -13,7 +13,7 @@ savoir Golang et Rust.
 C'est pourquoi cette année, pour la 1<sup>ère</sup> fois, 6 de nos collègues ont participé (2 en présentiel, 4 à
 distance) à la [GopherCon EU](https://gophercon.eu) ayant lieu à Berlin.
 
-![Fabien et Nathan](../../../../../../../images/posts/2023-07-10-gophercon-eu-2023-a-berlin/bedrock-people.jpg)
+![Fabien et Nathan](./bedrock-people.jpg)
 
 La GopherCon EU, c'est un peu comme le Forum PHP, mais pour le Go et à un niveau international. À cette édition, environ
 600 participants étaient présents sur place ou à distance depuis les 4 coins du monde (Brésil, États-Unis, Afrique du
@@ -32,7 +32,7 @@ L'évènement avait lieu dans un espace assez typique de l'Allemagne, un "Bierga
 Les conférences se déroulaient principalement dans la salle de concert du Biergarten, cependant l'après-midi, il y avait
 une 2ᵉ track qui se tenait dans un entrepôt de ventes aux enchères.
 
-![Festsaal Kreuzberg](../../../../../../../images/posts/2023-07-10-gophercon-eu-2023-a-berlin/festsaal-kreuzberg-berlin.jpg)
+![Festsaal Kreuzberg](./festsaal-kreuzberg-berlin.jpg)
 
 Lieux atypiques, pour nous, bonne ambiance, des gophers.euses très sympas, amicaux, respecteux.ses, tout pour assister à
 des conférences fantastiques.
@@ -69,7 +69,7 @@ rétro-compatible dans ses futures versions.
 
 ## Useful Functional-Options Tricks For Better Libraries
 
-![Julien Cretel](../../../../../../../images/posts/2023-07-10-gophercon-eu-2023-a-berlin/conf-useful-functional-options-tricks-for-better-libraries.jpg)
+![Julien Cretel](./conf-useful-functional-options-tricks-for-better-libraries.jpg)
 
 [Julien Cretel](https://twitter.com/jub0bs) nous a présenté le pattern `functional options` à travers l'exemple d’une
 petite librairie de gestion de `CORS`.
@@ -131,7 +131,7 @@ et cerise sur le gâteau, une librairie qui sert d'exemple existe : [https://git
 
 ## Towards modern development of cloud applications with service weaver
 
-![Robert Grandl](../../../../../../../images/posts/2023-07-10-gophercon-eu-2023-a-berlin/conf-service-weaver.jpg)
+![Robert Grandl](./conf-service-weaver.jpg)
 
 Cette conférence, présentée par [Robert Grandl](https://twitter.com/GrandlRobert), est intéressante pour une entreprise
 qui commence à utiliser Go. On peut se poser la question : Faut-il partir tout de suite sur des micro-services ou bien
@@ -199,4 +199,4 @@ tandis que d'autres commencent à avoir une certaine expérience. Ce fût donc l
 découvrir, aussi bien entre nous qu'avec les autres participants, différents sujets au sein de l'écosystème Go, qui
 prend une part croissante dans notre plateforme.
 
-![Le pont Oberbaum à Berlin](../../../../../../../images/posts/2023-07-10-gophercon-eu-2023-a-berlin/pont-oberbaum.jpg)
+![Le pont Oberbaum à Berlin](./pont-oberbaum.jpg)

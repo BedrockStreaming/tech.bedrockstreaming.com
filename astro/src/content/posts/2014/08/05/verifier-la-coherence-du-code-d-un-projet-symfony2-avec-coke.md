@@ -5,8 +5,8 @@ description: "Voici comment facilement et rapidement mettre en place un système
 author: m_randy
 category:
 tags: [code sniffing, coke, Symfony2]
-feature-img: "../../../../../../../images/posts/coke-et-symfony2/feature.png"
-thumbnail: "../../../../../../../images/posts/coke-et-symfony2/feature.png"
+feature-img: "./feature.png"
+thumbnail: "./feature.png"
 comments: true
 ---
 

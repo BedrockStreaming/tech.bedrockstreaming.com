@@ -6,7 +6,7 @@ author: e_doyon
 tags: [spike, methodologie, cytron, tech]
 language: fr
 color: rgb(255,128,0)
-feature-img: "../../../../../../../images/posts/how-to-spike/cactus.jpg"
+feature-img: "./cactus.jpg"
 permalink: how-to-spike
 ---
 

@@ -6,7 +6,7 @@ author: [m_benali, m_julieron]
 tags: [monitoring, production, newrelic, shared practice, alerting]
 color: rgb(251,87,66)
 language: en
-thumbnail: "../../../../../../../images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/main.png"
+thumbnail: "./main.png"
 ---
  
 At *Bedrock*, we develop a streaming solution tailored for European media companies. Our application is a customizable white-label product used by millions across Europe. Bedrock’s clients have high expectations for stability, early incident detection, quick resolution, and effective communication during those times. Naturally, our goal is to deliver a stable product, and we dedicate significant effort toward this objective. 
@@ -57,7 +57,7 @@ This query counts the number of occurrences of the 'LoginAction' event, faceted 
 
 How It Renders: The line chart displays the count of login actions over time, with different lines for each combination of status and authentication method (Google, Apple, Email). This allows us to track how login activity changes over time and to compare different types of logins or statuses. 
 
- ![Bar chart rendering](../../../../../../../images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/barchart.png)
+ ![Bar chart rendering](./barchart.png)
 
 ### Example 2: Count Query with Pie chart 
 
@@ -72,7 +72,7 @@ This query counts the number of login actions that resulted in errors, faceting 
 
 How It Renders: The pie chart visualizes the distribution of login errors across different authentication methods and error codes. Each slice represents the proportion of errors associated with a particular method or error code, making it easy to see which are most problematic. 
 
-  ![Pie chart rendering](../../../../../../../images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/piechart.png)
+  ![Pie chart rendering](./piechart.png)
  
 ### Example 3: Percentage Query with Billboard chart 
 
@@ -90,7 +90,7 @@ This query calculates the percentage of successful login actions (i.e., those th
 How It Renders: The billboard chart prominently displays the percentage of successful logins as a large, bold number. The comparison with the previous day is also displayed, allowing for quick assessment of whether the success rate has improved or worsened. 
 
  
-  ![Billboard chart rendering](../../../../../../../images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/billboardchart.png)
+  ![Billboard chart rendering](./billboardchart.png)
  
 ### Example 4: Funnel Query 
 
@@ -106,7 +106,7 @@ This funnel query tracks user sessions through key steps in an email verificatio
 
 How It Renders: The funnel chart visualizes the sequence of user actions, showing the number of users at each step of the email verification process. This makes it easy to see where users drop off and which steps might need improvement. 
 
-   ![Funnel chart rendering](../../../../../../../images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/funnelchart.png)
+   ![Funnel chart rendering](./funnelchart.png)
 
 ## Configuring Alerts with New Relic 
 
