@@ -1,7 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 
-const allBlogPosts = await getCollection('posts');
+const posts = await getCollection('posts', ({data}) => {
+    return data.layout.includes("post");
+});
 
 export async function getStaticPaths() {
     const posts = await getCollection('posts');
@@ -12,7 +14,7 @@ export async function getStaticPaths() {
 ---
 <h1>List of posts</h1>
 <ul>
-    {allBlogPosts.map((post) => (
+    {posts.toReversed().map((post) => (
         <li>
             <a href=`/${post.slug}`>{post.data.title}</a>
         </li>

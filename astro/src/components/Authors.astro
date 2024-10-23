@@ -1,0 +1,58 @@
+---
+const {authors, allAuthors} = Astro.props;
+---
+
+<div id="authors">
+    {
+        Array.isArray(authors) ?
+            authors.map((author) => {
+                const authorData = allAuthors.find((a) => a.id === author);
+                const authorUrl = authorData.data.url;
+                if (authorUrl) {
+                    return (
+                            <a href={authorUrl}>
+                                <img src={authorData.data.avatar?.src}
+                                     alt={`Avatar for ${authorData.data.name}`}/>
+                                <span>{authorData.data.name}</span>
+                            </a>
+                    );
+                }
+                return (
+                        <div>
+                            <img src={authorData.data.avatar?.src}
+                                 alt={`Avatar for ${authorData.data.name}`}/>
+                            <span>{authorData.data.name}</span>
+                        </div>
+                );
+            }) :
+                <a href={`/${authors}`}>
+                    <img src={allAuthors.find((a) => a.id === authors).data.avatar?.src}
+                         alt={`Avatar for ${allAuthors.find((a) => a.id === authors).data.name}`}/>
+                    <span>{allAuthors.find((a) => a.id === authors).data.name}</span>
+                </a>
+    }
+</div>
+
+<style>
+    #authors {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 1rem;
+    }
+
+    #authors img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+
+    #authors span {
+        display: block;
+    }
+
+    #authors a, #authors div {
+        display: flex;
+        gap: 0.4rem;
+        align-items: center;
+    }
+</style>

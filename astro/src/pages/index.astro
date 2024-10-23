@@ -1,17 +1,169 @@
 ---
-
+import Authors from '../components/Authors.astro';
+import {format} from 'date-fns';
+import {getCollection} from "astro:content";
+const collection = await getCollection('posts', ({data}) => {
+    return data.layout.includes("post");
+});
+const posts = collection.toReversed();
+const authors = await getCollection('authors');
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	    <a href="/posts">List of posts</a>
-	</body>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="generator" content={Astro.generator}/>
+    <title>Astro</title>
+</head>
+<body>
+<main>
+    <header>
+        <h1>Blog</h1>
+    </header>
+    <section id="hero">
+        <div class="main-post">
+            <a class="img-holder"> <img src={posts[0].data.thumbnail?.src} alt={`Thumbnail for ${posts[0].data.title}`}></a>
+            <div class="main-post-info">
+                <div class="upper-part">
+                    <span class="date">{format(posts[0].slug.slice(0, 10), 'MMMM dd, yyyy')}</span>
+                    <hr/>
+                    <h2><a href={`/${posts[0].slug}`}>{posts[0].data.title}</a></h2>
+                    <p>{posts[0].data.description}</p>
+                </div>
+                <Authors authors={posts[0].data.author} allAuthors={authors}/>
+            </div>
+        </div>
+    </section>
+    <section class="recent-posts">
+        <h2>Recent Posts</h2>
+        <ul class="posts-list">
+            {posts.slice(1, 4).map((post) => (
+                    <li class="post">
+                        <article>
+                            <a href={`/${post.slug}`}>
+                                <img src={post.data.thumbnail?.src} alt={`Thumbnail for ${post.data.title}`}/>
+                            </a>
+                            <div class="post-info">
+                                <span class="date">{format(post.slug.slice(0, 10), 'MMMM dd, yyyy')}</span>
+                                <hr/>
+                                <h3>{post.data.title}</h3>
+                                <p>{post.data.description}</p>
+                            </div>
+                        </article>
+                    </li>
+            ))}
+        </ul>
+    </section>
+</main>
+</body>
 </html>
+
+<style>
+    main {
+        max-width: 1140px;
+        margin: 0 auto;
+    }
+
+    .main-post {
+        display: flex;
+        box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
+
+        --hero-text-width: 390px;
+        --hero-img-height: 360px;
+
+        .img-holder {
+            width: calc(100% - var(--hero-text-width));
+            height: var(--hero-img-height);
+
+            img {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .main-post-info {
+            width: var(--hero-text-width);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .upper-part {
+                h2 {
+                    font-size: 1.7rem;
+                }
+
+                .date {
+                    font-size: 0.8rem;
+                    color: #666;
+                }
+
+                hr {
+                    margin: 0.5rem 0;
+                }
+            }
+        }
+
+    }
+
+    .posts-list {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        margin: -1rem;
+
+        .post {
+            display: flex;
+            flex-flow: nowrap column;
+            width: 33.33%;
+            padding: 1rem;
+        }
+
+        .post-info {
+            display: flex;
+            flex-direction: column;
+
+            h3 {
+                margin: 0;
+            }
+
+            .date {
+                font-size: 0.8rem;
+                color: #666;
+            }
+        }
+
+    }
+
+
+</style>
+
+<style is:global>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: system-ui, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+
+</style>

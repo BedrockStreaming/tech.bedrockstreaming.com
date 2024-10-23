@@ -13,6 +13,7 @@ const postsCollection = defineCollection({
       description: z.string().optional(),
       thumbnail: image().optional(),
       tags: z.union([z.string(), z.number()]).array(),
+      layout: z.string(),
     }),
 });
 
