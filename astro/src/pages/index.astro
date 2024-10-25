@@ -21,6 +21,7 @@ const authors = await getCollection('authors');
 <main>
     <header>
         <h1>Blog</h1>
+        <p>Read about our streaming champions</p>
     </header>
     <section id="hero">
         <div class="main-post">
@@ -39,17 +40,31 @@ const authors = await getCollection('authors');
     <section class="recent-posts">
         <h2>Recent Posts</h2>
         <ul class="posts-list">
-            {posts.slice(1, 4).map((post) => (
+            {posts.slice(1).map((post) => (
                     <li class="post">
                         <article>
-                            <a href={`/${post.slug}`}>
-                                <img src={post.data.thumbnail?.src} alt={`Thumbnail for ${post.data.title}`}/>
-                            </a>
-                            <div class="post-info">
-                                <span class="date">{format(post.slug.slice(0, 10), 'MMMM dd, yyyy')}</span>
-                                <hr/>
-                                <h3>{post.data.title}</h3>
-                                <p>{post.data.description}</p>
+                            <div class="upper-part">
+                                <a href={`/${post.slug}`}>
+                                    <img src={post.data.thumbnail?.src} alt={`Thumbnail for ${post.data.title}`}/>
+                                </a>
+                                <div class="post-info">
+                                    <a href={`/${post.slug}`}>
+                                        <span class="date">{format(post.slug.slice(0, 10), 'MMMM dd, yyyy')}</span>
+                                        <hr/>
+                                        <h3>{post.data.title}</h3>
+                                        <p>{post.data.description?.substring(0, 100)}...</p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="bottom-part">
+                                <div class="authors-holder">
+                                    <Authors authors={post.data.author} allAuthors={authors}/>
+                                </div>
+                                <ul class="tag-holder">
+                                    {post.data.tags.map((tag) => (
+                                            <li class="tag">{tag}</li>
+                                    ))}
+                                </ul>
                             </div>
                         </article>
                     </li>
@@ -64,11 +79,13 @@ const authors = await getCollection('authors');
     main {
         max-width: 1140px;
         margin: 0 auto;
+        padding: 0 15px
     }
 
     .main-post {
         display: flex;
-        box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
+        background: white;
 
         --hero-text-width: 390px;
         --hero-img-height: 360px;
@@ -113,32 +130,109 @@ const authors = await getCollection('authors');
         flex-flow: row wrap;
         justify-content: space-between;
         margin: -1rem;
+    }
 
-        .post {
+    .post {
+        width: 33.33%;
+        padding: 1rem;
+
+        article {
             display: flex;
             flex-flow: nowrap column;
-            width: 33.33%;
-            padding: 1rem;
+            justify-content: space-between;
+            box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
+            height: 100%;
+            border-radius: 10px;
         }
 
-        .post-info {
-            display: flex;
-            flex-direction: column;
+        img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+    }
 
-            h3 {
-                margin: 0;
-            }
+    .post-info {
+        display: flex;
+        flex-direction: column;
+        padding: .5rem 1rem;
+        background: white;
 
-            .date {
-                font-size: 0.8rem;
-                color: #666;
-            }
+        h3 {
+            margin: 0;
+        }
+
+        .date {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        hr {
+            margin: 0.5rem 0;
         }
 
     }
 
+    .bottom-part {
+        display: flex;
+        flex-flow: nowrap column;
+        justify-content: space-between;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+
+    .authors-holder {
+        font-size: 0.8rem;
+    }
+
+    header {
+        color: white;
+        padding: 5rem 0;
+
+        h1 {
+            margin: 1rem 0;
+            font-size: 4rem;
+        }
+
+        p {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 350px;
+            background-size: cover;
+            background-image: linear-gradient(to right, #3402F0 ,hsl(170deg 85% 63%));
+            z-index: -1;
+            box-shadow: #0d0d0d 0 0 10px;
+        }
+    }
+
+    .tag-holder {
+        font-size: 0.7rem;
+        display: flex;
+        flex-flow: row;
+        gap: 1rem;
+        overflow-x: scroll;
+    }
+
+    .tag {
+        display: inline-block;
+        white-space: nowrap;
+        padding: 0.5rem 1rem;
+        background: #50F1D7;
+        border-radius: 15px;
+        text-transform: capitalize;
+    }
 
 </style>
+
 
 <style is:global>
     * {
@@ -164,6 +258,7 @@ const authors = await getCollection('authors');
     ul {
         padding: 0;
         margin: 0;
+        list-style: none;
     }
 
 </style>

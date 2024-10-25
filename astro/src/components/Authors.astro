@@ -11,24 +11,24 @@ const {authors, allAuthors} = Astro.props;
                 if (authorUrl) {
                     return (
                             <a href={authorUrl}>
-                                <img src={authorData.data.avatar?.src}
-                                     alt={`Avatar for ${authorData.data.name}`}/>
+                                {authorData.data.avatar?.src && <img src={authorData.data.avatar?.src}
+                                                                     alt={`Avatar for ${authorData.data.name}`}/>}
                                 <span>{authorData.data.name}</span>
                             </a>
                     );
                 }
                 return (
                         <div>
-                            <img src={authorData.data.avatar?.src}
-                                 alt={`Avatar for ${authorData.data.name}`}/>
+                            {authorData.data.avatar?.src && <img src={authorData.data.avatar?.src}
+                                                                 alt={`Avatar for ${authorData.data.name}`}/>}
                             <span>{authorData.data.name}</span>
                         </div>
                 );
             }) :
                 <a href={`/${authors}`}>
-                    <img src={allAuthors.find((a) => a.id === authors).data.avatar?.src}
-                         alt={`Avatar for ${allAuthors.find((a) => a.id === authors).data.name}`}/>
-                    <span>{allAuthors.find((a) => a.id === authors).data.name}</span>
+                    <img src={allAuthors.find((a) => a.id === authors)?.data?.avatar?.src}
+                         alt={`Avatar for ${allAuthors.find((a) => a.id === authors)?.data.name}`}/>
+                    <span>{allAuthors.find((a) => a.id === authors)?.data.name}</span>
                 </a>
     }
 </div>
@@ -36,18 +36,21 @@ const {authors, allAuthors} = Astro.props;
 <style>
     #authors {
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: row wrap;
         gap: 1rem;
     }
 
     #authors img {
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
         border-radius: 50%;
     }
 
     #authors span {
-        display: block;
+        display: flex;
+        flex-flow: row wrap;
+        height: 20px;
+        align-items: center;
     }
 
     #authors a, #authors div {
