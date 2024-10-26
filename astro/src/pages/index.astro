@@ -36,16 +36,63 @@ const authors = await getCollection('authors');
                 <Authors authors={posts[0].data.author} allAuthors={authors}/>
             </div>
         </div>
+        <div class="post">
+            <article>
+                <div class="upper-part">
+                    <a href={`/${posts[0].slug}`}>
+                        {posts[0].data.thumbnail ? <img src={posts[0].data.thumbnail.src}
+                                                        alt={`Thumbnail for ${posts[0].data.title}`}/> :
+                                <div class="blank-thumbnail">
+                                    <div class="square">
+                                        <div class="white"></div>
+                                        <div class="pearl"></div>
+                                        <div class="fuschia"></div>
+                                        <div class="iris"></div>
+                                        <div class="scarlet"></div>
+                                    </div>
+                                </div>}
+                    </a>
+                    <div class="post-info">
+                        <a href={`/${posts[0].slug}`}>
+                            <span class="date">{format(posts[0].slug.slice(0, 10), 'MMMM dd, yyyy')}</span>
+                            <hr/>
+                            <h3>{posts[0].data.title}</h3>
+                            <p>{posts[0].data.description?.substring(0, 100)}...</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="bottom-part">
+                    <div class="authors-holder">
+                        <Authors authors={posts[0].data.author} allAuthors={authors}/>
+                    </div>
+                    <ul class="tag-holder">
+                        {posts[0].data.tags.slice(0, 4).map((tag) => (
+                                <li class="tag">{tag}</li>
+                        ))}
+                    </ul>
+                </div>
+            </article>
+        </div>
     </section>
     <section class="recent-posts">
         <h2>Recent Posts</h2>
         <ul class="posts-list">
-            {posts.slice(1).map((post) => (
+            {posts.slice(1,4).map((post) => (
                     <li class="post">
                         <article>
                             <div class="upper-part">
                                 <a href={`/${post.slug}`}>
-                                    <img src={post.data.thumbnail?.src} alt={`Thumbnail for ${post.data.title}`}/>
+                                    {post.data.thumbnail ? <img src={post.data.thumbnail.src}
+                                                                alt={`Thumbnail for ${post.data.title}`}/> :
+                                            <div class="blank-thumbnail">
+                                                <div class="square">
+                                                    <div class="white"></div>
+                                                    <div class="pearl"></div>
+                                                    <div class="fuschia"></div>
+                                                    <div class="iris"></div>
+                                                    <div class="scarlet"></div>
+                                                </div>
+                                            </div>}
                                 </a>
                                 <div class="post-info">
                                     <a href={`/${post.slug}`}>
@@ -61,7 +108,7 @@ const authors = await getCollection('authors');
                                     <Authors authors={post.data.author} allAuthors={authors}/>
                                 </div>
                                 <ul class="tag-holder">
-                                    {post.data.tags.map((tag) => (
+                                    {post.data.tags.slice(0, 4).map((tag) => (
                                             <li class="tag">{tag}</li>
                                     ))}
                                 </ul>
@@ -83,7 +130,7 @@ const authors = await getCollection('authors');
     }
 
     .main-post {
-        display: flex;
+        display: none;
         box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
         background: white;
 
@@ -123,6 +170,17 @@ const authors = await getCollection('authors');
             }
         }
 
+        @media (min-width: 768px) {
+            display: flex;
+            gap: 1rem;
+        }
+    }
+
+    #hero .post {
+        margin: -1rem;
+        @media (min-width: 768px) {
+            display: none;
+        }
     }
 
     .posts-list {
@@ -133,22 +191,32 @@ const authors = await getCollection('authors');
     }
 
     .post {
-        width: 33.33%;
         padding: 1rem;
 
         article {
+            position: relative;
+            background: white;
             display: flex;
             flex-flow: nowrap column;
             justify-content: space-between;
             box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
             height: 100%;
+            overflow: hidden;
             border-radius: 10px;
         }
 
-        img {
+        img, .blank-thumbnail {
             width: 100%;
             aspect-ratio: 16 / 9;
             object-fit: cover;
+        }
+
+        @media (min-width: 768px) {
+            width: 50%;
+        }
+
+        @media (min-width: 1024px) {
+            width: 33.333%;
         }
     }
 
@@ -156,7 +224,6 @@ const authors = await getCollection('authors');
         display: flex;
         flex-direction: column;
         padding: .5rem 1rem;
-        background: white;
 
         h3 {
             margin: 0;
@@ -208,7 +275,7 @@ const authors = await getCollection('authors');
             width: 100%;
             height: 350px;
             background-size: cover;
-            background-image: linear-gradient(to right, #3402F0 ,hsl(170deg 85% 63%));
+            background-image: linear-gradient(to right, #3402F0, hsl(170deg 85% 63%));
             z-index: -1;
             box-shadow: #0d0d0d 0 0 10px;
         }
@@ -217,9 +284,8 @@ const authors = await getCollection('authors');
     .tag-holder {
         font-size: 0.7rem;
         display: flex;
-        flex-flow: row;
+        flex-flow: wrap row;
         gap: 1rem;
-        overflow-x: scroll;
     }
 
     .tag {
@@ -230,6 +296,55 @@ const authors = await getCollection('authors');
         border-radius: 15px;
         text-transform: capitalize;
     }
+
+
+    .blank-thumbnail {
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .square {
+            width: 30%;
+            aspect-ratio: 1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            grid-gap: 0.5rem;
+        }
+
+        .white {
+            background: white;
+            height: calc(100%);
+            grid-column: 1;
+            grid-row: 1/4;
+        }
+
+        .pearl {
+            background: #FAF8F8;
+            grid-column: 2;
+            grid-row: 1/3;
+        }
+
+        .fuschia {
+            background: #E82577;
+            grid-column: 2;
+            grid-row: 3;
+        }
+
+        .iris {
+            background: #50F1D7;
+            grid-column: 3;
+            grid-row: 1;
+        }
+
+        .scarlet {
+            background: #FD4D26;
+            grid-row: 2/4;
+            grid-column: 3;
+        }
+    }
+
 
 </style>
 
