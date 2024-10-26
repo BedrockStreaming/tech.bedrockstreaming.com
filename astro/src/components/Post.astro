@@ -1,0 +1,192 @@
+a
+---
+import ImageOrImg from "../components/ImageOrImg.astro";
+import Authors from "../components/Authors.astro";
+import {format} from "date-fns";
+import type {CollectionEntry} from "astro:content";
+interface PostProps {
+    post: CollectionEntry<'posts'>;
+    authors: CollectionEntry<'authors'>;
+    class: string;
+    rest: Record<string, unknown>;
+}
+const {post, authors, class: className, rest} = Astro.props;
+---
+<div class:list={["post", className]} {...rest}>
+    <article>
+        <div class="upper-part">
+            <a href={`/${post.slug}`}>
+                {post.data.thumbnail ?
+                        <ImageOrImg image={post.data.thumbnail} alt={`Thumbnail for ${post.data.title}`}
+                                    loading="eager"/> :
+                        <div class="blank-thumbnail">
+                            <div class="square">
+                                <div class="white"></div>
+                                <div class="pearl"></div>
+                                <div class="fuschia"></div>
+                                <div class="iris"></div>
+                                <div class="scarlet"></div>
+                            </div>
+                        </div>}
+            </a>
+            <div class="post-info">
+                <a href={`/${post.slug}`}>
+                    <span class="date">{format(post.slug.slice(0, 10), 'MMMM dd, yyyy')}</span>
+                    <hr/>
+                    <h3>{post.data.title}</h3>
+                    <p>{post.data.description?.substring(0, 100)}...</p>
+                </a>
+            </div>
+        </div>
+        <div class="bottom-part">
+            <div class="authors-holder">
+                <Authors authors={post.data.author} allAuthors={authors}/>
+            </div>
+            <ul class="tag-holder">
+                {post.data.tags.slice(0, 3).map((tag) => (
+                        <li class="tag">{tag}</li>
+                ))}
+            </ul>
+        </div>
+    </article>
+</div>
+
+<style>
+
+
+    .displayOnMobileOnly {
+        display: block;
+        margin: -1rem;
+
+        @media (min-width: 768px) {
+            display: none;
+        }
+
+    }
+    .post {
+        padding: 1rem;
+
+        article {
+            position: relative;
+            background: white;
+            display: flex;
+            flex-flow: nowrap column;
+            justify-content: space-between;
+            box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
+            height: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .upper-part img, .blank-thumbnail {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+
+        @media (min-width: 768px) {
+            width: 50%;
+        }
+
+        @media (min-width: 1024px) {
+            width: 33.333%;
+        }
+    }
+
+    .post-info {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+
+        h3 {
+            margin: 0;
+        }
+
+        .date {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        hr {
+            margin: 0.5rem 0;
+        }
+
+    }
+
+    .bottom-part {
+        display: flex;
+        flex-flow: nowrap column;
+        justify-content: space-between;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+
+    .authors-holder {
+        font-size: 0.8rem;
+    }
+
+
+    .tag-holder {
+        font-size: 0.7rem;
+        display: flex;
+        flex-flow: wrap row;
+        gap: 1rem;
+    }
+
+    .tag {
+        display: inline-block;
+        white-space: nowrap;
+        padding: 0.5rem 1rem;
+        background: #50F1D7;
+        border-radius: 15px;
+        text-transform: capitalize;
+    }
+
+
+    .blank-thumbnail {
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .square {
+            width: 30%;
+            aspect-ratio: 1;
+            display: grid;
+            grid-template-columns: 40px 1fr 1fr;
+            grid-template-rows: repeat(3, 1fr);
+            grid-gap: 0.5rem;
+        }
+
+        .white {
+            background: white;
+            height: calc(100%);
+            grid-column: 1;
+            grid-row: 1/4;
+        }
+
+        .pearl {
+            background: #FAF8F8;
+            grid-column: 2;
+            grid-row: 1/3;
+        }
+
+        .fuschia {
+            background: #E82577;
+            grid-column: 2;
+            grid-row: 3;
+        }
+
+        .iris {
+            background: #50F1D7;
+            grid-column: 3;
+            grid-row: 1;
+        }
+
+        .scarlet {
+            background: #FD4D26;
+            grid-row: 2/4;
+            grid-column: 3;
+        }
+    }
+</style>

@@ -1,14 +1,15 @@
 ---
-import { getCollection } from 'astro:content';
-
+import {getCollection} from 'astro:content';
+import {Image} from 'astro:assets';
 const authors = await getCollection('authors');
 ---
 <h1>List of posts</h1>
 <ul>
-    {authors.map(({data: {avatar , name}}) => (
-        <li>
-            {avatar  && <img src={typeof avatar ==='string'? avatar : avatar.src } alt={name} />}
-            <span>{name}</span>
-        </li>
+    {authors.map(({data: {avatar, name}}) => (
+            <li>
+                {avatar && (typeof avatar === 'string' ? <img src={avatar} alt={name}/> :
+                        <Image src={avatar} alt={name}/>)}
+                <span>{name}</span>
+            </li>
     ))}
 </ul>

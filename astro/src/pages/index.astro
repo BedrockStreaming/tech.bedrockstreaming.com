@@ -1,7 +1,9 @@
 ---
-import Authors from '../components/Authors.astro';
-import {format} from 'date-fns';
 import {getCollection} from "astro:content";
+import {format} from 'date-fns';
+import Authors from '../components/Authors.astro';
+import ImageOrImg from "../components/ImageOrImg.astro";
+import Post from "../components/Post.astro";
 const collection = await getCollection('posts', ({data}) => {
     return data.layout.includes("post");
 });
@@ -15,7 +17,7 @@ const authors = await getCollection('authors');
     <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
     <meta name="viewport" content="width=device-width"/>
     <meta name="generator" content={Astro.generator}/>
-    <title>Astro</title>
+    <title>Bedrock Streaming Tech Blog</title>
 </head>
 <body>
 <main>
@@ -25,7 +27,9 @@ const authors = await getCollection('authors');
     </header>
     <section id="hero">
         <div class="main-post">
-            <a class="img-holder"> <img src={posts[0].data.thumbnail?.src} alt={`Thumbnail for ${posts[0].data.title}`}></a>
+            <a class="img-holder" href={`/${posts[0].slug}`}>
+                <ImageOrImg image={posts[0].data.thumbnail} alt={`${posts[0].data.title}`} loading="eager"/>
+            </a>
             <div class="main-post-info">
                 <div class="upper-part">
                     <span class="date">{format(posts[0].slug.slice(0, 10), 'MMMM dd, yyyy')}</span>
@@ -36,85 +40,13 @@ const authors = await getCollection('authors');
                 <Authors authors={posts[0].data.author} allAuthors={authors}/>
             </div>
         </div>
-        <div class="post">
-            <article>
-                <div class="upper-part">
-                    <a href={`/${posts[0].slug}`}>
-                        {posts[0].data.thumbnail ? <img src={posts[0].data.thumbnail.src}
-                                                        alt={`Thumbnail for ${posts[0].data.title}`}/> :
-                                <div class="blank-thumbnail">
-                                    <div class="square">
-                                        <div class="white"></div>
-                                        <div class="pearl"></div>
-                                        <div class="fuschia"></div>
-                                        <div class="iris"></div>
-                                        <div class="scarlet"></div>
-                                    </div>
-                                </div>}
-                    </a>
-                    <div class="post-info">
-                        <a href={`/${posts[0].slug}`}>
-                            <span class="date">{format(posts[0].slug.slice(0, 10), 'MMMM dd, yyyy')}</span>
-                            <hr/>
-                            <h3>{posts[0].data.title}</h3>
-                            <p>{posts[0].data.description?.substring(0, 100)}...</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="bottom-part">
-                    <div class="authors-holder">
-                        <Authors authors={posts[0].data.author} allAuthors={authors}/>
-                    </div>
-                    <ul class="tag-holder">
-                        {posts[0].data.tags.slice(0, 4).map((tag) => (
-                                <li class="tag">{tag}</li>
-                        ))}
-                    </ul>
-                </div>
-            </article>
-        </div>
+        <Post post={posts[0]} authors={authors} class="displayOnMobileOnly"/>
     </section>
     <section class="recent-posts">
         <h2>Recent Posts</h2>
         <ul class="posts-list">
-            {posts.slice(1,4).map((post) => (
-                    <li class="post">
-                        <article>
-                            <div class="upper-part">
-                                <a href={`/${post.slug}`}>
-                                    {post.data.thumbnail ? <img src={post.data.thumbnail.src}
-                                                                alt={`Thumbnail for ${post.data.title}`}/> :
-                                            <div class="blank-thumbnail">
-                                                <div class="square">
-                                                    <div class="white"></div>
-                                                    <div class="pearl"></div>
-                                                    <div class="fuschia"></div>
-                                                    <div class="iris"></div>
-                                                    <div class="scarlet"></div>
-                                                </div>
-                                            </div>}
-                                </a>
-                                <div class="post-info">
-                                    <a href={`/${post.slug}`}>
-                                        <span class="date">{format(post.slug.slice(0, 10), 'MMMM dd, yyyy')}</span>
-                                        <hr/>
-                                        <h3>{post.data.title}</h3>
-                                        <p>{post.data.description?.substring(0, 100)}...</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="bottom-part">
-                                <div class="authors-holder">
-                                    <Authors authors={post.data.author} allAuthors={authors}/>
-                                </div>
-                                <ul class="tag-holder">
-                                    {post.data.tags.slice(0, 4).map((tag) => (
-                                            <li class="tag">{tag}</li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </article>
-                    </li>
+            {posts.slice(1, 7).map((post) => (
+                    <Post post={post} authors={authors}/>
             ))}
         </ul>
     </section>
@@ -176,80 +108,11 @@ const authors = await getCollection('authors');
         }
     }
 
-    #hero .post {
-        margin: -1rem;
-        @media (min-width: 768px) {
-            display: none;
-        }
-    }
-
     .posts-list {
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
         margin: -1rem;
-    }
-
-    .post {
-        padding: 1rem;
-
-        article {
-            position: relative;
-            background: white;
-            display: flex;
-            flex-flow: nowrap column;
-            justify-content: space-between;
-            box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-            height: 100%;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
-        img, .blank-thumbnail {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            object-fit: cover;
-        }
-
-        @media (min-width: 768px) {
-            width: 50%;
-        }
-
-        @media (min-width: 1024px) {
-            width: 33.333%;
-        }
-    }
-
-    .post-info {
-        display: flex;
-        flex-direction: column;
-        padding: .5rem 1rem;
-
-        h3 {
-            margin: 0;
-        }
-
-        .date {
-            font-size: 0.8rem;
-            color: #666;
-        }
-
-        hr {
-            margin: 0.5rem 0;
-        }
-
-    }
-
-    .bottom-part {
-        display: flex;
-        flex-flow: nowrap column;
-        justify-content: space-between;
-        gap: 1.5rem;
-        padding: 1rem;
-    }
-
-    .authors-holder {
-        font-size: 0.8rem;
     }
 
     header {
@@ -280,72 +143,6 @@ const authors = await getCollection('authors');
             box-shadow: #0d0d0d 0 0 10px;
         }
     }
-
-    .tag-holder {
-        font-size: 0.7rem;
-        display: flex;
-        flex-flow: wrap row;
-        gap: 1rem;
-    }
-
-    .tag {
-        display: inline-block;
-        white-space: nowrap;
-        padding: 0.5rem 1rem;
-        background: #50F1D7;
-        border-radius: 15px;
-        text-transform: capitalize;
-    }
-
-
-    .blank-thumbnail {
-        background: #000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .square {
-            width: 30%;
-            aspect-ratio: 1;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(3, 1fr);
-            grid-gap: 0.5rem;
-        }
-
-        .white {
-            background: white;
-            height: calc(100%);
-            grid-column: 1;
-            grid-row: 1/4;
-        }
-
-        .pearl {
-            background: #FAF8F8;
-            grid-column: 2;
-            grid-row: 1/3;
-        }
-
-        .fuschia {
-            background: #E82577;
-            grid-column: 2;
-            grid-row: 3;
-        }
-
-        .iris {
-            background: #50F1D7;
-            grid-column: 3;
-            grid-row: 1;
-        }
-
-        .scarlet {
-            background: #FD4D26;
-            grid-row: 2/4;
-            grid-column: 3;
-        }
-    }
-
-
 </style>
 
 

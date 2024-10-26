@@ -1,0 +1,21 @@
+---
+import {Image} from "astro:assets";
+import type {ImageMetadata} from "astro";
+
+interface Props {
+    image?: ImageMetadata;
+    alt: string;
+    class?: string;
+    loading?: "lazy" | "eager";
+}
+const {image, alt, class: className, ...rest} = Astro.props;
+
+const isLocalImage = !image?.src.startsWith("http") ;
+---
+
+
+{image && (isLocalImage ?
+<Image class={className} {...rest} src={image} alt={alt}/>
+    :   <img class={className} {...rest} src={image.src} alt={alt}/>)}
+
+

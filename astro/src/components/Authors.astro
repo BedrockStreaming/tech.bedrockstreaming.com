@@ -1,4 +1,5 @@
 ---
+import ImageOrImg from "./ImageOrImg.astro";
 const {authors, allAuthors} = Astro.props;
 ---
 
@@ -11,23 +12,23 @@ const {authors, allAuthors} = Astro.props;
                 if (authorUrl) {
                     return (
                             <a href={authorUrl}>
-                                {authorData.data.avatar?.src && <img src={authorData.data.avatar?.src}
-                                                                     alt={`Avatar for ${authorData.data.name}`}/>}
+                                <ImageOrImg class='author-img' image={authorData.data.avatar}
+                                            alt={`Avatar for ${authorData.data.name}`}/>
                                 <span>{authorData.data.name}</span>
                             </a>
                     );
                 }
                 return (
                         <div>
-                            {authorData.data.avatar?.src && <img src={authorData.data.avatar?.src}
-                                                                 alt={`Avatar for ${authorData.data.name}`}/>}
+                            <ImageOrImg class='author-img' image={authorData.data.avatar}
+                                        alt={`Avatar for ${authorData.data.name}`}/>
                             <span>{authorData.data.name}</span>
                         </div>
                 );
             }) :
                 <a href={`/${authors}`}>
-                    <img src={allAuthors.find((a) => a.id === authors)?.data?.avatar?.src}
-                         alt={`Avatar for ${allAuthors.find((a) => a.id === authors)?.data.name}`}/>
+                    <ImageOrImg class='author-img' image={allAuthors.find((a) => a.id === authors)?.data.avatar}
+                                alt={`Avatar for ${allAuthors.find((a) => a.id === authors)?.data.name}`}/>
                     <span>{allAuthors.find((a) => a.id === authors)?.data.name}</span>
                 </a>
     }
@@ -40,7 +41,7 @@ const {authors, allAuthors} = Astro.props;
         gap: 1rem;
     }
 
-    #authors img {
+    .author-img {
         width: 20px;
         height: 20px;
         border-radius: 50%;
