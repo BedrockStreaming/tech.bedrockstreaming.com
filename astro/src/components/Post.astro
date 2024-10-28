@@ -4,11 +4,11 @@ import ImageOrImg from "../components/ImageOrImg.astro";
 import Authors from "../components/Authors.astro";
 import {format} from "date-fns";
 import type {CollectionEntry} from "astro:content";
-interface PostProps {
+interface Props {
     post: CollectionEntry<'posts'>;
-    authors: CollectionEntry<'authors'>;
-    class: string;
-    rest: Record<string, unknown>;
+    authors: CollectionEntry<'authors'>[];
+    class?: string;
+    rest?: Record<string, unknown>;
 }
 const {post, authors, class: className, rest} = Astro.props;
 ---

@@ -1,9 +1,13 @@
 ---
 import {getCollection} from "astro:content";
+import {Image} from "astro:assets"
 import {format} from 'date-fns';
+
+import BedrockLogo from '../assets/images/bedrockLogo.png';
 import Authors from '../components/Authors.astro';
 import ImageOrImg from "../components/ImageOrImg.astro";
 import Post from "../components/Post.astro";
+
 const collection = await getCollection('posts', ({data}) => {
     return data.layout.includes("post");
 });
@@ -20,6 +24,30 @@ const authors = await getCollection('authors');
     <title>Bedrock Streaming Tech Blog</title>
 </head>
 <body>
+<header>
+    <div class="logo-wrapper">
+        <Image src={BedrockLogo} alt={"BedrockStreamingLogo"}/>
+    </div>
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Blog</a>
+            </li>
+            <li>
+                <a href="/lfts">LFTs</a>
+            </li>
+            <li>
+                <a href="/meetups">Meetups</a>
+            </li>
+            <li>
+                <a href="/oss">OSS</a>
+            </li>
+            <li>
+                <a href="/search">Search</a>
+            </li>
+        </ul>
+    </nav>
+</header>
 <main>
     <header>
         <h1>Blog</h1>
@@ -58,7 +86,36 @@ const authors = await getCollection('authors');
     main {
         max-width: 1140px;
         margin: 0 auto;
-        padding: 0 15px
+        padding: 0 15px;
+
+        header {
+            color: white;
+            padding: 5rem 0;
+
+            h1 {
+                margin: 1rem 0;
+                font-size: 4rem;
+            }
+
+            p {
+                margin: 0;
+                font-size: 1.2rem;
+                font-weight: 300;
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 400px;
+                background-size: cover;
+                background-image: linear-gradient(to right, #3402F0, hsl(170deg 85% 63%));
+                z-index: -1;
+                box-shadow: rgba(13, 13, 13, 0.15) 0 0 10px;
+            }
+        }
     }
 
     .main-post {
@@ -114,37 +171,45 @@ const authors = await getCollection('authors');
         justify-content: space-between;
         margin: -1rem;
     }
+</style>
+<style>
+    body > header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        height: 54px;
+        padding: 1rem;
+        background: var(--color-white);
+        color: var(--color-black);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        z-index: 1;
 
-    header {
-        color: white;
-        padding: 5rem 0;
-
-        h1 {
-            margin: 1rem 0;
-            font-size: 4rem;
+        .logo-wrapper {
+            position: relative;
+            height: 100%;
         }
 
-        p {
-            margin: 0;
-            font-size: 1.2rem;
-            font-weight: 300;
-        }
-
-        &:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
+        img {
+            height: 100%;
             width: 100%;
-            height: 350px;
-            background-size: cover;
-            background-image: linear-gradient(to right, #3402F0, hsl(170deg 85% 63%));
-            z-index: -1;
-            box-shadow: #0d0d0d 0 0 10px;
+            object-fit: contain;
         }
+
+        nav > ul {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        li {
+            display: block;
+        }
+
+
     }
 </style>
-
 
 <style is:global>
     * {
@@ -171,6 +236,15 @@ const authors = await getCollection('authors');
         padding: 0;
         margin: 0;
         list-style: none;
+    }
+
+    :root {
+        --color-white: white;
+        --color-black: #0D0D0D;
+        --color-pearl: #FAF8F8;
+        --color-fuschia: #E82577;
+        --color-iris: #50F1D7;
+        --color-scarlet: #FD4D26;
     }
 
 </style>
