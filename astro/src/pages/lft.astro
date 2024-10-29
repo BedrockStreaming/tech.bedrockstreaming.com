@@ -1,9 +1,12 @@
 ---
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
+import Authors from '../components/Authors.astro';
+import {Image} from "astro:assets";
 import {getCollection} from "astro:content";
 
-const lfts = await getCollection('lfts');
+const lfts = (await getCollection('lfts')).toReversed();
+const allAuthors = await getCollection('authors');
 ---
 <head>
     <meta charset="utf-8"/>
@@ -23,7 +26,22 @@ const lfts = await getCollection('lfts');
             Here are some replays of LFT available on Youtube:</p>
     </section>
     <section class="video-list">
-
+        {lfts.map((lft) => (
+                <article>
+                    <a href={`/lft/${lft.slug}`}>
+                        <div>
+                            <Image
+                                    src={`https://img.youtube.com/vi/${lft.data.youtubeId}/hqdefault.jpg`}
+                                    alt={lft.data.title}
+                                    width={300}
+                                    height={169}
+                            />
+                        </div>
+                        <h3>{lft.data.title}</h3>
+                        <Authors authors={lft.data.author} allAuthors={allAuthors} />
+                    </a>
+                </article>
+        ))}
     </section>
 </main>
 
@@ -43,13 +61,6 @@ const lfts = await getCollection('lfts');
                 text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             }
 
-            p {
-                margin: 0;
-                font-size: 1.2rem;
-                font-weight: 300;
-                text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            }
-
             &:before {
                 content: '';
                 position: absolute;
@@ -61,6 +72,34 @@ const lfts = await getCollection('lfts');
                 background-image: linear-gradient(to right, var(--color-scarlet), var(--color-ink));
                 z-index: -1;
                 box-shadow: rgba(13, 13, 13, 0.15) 0 0 10px;
+            }
+        }
+    }
+
+    .video-list{
+        /*className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3"*/
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1rem;
+        margin-bottom: 4rem;
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+
+        article {
+            background-color: white;
+            cursor: pointer;
+
+            div > img {
+                width: 100%;
+            }
+
+            h4 {
+                margin: 1rem 0;
+            }
+
+            p {
+                margin: 0.5rem 0;
             }
         }
     }
