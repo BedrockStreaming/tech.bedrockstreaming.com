@@ -10,7 +10,28 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content} = await render(entry);
 ---
-
+<head>
+    <meta charset="utf-8"/>
+</head>
 <section>
     <Content />
 </section>
+
+<style>
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    section {
+        max-width: 728px;
+        margin: 0 auto;
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+    }
+
+
+</style>

@@ -1,0 +1,75 @@
+---
+import BedrockLogo from '../assets/images/bedrockLogo.png';
+import {Image} from "astro:assets"
+---
+
+<div class="nav-wrapper">
+    <a href="/">
+        <div class="logo-wrapper">
+            <Image src={BedrockLogo} alt="Bedrock Logo"/>
+        </div>
+    </a>
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Blog</a>
+            </li>
+            <li>
+                <a href="/lfts">LFTs</a>
+            </li>
+            <li>
+                <a href="/meetups">Meetups</a>
+            </li>
+            <li>
+                <a href="/oss">OSS</a>
+            </li>
+            <li>
+                <a href="/search">Search</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<style>
+    .nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 1rem 5vw;
+        padding: 1rem;
+        height: 60px;
+        border-radius: 2rem;
+        background-color: rgba(255, 255, 255, 0.89);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.22);
+        position: sticky;
+        top: 1rem;
+        z-index: 1;
+        backdrop-filter: blur(10px);
+    }
+
+    .nav-wrapper a, .logo-wrapper, .logo-wrapper img {
+        height: 2.5rem;
+        width: 4rem;
+        object-fit: contain;
+    }
+
+    .logo-wrapper img {
+    }
+
+    nav ul {
+        display: flex;
+        gap: 1rem;
+    }
+
+    nav ul li {
+        list-style: none;
+    }
+
+    nav ul li a {
+        padding: 1rem;
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+
+</style>

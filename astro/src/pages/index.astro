@@ -1,9 +1,7 @@
 ---
 import {getCollection} from "astro:content";
-import {Image} from "astro:assets"
 import {format} from 'date-fns';
-
-import BedrockLogo from '../assets/images/bedrockLogo.png';
+import Navbar from "../components/Navbar.astro";
 import Authors from '../components/Authors.astro';
 import ImageOrImg from "../components/ImageOrImg.astro";
 import Post from "../components/Post.astro";
@@ -24,30 +22,7 @@ const authors = await getCollection('authors');
     <title>Bedrock Streaming Tech Blog</title>
 </head>
 <body>
-<header>
-    <div class="logo-wrapper">
-        <Image src={BedrockLogo} alt={"BedrockStreamingLogo"}/>
-    </div>
-    <nav>
-        <ul>
-            <li>
-                <a href="/">Blog</a>
-            </li>
-            <li>
-                <a href="/lfts">LFTs</a>
-            </li>
-            <li>
-                <a href="/meetups">Meetups</a>
-            </li>
-            <li>
-                <a href="/oss">OSS</a>
-            </li>
-            <li>
-                <a href="/search">Search</a>
-            </li>
-        </ul>
-    </nav>
-</header>
+<Navbar/>
 <main>
     <header>
         <h1>Blog</h1>
@@ -172,52 +147,21 @@ const authors = await getCollection('authors');
         margin: -1rem;
     }
 </style>
-<style>
-    body > header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: sticky;
-        top: 0;
-        height: 54px;
-        padding: 1rem;
-        background: var(--color-white);
-        color: var(--color-black);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        z-index: 1;
-
-        .logo-wrapper {
-            position: relative;
-            height: 100%;
-        }
-
-        img {
-            height: 100%;
-            width: 100%;
-            object-fit: contain;
-        }
-
-        nav > ul {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        li {
-            display: block;
-        }
-
-
-    }
-</style>
-
 <style is:global>
+
+    @font-face {
+        font-family: 'Roboto';
+        src: url('/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
     * {
         box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
     }
 
     body {
-        font-family: system-ui, sans-serif;
         margin: 0;
         padding: 0;
     }
@@ -239,13 +183,13 @@ const authors = await getCollection('authors');
     }
 
     :root {
-        --color-white: white;
-        --color-black: #0D0D0D;
-        --color-pearl: #FAF8F8;
-        --color-fuschia: #E82577;
-        --color-iris: #50F1D7;
-        --color-scarlet: #FD4D26;
-        --color-ink: #3402F0;
+        --color-white: hsl(0, 0%, 100%);
+        --color-black: hsl(0, 0%, 5%);
+        --color-pearl: hsl(0, 5%, 98%);
+        --color-fuschia: hsl(330, 83%, 53%);
+        --color-iris: hsl(168, 86%, 66%);
+        --color-scarlet: hsl(14, 98%, 57%);
+        --color-ink: hsl(246, 99%, 47%);
     }
 
 </style>
