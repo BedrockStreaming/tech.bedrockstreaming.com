@@ -1,0 +1,82 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import {getCollection} from "astro:content";
+
+const lfts = await getCollection('posts', ({data}) => {
+    return data.layout.includes("conference");
+});
+---
+<head>
+    <meta charset="utf-8"/>
+</head>
+<Navbar/>
+<main>
+    <header>
+        <h1>Last Friday Talk</h1>
+        <p>Watch the replays of our internal conferences, learn and discover as much as we do.</p>
+    </header>
+    <section>
+        <h2>What are Last Friday Talks?</h2>
+
+        <p>Last friday talks were at first internal technical conferences at the end of each month given by Bedrock
+            employees about various subjects. The concept of LFT has been introduced in this article 🇫🇷.
+            Since this article, the event has evolved to include non-technical talks. Everyone can share their passion.
+            Here are some replays of LFT available on Youtube:</p>
+    </section>
+    <section class="video-list">
+        {lfts.map((lft) => (
+                <div class="card">
+                    <a href={lft.data.url}><img loading="lazy"
+                                           src={`https://img.youtube.com/vi/${lft.data.youtubeId}/hqdefault.jpg`}
+                                           alt=""/></a>
+                    <div class="card-body">
+                        <a href={lft.data.url}><h5 class="card-title">{lft.data.title}</h5></a>
+                        <div class="card-content">
+                            <div>{lft.data.author}</div>
+                            <div>{lft.data.date}</div>
+                        </div>
+                    </div>
+                </div>
+        ))}
+    </section>
+</main>
+
+<style>
+    main {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 15px;
+
+        header {
+            color: white;
+            padding: 5rem 0;
+
+            h1 {
+                margin: 1rem 0;
+                font-size: 4rem;
+                text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            }
+
+            p {
+                margin: 0;
+                font-size: 1.2rem;
+                font-weight: 300;
+                text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 400px;
+                background-size: cover;
+                background-image: linear-gradient(to right, var(--color-scarlet), var(--color-ink));
+                z-index: -1;
+                box-shadow: rgba(13, 13, 13, 0.15) 0 0 10px;
+            }
+        }
+    }
+</style>
