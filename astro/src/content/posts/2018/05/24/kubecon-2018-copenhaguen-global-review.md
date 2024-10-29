@@ -2,7 +2,7 @@
 layout: ../../../../../layouts/post.astro
 title: "KubeCon 2018 Copenhagen, global review"
 description: "Our global review of KubeCon 2018 in Copenhagen"
-author: Vincent Gallissot, Pascal Martin
+author: [v_gallissot, p_martin]
 category:
 tags: [kubernetes, KubeCon]
 feature-img: "./title-kubecon.jpg"

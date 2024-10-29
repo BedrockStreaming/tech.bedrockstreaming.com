@@ -2,7 +2,7 @@
 layout: ../../../../../layouts/post.astro
 title: "Velocity Europe 2013 - Day 1"
 description: ""
-author: Baptiste, Denis Roussel et Kenny Dits
+author: [b_candelier, d_roussel, k_dits]
 category: 
 tags: [conference,velocity,webperf]
 image:

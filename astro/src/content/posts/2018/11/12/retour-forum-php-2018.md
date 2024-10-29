@@ -2,7 +2,7 @@
 layout: ../../../../../layouts/post.astro
 title: "Forum PHP Paris 2018"
 description: "Nos retours du Forum PHP à Paris, les 25 et 26 octobre 2018"
-author: Olivier Mansour, Fabien De Saint Pern, Francois-Xavier Gaberan, Héléna Hiraux, Pascal Martin, Benoit Viguier, Guillaume Bouyge
+author: [o_mansour, f_desaintpern, fx_gaberan, h_hiraux, p_martin, b_viguier, g_bouyge]
 category:
 tags: [forumphp, php, afup, 2018]
 feature-img: "./header.jpg"

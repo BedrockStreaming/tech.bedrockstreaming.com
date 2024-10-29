@@ -2,8 +2,7 @@
 layout: ../../../../../layouts/post.astro
 title: "React Europe 2019"
 description: "Our feedbacks about the European React Conference 2019"
-author: Florent Dubost, Nicolas Afresne, Antoine Caron
-   front.png
+author: [f_dubost, n_afresne, a_caron]
 category:
 tags: [React, JS, 6play, Conference, 2019]
 thumbnail: "./brendan-church-182747-unsplash.jpg"

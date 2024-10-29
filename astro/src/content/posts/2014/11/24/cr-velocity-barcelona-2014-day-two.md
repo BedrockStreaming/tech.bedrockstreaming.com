@@ -2,7 +2,7 @@
 layout: ../../../../../layouts/post.astro
 title: "Retour sur la Velocity Barcelone - seconde journée"
 description: ""
-author: Baptiste, François Verron et Olivier Mansour
+author: [b_candelier, f_verron, o_mansour]
 
 
   

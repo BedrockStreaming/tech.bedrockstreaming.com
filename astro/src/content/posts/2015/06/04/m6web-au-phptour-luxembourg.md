@@ -2,7 +2,7 @@
 layout: ../../../../../layouts/post.astro
 title: "On était au PHPTour ! "
 description: "et c'était bien."
-author: Baptiste, Mikael Randy et Olivier Mansour
+author: [b_candelier, m_randy, o_mansour]
 
 
   

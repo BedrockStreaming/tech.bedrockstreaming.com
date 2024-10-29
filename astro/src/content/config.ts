@@ -4,10 +4,9 @@ const postsCollection = defineCollection({
   type: "content",
   schema: ({ image }) =>
     z.object({
-      author: z
-        .string()
-        .or(reference("authors"))
-        .or(z.array(z.string().or(reference("authors")))),
+      author: reference("authors").or(
+        z.array(z.string().or(reference("authors")))
+      ),
       title: z.string(),
       subtitle: z.string().optional(),
       description: z.string().optional(),

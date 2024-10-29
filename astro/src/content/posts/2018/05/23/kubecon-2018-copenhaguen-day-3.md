@@ -2,7 +2,7 @@
 layout: ../../../../../layouts/post.astro
 title: "KubeCon 2018 Copenhagen, day 3"
 description: "Our notes for the conferences we saw during the third day of KubeCon 2018 in Copenhagen"
-author: Vincent Gallissot, Pascal Martin
+author: [v_gallissot, p_martin]
 
 
   

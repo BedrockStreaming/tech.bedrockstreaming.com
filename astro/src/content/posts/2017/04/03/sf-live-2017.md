@@ -2,12 +2,7 @@
 layout: ../../../../../layouts/post.astro
 title: "Symfony Live Paris 2017"
 description: "Symfony Live Paris 2017"
-author: Guillaume BOUYGE, Fabien De Saint Pern, Benoit Viguier
-
-
-  
-  
-  
+author: [g_bouyge, f_desaintpern, b_viguier]
 category:
 tags: [symfony, symfony live]
 feature-img: "./SfLive2017.jpg"

@@ -2,7 +2,7 @@
 layout: ../../../../../layouts/post.astro
 title: "KubeCon 2018 Copenhagen, day 2"
 description: "Our notes for the conferences we saw during the second day of KubeCon 2018 in Copenhagen"
-author: Vincent Gallissot, Pascal Martin
+author: [v_gallissot, p_martin]
 category:
 tags: [kubernetes, KubeCon]
 feature-img: "./title-kubecon.jpg"

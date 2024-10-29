@@ -2,7 +2,7 @@
 layout: ../../../../../layouts/post.astro
 title: "ScalaIO Lyon 2019"
 description: "Nos retours sur la ScalaIO à Lyon, les 30 et 31 octobre 2019"
-author: data
+author: bedrock
 category:
 tags: [scalaio, scala, lyon, 2019]
 feature-img: "./header.jpg"
