@@ -3,9 +3,7 @@ import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import {getCollection} from "astro:content";
 
-const lfts = await getCollection('posts', ({data}) => {
-    return data.layout.includes("conference");
-});
+const lfts = await getCollection('lfts');
 ---
 <head>
     <meta charset="utf-8"/>
@@ -25,20 +23,7 @@ const lfts = await getCollection('posts', ({data}) => {
             Here are some replays of LFT available on Youtube:</p>
     </section>
     <section class="video-list">
-        {lfts.map((lft) => (
-                <div class="card">
-                    <a href={lft.data.url}><img loading="lazy"
-                                           src={`https://img.youtube.com/vi/${lft.data.youtubeId}/hqdefault.jpg`}
-                                           alt=""/></a>
-                    <div class="card-body">
-                        <a href={lft.data.url}><h5 class="card-title">{lft.data.title}</h5></a>
-                        <div class="card-content">
-                            <div>{lft.data.author}</div>
-                            <div>{lft.data.date}</div>
-                        </div>
-                    </div>
-                </div>
-        ))}
+
     </section>
 </main>
 

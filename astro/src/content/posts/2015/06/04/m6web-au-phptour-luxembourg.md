@@ -2,7 +2,7 @@
 layout: ../../../../../layouts/post.astro
 title: "On était au PHPTour ! "
 description: "et c'était bien."
-author: [b_candelier, m_randy, o_mansour]
+author: [b_candellier, m_randy, o_mansour]
 
 
   

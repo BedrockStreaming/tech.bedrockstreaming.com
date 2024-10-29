@@ -2,7 +2,7 @@
 layout: ../../../../../layouts/post.astro
 title: "Velocity Europe 2013 - Day 3"
 description: ""
-author: [b_candelier, d_roussel, k_dits] 
+author: [b_candellier, d_roussel, k_dits] 
 category: 
 tags: [conference,velocity,webperf]
 image:

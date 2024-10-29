@@ -7,10 +7,7 @@ import Authors from '../components/Authors.astro';
 import ImageOrImg from "../components/ImageOrImg.astro";
 import Post from "../components/Post.astro";
 
-const collection = await getCollection('posts', ({data}) => {
-    return data.layout.includes("post");
-});
-const posts = collection.toReversed();
+const posts = (await getCollection('posts')).toReversed();
 const authors = await getCollection('authors');
 ---
 

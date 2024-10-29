@@ -2,7 +2,7 @@
 layout: ../../../../../layouts/post.astro
 title: "Retour sur la Velocity Barcelone - seconde journée"
 description: ""
-author: [b_candelier, f_verron, o_mansour]
+author: [b_candellier, f_verron, o_mansour]
 
 
   

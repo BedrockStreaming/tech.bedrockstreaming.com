@@ -1,36 +1,39 @@
 ---
+import type {CollectionEntry} from "astro:content";
 import ImageOrImg from "./ImageOrImg.astro";
-const {authors, allAuthors} = Astro.props;
+const {authors: givenAuthors, allAuthors} = Astro.props;
+let authors;
+if (!Array.isArray(givenAuthors)) {
+    authors = [givenAuthors];
+} else {
+    authors = givenAuthors;
+}
+
+type AuthorType = CollectionEntry<"authors">;
 ---
 
 <div id="authors">
     {
-        Array.isArray(authors) ?
-            authors.map((author) => {
-                const authorData = allAuthors.find((a) => a.id === author);
-                const authorUrl = authorData.data.url;
-                if (authorUrl) {
-                    return (
-                            <a href={authorUrl}>
-                                <ImageOrImg class='author-img' image={authorData.data.avatar}
-                                            alt={`Avatar for ${authorData.data.name}`}/>
-                                <span>{authorData.data.name}</span>
-                            </a>
-                    );
-                }
+        authors.map((author) => {
+            const authorData = allAuthors.find((a:any) => a.id === author.id) as AuthorType;
+            const authorUrl = authorData.data.url;
+            if (authorUrl) {
                 return (
-                        <div>
+                        <a href={authorUrl}>
                             <ImageOrImg class='author-img' image={authorData.data.avatar}
                                         alt={`Avatar for ${authorData.data.name}`}/>
                             <span>{authorData.data.name}</span>
-                        </div>
+                        </a>
                 );
-            }) :
-                <a href={`/${authors}`}>
-                    <ImageOrImg class='author-img' image={allAuthors.find((a) => a.id === authors)?.data.avatar}
-                                alt={`Avatar for ${allAuthors.find((a) => a.id === authors)?.data.name}`}/>
-                    <span>{allAuthors.find((a) => a.id === authors)?.data.name}</span>
-                </a>
+            }
+            return (
+                    <div>
+                        <ImageOrImg class='author-img' image={authorData.data.avatar}
+                                    alt={`Avatar for ${authorData.data.name}`}/>
+                        <span>{authorData.data.name}</span>
+                    </div>
+            );
+        })
     }
 </div>
 
