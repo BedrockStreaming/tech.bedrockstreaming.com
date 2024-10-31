@@ -41,3 +41,50 @@ ul {
     --color-scarlet: hsl(14, 98%, 57%);
     --color-ink: hsl(246, 99%, 47%);
 }
+
+.blank-thumbnail {
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .square {
+        width: 30%;
+        aspect-ratio: 1;
+        display: grid;
+        grid-template-columns: 40px 1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        grid-gap: 0.5rem;
+    }
+
+    .white {
+        background: white;
+        height: calc(100%);
+        grid-column: 1;
+        grid-row: 1/4;
+    }
+
+    .pearl {
+        background: #FAF8F8;
+        grid-column: 2;
+        grid-row: 1/3;
+    }
+
+    .fuschia {
+        background: #E82577;
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    .iris {
+        background: #50F1D7;
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .scarlet {
+        background: #FD4D26;
+        grid-row: 2/4;
+        grid-column: 3;
+    }
+}

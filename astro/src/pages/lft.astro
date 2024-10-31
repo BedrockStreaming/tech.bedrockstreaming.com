@@ -29,17 +29,26 @@ const allAuthors = await getCollection('authors');
         {lfts.map((lft) => (
                 <article>
                     <a href={`/lft/${lft.slug}`}>
-                        <div>
+                        <div class="img-holder">
                             <Image
                                     src={`https://img.youtube.com/vi/${lft.data.youtubeId}/hqdefault.jpg`}
                                     alt={lft.data.title}
                                     width={300}
                                     height={169}
                             />
+                            <div class="blank-thumbnail">
+                                <div class="square">
+                                    <div class="white"></div>
+                                    <div class="pearl"></div>
+                                    <div class="fuschia"></div>
+                                    <div class="iris"></div>
+                                    <div class="scarlet"></div>
+                                </div>
+                            </div>
                         </div>
                         <h3>{lft.data.title}</h3>
-                        <Authors authors={lft.data.author} allAuthors={allAuthors} />
                     </a>
+                    <Authors authors={lft.data.author} allAuthors={allAuthors}/>
                 </article>
         ))}
     </section>
@@ -84,7 +93,7 @@ const allAuthors = await getCollection('authors');
         width: 100%;
     }
 
-    .video-list{
+    .video-list {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 1rem;
@@ -96,10 +105,20 @@ const allAuthors = await getCollection('authors');
         article {
             background-color: white;
             cursor: pointer;
+            display: flex;
+            flex-direction: column;
 
-            div > img {
+            .img-holder {
                 width: 100%;
+                aspect-ratio: 16/9;
+                position: relative;
+
+                .blank-thumbnail {
+                    position: absolute;
+                    inset: 0;
+                }
             }
+
 
             h4 {
                 margin: 1rem 0;
