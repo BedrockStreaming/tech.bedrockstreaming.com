@@ -17,7 +17,7 @@ const allAuthors = await getCollection('authors');
         <h1>Last Friday Talk</h1>
         <p>Watch the replays of our internal conferences, learn and discover as much as we do.</p>
     </header>
-    <section>
+    <section class="description">
         <h2>What are Last Friday Talks?</h2>
 
         <p>Last friday talks were at first internal technical conferences at the end of each month given by Bedrock
@@ -54,6 +54,7 @@ const allAuthors = await getCollection('authors');
         header {
             color: white;
             padding: 5rem 0;
+            margin-bottom: -50px;
 
             h1 {
                 margin: 1rem 0;
@@ -76,8 +77,14 @@ const allAuthors = await getCollection('authors');
         }
     }
 
+    .description {
+        margin-bottom: 2rem;
+        background-color: white;
+        padding: 1rem 2rem;
+        width: 100%;
+    }
+
     .video-list{
-        /*className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3"*/
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 1rem;
