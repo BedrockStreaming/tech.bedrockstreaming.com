@@ -26,6 +26,10 @@ export async function getStaticPaths() {
     </header>
     <article>
         <Content/>
+        <iframe width="100%" height="auto" style="aspect-ratio: 16/9"
+                src=`https://www.youtube-nocookie.com/embed/${entry.data.youtubeId}` title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
     </article>
 </main>
 
@@ -58,6 +62,16 @@ export async function getStaticPaths() {
                 z-index: -1;
                 box-shadow: rgba(13, 13, 13, 0.15) 0 0 10px;
             }
+        }
+    }
+
+    article {
+        blockquote {
+            border-left: 5px solid var(--color-iris);
+            background-color: hsl(from var(--color-iris) h s l / 20%);
+            padding: .5ch 1ch .5ch 2ch;
+            margin: 1rem 0;
+            line-height: 1.6;
         }
     }
 </style>
