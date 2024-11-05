@@ -33,8 +33,45 @@ const {Content} = await render(entry);
 </main>
 <style>
     main {
-        margin-top: -92px;
+        margin: -92px auto 0 auto;
         padding-top: 92px;
+        max-width: 728px;
+
+        p {
+            margin-top: 1rem;
+            line-height: 1.4;
+        }
+
+        ul {
+            list-style: disc;
+            padding-left: 1rem;
+        }
+
+        ol {
+            list-style: decimal;
+            padding-left: 1rem;
+        }
+
+        li {
+            margin-top: 0.5rem;
+            line-height: 1.4;
+        }
+
+        h2 {
+            margin-top: 2rem;
+            font-size: large;
+        }
+
+        h3 {
+            margin-top: 1rem;
+            font-size: medium;
+        }
+
+        pre {
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
     }
 
     header {
@@ -69,6 +106,7 @@ const {Content} = await render(entry);
         h1 {
             font-size: 4rem;
             text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1rem;
 
         }
 
