@@ -1,0 +1,63 @@
+---
+import '../../styles/global.css';
+import {getCollection, render} from "astro:content";
+import {Image} from "astro:assets";
+import Navbar from '../../components/Navbar.astro';
+import Authors from '../../components/Authors.astro';
+
+const authors = await getCollection('authors');
+const {entry} = Astro.props;
+const {Content} = await render(entry);
+
+export async function getStaticPaths() {
+    const lfts = await getCollection('lfts');
+    return lfts.map((entry) => ({
+        params: {slug: entry.slug}, props: {entry},
+    }));
+}
+---
+<head>
+    <meta charset="utf-8"/>
+</head>
+<Navbar/>
+<main>
+    <header>
+        <h1>{entry.data.title}</h1>
+    </header>
+    <article>
+        <Content/>
+    </article>
+</main>
+
+<style>
+    main {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 15px;
+
+        header {
+            color: white;
+            padding: 5rem 0;
+            margin-bottom: -40px;
+
+            h1 {
+                margin: 2rem 0;
+                font-size: 4rem;
+                text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 400px;
+                background-size: cover;
+                background-image: linear-gradient(to right, var(--color-scarlet), var(--color-ink));
+                z-index: -1;
+                box-shadow: rgba(13, 13, 13, 0.15) 0 0 10px;
+            }
+        }
+    }
+</style>
