@@ -21,6 +21,10 @@ a_caron:
 a_ferez:
   name: Amélie Ferez
   avatar: /images/avatar/a_ferez.jpg
+a_guinet:
+  name: Adrien Guinet
+  avatar: /images/avatar/a_guinet.jpg
+  url: https://github.com/Esquimor
 a_martins:
   name: Alexis Martins
 a_pitel:
