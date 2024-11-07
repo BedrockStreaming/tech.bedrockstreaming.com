@@ -9,26 +9,26 @@ language: en
 ---
 
 ## Introduction
-At our company, we are in the process of migrating to Linaria (v6.2.0) for managing CSS in our React application. Our codebase is over 10 years old and features a significant number of tests created by various developers over the years.
+At our company, we are in the process of migrating to [Linaria](https://linaria.dev/) (v6.2.0) for managing CSS in our [React](https://react.dev/) application. Our codebase is over 10 years old and features a significant number of tests created by various developers over the years.
 
 Throughout this migration, we encountered a few challenges, particularly with our testing framework. In this article, I will outline our experience and the solutions we implemented.
 
 ## What is Linaria?
-Linaria is a zero-runtime CSS-in-JS library designed for JavaScript applications, specifically React in our case. It allows us to write CSS code alongside our JavaScript, effectively managing component styling and ensuring everything works smoothly within our large application.
+[Linaria](https://linaria.dev/) is a zero-runtime CSS-in-JS library designed for JavaScript applications, specifically React in our case. It allows us to write CSS code alongside our JavaScript, effectively managing component styling and ensuring everything works smoothly within our large application.
 
 ## Introducing Wyw-in-js
-Starting with Linaria version 6.0.0, a new tool called Wyw-in-js has been introduced to manage the build process. This tool centralizes all configuration settings, making it easier to manage styles.
+Starting with Linaria version 6.0.0, a new tool called [Wyw-in-js](https://wyw-in-js.dev/) has been introduced to manage the build process. This tool centralizes all configuration settings, making it easier to manage styles.
 
 ## Why Jest?
-Jest is a popular testing framework within the React community, widely used for its simplicity and powerful features.
+[Jest](https://jestjs.io/) is a popular testing framework within the React community, widely used for its simplicity and powerful features.
 
 ## The Challenge
-We decided to migrate from styled-components to Linaria to reduce our bundle size. By compiling CSS, we can generate a more lightweight version of our bundle. However, this approach presents a significant challenge: if the CSS is not generated to the client, we cannot use it in our tests.
+We decided to migrate from [styled-components](https://styled-components.com/) to Linaria to reduce our bundle size. By compiling CSS, we can generate a more lightweight version of our bundle. However, this approach presents a significant challenge: if the CSS is not generated to the client, we cannot use it in our tests.
 
-This becomes problematic when we need to test the visibility of an element using .not.toBeVisible(). For example, we have a CSS class that sets an element's display to none. While Jest can recognize that the element is not visible, the absence of the compiled CSS means that it only knows the class name without any associated CSS code.
+This becomes problematic when we need to test the visibility of an element using `.not.toBeVisible()`. For example, we have a CSS class that sets an element's display to none. While Jest can recognize that the element is not visible, the absence of the compiled CSS means that it only knows the class name without any associated CSS code.
 
 ## Understanding Wyw-in-js
-Wyw-in-js operates during the compilation process, specifically with Webpack, to generate CSS. It parses JavaScript files that contain styles and transforms them into CSS files.
+Wyw-in-js operates during the compilation process, specifically with [Webpack](https://webpack.js.org/), to generate CSS. It parses JavaScript files that contain styles and transforms them into CSS files.
 
 To achieve this, Wyw-in-js stores all files in your computer's memory, then reads and processes them accordingly. It also provides flexibility for developers to modify this behavior. Our solution is to create intermediate files that we can use to read and manage the CSS for our application, enabling us to utilize it in our tests.
 
