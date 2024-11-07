@@ -8,26 +8,29 @@ color: rgb(251,87,66)
 language: en
 ---
 
-## Introduction
-At our company, we are in the process of migrating to [Linaria](https://linaria.dev/) (v6.2.0) for managing CSS in our [React](https://react.dev/) application. Our codebase is over 10 years old and features a significant number of tests created by various developers over the years.
+## Overview
+At [Bedrock](https://bedrockstreaming.com/), we constantly seek to enhance our technical stack to better serve our clients. One of our ongoing challenges is managing CSS effectively in our web applications.
 
-Throughout this migration, we encountered a few challenges, particularly with our testing framework. In this article, I will outline our experience and the solutions we implemented.
+Currently, we use [styled-components](https://styled-components.com/) for CSS-in-JS. While it has served us well, we’ve encountered several limitations:
+- **Client-Side Generation**: Styled-components generates CSS on the client side, impacting performance.
+- **SSR Limitations**: Server-side rendering (SSR) is limited, which affects our ability to deliver optimized content quickly.
+- **Bundle Size**: The tool adds significantly to our bundle size, which we aim to reduce.
+
+We explored multiple alternatives to replace styled-components, ultimately selecting [Linaria](https://linaria.dev/) as our preferred solution.
+
+Migrating to Linaria has posed several challenges, especially given our codebase spans over a decade. Testing was one of the major areas impacted. In this article, we’ll share our approach, the challenges we faced, and the solutions we implemented.
+
+## Tool for testing
+For our tests, we use [Jest](https://jestjs.io/). This popular testing framework within the React community is well-regarded for its simplicity and powerful features, making it an ideal choice for our test suite.
 
 ## What is Linaria?
-[Linaria](https://linaria.dev/) is a zero-runtime CSS-in-JS library designed for JavaScript applications, specifically React in our case. It allows us to write CSS code alongside our JavaScript, effectively managing component styling and ensuring everything works smoothly within our large application.
+[Linaria](https://linaria.dev/) is a zero-runtime CSS-in-JS library, ideal for JavaScript applications, particularly with [React](https://react.dev/). Linaria allows us to write CSS directly in our JavaScript, providing an efficient way to manage component styling within a large application while aiming to enhance performance.
+
+In the sections that follow, we’ll delve into how we set up Linaria with Jest for testing and the workarounds we used to overcome specific integration challenges.
 
 ## Introducing Wyw-in-js
 Starting with Linaria version 6.0.0, a new tool called [Wyw-in-js](https://wyw-in-js.dev/) has been introduced to manage the build process. This tool centralizes all configuration settings, making it easier to manage styles.
 
-## Why Jest?
-[Jest](https://jestjs.io/) is a popular testing framework within the React community, widely used for its simplicity and powerful features.
-
-## The Challenge
-We decided to migrate from [styled-components](https://styled-components.com/) to Linaria to reduce our bundle size. By compiling CSS, we can generate a more lightweight version of our bundle. However, this approach presents a significant challenge: if the CSS is not generated to the client, we cannot use it in our tests.
-
-This becomes problematic when we need to test the visibility of an element using `.not.toBeVisible()`. For example, we have a CSS class that sets an element's display to none. While Jest can recognize that the element is not visible, the absence of the compiled CSS means that it only knows the class name without any associated CSS code.
-
-## Understanding Wyw-in-js
 Wyw-in-js operates during the compilation process, specifically with [Webpack](https://webpack.js.org/), to generate CSS. It parses JavaScript files that contain styles and transforms them into CSS files.
 
 To achieve this, Wyw-in-js stores all files in your computer's memory, then reads and processes them accordingly. It also provides flexibility for developers to modify this behavior. Our solution is to create intermediate files that we can use to read and manage the CSS for our application, enabling us to utilize it in our tests.
@@ -233,6 +236,9 @@ module.exports = {
   },
 };
 ```
+
+🎉🎉 Congratulation, our application is configured. 🎉🎉
+
 ### Running Your Application
 Launch your application with the command:
 
@@ -240,6 +246,8 @@ Launch your application with the command:
 pnpm start
 ```
 You should see a page displaying just the title.
+
+🎊 Nice, we have step up all our tools and we are ready to start testing. 🎊
 
 ### The Test
 We need to ensure that Linaria and Wyw-in-js cannot handle styles on their own. Let's write a simple test.
@@ -264,7 +272,13 @@ You can run this test with:
 ```bash
 pnpm test
 ```
-You may encounter an issue where the ‘link’ element is visible.
+Oops, you got a 🔴 message.
+
+By compiling CSS, we can generate a more lightweight version of our bundle. However, this approach presents a significant challenge: if the CSS is not generated to the client, we cannot use it in our tests.
+
+This becomes problematic when we need to test the visibility of an element using `.not.toBeVisible()`. For example, we have a CSS class that sets an element's display to none. While Jest can recognize that the element is not visible, the absence of the compiled CSS means that it only knows the class name without any associated CSS code.
+
+Let's try a solution to handle it.
 
 ## Solution
 In your webpack.config.js, ensure you have added the Wyw-in-js loader:
@@ -369,10 +383,15 @@ Rerun your tests:
 ```bash
 pnpm test
 ```
-The tests should now pass successfully.
+Houra 🎊🎊 ! Finally, the test works !
 
 ## A Note on Potential Issues
 As mentioned, our setup relies on temporary files generated by Webpack. This introduces the risk of discrepancies between the actual styles and the CSS in these files if a build is not performed. Currently, we have no solution for this issue, and it remains an area for future improvement.
+
+We have think to others solutions:
+- Create a custom [Jest transformer](https://jestjs.io/docs/code-transformation) like in [CSS Module](https://www.npmjs.com/package/jest-css-modules-transform) or [Vanilla Extract](https://www.npmjs.com/package/@vanilla-extract/jest-transform)
+- Create a custom class for visibility in global and use it in our component (like that you can check if the class is in our test or not).
+- Test the visibility via a functional test
 
 ## Final Note about Linaria
 Do you need to use this trick to make Linaria work with Jest?
