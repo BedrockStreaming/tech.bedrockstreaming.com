@@ -1,11 +1,8 @@
 ---
 import '../../styles/global.css';
 import {getCollection, render} from "astro:content";
-import {Image} from "astro:assets";
 import Navbar from '../../components/Navbar.astro';
-import Authors from '../../components/Authors.astro';
 
-const authors = await getCollection('authors');
 const {entry} = Astro.props;
 const {Content} = await render(entry);
 
@@ -76,5 +73,9 @@ export async function getStaticPaths() {
             margin: 1rem 0;
             line-height: 1.6;
         }
+    }
+
+    iframe {
+        margin-top: 2rem;
     }
 </style>
