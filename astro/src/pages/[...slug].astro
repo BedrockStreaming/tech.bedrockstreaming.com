@@ -1,9 +1,9 @@
 ---
 import '../styles/global.css';
 import {getCollection, render} from "astro:content";
-import {Image} from "astro:assets";
 import Navbar from '../components/Navbar.astro';
 import Authors from "../components/Authors.astro";
+import ImageOrImg from "../components/ImageOrImg.astro";
 const authors = await getCollection('authors');
 export async function getStaticPaths() {
     const postsEntries = await getCollection('posts');
@@ -21,7 +21,7 @@ const {Content} = await render(entry);
 <Navbar/>
 <header class="hero">
     <div class="img-holder">
-        <Image src={entry.data.thumbnail} alt={entry.data.title}/>
+        <ImageOrImg src={entry.data.thumbnail} alt={entry.data.title}/>
     </div>
     <div class="content">
         <h1>{entry.data.title}</h1>
