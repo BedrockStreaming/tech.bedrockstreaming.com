@@ -49,13 +49,26 @@ import {Image} from "astro:assets"
         overflow: hidden;
     }
 
-    .nav-wrapper a, .logo-wrapper, .logo-wrapper img {
+    .nav-wrapper a {
         height: 2.5rem;
         width: 4rem;
         object-fit: contain;
     }
 
-    .logo-wrapper img {
+    .logo-wrapper {
+        height: 100%;
+        width: 100px;
+        //background-color: var(--local-primary-color);
+        //border-radius: 20px;
+        //overflow: hidden;
+        padding: 3px 8px;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            //filter: invert(1);
+        }
     }
 
     nav ul {
