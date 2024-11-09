@@ -43,8 +43,25 @@ const lftsCollection = defineCollection({
     }),
 });
 
+const conferencesCollection = defineCollection({
+  type: "content",
+  schema: () =>
+    z.object({
+      title: z.string(),
+      description: z.string().optional(),
+      tags: z.union([z.string(), z.number()]).array().optional(),
+      youtubeId: z.string().optional(),
+      eventName: z.string(),
+      eventUrl: z.string().url(),
+      sponsored: z.boolean().optional(),
+      hosted: z.boolean().optional(),
+      author: reference("authors").or(z.array(reference("authors"))),
+    }),
+});
+
 export const collections = {
   posts: postsCollection,
   authors: authorsCollection,
   lfts: lftsCollection,
+  conferences: conferencesCollection,
 };
