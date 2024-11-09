@@ -1,0 +1,82 @@
+---
+interface Props {
+    url: string;
+    title: string;
+    src: string;
+    authors: CollectionEntry<"conferences">["data"]["author"];
+}
+import {Image} from "astro:assets";
+import Authors from "./Authors.astro";
+import {type CollectionEntry, getCollection} from "astro:content";
+const allAuthors = await getCollection('authors');
+
+const {url, title, src, authors} = Astro.props;
+---
+<article>
+    <a href={url}>
+        <div class="img-holder">
+            <Image
+                    src={src}
+                    alt={title}
+                    width={300}
+                    height={169}
+            />
+            <div class="blank-thumbnail">
+                <div class="square">
+                    <div class="white"></div>
+                    <div class="pearl"></div>
+                    <div class="fuschia"></div>
+                    <div class="iris"></div>
+                    <div class="scarlet"></div>
+                </div>
+            </div>
+        </div>
+        <h3>{title}</h3>
+    </a>
+    <Authors authors={authors} allAuthors={allAuthors}/>
+</article>
+
+<style>
+    article {
+        background-color: white;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        height: 270px;
+
+        .img-holder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: border-radius 150ms ease-in-out;
+
+            &:hover {
+                border-radius: 0;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                z-index: 1;
+            }
+
+            .blank-thumbnail {
+                position: absolute;
+                inset: 0;
+                z-index: -1;
+            }
+        }
+
+        h3 {
+            margin-top: 1rem;
+        }
+
+        p {
+            margin: 0.5rem 0;
+        }
+    }
+</style>
