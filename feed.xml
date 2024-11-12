@@ -1,4 +1,275 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2024-10-03T12:45:03+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Enhancing Production Monitoring with New Relic</title><link href="https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html" rel="alternate" type="text/html" title="Enhancing Production Monitoring with New Relic" /><published>2024-10-03T00:00:00+00:00</published><updated>2024-10-03T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html">&lt;p&gt;At &lt;em&gt;Bedrock&lt;/em&gt;, we develop a streaming solution tailored for European media companies. Our application is a customizable white-label product used by millions across Europe. Bedrock’s clients have high expectations for stability, early incident detection, quick resolution, and effective communication during those times. Naturally, our goal is to deliver a stable product, and we dedicate significant effort toward this objective.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2024-11-12T06:54:39+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Using Fastly’s Compute at-edge to personalize static pre-generated pages</title><link href="https://tech.bedrockstreaming.com/2024/11/07/compute-at-edge-personalize-static-pages.html" rel="alternate" type="text/html" title="Using Fastly’s Compute at-edge to personalize static pre-generated pages" /><published>2024-11-07T00:00:00+00:00</published><updated>2024-11-07T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/11/07/compute-at-edge-personalize-static-pages</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/11/07/compute-at-edge-personalize-static-pages.html">&lt;p&gt;During the &lt;a href=&quot;https://www.uefa.com/euro2024/&quot;&gt;UEFA Euro&lt;/a&gt; football cup in June and July 2024, M6 broadcasted several matches. Of course, this competition was available, live, on &lt;a href=&quot;https://www.6play.fr/&quot;&gt;M6+&lt;/a&gt;. For every user joining right from the first second and or for all users hearing their neighbors shouting and wanting to re-watch the action, starting a live video stream had to work!&lt;/p&gt;
+
+&lt;p&gt;When you use one of the platforms we manage, your goal is to start a video stream. You land on the homepage of a platform like M6+ or &lt;a href=&quot;https://www.videoland.com/&quot;&gt;Videoland&lt;/a&gt;, browse the catalog, register or login and, ultimately, you’ll start a video. It’s the one thing that causes the most frustration if it fails. And we don’t want that. We want users to enjoy their experience.&lt;/p&gt;
+
+&lt;p&gt;For Euro, we first worked on shortening the browsing part, to both provide a great experience for users arriving to watch a match, and to lower the load on our platform. We talked about this in &lt;a href=&quot;/2024/08/07/euro-resiliency-special-event-page.html&quot;&gt;How Special Event Page allowed us to handle more than 1 million of users&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We also worked on reducing load on our backend applications, allowing our platform to handle far more users and load than it’s used to. This post is the story of how we used compute-at-edge for the first time!&lt;/p&gt;
+
+&lt;h1 id=&quot;our-backend-platform&quot;&gt;&lt;a href=&quot;#our-backend-platform&quot;&gt;Our backend platform&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;All our frontend (web/mobile/TV) applications communicate with our backend components through what we call &lt;a href=&quot;/2022/10/13/bff-notre-best-friend-forever-pour-faire-plein-d-applications-frontend.html&quot;&gt;BFF&lt;/a&gt;. This BFF then calls many other backend APIs and returns a &lt;em&gt;layout&lt;/em&gt; that contains everything an app needs. This layout will contain lists of rows and blocks when you are browsing the catalog, or most information required to start a stream when you are trying to do so.&lt;/p&gt;
+
+&lt;div class=&quot;mermaid&quot;&gt;
+flowchart LR
+    user1[User 1]
+    user2[User 2]
+    user3[User 3]
+
+    user1 --&amp;gt; bff
+    user2 --&amp;gt; bff
+    user3 --&amp;gt; bff
+
+    bff((BFF))
+
+    bff --&amp;gt; api1
+    bff --&amp;gt; api2
+    bff --&amp;gt; api3
+    bff --&amp;gt; api4
+    bff --&amp;gt; api5
+
+    api1[API-1]
+    api2[API-2]
+    api3[API-3]
+    api4[API-4]
+    api5[API-5]
+&lt;/div&gt;
+
+&lt;center&gt;&lt;ins&gt;&lt;strong&gt;Schema 1: one BFF between frontend apps and backend APIs.&lt;/strong&gt;&lt;/ins&gt;&lt;/center&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;With this architecture, BFF receives a lot of requests, and each of these causes up to dozens of requests to other services. This is greatly amplified by the fact that all BFF responses are personalized, which means we cannot cache entire responses.&lt;/p&gt;
+
+&lt;p&gt;As most of our APIs are running in a Kubernetes cluster, you might say &lt;em&gt;“use auto-scaling!”&lt;/em&gt;, and you’d be kind of right. We are using auto-scaling. But reactive auto-scaling, based on traffic or load metrics, is not fast enough to handle huge spikes in traffic – like big football matches can cause. For this, we have developed a &lt;a href=&quot;/2022/02/03/prescaling.html&quot;&gt;pre-scaling mechanism&lt;/a&gt;, and even &lt;a href=&quot;/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html&quot;&gt;open-sourced it&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;But we didn’t want to take any chances…&lt;/p&gt;
+
+&lt;h1 id=&quot;disabling-all-personalization&quot;&gt;&lt;a href=&quot;#disabling-all-personalization&quot;&gt;Disabling all personalization?&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;First, a word about an idea we used three years ago: disabling all personalization. It’s quite easy to implement: ensure BFF doesn’t do any personalization work, and return a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cache-control&lt;/code&gt; HTTP header so the CDN in front of the BFF backend application caches layouts and returns them to all users.&lt;/p&gt;
+
+&lt;p&gt;With BFF only generating a few dozen responses every minute, we solved all possible problems with load or scaling and traffic spikes. But this also means cutting many features for end-users, and not displaying personalized ads.&lt;/p&gt;
+
+&lt;p&gt;Our customers want to display personalized contents and ads, and users want to get all features from the platform. So, we decided not to enable this mechanism this year.&lt;/p&gt;
+
+&lt;h1 id=&quot;doing-more-work-in-front-of-the-backend-app&quot;&gt;&lt;a href=&quot;#doing-more-work-in-front-of-the-backend-app&quot;&gt;Doing more work… in front of the backend app!&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Several months before the Euro competition, one of our Principal Engineers had done a few prototypes with &lt;a href=&quot;https://www.fastly.com/products/edge-compute&quot;&gt;Fastly’s compute and datastores at-edge&lt;/a&gt;, convinced being able to do more things &lt;em&gt;before the apps&lt;/em&gt; would one day prove useful. Well… We brought back this idea to focus. And our BFF application was already using Fastly as its CDN, what a coincidence ;-)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Fastly allows one to run &lt;em&gt;compute&lt;/em&gt; at-edge, on the CDN points-of-presence. Basically, you write code in Go/Rust/Javascript and compile it to WASM.&lt;/li&gt;
+  &lt;li&gt;It provides several datastores. The one we used here is called &lt;em&gt;KVStore&lt;/em&gt; – a basic key-value store.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We reworked our architecture this way:&lt;/p&gt;
+
+&lt;div class=&quot;mermaid&quot;&gt;
+flowchart LR
+    user1[User 1]
+    user2[User 2]
+    user3[User 3]
+
+    subgraph In Front Of BFF
+        new(NEW)
+        datastore[(Datastore)]
+        
+        new -.-&amp;gt; datastore
+    end
+
+    user1 --&amp;gt; new
+    user2 --&amp;gt; new
+    user3 --&amp;gt; new
+
+    new -- cache --&amp;gt; bff
+
+    bff((BFF))
+
+    bff --&amp;gt; api1
+    bff --&amp;gt; api2
+    bff --&amp;gt; api3
+    bff --&amp;gt; api4
+    bff --&amp;gt; api5
+
+    api1[API-1]
+    api2[API-2]
+    api3[API-3]
+    api4[API-4]
+    api5[API-5]
+&lt;/div&gt;
+
+&lt;center&gt;&lt;ins&gt;&lt;strong&gt;Schema 2: doing work in front of the BFF.&lt;/strong&gt;&lt;/ins&gt;&lt;/center&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Our goal was to implement a lightweight personalization layer in front of our backend BFF application. The backend application would then only need to return non-personalized layouts – and those would be cacheable.&lt;/p&gt;
+
+&lt;p&gt;Note: as we have many frontend applications and did not want (and did not have enough time) to update all of them, we searched for a solution that would only require changes somewhere on the backend side.&lt;/p&gt;
+
+&lt;p&gt;This personalization layer would read some basic data &lt;em&gt;(does the current user have a subscription? Did they consent to tracking and analytics?)&lt;/em&gt; from a datastore-at-edge and use them to inject identifiers in the cached-non-personalized layout before returning it.&lt;/p&gt;
+
+&lt;p&gt;As BFF was already using a Fastly VCL service as its CDN and a VCL service cannot also do compute, we decided to insert a compute service between the VCL one and the backend, only for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/live/&lt;/code&gt; route. As time was limited and we wanted to confirm how this would work with real users, we chose to implement this approach only for one route and one layout, the one that would be called the most: the layout used to start a live stream.&lt;/p&gt;
+
+&lt;p&gt;This means our CDN architecture was looking like this:&lt;/p&gt;
+
+&lt;div class=&quot;mermaid&quot;&gt;
+flowchart LR
+    users[Users]
+    users --&amp;gt; fastlyVCL
+
+    subgraph Fastly CDN
+        fastlyVCL[Fastly&lt;br /&gt;VCL]
+
+        fastlyVCL -- /live --&amp;gt; fastlyCompute
+        fastlyCompute[Fastly&lt;br /&gt;Compute]
+
+        datastore[(Datastore)]
+        fastlyCompute -.-&amp;gt; datastore
+    end
+
+    fastlyVCL -- /* --&amp;gt; bff
+    fastlyCompute -- &quot;read&lt;br /&gt;(with cache)&quot; --&amp;gt; bff
+
+    bff((BFF))
+&lt;/div&gt;
+
+&lt;center&gt;&lt;ins&gt;&lt;strong&gt;Schema 3: chaining a VCL and a compute service.&lt;/strong&gt;&lt;/ins&gt;&lt;/center&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Before starting to actually implement this, we talked with our contacts at Fastly, to confirm this approach made sense to them and their systems would be able to handle the load and traffic spikes we were expecting. They validated the concept, and noted we should shard our data over several KVStores, as each KVStore is limited to 1000 writes/second and 5000 reads/second – good catch!&lt;/p&gt;
+
+&lt;p&gt;We then started implementing this approach, first with our compute-at-edge code doing static replacements, then with loading random data from the KVStores, and finally with loading the real data. Between each step, we ran synthetic load-tests, to ensure everything was running smoothly.&lt;/p&gt;
+
+&lt;p&gt;Also, we ensured from day-1 we would not have to throw all this &lt;em&gt;“do more work in front of BFF”&lt;/em&gt; approach away, if Fastly was not able to handle our needs. We had a fallback in mind: deploying this inside our Kubernetes cluster as a Go application and storing data in DynamoDB. Most of the code would still have worked.&lt;/p&gt;
+
+&lt;h1 id=&quot;getting-the-data-to-the-datastore-at-edge&quot;&gt;&lt;a href=&quot;#getting-the-data-to-the-datastore-at-edge&quot;&gt;Getting the data to the datastore-at-edge&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Reading data from KVStores and using it to personalize the live layout being out of the way, it was time to think about how to get data into those KVStores.&lt;/p&gt;
+
+&lt;p&gt;We had to synchronize pieces of data from two different backend APIs to the at-edge KVStores. First is our “users” API, for GDPR consents. And the second is our “subscription” API. Both store their data in DynamoDB.&lt;/p&gt;
+
+&lt;p&gt;Several months before, one of our Principal Engineers had done a few demos and prototypes showing how to use DynamoDB Streams and Lambda &lt;em&gt;the right way&lt;/em&gt; and proving asynchronous is not necessarily &lt;em&gt;slow&lt;/em&gt;. This helped not start from scratch here, having confidence working with DDB Streams and Lambda would be OK, and providing some code foundations.&lt;/p&gt;
+
+&lt;p&gt;So, in both “users” and “subscriptions” projects, we added a DynamoDB Stream on the tables used to store the relevant data. Those streams are read from a couple of Lambda functions &lt;em&gt;(with retries, batches bisect, dead-letters queues… all natively handled by AWS)&lt;/em&gt;. And those functions call Fastly’s KVStore API to insert/update/delete data there. We did not forget to deal with the 1000 RPS per KVStore limit.&lt;/p&gt;
+
+&lt;div class=&quot;mermaid&quot;&gt;
+flowchart LR
+    subgraph &quot;API-2 (AWS)&quot;
+        api2[API-2]
+        ddb2[(DynamoDB)]
+        api2 --&amp;gt; ddb2
+        ddb2 -- DDB&lt;br /&gt;Stream --&amp;gt; lambda2
+        lambda2(Lambda)
+    end
+
+    subgraph &quot;API-4 (AWS)&quot;
+        api4[API-4]
+        ddb4[(DynamoDB)]
+        api4 --&amp;gt; ddb4
+        ddb4 -- DDB&lt;br /&gt;Stream --&amp;gt; lambda4
+        lambda4(Lambda)
+    end
+
+    lambda2 --&amp;gt; datastore
+    lambda4 --&amp;gt; datastore
+
+    subgraph &quot;Fastly CDN&quot;
+        datastore[(Datastore)]
+    end
+&lt;/div&gt;
+
+&lt;center&gt;&lt;ins&gt;&lt;strong&gt;Schema 4: pushing data asynchronously to Fastly’s KVStores.&lt;/strong&gt;&lt;/ins&gt;&lt;/center&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;With this mechanism, data in the KVstores is updated after 1 or 2 seconds &lt;em&gt;(we could speed things up a little by not using batching when reading from DynamoDB Streams)&lt;/em&gt;, which is fine for this use-case.&lt;/p&gt;
+
+&lt;p&gt;In addition to this synchronization mechanism, we also implemented a full import process, used to initialize data for all users and subscriptions – and to fix a few edge-cases with odd data we didn’t anticipate.&lt;/p&gt;
+
+&lt;h1 id=&quot;better-resiliency&quot;&gt;&lt;a href=&quot;#better-resiliency&quot;&gt;Better resiliency&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Looking at the architecture schema shared before, one of our Principal Engineers noticed if the BFF backend component is down &lt;em&gt;(possibly because of an overload caused by too many users browsing the catalog)&lt;/em&gt;, it will not return non-personalized layouts. And Compute, at-edge, will not be able to do its personalization work.&lt;/p&gt;
+
+&lt;p&gt;So, we chose to asynchronously pre-generate the non-personalized layouts, and store them on Amazon S3. S3 would then be used as origin by Fastly Compute.&lt;/p&gt;
+
+&lt;div class=&quot;mermaid&quot;&gt;
+flowchart LR
+    users[Users]
+    users --&amp;gt; fastlyVCL
+
+    subgraph Fastly CDN
+        fastlyVCL[Fastly&lt;br /&gt;VCL]
+
+        fastlyVCL -- /live --&amp;gt; fastlyCompute
+        fastlyCompute[Fastly&lt;br /&gt;Compute]
+
+        datastore[(Datastore)]
+        fastlyCompute -.-&amp;gt; datastore
+    end
+
+    fastlyCompute -- &quot;read&lt;br /&gt;(with cache)&quot; --&amp;gt; s3
+    s3[(S3 Bucket)]
+
+    fastlyVCL -- /* --&amp;gt; bff
+    
+    bff((BFF))
+    bff -- &quot;Generate static&lt;br /&gt;files every X minutes&quot; --&amp;gt; s3
+&lt;/div&gt;
+
+&lt;center&gt;&lt;ins&gt;&lt;strong&gt;Schema 5: storing non-personalized layouts on Amazon S3.&lt;/strong&gt;&lt;/ins&gt;&lt;/center&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Of course, doing this requires a bit more development work. We’ve had to setup a background cronjob to generate static layouts and store them on S3. But, keeping in mind our &lt;em&gt;“users must be able to start a stream”&lt;/em&gt; goal, we estimated the potential gain on resiliency was worth it. Also, we already had a process to generate static layouts and push them to S3, so it wasn’t &lt;em&gt;that much&lt;/em&gt; additional work.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;/2024/08/07/euro-resiliency-special-event-page.html&quot;&gt;Special Event Page&lt;/a&gt; helped ensure users would not have to actually call most our backend APIs at all between the homepage and starting a live stream.&lt;/p&gt;
+
+&lt;h1 id=&quot;load-testing-and-real-life&quot;&gt;&lt;a href=&quot;#load-testing-and-real-life&quot;&gt;Load-testing and real life&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;We carefully load-tested this solution, every step of the way while implementing it. Once fully implemented, we load-tested it again and again, to ensure it would handle as much traffic as we were expecting to get during high-stakes matches.&lt;/p&gt;
+
+&lt;p&gt;Doing those load-tests and analyzing their results with our contacts at Fastly helped us identify three points we quickly fixed:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;At first, our KVStores’ primary location was in the US. Fastly reconfigured our account to have them primarily located in the EU, gaining several dozen milliseconds of latency each time new users would do their first read.&lt;/li&gt;
+  &lt;li&gt;We compiled our Golang code to WASM with both Tinygo and Biggo. One produces WASM that used more CPU, and the other produces WASM that used more RAM. In the end, we followed Fastly’s recommendations, considering they know better than us what resource could be a bottleneck for their platform.&lt;/li&gt;
+  &lt;li&gt;The first time we ran tests in our production environment, results were not great. Far worse than in our staging environment, in fact. Well, we had not paid for the Compute option in our Fastly’s production account yet, and it was configured with lower rate-limits than in staging 😃&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;During these load-tests as well as during real events later, we monitored a few basic metrics: number of calls per second, CPU and RAM usage, latency and error-rate.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-compute-at-edge/compute-at-edge-monitoring-fastly-censored.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;center&gt;&lt;ins&gt;&lt;strong&gt;Schema 6: monitoring Fastly’s Compute during a load-test.&lt;/strong&gt;&lt;/ins&gt;&lt;/center&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;The high number of requests-per second we reached during our load-tests proved Fastly Compute is a viable approach for this workload, and for some others we are already thinking about migrating.&lt;/p&gt;
+
+&lt;p&gt;On our backend’s application side, we also checked the number of calls per second was going down while it was going up on Compute at-edge. In practice, it went down to 0 for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/live/&lt;/code&gt; route, and remained stable or even went up for other routes, as there were more users browsing the catalog.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-compute-at-edge/compute-at-edge-monitoring-backends-censored.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;center&gt;&lt;ins&gt;&lt;strong&gt;Schema 7: Backend (Kubernetes) and Fastly Compute for /live/, before and during a match.&lt;/strong&gt;&lt;/ins&gt;&lt;/center&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;&lt;a href=&quot;#conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;With this approach to generating personalized layouts at-edge for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/live/&lt;/code&gt; route, users of our platform have been able to enjoy the competition without any hiccup!&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We personalized millions of live layout on the CDN at-edge, using Fastly Compute, enabling both users and customers to experience pretty much all features of the platform.&lt;/li&gt;
+  &lt;li&gt;Our backend BFF and other APIs have not been overloaded. They have been fully operational to serve requests for users browsing the catalog or starting videos on demand.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And this proved edge computing is a viable option to implement some features of our platform. More than this, though, it proved we can separate our BFF software into several smaller parts, which is one of the major ideas we will implement next year while re-architecturing it.&lt;/p&gt;
+
+&lt;p&gt;What are the next steps, then?&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;First, use Compute at-edge to serve a couple other highly-solicited routes.&lt;/li&gt;
+  &lt;li&gt;And, for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/live/&lt;/code&gt; route, implement a few use-cases that were not required for this competition, in order to use Fastly Compute for this route all the time!&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>[&quot;p_martin&quot;]</name></author><category term="edge" /><category term="fastly" /><category term="cloud" /><category term="devops" /><category term="2024" /><summary type="html">During the UEFA Euro football cup in June and July 2024, M6 broadcasted several matches. Of course, this competition was available, live, on M6+. For every user joining right from the first second and or for all users hearing their neighbors shouting and wanting to re-watch the action, starting a live video stream had to work!</summary></entry><entry><title type="html">Enhancing Production Monitoring with New Relic</title><link href="https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html" rel="alternate" type="text/html" title="Enhancing Production Monitoring with New Relic" /><published>2024-10-03T00:00:00+00:00</published><updated>2024-10-03T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html">&lt;p&gt;At &lt;em&gt;Bedrock&lt;/em&gt;, we develop a streaming solution tailored for European media companies. Our application is a customizable white-label product used by millions across Europe. Bedrock’s clients have high expectations for stability, early incident detection, quick resolution, and effective communication during those times. Naturally, our goal is to deliver a stable product, and we dedicate significant effort toward this objective.&lt;/p&gt;
 
 &lt;p&gt;However, about two and a half years ago, our mobile team faced serious challenges in monitoring production. The tagging systems were pushing events into a tool that developers were not kin to use. The graphs were not intuitive and difficult to generate, making them hard to interpret. Each team across the company was managing its own monitoring practices. Monitoring was largely manual.&lt;br /&gt;
 Too many problems were brought to the attention of the team by a complaint of our client to the support team. We knew we had to make a change.&lt;/p&gt;
@@ -1582,12 +1853,4 @@ L’objectif est d’inspirer et de redéfinir la perception du succès, en dép
   &lt;p&gt;En résumé, c’est une approche universelle vers la réussite qui est essentielle, quel que soit le secteur d’activité&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Par &lt;strong&gt;Serge Menassa&lt;/strong&gt;&lt;/p&gt;</content><author><name>Serge Menassa</name></author><category term="lft" /><category term="tech" /><summary type="html">Je souhaite explorer l’idée selon laquelle le succès n’est pas défini par une industrie, une discipline ou un secteur spécifique, mais repose plutôt sur notre état d’esprit. À travers mes expériences personnelles variées - en cosmétique, marketing, e-commerce, ainsi que dans le domaine des bars, restaurants et de l’industrie - je mets en avant l’idée que les principes du succès sont universels. Cette présentation souligne l’importance de la mentalité, de la persévérance, des stratégies adoptées et d’une méthode, indépendamment du secteur professionnel. L’objectif est d’inspirer et de redéfinir la perception du succès, en dépassant les barrières spécifiques à chaque domaine.</summary></entry><entry><title type="html">Comment j’ai retrouvé le sens de la vie grâce à WebAssembly #LFT 02/02/24</title><link href="https://tech.bedrockstreaming.com/comment-j-ai-retrouve-le-sens-de-la-vie-grace-a-web-assembly" rel="alternate" type="text/html" title="Comment j’ai retrouvé le sens de la vie grâce à WebAssembly #LFT 02/02/24" /><published>2024-02-02T00:00:00+00:00</published><updated>2024-02-02T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/comment-j-ai-retrouve-le-sens-de-la-vie-grace-a-web-assembly</id><content type="html" xml:base="https://tech.bedrockstreaming.com/comment-j-ai-retrouve-le-sens-de-la-vie-grace-a-web-assembly">&lt;blockquote&gt;
-  &lt;p&gt;Le jeu de la vie est un drôle de jeu qui a la particularité de n’avoir pas de joueur. Il se joue de lui-même et produit des configurations qui semblent évoluer de manière autonome, sans intervention extérieure. A partir de règles très basiques, des structures d’une très grande complexité peuvent émerger d’une manière qui évoque l’apparition de la vie sur Terre à partir d’éléments inertes, d’où le nom mystérieux de jeu de la vie.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Comme ce jeu se joue idéalement sur des plateaux sans limite de taille, la question des performances de l’implémentation est capitale. Pour du développement web, cet exemple permet à la fois de voir les limites de JavaScript pour effectuer un grand nombre de calculs et de présenter une solution complémentaire à la réduction de la complexité algorithmique : une implémentation en WebAssembly qui permet de déléguer la charge de calcul à un langage compilé plus performant, Rust.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Par &lt;strong&gt;Théo Gianella&lt;/strong&gt;&lt;/p&gt;</content><author><name>Théo Gianella</name></author><category term="lft" /><category term="tech" /><summary type="html">Le jeu de la vie est un drôle de jeu qui a la particularité de n’avoir pas de joueur. Il se joue de lui-même et produit des configurations qui semblent évoluer de manière autonome, sans intervention extérieure. A partir de règles très basiques, des structures d’une très grande complexité peuvent émerger d’une manière qui évoque l’apparition de la vie sur Terre à partir d’éléments inertes, d’où le nom mystérieux de jeu de la vie.</summary></entry></feed>
+&lt;p&gt;Par &lt;strong&gt;Serge Menassa&lt;/strong&gt;&lt;/p&gt;</content><author><name>Serge Menassa</name></author><category term="lft" /><category term="tech" /><summary type="html">Je souhaite explorer l’idée selon laquelle le succès n’est pas défini par une industrie, une discipline ou un secteur spécifique, mais repose plutôt sur notre état d’esprit. À travers mes expériences personnelles variées - en cosmétique, marketing, e-commerce, ainsi que dans le domaine des bars, restaurants et de l’industrie - je mets en avant l’idée que les principes du succès sont universels. Cette présentation souligne l’importance de la mentalité, de la persévérance, des stratégies adoptées et d’une méthode, indépendamment du secteur professionnel. L’objectif est d’inspirer et de redéfinir la perception du succès, en dépassant les barrières spécifiques à chaque domaine.</summary></entry></feed>
