@@ -13,22 +13,26 @@ export async function getStaticPaths() {
     }));
 }
 ---
-<head>
-    <meta charset="utf-8"/>
-</head>
-<Navbar/>
-<main>
-    <header>
-        <h1>{entry.data.title}</h1>
-    </header>
-    <article>
-        <Content/>
-        <iframe width="100%" height="auto" style="aspect-ratio: 16/9"
-                src=`https://www.youtube-nocookie.com/embed/${entry.data.youtubeId}` title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-    </article>
-</main>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <Navbar/>
+        <main>
+            <header>
+                <h1>{entry.data.title}</h1>
+            </header>
+            <article>
+                <Content/>
+                <iframe width="100%" height="auto" style="aspect-ratio: 16/9"
+                        src=`https://www.youtube-nocookie.com/embed/${entry.data.youtubeId}` title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </article>
+        </main>
+    </body>
+</html>
 
 <style>
     main {

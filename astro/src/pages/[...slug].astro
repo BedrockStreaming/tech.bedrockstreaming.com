@@ -15,22 +15,26 @@ export async function getStaticPaths() {
 const {entry} = Astro.props;
 const {Content} = await render(entry);
 ---
-<head>
-    <meta charset="utf-8"/>
-</head>
-<Navbar/>
-<header class="hero">
-    <div class="img-holder">
-        <ImageOrImg image={entry.data.thumbnail} alt={entry.data.title}/>
-    </div>
-    <div class="content">
-        <h1>{entry.data.title}</h1>
-        <Authors authors={entry.data.author} allAuthors={authors}/>
-    </div>
-</header>
-<main>
-    <Content/>
-</main>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <Navbar/>
+        <header class="hero">
+            <div class="img-holder">
+                <ImageOrImg image={entry.data.thumbnail} alt={entry.data.title}/>
+            </div>
+            <div class="content">
+                <h1>{entry.data.title}</h1>
+                <Authors authors={entry.data.author} allAuthors={authors}/>
+            </div>
+        </header>
+        <main>
+            <Content/>
+        </main>
+    </body>
+</html>
 <style>
     main {
         margin: -92px auto 0 auto;
