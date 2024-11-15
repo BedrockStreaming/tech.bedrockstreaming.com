@@ -25,7 +25,7 @@ const lfts = (await getCollection('lfts')).toReversed();
     </section>
     <section class="video-list">
         {lfts.map((lft) => (
-            <VideoCard url={`/lft/${lft.slug}}`} title={lft.data.title} src={`https://img.youtube.com/vi/${lft.data.youtubeId}/hqdefault.jpg`} authors={lft.data.author}/>
+            <VideoCard url={`/lft/${lft.slug}`} title={lft.data.title} src={`https://img.youtube.com/vi/${lft.data.youtubeId}/hqdefault.jpg`} authors={lft.data.author}/>
         ))}
     </section>
 </main>
