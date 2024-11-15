@@ -1,8 +1,12 @@
 ---
 import BedrockLogo from '../assets/images/bedrockLogo.png';
 import {Image} from "astro:assets"
----
+import { ViewTransitions } from 'astro:transitions';
 
+---
+<head>
+    <ViewTransitions/>
+</head>
 <div class="nav-wrapper">
     <a href="/">
         <div class="logo-wrapper">

@@ -19,7 +19,7 @@ const {Content} = await render(entry);
     <head>
         <meta charset="utf-8"/>
     </head>
-    <body>
+    <body data-pagefind-filter="type:posts">
         <Navbar/>
         <header class="hero">
             <div class="img-holder">
@@ -37,8 +37,8 @@ const {Content} = await render(entry);
 </html>
 <style>
     main {
-        margin: -92px auto 0 auto;
-        padding-top: 60px;
+        margin: 0 auto;
+        padding-top: 8px;
         max-width: 728px;
 
         p {
@@ -81,7 +81,7 @@ const {Content} = await render(entry);
     header {
         position: relative;
         color: white;
-        margin: -92px 0 92px 0;
+        margin-top: -92px;
         padding-top: 120px;
 
         .img-holder {
@@ -115,6 +115,10 @@ const {Content} = await render(entry);
         }
 
         .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: calc(440px - 120px);
             max-width: 728px;
             margin: 0 auto;
             padding: 0 1rem;
@@ -130,6 +134,7 @@ const {Content} = await render(entry);
     }
 
     section {
+        padding-top: 8px;
         max-width: 728px;
         margin: 0 auto;
         line-height: 1.6;
