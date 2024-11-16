@@ -2,9 +2,10 @@
 import '../styles/global.css'
 import {getCollection} from "astro:content";
 import {format} from 'date-fns';
-import Navbar from "../components/Navbar.astro";
 import Authors from '../components/Authors.astro';
+import Header from '../components/Header.astro';
 import ImageOrImg from "../components/ImageOrImg.astro";
+import Navbar from "../components/Navbar.astro";
 import Post from "../components/Post.astro";
 
 const posts = (await getCollection('posts')).toReversed();
@@ -22,10 +23,10 @@ const authors = await getCollection('authors');
 <body>
 <Navbar/>
 <main>
-    <header>
+    <Header>
         <h1>Blog</h1>
         <p>Read about our streaming champions</p>
-    </header>
+    </Header>
     <section id="hero">
         <div class="main-post">
             <a class="img-holder" href={`/${posts[0].slug}`}>
@@ -64,29 +65,6 @@ const authors = await getCollection('authors');
         max-width: 1140px;
         margin: 0 auto;
         padding: 0 15px;
-
-        header {
-            color: white;
-            padding: 5rem 0;
-
-            h1 {
-                margin: 1rem 0;
-                font-size: 4rem;
-            }
-
-            &:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 100%;
-                height: 400px;
-                background-size: cover;
-                background-image: linear-gradient(to right, var(--color-ink), var(--color-iris));
-                z-index: -1;
-                box-shadow: rgba(13, 13, 13, 0.15) 0 0 10px;
-            }
-        }
     }
 
     .main-post {

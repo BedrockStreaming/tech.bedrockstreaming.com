@@ -1,8 +1,9 @@
 ---
 import '../styles/global.css';
+import {getCollection} from "astro:content";
+import Header from '../components/Header.astro';
 import Navbar from '../components/Navbar.astro';
 import VideoCard from '../components/VideoCard.astro';
-import {getCollection} from "astro:content";
 
 const lfts = (await getCollection('lfts')).toReversed();
 ---
@@ -11,13 +12,12 @@ const lfts = (await getCollection('lfts')).toReversed();
 </head>
 <Navbar/>
 <main>
-    <header>
+    <Header>
         <h1>Last Friday Talk</h1>
         <p>Watch the replays of our internal conferences, learn and discover as much as we do.</p>
-    </header>
+    </Header>
     <section class="description">
         <h2>Want to know more about LFTs?</h2>
-
         <p>Last friday talks were at first internal technical conferences at the end of each month given by Bedrock
             employees about various subjects. The concept of LFT has been introduced in this article 🇫🇷.
             Since this article, the event has evolved to include non-technical talks. Everyone can share their passion.
@@ -38,35 +38,6 @@ const lfts = (await getCollection('lfts')).toReversed();
         max-width: 1140px;
         margin: 0 auto;
         padding: 0 15px;
-
-        header {
-            color: white;
-            padding: 5rem 0;
-            margin-bottom: -30px;
-
-            h1 {
-                margin: 1rem 0 1.5rem 0;
-                font-size: 4rem;
-                text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            }
-            p {
-                font-size: 1.2rem;
-                line-height: 1.6;
-            }
-
-            &:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 100%;
-                height: 400px;
-                background-size: cover;
-                background-image: linear-gradient(to right, var(--color-scarlet), var(--color-ink));
-                z-index: -1;
-                box-shadow: rgba(13, 13, 13, 0.15) 0 0 10px;
-            }
-        }
     }
 
     .description {

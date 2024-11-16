@@ -1,6 +1,7 @@
 ---
 import '../../styles/global.css';
 import {getCollection, render} from "astro:content";
+import Header from '../../components/Header.astro';
 import Navbar from '../../components/Navbar.astro';
 
 const {entry} = Astro.props;
@@ -20,9 +21,9 @@ export async function getStaticPaths() {
     <body>
         <Navbar/>
         <main data-pagefind-filter="type:lft">
-            <header>
+            <Header>
                 <h1>{entry.data.title}</h1>
-            </header>
+            </Header>
             <article>
                 <Content/>
                 <iframe width="100%" height="auto" style="aspect-ratio: 16/9"

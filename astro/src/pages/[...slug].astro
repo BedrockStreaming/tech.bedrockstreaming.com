@@ -1,9 +1,9 @@
 ---
 import '../styles/global.css';
 import {getCollection, render} from "astro:content";
-import Navbar from '../components/Navbar.astro';
 import Authors from "../components/Authors.astro";
 import ImageOrImg from "../components/ImageOrImg.astro";
+import Navbar from '../components/Navbar.astro';
 const authors = await getCollection('authors');
 export async function getStaticPaths() {
     const postsEntries = await getCollection('posts');

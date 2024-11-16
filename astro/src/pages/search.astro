@@ -1,13 +1,14 @@
 ---
 import '../styles/global.css'
+import Header from '../components/Header.astro';
 import Navbar from "../components/Navbar.astro";
 import SearchComponent from "astro-pagefind/components/Search";
 ---
 <Navbar/>
 <main>
-    <header>
+    <Header>
         <h1>Search</h1>
-    </header>
+    </Header>
     <section>
         <SearchComponent id="search"
                          uiOptions={{showImages: false, resetStyles: false, pageSize: 10, autofocus: true}}/>
@@ -27,30 +28,6 @@ import SearchComponent from "astro-pagefind/components/Search";
         max-width: 1140px;
         margin: 0 auto;
         padding: 0 15px;
-
-        header {
-            color: white;
-            padding: 5rem 0;
-
-            h1 {
-                text-align: center;
-                margin: 1rem 0;
-                font-size: 4rem;
-            }
-
-            &:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 100%;
-                height: 400px;
-                background-size: cover;
-                background-image: linear-gradient(to right, var(--color-ink), var(--color-iris));
-                z-index: -1;
-                box-shadow: rgba(13, 13, 13, 0.15) 0 0 10px;
-            }
-        }
     }
 
 

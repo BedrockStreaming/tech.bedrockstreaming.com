@@ -3,6 +3,7 @@ import '../styles/global.css'
 import {format} from "date-fns";
 import {getCollection} from "astro:content";
 import Authors from "../components/Authors.astro";
+import Header from "../components/Header.astro";
 import Navbar from "../components/Navbar.astro";
 import VideoCard from '../components/VideoCard.astro';
 
@@ -47,14 +48,14 @@ const groupedConferences = sortedConferences.reduce(
 <body>
 <Navbar/>
 <main>
-    <header>
+    <Header>
         <h1>Meetups & Conferences</h1>
         <p>
             Bedrock through its actions and events, hosts Meetup
             and conferences which are opportunities for Bedrock members
             to give conferences in France or abroad.
         </p>
-    </header>
+    </Header>
 
     <section class="intro">
         <p class="legend">⭐ sponsored by Bedrock 🏠 hosted by Bedrock</p>
@@ -128,29 +129,6 @@ const groupedConferences = sortedConferences.reduce(
         max-width: 1140px;
         margin: 0 auto;
         padding: 0 15px;
-
-        header {
-            color: white;
-            padding: 6rem 0;
-
-            h1 {
-                margin: 1rem 0;
-                font-size: 4rem;
-            }
-
-            &:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 100%;
-                height: 400px;
-                background-size: cover;
-                background-image: linear-gradient(to right, var(--color-fuschia), var(--color-scarlet));
-                z-index: -1;
-                box-shadow: rgba(13, 13, 13, 0.15) 0 0 10px;
-            }
-        }
     }
 
     .intro {

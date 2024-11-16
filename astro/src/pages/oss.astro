@@ -1,15 +1,16 @@
 ---
 import '../styles/global.css'
+import Header from '../components/Header.astro'
 import Navbar from '../components/Navbar.astro'
 ---
 <Navbar />
 <main>
-    <header>
+    <Header>
         <h1>Open source</h1>
         <p>At <a href="https://www.bedrockstreaming.com/">Bedrock</a> we strongly believe in open source. We push our
             team
             members to publish their work and demand the same for our contractors.</p>
-    </header>
+    </Header>
 
     <p>We use open source on a daily basis. For production servers or on our workstations. Contributing to open source
         is a simple and ethical way to give back to all the people contributing too.</p>
@@ -306,30 +307,8 @@ import Navbar from '../components/Navbar.astro'
         padding: 0 15px;
 
         header {
-            color: white;
-            padding: 5rem 0;
-            margin-bottom: 50px;
-
-            h1 {
-                margin: 1rem 0;
-                font-size: 4rem;
-            }
-
             a {
                 color: var(--color-iris);
-            }
-
-            &:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 100%;
-                height: 400px;
-                background-size: cover;
-                background-image: linear-gradient(to right, var(--color-ink), var(--color-iris));
-                z-index: -1;
-                box-shadow: rgba(13, 13, 13, 0.15) 0 0 10px;
             }
         }
     }
