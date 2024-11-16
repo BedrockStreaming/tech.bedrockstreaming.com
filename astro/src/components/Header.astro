@@ -1,9 +1,14 @@
+---
+interface Props {
+    backgroundImage?: string;
+}
+const { backgroundImage } = Astro.props;
+---
 <header>
     <slot/>
 </header>
 
-
-<style>
+<style define:vars={{backgroundImage}}>
     header {
         display: flex;
         flex-direction: column;
@@ -29,7 +34,7 @@
             width: 100%;
             height: 400px;
             background-size: cover;
-            background-image: linear-gradient(to right, var(--color-scarlet), var(--color-ink));
+            background-image: var(--backgroundImage, linear-gradient(to right, var(--color-scarlet), var(--color-ink)));
             z-index: -1;
             box-shadow: rgba(13, 13, 13, 0.15) 0 0 10px;
         }

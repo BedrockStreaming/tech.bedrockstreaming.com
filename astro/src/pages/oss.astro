@@ -5,296 +5,321 @@ import Navbar from '../components/Navbar.astro'
 ---
 <Navbar />
 <main>
-    <Header>
+    <Header backgroundImage="linear-gradient(to right, var(--color-ink), var(--color-iris))">
         <h1>Open source</h1>
         <p>At <a href="https://www.bedrockstreaming.com/">Bedrock</a> we strongly believe in open source. We push our
             team
             members to publish their work and demand the same for our contractors.</p>
     </Header>
+    <section class="content">
+        <p>We use open source on a daily basis. For production servers or on our workstations. Contributing to open
+            source
+            is a simple and ethical way to give back to all the people contributing too.</p>
 
-    <p>We use open source on a daily basis. For production servers or on our workstations. Contributing to open source
-        is a simple and ethical way to give back to all the people contributing too.</p>
+        <h2>Projects</h2>
 
-    <h2>Projects</h2>
+        <p>Here some projects open sourced:</p>
 
-    <p>Here some projects open sourced:</p>
+        <ul>
+            <li><a href="https://github.com/BedrockStreaming/Coke">Coke</a> is a Shell/Bash command using PHP Code
+                Sniffer
+                allowing rules management per project
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/Babitch">Babitch</a> and <a
+                    href="https://github.com/BedrockStreaming/BabitchClient">BabitchClient</a> is a project to record
+                foosball scores, archive them, and make them easily accessible
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/GitHubEnterpriseArchive">GitHubEnterpriseArchive</a> allows
+                to
+                archive and graph your GithubEnterprise timeline
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/GitHubTeamReviewer">GitHubTeamReviewer</a> is a monitoring
+                tool
+                that allows you to quickly view all Github pull requests of your teams and their statuses
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/HttpToGelf">HttpToGelf</a> is a node.js http to gelf logger
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/HttpToStatsd">HttpToStatsd</a> is a node.js http to statsd
+                logger
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/JenkinsLight">JenkinsLight</a> is a build monitoring tool
+                (buildwall) that allows you to quickly detect failing projects for Jenkins
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/JenkinsTerminalColors">JenkinsTerminalColors</a> is a very
+                lightweight Chrome extension that provides terminal colors in all console panels of Jenkins. It uses
+                black
+                Solarized theme
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/SeyrenLight">SeyrenLight</a> is an other monitoring tool
+                (buildwall) that allow to quickly show failing <a href="https://github.com/scobal/seyren">Seyren</a>
+                checks
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/VigoJS">VigoJS</a> is a (small) Javascript tool using
+                CasperJS
+                and PhantomJS to make easily functional tests on web applications
+            </li>
+            <li><a href="https://github.com/marketplace/actions/pull-request-auto-size-labeler">BedrockStreaming/pr-size-labeler</a>
+                is a configurable Github action that dynamically adds size labels to <em>Pull Requests</em> based on the
+                size of the diff and the number of modified files.
+            </li>
+            <li>
+                <a href="https://github.com/BedrockStreaming/prescaling-exporter">BedrockStreaming/prescaling-exporter</a>
+                is a prometheus exporter which allows applications to be staggered over time or an event with a
+                multiplier.
+            </li>
+        </ul>
 
-    <ul>
-        <li><a href="https://github.com/BedrockStreaming/Coke">Coke</a> is a Shell/Bash command using PHP Code Sniffer
-            allowing rules management per project
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/Babitch">Babitch</a> and <a
-                href="https://github.com/BedrockStreaming/BabitchClient">BabitchClient</a> is a project to record
-            foosball scores, archive them, and make them easily accessible
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/GitHubEnterpriseArchive">GitHubEnterpriseArchive</a> allows to
-            archive and graph your GithubEnterprise timeline
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/GitHubTeamReviewer">GitHubTeamReviewer</a> is a monitoring tool
-            that allows you to quickly view all Github pull requests of your teams and their statuses
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/HttpToGelf">HttpToGelf</a> is a node.js http to gelf logger
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/HttpToStatsd">HttpToStatsd</a> is a node.js http to statsd
-            logger
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/JenkinsLight">JenkinsLight</a> is a build monitoring tool
-            (buildwall) that allows you to quickly detect failing projects for Jenkins
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/JenkinsTerminalColors">JenkinsTerminalColors</a> is a very
-            lightweight Chrome extension that provides terminal colors in all console panels of Jenkins. It uses black
-            Solarized theme
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/SeyrenLight">SeyrenLight</a> is an other monitoring tool
-            (buildwall) that allow to quickly show failing <a href="https://github.com/scobal/seyren">Seyren</a> checks
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/VigoJS">VigoJS</a> is a (small) Javascript tool using CasperJS
-            and PhantomJS to make easily functional tests on web applications
-        </li>
-        <li><a href="https://github.com/marketplace/actions/pull-request-auto-size-labeler">BedrockStreaming/pr-size-labeler</a>
-            is a configurable Github action that dynamically adds size labels to <em>Pull Requests</em> based on the
-            size of the diff and the number of modified files.
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/prescaling-exporter">BedrockStreaming/prescaling-exporter</a>
-            is a prometheus exporter which allows applications to be staggered over time or an event with a multiplier.
-        </li>
-    </ul>
+        <h2>Bundle and libs</h2>
 
-    <h2>Bundle and libs</h2>
+        <ul>
+            <li><a href="https://github.com/BedrockStreaming/AmqpBundle">AmqpBundle</a>: The AmqpBundle incorporates
+                messaging in your application using the php-amqp extension.
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/ApiExceptionBundle">ApiExceptionBundle</a>: The
+                ApiExceptionBundle manages exceptions for your API and return a clean json.
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/AwsBundle">AwsBundle</a>: <a
+                    href="https://aws.amazon.com/sdkforphp/">AWS SDK</a> as a Symfony2 service, with WSClientBundle
+                functionnality (cache, logging, ...)
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/behat-seo-extension">behat-seo-extension</a>: Behat
+                extension
+                provinding specific features for testing the SEO of a website
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/DaemonBundle">DaemonBundle</a> Bundle easing the creation
+                of
+                daemon sf2 commands
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/DomainUserBundle">DomainUserBundle</a>: User authentication
+                by
+                domain
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/ElasticsearchBundle">ElasticsearchBundle</a>: Integration
+                of
+                the Elasticsearch official PHP client within a Symfony Project
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/Firewall">Firewall</a> and <a
+                    href="https://github.com/BedrockStreaming/FirewallBundle">FireWallBundle</a>: Symfony2 bundle
+                providing
+                IP filtering features for your Symfony 2 applications
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/FOSRestExtraBundle">FOSRestExtraBundle</a>: Extra features
+                for
+                the FOSRestBundle
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/GuzzleHttpBundle">GuzzleHttpBundle</a>: Bundle on top of
+                HttpGuzzle
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/HttpKernelBundle">HttpKernelBundle</a>: Custom sf2
+                HttpKernel
+                with additional events
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/KafkaBundle">KafkaBundle</a>: Bundle on top of rdkafka PHP
+                extension
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/LogBridgeBundle">LogBridgeBundle</a>: Symfony Bundle to log
+                Request/Response with Monolog.
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/MonologExtraBundle">MonologExtraBundle</a>: Provide extra
+                features for Monolog.
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/RateLimitBundle">RateLimitBundle</a>: This bundle provides
+                an
+                easy way to protect your project by limiting access to your controllers.
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/Redis">Redis</a>: PHP component used to access Redis
+                throught
+                predis
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/RedisBundle">RedisBundle</a>: Bundle over Redis component
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/RedisMessageBroker">RedisMessageBroker</a>: PHP Component
+                to
+                deal with message in Redis
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/RedisMock">RedisMock</a>: A simple PHP Redis mock</li>
+            <li><a href="https://github.com/BedrockStreaming/RequestHeadersForwarderGuzzleBundle">RequestHeadersForwarderGuzzleBundle</a>:
+                Fetch HTTP headers from current request and reuse them in Guzzle clients sub-requests.
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/roboxt">roboxt</a>: PHP lib parsing a robots.txt</li>
+            <li><a href="https://github.com/BedrockStreaming/sprintf-mock">sprintf-mock</a>: <a
+                    href="https://github.com/alexei/sprintf.js">sprintf-js</a> plugin allowing to mock sprintf behaviour
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/StatsdBundle">StatsdBundle</a>: Symfony2 Bundle easing the
+                statsd usage
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/superagent-mock">superagent-mock</a>: <a
+                    href="https://github.com/visionmedia/superagent">superagent</a> plugin allowing to simulate HTTP
+                calls
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/Tornado">Tornado</a>: A library for asynchronous
+                programming in
+                Php
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/websocket-bench">websocket-bench</a>: Nodejs cli tool for
+                benchmark web socket server, currently support (socket.io, faye)
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/XRequestUidBundle">XRequestUidBundle</a>: Generating call
+                traces in the microservices hell
+            </li>
+            <li><a href="https://github.com/BedrockStreaming/RateLimitBundle">RateLimitBundle</a>: Manage limitation for
+                your routes
+            </li>
+        </ul>
 
-    <ul>
-        <li><a href="https://github.com/BedrockStreaming/AmqpBundle">AmqpBundle</a>: The AmqpBundle incorporates
-            messaging in your application using the php-amqp extension.
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/ApiExceptionBundle">ApiExceptionBundle</a>: The
-            ApiExceptionBundle manages exceptions for your API and return a clean json.
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/AwsBundle">AwsBundle</a>: <a
-                href="https://aws.amazon.com/sdkforphp/">AWS SDK</a> as a Symfony2 service, with WSClientBundle
-            functionnality (cache, logging, ...)
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/behat-seo-extension">behat-seo-extension</a>: Behat extension
-            provinding specific features for testing the SEO of a website
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/DaemonBundle">DaemonBundle</a> Bundle easing the creation of
-            daemon sf2 commands
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/DomainUserBundle">DomainUserBundle</a>: User authentication by
-            domain
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/ElasticsearchBundle">ElasticsearchBundle</a>: Integration of
-            the Elasticsearch official PHP client within a Symfony Project
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/Firewall">Firewall</a> and <a
-                href="https://github.com/BedrockStreaming/FirewallBundle">FireWallBundle</a>: Symfony2 bundle providing
-            IP filtering features for your Symfony 2 applications
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/FOSRestExtraBundle">FOSRestExtraBundle</a>: Extra features for
-            the FOSRestBundle
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/GuzzleHttpBundle">GuzzleHttpBundle</a>: Bundle on top of
-            HttpGuzzle
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/HttpKernelBundle">HttpKernelBundle</a>: Custom sf2 HttpKernel
-            with additional events
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/KafkaBundle">KafkaBundle</a>: Bundle on top of rdkafka PHP
-            extension
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/LogBridgeBundle">LogBridgeBundle</a>: Symfony Bundle to log
-            Request/Response with Monolog.
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/MonologExtraBundle">MonologExtraBundle</a>: Provide extra
-            features for Monolog.
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/RateLimitBundle">RateLimitBundle</a>: This bundle provides an
-            easy way to protect your project by limiting access to your controllers.
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/Redis">Redis</a>: PHP component used to access Redis throught
-            predis
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/RedisBundle">RedisBundle</a>: Bundle over Redis component</li>
-        <li><a href="https://github.com/BedrockStreaming/RedisMessageBroker">RedisMessageBroker</a>: PHP Component to
-            deal with message in Redis
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/RedisMock">RedisMock</a>: A simple PHP Redis mock</li>
-        <li><a href="https://github.com/BedrockStreaming/RequestHeadersForwarderGuzzleBundle">RequestHeadersForwarderGuzzleBundle</a>:
-            Fetch HTTP headers from current request and reuse them in Guzzle clients sub-requests.
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/roboxt">roboxt</a>: PHP lib parsing a robots.txt</li>
-        <li><a href="https://github.com/BedrockStreaming/sprintf-mock">sprintf-mock</a>: <a
-                href="https://github.com/alexei/sprintf.js">sprintf-js</a> plugin allowing to mock sprintf behaviour
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/StatsdBundle">StatsdBundle</a>: Symfony2 Bundle easing the
-            statsd usage
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/superagent-mock">superagent-mock</a>: <a
-                href="https://github.com/visionmedia/superagent">superagent</a> plugin allowing to simulate HTTP calls
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/Tornado">Tornado</a>: A library for asynchronous programming in
-            Php
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/websocket-bench">websocket-bench</a>: Nodejs cli tool for
-            benchmark web socket server, currently support (socket.io, faye)
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/XRequestUidBundle">XRequestUidBundle</a>: Generating call
-            traces in the microservices hell
-        </li>
-        <li><a href="https://github.com/BedrockStreaming/RateLimitBundle">RateLimitBundle</a>: Manage limitation for
-            your routes
-        </li>
-    </ul>
+        <h2>Contribution to open source projects</h2>
 
-    <h2>Contribution to open source projects</h2>
+        <p>Through GitHub, we participated to improve (we hope so) many open source projects:</p>
 
-    <p>Through GitHub, we participated to improve (we hope so) many open source projects:</p>
-
-    <ul>
-        <li><a href="https://github.com/actions-runner-controller/actions-runner-controller">actions-runner-controller/actions-runner-controller</a>:
-            <a href="https://github.com/actions-runner-controller/actions-runner-controller/pull/1237">#1237</a></li>
-        <li><a href="https://github.com/apache/superset">apache/superset</a>: <a
-                href="https://github.com/apache/superset/pull/20567">#20567</a> - <a
-                href="https://github.com/apache/superset/pull/20883">#20883</a> - <a
-                href="https://github.com/apache/superset/pull/20931">#20931</a> - <a
-                href="https://github.com/apache/superset/pull/21536">#21536</a></li>
-        <li><a href="https://github.com/atoum/atoum">atoum/atoum</a>: <a href="https://github.com/atoum/atoum/pull/200">#200</a>
-            - <a href="https://github.com/atoum/atoum/pull/210">#210</a></li>
-        <li><a href="https://github.com/atoum/AtoumBundle">atoum/AtoumBundle</a>: <a
-                href="https://github.com/atoum/AtoumBundle/pull/16">#16</a> - <a
-                href="https://github.com/atoum/AtoumBundle/pull/27">#27</a> - <a
-                href="https://github.com/atoum/AtoumBundle/pull/34">#34</a> - <a
-                href="https://github.com/atoum/AtoumBundle/pull/35">#35</a> - <a
-                href="https://github.com/atoum/AtoumBundle/pull/44">#44</a> - <a
-                href="https://github.com/atoum/AtoumBundle/pull/47">#47</a> - <a
-                href="https://github.com/atoum/AtoumBundle/pull/48">#48</a> - <a
-                href="https://github.com/atoum/AtoumBundle/pull/52">#52</a> - <a
-                href="https://github.com/atoum/AtoumBundle/pull/53">#53</a> - <a
-                href="https://github.com/atoum/AtoumBundle/pull/56">#56</a></li>
-        <li><a href="https://github.com/Checkmarx/kics">Checkmarx/kics</a>: <a
-                href="https://github.com/Checkmarx/kics/pull/5036">#5036</a> - <a
-                href="https://github.com/Checkmarx/kics/pull/4984">#4984</a> - <a
-                href="https://github.com/Checkmarx/kics/pull/4839">#4839</a></li>
-        <li><a href="https://github.com/composer/composer">composer/composer</a>: <a
-                href="https://github.com/composer/composer/pull/2434">#2434</a> - <a
-                href="https://github.com/composer/composer/pull/2446">#2446</a> - <a
-                href="https://github.com/composer/composer/pull/2482">#2482</a></li>
-        <li><a href="https://github.com/composer/satis">composer/satis</a>: <a
-                href="https://github.com/composer/satis/pull/101">#101</a> - <a
-                href="https://github.com/composer/satis/pull/60">#60</a></li>
-        <li><a href="https://github.com/Dash-Industry-Forum/dash.js">Dash-Industry-Forum/dash.js</a>: <a
-                href="https://github.com/Dash-Industry-Forum/dash.js/pull/2866">#2866</a></li>
-        <li><a href="https://github.com/doctrine/DoctrineBundle">doctrine/DoctrineBundle</a>: <a
-                href="https://github.com/doctrine/DoctrineBundle/pull/159">#159</a></li>
-        <li><a href="https://github.com/elastic/elasticsearch-php">elastic/elasticsearch-php</a>: <a
-                href="https://github.com/elastic/elasticsearch-php/pull/149">#149</a> - <a
-                href="https://github.com/elastic/elasticsearch-php/pull/506">#506</a> - <a
-                href="https://github.com/elastic/elasticsearch-php/pull/507">#507</a></li>
-        <li><a href="https://github.com/FriendsOfSymfony/FOSRestBundle">FriendsOfSymfony/FOSRestBundle</a>: <a
-                href="https://github.com/FriendsOfSymfony/FOSRestBundle/pull/1110">#1110</a></li>
-        <li><a href="https://github.com/google/shaka-player">google/shaka-player</a>: <a
-                href="https://github.com/google/shaka-player/pull/1962">#1962</a> - <a
-                href="https://github.com/google/shaka-player/pull/2034">#2034</a> - <a
-                href="https://github.com/google/shaka-player/pull/2750">#2750</a> - <a
-                href="https://github.com/google/shaka-player/pull/2855">#2855</a> - <a
-                href="https://github.com/google/shaka-player/pull/3276">#3276</a> - <a
-                href="https://github.com/google/shaka-player/pull/3301">#3301</a> - <a
-                href="https://github.com/google/shaka-player/pull/3358">#3358</a> - <a
-                href="https://github.com/google/shaka-player/pull/3399">#3399</a> - <a
-                href="https://github.com/google/shaka-player/pull/3754">#3754</a> - <a
-                href="https://github.com/google/shaka-player/pull/3776">#3776</a> - <a
-                href="https://github.com/shaka-project/shaka-player/pull/4461">#4461</a> - <a
-                href="https://github.com/shaka-project/shaka-player/pull/5149">#5149</a></li>
-        <li><a href="https://github.com/grafana/grafana">grafana/grafana</a>: <a
-                href="https://github.com/grafana/grafana/pull/974">#974</a></li>
-        <li><a href="https://github.com/guzzle/guzzle3">guzzle/guzzle3</a>: <a
-                href="https://github.com/guzzle/guzzle3/pull/38">#38</a></li>
-        <li><a href="https://github.com/haya14busa/action-bumpr">haya14busa/action-bumpr</a>: <a
-                href="https://github.com/haya14busa/action-bumpr/pull/29">#29</a></li>
-        <li><a href="https://github.com/JetBrains/svg-sprite-loader">JetBrains/svg-sprite-loader</a>: <a
-                href="https://github.com/JetBrains/svg-sprite-loader/pull/396">#396</a></li>
-        <li><a href="https://github.com/liip/LiipImagineBundle">liip/LiipImagineBundle</a>: <a
-                href="https://github.com/liip/LiipImagineBundle/pull/274">#274</a></li>
-        <li><a href="https://github.com/Lusitaniae/phpfpm_exporter">Lusitaniae/phpfpm_exporter</a>: <a
-                href="https://github.com/Lusitaniae/phpfpm_exporter/pull/15">#15</a></li>
-        <li><a href="https://github.com/macbre/phantomas">macbre/phantomas</a>: <a
-                href="https://github.com/macbre/phantomas/pull/166">#166</a></li>
-        <li><a href="https://github.com/naderman/composer-aws">naderman/composer-aws</a>: <a
-                href="https://github.com/naderman/composer-aws/pull/4">#4</a> - <a
-                href="https://github.com/naderman/composer-aws/pull/5">#5</a></li>
-        <li><a href="https://github.com/nelmio/NelmioApiDocBundle">nelmio/NelmioApiDocBundle</a>: <a
-                href="https://github.com/nelmio/NelmioApiDocBundle/pull/157">#157</a> - <a
-                href="https://github.com/nelmio/NelmioApiDocBundle/pull/253">#253</a> - <a
-                href="https://github.com/nelmio/NelmioApiDocBundle/pull/256">#256</a> - <a
-                href="https://github.com/nelmio/NelmioApiDocBundle/pull/258">#258</a> - <a
-                href="https://github.com/nelmio/NelmioApiDocBundle/pull/277">#277</a></li>
-        <li>
-            <a href="https://github.com/nelmio/NelmioCorsBundle">nelmio/NelmioCorsBundle</a>:
-            <a href="https://github.com/nelmio/NelmioCorsBundle/pull/67">#67</a> -
-            <a href="https://github.com/nelmio/NelmioCorsBundle/pull/72">#72</a>
-        </li>
-        <li>
-            <a href="https://github.com/n1k0/casperjs">n1k0/casperjs</a>:
-            <a href="https://github.com/n1k0/casperjs/pull/605">#605</a>
-        </li>
-        <li>
-            <a href="https://github.com/PolishSymfonyCommunity/Symfony2MockerExtension">PolishSymfonyCommunity/Symfony2MockerExtension</a>:
-            <a href="https://github.com/PolishSymfonyCommunity/Symfony2MockerExtension/pull/9">#9</a>
-        </li>
-        <li>
-            <a href="https://github.com/renovatebot/renovate">renovatebot/renovate</a>:
-            <a href="https://github.com/renovatebot/renovate/pull/15432">#15432</a>
-        </li>
-        <li>
-            <a href="https://github.com/reviewdog/action-tfsec">reviewdog/action-tfsec</a>:
-            <a href="https://github.com/reviewdog/action-tfsec/pull/26">#26</a>
-        </li>
-        <li>
-            <a href="https://github.com/sensiolabs/SensioFrameworkExtraBundle">sensiolabs/SensioFrameworkExtraBundle</a>:
-            <a href="https://github.com/sensiolabs/SensioFrameworkExtraBundle/pull/260">#260</a>
-        </li>
-        <li>
-            <a href="https://github.com/sindresorhus/globals">sindresorhus/globals</a>:
-            <a href="https://github.com/sindresorhus/globals/pull/21">#21</a>
-        </li>
-        <li>
-            <a href="https://github.com/symfony/symfony-docs">symfony/symfony-docs</a>:
-            <a href="https://github.com/symfony/symfony-docs/pull/4300">#4300</a>
-        </li>
-        <li>
-            <a href="https://github.com/variantdev/chartify">variantdev/chartify</a>:
-            <a href="https://github.com/variantdev/chartify/pull/17">#17</a>
-        </li>
-        <li>
-            <a href="https://github.com/Versent/saml2aws">Versent/saml2aws</a>:
-            <a href="https://github.com/Versent/saml2aws/pull/272">#272</a>
-        </li>
-        <li>
-            <a href="https://github.com/video-dev/hls.js">video-dev/hls.js</a>:
-            <a href="https://github.com/video-dev/hls.js/pull/1907">#1907</a> -
-            <a href="https://github.com/video-dev/hls.js/pull/2606">#2606</a> -
-            <a href="https://github.com/video-dev/hls.js/pull/4474">#4474</a>
-        </li>
-        <li>
-            <a href="https://github.com/vuejs/vue-router">vuejs/vue-router</a>:
-            <a href="https://github.com/vuejs/vue-router/pull/2411">#2411</a>
-        </li>
-        <li>
-            <a href="https://github.com/vuejs/vuex">vuejs/vuex</a>:
-            <a href="https://github.com/vuejs/vuex/pull/1412">#1412</a>
-        </li>
-        <li>
-            <a href="https://github.com/webpack/webpack">webpack/webpack</a>:
-            <a href="https://github.com/webpack/webpack/pull/5862">#5862</a>
-        </li>
-        <li>
-            <a href="https://github.com/webonyx/graphql-php">webonyx/graphql-php</a>:
-            <a href="https://github.com/webonyx/graphql-php/pull/631">#631</a>
-        </li>
-        <li>
-            <a href="https://github.com/willdurand/BazingaHateoasBundle">willdurand/BazingaHateoasBundle</a>:
-            <a href="https://github.com/willdurand/BazingaHateoasBundle/pull/9">#9</a>
-        </li>
-    </ul>
+        <ul>
+            <li><a href="https://github.com/actions-runner-controller/actions-runner-controller">actions-runner-controller/actions-runner-controller</a>:
+                <a href="https://github.com/actions-runner-controller/actions-runner-controller/pull/1237">#1237</a>
+            </li>
+            <li><a href="https://github.com/apache/superset">apache/superset</a>: <a
+                    href="https://github.com/apache/superset/pull/20567">#20567</a> - <a
+                    href="https://github.com/apache/superset/pull/20883">#20883</a> - <a
+                    href="https://github.com/apache/superset/pull/20931">#20931</a> - <a
+                    href="https://github.com/apache/superset/pull/21536">#21536</a></li>
+            <li><a href="https://github.com/atoum/atoum">atoum/atoum</a>: <a
+                    href="https://github.com/atoum/atoum/pull/200">#200</a>
+                - <a href="https://github.com/atoum/atoum/pull/210">#210</a></li>
+            <li><a href="https://github.com/atoum/AtoumBundle">atoum/AtoumBundle</a>: <a
+                    href="https://github.com/atoum/AtoumBundle/pull/16">#16</a> - <a
+                    href="https://github.com/atoum/AtoumBundle/pull/27">#27</a> - <a
+                    href="https://github.com/atoum/AtoumBundle/pull/34">#34</a> - <a
+                    href="https://github.com/atoum/AtoumBundle/pull/35">#35</a> - <a
+                    href="https://github.com/atoum/AtoumBundle/pull/44">#44</a> - <a
+                    href="https://github.com/atoum/AtoumBundle/pull/47">#47</a> - <a
+                    href="https://github.com/atoum/AtoumBundle/pull/48">#48</a> - <a
+                    href="https://github.com/atoum/AtoumBundle/pull/52">#52</a> - <a
+                    href="https://github.com/atoum/AtoumBundle/pull/53">#53</a> - <a
+                    href="https://github.com/atoum/AtoumBundle/pull/56">#56</a></li>
+            <li><a href="https://github.com/Checkmarx/kics">Checkmarx/kics</a>: <a
+                    href="https://github.com/Checkmarx/kics/pull/5036">#5036</a> - <a
+                    href="https://github.com/Checkmarx/kics/pull/4984">#4984</a> - <a
+                    href="https://github.com/Checkmarx/kics/pull/4839">#4839</a></li>
+            <li><a href="https://github.com/composer/composer">composer/composer</a>: <a
+                    href="https://github.com/composer/composer/pull/2434">#2434</a> - <a
+                    href="https://github.com/composer/composer/pull/2446">#2446</a> - <a
+                    href="https://github.com/composer/composer/pull/2482">#2482</a></li>
+            <li><a href="https://github.com/composer/satis">composer/satis</a>: <a
+                    href="https://github.com/composer/satis/pull/101">#101</a> - <a
+                    href="https://github.com/composer/satis/pull/60">#60</a></li>
+            <li><a href="https://github.com/Dash-Industry-Forum/dash.js">Dash-Industry-Forum/dash.js</a>: <a
+                    href="https://github.com/Dash-Industry-Forum/dash.js/pull/2866">#2866</a></li>
+            <li><a href="https://github.com/doctrine/DoctrineBundle">doctrine/DoctrineBundle</a>: <a
+                    href="https://github.com/doctrine/DoctrineBundle/pull/159">#159</a></li>
+            <li><a href="https://github.com/elastic/elasticsearch-php">elastic/elasticsearch-php</a>: <a
+                    href="https://github.com/elastic/elasticsearch-php/pull/149">#149</a> - <a
+                    href="https://github.com/elastic/elasticsearch-php/pull/506">#506</a> - <a
+                    href="https://github.com/elastic/elasticsearch-php/pull/507">#507</a></li>
+            <li><a href="https://github.com/FriendsOfSymfony/FOSRestBundle">FriendsOfSymfony/FOSRestBundle</a>: <a
+                    href="https://github.com/FriendsOfSymfony/FOSRestBundle/pull/1110">#1110</a></li>
+            <li><a href="https://github.com/google/shaka-player">google/shaka-player</a>: <a
+                    href="https://github.com/google/shaka-player/pull/1962">#1962</a> - <a
+                    href="https://github.com/google/shaka-player/pull/2034">#2034</a> - <a
+                    href="https://github.com/google/shaka-player/pull/2750">#2750</a> - <a
+                    href="https://github.com/google/shaka-player/pull/2855">#2855</a> - <a
+                    href="https://github.com/google/shaka-player/pull/3276">#3276</a> - <a
+                    href="https://github.com/google/shaka-player/pull/3301">#3301</a> - <a
+                    href="https://github.com/google/shaka-player/pull/3358">#3358</a> - <a
+                    href="https://github.com/google/shaka-player/pull/3399">#3399</a> - <a
+                    href="https://github.com/google/shaka-player/pull/3754">#3754</a> - <a
+                    href="https://github.com/google/shaka-player/pull/3776">#3776</a> - <a
+                    href="https://github.com/shaka-project/shaka-player/pull/4461">#4461</a> - <a
+                    href="https://github.com/shaka-project/shaka-player/pull/5149">#5149</a></li>
+            <li><a href="https://github.com/grafana/grafana">grafana/grafana</a>: <a
+                    href="https://github.com/grafana/grafana/pull/974">#974</a></li>
+            <li><a href="https://github.com/guzzle/guzzle3">guzzle/guzzle3</a>: <a
+                    href="https://github.com/guzzle/guzzle3/pull/38">#38</a></li>
+            <li><a href="https://github.com/haya14busa/action-bumpr">haya14busa/action-bumpr</a>: <a
+                    href="https://github.com/haya14busa/action-bumpr/pull/29">#29</a></li>
+            <li><a href="https://github.com/JetBrains/svg-sprite-loader">JetBrains/svg-sprite-loader</a>: <a
+                    href="https://github.com/JetBrains/svg-sprite-loader/pull/396">#396</a></li>
+            <li><a href="https://github.com/liip/LiipImagineBundle">liip/LiipImagineBundle</a>: <a
+                    href="https://github.com/liip/LiipImagineBundle/pull/274">#274</a></li>
+            <li><a href="https://github.com/Lusitaniae/phpfpm_exporter">Lusitaniae/phpfpm_exporter</a>: <a
+                    href="https://github.com/Lusitaniae/phpfpm_exporter/pull/15">#15</a></li>
+            <li><a href="https://github.com/macbre/phantomas">macbre/phantomas</a>: <a
+                    href="https://github.com/macbre/phantomas/pull/166">#166</a></li>
+            <li><a href="https://github.com/naderman/composer-aws">naderman/composer-aws</a>: <a
+                    href="https://github.com/naderman/composer-aws/pull/4">#4</a> - <a
+                    href="https://github.com/naderman/composer-aws/pull/5">#5</a></li>
+            <li><a href="https://github.com/nelmio/NelmioApiDocBundle">nelmio/NelmioApiDocBundle</a>: <a
+                    href="https://github.com/nelmio/NelmioApiDocBundle/pull/157">#157</a> - <a
+                    href="https://github.com/nelmio/NelmioApiDocBundle/pull/253">#253</a> - <a
+                    href="https://github.com/nelmio/NelmioApiDocBundle/pull/256">#256</a> - <a
+                    href="https://github.com/nelmio/NelmioApiDocBundle/pull/258">#258</a> - <a
+                    href="https://github.com/nelmio/NelmioApiDocBundle/pull/277">#277</a></li>
+            <li>
+                <a href="https://github.com/nelmio/NelmioCorsBundle">nelmio/NelmioCorsBundle</a>:
+                <a href="https://github.com/nelmio/NelmioCorsBundle/pull/67">#67</a> -
+                <a href="https://github.com/nelmio/NelmioCorsBundle/pull/72">#72</a>
+            </li>
+            <li>
+                <a href="https://github.com/n1k0/casperjs">n1k0/casperjs</a>:
+                <a href="https://github.com/n1k0/casperjs/pull/605">#605</a>
+            </li>
+            <li>
+                <a href="https://github.com/PolishSymfonyCommunity/Symfony2MockerExtension">PolishSymfonyCommunity/Symfony2MockerExtension</a>:
+                <a href="https://github.com/PolishSymfonyCommunity/Symfony2MockerExtension/pull/9">#9</a>
+            </li>
+            <li>
+                <a href="https://github.com/renovatebot/renovate">renovatebot/renovate</a>:
+                <a href="https://github.com/renovatebot/renovate/pull/15432">#15432</a>
+            </li>
+            <li>
+                <a href="https://github.com/reviewdog/action-tfsec">reviewdog/action-tfsec</a>:
+                <a href="https://github.com/reviewdog/action-tfsec/pull/26">#26</a>
+            </li>
+            <li>
+                <a href="https://github.com/sensiolabs/SensioFrameworkExtraBundle">sensiolabs/SensioFrameworkExtraBundle</a>:
+                <a href="https://github.com/sensiolabs/SensioFrameworkExtraBundle/pull/260">#260</a>
+            </li>
+            <li>
+                <a href="https://github.com/sindresorhus/globals">sindresorhus/globals</a>:
+                <a href="https://github.com/sindresorhus/globals/pull/21">#21</a>
+            </li>
+            <li>
+                <a href="https://github.com/symfony/symfony-docs">symfony/symfony-docs</a>:
+                <a href="https://github.com/symfony/symfony-docs/pull/4300">#4300</a>
+            </li>
+            <li>
+                <a href="https://github.com/variantdev/chartify">variantdev/chartify</a>:
+                <a href="https://github.com/variantdev/chartify/pull/17">#17</a>
+            </li>
+            <li>
+                <a href="https://github.com/Versent/saml2aws">Versent/saml2aws</a>:
+                <a href="https://github.com/Versent/saml2aws/pull/272">#272</a>
+            </li>
+            <li>
+                <a href="https://github.com/video-dev/hls.js">video-dev/hls.js</a>:
+                <a href="https://github.com/video-dev/hls.js/pull/1907">#1907</a> -
+                <a href="https://github.com/video-dev/hls.js/pull/2606">#2606</a> -
+                <a href="https://github.com/video-dev/hls.js/pull/4474">#4474</a>
+            </li>
+            <li>
+                <a href="https://github.com/vuejs/vue-router">vuejs/vue-router</a>:
+                <a href="https://github.com/vuejs/vue-router/pull/2411">#2411</a>
+            </li>
+            <li>
+                <a href="https://github.com/vuejs/vuex">vuejs/vuex</a>:
+                <a href="https://github.com/vuejs/vuex/pull/1412">#1412</a>
+            </li>
+            <li>
+                <a href="https://github.com/webpack/webpack">webpack/webpack</a>:
+                <a href="https://github.com/webpack/webpack/pull/5862">#5862</a>
+            </li>
+            <li>
+                <a href="https://github.com/webonyx/graphql-php">webonyx/graphql-php</a>:
+                <a href="https://github.com/webonyx/graphql-php/pull/631">#631</a>
+            </li>
+            <li>
+                <a href="https://github.com/willdurand/BazingaHateoasBundle">willdurand/BazingaHateoasBundle</a>:
+                <a href="https://github.com/willdurand/BazingaHateoasBundle/pull/9">#9</a>
+            </li>
+        </ul>
+    </section>
 </main>
 <style>
     :root {
@@ -311,6 +336,10 @@ import Navbar from '../components/Navbar.astro'
                 color: var(--color-iris);
             }
         }
+    }
+
+    .content {
+        margin-top: 2rem;
     }
 
     ul {

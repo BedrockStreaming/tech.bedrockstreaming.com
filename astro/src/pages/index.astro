@@ -23,7 +23,7 @@ const authors = await getCollection('authors');
 <body>
 <Navbar/>
 <main>
-    <Header>
+    <Header backgroundImage="linear-gradient(to right, var(--color-ink), var(--color-iris))">
         <h1>Blog</h1>
         <p>Read about our streaming champions</p>
     </Header>
@@ -65,6 +65,10 @@ const authors = await getCollection('authors');
         max-width: 1140px;
         margin: 0 auto;
         padding: 0 15px;
+    }
+
+    #hero {
+        margin-top: -2rem;
     }
 
     .main-post {
