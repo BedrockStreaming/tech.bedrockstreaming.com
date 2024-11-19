@@ -69,6 +69,7 @@ import {Image} from "astro:assets"
         top: 1rem;
         z-index: 1;
         backdrop-filter: blur(10px);
+        transition: all 150ms ease-in-out, box-shadow 0ms;
     }
 
     .nav-wrapper a {
@@ -130,7 +131,32 @@ import {Image} from "astro:assets"
         }
     }
 
+    body::before{
+        position: fixed;
+        content: '';
+        top: 1rem;
+        left:5vw;
+        width: 90vw;
+        height: 60px;
+        border-radius: 2rem;
+        background-color: white;
+        z-index: 1;
+        transition: all 150ms ease-in;
+    }
+
     details {
+        body:has(&[open])::before {
+            border-radius: 0;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .nav-wrapper:has(&[open]) {
+            box-shadow: none;
+        }
+
         summary {
             list-style: none;
 
@@ -145,19 +171,18 @@ import {Image} from "astro:assets"
             opacity: 1;
             transform: translateY(15px);
         }
+
+        transition: all 150ms ease-in-out;
+        transition-delay: 150ms;
         position: absolute;
         border-radius: 2rem;
         top: 60px;
         opacity: 0;
         right: 0;
         width: 100%;
-        background-color: rgba(255, 255, 255, 0.89);
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.22);
-        z-index: 1;
-        transition: all 150ms ease-in;
 
         ul {
-            display:flex;
+            display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
@@ -171,8 +196,6 @@ import {Image} from "astro:assets"
             }
         }
     }
-
-
 
 
 </style>
