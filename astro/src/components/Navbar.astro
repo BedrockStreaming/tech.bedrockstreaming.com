@@ -15,19 +15,19 @@ import {Image} from "astro:assets"
         <nav class="dropdown">
             <ul>
                 <li>
-                    <a href="/">Blog</a>
+                    <p><a href="/">Blog</a></p>
                 </li>
                 <li>
-                    <a href="/lft">LFTs</a>
+                    <p><a href="/lft">LFTs</a></p>
                 </li>
                 <li>
-                    <a href="/meetups">Meetups</a>
+                    <p><a href="/meetups">Meetups</a></p>
                 </li>
                 <li>
-                    <a href="/oss">OSS</a>
+                    <p><a href="/oss">OSS</a></p>
                 </li>
                 <li>
-                    <a href="/search">Search</a>
+                    <p><a href="/search">Search</a></p>
                 </li>
             </ul>
         </nav>
@@ -69,7 +69,6 @@ import {Image} from "astro:assets"
         top: 1rem;
         z-index: 1;
         backdrop-filter: blur(10px);
-        overflow: hidden;
     }
 
     .nav-wrapper a {
@@ -90,13 +89,16 @@ import {Image} from "astro:assets"
         }
     }
 
-    nav.desktop ul {
+    nav.desktop {
         display: none;
-        gap: 1rem;
 
         @media (min-width: 768px) {
             display: flex;
         }
+    }
+
+    nav.desktop ul {
+        gap: 1rem;
     }
 
     nav.desktop ul li {
@@ -129,8 +131,6 @@ import {Image} from "astro:assets"
     }
 
     details {
-        position: relative;
-
         summary {
             list-style: none;
 
@@ -141,12 +141,35 @@ import {Image} from "astro:assets"
     }
 
     .dropdown {
+        details[open] & {
+            opacity: 1;
+            transform: translateY(15px);
+        }
         position: absolute;
-        top: 0;
+        border-radius: 2rem;
+        top: 60px;
+        opacity: 0;
         right: 0;
-        transform: translateY(50%);
         width: 100%;
-        height: 30px;
+        background-color: rgba(255, 255, 255, 0.89);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.22);
+        z-index: 1;
+        transition: all 150ms ease-in;
+
+        ul {
+            display:flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+
+            li p {
+                text-transform: uppercase;
+                padding: 1rem 0;
+                font-size: larger;
+                line-height: 1.5rem;
+            }
+        }
     }
 
 
