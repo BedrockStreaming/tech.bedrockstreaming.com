@@ -17,7 +17,7 @@ const {entry} = Astro.props;
 const {Content} = await render(entry);
 ---
 <html>
-    <Meta title={entry.data.title} description={entry.data.description} imageUrl={entry.data.thumbnail}/>
+    <Meta title={entry.data.title} description={entry.data.description} imageUrl={entry.data.thumbnail && entry.data.thumbnail.src}/>
     <body data-pagefind-filter="type:posts">
         <Navbar/>
         <header class="hero">
@@ -144,6 +144,10 @@ const {Content} = await render(entry);
             height: auto;
         }
 
+    }
+
+    .tag-holder {
+        visibility: hidden;
     }
 
 </style>
