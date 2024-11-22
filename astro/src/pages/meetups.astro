@@ -6,6 +6,7 @@ import Authors from "../components/Authors.astro";
 import Header from "../components/Header.astro";
 import Navbar from "../components/Navbar.astro";
 import VideoCard from '../components/VideoCard.astro';
+import Meta from "../components/Meta.astro";
 
 const conferences = await getCollection('conferences');
 const authors = await getCollection('authors');
@@ -38,13 +39,7 @@ const groupedConferences = sortedConferences.reduce(
 ---
 
 <html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-    <meta name="viewport" content="width=device-width"/>
-    <meta name="generator" content={Astro.generator}/>
-    <title>Meetups & Conferences</title>
-</head>
+<Meta title="Meetups & Conferences" description="Bedrock through its actions and events, hosts Meetup and conferences which are opportunities for Bedrock members to give conferences in France or abroad."/>
 <body>
 <Navbar/>
 <main>

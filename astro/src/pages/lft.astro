@@ -4,12 +4,11 @@ import {getCollection} from "astro:content";
 import Header from '../components/Header.astro';
 import Navbar from '../components/Navbar.astro';
 import VideoCard from '../components/VideoCard.astro';
+import Meta from '../components/Meta.astro';
 
 const lfts = (await getCollection('lfts')).toReversed();
 ---
-<head>
-    <meta charset="utf-8"/>
-</head>
+<Meta title="Last Friday Talks" description="Watch the replays of our internal conferences, learn and discover as much as we do."/>
 <Navbar/>
 <main>
     <Header>

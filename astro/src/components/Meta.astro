@@ -1,0 +1,47 @@
+---
+interface Props {
+    title?: string;
+    description?: string;
+    imageUrl?: string;
+}
+
+const {
+    title = 'Bedrock Streaming Blog',
+    description = 'The official blog of Bedrock Streaming',
+    imageUrl,
+} = Astro.props;
+---
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content={Astro.generator}/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+    <link rel="icon" type="image/svg+xml" href="/favicon.png"/>
+    <meta property="og:type" content="website"/>
+    {!!imageUrl && <meta property="og:image" content={imageUrl}/>}
+    <meta name="twitter:title" content={title}/>
+    <meta name="twitter:description" content={description}/>
+    <meta name="twitter:creator" content="@Bedrock_Tech"/>
+    <meta name="twitter:image:alt" content={title}/>
+    <meta property='og:title' content={title}/>
+    {imageUrl && <meta property='og:image' content={imageUrl}/>}
+    <meta property='og:description' content={description}/>
+    <meta property='og:url' content={Astro.url}/>
+    <title>{title}</title>
+
+    {import.meta.env.PROD && (
+        <script is:inline define:vars={{matomoUrl: "https://bedrockstreaming.matomo.cloud/"}}>
+            var _paq = window._paq = window._paq || [];
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+            (function () {
+                var u = matomoUrl;
+                _paq.push(['setTrackerUrl', u + 'matomo.php']);
+                _paq.push(['setSiteId', '2']);
+                var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+                g.async = true;
+                g.src = '//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js';
+                s.parentNode.insertBefore(g, s);
+            })();
+            </script>
+    )}
+</head>

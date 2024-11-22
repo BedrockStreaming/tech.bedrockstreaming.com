@@ -7,19 +7,14 @@ import Header from '../components/Header.astro';
 import ImageOrImg from "../components/ImageOrImg.astro";
 import Navbar from "../components/Navbar.astro";
 import Post from "../components/Post.astro";
+import Meta from "../components/Meta.astro";
 
 const posts = (await getCollection('posts')).toReversed();
 const authors = await getCollection('authors');
 ---
 
 <html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-    <meta name="viewport" content="width=device-width"/>
-    <meta name="generator" content={Astro.generator}/>
-    <title>Bedrock Streaming Tech Blog</title>
-</head>
+<Meta/>
 <body>
 <Navbar/>
 <main>

@@ -4,6 +4,7 @@ import {getCollection, render} from "astro:content";
 import Authors from "../components/Authors.astro";
 import ImageOrImg from "../components/ImageOrImg.astro";
 import Navbar from '../components/Navbar.astro';
+import Meta from '../components/Meta.astro';
 const authors = await getCollection('authors');
 export async function getStaticPaths() {
     const postsEntries = await getCollection('posts');
@@ -16,9 +17,7 @@ const {entry} = Astro.props;
 const {Content} = await render(entry);
 ---
 <html>
-    <head>
-        <meta charset="utf-8"/>
-    </head>
+    <Meta title={entry.data.title} description={entry.data.description} imageUrl={entry.data.thumbnail}/>
     <body data-pagefind-filter="type:posts">
         <Navbar/>
         <header class="hero">
