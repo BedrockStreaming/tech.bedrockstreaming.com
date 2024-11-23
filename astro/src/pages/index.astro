@@ -19,7 +19,7 @@ const authors = await getCollection('authors');
 <Navbar/>
 <main>
     <Header backgroundImage="linear-gradient(to right, var(--color-ink), var(--color-iris))">
-        <h1>Blog</h1>
+        <h1>Welcome to the blog</h1>
         <p>Read about our streaming champions</p>
     </Header>
     <section id="hero">
@@ -47,6 +47,10 @@ const authors = await getCollection('authors');
             ))}
         </ul>
     </section>
+<section class="call-to-action">
+    <a href="/blog/2" class="cta-button">Read More Posts</a>
+</section>
+
 </main>
 </body>
 </html>
@@ -136,4 +140,5 @@ const authors = await getCollection('authors');
             margin-bottom: 2rem;
         }
     }
+
 </style>

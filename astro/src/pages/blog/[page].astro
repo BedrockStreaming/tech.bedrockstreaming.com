@@ -1,0 +1,224 @@
+---
+import "../../styles/global.css";
+import {getCollection} from "astro:content";
+import Header from "../../components/Header.astro";
+import Navbar from "../../components/Navbar.astro";
+import Post from "../../components/Post.astro";
+import Meta from "../../components/Meta.astro";
+
+const authors = await getCollection('authors');
+export async function getStaticPaths({ paginate }) {
+    const posts = (await getCollection('posts')).toReversed();
+    return paginate(posts, {
+        pageSize: 9
+    });
+}
+const { page } = Astro.props;
+const posts = page.data;
+---
+<html lang="en">
+<head>
+    <Meta />
+</head>
+<body>
+<Navbar />
+<main>
+    <Header backgroundImage="linear-gradient(to right, var(--color-ink), var(--color-iris))">
+        <h1>Welcome to the blog</h1>
+        <p>Read about our streaming champions</p>
+    </Header>
+    <section class="recent-posts">
+        <ul class="posts-list">
+            {posts.map((post) => (
+                    <Post post={post} authors={authors} />
+            ))}
+        </ul>
+    </section>
+
+    <nav class="pagination" aria-label="Blog pages">
+        <div class="pagination-container">
+            {page.url.prev && (
+                    <a href={page.url.prev} class="pagination-link prev">
+                        ← Previous Page
+                    </a>
+            )}
+
+            <span>{page.currentPage} / {Math.ceil(page.total / 9)}</span>
+
+            {page.url.next && (
+                    <a href={page.url.next} class="pagination-link next">
+                        Next Page →
+                    </a>
+            )}
+        </div>
+    </nav>
+</main>
+</body>
+</html>
+
+<style>
+    :root {
+        --local-primary-color: var(--color-ink);
+    }
+
+    main {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    #hero {
+        margin-top: -2rem;
+    }
+
+    .main-post {
+        display: none;
+        box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+        overflow: hidden;
+        background: white;
+
+        --hero-text-width: 390px;
+        --hero-img-height: 360px;
+
+        .img-holder {
+            width: calc(100% - var(--hero-text-width));
+            height: var(--hero-img-height);
+
+            img {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .main-post-info {
+            width: var(--hero-text-width);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .upper-part {
+                h2 {
+                    font-size: 1.7rem;
+                    line-height: 1.2;
+                    margin-bottom: 2rem;
+                }
+
+                p {
+                    line-height: 1.6;
+                }
+
+                .date {
+                    font-size: 0.8rem;
+                    color: #666;
+                }
+
+                hr {
+                    margin: 0.5rem 0;
+                }
+            }
+        }
+
+        @media (min-width: 768px) {
+            display: flex;
+            gap: 1rem;
+        }
+    }
+
+    .posts-list {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        margin: -1rem;
+    }
+
+    .recent-posts {
+        margin-top: 3rem;
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .display-mobile-only {
+        display: block;
+    }
+
+    .pagination {
+        margin: 4rem 0 2rem;
+        width: 100%;
+    }
+
+    .pagination-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .pagination-numbers {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .pagination-link,
+    .page-number {
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--local-primary-color);
+        border-radius: 4px;
+        text-decoration: none;
+        color: var(--local-primary-color);
+        transition: all 0.2s ease;
+    }
+
+    .pagination-link:hover,
+    .page-number:hover {
+        background: var(--local-primary-color);
+        color: white;
+    }
+
+    .page-number.active {
+        background: var(--local-primary-color);
+        color: white;
+        cursor: default;
+    }
+
+    .prev {
+        margin-right: auto;
+    }
+
+    .next {
+        margin-left: auto;
+    }
+
+    @media (min-width: 768px) {
+        .main-post {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .display-mobile-only {
+            display: none;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .pagination-numbers {
+            display: none;
+        }
+
+        .pagination-container {
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .prev, .next {
+            margin: 0;
+        }
+    }
+</style>
