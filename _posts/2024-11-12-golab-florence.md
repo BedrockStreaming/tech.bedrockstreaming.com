@@ -2,10 +2,10 @@
 layout: post
 title: Insights from Golab Conference 2024, Florence
 description: TODO
-author: [t_geindre]
+author: [t_geindre, k_phan]
 tags: [golang, opensource, community, conference, 2024]
 color: rgb(251,87,66)
-thumbnail: TODO
+thumbnail: "/images/posts/2024-11-12-golab-firenze/firenze.jpg"
 ---
 
 Attending the Golab conference in Florence has been a thrilling experience for us as developers. Immersing ourselves in talks by some of the most brilliant minds in the Go community gave us a deeper understanding of advanced concepts, practical libraries, and the future of Go. We’ve summarized the key takeaways from the talks we attended to share some of the valuable lessons and fresh perspectives we gained.
@@ -26,7 +26,7 @@ The Watermill library was highlighted as a game-changer for event-driven archite
 
 ## Let’s Go Asynchronous
 
-This session tackled the common dilemma between synchronous and asynchronous communication. Real-world examples illustrated how synchronous patterns can lead to bottlenecks, while asynchronous designs promote efficiency. Techniques like load balancing, rate limiting, and implementing retries were demonstrated, showcasing Go’s flexibility with tools like RabbitMQ and PGQ. It’s a solid reminder to evaluate communication patterns carefully and how going asynchronous isn’t as daunting as it sounds.
+This session tackled the common dilemma between synchronous and asynchronous communication. [Real-world examples](https://github.com/kedlas/presentations/tree/main/2024-golab-florence_lets_go_async/sync/http) illustrated how synchronous patterns can lead to bottlenecks, while asynchronous designs promote efficiency. Techniques like load balancing, rate limiting, and implementing retries were demonstrated, showcasing Go’s flexibility with tools like RabbitMQ and PGQ. It’s a solid reminder to evaluate communication patterns carefully and how going asynchronous isn’t as daunting as it sounds.
 
 ---
 
@@ -67,9 +67,24 @@ Blending board games and Go programming, this presentation took us on a journey 
 ---
 
 ## Deep Dive into a Go Binary
+Jesús Espino
+Software developer at Mattermost who loves to deep dive into technical and previously talked about [Go Runtime](https://www.youtube.com/watch?v=arH3jp_x8yQ) answers this question :
+What lies inside a Go binary?
 
-What lies inside a Go binary? This talk unveiled the secrets of compiled Go programs, from ELF sections to the internal mechanisms that make a binary tick. Understanding the anatomy of a Go binary enhanced our appreciation for the Go compiler and the efficient executables it generates.
+![Deep dive in go binary](/images/posts/2024-11-12-golab-firenze/deep_dive_go_binary.jpg)
 
+This talk unveiled the secrets of compiled Go programs while mirroring The Lord of the Rings making it very pedagogical, starting with ELF format composed of a set of headers, list of sections and segments to the internal mechanisms that make a binary tick.
+
+Understanding the anatomy of a Go binary enhanced our appreciation for the Go compiler and the efficient executables it generates.
+You can view his presentation slides [here](https://speakerdeck.com/jespinog/deep-dive-into-a-go-binary)
+
+Here some of his references:
+- In-depth ELF: https://youtu.be/nC1U1LJQL80?si=0-X8EnOUVgbmCkPp
+- gopcintab design document:
+- https://docs.google.com/document/d/1lyPIbmsYbXnpNj57a261hgOYVpNRcgydurVOlyZOz o/pub
+- GoReSym: https://github.com/mandiant/GoReSym
+- Garble: https://github.com/burrowers/garble
+- The go source code (specifically the linker code)
 ---
 
 ## How to Punch Holes in Network Infrastructure Using Go
@@ -86,4 +101,6 @@ The closing keynote was a captivating journey through Go's past, present, and fu
 ### Conclusion
 
 The Golab conference in Florence provided a rich tapestry of knowledge, sparking inspiration and reaffirming our love for Go. From new architectural insights to innovative uses of Go in domains like automation and networking, we walked away with a toolkit full of ideas to bring back to our development practices. We’re eager to implement some of these learnings and contribute further to the vibrant Go community!
+
+![Bedrock devs](/images/posts/2024-11-12-golab-firenze/golab_group.jpg)
 
