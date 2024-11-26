@@ -12,7 +12,7 @@ A core experience of a Bedrock app for the end user is browsing the catalogue. S
 # [Context](#context)
 On TV, we scroll horizontally by focusing each item sequentially, when the user presses the left or right arrow button on their remote.
 
-Scollable lists can be of various sizes and even include paginated content. In cases of paginated content, the next page is fetched preemptively during scroll, when the focus reaches a certain threshold.
+Scrollable lists can be of various sizes and even include paginated content. In cases of paginated content, the next page is fetched preemptively during scroll, when the focus reaches a certain threshold.
 
 Our old scroll component worked as follows : we would render a whole list of items, in a parent component handling scroll. When scrolling horizontally, the focus would switch to the next item. This would notify the parent component is charge of scroll, that would move the whole list laterally, based on measurements of the focused item, the size of the list and the size of the container.
 
@@ -116,6 +116,6 @@ Scrolling down in a page with lighter lists is also more efficient. Here, measur
 
 Beyond benchmarks, on device tests were also conclusive : the scroller is smother, we almost eliminate the lag caused by a pagination fetch. Overall, it feels better to scroll through a list.
 
-# [Conclusion](#conclusion) 
+# [Conclusion](#conclusion)
 This frontend R&D project successfully addressed the scrolling performance issues on TV. The new scrolling solution dramatically improved performance by limiting re-renders. This optimisation ensured a smoother scrolling experience, enhancing usability on TV devices.
 From this experience, we also moved on to implementing the same virtualization on the horizontal scroll of the catalogue, which presented its own challenges but was also a success.  
