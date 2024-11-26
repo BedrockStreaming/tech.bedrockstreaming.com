@@ -93,7 +93,7 @@ What lies inside a Go binary?
 This talk unveiled the secrets of compiled Go programs while mirroring The Lord of the Rings making it very pedagogical, starting with ELF format composed of a set of headers, list of sections and segments to the internal mechanisms that make a binary tick.
 
 Understanding the anatomy of a Go binary enhanced our appreciation for the Go compiler and the efficient executables it generates.
-You can view his presentation slides [here](https://speakerdeck.com/jespinog/deep-dive-into-a-go-binary)
+You can view his presentation slides [here](https://speakerdeck.com/jespino/deep-dive-into-a-go-binary)
 
 Here some of his references:
 - [In-depth ELF](https://youtu.be/nC1U1LJQL80?si=0-X8EnOUVgbmCkPp)
