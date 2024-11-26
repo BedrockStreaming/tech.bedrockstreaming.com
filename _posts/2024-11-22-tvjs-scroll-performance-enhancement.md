@@ -88,21 +88,31 @@ The heart of the implementation is to fill each cell with a new item at each scr
 
 # [Optimised pagination](#optimised-pagination)
 
-A nice win from virtualization is the impact on pagination. Only a subset of items or rendered on the screen. Also, the list itself only needs to know about that subset of items, since it uses a consant array to display it's items. This means that a new page fetched has 0 impact on renders : the new items are added to the store, but the React component itself has no knowledge of that operation and triggers no re-renders. 
+A nice win from virtualization is the impact on pagination. Only a subset of items or rendered on the screen. Also, the list itself only needs to know about that subset of items, since it uses a constant array to display its items. This means that a new page fetched has 0 impact on renders : the new items are added to the store, but the React component itself has no knowledge of that operation and triggers no re-renders. 
 
 # [Results](#results)
+_Note: measurements presented here are taken with the Chrome DevTools performance tab, with x6 CPU throttle and network connection limited to fast 4G to mimic a low performance TV device and keep a steady test environment. Times are scripting and rendering times added._
 
 We can compare a few benchmarks to exhibit the gains from the new scroller.
 
-First, rendering less items per lists on a whole page of lists make for a lighter page load.
 
-<img/>
+Scrolling right is obviously less expensive now. Here, measurements were taken from a signe scroll right, in a 72 items list.
+
+|Before|After, with new scroll|
+|-|-|
+|462ms|41ms (-91%%)|
+
+But more closely to the apps actual use, here is a scenario measuring the cost of scrolling right through a list of 72 items, with 8 pages fetched during scroll.
+
+| Before            | After                  |
+|-------------------|------------------------|
+| 9830+1785=11615ms | 8026+605=8631ms (-26%) |
 
 
 
-Scrolling right is obviously less expensive now. The scenario measured here is scrolling right from the very beginning of a list, straight to the end, with two pages fetched during scroll.
+Here, we include everything else a list does when scrolling (fetching new pages, additional handlers ...), so the gain is less, but still significant.
 
-<img/>
+Scrolling down in a page with lighter lists is also more efficient. Here, measurements were taken during a scroll down 25 lists.
 
 Beyond benchmarks, on device tests were also conclusive : the scroller is smother, we almost eliminate the lag caused by a pagination fetch. Overall, it feels better to scroll through a list.
 
