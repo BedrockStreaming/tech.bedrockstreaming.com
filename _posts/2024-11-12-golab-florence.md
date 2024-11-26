@@ -14,7 +14,24 @@ Attending the Golab conference in Florence has been a thrilling experience for u
 
 ## Keynote: Go Telemetry Wins
 
-The opening keynote, delivered by a member of the Go team, focused on the importance of telemetry in the Go ecosystem itself. The speaker explained how telemetry data helps the Go team make informed decisions to improve the language and its ecosystem, emphasizing the strict measures taken to ensure user privacy. We learned how telemetry is carefully designed to protect sensitive information while still providing valuable insights. The session concluded with a call to action, encouraging everyone to enable telemetry on their Go installations to support ongoing enhancements and community-driven improvements.
+The opening keynote, delivered by a member of the Go team, focused on the importance of telemetry in the Go ecosystem itself. The speaker explained how telemetry data helps the Go team make informed decisions to improve the language and its ecosystem, emphasizing the strict measures taken to ensure user privacy. We learned how telemetry is carefully designed to protect sensitive information while still providing valuable insights.
+
+![Go telemetry wins](/images/posts/2024-11-12-golab-firenze/go_telemetry_keynote.jpg)
+
+
+The session concluded with a call to action, encouraging everyone to enable telemetry (by running `go telemetry on`) on their Go installations to support ongoing enhancements and community-driven improvements.
+
+
+---
+
+## Instrumenting Go Apps With OpenTelemetry
+
+This talk introduced us to OpenTelemetry, an open source solution for instrumenting applications. The speaker demonstrated how OpenTelemetry can be used to collect and analyze performance data (ie. through Grafana), and its benefits compared to an agent : 
+- No need to install an agent on the host
+- No cost of install when changing agent (ie. from Datadog to NewRelic)
+- Open source so it's tool agnostic
+
+@todo jerome: add more details + photos 
 
 ---
 
