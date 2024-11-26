@@ -68,7 +68,7 @@ Blending board games and Go programming, this presentation took us on a journey 
 
 ## Deep Dive into a Go Binary
 Jesús Espino
-Software developer at Mattermost who loves to deep dive into technical and previously talked about [Go Runtime](https://www.youtube.com/watch?v=arH3jp_x8yQ) answers this question :
+Software developer at Mattermost who loves to deep dive into technical details and previously talked about [Go Runtime](https://www.youtube.com/watch?v=arH3jp_x8yQ) answers this question :
 What lies inside a Go binary?
 
 ![Deep dive in go binary](/images/posts/2024-11-12-golab-firenze/deep_dive_go_binary.jpg)
@@ -79,12 +79,11 @@ Understanding the anatomy of a Go binary enhanced our appreciation for the Go co
 You can view his presentation slides [here](https://speakerdeck.com/jespinog/deep-dive-into-a-go-binary)
 
 Here some of his references:
-- In-depth ELF: https://youtu.be/nC1U1LJQL80?si=0-X8EnOUVgbmCkPp
-- gopcintab design document:
-- https://docs.google.com/document/d/1lyPIbmsYbXnpNj57a261hgOYVpNRcgydurVOlyZOz o/pub
-- GoReSym: https://github.com/mandiant/GoReSym
-- Garble: https://github.com/burrowers/garble
+- [In-depth ELF](https://youtu.be/nC1U1LJQL80?si=0-X8EnOUVgbmCkPp)
+- [GoReSym](https://github.com/mandiant/GoReSym)
+- [Garble](https://github.com/burrowers/garble)
 - The go source code (specifically the linker code)
+
 ---
 
 ## How to Punch Holes in Network Infrastructure Using Go
