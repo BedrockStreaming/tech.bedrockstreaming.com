@@ -1,0 +1,254 @@
+---
+import BedrockLogo from '../assets/images/bedrockLogo.png';
+import {Image} from "astro:assets"
+---
+<div class="nav-wrapper">
+    <a href="/public">
+        <div class="logo-wrapper">
+            <Image src={BedrockLogo} alt="Bedrock Logo"/>
+        </div>
+    </a>
+    <details>
+        <summary>
+            <span class="top"></span>
+            <span class="middle"></span>
+            <span class="bottom"></span>
+        </summary>
+        <nav class="dropdown">
+            <ul>
+                <li>
+                    <p><a href="/public">Blog</a></p>
+                </li>
+                <li>
+                    <p><a href="/lft">LFTs</a></p>
+                </li>
+                <li>
+                    <p><a href="/meetups">Meetups</a></p>
+                </li>
+                <li>
+                    <p><a href="/oss">OSS</a></p>
+                </li>
+                <li>
+                    <p><a href="/search">Search</a></p>
+                </li>
+            </ul>
+        </nav>
+    </details>
+    <nav class="desktop">
+        <ul>
+            <li>
+                <a href="/public">Blog</a>
+            </li>
+            <li>
+                <a href="/lft">LFTs</a>
+            </li>
+            <li>
+                <a href="/meetups">Meetups</a>
+            </li>
+            <li>
+                <a href="/oss">OSS</a>
+            </li>
+            <li>
+                <a href="/search">Search</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<style>
+    .nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        padding: 1rem;
+        height: 60px;
+        border-radius: 2rem;
+        background-color: rgba(255, 255, 255, 0.89);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.22);
+        max-width: 1124px;
+        position: sticky;
+        width: 90vw;
+        top: 1rem;
+        z-index: 1;
+        backdrop-filter: blur(10px);
+        transition: all 150ms ease-in-out, box-shadow 0ms;
+    }
+
+    .nav-wrapper a {
+        height: 2.5rem;
+        width: 4rem;
+        object-fit: contain;
+    }
+
+    .logo-wrapper {
+        height: 100%;
+        width: 100px;
+        padding: 3px 8px;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+
+    nav.desktop {
+        display: none;
+
+        @media (min-width: 768px) {
+            display: block;
+        }
+    }
+
+    nav.desktop ul {
+        display: flex;
+        gap: 1rem;
+    }
+
+    nav.desktop ul li {
+        list-style: none;
+    }
+
+    nav.desktop ul li a {
+        padding: 1rem;
+        font-size: 1.2rem;
+        font-weight: 500;
+        position: relative;
+
+
+        &:before {
+            display: block;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            left: 0;
+            bottom: -3px;
+            background-color: var(--local-primary-color, var(--color-ink));
+            transform: scaleX(0);
+            transition: all 150ms ease-in-out;
+        }
+
+        &:hover:before {
+            transform: scaleX(1);
+        }
+    }
+
+    body::before {
+        position: fixed;
+        content: '';
+        top: 1rem;
+        left: 5vw;
+        width: 90vw;
+        height: 60px;
+        border-radius: 2rem;
+        background-color: white;
+        opacity: 0;
+        z-index: 1;
+        transition: all 150ms ease-in, opacity 100ms ease-in-out;
+    }
+
+    details {
+        body:has(&[open])::before {
+            opacity: 1;
+            border-radius: 0;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .nav-wrapper:has(&[open]) {
+            box-shadow: none;
+        }
+
+        height: 22px;
+        width: 27px;
+        margin: 3px 8px;
+
+        summary {
+            position: relative;
+            list-style: none;
+            height: 100%;
+
+            &::-webkit-details-marker {
+                display: none;
+            }
+
+            span {
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 3px;
+                background: var(--color-black);
+                border-radius: 2px;
+                transition: all 150ms ease-in-out;
+            }
+
+            .top {
+                top: 0;
+            }
+
+            .middle {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .bottom {
+                bottom: 0;
+            }
+
+            details[open] & .top {
+                top: 50%;
+                transform: translateY(-50%) rotate(45deg);
+            }
+
+            details[open] & .middle {
+                opacity: 0;
+            }
+
+            details[open] & .bottom {
+                bottom: 50%;
+                transform: translateY(50%) rotate(-45deg);
+            }
+        }
+
+        @media (min-width: 768px) {
+            display: none;
+        }
+    }
+
+    .dropdown {
+        details[open] & {
+            opacity: 1;
+            transform: translateY(15px);
+        }
+
+        position: absolute;
+        border-radius: 2rem;
+        top: 60px;
+        opacity: 0;
+        right: 0;
+        width: 100%;
+        transition: all 150ms ease-in-out;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4rem 0;
+            gap: 2rem;
+
+            li p {
+                text-transform: uppercase;
+                padding: 1rem 0;
+                font-size: larger;
+                line-height: 1.5rem;
+            }
+        }
+    }
+
+
+</style>
