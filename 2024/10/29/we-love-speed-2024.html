@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/2024-10-29-we-love-speed-2024/welovespeed_2024-1709240237.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>We love speed 2024 ❤️ | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="We love speed 2024 ❤️" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Retour sur la conférence We love speed 2024 ❤️, une conférence annuelle axée sur la performance du web." />
+<meta property="og:description" content="Retour sur la conférence We love speed 2024 ❤️, une conférence annuelle axée sur la performance du web." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2024/10/29/we-love-speed-2024.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2024/10/29/we-love-speed-2024.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-10-29T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="We love speed 2024 ❤️" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","description":"Retour sur la conférence We love speed 2024 ❤️, une conférence annuelle axée sur la performance du web.","url":"https://tech.bedrockstreaming.com/2024/10/29/we-love-speed-2024.html","headline":"We love speed 2024 ❤️","dateModified":"2024-10-29T00:00:00+00:00","datePublished":"2024-10-29T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2024/10/29/we-love-speed-2024.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="We love speed 2024 ❤️">
+    <meta name="twitter:description" content="Nous avons eu la chance de participer à la conférence We love speed, une conférence annuelle axée sur laperformance du web. C’est un domaine qui nous passion...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/2024-10-29-we-love-speed-2024/welovespeed_2024-1709240237.jpg">
+    <meta name="twitter:image:alt" content="We love speed 2024 ❤️">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="We love speed 2024 ❤️ " aria-label="We love speed 2024 ❤️" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="We+love+speed+2024+%E2%9D%A4%EF%B8%8F" class="title">We love speed 2024 ❤️</h1>
+      <div class="post-info">
+
+
+<span class="author">
+      <img alt="Author's avatar" src="https://ca.slack-edge.com/T108ZKPMF-U01FQRQ8FT7-dfb12b21fb0d-192" class="thumbnail">
+    
+
+    
+      <span class="name">
+        Julie Nginn
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+<a
+      href="https://github.com/jpoissonnet"
+      target="_blank"
+      rel="noopener"
+      class="author">
+      <img alt="Author's avatar" src="/images/avatar/j_poissonnet.jpg" class="thumbnail">
+    
+
+    
+      <span class="name">
+        Jules Poissonnet
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    October 29, 2024
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Nous avons eu la chance de participer à la conférence We love speed, une conférence annuelle axée sur la
+performance du web. C’est un domaine qui nous passionne et nous sommes très content d’avoir pu y assister.
+Le thème de cette édition, c’est l’INP. En effet, cette métrique de performance a été ajoutée aux core web vitals par
+<a href="https://developers.google.com/search/blog/2023/05/introducing-inp?hl=fr">Google <em>récemment</em></a>.
+L’objectif de cette métrique est de refléter l’expérience utilisateur en mesurant la réactivité d’une application.
+Elle observe le temps entre une action utilisateur et une réponse visuelle de notre interface.</p>
+
+<p><img src="/images/posts/2024-10-29-we-love-speed-2024/team_picture.jpeg" alt="L'équipe frontend à la we love speed" /></p>
+
+<h2 id="htmx-le-nouvel-atout-pour-vos-projets-ssr---ewen-quimerch">HTMX, le nouvel atout pour vos projets SSR - <a href="https://ewen.quimerch.com/">Ewen Quimerc‘h</a></h2>
+
+<p>Lors de ce talk, nous avons découvert un outil très intéressant. Il s’agit de HTMX : une bibliothèque Javascript qui
+permet d’ajouter des fonctionnalités de type SPA (Single Page Application) à une application web classique et de façon
+non intrusive. Par exemple, on peut surcharger les liens <code class="language-plaintext highlighter-rouge">&lt;a&gt;</code> pour qu’ils chargent une nouvelle page en AJAX grâce à un
+attribut ajouté au HTML. Ce mode de fonctionnement est très intéressant, car il permet de garder une application web
+classique avec tous ses comportements le temps que HTMX se charge. C’est-a-dire que si HTMX venait à ne pas démarrer,
+votre application web se comporterait de la même manière, mais sans les améliorations de temps d’interaction.</p>
+
+<p>HTMX surcharge la manière dont vos liens et images vont être chargés par le navigateur.
+Ainsi, lors de la prochaine interaction, ce dernier sera déjà prêt à servir les ressources.
+Le principe de HTMX consiste à ajouter des balises HTML spécifiques dans le DOM qu’il va lire et en déduire les
+comportements à son chargement.
+Cette manipulation est appelée le “DOM morphing”. Grâce à ce processus le temps de chargement est réduit et on évite
+l’effet “blink” (page blanche lors du chargement de la page).
+Il est à noter que ces comportements ne sont qu’un embellissement proposé par HTMX, il est tout à fait possible
+d’ajouter par exemple l’attribut <code class="language-plaintext highlighter-rouge">preload</code> sur une balise <code class="language-plaintext highlighter-rouge">a</code> pour demander le chargement en avance du lien par le
+navigateur.</p>
+
+<blockquote>
+  <div style="display: flex">
+<img src="/images/avatar/j_nginn.jpeg" alt="Julie" style="padding: 0;border-radius: 50%; height: 70px; margin: 10px" />
+Comme nous utilisons React pour notre application, l'utilisation de HTMX n'est pas vraiment utile.
+Il est déjà possible avec React de précharger les ressources en avance. Mais ça reste un outil intéressant...
+</div>
+</blockquote>
+
+<blockquote>
+  <div style="display: flex">
+...effectivement, HTMX semble être intéressant, mais on se retrouve à ajouter
+beaucoup d'attributs dans le HTML. Ça peut le rendre le markup moins lisible. Et en plus, ça donne l'impression de recoder les comportements du navigateur.
+<img src="/images/avatar/j_poissonnet.jpg" alt="Jules" style="padding: 0;border-radius: 50%; height: 70px; margin: 10px" />
+</div>
+</blockquote>
+
+<h2 id="react--next-vs-inp---jean-pierre-vincent">React / Next vs INP - <a href="https://www.linkedin.com/in/jeanpierrevincent/">Jean-Pierre Vincent</a></h2>
+
+<p>Le deuxième talk a une place particulière dans notre cœur ❤️ puisqu’il a été donné par notre cher Jean-Pierre Vincent,
+qui a audité les performances du web de Bedrock, il y a deux ans.
+Lors de ce talk, Jean-Pierre nous a donné la feuille de route pour éviter au mieux la déferlante de Javascript que vos
+utilisateurs reçoivent au chargement de votre site.</p>
+
+<p><img src="/images/posts/2024-10-29-we-love-speed-2024/js_tsunami.jpeg" alt="JS Tsunami storming your users" /></p>
+
+<p>L’INP (Interaction to Next Paint) est une métrique qui mesure le temps entre une interaction utilisateur et le prochain
+rendu du navigateur. L’idée générale est de pouvoir mesurer l’incapacité du navigateur à réagir. Après avoir récupéré
+des mesures, il est bon de se rappeler qu’il y a un biais de selection pour les données de Crux. Pour rappel, Crux est
+une base de données qui contient des métriques de performance de sites web collectées par Google.
+En effet, il n’est calculé que sur les appareils Google (c’est le principe). Une fois qu’on a récolté des métriques de
+performance de nos utilisateurs, si on veut travailler sur notre site web et avoir une bonne idée du ressenti de nos
+utilisateurs, l’idéal est de tester avec un véritable Samsung S8 par exemple. Le S8 est un appareil sur lequel on a
+beaucoup de données et qui représente à l’heure actuelle une bonne représentation des capacités de l’utilisateur moyen.
+L’INP est une métrique qui peut être influencée par des interactions qui ne sont pas prévues par les devs. Par exemple,
+on a été étonnés de constater que lorsque les temps de chargement sont un poil trop longs à leur goût, les utilisateurs
+se mettent à cliquer partout 🤷 C’est pourquoi il est important de se baser sur des données réelles.</p>
+
+<p><img src="/images/posts/2024-10-29-we-love-speed-2024/inp_charge.jpeg" alt="INP est bousculé par la charge de js!" /></p>
+
+<p>Parmi les bonnes pratiques qu’on peut appliquer dès maintenant, et qui je dois le dire m’a paru un peu contre-intuitif :
+faire passer Babel sur les node_modules.
+En fait, du point de vue d’un développeur, on peut se dire que cela va augmenter les temps de build drastiquement, et on
+aurait sûrement raison. Mais en fait, il faut voir le bénéfice qu’il y a derrière. Si on personnalise les règles Babel
+afin qu’elles correspondent aux navigateurs de nos utilisateurs, on évite des transformations inutiles qui
+augmenteraient le poids de nos fichiers Javascript.</p>
+
+<p>Une nouvelle fonctionnalité de React appelée RSC (React Server Components) permet de combiner le rendu côté serveur avec
+l’interactivité côté client.
+Les RSC aident à réduire la taille du Javascript dans le navigateur ce qui permet d’améliorer le temps d’interaction et
+donc l’expérience utilisateur. Vous l’aurez compris, c’est l’ennemi n°1 de Jean-Pierre (et de vos navigateurs) !
+Le principe est de rendre les composants côté serveur et de faire en sorte que ces derniers ne rendent que du HTML, qui
+ne sera pas hydraté côté client.
+L’étape de réhydratation est une étape importante et trop souvent sous-estimée. Il s’agit d’une nouveauté de React qui
+est prometteuse et qui est déjà présente dans Next.js.</p>
+
+<p>Pour nous montrer un exemple concret d’abus de JavaScript : il a montré du code Bedrock 😅.
+Il s’agit d’un FlameGraph du rendu de notre <code class="language-plaintext highlighter-rouge">&lt;Footer /&gt;</code> côté app web. Il y a une quantité conséquente de JS car nous
+faisions ce qu’on appelle du CSS-in-JS.
+Vous l’avez deviné, c’est la partie “in-JS” qui pose un problème. Cela signifie que pour appliquer du style sur notre
+site, c’est le Javascript qui s’en charge. Or dans un composant, comme le <code class="language-plaintext highlighter-rouge">&lt;Footer /&gt;</code>, il y a beaucoup d’éléments et
+chacun va avoir besoin de son propre style. Si l’idée de colocaliser le CSS dans le JS n’est pas nocive en soi, le plus
+gros problème était l’utilisation de <a href="https://styled-components.com/">Styled-Components</a> qui calcule le style au moment
+du rendu, le rendant donc plus long. FYI : Entre temps, nous avons chez Bedrock entamé une migration pour quitter
+Styled-Components au profit de <a href="https://linaria.dev/">Linaria</a> pour le projet web
+et <a href="https://vanilla-extract.style/">Vanilla Extract</a> pour le projet smart TV.</p>
+
+<p><img src="/images/posts/2024-10-29-we-love-speed-2024/flamgraph.jpeg" alt="Flamegraph du Footer de Bedrock" /></p>
+
+<p>Autre information qui nous concerne chez Bedrock, au moment d’écrire ces lignes, nous sommes en train de mettre en
+production la migration de React 17 vers React 18 sur le projet web.
+D’après les retours d’expérience de Jean-Pierre, cette version de React aura un impact positif sur l’INP car il permet
+de faire moins de <code class="language-plaintext highlighter-rouge">render</code>.</p>
+
+<p>Enfin, Jean-Pierre nous laisse avec un ultime conseil pour que nos applications web soient pérennes : “Monitore (au
+moins une fois dans ta vie) l’origine des INP avec un vrai utilisateur.”</p>
+
+<blockquote>
+  <div style="display: flex">
+<img src="/images/avatar/j_nginn.jpeg" alt="Julie" style="padding: 0;border-radius: 50%; height: 70px; margin: 10px" />
+J'ai bien aimé ce talk ! J'ai trouvé que sa présentation était très accessible, il a su vulgariser des concepts et rendre un sujet fastidieux (la performance) intéressant 👏
+</div>
+</blockquote>
+
+<h2 id="débogage-des-performances-à-laide-des-devtools--mise-en-pratique-approfondie---umar-hansa">Débogage des performances à l’aide des DevTools : Mise en pratique approfondie - <a href="https://umaar.com/">Umar Hansa</a></h2>
+
+<p>Avoir un œil sur ses performances est essentiel pour avancer dans la bonne direction et s’assurer qu’on
+fournit à nos utilisateurs une expérience optimale. Fort heureusement pour nous les devs, on est bien lotis avec de très
+bons outils. Il suffit d’ouvrir les Chrome DevTools pour s’en rendre compte. Ce talk nous a présenté comment bien
+utiliser les DevTools pour mesurer les performances de nos applications web et se mettre à la place de
+nos utilisateurs. Par exemple, on peut brider son réseau et son CPU pour simuler une connexion 3G et un CPU lent. Dans
+cette présentation, on nous a quand même rappelé que les DevTools ne sont pas une solution miracle, il est important de
+tester sur de vrais devices pour le ressenti.</p>
+
+<p>Pour ce qui est de l’interprétation des données, une myriade d’outils est à notre disposition pour nous aider à
+comprendre ce que nous voyons. Par exemple, on peut ajouter des annotations dans le flamegraph comme des labels, des
+diagrammes ou encore des plages de temps. On peut aussi mettre en place des custom tracks pour suivre des événements
+spécifiques. Au sein de notre application, on peut utiliser l’API User Timing pour ajouter des points de repère dans
+notre code et ainsi mieux comprendre ce qui se passe au déclenchement d’événements spécifiques.</p>
+
+<h2 id="web-performance-testing---estela-franco">Web Performance Testing - <a href="https://x.com/guaca">Estela Franco</a></h2>
+
+<p>Nous avons également eu un talk sur l’intégration de Lighthouse, un outil de Google pour mesurer la performance de nos
+applications web, dans une CI. Cela permet de détecter les problèmes de performance avant qu’ils ne soient déployés en
+production. Il est possible de mettre des warnings, voire des erreurs empêchant de merger, si l’application ne respecte
+pas les standards que nous nous sommes fixés. L’idée est de s’assurer que la performance de
+notre application web est toujours au top et ne se dégrade pas dans le temps.
+<img src="/images/posts/2024-10-29-we-love-speed-2024/Key%20Takeaways.jpeg" alt="Key takeaways from the talk" /></p>
+
+<blockquote>
+  <div style="display: flex">
+<img src="/images/avatar/j_nginn.jpeg" alt="Julie" style="padding: 0;border-radius: 50%; height: 70px; margin: 10px" />
+On envisage de l'ajouter au projet smart TV, mais plus pour générer un rapport de performance quotidien plutôt que de le faire pour chaque push ou merge. 
+</div>
+</blockquote>
+
+<h2 id="comment-les-navigateurs-chargent-vraiment-les-pages-web---robin-marx">Comment les navigateurs chargent VRAIMENT les pages web - <a href="https://x.com/programmingart">Robin Marx</a></h2>
+
+<p>Dans ce qui est probablement le talk le plus technique de la journée, on nous a expliqué comment les navigateurs
+chargent les différentes ressources nécessaires à l’affichage d’une page web. Plus spécifiquement, on nous a expliqué
+comment les navigateurs interprètent le HTML pour déterminer quelles ressources charger en priorité.</p>
+
+<p>Le talk était très intéressant, mais la conclusion est un peu frustrante : il est pour le moment impossible de prévoir
+l’ordre de chargement des ressources par le navigateur à partir du même HTML. En effet, les navigateurs ont des
+comportements différents entre eux et même par version 🤯. Chrome a, par exemple, un comportement très différent cette
+année
+par rapport à deux ans en arrière.</p>
+
+<p>Même si on est tenté de vouloir contrôler le chargement des ressources, il est important de se rappeler que le
+navigateur
+est très bien optimisé pour charger les ressources de manière efficace. Il est donc préférable de laisser le navigateur
+faire son travail plutôt que de vouloir le contrôler. L’attribut <code class="language-plaintext highlighter-rouge">preload</code> est un bon exemple de ce que l’on peut faire
+pour aider le navigateur à charger les ressources de manière plus efficace. Il faut cependant l’utiliser avec parcimonie
+et de manière chirurgicale pour ne pas interférer avec le travail du navigateur.</p>
+
+<p><img src="/images/posts/2024-10-29-we-love-speed-2024/preload_surgical.jpeg" alt="Preload with surgical precision" /></p>
+
+<h2 id="mais-que-fait-la-police----eroan-boyer">Mais que fait la police ? - <a href="https://x.com/eroan">Eroan Boyer</a></h2>
+
+<p>Pour finir, on a eu un talk sur les polices de caractères. Elles sont essentielles pour l’identité visuelle de nos
+applications web, mais elles peuvent aussi être une source de problèmes de performance. En effet, les polices de
+caractères peuvent être très lourdes et ralentir le chargement de nos pages. Il est donc important de bien les choisir
+et de les optimiser pour garantir une bonne performance. Il existe plusieurs techniques pour optimiser les polices,
+notamment en réalisant un subset de la police pour ne télécharger que les glyphes dont on a besoin. (En français, on a
+besoin que de 165 glyphes, comparé à 528 pour le latin).
+Il existe des outils pour nous aider à réaliser ces subsets
+comme : <a href="https://everythingfonts.com/subsetter">Font Subsetter</a>, <a href="https://fonttools.readthedocs.io/">fontTools</a> ou
+<a href="https://www.zachleat.com/web/glyphhanger/">Glyphanger</a>.</p>
+<blockquote>
+  <div style="display: flex">
+Attention à ne pas abuser des subsets, car cela peut entraîner des problèmes de lisibilité du texte. Le fameux t🠉fu .
+<img src="/images/avatar/j_poissonnet.jpg" alt="Jules" style="padding: 0;border-radius: 50%; height: 70px; margin: 10px" />
+</div>
+</blockquote>
+
+<p><img src="/images/posts/2024-10-29-we-love-speed-2024/tofu.jpeg" alt="Say no to tofu" /></p>
+
+<p>Il est aussi possible de minimiser le nombre de fichiers en utilisant des polices variables. Un bon exemple est la
+police Roboto Flex, qui est customisable et permet ainsi de pouvoir réduire le nombre de fichiers nécessaires à charger.
+Il est là aussi, possible de sélectionner les variations que l’on souhaite pour réduire encore plus le poids de la
+police.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>Cette année, l’accent a été mis sur l’INP et la manière de l’améliorer. Il est important de garder en tête que l’INP est
+une métrique qui mesure l’expérience utilisateur, il est donc essentiel de la garder à l’œil. Il est bon de
+rappeler que la performance est plus une habitude à prendre qu’un constat à réaliser. Une application performante, c’est
+une expérience utilisateur améliorée et des utilisateurs satisfaits !</p>
+
+<p>De notre côté, nous sommes rentrés avec quelques idées à mettre en place dans nos projets à Bedrock, notamment :</p>
+
+<ul>
+  <li>Etudier la possibilité d’ajouter des React Server Components pour réduire le poids de notre JS</li>
+  <li>Mettre en place des tests de performance dans notre CI avec Lighthouse CI</li>
+  <li>Vérifier que nos polices de caractères sont bien optimisées pour la performance</li>
+</ul>
+
+<p>Notre équipe est ressortie de cette conférence ravie et avec de nouvelles idées qui vont surement nous suivre sur nos
+projets personnels aussi. La We love speed ❤️ est une conférence à ne pas manquer pour tous les passionnés de
+performance web, on vous recommande chaudement d’y assister si vous en avez l’occasion !</p>
+
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=We+love+speed+2024+%E2%9D%A4%EF%B8%8F%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2024%2F10%2F29%2Fwe-love-speed-2024.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2024/10/29/we-love-speed-2024.html&title=We+love+speed+2024+%E2%9D%A4%EF%B8%8F%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2024/10/29/we-love-speed-2024.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=We love speed 2024 ❤️%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2024/10/29/we-love-speed-2024.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#frontend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#javascript">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#performance">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> performance</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#react">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> react</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#web">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> web</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#webperf">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> webperf</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="Using Fastly's Compute at-edge to personalize static pre-generated pages" href="/2024/11/07/compute-at-edge-personalize-static-pages.html">
+            <p>Previous post</p>
+            Using Fastly's Compute at-edge to personalize static pre-generated pages
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="Enhancing Production Monitoring with New Relic" href="/2024/10/03/enhancing-production-monitoring-with-newrelic.html">
+            <p>Next post</p>
+            Enhancing Production Monitoring with New Relic
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2024-11-12T06:54:39+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Using Fastly’s Compute at-edge to personalize static pre-generated pages</title><link href="https://tech.bedrockstreaming.com/2024/11/07/compute-at-edge-personalize-static-pages.html" rel="alternate" type="text/html" title="Using Fastly’s Compute at-edge to personalize static pre-generated pages" /><published>2024-11-07T00:00:00+00:00</published><updated>2024-11-07T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/11/07/compute-at-edge-personalize-static-pages</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/11/07/compute-at-edge-personalize-static-pages.html">&lt;p&gt;During the &lt;a href=&quot;https://www.uefa.com/euro2024/&quot;&gt;UEFA Euro&lt;/a&gt; football cup in June and July 2024, M6 broadcasted several matches. Of course, this competition was available, live, on &lt;a href=&quot;https://www.6play.fr/&quot;&gt;M6+&lt;/a&gt;. For every user joining right from the first second and or for all users hearing their neighbors shouting and wanting to re-watch the action, starting a live video stream had to work!&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2024-11-26T08:54:04+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Using Fastly’s Compute at-edge to personalize static pre-generated pages</title><link href="https://tech.bedrockstreaming.com/2024/11/07/compute-at-edge-personalize-static-pages.html" rel="alternate" type="text/html" title="Using Fastly’s Compute at-edge to personalize static pre-generated pages" /><published>2024-11-07T00:00:00+00:00</published><updated>2024-11-07T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/11/07/compute-at-edge-personalize-static-pages</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/11/07/compute-at-edge-personalize-static-pages.html">&lt;p&gt;During the &lt;a href=&quot;https://www.uefa.com/euro2024/&quot;&gt;UEFA Euro&lt;/a&gt; football cup in June and July 2024, M6 broadcasted several matches. Of course, this competition was available, live, on &lt;a href=&quot;https://www.6play.fr/&quot;&gt;M6+&lt;/a&gt;. For every user joining right from the first second and or for all users hearing their neighbors shouting and wanting to re-watch the action, starting a live video stream had to work!&lt;/p&gt;
 
 &lt;p&gt;When you use one of the platforms we manage, your goal is to start a video stream. You land on the homepage of a platform like M6+ or &lt;a href=&quot;https://www.videoland.com/&quot;&gt;Videoland&lt;/a&gt;, browse the catalog, register or login and, ultimately, you’ll start a video. It’s the one thing that causes the most frustration if it fails. And we don’t want that. We want users to enjoy their experience.&lt;/p&gt;
 
@@ -269,7 +269,213 @@ flowchart LR
 &lt;ul&gt;
   &lt;li&gt;First, use Compute at-edge to serve a couple other highly-solicited routes.&lt;/li&gt;
   &lt;li&gt;And, for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/live/&lt;/code&gt; route, implement a few use-cases that were not required for this competition, in order to use Fastly Compute for this route all the time!&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>[&quot;p_martin&quot;]</name></author><category term="edge" /><category term="fastly" /><category term="cloud" /><category term="devops" /><category term="2024" /><summary type="html">During the UEFA Euro football cup in June and July 2024, M6 broadcasted several matches. Of course, this competition was available, live, on M6+. For every user joining right from the first second and or for all users hearing their neighbors shouting and wanting to re-watch the action, starting a live video stream had to work!</summary></entry><entry><title type="html">Enhancing Production Monitoring with New Relic</title><link href="https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html" rel="alternate" type="text/html" title="Enhancing Production Monitoring with New Relic" /><published>2024-10-03T00:00:00+00:00</published><updated>2024-10-03T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html">&lt;p&gt;At &lt;em&gt;Bedrock&lt;/em&gt;, we develop a streaming solution tailored for European media companies. Our application is a customizable white-label product used by millions across Europe. Bedrock’s clients have high expectations for stability, early incident detection, quick resolution, and effective communication during those times. Naturally, our goal is to deliver a stable product, and we dedicate significant effort toward this objective.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>[&quot;p_martin&quot;]</name></author><category term="edge" /><category term="fastly" /><category term="cloud" /><category term="devops" /><category term="2024" /><summary type="html">During the UEFA Euro football cup in June and July 2024, M6 broadcasted several matches. Of course, this competition was available, live, on M6+. For every user joining right from the first second and or for all users hearing their neighbors shouting and wanting to re-watch the action, starting a live video stream had to work!</summary></entry><entry><title type="html">We love speed 2024 ❤️</title><link href="https://tech.bedrockstreaming.com/2024/10/29/we-love-speed-2024.html" rel="alternate" type="text/html" title="We love speed 2024 ❤️" /><published>2024-10-29T00:00:00+00:00</published><updated>2024-10-29T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/10/29/we-love-speed-2024</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/10/29/we-love-speed-2024.html">&lt;p&gt;Nous avons eu la chance de participer à la conférence We love speed, une conférence annuelle axée sur la
+performance du web. C’est un domaine qui nous passionne et nous sommes très content d’avoir pu y assister.
+Le thème de cette édition, c’est l’INP. En effet, cette métrique de performance a été ajoutée aux core web vitals par
+&lt;a href=&quot;https://developers.google.com/search/blog/2023/05/introducing-inp?hl=fr&quot;&gt;Google &lt;em&gt;récemment&lt;/em&gt;&lt;/a&gt;.
+L’objectif de cette métrique est de refléter l’expérience utilisateur en mesurant la réactivité d’une application.
+Elle observe le temps entre une action utilisateur et une réponse visuelle de notre interface.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-10-29-we-love-speed-2024/team_picture.jpeg&quot; alt=&quot;L&apos;équipe frontend à la we love speed&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;htmx-le-nouvel-atout-pour-vos-projets-ssr---ewen-quimerch&quot;&gt;HTMX, le nouvel atout pour vos projets SSR - &lt;a href=&quot;https://ewen.quimerch.com/&quot;&gt;Ewen Quimerc‘h&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Lors de ce talk, nous avons découvert un outil très intéressant. Il s’agit de HTMX : une bibliothèque Javascript qui
+permet d’ajouter des fonctionnalités de type SPA (Single Page Application) à une application web classique et de façon
+non intrusive. Par exemple, on peut surcharger les liens &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;a&amp;gt;&lt;/code&gt; pour qu’ils chargent une nouvelle page en AJAX grâce à un
+attribut ajouté au HTML. Ce mode de fonctionnement est très intéressant, car il permet de garder une application web
+classique avec tous ses comportements le temps que HTMX se charge. C’est-a-dire que si HTMX venait à ne pas démarrer,
+votre application web se comporterait de la même manière, mais sans les améliorations de temps d’interaction.&lt;/p&gt;
+
+&lt;p&gt;HTMX surcharge la manière dont vos liens et images vont être chargés par le navigateur.
+Ainsi, lors de la prochaine interaction, ce dernier sera déjà prêt à servir les ressources.
+Le principe de HTMX consiste à ajouter des balises HTML spécifiques dans le DOM qu’il va lire et en déduire les
+comportements à son chargement.
+Cette manipulation est appelée le “DOM morphing”. Grâce à ce processus le temps de chargement est réduit et on évite
+l’effet “blink” (page blanche lors du chargement de la page).
+Il est à noter que ces comportements ne sont qu’un embellissement proposé par HTMX, il est tout à fait possible
+d’ajouter par exemple l’attribut &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;preload&lt;/code&gt; sur une balise &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a&lt;/code&gt; pour demander le chargement en avance du lien par le
+navigateur.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;div style=&quot;display: flex&quot;&gt;
+&lt;img src=&quot;/images/avatar/j_nginn.jpeg&quot; alt=&quot;Julie&quot; style=&quot;padding: 0;border-radius: 50%; height: 70px; margin: 10px&quot; /&gt;
+Comme nous utilisons React pour notre application, l&apos;utilisation de HTMX n&apos;est pas vraiment utile.
+Il est déjà possible avec React de précharger les ressources en avance. Mais ça reste un outil intéressant...
+&lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;div style=&quot;display: flex&quot;&gt;
+...effectivement, HTMX semble être intéressant, mais on se retrouve à ajouter
+beaucoup d&apos;attributs dans le HTML. Ça peut le rendre le markup moins lisible. Et en plus, ça donne l&apos;impression de recoder les comportements du navigateur.
+&lt;img src=&quot;/images/avatar/j_poissonnet.jpg&quot; alt=&quot;Jules&quot; style=&quot;padding: 0;border-radius: 50%; height: 70px; margin: 10px&quot; /&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;react--next-vs-inp---jean-pierre-vincent&quot;&gt;React / Next vs INP - &lt;a href=&quot;https://www.linkedin.com/in/jeanpierrevincent/&quot;&gt;Jean-Pierre Vincent&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Le deuxième talk a une place particulière dans notre cœur ❤️ puisqu’il a été donné par notre cher Jean-Pierre Vincent,
+qui a audité les performances du web de Bedrock, il y a deux ans.
+Lors de ce talk, Jean-Pierre nous a donné la feuille de route pour éviter au mieux la déferlante de Javascript que vos
+utilisateurs reçoivent au chargement de votre site.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-10-29-we-love-speed-2024/js_tsunami.jpeg&quot; alt=&quot;JS Tsunami storming your users&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;L’INP (Interaction to Next Paint) est une métrique qui mesure le temps entre une interaction utilisateur et le prochain
+rendu du navigateur. L’idée générale est de pouvoir mesurer l’incapacité du navigateur à réagir. Après avoir récupéré
+des mesures, il est bon de se rappeler qu’il y a un biais de selection pour les données de Crux. Pour rappel, Crux est
+une base de données qui contient des métriques de performance de sites web collectées par Google.
+En effet, il n’est calculé que sur les appareils Google (c’est le principe). Une fois qu’on a récolté des métriques de
+performance de nos utilisateurs, si on veut travailler sur notre site web et avoir une bonne idée du ressenti de nos
+utilisateurs, l’idéal est de tester avec un véritable Samsung S8 par exemple. Le S8 est un appareil sur lequel on a
+beaucoup de données et qui représente à l’heure actuelle une bonne représentation des capacités de l’utilisateur moyen.
+L’INP est une métrique qui peut être influencée par des interactions qui ne sont pas prévues par les devs. Par exemple,
+on a été étonnés de constater que lorsque les temps de chargement sont un poil trop longs à leur goût, les utilisateurs
+se mettent à cliquer partout 🤷 C’est pourquoi il est important de se baser sur des données réelles.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-10-29-we-love-speed-2024/inp_charge.jpeg&quot; alt=&quot;INP est bousculé par la charge de js!&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Parmi les bonnes pratiques qu’on peut appliquer dès maintenant, et qui je dois le dire m’a paru un peu contre-intuitif :
+faire passer Babel sur les node_modules.
+En fait, du point de vue d’un développeur, on peut se dire que cela va augmenter les temps de build drastiquement, et on
+aurait sûrement raison. Mais en fait, il faut voir le bénéfice qu’il y a derrière. Si on personnalise les règles Babel
+afin qu’elles correspondent aux navigateurs de nos utilisateurs, on évite des transformations inutiles qui
+augmenteraient le poids de nos fichiers Javascript.&lt;/p&gt;
+
+&lt;p&gt;Une nouvelle fonctionnalité de React appelée RSC (React Server Components) permet de combiner le rendu côté serveur avec
+l’interactivité côté client.
+Les RSC aident à réduire la taille du Javascript dans le navigateur ce qui permet d’améliorer le temps d’interaction et
+donc l’expérience utilisateur. Vous l’aurez compris, c’est l’ennemi n°1 de Jean-Pierre (et de vos navigateurs) !
+Le principe est de rendre les composants côté serveur et de faire en sorte que ces derniers ne rendent que du HTML, qui
+ne sera pas hydraté côté client.
+L’étape de réhydratation est une étape importante et trop souvent sous-estimée. Il s’agit d’une nouveauté de React qui
+est prometteuse et qui est déjà présente dans Next.js.&lt;/p&gt;
+
+&lt;p&gt;Pour nous montrer un exemple concret d’abus de JavaScript : il a montré du code Bedrock 😅.
+Il s’agit d’un FlameGraph du rendu de notre &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;Footer /&amp;gt;&lt;/code&gt; côté app web. Il y a une quantité conséquente de JS car nous
+faisions ce qu’on appelle du CSS-in-JS.
+Vous l’avez deviné, c’est la partie “in-JS” qui pose un problème. Cela signifie que pour appliquer du style sur notre
+site, c’est le Javascript qui s’en charge. Or dans un composant, comme le &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;Footer /&amp;gt;&lt;/code&gt;, il y a beaucoup d’éléments et
+chacun va avoir besoin de son propre style. Si l’idée de colocaliser le CSS dans le JS n’est pas nocive en soi, le plus
+gros problème était l’utilisation de &lt;a href=&quot;https://styled-components.com/&quot;&gt;Styled-Components&lt;/a&gt; qui calcule le style au moment
+du rendu, le rendant donc plus long. FYI : Entre temps, nous avons chez Bedrock entamé une migration pour quitter
+Styled-Components au profit de &lt;a href=&quot;https://linaria.dev/&quot;&gt;Linaria&lt;/a&gt; pour le projet web
+et &lt;a href=&quot;https://vanilla-extract.style/&quot;&gt;Vanilla Extract&lt;/a&gt; pour le projet smart TV.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-10-29-we-love-speed-2024/flamgraph.jpeg&quot; alt=&quot;Flamegraph du Footer de Bedrock&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Autre information qui nous concerne chez Bedrock, au moment d’écrire ces lignes, nous sommes en train de mettre en
+production la migration de React 17 vers React 18 sur le projet web.
+D’après les retours d’expérience de Jean-Pierre, cette version de React aura un impact positif sur l’INP car il permet
+de faire moins de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;render&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Enfin, Jean-Pierre nous laisse avec un ultime conseil pour que nos applications web soient pérennes : “Monitore (au
+moins une fois dans ta vie) l’origine des INP avec un vrai utilisateur.”&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;div style=&quot;display: flex&quot;&gt;
+&lt;img src=&quot;/images/avatar/j_nginn.jpeg&quot; alt=&quot;Julie&quot; style=&quot;padding: 0;border-radius: 50%; height: 70px; margin: 10px&quot; /&gt;
+J&apos;ai bien aimé ce talk ! J&apos;ai trouvé que sa présentation était très accessible, il a su vulgariser des concepts et rendre un sujet fastidieux (la performance) intéressant 👏
+&lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;débogage-des-performances-à-laide-des-devtools--mise-en-pratique-approfondie---umar-hansa&quot;&gt;Débogage des performances à l’aide des DevTools : Mise en pratique approfondie - &lt;a href=&quot;https://umaar.com/&quot;&gt;Umar Hansa&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Avoir un œil sur ses performances est essentiel pour avancer dans la bonne direction et s’assurer qu’on
+fournit à nos utilisateurs une expérience optimale. Fort heureusement pour nous les devs, on est bien lotis avec de très
+bons outils. Il suffit d’ouvrir les Chrome DevTools pour s’en rendre compte. Ce talk nous a présenté comment bien
+utiliser les DevTools pour mesurer les performances de nos applications web et se mettre à la place de
+nos utilisateurs. Par exemple, on peut brider son réseau et son CPU pour simuler une connexion 3G et un CPU lent. Dans
+cette présentation, on nous a quand même rappelé que les DevTools ne sont pas une solution miracle, il est important de
+tester sur de vrais devices pour le ressenti.&lt;/p&gt;
+
+&lt;p&gt;Pour ce qui est de l’interprétation des données, une myriade d’outils est à notre disposition pour nous aider à
+comprendre ce que nous voyons. Par exemple, on peut ajouter des annotations dans le flamegraph comme des labels, des
+diagrammes ou encore des plages de temps. On peut aussi mettre en place des custom tracks pour suivre des événements
+spécifiques. Au sein de notre application, on peut utiliser l’API User Timing pour ajouter des points de repère dans
+notre code et ainsi mieux comprendre ce qui se passe au déclenchement d’événements spécifiques.&lt;/p&gt;
+
+&lt;h2 id=&quot;web-performance-testing---estela-franco&quot;&gt;Web Performance Testing - &lt;a href=&quot;https://x.com/guaca&quot;&gt;Estela Franco&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Nous avons également eu un talk sur l’intégration de Lighthouse, un outil de Google pour mesurer la performance de nos
+applications web, dans une CI. Cela permet de détecter les problèmes de performance avant qu’ils ne soient déployés en
+production. Il est possible de mettre des warnings, voire des erreurs empêchant de merger, si l’application ne respecte
+pas les standards que nous nous sommes fixés. L’idée est de s’assurer que la performance de
+notre application web est toujours au top et ne se dégrade pas dans le temps.
+&lt;img src=&quot;/images/posts/2024-10-29-we-love-speed-2024/Key%20Takeaways.jpeg&quot; alt=&quot;Key takeaways from the talk&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;div style=&quot;display: flex&quot;&gt;
+&lt;img src=&quot;/images/avatar/j_nginn.jpeg&quot; alt=&quot;Julie&quot; style=&quot;padding: 0;border-radius: 50%; height: 70px; margin: 10px&quot; /&gt;
+On envisage de l&apos;ajouter au projet smart TV, mais plus pour générer un rapport de performance quotidien plutôt que de le faire pour chaque push ou merge. 
+&lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;comment-les-navigateurs-chargent-vraiment-les-pages-web---robin-marx&quot;&gt;Comment les navigateurs chargent VRAIMENT les pages web - &lt;a href=&quot;https://x.com/programmingart&quot;&gt;Robin Marx&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Dans ce qui est probablement le talk le plus technique de la journée, on nous a expliqué comment les navigateurs
+chargent les différentes ressources nécessaires à l’affichage d’une page web. Plus spécifiquement, on nous a expliqué
+comment les navigateurs interprètent le HTML pour déterminer quelles ressources charger en priorité.&lt;/p&gt;
+
+&lt;p&gt;Le talk était très intéressant, mais la conclusion est un peu frustrante : il est pour le moment impossible de prévoir
+l’ordre de chargement des ressources par le navigateur à partir du même HTML. En effet, les navigateurs ont des
+comportements différents entre eux et même par version 🤯. Chrome a, par exemple, un comportement très différent cette
+année
+par rapport à deux ans en arrière.&lt;/p&gt;
+
+&lt;p&gt;Même si on est tenté de vouloir contrôler le chargement des ressources, il est important de se rappeler que le
+navigateur
+est très bien optimisé pour charger les ressources de manière efficace. Il est donc préférable de laisser le navigateur
+faire son travail plutôt que de vouloir le contrôler. L’attribut &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;preload&lt;/code&gt; est un bon exemple de ce que l’on peut faire
+pour aider le navigateur à charger les ressources de manière plus efficace. Il faut cependant l’utiliser avec parcimonie
+et de manière chirurgicale pour ne pas interférer avec le travail du navigateur.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-10-29-we-love-speed-2024/preload_surgical.jpeg&quot; alt=&quot;Preload with surgical precision&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;mais-que-fait-la-police----eroan-boyer&quot;&gt;Mais que fait la police ? - &lt;a href=&quot;https://x.com/eroan&quot;&gt;Eroan Boyer&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Pour finir, on a eu un talk sur les polices de caractères. Elles sont essentielles pour l’identité visuelle de nos
+applications web, mais elles peuvent aussi être une source de problèmes de performance. En effet, les polices de
+caractères peuvent être très lourdes et ralentir le chargement de nos pages. Il est donc important de bien les choisir
+et de les optimiser pour garantir une bonne performance. Il existe plusieurs techniques pour optimiser les polices,
+notamment en réalisant un subset de la police pour ne télécharger que les glyphes dont on a besoin. (En français, on a
+besoin que de 165 glyphes, comparé à 528 pour le latin).
+Il existe des outils pour nous aider à réaliser ces subsets
+comme : &lt;a href=&quot;https://everythingfonts.com/subsetter&quot;&gt;Font Subsetter&lt;/a&gt;, &lt;a href=&quot;https://fonttools.readthedocs.io/&quot;&gt;fontTools&lt;/a&gt; ou
+&lt;a href=&quot;https://www.zachleat.com/web/glyphhanger/&quot;&gt;Glyphanger&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;div style=&quot;display: flex&quot;&gt;
+Attention à ne pas abuser des subsets, car cela peut entraîner des problèmes de lisibilité du texte. Le fameux t🠉fu .
+&lt;img src=&quot;/images/avatar/j_poissonnet.jpg&quot; alt=&quot;Jules&quot; style=&quot;padding: 0;border-radius: 50%; height: 70px; margin: 10px&quot; /&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-10-29-we-love-speed-2024/tofu.jpeg&quot; alt=&quot;Say no to tofu&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Il est aussi possible de minimiser le nombre de fichiers en utilisant des polices variables. Un bon exemple est la
+police Roboto Flex, qui est customisable et permet ainsi de pouvoir réduire le nombre de fichiers nécessaires à charger.
+Il est là aussi, possible de sélectionner les variations que l’on souhaite pour réduire encore plus le poids de la
+police.&lt;/p&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;Cette année, l’accent a été mis sur l’INP et la manière de l’améliorer. Il est important de garder en tête que l’INP est
+une métrique qui mesure l’expérience utilisateur, il est donc essentiel de la garder à l’œil. Il est bon de
+rappeler que la performance est plus une habitude à prendre qu’un constat à réaliser. Une application performante, c’est
+une expérience utilisateur améliorée et des utilisateurs satisfaits !&lt;/p&gt;
+
+&lt;p&gt;De notre côté, nous sommes rentrés avec quelques idées à mettre en place dans nos projets à Bedrock, notamment :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Etudier la possibilité d’ajouter des React Server Components pour réduire le poids de notre JS&lt;/li&gt;
+  &lt;li&gt;Mettre en place des tests de performance dans notre CI avec Lighthouse CI&lt;/li&gt;
+  &lt;li&gt;Vérifier que nos polices de caractères sont bien optimisées pour la performance&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Notre équipe est ressortie de cette conférence ravie et avec de nouvelles idées qui vont surement nous suivre sur nos
+projets personnels aussi. La We love speed ❤️ est une conférence à ne pas manquer pour tous les passionnés de
+performance web, on vous recommande chaudement d’y assister si vous en avez l’occasion !&lt;/p&gt;</content><author><name>[&quot;j_nginn&quot;, &quot;j_poissonnet&quot;]</name></author><category term="performance" /><category term="conference" /><category term="webperf" /><category term="javascript" /><category term="react" /><category term="web" /><category term="frontend" /><summary type="html">Nous avons eu la chance de participer à la conférence We love speed, une conférence annuelle axée sur la performance du web. C’est un domaine qui nous passionne et nous sommes très content d’avoir pu y assister. Le thème de cette édition, c’est l’INP. En effet, cette métrique de performance a été ajoutée aux core web vitals par Google récemment. L’objectif de cette métrique est de refléter l’expérience utilisateur en mesurant la réactivité d’une application. Elle observe le temps entre une action utilisateur et une réponse visuelle de notre interface.</summary></entry><entry><title type="html">Enhancing Production Monitoring with New Relic</title><link href="https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html" rel="alternate" type="text/html" title="Enhancing Production Monitoring with New Relic" /><published>2024-10-03T00:00:00+00:00</published><updated>2024-10-03T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html">&lt;p&gt;At &lt;em&gt;Bedrock&lt;/em&gt;, we develop a streaming solution tailored for European media companies. Our application is a customizable white-label product used by millions across Europe. Bedrock’s clients have high expectations for stability, early incident detection, quick resolution, and effective communication during those times. Naturally, our goal is to deliver a stable product, and we dedicate significant effort toward this objective.&lt;/p&gt;
 
 &lt;p&gt;However, about two and a half years ago, our mobile team faced serious challenges in monitoring production. The tagging systems were pushing events into a tool that developers were not kin to use. The graphs were not intuitive and difficult to generate, making them hard to interpret. Each team across the company was managing its own monitoring practices. Monitoring was largely manual.&lt;br /&gt;
 Too many problems were brought to the attention of the team by a complaint of our client to the support team. We knew we had to make a change.&lt;/p&gt;
@@ -1844,13 +2050,4 @@ All cloud providers include a sustainability section in their ‘well-architecte
   &lt;li&gt;food 😵. I mean, we’re French 😅&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Once again, we come back from KubeCon full of energy and ideas, ready for an exciting new year!&lt;/p&gt;</content><author><name>[&quot;g_sanchez&quot;, &quot;j_menan&quot;, &quot;l_caillet&quot;, &quot;p_martin&quot;, &quot;v_chabrier&quot;, &quot;v_pelus&quot;]</name></author><category term="kubernetes" /><category term="cloud" /><category term="devops" /><category term="opensource" /><category term="community" /><category term="conference" /><category term="2024" /><summary type="html">Two weeks ago, six of us were at KubeCon in Paris. For a few, it was their first KubeCon! For one, it was the fourth one. Since Copenhagen in 2018, which was before we started moving to AWS and Kubernetes, so much has changed – and so much has not ;-)</summary></entry><entry><title type="html">Au-delà des industries : Le pouvoir de l’état d’esprit #LFT 02/02/24</title><link href="https://tech.bedrockstreaming.com/au-dela-des-industries-le-pouvoir-de-l-etat-d-esprit" rel="alternate" type="text/html" title="Au-delà des industries : Le pouvoir de l’état d’esprit #LFT 02/02/24" /><published>2024-02-02T00:00:00+00:00</published><updated>2024-02-02T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/au-dela-des-industries-le-pouvoir-de-l-etat-d-esprit</id><content type="html" xml:base="https://tech.bedrockstreaming.com/au-dela-des-industries-le-pouvoir-de-l-etat-d-esprit">&lt;blockquote&gt;
-  &lt;p&gt;Je souhaite explorer l’idée selon laquelle le succès n’est pas défini par une industrie, une discipline ou un secteur spécifique, mais repose plutôt sur notre état d’esprit. À travers mes expériences personnelles variées - en cosmétique, marketing, e-commerce, ainsi que dans le domaine des bars, restaurants et de l’industrie - je mets en avant l’idée que les principes du succès sont universels. Cette présentation souligne l’importance de la mentalité, de la persévérance, des stratégies adoptées et d’une méthode, indépendamment du secteur professionnel. 
-L’objectif est d’inspirer et de redéfinir la perception du succès, en dépassant les barrières spécifiques à chaque domaine.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;En résumé, c’est une approche universelle vers la réussite qui est essentielle, quel que soit le secteur d’activité&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Par &lt;strong&gt;Serge Menassa&lt;/strong&gt;&lt;/p&gt;</content><author><name>Serge Menassa</name></author><category term="lft" /><category term="tech" /><summary type="html">Je souhaite explorer l’idée selon laquelle le succès n’est pas défini par une industrie, une discipline ou un secteur spécifique, mais repose plutôt sur notre état d’esprit. À travers mes expériences personnelles variées - en cosmétique, marketing, e-commerce, ainsi que dans le domaine des bars, restaurants et de l’industrie - je mets en avant l’idée que les principes du succès sont universels. Cette présentation souligne l’importance de la mentalité, de la persévérance, des stratégies adoptées et d’une méthode, indépendamment du secteur professionnel. L’objectif est d’inspirer et de redéfinir la perception du succès, en dépassant les barrières spécifiques à chaque domaine.</summary></entry></feed>
+&lt;p&gt;Once again, we come back from KubeCon full of energy and ideas, ready for an exciting new year!&lt;/p&gt;</content><author><name>[&quot;g_sanchez&quot;, &quot;j_menan&quot;, &quot;l_caillet&quot;, &quot;p_martin&quot;, &quot;v_chabrier&quot;, &quot;v_pelus&quot;]</name></author><category term="kubernetes" /><category term="cloud" /><category term="devops" /><category term="opensource" /><category term="community" /><category term="conference" /><category term="2024" /><summary type="html">Two weeks ago, six of us were at KubeCon in Paris. For a few, it was their first KubeCon! For one, it was the fourth one. Since Copenhagen in 2018, which was before we started moving to AWS and Kubernetes, so much has changed – and so much has not ;-)</summary></entry></feed>
