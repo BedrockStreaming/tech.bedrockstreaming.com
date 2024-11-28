@@ -62,27 +62,25 @@ const ScrollComponent = () => {
 
 Each cell is connected to the store, and uses its own index as selection parameter to get the corresponding item in the store (Cell of index 0 gets the first item, cell of index 1 gets the second …)
 
-![Schema representing 4 slots with rendered items inside](../images/posts/2024-11-22-tvjs-scroll-performance-enhancement/filled-slots.png)
+![Schema representing 4 slots with rendered items inside](/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/filled-slots.png)
 
 At this point, only a subset of the list is rendered, as many items as the static array has cells.
 
 Horizontal scroll is managed by incrementing the selection index upon user input (e.g., pressing the right arrow key). Using the same array, each cell now selects from the store the item for it’s index plus an “offset”, that describes how much the list is scrolled.
 
-![Schema representing 4 slots with rendered items inside](../images/posts/2024-11-22-tvjs-scroll-performance-enhancement/filled-slots-with-offset.png)
+![Schema representing 4 slots with rendered items inside](/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/filled-slots-with-offset.png)
 
 By switching items to a cell over at every user input, we achieve a visual scroll, with only a subsection of the list displayed on screen.
 
-![Animation showing a scrolling list.gif](../images/posts/2024-11-22-tvjs-scroll-performance-enhancement/scrolling.gif)
+![Animation showing a scrolling list.gif](/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/scrolling.gif)
 
 # [Optimised Rendering with React Keys](#optimised-rendering-with-react-keys)
 
 The heart of the implementation is to fill each cell with a new item at each scroll. From the point of view of a single cell, when we scroll, the item it displays is new. But we know that the item already exited in the DOM, just one cell over. This is where we can leverage Reacts keys mechanism. Items rendered use a key that combine the original cell index with the current scroll offset. These keys helps React reconcile the item in cell 1 before render as the item in cell 2 after render as the same item, thus reusing the same DOM node. As a result, we get 0 re-renders for the items that are shifting places, significantly reducing the performance impact of a scroll.
 
-![profiling.png](../images/posts/2024-11-22-tvjs-scroll-performance-enhancement/profiling.png)
-
 <figure>
   <img src="/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/profiling.png" alt="profiling"/>
-  <figcaption>Profiling during a single scroll right. The only items rendering are the ones with focus change (item losing the focus and item gaining the focus) and the new item that wasn’t on the screen. Every other item in unbothered by a horizontal scroll</figcaption>
+  <figcaption>☝️Profiling during a single scroll right. The only items rendering are the ones with focus change (item losing the focus and item gaining the focus) and the new item that wasn’t on the screen. Every other item in unbothered by a horizontal scroll</figcaption>
 </figure>
 ---  
 
