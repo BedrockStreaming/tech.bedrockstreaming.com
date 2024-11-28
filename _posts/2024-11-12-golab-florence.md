@@ -26,12 +26,14 @@ The session concluded with a call to action, encouraging everyone to enable tele
 
 ## Instrumenting Go Apps With OpenTelemetry
 
-This talk introduced us to OpenTelemetry, an open source solution for instrumenting applications. The speaker demonstrated how OpenTelemetry can be used to collect and analyze performance data (ie. through Grafana), and its benefits compared to an agent : 
+This talk introduced us to OpenTelemetry, an open source solution for instrumenting applications. The speaker introduced the topic with a specific situation, you have instrumenting with datadog and want to switch to another tool (for any reason such as better pricing, UX...).
+![Instrumenting with datadog](/images/posts/2024-11-12-golab-firenze/instrumenting_with_datadog.jpg)
+![Changing tool due to cost](/images/posts/2024-11-12-golab-firenze/changing_agent.jpg)
+Then he demonstrated how OpenTelemetry can be used to collect and analyze performance data (ie. through Grafana), and its benefits compared to an agent :
 - No need to install an agent on the host
-- No cost of install when changing agent (ie. from Datadog to NewRelic)
+- No cost of install when changing agent 
 - Open source so it's tool agnostic
-
-@todo jerome: add more details + photos 
+![Opentelemetry simple schema](/images/posts/2024-11-12-golab-firenze/opentelemtry_schema.avif)
 
 ---
 
