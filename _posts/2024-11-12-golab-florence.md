@@ -35,6 +35,8 @@ Then he demonstrated how OpenTelemetry can be used to collect and analyze perfor
 - Open source so it's tool agnostic
 ![Opentelemetry simple schema](/images/posts/2024-11-12-golab-firenze/opentelemtry_schema.avif)
 
+At Bedrock, we mainly use [NewRelic for our monitoring](https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html), but we are free either to use the NewRelic agent or to use OpenTelemetry to collect traces, metrics and logs.
+
 ---
 
 ## Watermill: The Missing Standard Library for Event-Driven Applications
