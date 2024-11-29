@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Scroll performance enhancement on TV apps 
-description: From an R&D project came a new scroll implementation for our TV apps, with better performance and experience. 
+title: How we improved scroll performance on Smart TV apps
+description: From an R&D project came a new scroll implementation for our Smart TV apps, with better performance and experience. 
 author: [m_bernier]
 tags: [TV, performance, javascript, react, web, frontend]
 color: rgb(251,87,66)
@@ -14,7 +14,7 @@ On TV, we scroll horizontally by focusing each item sequentially when the user p
 
 Scrollable lists can be of various sizes and even include paginated content. In cases of paginated content, the next page is fetched preemptively during scroll, when the focus reaches a certain threshold.
 
-Our old scroll component worked as follows: we would render a whole list of items, in a parent component handling scroll. When scrolling horizontally, the focus would switch to the next item. This would notify the parent component in charge of scroll, that would move the whole list laterally, based on measurements of the focused item, the size of the list, and the size of the container.
+Our old scroll component worked as follows: we would render a whole list of items, in a parent component handling scroll. When scrolling horizontally, the focus would switch to the next item. This would notify the parent component in charge of scroll, that would move the whole list laterally. The movement was computed from the measurements of the focused item, the size of the list, and the size of the container.
 
 There are multiple chances for improvement in this implementation.
 
