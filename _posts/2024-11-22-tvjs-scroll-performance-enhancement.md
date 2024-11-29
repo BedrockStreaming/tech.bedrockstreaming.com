@@ -27,7 +27,7 @@ To address the first shortcoming of the initial approach, we introduced virtuali
 For context, the content of the list is stored in a redux store, normalized: to select a specific item from the store, all you need is its index in the array of items for the corresponding list.
 
 ```javascript
-const ItemComponent = ({ key, position }) => {
+const ItemComponent = ({ position }) => {
     const item = useSelector(selectItemByIndex(position));
 
     return <Item {...item} />;
@@ -50,7 +50,7 @@ const ScrollComponent = () => {
 
         return (
             <ItemComponent
-                key={`${position}`}
+                key={position}
                 position={position}
             />
         );
