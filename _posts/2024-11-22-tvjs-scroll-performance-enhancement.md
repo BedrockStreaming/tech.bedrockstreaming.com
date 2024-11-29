@@ -24,7 +24,7 @@ There are multiple chances for improvement in this implementation:
 # [Virtualization](#virtualization)
 To address the first shortcoming of the initial approach, we introduced virtualization. Virtualization is a technique to render only the items that are visible on the screen.
 
-For context, the content of the list is stored in a redux store, normalized: to select a specific item from the store, all you need is its index in the array of items for the corresponding list.
+For context, the content we display on each list is normalized and stored in a redux store. All the items are available in an array and can be selected by their respective index.
 
 ```javascript
 const ItemComponent = ({ position }) => {
