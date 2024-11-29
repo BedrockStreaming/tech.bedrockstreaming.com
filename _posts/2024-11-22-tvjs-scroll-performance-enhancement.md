@@ -76,7 +76,9 @@ By offsetting the items at every user input (negative offset to move the items t
 
 # [Optimised Rendering with React Keys](#optimised-rendering-with-react-keys)
 
-The heart of the implementation is to fill each cell with a new item at each scroll. From the point of view of a single cell, when we scroll, the item it displays is new. But we know that the item already existed in the DOM, just one cell over. This is where we can leverage React's keys mechanism. Items rendered use a key that combines the original cell index with the current scroll offset. These keys help React reconcile the item in cell 1 before render as the item in cell 2 after render as the same item, thus reusing the same DOM node. As a result, we get 0 re-renders for the items that are shifting places, significantly reducing the performance impact of a scroll.
+The heart of the implementation is to fill each cell with a new item at each scroll. From the point of view of a single cell, when we scroll, the item it displays is new. But we know that the item already existed in the DOM, just one cell over.
+
+This is where we can leverage [React's keys mechanism](https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key). Items rendered use a key that combines the original cell index with the current scroll offset. These keys help React reconcile the item in cell 1 before render as the item in cell 2 after render as the same item, thus reusing the same DOM node. As a result, we get 0 re-renders for the items that are shifting places, significantly reducing the performance impact of a scroll.
 
 <figure>
   <img src="/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/profiling.png" alt="profiling"/>
