@@ -16,10 +16,10 @@ Scrollable lists can be of various sizes and even include paginated content. In 
 
 Our old scroll component worked as follows: we would render a whole list of items, in a parent component handling scroll. When scrolling horizontally, the focus would switch to the next item. This would notify the parent component in charge of scroll, that would move the whole list laterally. The movement was computed from the measurements of the focused item, the size of the list, and the size of the container.
 
-There are multiple chances for improvement in this implementation.
+There are multiple chances for improvement in this implementation:
 
 1. Since every item was rendered in the DOM, moving the whole list was very heavy. Subsequently, a whole page of lists was itself pretty heavy to render.
-2. Because the whole list is rendered, a new page fetched means the new items are immediately all rendered to the DOM when a new page is fetched, imposing a heavy load to display content that is not even on the screen.
+2. Because the whole list is rendered, fetching a new page means that the new items are immediately all rendered to the DOM, imposing a heavy load to display content that is not even on the screen.
 
 # [Virtualization](#virtualization)
 To address the first shortcoming of the initial approach, we introduced virtualization. Virtualization is a technique to render only the items that are visible on the screen.
@@ -60,17 +60,17 @@ const ScrollComponent = () => {
 
 ![Schema representing 4 empty slots](/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/empty-slots.png)
 
-Each cell is connected to the store and uses its own index as selection parameter to get the corresponding item in the store (Cell of index 0 gets the first item, cell of index 1 gets the second…)
+Each cell is connected to the store and uses its own index as selection parameter to get the corresponding item in the store (cell of index 0 gets the first item, cell of index 1 gets the second, etc.)
 
 ![Schema representing 4 slots with rendered items inside](/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/filled-slots.png)
 
 At this point, only a subset of the list is rendered, as many items as the static array has cells.
 
-Horizontal scroll is managed by incrementing the selection index upon user input (e.g., pressing the right arrow key). Using the same array, each cell now selects from the store the item for its index plus an “offset,” that describes how much the list is scrolled.
+Horizontal scroll is managed by incrementing the selection index upon user input (e.g., pressing the right arrow key). Using the same array, each cell now selects from the store the item for its index plus an “offset” that describes how much the list is scrolled.
 
 ![Schema representing 4 slots with rendered items inside](/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/filled-slots-with-offset.png)
 
-By switching items to a cell over at every user input, we achieve a visual scroll, with only a subsection of the list displayed on screen.
+By offsetting the items at every user input (negative offset to move the items to the right and positive offset to move the items to the left), we achieve a visual scroll, with only a subsection of the list displayed on screen.
 
 ![Animation showing a scrolling list.gif](/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/scrolling.gif)
 
