@@ -98,7 +98,7 @@ Scrolling right is obviously less expensive now. Here, measurements were taken f
 
 |Before|After, with new scroll|
 |-|-|
-|462ms|41ms (-91%%)|
+|462ms|41ms (-91%)|
 
 But more closely to the app's actual use, here is a scenario measuring the cost of scrolling right through a list of 72 items, with 8 pages fetched during scroll.
 
