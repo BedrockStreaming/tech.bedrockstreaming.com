@@ -112,6 +112,10 @@ Here, we include everything else a list does when scrolling (fetching new pages,
 
 Scrolling down in a page with lighter lists is also more efficient. Here, measurements were taken during a scroll down 25 lists.
 
+| Before       | After                  |
+|--------------|------------------------|
+| 1308ms       | 1038ms (-21%)          |
+
 Beyond benchmarks, on-device tests were also conclusive: the scroll is smoother, we almost eliminate the lag caused by a pagination fetch. Overall, it feels better to scroll through a list.
 # [Conclusion](#conclusion)
 This frontend R&D project successfully addressed the scrolling performance issues on TV. The new scrolling solution dramatically improved performance by limiting re-renders. This optimization ensured a smoother scrolling experience, enhancing usability on TV devices. From this experience, we also moved on to implementing the same virtualization on the horizontal scroll of the catalogue, which presented its own challenges but was also a success.
