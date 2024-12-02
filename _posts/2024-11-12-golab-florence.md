@@ -41,7 +41,7 @@ At Bedrock, we mainly use [NewRelic for our monitoring](https://tech.bedrockstre
 
 ## Watermill: The Missing Standard Library for Event-Driven Applications
 
-The Watermill library was highlighted as a game-changer for event-driven architecture in Go. Initially born out of a need to simplify the complexity of building event-driven systems, Watermill has evolved into a mature and widely adopted library. The talk inspired us by demonstrating how adopting Watermill can transform projects needing scalability and resilience, and it has now become a key consideration for us in future architectural designs.
+The [Watermill library](https://watermill.io/) was highlighted as a game-changer for event-driven architecture in Go. Initially born out of a need to simplify the complexity of building event-driven systems, Watermill has evolved into a mature and widely adopted library. The talk inspired us by demonstrating how adopting Watermill can transform projects needing scalability and resilience, and it has now become a key consideration for us in future architectural designs.
 
 ---
 
