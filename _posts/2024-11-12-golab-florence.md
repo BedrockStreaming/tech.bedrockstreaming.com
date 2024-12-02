@@ -33,7 +33,7 @@ This talk introduced us to OpenTelemetry, an open source solution for instrument
 
 Then he demonstrated how OpenTelemetry can be used to collect and analyze performance data (ie. through Grafana), and its benefits compared to an agent :
 - No need to install an agent on the host
-- No cost of install when changing agent 
+- No cost of install when changing agent
 - Open source so it's tool agnostic
 
 ![Opentelemetry simple schema](/images/posts/2024-11-12-golab-firenze/opentelemtry_schema.avif)
@@ -49,18 +49,18 @@ The design of this very complete library is thought out in three blocks that can
 
 ![pyramid](https://github.com/user-attachments/assets/ce78b1ab-6259-4fe1-91ec-fb421c3fdfdf)
 
-The first, on which the rest is based, is a simple [Publisher/Subscriber brick](https://watermill.io/docs/pub-sub/) with several implementations ( go channel,kafka,RabbitMQ etc...).
+The first, on which the rest is based, is a simple [Publisher/Subscriber brick](https://watermill.io/docs/pub-sub/) with several implementations (go channel,kafka,RabbitMQ etc...).
 
 The second is a [Router layer](https://watermill.io/docs/messages-router/) which manages advanced event dispatch processing and adds the possibility of using middleware such as metrics, poison queue, retrying, throttling, etc. .
 
 The last block is the [CQRS management block](https://watermill.io/docs/cqrs/).
 The project documentation is well supplied and full of examples that make bootstrapping in existing projects much easier.
-
+You will find its presentation materials [here](https://threedots.tech/presentations/2024/golab/).
 ---
 
 ## Let’s Go Asynchronous
 
-Tomáš Sedláček tackled the common dilemma between synchronous and asynchronous communication. 
+Tomáš Sedláček tackled the common dilemma between synchronous and asynchronous communication.
 
 [Real-world examples](https://github.com/kedlas/presentations/tree/main/2024-golab-florence_lets_go_async/sync/http) illustrated how synchronous patterns can lead to bottlenecks, while asynchronous designs promote efficiency. Techniques like load balancing, rate limiting, and implementing retries were demonstrated, showcasing Go’s flexibility with tools like RabbitMQ and PGQ. It’s a solid reminder to evaluate communication patterns carefully and how going asynchronous isn’t as daunting as it sounds.
 
@@ -76,9 +76,9 @@ Beyond the technical implementation, Qi Xiao provided insights into achieving im
 
 ## From Bland to Spiky: How Generics Made My Service Super Robust
 
-This lively talk explored how generics have brought versatility to Go. 
+This lively talk explored how generics have brought versatility to Go.
 
-Teea Alarto used vivid examples, transforming generic code to create robust, maintainable services. The presentation not only demystified generics but also highlighted their practical benefits, such as eliminating repetition and enhancing code maintainability.
+[Teea Alarto](https://linktr.ee/teea_golab24) used vivid examples, transforming generic code to create robust, maintainable services. The presentation not only demystified generics but also highlighted their practical benefits, such as eliminating repetition and enhancing code maintainability.
 
 ---
 
@@ -92,19 +92,20 @@ Josephine Winter presented a compelling case for TinyGo as an accessible platfor
 
 ## Gophers Gone Domain-Driven: A Tale of Go and DDD
 
-Domain-Driven Design (DDD) often intimidates developers, but this talk simplified the fundamentals for Go practitioners. 
+Domain-Driven Design (DDD) often intimidates developers, but this talk simplified the fundamentals for Go practitioners.
 
-By exploring domain modeling, bounded contexts, and ubiquitous language, we gained insights into creating a codebase that aligns with business logic. 
+By exploring domain modeling, bounded contexts, and ubiquitous language, we gained insights into creating a codebase that aligns with business logic.
 
 Davide Imola also discussed using hexagonal architecture to make Go applications scalable and maintainable, providing a practical roadmap for implementing DDD concepts.
+He provides a simple example of a structured [Go project](https://github.com/davideimola/ddd-onion-go) using the DDD and Onion Architecture concepts.
 
 ---
 
 ## To CGo or Not: Cross Compiling a SQLite Driver
 
-The challenge of cross-compiling without relying on CGo was explored in this technical deep dive. 
+The challenge of cross-compiling without relying on CGo was explored in this technical deep dive.
 
-Jan Mercl introduced a [CGo-free driver](https://modernc.org/sqlite), explaining how transpilers and C runtime emulation make it feasible. 
+Jan Mercl introduced a [CGo-free driver](https://modernc.org/sqlite), explaining how transpilers and C runtime emulation make it feasible.
 
 This was particularly eye-opening for those of us working on projects that need efficient and lightweight database solutions.
 
@@ -112,9 +113,9 @@ This was particularly eye-opening for those of us working on projects that need 
 
 ## Graphs and Games: Can Go Take a Ticket to Ride?
 
-Blending board games and Go programming, Michele Caci took us on a journey through graph algorithms inspired by "Ticket to Ride." 
+Blending board games and Go programming, Michele Caci took us on a journey through graph algorithms inspired by "Ticket to Ride."
 
-He demonstrated how they implemented a [Go-based version of the game](https://github.com/mcaci/go-ticket-to-ride) and applied algorithms to improve gameplay. 
+He demonstrated how they implemented a [Go-based version of the game](https://github.com/mcaci/go-ticket-to-ride) and applied algorithms to improve gameplay.
 
 It was a fun reminder of how computer science concepts can intersect with entertainment, sparking ideas for gamifying our projects.
 
@@ -143,8 +144,8 @@ Here some of his references:
 
 ## How to Punch Holes in Network Infrastructure Using Go
 
-Finally, we delved into the intricacies of peer-to-peer networking. Using the go-libp2p module, the speaker showed how to establish decentralized connections by bypassing traditional network barriers. This talk was both technical and visionary, providing us with ideas on how to optimize network performance using Go’s robust features.
-
+Finally, we delved into the intricacies of peer-to-peer networking. Using the [go-libp2p](https://github.com/libp2p/go-libp2p) module, the speaker showed how to establish decentralized connections by bypassing traditional network barriers. This talk was both technical and visionary, providing us with ideas on how to optimize network performance using Go’s robust features.
+You will be able to find his presentation materials [here](https://github.com/watjurk/talk-golab-2024-peer-to-peer-hole-punching?tab=readme-ov-file).
 ---
 
 ## Closing Keynote: Go Back to the Future
