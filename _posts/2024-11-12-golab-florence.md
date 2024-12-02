@@ -60,54 +60,75 @@ The project documentation is well supplied and full of examples that make bootst
 
 ## Let’s Go Asynchronous
 
-This session tackled the common dilemma between synchronous and asynchronous communication. [Real-world examples](https://github.com/kedlas/presentations/tree/main/2024-golab-florence_lets_go_async/sync/http) illustrated how synchronous patterns can lead to bottlenecks, while asynchronous designs promote efficiency. Techniques like load balancing, rate limiting, and implementing retries were demonstrated, showcasing Go’s flexibility with tools like RabbitMQ and PGQ. It’s a solid reminder to evaluate communication patterns carefully and how going asynchronous isn’t as daunting as it sounds.
+Tomáš Sedláček tackled the common dilemma between synchronous and asynchronous communication. 
+
+[Real-world examples](https://github.com/kedlas/presentations/tree/main/2024-golab-florence_lets_go_async/sync/http) illustrated how synchronous patterns can lead to bottlenecks, while asynchronous designs promote efficiency. Techniques like load balancing, rate limiting, and implementing retries were demonstrated, showcasing Go’s flexibility with tools like RabbitMQ and PGQ. It’s a solid reminder to evaluate communication patterns carefully and how going asynchronous isn’t as daunting as it sounds.
 
 ---
 
 ## How to Write a Programming Language and Shell in Go with 92% Test Coverage
 
-A fascinating exploration of Elvish, a shell written in Go, broke down how to create a programming language. Beyond the technical implementation, the speaker provided insights into achieving impressive test coverage and setting up instant CI/CD pipelines. The talk underscored the power of Go in developing robust systems, even for complex challenges like creating a shell.
+A fascinating exploration of [Elvish](https://elv.sh/), a shell written in Go, broke down how to create a programming language.
+
+Beyond the technical implementation, Qi Xiao provided insights into achieving impressive test coverage and setting up instant CI/CD pipelines. The talk underscored the power of Go in developing robust systems, even for complex challenges like creating a shell.
 
 ---
 
 ## From Bland to Spiky: How Generics Made My Service Super Robust
 
-This lively talk explored how generics have brought versatility to Go. The speaker used vivid examples, transforming generic code to create robust, maintainable services. The presentation not only demystified generics but also highlighted their practical benefits, such as eliminating repetition and enhancing code maintainability.
+This lively talk explored how generics have brought versatility to Go. 
+
+Teea Alarto used vivid examples, transforming generic code to create robust, maintainable services. The presentation not only demystified generics but also highlighted their practical benefits, such as eliminating repetition and enhancing code maintainability.
 
 ---
 
 ## TinyGo for Pet Automation
 
-This session was both fun and practical, demonstrating how TinyGo can be leveraged for pet automation using Arduino. The speaker presented a compelling case for TinyGo as an accessible platform for embedded programming, opening possibilities beyond traditional web development. Automation projects, whether for pets or other use cases, seem more achievable and engaging with TinyGo.
+This session was both fun and practical, demonstrating how TinyGo can be leveraged for pet automation using Arduino.
+
+Josephine Winter presented a compelling case for TinyGo as an accessible platform for embedded programming, opening possibilities beyond traditional web development. Automation projects, whether for pets or other use cases, seem more achievable and engaging with TinyGo.
 
 ---
 
 ## Gophers Gone Domain-Driven: A Tale of Go and DDD
 
-Domain-Driven Design (DDD) often intimidates developers, but this talk simplified the fundamentals for Go practitioners. By exploring domain modeling, bounded contexts, and ubiquitous language, we gained insights into creating a codebase that aligns with business logic. The speaker also discussed using hexagonal architecture to make Go applications scalable and maintainable, providing a practical roadmap for implementing DDD concepts.
+Domain-Driven Design (DDD) often intimidates developers, but this talk simplified the fundamentals for Go practitioners. 
+
+By exploring domain modeling, bounded contexts, and ubiquitous language, we gained insights into creating a codebase that aligns with business logic. 
+
+Davide Imola also discussed using hexagonal architecture to make Go applications scalable and maintainable, providing a practical roadmap for implementing DDD concepts.
 
 ---
 
 ## To CGo or Not: Cross Compiling a SQLite Driver
 
-The challenge of cross-compiling without relying on CGo was explored in this technical deep dive. The speaker introduced modernc.org/sqlite, a CGo-free driver, explaining how transpilers and C runtime emulation make it feasible. This was particularly eye-opening for those of us working on projects that need efficient and lightweight database solutions.
+The challenge of cross-compiling without relying on CGo was explored in this technical deep dive. 
+
+Jan Mercl introduced a [CGo-free driver](https://modernc.org/sqlite), explaining how transpilers and C runtime emulation make it feasible. 
+
+This was particularly eye-opening for those of us working on projects that need efficient and lightweight database solutions.
 
 ---
 
 ## Graphs and Games: Can Go Take a Ticket to Ride?
 
-Blending board games and Go programming, this presentation took us on a journey through graph algorithms inspired by "Ticket to Ride." The speaker demonstrated how they implemented a Go-based version of the game and applied algorithms to improve gameplay. It was a fun reminder of how computer science concepts can intersect with entertainment, sparking ideas for gamifying our projects.
+Blending board games and Go programming, Michele Caci took us on a journey through graph algorithms inspired by "Ticket to Ride." 
+
+He demonstrated how they implemented a [Go-based version of the game](https://github.com/mcaci/go-ticket-to-ride) and applied algorithms to improve gameplay. 
+
+It was a fun reminder of how computer science concepts can intersect with entertainment, sparking ideas for gamifying our projects.
 
 ---
 
 ## Deep Dive into a Go Binary
-Jesús Espino
-Software developer at Mattermost who loves to deep dive into technical details and previously talked about [Go Runtime](https://www.youtube.com/watch?v=arH3jp_x8yQ) answers this question :
+
+Jesús Espino, Software developer at Mattermost and who loves to deep dive into technical details and previously talked about [Go Runtime](https://www.youtube.com/watch?v=arH3jp_x8yQ), answered this question:
+
 What lies inside a Go binary?
 
 ![Deep dive in go binary](/images/posts/2024-11-12-golab-firenze/deep_dive_go_binary.jpg)
 
-This talk unveiled the secrets of compiled Go programs while mirroring The Lord of the Rings making it very pedagogical, starting with ELF format composed of a set of headers, list of sections and segments to the internal mechanisms that make a binary tick.
+Jesús unveiled the secrets of compiled Go programs while mirroring The Lord of the Rings making it very pedagogical, starting with ELF format composed of a set of headers, list of sections and segments to the internal mechanisms that make a binary tick.
 
 Understanding the anatomy of a Go binary enhanced our appreciation for the Go compiler and the efficient executables it generates.
 You can view his presentation slides [here](https://speakerdeck.com/jespino/deep-dive-into-a-go-binary)
