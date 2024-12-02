@@ -18,7 +18,6 @@ The opening keynote, delivered by Russ Cox, focused on the importance of telemet
 
 ![Go telemetry wins](/images/posts/2024-11-12-golab-firenze/go_telemetry_keynote.jpg)
 
-
 The session concluded with a call to action, encouraging everyone to enable telemetry (by running `go telemetry on`) on their Go installations to support ongoing enhancements and community-driven improvements.
 
 
@@ -27,12 +26,16 @@ The session concluded with a call to action, encouraging everyone to enable tele
 ## Instrumenting Go Apps With OpenTelemetry
 
 This talk introduced us to OpenTelemetry, an open source solution for instrumenting applications. The speaker introduced the topic with a specific situation, you have instrumenting with datadog and want to switch to another tool (for any reason such as better pricing, UX...).
+
 ![Instrumenting with datadog](/images/posts/2024-11-12-golab-firenze/instrumenting_with_datadog.jpg)
+
 ![Changing tool due to cost](/images/posts/2024-11-12-golab-firenze/changing_agent.jpg)
+
 Then he demonstrated how OpenTelemetry can be used to collect and analyze performance data (ie. through Grafana), and its benefits compared to an agent :
 - No need to install an agent on the host
 - No cost of install when changing agent 
 - Open source so it's tool agnostic
+
 ![Opentelemetry simple schema](/images/posts/2024-11-12-golab-firenze/opentelemtry_schema.avif)
 
 At Bedrock, we mainly use [NewRelic for our monitoring](https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html), but we are free either to use the NewRelic agent or to use OpenTelemetry to collect traces, metrics and logs.
@@ -43,6 +46,7 @@ At Bedrock, we mainly use [NewRelic for our monitoring](https://tech.bedrockstre
 
 The [Watermill library](https://watermill.io/) was highlighted as a game-changer for event-driven architecture in Go. Initially born out of a need to simplify the complexity of building event-driven systems, Watermill has evolved into a mature and widely adopted library. The talk inspired us by demonstrating how adopting Watermill can transform projects needing scalability and resilience, and it has now become a key consideration for us in future architectural designs.
 The design of this very complete library is thought out in three blocks that can be used independently or not:
+
 ![pyramid](https://github.com/user-attachments/assets/ce78b1ab-6259-4fe1-91ec-fb421c3fdfdf)
 
 The first, on which the rest is based, is a simple [Publisher/Subscriber brick](https://watermill.io/docs/pub-sub/) with several implementations ( go channel,kafka,RabbitMQ etc...).
