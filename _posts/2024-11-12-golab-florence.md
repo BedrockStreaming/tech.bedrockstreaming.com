@@ -20,6 +20,7 @@ The opening keynote, delivered by Russ Cox, focused on the importance of telemet
 
 The session concluded with a call to action, encouraging everyone to enable telemetry (by running `go telemetry on`) on their Go installations to support ongoing enhancements and community-driven improvements.
 
+All data collected are public and could be found [here](https://telemetry.go.dev/)
 
 ---
 
@@ -144,13 +145,19 @@ Here some of his references:
 
 ## How to Punch Holes in Network Infrastructure Using Go
 
-Finally, we delved into the intricacies of peer-to-peer networking. Using the [go-libp2p](https://github.com/libp2p/go-libp2p) module, the speaker showed how to establish decentralized connections by bypassing traditional network barriers. This talk was both technical and visionary, providing us with ideas on how to optimize network performance using Go’s robust features.
+Finally, we delved into the intricacies of peer-to-peer networking. Using the [go-libp2p](https://github.com/libp2p/go-libp2p) module, the speaker showed how to establish decentralized connections by bypassing traditional network barriers. 
+
+This talk was both technical and visionary, providing us with ideas on how to optimize network performance using Go’s robust features.
+
 You will be able to find his presentation materials [here](https://github.com/watjurk/talk-golab-2024-peer-to-peer-hole-punching?tab=readme-ov-file).
+
 ---
 
 ## Closing Keynote: Go Back to the Future
 
-The closing keynote was a captivating journey through Go's past, present, and future, filled with live demos and unexpected surprises. The speaker showcased the evolution of Go while exploring how the language might shape the future of programming. One of the highlights was a live demonstration where the presenter made a drone fly over the audience, all powered and controlled by Go. This thrilling spectacle illustrated the language’s potential in robotics and automation, leaving everyone inspired and in awe of what Go can achieve.
+The closing keynote was a captivating journey through Go's past, present, and future, filled with live demos and unexpected surprises. 
+
+The speaker showcased the evolution of Go while exploring how the language might shape the future of programming. One of the highlights was a live demonstration where the presenter made a drone fly over the audience, all powered and controlled by Go. This thrilling spectacle illustrated the language’s potential in robotics and automation, leaving everyone inspired and in awe of what Go can achieve.
 
 
 ### Conclusion
