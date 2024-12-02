@@ -14,7 +14,7 @@ Attending the [Golab conference](https://golab.io/) in Florence has been a thril
 
 ## Keynote: Go Telemetry Wins
 
-The opening keynote, delivered by a member of the Go team, focused on the importance of telemetry in the Go ecosystem itself. The speaker explained how telemetry data helps the Go team make informed decisions to improve the language and its ecosystem, emphasizing the strict measures taken to ensure user privacy. We learned how telemetry is carefully designed to protect sensitive information while still providing valuable insights.
+The opening keynote, delivered by Russ Cox, focused on the importance of telemetry in the Go ecosystem itself. Russ explained how telemetry data helps the Go team make informed decisions to improve the language and its ecosystem, emphasizing the strict measures taken to ensure user privacy. We learned how telemetry is carefully designed to protect sensitive information while still providing valuable insights.
 
 ![Go telemetry wins](/images/posts/2024-11-12-golab-firenze/go_telemetry_keynote.jpg)
 
