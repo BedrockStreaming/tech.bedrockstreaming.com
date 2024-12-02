@@ -42,6 +42,15 @@ At Bedrock, we mainly use [NewRelic for our monitoring](https://tech.bedrockstre
 ## Watermill: The Missing Standard Library for Event-Driven Applications
 
 The [Watermill library](https://watermill.io/) was highlighted as a game-changer for event-driven architecture in Go. Initially born out of a need to simplify the complexity of building event-driven systems, Watermill has evolved into a mature and widely adopted library. The talk inspired us by demonstrating how adopting Watermill can transform projects needing scalability and resilience, and it has now become a key consideration for us in future architectural designs.
+The design of this very complete library is thought out in three blocks that can be used independently or not:
+![pyramid](https://github.com/user-attachments/assets/ce78b1ab-6259-4fe1-91ec-fb421c3fdfdf)
+
+The first, on which the rest is based, is a simple [Publisher/Subscriber brick](https://watermill.io/docs/pub-sub/) with several implementations ( go channel,kafka,RabbitMQ etc...).
+
+The second is a [Router layer](https://watermill.io/docs/messages-router/) which manages advanced event dispatch processing and adds the possibility of using middleware such as metrics, poison queue, retrying, throttling, etc. .
+
+The last block is the [CQRS management block](https://watermill.io/docs/cqrs/).
+The project documentation is well supplied and full of examples that make bootstrapping in existing projects much easier.
 
 ---
 
