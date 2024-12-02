@@ -8,7 +8,7 @@ color: rgb(251,87,66)
 thumbnail: "/images/posts/2024-11-12-golab-firenze/firenze.jpg"
 ---
 
-Attending the Golab conference in Florence has been a thrilling experience for us as developers. Immersing ourselves in talks by some of the most brilliant minds in the Go community gave us a deeper understanding of advanced concepts, practical libraries, and the future of Go. We’ve summarized the key takeaways from the talks we attended to share some of the valuable lessons and fresh perspectives we gained.
+Attending the [Golab conference](https://golab.io/) in Florence has been a thrilling experience for us as developers. Immersing ourselves in talks by some of the most brilliant minds in the Go community gave us a deeper understanding of advanced concepts, practical libraries, and the future of Go. We’ve summarized the key takeaways from the talks we attended to share some of the valuable lessons and fresh perspectives we gained.
 
 ---
 
