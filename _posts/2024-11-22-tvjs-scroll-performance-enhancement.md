@@ -7,7 +7,7 @@ tags: [TV, performance, javascript, react, web, frontend]
 color: rgb(251,87,66)
 ---
 
-A core experience of a Bedrock app for the end user is browsing the catalogue. Scrolling vertically through blocks of content, and scrolling horizontally through lists of items. TVs do not offer high performance and provide poor user experience during heavy resource actions. Namely, we noticed that scrolling horizontally in a list was laggy and unpleasant. This article focuses on performance optimization to enhance the horizontal scroll experience.
+One of the core experiences of a Bedrock app for the end user is browsing the catalogue. Scrolling vertically through blocks of content, and scrolling horizontally through lists of items. However, TVs do not offer high performance and provide poor user experience during heavy resource actions. We especially noticed that scrolling horizontally in a list was laggy and unpleasant. This article focuses on performance optimization to enhance the horizontal scroll experience on Smart TVs.
 
 # [Context](#context)
 On TV, we scroll horizontally by focusing each item sequentially when the user presses the left or right arrow button on their remote.
