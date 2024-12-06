@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/2024-11-12-golab-firenze/firenze.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Insights from Golab Conference 2024, Florence | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Insights from Golab Conference 2024, Florence" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="TODO" />
+<meta property="og:description" content="TODO" />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2024/11/12/golab-florence.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2024/11/12/golab-florence.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-11-12T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Insights from Golab Conference 2024, Florence" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","description":"TODO","url":"https://tech.bedrockstreaming.com/2024/11/12/golab-florence.html","headline":"Insights from Golab Conference 2024, Florence","dateModified":"2024-11-12T00:00:00+00:00","datePublished":"2024-11-12T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2024/11/12/golab-florence.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Insights from Golab Conference 2024, Florence">
+    <meta name="twitter:description" content="Attending the Golab conference in Florence has been a thrilling experience for us as developers. Immersing ourselves in talks by some of the most brilliant m...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/2024-11-12-golab-firenze/firenze.jpg">
+    <meta name="twitter:image:alt" content="Insights from Golab Conference 2024, Florence">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Insights from Golab Conference 2024, Florence " aria-label="Insights from Golab Conference 2024, Florence" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Insights+from+Golab+Conference+2024%2C+Florence" class="title">Insights from Golab Conference 2024, Florence</h1>
+      <div class="post-info">
+
+
+<a
+      href="https://github.com/t-geindre/"
+      target="_blank"
+      rel="noopener"
+      class="author">
+
+    
+      <span class="name">
+        Thierry Geindre
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    
+      <span class="name">
+        Kelly Phan
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    
+      <span class="name">
+        Jérôme Hardeman
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    November 12, 2024
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Attending the <a href="https://golab.io/">Golab conference</a> in Florence has been a thrilling experience for us as developers. Immersing ourselves in talks by some of the most brilliant minds in the Go community gave us a deeper understanding of advanced concepts, practical libraries, and the future of Go. We’ve summarized the key takeaways from the talks we attended to share some of the valuable lessons and fresh perspectives we gained.</p>
+
+<hr />
+
+<h2 id="keynote-go-telemetry-wins">Keynote: Go Telemetry Wins</h2>
+
+<p>The opening keynote, delivered by Russ Cox, focused on the importance of telemetry in the Go ecosystem itself. Russ explained how telemetry data helps the Go team make informed decisions to improve the language and its ecosystem, emphasizing the strict measures taken to ensure user privacy. We learned how telemetry is carefully designed to protect sensitive information while still providing valuable insights.</p>
+
+<p><img src="/images/posts/2024-11-12-golab-firenze/go_telemetry_keynote.jpg" alt="Go telemetry wins" /></p>
+
+<p>The session concluded with a call to action, encouraging everyone to enable telemetry (by running <code class="language-plaintext highlighter-rouge">go telemetry on</code>) on their Go installations to support ongoing enhancements and community-driven improvements.</p>
+
+<p>All data collected are public and could be found <a href="https://telemetry.go.dev/">here</a></p>
+
+<hr />
+
+<h2 id="instrumenting-go-apps-with-opentelemetry">Instrumenting Go Apps With OpenTelemetry</h2>
+
+<p>This talk introduced us to OpenTelemetry, an open source solution for instrumenting applications. The speaker introduced the topic with a specific situation, you have instrumenting with datadog and want to switch to another tool (for any reason such as better pricing, UX…).</p>
+
+<p><img src="/images/posts/2024-11-12-golab-firenze/instrumenting_with_datadog.jpg" alt="Instrumenting with datadog" /></p>
+
+<p><img src="/images/posts/2024-11-12-golab-firenze/changing_agent.jpg" alt="Changing tool due to cost" /></p>
+
+<p>Then he demonstrated how OpenTelemetry can be used to collect and analyze performance data (ie. through Grafana), and its benefits compared to an agent :</p>
+<ul>
+  <li>No need to install an agent on the host</li>
+  <li>No cost of install when changing agent</li>
+  <li>Open source so it’s tool agnostic</li>
+</ul>
+
+<p><img src="/images/posts/2024-11-12-golab-firenze/opentelemtry_schema.avif" alt="Opentelemetry simple schema" /></p>
+
+<p>At Bedrock, we mainly use <a href="https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html">NewRelic for our monitoring</a>, but we are free either to use the NewRelic agent or to use OpenTelemetry to collect traces, metrics and logs.</p>
+
+<hr />
+
+<h2 id="watermill-the-missing-standard-library-for-event-driven-applications">Watermill: The Missing Standard Library for Event-Driven Applications</h2>
+
+<p>The <a href="https://watermill.io/">Watermill library</a> was highlighted as a game-changer for event-driven architecture in Go. Initially born out of a need to simplify the complexity of building event-driven systems, Watermill has evolved into a mature and widely adopted library. The talk inspired us by demonstrating how adopting Watermill can transform projects needing scalability and resilience, and it has now become a key consideration for us in future architectural designs.
+The design of this very complete library is thought out in three blocks that can be used independently or not:</p>
+
+<p><img src="https://github.com/user-attachments/assets/ce78b1ab-6259-4fe1-91ec-fb421c3fdfdf" alt="pyramid" /></p>
+
+<p>The first, on which the rest is based, is a simple <a href="https://watermill.io/docs/pub-sub/">Publisher/Subscriber brick</a> with several implementations (go channel,kafka,RabbitMQ etc…).</p>
+
+<p>The second is a <a href="https://watermill.io/docs/messages-router/">Router layer</a> which manages advanced event dispatch processing and adds the possibility of using middleware such as metrics, poison queue, retrying, throttling, etc. .</p>
+
+<p>The last block is the <a href="https://watermill.io/docs/cqrs/">CQRS management block</a>.
+The project documentation is well supplied and full of examples that make bootstrapping in existing projects much easier.
+You will find its presentation materials <a href="https://threedots.tech/presentations/2024/golab/">here</a>.
+—</p>
+
+<h2 id="lets-go-asynchronous">Let’s Go Asynchronous</h2>
+
+<p>Tomáš Sedláček tackled the common dilemma between synchronous and asynchronous communication.</p>
+
+<p><a href="https://github.com/kedlas/presentations/tree/main/2024-golab-florence_lets_go_async/sync/http">Real-world examples</a> illustrated how synchronous patterns can lead to bottlenecks, while asynchronous designs promote efficiency. Techniques like load balancing, rate limiting, and implementing retries were demonstrated, showcasing Go’s flexibility with tools like RabbitMQ and PGQ. It’s a solid reminder to evaluate communication patterns carefully and how going asynchronous isn’t as daunting as it sounds.</p>
+
+<hr />
+
+<h2 id="how-to-write-a-programming-language-and-shell-in-go-with-92-test-coverage">How to Write a Programming Language and Shell in Go with 92% Test Coverage</h2>
+
+<p>A fascinating exploration of <a href="https://elv.sh/">Elvish</a>, a shell written in Go, broke down how to create a programming language.</p>
+
+<p>Beyond the technical implementation, Qi Xiao provided insights into achieving impressive test coverage and setting up instant CI/CD pipelines. The talk underscored the power of Go in developing robust systems, even for complex challenges like creating a shell.</p>
+
+<hr />
+
+<h2 id="from-bland-to-spiky-how-generics-made-my-service-super-robust">From Bland to Spiky: How Generics Made My Service Super Robust</h2>
+
+<p>This lively talk explored how generics have brought versatility to Go.</p>
+
+<p><a href="https://linktr.ee/teea_golab24">Teea Alarto</a> used vivid examples, transforming generic code to create robust, maintainable services. The presentation not only demystified generics but also highlighted their practical benefits, such as eliminating repetition and enhancing code maintainability.</p>
+
+<hr />
+
+<h2 id="tinygo-for-pet-automation">TinyGo for Pet Automation</h2>
+
+<p>This session was both fun and practical, demonstrating how TinyGo can be leveraged for pet automation using Arduino.</p>
+
+<p>Josephine Winter presented a compelling case for TinyGo as an accessible platform for embedded programming, opening possibilities beyond traditional web development. Automation projects, whether for pets or other use cases, seem more achievable and engaging with TinyGo.</p>
+
+<hr />
+
+<h2 id="gophers-gone-domain-driven-a-tale-of-go-and-ddd">Gophers Gone Domain-Driven: A Tale of Go and DDD</h2>
+
+<p>Domain-Driven Design (DDD) often intimidates developers, but this talk simplified the fundamentals for Go practitioners.</p>
+
+<p>By exploring domain modeling, bounded contexts, and ubiquitous language, we gained insights into creating a codebase that aligns with business logic.</p>
+
+<p>Davide Imola also discussed using hexagonal architecture to make Go applications scalable and maintainable, providing a practical roadmap for implementing DDD concepts.
+He provides a simple example of a structured <a href="https://github.com/davideimola/ddd-onion-go">Go project</a> using the DDD and Onion Architecture concepts.</p>
+
+<hr />
+
+<h2 id="to-cgo-or-not-cross-compiling-a-sqlite-driver">To CGo or Not: Cross Compiling a SQLite Driver</h2>
+
+<p>The challenge of cross-compiling without relying on CGo was explored in this technical deep dive.</p>
+
+<p>Jan Mercl introduced a <a href="https://modernc.org/sqlite">CGo-free driver</a>, explaining how transpilers and C runtime emulation make it feasible.</p>
+
+<p>This was particularly eye-opening for those of us working on projects that need efficient and lightweight database solutions.</p>
+
+<hr />
+
+<h2 id="graphs-and-games-can-go-take-a-ticket-to-ride">Graphs and Games: Can Go Take a Ticket to Ride?</h2>
+
+<p>Blending board games and Go programming, Michele Caci took us on a journey through graph algorithms inspired by “Ticket to Ride.”</p>
+
+<p>He demonstrated how they implemented a <a href="https://github.com/mcaci/go-ticket-to-ride">Go-based version of the game</a> and applied algorithms to improve gameplay.</p>
+
+<p>It was a fun reminder of how computer science concepts can intersect with entertainment, sparking ideas for gamifying our projects.</p>
+
+<hr />
+
+<h2 id="deep-dive-into-a-go-binary">Deep Dive into a Go Binary</h2>
+
+<p>Jesús Espino, Software developer at Mattermost and who loves to deep dive into technical details and previously talked about <a href="https://www.youtube.com/watch?v=arH3jp_x8yQ">Go Runtime</a>, answered this question:</p>
+
+<p>What lies inside a Go binary?</p>
+
+<p><img src="/images/posts/2024-11-12-golab-firenze/deep_dive_go_binary.jpg" alt="Deep dive in go binary" /></p>
+
+<p>Jesús unveiled the secrets of compiled Go programs while mirroring The Lord of the Rings making it very pedagogical, starting with ELF format composed of a set of headers, list of sections and segments to the internal mechanisms that make a binary tick.</p>
+
+<p>Understanding the anatomy of a Go binary enhanced our appreciation for the Go compiler and the efficient executables it generates.
+You can view his presentation slides <a href="https://speakerdeck.com/jespino/deep-dive-into-a-go-binary">here</a></p>
+
+<p>Here some of his references:</p>
+<ul>
+  <li><a href="https://youtu.be/nC1U1LJQL80?si=0-X8EnOUVgbmCkPp">In-depth ELF</a></li>
+  <li><a href="https://github.com/mandiant/GoReSym">GoReSym</a></li>
+  <li><a href="https://github.com/burrowers/garble">Garble</a></li>
+  <li>The go source code (specifically the linker code)</li>
+</ul>
+
+<hr />
+
+<h2 id="how-to-punch-holes-in-network-infrastructure-using-go">How to Punch Holes in Network Infrastructure Using Go</h2>
+
+<p>Finally, we delved into the intricacies of peer-to-peer networking. Using the <a href="https://github.com/libp2p/go-libp2p">go-libp2p</a> module, the speaker showed how to establish decentralized connections by bypassing traditional network barriers.</p>
+
+<p>This talk was both technical and visionary, providing us with ideas on how to optimize network performance using Go’s robust features.</p>
+
+<p>You will be able to find his presentation materials <a href="https://github.com/watjurk/talk-golab-2024-peer-to-peer-hole-punching?tab=readme-ov-file">here</a>.</p>
+
+<hr />
+
+<h2 id="closing-keynote-go-back-to-the-future">Closing Keynote: Go Back to the Future</h2>
+
+<p>The closing keynote was a captivating journey through Go’s past, present, and future, filled with live demos and unexpected surprises.</p>
+
+<p>The speaker showcased the evolution of Go while exploring how the language might shape the future of programming. One of the highlights was a live demonstration where the presenter made a drone fly over the audience, all powered and controlled by Go. This thrilling spectacle illustrated the language’s potential in robotics and automation, leaving everyone inspired and in awe of what Go can achieve.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>The Golab conference in Florence provided a rich tapestry of knowledge, sparking inspiration and reaffirming our love for Go. From new architectural insights to innovative uses of Go in domains like automation and networking, we walked away with a toolkit full of ideas to bring back to our development practices. We’re eager to implement some of these learnings and contribute further to the vibrant Go community!</p>
+
+<p><img src="/images/posts/2024-11-12-golab-firenze/golab_group.jpg" alt="Bedrock devs" /></p>
+
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Insights+from+Golab+Conference+2024%2C+Florence%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2024%2F11%2F12%2Fgolab-florence.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2024/11/12/golab-florence.html&title=Insights+from+Golab+Conference+2024%2C+Florence%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2024/11/12/golab-florence.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Insights from Golab Conference 2024, Florence%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2024/11/12/golab-florence.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#2024">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> 2024</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#community">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> community</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#golang">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> golang</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#opensource">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> opensource</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="Using Fastly's Compute at-edge to personalize static pre-generated pages" href="/2024/11/07/compute-at-edge-personalize-static-pages.html">
+            <p>Next post</p>
+            Using Fastly's Compute at-edge to personalize static pre-generated pages
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>
