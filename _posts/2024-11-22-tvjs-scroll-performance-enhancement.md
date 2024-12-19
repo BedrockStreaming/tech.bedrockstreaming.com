@@ -9,7 +9,8 @@ color: rgb(251,87,66)
 
 One of the core experiences of a Bedrock app for the end user is browsing the catalog. Scrolling vertically through blocks of content, and scrolling horizontally through lists of items. However, TVs do not offer high performance and provide poor user experience during heavy resource actions. We especially noticed that scrolling horizontally in a list was laggy and unpleasant. This article focuses on performance optimization to enhance the horizontal scroll experience on Smart TVs.
 
-![test gif](/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/old-scroll.gif)
+![Laggy scroll video](/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/old-scroll.gif)
+_Note : The GIF above shows a laggy scroll experience on TV. During the videos featured in this article, a x20 cpu throttle has been enforced on the browser, to mimic a low-performance TV device_
 
 # [Context](#context)
 On TV, we scroll horizontally by focusing each item sequentially when the user presses the left or right arrow button on their remote.
@@ -120,4 +121,7 @@ Scrolling down in a page with lighter lists is also more efficient. Here, measur
 
 Beyond benchmarks, on-device tests were also conclusive: the scroll is smoother, we almost eliminated the lag caused by a pagination fetch. Overall, it feels better to scroll through a list.
 # [Conclusion](#conclusion)
+
+![New and more fluid scroll](/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/new-scroll.gif)
+
 This frontend R&D project successfully addressed the scrolling performance issues on TV. The new scrolling solution dramatically improved performance by limiting re-renders. This optimization ensured a smoother scrolling experience, enhancing usability on TV devices. From this experience, we also moved on to implementing the same virtualization on the horizontal scroll of the catalog, which presented its own challenges but was also a success.
