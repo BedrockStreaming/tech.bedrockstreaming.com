@@ -7,7 +7,7 @@ tags: [TV, performance, javascript, react, web, frontend]
 color: rgb(251,87,66)
 ---
 
-One of the core experiences of a Bedrock app for the end user is browsing the catalogue. Scrolling vertically through blocks of content, and scrolling horizontally through lists of items. However, TVs do not offer high performance and provide poor user experience during heavy resource actions. We especially noticed that scrolling horizontally in a list was laggy and unpleasant. This article focuses on performance optimization to enhance the horizontal scroll experience on Smart TVs.
+One of the core experiences of a Bedrock app for the end user is browsing the catalog. Scrolling vertically through blocks of content, and scrolling horizontally through lists of items. However, TVs do not offer high performance and provide poor user experience during heavy resource actions. We especially noticed that scrolling horizontally in a list was laggy and unpleasant. This article focuses on performance optimization to enhance the horizontal scroll experience on Smart TVs.
 
 # [Context](#context)
 On TV, we scroll horizontally by focusing each item sequentially when the user presses the left or right arrow button on their remote.
@@ -81,14 +81,14 @@ The heart of the implementation is to fill each cell with a new item at each scr
 This is where we can leverage [React's keys mechanism](https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key). Items rendered use a key that combines the original cell index with the current scroll offset. These keys help React reconcile the item in cell 1 before render as the item in cell 2 after render as the same item, thus reusing the same DOM node. As a result, we get 0 re-renders for the items that are shifting places, significantly reducing the performance impact of a scroll.
 
 <figure>
-  <img src="/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/profiling.png" alt="profiling"/>
-  <figcaption>☝️Profiling during a single scroll right. The only items rendering are the ones with focus change (item losing focus and item gaining focus) and the new item that wasn’t on the screen. Every other item is unbothered by a horizontal scroll</figcaption>
+  <img src="/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/profiling.png" alt="profiling flame graph"/>
+  <figcaption>☝️Profiling during a single scroll right. The only items rendering are the ones with focus change (item losing focus and item gaining focus) and the new item that wasn’t on the screen. Every other item is unaffected by a horizontal scroll</figcaption>
 </figure>
 ---  
 
 # [Optimised pagination](#optimised-pagination)
 
-A nice win from virtualization is the impact on pagination. Only a subset of items are rendered on the screen. Also, the list itself only needs to know about that subset of items since it uses a constant array to display its items. This means that a new page fetched has 0 impact on renders: the new items are added to the store, but the React component itself has no knowledge of that operation and triggers no re-renders.
+A nice win from virtualization is the impact on pagination. Only a subset of items is rendered on the screen. Also, the list itself only needs to know about that subset of items since it uses a constant array to display its items. This means that a new page fetched has 0 impact on renders: the new items are added to the store, but the React component itself has no knowledge of that operation and triggers no re-renders.
 
 # [Results](#results)
 _Note: measurements presented here are taken with the Chrome DevTools performance tab, with x6 CPU throttle and network connection limited to fast 4G to mimic a low-performance TV device and keep a steady test environment. Times are scripting and rendering times added._
@@ -118,4 +118,4 @@ Scrolling down in a page with lighter lists is also more efficient. Here, measur
 
 Beyond benchmarks, on-device tests were also conclusive: the scroll is smoother, we almost eliminated the lag caused by a pagination fetch. Overall, it feels better to scroll through a list.
 # [Conclusion](#conclusion)
-This frontend R&D project successfully addressed the scrolling performance issues on TV. The new scrolling solution dramatically improved performance by limiting re-renders. This optimization ensured a smoother scrolling experience, enhancing usability on TV devices. From this experience, we also moved on to implementing the same virtualization on the horizontal scroll of the catalogue, which presented its own challenges but was also a success.
+This frontend R&D project successfully addressed the scrolling performance issues on TV. The new scrolling solution dramatically improved performance by limiting re-renders. This optimization ensured a smoother scrolling experience, enhancing usability on TV devices. From this experience, we also moved on to implementing the same virtualization on the horizontal scroll of the catalog, which presented its own challenges but was also a success.
