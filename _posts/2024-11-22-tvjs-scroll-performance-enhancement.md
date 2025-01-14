@@ -66,13 +66,13 @@ const ScrollComponent = () => {
 
 Each cell is connected to the store and uses its own index as selection parameter to get the corresponding item in the store (cell of index 0 gets the first item, cell of index 1 gets the second, etc.)
 
-![Schema representing 4 slots with rendered items inside](/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/filled-slots.avif)
+![Schema representing 4 slots with rendered items inside](/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/filled-slots.png)
 
 At this point, only a subset of the list is rendered, as many items as the static array has cells.
 
 Horizontal scroll is managed by incrementing the selection index upon user input (e.g., pressing the right arrow key). Using the same array, each cell now selects from the store the item for its index plus an “offset” that describes how much the list is scrolled.
 
-![Schema representing 4 slots with rendered items inside](/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/filled-slots-with-offset.avif)
+![Schema representing 4 slots with rendered items inside](/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/filled-slots-with-offset.png)
 
 By offsetting the items at every user input (negative offset to move the items to the right and positive offset to move the items to the left), we achieve a visual scroll, with only a subsection of the list displayed on screen.
 
@@ -85,7 +85,7 @@ The heart of the implementation is to fill each cell with a new item at each scr
 This is where we can leverage [React's keys mechanism](https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key). Items rendered use a key that combines the original cell index with the current scroll offset. These keys help React reconcile the item in cell 1 before render as the item in cell 2 after render as the same item, thus reusing the same DOM node. As a result, we get 0 re-renders for the items that are shifting places, significantly reducing the performance impact of a scroll.
 
 <figure>
-  <img src="/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/profiling.avif" alt="profiling flame graph"/>
+  <img src="/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/profiling.png" alt="profiling flame graph"/>
   <figcaption>☝️Profiling during a single scroll right. The only items rendering are the ones with focus change (item losing focus and item gaining focus) and the new item that wasn’t on the screen. Every other item is unaffected by a horizontal scroll</figcaption>
 </figure>
 ---  
