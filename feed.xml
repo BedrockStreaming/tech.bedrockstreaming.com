@@ -1,4 +1,154 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2024-12-06T15:34:14+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Insights from Golab Conference 2024, Florence</title><link href="https://tech.bedrockstreaming.com/2024/11/12/golab-florence.html" rel="alternate" type="text/html" title="Insights from Golab Conference 2024, Florence" /><published>2024-11-12T00:00:00+00:00</published><updated>2024-11-12T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/11/12/golab-florence</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/11/12/golab-florence.html">&lt;p&gt;Attending the &lt;a href=&quot;https://golab.io/&quot;&gt;Golab conference&lt;/a&gt; in Florence has been a thrilling experience for us as developers. Immersing ourselves in talks by some of the most brilliant minds in the Go community gave us a deeper understanding of advanced concepts, practical libraries, and the future of Go. We’ve summarized the key takeaways from the talks we attended to share some of the valuable lessons and fresh perspectives we gained.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2025-01-14T11:11:25+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">How we improved scroll performance on Smart TV apps</title><link href="https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html" rel="alternate" type="text/html" title="How we improved scroll performance on Smart TV apps" /><published>2024-11-22T00:00:00+00:00</published><updated>2024-11-22T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html">&lt;p&gt;One of the core experiences of a Bedrock app for the end user is browsing the catalog. Scrolling vertically through blocks of content, and scrolling horizontally through lists of items. However, TVs do not offer high performance and provide poor user experience during heavy resource actions. We especially noticed that scrolling horizontally in a list was laggy and unpleasant. This article focuses on performance optimization to enhance the horizontal scroll experience on Smart TVs.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/old-scroll.gif&quot; alt=&quot;Laggy scroll video&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note : The GIF above shows a laggy scroll experience on TV. During the videos featured in this article, a x20 CPU throttle has been enforced on the browser, to mimic a low-performance TV device&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;context&quot;&gt;&lt;a href=&quot;#context&quot;&gt;Context&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;On TV, we scroll horizontally by focusing each item sequentially when the user presses the left or right arrow button on their remote.&lt;/p&gt;
+
+&lt;p&gt;Scrollable lists can be of various sizes and even include paginated content. In cases of paginated content, the next page is fetched preemptively during scroll, when the focus reaches a certain threshold.&lt;/p&gt;
+
+&lt;p&gt;Our old scroll component worked as follows: we would render a whole list of items, in a parent component handling scroll. When scrolling horizontally, the focus would switch to the next item. This would notify the parent component in charge of scroll, that would move the whole list laterally. The movement was computed from the measurements of the focused item, the size of the list, and the size of the container.&lt;/p&gt;
+
+&lt;p&gt;There are multiple chances for improvement in this implementation:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Since every item was rendered in the DOM, moving the whole list was very heavy. Subsequently, a whole page of lists was itself pretty heavy to render.&lt;/li&gt;
+  &lt;li&gt;Because the whole list is rendered, fetching a new page means that the new items are immediately all rendered to the DOM, imposing a heavy load by displaying content that is not even on the screen.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;virtualization&quot;&gt;&lt;a href=&quot;#virtualization&quot;&gt;Virtualization&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;To address the first shortcoming of the initial approach, we introduced virtualization. Virtualization is a technique to render only the items that are visible on the screen.&lt;/p&gt;
+
+&lt;p&gt;For context, the content we display on each list is normalized and stored in a redux store. All the items are available in an array and can be selected by their respective index.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ItemComponent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;position&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;useSelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;selectItemByIndex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Item&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The virtualized scroll renders items based on a static array, each cell of the array being a slot for the item it’s going to display.&lt;/p&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ScrollComponent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SCROLLER_BASE_ARRAY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nbItemsToDisplay&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SCROLLER_BASE_ARRAY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;focusOffset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setFocusOffset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// focusOffset is a state updated upon user input: &lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// + 1 when the right arrow is clicked, -1 when the left arrow is clicked&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;position&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;focusOffset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+        &lt;span class=&quot;k&quot;&gt;return &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ItemComponent&lt;/span&gt;
+                &lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+                &lt;span class=&quot;nx&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;        &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/empty-slots.png&quot; alt=&quot;Schema representing 4 empty slots&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Each cell is connected to the store and uses its own index as selection parameter to get the corresponding item in the store (cell of index 0 gets the first item, cell of index 1 gets the second, etc.)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/filled-slots.png&quot; alt=&quot;Schema representing 4 slots with rendered items inside&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;At this point, only a subset of the list is rendered, as many items as the static array has cells.&lt;/p&gt;
+
+&lt;p&gt;Horizontal scroll is managed by incrementing the selection index upon user input (e.g., pressing the right arrow key). Using the same array, each cell now selects from the store the item for its index plus an “offset” that describes how much the list is scrolled.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/filled-slots-with-offset.png&quot; alt=&quot;Schema representing 4 slots with rendered items inside&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;By offsetting the items at every user input (negative offset to move the items to the right and positive offset to move the items to the left), we achieve a visual scroll, with only a subsection of the list displayed on screen.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/scrolling.gif&quot; alt=&quot;Animation showing a scrolling list.gif&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;optimised-rendering-with-react-keys&quot;&gt;&lt;a href=&quot;#optimised-rendering-with-react-keys&quot;&gt;Optimised Rendering with React Keys&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;The heart of the implementation is to fill each cell with a new item at each scroll. From the point of view of a single cell, when we scroll, the item it displays is new. But we know that the item already existed in the DOM, just one cell over.&lt;/p&gt;
+
+&lt;p&gt;This is where we can leverage &lt;a href=&quot;https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key&quot;&gt;React’s keys mechanism&lt;/a&gt;. Items rendered use a key that combines the original cell index with the current scroll offset. These keys help React reconcile the item in cell 1 before render as the item in cell 2 after render as the same item, thus reusing the same DOM node. As a result, we get zero re-renders for the items that are shifting places, significantly reducing the performance impact of a scroll.&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/profiling.png&quot; alt=&quot;Profiling flame graph&quot; /&gt;
+  &lt;figcaption&gt;☝️Profiling during a single scroll right. The only items rendering are the ones with focus change (item losing focus and item gaining focus) and the new item that wasn’t on the screen. Every other item is unaffected by a horizontal scroll&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;optimised-pagination&quot;&gt;&lt;a href=&quot;#optimised-pagination&quot;&gt;Optimised pagination&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;A nice win from virtualization is the impact on pagination. Only a subset of items is rendered on the screen. Also, the list itself only needs to know about that subset of items since it uses a constant array to display its items. This means that a new page fetched has 0 impact on renders: the new items are added to the store, but the React component itself has no knowledge of that operation and triggers no re-renders.&lt;/p&gt;
+
+&lt;h1 id=&quot;results&quot;&gt;&lt;a href=&quot;#results&quot;&gt;Results&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;Note: measurements presented here are taken with the Chrome DevTools performance tab, with x6 CPU throttle and network connection limited to fast 4G to mimic a low-performance TV device and keep a steady test environment. Times are scripting and rendering times added.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;We can compare a few benchmarks to exhibit the gains from the new scroller.&lt;/p&gt;
+
+&lt;p&gt;Scrolling right is obviously less expensive now. Here, measurements were taken from a single scroll right, in a 72 items list.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Before&lt;/th&gt;
+      &lt;th&gt;After, with new scroll&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;462ms&lt;/td&gt;
+      &lt;td&gt;41ms (-91%)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;But more closely to the app’s actual use, here is a scenario measuring the cost of scrolling right through a list of 72 items, with 8 pages fetched during scroll.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Before&lt;/th&gt;
+      &lt;th&gt;After&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;11615ms&lt;/td&gt;
+      &lt;td&gt;8631ms (-26%)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Here, we include everything else a list does when scrolling (fetching new pages, additional handlers…), so the gain is less, but still significant.&lt;/p&gt;
+
+&lt;p&gt;Scrolling down in a page with lighter lists is also more efficient. Here, measurements were taken during a scroll down 25 lists.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Before&lt;/th&gt;
+      &lt;th&gt;After&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1308ms&lt;/td&gt;
+      &lt;td&gt;1038ms (-21%)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Beyond benchmarks, on-device tests were also conclusive: the scroll is smoother, we almost eliminated the lag caused by a pagination fetch. Overall, it feels better to scroll through a list.&lt;/p&gt;
+&lt;h1 id=&quot;conclusion&quot;&gt;&lt;a href=&quot;#conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/new-scroll.gif&quot; alt=&quot;New and more fluid scroll&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This frontend R&amp;amp;D project successfully addressed the scrolling performance issues on TV. The new scrolling solution dramatically improved performance by limiting re-renders. This optimization ensured a smoother scrolling experience, enhancing usability on TV devices. From this experience, we also moved on to implementing the same virtualization on the horizontal scroll of the catalog, which presented its own challenges but was also a success.&lt;/p&gt;</content><author><name>[&quot;m_bernier&quot;]</name></author><category term="TV" /><category term="performance" /><category term="javascript" /><category term="react" /><category term="web" /><category term="frontend" /><summary type="html">One of the core experiences of a Bedrock app for the end user is browsing the catalog. Scrolling vertically through blocks of content, and scrolling horizontally through lists of items. However, TVs do not offer high performance and provide poor user experience during heavy resource actions. We especially noticed that scrolling horizontally in a list was laggy and unpleasant. This article focuses on performance optimization to enhance the horizontal scroll experience on Smart TVs.</summary></entry><entry><title type="html">Insights from Golab Conference 2024, Florence</title><link href="https://tech.bedrockstreaming.com/2024/11/12/golab-florence.html" rel="alternate" type="text/html" title="Insights from Golab Conference 2024, Florence" /><published>2024-11-12T00:00:00+00:00</published><updated>2024-11-12T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/11/12/golab-florence</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/11/12/golab-florence.html">&lt;p&gt;Attending the &lt;a href=&quot;https://golab.io/&quot;&gt;Golab conference&lt;/a&gt; in Florence has been a thrilling experience for us as developers. Immersing ourselves in talks by some of the most brilliant minds in the Go community gave us a deeper understanding of advanced concepts, practical libraries, and the future of Go. We’ve summarized the key takeaways from the talks we attended to share some of the valuable lessons and fresh perspectives we gained.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1931,86 +2081,4 @@ benevolence with a large number of GO users.&lt;/p&gt;
 
 &lt;p&gt;Our only regret is the somewhat short duration of the talks, which occasionally prevented us from digging deeper into
 certain subjects and the lack of a Q&amp;amp;A period with the speakers at the conclusion of their presentation though you can
-still ask them questions all along the event.&lt;/p&gt;</content><author><name>[&quot;k_phan&quot;, &quot;m_millet&quot;, &quot;n_boiron&quot;, &quot;pa_bedu&quot;, &quot;t_geindre&quot;, &quot;y_chauvel&quot;]</name></author><category term="golang" /><category term="opensource" /><category term="community" /><category term="conference" /><category term="2024" /><summary type="html">The 2024 GopherCon Europe took place in Berlin. Four of us had the opportunity to take part in the event in-person while others could attend the talks virtually.</summary></entry><entry><title type="html">QCon London 2024</title><link href="https://tech.bedrockstreaming.com/2024/04/17/qcon-london-2024.html" rel="alternate" type="text/html" title="QCon London 2024" /><published>2024-04-17T00:00:00+00:00</published><updated>2024-04-17T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/04/17/qcon-london-2024</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/04/17/qcon-london-2024.html">&lt;p&gt;We really enjoyed this &lt;a href=&quot;https://qconlondon.com/&quot;&gt;QCon conference in London&lt;/a&gt;. It’s based on 5 tracks a day, covering resilience, scalability, architecture, monitoring, performance, management and all the subjects that speak to tech companies. None of these tracks are sponsored: they’re all about feedback, with no marketing whatsoever. There is a 6th track where sponsorship is permitted, and it’s the only one. There aren’t many sponsorship stands, and you go to this conference to talk to your peers first and foremost.&lt;/p&gt;
-
-&lt;p&gt;We were able to focus on feedback from teams facing similar problems to those we face at Bedrock Streaming. It was an inspiring conference, which reinforced some of our choices and gave us ideas for others.&lt;/p&gt;
-
-&lt;p&gt;This article will summarise what we have learned from each theme.&lt;/p&gt;
-
-&lt;h2 id=&quot;performance&quot;&gt;Performance&lt;/h2&gt;
-
-&lt;p&gt;Not all optimisations are necessarily relevant, and it is important to measure their benefits and compare their costs. Some make the code more complex, while others lead to weaknesses in resilience. It’s all about compromise.&lt;/p&gt;
-
-&lt;p&gt;Think about the main case, rather than anticipating all the possible exceptions, which can complicate the use in very isolated cases.&lt;/p&gt;
-
-&lt;p&gt;Profiling is the key to your journey to optimization. However with one tool you are sure where problems lie but with a second one (or more) doubt creeps in… It is interesting to associate benchmarks before and after each optimization. And beware as the famous Pareto Principle,-aka the 80-20 rule-, as it turns out easy fixes are often the most efficient.&lt;/p&gt;
-
-&lt;p&gt;You can’t perform profiling? No problem just follow metrics and identify when a code change impacts your performances. What again? I can’t hear you with all this noisy data! Oh yes you are right, noise in your data is indeed a pain in the backend but you have to deal with it as it is commonplace. I know, this is scary, because you don’t come from a data engineering world but not worries, statistics are not so hard to tame. Go take a look at &lt;a href=&quot;https://en.wikipedia.org/wiki/Change_detection&quot;&gt;Change Point Detection&lt;/a&gt;, a non-parametric test which helps you test if these changes you saw in your metrics are relevant.&lt;/p&gt;
-
-&lt;p&gt;Let’s now deep-dive in a more opaque layer of our system composed by the kernel. Here we have to admit that the heuristics at stake while for example choosing on which CPUs or GPUs to execute are not easily tweakables, despite the fact that it was shown they indeed impact overall performances.&lt;/p&gt;
-
-&lt;p&gt;One of the promising solutions is the famous tool cilium/eBPF which allows you to directly reprogram certain behaviours of your kernel, especially the network (for the cilium part), without having to recompile the kernel.&lt;/p&gt;
-
-&lt;p&gt;However, some think that regarding these kernel issues we are stuck in a local maximum and it will require a mindset shift to fully overcome these hardware performance issues.&lt;/p&gt;
-
-&lt;h2 id=&quot;scaling&quot;&gt;Scaling&lt;/h2&gt;
-
-&lt;p&gt;Around scaling, we attended both technical and organisational talks.
-On the technical side, there are a number of relevant ideas. Always contain your costs - especially in the Cloud, with all its hidden expenses. Aiming for the highest possible SLO is a higher priority than cutting costs.&lt;/p&gt;
-
-&lt;p&gt;Some incidents are an accumulation of many changes and are not linked to one team/one change/one regression. Those problems lead to long investigations and cannot be resolved by a simple rollback. This counterpart comes naturally with innovation.&lt;/p&gt;
-
-&lt;p&gt;Architects or equivalent must always coordinate internal exchanges: timeout durations, number and relevance of retries, etc.&lt;/p&gt;
-
-&lt;p&gt;Also, standardising tools brings more benefits than choosing a highly optimised tool that is different for each team. Try to reuse code and don’t reinvent the wheel.&lt;/p&gt;
-
-&lt;p&gt;Several presenters spoke of asynchronous and ‘real-time’ scalability (meaning millions of users in a matter of seconds). The bottom line for all of them is that there is no way of scaling the necessary resources so quickly: everyone pre-scales. The pre-scaling itself can take a long time, so for a particular event (such as a sports match), resources need to be launched several hours in advance. Asynchronous processing can help to spread out all the non-critical calculations over time.&lt;/p&gt;
-
-&lt;p&gt;Don’t forget to be patient! It really seems to go against the tide, yet designing long-time running APIs (meaning APIs that can handle waiting) really seems to be the key of success when trying to address scalability issues. Likewise try as much as possible not to overlap your APIs field of expertise.&lt;/p&gt;
-
-&lt;p&gt;On the organisational level, architects of all kinds must identify or create links between all elements in the ecosystem.&lt;/p&gt;
-
-&lt;p&gt;The architect’s vision is to understand the choices and make compromises between the teams so that the whole is coherent. There is no lock-in. Every choice brings both positives and negatives.&lt;/p&gt;
-
-&lt;h2 id=&quot;sustainability&quot;&gt;Sustainability&lt;/h2&gt;
-
-&lt;p&gt;Including sustainability in our business processes is a recent but no less important necessity. And do you know what? As it turns out, it often means cutting costs, increasing performances and resiliency!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-04-17-qcon-london-2024/2024-04-10-what-makes-software-green.jpg&quot; alt=&quot;What makes software green?&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;What we can sum up is that we have the power to act at our own level. Choose services that auto-scale, prefer ARM instances, select partners who measure and try to improve their Carbon emissions. In many cases, Serverless or Compute@Edge can be a very good choice for applications that can take huge load spikes as much as a few requests (quickly scalable and extremely elastic). When possible, try to run jobs during the night, when load spikes are over.&lt;/p&gt;
-
-&lt;p&gt;The aim is to use energy when it is really needed: switching off dev and staging environments when employees are resting. Limit over-provisioning of resources and pre-scaling times.
-All cloud providers include a sustainability section in their ‘well-architected’ programs, a section that is independent of performance and costs, even though it provides co-benefits with those two subjects.&lt;/p&gt;
-
-&lt;p&gt;It really is in companies’ interests to move in this direction.&lt;/p&gt;
-
-&lt;h2 id=&quot;management-people-and--process&quot;&gt;Management, People and  Process&lt;/h2&gt;
-
-&lt;p&gt;Maybe first keep in mind that decisions are not right or bad, they just are taken by a person or a quorum based on the context they had on a given time. And let’s face it, your organisation will need to change over time especially if you begin as a start-up and now need to scale-up (oh an interesting topic of scaling coming back!).&lt;/p&gt;
-
-&lt;p&gt;As for scaling your infrastructure, you need to realise that you will need to make compromises. For example, Trainline shared with us that their three pillars are: Alignment, Productivity and Code Quality. You can’t perform in the three at the same time, you need to choose which one(s) to let go a little in order to achieve the company’s goal. Importantly what is working at a given time in a certain situation could not be appropriate anymore months later.&lt;/p&gt;
-
-&lt;h2 id=&quot;platform-engineering&quot;&gt;Platform Engineering&lt;/h2&gt;
-
-&lt;p&gt;The last day of the conference offered a dedicated track on platform engineering, where we listened to the insights shared by the speakers. As they delved into their own experiences and learnings, we found striking parallels with our own journey at Bedrock over the past few years.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-04-17-qcon-london-2024/2024-04-09-Trainline-lessons.jpg&quot; alt=&quot;Lessons from Trainline&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;One of the most resonant themes was the importance of treating the platform as a product: a perspective shift that has significantly influenced our approach. By emphasising the need for a smoother experience that balances consistency, performance, security, and development speed, the speakers reinforced the notion that our platform isn’t just a set of tools; it’s a crucial enabler for our developers’ success.&lt;/p&gt;
-
-&lt;p&gt;The concept of providing a golden path for developers stood out as particularly impactful. We’ve come to realise that by streamlining the onboarding process and offering clear guidelines, we can empower developers to navigate the platform with confidence and efficiency. This approach not only accelerates time-to-market for new features but also fosters a sense of trust between the platform team and its users.&lt;/p&gt;
-
-&lt;p&gt;Another key takeaway was the importance of communication and trust-building within the organisation. We were reminded that trust is the currency of collaboration, and effective communication is essential for maintaining it. Clear documentation, transparent processes, and accessible points of contact were highlighted as critical components of this effort.&lt;/p&gt;
-
-&lt;p&gt;Surveys emerged as a valuable tool for gathering feedback and gauging user satisfaction, although the speakers acknowledged the challenges in ensuring high engagement and confidence in the results. However, they emphasised that even imperfect data can provide valuable insights when interpreted thoughtfully and supplemented with other forms of feedback, such as user interviews and proactive communication.&lt;/p&gt;
-
-&lt;p&gt;The speakers also shared their experiences with empowering developers to take ownership of certain tasks, such as fixing issues surfaced by conformity checks and contributing features that solved their own challenges back up to the general platform to benefit the whole organisation. This aligns closely with our own DevOps principles, emphasising collaboration and shared responsibility across teams.&lt;/p&gt;
-
-&lt;p&gt;As we reflect on the insights shared by the conference speakers, we’re reminded of the importance of continuous improvement and iteration in our platform engineering efforts. By learning from our mistakes, embracing new perspectives, and staying attuned to the needs of our users, we can continue to evolve our platform into a truly indispensable resource for our development community.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;It was our first QCon for most of us. We appreciated the transparency of the speakers and the commitment of the organisers, who made the event a success on every level: the intensity of the conferences, the quality of the talks, the really good and varied food and the discreet presence of the sponsors.&lt;/p&gt;
-
-&lt;p&gt;Without being very technical, this conference is a source of inspiration for us, as it focuses on feedback and encourages discussion with our peers.&lt;/p&gt;</content><author><name>[&quot;c_petit&quot;, &quot;j_foray&quot;, &quot;v_gallissot&quot;]</name></author><category term="cloud" /><category term="devops" /><category term="conference" /><category term="2024" /><summary type="html">We really enjoyed this QCon conference in London. It’s based on 5 tracks a day, covering resilience, scalability, architecture, monitoring, performance, management and all the subjects that speak to tech companies. None of these tracks are sponsored: they’re all about feedback, with no marketing whatsoever. There is a 6th track where sponsorship is permitted, and it’s the only one. There aren’t many sponsorship stands, and you go to this conference to talk to your peers first and foremost.</summary></entry></feed>
+still ask them questions all along the event.&lt;/p&gt;</content><author><name>[&quot;k_phan&quot;, &quot;m_millet&quot;, &quot;n_boiron&quot;, &quot;pa_bedu&quot;, &quot;t_geindre&quot;, &quot;y_chauvel&quot;]</name></author><category term="golang" /><category term="opensource" /><category term="community" /><category term="conference" /><category term="2024" /><summary type="html">The 2024 GopherCon Europe took place in Berlin. Four of us had the opportunity to take part in the event in-person while others could attend the talks virtually.</summary></entry></feed>

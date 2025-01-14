@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>How we improved scroll performance on Smart TV apps | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="How we improved scroll performance on Smart TV apps" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="From an R&amp;D project came a new scroll implementation for our Smart TV apps, with better performance and experience." />
+<meta property="og:description" content="From an R&amp;D project came a new scroll implementation for our Smart TV apps, with better performance and experience." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-11-22T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How we improved scroll performance on Smart TV apps" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","description":"From an R&amp;D project came a new scroll implementation for our Smart TV apps, with better performance and experience.","url":"https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html","headline":"How we improved scroll performance on Smart TV apps","dateModified":"2024-11-22T00:00:00+00:00","datePublished":"2024-11-22T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="How we improved scroll performance on Smart TV apps">
+    <meta name="twitter:description" content="One of the core experiences of a Bedrock app for the end user is browsing the catalog. Scrolling vertically through blocks of content, and scrolling horizont...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg">
+    <meta name="twitter:image:alt" content="How we improved scroll performance on Smart TV apps">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="How we improved scroll performance on Smart TV apps " aria-label="How we improved scroll performance on Smart TV apps" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="How+we+improved+scroll+performance+on+Smart+TV+apps" class="title">How we improved scroll performance on Smart TV apps</h1>
+      <div class="post-info">
+
+
+<span class="author">
+      <img alt="Author's avatar" src="/images/avatar/m_bernier.png" class="thumbnail">
+    
+
+    
+      <span class="name">
+        Maxence Bernier
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    November 22, 2024
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>One of the core experiences of a Bedrock app for the end user is browsing the catalog. Scrolling vertically through blocks of content, and scrolling horizontally through lists of items. However, TVs do not offer high performance and provide poor user experience during heavy resource actions. We especially noticed that scrolling horizontally in a list was laggy and unpleasant. This article focuses on performance optimization to enhance the horizontal scroll experience on Smart TVs.</p>
+
+<p><img src="/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/old-scroll.gif" alt="Laggy scroll video" /></p>
+
+<p><em>Note : The GIF above shows a laggy scroll experience on TV. During the videos featured in this article, a x20 CPU throttle has been enforced on the browser, to mimic a low-performance TV device</em></p>
+
+<h1 id="context"><a href="#context">Context</a></h1>
+<p>On TV, we scroll horizontally by focusing each item sequentially when the user presses the left or right arrow button on their remote.</p>
+
+<p>Scrollable lists can be of various sizes and even include paginated content. In cases of paginated content, the next page is fetched preemptively during scroll, when the focus reaches a certain threshold.</p>
+
+<p>Our old scroll component worked as follows: we would render a whole list of items, in a parent component handling scroll. When scrolling horizontally, the focus would switch to the next item. This would notify the parent component in charge of scroll, that would move the whole list laterally. The movement was computed from the measurements of the focused item, the size of the list, and the size of the container.</p>
+
+<p>There are multiple chances for improvement in this implementation:</p>
+
+<ol>
+  <li>Since every item was rendered in the DOM, moving the whole list was very heavy. Subsequently, a whole page of lists was itself pretty heavy to render.</li>
+  <li>Because the whole list is rendered, fetching a new page means that the new items are immediately all rendered to the DOM, imposing a heavy load by displaying content that is not even on the screen.</li>
+</ol>
+
+<h1 id="virtualization"><a href="#virtualization">Virtualization</a></h1>
+<p>To address the first shortcoming of the initial approach, we introduced virtualization. Virtualization is a technique to render only the items that are visible on the screen.</p>
+
+<p>For context, the content we display on each list is normalized and stored in a redux store. All the items are available in an array and can be selected by their respective index.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">ItemComponent</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">position</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">item</span> <span class="o">=</span> <span class="nf">useSelector</span><span class="p">(</span><span class="nf">selectItemByIndex</span><span class="p">(</span><span class="nx">position</span><span class="p">));</span>
+
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">Item</span> <span class="p">{...</span><span class="nx">item</span><span class="p">}</span> <span class="sr">/&gt;</span><span class="err">;
+</span><span class="p">}</span>
+</code></pre></div></div>
+<p>The virtualized scroll renders items based on a static array, each cell of the array being a slot for the item it’s going to display.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">ScrollComponent</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">SCROLLER_BASE_ARRAY</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">from</span><span class="p">(</span>
+        <span class="p">{</span> <span class="na">length</span><span class="p">:</span> <span class="nx">nbItemsToDisplay</span> <span class="p">},</span>
+        <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">index</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="p">);</span>
+
+    <span class="k">return</span> <span class="nx">SCROLLER_BASE_ARRAY</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="nx">index</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="p">[</span><span class="nx">focusOffset</span><span class="p">,</span> <span class="nx">setFocusOffset</span><span class="p">]</span> <span class="o">=</span> <span class="nf">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="c1">// focusOffset is a state updated upon user input: </span>
+        <span class="c1">// + 1 when the right arrow is clicked, -1 when the left arrow is clicked</span>
+        <span class="kd">const</span> <span class="nx">position</span> <span class="o">=</span> <span class="nx">index</span> <span class="o">+</span> <span class="nx">focusOffset</span><span class="p">;</span>
+
+
+        <span class="k">return </span><span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">ItemComponent</span>
+                <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">position</span><span class="p">}</span>
+                <span class="nx">position</span><span class="o">=</span><span class="p">{</span><span class="nx">position</span><span class="p">}</span>
+            <span class="sr">/</span><span class="err">&gt;
+</span>        <span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><img src="/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/empty-slots.png" alt="Schema representing 4 empty slots" /></p>
+
+<p>Each cell is connected to the store and uses its own index as selection parameter to get the corresponding item in the store (cell of index 0 gets the first item, cell of index 1 gets the second, etc.)</p>
+
+<p><img src="/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/filled-slots.png" alt="Schema representing 4 slots with rendered items inside" /></p>
+
+<p>At this point, only a subset of the list is rendered, as many items as the static array has cells.</p>
+
+<p>Horizontal scroll is managed by incrementing the selection index upon user input (e.g., pressing the right arrow key). Using the same array, each cell now selects from the store the item for its index plus an “offset” that describes how much the list is scrolled.</p>
+
+<p><img src="/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/filled-slots-with-offset.png" alt="Schema representing 4 slots with rendered items inside" /></p>
+
+<p>By offsetting the items at every user input (negative offset to move the items to the right and positive offset to move the items to the left), we achieve a visual scroll, with only a subsection of the list displayed on screen.</p>
+
+<p><img src="/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/scrolling.gif" alt="Animation showing a scrolling list.gif" /></p>
+
+<h1 id="optimised-rendering-with-react-keys"><a href="#optimised-rendering-with-react-keys">Optimised Rendering with React Keys</a></h1>
+
+<p>The heart of the implementation is to fill each cell with a new item at each scroll. From the point of view of a single cell, when we scroll, the item it displays is new. But we know that the item already existed in the DOM, just one cell over.</p>
+
+<p>This is where we can leverage <a href="https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key">React’s keys mechanism</a>. Items rendered use a key that combines the original cell index with the current scroll offset. These keys help React reconcile the item in cell 1 before render as the item in cell 2 after render as the same item, thus reusing the same DOM node. As a result, we get zero re-renders for the items that are shifting places, significantly reducing the performance impact of a scroll.</p>
+
+<figure>
+  <img src="/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/profiling.png" alt="Profiling flame graph" />
+  <figcaption>☝️Profiling during a single scroll right. The only items rendering are the ones with focus change (item losing focus and item gaining focus) and the new item that wasn’t on the screen. Every other item is unaffected by a horizontal scroll</figcaption>
+</figure>
+<hr />
+
+<h1 id="optimised-pagination"><a href="#optimised-pagination">Optimised pagination</a></h1>
+
+<p>A nice win from virtualization is the impact on pagination. Only a subset of items is rendered on the screen. Also, the list itself only needs to know about that subset of items since it uses a constant array to display its items. This means that a new page fetched has 0 impact on renders: the new items are added to the store, but the React component itself has no knowledge of that operation and triggers no re-renders.</p>
+
+<h1 id="results"><a href="#results">Results</a></h1>
+<p><em>Note: measurements presented here are taken with the Chrome DevTools performance tab, with x6 CPU throttle and network connection limited to fast 4G to mimic a low-performance TV device and keep a steady test environment. Times are scripting and rendering times added.</em></p>
+
+<p>We can compare a few benchmarks to exhibit the gains from the new scroller.</p>
+
+<p>Scrolling right is obviously less expensive now. Here, measurements were taken from a single scroll right, in a 72 items list.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Before</th>
+      <th>After, with new scroll</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>462ms</td>
+      <td>41ms (-91%)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>But more closely to the app’s actual use, here is a scenario measuring the cost of scrolling right through a list of 72 items, with 8 pages fetched during scroll.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Before</th>
+      <th>After</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>11615ms</td>
+      <td>8631ms (-26%)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Here, we include everything else a list does when scrolling (fetching new pages, additional handlers…), so the gain is less, but still significant.</p>
+
+<p>Scrolling down in a page with lighter lists is also more efficient. Here, measurements were taken during a scroll down 25 lists.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Before</th>
+      <th>After</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1308ms</td>
+      <td>1038ms (-21%)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Beyond benchmarks, on-device tests were also conclusive: the scroll is smoother, we almost eliminated the lag caused by a pagination fetch. Overall, it feels better to scroll through a list.</p>
+<h1 id="conclusion"><a href="#conclusion">Conclusion</a></h1>
+
+<p><img src="/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/new-scroll.gif" alt="New and more fluid scroll" /></p>
+
+<p>This frontend R&amp;D project successfully addressed the scrolling performance issues on TV. The new scrolling solution dramatically improved performance by limiting re-renders. This optimization ensured a smoother scrolling experience, enhancing usability on TV devices. From this experience, we also moved on to implementing the same virtualization on the horizontal scroll of the catalog, which presented its own challenges but was also a success.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=How+we+improved+scroll+performance+on+Smart+TV+apps%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2024%2F11%2F22%2Ftvjs-scroll-performance-enhancement.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html&title=How+we+improved+scroll+performance+on+Smart+TV+apps%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=How we improved scroll performance on Smart TV apps%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#TV">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> TV</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#frontend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#javascript">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#performance">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> performance</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#react">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> react</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#web">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> web</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="Insights from Golab Conference 2024, Florence" href="/2024/11/12/golab-florence.html">
+            <p>Next post</p>
+            Insights from Golab Conference 2024, Florence
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>
