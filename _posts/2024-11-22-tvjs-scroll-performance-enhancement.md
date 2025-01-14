@@ -62,7 +62,7 @@ const ScrollComponent = () => {
 }
 ```
 
-![Schema representing 4 empty slots](/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/empty-slots.avif)
+![Schema representing 4 empty slots](/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/empty-slots.png)
 
 Each cell is connected to the store and uses its own index as selection parameter to get the corresponding item in the store (cell of index 0 gets the first item, cell of index 1 gets the second, etc.)
 
