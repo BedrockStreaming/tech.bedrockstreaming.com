@@ -20,15 +20,34 @@ At that time, the only documentation I found to implement the feature on WebOS i
 For the demonstration, I implement it in the pairing page. When we focus any button in this page, we can hear the text of the button.
 
 Here is the result of this first POC (it's in French):
-![The result of the first POC](/images/posts/tvjs/tvjs_tts_webos.mp4)
+<div>
+    <video width="320" height="240" controls>
+        <source src="/images/posts/tvjs/tvjs_tts_webos.mp4" type="video/mp4">
+    </video>
+</div>
 
 After this POC, unfortunately no initiative was taken because the accessibility was not a priority at that time, so this feature had been abandoned... 😭
 
 ### February 2024
-Few months later, I decided to spend another R&D day to develop another feature for to improve the accessibility of our apps. This time, I wanted to do something especially for the dyslexic people, because I'm dyslexic myself and I'm a big user of streaming platforms.
+Few months later, I decided to spend another R&D day to develop another feature for to improve the accessibility of our apps. This time, I wanted to do something especially for the dyslexic people, because I'm dyslexic myself, and I'm a big user of streaming platforms.
 In accessibility, often we can see some features for the blind or the deaf people, but it's rare to see something for the dyslexic ones and even less on streaming platforms.
 So, I started with a benchmark to see what is already done in the industry and at this time none our competitors has implemented a feature for the dyslexic people, except Canal+ for the video subtitles only.
-After that, I put myself in the shoes of a user and imagine what could be useful for me to enjoy my experience on our apps.
+After that, I put myself in the shoes of a user and imagine what could be useful for me to enjoy my experience on our apps. The project "Dyslexic mode" on TVJS was born! 🎉
+
+The idea is to have a new entry called "Accessibility" in the user settings, where the user can activate the "Dyslexic mode", personalize the font and the size of the text etc.
+
+<div style="display: flex">
+    <img src="/images/posts/tvjs/tvjs_dys_settings.png" alt="tvjs_dys_entry" width="50%" style="margin-right: 10px" />
+    <img src="/images/posts/tvjs/tvjs_dys_entry.png" alt="tvjs_dys_entry" width="50%" />
+</div>
+
+And then, the personalisation is applied on the whole application.
+![tvjs_dys_program.png](../images/posts/tvjs/tvjs_dys_program.png)
+
+Why is it interesting for the user to have this feature? Because it can help to reduce the reading time, the fatigue and the errors. It can also help to improve the comprehension and the concentration. The user experience is clearly better.
+And what is the benefit for Bedrock Streaming? It's a competitive advantage, it's a way to show that we care about our users, and we want to make the streaming better for everyone.
+
+As a user, this kind of feature is very important, especially on TV apps, because when we watch a movie or a series, we're on our sofa, which is often a long way from the TV, and we don't all have plasma screens. So, the text should be readable to keep the user on our platform.
 
 ## 2024 March: the first audit
 ![The score for TVJS with the first audit](/images/posts/tvjs/tvjs_accessibility_first_audit.png)
