@@ -1,4 +1,247 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2025-02-05T11:02:08+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">How we improved scroll performance on Smart TV apps</title><link href="https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html" rel="alternate" type="text/html" title="How we improved scroll performance on Smart TV apps" /><published>2024-11-22T00:00:00+00:00</published><updated>2024-11-22T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html">&lt;p&gt;One of the core experiences of a Bedrock app for the end user is browsing the catalog. Scrolling vertically through blocks of content, and scrolling horizontally through lists of items. However, TVs do not offer high performance and provide poor user experience during heavy resource actions. We especially noticed that scrolling horizontally in a list was laggy and unpleasant. This article focuses on performance optimization to enhance the horizontal scroll experience on Smart TVs.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2025-02-26T12:59:45+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">How we made our apps more accessible on SmartTVs 📺</title><link href="https://tech.bedrockstreaming.com/2025/02/26/tvjs-accessibility.html" rel="alternate" type="text/html" title="How we made our apps more accessible on SmartTVs 📺" /><published>2025-02-26T00:00:00+00:00</published><updated>2025-02-26T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/02/26/tvjs-accessibility</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/02/26/tvjs-accessibility.html">&lt;p&gt;Accessibility is at the heart of our concerns, at Bedrock Streaming we work hard to make our applications accessible to everyone.
+In this article, I’m going to share with you how my team and I improved our accessibility score of our SmartTV apps by 18% in just a few months!
+This improvement is even more impressive because on smartTV we have to manage several constraints, including taking into account the specificities of each device (Tizen, WebOS, Hisense, Panasonic, etc.).&lt;/p&gt;
+
+&lt;p&gt;I tried to make this article accessible to everyone, whether you’re a developer or not. I have to admit that for the code samples, you need to know a bit of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HTML&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CSS&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JavaScript&lt;/code&gt;, but I tried to explain it as simply as possible.&lt;/p&gt;
+
+&lt;p&gt;Hi there! 👋 I’m Julie Nginn, I’m a front-end developer and the accessibility technical referent at the &lt;em&gt;TVJS&lt;/em&gt; service. We called this service “TVJS” because we develop the apps for the smartTVs, like Samsung, LG, Sony etc. using JavaScript.
+First of all, you need to know that I’m very passionate and engaged in accessibility. My main motivation is to make the streaming better for everyone, including people with disabilities. 💪&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ℹ️ What is the web accessibility?&lt;/p&gt;
+
+  &lt;p&gt;Web accessibility is the practice of designing and developing websites so that they can be used by as many people as possible, including those with disabilities. It’s about removing barriers that prevent people from accessing or interacting with web content.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+&lt;h3 id=&quot;october-2022&quot;&gt;October 2022&lt;/h3&gt;
+&lt;p&gt;During the R&amp;amp;D (Research and Development) day at Bedrock, we decided to investigate and see if it is possible to implement audio guidance on our TVJS apps. Audio guidance is a basic feature on the smartTVs that can be found in the accessibility settings which allows the user to hear the text on the screen.&lt;/p&gt;
+
+&lt;p&gt;I took the lead on this project and I started to implement it for the platform WebOS first, because it’s the device I had at home, and it’s pretty easy to test on this device.
+At that time, the only documentation I found to implement the feature on WebOS was using the &lt;a href=&quot;https://webostv.developer.lge.com/develop/references/luna-service-introduction&quot;&gt;Luna Service API&lt;/a&gt; to enable the audio guidance feature. By calling the method &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;voicereadout.readAlert()&lt;/code&gt; returned by the API and passing it the text we want to read.
+For the demonstration, I implemented it in the pairing page. When any button in this page is focused, we can hear the text of the button.&lt;/p&gt;
+
+&lt;p&gt;Here is the result of this first POC (it’s in French):&lt;/p&gt;
+&lt;video src=&quot;/images/posts/tvjs/tvjs_tts_webos.mp4&quot; width=&quot;560&quot; height=&quot;315&quot; controls=&quot;&quot;&gt;
+&lt;/video&gt;
+
+&lt;p&gt;The implementation was pretty simple (but spoiler alert: it will be even easier later). Here is the code, we need to add to enable the audio guidance feature on WebOS:&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;audioGuidanceConfig&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;urlLuna&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;luna://com.webos.settingsservice&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;getSystemSettings&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;audioGuidance&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;category&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;option&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;requestType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;audio guidance&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;activateTTS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;async &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;settings&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;wrappers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;serviceRequestWrapper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;audioGuidance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;settings&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;settings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;audioGuidance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;settings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;audioGuidance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;voicereadout&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;wrappers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getWebOS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+      &lt;span class=&quot;nx&quot;&gt;voicereadout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;readAlert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Fail silently&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then, in order to use it in our app, we just have to call the function where we want to read the text. At this time, my first idea was to find a way to trigger the focus to be able to pass the text to read to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;activateTTS&lt;/code&gt;.
+But it was not very simple because, the navigation on our apps was managed by a custom navigation system, and the focus was not managed by the browser. So, I  created a HOC (Higher Order Component) to manage the focus and the text to read.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;withTTS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;TTSComponent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;children&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;focus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;children&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;children&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;nf&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;focus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;nf&quot;&gt;activateTTS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;focus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;
+&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;TTSComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To manage the navigation and the focus in our components, we used a HOC called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;withNavigator&lt;/code&gt;. Thanks to this, the wrapped component become focusable and navigable with the remote control (and the keyboard directional arrows). I won’t talk more about our navigation system today because it should have its own article.
+By using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;withTTS&lt;/code&gt; inside the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;withNavigator&lt;/code&gt; to wrap the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Button&lt;/code&gt; component, we can retrieve the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;focus&lt;/code&gt; status from the props. So, we can call the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;activateTTS&lt;/code&gt; function when the button is focused.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NavigationButton&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;withNavigator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;withTTS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We can clearly improve this code, moreover, with hindsight, I realize that it was quite cumbersome to have to add this HOC to all the components we wanted to read. But at this time, I was proud to have been able to prove that it was possible to implement the audio guidance on our smart TV apps. 🎉
+After this POC, unfortunately no initiative was taken because the accessibility was not our first priority at that time, so this feature had been abandoned… 😭&lt;/p&gt;
+
+&lt;h3 id=&quot;february-2024&quot;&gt;February 2024&lt;/h3&gt;
+&lt;p&gt;A few months later, I decided to spend another R&amp;amp;D day to develop another feature to improve the accessibility of our apps. This time, I wanted to do something especially for the dyslexic people, because I’m dyslexic myself, and I’m a big user of streaming platforms.&lt;/p&gt;
+
+&lt;p&gt;In accessibility, we can often see features for the blind or the deaf people, but it’s rare to see something for the dyslexic ones and even more on streaming platforms.
+So, I started with a benchmark to see what is already done in the industry and at that time none of our competitors has implemented a feature for the dyslexic people, except Canal+ (for video subtitles only).&lt;/p&gt;
+
+&lt;p&gt;After that, I put myself in the shoes of a user and imagined what could be useful for me to enjoy my experience on our apps. The project “Dyslexic mode” on TVJS was born! 🎉&lt;/p&gt;
+
+&lt;p&gt;First, I added a new entry called “Accessibility” in the user settings, where the user can activate the “Dyslexic mode” and personalize the font and the size of the text etc.
+And then, the personalization will be applied on the whole application.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/tvjs/tvjs_dys_settings.png&quot; alt=&quot;tvjs_dys_entry&quot; height=&quot;340px&quot; /&gt;
+&lt;img src=&quot;/images/posts/tvjs/tvjs_dys_entry.png&quot; alt=&quot;tvjs_dys_entry&quot; height=&quot;340px&quot; /&gt;
+&lt;img src=&quot;/images/posts/tvjs/tvjs_dys_program.png&quot; alt=&quot;tvjs_dys_entry&quot; height=&quot;340px&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To do that, we updated the global style, using CSS and JavaScript, to switch between the dyslexic and the default modes.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dyslexicMode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;letterSpacing&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;3px&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;wordSpacing&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;5px&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fontFamily&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&quot;Open Dyslexic&quot;, Arial, sans-serif&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;letterSpacing&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;wordSpacing&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fontFamily&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Arial, sans-serif&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As you can see it’s very easy to personalize the font, and since we can use only CSS to do that, the performance is not impacted. This feature requires very few resources and effort but brings considerable improvement for users.&lt;/p&gt;
+
+&lt;p&gt;Why is it interesting for the user to have this feature? Because it can help reduce reading time, fatigue and errors. It can also help to improve comprehension and focus. The user experience is clearly better.
+And what is the benefit for Bedrock Streaming? It’s a competitive advantage, it’s a way to show that we care about our users, and we want to make the streaming better for everyone.&lt;/p&gt;
+
+&lt;p&gt;As a user, this kind of feature is very important, especially on smartTV apps, because when we watch a movie or a series, we’re on our sofa, which is often a long way from the TV, and we don’t all have plasma screens. So, the text should be readable to keep the user on our platform.&lt;/p&gt;
+
+&lt;p&gt;I presented this project to Mathieu Bouillot (our Product Manager, expert in accessibility) and some of our designers, and they were very enthusiastic about it. We worked together with Mathieu, and some months later the initiative “Style Switcher” was created. 🥹
+The project deserves a dedicated article, so I will not go into details here. But the main idea of this project is to allow the user to personalize the font, the size, the spacing, the colors etc. of the text on the whole application, so the user can adapt the app to his needs.&lt;/p&gt;
+
+&lt;h2 id=&quot;2024-march-the-first-accessibility-audit&quot;&gt;2024 March: the first accessibility audit&lt;/h2&gt;
+&lt;p&gt;First of all, I’m going to explain what is an accessibility audit.&lt;/p&gt;
+
+&lt;p&gt;An accessibility audit is a process to evaluate the accessibility of a website or an application. The goal is to find the issues and the barriers that prevent the users with disabilities to use the website or the application.
+The audit is based on the WCAG (Web Content Accessibility Guidelines) which is a set of rules to follow to make the web accessible to everyone:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Perceivable:&lt;/strong&gt;  Users must be able to perceive the information being presented. This means it must be presentable to the senses (e.g., sight, hearing, touch) in ways users can understand&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Operable:&lt;/strong&gt; Users must be able to operate the interface. This means users must be able to interact with the controls and content (e.g., using a keyboard, mouse, or assistive technology)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Understandable:&lt;/strong&gt; Users must be able to understand the content and the interface. This means the content and interface must be clear, consistent, and easy to understand&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Robust:&lt;/strong&gt; The content must be robust enough that it can be interpreted reliably by a wide variety of user agents, including assistive technology&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The audit is based on the conformity rate of the WCAG, and the score is between 0% and 100%.
+In France, we use the RGAA (Référentiel Général d’Amélioration de l’Accessibilité) which is based on the WCAG, but with some specificities for the French administration.
+There are three levels of conformance:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;non-compliant&lt;/strong&gt; (0% to 49%)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;partially compliant&lt;/strong&gt; (50% to 99%)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;totally compliant&lt;/strong&gt; (100%)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Obviously, the audit alone cannot evaluate whether a site or application is completely accessible, as there are many factors to consider, and it remains theoretical because we cannot know if users will actually find it accessible.
+But as developers, we need to follow the accessibility rules at least and keep our code with a correct semantic.&lt;/p&gt;
+
+&lt;p&gt;So, in March 2024, we received the first audit of the TVJS apps from Mathieu. The score was 43% 😱 The score is not catastrophic, but we noticed that our app is non-compliant. We could do better, and we decided to do so!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/tvjs/tvjs_accessibility_first_audit.png&quot; alt=&quot;The score for TVJS with the first audit&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We first decided to “prepare the ground” and fix some minor issues. Then, to have the same knowledge and understanding of the accessibility, we organized a workshop with Mathieu and the TVJS core developers to explain the basics of the accessibility, the WCAG, the ARIA (Accessible Rich Internet Applications), the tools etc. 
+We can perceive the accessibility as an annoying constraint to do when we develop an app, because we need to follow some specific rules. But, when we know the context and the importance of accessibility for users, our engagement is different. And that’s what happened during this workshop. The developers were very interested and motivated to improve the accessibility of our apps.&lt;/p&gt;
+
+&lt;p&gt;During this workshop, we also explained to Mathieu the constraints and the specificities of the smartTV apps, because those are not the same as web apps. For example, focus management is different, navigation is different &lt;em&gt;(remote control and no keyboard)&lt;/em&gt;, screen reader is different etc. With his help, we did a mob programming to find some solutions to implement screen reader on our apps.
+And now, the POC I did 2 years ago becomes a reality. 🤩 However, it was not easy, because on the TVJS apps, we use a custom navigation system to be able to navigate with the remote control. This system is not compatible with the screen reader because we need to use the native focus management of the browser and to use the correct HTML tags and attributes.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-refactoring&quot;&gt;The refactoring&lt;/h2&gt;
+&lt;h3 id=&quot;our-contraints&quot;&gt;Our contraints&lt;/h3&gt;
+&lt;p&gt;This refactoring was not easy, we had to manage several constraints because of the platform we worked on. Even if we use a web app on the smartTV, we need to take into account the specificities of each device and also their versions. Some of them use an old version of the browser, so some of the HTML tags and attributes are not supported.&lt;/p&gt;
+
+&lt;p&gt;For example, if we don’t produce a list using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ul&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;li&lt;/code&gt;, the screen reader is not able to identify the list. To have a good semantic we have to update our lists from nested &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;div&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ul&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;li&lt;/code&gt; HTML tags.
+But even if we use the correct HTML tags, the screen reader is not able to read the list correctly because the browser doesn’t manage the lists natively, because of the old OS version of the browser.
+So to work around this problem, we decided to manage the lists manually by using the number of elements and their position in the list to announce to the user that they are in a list. We also need to handle the texts and translations by ourselves, which we wouldn’t need to do on the web because the screen reader does it natively.&lt;/p&gt;
+
+&lt;p&gt;Also, each device works differently and needs a specific configuration. At TVJS, we manage a dozen of different platforms. We had to test and document each device to see if the audio guide feature is present and ensure our implementation works correctly on them. 
+Sometimes the results were different between devices, so we need to be attentive during development and testing.
+And for the unsupported devices/versions, we must avoid negatively impacting them with our changes.&lt;/p&gt;
+
+&lt;h3 id=&quot;updating-the-html-structure&quot;&gt;Updating the HTML structure&lt;/h3&gt;
+&lt;p&gt;We made many pull requests to refactor our components to use the correct HTML tags and attributes. For example, we replaced the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;div&lt;/code&gt; by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;button&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;span&lt;/code&gt; by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;h1&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;h2&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;h3&lt;/code&gt; etc. to have a good semantic for accessibility. We also added the ARIA attributes to improve the accessibility of our components.
+Thanks to Mathieu, we learned the good practices and how to use the ARIA attributes as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aria-label&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aria-hidden&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aria-describedBy&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here is a typical example of what we did:&lt;/p&gt;
+
+&lt;p&gt;Before:&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Sidenav&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;sidenav&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;entries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(({&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;entry&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; 
+            &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;sidenav__item&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;        &lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Sidenav&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;nav&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;role&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;navigation&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;sidenav&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ul&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;entries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(({&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;entry&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;li&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;sidenav__item&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/li&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;            &lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/ul&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/nav&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ℹ️ We replaced the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;div&lt;/code&gt; by the more appropriate tag as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nav&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ul&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;li&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;using-the-native-focus-management&quot;&gt;Using the native focus management&lt;/h3&gt;
+&lt;p&gt;As I mentioned before, to navigate through our apps, we developed our own navigation system with a custom focus management. But the screen reader doesn’t work with this system because it needs to use the native focus.
+So, we refactored our system to fix this issue by synchronizing the focus of the browser with our navigation system. We added &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HTMLElement.focus()&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tabindex&lt;/code&gt; attribute to make some elements focusable.&lt;/p&gt;
+
+&lt;h3 id=&quot;implementing-audio-guidance-on-smarttv&quot;&gt;Implementing audio guidance on SmartTV&lt;/h3&gt;
+&lt;p&gt;To implement the audio guidance feature to WebOS, we need to enable the feature in the WebOS config (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;appinfo.json&lt;/code&gt; file) as following:&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;accessibility&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;supportsAudioGuidance&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Compared to what I did in my first POC in 2022, the implementation is much simpler and more efficient.&lt;/p&gt;
+
+&lt;p&gt;Even simpler, on Tizen and Hisense, we didn’t need to do anything, since we already refactored our code by using the correct HTML structure and the native focus, audio guidance is already enabled by default on these platform. But of course, it depends if the device version is compatible with the feature.
+To date, the work is still in progress to list all the supported devices.&lt;/p&gt;
+
+&lt;h2 id=&quot;2024-october-the-second-audit&quot;&gt;2024 October: the second audit&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/images/posts/tvjs/tvjs_accessibility_scores.png&quot; alt=&quot;The score for TVJS with the first audit&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Some months later, we received the second audit of the TVJS apps from Mathieu and the score has increased to 61%. 🚀 I am very proud of my team and myself, because we did a great job! We improved the accessibility of our apps by 18% in just a few months. It’s a great achievement, and it’s just the beginning. We are motivated to reach the 100% of the accessibility score. 💪
+Of course, this performance is also due to the work of Mathieu (our PM) and Shaïnez (our PO) who have been very helpful and supportive during this refactoring.
+I think the communication between the product line and the technical line is primordial to be sure to go in the right direction. And obviously, the communication between the developers is also important, it’s thanks to our many brainstorming sessions that we found the best solutions.&lt;/p&gt;
+
+&lt;p&gt;If I have some advice to give to the developers who want to improve the accessibility of their apps, it would be:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Before developing, to think about the accessibility and use the good practices (like the semantic HTML, the ARIA, the focus management etc.)&lt;/li&gt;
+  &lt;li&gt;Take the time to understand the accessibility, the constraints and the specificities of the platform (by attending a workshop for example)&lt;/li&gt;
+  &lt;li&gt;If possible, to have an accessibility referent in the team to stay aware of this topic and communicate with the product line and the designers&lt;/li&gt;
+  &lt;li&gt;To test with the existing tools (like &lt;a href=&quot;https://www.deque.com/axe/&quot;&gt;Axe&lt;/a&gt;, &lt;a href=&quot;https://wave.webaim.org/&quot;&gt;Wave&lt;/a&gt;, the screen reader and the browser accessibility panel)&lt;/li&gt;
+  &lt;li&gt;To test directly on the device and if possible with the users&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To conclude this article, I would like to note accessibility is not a constraint, it’s a strength, and a competitive advantage for our apps. If our platform is accessible, the users will be happy and will prefer to use our apps rather than the other ones. 
+The accessibility is not only for the people with disabilities, it’s for everyone. And in the TVJS team, we understand that well! 📺&lt;/p&gt;
+
+&lt;h2 id=&quot;-sources&quot;&gt;📚 Sources&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+  &lt;li&gt;WCAG Guidelines: &lt;a href=&quot;https://www.w3.org/TR/WCAG21/&quot;&gt;https://www.w3.org/TR/WCAG21/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;RGAA: &lt;a href=&quot;https://accessibilite.numerique.gouv.fr&quot;&gt;https://accessibilite.numerique.gouv.fr&lt;/a&gt;/&lt;/li&gt;
+  &lt;li&gt;Accessibility Tools: &lt;a href=&quot;https://wave.webaim.org/&quot;&gt;Wave&lt;/a&gt; - &lt;a href=&quot;https://www.deque.com/axe/&quot;&gt;Axe&lt;/a&gt; - &lt;a href=&quot;https://www.nvaccess.org/&quot;&gt;Screen reader&lt;/a&gt; - &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector&quot;&gt;Browser accessibility panel&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;HTMLElement.focus(): &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus&quot;&gt;https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;WebOS audio guidance: &lt;a href=&quot;https://webostv.developer.lge.com/develop/references/luna-service-introduction&quot;&gt;https://webostv.developer.lge.com/develop/references/luna-service-introduction&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>[&quot;j_nginn&quot;]</name></author><category term="TVJS" /><category term="smartTV" /><category term="javascript" /><category term="react" /><category term="web" /><category term="frontend" /><category term="accessibility" /><category term="a11y" /><summary type="html">Accessibility is at the heart of our concerns, at Bedrock Streaming we work hard to make our applications accessible to everyone. In this article, I’m going to share with you how my team and I improved our accessibility score of our SmartTV apps by 18% in just a few months! This improvement is even more impressive because on smartTV we have to manage several constraints, including taking into account the specificities of each device (Tizen, WebOS, Hisense, Panasonic, etc.).</summary></entry><entry><title type="html">How we improved scroll performance on Smart TV apps</title><link href="https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html" rel="alternate" type="text/html" title="How we improved scroll performance on Smart TV apps" /><published>2024-11-22T00:00:00+00:00</published><updated>2024-11-22T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html">&lt;p&gt;One of the core experiences of a Bedrock app for the end user is browsing the catalog. Scrolling vertically through blocks of content, and scrolling horizontally through lists of items. However, TVs do not offer high performance and provide poor user experience during heavy resource actions. We especially noticed that scrolling horizontally in a list was laggy and unpleasant. This article focuses on performance optimization to enhance the horizontal scroll experience on Smart TVs.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/old-scroll.gif&quot; alt=&quot;Laggy scroll video&quot; /&gt;&lt;/p&gt;
 
@@ -1829,256 +2072,4 @@ Et du coup, double fournée !!&lt;/p&gt;
 &lt;h2 id=&quot;et-le-meilleur-pour-la-fin&quot;&gt;Et le meilleur pour la fin&lt;/h2&gt;
 &lt;blockquote&gt;
   &lt;p&gt;Y a peu de temps j’étais en train de faire du python, là je reviens sur du JS. Et du coup je suis en train de debugger mon site, quand d’un coup sans que je comprenne pourquoi à chaque fois que je le reload il imprime une feuille de papier. J’ai mis une heure à chercher avant de voir que par réflexe, j’ai debuggé mon code en utilisant la commande &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;print&lt;/code&gt; au lieu de faire un &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;console.log&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>Bedrock</name></author><category term="devfacts" /><category term="humour" /><summary type="html">Bien que cela fasse près de 18 mois que nous n’avons pas publié une nouvelle fournée de Dev Facts, nos équipes ont continués à alimenter la pile des perles des développeurs. Et du coup, double fournée !!</summary></entry><entry><title type="html">Bedrock GopherCon Berlin 2024</title><link href="https://tech.bedrockstreaming.com/2024/07/18/gophercon-eu-berlin-2024.html" rel="alternate" type="text/html" title="Bedrock GopherCon Berlin 2024" /><published>2024-07-18T00:00:00+00:00</published><updated>2024-07-18T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/07/18/gophercon-eu-berlin-2024</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/07/18/gophercon-eu-berlin-2024.html">&lt;p&gt;The 2024 GopherCon Europe took place in Berlin. Four of us had the opportunity to take part in the event in-person while
-others could attend the talks virtually.&lt;/p&gt;
-
-&lt;h1 id=&quot;talks&quot;&gt;Talks&lt;/h1&gt;
-
-&lt;h2 id=&quot;the-business-of-go---cameron-balahan-go-product-manager&quot;&gt;The Business of Go - Cameron Balahan Go Product Manager&lt;/h2&gt;
-
-&lt;p&gt;Cameron Balahan, a Product Manager at the Golang Team, kicked off GopherCon 2024 with a compelling talk on the business
-side of Go. He shared insights into the strategic decisions that shape the development of the Go language, emphasizing
-the importance of balancing innovation with stability to meet the needs of both enterprise users and the broader
-developer community.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-07-18-gophercon-eu-berlin-2024/01-the-business-of-go-01.png&quot; alt=&quot;Business of Go, developpers stack in 2024&quot; /&gt;
-&lt;img src=&quot;/images/posts/2024-07-18-gophercon-eu-berlin-2024/02-the-business-of-go-02.png&quot; alt=&quot;Business of Go, growth in open source contribution leads to growth in adoption&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;memory-optimization---diana-shevchenko&quot;&gt;Memory Optimization - Diana Shevchenko&lt;/h2&gt;
-
-&lt;p&gt;Diana Shevchenko from Datadog delivered an enlightening session on memory management in Go, particularly focusing on how
-data on the heap is stored in chunks known as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mspans&lt;/code&gt;. She highlighted the benefits of this approach, such as efficient
-memory access and CPU cache optimization, while also discussing potential pitfalls like logical grouping and code
-readability challenges.&lt;/p&gt;
-
-&lt;h3 id=&quot;key-takeaways&quot;&gt;Key Takeaways:&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Benefits&lt;/strong&gt;: Efficient memory access, CPU cache optimization.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Challenges&lt;/strong&gt;: Logical grouping, code readability, versioning, and backward compatibility.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;domain-driven-design---robert-laszcak&quot;&gt;Domain Driven Design - Robert Laszcak&lt;/h2&gt;
-
-&lt;p&gt;Robert, a principal engineer, shared valuable insights on simplifying Go projects using Domain-Driven Design (DDD). He
-highlighted a recurring challenge: project complexity. Both accidental complexity, stemming from over-engineering, and
-essential complexity, inherent in each feature, were identified as major hurdles. Ignoring essential complexity often
-leads to increased accidental complexity, making projects cumbersome and prone to becoming legacy systems quickly.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-07-18-gophercon-eu-berlin-2024/03-ddd-01.png&quot; alt=&quot;DDD, don&apos;t need it yet ?&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;To illustrate the problem, the engineer introduced a fictional company, Bing Mate, which developed an API for issuing
-invoices and processing payments. Initially, the company delivered new features weekly. However, a year later, despite
-maintaining a healthy codebase, they struggled to implement similar features promptly, triggering concerns about their
-productivity.&lt;/p&gt;
-
-&lt;h3 id=&quot;the-initial-solution-microservices-and-kubernetes&quot;&gt;The Initial Solution: Microservices and Kubernetes&lt;/h3&gt;
-
-&lt;p&gt;Bing Mate attempted to solve their issue by hiring more developers and transitioning from a monolithic application to a
-microservices architecture on Kubernetes. Despite achieving the ideal Kubernetes setup, they still faced slow software
-delivery. This led to a realization that the complexity of their microservices architecture might be the root cause.&lt;/p&gt;
-
-&lt;p&gt;In this Fake company, Emily conducted an investigation. She discovered that Bing Mate had split their monolithic
-application by database tables, resulting in closely related services that increased complexity. The solution proposed
-was to merge these related services into a more cohesive microservice, or a “micro-monolith”, reducing the need for
-extensive inter-service communication. To manage the complexity of this new service, Domain-Driven Design (DDD) was
-introduced.&lt;/p&gt;
-
-&lt;h3 id=&quot;key-ddd-patterns-to-take-home&quot;&gt;Key DDD Patterns To Take Home&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Always Keep Valid State in Memory:
-The first pattern emphasizes maintaining valid state within the application. By encapsulating the state and ensuring
-that only valid data can be instantiated, the integrity of the application is preserved. This is achieved by using
-private properties and constructors that enforce validation rules, ensuring that no invalid state can exist in memory.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Keep Domain Database-Agnostic:
-The second pattern involves separating domain logic from database logic. By using the repository pattern, interactions
-with the database are abstracted, allowing the domain logic to remain clean and focused on business rules. This
-separation not only makes the code more maintainable but also facilitates testing and potential database changes in the
-future.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Reflect Business Logic in Code:
-The third pattern advocates for aligning code with business terminology. By using the same language and terms that
-business stakeholders use, the code becomes more readable and understandable for non-technical team members. This
-alignment enhances communication and ensures that the software accurately represents business requirements.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;p&gt;While these patterns provide a solid starting point, they represent just a fraction of what DDD offers. Domain-Driven
-Design encompasses a wide array of techniques that address various aspects of software development, from architecture to
-requirement gathering. By integrating these patterns into their projects, developers can create more maintainable and
-scalable systems, ultimately leading to more efficient software delivery.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-07-18-gophercon-eu-berlin-2024/04-ddd-02.png&quot; alt=&quot;Github wild-workouts-go-ddd-example repository for DDD example application in GO&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The engineer concluded the talk by emphasizing the importance of understanding and utilizing DDD, especially in complex
-projects. They also provided materials and resources for further learning, encouraging developers to explore and
-implement DDD in their own projects.&lt;/p&gt;
-
-&lt;h2 id=&quot;db-connection-pool---agniva-de-sarker&quot;&gt;DB Connection Pool - Agniva De Sarker&lt;/h2&gt;
-
-&lt;p&gt;Agniva De Sarker of Mattermost delivered a detailed presentation on the intricacies of database connection pooling in Go.&lt;/p&gt;
-
-&lt;p&gt;He emphasized the importance of using an efficient database schema for logical database operations and discussed the
-limitations of pgbouncer. Agniva highlighted that the ideal solution is a single pool serving multiple requests,
-although Mattermost itself is not designed to be multi-tenant.&lt;/p&gt;
-
-&lt;h3 id=&quot;highlights&quot;&gt;Highlights&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Key Concepts&lt;/strong&gt;: Efficient database schema, pgbouncer.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Project&lt;/strong&gt;: Mattermost’s Perseus project was discontinued due to security concerns.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Resource&lt;/strong&gt;: &lt;a href=&quot;https://github.com/mattermost/perseus&quot;&gt;Mattermost Perseus Project&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Agniva’s insights into database connection pooling underscored the importance of an efficiently designed database
-schema, which defines how data is logically organized within a relational database. This includes logical constraints
-such as table names, fields, data types, and the relationships between these entities, all crucial for optimal
-performance and scalability in Go applications.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-07-18-gophercon-eu-berlin-2024/05-db-connection-pool-01.png&quot; alt=&quot;DB connection pool, DB hierarchy&quot; /&gt;
-&lt;img src=&quot;/images/posts/2024-07-18-gophercon-eu-berlin-2024/06-db-connection-pool-02.png&quot; alt=&quot;DB connection pool, ideal scenario&quot; /&gt;
-&lt;img src=&quot;/images/posts/2024-07-18-gophercon-eu-berlin-2024/07-db-connection-pool-03.png&quot; alt=&quot;DB connection pool, github.com/mattermost/perseus&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;ai-application-in-go---travis-cline&quot;&gt;AI Application in Go - Travis Cline&lt;/h2&gt;
-
-&lt;p&gt;Travis Cline introduced &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LangChainGo&lt;/code&gt;, a library designed to integrate Go with the generative AI ecosystem. This library
-simplifies writing LLM-based programs in Go, supporting various models like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT&lt;/code&gt;. Travis outlined current
-capabilities and future plans for LangChainGo, including core simplification, advanced agent support, and deeper
-integration with tools like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LangSmith&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;capabilities&quot;&gt;Capabilities&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Structured Output&lt;/li&gt;
-  &lt;li&gt;Tool Calling&lt;/li&gt;
-  &lt;li&gt;Vector Database (Sequoia)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;future-plans&quot;&gt;Future Plans&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Core Simplification&lt;/li&gt;
-  &lt;li&gt;Documentation&lt;/li&gt;
-  &lt;li&gt;Advanced Agent Support&lt;/li&gt;
-  &lt;li&gt;Deeper Integration&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-07-18-gophercon-eu-berlin-2024/08-ai-app-in-go-01.png&quot; alt=&quot;Generative AI Ecosystem: Major Suppliers&quot; /&gt;
-&lt;img src=&quot;/images/posts/2024-07-18-gophercon-eu-berlin-2024/09-ai-app-in-go-02.png&quot; alt=&quot;Generative AI Ecosystem: Infrastructure Stack&quot; /&gt;
-&lt;img src=&quot;/images/posts/2024-07-18-gophercon-eu-berlin-2024/10-ai-app-in-go-04.png&quot; alt=&quot;LangchainGO: Using LangchainGo&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;concurrent-go---raghav-roy&quot;&gt;Concurrent Go - Raghav Roy&lt;/h2&gt;
-
-&lt;p&gt;Raghav Roy introduced the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TLA+&lt;/code&gt; specification language, a formal method for verifying distributed and concurrent systems.&lt;/p&gt;
-
-&lt;p&gt;He demonstrated how TLA+ can be used to model and verify concurrent Go programs, ensuring that they are free from unexpected behaviors.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-07-18-gophercon-eu-berlin-2024/11-concurrent-go-01.png&quot; alt=&quot;TLA+ Definition&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;technical-docs---hila-fish&quot;&gt;Technical Docs - Hila Fish&lt;/h2&gt;
-
-&lt;p&gt;Hila Fish provided a comprehensive guide on creating effective technical documentation. She stressed the importance of
-various document types, including system design briefs, on-call runbooks, and project planning documents. Hila also
-discussed the benefits of thorough documentation, such as reducing work volume and enabling self-service, thereby
-increasing developer velocity.&lt;/p&gt;
-
-&lt;h3 id=&quot;documentation-types&quot;&gt;Documentation Types&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;System Logical Design/Brief&lt;/li&gt;
-  &lt;li&gt;On-Call Runbooks&lt;/li&gt;
-  &lt;li&gt;Code README&lt;/li&gt;
-  &lt;li&gt;Onboarding Docs&lt;/li&gt;
-  &lt;li&gt;Project Planning Docs&lt;/li&gt;
-  &lt;li&gt;Docs as Code&lt;/li&gt;
-  &lt;li&gt;Slack Pinned Messages&lt;/li&gt;
-  &lt;li&gt;Slack bot&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;general-guidelines&quot;&gt;General Guidelines&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Know Your Audience&lt;/strong&gt;: Tailor documentation for internal maintainers or external users. Make sure people understand it&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Decide/Abide by Documentation Type&lt;/strong&gt;: Use markdown for docs as code, integrate diagrams, and ensure CI/CD validations.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-07-18-gophercon-eu-berlin-2024/18-documentation-01.png&quot; alt=&quot;Your code is now no more self documented&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Her tips aim to have a well-documented code and not a self-documented one. She recommends that we should not feel forced
-to write everything but at least documente whatever we can and keep it simple.&lt;/p&gt;
-
-&lt;p&gt;Below are some of the suggested links shared to help us:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://go.dev/blog/godoc&quot;&gt;Go Official Style Guide&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://google.github.io/styleguide/go/&quot;&gt;Google Style Guide&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.google.com/document/u/0/d/1naq4pq0otqb78hkQ8enJBLd_yHqLeMC93fFJAnaK0Rc/mobilebasic&quot;&gt;Technical Writing Tips&lt;/a&gt; by Hila Fish&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;frames--pointers---felix-geisendörfer&quot;&gt;Frames &amp;amp; Pointers - Felix Geisendörfer&lt;/h2&gt;
-
-&lt;p&gt;Felix Geisendörfer’s session focused on performance profiling and tracing tools in Go, including pprof, frame pointers,
-and various tracing utilities like Gotraceui and Traceutils. He demonstrated how these tools can help developers
-understand and optimize their Go applications.&lt;/p&gt;
-
-&lt;h3 id=&quot;tools-highlighted&quot;&gt;Tools Highlighted&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;pprof&lt;/li&gt;
-  &lt;li&gt;Frame Pointers&lt;/li&gt;
-  &lt;li&gt;Gotraceui&lt;/li&gt;
-  &lt;li&gt;Traceutils&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-07-18-gophercon-eu-berlin-2024/13-frames-and-pointers-01.png&quot; alt=&quot;Frames and pointer - tracing&quot; /&gt;
-&lt;img src=&quot;/images/posts/2024-07-18-gophercon-eu-berlin-2024/14-frames-and-pointers-02.png&quot; alt=&quot;Frames and pointer - Execution Tracer Data&quot; /&gt;
-&lt;img src=&quot;/images/posts/2024-07-18-gophercon-eu-berlin-2024/15-frames-and-pointers-03.png&quot; alt=&quot;Frames and pointer - Why is this a big deal?&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;securing-containers---zvonimir-pavlinovic&quot;&gt;Securing Containers - Zvonimir Pavlinovic&lt;/h2&gt;
-
-&lt;p&gt;Zvonimir Pavlinovic discussed container security, introducing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;govulncheck&lt;/code&gt;, a vulnerability scanning tool developed by
-the Go team. He presented data on vulnerability findings in containers and discussed the capabilities of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Scalibr&lt;/code&gt;, a
-software composition analysis library that works across different types of binaries.&lt;/p&gt;
-
-&lt;h3 id=&quot;key-points&quot;&gt;Key Points&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Tool&lt;/strong&gt;: govulncheck&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Vulnerability&lt;/strong&gt; Findings: Detected symbols in 54% of containers, mostly Go vulnerabilities.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Library&lt;/strong&gt;: Scalibr, supports various binary types.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;resources&quot;&gt;Resources&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://go.dev/doc/security/vuln/&quot;&gt;govulncheck&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/google/osv-scalibr&quot;&gt;Scalibr&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;anti-patterns---rabieh-fashwall&quot;&gt;Anti Patterns - Rabieh Fashwall&lt;/h2&gt;
-
-&lt;p&gt;Rabieh proposes some good practices:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;when using generics is relevant&lt;/li&gt;
-  &lt;li&gt;that can be resumed in “don’t reinvent the wheel” i.e. use native go functions instead of homemade code can have
-impact on performances. He shares simple examples and validates them with simple benchmarks.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-07-18-gophercon-eu-berlin-2024/16-anti-patterns-01.png&quot; alt=&quot;Antipattern&quot; /&gt;
-&lt;img src=&quot;/images/posts/2024-07-18-gophercon-eu-berlin-2024/17-anti-patterns-02.png&quot; alt=&quot;Antipattern - Error Handling&quot; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;conclusion-1&quot;&gt;Conclusion&lt;/h1&gt;
-
-&lt;p&gt;These two days were a great chance to meet people involved in the language’s development and learn more about a wide
-range of topics related to the Go language. Because the event was so well-organized, we were able to exchange in general
-benevolence with a large number of GO users.&lt;/p&gt;
-
-&lt;p&gt;Our only regret is the somewhat short duration of the talks, which occasionally prevented us from digging deeper into
-certain subjects and the lack of a Q&amp;amp;A period with the speakers at the conclusion of their presentation though you can
-still ask them questions all along the event.&lt;/p&gt;</content><author><name>[&quot;k_phan&quot;, &quot;m_millet&quot;, &quot;n_boiron&quot;, &quot;pa_bedu&quot;, &quot;t_geindre&quot;, &quot;y_chauvel&quot;]</name></author><category term="golang" /><category term="opensource" /><category term="community" /><category term="conference" /><category term="2024" /><summary type="html">The 2024 GopherCon Europe took place in Berlin. Four of us had the opportunity to take part in the event in-person while others could attend the talks virtually.</summary></entry></feed>
+&lt;/blockquote&gt;</content><author><name>Bedrock</name></author><category term="devfacts" /><category term="humour" /><summary type="html">Bien que cela fasse près de 18 mois que nous n’avons pas publié une nouvelle fournée de Dev Facts, nos équipes ont continués à alimenter la pile des perles des développeurs. Et du coup, double fournée !!</summary></entry></feed>

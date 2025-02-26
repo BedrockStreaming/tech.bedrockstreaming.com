@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>How we made our apps more accessible on SmartTVs 📺 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="How we made our apps more accessible on SmartTVs 📺" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this article, I’m going to share with you how we improved our accessibility score of our apps at TVJS." />
+<meta property="og:description" content="In this article, I’m going to share with you how we improved our accessibility score of our apps at TVJS." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2025/02/26/tvjs-accessibility.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2025/02/26/tvjs-accessibility.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-02-26T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How we made our apps more accessible on SmartTVs 📺" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","description":"In this article, I’m going to share with you how we improved our accessibility score of our apps at TVJS.","dateModified":"2025-02-26T00:00:00+00:00","datePublished":"2025-02-26T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2025/02/26/tvjs-accessibility.html","headline":"How we made our apps more accessible on SmartTVs 📺","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2025/02/26/tvjs-accessibility.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="How we made our apps more accessible on SmartTVs 📺">
+    <meta name="twitter:description" content="Accessibility is at the heart of our concerns, at Bedrock Streaming we work hard to make our applications accessible to everyone.In this article, I’m going t...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg">
+    <meta name="twitter:image:alt" content="How we made our apps more accessible on SmartTVs 📺">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="How we made our apps more accessible on SmartTVs 📺 " aria-label="How we made our apps more accessible on SmartTVs 📺" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="How+we+made+our+apps+more+accessible+on+SmartTVs+%F0%9F%93%BA" class="title">How we made our apps more accessible on SmartTVs 📺</h1>
+      <div class="post-info">
+
+
+<span class="author">
+      <img alt="Author's avatar" src="https://ca.slack-edge.com/T108ZKPMF-U01FQRQ8FT7-dfb12b21fb0d-192" class="thumbnail">
+    
+
+    
+      <span class="name">
+        Julie Nginn
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    February 26, 2025
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Accessibility is at the heart of our concerns, at Bedrock Streaming we work hard to make our applications accessible to everyone.
+In this article, I’m going to share with you how my team and I improved our accessibility score of our SmartTV apps by 18% in just a few months!
+This improvement is even more impressive because on smartTV we have to manage several constraints, including taking into account the specificities of each device (Tizen, WebOS, Hisense, Panasonic, etc.).</p>
+
+<p>I tried to make this article accessible to everyone, whether you’re a developer or not. I have to admit that for the code samples, you need to know a bit of <code class="language-plaintext highlighter-rouge">HTML</code>, <code class="language-plaintext highlighter-rouge">CSS</code> and <code class="language-plaintext highlighter-rouge">JavaScript</code>, but I tried to explain it as simply as possible.</p>
+
+<p>Hi there! 👋 I’m Julie Nginn, I’m a front-end developer and the accessibility technical referent at the <em>TVJS</em> service. We called this service “TVJS” because we develop the apps for the smartTVs, like Samsung, LG, Sony etc. using JavaScript.
+First of all, you need to know that I’m very passionate and engaged in accessibility. My main motivation is to make the streaming better for everyone, including people with disabilities. 💪</p>
+
+<blockquote>
+  <p>ℹ️ What is the web accessibility?</p>
+
+  <p>Web accessibility is the practice of designing and developing websites so that they can be used by as many people as possible, including those with disabilities. It’s about removing barriers that prevent people from accessing or interacting with web content.</p>
+</blockquote>
+
+<h2 id="background">Background</h2>
+<h3 id="october-2022">October 2022</h3>
+<p>During the R&amp;D (Research and Development) day at Bedrock, we decided to investigate and see if it is possible to implement audio guidance on our TVJS apps. Audio guidance is a basic feature on the smartTVs that can be found in the accessibility settings which allows the user to hear the text on the screen.</p>
+
+<p>I took the lead on this project and I started to implement it for the platform WebOS first, because it’s the device I had at home, and it’s pretty easy to test on this device.
+At that time, the only documentation I found to implement the feature on WebOS was using the <a href="https://webostv.developer.lge.com/develop/references/luna-service-introduction">Luna Service API</a> to enable the audio guidance feature. By calling the method <code class="language-plaintext highlighter-rouge">voicereadout.readAlert()</code> returned by the API and passing it the text we want to read.
+For the demonstration, I implemented it in the pairing page. When any button in this page is focused, we can hear the text of the button.</p>
+
+<p>Here is the result of this first POC (it’s in French):</p>
+<video src="/images/posts/tvjs/tvjs_tts_webos.mp4" width="560" height="315" controls="">
+</video>
+
+<p>The implementation was pretty simple (but spoiler alert: it will be even easier later). Here is the code, we need to add to enable the audio guidance feature on WebOS:</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">audioGuidanceConfig</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">urlLuna</span><span class="p">:</span> <span class="dl">'</span><span class="s1">luna://com.webos.settingsservice</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">getSystemSettings</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">parameters</span><span class="p">:</span> <span class="p">{</span> <span class="na">keys</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">audioGuidance</span><span class="dl">'</span><span class="p">],</span> <span class="na">category</span><span class="p">:</span> <span class="dl">'</span><span class="s1">option</span><span class="dl">'</span> <span class="p">},</span>
+  <span class="na">requestType</span><span class="p">:</span> <span class="dl">'</span><span class="s1">audio guidance</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">activateTTS</span> <span class="o">=</span> <span class="k">async </span><span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if </span><span class="p">(</span><span class="o">!</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">{</span> <span class="nx">settings</span> <span class="p">}</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">wrappers</span><span class="p">.</span><span class="nb">window</span><span class="p">.</span><span class="nf">serviceRequestWrapper</span><span class="p">(</span><span class="nx">audioGuidance</span><span class="p">);</span>
+
+    <span class="k">if </span><span class="p">(</span><span class="nx">settings</span> <span class="o">&amp;&amp;</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">audioGuidance</span> <span class="o">&amp;&amp;</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">audioGuidance</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">on</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="p">{</span> <span class="nx">voicereadout</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">wrappers</span><span class="p">.</span><span class="nb">window</span><span class="p">.</span><span class="nf">getWebOS</span><span class="p">();</span>
+
+      <span class="nx">voicereadout</span><span class="p">.</span><span class="nf">readAlert</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">catch </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Fail silently</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Then, in order to use it in our app, we just have to call the function where we want to read the text. At this time, my first idea was to find a way to trigger the focus to be able to pass the text to read to <code class="language-plaintext highlighter-rouge">activateTTS</code>.
+But it was not very simple because, the navigation on our apps was managed by a custom navigation system, and the focus was not managed by the browser. So, I  created a HOC (Higher Order Component) to manage the focus and the text to read.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">withTTS</span> <span class="o">=</span> <span class="nx">Component</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">TTSComponent</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">children</span><span class="p">,</span> <span class="nx">focus</span><span class="p">,</span> <span class="p">...</span><span class="nx">props</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">text</span> <span class="o">=</span> <span class="k">typeof</span> <span class="nx">children</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span> <span class="p">?</span> <span class="nx">children</span> <span class="p">:</span> <span class="kc">undefined</span><span class="p">;</span>
+
+        <span class="nf">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="k">if </span><span class="p">(</span><span class="nx">text</span> <span class="o">&amp;&amp;</span> <span class="nx">focus</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nf">activateTTS</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">},</span> <span class="p">[</span><span class="nx">focus</span><span class="p">]);</span>
+
+        <span class="k">return</span> <span class="o">&lt;</span><span class="nx">Component</span> <span class="p">{...</span><span class="nx">props</span><span class="p">}</span> <span class="sr">/&gt;</span><span class="err">;
+</span>    <span class="p">};</span>
+
+    <span class="k">return</span> <span class="nx">TTSComponent</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>To manage the navigation and the focus in our components, we used a HOC called <code class="language-plaintext highlighter-rouge">withNavigator</code>. Thanks to this, the wrapped component become focusable and navigable with the remote control (and the keyboard directional arrows). I won’t talk more about our navigation system today because it should have its own article.
+By using <code class="language-plaintext highlighter-rouge">withTTS</code> inside the <code class="language-plaintext highlighter-rouge">withNavigator</code> to wrap the <code class="language-plaintext highlighter-rouge">Button</code> component, we can retrieve the <code class="language-plaintext highlighter-rouge">focus</code> status from the props. So, we can call the <code class="language-plaintext highlighter-rouge">activateTTS</code> function when the button is focused.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">NavigationButton</span> <span class="o">=</span> <span class="nf">withNavigator</span><span class="p">(</span><span class="nf">withTTS</span><span class="p">(</span><span class="nx">Button</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>We can clearly improve this code, moreover, with hindsight, I realize that it was quite cumbersome to have to add this HOC to all the components we wanted to read. But at this time, I was proud to have been able to prove that it was possible to implement the audio guidance on our smart TV apps. 🎉
+After this POC, unfortunately no initiative was taken because the accessibility was not our first priority at that time, so this feature had been abandoned… 😭</p>
+
+<h3 id="february-2024">February 2024</h3>
+<p>A few months later, I decided to spend another R&amp;D day to develop another feature to improve the accessibility of our apps. This time, I wanted to do something especially for the dyslexic people, because I’m dyslexic myself, and I’m a big user of streaming platforms.</p>
+
+<p>In accessibility, we can often see features for the blind or the deaf people, but it’s rare to see something for the dyslexic ones and even more on streaming platforms.
+So, I started with a benchmark to see what is already done in the industry and at that time none of our competitors has implemented a feature for the dyslexic people, except Canal+ (for video subtitles only).</p>
+
+<p>After that, I put myself in the shoes of a user and imagined what could be useful for me to enjoy my experience on our apps. The project “Dyslexic mode” on TVJS was born! 🎉</p>
+
+<p>First, I added a new entry called “Accessibility” in the user settings, where the user can activate the “Dyslexic mode” and personalize the font and the size of the text etc.
+And then, the personalization will be applied on the whole application.</p>
+
+<p><img src="/images/posts/tvjs/tvjs_dys_settings.png" alt="tvjs_dys_entry" height="340px" />
+<img src="/images/posts/tvjs/tvjs_dys_entry.png" alt="tvjs_dys_entry" height="340px" />
+<img src="/images/posts/tvjs/tvjs_dys_program.png" alt="tvjs_dys_entry" height="340px" /></p>
+
+<p>To do that, we updated the global style, using CSS and JavaScript, to switch between the dyslexic and the default modes.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if </span><span class="p">(</span><span class="nx">dyslexicMode</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">root</span><span class="dl">'</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">letterSpacing</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">3px</span><span class="dl">'</span><span class="p">;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">root</span><span class="dl">'</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">wordSpacing</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">5px</span><span class="dl">'</span><span class="p">;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">root</span><span class="dl">'</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">fontFamily</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">"Open Dyslexic", Arial, sans-serif</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">root</span><span class="dl">'</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">letterSpacing</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">root</span><span class="dl">'</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">wordSpacing</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">root</span><span class="dl">'</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">fontFamily</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Arial, sans-serif</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>As you can see it’s very easy to personalize the font, and since we can use only CSS to do that, the performance is not impacted. This feature requires very few resources and effort but brings considerable improvement for users.</p>
+
+<p>Why is it interesting for the user to have this feature? Because it can help reduce reading time, fatigue and errors. It can also help to improve comprehension and focus. The user experience is clearly better.
+And what is the benefit for Bedrock Streaming? It’s a competitive advantage, it’s a way to show that we care about our users, and we want to make the streaming better for everyone.</p>
+
+<p>As a user, this kind of feature is very important, especially on smartTV apps, because when we watch a movie or a series, we’re on our sofa, which is often a long way from the TV, and we don’t all have plasma screens. So, the text should be readable to keep the user on our platform.</p>
+
+<p>I presented this project to Mathieu Bouillot (our Product Manager, expert in accessibility) and some of our designers, and they were very enthusiastic about it. We worked together with Mathieu, and some months later the initiative “Style Switcher” was created. 🥹
+The project deserves a dedicated article, so I will not go into details here. But the main idea of this project is to allow the user to personalize the font, the size, the spacing, the colors etc. of the text on the whole application, so the user can adapt the app to his needs.</p>
+
+<h2 id="2024-march-the-first-accessibility-audit">2024 March: the first accessibility audit</h2>
+<p>First of all, I’m going to explain what is an accessibility audit.</p>
+
+<p>An accessibility audit is a process to evaluate the accessibility of a website or an application. The goal is to find the issues and the barriers that prevent the users with disabilities to use the website or the application.
+The audit is based on the WCAG (Web Content Accessibility Guidelines) which is a set of rules to follow to make the web accessible to everyone:</p>
+<ul>
+  <li><strong>Perceivable:</strong>  Users must be able to perceive the information being presented. This means it must be presentable to the senses (e.g., sight, hearing, touch) in ways users can understand</li>
+  <li><strong>Operable:</strong> Users must be able to operate the interface. This means users must be able to interact with the controls and content (e.g., using a keyboard, mouse, or assistive technology)</li>
+  <li><strong>Understandable:</strong> Users must be able to understand the content and the interface. This means the content and interface must be clear, consistent, and easy to understand</li>
+  <li><strong>Robust:</strong> The content must be robust enough that it can be interpreted reliably by a wide variety of user agents, including assistive technology</li>
+</ul>
+
+<p>The audit is based on the conformity rate of the WCAG, and the score is between 0% and 100%.
+In France, we use the RGAA (Référentiel Général d’Amélioration de l’Accessibilité) which is based on the WCAG, but with some specificities for the French administration.
+There are three levels of conformance:</p>
+<ul>
+  <li><strong>non-compliant</strong> (0% to 49%)</li>
+  <li><strong>partially compliant</strong> (50% to 99%)</li>
+  <li><strong>totally compliant</strong> (100%)</li>
+</ul>
+
+<p>Obviously, the audit alone cannot evaluate whether a site or application is completely accessible, as there are many factors to consider, and it remains theoretical because we cannot know if users will actually find it accessible.
+But as developers, we need to follow the accessibility rules at least and keep our code with a correct semantic.</p>
+
+<p>So, in March 2024, we received the first audit of the TVJS apps from Mathieu. The score was 43% 😱 The score is not catastrophic, but we noticed that our app is non-compliant. We could do better, and we decided to do so!</p>
+
+<p><img src="/images/posts/tvjs/tvjs_accessibility_first_audit.png" alt="The score for TVJS with the first audit" /></p>
+
+<p>We first decided to “prepare the ground” and fix some minor issues. Then, to have the same knowledge and understanding of the accessibility, we organized a workshop with Mathieu and the TVJS core developers to explain the basics of the accessibility, the WCAG, the ARIA (Accessible Rich Internet Applications), the tools etc. 
+We can perceive the accessibility as an annoying constraint to do when we develop an app, because we need to follow some specific rules. But, when we know the context and the importance of accessibility for users, our engagement is different. And that’s what happened during this workshop. The developers were very interested and motivated to improve the accessibility of our apps.</p>
+
+<p>During this workshop, we also explained to Mathieu the constraints and the specificities of the smartTV apps, because those are not the same as web apps. For example, focus management is different, navigation is different <em>(remote control and no keyboard)</em>, screen reader is different etc. With his help, we did a mob programming to find some solutions to implement screen reader on our apps.
+And now, the POC I did 2 years ago becomes a reality. 🤩 However, it was not easy, because on the TVJS apps, we use a custom navigation system to be able to navigate with the remote control. This system is not compatible with the screen reader because we need to use the native focus management of the browser and to use the correct HTML tags and attributes.</p>
+
+<h2 id="the-refactoring">The refactoring</h2>
+<h3 id="our-contraints">Our contraints</h3>
+<p>This refactoring was not easy, we had to manage several constraints because of the platform we worked on. Even if we use a web app on the smartTV, we need to take into account the specificities of each device and also their versions. Some of them use an old version of the browser, so some of the HTML tags and attributes are not supported.</p>
+
+<p>For example, if we don’t produce a list using <code class="language-plaintext highlighter-rouge">ul</code> and <code class="language-plaintext highlighter-rouge">li</code>, the screen reader is not able to identify the list. To have a good semantic we have to update our lists from nested <code class="language-plaintext highlighter-rouge">div</code> to <code class="language-plaintext highlighter-rouge">ul</code>/<code class="language-plaintext highlighter-rouge">li</code> HTML tags.
+But even if we use the correct HTML tags, the screen reader is not able to read the list correctly because the browser doesn’t manage the lists natively, because of the old OS version of the browser.
+So to work around this problem, we decided to manage the lists manually by using the number of elements and their position in the list to announce to the user that they are in a list. We also need to handle the texts and translations by ourselves, which we wouldn’t need to do on the web because the screen reader does it natively.</p>
+
+<p>Also, each device works differently and needs a specific configuration. At TVJS, we manage a dozen of different platforms. We had to test and document each device to see if the audio guide feature is present and ensure our implementation works correctly on them. 
+Sometimes the results were different between devices, so we need to be attentive during development and testing.
+And for the unsupported devices/versions, we must avoid negatively impacting them with our changes.</p>
+
+<h3 id="updating-the-html-structure">Updating the HTML structure</h3>
+<p>We made many pull requests to refactor our components to use the correct HTML tags and attributes. For example, we replaced the <code class="language-plaintext highlighter-rouge">div</code> by <code class="language-plaintext highlighter-rouge">button</code>, <code class="language-plaintext highlighter-rouge">span</code> by <code class="language-plaintext highlighter-rouge">h1</code>, <code class="language-plaintext highlighter-rouge">h2</code>, <code class="language-plaintext highlighter-rouge">h3</code> etc. to have a good semantic for accessibility. We also added the ARIA attributes to improve the accessibility of our components.
+Thanks to Mathieu, we learned the good practices and how to use the ARIA attributes as <code class="language-plaintext highlighter-rouge">aria-label</code>, <code class="language-plaintext highlighter-rouge">aria-hidden</code> or <code class="language-plaintext highlighter-rouge">aria-describedBy</code>.</p>
+
+<p>Here is a typical example of what we did:</p>
+
+<p>Before:</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">Sidenav</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">sidenav</span><span class="dl">"</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="nx">entries</span><span class="p">.</span><span class="nf">map</span><span class="p">(({</span> <span class="nx">entry</span> <span class="p">},</span> <span class="nx">index</span><span class="p">)</span> <span class="o">=&gt;</span> 
+            <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">index</span><span class="p">}</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">sidenav__item</span><span class="dl">"</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">entry</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>        <span class="p">)}</span>
+    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>After:</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">Sidenav</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">nav</span> <span class="nx">role</span><span class="o">=</span><span class="dl">"</span><span class="s2">navigation</span><span class="dl">"</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">sidenav</span><span class="dl">"</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+            <span class="p">{</span><span class="nx">entries</span><span class="p">.</span><span class="nf">map</span><span class="p">(({</span> <span class="nx">entry</span> <span class="p">},</span> <span class="nx">index</span><span class="p">)</span> <span class="o">=&gt;</span>
+                <span class="o">&lt;</span><span class="nx">li</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">index</span><span class="p">}</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">sidenav__item</span><span class="dl">"</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">entry</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/li</span><span class="err">&gt;
+</span>            <span class="p">)}</span>
+        <span class="o">&lt;</span><span class="sr">/ul</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/nav</span><span class="err">&gt;
+</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>ℹ️ We replaced the <code class="language-plaintext highlighter-rouge">div</code> by the more appropriate tag as <code class="language-plaintext highlighter-rouge">nav</code>, <code class="language-plaintext highlighter-rouge">ul</code> and <code class="language-plaintext highlighter-rouge">li</code>.</p>
+
+<h3 id="using-the-native-focus-management">Using the native focus management</h3>
+<p>As I mentioned before, to navigate through our apps, we developed our own navigation system with a custom focus management. But the screen reader doesn’t work with this system because it needs to use the native focus.
+So, we refactored our system to fix this issue by synchronizing the focus of the browser with our navigation system. We added <code class="language-plaintext highlighter-rouge">HTMLElement.focus()</code>, and <code class="language-plaintext highlighter-rouge">tabindex</code> attribute to make some elements focusable.</p>
+
+<h3 id="implementing-audio-guidance-on-smarttv">Implementing audio guidance on SmartTV</h3>
+<p>To implement the audio guidance feature to WebOS, we need to enable the feature in the WebOS config (<code class="language-plaintext highlighter-rouge">appinfo.json</code> file) as following:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"accessibility"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"supportsAudioGuidance"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Compared to what I did in my first POC in 2022, the implementation is much simpler and more efficient.</p>
+
+<p>Even simpler, on Tizen and Hisense, we didn’t need to do anything, since we already refactored our code by using the correct HTML structure and the native focus, audio guidance is already enabled by default on these platform. But of course, it depends if the device version is compatible with the feature.
+To date, the work is still in progress to list all the supported devices.</p>
+
+<h2 id="2024-october-the-second-audit">2024 October: the second audit</h2>
+<p><img src="/images/posts/tvjs/tvjs_accessibility_scores.png" alt="The score for TVJS with the first audit" /></p>
+
+<p>Some months later, we received the second audit of the TVJS apps from Mathieu and the score has increased to 61%. 🚀 I am very proud of my team and myself, because we did a great job! We improved the accessibility of our apps by 18% in just a few months. It’s a great achievement, and it’s just the beginning. We are motivated to reach the 100% of the accessibility score. 💪
+Of course, this performance is also due to the work of Mathieu (our PM) and Shaïnez (our PO) who have been very helpful and supportive during this refactoring.
+I think the communication between the product line and the technical line is primordial to be sure to go in the right direction. And obviously, the communication between the developers is also important, it’s thanks to our many brainstorming sessions that we found the best solutions.</p>
+
+<p>If I have some advice to give to the developers who want to improve the accessibility of their apps, it would be:</p>
+<ul>
+  <li>Before developing, to think about the accessibility and use the good practices (like the semantic HTML, the ARIA, the focus management etc.)</li>
+  <li>Take the time to understand the accessibility, the constraints and the specificities of the platform (by attending a workshop for example)</li>
+  <li>If possible, to have an accessibility referent in the team to stay aware of this topic and communicate with the product line and the designers</li>
+  <li>To test with the existing tools (like <a href="https://www.deque.com/axe/">Axe</a>, <a href="https://wave.webaim.org/">Wave</a>, the screen reader and the browser accessibility panel)</li>
+  <li>To test directly on the device and if possible with the users</li>
+</ul>
+
+<p>To conclude this article, I would like to note accessibility is not a constraint, it’s a strength, and a competitive advantage for our apps. If our platform is accessible, the users will be happy and will prefer to use our apps rather than the other ones. 
+The accessibility is not only for the people with disabilities, it’s for everyone. And in the TVJS team, we understand that well! 📺</p>
+
+<h2 id="-sources">📚 Sources</h2>
+<hr />
+<ul>
+  <li>WCAG Guidelines: <a href="https://www.w3.org/TR/WCAG21/">https://www.w3.org/TR/WCAG21/</a></li>
+  <li>RGAA: <a href="https://accessibilite.numerique.gouv.fr">https://accessibilite.numerique.gouv.fr</a>/</li>
+  <li>Accessibility Tools: <a href="https://wave.webaim.org/">Wave</a> - <a href="https://www.deque.com/axe/">Axe</a> - <a href="https://www.nvaccess.org/">Screen reader</a> - <a href="https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector">Browser accessibility panel</a></li>
+  <li>HTMLElement.focus(): <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus">https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus</a></li>
+  <li>WebOS audio guidance: <a href="https://webostv.developer.lge.com/develop/references/luna-service-introduction">https://webostv.developer.lge.com/develop/references/luna-service-introduction</a></li>
+</ul>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=How+we+made+our+apps+more+accessible+on+SmartTVs+%F0%9F%93%BA%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2025%2F02%2F26%2Ftvjs-accessibility.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2025/02/26/tvjs-accessibility.html&title=How+we+made+our+apps+more+accessible+on+SmartTVs+%F0%9F%93%BA%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2025/02/26/tvjs-accessibility.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=How we made our apps more accessible on SmartTVs 📺%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2025/02/26/tvjs-accessibility.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#TVJS">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> TVJS</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#a11y">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> a11y</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#accessibility">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> accessibility</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#frontend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#javascript">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#react">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> react</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#smartTV">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> smartTV</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#web">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> web</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="How we improved scroll performance on Smart TV apps" href="/2024/11/22/tvjs-scroll-performance-enhancement.html">
+            <p>Next post</p>
+            How we improved scroll performance on Smart TV apps
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>
