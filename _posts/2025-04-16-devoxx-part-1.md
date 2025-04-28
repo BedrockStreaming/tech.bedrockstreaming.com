@@ -642,3 +642,29 @@ Mais leur bonne implémentation nécessite de comprendre les flux, les menaces, 
 
 Comme le disait Guillaume Chervet : **"En sécurité, tout est une question de curseur."**  
 Un blog personnel n'aura pas les mêmes besoins qu'une application bancaire !
+
+## L’observabilité n’est plus un luxe — c’est une nécessité
+À travers trois talks très complémentaires, une évidence s’impose : dans nos systèmes modernes distribués, l’observabilité est devenue une compétence centrale pour les équipes tech, et plus seulement un sujet d’ops.
+Que ce soit quand la prod plante sans prévenir, quand un bug front masque un problème backend, ou quand un nouveau service critique est mis en ligne, il faut pouvoir répondre rapidement à une seule question : “Que se passe-t-il vraiment dans mon système ?”
+Les conférences ont exploré différents angles :
+
+### “L’Observabilité pour les devs : outils-clé pour survivre quand la prod plantera” - Takima
+Dans cette première conférence, les conférenciers ont mis en place une stack complète d’observabilité avec des outils open source en seulement 45 minutes.
+Ils ont utilisé OpenTelemetry pour la collecte des logs, des métriques et des traces, permettant ainsi de diagnostiquer rapidement et efficacement les problèmes en production.
+Toutes ces données ont été intégrées dans l'outil SigNoz afin d'avoir une vue complète de leur système.
+
+### “RUM & OTEL : l’accord parfait pour l’observabilité de bout en bout ?” - Capgemini/Sogeti
+Cette seconde conférence nous a montré l'importance de lier les données collectées côté utilisateur (via le Real User Monitoring - RUM) aux événements backend grâce à OpenTelemetry.
+Cela permet d'obtenir une vue unifiée et complète à travers toutes les couches de l’infrastructure.
+Non seulement cela facilite la compréhension des problèmes rencontrés par les utilisateurs, mais cela aide aussi à localiser plus précisément les causes des défaillances, qu’elles soient techniques ou fonctionnelles.
+
+### “Les métriques sont précieuses, mais savoir quoi en faire l’est encore plus 💪” - ManoMano
+Dans la dernière conférence, le Staff Software Engineer de ManoMano nous a montré qu'il est essentiel de savoir interpréter et structurer ses métriques pour avoir un impact réel.
+Lors de la migration de leur tunnel de paiement, il était crucial de disposer d'une observabilité proactive pour pouvoir réagir rapidement aux incidents 💸.
+Pour cela, ils ont réfléchi en amont à quelles métriques devaient déclencher des alertes, et comment les adapter à leurs besoins spécifiques (a-t-on vraiment besoin d’être alerté à chaque 404 ?).
+
+L’observabilité ne se résume pas à brancher un dashboard : c’est une démarche, une façon de penser l’architecture, le développement et l’exploitation.
+Cela passe par des choix d’outils, oui, mais surtout par une vraie culture d’équipe : choisir les bons signaux, définir les bons seuils, formuler des alertes compréhensibles, et donner à chaque personne — dev, ops ou astreinte — les moyens d’agir vite, bien, et avec le contexte nécessaire.
+
+En résumé : l’observabilité, c’est la capacité à comprendre son système sans tâtonner.
+Et dans un monde de microservices, de cloud et d’interdépendances complexes, c’est tout simplement vital.
