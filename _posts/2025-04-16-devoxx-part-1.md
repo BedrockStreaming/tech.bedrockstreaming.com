@@ -2,7 +2,7 @@
 layout: post
 title: Bedrock au Devoxx 2025
 description: 
-author: [paulinermbd]
+author: [paulinermbd, fferriere]
 tags: [devoxx, conference, event, backend, go, kubernetes, github]
 color: rgb(251,87,66)
 language: fr
@@ -198,4 +198,118 @@ L'objectif principal de la conférence était de présenter les bases de Gatling
 *   Pour exposer des éléments spécifiques au SI, utiliser une gateway de test.
 *   Les données de test doivent être reproductibles et il faut prévoir comment les réinitialiser.
 *   Pour maintenir le test de charge, inclure un smoke test dans la CI.
+
+
+## Anatomie d'une faille
+
+Olivier PONCET nous raconte l'histoire de la mise en place d'une faille de sécurité dans `XZ utils`, un ensemble de bibliothèques et d'outils pour la compression et décompression LZMA, très utilisé en partie dans les distributions Linux ainsi que dans le noyau.
+
+Cette faille, CVE-2024-3094, du 29 mars 2024, a le score de 10, le plus élevé et exploitable tout de suite (0-day). Heureusement, elle est découverte, par hasard, avant la sortie des releases des distributions les plus connues comme Ubuntu et Fedora.
+
+Olivier nous explique les différentes étapes de l'attaque et sa chronologie.
+L'attaque, organisée et planifiée, commence en 2022. La cible est d'affaiblir le démon SSH des machines.
+Tout commence par de l'ingénierie sociale, c'est pourquoi, l'attaquant `Jia Tan` (ou peut-être les attaquants) cible `XZ utils`. Le projet est maintenu par une seule personne `Lasse Collin`, donc une seule personne à convaincre pour devenir co-mainteneur. Cette étape est réussie à cause de pressions faites pour merger une PR, pour un patch légitime, sur GitHub. Ces pressions sont faites par d'autres comptes, mais des suspicions pensent à croire que tous ces comptes appartenaient à la même personne (ou le même groupe).
+En 2023, `Jia Tan` devient co-mainteneur, ce qui lui permet d'appliquer dans un premier temps des corrections, mais prend le contrôle de l'adresse email de contact pour que `Lasse Collin` ne soit pas mis au courant de possibles problèmes.
+
+Début 2024, `Jia Tan` gagne le contrôle du projet sous GitHub et change l'hébergement des pages GitHub. En février, la charge utile est ajouté et la version 5.6.0 sort au moment des releases des grandes distributions Linux. Un dysfonctionnement est détecté, ce qui entraine la création d'un patch rapide : 5.6.1.
+La charge utile n'existe pas dans les sources sur GitHub, uniquement dans le fichier `.tar.gz`.
+
+Un forte ingénierie technique est mise en place pour réussir à modifier des fichiers Makefile lors du build des distributions Linux.
+`Jia Tan` a principalement consolidé les tests dans `XZ utils`, et dans un nouveau test, un fichier compressé, qui semble inoffensif est ajouté, mais le script va prendre des bouts de codes par-ci par-là pour injecter la vraie faille de sécurité.
+
+La découverte de la faille est faite par un ingénieur, `Andres Freund`, qui travaille principalement sur PostgreSQL, chez Microsoft, mais pas du tout dans le domaine de la sécurité. Alors qu'il débogue son travail sur PostgreSQL, il se rend compte de ralentissement et investigue un peu, il publie alors un board de sécurité.
+
+Il a fallu un alignement des planètes exceptionnel pour permettre de créer la faille, mais encore plus pour la détecter.
+Mais la conclusion de tout ça, c'est que la sécurisation de la supply-chain est souvent oubliée. C'est pourtant un grand vecteur d'attaque, car il est possible d'infecter l'OS, les logiciels ou les paquets, les gestionnaires de paquets (composer, npm, pip, go, cargo, maven, ...) et sans oublier les images docker.
+Ce n'est pas parce que c'est sur GitHub que c'est au-dessus de tous soupçons.
+Pour éviter tout ça, il est préférable d'utiliser des gestionnaires d'artefacts qui vont valider et approuver les différents éléments.
+
+En plus de la conclusion, ce qui reste le plus marquant, c'est le temps utilisé pour planifier et réaliser l'attaque, et la chance d'une détection, opportuniste, avant un déploiement massif.
+Mais après avoir réalisé tout ça, on peut se demander combien d'attaques existe-t-il encore et sont toujours invisibles ?
+
+## Go sans fioriture
+
+Nathan CASTELEIN nous présente comment faire une API Web sans utiliser de composants externes à Golang. En effet, plusieurs fonctionnalités disponibles dans des librairies externes ont été intégrées petit à petit dans le cœur du langage.
+Dans cette conférence, on nous présente trois grosses fonctionnalités : l'écriture d'API Web, la gestion des logs et l'écriture de tests unitaires sans librairie.
+
+Avant la version 1.22, parser une URL pour récupérer des paramètres de route, n'était pas aisé sans librairie, mais depuis le pattern du routing est amélioré et natif, nous pouvons donc récupérer nous paramètre avec `r.PathValue("name")`.
+L'utilisation de middleware existe dans les librairies de router HTTP, mais Nathan nous montre comment faire de manière native.
+
+Depuis la version 1.21, nous pouvons profiter de `log/slog` qui permet de logger des messages comme `logrus` ou `zerolog` de manière structurée.
+Nativement, il est possible d'utiliser 2 types de handler, un pour envoyer des logs au format texte et un autre au format JSON.
+Des helpers pour structurer les logs sont également disponibles.
+L'interface `LogValuer` permet d'adapter une structure dans le log, pour, par exemple, ne pas afficher un mot de passe, etc.
+
+Enfin, Nathan nous présente comment faire les tests parallélisés, initialisé et nettoyé (équivalent de setUp() et tearDown()) sans testify.
+
+On peut voir que certaines des fonctionnalités qu'on utilise au travers de librairies externes peuvent être évité, mais ce n'est pas pour autant que nous devons arrêter d'en utiliser, car souvent ça peut simplifier des choses. L'idée est surtout de bien réfléchir à l'utilisation que l'on a besoin de ces librairies. Il faut se poser la question bénéfice/risque pour les utiliser, par exemple testing a intégré des fonctionnalités de testify mais la gestion des assertions est encore inexistante.
+
+## La territorialisation des infrastructures comme levier de pouvoir
+
+Ophélie COELHO, nous présente dans cette conférence, un sujet dont on parle peu a l'air du cloud : les infrastructures matérielles et toute la géopolitique qui tourne autour.
+Nous pouvons voir qu'entre le réseau de télégraphe de 1903 et aujourd'hui, les routes sont presque les mêmes. Il y a une concentration autour de l'ancien empire britannique. Et déjà l'époque, cette infrastructure est industrialisée à but géopolitique.
+
+En 1905, pendant la bataille navale de Tsushima, opposant le Japon et la Russie, le Japon reçoit un soutien de la part des britanniques en incluant le pays dans son réseau télégraphique et le coupant aux Russes.
+
+Aujourd'hui, les réseaux sont encore considérés comme une force et un moyen de pression. Les câbles sont du dur, du matériel et font partie du territoire. Internet dans pas un village sans frontières.
+Des négociations pour connecter les câbles et les infrastructures sont bien réelles.
+Des routes peuvent apparaître pour des raisons de redondance, mais aussi géopolitique.
+
+Certaines réalités ne sont pas très glorieuses comme des datacentres d'Afrique sont priorisés pour l'électricité et prive une part non négligeable de la population ou bien, les infrastructures globales du continent Africain où la majorité du trafic passe par l'Afrique du Sud.
+
+On nous présente aussi que sur ce sujet, la puissance n'est pas qu'étatique à ce niveau, en effet, des entreprises privées sont souvent les plus grands propriétaires avec, par exemple, Google qui est copropriétaire d'une trentaine de câbles sous-marins dont 16 tout seul.
+
+Pour conclusion, on nous explique qu'il est toujours temps d'agir si l'on veut plus de décentralisation. Qu'apprendre les réseaux en cours de Géographie dans toutes les filières serait un plus.
+
+## PostgreSQL : Le couteau suisse dont vous avez besoin (sans le savoir)
+[slides](https://l_avrot.gitlab.io/slides/justpg_20250418.html)
+
+Dans cette conférence, Lætitia AVROT, nous parle de plusieurs fonctionnalités utiles de PostgreSQL, en partant d'exemple concret d'une entreprise fictive qui ferait de la location de vélo.
+
+### Range
+
+Pour gérer le non-chevauchement de location de vélo, on nous présente le type Range, qui peut aussi être indexé et surtout utilisé dans des contraintes d'unicité. Il existe plusieurs opérateurs pour manipuler les ranges, comme `@>` qui permet de savoir si un range est inclus dans un autre, etc.
+Nous allons pouvoir écrire nos range de date de cette manière : `'[2025-04-01, 2025-04-05)'::daterange`. `[` inclut la valeur alors que `(` l'exclut.
+
+PostgreSQL est aussi capable de gérer la valeur `inifiniy`, fini le champ `end` à `NULL` pour dire que c'est en cours.
+
+### Identifiers
+
+Lætitia, continue par nous présenter les différentes manières de gérer des identifiants de table :
+- les séquences, où il est préférable de ne pas oublier l'instruction `DEFAULT nextval('my_seq')`
+- les colonnes de type `SERIAL` qui crée automatiquement une séquence et renseigne l'instruction `DEFAULT`, mais là encore rien n'empêche de mettre une valeur qui ne provienne pas de la séquence
+- et enfin les `Identity Columns` que l'on peut déclarer comme ceci : `id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY`, là aussi cela crée la séquence, mais le `ALWAYS` empêche de mettre une valeur qui ne viendrait pas de la séquence.
+
+### Generated Columns
+
+Pour continuer dans l'exemple de la location de vélo, nous aimerions avoir l'information de la durée de la location. On nous montre qu'il est relativement simple à calculer à partir de 2 dates, elles même extraites du range. Mais pour éviter de faire le calcul dans le `SELECT`, nous pouvons utiliser une colonne générée :
+```
+create table Rental (
+    ...
+    Rental_Range txtzrange,
+    /* Generated column */
+    Rental_Duration integer always generated as (
+        ceil(extract(epoch from upper(Rental_Range) - lower(Rantal_Range))) / (12 * 3600)) * 0.5
+    ) stored,
+    ...
+)
+```
+Dans PostgreSQL, seules les colonnes `stores` sont mises en œuvre, pour l'instant, la donnée est donc calculée et stockée à chaque insertion ou modification des données.
+
+Et pour le calcul du prix ?
+Il n'est pas possible d'utiliser une colonne générée à partir d'une autre colonne générée.
+Pour ce cas, nous pouvons utiliser un trigger qui viendra enregistrer le prix si celui-ci n'est pas déjà présent (pour éviter de le recalculer).
+
+### Listen/Notify
+
+On nous présente les fonctionnalités de `LISTEN` et de `NOTIFY` qui permet de faire de la gestion d'événement. Par contre, cela nécessite que l'application qui écoute, boucle infiniment pour recevoir les notifications.
+
+### Returning
+
+L'instruction `RETURNING`, que l'on peut ajouter dans un insert ou un update, permet de retourner (une partie ou) les données modifiées.
+Un use-case intéressant fut présenté avec des insertions en chaine dans une transaction avec des Common Table Expressions et `RETURNING`.
+
+### Conclusion
+
+Encore une fois, Lætitia, nous montre la force de PostgreSQL.
 
