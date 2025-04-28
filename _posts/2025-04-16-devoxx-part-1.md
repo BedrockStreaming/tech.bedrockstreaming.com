@@ -6,6 +6,7 @@ author: [paulinermbd, fferriere]
 tags: [devoxx, conference, event, backend, go, kubernetes, github]
 color: rgb(251,87,66)
 language: fr
+thumbnail: "/images/posts/2025-04-16_devoxx_2025/thumbnail.jpg"
 ---
 # Devoxx 2025 
 
