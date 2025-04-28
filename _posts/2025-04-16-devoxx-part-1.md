@@ -10,9 +10,10 @@ thumbnail: "/images/posts/2025-04-16_devoxx_2025/thumbnail.jpg"
 ---
 # Devoxx 2025 
 
-Le Devoxx est un événement incontournable pour les développeurs et les professionnels de la technologie. Cette année, nous avons eu la chance d'y assister et de découvrir de nombreuses conférences passionnantes. Dans cet article, nous partagerons avec vous les points clés des conférences auxquelles nous avons assisté. Cet évènement a eu lieu du 16 avril 2025 au 18 avril 2025 au Palais des Congrés de Paris.
+Le Devoxx est un événement incontournable pour les développeurs et les professionnels de la technologie, qui a eu lieu du 16 avril 2025 au 18 avril 2025 au Palais des Congrés de Paris.
+Cette année, nous avons eu la chance d'y assister et de découvrir de nombreuses conférences passionnantes. Dans cet article, nous partagerons avec vous les points clés des conférences auxquelles nous avons assisté. 
 
-## Gitflow et Gitbutler
+## Gitflow c'est bien, GitButler c'est mieux !
 
 Yann-Thomas Le Moigne et Lilian Forget nous présentent un outil permettant de faire des stratégies de gestion de branche. Cette conférence était basée sur une comparaison entre Gitflow et [Gitbutler](https://gitbutler.com/). De plus nous avons pu assister à la démonstration de l’outil en live.
 
@@ -77,9 +78,9 @@ Yann-Thomas Le Moigne et Lilian Forget nous présentent un outil permettant de f
 -   **Comparaison avec d'autres interfaces Git** : évalue les différences et les avantages par rapport à des outils similaires
 -   **Impact sur les pratiques de développement** : analyse comment GitButler peut influencer les workflows et la collaboration au sein des équipes
 
-En résumé, GitButler se présente comme une interface prometteuse pour Git, offrant une expérience utilisateur simplifiée et des fonctionnalités innovantes. En se concentrant sur la visualisation, la flexibilité et la facilité d'utilisation, il vise à améliorer la productivité et à faciliter la gestion du code source, en particulier pour ceux qui sont moins familiers avec Git. C'est un outil que je vais tester pour en savoir plus et savoir si cela pourrait être utile dans l’entreprise.
+En résumé, GitButler se présente comme une interface prometteuse pour Git, offrant une expérience utilisateur simplifiée et des fonctionnalités innovantes. En se concentrant sur la visualisation, la flexibilité et la facilité d'utilisation, il vise à améliorer la productivité et à faciliter la gestion du code source, en particulier pour ceux qui sont moins familiers avec Git. C'est un outil que nous allons tester pour en savoir plus et savoir si cela pourrait être utile dans un contexte professionnel.
 
-## Copilot aller plus loin que l’auto-complétion
+## GitHub Copilot : Aller encore plus loin que la complétion de code
 
 Les deux conférencières, Kim-Adeline Miguel et Sandra Parlant, travaillent chez GitHub et sont venues nous parler plus en détails de Copilot. Chez Bedrock nous avons accès à cet outil et cette conférence m’a permis de découvrir des fonctionnalités que je ne connaissais pas du tout et que je vais tester à l’avenir.
 
@@ -108,7 +109,7 @@ Les deux conférencières, Kim-Adeline Miguel et Sandra Parlant, travaillent che
 -   **Activable** : Fonctionnalité optionnelle pouvant être activée ou désactivée selon les besoins.
 
 
-## Mixité femme/homme : diagnostiquer, agir et révolutionner la tech
+## Mixité Femme/Homme : Diagnostiquer, Agir et Révolutionner la Tech !
 
 Dans cette conférence, les 3 collaboratrices (Claire Gourcy, Aude Malabat et Barbara Martin) de chez Michelin veulent nous présenter le constat fait chez Michelin IT en France mais aussi quels moyens ont été mis en place. Le départ a été le diagnostic de mixité qui nous apprend que seulement 28% de femmes dans l'entreprise et dans les métiers techniques, ce chiffre tombe à 10%.
 
@@ -159,7 +160,7 @@ Ensuite, la démarche est la suivante :
 
 Plan d'action : Construire un plan d'action en mettant en valeur les points forts et en s'attaquant aux axes d'amélioration. Il est important de souligner que ce plan d’action a été validé par la direction et est maintenant mis en place progressivement pour augmenter la mixité et réduire les inégalités. Il a été souligné que sans appui et volonté de la direction rien n’aurait été possible.
 
-## Kubernetes: 5 façons créatives de flinguer sa prod 🔫
+## Kubernetes : 5 façons créatives de flinguer sa prod 🔫
 
 Dans un incident basé sur des faits réels, les équipes de Denis Germain ont rencontré des problèmes avec les sondes Kube (Readiness, Liveness et Healthchecks) lorsqu'elles ont introduit des dépendances externes et cycliques dans leurs vérifications de vivacité. Cette mauvaise pratique a entraîné un effet domino catastrophique : lorsqu'un pod tombait en panne, il entraînait la défaillance d'autres pods dépendants, provoquant une cascade d'arrêts qui a finalement mis hors service tous les pods du système. La résolution de cet incident a nécessité une intervention manuelle fastidieuse et chronophage pour rétablir le fonctionnement du système, soulignant les risques liés à la mauvaise gestion des dépendances dans les sondes Kube. Difficultés lors de la migration Helm et l'importance du GitOps.
 
@@ -175,7 +176,7 @@ En résumé, ces incidents soulignent l'importance d'une conception et d'une ges
 
 En suivant ces recommandations, vous pouvez renforcer la résilience de vos applications Kubernetes et minimiser les risques d'interruption de service.
 
-## 45min pour mettre son application à genoux : le guide complet du test de charge
+## 45 min pour mettre son application à genoux : le guide complet du test de charge
 
 **Résumé du format de crash-course sur les tests de charge**
 
@@ -228,7 +229,7 @@ Pour éviter tout ça, il est préférable d'utiliser des gestionnaires d'artefa
 En plus de la conclusion, ce qui reste le plus marquant, c'est le temps utilisé pour planifier et réaliser l'attaque, et la chance d'une détection, opportuniste, avant un déploiement massif.
 Mais après avoir réalisé tout ça, on peut se demander combien d'attaques existe-t-il encore et sont toujours invisibles ?
 
-## Go sans fioriture
+## Go sans fioritures : quand le standard suffit
 
 Nathan CASTELEIN nous présente comment faire une API Web sans utiliser de composants externes à Golang. En effet, plusieurs fonctionnalités disponibles dans des librairies externes ont été intégrées petit à petit dans le cœur du langage.
 Dans cette conférence, on nous présente trois grosses fonctionnalités : l'écriture d'API Web, la gestion des logs et l'écriture de tests unitaires sans librairie.
