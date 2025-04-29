@@ -2,7 +2,7 @@
 layout: post
 title: Bedrock au Devoxx 2025
 description: 
-author: [paulinermbd, fferriere, gdamour]
+author: [paulinermbd, fferriere, gdamour, benoit382]
 tags: [devoxx, conference, event, backend, go, kubernetes, github, IA, openid, oauth2, architecture]
 color: rgb(251,87,66)
 language: fr
@@ -670,3 +670,14 @@ Cela passe par des choix d’outils, oui, mais surtout par une vraie culture d�
 
 En résumé : l’observabilité, c’est la capacité à comprendre son système sans tâtonner.
 Et dans un monde de microservices, de cloud et d’interdépendances complexes, c’est tout simplement vital.
+
+## Aerospike chez Criteo : performance extrême et simplicité à l’échelle
+
+Dans le monde de la publicité en ligne, la vitesse est une question de survie.
+Lors de son talk à Devoxx France 2025, Peter, responsable de l’équipe NoSQL chez Criteo, a partagé un retour d’expérience captivant sur l’utilisation d’Aerospike comme base de données clé/valeur.
+L’objectif : alimenter, une plateforme de décision en temps réel capable de répondre à plus de 300 millions de requêtes par seconde avec une latence moyenne inférieure à 1 ms.
+
+Pour relever ce défi, Criteo a progressivement consolidé son architecture autour d’Aerospike.
+Ce choix leur a permis d’atteindre des niveaux de performance impressionnants tout en simplifiant leur stack technique.
+En s’appuyant sur les forces d’Aerospike : stockage hybride, réplication robuste, distribution intelligente des données.
+L’équipe a gagné en fiabilité et en efficacité opérationnelle. Un témoignage inspirant sur la façon dont des choix d’architecture bien assumés peuvent transformer une contrainte de performance en avantage stratégique.
