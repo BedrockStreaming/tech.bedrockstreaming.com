@@ -11,7 +11,7 @@ thumbnail: "/images/posts/2025-04-16_devoxx_2025/thumbnail.jpg"
 # Devoxx 2025 
 
 Le Devoxx est un événement incontournable pour les développeurs et les professionnels de la technologie, qui a eu lieu du 16 avril 2025 au 18 avril 2025 au Palais des Congrés de Paris.
-Cette année, en plus d'avoir la chance d'y participer en tant que spectateur pour découvrir de nombreuses conférences passionanntes, nous avons eu l'honneur de présenter une conférence, avec Benoit Colin, qui a co-présenté la conférence "[Load-testons M6+ pour préparer l’Euro 2024 !](https://www.devoxx.fr/en/agenda-2025/talk/load-testons-m6-pour-preparer-l-euro-2024/)" au cours de laquelle il a présenté le travail que nous avons accompli l'année dernière pour nous préparer à diffuser l'Euro 2024 de football sur M6+, une des marques que Bedrock héberge sur sa plateforme.
+Cette année, en plus d'avoir la chance d'y participer en tant que spectateur pour découvrir de nombreuses conférences passionanntes, nous avons eu l'honneur de présenter une conférence, avec [Benoit Colin](https://www.linkedin.com/in/becolin/), Software Developer chez Bedrock, qui a co-présenté la conférence "[Load-testons M6+ pour préparer l’Euro 2024 !](https://www.devoxx.fr/en/agenda-2025/talk/load-testons-m6-pour-preparer-l-euro-2024/)" au cours de laquelle il a présenté le travail que nous avons accompli l'année dernière pour nous préparer à diffuser l'Euro 2024 de football sur M6+, une des marques que Bedrock héberge sur sa plateforme.
 
 Dans cet article, nous partagerons avec vous les points clés des conférences auxquelles nous avons assisté. 
 
