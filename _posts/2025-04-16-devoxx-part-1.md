@@ -379,7 +379,7 @@ En Avril 2025, il faudrait écrire un prompt d'environ 30 pages pour avoir la re
 De ce côté là, ce qui est généré appartient à l'utilisateur.
 
 Néanmoins, par exemple, un procés a eu lieu entre Stability IA qui avait pillé Getty Images et dont Stability IA a perdu le procés.
-Cela a pu se détecter par la présence de watermark sur les images de Getty Images.
+Cela a pu se détecter par la présence de watermark sur les images récupérées de Getty Images et rendues par Stability IA.
 
 ### Des IA plus spécialisées, plus éthiques ?
 
@@ -408,7 +408,7 @@ Elle cite ensuite Jean Baudrillard, qui détestait le film *Matrix*, car pour lu
 ### Cas de mise en situation en développement d'application : TDD & Architecture Hexagonale
 Plusieurs conférences ont montré comment utiliser l'IA dans le coeur du développement de nos applications.
 
-Dans l'une d'entre-elle, Florine Chevrier et Clément Virieux montre l'usage de l'IA générative dans le développement d'applications en architecture hexagonale avec approche TDD.
+Dans l'une d'entre-elle, Florine CCela a pu se détecter par la présence de watermark sur les images récupérée de Getty Images et rendues par Stability IA.hevrier et Clément Virieux montre l'usage de l'IA générative dans le développement d'applications en architecture hexagonale avec approche TDD.
 Les intervenants ont mis en avant que si l'IA ne remplacera pas entièrement les développeurs, elle peut néanmoins être un outil puissant lorsqu'on sait l'utiliser efficacement, notamment en l'accompagnant d'une approche itérative et de tests de qualité.
 Le défi majeur réside dans l'écart entre la rapidité de génération de code par l'IA et les standards élevés du software craftsmanship.
 Pour concilier les deux mondes, la stratégie repose sur l'écriture de tests de composants (par exemple via Cypress pour le front-end) et de tests d'architecture hexagonale fournis à l'IA comme base de travail, le tout intégré dans des prompts structurés.
