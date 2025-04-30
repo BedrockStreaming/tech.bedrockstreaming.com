@@ -98,6 +98,21 @@
   sponsored: true
   hosted: true
 
+- title: "Documentation : Let’s make it better, now, together!"
+  date: 2022-10-28
+  author: s_haim
+  eventName: PGConf Europe 2022
+  eventUrl: https://www.postgresql.eu/events/pgconfeu2022/schedule/session/3881-documentation-lets-make-it-better-now-together/
+  sponsored: true
+
+- title: "Documentation : Let’s make it better, now, together!"
+  date: 2023-03-23
+  author: s_haim
+  eventName: pgDay Paris 2023
+  eventUrl: https://www.postgresql.eu/events/pgdayparis2023/schedule/session/4303-documentation-lets-make-it-better-now-together/ 
+  youtubeId: MrcqWPEbwLI
+  sponsored: true
+
 - title: "Rust at Bedrock"
   date: 2023-04-06
   author: y_clauss
@@ -125,6 +140,14 @@
   author: p_rambaud
   eventName: AFUP Day Lyon 2023
   eventUrl: https://event.afup.org/afup-day-2023/afup-day-2023-lyon/programme/#4190
+  sponsored: true
+
+- title: " Améliorons ensemble la doc de #Postgres"
+  date: 2023-06-19
+  author: s_haim
+  description: "La documentation est le meilleur moyen de rassembler le savoir et de rendre les informations disponibles pour le plus grand nombre et de faire progresser tout le monde, des personnes débutantes aux plus avancées dans PostgreSQL. Prenons quelques pages de documentation de votre logiciel préféré, et examinons comment nous pourrions les améliorer. Avec quelques efforts sur le contenu et la présentation, votre documentation pourrait être plus lisible, et plus utile à la communauté. Quelques astuces pour produire directement une bonne documentation sont également au menu, tout comme l'art de relire une documentation existante."
+  eventName: PG Day France 2023 (Strasbourg)
+  youtubeId: B665IfwnlU0
   sponsored: true
 
 - title: "Load-testons M6+ pour préparer l’Euro 2024 !"
