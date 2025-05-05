@@ -126,6 +126,14 @@
   eventName: AFUP Day Lyon 2023
   eventUrl: https://event.afup.org/afup-day-2023/afup-day-2023-lyon/programme/#4190
   sponsored: true
+  
+- title: "Sauve un dév, écris une doc !"
+  date: 2024-05-03
+  author: s_haim
+  eventName: Devoxx France 2024
+  eventUrl: https://mobile.devoxx.com/events/devoxxfr2024/talks/10852/details
+  youtubeId: Jd8k4s7O3GM
+  sponsored: true
 
 - title: "Load-testons M6+ pour préparer l’Euro 2024 !"
   date: 2025-04-17
