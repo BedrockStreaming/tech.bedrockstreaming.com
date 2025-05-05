@@ -313,10 +313,6 @@ On nous présente les fonctionnalités de `LISTEN` et de `NOTIFY` qui permet de 
 L'instruction `RETURNING`, que l'on peut ajouter dans un insert ou un update, permet de retourner (une partie ou) les données modifiées.
 Un use-case intéressant fut présenté avec des insertions en chaine dans une transaction avec des Common Table Expressions et `RETURNING`.
 
-### Conclusion
-
-Encore une fois, Lætitia, nous montre la force de PostgreSQL.
-
 ## L’intelligence artificielle générative : une évolution, mais pas une magie
 
 Plusieurs conférences ont parlé d'intelligence artificielle et nous avons eu l'opportunité d'assister à quelques-unes d'entre-elles.
