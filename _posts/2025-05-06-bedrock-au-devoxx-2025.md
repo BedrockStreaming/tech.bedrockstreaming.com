@@ -11,7 +11,7 @@ thumbnail: "/images/posts/2025-04-16_devoxx_2025/thumbnail.jpg"
 # Devoxx 2025 
 
 Le Devoxx est un événement incontournable pour les développeurs et les professionnels de la technologie, qui a eu lieu du 16 avril 2025 au 18 avril 2025 au Palais des Congrès de Paris.
-Cette année, en plus d'avoir la chance d'y participer en tant que spectateur pour découvrir de nombreuses conférences passionantes, nous avons eu l'honneur de présenter une conférence, avec [Benoit Colin](https://www.linkedin.com/in/becolin/), Software Developer chez Bedrock, qui a co-présenté la conférence "[Load-testons M6+ pour préparer l’Euro 2024 !](https://www.devoxx.fr/en/agenda-2025/talk/load-testons-m6-pour-preparer-l-euro-2024/)" au cours de laquelle il a présenté le travail que nous avons accompli l'année dernière pour nous préparer à diffuser l'Euro 2024 de football sur M6+, une des marques que Bedrock héberge sur sa plateforme.
+Cette année, en plus d'avoir la chance d'y participer en tant que spectateur pour découvrir de nombreuses conférences passionnantes, nous avons eu l'honneur de présenter une conférence, avec [Benoit Colin](https://www.linkedin.com/in/becolin/), Software Developer chez Bedrock, qui a co-présenté la conférence "[Load-testons M6+ pour préparer l’Euro 2024 !](https://www.devoxx.fr/en/agenda-2025/talk/load-testons-m6-pour-preparer-l-euro-2024/)" au cours de laquelle il a présenté le travail que nous avons accompli l'année dernière pour nous préparer à diffuser l'Euro 2024 de football sur M6+, une des marques que Bedrock héberge sur sa plateforme.
 
 Dans cet article, nous partagerons avec vous les points clés des conférences auxquelles nous avons assisté. 
 
@@ -123,7 +123,7 @@ Pour que leur travail ait du sens, elles ont défini des axes de travail pour pl
 *   Témoignages : recueillir des témoignages pour sensibiliser et montrer l'importance du sujet
 *   Sponsoring : impliquer la direction pour expliquer les enjeux et les objectifs de la démarche
 
-Un des points les plus abordés à la fois par les hommes et les femmes est la notion de discrimination positive. En effet, les hommes ont “peur” d’être défavorisés si en concurrence avec une collègue féminine et les femmes elles ne sentent pas légitime dans leur poste.
+Un des points les plus abordés à la fois par les femmes et les hommes est la notion de discrimination positive. En effet, les hommes ont “peur” d’être défavorisés si en concurrence avec une collègue féminine et les femmes, quand-à elles, ne sentent pas légitime dans leur poste.
 
 Ce projet a été lancé en 2022, en 2025 elles sont en phase d’action. Il est important de souligner que ce projet a été mené en parallèle de leur travail respectif. Le périmètre est celui de Michelin IT en France.
 
