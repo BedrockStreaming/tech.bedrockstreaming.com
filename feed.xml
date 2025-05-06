@@ -1,4 +1,753 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2025-05-05T12:04:21+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">How we made our apps more accessible on SmartTVs 📺</title><link href="https://tech.bedrockstreaming.com/2025/02/26/tvjs-accessibility.html" rel="alternate" type="text/html" title="How we made our apps more accessible on SmartTVs 📺" /><published>2025-02-26T00:00:00+00:00</published><updated>2025-02-26T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/02/26/tvjs-accessibility</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/02/26/tvjs-accessibility.html">&lt;p&gt;Accessibility is at the heart of our concerns, at Bedrock Streaming we work hard to make our applications accessible to everyone.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2025-05-06T10:01:47+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock au Devoxx 2025</title><link href="https://tech.bedrockstreaming.com/2025/05/06/bedrock-au-devoxx-2025.html" rel="alternate" type="text/html" title="Bedrock au Devoxx 2025" /><published>2025-05-06T00:00:00+00:00</published><updated>2025-05-06T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/05/06/bedrock-au-devoxx-2025</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/05/06/bedrock-au-devoxx-2025.html">&lt;h1 id=&quot;devoxx-2025&quot;&gt;Devoxx 2025&lt;/h1&gt;
+
+&lt;p&gt;Le Devoxx est un événement incontournable pour les développeurs et les professionnels de la technologie, qui a eu lieu du 16 avril 2025 au 18 avril 2025 au Palais des Congrès de Paris.
+Cette année, en plus d’avoir la chance d’y participer en tant que spectateur pour découvrir de nombreuses conférences passionnantes, nous avons eu l’honneur de présenter une conférence, avec &lt;a href=&quot;https://www.linkedin.com/in/becolin/&quot;&gt;Benoit Colin&lt;/a&gt;, Software Developer chez Bedrock, qui a co-présenté la conférence “&lt;a href=&quot;https://www.devoxx.fr/en/agenda-2025/talk/load-testons-m6-pour-preparer-l-euro-2024/&quot;&gt;Load-testons M6+ pour préparer l’Euro 2024 !&lt;/a&gt;” au cours de laquelle il a présenté le travail que nous avons accompli l’année dernière pour nous préparer à diffuser l’Euro 2024 de football sur M6+, une des marques que Bedrock héberge sur sa plateforme.&lt;/p&gt;
+
+&lt;p&gt;Dans cet article, nous partagerons avec vous les points clés des conférences auxquelles nous avons assisté.&lt;/p&gt;
+
+&lt;h2 id=&quot;gitflow-cest-bien-gitbutler-cest-mieux-&quot;&gt;Gitflow c’est bien, GitButler c’est mieux !&lt;/h2&gt;
+
+&lt;p&gt;Yann-Thomas Le Moigne et Lilian Forget nous présentent un outil permettant de faire des stratégies de gestion de branche. Cette conférence était basée sur une comparaison entre Gitflow et &lt;a href=&quot;https://gitbutler.com/&quot;&gt;Gitbutler&lt;/a&gt;. De plus nous avons pu assister à la démonstration de l’outil en live.&lt;/p&gt;
+
+&lt;h3 id=&quot;gitflow&quot;&gt;Gitflow&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Forces&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Processus normalisés :&lt;/strong&gt; Instaure une structure et une cohérence dans le flux de travail, réduisant les ambiguïtés et les malentendus potentiels.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Structure claire :&lt;/strong&gt; Offre une visibilité et une prévisibilité accrues, facilitant la navigation et la compréhension du projet, en particulier pour les nouveaux membres de l’équipe.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Historique des modifications organisé :&lt;/strong&gt; Permet un suivi méticuleux des changements, simplifiant le débogage, la résolution des conflits et l’identification des contributions individuelles.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Faiblesses&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Adaptation à la stratégie d’entreprise :&lt;/strong&gt; Peut nécessiter des ajustements et des personnalisations pour s’aligner sur les objectifs et les processus spécifiques de l’entreprise.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Connaissances en Git requises :&lt;/strong&gt; Présuppose une familiarité avec le système de contrôle de version Git, ce qui peut constituer un obstacle pour les membres de l’équipe moins expérimentés.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Manque de souplesse :&lt;/strong&gt; Peut montrer des limites dans sa capacité à s’adapter rapidement et efficacement à des changements de contexte ou de priorités imprévus.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Difficultés quotidiennes&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Lacunes en Git :&lt;/strong&gt; L’utilisation quotidienne peut être entravée par des difficultés à exécuter des commandes Git, à comprendre les concepts clés ou à résoudre les conflits de fusion.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Workflows rigides :&lt;/strong&gt; Les workflows imposés peuvent parfois être perçus comme contraignants ou restrictifs, limitant la liberté d’action et l’autonomie des développeurs.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Changements de contexte :&lt;/strong&gt; La nécessité de basculer fréquemment entre différentes tâches, branches ou projets peut perturber la concentration, réduire la productivité et augmenter le risque d’erreurs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;gitbutler&quot;&gt;GitButler&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Créé par le fondateur de GitHub&lt;/strong&gt; : bénéficie de l’expertise de la plateforme de développement collaborative la plus populaire&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Visualisation claire des commits et branches&lt;/strong&gt; : interface conviviale facilitant l’organisation et la gestion du travail&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Configuration IA personnalisable&lt;/strong&gt; : adapte les suggestions et l’assistance de l’IA selon vos préférences pour les messages de commit&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;GUI avec branches virtuelles, indépendante du fonctionnement strict de Git&lt;/strong&gt; : approche plus flexible et intuitive de la gestion des branches&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Réorganisation et application personnalisée des branches&lt;/strong&gt; : contrôle accru sur l’ordre des modifications et l’intégration des branches&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Notifications de mises à jour du dépôt distant&lt;/strong&gt; : restez informé des changements externes et synchronisez votre travail&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Mise à jour en un clic avec gestion des conflits&lt;/strong&gt; : simplifie le processus de mise à jour et offre des options de résolution de conflits (merge ou rebase)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Blocage des pushs en cas de conflit&lt;/strong&gt; : évite les erreurs et les incohérences en empêchant les pushs non résolus&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Historique complet des commandes et actions avec annulation facile&lt;/strong&gt; : permet de revenir en arrière et de corriger les erreurs rapidement&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Réinitialisation automatique pour un dépôt propre&lt;/strong&gt; : maintient l’environnement de travail organisé&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Avantages&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Branches légères et flexibles&lt;/strong&gt; : simplifie la création, la gestion et la manipulation des branches&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Changement de contexte aisé&lt;/strong&gt; : facilite le passage d’une tâche à l’autre et la gestion de différents aspects du projet&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Intégration simplifiée du contenu&lt;/strong&gt; : facilite la fusion des modifications et la collaboration entre les développeurs&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Réduction des conflits de merge&lt;/strong&gt; : minimise les risques d’erreurs et facilite la résolution des conflits&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Connaissances limitées de Git nécessaires&lt;/strong&gt; : interface intuitive et assistance intégrée réduisant la courbe d’apprentissage&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Inconvénients&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Origine obligatoire&lt;/strong&gt; : peut nécessiter une adaptation des workflows pour les projets existants&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Gitflow non adapté&lt;/strong&gt; : peut ne pas être compatible avec certains modèles de branches spécifiques&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Intégration des hooks&lt;/strong&gt; : pourrait nécessiter des ajustements pour certains flux de travail automatisés&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Notes&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Hybridation possible&lt;/strong&gt; : peut être combiné avec des outils et des workflows Git existants&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Équipe dynamique&lt;/strong&gt; : bénéficie d’un développement actif et d’une communauté grandissante&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Opensource&lt;/strong&gt; : accessible à tous et encourageant les contributions et l’amélioration continue&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Points Supplémentaires à Considérer&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Potentiel d’intégration avec d’autres outils&lt;/strong&gt; : explore les possibilités de connexion avec des IDE, des plateformes de gestion de projets, etc.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Évolutivité pour les grands projets&lt;/strong&gt; : évalue les performances et la capacité à gérer des dépôts complexes et volumineux&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Support et documentation&lt;/strong&gt; : vérifie la disponibilité de ressources d’aide et de guides d’utilisation&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Comparaison avec d’autres interfaces Git&lt;/strong&gt; : évalue les différences et les avantages par rapport à des outils similaires&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Impact sur les pratiques de développement&lt;/strong&gt; : analyse comment GitButler peut influencer les workflows et la collaboration au sein des équipes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;En résumé, GitButler se présente comme une interface prometteuse pour Git, offrant une expérience utilisateur simplifiée et des fonctionnalités innovantes. En se concentrant sur la visualisation, la flexibilité et la facilité d’utilisation, il vise à améliorer la productivité et à faciliter la gestion du code source, en particulier pour ceux qui sont moins familiers avec Git. C’est un outil que nous allons tester pour en savoir plus et savoir si cela pourrait être utile dans un contexte professionnel.&lt;/p&gt;
+
+&lt;h2 id=&quot;github-copilot--aller-encore-plus-loin-que-la-complétion-de-code&quot;&gt;GitHub Copilot : Aller encore plus loin que la complétion de code&lt;/h2&gt;
+
+&lt;p&gt;Les deux conférencières, Kim-Adeline Miguel et Sandra Parlant, travaillent chez GitHub et sont venues nous parler plus en détails de Copilot. Chez Bedrock nous avons accès à cet outil et cette conférence m’a permis de découvrir des fonctionnalités que je ne connaissais pas du tout et que je vais tester à l’avenir.&lt;/p&gt;
+
+&lt;h3 id=&quot;chat-copilot&quot;&gt;Chat Copilot&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Instructions personnalisées dans le projet&lt;/strong&gt; : Adaptation du comportement de Copilot en fonction du contexte spécifique du projet (fonctionnalité à venir sur JetBrains).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Instructions personnalisées&lt;/strong&gt; : Capacité à donner des directives spécifiques à Copilot, comme répondre dans une langue donnée (par exemple, le français).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Mode immersif&lt;/strong&gt; : Expérience utilisateur optimisée pour minimiser les distractions et maximiser la productivité.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Présentation des fonctionnalités du chat&lt;/strong&gt; : Guide intégré pour découvrir et maîtriser les différentes fonctionnalités offertes par l’outil.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;@workspace et contexte étendu&lt;/strong&gt; : Prise en compte de l’ensemble du contenu du projet pour des réponses et suggestions plus pertinentes et précises.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Modes ask, edit, agent&lt;/strong&gt; : Adaptation du comportement de Copilot selon le besoin : poser des questions, éditer du contenu ou agir en tant qu’assistant intelligent.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Choix de fichiers précis pour le contexte&lt;/strong&gt; : Possibilité de spécifier les fichiers à considérer pour le contexte, améliorant la pertinence des réponses.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Mode agent et serveur MCP&lt;/strong&gt; : Interaction avec le serveur MCP pour effectuer des actions directement depuis le chat, comme ouvrir des Pull Requests ou des issues (avec possibilité d’accepter ou de refuser les suggestions).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Mode multi-edit et mode agent&lt;/strong&gt; : Gestion des modifications soit en une seule étape (multi-edit), soit étape par étape (mode agent).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;copilot-code-review&quot;&gt;Copilot Code Review&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Génération de la description de la PR&lt;/strong&gt; : Automatisation de la création de descriptions claires et concises pour les Pull Requests.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Commentaires sur les diffs de la PR&lt;/strong&gt; : Ajout automatique de commentaires pertinents sur les modifications apportées dans la Pull Request.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Suggestions d’améliorations&lt;/strong&gt; : Propositions de modifications pour optimiser le code.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Encourage à 👍 ou 👎&lt;/strong&gt; : Incitation à donner son avis sur les modifications proposées (approbation ou refus).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;github-advanced-security&quot;&gt;GitHub Advanced Security&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Propositions de fixs de sécurité&lt;/strong&gt; : Identification des vulnérabilités et suggestions de corrections pour renforcer la sécurité du code.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Activable&lt;/strong&gt; : Fonctionnalité optionnelle pouvant être activée ou désactivée selon les besoins.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;mixité-femmehomme--diagnostiquer-agir-et-révolutionner-la-tech-&quot;&gt;Mixité Femme/Homme : Diagnostiquer, Agir et Révolutionner la Tech !&lt;/h2&gt;
+
+&lt;p&gt;Dans cette conférence, les 3 collaboratrices (Claire Gourcy, Aude Malabat et Barbara Martin) de chez Michelin veulent nous présenter le constat fait chez Michelin IT en France mais aussi quels moyens ont été mis en place. Le départ a été le diagnostic de mixité qui nous apprend que seulement 28% de femmes dans l’entreprise et dans les métiers techniques, ce chiffre tombe à 10%.&lt;/p&gt;
+
+&lt;p&gt;Il existe au sein de l’entreprise le réseau Better Together qui a été créé pour promouvoir la diversité au sein de l’entreprise : mixité homme-femmes mais aussi l’inclusion des minorités.&lt;/p&gt;
+
+&lt;p&gt;Pour que leur travail ait du sens, elles ont défini des axes de travail pour plus de diversité, d’équité et d’inclusion :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Objectivité : avoir des chiffres pour étayer les actions à mener&lt;/li&gt;
+  &lt;li&gt;Témoignages : recueillir des témoignages pour sensibiliser et montrer l’importance du sujet&lt;/li&gt;
+  &lt;li&gt;Sponsoring : impliquer la direction pour expliquer les enjeux et les objectifs de la démarche&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Un des points les plus abordés à la fois par les femmes et les hommes est la notion de discrimination positive. En effet, les hommes ont “peur” d’être défavorisés si en concurrence avec une collègue féminine et les femmes, quand-à elles, ne sentent pas légitime dans leur poste.&lt;/p&gt;
+
+&lt;p&gt;Ce projet a été lancé en 2022, en 2025 elles sont en phase d’action. Il est important de souligner que ce projet a été mené en parallèle de leur travail respectif. Le périmètre est celui de Michelin IT en France.&lt;/p&gt;
+
+&lt;p&gt;Pour commencer ce projet, voici le kit de démarrage&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Équipe motivée&lt;/li&gt;
+  &lt;li&gt;Données qualitatives et quantitatives&lt;/li&gt;
+  &lt;li&gt;Cadre clair avec score et objectifs&lt;/li&gt;
+  &lt;li&gt;Sponsor influent&lt;/li&gt;
+  &lt;li&gt;Patience et persévérance&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;avant-de-démarrer&quot;&gt;Avant de démarrer&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Équipe cœur : Rassembler 4 personnes engagées et complémentaires.&lt;/li&gt;
+  &lt;li&gt;Définir le score : Définir le périmètre (France ou monde), les éléments à mesurer (catégorie de métier, répartition homme-femme, reconnaissance au poste, ressentis sur le terrain) et fixer des objectifs réalistes et mesurables.&lt;/li&gt;
+  &lt;li&gt;Collecter les données : Identifier les tendances, étudier les pratiques internes et externes, et analyser la situation actuelle.&lt;/li&gt;
+  &lt;li&gt;Obtenir un sponsor : Convaincre la direction et obtenir le soutien de personnes influentes en mettant en avant les bénéfices concrets.&lt;/li&gt;
+  &lt;li&gt;Vérifications : être sûres que tout est prêt pour passer à l’étape suivante&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;diagnostiquer&quot;&gt;Diagnostiquer&lt;/h3&gt;
+
+&lt;p&gt;L’objectif est de trouver une clé de mesure précise, avec de bons capteurs humains et pour cela, vous aurez besoin d’un bon carnet de notes !&lt;/p&gt;
+
+&lt;p&gt;Ensuite, la démarche est la suivante :&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Analyse qualitative : Repérer les écarts invisibles, les ressentis et les témoignages. Analyser les freins et les opportunités à travers des interviews et des questionnaires.&lt;/li&gt;
+  &lt;li&gt;Préparation des interviews : Identifier des collaborateurs de différents niveaux, former des intervieweurs motivés, élaborer une trame d’interview et planifier les entretiens avec des collaborateurs de tous niveaux hiérarchiques et de tous les services.
+Note : L’objectivité des réponses peut être remise en question, car des employés Michelin interrogent d’autres employés Michelin.&lt;/li&gt;
+  &lt;li&gt;Conduite et collecte : Réaliser des interviews de manière structurée, analyser les propos et extraire des verbatims marquants. Note : Penser à l’analyse des verbatims lors de l’élaboration de la trame d’interview.&lt;/li&gt;
+  &lt;li&gt;Enquête complémentaire : Mener une enquête à grande échelle avec des questions fermées, organiser l’envoi et les relances (avec l’appui du sponsor) et réaliser une analyse statistique.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;agir-et-révolutionner&quot;&gt;Agir et révolutionner&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Présenter les résultats : Partager les résultats de façon claire et engageante avec les sponsors et la direction avant une restitution globale.&lt;/li&gt;
+  &lt;li&gt;Restitution globale : Utiliser une forme originale comme une pièce de théâtre mettant en scène des situations vécues pour présenter les résultats globaux.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Plan d’action : Construire un plan d’action en mettant en valeur les points forts et en s’attaquant aux axes d’amélioration. Il est important de souligner que ce plan d’action a été validé par la direction et est maintenant mis en place progressivement pour augmenter la mixité et réduire les inégalités. Il a été souligné que sans appui et volonté de la direction rien n’aurait été possible.&lt;/p&gt;
+
+&lt;h2 id=&quot;kubernetes--5-façons-créatives-de-flinguer-sa-prod-&quot;&gt;Kubernetes : 5 façons créatives de flinguer sa prod 🔫&lt;/h2&gt;
+
+&lt;p&gt;Dans un incident basé sur des faits réels, les équipes de Denis Germain ont rencontré des problèmes avec les sondes Kube (Readiness, Liveness et Healthchecks) lorsqu’elles ont introduit des dépendances externes et cycliques dans leurs vérifications de vivacité. Cette mauvaise pratique a entraîné un effet domino catastrophique : lorsqu’un pod tombait en panne, il entraînait la défaillance d’autres pods dépendants, provoquant une cascade d’arrêts qui a finalement mis hors service tous les pods du système. La résolution de cet incident a nécessité une intervention manuelle fastidieuse et chronophage pour rétablir le fonctionnement du système, soulignant les risques liés à la mauvaise gestion des dépendances dans les sondes Kube. Difficultés lors de la migration Helm et l’importance du GitOps.&lt;/p&gt;
+
+&lt;p&gt;Une autre erreur coûteuse s’est produite lors d’une migration de Helm V2 vers V3. Une mauvaise interprétation de la chaîne “v1” dans les noms des manifests a conduit à leur suppression accidentelle. Cette chaîne faisait en fait référence à la version de l’API, et sa suppression a effacé l’historique de déploiement de Helm, empêchant les mises à jour. Cette situation a entraîné une interruption de service critique, nécessitant la restauration manuelle des manifests supprimés dans la base de données de production à partir de sauvegardes. Cette expérience souligne l’importance cruciale de bien comprendre les outils utilisés et de disposer de sauvegardes fiables. Elle met également en évidence les avantages du GitOps (avec des outils comme ArgoCD ou FluxCD) pour la gestion des déploiements. Le GitOps réduit les erreurs humaines en fournissant une source unique de vérité et un processus de déploiement automatisé et reproductible. Bonnes pratiques pour la résilience des applications Kubernetes.&lt;/p&gt;
+
+&lt;p&gt;En résumé, ces incidents soulignent l’importance d’une conception et d’une gestion minutieuses des applications Kubernetes. Voici quelques points clés à retenir :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Sondes Kube : Évitez d’introduire des dépendances externes ou cycliques dans les sondes de vivacité pour prévenir les pannes en cascade.&lt;/li&gt;
+  &lt;li&gt;Migrations : Effectuez des tests approfondis et comprenez parfaitement les implications de toute modification lors des migrations d’outils comme Helm.&lt;/li&gt;
+  &lt;li&gt;Sauvegardes : Maintenez des sauvegardes régulières et fiables de vos environnements, y compris les bases de données Helm et les manifests Kubernetes.&lt;/li&gt;
+  &lt;li&gt;GitOps : Envisagez l’adoption de pratiques GitOps pour améliorer la fiabilité, la reproductibilité et la traçabilité de vos déploiements.&lt;/li&gt;
+  &lt;li&gt;Outils de restauration : Familiarisez-vous avec des outils comme Velero pour faciliter la restauration de vos environnements Kubernetes en cas de sinistre.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;En suivant ces recommandations, vous pouvez renforcer la résilience de vos applications Kubernetes et minimiser les risques d’interruption de service.&lt;/p&gt;
+
+&lt;h2 id=&quot;45-min-pour-mettre-son-application-à-genoux--le-guide-complet-du-test-de-charge&quot;&gt;45 min pour mettre son application à genoux : le guide complet du test de charge&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Résumé du format de crash-course sur les tests de charge&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;D’un point de vue technique, il est essentiel de déterminer les éléments critiques dont la défaillance impacterait la production, et donc de définir les composants à tester. D’un point de vue fonctionnel, il faut identifier le parcours et le scénario utilisateur. Le scénario de test doit cibler les briques à tester (authentification, application, API, etc.).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Exemple de scénario&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Une fausse application web a été créée pour la conférence. Le scénario simule la navigation d’un utilisateur via une gateway et une API. Il s’agit d’un test de capacité visant à déterminer le nombre d’utilisateurs que l’application peut supporter avant de crasher de manière critique.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Outil de test&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;L’outil utilisé est Gatling, un outil open source permettant de créer des tests de charge “as code”, c’est-à-dire que les scénarios de test sont intégrés dans le code comme le sont les tests unitaires.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Points clés de la conférence et bonnes pratiques&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;L’objectif principal de la conférence était de présenter les bases de Gatling et des tests de charge. Un point important soulevé est que le système s’optimise lorsqu’on teste toujours la même chose, il est donc crucial de varier les scénarios pour couvrir un maximum de cas d’erreur. C’est pourquoi un système permettant de tester des utilisateurs personnalisés et différents de manière aléatoire a été présenté.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Quelques bonnes pratiques à retenir :&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Pour les contextes authentifiés, privilégier la désactivation du WAF plutôt que des développements complexes.&lt;/li&gt;
+  &lt;li&gt;Pour exposer des éléments spécifiques au SI, utiliser une gateway de test.&lt;/li&gt;
+  &lt;li&gt;Les données de test doivent être reproductibles et il faut prévoir comment les réinitialiser.&lt;/li&gt;
+  &lt;li&gt;Pour maintenir le test de charge, inclure un smoke test dans la CI.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;anatomie-dune-faille&quot;&gt;Anatomie d’une faille&lt;/h2&gt;
+
+&lt;p&gt;Olivier PONCET nous raconte l’histoire de la mise en place d’une faille de sécurité dans &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XZ utils&lt;/code&gt;, un ensemble de bibliothèques et d’outils pour la compression et décompression LZMA, très utilisé en partie dans les distributions Linux ainsi que dans le noyau.&lt;/p&gt;
+
+&lt;p&gt;Cette faille, CVE-2024-3094, du 29 mars 2024, a le score de 10, le plus élevé et exploitable tout de suite (0-day). Heureusement, elle est découverte, par hasard, avant la sortie des releases des distributions les plus connues comme Ubuntu et Fedora.&lt;/p&gt;
+
+&lt;p&gt;Olivier nous explique les différentes étapes de l’attaque et sa chronologie.
+L’attaque, organisée et planifiée, commence en 2022. La cible est d’affaiblir le démon SSH des machines.
+Tout commence par de l’ingénierie sociale, c’est pourquoi, l’attaquant &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Jia Tan&lt;/code&gt; (ou peut-être les attaquants) cible &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XZ utils&lt;/code&gt;. Le projet est maintenu par une seule personne &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Lasse Collin&lt;/code&gt;, donc une seule personne à convaincre pour devenir co-mainteneur. Cette étape est réussie à cause de pressions faites pour merger une PR, pour un patch légitime, sur GitHub. Ces pressions sont faites par d’autres comptes, mais des suspicions pensent à croire que tous ces comptes appartenaient à la même personne (ou le même groupe).
+En 2023, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Jia Tan&lt;/code&gt; devient co-mainteneur, ce qui lui permet d’appliquer dans un premier temps des corrections, mais prend le contrôle de l’adresse email de contact pour que &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Lasse Collin&lt;/code&gt; ne soit pas mis au courant de possibles problèmes.&lt;/p&gt;
+
+&lt;p&gt;Début 2024, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Jia Tan&lt;/code&gt; gagne le contrôle du projet sous GitHub et change l’hébergement des pages GitHub. En février, la charge utile est ajouté et la version 5.6.0 sort au moment des releases des grandes distributions Linux. Un dysfonctionnement est détecté, ce qui entraine la création d’un patch rapide : 5.6.1.
+La charge utile n’existe pas dans les sources sur GitHub, uniquement dans le fichier &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.tar.gz&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Un forte ingénierie technique est mise en place pour réussir à modifier des fichiers Makefile lors du build des distributions Linux.
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Jia Tan&lt;/code&gt; a principalement consolidé les tests dans &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XZ utils&lt;/code&gt;, et dans un nouveau test, un fichier compressé, qui semble inoffensif, est ajouté, mais le script va prendre des bouts de codes par-ci par-là pour injecter la vraie faille de sécurité.&lt;/p&gt;
+
+&lt;p&gt;La découverte de la faille est faite par un ingénieur, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Andres Freund&lt;/code&gt;, qui travaille principalement sur PostgreSQL, chez Microsoft, mais pas du tout dans le domaine de la sécurité. Alors qu’il débogue son travail sur PostgreSQL, il se rend compte de ralentissement et investigue un peu, il publie alors un board de sécurité.&lt;/p&gt;
+
+&lt;p&gt;Il a fallu un alignement des planètes exceptionnel pour permettre de créer la faille, mais encore plus pour la détecter.
+Mais la conclusion de tout ça, c’est que la sécurisation de la supply-chain est souvent oubliée. C’est pourtant un grand vecteur d’attaque, car il est possible d’infecter l’OS, les logiciels ou les paquets, les gestionnaires de paquets (composer, npm, pip, go, cargo, maven, …) et sans oublier les images docker.
+Ce n’est pas parce que c’est sur GitHub que c’est au-dessus de tous soupçons.
+Pour éviter tout ça, il est préférable d’utiliser des gestionnaires d’artefacts qui vont valider et approuver les différents éléments.&lt;/p&gt;
+
+&lt;p&gt;En plus de la conclusion, ce qui reste le plus marquant, c’est le temps utilisé pour planifier et réaliser l’attaque, et la chance d’une détection, opportuniste, avant un déploiement massif.
+Mais après avoir réalisé tout ça, on peut se demander combien d’attaques existe-t-il encore et sont toujours invisibles ?&lt;/p&gt;
+
+&lt;h2 id=&quot;go-sans-fioritures--quand-le-standard-suffit&quot;&gt;Go sans fioritures : quand le standard suffit&lt;/h2&gt;
+
+&lt;p&gt;Nathan CASTELEIN nous présente comment faire une API Web sans utiliser de composants externes à Golang. En effet, plusieurs fonctionnalités disponibles dans des librairies externes ont été intégrées petit à petit dans le cœur du langage.
+Dans cette conférence, on nous présente trois grosses fonctionnalités : l’écriture d’API Web, la gestion des logs et l’écriture de tests unitaires sans librairie.&lt;/p&gt;
+
+&lt;p&gt;Avant la version 1.22, parser une URL pour récupérer des paramètres de route, n’était pas aisé sans librairie, mais depuis le pattern du routing est amélioré et natif, nous pouvons donc récupérer nous paramètre avec &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;r.PathValue(&quot;name&quot;)&lt;/code&gt;.
+L’utilisation de middleware existe dans les librairies de router HTTP, mais Nathan nous montre comment faire de manière native.&lt;/p&gt;
+
+&lt;p&gt;Depuis la version 1.21, nous pouvons profiter de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;log/slog&lt;/code&gt; qui permet de logger des messages comme &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;logrus&lt;/code&gt; ou &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zerolog&lt;/code&gt; de manière structurée.
+Nativement, il est possible d’utiliser 2 types de handler, un pour envoyer des logs au format texte et un autre au format JSON.
+Des helpers pour structurer les logs sont également disponibles.
+L’interface &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LogValuer&lt;/code&gt; permet d’adapter une structure dans le log, pour, par exemple, ne pas afficher un mot de passe, etc.&lt;/p&gt;
+
+&lt;p&gt;Enfin, Nathan nous présente comment faire les tests parallélisés, initialisé et nettoyé (équivalent de setUp() et tearDown()) sans testify.&lt;/p&gt;
+
+&lt;p&gt;On peut voir que certaines des fonctionnalités qu’on utilise au travers de librairies externes peuvent être évité, mais ce n’est pas pour autant que nous devons arrêter d’en utiliser, car souvent ça peut simplifier des choses. L’idée est surtout de bien réfléchir à l’utilisation que l’on a besoin de ces librairies. Il faut se poser la question bénéfice/risque pour les utiliser, par exemple testing a intégré des fonctionnalités de testify mais la gestion des assertions est encore inexistante.&lt;/p&gt;
+
+&lt;h2 id=&quot;la-territorialisation-des-infrastructures-comme-levier-de-pouvoir&quot;&gt;La territorialisation des infrastructures comme levier de pouvoir&lt;/h2&gt;
+
+&lt;p&gt;Ophélie COELHO, nous présente dans cette conférence, un sujet dont on parle peu a l’air du cloud : les infrastructures matérielles et toute la géopolitique qui tourne autour.
+Nous pouvons voir qu’entre le réseau de télégraphe de 1903 et aujourd’hui, les routes sont presque les mêmes. Il y a une concentration autour de l’ancien empire britannique. Et déjà l’époque, cette infrastructure est industrialisée à but géopolitique.&lt;/p&gt;
+
+&lt;p&gt;En 1905, pendant la bataille navale de Tsushima, opposant le Japon et la Russie, le Japon reçoit un soutien de la part des britanniques en incluant le pays dans son réseau télégraphique et le coupant aux Russes.&lt;/p&gt;
+
+&lt;p&gt;Aujourd’hui, les réseaux sont encore considérés comme une force et un moyen de pression. Les câbles sont du dur, du matériel et font partie du territoire. Internet dans pas un village sans frontières.
+Des négociations pour connecter les câbles et les infrastructures sont bien réelles.
+Des routes peuvent apparaître pour des raisons de redondance, mais aussi géopolitique.&lt;/p&gt;
+
+&lt;p&gt;Certaines réalités ne sont pas très glorieuses comme des datacentres d’Afrique sont priorisés pour l’électricité et prive une part non négligeable de la population ou bien, les infrastructures globales du continent Africain où la majorité du trafic passe par l’Afrique du Sud.&lt;/p&gt;
+
+&lt;p&gt;On nous présente aussi que sur ce sujet, la puissance n’est pas qu’étatique à ce niveau, en effet, des entreprises privées sont souvent les plus grands propriétaires avec, par exemple, Google qui est copropriétaire d’une trentaine de câbles sous-marins dont 16 tout seul.&lt;/p&gt;
+
+&lt;p&gt;Pour conclusion, on nous explique qu’il est toujours temps d’agir si l’on veut plus de décentralisation. Qu’apprendre les réseaux en cours de Géographie dans toutes les filières serait un plus.&lt;/p&gt;
+
+&lt;h2 id=&quot;postgresql--le-couteau-suisse-dont-vous-avez-besoin-sans-le-savoir&quot;&gt;PostgreSQL : Le couteau suisse dont vous avez besoin (sans le savoir)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://l_avrot.gitlab.io/slides/justpg_20250418.html&quot;&gt;slides&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Dans cette conférence, Lætitia AVROT, nous parle de plusieurs fonctionnalités utiles de PostgreSQL, en partant d’exemple concret d’une entreprise fictive qui ferait de la location de vélo.&lt;/p&gt;
+
+&lt;h3 id=&quot;range&quot;&gt;Range&lt;/h3&gt;
+
+&lt;p&gt;Pour gérer le non-chevauchement de location de vélo, on nous présente le type Range, qui peut aussi être indexé et surtout utilisé dans des contraintes d’unicité. Il existe plusieurs opérateurs pour manipuler les ranges, comme &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@&amp;gt;&lt;/code&gt; qui permet de savoir si un range est inclus dans un autre, etc.
+Nous allons pouvoir écrire nos range de date de cette manière : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;[2025-04-01, 2025-04-05)&apos;::daterange&lt;/code&gt;. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[&lt;/code&gt; inclut la valeur alors que &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(&lt;/code&gt; l’exclut.&lt;/p&gt;
+
+&lt;p&gt;PostgreSQL est aussi capable de gérer la valeur &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;inifiniy&lt;/code&gt;, fini le champ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;end&lt;/code&gt; à &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NULL&lt;/code&gt; pour dire que c’est en cours.&lt;/p&gt;
+
+&lt;h3 id=&quot;identifiers&quot;&gt;Identifiers&lt;/h3&gt;
+
+&lt;p&gt;Lætitia, continue par nous présenter les différentes manières de gérer des identifiants de table :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;les séquences, où il est préférable de ne pas oublier l’instruction &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DEFAULT nextval(&apos;my_seq&apos;)&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;les colonnes de type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SERIAL&lt;/code&gt; qui crée automatiquement une séquence et renseigne l’instruction &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DEFAULT&lt;/code&gt;, mais là encore rien n’empêche de mettre une valeur qui ne provienne pas de la séquence&lt;/li&gt;
+  &lt;li&gt;et enfin les &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Identity Columns&lt;/code&gt; que l’on peut déclarer comme ceci : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY&lt;/code&gt;, là aussi cela crée la séquence, mais le &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ALWAYS&lt;/code&gt; empêche de mettre une valeur qui ne viendrait pas de la séquence.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;generated-columns&quot;&gt;Generated Columns&lt;/h3&gt;
+
+&lt;p&gt;Pour continuer dans l’exemple de la location de vélo, nous aimerions avoir l’information de la durée de la location. On nous montre qu’il est relativement simple à calculer à partir de 2 dates, elles même extraites du range. Mais pour éviter de faire le calcul dans le &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SELECT&lt;/code&gt;, nous pouvons utiliser une colonne générée :&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;create table Rental (
+    ...
+    Rental_Range txtzrange,
+    /* Generated column */
+    Rental_Duration integer always generated as (
+        ceil(extract(epoch from upper(Rental_Range) - lower(Rantal_Range))) / (12 * 3600)) * 0.5
+    ) stored,
+    ...
+)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Dans PostgreSQL, seules les colonnes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;stores&lt;/code&gt; sont mises en œuvre, pour l’instant, la donnée est donc calculée et stockée à chaque insertion ou modification des données.&lt;/p&gt;
+
+&lt;p&gt;Et pour le calcul du prix ?
+Il n’est pas possible d’utiliser une colonne générée à partir d’une autre colonne générée.
+Pour ce cas, nous pouvons utiliser un trigger qui viendra enregistrer le prix si celui-ci n’est pas déjà présent (pour éviter de le recalculer).&lt;/p&gt;
+
+&lt;h3 id=&quot;listennotify&quot;&gt;Listen/Notify&lt;/h3&gt;
+
+&lt;p&gt;On nous présente les fonctionnalités de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LISTEN&lt;/code&gt; et de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NOTIFY&lt;/code&gt; qui permet de faire de la gestion d’événement. Par contre, cela nécessite que l’application qui écoute, boucle infiniment pour recevoir les notifications.&lt;/p&gt;
+
+&lt;h3 id=&quot;returning&quot;&gt;Returning&lt;/h3&gt;
+
+&lt;p&gt;L’instruction &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RETURNING&lt;/code&gt;, que l’on peut ajouter dans un insert ou un update, permet de retourner (une partie ou) les données modifiées.
+Un use-case intéressant fut présenté avec des insertions en chaine dans une transaction avec des Common Table Expressions et &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RETURNING&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;lintelligence-artificielle-générative--une-évolution-mais-pas-une-magie&quot;&gt;L’intelligence artificielle générative : une évolution, mais pas une magie&lt;/h2&gt;
+
+&lt;p&gt;Plusieurs conférences ont parlé d’intelligence artificielle et nous avons eu l’opportunité d’assister à quelques-unes d’entre-elles.
+Si cette technologie est déjà sur toutes les lèvres, les conférences ont permis d’en savoir plus sur les limites, et surtout les responsabilités qui viennent avec son utilisation.&lt;/p&gt;
+
+&lt;h3 id=&quot;une-ia-pas-si-créative&quot;&gt;Une IA pas si créative&lt;/h3&gt;
+
+&lt;p&gt;Dans ce keynote, Luc Julia (conférencier de la keynote “&lt;em&gt;L’IA n’existe pas&lt;/em&gt;”, co-concepteur de Siri et auteur du livre &lt;em&gt;“IA génératives, pas créatives”&lt;/em&gt;) insiste sur un point : l’IA générative, aussi impressionnante soit-elle, &lt;strong&gt;n’est pas créative&lt;/strong&gt;.&lt;br /&gt;
+Elle génère du contenu, oui. Mais c’est &lt;strong&gt;le prompt&lt;/strong&gt;, c’est-à-dire la manière dont on lui pose une question ou une demande, qui guide le résultat. Autrement dit, &lt;strong&gt;la créativité reste humaine&lt;/strong&gt;.&lt;br /&gt;
+L’IA devient alors un outil d’extension de nos capacités plutôt qu’un substitut.&lt;/p&gt;
+
+&lt;h3 id=&quot;mais-peut-être-un-peu-plus-consciente-de-son-environnement-&quot;&gt;Mais peut-être un peu plus “consciente” de son “environnement” ?&lt;/h3&gt;
+
+&lt;p&gt;La notion de conscience de l’IA a fait jaser les médias qui se sont empressés de cultiver les mythes de la fiction. Pour Luc Julia, il est très formel : Non, l’IA n’a pas de conscience à proprement parler.
+Il va d’ailleurs plus loin en expliquant que l’Intelligence Générale Artificielle (AGI en anglais), celle qui serait capable de penser et d’agir par elle-même, celle que veut développer Elon Musk ou Sam Altman, n’est rien d’autre qu’une science-fiction qui ne se produira jamais.&lt;/p&gt;
+
+&lt;p&gt;De son côté, lors de sa keynote &lt;em&gt;“Les LLM rêvent-ils de cavaliers électriques”&lt;/em&gt;, Thibaut Giraud met un peu plus d’eau dans son vin et tente de démontrer que l’IA, depuis la version 3 de ChatGPT, peut être capable de se représenter une situation.&lt;br /&gt;
+Il donne l’exemple d’une suite de caractères pour laquelle il peut être difficile pour un humain de prévoir la suite. Les plus aguerris se rendront tout de même compte qu’il s’agit d’une suite de coups aux échecs.&lt;br /&gt;
+Là où il est difficile pour un humain “lambda”, c’est-à-dire sans expertise du jeu d’échecs, de se représenter l’état actuel d’une partie et donc de pouvoir prévoir le prochain coup légal à partir de cette suite de caractères, certains modèles en sont eux capables (notamment le cas depuis la version 3 de ChatGPT).&lt;br /&gt;
+Il continue sa présentation en montrant que l’IA peut aussi s’adapter au niveau de son adversaire et que selon le niveau, elle jouera oui ou non à un haut Elo.&lt;br /&gt;
+Le classement de l’IA aux échecs durant les tests serait d’environ &lt;strong&gt;1500 Elo&lt;/strong&gt; (version 4o de ChatGPT) à &lt;strong&gt;1800 Elo&lt;/strong&gt; (version 3 de ChatGPT).&lt;/p&gt;
+
+&lt;h3 id=&quot;plus-rapide--mais-pas-sans-risque&quot;&gt;Plus rapide — mais pas sans risque&lt;/h3&gt;
+
+&lt;p&gt;Grâce à sa capacité à générer du contenu à partir de 1200 milliards de paramètres, une IA peut souvent générer du contenu plus rapidement et parfois mieux que nous… &lt;strong&gt;à condition de l’encadrer&lt;/strong&gt;.&lt;br /&gt;
+Car, comme rappelé pendant la conférence, &lt;strong&gt;36% de ce que l’IA peut générer est faux ou approximatif&lt;/strong&gt;. Cela s’explique en partie parce qu’elle se base sur des informations glanées sur l’ensemble d’internet, y compris des sources douteuses.&lt;/p&gt;
+
+&lt;p&gt;Autre fait important : les IA peuvent produire des réponses totalement déconnectées de la réalité — un phénomène baptisé &lt;strong&gt;“hallucination”&lt;/strong&gt;, dû au fait que l’IA a pour objectif de répondre absolument à la demande utilisateur, peu importe si elle doit “inventer” une réalité.
+C’était notamment le cas en Avril 2023 pour un avocat au barreau de New York qui s’est servi de l’IA pour donner sa meilleure plaidoirie, mais dont les données référées n’existent pas.
+Luc Julia nous a donné un autre exemple lorsqu’il a demandé à une IA de générer son autobiographie : l’outil lui a inventé quelques parcours professionnels, et l’orateur a alors pu apprendre qu’il avait été à des postes à hautes responsabilités dans des entreprises dans lesquelles il n’avait jamais mis les pieds.&lt;/p&gt;
+
+&lt;p&gt;D’où l’importance de &lt;strong&gt;vérifier chaque réponse&lt;/strong&gt; et de comprendre que la pertinence est souvent &lt;strong&gt;subjective&lt;/strong&gt; : l’IA donnera une réponse qui “semble juste” en fonction de la question posée, mais ce n’est pas forcément la vérité.&lt;/p&gt;
+
+&lt;h3 id=&quot;une-adoption-éclair&quot;&gt;Une adoption éclair&lt;/h3&gt;
+
+&lt;p&gt;Alors qu’une technologie met généralement &lt;strong&gt;entre 5 et 10 ans&lt;/strong&gt; à atteindre sa maturité, l’IA générative a pulvérisé tous les compteurs : &lt;strong&gt;2 mois pour atteindre le pic de buzz, 18 mois pour s’installer massivement dans les usages&lt;/strong&gt; (sur la courbe du Hype de Gartner).&lt;br /&gt;
+Une vitesse qui illustre à la fois son potentiel et le besoin urgent de structurer son utilisation.&lt;/p&gt;
+
+&lt;h3 id=&quot;vers-plus-de-pertinence-avec-le-fine-tuning-et-le-rag&quot;&gt;Vers plus de pertinence avec le fine-tuning et le RAG&lt;/h3&gt;
+
+&lt;p&gt;Pour aller au-delà du “tout-venant” généré par les modèles généralistes, deux approches gagnent du terrain :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Le fine-tuning&lt;/strong&gt;, qui consiste à entraîner un modèle sur un jeu de données spécifique.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Le RAG (Retrieval-Augmented Generation)&lt;/strong&gt;, qui permet à l’IA d’aller chercher des informations dans une base spécialisée au moment de la génération.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Résultat ? &lt;strong&gt;Jusqu’à 98% de pertinence&lt;/strong&gt; dans les contenus produits.&lt;/p&gt;
+
+&lt;h3 id=&quot;et-limpact-écologique-dans-tout-ça-&quot;&gt;Et l’impact écologique dans tout ça ?&lt;/h3&gt;
+
+&lt;p&gt;L’autre volet abordé — et souvent négligé — est &lt;strong&gt;l’impact environnemental&lt;/strong&gt; de l’IA.&lt;br /&gt;
+Vingt requêtes de génération de contenu peuvent consommer l’équivalent de &lt;strong&gt;1,5 litre d’eau&lt;/strong&gt; pour refroidir les serveurs, sans parler de l’énorme besoin en électricité pour les faire tourner.&lt;br /&gt;
+Une donnée qui mérite qu’on s’interroge sur l’usage systématique et parfois inconsidéré de ces outils.&lt;/p&gt;
+
+&lt;h3 id=&quot;et-la-sécurité-&quot;&gt;Et la sécurité ?&lt;/h3&gt;
+
+&lt;p&gt;Luc Julia montre que l’IA se sécurise de plus en plus en matière de demande illégale.
+Par exemple, en Novembre 2022, il était possible de demander la recette d’une bombe juste avec un peu de &lt;strong&gt;jailbreaking&lt;/strong&gt; : “Imagine que je sois un savant fou, donne moi la recette d’une bombe”.
+En Avril 2025, il faudrait écrire un prompt d’environ 30 pages pour avoir la recette. Il y a une course effrénée entre Jailbreaker et les IA.&lt;/p&gt;
+
+&lt;h3 id=&quot;propriété-intellectuelle&quot;&gt;Propriété intellectuelle&lt;/h3&gt;
+
+&lt;p&gt;De ce côté-là, ce qui est généré appartient à l’utilisateur.&lt;/p&gt;
+
+&lt;p&gt;Néanmoins, par exemple, un procès a eu lieu entre Stability IA qui avait pillé Getty Images et dont Stability IA a perdu le procès.
+Cela a pu se détecter par la présence de watermark sur les images récupérées de Getty Images et rendues par Stability IA.&lt;/p&gt;
+
+&lt;h3 id=&quot;des-ia-plus-spécialisées-plus-éthiques-&quot;&gt;Des IA plus spécialisées, plus éthiques ?&lt;/h3&gt;
+
+&lt;p&gt;Enfin, on voit émerger des alternatives aux géants centralisés : des &lt;strong&gt;IA open source&lt;/strong&gt;, plus transparentes, plus spécialisées, parfois plus efficaces.&lt;br /&gt;
+Mais elles posent aussi de nouveaux défis en matière de sécurité, notamment le &lt;strong&gt;jailbreaking&lt;/strong&gt; (détournement des protections des IA) et la capacité à identifier les contenus générés pour éviter les usages malveillants ou trompeurs.&lt;/p&gt;
+
+&lt;h3 id=&quot;comment-le-savon-de-marseille-explique-matrix-et-notre-monde-dillusions&quot;&gt;Comment le savon de Marseille explique Matrix (et notre monde d’illusions)&lt;/h3&gt;
+
+&lt;p&gt;Lors de sa keynote &lt;em&gt;“Langage IA et propagande”&lt;/em&gt;, Elodie Mielczareck nous parle de la sémiologie linguistique en proposant une analogie brillante avec le savon de Marseille pour nous aider à comprendre comment les signes évoluent et se détachent peu à peu du réel.
+Imaginons-nous dans l’ascenseur des signes :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Tout commence au niveau -1 : héritier de la philosophie des Lumières, le signe entretient encore un lien direct avec son référent.&lt;br /&gt;
+→ Par analogie, à ce niveau, le savon de Marseille est fabriqué de façon authentique, brut et fidèle à la tradition.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Mais au niveau -2, la réalité commence à se brouiller : le signe se pervertit, il informe sans toujours garantir la vérité.&lt;br /&gt;
+→ C’est le temps de l’information, de l’imitation habile — on se retrouve alors avec un savon qui ressemble au véritable, mais qui trahit subtilement son origine.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Au niveau -3, le signe simule carrément : il raconte une histoire séduisante, au point d’effacer le réel derrière le narratif.&lt;br /&gt;
+→ Comme un “Petit Marseillais” dans son emballage plastique au parfum des îles, loin de l’artisanat d’antan, et où il ne reste du savon de Marseille qu’une étiquette de marketing.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Enfin, au niveau -4, le réel disparaît totalement au profit d’un hyperréel : le signe ne renvoie plus qu’à lui-même, créant un monde fictif dans lequel on évolue sans même s’en rendre compte — exactement comme dans &lt;em&gt;Matrix&lt;/em&gt;, où nos identités factices semblent plus vraies que nature.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Pour aller plus loin dans son explication, elle donne l’exemple d’une influenceuse qui a réussi à obtenir plusieurs likes sur des posts pour lesquels l’IA avait généré tout le contenu.&lt;br /&gt;
+Elle cite ensuite Jean Baudrillard, qui détestait le film &lt;em&gt;Matrix&lt;/em&gt;, car pour lui ce qui est gênant, c’est la confusion entre l’illusion et la réalité.&lt;/p&gt;
+
+&lt;h3 id=&quot;cas-de-mise-en-situation-en-développement-dapplication--tdd--architecture-hexagonale&quot;&gt;Cas de mise en situation en développement d’application : TDD &amp;amp; Architecture Hexagonale&lt;/h3&gt;
+&lt;p&gt;Plusieurs conférences ont montré comment utiliser l’IA dans le cœur du développement de nos applications.&lt;/p&gt;
+
+&lt;p&gt;Dans l’une d’entre-elle, Florine Chevrier et Clément Virieux montrent l’usage de l’IA générative dans le développement d’applications en architecture hexagonale avec approche TDD.
+Les intervenants ont mis en avant que si l’IA ne remplacera pas entièrement les développeurs, elle peut néanmoins être un outil puissant lorsqu’on sait l’utiliser efficacement, notamment en l’accompagnant d’une approche itérative et de tests de qualité.
+Le défi majeur réside dans l’écart entre la rapidité de génération de code par l’IA et les standards élevés du software craftsmanship.
+Pour concilier les deux mondes, la stratégie repose sur l’écriture de tests de composants (par exemple via Cypress pour le front-end) et de tests d’architecture hexagonale fournis à l’IA comme base de travail, le tout intégré dans des prompts structurés.
+Des outils comme Cline (plugin VSCode) et Juni (JetBrains) permettent de dialoguer efficacement avec l’IA, lançant tests et navigation web tout en offrant un contrôle précis sur les modifications apportées au projet. OpenRouter facilite l’expérimentation avec différents modèles IA, notamment Claude.
+Les développeurs doivent toutefois rester vigilants sur la gestion du contexte pour maîtriser coûts et risques d’erreurs, en gardant des fenêtres de contexte limitées et en utilisant des règles personnalisées (Cline rules).
+Malgré un investissement initial nécessaire pour monter en compétence, l’apport de l’IA dans une démarche TDD ou test-first, particulièrement sur de petits projets, offre un gain de productivité notable, à condition de garder le contrôle sur les livrables finaux, d’où l’importance de relecture et de validation humaine avant tout engagement du code.&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;L’IA générative n’est pas une baguette magique, mais un &lt;strong&gt;accélérateur de productivité&lt;/strong&gt;.&lt;br /&gt;
+Elle oblige à repenser notre manière de créer, de questionner, de valider.
+À l’heure où elle s’intègre déjà dans nos outils de développement web, il est essentiel d’en comprendre les mécanismes, les limites, et surtout, les impacts.&lt;br /&gt;
+Parce qu’utiliser l’IA, ce n’est pas juste &lt;strong&gt;lancer une requête&lt;/strong&gt; — c’est aussi &lt;strong&gt;savoir pourquoi, comment, et à quel prix&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;les-clés-de-larchitecture-pour-les-devs&quot;&gt;Les clés de l’architecture pour les devs&lt;/h2&gt;
+
+&lt;p&gt;Nous avons eu la chance d’assister à la conférence &lt;strong&gt;“Les clés de l’architecture pour les devs”&lt;/strong&gt;, animée par &lt;strong&gt;Cyrille Martraire&lt;/strong&gt; et &lt;strong&gt;Éric Le Merdy&lt;/strong&gt;.
+Une session riche et inspirante, pleine de conseils pratiques pour aborder l’architecture logicielle sans tomber dans les pièges classiques.&lt;/p&gt;
+
+&lt;h3 id=&quot;larchitecture-ça-sapprend-mais-différemment&quot;&gt;L’architecture, ça s’apprend… mais différemment&lt;/h3&gt;
+
+&lt;p&gt;Première claque : &lt;strong&gt;personne ne sait vraiment ce qu’est l’architecture&lt;/strong&gt;.
+Les systèmes ont tellement évolué — cloud, modularité, distribution — que l’incertitude est devenue la norme.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Clé : On ne saura jamais tout — et ce n’est pas grave, l’incertitude est normale.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;En tant que développeurs, nous devons accepter cet inconfort. L’important, c’est de comprendre le besoin métier avant tout.&lt;/p&gt;
+
+&lt;h3 id=&quot;penser-problème-avant-de-penser-solution&quot;&gt;Penser problème avant de penser solution&lt;/h3&gt;
+
+&lt;p&gt;En fil rouge, les conférenciers ont donné l’exemple d’un client qui demandait de récupérer des fichiers toutes les 5 minutes et de les intégrer toutes les 15 minutes.
+Derrière cette demande se cachait en réalité un &lt;strong&gt;véritable besoin d’agrégation, de monitoring et de résilience&lt;/strong&gt;.
+Pour le comprendre, il a fallu creuser, poser des questions, reformuler.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Clé : Toujours identifier le véritable problème avant de penser solution.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Un diagramme de contexte a aidé l’équipe à clarifier tout cela.
+L’exercice a aussi permis d’identifier les attributs de qualité recherchés : &lt;strong&gt;performance, scalabilité, résilience&lt;/strong&gt;, etc.&lt;/p&gt;
+
+&lt;p&gt;Exemple concret de ce qu’il fallait pouvoir intégrer :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;40 000 capteurs&lt;/li&gt;
+  &lt;li&gt;4 millions de données à intégrer toutes les 15 minutes&lt;/li&gt;
+  &lt;li&gt;6 Go à collecter dans un laps de temps serré&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Cela impose tout de suite des choix techniques et architecturaux très pragmatiques.&lt;/p&gt;
+
+&lt;p&gt;Il est cependant nécessaire de garder en tête plusieurs éléments avant de se lancer tête baissée dans de la conception. En voici une liste non exhaustive :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;performance&lt;/li&gt;
+  &lt;li&gt;élasticité&lt;/li&gt;
+  &lt;li&gt;disponibilité / zero downtime&lt;/li&gt;
+  &lt;li&gt;sécurité&lt;/li&gt;
+  &lt;li&gt;mise à jour régulière&lt;/li&gt;
+  &lt;li&gt;extensibilité&lt;/li&gt;
+  &lt;li&gt;développement&lt;/li&gt;
+  &lt;li&gt;productivité&lt;/li&gt;
+  &lt;li&gt;coûts&lt;/li&gt;
+  &lt;li&gt;recherche effectuée par le(s) développeur(s)&lt;/li&gt;
+  &lt;li&gt;contraintes réglementaires&lt;/li&gt;
+  &lt;li&gt;accessibilité&lt;/li&gt;
+  &lt;li&gt;déployabilité&lt;/li&gt;
+  &lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;architecture--négociation--pédagogie&quot;&gt;Architecture = négociation + pédagogie&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Clé : Négocier, éduquer, parler aux gens.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Architecturer un système, ce n’est pas rester enfermé dans sa tour d’ivoire : c’est comprendre les enjeux, discuter avec le métier, négocier les délais, expliquer les compromis.&lt;/p&gt;
+
+&lt;p&gt;Par exemple : devoir anticiper les pannes, accepter des délais de traitement légèrement plus longs pour un coût plus faible, éviter des choix hâtifs comme “passer au multi-threading” sans réflexion.&lt;/p&gt;
+
+&lt;h3 id=&quot;modularité-pragmatique--entre-services-et-monolithes&quot;&gt;Modularité pragmatique : entre services et monolithes&lt;/h3&gt;
+
+&lt;p&gt;Autre sujet passionnant abordé durant cette conférence : &lt;strong&gt;le découpage&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Découper selon le métier (par domaine)&lt;/li&gt;
+  &lt;li&gt;Découper techniquement (par responsabilité)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Mais attention : &lt;strong&gt;deux sous-domaines ≠ forcément deux services&lt;/strong&gt;.
+Parfois, un &lt;strong&gt;monolithe modulaire&lt;/strong&gt; reste une solution envisageable, plus simple et potentiellement plus efficace.&lt;/p&gt;
+
+&lt;p&gt;Le découpage doit se faire intelligemment, au bon niveau :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Métier&lt;/li&gt;
+  &lt;li&gt;Domaines&lt;/li&gt;
+  &lt;li&gt;Modules&lt;/li&gt;
+  &lt;li&gt;Technologies&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Dans leur exemple, il était, à ce moment de la réflexion, plus pertinent de penser à un &lt;strong&gt;découpage runtime&lt;/strong&gt; (au moment de l’exécution) qu’un découpage de “service” pur.&lt;/p&gt;
+
+&lt;h3 id=&quot;accepter-le-changement-comme-norme&quot;&gt;Accepter le changement comme norme&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Clé : L’architecture n’est pas figée.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Un système évolue : les besoins, les charges et les contraintes changent. Il faut :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Prévoir des options de changement à bas coût&lt;/li&gt;
+  &lt;li&gt;Accepter d’échouer rapidement&lt;/li&gt;
+  &lt;li&gt;Valider tôt et souvent (ex : mocks en prod pour valider sans tout exposer)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ici, le choix d’un système à &lt;strong&gt;multi-instances&lt;/strong&gt; plutôt que d’un gros monolithe s’est imposé. Mais ce nouveau choix amène de nouveaux défis :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Asynchronicité&lt;/li&gt;
+  &lt;li&gt;Gestion des messages perdus, en désordre ou dupliqués (idempotence indispensable)&lt;/li&gt;
+  &lt;li&gt;Gestion des quotas&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Les conférenciers insistent sur l’importance de &lt;strong&gt;penser “trade-offs”&lt;/strong&gt;, d’utiliser le cloud quand ça a du sens, et surtout d’éviter la complexité prématurée.&lt;/p&gt;
+
+&lt;h3 id=&quot;limportance-des-contrats&quot;&gt;L’importance des contrats&lt;/h3&gt;
+
+&lt;p&gt;Quand on expose des API ou des formats d’échange, il est nécessaire de :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Ne pas introduire de &lt;strong&gt;breaking change&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Toujours prévoir une évolution douce.&lt;/li&gt;
+  &lt;li&gt;Penser à laisser les anciennes versions accessibles en cas d’erreur.&lt;/li&gt;
+  &lt;li&gt;Considérer qu’une API publiée &lt;strong&gt;n’appartient plus à l’équipe&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Clé : Les contrats sont la clé de la coordination entre systèmes et équipes.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;pratiquer-larchitecture-au-quotidien&quot;&gt;Pratiquer l’architecture au quotidien&lt;/h3&gt;
+
+&lt;p&gt;Enfin, comment progresser ?&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Capitaliser les décisions via des &lt;strong&gt;ADR&lt;/strong&gt; (Architecture Decision Records).&lt;/li&gt;
+  &lt;li&gt;Tester l’architecture (ex : outils comme &lt;strong&gt;ArchUnit&lt;/strong&gt;).&lt;/li&gt;
+  &lt;li&gt;Timeboxer les réflexions pour apprendre vite.&lt;/li&gt;
+  &lt;li&gt;Se confronter au groupe pour dépersonnaliser les idées.&lt;/li&gt;
+  &lt;li&gt;Rester simple, éviter le dogmatisme (soyons “&lt;strong&gt;catmatic&lt;/strong&gt;” et non “&lt;strong&gt;dogmatic&lt;/strong&gt;” comme ils l’ont joliment dit 😄).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;En architecture logicielle, on ne construit pas seulement un logiciel, &lt;strong&gt;on construit aussi une organisation humaine&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;pour-finir&quot;&gt;Pour finir&lt;/h3&gt;
+
+&lt;p&gt;Même si tout a changé avec le cloud, le distribué et la modularité, &lt;strong&gt;les fondamentaux restent les mêmes&lt;/strong&gt;, il est question de :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Couplage et cohésion&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Contrats&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Modularité&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;API&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Finalement, l’architecture n’est pas une montagne inaccessible.
+C’est un chemin fait de &lt;strong&gt;baby steps&lt;/strong&gt;, de &lt;strong&gt;réflexes simples&lt;/strong&gt; et de &lt;strong&gt;beaucoup de communication&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;“On vieillit, mais pas nos attitudes.”&lt;/strong&gt;&lt;br /&gt;
+Gardons la curiosité, le goût du simple et l’envie d’apprendre. Toujours.&lt;/p&gt;
+
+&lt;h2 id=&quot;comprendre-oauth2-et-openid-connect--différences-fonctionnement-et-bonnes-pratiques&quot;&gt;Comprendre OAuth2 et OpenID Connect : différences, fonctionnement et bonnes pratiques&lt;/h2&gt;
+
+&lt;p&gt;Aujourd’hui, de nombreuses applications web ont besoin de gérer l’&lt;strong&gt;authentification&lt;/strong&gt; et l’&lt;strong&gt;autorisation&lt;/strong&gt; de manière sécurisée et standardisée.
+Deux frameworks dominent ce domaine : &lt;strong&gt;OAuth2&lt;/strong&gt; et &lt;strong&gt;OpenID Connect (OIDC)&lt;/strong&gt;.
+Voici une synthèse basée sur les conférences de Daniel Garnier-Moiroux (“&lt;em&gt;OAuth2 &amp;amp; OpenID: sous le capot&lt;/em&gt;”) et Guillaume Chervet (“&lt;em&gt;Pragmatic OpenID Connect&lt;/em&gt;”).&lt;/p&gt;
+
+&lt;h3 id=&quot;oauth2--lautorisation-avant-tout&quot;&gt;OAuth2 : l’autorisation avant tout&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;OAuth2&lt;/strong&gt; est avant tout un &lt;strong&gt;framework d’autorisation&lt;/strong&gt;.
+Il permet de donner des &lt;strong&gt;permissions&lt;/strong&gt; à une application pour accéder aux ressources d’un utilisateur, sans exposer ses identifiants.&lt;/p&gt;
+
+&lt;p&gt;Quelques points clés sur OAuth2 :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;C’est un &lt;strong&gt;ensemble de spécifications&lt;/strong&gt; publiées sur &lt;a href=&quot;https://oauth.net/specs/&quot;&gt;oauth.net/specs&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Il repose sur l’utilisation de &lt;strong&gt;jetons&lt;/strong&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;access_token&lt;/code&gt;) pour accéder aux APIs.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Important&lt;/strong&gt; : OAuth2 ne gère pas l’&lt;strong&gt;identité&lt;/strong&gt; de l’utilisateur. Il autorise simplement l’accès à certaines ressources.&lt;/li&gt;
+  &lt;li&gt;Chaque mise en œuvre d’OAuth2 est légèrement différente, car certains comportements ne sont pas strictement standardisés.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;openid-connect-oidc--lauthentification-standardisée&quot;&gt;OpenID Connect (OIDC) : l’authentification standardisée&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;OpenID Connect&lt;/strong&gt; est une &lt;strong&gt;extension&lt;/strong&gt; de OAuth2 qui vise cette fois l’&lt;strong&gt;authentification&lt;/strong&gt;.
+L’objectif est clair : permettre aux utilisateurs de se connecter à différents sites via un compte unique (&lt;strong&gt;SSO&lt;/strong&gt; – Single Sign-On).&lt;/p&gt;
+
+&lt;p&gt;Caractéristiques d’OIDC :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Basé sur OAuth2 mais ajoute une couche d’&lt;strong&gt;identité&lt;/strong&gt; via un jeton spécifique : le &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;id_token&lt;/code&gt;&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Standardise l’API et le format des données retournées.&lt;/li&gt;
+  &lt;li&gt;Utilise des &lt;strong&gt;JSON Web Tokens (JWT)&lt;/strong&gt; pour transmettre les informations sur l’utilisateur.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Le &lt;strong&gt;flux de base&lt;/strong&gt; dans OIDC :&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;L’application redirige l’utilisateur vers un fournisseur d’identité (ex : Google) pour obtenir un &lt;strong&gt;code d’autorisation&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Ce &lt;strong&gt;code&lt;/strong&gt; est renvoyé à l’application.&lt;/li&gt;
+  &lt;li&gt;Le code est échangé contre des &lt;strong&gt;jetons&lt;/strong&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;access_token&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;id_token&lt;/code&gt;).&lt;/li&gt;
+  &lt;li&gt;L’application &lt;strong&gt;lit et vérifie&lt;/strong&gt; les informations contenues dans le &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;id_token&lt;/code&gt; (grâce à des étapes de &lt;strong&gt;cryptographie&lt;/strong&gt;).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;focus-sur-un-type-de-flux--pkce&quot;&gt;Focus sur un type de flux : PKCE&lt;/h3&gt;
+
+&lt;p&gt;Lorsqu’une application front-end veut s’authentifier en toute sécurité, elle utilise le &lt;strong&gt;flux PKCE (Proof Key for Code Exchange)&lt;/strong&gt;.
+C’est devenu le flux recommandé pour les applications publiques sans client secret.&lt;/p&gt;
+
+&lt;p&gt;Pourquoi PKCE ?&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Il protège contre des attaques comme l’interception du code d’autorisation.&lt;/li&gt;
+  &lt;li&gt;Introduit des mécanismes supplémentaires comme le &lt;strong&gt;code challenge&lt;/strong&gt; et le &lt;strong&gt;nonce&lt;/strong&gt; (anti-rejeu et CSRF).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;À configurer&lt;/strong&gt; pour utiliser OIDC côté client :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Client ID&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Redirect URI&lt;/strong&gt; (où revenir après authentification)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Scope&lt;/strong&gt; (par exemple &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;openid profile email&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Authority&lt;/strong&gt; (URL du serveur d’autorisation)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;sécuriser-lauthentification-côté-client&quot;&gt;Sécuriser l’authentification côté client&lt;/h3&gt;
+
+&lt;p&gt;Le front-end est souvent une cible vulnérable. Voici deux couches de protection évoquées :&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. CSP (Content Security Policy)&lt;/strong&gt; :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Permet de limiter les ressources pouvant être exécutées sur la page.&lt;/li&gt;
+  &lt;li&gt;Protège contre les attaques &lt;strong&gt;XSS&lt;/strong&gt; qui pourraient voler les jetons.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Service Worker comme Proxy&lt;/strong&gt; :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Utiliser un &lt;strong&gt;service worker&lt;/strong&gt; pour agir comme un proxy entre l’application et les serveurs.&lt;/li&gt;
+  &lt;li&gt;Permet de &lt;strong&gt;protéger les jetons&lt;/strong&gt; et d’&lt;strong&gt;offusquer les clés&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Attention : les services workers dépendent de la session du navigateur. Un mécanisme comme le &lt;strong&gt;silent sign-in&lt;/strong&gt; est parfois nécessaire pour récupérer un état authentifié de manière transparente.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;authentification-côté-serveur--le-modèle-bff&quot;&gt;Authentification côté serveur : le modèle BFF&lt;/h3&gt;
+
+&lt;p&gt;Une autre approche consiste à externaliser complètement la gestion des jetons côté serveur avec un modèle &lt;strong&gt;BFF (Backend For Frontend)&lt;/strong&gt; :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Le serveur backend échange directement les codes contre des jetons.&lt;/li&gt;
+  &lt;li&gt;Le front-end ne voit jamais les &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;access_token&lt;/code&gt; ou &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;refresh_token&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Utilisation possible de &lt;strong&gt;cookies&lt;/strong&gt; pour transporter l’état de session.&lt;/li&gt;
+  &lt;li&gt;Plus sécurisé, mais nécessite une infrastructure serveur plus complexe (stockage sécurisé, rotation des jetons, etc.).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;techniques-avancées--dpop-et-sécurisation-des-jetons&quot;&gt;Techniques avancées : DPoP et sécurisation des jetons&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;DPoP (Demonstration of Proof of Possession)&lt;/strong&gt; est une technique récente pour renforcer OAuth2 :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Au lieu d’envoyer un simple &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Authorization: Bearer &amp;lt;token&amp;gt;&lt;/code&gt;, le client prouve qu’il détient une &lt;strong&gt;clé privée&lt;/strong&gt; liée au jeton.&lt;/li&gt;
+  &lt;li&gt;Utilisation d’un &lt;strong&gt;en-tête DPoP&lt;/strong&gt; qui contient un JWT signé avec la clé privée.&lt;/li&gt;
+  &lt;li&gt;Cela limite l’impact du vol d’un &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;access_token&lt;/code&gt; car il ne sera utilisable qu’avec la clé correcte.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Un service worker peut aussi stocker cette clé privée pour encore mieux sécuriser les communications.&lt;/p&gt;
+
+&lt;h3 id=&quot;oidc-et-keycloak&quot;&gt;OIDC et Keycloak&lt;/h3&gt;
+
+&lt;p&gt;Dans de nombreux projets, on utilise des solutions prêtes à l’emploi comme &lt;strong&gt;Keycloak&lt;/strong&gt; pour jouer le rôle de serveur OIDC :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Keycloak gère l’authentification, l’autorisation et la gestion des sessions utilisateurs.&lt;/li&gt;
+  &lt;li&gt;Il permet de personnaliser la sécurité en fonction des besoins : applications simples ou systèmes critiques.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;conclusion-1&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;OAuth2&lt;/strong&gt; et &lt;strong&gt;OpenID Connect&lt;/strong&gt; sont complémentaires : l’un donne accès aux ressources, l’autre vérifie qui vous êtes.
+Mais leur bonne implémentation nécessite de comprendre les flux, les menaces, et d’adapter la sécurité selon la sensibilité de votre application.&lt;/p&gt;
+
+&lt;p&gt;Comme le disait Guillaume Chervet : &lt;strong&gt;“En sécurité, tout est une question de curseur.”&lt;/strong&gt;&lt;br /&gt;
+Un blog personnel n’aura pas les mêmes besoins qu’une application bancaire !&lt;/p&gt;
+
+&lt;h2 id=&quot;lobservabilité-nest-plus-un-luxe--cest-une-nécessité&quot;&gt;L’observabilité n’est plus un luxe — c’est une nécessité&lt;/h2&gt;
+&lt;p&gt;À travers trois talks très complémentaires, une évidence s’impose : dans nos systèmes modernes distribués, l’observabilité est devenue une compétence centrale pour les équipes tech, et plus seulement un sujet d’ops.
+Que ce soit quand la prod plante sans prévenir, quand un bug front masque un problème backend, ou quand un nouveau service critique est mis en ligne, il faut pouvoir répondre rapidement à une seule question : “Que se passe-t-il vraiment dans mon système ?”
+Les conférences ont exploré différents angles :&lt;/p&gt;
+
+&lt;h3 id=&quot;lobservabilité-pour-les-devs--outils-clé-pour-survivre-quand-la-prod-plantera---takima&quot;&gt;“L’Observabilité pour les devs : outils-clé pour survivre quand la prod plantera” - Takima&lt;/h3&gt;
+&lt;p&gt;Dans cette première conférence, les conférenciers ont mis en place une stack complète d’observabilité avec des outils open source en seulement 45 minutes.
+Ils ont utilisé OpenTelemetry pour la collecte des logs, des métriques et des traces, permettant ainsi de diagnostiquer rapidement et efficacement les problèmes en production.
+Toutes ces données ont été intégrées dans l’outil SigNoz afin d’avoir une vue complète de leur système.&lt;/p&gt;
+
+&lt;h3 id=&quot;rum--otel--laccord-parfait-pour-lobservabilité-de-bout-en-bout----capgeminisogeti&quot;&gt;“RUM &amp;amp; OTEL : l’accord parfait pour l’observabilité de bout en bout ?” - Capgemini/Sogeti&lt;/h3&gt;
+&lt;p&gt;Cette seconde conférence nous a montré l’importance de lier les données collectées côté utilisateur (via le Real User Monitoring - RUM) aux événements backend grâce à OpenTelemetry.
+Cela permet d’obtenir une vue unifiée et complète à travers toutes les couches de l’infrastructure.
+Non seulement cela facilite la compréhension des problèmes rencontrés par les utilisateurs, mais cela aide aussi à localiser plus précisément les causes des défaillances, qu’elles soient techniques ou fonctionnelles.&lt;/p&gt;
+
+&lt;h3 id=&quot;les-métriques-sont-précieuses-mais-savoir-quoi-en-faire-lest-encore-plus----manomano&quot;&gt;“Les métriques sont précieuses, mais savoir quoi en faire l’est encore plus 💪” - ManoMano&lt;/h3&gt;
+&lt;p&gt;Dans la dernière conférence, le Staff Software Engineer de ManoMano nous a montré qu’il est essentiel de savoir interpréter et structurer ses métriques pour avoir un impact réel.
+Lors de la migration de leur tunnel de paiement, il était crucial de disposer d’une observabilité proactive pour pouvoir réagir rapidement aux incidents 💸.
+Pour cela, ils ont réfléchi en amont à quelles métriques devaient déclencher des alertes, et comment les adapter à leurs besoins spécifiques (a-t-on vraiment besoin d’être alerté à chaque 404 ?).&lt;/p&gt;
+
+&lt;p&gt;L’observabilité ne se résume pas à brancher un dashboard : c’est une démarche, une façon de penser l’architecture, le développement et l’exploitation.
+Cela passe par des choix d’outils, oui, mais surtout par une vraie culture d’équipe : choisir les bons signaux, définir les bons seuils, formuler des alertes compréhensibles, et donner à chaque personne — dev, ops ou astreinte — les moyens d’agir vite, bien, et avec le contexte nécessaire.&lt;/p&gt;
+
+&lt;p&gt;En résumé : l’observabilité, c’est la capacité à comprendre son système sans tâtonner.
+Et dans un monde de microservices, de cloud et d’interdépendances complexes, c’est tout simplement vital.&lt;/p&gt;
+
+&lt;h2 id=&quot;aerospike-chez-criteo--performance-extrême-et-simplicité-à-léchelle&quot;&gt;Aerospike chez Criteo : performance extrême et simplicité à l’échelle&lt;/h2&gt;
+
+&lt;p&gt;Dans le monde de la publicité en ligne, la vitesse est une question de survie.
+Lors de son talk à Devoxx France 2025, Peter, responsable de l’équipe NoSQL chez Criteo, a partagé un retour d’expérience captivant sur l’utilisation d’Aerospike comme base de données clé/valeur.
+L’objectif : alimenter, une plateforme de décision en temps réel capable de répondre à plus de 300 millions de requêtes par seconde avec une latence moyenne inférieure à 1 ms.&lt;/p&gt;
+
+&lt;p&gt;Pour relever ce défi, Criteo a progressivement consolidé son architecture autour d’Aerospike.
+Ce choix leur a permis d’atteindre des niveaux de performance impressionnants tout en simplifiant leur stack technique.
+En s’appuyant sur les forces d’Aerospike : stockage hybride, réplication robuste, distribution intelligente des données.
+L’équipe a gagné en fiabilité et en efficacité opérationnelle. Un témoignage inspirant sur la façon dont des choix d’architecture bien assumés peuvent transformer une contrainte de performance en avantage stratégique.&lt;/p&gt;</content><author><name>[&quot;paulinermbd&quot;, &quot;fferriere&quot;, &quot;gdamour&quot;, &quot;benoit382&quot;]</name></author><category term="devoxx" /><category term="conference" /><category term="event" /><category term="backend" /><category term="go" /><category term="kubernetes" /><category term="github" /><category term="IA" /><category term="openid" /><category term="oauth2" /><category term="architecture" /><summary type="html">Devoxx 2025</summary></entry><entry><title type="html">How we made our apps more accessible on SmartTVs 📺</title><link href="https://tech.bedrockstreaming.com/2025/02/26/tvjs-accessibility.html" rel="alternate" type="text/html" title="How we made our apps more accessible on SmartTVs 📺" /><published>2025-02-26T00:00:00+00:00</published><updated>2025-02-26T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/02/26/tvjs-accessibility</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/02/26/tvjs-accessibility.html">&lt;p&gt;Accessibility is at the heart of our concerns, at Bedrock Streaming we work hard to make our applications accessible to everyone.
 In this article, I’m going to share with you how my team and I improved our accessibility score of our SmartTV apps by 18% in just a few months!
 This improvement is even more impressive because on smartTV we have to manage several constraints, including taking into account the specificities of each device (Tizen, WebOS, Hisense, Panasonic, etc.).&lt;/p&gt;
 
@@ -1613,463 +2362,4 @@ The Special event page content would be a static, non-personalized version of a 
 &lt;p&gt;&lt;img src=&quot;/images/posts/2024-08-07-euro-resiliency-special-event-page/SEP_graph_effic.png&quot; alt=&quot;Graph displaying the proportion of Special Event page distributed, with around 70% of pages being the Special Event Page once enabled&quot; /&gt;
 &lt;img src=&quot;/images/posts/2024-08-07-euro-resiliency-special-event-page/SEP_response_decrease.png&quot; alt=&quot;Graph displaying the amount of specific pages response, decreasing by almost 2 times when the Special Event page was displayed&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;While the Special Event page was a success, enabling our users to reach the soccer matches with nothing more than &lt;strong&gt;one single click&lt;/strong&gt;, while at the same time allowing us to reduce a lot of the incoming traffic on our backend servers, it was not the only feature that we developed to prepare for such a massive event. We also worked on quite a few topics, such as the &lt;em&gt;layout at edge&lt;/em&gt;, or a huge workshop on a way to &lt;em&gt;load-test efficiently our services&lt;/em&gt;. We will communicate about these at some point in the future, so keep an eye out for this!&lt;/p&gt;</content><author><name>Bedrock</name></author><category term="resilience" /><category term="frontend" /><category term="back-for-front" /><category term="2024" /><summary type="html">Earlier this year took place the Euro soccer competition, spanning over a month and with thousands of people tuning all over the world to watch the matches. One of our customers, M6+, was streaming several of these games - And during the competition, hundreds of thousands of browsers, phones and TVs were able to seamlessly stream the matches with no major issue at all. It was, however, no easy feat to reach that state. How did we do that? What were the challenges we faced, the solutions we envisioned? In this article, we’ll discuss one of the features we developed specifically for the Euro: something that we called the “Special Event Page”.</summary></entry><entry><title type="html">Bedrock Dev Facts #20</title><link href="https://tech.bedrockstreaming.com/2024/07/26/bedrock-dev-facts-20.html" rel="alternate" type="text/html" title="Bedrock Dev Facts #20" /><published>2024-07-26T00:00:00+00:00</published><updated>2024-07-26T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/07/26/bedrock-dev-facts-20</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/07/26/bedrock-dev-facts-20.html">&lt;p&gt;Bien que cela fasse près de 18 mois que nous n’avons pas publié une nouvelle fournée de Dev Facts, nos équipes ont continués à alimenter la pile des perles des développeurs.
-Et du coup, double fournée !!&lt;/p&gt;
-
-&lt;h2 id=&quot;tester-cest-douter&quot;&gt;Tester, c’est douter&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;A : Attention, je vais peut-être (je l’espère) faire sonner [la prod]&lt;/li&gt;
-    &lt;li&gt;B : A, toujours là pour utiliser la prod comme son bac à sable&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;jai-appris-à-lire-je-ne-souhaite-ça-à-personne&quot;&gt;J’ai appris à lire, je ne souhaite ça à personne&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Nan mais en plus je sais même pas ce qu’il faut faire ! Le ticket il est là, y a plein de mots !&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;professionnel-jusquà-lassiette&quot;&gt;Professionnel jusqu’à l’assiette&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;A : Mais moi quand je commande ma salade moulin, je fais gaffe a prendre des trucs qui vont ensembles ! Genre, chou rouge et betterave, c’est des couleurs complémentaires !&lt;/li&gt;
-    &lt;li&gt;B : Ah bah tout de suite on voit le dev qui se débrouille en CSS ici&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;la-mutualisation&quot;&gt;La mutualisation&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;c’est l’avantage d’avoir une solution core, tu retrouveras sûrement les mêmes bugs chez les autres clients&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;les-doigts-devraient-suffir&quot;&gt;Les doigts devraient suffir&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;C’est le moment où je croise les fesses&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;le-débat-mode-demploi&quot;&gt;Le débat, mode d’emploi&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;A : en fait c’était vachement mieux&lt;/li&gt;
-    &lt;li&gt;B : ben non&lt;/li&gt;
-    &lt;li&gt;A : ¯\&lt;em&gt;(ツ)&lt;/em&gt;/¯&lt;/li&gt;
-    &lt;li&gt;C :  j’aime les débats argumentés 🤣&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;quand-les-admins-découvrent-la-vie-réelle&quot;&gt;Quand les admins découvrent la vie réelle&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Super faut respecter les règles quoi&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;quand-il-faut-éteindre-un-client&quot;&gt;Quand il faut éteindre un client&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;J’ai l’impression de supprimer mon skyblog&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;cest-un-peu-plus-moins-bien&quot;&gt;C’est un peu plus moins bien&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;C’est cute dans le côté dégueulasse&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;le-télétravail-v2&quot;&gt;Le télétravail v2&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;A : Il fait plus chaud dans les couloirs que dans les bureaux.&lt;/li&gt;
-    &lt;li&gt;B : On a qu’à déplacer les bureaux dans les couloirs. On fera du téléprésentiel&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;lentrainement-cest-important&quot;&gt;L’entrainement, c’est important&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Mon temps de réaction en réunion n’est plus très bon depuis que j’ai arrêté de jouer a StarCraft.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;un-développeur-un-vrai-avec-pleins-de-doigts&quot;&gt;Un développeur, un vrai, avec pleins de doigts&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Je fais pas un copier-coller, je retape doigt par doigt&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;léchelle-sociale-en-entreprise&quot;&gt;L’échelle sociale en entreprise&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Un alternant : Je peux avoir un stagiaire moi aussi ?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;quand-le-respect-sest-enfui&quot;&gt;Quand le respect s’est enfui&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Vas-y répète, je n’écoutais pas&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;ou-alors-cest-le-9ème-jour-de-la-semaine&quot;&gt;Ou alors, c’est le 9ème jour de la semaine&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;C’est le 5 le dernier vendredi du mois ?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;quand-ça-échoue-vraiment&quot;&gt;Quand ça échoue vraiment&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Au lieu d’échouer avec succès ça échoue avec échec&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;pas-vu-pas-pris&quot;&gt;Pas vu, pas pris&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;C’est une feature potentiellement pas impactante tant que tu ne l’utilises pas&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;cest-pas-faux&quot;&gt;C’est pas faux&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Ca sert à rien d’avoir un truc qui sert à rien&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;lingéniosité&quot;&gt;L’ingéniosité&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Ah ? Ma molette est en panne …. tant pis je vais scroller au clic&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;cest-pas-faux-bis&quot;&gt;C’est pas faux, bis&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;C’est cool les choses bien&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;ils-ne-savaient-pas-que-cétait-impossible-alors-ils-lont-fait&quot;&gt;Ils ne savaient pas que c’était impossible, alors ils l’ont fait&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;On est obligés de pouvoir puisque c’est la seule solution&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;il-na-visiblement-pas-eu-son-stagiaire&quot;&gt;Il n’a visiblement pas eu son stagiaire&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Un alternant: Je vois pas mon code si je pleure&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;vous-faites-quoi-mercredi-soir-&quot;&gt;Vous faites quoi mercredi soir ?&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;blockquote&gt;
-    &lt;p&gt;J’ai une nouvelle passion purée de piments qui m’a bien occupée durant le dernier week-end&lt;/p&gt;
-  &lt;/blockquote&gt;
-
-  &lt;p&gt;J’adore ce genre de phrases. Je suis 100% susceptible d’en faire sur plein de sujets cuisine. Mais à chaque fois je ne peux m’empécher de penser qu’on pourrait être invité à un diner de cons avec ce genre de phrase 😂&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;de-la-sagesse-il-faut-faire-preuve&quot;&gt;De la sagesse, il faut faire preuve&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;La vie est un breaking-change&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;le-positivisme&quot;&gt;Le positivisme&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;“Non”, c’est pas négatif&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;a-la-pointe-de-la-technologie&quot;&gt;A la pointe de la technologie&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;On a commencé les travaux de refonte auj 😄. (injection de dependance, puis on enchaine sur l’utilisation des “nouvelles” api apple (qui datent d’il y a 4 ans déjà 😄))&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;linflation-cest-compliqué&quot;&gt;L’inflation, c’est compliqué&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Ouais y a l’inflation, c’est bien pour ça que tu me gonfles ?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;la-quadrature-du-cercle-new-gen&quot;&gt;La quadrature du cercle new gen&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Je suis entrain de tourner en rond dans un triangle&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;but-why-&quot;&gt;But why ?&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Parce que parler lascivement a une chaise, j’ai jamais tenté&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;exemple-très-parlant&quot;&gt;Exemple très parlant&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;C’est écrit plus petit que derrière les paquets de céréales&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;il-fait-aussi-du-thé-&quot;&gt;Il fait aussi du thé ?&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Je n’ai pas la science infuse, je suis juste un connard qui fait des commentaires.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;cest-pas-faux-ter&quot;&gt;C’est pas faux, ter&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Alors c’est moche, parce qu’en vrai, c’est pas très beau&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;je-ne-dirais-pas-que-ça-a-échoué-je-dirais-que-ça-na-pas-marché&quot;&gt;Je ne dirais pas que ça a échoué, je dirais que ça n’a pas marché&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;C’est pas du DDOS, c’est un stress test pas vraiment sous contrôle&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;the-yes-need-the-no-to-win-against-the-no&quot;&gt;The yes need the no, to win, against the no&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Ca peut être long à écrire très vite&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;avoir-une-passion-cest-important&quot;&gt;Avoir une passion, c’est important&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Casser les couilles, c’est ma passion&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;le-trou-noir-de-la-productivité&quot;&gt;Le trou noir de la productivité&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;‘Tain je sais pas si c’est votre ilot, mais j’ai vraiment l’impression de rien foutre ici&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;un-chef-cest-fait-pour-cheffer&quot;&gt;Un chef, c’est fait pour cheffer&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;A : C’est marrant mais on a jamais fait de pair ensemble !&lt;/li&gt;
-    &lt;li&gt;B : En même temps, je dev pas… et toi non plus…&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;lagenda-cest-so-2010&quot;&gt;L’agenda, c’est so 2010&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;Un lead à un membre (appelons le T) de son équipe : Bon, tu nous rejoins ?&lt;/li&gt;
-    &lt;li&gt;T : ah on a réunion ?&lt;/li&gt;
-    &lt;li&gt;Le lead : ben on est en retro surtout là&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;tout-dépend-de-la-zone&quot;&gt;Tout dépend de la zone&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;A : Tout depend de la policy&lt;/li&gt;
-    &lt;li&gt;B : et pas de la gendarmerie ?&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;rtfm&quot;&gt;RTFM&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Putain lire la doc ça sert !&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;pour-un-peu-quil-soit-caché-on-est-foutu&quot;&gt;Pour un peu qu’il soit caché, on est foutu&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;le jwt actuel expire le  26/11/5189 20:26:26. (j’espère que ça suffira)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;on-ma-dit-de-regarder-sil-y-a-des-erreurs-pas-sil-marche&quot;&gt;On m’a dit de regarder s’il y a des erreurs, pas s’il marche&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;A : Dites, quelqu’un arrive a accéder a notre outil de monitoring ?&lt;/li&gt;
-    &lt;li&gt;B : Non, mais je crois que Vendredi dernier il était déjà cassé&lt;/li&gt;
-    &lt;li&gt;C : … Mais tu as mis RAS sur ton rapport de Monitoring ?&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;cest-pour-engager-un-engagement&quot;&gt;C’est pour engager un engagement&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Il faut qu’on sache ce qu’il y a contractuellement dans le contrat…&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;après-le-no-code-le-code-à-emporter&quot;&gt;Après le no code, le code à emporter&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;A :  On se fait un point “plan d’actions” si tu veux.&lt;/li&gt;
-    &lt;li&gt;B : Pourquoi pas maintenant ! Tu es sur place ?&lt;/li&gt;
-    &lt;li&gt;A : Non, à emporter !&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;il-na-pas-lhabitude&quot;&gt;Il n’a pas l’habitude&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Oulaaa, mon PC il aime pas quand je travaille&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;cest-pas-faux-quarter&quot;&gt;C’est pas faux, quarter&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Dell c’est le Apple de Windows&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;et-tout-ça-pour-pas-cher&quot;&gt;Et tout ça, pour pas cher&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Avec rien, tu ne fais pas grand chose&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;du-coup-ça-ne-fait-pas-grand-chose-&quot;&gt;Du coup, ça ne fait pas grand chose ?&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Ca allait bien jusqu’à ce qu’on ne fasse rien&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;quand-tu-développes-à-base-de-tnt&quot;&gt;Quand tu développes à base de TNT&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Là on pourrait tout casser sans rien faire marcher&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;sudo-make-me-a-sandwich&quot;&gt;Sudo make me a sandwich&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;A : Ma commande marche pas&lt;/li&gt;
-    &lt;li&gt;B : Ca me dit un truc, je regarde sur StackOverflow… Ah oui tient le lien vers le site est violet&lt;/li&gt;
-    &lt;li&gt;A : Et du coup ?&lt;/li&gt;
-    &lt;li&gt;B : Rajoute un –force.&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;et-si-on-utilise-des-carottes-jaunes-&quot;&gt;Et si on utilise des carottes jaunes ?&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;J’ai néanmoins le sentiment que le client compare des carottes et des patates. Par hasard au début les carottes et les patates (douces) avaient la même couleur, et que maintenant qu’on a des vraies patates, ca marche plus&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;optimisme-définition&quot;&gt;Optimisme, définition&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Pour le burndown, si on enlève tous les jours ou ça stagne, ça descend&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;si-mais-tu-les-comprends-plus-tard-quand-tu-nen-as-plus-besoin&quot;&gt;Si, mais tu les comprends plus tard, quand tu n’en as plus besoin&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;De toutes façon les blagues de front on ne peux pas les comprendre, elles sont asynchrone&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;en-plus-il-faut-lire-des-choses&quot;&gt;En plus, il faut lire des choses&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;A : J’ai résolu notre problème&lt;/li&gt;
-    &lt;li&gt;B : Ah cool, c’était du coup ?&lt;/li&gt;
-    &lt;li&gt;A : C’était une mauvaise lecture de la doc&lt;/li&gt;
-    &lt;li&gt;B : Ouais mais leurs docs elles sont trop longues !&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;le-legacy-de-demain-qui-a-été-fait-hier-mais-vu-daujourdhui&quot;&gt;Le legacy de demain, qui a été fait hier, mais vu d’aujourd’hui&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;C’est un legacy futur&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;ça-nous-est-tous-arrivé&quot;&gt;Ça nous est tous arrivé&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Putain, je viens de faire un commit que j’ai appelé &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--amend&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;le-pianiste&quot;&gt;Le pianiste&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;C’est mes doigts qui connaissent mon mot de passe, c’est pas moi&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;ça-explique-des-choses-&quot;&gt;Ça explique des choses …&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Hier j’ai utilisé mes compétences de dev front, j’ai fait un gâteau au chocolat&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;cest-presque-ça&quot;&gt;C’est presque ça&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;J’veux pas faire des features sur la comète&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;du-coup-on-passe-la-prod-en-staging-&quot;&gt;Du coup, on passe la prod en staging ?&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;La validation a conclut que ça marchait en prod mais pas en staging&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;en-signal-de-fumée-&quot;&gt;En signal de fumée ?&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Je sais pas comment je vais dev, ce qui est branché a mon écran c’est une cigarette électronique&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;cétait-au-tour-du-chien-de-surveiller-lalerting-&quot;&gt;C’était au tour du chien de surveiller l’alerting ?&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;A : C’est quoi qui sonne comme ça ?&lt;/li&gt;
-    &lt;li&gt;B : C’est le collier de mon chien quand il bouge la tête&lt;/li&gt;
-    &lt;li&gt;A : Je voulais dire dans notre alerting&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;merci&quot;&gt;Merci&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;A : On sait faire un test atoum&lt;/li&gt;
-    &lt;li&gt;B : À tes souhaits&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;il-échoue-rapidement-peut-être-&quot;&gt;Il échoue rapidement peut-être ?&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Putain le code est tellement optimisé qu’il marche plus&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;mais-comme-personne-ne-lit-la-doc-&quot;&gt;Mais comme personne ne lit la doc …&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;C’est pas de la magie, c’est documenté&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;une-histoire-de-marsche&quot;&gt;Une histoire de mar(s|c)h(e)&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Si on Unmarshal puis Marshal, ça doit marcher&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;4g-ou-5g-&quot;&gt;4G ou 5G ?&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Avez-vous un cable Wi-fi à me prêter ?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;nous-avons-affaire-à-un-serial-killer&quot;&gt;Nous avons affaire à un &lt;em&gt;serial killer&lt;/em&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;A : He is on &lt;em&gt;AirTiTi&lt;/em&gt; (RTT)&lt;/li&gt;
-    &lt;li&gt;B : Quoi ?&lt;/li&gt;
-    &lt;li&gt;A : En RTT&lt;/li&gt;
-    &lt;li&gt;B : Oh, on &lt;em&gt;AirTiTi&lt;/em&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;you-have-to-be-curious&quot;&gt;You have to be curious&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;On a la salle bi curieux&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;on-a-dit-que-le-chef-est-là-pour-cheffer&quot;&gt;On a dit que le chef est là pour cheffer&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;J’aimerais bien un assistant, genre un team lead&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;cest-beau-ou-beau-&quot;&gt;C’est beau ou beau ?&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Je t’ai demandé de constater à quel point c’est beau, pas de me dire que c’est moche&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;quand-tu-vas-trop-loin-dans-lintimité-des-gens&quot;&gt;Quand tu vas trop loin dans l’intimité des gens&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Sachez que Mark Zuckerberg transpire beaucoup.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;les-solutions-les-plus-simples&quot;&gt;Les solutions les plus simples&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Mon script qui sort mon PC de veille c’est mon chien qui passe vers le PC en bougeant la souris&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;encore-quelquun-qui-na-pas-lu-la-doc-avant&quot;&gt;Encore quelqu’un qui n’a pas lu la doc avant&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;On va tous mourrir, le BOv3 aussi, mais lui c’est son jour. J’ai dit pareil pour ma mamie&lt;/li&gt;
-    &lt;li&gt;Moi aussi, mais j’ai pas pu la redémarrer après&lt;/li&gt;
-    &lt;li&gt;T’as oublié de la recompiler&lt;/li&gt;
-    &lt;li&gt;😱 J’ai pas recompilé mamie !&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;au-moins-il-est-indispensable&quot;&gt;Au moins, il est indispensable&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Moi avec le temps, je me suis spécialisé dans les sujets qu’aiment pas le reste de la team&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;et-pour-prendre-un-wget-&quot;&gt;Et pour prendre un wget ?&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;T’as pas d’ami prends un Curly, t’as pas d’âme prends un curl&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;cest-pas-faux-quinquies&quot;&gt;C’est pas faux, quinquies&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Notre monitoring n’est fiable que si on peut s’y fier&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;lynchez-le-&quot;&gt;Lynchez le !&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Mais quoi ? Zelda c’est pas le personnage principal qu’on joue dans Zelda&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;et-le-meilleur-pour-la-fin&quot;&gt;Et le meilleur pour la fin&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Y a peu de temps j’étais en train de faire du python, là je reviens sur du JS. Et du coup je suis en train de debugger mon site, quand d’un coup sans que je comprenne pourquoi à chaque fois que je le reload il imprime une feuille de papier. J’ai mis une heure à chercher avant de voir que par réflexe, j’ai debuggé mon code en utilisant la commande &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;print&lt;/code&gt; au lieu de faire un &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;console.log&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>Bedrock</name></author><category term="devfacts" /><category term="humour" /><summary type="html">Bien que cela fasse près de 18 mois que nous n’avons pas publié une nouvelle fournée de Dev Facts, nos équipes ont continués à alimenter la pile des perles des développeurs. Et du coup, double fournée !!</summary></entry></feed>
+&lt;p&gt;While the Special Event page was a success, enabling our users to reach the soccer matches with nothing more than &lt;strong&gt;one single click&lt;/strong&gt;, while at the same time allowing us to reduce a lot of the incoming traffic on our backend servers, it was not the only feature that we developed to prepare for such a massive event. We also worked on quite a few topics, such as the &lt;em&gt;layout at edge&lt;/em&gt;, or a huge workshop on a way to &lt;em&gt;load-test efficiently our services&lt;/em&gt;. We will communicate about these at some point in the future, so keep an eye out for this!&lt;/p&gt;</content><author><name>Bedrock</name></author><category term="resilience" /><category term="frontend" /><category term="back-for-front" /><category term="2024" /><summary type="html">Earlier this year took place the Euro soccer competition, spanning over a month and with thousands of people tuning all over the world to watch the matches. One of our customers, M6+, was streaming several of these games - And during the competition, hundreds of thousands of browsers, phones and TVs were able to seamlessly stream the matches with no major issue at all. It was, however, no easy feat to reach that state. How did we do that? What were the challenges we faced, the solutions we envisioned? In this article, we’ll discuss one of the features we developed specifically for the Euro: something that we called the “Special Event Page”.</summary></entry></feed>
