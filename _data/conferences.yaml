@@ -163,6 +163,12 @@
   eventName: Devoxx France
   eventUrl: https://www.youtube.com/watch?v=exk5343fTuM
 
+- title: "L’aventure d’une requête HTTP — ou le chemin de la vie des devs"
+  date: 2024-10-10
+  author: p_martin
+  eventName: Forum PHP
+  eventUrl: https://www.youtube.com/watch?v=penIr9E0Qbo
+
 - title: "Load-testons M6+ pour préparer l’Euro 2024 !"
   date: 2025-04-17
   author: b_colin
