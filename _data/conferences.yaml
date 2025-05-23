@@ -157,6 +157,12 @@
   youtubeId: B665IfwnlU0
   sponsored: true
 
+- title: "Une application résiliente, dans un monde partiellement dégradé"
+  date: 2024-04-17
+  author: p_martin
+  eventName: Devoxx France
+  eventUrl: https://www.youtube.com/watch?v=exk5343fTuM
+
 - title: "Load-testons M6+ pour préparer l’Euro 2024 !"
   date: 2025-04-17
   author: b_colin
