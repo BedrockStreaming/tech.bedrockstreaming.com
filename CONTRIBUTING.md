@@ -32,7 +32,7 @@ bundle exec jekyll serve
 You can use docker to run the tech blog locally.
 
 ```shell
-docker buildx build --platform linux/arm64 -t tech-blog .
+docker buildx build --platform linux/arm64 --load -t tech-blog .
 docker run -it -v $(pwd):/var/content:ro -p 8080:8080 -p 35729:35729 tech-blog:latest
 ```
 
