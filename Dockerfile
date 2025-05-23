@@ -4,9 +4,7 @@ COPY Gemfile Gemfile
 COPY Gemfile.lock Gemfile.lock
 COPY type-on-strap.gemspec type-on-strap.gemspec
 
-RUN gem install bundler -v 2.3.16
-RUN gem install jekyll -v 4.3.3
-RUN bundle install
+RUN gem install bundler -v 2.3.16 && gem install jekyll -v 4.3.3 && bundle install
 
 WORKDIR /var/content
 
