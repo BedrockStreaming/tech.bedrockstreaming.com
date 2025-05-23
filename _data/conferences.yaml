@@ -142,6 +142,13 @@
   eventUrl: https://event.afup.org/afup-day-2023/afup-day-2023-lyon/programme/#4190
   sponsored: true
 
+- title: "Déploiement vers Kubernetes : autonomie et automatisation, mieux que copier-coller du YAML !"
+  date: 2023-06-06
+  author: p_martin
+  eventName: Meetup Café DevOps
+  eventUrl: https://www.youtube.com/live/D8heuC6JKm0?feature=share&t=450
+  sponsored: true
+
 - title: " Améliorons ensemble la doc de #Postgres"
   date: 2023-06-19
   author: s_haim
