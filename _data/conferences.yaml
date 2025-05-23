@@ -142,6 +142,13 @@
   eventUrl: https://event.afup.org/afup-day-2023/afup-day-2023-lyon/programme/#4190
   sponsored: true
 
+- title: "Déploiement vers Kubernetes : autonomie et automatisation, mieux que copier-coller du YAML !"
+  date: 2023-06-06
+  author: p_martin
+  eventName: Meetup Café DevOps
+  eventUrl: https://www.youtube.com/live/D8heuC6JKm0?feature=share&t=450
+  sponsored: true
+
 - title: " Améliorons ensemble la doc de #Postgres"
   date: 2023-06-19
   author: s_haim
@@ -149,6 +156,18 @@
   eventName: PG Day France 2023 (Strasbourg)
   youtubeId: B665IfwnlU0
   sponsored: true
+
+- title: "Une application résiliente, dans un monde partiellement dégradé"
+  date: 2024-04-17
+  author: p_martin
+  eventName: Devoxx France
+  eventUrl: https://www.youtube.com/watch?v=exk5343fTuM
+
+- title: "L’aventure d’une requête HTTP — ou le chemin de la vie des devs"
+  date: 2024-10-10
+  author: p_martin
+  eventName: Forum PHP
+  eventUrl: https://www.youtube.com/watch?v=penIr9E0Qbo
 
 - title: "Load-testons M6+ pour préparer l’Euro 2024 !"
   date: 2025-04-17
