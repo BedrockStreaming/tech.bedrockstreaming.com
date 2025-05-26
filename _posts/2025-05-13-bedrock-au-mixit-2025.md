@@ -32,7 +32,7 @@ consiste à se retrouver dans toute description un peu vague ou
 positive de soi-même.
 Si en plus on ajoute quelques références aux neurosciences ou une image
 d'un cerveau, les études ont montré que cela en renforçait la crédibilité.
-Si ces méthodes permette cependant à certains managers de prendre
+Si ces méthodes permettent cependant à certains managers de prendre
 conscience de la diversité des méthodes de pensées qui peuvent
 exister au sein de leurs équipes, Anaïs nous mettra toutefois en garde
 contre les risques d'enfermement et d'intériorisation d'un mode de
