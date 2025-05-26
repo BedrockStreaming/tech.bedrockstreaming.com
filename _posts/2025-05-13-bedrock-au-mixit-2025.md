@@ -161,7 +161,7 @@ _Revue écrite par Anouk_
 
 - **Les critères de succès** : Cela consiste en, dès la demande initiale, arriver à connaître les critères de succès futurs (d’un projet, d’une initiative, etc) afin de proposer des solutions plus pertinentes pour arriver à la réalisation de la demande. Les critères de succès doivent être imaginés « sans contrainte et sans limite » afin d’arriver à proposer des options alternatives à valeur ajoutée qui correspondent et accompagnent mieux dans la réalisation du projet.
 - **Les couloirs de nage** : Cela consiste en, protéger des allocations spécifiques pour répondre à des besoins spécifiques. Point de vigilance: ce qui se passe de bien ou de mal dans un “couloir” (un flux) ne doit pas impacter les autres couloirs. Il faut également identifier, réduire ou supprimer les dépendances dans les planning entre les couloir. Trois actions indispensable pour cette technique: mesurer (rendre visible les dépenses d’énergie sur chaque élément), protéger définir une allocation et répartition qu’il faut respecter) et réguler (adapter en fonction des constats)  les allocations de capacité.
-- **Le carpaccio d’éléphant** : Cela consiste en, découper la valeur finement.  Se questionner: dans les moyens qu’on se donne quelle est la meilleur valeurs ajoutée que je peux délivrer ?
+- **Le carpaccio d’éléphant** : Cela consiste à découper la valeur finement.  Se questionner: dans les moyens qu’on se donne quelle est la meilleur valeur ajoutée que je peux délivrer ?
 
 ## Ma vie de développeur web dans le quantique — Benjamin Becquet
 
