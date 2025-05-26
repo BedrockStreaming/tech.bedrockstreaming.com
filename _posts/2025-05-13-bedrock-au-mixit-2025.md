@@ -8,6 +8,9 @@ color: rgb(251,87,66)
 language: fr
 ---
 
+Bedrock était présent au [MiXiT 2025](https://mixitconf.org/fr/), les 29 et 30 avril à Lyon. 
+Voici un petit résumé des conférences qui nous ont le plus marqués.
+
 ## 29/04 10h20 — De la pseudoscience pour mon (pseudo) management
 _Yorick_
 
