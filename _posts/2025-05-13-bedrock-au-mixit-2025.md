@@ -73,7 +73,9 @@ Julien Topçu et Thomas Pierrain ont présenté "la ruche", une architecture alt
 _Revue écrite par Pauline_
 
 Terminal User Interface : permet de pleinement utiliser son terminal et d’avoir quelque chose d’un peu sympa et connu.
+
 Thierry Chantier nous présente Posting un outil comme Postman en TUI qui sert à interroger une API et stocker les requêtes. Puis il nous parle de l’histoire du terminal et des premiers outils qui ont servi à automatiser les process comme le métier Jacquard premier input automatisé en 1801. Ou encore la carte avec 80 colonnes, création IBM et des machines Remington et naissance d'ASCII en 1890. Nous avons rencontré une évolution de pleins t’interface graphique avec le téléscripteur et puis l’informatique moderne.
+
 Enfin, nous assistons à un atelier en live de comment nous pouvons faire pour implémenter notre propre outil TUI. Pour cela, vous prenez le langage que vous préférez et avec l’aide de quelques librairies dédiées comme Typer (Python) ou celles de CharmSH (Go) vous obtenez un outil personnalisé qui répond à vos besoins.
 
 ## Onboarding 2.0 : Réinventer l’intégration des devs — Hafsa El maizi
