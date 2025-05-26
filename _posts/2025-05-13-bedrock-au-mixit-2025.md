@@ -120,7 +120,7 @@ Enfin, il évoque les principaux axes sur lesquels agir : individuel, collectif 
 _Revue écrite par Yorick_
 
 **Camille Dupond** & **Camille Dupont** nous présentent ce qu'est (et ce que n'est pas)
-un accident du travail, en rappelant une part que la responsabilité ce de l'employeur
+un accident du travail, en rappelant d'une part que la responsabilité de l'employeur
 est inscrite dans le droit français depuis 1898, et d'autre part ce fait évident
 défini par l'OMS :
 >"Personne ne devrait tomber malade ou mourir en faisant son travail"
