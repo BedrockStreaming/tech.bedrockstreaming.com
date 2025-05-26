@@ -32,9 +32,13 @@ bundle exec jekyll serve
 You can use docker to run the tech blog locally.
 
 ```shell
-docker build -t tech-blog .
-docker run -p 8080:8080 tech-blog 
+docker buildx build --platform linux/arm64 --load -t tech-blog .
+docker run -it -v $(pwd):/var/content:ro -p 8080:8080 -p 35729:35729 tech-blog:latest
 ```
+
+Then open your browser on `http://localhost:8080` to see the blog.
+
+:warning: You may need to change the `docker buildx` command if you are not using an M1 Mac.
 
 ## How to add an article to the blog?
  
