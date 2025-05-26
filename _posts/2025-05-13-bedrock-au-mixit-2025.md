@@ -12,7 +12,7 @@ Bedrock était présent au [MiXiT 2025](https://mixitconf.org/fr/), les 29 et 30
 Voici un petit résumé des conférences qui nous ont le plus marqués.
 
 ## De la pseudoscience pour mon (pseudo) management — Anaïs Huet
-_Yorick_
+_Revue écrite par Yorick_
 
 Pourquoi les pseudo-sciences connaissent-elles un tel succès,
 notamment dans le management, le recrutement ou encore l'accompagnement ?
@@ -42,7 +42,7 @@ critique dans l'utilisation de telles méthodes, car nous ne sommes pas
 des thérapeutes.
 
 ## Nos manières de compter, périls économiques, démocratiques et écologiques — Valérie Charolles
-_Yorick_
+_Revue écrite par Yorick_
 
 Valérie Charolles est philosophe et chercheure au Laboratoire d’Anthropologie
 Critique Interdisciplinaire.
@@ -61,19 +61,19 @@ vision du monde inadéquate, et bien entendu pour les populations d'évoluer dan
 une vision d'un monde distordue.
 
 ## Le pattern Hive : une stratégie de modularisation pour votre monolithe modulaire ou vos microservice — Julien Topçu et Thomas Pierrain
-_Pauline_
+_Revue écrite par Pauline_
 
 Julien Topçu et Thomas Pierrain ont présenté "la ruche", une architecture alternative aux microservices et au DDD face au "big bowl of mud" monolithique. Constatant que les microservices manquaient de cadre et créaient de nouveaux problèmes malgré leur exhaustivité, ils ont souligné que le DDD dimensionne mieux les microservices (une responsabilité métier = un microservice) et aligne le SI sur le business. Ils proposent un découpage fonctionnel si le cadre est clair et insistent sur le fait que les microservices sont une stratégie de déploiement, complémentaire au DDD. "La ruche" vise une architecture agnostique du déploiement, flexible pour une évolution continue, faisant cohabiter des bounded contexts (= mono métier) dans une même application. Contrairement aux systèmes distribués coûteux et difficiles à refactoriser, le monolithe modulaire (1 module = 1 mini architecture hexagonale = 1 bounded context = 1 responsabilité métier) assemblé via le pattern port-adapter et avec des data stores isolés, permet une itération facile et un découpage/regroupement flexible. C’est un pattern très adapté à la reprise d’un code ancien et monolithique. Ils ont terminé en présentant les cas de scale-on et scale-off, ainsi que quelques bonnes pratiques pour l’implémentation de la ruche.
 
 ## Quand le terminal dévore la UI : TUI pour tout le monde — Thierry Chantier
-_Pauline_
+_Revue écrite par Pauline_
 
 Terminal User Interface : permet de pleinement utiliser son terminal et d’avoir quelque chose d’un peu sympa et connu.
 Thierry Chantier nous présente Posting un outil comme Postman en TUI qui sert à interroger une API et stocker les requêtes. Puis il nous parle de l’histoire du terminal et des premiers outils qui ont servi à automatiser les process comme le métier Jacquard premier input automatisé en 1801. Ou encore la carte avec 80 colonnes, création IBM et des machines Remington et naissance d'ASCII en 1890. Nous avons rencontré une évolution de pleins t’interface graphique avec le téléscripteur et puis l’informatique moderne.
 Enfin, nous assistons à un atelier en live de comment nous pouvons faire pour implémenter notre propre outil TUI. Pour cela, vous prenez le langage que vous préférez et avec l’aide de quelques librairies dédiées comme Typer (Python) ou celles de CharmSH (Go) vous obtenez un outil personnalisé qui répond à vos besoins.
 
 ## Onboarding 2.0 : Réinventer l’intégration des devs — Hafsa El maizi
-_Anouk_
+_Revue écrite par Anouk_
 
 Dans cette conférence, **Hafsa El maizi** nous rappelle les principaux objectifs d’un OnBoarding: s’intégrer dans l’équipe, créer du lien, devenir performant, comprendre la culture de l’entreprise et de l’équipe ainsi que maîtriser les outils.
 
@@ -90,14 +90,14 @@ Pour ce faire, elle évoque les éléments essentiels à mettre en place pour at
 A Bedrock, ces différents éléments sont pris en compte dans chacun des OnBoarding et tout ça améliore la confiance et l’autonomie du nouvel arrivant.
 
 ## 30/04 9h30 —  Faut-il changer d'ère numérique pour préserver la démocratie ? — David Chavalarias
-_Valentin_
+_Revue écrite par Valentin_
 
 Pour cette première keynote de la 2e journée, David Chavalarias vient nous parler des réseaux sociaux et leurs influences sur le fonctionnement de nos démocraties. **TODO**
 
 
 
 ## 10h20 : Les accidents du travail dans la tech — Camille Dupond et Camille Dupont
-_Yorick_
+_Revue écrite par Yorick_
 
 Camille Dupond & Camille Dupont nous présentent ce qu'est (et ce que n'est pas)
 un accident du travail, en rappelant une part que la responsabilité ce de l'employeur
@@ -131,7 +131,7 @@ du code de la sécurité sociale, le détermine :
 
 
 ## 3 techniques pour piloter par la valeur — Alfred Almendra
-_Anouk_
+_Revue écrite par Anouk_
 
 **Alfred Almendra** nous parle de trois techniques pour piloter la valeur:
 - **Les critères de succès** : Cela consiste en, dès la demande initiale, arriver à connaître les critères de succès futurs (d’un projet, d’une initiative, etc) afin de proposer des solutions plus pertinentes pour arriver à la réalisation de la demande. Les critères de succès doivent être imaginés « sans contrainte et sans limite » afin d’arriver à proposer des options alternatives à valeur ajoutée qui correspondent et accompagnent mieux dans la réalisation du projet.
@@ -142,13 +142,13 @@ _Anouk_
 
 
 ## Ma vie de développeur web dans le quantique — Benjamin Becquet
-_Hugo_
+_Revue écrite par Hugo_
 
 **Benjamin Becquet** nous parle de son quotidien chez Pasqal: acteur dans le domaine des processeurs quantiques. Après une présentation des phénomènes quantiques tels que la superposition ou l’intrication, nous sommes introduits aux principes de l’informatique quantique et qu’est-ce qui diffère de l’informatique classique que nous pratiquons. Là où nous manipulons des bits représentant 0 ou 1, en quantique il s’agit de qbits qui superposent les états 0 et 1. Cela permet aux processeurs de réaliser des traitements et calculs beaucoup plus rapidement que sur des processeurs classiques. Mais cela ne vient pas sans inconvénients, Benjamin nous parle également toutes les difficultés de ce domaine: le matériel sensible des processeurs et capteurs utilisés ou encore la gestion de la donnée alors que cette dernière a plusieurs états à la fois.
 Mais concrètement, que fait un développeur web dans le quantique ? Ce n’est pas seulement des ordinateurs quantiques mais aussi des machines classiques pour piloter cette infrastructure et gérer les données qui ressortent des processeurs. C’est là dessus que Benjamin intervient en développeur web dans l’équipe cloud chez Pasqal. Il travaille sur la plateforme permettant aux clients d’accéder à la puissance de calcul des processeurs quantiques et les résultats qui en découlent. On y retrouve des tâches de notre quotidien comme le développement de nouvelles fonctionnalités, faire du monitoring ou de la documentation.
 
 ## Mapping the critical infrastructure sustaining our understanding of the Earth — Codrina Maria Illie
-_Hugo_
+_Revue écrite par Hugo_
 
 Dans ce talk, **Codrina Maria Illie** vient nous parler de l’écosystème open-source du domaine géospatiale. Sans s’en rendre compte, c’est aujourd’hui utilisé dans la vie de tous les jours. Par exemple, sur votre téléphone, il suffit de constater toutes les applications qui utilisent votre localisation.
 En tant que membre élu du conseil d'administration de la Fondation Open Source Geospatial (OSGeo), Codrina recense toutes les librairies open source de géospatiale afin d’offrir une documentation des différentes solutions disponibles, servir la communauté open source et guider les utilisateurs dans leur choix selon leurs besoins. La fondation promeut également ces différentes solutions auprès des agences spatiales internationales et a même reçu le soutien de l’agence spatiale européenne (ESA) en 2023.
