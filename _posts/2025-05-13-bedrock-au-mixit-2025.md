@@ -117,7 +117,7 @@ du code de la sécurité sociale, le détermine :
 - par le fait ou à l'occasion du travail
 - à toute personne travaillant pour un employeur
 
-Camille & Camille nous rappelle également que les atteintes à la santé de l'employé
+Camille & Camille nous rappellent également que les atteintes à la santé de l'employé
 peuvent être de nature physiques(douleur, chute durant le télétravail, malaise, infarctus)
 ou psychique (syndrome anxio-dépressif après un entretien d'évaluation, non prise en compte de
 la fragilité ou antécédents des salariées, aggression verbale)
