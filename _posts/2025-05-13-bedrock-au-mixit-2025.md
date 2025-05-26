@@ -26,10 +26,12 @@ l'apparence de la science mais ne reposant en aucun cas sur une
 réelle démarche expérimentale sérieuse, et sont fichées à
 la [MIVILUDES](https://www.miviludes.interieur.gouv.fr/) pour certaines d'entre elles,
 leur succès est incontestable.
+
 Anaïs Huet a tenté d'en comprendre les raisons, en l'expliquant
 notamment par l'effet Barnum ou effet de validation suggestive, qui
 consiste à se retrouver dans toute description un peu vague ou
 positive de soi-même.
+
 Si en plus on ajoute quelques références aux neurosciences ou une image
 d'un cerveau, les études ont montré que cela en renforçait la crédibilité.
 Si ces méthodes permettent cependant à certains managers de prendre
@@ -46,6 +48,7 @@ _Revue écrite par Yorick_
 
 Valérie Charolles est philosophe et chercheure au Laboratoire d’Anthropologie
 Critique Interdisciplinaire.
+
 Lors de cette conférence, elle ouvre sur cette citation de Wittgenstein : "Les
 limites de notre langage posent les limites de notre rapport au monde"
 Elle entend par là montrer que nos sociétés ont évolué vers un rapport aux chiffres
@@ -53,6 +56,7 @@ en tant qu'élément unique de mesure des faits, et que ce rapport pose problèm
 On peut déjà citer comme exemple la vision réductrice du monde imposée par les
 chiffres (Aristote proposait dix manières différentes de le décrire), mais aussi
 les biais que ces derniers peuvent induire.
+
 Valérie Charolles cite en exemple les chiffres du chômage chez les jeunes, souvent
 annoncée par l'INSEE autour de 15-20%. Pourtant, l'INSEE ne précise jamais que cela ne concerne
 qu'un tiers de la population des 15-25 ans, les deux autres tiers faisant des études.
@@ -110,23 +114,28 @@ du code de la sécurité sociale, le détermine :
 - quelle qu'en soit la cause
 - par le fait ou à l'occasion du travail
 - à toute personne travaillant pour un employeur
-  Camille & Camille nous rappelle également que les atteintes à la santé de l'employé
-  peuvent être de nature physiques(douleur, chute durant le télétravail, malaise, infarctus)
-  ou psychique (syndrome anxio-dépressif après un entretien d'évaluation, non prise en compte de
-  la fragilité ou antécédents des salariées, aggression verbale)
-  En revanche, les accidents de trajet ou les maladie professionnelle ne sont pas
-  considérées comme accident du travail.
-  Un fait intéressant à noter est que le nombre d'accidents du travail est en
-  hausse de +46% chez les femmes depuis 2010.
-  Concernant la déclaration dudit accident, elle doit se faire dans les 24h après l'accident
-  à la suite de quoi plusieurs échanges entre l'employeur, la médecin et la CPAM
-  vont avoir lieu, pouvant aller jusqu'à 90 jours.
-  Camille & Camille nous rappellent l'importance d'avoir des témoins lors de ladite
-  déclaration, car l'entrerprise aura souvent tendance à minimiser voir à nier
-  l'existence de l'accident en question.
-  Enfin, ils proposent des solutions telles que l'enquête syndicale, la recherche
-  de causes ou encore l'anticipation de la reprise du travail de la victime
-  après son arrêt.
+
+Camille & Camille nous rappelle également que les atteintes à la santé de l'employé
+peuvent être de nature physiques(douleur, chute durant le télétravail, malaise, infarctus)
+ou psychique (syndrome anxio-dépressif après un entretien d'évaluation, non prise en compte de
+la fragilité ou antécédents des salariées, aggression verbale)
+En revanche, les accidents de trajet ou les maladie professionnelle ne sont pas
+considérées comme accident du travail.
+
+Un fait intéressant à noter est que le nombre d'accidents du travail est en
+hausse de +46% chez les femmes depuis 2010.
+
+Concernant la déclaration dudit accident, elle doit se faire dans les 24h après l'accident
+à la suite de quoi plusieurs échanges entre l'employeur, la médecin et la CPAM
+vont avoir lieu, pouvant aller jusqu'à 90 jours.
+
+Camille & Camille nous rappellent l'importance d'avoir des témoins lors de ladite
+déclaration, car l'entrerprise aura souvent tendance à minimiser voir à nier
+l'existence de l'accident en question.
+
+Enfin, ils proposent des solutions telles que l'enquête syndicale, la recherche
+de causes ou encore l'anticipation de la reprise du travail de la victime
+après son arrêt.
 
 
 
@@ -145,10 +154,12 @@ _Revue écrite par Anouk_
 _Revue écrite par Hugo_
 
 **Benjamin Becquet** nous parle de son quotidien chez Pasqal: acteur dans le domaine des processeurs quantiques. Après une présentation des phénomènes quantiques tels que la superposition ou l’intrication, nous sommes introduits aux principes de l’informatique quantique et qu’est-ce qui diffère de l’informatique classique que nous pratiquons. Là où nous manipulons des bits représentant 0 ou 1, en quantique il s’agit de qbits qui superposent les états 0 et 1. Cela permet aux processeurs de réaliser des traitements et calculs beaucoup plus rapidement que sur des processeurs classiques. Mais cela ne vient pas sans inconvénients, Benjamin nous parle également toutes les difficultés de ce domaine: le matériel sensible des processeurs et capteurs utilisés ou encore la gestion de la donnée alors que cette dernière a plusieurs états à la fois.
+
 Mais concrètement, que fait un développeur web dans le quantique ? Ce n’est pas seulement des ordinateurs quantiques mais aussi des machines classiques pour piloter cette infrastructure et gérer les données qui ressortent des processeurs. C’est là dessus que Benjamin intervient en développeur web dans l’équipe cloud chez Pasqal. Il travaille sur la plateforme permettant aux clients d’accéder à la puissance de calcul des processeurs quantiques et les résultats qui en découlent. On y retrouve des tâches de notre quotidien comme le développement de nouvelles fonctionnalités, faire du monitoring ou de la documentation.
 
 ## Mapping the critical infrastructure sustaining our understanding of the Earth — Codrina Maria Illie
 _Revue écrite par Hugo_
 
 Dans ce talk, **Codrina Maria Illie** vient nous parler de l’écosystème open-source du domaine géospatiale. Sans s’en rendre compte, c’est aujourd’hui utilisé dans la vie de tous les jours. Par exemple, sur votre téléphone, il suffit de constater toutes les applications qui utilisent votre localisation.
+
 En tant que membre élu du conseil d'administration de la Fondation Open Source Geospatial (OSGeo), Codrina recense toutes les librairies open source de géospatiale afin d’offrir une documentation des différentes solutions disponibles, servir la communauté open source et guider les utilisateurs dans leur choix selon leurs besoins. La fondation promeut également ces différentes solutions auprès des agences spatiales internationales et a même reçu le soutien de l’agence spatiale européenne (ESA) en 2023.
