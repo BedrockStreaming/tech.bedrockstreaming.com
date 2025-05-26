@@ -135,7 +135,7 @@ Camille & Camille nous rappellent également que les atteintes à la santé de l
 peuvent être de nature physiques(douleur, chute durant le télétravail, malaise, infarctus)
 ou psychique (syndrome anxio-dépressif après un entretien d'évaluation, non prise en compte de
 la fragilité ou antécédents des salariées, aggression verbale)
-En revanche, les accidents de trajet ou les maladie professionnelle ne sont pas
+En revanche, les accidents de trajet ou les maladies professionnelles ne sont pas
 considérées comme accident du travail.
 
 Un fait intéressant à noter est que le nombre d'accidents du travail est en
