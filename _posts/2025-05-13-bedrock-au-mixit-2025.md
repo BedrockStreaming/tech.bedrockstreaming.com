@@ -107,6 +107,13 @@ _Revue écrite par Valentin_
 
 Pour cette première keynote de la 2e journée, **David Chavalarias** vient nous parler des réseaux sociaux et leurs influences sur le fonctionnement de nos démocraties. **TODO**
 
+Il commence par nous montrer que sur X, environ un tiers du contenu provient de comptes qui ne sont pas suivis, et le restant est trié selon un algorithme opaque.
+Au final, c'est seulement 3% du contenu ami possible qui est réellement visible, ce qui représente un levier pour influencer des millions de personnes.
+
+Tant que les API de Twitter étaient ouvertes, il était possible de créer un graph des relations (via les retweets) entre les comptes.
+Ceci permet d'observer les sphères d'influences et notamment des campagnes de désinformation orchestrées depuis des comptes pro-russes. Il a également pu observer les évolutions des rapports de force, par exemple lors du rachat de Twitter par Elon Musk, où le poids des discours de déni-climatique commence à égaler, voire à surpasser celui des discours pro-climatiques.
+
+Enfin, il évoque les principaux axes sur lesquels agir : individuel, collectif et institutionnel.
 ## Les accidents du travail dans la tech — Camille Dupond et Camille Dupont
 
 _Revue écrite par Yorick_
