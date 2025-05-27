@@ -1,4 +1,181 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2025-05-26T07:38:55+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock au Devoxx 2025</title><link href="https://tech.bedrockstreaming.com/2025/05/06/bedrock-au-devoxx-2025.html" rel="alternate" type="text/html" title="Bedrock au Devoxx 2025" /><published>2025-05-06T00:00:00+00:00</published><updated>2025-05-06T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/05/06/bedrock-au-devoxx-2025</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/05/06/bedrock-au-devoxx-2025.html">&lt;p&gt;Le Devoxx est un événement incontournable pour les développeurs et les professionnels de la technologie, qui a eu lieu du 16 avril 2025 au 18 avril 2025 au Palais des Congrès de Paris.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2025-05-27T08:17:21+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock au MiXiT 2025</title><link href="https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025.html" rel="alternate" type="text/html" title="Bedrock au MiXiT 2025" /><published>2025-05-13T00:00:00+00:00</published><updated>2025-05-13T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025.html">&lt;p&gt;Bedrock était présent au &lt;a href=&quot;https://mixitconf.org/fr/&quot;&gt;MiXiT 2025&lt;/a&gt;, les 29 et 30 avril à Lyon.
+Voici un petit résumé des conférences qui nous ont le plus marqués.&lt;/p&gt;
+
+&lt;h2 id=&quot;de-la-pseudoscience-pour-mon-pseudo-management--anaïs-huet&quot;&gt;De la pseudoscience pour mon (pseudo) management — Anaïs Huet&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Revue écrite par Yorick&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Pourquoi les pseudo-sciences connaissent-elles un tel succès,
+notamment dans le management, le recrutement ou encore l’accompagnement ?
+Que ce soit en entreprise ou même en tant qu’étudiant ou étudiantes,
+tout le monde a sans doute déjà entendu parler ou déjà eu affaire
+à des tests ou des méthodes telles que MBTI (Myers Briggs Type Indicator), DISC
+(Dominant, Influent, Stable, Consciencieux), ProcessCom etc…
+Pourtant, alors que toutes ces méthodes s’appuient sur ce qu’il est convenu
+d’appeler de la pseudo-science, à savoir ce qui à
+l’apparence de la science mais ne reposant en aucun cas sur une
+réelle démarche expérimentale sérieuse, et sont fichées à
+la &lt;a href=&quot;https://www.miviludes.interieur.gouv.fr/&quot;&gt;MIVILUDES&lt;/a&gt; pour certaines d’entre elles,
+leur succès est incontestable.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Anaïs Huet&lt;/strong&gt; a tenté d’en comprendre les raisons, en l’expliquant
+notamment par l’effet Barnum ou effet de validation suggestive, qui
+consiste à se retrouver dans toute description un peu vague ou
+positive de soi-même.&lt;/p&gt;
+
+&lt;p&gt;Si en plus on ajoute quelques références aux neurosciences ou une image
+d’un cerveau, les études ont montré que cela en renforçait la crédibilité.
+Si ces méthodes permettent cependant à certains managers de prendre
+conscience de la diversité des méthodes de pensées qui peuvent
+exister au sein de leurs équipes, Anaïs nous mettra toutefois en garde
+contre les risques d’enfermement et d’intériorisation d’un mode de
+pensée prédéfini par les personnes qui sont la cible de telles méthodes.
+En conclusion, elle nous rappellera l’importance de garder un esprit
+critique dans l’utilisation de telles méthodes, car nous ne sommes pas
+des thérapeutes.&lt;/p&gt;
+
+&lt;h2 id=&quot;nos-manières-de-compter-périls-économiques-démocratiques-et-écologiques--valérie-charolles&quot;&gt;Nos manières de compter, périls économiques, démocratiques et écologiques — Valérie Charolles&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Revue écrite par Yorick&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Valérie Charolles&lt;/strong&gt; est philosophe et chercheure au Laboratoire d’Anthropologie
+Critique Interdisciplinaire.&lt;/p&gt;
+
+&lt;p&gt;Lors de cette conférence, elle ouvre sur cette citation de Wittgenstein : “Les
+limites de notre langage posent les limites de notre rapport au monde”
+Elle entend par là montrer que nos sociétés ont évolué vers un rapport aux chiffres
+en tant qu’élément unique de mesure des faits, et que ce rapport pose problème.
+On peut déjà citer comme exemple la vision réductrice du monde imposée par les
+chiffres (Aristote proposait dix manières différentes de le décrire), mais aussi
+les biais que ces derniers peuvent induire.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Valérie Charolles&lt;/strong&gt; cite en exemple les chiffres du chômage chez les jeunes, souvent
+annoncée par l’INSEE autour de 15-20%. Pourtant, l’INSEE ne précise jamais que cela ne concerne
+qu’un tiers de la population des 15-25 ans, les deux autres tiers faisant des études.
+Le risque étant pour les décisionnaires d’engager des politiques basées sur une
+vision du monde inadéquate, et bien entendu pour les populations d’évoluer dans
+une vision d’un monde distordue.&lt;/p&gt;
+
+&lt;h2 id=&quot;le-pattern-hive--une-stratégie-de-modularisation-pour-votre-monolithe-modulaire-ou-vos-microservice--julien-topçu-et-thomas-pierrain&quot;&gt;Le pattern Hive : une stratégie de modularisation pour votre monolithe modulaire ou vos microservice — Julien Topçu et Thomas Pierrain&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Revue écrite par Pauline&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Julien Topçu&lt;/strong&gt; et &lt;strong&gt;Thomas Pierrain&lt;/strong&gt; ont présenté “la ruche”, une architecture alternative aux microservices et au DDD face au “big bowl of mud” monolithique. Constatant que les microservices manquaient de cadre et créaient de nouveaux problèmes malgré leur exhaustivité, ils ont souligné que le DDD dimensionne mieux les microservices (une responsabilité métier = un microservice) et aligne le SI sur le business. Ils proposent un découpage fonctionnel si le cadre est clair et insistent sur le fait que les microservices sont une stratégie de déploiement, complémentaire au DDD. “La ruche” vise une architecture agnostique du déploiement, flexible pour une évolution continue, faisant cohabiter des bounded contexts (= mono métier) dans une même application. Contrairement aux systèmes distribués coûteux et difficiles à refactoriser, le monolithe modulaire (1 module = 1 mini architecture hexagonale = 1 bounded context = 1 responsabilité métier) assemblé via le pattern port-adapter et avec des data stores isolés, permet une itération facile et un découpage/regroupement flexible. C’est un pattern très adapté à la reprise d’un code ancien et monolithique. Ils ont terminé en présentant les cas de scale-on et scale-off, ainsi que quelques bonnes pratiques pour l’implémentation de la ruche.&lt;/p&gt;
+
+&lt;h2 id=&quot;quand-le-terminal-dévore-la-ui--tui-pour-tout-le-monde--thierry-chantier&quot;&gt;Quand le terminal dévore la UI : TUI pour tout le monde — Thierry Chantier&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Revue écrite par Pauline&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Terminal User Interface : permet de pleinement utiliser son terminal et d’avoir quelque chose d’un peu sympa et connu.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Thierry Chantier&lt;/strong&gt; nous présente Posting un outil comme Postman en TUI qui sert à interroger une API et stocker les requêtes. Puis il nous parle de l’histoire du terminal et des premiers outils qui ont servi à automatiser les process comme le métier Jacquard premier input automatisé en 1801. Ou encore la carte avec 80 colonnes, création IBM et des machines Remington et naissance d’ASCII en 1890. Nous avons rencontré une évolution de plein d’interfaces graphiques avec le téléscripteur et puis l’informatique moderne.&lt;/p&gt;
+
+&lt;p&gt;Enfin, nous assistons à un atelier en live de comment nous pouvons faire pour implémenter notre propre outil TUI. Pour cela, vous prenez le langage que vous préférez et avec l’aide de quelques librairies dédiées comme Typer (Python) ou celles de CharmSH (Go) vous obtenez un outil personnalisé qui répond à vos besoins.&lt;/p&gt;
+
+&lt;h2 id=&quot;onboarding-20--réinventer-lintégration-des-devs--hafsa-el-maizi&quot;&gt;Onboarding 2.0 : Réinventer l’intégration des devs — Hafsa El maizi&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Revue écrite par Anouk&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Dans cette conférence, &lt;strong&gt;Hafsa El maizi&lt;/strong&gt; nous rappelle les principaux objectifs d’un OnBoarding: s’intégrer dans l’équipe, créer du lien, devenir performant, comprendre la culture de l’entreprise et de l’équipe ainsi que maîtriser les outils.&lt;/p&gt;
+
+&lt;p&gt;Pour ce faire, elle évoque les éléments essentiels à mettre en place pour atteindre ces objectifs et faire un bon OnBoarding:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Préparer les accès aux outils et env de travail en amont&lt;/li&gt;
+  &lt;li&gt;Préparer une documentation d’intégration : organigramme / trombinoscope / guide / glossaire / schéma d’architecture du/des projet(s)&lt;/li&gt;
+  &lt;li&gt;Mettre en place un plan personnalisé pour avoir une vision du déroulé de l’OnBoarding&lt;/li&gt;
+  &lt;li&gt;Privilégier l’accueil en personne&lt;/li&gt;
+  &lt;li&gt;Présenter l’équipe, le contexte fonctionnel/technique du/des projet(s), les outils, les conventions de code, les rituels de l’équipe etc&lt;/li&gt;
+  &lt;li&gt;Désigner un mentor qui doit: accueillir, guider, accompagner, répondre aux questions, transmettre, favoriser l’autonomie. Le mentor doit être pédagogue, disponible, empathique, ouvert d’esprit, inspirant ( encourager les prises d’initiatives ), encourageant. Attention, le mentorat n’est pas un transfert de compétence d’une personne sur le départ.&lt;/li&gt;
+  &lt;li&gt;Assigner des tâches simples avec un accompagnement. (Privilégier le Pair programming / mob programming)&lt;/li&gt;
+  &lt;li&gt;Donner du feed-back régulièrement, constructif et bilatéral ( mise en place du rapport d’étonnement )&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A Bedrock, ces différents éléments sont pris en compte dans chacun des OnBoarding et tout ça améliore la confiance et l’autonomie du nouvel arrivant.&lt;/p&gt;
+
+&lt;h2 id=&quot;faut-il-changer-dère-numérique-pour-préserver-la-démocratie---david-chavalarias&quot;&gt;Faut-il changer d’ère numérique pour préserver la démocratie ? — David Chavalarias&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Revue écrite par Valentin&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Pour cette première keynote de la 2e journée, &lt;strong&gt;David Chavalarias&lt;/strong&gt; vient nous parler des réseaux sociaux et leurs influences sur le fonctionnement de nos démocraties.&lt;/p&gt;
+
+&lt;p&gt;Il commence par nous montrer que sur X, environ un tiers du contenu provient de comptes qui ne sont pas suivis, et le restant est trié selon un algorithme opaque.
+Au final, c’est seulement 3% du contenu ami possible qui est réellement visible, ce qui représente un levier pour influencer des millions de personnes.&lt;/p&gt;
+
+&lt;p&gt;Tant que les API de Twitter étaient ouvertes, il était possible de créer un graph des relations (via les retweets) entre les comptes.
+Ceci permet d’observer les sphères d’influences et notamment des campagnes de désinformation orchestrées depuis des comptes pro-russes. Il a également pu observer les évolutions des rapports de force, par exemple lors du rachat de Twitter par Elon Musk, où le poids des discours de déni-climatique commence à égaler, voire à surpasser celui des discours pro-climatiques.&lt;/p&gt;
+
+&lt;p&gt;Enfin, il évoque les principaux axes sur lesquels agir : individuel, collectif et institutionnel.&lt;/p&gt;
+
+&lt;h2 id=&quot;les-accidents-du-travail-dans-la-tech--camille-dupond-et-camille-dupont&quot;&gt;Les accidents du travail dans la tech — Camille Dupond et Camille Dupont&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Revue écrite par Yorick&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Camille Dupond&lt;/strong&gt; &amp;amp; &lt;strong&gt;Camille Dupont&lt;/strong&gt; nous présentent ce qu’est (et ce que n’est pas)
+un accident du travail, en rappelant d’une part que la responsabilité de l’employeur
+est inscrite dans le droit français depuis 1898, et d’autre part ce fait évident
+défini par l’OMS :&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;“Personne ne devrait tomber malade ou mourir en faisant son travail”
+La définition d’un accident du travail, telle que donnée par &lt;a href=&quot;https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006742977&quot;&gt;l’article L411-1&lt;/a&gt;
+du code de la sécurité sociale, le détermine :&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;quelle qu’en soit la cause&lt;/li&gt;
+  &lt;li&gt;par le fait ou à l’occasion du travail&lt;/li&gt;
+  &lt;li&gt;à toute personne travaillant pour un employeur&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Camille &amp;amp; Camille nous rappellent également que les atteintes à la santé de l’employé
+peuvent être de nature physiques (douleur, chute durant le télétravail, malaise, infarctus)
+ou psychique (syndrome anxio-dépressif après un entretien d’évaluation, non prise en compte de
+la fragilité ou antécédents des salariées, aggression verbale)
+En revanche, les accidents de trajet ou les maladies professionnelles ne sont pas
+considérées comme accident du travail.&lt;/p&gt;
+
+&lt;p&gt;Un fait intéressant à noter est que le nombre d’accidents du travail est en
+hausse de +46% chez les femmes depuis 2010.&lt;/p&gt;
+
+&lt;p&gt;Concernant la déclaration dudit accident, elle doit se faire dans les 24h après l’accident
+à la suite de quoi plusieurs échanges entre l’employeur, la médecin et la CPAM
+vont avoir lieu, pouvant aller jusqu’à 90 jours.&lt;/p&gt;
+
+&lt;p&gt;Camille &amp;amp; Camille nous rappellent l’importance d’avoir des témoins lors de ladite
+déclaration, car l’entrerprise aura souvent tendance à minimiser voir à nier
+l’existence de l’accident en question.&lt;/p&gt;
+
+&lt;p&gt;Enfin, ils proposent des solutions telles que l’enquête syndicale, la recherche
+de causes ou encore l’anticipation de la reprise du travail de la victime
+après son arrêt.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-techniques-pour-piloter-par-la-valeur--alfred-almendra&quot;&gt;3 techniques pour piloter par la valeur — Alfred Almendra&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Revue écrite par Anouk&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Alfred Almendra&lt;/strong&gt; nous parle de trois techniques pour piloter la valeur:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Les critères de succès&lt;/strong&gt; : Cela consiste en, dès la demande initiale, arriver à connaître les critères de succès futurs (d’un projet, d’une initiative, etc) afin de proposer des solutions plus pertinentes pour arriver à la réalisation de la demande. Les critères de succès doivent être imaginés « sans contrainte et sans limite » afin d’arriver à proposer des options alternatives à valeur ajoutée qui correspondent et accompagnent mieux dans la réalisation du projet.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Les couloirs de nage&lt;/strong&gt; : Cela consiste à protéger des allocations spécifiques pour répondre à des besoins spécifiques. Point de vigilance: ce qui se passe de bien ou de mal dans un “couloir” (un flux) ne doit pas impacter les autres couloirs. Il faut également identifier, réduire ou supprimer les dépendances dans les planning entre les couloir. Trois actions indispensable pour cette technique: mesurer (rendre visible les dépenses d’énergie sur chaque élément), protéger (définir une allocation et répartition qu’il faut respecter) et réguler (adapter en fonction des constats) les allocations de capacité.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Le carpaccio d’éléphant&lt;/strong&gt; : Cela consiste à découper la valeur finement.  Se questionner: dans les moyens qu’on se donne quelle est la meilleur valeur ajoutée que je peux délivrer ?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;ma-vie-de-développeur-web-dans-le-quantique--benjamin-becquet&quot;&gt;Ma vie de développeur web dans le quantique — Benjamin Becquet&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Revue écrite par Hugo&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Benjamin Becquet&lt;/strong&gt; nous parle de son quotidien chez Pasqal: acteur dans le domaine des processeurs quantiques. Après une présentation des phénomènes quantiques tels que la superposition ou l’intrication, nous sommes introduits aux principes de l’informatique quantique et qu’est-ce qui diffère de l’informatique classique que nous pratiquons. Là où nous manipulons des bits représentant 0 ou 1, en quantique il s’agit de qbits qui superposent les états 0 et 1. Cela permet aux processeurs de réaliser des traitements et calculs beaucoup plus rapidement que sur des processeurs classiques. Mais cela ne vient pas sans inconvénients, Benjamin nous parle également toutes les difficultés de ce domaine: le matériel sensible des processeurs et capteurs utilisés ou encore la gestion de la donnée alors que cette dernière a plusieurs états à la fois.&lt;/p&gt;
+
+&lt;p&gt;Mais concrètement, que fait un développeur web dans le quantique ? Ce n’est pas seulement des ordinateurs quantiques mais aussi des machines classiques pour piloter cette infrastructure et gérer les données qui ressortent des processeurs. C’est là dessus que Benjamin intervient en développeur web dans l’équipe cloud chez Pasqal. Il travaille sur la plateforme permettant aux clients d’accéder à la puissance de calcul des processeurs quantiques et les résultats qui en découlent. On y retrouve des tâches de notre quotidien comme le développement de nouvelles fonctionnalités, faire du monitoring ou de la documentation.&lt;/p&gt;
+
+&lt;h2 id=&quot;mapping-the-critical-infrastructure-sustaining-our-understanding-of-the-earth--codrina-maria-illie&quot;&gt;Mapping the critical infrastructure sustaining our understanding of the Earth — Codrina Maria Illie&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Revue écrite par Hugo&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Dans ce talk, &lt;strong&gt;Codrina Maria Illie&lt;/strong&gt; vient nous parler de l’écosystème open-source du domaine géospatiale. Sans s’en rendre compte, c’est aujourd’hui utilisé dans la vie de tous les jours. Par exemple, sur votre téléphone, il suffit de constater toutes les applications qui utilisent votre localisation.&lt;/p&gt;
+
+&lt;p&gt;En tant que membre élu du conseil d’administration de la Fondation Open Source Geospatial (OSGeo), Codrina recense toutes les librairies open source de géospatiale afin d’offrir une documentation des différentes solutions disponibles, servir la communauté open source et guider les utilisateurs dans leur choix selon leurs besoins. La fondation promeut également ces différentes solutions auprès des agences spatiales internationales et a même reçu le soutien de l’agence spatiale européenne (ESA) en 2023.&lt;/p&gt;</content><author><name>[&quot;y_ferlin&quot;, &quot;p_rambaud&quot;, &quot;a_moutounet&quot;, &quot;v_clavreul&quot;, &quot;h_detang&quot;, &quot;p_martin&quot;]</name></author><category term="conference" /><category term="lyon" /><category term="tech" /><category term="agilité" /><summary type="html">Bedrock était présent au MiXiT 2025, les 29 et 30 avril à Lyon. Voici un petit résumé des conférences qui nous ont le plus marqués.</summary></entry><entry><title type="html">Bedrock au Devoxx 2025</title><link href="https://tech.bedrockstreaming.com/2025/05/06/bedrock-au-devoxx-2025.html" rel="alternate" type="text/html" title="Bedrock au Devoxx 2025" /><published>2025-05-06T00:00:00+00:00</published><updated>2025-05-06T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/05/06/bedrock-au-devoxx-2025</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/05/06/bedrock-au-devoxx-2025.html">&lt;p&gt;Le Devoxx est un événement incontournable pour les développeurs et les professionnels de la technologie, qui a eu lieu du 16 avril 2025 au 18 avril 2025 au Palais des Congrès de Paris.&lt;/p&gt;
 
 &lt;p&gt;Cette année, en plus d’avoir la chance d’y participer en tant que spectateur pour découvrir de nombreuses conférences passionnantes, nous avons eu l’honneur de présenter une conférence, avec &lt;a href=&quot;https://www.linkedin.com/in/becolin/&quot;&gt;Benoit Colin&lt;/a&gt;, Software Developer chez Bedrock, qui a co-présenté la conférence “&lt;a href=&quot;https://www.devoxx.fr/en/agenda-2025/talk/load-testons-m6-pour-preparer-l-euro-2024/&quot;&gt;Load-testons M6+ pour préparer l’Euro 2024 !&lt;/a&gt;” au cours de laquelle il a présenté le travail que nous avons accompli l’année dernière pour nous préparer à diffuser l’Euro 2024 de football sur M6+, une des marques que Bedrock héberge sur sa plateforme.&lt;/p&gt;
 
@@ -2307,58 +2484,4 @@ We also have been adopting &lt;a href=&quot;https://tech.bedrockstreaming.com/20
 
 &lt;h3 id=&quot;whats-next-for-us&quot;&gt;What’s next for us&lt;/h3&gt;
 
-&lt;p&gt;We came away from these conferences with the feeling that we had adopted the right approach in the past few years for our JS projects, whether in terms of architecture, maintainability or testing strategy. However, we saw that we shouldn’t miss the next steps regarding &lt;strong&gt;accessibility&lt;/strong&gt; (an improvement project is underway for the end of year) and &lt;strong&gt;performances&lt;/strong&gt;, especially taking into account the new way of rendering server-side with React 19 (while &lt;a href=&quot;https://tech.bedrockstreaming.com/2014/12/04/isomorphic-single-page-app-parfaite-react-flux&quot;&gt;we pioneered the use of React with SSR in 2014&lt;/a&gt;). We will be sure to keep you informed of our progress!&lt;/p&gt;</content><author><name>[&quot;f_dubost&quot;, &quot;y_frommelt&quot;]</name></author><category term="conference" /><category term="frontend" /><category term="react" /><category term="javascript" /><summary type="html">The Frontend Bedrock teams were present at the 2024 edition of the JS Nation and React Summit conferences in Amsterdam on 13 &amp;amp; 14 June. We would like to highlight and share some of the subjects we find relevant about our favourite language and framework 🙂 Feel free to explore them further if you are interested.</summary></entry><entry><title type="html">How Special Event Page allowed us to handle more than 1 million of users</title><link href="https://tech.bedrockstreaming.com/2024/08/07/euro-resiliency-special-event-page.html" rel="alternate" type="text/html" title="How Special Event Page allowed us to handle more than 1 million of users" /><published>2024-08-07T00:00:00+00:00</published><updated>2024-08-07T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/08/07/euro-resiliency-special-event-page</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/08/07/euro-resiliency-special-event-page.html">&lt;p&gt;Earlier this year took place the &lt;a href=&quot;https://www.uefa.com/euro2024/&quot;&gt;Euro soccer competition&lt;/a&gt;, spanning over a month and with thousands of people tuning all over the world to watch the matches. One of our customers, &lt;a href=&quot;https://www.6play.fr/&quot;&gt;M6+&lt;/a&gt;, was streaming several of these games - And during the competition, hundreds of thousands of browsers, phones and TVs were able to seamlessly stream the matches with no major issue at all. It was, however, no easy feat to reach that state. How did we do that? What were the challenges we faced, the solutions we envisioned? In this article, we’ll discuss one of the features we developed specifically for the Euro: something that we called the &lt;strong&gt;“Special Event Page”&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;the-need-behind-the-special-event-page&quot;&gt;The need behind the Special Event Page&lt;/h2&gt;
-
-&lt;p&gt;This feature was actually first developed back in 2021, for a similar reason: yet another Euro soccer tournament! Back then, it was a very simple feature: display a page to the user, once per session and prior to any kind of backend call, that would prompt them to go to the football. Here’s what it looked like:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-08-07-euro-resiliency-special-event-page/Old_SEP.png&quot; alt=&quot;Photo of the old Special Event page, in 2021&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;It was a very simple page (no background, only the two teams and two buttons were displayed), which was only developed for the Web clients, but it served its purpose.
-For every soccer evening, we would handle far more traffic than what we usually handled. If each one of these users would load a personalized homepage, search for a program, navigate around the app and do all kind of other actions, then it wouldn’t take long for our backend servers to explode under the pressure, especially as most users who want to watch a football match arrive “at the same time”, over a few minutes before it starts, which makes it difficult for our servers to scale accordingly. Each user that saw that Special Event page and clicked on the Live button was one that was immediately directed to their content, &lt;strong&gt;without any kind of backend call&lt;/strong&gt;. It was a very simple solution, it worked very well, felt great for our users, and it allowed us to alleviate a lot of the pressure our backend APIs would have otherwise faced.&lt;/p&gt;
-
-&lt;p&gt;At the same time, the Special Event page was very useful for our end users. Enabled a few minutes before the match, and staying available for the entire duration, it allowed any new user that was arriving to the platform to &lt;strong&gt;quickly be able to reach the corresponding live, without spending time searching for it beforehand&lt;/strong&gt;, directly reducing friction time.&lt;/p&gt;
-
-&lt;p&gt;However, this was far from a perfect solution, as it presented a few issues that we needed to fix in order to be ready for the Euro 2024:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;This page was &lt;strong&gt;entirely managed by the Web team&lt;/strong&gt;. Our customer did not have any input on it, if they wanted to make a change they’d have to request it, and we’d then have to integrate it in our web application, and then deploy it, preventing any last-minute modifications. We needed a process that could be documented, followed, and would allow lightning-fast modifications to the Special Event page.&lt;/li&gt;
-  &lt;li&gt;As it was only managed by the Web team, &lt;strong&gt;the traffic generated by phones and TVs did not benefit from this feature&lt;/strong&gt;. This was a major issue, as these devices could prove to be a lot of traffic. For example, usage of mobile devices suddenly spiked at every goal, with a lot of users in the street taking out their phone to check out what happened when they heard screams around them. We needed a new solution that could impact all platforms, not just the Web.&lt;/li&gt;
-  &lt;li&gt;It was overall not pretty 😅 We ourselves weren’t really huge fans of the old page, we wanted a new one that’d be more ✨ &lt;em&gt;shiny&lt;/em&gt; ✨&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;With all of these in mind, in preparation for the Euro of this year, we began to create what would be the new Special Event Page.&lt;/p&gt;
-
-&lt;h2 id=&quot;attack-plan&quot;&gt;Attack plan&lt;/h2&gt;
-
-&lt;p&gt;One of our first goals was to make sure that most platforms (with a target goal of &lt;strong&gt;more than 90% of them&lt;/strong&gt;) would get access to that feature. If we wanted to be able to sustain as much traffic as possible without hiccup, we’d have to reach as many users as possible in one shot, and not spend time working on device-specific implementations. For this reason, we decided to opt for &lt;strong&gt;a backend-first strategy&lt;/strong&gt;: ideally the work on different fronts would be minimal, and our backend would be responsible to handle and answer the Special Event page whenever it is needed.&lt;/p&gt;
-
-&lt;p&gt;After consideration, we decided to go for &lt;strong&gt;a Cookie-based solution&lt;/strong&gt;. When one of our fronts would request the homepage, for example, the request would first be caught by our CDN. It’d check for the existence of a given cookie in that request. If the cookie was present, then the user already saw the special event page and we’d let the request go through. If the cookie was not present, then we’d return the Special Event page to the user, along with &lt;strong&gt;a new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Set-Cookie&lt;/code&gt; header that would save that cookie to the user’s device&lt;/strong&gt;, preventing them from seeing the Special Event page again for a given duration.
-The Special event page content would be a static, non-personalized version of a page that resembled one our backend API could return for the homepage, hosted in the cloud. We’d then be able to edit that page on the fly without bothering the frontend teams.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-08-07-euro-resiliency-special-event-page/Request_Response_graph.png&quot; alt=&quot;Request/Response graph showing the CDN send a Special Event page to a request without cookie, and the usual page if the cookie is present&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;With this solution, we also reaped another benefit: phone apps. When a new version of the application is released, not everyone always updates theirs. We could require an update, but it’s not really a good experience for a user to be prompted to update their app ever-so-often (and it can translate into a slight portion of our audience choosing to uninstall the app instead), so that’s a mean we wish to avoid as much as possible. With the solution described above, managing everything using nothing but cookies and http headers meant that not a single line of code needed to be written by our frontend teams, so aside from one small change to enable cookie storage (That we could plan for long in advance), &lt;strong&gt;no new version was needed&lt;/strong&gt;!&lt;/p&gt;
-
-&lt;p&gt;However, it wasn’t perfect either.&lt;/p&gt;
-
-&lt;h2 id=&quot;web-challenges--cookies-and-ssr&quot;&gt;Web challenges : Cookies and SSR&lt;/h2&gt;
-
-&lt;p&gt;The first issue we encountered, we probably should’ve guessed earlier that it would happen: cross-domain cookies. While cookies work wonders when they are set by the same domain that’s using them, here, our cookies were set on &lt;a href=&quot;https://www.6play.fr/&quot;&gt;6play.fr&lt;/a&gt; by the domain &lt;a href=&quot;https://layout.6cloud.fr&quot;&gt;6cloud.fr&lt;/a&gt;. At first, when we tested locally, this wasn’t an issue.&lt;/p&gt;
-
-&lt;p&gt;However, nowadays, as a mean to ensure users privacy, &lt;strong&gt;most browsers block these kind of cookies&lt;/strong&gt; to prevent cross-domain tracking. While our cookies weren’t trying to gather anything from our users, they were blocked nonetheless! With no existing way of indicating that this was a functional cookie (as it’d otherwise probably be abused by these exact tracking tools that browsers aim to block 😅), we had to find another solution specifically for the Web. We ended up having to code a second logic on the Web code directly, detecting whenever a Special Event page was displayed and setting a cookie from the website itself, to prevent this third-party cookie blocking. Even though this required a bit more code, this ended up working like a charm for the web.&lt;/p&gt;
-
-&lt;p&gt;The second issue we encountered was with &lt;strong&gt;Server-Side Rendering&lt;/strong&gt;, that the Web (again!) use plenty (we talked about this a while ago, &lt;a href=&quot;https://tech.bedrockstreaming.com/2017/05/17/spa-mode-isomorphism-js&quot;&gt;right here!&lt;/a&gt;). When a page is requested, the SSR first renders the page on the server, and serves it to the client: it allows a user to see an immediate result, while their own device is processing the page. That result is also served to web crawlers such as Google SEO robots! However, in our architecture, SSR responses are not user-specific, and &lt;strong&gt;we can’t detect cookies of each user on the server side&lt;/strong&gt;. As a result, the server would always respond the Special Event Page, and every user would see it for a split second before the client-side code takes over again. Moreover, it’d completely break our SEO! To prevent that issue, we chose to whitelist the IP addresses of our servers, in order to specify to our CDN not to send it the Special Event page under any circumstances.&lt;/p&gt;
-
-&lt;h2 id=&quot;final-result&quot;&gt;Final result&lt;/h2&gt;
-
-&lt;p&gt;With these small issues now behind us, the Special Event was ready to be released. We prepared the static files, configured the last details for the cookie duration, and voilà!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-08-07-euro-resiliency-special-event-page/New_SEP.png&quot; alt=&quot;Photo of the new Special Event page, in 2024&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;As soon as the feature came live, we could instantly see the impact it had on our traffic, with &lt;strong&gt;the pressure on our servers diminishing drastically&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-08-07-euro-resiliency-special-event-page/SEP_graph_effic.png&quot; alt=&quot;Graph displaying the proportion of Special Event page distributed, with around 70% of pages being the Special Event Page once enabled&quot; /&gt;
-&lt;img src=&quot;/images/posts/2024-08-07-euro-resiliency-special-event-page/SEP_response_decrease.png&quot; alt=&quot;Graph displaying the amount of specific pages response, decreasing by almost 2 times when the Special Event page was displayed&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;While the Special Event page was a success, enabling our users to reach the soccer matches with nothing more than &lt;strong&gt;one single click&lt;/strong&gt;, while at the same time allowing us to reduce a lot of the incoming traffic on our backend servers, it was not the only feature that we developed to prepare for such a massive event. We also worked on quite a few topics, such as the &lt;em&gt;layout at edge&lt;/em&gt;, or a huge workshop on a way to &lt;em&gt;load-test efficiently our services&lt;/em&gt;. We will communicate about these at some point in the future, so keep an eye out for this!&lt;/p&gt;</content><author><name>Bedrock</name></author><category term="resilience" /><category term="frontend" /><category term="back-for-front" /><category term="2024" /><summary type="html">Earlier this year took place the Euro soccer competition, spanning over a month and with thousands of people tuning all over the world to watch the matches. One of our customers, M6+, was streaming several of these games - And during the competition, hundreds of thousands of browsers, phones and TVs were able to seamlessly stream the matches with no major issue at all. It was, however, no easy feat to reach that state. How did we do that? What were the challenges we faced, the solutions we envisioned? In this article, we’ll discuss one of the features we developed specifically for the Euro: something that we called the “Special Event Page”.</summary></entry></feed>
+&lt;p&gt;We came away from these conferences with the feeling that we had adopted the right approach in the past few years for our JS projects, whether in terms of architecture, maintainability or testing strategy. However, we saw that we shouldn’t miss the next steps regarding &lt;strong&gt;accessibility&lt;/strong&gt; (an improvement project is underway for the end of year) and &lt;strong&gt;performances&lt;/strong&gt;, especially taking into account the new way of rendering server-side with React 19 (while &lt;a href=&quot;https://tech.bedrockstreaming.com/2014/12/04/isomorphic-single-page-app-parfaite-react-flux&quot;&gt;we pioneered the use of React with SSR in 2014&lt;/a&gt;). We will be sure to keep you informed of our progress!&lt;/p&gt;</content><author><name>[&quot;f_dubost&quot;, &quot;y_frommelt&quot;]</name></author><category term="conference" /><category term="frontend" /><category term="react" /><category term="javascript" /><summary type="html">The Frontend Bedrock teams were present at the 2024 edition of the JS Nation and React Summit conferences in Amsterdam on 13 &amp;amp; 14 June. We would like to highlight and share some of the subjects we find relevant about our favourite language and framework 🙂 Feel free to explore them further if you are interested.</summary></entry></feed>

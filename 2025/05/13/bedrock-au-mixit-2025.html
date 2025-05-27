@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Bedrock au MiXiT 2025 | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Bedrock au MiXiT 2025" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Bedrock était présent au MiXiT 2025, les 29 et 30 avril à Lyon. Voici un petit résumé des conférences qui nous ont le plus marqués." />
+<meta property="og:description" content="Bedrock était présent au MiXiT 2025, les 29 et 30 avril à Lyon. Voici un petit résumé des conférences qui nous ont le plus marqués." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-05-13T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Bedrock au MiXiT 2025" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","description":"Bedrock était présent au MiXiT 2025, les 29 et 30 avril à Lyon. Voici un petit résumé des conférences qui nous ont le plus marqués.","dateModified":"2025-05-13T00:00:00+00:00","datePublished":"2025-05-13T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025.html","headline":"Bedrock au MiXiT 2025","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Bedrock au MiXiT 2025">
+    <meta name="twitter:description" content="Bedrock était présent au MiXiT 2025, les 29 et 30 avril à Lyon.Voici un petit résumé des conférences qui nous ont le plus marqués.De la pseudoscience pour mo...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg">
+    <meta name="twitter:image:alt" content="Bedrock au MiXiT 2025">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Bedrock au MiXiT 2025 " aria-label="Bedrock au MiXiT 2025" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Bedrock+au+MiXiT+2025" class="title">Bedrock au MiXiT 2025</h1>
+      <div class="post-info">
+
+
+<span class="author">
+
+    
+      <span class="name">
+        Yorick Ferlin
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+<a
+      href="https://twitter.com/pauinegu"
+      target="_blank"
+      rel="noopener"
+      class="author">
+
+    
+      <span class="name">
+        Pauline Rambaud
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    
+      <span class="name">
+        Anouk Moutounet
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    
+      <span class="name">
+        Valentin Clavreul
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+<span class="author">
+
+    
+      <span class="name">
+        Hugo Detang
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+<a
+      href="https://twitter.com/pascal_martin"
+      target="_blank"
+      rel="noopener"
+      class="author">
+
+    
+      <span class="name">
+        Pascal Martin
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    May 13, 2025
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Bedrock était présent au <a href="https://mixitconf.org/fr/">MiXiT 2025</a>, les 29 et 30 avril à Lyon.
+Voici un petit résumé des conférences qui nous ont le plus marqués.</p>
+
+<h2 id="de-la-pseudoscience-pour-mon-pseudo-management--anaïs-huet">De la pseudoscience pour mon (pseudo) management — Anaïs Huet</h2>
+
+<p><em>Revue écrite par Yorick</em></p>
+
+<p>Pourquoi les pseudo-sciences connaissent-elles un tel succès,
+notamment dans le management, le recrutement ou encore l’accompagnement ?
+Que ce soit en entreprise ou même en tant qu’étudiant ou étudiantes,
+tout le monde a sans doute déjà entendu parler ou déjà eu affaire
+à des tests ou des méthodes telles que MBTI (Myers Briggs Type Indicator), DISC
+(Dominant, Influent, Stable, Consciencieux), ProcessCom etc…
+Pourtant, alors que toutes ces méthodes s’appuient sur ce qu’il est convenu
+d’appeler de la pseudo-science, à savoir ce qui à
+l’apparence de la science mais ne reposant en aucun cas sur une
+réelle démarche expérimentale sérieuse, et sont fichées à
+la <a href="https://www.miviludes.interieur.gouv.fr/">MIVILUDES</a> pour certaines d’entre elles,
+leur succès est incontestable.</p>
+
+<p><strong>Anaïs Huet</strong> a tenté d’en comprendre les raisons, en l’expliquant
+notamment par l’effet Barnum ou effet de validation suggestive, qui
+consiste à se retrouver dans toute description un peu vague ou
+positive de soi-même.</p>
+
+<p>Si en plus on ajoute quelques références aux neurosciences ou une image
+d’un cerveau, les études ont montré que cela en renforçait la crédibilité.
+Si ces méthodes permettent cependant à certains managers de prendre
+conscience de la diversité des méthodes de pensées qui peuvent
+exister au sein de leurs équipes, Anaïs nous mettra toutefois en garde
+contre les risques d’enfermement et d’intériorisation d’un mode de
+pensée prédéfini par les personnes qui sont la cible de telles méthodes.
+En conclusion, elle nous rappellera l’importance de garder un esprit
+critique dans l’utilisation de telles méthodes, car nous ne sommes pas
+des thérapeutes.</p>
+
+<h2 id="nos-manières-de-compter-périls-économiques-démocratiques-et-écologiques--valérie-charolles">Nos manières de compter, périls économiques, démocratiques et écologiques — Valérie Charolles</h2>
+
+<p><em>Revue écrite par Yorick</em></p>
+
+<p><strong>Valérie Charolles</strong> est philosophe et chercheure au Laboratoire d’Anthropologie
+Critique Interdisciplinaire.</p>
+
+<p>Lors de cette conférence, elle ouvre sur cette citation de Wittgenstein : “Les
+limites de notre langage posent les limites de notre rapport au monde”
+Elle entend par là montrer que nos sociétés ont évolué vers un rapport aux chiffres
+en tant qu’élément unique de mesure des faits, et que ce rapport pose problème.
+On peut déjà citer comme exemple la vision réductrice du monde imposée par les
+chiffres (Aristote proposait dix manières différentes de le décrire), mais aussi
+les biais que ces derniers peuvent induire.</p>
+
+<p><strong>Valérie Charolles</strong> cite en exemple les chiffres du chômage chez les jeunes, souvent
+annoncée par l’INSEE autour de 15-20%. Pourtant, l’INSEE ne précise jamais que cela ne concerne
+qu’un tiers de la population des 15-25 ans, les deux autres tiers faisant des études.
+Le risque étant pour les décisionnaires d’engager des politiques basées sur une
+vision du monde inadéquate, et bien entendu pour les populations d’évoluer dans
+une vision d’un monde distordue.</p>
+
+<h2 id="le-pattern-hive--une-stratégie-de-modularisation-pour-votre-monolithe-modulaire-ou-vos-microservice--julien-topçu-et-thomas-pierrain">Le pattern Hive : une stratégie de modularisation pour votre monolithe modulaire ou vos microservice — Julien Topçu et Thomas Pierrain</h2>
+
+<p><em>Revue écrite par Pauline</em></p>
+
+<p><strong>Julien Topçu</strong> et <strong>Thomas Pierrain</strong> ont présenté “la ruche”, une architecture alternative aux microservices et au DDD face au “big bowl of mud” monolithique. Constatant que les microservices manquaient de cadre et créaient de nouveaux problèmes malgré leur exhaustivité, ils ont souligné que le DDD dimensionne mieux les microservices (une responsabilité métier = un microservice) et aligne le SI sur le business. Ils proposent un découpage fonctionnel si le cadre est clair et insistent sur le fait que les microservices sont une stratégie de déploiement, complémentaire au DDD. “La ruche” vise une architecture agnostique du déploiement, flexible pour une évolution continue, faisant cohabiter des bounded contexts (= mono métier) dans une même application. Contrairement aux systèmes distribués coûteux et difficiles à refactoriser, le monolithe modulaire (1 module = 1 mini architecture hexagonale = 1 bounded context = 1 responsabilité métier) assemblé via le pattern port-adapter et avec des data stores isolés, permet une itération facile et un découpage/regroupement flexible. C’est un pattern très adapté à la reprise d’un code ancien et monolithique. Ils ont terminé en présentant les cas de scale-on et scale-off, ainsi que quelques bonnes pratiques pour l’implémentation de la ruche.</p>
+
+<h2 id="quand-le-terminal-dévore-la-ui--tui-pour-tout-le-monde--thierry-chantier">Quand le terminal dévore la UI : TUI pour tout le monde — Thierry Chantier</h2>
+
+<p><em>Revue écrite par Pauline</em></p>
+
+<p>Terminal User Interface : permet de pleinement utiliser son terminal et d’avoir quelque chose d’un peu sympa et connu.</p>
+
+<p><strong>Thierry Chantier</strong> nous présente Posting un outil comme Postman en TUI qui sert à interroger une API et stocker les requêtes. Puis il nous parle de l’histoire du terminal et des premiers outils qui ont servi à automatiser les process comme le métier Jacquard premier input automatisé en 1801. Ou encore la carte avec 80 colonnes, création IBM et des machines Remington et naissance d’ASCII en 1890. Nous avons rencontré une évolution de plein d’interfaces graphiques avec le téléscripteur et puis l’informatique moderne.</p>
+
+<p>Enfin, nous assistons à un atelier en live de comment nous pouvons faire pour implémenter notre propre outil TUI. Pour cela, vous prenez le langage que vous préférez et avec l’aide de quelques librairies dédiées comme Typer (Python) ou celles de CharmSH (Go) vous obtenez un outil personnalisé qui répond à vos besoins.</p>
+
+<h2 id="onboarding-20--réinventer-lintégration-des-devs--hafsa-el-maizi">Onboarding 2.0 : Réinventer l’intégration des devs — Hafsa El maizi</h2>
+
+<p><em>Revue écrite par Anouk</em></p>
+
+<p>Dans cette conférence, <strong>Hafsa El maizi</strong> nous rappelle les principaux objectifs d’un OnBoarding: s’intégrer dans l’équipe, créer du lien, devenir performant, comprendre la culture de l’entreprise et de l’équipe ainsi que maîtriser les outils.</p>
+
+<p>Pour ce faire, elle évoque les éléments essentiels à mettre en place pour atteindre ces objectifs et faire un bon OnBoarding:</p>
+
+<ul>
+  <li>Préparer les accès aux outils et env de travail en amont</li>
+  <li>Préparer une documentation d’intégration : organigramme / trombinoscope / guide / glossaire / schéma d’architecture du/des projet(s)</li>
+  <li>Mettre en place un plan personnalisé pour avoir une vision du déroulé de l’OnBoarding</li>
+  <li>Privilégier l’accueil en personne</li>
+  <li>Présenter l’équipe, le contexte fonctionnel/technique du/des projet(s), les outils, les conventions de code, les rituels de l’équipe etc</li>
+  <li>Désigner un mentor qui doit: accueillir, guider, accompagner, répondre aux questions, transmettre, favoriser l’autonomie. Le mentor doit être pédagogue, disponible, empathique, ouvert d’esprit, inspirant ( encourager les prises d’initiatives ), encourageant. Attention, le mentorat n’est pas un transfert de compétence d’une personne sur le départ.</li>
+  <li>Assigner des tâches simples avec un accompagnement. (Privilégier le Pair programming / mob programming)</li>
+  <li>Donner du feed-back régulièrement, constructif et bilatéral ( mise en place du rapport d’étonnement )</li>
+</ul>
+
+<p>A Bedrock, ces différents éléments sont pris en compte dans chacun des OnBoarding et tout ça améliore la confiance et l’autonomie du nouvel arrivant.</p>
+
+<h2 id="faut-il-changer-dère-numérique-pour-préserver-la-démocratie---david-chavalarias">Faut-il changer d’ère numérique pour préserver la démocratie ? — David Chavalarias</h2>
+
+<p><em>Revue écrite par Valentin</em></p>
+
+<p>Pour cette première keynote de la 2e journée, <strong>David Chavalarias</strong> vient nous parler des réseaux sociaux et leurs influences sur le fonctionnement de nos démocraties.</p>
+
+<p>Il commence par nous montrer que sur X, environ un tiers du contenu provient de comptes qui ne sont pas suivis, et le restant est trié selon un algorithme opaque.
+Au final, c’est seulement 3% du contenu ami possible qui est réellement visible, ce qui représente un levier pour influencer des millions de personnes.</p>
+
+<p>Tant que les API de Twitter étaient ouvertes, il était possible de créer un graph des relations (via les retweets) entre les comptes.
+Ceci permet d’observer les sphères d’influences et notamment des campagnes de désinformation orchestrées depuis des comptes pro-russes. Il a également pu observer les évolutions des rapports de force, par exemple lors du rachat de Twitter par Elon Musk, où le poids des discours de déni-climatique commence à égaler, voire à surpasser celui des discours pro-climatiques.</p>
+
+<p>Enfin, il évoque les principaux axes sur lesquels agir : individuel, collectif et institutionnel.</p>
+
+<h2 id="les-accidents-du-travail-dans-la-tech--camille-dupond-et-camille-dupont">Les accidents du travail dans la tech — Camille Dupond et Camille Dupont</h2>
+
+<p><em>Revue écrite par Yorick</em></p>
+
+<p><strong>Camille Dupond</strong> &amp; <strong>Camille Dupont</strong> nous présentent ce qu’est (et ce que n’est pas)
+un accident du travail, en rappelant d’une part que la responsabilité de l’employeur
+est inscrite dans le droit français depuis 1898, et d’autre part ce fait évident
+défini par l’OMS :</p>
+<blockquote>
+  <p>“Personne ne devrait tomber malade ou mourir en faisant son travail”
+La définition d’un accident du travail, telle que donnée par <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006742977">l’article L411-1</a>
+du code de la sécurité sociale, le détermine :</p>
+</blockquote>
+
+<ul>
+  <li>quelle qu’en soit la cause</li>
+  <li>par le fait ou à l’occasion du travail</li>
+  <li>à toute personne travaillant pour un employeur</li>
+</ul>
+
+<p>Camille &amp; Camille nous rappellent également que les atteintes à la santé de l’employé
+peuvent être de nature physiques (douleur, chute durant le télétravail, malaise, infarctus)
+ou psychique (syndrome anxio-dépressif après un entretien d’évaluation, non prise en compte de
+la fragilité ou antécédents des salariées, aggression verbale)
+En revanche, les accidents de trajet ou les maladies professionnelles ne sont pas
+considérées comme accident du travail.</p>
+
+<p>Un fait intéressant à noter est que le nombre d’accidents du travail est en
+hausse de +46% chez les femmes depuis 2010.</p>
+
+<p>Concernant la déclaration dudit accident, elle doit se faire dans les 24h après l’accident
+à la suite de quoi plusieurs échanges entre l’employeur, la médecin et la CPAM
+vont avoir lieu, pouvant aller jusqu’à 90 jours.</p>
+
+<p>Camille &amp; Camille nous rappellent l’importance d’avoir des témoins lors de ladite
+déclaration, car l’entrerprise aura souvent tendance à minimiser voir à nier
+l’existence de l’accident en question.</p>
+
+<p>Enfin, ils proposent des solutions telles que l’enquête syndicale, la recherche
+de causes ou encore l’anticipation de la reprise du travail de la victime
+après son arrêt.</p>
+
+<h2 id="3-techniques-pour-piloter-par-la-valeur--alfred-almendra">3 techniques pour piloter par la valeur — Alfred Almendra</h2>
+
+<p><em>Revue écrite par Anouk</em></p>
+
+<p><strong>Alfred Almendra</strong> nous parle de trois techniques pour piloter la valeur:</p>
+
+<ul>
+  <li><strong>Les critères de succès</strong> : Cela consiste en, dès la demande initiale, arriver à connaître les critères de succès futurs (d’un projet, d’une initiative, etc) afin de proposer des solutions plus pertinentes pour arriver à la réalisation de la demande. Les critères de succès doivent être imaginés « sans contrainte et sans limite » afin d’arriver à proposer des options alternatives à valeur ajoutée qui correspondent et accompagnent mieux dans la réalisation du projet.</li>
+  <li><strong>Les couloirs de nage</strong> : Cela consiste à protéger des allocations spécifiques pour répondre à des besoins spécifiques. Point de vigilance: ce qui se passe de bien ou de mal dans un “couloir” (un flux) ne doit pas impacter les autres couloirs. Il faut également identifier, réduire ou supprimer les dépendances dans les planning entre les couloir. Trois actions indispensable pour cette technique: mesurer (rendre visible les dépenses d’énergie sur chaque élément), protéger (définir une allocation et répartition qu’il faut respecter) et réguler (adapter en fonction des constats) les allocations de capacité.</li>
+  <li><strong>Le carpaccio d’éléphant</strong> : Cela consiste à découper la valeur finement.  Se questionner: dans les moyens qu’on se donne quelle est la meilleur valeur ajoutée que je peux délivrer ?</li>
+</ul>
+
+<h2 id="ma-vie-de-développeur-web-dans-le-quantique--benjamin-becquet">Ma vie de développeur web dans le quantique — Benjamin Becquet</h2>
+
+<p><em>Revue écrite par Hugo</em></p>
+
+<p><strong>Benjamin Becquet</strong> nous parle de son quotidien chez Pasqal: acteur dans le domaine des processeurs quantiques. Après une présentation des phénomènes quantiques tels que la superposition ou l’intrication, nous sommes introduits aux principes de l’informatique quantique et qu’est-ce qui diffère de l’informatique classique que nous pratiquons. Là où nous manipulons des bits représentant 0 ou 1, en quantique il s’agit de qbits qui superposent les états 0 et 1. Cela permet aux processeurs de réaliser des traitements et calculs beaucoup plus rapidement que sur des processeurs classiques. Mais cela ne vient pas sans inconvénients, Benjamin nous parle également toutes les difficultés de ce domaine: le matériel sensible des processeurs et capteurs utilisés ou encore la gestion de la donnée alors que cette dernière a plusieurs états à la fois.</p>
+
+<p>Mais concrètement, que fait un développeur web dans le quantique ? Ce n’est pas seulement des ordinateurs quantiques mais aussi des machines classiques pour piloter cette infrastructure et gérer les données qui ressortent des processeurs. C’est là dessus que Benjamin intervient en développeur web dans l’équipe cloud chez Pasqal. Il travaille sur la plateforme permettant aux clients d’accéder à la puissance de calcul des processeurs quantiques et les résultats qui en découlent. On y retrouve des tâches de notre quotidien comme le développement de nouvelles fonctionnalités, faire du monitoring ou de la documentation.</p>
+
+<h2 id="mapping-the-critical-infrastructure-sustaining-our-understanding-of-the-earth--codrina-maria-illie">Mapping the critical infrastructure sustaining our understanding of the Earth — Codrina Maria Illie</h2>
+
+<p><em>Revue écrite par Hugo</em></p>
+
+<p>Dans ce talk, <strong>Codrina Maria Illie</strong> vient nous parler de l’écosystème open-source du domaine géospatiale. Sans s’en rendre compte, c’est aujourd’hui utilisé dans la vie de tous les jours. Par exemple, sur votre téléphone, il suffit de constater toutes les applications qui utilisent votre localisation.</p>
+
+<p>En tant que membre élu du conseil d’administration de la Fondation Open Source Geospatial (OSGeo), Codrina recense toutes les librairies open source de géospatiale afin d’offrir une documentation des différentes solutions disponibles, servir la communauté open source et guider les utilisateurs dans leur choix selon leurs besoins. La fondation promeut également ces différentes solutions auprès des agences spatiales internationales et a même reçu le soutien de l’agence spatiale européenne (ESA) en 2023.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Bedrock+au+MiXiT+2025%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2025%2F05%2F13%2Fbedrock-au-mixit-2025.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025.html&title=Bedrock+au+MiXiT+2025%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Bedrock au MiXiT 2025%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#agilit%C3%A9">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> agilité</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#lyon">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> lyon</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#tech">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> tech</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="Bedrock au Devoxx 2025" href="/2025/05/06/bedrock-au-devoxx-2025.html">
+            <p>Next post</p>
+            Bedrock au Devoxx 2025
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>
