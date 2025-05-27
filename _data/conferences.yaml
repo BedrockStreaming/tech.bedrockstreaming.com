@@ -174,3 +174,9 @@
   author: b_colin
   eventName: Devoxx France 2025
   eventUrl: https://www.devoxx.fr/en/agenda-2025/talk/load-testons-m6-pour-preparer-l-euro-2024/
+
+- title: "L’aventure d’une requête HTTP — ou le chemin de la vie des devs"
+  date: 2025-04-30
+  author: p_martin
+  eventName: MiXiT 2025
+  eventUrl: https://mixitconf.org/2025/l-aventure-d-une-requete-http-ou-le-chemin-de-la-vie-des-devs
