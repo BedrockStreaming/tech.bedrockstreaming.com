@@ -8,12 +8,12 @@ color: rgb(251,87,66)
 language: en
 ---
 
-Streaming is now everywhere and used by almost everyone, but do you know how it works behind the frame ?
+Streaming is now everywhere and used by almost everyone, but do you know how it works behind the frame?
 
 Let say you want to create a player to watch your favorite TV Show.
 
 First step will probably be to create a page one which you will add the famous video tag, give it a source and maybe display the controls so you can interact with it.
-You will end up with something like this :
+You will end up with something like this:
 
 ```html
 <video src="" controls></video>
@@ -29,21 +29,20 @@ _"MSE gives us finer-grained control over how much and how often content is fetc
 
 Here MDN tells us that MSE allows us to better control the flow of the stream.
 
-**This means new features are now available !**
+**This means new features are now available!**
 
-Going back to my previous use case, what if I want to play Dune in 4K ?
+Going back to my previous use case, what if I want to play Dune in 4K?
 It is going to be a super heavy file and if I give it to my video tag, it is going to download the entire file before being ready to play the content.
 
-Do I want to wait to watch my movie ? Of course not ! I'm aleady in the sofa with my ice cream ready for it to start 🍦
+Do I want to wait to watch my movie? Of course not! I'm already in the sofa with my ice cream ready for it to start 🍦
 
-MSE helps us manipulate other video file format such as Dash (Dynamic Adaptive Streaming over HTTP) or HLS (HTTP Live Streaming). Those formats are a list of chunk of the video we want to play.
-So instead of having a massive video file we can now have a list of small part of the same video.
+MSE helps us manipulate other video file format such as Dash (Dynamic Adaptive Streaming over HTTP) or HLS (HTTP Live Streaming). Those formats split a video in lists of chunks and allow to play short section of the video at any timecode. Those chunk are referenced in manifest, MPD for DASH and M3U8 for HLS.
 
 ![Manifest file pointing to segments](/images/posts/2025-06-23-video-player-mse-introduction/manifest-1.png)
 
-That's not all ! Those list file (= manifest) can transport additional informations.
+That's not all! Those list file (= manifest) can transport additional informations.
 
-We can now have list of chunk based on specific settings such as the resolution, a recommanded bandwidth per list, a link to subtitles and many more !
+We can now have list of chunk based on specific settings such as the resolution, a recommanded bandwidth per list, a link to subtitles and many more!
 
 Having multiple playlist based on the resoltion brings a new acronym (I now what you think another one). We can now talk about Adaptive Bitrate Streaming (= ABR).
 This adds the feature of switching qualities based on the user bandwidth to our player 🤩
@@ -54,7 +53,9 @@ Here is below an example of an HLS manifest where you can see the playlist links
 
 ![HLS manifest example](/images/posts/2025-06-23-video-player-mse-introduction/hls-manifest-example.png)
 
-## 🤔 How to use it ?
+## 🤔 How to use it?
+
+Here I will be building a player in JS using React.
 
 ### Step 1
 
@@ -116,10 +117,10 @@ export const Player = ({ source }: { source: string }) => {
   const onMediaSourceOpen = () => {
     videoSourceBuffer = ms.addSourceBuffer('video/mp4; codecs="avc1.42c01e"');
 
-    // 3 - We add a new video chunk on each SourceBuffer update
+    // 2 - We add a new video chunk on each SourceBuffer update
     videoSourceBuffer.addEventListener('updateend', nextVideoSegment);
 
-    // 4 - We fetch the fist segment (init)
+    // 3 - We fetch the first segment (init)
     fetch(segmentInitVideo, appendToVideoBuffer);
   };
 
@@ -148,26 +149,21 @@ export const Player = ({ source }: { source: string }) => {
 
   let ms: MediaSource;
 
-  // SourceBuffer instance
   let videoSourceBuffer: SourceBuffer;
 
-  //
   let indexVideoSegment = 1;
 
-  // You will need to parse the manifes to get the init segment as well as all the segments
+  // 1 - You will need to parse the manifest to get the init segment as well as all the segments
   const { video: { segmentInit: segmentInitVideo, segments: segmentsVideo } } = parseManifest(source);
 
   // Here we just append 10 chunks
   const numberOfChunks = 10;
 
-  // 1 - Define the SourceBuffer
   const onMediaSourceOpen = () => {
     videoSourceBuffer = ms.addSourceBuffer('video/mp4; codecs="avc1.42c01e"');
 
-    // 3 - We add a new video chunk on each SourceBuffer update
     videoSourceBuffer.addEventListener('updateend', nextVideoSegment);
 
-    // 4 - We fetch the fist segment (init)
     fetch(segmentInitVideo, appendToVideoBuffer);
   };
 
@@ -179,6 +175,7 @@ export const Player = ({ source }: { source: string }) => {
     ms.addEventListener('sourceopen', onMediaSourceOpen);
   });
 
+  // 2 - nextVideoSegement to fetch a specific chunk and append it to the buffer
   const nextVideoSegment = () => {
     var url = segmentsVideo.replace('$Number$', indexVideoSegment.toString());
 
@@ -191,7 +188,7 @@ export const Player = ({ source }: { source: string }) => {
     }
   };
 
-
+  // 3 - appendToVideoBuffer will get the chunk in param and add it to the buffer.
   const appendToVideoBuffer = (videoChunk: Iterable<number>) => {
     if (videoChunk) {
       videoSourceBuffer.appendBuffer(new Uint8Array(videoChunk));
@@ -211,24 +208,24 @@ It is because we now need to do the same segment management with the audio.
 
 <!-- TODO: Add gif a shit here we go again -->
 
-You will then have a **videoSourceBuffer** and a **audioSourceBuffer** which will work just the same !
+You will then have a **videoSourceBuffer** and a **audioSourceBuffer** which will work just the same!
 
-## 🎉 Congratulations !
+## 🎉 Congratulations!
 
-You can now play a video like a pro ! 🚀
+You can now play a video like a pro! 🚀
 
-## 🔎 What's next ?
+## 🔎 What's next?
 
 To be honest if you don't want to bother with all this chunk management, you can find libraries online that will handle it for you 😄
 
-If you want to have a look at some I would recommand to check :
+If you want to have a look at some I would recommand to check:
 
 - [Shaka Player](https://shaka-player-demo.appspot.com/demo/#audiolang=en;textlang=en;uilang=en;panel=HOME;build=uncompiled)
 - [HLSjs](https://github.com/video-dev/hls.js)
 
 Those are open source and they can help you build a player faster if you don't want to handle everything on your own.
 
-In a future article we will talk about content protection and the **Encrypted Media Extensions** API so stay tuned !
+In a future article we will talk about content protection and the **Encrypted Media Extensions** API so stay tuned!
 
 ## 📚 Sources
 
