@@ -10,18 +10,18 @@ language: en
 
 Streaming is now everywhere and used by almost everyone, but do you know how it works behind the frame?
 
-Let say you want to create a player to watch your favorite TV Show.
+Let's say you want to create a player to watch your favorite TV Show.
 
-First step will probably be to create a page one which you will add the famous video tag, give it a source and maybe display the controls so you can interact with it.
+First step will probably be to create a page where you will add the famous video tag, give it a source and maybe display the controls so you can interact with it.
 You will end up with something like this:
 
 ```html
-<video src="" controls></video>
+<video src="my-awesome-video" controls></video>
 ```
 
-Your video will probably play well, but depending on, for example the video size or your connexion, you might have some performances issues.
+Your video will probably play well, but depending on, for example, the video size or your connection, you might have some performances issues.
 
-That's where the Media Source Extension API comes to safe the day.
+That's where the Media Source Extension API comes to save the day.
 
 ## 💡 Media Source Extension
 
@@ -32,30 +32,30 @@ Here MDN tells us that MSE allows us to better control the flow of the stream.
 **This means new features are now available!**
 
 Going back to my previous use case, what if I want to play Dune in 4K?
-It is going to be a super heavy file and if I give it to my video tag, it is going to download the entire file before being ready to play the content.
+It is going to be a super heavy file and if I give it to my video tag, it might download the entire file before being ready to play the content.
 
-Do I want to wait to watch my movie? Of course not! I'm already in the sofa with my ice cream ready for it to start 🍦
+Do I want to wait to watch my movie? Of course not! I'm already on the sofa with my ice cream ready for it to start 🍦
 
-MSE helps us manipulate other video file format such as Dash (Dynamic Adaptive Streaming over HTTP) or HLS (HTTP Live Streaming). Those formats split a video in lists of chunks and allow to play short section of the video at any timecode. Those chunk are referenced in manifest, MPD for DASH and M3U8 for HLS.
+MSE helps us manipulate specific video file formats such as Dash (Dynamic Adaptive Streaming over HTTP) or HLS (HTTP Live Streaming). Those formats split a video into lists of chunks and allow playing a short section of the video at any timecode. Those chunks are referenced in a manifest, .mpd for DASH and .m3u8 for HLS.
 
 ![Manifest file pointing to segments](/images/posts/2025-06-23-video-player-mse-introduction/manifest-1.png)
 
-That's not all! Those list file (= manifest) can transport additional informations.
+That's not all! Those manifest can transport additional informations.
 
-We can now have list of chunk based on specific settings such as the resolution, a recommanded bandwidth per list, a link to subtitles and many more!
+We can now have a list of chunks based on specific settings such as the resolution, a recommended bandwidth per list, a link to subtitles and many more!
 
-Having multiple playlist based on the resoltion brings a new acronym (I now what you think another one). We can now talk about Adaptive Bitrate Streaming (= ABR).
+Having multiple playlists based on the resolution brings a new acronym (I know what you think another one). We can now talk about Adaptive Bitrate Streaming (= ABR).
 This adds the feature of switching qualities based on the user bandwidth to our player 🤩
 
 ![Manifest file pointing to multiple playlist of segments](/images/posts/2025-06-23-video-player-mse-introduction/manifest-2.png)
 
-Here is below an example of an HLS manifest where you can see the playlist links to video specific resolutions as well as links to the audio file and the subtitles.
+Here is below an example of an HLS manifest where you can see the playlist links to specific resolutions as well as links to the audio file and the subtitles.
 
 ![HLS manifest example](/images/posts/2025-06-23-video-player-mse-introduction/hls-manifest-example.png)
 
 ## 🤔 How to use it?
 
-Here I will be building a player in JS using React.
+Here I will be building a player component in JavaScript using React.
 
 ### Step 1
 
@@ -100,7 +100,7 @@ export const Player = ({ source }: { source: string }) => {
 
 ### Step 3
 
-Now we need to add a SourceBuffer to handle each segments of our video.
+Now we need to add a SourceBuffer to handle each segment of our video.
 
 ```js
 import { useEffect, useRef } from "react";
@@ -117,7 +117,7 @@ export const Player = ({ source }: { source: string }) => {
   const onMediaSourceOpen = () => {
     videoSourceBuffer = ms.addSourceBuffer('video/mp4; codecs="avc1.42c01e"');
 
-    // 2 - We add a new video chunk on each SourceBuffer update
+    // 2 - We fetch the next video chunk after each SourceBuffer update
     videoSourceBuffer.addEventListener('updateend', nextVideoSegment);
 
     // 3 - We fetch the first segment (init)
@@ -218,10 +218,11 @@ You can now play a video like a pro! 🚀
 
 To be honest if you don't want to bother with all this chunk management, you can find libraries online that will handle it for you 😄
 
-If you want to have a look at some I would recommand to check:
+If you want to take a look at some, I would recommend to check:
 
 - [Shaka Player](https://shaka-player-demo.appspot.com/demo/#audiolang=en;textlang=en;uilang=en;panel=HOME;build=uncompiled)
 - [HLSjs](https://github.com/video-dev/hls.js)
+- [VideoJS](https://videojs.com/)
 
 Those are open source and they can help you build a player faster if you don't want to handle everything on your own.
 
