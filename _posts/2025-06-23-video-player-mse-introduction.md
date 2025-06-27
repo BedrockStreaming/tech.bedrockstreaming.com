@@ -6,9 +6,10 @@ author: [a_gaudard]
 tags: [TVJS, smartTV, web, javascript, frontend, player, video]
 color: rgb(251,87,66)
 language: en
+thumbnail: "/images/posts/2025-06-23-video-player-mse-introduction/thumbnail.jpeg"
 ---
 
-Streaming is now everywhere and used by almost everyone, but do you know how it works behind the frame?
+Streaming is now everywhere, an indispensable part of our daily lives, used by almost everyone for entertainment, communication, and learning. It appears effortless, almost magical, as high-quality video instantly appears on our screens. But beneath that seamless playback lies a complex and fascinating architecture of web technologies. Have you ever wondered what truly happens behind the frame to bring those pixels to life, adapting to your network, and ensuring a smooth experience right within your browser? Join us as we pull back the curtain and demystify the magic of modern web video playback.
 
 Let's say you want to create a player to watch your favorite TV Show.
 
@@ -90,7 +91,7 @@ export const Player = ({ source }: { source: string }) => {
 
     // 1 - Handle the sourceopen event
     ms.addEventListener('sourceopen', onMediaSourceOpen);
-  });
+  }, []);
 
   return (<>
     <video title="Video player" controls ref={playerRef} />
@@ -130,7 +131,7 @@ export const Player = ({ source }: { source: string }) => {
     playerRef.current!.src = window.URL.createObjectURL(ms);
 
     ms.addEventListener('sourceopen', onMediaSourceOpen);
-  });
+  }, []);
 
   return (<>
     <video title="Video player" controls ref={playerRef} />
@@ -173,7 +174,7 @@ export const Player = ({ source }: { source: string }) => {
     playerRef.current!.src = window.URL.createObjectURL(ms);
 
     ms.addEventListener('sourceopen', onMediaSourceOpen);
-  });
+  }, []);
 
   // 2 - nextVideoSegement to fetch a specific chunk and append it to the buffer
   const nextVideoSegment = () => {
