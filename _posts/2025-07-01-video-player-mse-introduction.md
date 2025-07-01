@@ -6,7 +6,7 @@ author: [a_gaudard]
 tags: [TVJS, smartTV, web, javascript, frontend, player, video]
 color: rgb(251,87,66)
 language: en
-thumbnail: "/images/posts/2025-06-23-video-player-mse-introduction/thumbnail.jpeg"
+thumbnail: "/images/posts/2025-07-01-video-player-mse-introduction/thumbnail.jpeg"
 ---
 
 Streaming is now everywhere, an indispensable part of our daily lives, used by almost everyone for entertainment, communication, and learning. It appears effortless, almost magical, as high-quality video instantly appears on our screens. But beneath that seamless playback lies a complex and fascinating architecture of web technologies. Have you ever wondered what truly happens behind the frame to bring those pixels to life, adapting to your network, and ensuring a smooth experience right within your browser? Join us as we pull back the curtain and demystify the magic of modern web video playback.
@@ -39,7 +39,7 @@ Do I want to wait to watch my movie? Of course not! I'm already on the sofa with
 
 MSE helps us manipulate specific video file formats such as Dash (Dynamic Adaptive Streaming over HTTP) or HLS (HTTP Live Streaming). Those formats split a video into lists of chunks and allow playing a short section of the video at any timecode. Those chunks are referenced in a manifest, .mpd for DASH and .m3u8 for HLS.
 
-![Manifest file pointing to segments](/images/posts/2025-06-23-video-player-mse-introduction/manifest-1.png)
+![Manifest file pointing to segments](/images/posts/2025-07-01-video-player-mse-introduction/manifest-1.png)
 
 That's not all! Those manifest can transport additional informations.
 
@@ -48,11 +48,11 @@ We can now have a list of chunks based on specific settings such as the resoluti
 Having multiple playlists based on the resolution brings a new acronym (I know what you think another one). We can now talk about Adaptive Bitrate Streaming (= ABR).
 This adds the feature of switching qualities based on the user bandwidth to our player 🤩
 
-![Manifest file pointing to multiple playlist of segments](/images/posts/2025-06-23-video-player-mse-introduction/manifest-2.png)
+![Manifest file pointing to multiple playlist of segments](/images/posts/2025-07-01-video-player-mse-introduction/manifest-2.png)
 
 Here is below an example of an HLS manifest where you can see the playlist links to specific resolutions as well as links to the audio file and the subtitles.
 
-![HLS manifest example](/images/posts/2025-06-23-video-player-mse-introduction/hls-manifest-example.png)
+![HLS manifest example](/images/posts/2025-07-01-video-player-mse-introduction/hls-manifest-example.png)
 
 ## 🤔 How to use it?
 
