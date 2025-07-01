@@ -21,6 +21,9 @@ a_caron:
 a_ferez:
   name: Amélie Ferez
   avatar: /images/avatar/a_ferez.jpg
+a_gaudard:
+  name: Arthur Gaudard
+  url: https://www.linkedin.com/in/arthur-gaudard/
 a_martins:
   name: Alexis Martins
 a_moutounet:
@@ -175,8 +178,8 @@ m_benali:
   name: Marwa Ben Ali
   avatar: /images/avatar/m_benali.jpg
 m_bernier:
-    name: Maxence Bernier
-    avatar: /images/avatar/m_bernier.png
+  name: Maxence Bernier
+  avatar: /images/avatar/m_bernier.png
 m_blanc:
   name: Maxime Blanc
   avatar: /images/avatar/m_blanc.jpeg
