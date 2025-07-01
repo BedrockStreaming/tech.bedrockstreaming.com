@@ -1,4 +1,226 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2025-05-27T08:17:21+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Bedrock au MiXiT 2025</title><link href="https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025.html" rel="alternate" type="text/html" title="Bedrock au MiXiT 2025" /><published>2025-05-13T00:00:00+00:00</published><updated>2025-05-13T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025.html">&lt;p&gt;Bedrock était présent au &lt;a href=&quot;https://mixitconf.org/fr/&quot;&gt;MiXiT 2025&lt;/a&gt;, les 29 et 30 avril à Lyon.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2025-07-01T08:30:00+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE</title><link href="https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html" rel="alternate" type="text/html" title="Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE" /><published>2025-07-01T00:00:00+00:00</published><updated>2025-07-01T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html">&lt;p&gt;Streaming is now everywhere, an indispensable part of our daily lives, used by almost everyone for entertainment, communication, and learning. It appears effortless, almost magical, as high-quality video instantly appears on our screens. But beneath that seamless playback lies a complex and fascinating architecture of web technologies. Have you ever wondered what truly happens behind the frame to bring those pixels to life, adapting to your network, and ensuring a smooth experience right within your browser? Join us as we pull back the curtain and demystify the magic of modern web video playback.&lt;/p&gt;
+
+&lt;p&gt;Let’s say you want to create a player to watch your favorite TV Show.&lt;/p&gt;
+
+&lt;p&gt;First step will probably be to create a page where you will add the famous video tag, give it a source and maybe display the controls so you can interact with it.
+You will end up with something like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;video&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;my-awesome-video&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;controls&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/video&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Your video will probably play well, but depending on, for example, the video size or your connection, you might have some performances issues.&lt;/p&gt;
+
+&lt;p&gt;That’s where the Media Source Extension API comes to save the day.&lt;/p&gt;
+
+&lt;h2 id=&quot;-media-source-extension&quot;&gt;💡 Media Source Extension&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;“MSE gives us finer-grained control over how much and how often content is fetched, and some control over memory usage details, such as when buffers are evicted.”&lt;/em&gt; - &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Media_Source_Extensions_API&quot;&gt;MDN Web Docs&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Here MDN tells us that MSE allows us to better control the flow of the stream.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;This means new features are now available!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Going back to my previous use case, what if I want to play Dune in 4K?
+It is going to be a super heavy file and if I give it to my video tag, it might download the entire file before being ready to play the content.&lt;/p&gt;
+
+&lt;p&gt;Do I want to wait to watch my movie? Of course not! I’m already on the sofa with my ice cream ready for it to start 🍦&lt;/p&gt;
+
+&lt;p&gt;MSE helps us manipulate specific video file formats such as Dash (Dynamic Adaptive Streaming over HTTP) or HLS (HTTP Live Streaming). Those formats split a video into lists of chunks and allow playing a short section of the video at any timecode. Those chunks are referenced in a manifest, .mpd for DASH and .m3u8 for HLS.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2025-07-01-video-player-mse-introduction/manifest-1.png&quot; alt=&quot;Manifest file pointing to segments&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;That’s not all! Those manifest can transport additional informations.&lt;/p&gt;
+
+&lt;p&gt;We can now have a list of chunks based on specific settings such as the resolution, a recommended bandwidth per list, a link to subtitles and many more!&lt;/p&gt;
+
+&lt;p&gt;Having multiple playlists based on the resolution brings a new acronym (I know what you think another one). We can now talk about Adaptive Bitrate Streaming (= ABR).
+This adds the feature of switching qualities based on the user bandwidth to our player 🤩&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2025-07-01-video-player-mse-introduction/manifest-2.png&quot; alt=&quot;Manifest file pointing to multiple playlist of segments&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is below an example of an HLS manifest where you can see the playlist links to specific resolutions as well as links to the audio file and the subtitles.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2025-07-01-video-player-mse-introduction/hls-manifest-example.png&quot; alt=&quot;HLS manifest example&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;-how-to-use-it&quot;&gt;🤔 How to use it?&lt;/h2&gt;
+
+&lt;p&gt;Here I will be building a player component in JavaScript using React.&lt;/p&gt;
+
+&lt;h3 id=&quot;step-1&quot;&gt;Step 1&lt;/h3&gt;
+
+&lt;p&gt;We start by creating a player component with a video tag.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Player&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;video&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Video player&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;controls&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;step-2&quot;&gt;Step 2&lt;/h3&gt;
+
+&lt;p&gt;Now we want to add a &lt;strong&gt;MediaSource&lt;/strong&gt; to handle our manifest.&lt;/p&gt;
+
+&lt;p&gt;Also, to better manipulate our video tag we use the useRef hook from React.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;useRef&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;react&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Player&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;playerRef&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;useRef&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;HTMLVideoElement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// MediaSource instance&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MediaSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;nf&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;ms&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MediaSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// Link the MediaSource to the video tag&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;playerRef&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;URL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;createObjectURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// 1 - Handle the sourceopen event&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;sourceopen&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onMediaSourceOpen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]);&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;return &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;video&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Video player&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;controls&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ref&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;playerRef&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;)
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;step-3&quot;&gt;Step 3&lt;/h3&gt;
+
+&lt;p&gt;Now we need to add a SourceBuffer to handle each segment of our video.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;useRef&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;react&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Player&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;playerRef&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;useRef&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;HTMLVideoElement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MediaSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// SourceBuffer instance&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;videoSourceBuffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SourceBuffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// 1 - Define the SourceBuffer&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onMediaSourceOpen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;videoSourceBuffer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addSourceBuffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;video/mp4; codecs=&quot;avc1.42c01e&quot;&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// 2 - We fetch the next video chunk after each SourceBuffer update&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;videoSourceBuffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;updateend&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nextVideoSegment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// 3 - We fetch the first segment (init)&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;segmentInitVideo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;appendToVideoBuffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+  &lt;span class=&quot;nf&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;ms&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MediaSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;playerRef&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;URL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;createObjectURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;sourceopen&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onMediaSourceOpen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]);&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;return &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;video&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Video player&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;controls&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ref&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;playerRef&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;)
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Here is the final version with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nextVideoSegment&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;appendToVideoBuffer&lt;/code&gt; methods.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;useRef&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;react&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;parseManifest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./player.utils&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Player&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;playerRef&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;useRef&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;HTMLVideoElement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MediaSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;videoSourceBuffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SourceBuffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;indexVideoSegment&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// 1 - You will need to parse the manifest to get the init segment as well as all the segments&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;video&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;segmentInit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;segmentInitVideo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;segments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;segmentsVideo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;parseManifest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// Here we just append 10 chunks&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;numberOfChunks&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onMediaSourceOpen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;videoSourceBuffer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addSourceBuffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;video/mp4; codecs=&quot;avc1.42c01e&quot;&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;videoSourceBuffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;updateend&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nextVideoSegment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;nf&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;segmentInitVideo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;appendToVideoBuffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+  &lt;span class=&quot;nf&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;ms&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MediaSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;playerRef&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;URL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;createObjectURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;sourceopen&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onMediaSourceOpen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]);&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// 2 - nextVideoSegement to fetch a specific chunk and append it to the buffer&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nextVideoSegment&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;segmentsVideo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;$Number$&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;indexVideoSegment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+
+    &lt;span class=&quot;nf&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;appendToVideoBuffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;indexVideoSegment&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;indexVideoSegment&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;numberOfChunks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;videoSourceBuffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;removeEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;updateend&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nextVideoSegment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// 3 - appendToVideoBuffer will get the chunk in param and add it to the buffer.&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;appendToVideoBuffer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;videoChunk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Iterable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;videoChunk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;videoSourceBuffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;appendBuffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Uint8Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;videoChunk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;return &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;video&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Video player&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;controls&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ref&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;playerRef&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;)
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;step-4&quot;&gt;Step 4&lt;/h3&gt;
+
+&lt;p&gt;Now that you should have a video playing you might realize that you don’t have sound on it.
+It is because we now need to do the same segment management with the audio.&lt;/p&gt;
+
+&lt;!-- TODO: Add gif a shit here we go again --&gt;
+
+&lt;p&gt;You will then have a &lt;strong&gt;videoSourceBuffer&lt;/strong&gt; and a &lt;strong&gt;audioSourceBuffer&lt;/strong&gt; which will work just the same!&lt;/p&gt;
+
+&lt;h2 id=&quot;-congratulations&quot;&gt;🎉 Congratulations!&lt;/h2&gt;
+
+&lt;p&gt;You can now play a video like a pro! 🚀&lt;/p&gt;
+
+&lt;h2 id=&quot;-whats-next&quot;&gt;🔎 What’s next?&lt;/h2&gt;
+
+&lt;p&gt;To be honest if you don’t want to bother with all this chunk management, you can find libraries online that will handle it for you 😄&lt;/p&gt;
+
+&lt;p&gt;If you want to take a look at some, I would recommend to check:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://shaka-player-demo.appspot.com/demo/#audiolang=en;textlang=en;uilang=en;panel=HOME;build=uncompiled&quot;&gt;Shaka Player&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/video-dev/hls.js&quot;&gt;HLSjs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://videojs.com/&quot;&gt;VideoJS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Those are open source and they can help you build a player faster if you don’t want to handle everything on your own.&lt;/p&gt;
+
+&lt;p&gt;In a future article we will talk about content protection and the &lt;strong&gt;Encrypted Media Extensions&lt;/strong&gt; API so stay tuned!&lt;/p&gt;
+
+&lt;h2 id=&quot;-sources&quot;&gt;📚 Sources&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Media_Source_Extensions_API&quot;&gt;MDN Web Docs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=VX9ppF6eMjc&quot;&gt;LyonJS - Play Pause - Les coulisses d’un player vidéo&lt;/a&gt; 🇫🇷&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>[&quot;a_gaudard&quot;]</name></author><category term="TVJS" /><category term="smartTV" /><category term="web" /><category term="javascript" /><category term="frontend" /><category term="player" /><category term="video" /><summary type="html">Streaming is now everywhere, an indispensable part of our daily lives, used by almost everyone for entertainment, communication, and learning. It appears effortless, almost magical, as high-quality video instantly appears on our screens. But beneath that seamless playback lies a complex and fascinating architecture of web technologies. Have you ever wondered what truly happens behind the frame to bring those pixels to life, adapting to your network, and ensuring a smooth experience right within your browser? Join us as we pull back the curtain and demystify the magic of modern web video playback.</summary></entry><entry><title type="html">Bedrock au MiXiT 2025</title><link href="https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025.html" rel="alternate" type="text/html" title="Bedrock au MiXiT 2025" /><published>2025-05-13T00:00:00+00:00</published><updated>2025-05-13T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025.html">&lt;p&gt;Bedrock était présent au &lt;a href=&quot;https://mixitconf.org/fr/&quot;&gt;MiXiT 2025&lt;/a&gt;, les 29 et 30 avril à Lyon.
 Voici un petit résumé des conférences qui nous ont le plus marqués.&lt;/p&gt;
 
 &lt;h2 id=&quot;de-la-pseudoscience-pour-mon-pseudo-management--anaïs-huet&quot;&gt;De la pseudoscience pour mon (pseudo) management — Anaïs Huet&lt;/h2&gt;
@@ -2283,205 +2505,4 @@ Each client has its &lt;strong&gt;versioning file&lt;/strong&gt; containing all 
   &lt;li&gt;&lt;strong&gt;Access through Bitrise&lt;/strong&gt; is not ideal. We currently centralize all generated builds (using CI as well) in &lt;a href=&quot;https://www.airtable.com/&quot;&gt;Airtable&lt;/a&gt;. A link would be preferable and more visible.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;These last improvements will perhaps be the subject of a follow-up to this article. Thank you for reading, we hope you found some useful information that can help you to better follow the graphical evolution of your project. Do not hesitate to contact us if you have some questions or suggestions.&lt;/p&gt;</content><author><name>[&quot;d_cuny&quot;, &quot;m_oudji&quot;]</name></author><category term="android" /><category term="versioning" /><category term="design" /><category term="atomic design" /><category term="design system" /><summary type="html">Let’s dive together into the depths of a large scale template versioning for a white label streaming application.</summary></entry><entry><title type="html">JS Nation x React Summit 2024 highlights</title><link href="https://tech.bedrockstreaming.com/2024/08/20/js-nation-react-summit-2024.html" rel="alternate" type="text/html" title="JS Nation x React Summit 2024 highlights" /><published>2024-08-20T00:00:00+00:00</published><updated>2024-08-20T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/08/20/js-nation-react-summit-2024</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/08/20/js-nation-react-summit-2024.html">&lt;p&gt;The Frontend Bedrock teams were present at the 2024 edition of the &lt;em&gt;JS Nation&lt;/em&gt; and &lt;em&gt;React Summit&lt;/em&gt; conferences in Amsterdam on 13 &amp;amp; 14 June. We would like to highlight and share some of the subjects we find relevant about our favourite language and framework 🙂 Feel free to explore them further if you are interested.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;📹 You can watch all the video recordings of the &lt;a href=&quot;https://gitnation.com/events/jsnation-2024/talks&quot;&gt;JS Nation&lt;/a&gt; and the &lt;a href=&quot;https://gitnation.com/events/react-summit-2024/talks&quot;&gt;React Summit&lt;/a&gt; talks.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;lessons-for-building-resilient-codebases---alex-moldovan&quot;&gt;Lessons for Building Resilient Codebases - Alex Moldovan&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;📹 Watch the &lt;a href=&quot;https://gitnation.com/contents/lessons-for-building-resilient-codebases&quot;&gt;video&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;One of my favourite types of presentation, with practical things that you can then apply in your daily life as a developer.&lt;/p&gt;
-
-&lt;p&gt;Alex sums up his speech in 5 points:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Accept imperfections&lt;/strong&gt; in your codebase: perfect is the enemy of good, shortcuts and exceptions can be taken if they are well documented.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://alexmoldovan.dev/code-bites/colocation-is-king&quot;&gt;Colocating code&lt;/a&gt;&lt;/strong&gt; according to concerns is a way of improving readability and therefore maintainability and efficiency.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Reusability&lt;/strong&gt; is not always the better choice vs &lt;strong&gt;duplication&lt;/strong&gt;, you should find the right balance, abstraction should only come when a piece of code is proven to be a long term solution.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Readability and understandability&lt;/strong&gt; of the code is very important for the future developers that will maintain your code: leave comments, break conditions with more than 3 members using intermediate variables, etc.&lt;/li&gt;
-  &lt;li&gt;Use &lt;strong&gt;Typescript&lt;/strong&gt; intensively and try to handle all the possible states of your data.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;At Bedrock, we’ve always tried to apply a maximum of &lt;a href=&quot;https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html&quot;&gt;best practices&lt;/a&gt; including some addressed here by Alex, to ensure the maintainability of our web codebase. It seems to be working pretty good since this &lt;a href=&quot;https://tech.bedrockstreaming.com/comment-ne-pas-jeter-son-application-frontend-tout-les-deux-ans&quot;&gt;JS project is now 10 years old&lt;/a&gt;!&lt;/p&gt;
-
-&lt;h3 id=&quot;why-your-performance-work-is-not-seen---vinicius-dallacqua&quot;&gt;Why Your Performance Work Is Not Seen - Vinicius Dallacqua&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;📹 Watch the &lt;a href=&quot;https://gitnation.com/contents/why-your-performance-work-is-not-seen&quot;&gt;video&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Vinicius addresses an important subject for us, as frontend engineers. We are all concerned about performance and we want to deliver the most optimized product, but we often come up against major obstacles in this area. We already talked about this topic last year when &lt;a href=&quot;https://tech.bedrockstreaming.com/2023/08/11/we-love-speed-2023.html&quot;&gt;we attended the We Love Speed conference&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;To demonstrate the worth of working on performances, &lt;strong&gt;Lab tools&lt;/strong&gt; (like &lt;a href=&quot;https://developer.chrome.com/docs/lighthouse/overview?hl=fr&quot;&gt;Lighthouse&lt;/a&gt;) &amp;amp; &lt;strong&gt;RUM&lt;/strong&gt; (Real User Monitoring) have to be used together. Collected data must be analyzed, optimized and framed to make connections with product concerns. Performance needs to &lt;strong&gt;matter to engineering and product&lt;/strong&gt; for a sustainable governance model.&lt;/p&gt;
-
-&lt;p&gt;As in many areas, the key is to set realistic and achievable objectives and to proceed by iteration: &lt;strong&gt;monitor, measure, report and repeat&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;install-nothing-app-uis-with-native-browser-apis---scott-tolinski&quot;&gt;Install Nothing: App UIs With Native Browser APIs - Scott Tolinski&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;📹 Watch the &lt;a href=&quot;https://gitnation.com/contents/install-nothing-app-uis-with-native-browser-apis&quot;&gt;video&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Scott reveals that we can use the browser’s native APIs to build certain UI components easily, whereas we’ve sometimes been using complex JS to do this for years.&lt;/p&gt;
-
-&lt;p&gt;He shows for example:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;How to build modals with the &lt;a href=&quot;https://developer.mozilla.org/fr/docs/Web/HTML/Element/dialog&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;dialog&amp;gt;&lt;/code&gt;&lt;/a&gt; element&lt;/li&gt;
-  &lt;li&gt;How to easily create animated transitions with &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API&quot;&gt;View Transition API&lt;/a&gt; or with &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/@starting-style&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@starting-style&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;How to create a menu with the &lt;a href=&quot;https://developer.mozilla.org/fr/docs/Web/HTML/Global_attributes/popover&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;popover&amp;gt;&lt;/code&gt;&lt;/a&gt; element&lt;/li&gt;
-  &lt;li&gt;How to build slideshows with &lt;a href=&quot;https://developer.mozilla.org/fr/docs/Web/CSS/scroll-snap-align&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;scroll-snap&lt;/code&gt;&lt;/a&gt; CSS properties&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Check all these tips out and much more besides on Scott’s &lt;a href=&quot;https://tolin.ski/talks/install-nothing&quot;&gt;site&lt;/a&gt;!&lt;/p&gt;
-
-&lt;h3 id=&quot;testing-do-more-with-less---eugene-fidelin&quot;&gt;Testing: do more with less - Eugene Fidelin&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;📹 Watch the &lt;a href=&quot;https://gitnation.com/contents/testing-do-more-with-less&quot;&gt;video&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Testing has been a guide and a real challenge since we began the JS web project at Bedrock in 2015. We are convinced that this is an important part of the sustainability and reliability of the codebase. As a result, we listened to Eugene’s point of view with curiosity.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.datadoghq.com/knowledge-center/dora-metrics/&quot;&gt;DORA metrics&lt;/a&gt; should be adopted to measure how good your are for shipping software with &lt;strong&gt;4 indicators&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Deployment frequency&lt;/li&gt;
-  &lt;li&gt;Lead time for changes&lt;/li&gt;
-  &lt;li&gt;Change failure rate&lt;/li&gt;
-  &lt;li&gt;Time to restore service&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The first three are affected by the testing strategy. The &lt;em&gt;&lt;a href=&quot;https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications&quot;&gt;Testing Trophy&lt;/a&gt;&lt;/em&gt; can help to write the right tests given the &lt;strong&gt;return on investment&lt;/strong&gt; of the different forms.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-08-20-js-nation-react-summit-2024/testingTrophy.png&quot; alt=&quot;Testing Trophy: return on investment of the different forms of testing&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Eugene describes the various steps to build a reliable testing strategy:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;step 0: enable &lt;strong&gt;static&lt;/strong&gt; linters and &lt;strong&gt;type&lt;/strong&gt; checks&lt;/li&gt;
-  &lt;li&gt;step 1: create &lt;strong&gt;integration&lt;/strong&gt; tests for all happy and non-happy flows&lt;/li&gt;
-  &lt;li&gt;step 2: write &lt;strong&gt;unit&lt;/strong&gt; tests for reusable parts and code without coverage&lt;/li&gt;
-  &lt;li&gt;step 3: write very few &lt;strong&gt;e2e&lt;/strong&gt; tests only for the most business critical flows&lt;/li&gt;
-  &lt;li&gt;step 4: use &lt;strong&gt;metrics, tracing, logging&lt;/strong&gt; to identify anomalies on production&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html&quot;&gt;In Bedrock’s frontend teams&lt;/a&gt;, we are aligned with these strategy:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Static testing is a compulsory stage in any project start-up.&lt;/li&gt;
-  &lt;li&gt;We have a lot of unit and integration tests (which can be viewed as e2e tests, but we only test the frontend part with mocked backend and 3rd parties).&lt;/li&gt;
-  &lt;li&gt;A manual homologation phase before deploying any new release run e2e tests: this is a current project to automate most of these tests to save time in the process.&lt;/li&gt;
-  &lt;li&gt;Production monitoring is one of our mantras: our former boss used to say that &lt;em&gt;“a non-monitored project is not in production”&lt;/em&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;A &lt;a href=&quot;https://x.com/rauchg/status/807626710350839808&quot;&gt;tweet&lt;/a&gt; from &lt;a href=&quot;https://x.com/rauchg&quot;&gt;Guillermo Rauch&lt;/a&gt; can perfectly conclude this topic:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Write tests. Not too many. Mostly integration.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;facing-frontends-existencial-crisis---ryan-carniato&quot;&gt;Facing Frontend’s Existencial Crisis - Ryan Carniato&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;📹 Watch the &lt;a href=&quot;https://gitnation.com/contents/solidjs-tba&quot;&gt;video&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Ryan shows why JS frameworks, especially React, have recently evolved using new concepts to reduce the runtime at page load.&lt;/p&gt;
-
-&lt;p&gt;The size of pages has been increasing over the years. In particular because &lt;a href=&quot;https://en.wikipedia.org/wiki/Single-page_application&quot;&gt;SPAs&lt;/a&gt; have gained ground in the web world. SPAs are costly because of:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;code execution and evaluation&lt;/strong&gt;,&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;code bundle size&lt;/strong&gt;,&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;payload (HTML &amp;amp; data) size&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;At the same time, devices have improved their performance, but not all of them. Connectivity can also be a limiting factor, depending on the context of use. As a result, we are faced with a real fact: an app with client-side rendering is slower to display and interact than an app with server-side rendering.&lt;/p&gt;
-
-&lt;p&gt;In order to reduce each of these three costly aspects, Ryan mentions three concepts that new versions of recent JS frameworks, such as React 19, are developing:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;islands&lt;/strong&gt;: splitting the page in several blocks, and render those which never change on server-side only,&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;server components&lt;/strong&gt;: close to the island concept but with the ability to handle state persistence over the client navigation,&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;resumability&lt;/strong&gt;: the ability to defer the hydratation of components until an interaction is requested.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;If you want more details about concepts developed by Ryan, you can read his &lt;a href=&quot;https://dev.to/this-is-learning/islands-server-components-resumability-oh-my-319d&quot;&gt;article&lt;/a&gt; on this subject.&lt;/p&gt;
-
-&lt;h3 id=&quot;invisible-hand-of-react-performance---ivan-akulov&quot;&gt;Invisible Hand of React Performance - Ivan Akulov&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;📹 Watch the &lt;a href=&quot;https://gitnation.com/contents/react-performance-past-and-future&quot;&gt;video&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Like &lt;a href=&quot;https://gitnation.com/contents/react-internals&quot;&gt;Charlotte Isambert’s explanation of how Suspense works&lt;/a&gt;, this talk takes us into the inner workings of React. It is often interesting to understand how the library you are using works under the hood so that you can use it properly.&lt;/p&gt;
-
-&lt;p&gt;By comparing behaviors between the latest React versions, Ivan explains:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;How &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;useEffect&lt;/code&gt; has optimized the browser layout and paint calculation flow comparing to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;componentDidMount&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;How &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setState&lt;/code&gt; batching have been optimized in React 18&lt;/li&gt;
-  &lt;li&gt;Why the freeze experience if the user interacts during the hydratation phase is much better by using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Suspense&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;why-you-should-use-redux-in-2024---mark-erikson&quot;&gt;Why You Should Use Redux in 2024 - Mark Erikson&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;📹 Watch the &lt;a href=&quot;https://gitnation.com/contents/why-you-should-use-redux-in-2024&quot;&gt;video&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;At Bedrock, &lt;a href=&quot;https://tech.bedrockstreaming.com/2016/07/04/migrate-smoothly-flux-isomorphic-app-to-redux.html&quot;&gt;we have been using Redux since 2016&lt;/a&gt;, and we continue to use it. So Mark’s arguments will certainly confirm our choice!&lt;/p&gt;
-
-&lt;p&gt;Mark is the creator of &lt;a href=&quot;https://redux-toolkit.js.org/&quot;&gt;Redux Toolkit&lt;/a&gt;. He begins by detailing the pros and cons of using Redux in relation to various aspects:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Flux-style indirection via dispatching actions instead of direct state mutations&lt;/li&gt;
-  &lt;li&gt;A single global centralized store&lt;/li&gt;
-  &lt;li&gt;State updates via reducers and slices&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Then Mark presents the arguments why he thinks using Redux in 2024 is a good choice:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Provides a consistent architecture pattern for apps&lt;/li&gt;
-  &lt;li&gt;Better understanding of what’s happening in the app&lt;/li&gt;
-  &lt;li&gt;Widely used&lt;/li&gt;
-  &lt;li&gt;Well documented&lt;/li&gt;
-  &lt;li&gt;Better update behavior than React Context&lt;/li&gt;
-  &lt;li&gt;Redux Toolkit provides built-in tools standard use cases&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://redux-toolkit.js.org/rtk-query/overview&quot;&gt;RTK Query&lt;/a&gt; data fetching and caching layer&lt;/li&gt;
-  &lt;li&gt;Works great with Typescript&lt;/li&gt;
-  &lt;li&gt;Designed to work with React but still UI-agnostic&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Since 2016 we have been trying at Bedrock to streamline the way we use Redux in JS projects by applying &lt;a href=&quot;https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html&quot;&gt;some best practices&lt;/a&gt;.
-We also have been adopting &lt;a href=&quot;https://tech.bedrockstreaming.com/2022/06/08/migration-progressive-vers-redux-toolkit.html&quot;&gt;Redux Toolkit&lt;/a&gt; for some time with this in mind. And we are always open to new ways of managing state in apps. For example, we are currently testing &lt;a href=&quot;https://tech.bedrockstreaming.com/2023/02/08/projet-xstate.html&quot;&gt;XState&lt;/a&gt; to manage the state of our player.&lt;/p&gt;
-
-&lt;h3 id=&quot;case-study-building-accessible-reusable-react-components-at-github---siddharth-kshetrapal&quot;&gt;Case Study: Building Accessible Reusable React Components at GitHub - Siddharth Kshetrapal&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;📹 Watch the &lt;a href=&quot;https://gitnation.com/contents/case-study-building-accessible-reusable-react-components-at-github&quot;&gt;video&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;The talk by Sid focuses on building accessible React components, and emphasises on the importance of using the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Glossary/Semantics&quot;&gt;correct HTML elements&lt;/a&gt; and &lt;a href=&quot;https://www.w3.org/TR/wai-aria-1.2/&quot;&gt;ARIA roles&lt;/a&gt; to enhance web accessibility.&lt;/p&gt;
-
-&lt;p&gt;Sid highlights specific examples, such as &lt;a href=&quot;https://www.w3.org/WAI/ARIA/apg/patterns/tabs/&quot;&gt;navigating tab lists&lt;/a&gt; and &lt;a href=&quot;https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/&quot;&gt;handling conditional checkboxes&lt;/a&gt;, explaining how ARIA roles and properties can make web interfaces more accessible, especially for screen reader users.&lt;/p&gt;
-
-&lt;p&gt;What we remember from this talk:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Importance of using correct HTML elements and ARIA roles for accessibility&lt;/li&gt;
-  &lt;li&gt;Implementation of ARIA roles like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tablist&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tab&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aria-selected&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Significance of keyboard navigation and ARIA states/properties in accessibility&lt;/li&gt;
-  &lt;li&gt;Design considerations for accessibility, including using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aria-disabled&lt;/code&gt; over &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;disabled&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;whats-next-for-us&quot;&gt;What’s next for us&lt;/h3&gt;
-
-&lt;p&gt;We came away from these conferences with the feeling that we had adopted the right approach in the past few years for our JS projects, whether in terms of architecture, maintainability or testing strategy. However, we saw that we shouldn’t miss the next steps regarding &lt;strong&gt;accessibility&lt;/strong&gt; (an improvement project is underway for the end of year) and &lt;strong&gt;performances&lt;/strong&gt;, especially taking into account the new way of rendering server-side with React 19 (while &lt;a href=&quot;https://tech.bedrockstreaming.com/2014/12/04/isomorphic-single-page-app-parfaite-react-flux&quot;&gt;we pioneered the use of React with SSR in 2014&lt;/a&gt;). We will be sure to keep you informed of our progress!&lt;/p&gt;</content><author><name>[&quot;f_dubost&quot;, &quot;y_frommelt&quot;]</name></author><category term="conference" /><category term="frontend" /><category term="react" /><category term="javascript" /><summary type="html">The Frontend Bedrock teams were present at the 2024 edition of the JS Nation and React Summit conferences in Amsterdam on 13 &amp;amp; 14 June. We would like to highlight and share some of the subjects we find relevant about our favourite language and framework 🙂 Feel free to explore them further if you are interested.</summary></entry></feed>
+&lt;p&gt;These last improvements will perhaps be the subject of a follow-up to this article. Thank you for reading, we hope you found some useful information that can help you to better follow the graphical evolution of your project. Do not hesitate to contact us if you have some questions or suggestions.&lt;/p&gt;</content><author><name>[&quot;d_cuny&quot;, &quot;m_oudji&quot;]</name></author><category term="android" /><category term="versioning" /><category term="design" /><category term="atomic design" /><category term="design system" /><summary type="html">Let’s dive together into the depths of a large scale template versioning for a white label streaming application.</summary></entry></feed>

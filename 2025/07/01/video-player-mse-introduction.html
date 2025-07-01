@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/2025-07-01-video-player-mse-introduction/thumbnail.jpeg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this article, I’m going to explain how to enhance your player using the Media Source Extension API." />
+<meta property="og:description" content="In this article, I’m going to explain how to enhance your player using the Media Source Extension API." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-07-01T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","description":"In this article, I’m going to explain how to enhance your player using the Media Source Extension API.","dateModified":"2025-07-01T00:00:00+00:00","datePublished":"2025-07-01T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html","headline":"Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE">
+    <meta name="twitter:description" content="Streaming is now everywhere, an indispensable part of our daily lives, used by almost everyone for entertainment, communication, and learning. It appears eff...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/2025-07-01-video-player-mse-introduction/thumbnail.jpeg">
+    <meta name="twitter:image:alt" content="Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE " aria-label="Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Crafting+Your+Own+Streamer%3A+A+Hands-on+Guide+to+JavaScript+MSE" class="title">Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE</h1>
+      <div class="post-info">
+
+
+<a
+      href="https://www.linkedin.com/in/arthur-gaudard/"
+      target="_blank"
+      rel="noopener"
+      class="author">
+
+    
+      <span class="name">
+        Arthur Gaudard
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    July 01, 2025
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>Streaming is now everywhere, an indispensable part of our daily lives, used by almost everyone for entertainment, communication, and learning. It appears effortless, almost magical, as high-quality video instantly appears on our screens. But beneath that seamless playback lies a complex and fascinating architecture of web technologies. Have you ever wondered what truly happens behind the frame to bring those pixels to life, adapting to your network, and ensuring a smooth experience right within your browser? Join us as we pull back the curtain and demystify the magic of modern web video playback.</p>
+
+<p>Let’s say you want to create a player to watch your favorite TV Show.</p>
+
+<p>First step will probably be to create a page where you will add the famous video tag, give it a source and maybe display the controls so you can interact with it.
+You will end up with something like this:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;video</span> <span class="na">src=</span><span class="s">"my-awesome-video"</span> <span class="na">controls</span><span class="nt">&gt;&lt;/video&gt;</span>
+</code></pre></div></div>
+
+<p>Your video will probably play well, but depending on, for example, the video size or your connection, you might have some performances issues.</p>
+
+<p>That’s where the Media Source Extension API comes to save the day.</p>
+
+<h2 id="-media-source-extension">💡 Media Source Extension</h2>
+
+<p><em>“MSE gives us finer-grained control over how much and how often content is fetched, and some control over memory usage details, such as when buffers are evicted.”</em> - <a href="https://developer.mozilla.org/en-US/docs/Web/API/Media_Source_Extensions_API">MDN Web Docs</a></p>
+
+<p>Here MDN tells us that MSE allows us to better control the flow of the stream.</p>
+
+<p><strong>This means new features are now available!</strong></p>
+
+<p>Going back to my previous use case, what if I want to play Dune in 4K?
+It is going to be a super heavy file and if I give it to my video tag, it might download the entire file before being ready to play the content.</p>
+
+<p>Do I want to wait to watch my movie? Of course not! I’m already on the sofa with my ice cream ready for it to start 🍦</p>
+
+<p>MSE helps us manipulate specific video file formats such as Dash (Dynamic Adaptive Streaming over HTTP) or HLS (HTTP Live Streaming). Those formats split a video into lists of chunks and allow playing a short section of the video at any timecode. Those chunks are referenced in a manifest, .mpd for DASH and .m3u8 for HLS.</p>
+
+<p><img src="/images/posts/2025-07-01-video-player-mse-introduction/manifest-1.png" alt="Manifest file pointing to segments" /></p>
+
+<p>That’s not all! Those manifest can transport additional informations.</p>
+
+<p>We can now have a list of chunks based on specific settings such as the resolution, a recommended bandwidth per list, a link to subtitles and many more!</p>
+
+<p>Having multiple playlists based on the resolution brings a new acronym (I know what you think another one). We can now talk about Adaptive Bitrate Streaming (= ABR).
+This adds the feature of switching qualities based on the user bandwidth to our player 🤩</p>
+
+<p><img src="/images/posts/2025-07-01-video-player-mse-introduction/manifest-2.png" alt="Manifest file pointing to multiple playlist of segments" /></p>
+
+<p>Here is below an example of an HLS manifest where you can see the playlist links to specific resolutions as well as links to the audio file and the subtitles.</p>
+
+<p><img src="/images/posts/2025-07-01-video-player-mse-introduction/hls-manifest-example.png" alt="HLS manifest example" /></p>
+
+<h2 id="-how-to-use-it">🤔 How to use it?</h2>
+
+<p>Here I will be building a player component in JavaScript using React.</p>
+
+<h3 id="step-1">Step 1</h3>
+
+<p>We start by creating a player component with a video tag.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">Player</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">source</span> <span class="p">}:</span> <span class="p">{</span> <span class="nl">source</span><span class="p">:</span> <span class="nx">string</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">video</span> <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="nx">source</span><span class="p">}</span> <span class="nx">title</span><span class="o">=</span><span class="dl">"</span><span class="s2">Video player</span><span class="dl">"</span> <span class="nx">controls</span> <span class="o">/&gt;</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="step-2">Step 2</h3>
+
+<p>Now we want to add a <strong>MediaSource</strong> to handle our manifest.</p>
+
+<p>Also, to better manipulate our video tag we use the useRef hook from React.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">useEffect</span><span class="p">,</span> <span class="nx">useRef</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">Player</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">source</span> <span class="p">}:</span> <span class="p">{</span> <span class="nl">source</span><span class="p">:</span> <span class="nx">string</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">playerRef</span> <span class="o">=</span> <span class="nx">useRef</span><span class="o">&lt;</span><span class="nx">HTMLVideoElement</span><span class="o">&gt;</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+
+  <span class="c1">// MediaSource instance</span>
+  <span class="kd">let</span> <span class="na">ms</span><span class="p">:</span> <span class="nx">MediaSource</span><span class="p">;</span>
+
+  <span class="nf">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">ms</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MediaSource</span><span class="p">();</span>
+
+    <span class="c1">// Link the MediaSource to the video tag</span>
+    <span class="nx">playerRef</span><span class="p">.</span><span class="nx">current</span><span class="o">!</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nf">createObjectURL</span><span class="p">(</span><span class="nx">ms</span><span class="p">);</span>
+
+    <span class="c1">// 1 - Handle the sourceopen event</span>
+    <span class="nx">ms</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">sourceopen</span><span class="dl">'</span><span class="p">,</span> <span class="nx">onMediaSourceOpen</span><span class="p">);</span>
+  <span class="p">},</span> <span class="p">[]);</span>
+
+  <span class="k">return </span><span class="p">(</span><span class="o">&lt;&gt;</span>
+    <span class="o">&lt;</span><span class="nx">video</span> <span class="nx">title</span><span class="o">=</span><span class="dl">"</span><span class="s2">Video player</span><span class="dl">"</span> <span class="nx">controls</span> <span class="nx">ref</span><span class="o">=</span><span class="p">{</span><span class="nx">playerRef</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/&gt;</span><span class="err">)
+</span><span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="step-3">Step 3</h3>
+
+<p>Now we need to add a SourceBuffer to handle each segment of our video.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">useEffect</span><span class="p">,</span> <span class="nx">useRef</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">Player</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">source</span> <span class="p">}:</span> <span class="p">{</span> <span class="nl">source</span><span class="p">:</span> <span class="nx">string</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">playerRef</span> <span class="o">=</span> <span class="nx">useRef</span><span class="o">&lt;</span><span class="nx">HTMLVideoElement</span><span class="o">&gt;</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+
+  <span class="kd">let</span> <span class="na">ms</span><span class="p">:</span> <span class="nx">MediaSource</span><span class="p">;</span>
+
+  <span class="c1">// SourceBuffer instance</span>
+  <span class="kd">let</span> <span class="na">videoSourceBuffer</span><span class="p">:</span> <span class="nx">SourceBuffer</span><span class="p">;</span>
+
+  <span class="c1">// 1 - Define the SourceBuffer</span>
+  <span class="kd">const</span> <span class="nx">onMediaSourceOpen</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">videoSourceBuffer</span> <span class="o">=</span> <span class="nx">ms</span><span class="p">.</span><span class="nf">addSourceBuffer</span><span class="p">(</span><span class="dl">'</span><span class="s1">video/mp4; codecs="avc1.42c01e"</span><span class="dl">'</span><span class="p">);</span>
+
+    <span class="c1">// 2 - We fetch the next video chunk after each SourceBuffer update</span>
+    <span class="nx">videoSourceBuffer</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">updateend</span><span class="dl">'</span><span class="p">,</span> <span class="nx">nextVideoSegment</span><span class="p">);</span>
+
+    <span class="c1">// 3 - We fetch the first segment (init)</span>
+    <span class="nf">fetch</span><span class="p">(</span><span class="nx">segmentInitVideo</span><span class="p">,</span> <span class="nx">appendToVideoBuffer</span><span class="p">);</span>
+  <span class="p">};</span>
+
+  <span class="nf">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">ms</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MediaSource</span><span class="p">();</span>
+
+    <span class="nx">playerRef</span><span class="p">.</span><span class="nx">current</span><span class="o">!</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nf">createObjectURL</span><span class="p">(</span><span class="nx">ms</span><span class="p">);</span>
+
+    <span class="nx">ms</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">sourceopen</span><span class="dl">'</span><span class="p">,</span> <span class="nx">onMediaSourceOpen</span><span class="p">);</span>
+  <span class="p">},</span> <span class="p">[]);</span>
+
+  <span class="k">return </span><span class="p">(</span><span class="o">&lt;&gt;</span>
+    <span class="o">&lt;</span><span class="nx">video</span> <span class="nx">title</span><span class="o">=</span><span class="dl">"</span><span class="s2">Video player</span><span class="dl">"</span> <span class="nx">controls</span> <span class="nx">ref</span><span class="o">=</span><span class="p">{</span><span class="nx">playerRef</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/&gt;</span><span class="err">)
+</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>Here is the final version with the <code class="language-plaintext highlighter-rouge">nextVideoSegment</code> and <code class="language-plaintext highlighter-rouge">appendToVideoBuffer</code> methods.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">useEffect</span><span class="p">,</span> <span class="nx">useRef</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">parseManifest</span><span class="p">,</span> <span class="nx">fetch</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./player.utils</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">Player</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">source</span> <span class="p">}:</span> <span class="p">{</span> <span class="nl">source</span><span class="p">:</span> <span class="nx">string</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">playerRef</span> <span class="o">=</span> <span class="nx">useRef</span><span class="o">&lt;</span><span class="nx">HTMLVideoElement</span><span class="o">&gt;</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+
+  <span class="kd">let</span> <span class="na">ms</span><span class="p">:</span> <span class="nx">MediaSource</span><span class="p">;</span>
+
+  <span class="kd">let</span> <span class="na">videoSourceBuffer</span><span class="p">:</span> <span class="nx">SourceBuffer</span><span class="p">;</span>
+
+  <span class="kd">let</span> <span class="nx">indexVideoSegment</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+  <span class="c1">// 1 - You will need to parse the manifest to get the init segment as well as all the segments</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="na">video</span><span class="p">:</span> <span class="p">{</span> <span class="na">segmentInit</span><span class="p">:</span> <span class="nx">segmentInitVideo</span><span class="p">,</span> <span class="na">segments</span><span class="p">:</span> <span class="nx">segmentsVideo</span> <span class="p">}</span> <span class="p">}</span> <span class="o">=</span> <span class="nf">parseManifest</span><span class="p">(</span><span class="nx">source</span><span class="p">);</span>
+
+  <span class="c1">// Here we just append 10 chunks</span>
+  <span class="kd">const</span> <span class="nx">numberOfChunks</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+  <span class="kd">const</span> <span class="nx">onMediaSourceOpen</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">videoSourceBuffer</span> <span class="o">=</span> <span class="nx">ms</span><span class="p">.</span><span class="nf">addSourceBuffer</span><span class="p">(</span><span class="dl">'</span><span class="s1">video/mp4; codecs="avc1.42c01e"</span><span class="dl">'</span><span class="p">);</span>
+
+    <span class="nx">videoSourceBuffer</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">updateend</span><span class="dl">'</span><span class="p">,</span> <span class="nx">nextVideoSegment</span><span class="p">);</span>
+
+    <span class="nf">fetch</span><span class="p">(</span><span class="nx">segmentInitVideo</span><span class="p">,</span> <span class="nx">appendToVideoBuffer</span><span class="p">);</span>
+  <span class="p">};</span>
+
+  <span class="nf">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">ms</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MediaSource</span><span class="p">();</span>
+
+    <span class="nx">playerRef</span><span class="p">.</span><span class="nx">current</span><span class="o">!</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nf">createObjectURL</span><span class="p">(</span><span class="nx">ms</span><span class="p">);</span>
+
+    <span class="nx">ms</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">sourceopen</span><span class="dl">'</span><span class="p">,</span> <span class="nx">onMediaSourceOpen</span><span class="p">);</span>
+  <span class="p">},</span> <span class="p">[]);</span>
+
+  <span class="c1">// 2 - nextVideoSegement to fetch a specific chunk and append it to the buffer</span>
+  <span class="kd">const</span> <span class="nx">nextVideoSegment</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">segmentsVideo</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="dl">'</span><span class="s1">$Number$</span><span class="dl">'</span><span class="p">,</span> <span class="nx">indexVideoSegment</span><span class="p">.</span><span class="nf">toString</span><span class="p">());</span>
+
+    <span class="nf">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">appendToVideoBuffer</span><span class="p">);</span>
+
+    <span class="nx">indexVideoSegment</span><span class="o">++</span><span class="p">;</span>
+
+    <span class="k">if </span><span class="p">(</span><span class="nx">indexVideoSegment</span> <span class="o">&gt;</span> <span class="nx">numberOfChunks</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">videoSourceBuffer</span><span class="p">.</span><span class="nf">removeEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">updateend</span><span class="dl">'</span><span class="p">,</span> <span class="nx">nextVideoSegment</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="c1">// 3 - appendToVideoBuffer will get the chunk in param and add it to the buffer.</span>
+  <span class="kd">const</span> <span class="nx">appendToVideoBuffer</span> <span class="o">=</span> <span class="p">(</span><span class="na">videoChunk</span><span class="p">:</span> <span class="nx">Iterable</span><span class="o">&lt;</span><span class="nx">number</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if </span><span class="p">(</span><span class="nx">videoChunk</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">videoSourceBuffer</span><span class="p">.</span><span class="nf">appendBuffer</span><span class="p">(</span><span class="k">new</span> <span class="nc">Uint8Array</span><span class="p">(</span><span class="nx">videoChunk</span><span class="p">));</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="k">return </span><span class="p">(</span><span class="o">&lt;&gt;</span>
+    <span class="o">&lt;</span><span class="nx">video</span> <span class="nx">title</span><span class="o">=</span><span class="dl">"</span><span class="s2">Video player</span><span class="dl">"</span> <span class="nx">controls</span> <span class="nx">ref</span><span class="o">=</span><span class="p">{</span><span class="nx">playerRef</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/&gt;</span><span class="err">)
+</span><span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="step-4">Step 4</h3>
+
+<p>Now that you should have a video playing you might realize that you don’t have sound on it.
+It is because we now need to do the same segment management with the audio.</p>
+
+<!-- TODO: Add gif a shit here we go again -->
+
+<p>You will then have a <strong>videoSourceBuffer</strong> and a <strong>audioSourceBuffer</strong> which will work just the same!</p>
+
+<h2 id="-congratulations">🎉 Congratulations!</h2>
+
+<p>You can now play a video like a pro! 🚀</p>
+
+<h2 id="-whats-next">🔎 What’s next?</h2>
+
+<p>To be honest if you don’t want to bother with all this chunk management, you can find libraries online that will handle it for you 😄</p>
+
+<p>If you want to take a look at some, I would recommend to check:</p>
+
+<ul>
+  <li><a href="https://shaka-player-demo.appspot.com/demo/#audiolang=en;textlang=en;uilang=en;panel=HOME;build=uncompiled">Shaka Player</a></li>
+  <li><a href="https://github.com/video-dev/hls.js">HLSjs</a></li>
+  <li><a href="https://videojs.com/">VideoJS</a></li>
+</ul>
+
+<p>Those are open source and they can help you build a player faster if you don’t want to handle everything on your own.</p>
+
+<p>In a future article we will talk about content protection and the <strong>Encrypted Media Extensions</strong> API so stay tuned!</p>
+
+<h2 id="-sources">📚 Sources</h2>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Media_Source_Extensions_API">MDN Web Docs</a></li>
+  <li><a href="https://www.youtube.com/watch?v=VX9ppF6eMjc">LyonJS - Play Pause - Les coulisses d’un player vidéo</a> 🇫🇷</li>
+</ul>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Crafting+Your+Own+Streamer%3A+A+Hands-on+Guide+to+JavaScript+MSE%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2025%2F07%2F01%2Fvideo-player-mse-introduction.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html&title=Crafting+Your+Own+Streamer%3A+A+Hands-on+Guide+to+JavaScript+MSE%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#TVJS">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> TVJS</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#frontend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#javascript">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#player">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> player</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#smartTV">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> smartTV</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#video">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> video</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#web">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> web</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="Bedrock au MiXiT 2025" href="/2025/05/13/bedrock-au-mixit-2025.html">
+            <p>Next post</p>
+            Bedrock au MiXiT 2025
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>
