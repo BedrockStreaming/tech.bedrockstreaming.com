@@ -2,31 +2,29 @@
 layout: post
 title: "Paris Test Conf 2025: Conference Feedback"
 description: "For the second time, members of the various QA teams from Bedrock (TVJS, Hypercare, Mobile, BO) were able to attend the Paris Test Conf, a day of conferences on software quality and testing."
-author: [a_bochard, c_delgado, d_purecel, s_borrel]
+author: [a_bochard, s_borrel, c_delgado, d_purecel ]
 tags: [conference, testing, quality assurance, Paris Test Conf, 2025, community, event]
 color: rgb(251,87,66)
 ---
-# Paris Test Conf 2025: Conference Feedback
-
 For the second time, members of the various QA teams from Bedrock (TVJS, Hypercare, Mobile, BO) were able to attend the Paris Test Conf, a day of conferences on software quality and testing.
 
 ## Program:
 
 - Exploring the non-deterministic world (Vincent Dauce)
-- Quality documentation for operational software (Graveaud Geoffrey)
-- Pretotyping & prototyping: testing to decrease risk (Noémie M. Rivière)
-- How to test the accessibility of a website? (Emmanuelle Aboaf)
-- Stop the triangles and quadrants, build a real test pyramid (Christophe Breheret-Girardin)
+- [Quality documentation for operational software](#quality-documentation-for-operational-software-graveaud-geoffrey) (Graveaud Geoffrey)
+- [Pretotyping & prototyping: testing to decrease risk](#pretotyping--prototyping-testing-to-decrease-risk-noémie-m-rivière) (Noémie M. Rivière)
+- [How to test the accessibility of a website?](#how-to-test-the-accessibility-of-a-website-emmanuelle-aboaf) (Emmanuelle Aboaf)
+- [Stop the triangles and quadrants, build a real test pyramid](#stop-the-triangles-and-quadrants-build-a-real-test-pyramid-christophe-breheret-girardin) (Christophe Breheret-Girardin)
 - Experience feedback on the creation of a test laboratory - a mix of career change and disability (Solène Lapouge - Aurelia Ribeira)
 - Working with chatGPT & Co: what is the impact on the mental health of testers? (Anne Kramer)
-- The instability of our tests prevents us from delivering (Sofia Lescano Carroll)
+- [The instability of our tests prevents us from delivering](#the-instability-of-our-tests-prevents-us-from-delivering-sofia-lescano-carroll) (Sofia Lescano Carroll)
 - Software testing in healthcare, a (slightly) different world (Julien Beaudaux - Valentin Besse)
 - Faster Better Stronger: how to unlock continuous performance testing? (Matthieu Leroux-Huet)
 - Security can also "Shift Left" (Xavier Maso)
-- User-Centric QA, a test approach that listens to users (Camille Fournier)
+- [User-Centric QA, a test approach that listens to users](#user-centric-qa-a-test-approach-that-listens-to-users-camille-fournier) (Camille Fournier)
 - Tests: these saboteurs of agility (Natacha Fourmy)
 - Implementing integration tests on a React app: performance, learning and limitations (Joris Langlois)
-- From incident to excellence: the role of post-mortems in quality (Benoît Maggi)
+- [From incident to excellence: the role of post-mortems in quality](#from-incident-to-excellence-the-role-of-post-mortems-in-quality-benoit-maggi) (Benoît Maggi)
 - Workshop - Lego, best practices and fun (Cécile Especel)
 - Workshop - Bugs and botany: the presentation where you are the hero (Marc Hage Chahine / Julien Cahu)
 - Workshop - Mobile screen reader accessibility testing (Antonio Ferreira)
@@ -137,26 +135,26 @@ Adapt approaches based on results.
 This talk aims to highlight the value of doing user testing early in the conception process, with the help of pretotyping and prototyping. The target audience for this talk is more Product than Quality Assurance, but it sheds light on some basic introductory user research concepts. It relies heavily on the book [‘The Right It’ by Alberto Savoia](https://www.albertosavoia.com/therightit.html).
 
 ### Key takeaways
-1. Most New Products Fail
-   - The majority of new products and startups fail, not because they are poorly executed but because they are the wrong product - meaning there is little or no market demand for them.
+#### Most New Products Fail
+- The majority of new products and startups fail, not because they are poorly executed but because they are the wrong product - meaning there is little or no market demand for them.
 
-2. Pretotyping: Fail Fast, Fail Cheap
-   - Instead of spending months or years building a product, you should test demand through pretotyping, by creating quick, low-cost experiments to see if people would actually use or buy it.
+#### Pretotyping: Fail Fast, Fail Cheap
+- Instead of spending months or years building a product, you should test demand through pretotyping, by creating quick, low-cost experiments to see if people would actually use or buy it.
 
-3. The Law of Market Failure
-   - Even good ideas often fail because they don’t find a market. This makes it crucial to test assumptions before fully committing.
+#### The Law of Market Failure
+- Even good ideas often fail because they don’t find a market. This makes it crucial to test assumptions before fully committing.
 
-4. Pretotyping Techniques
-   - __The Pinocchio__ – Create a non-functional version of the product to gauge interest (e.g., a fake app interface).
-   - __The One-Night Stand__ – Set up a short-term trial to see if people actually use the product.
-   - __The Fake Door__ – Show a product offer online and see if people click, before even building it.
-   - __The Mechanical Turk__ – Fake automation by manually providing a service before automating it.
+#### Pretotyping Techniques
+- __The Pinocchio__ – Create a non-functional version of the product to gauge interest (e.g., a fake app interface).
+- __The One-Night Stand__ – Set up a short-term trial to see if people actually use the product.
+- __The Fake Door__ – Show a product offer online and see if people click, before even building it.
+- __The Mechanical Turk__ – Fake automation by manually providing a service before automating it.
 
-5. Measuring Success with The Innovation Meter
-   - Instead of relying on gut feelings, measure actual interest using real-world data (e.g., sign-ups, purchase intent, engagement).
+#### Measuring Success with The Innovation Meter
+- Instead of relying on gut feelings, measure actual interest using real-world data (e.g., sign-ups, purchase intent, engagement).
 
-6. Commitment Over Opinions
-   - People saying "That’s a great idea!" means nothing. What matters is if they show real commitment (e.g., pre-orders, sign-ups, paying money).
+#### Commitment Over Opinions
+- People saying "That’s a great idea!" means nothing. What matters is if they show real commitment (e.g., pre-orders, sign-ups, paying money).
 
 ### Conclusion
 The talk emphasises that the key to success is __testing demand before investing heavily__. Instead of asking, "Can we build this?" ask, "Should we build this?" and validate with real-world experiments.
@@ -179,15 +177,15 @@ Digital accessibility concerns not only websites, but also intranet sites, extra
 
 Some __CSS and HTML tags__ can make web pages more inaccessible, especially for users with disabilities (e.g., screen reader users, keyboard users, low-vision users). Here are some common offenders:
 
-- a. `display: none;` or `visibility: hidden;`
+- `display: none;` or `visibility: hidden;`
    - __Problem__: Hides elements from __both sighted users and screen readers__, making essential content unreachable.
    - __Better Alternative__: Use `aria-hidden="true"` for purely decorative elements.
 
-- b. `overflow: hidden;` (without scroll alternatives)
+- `overflow: hidden;` (without scroll alternatives)
   - __Problem__: Can trap keyboard users or prevent scrolling.
   - __Better Alternative__: Ensure content remains __keyboard-accessible__ and consider adding focusable elements.
 
-- c. Removing Focus Indicators (`outline: none;`)
+- removing Focus Indicators (`outline: none;`)
   - __Problem__: Makes keyboard navigation difficult for users who rely on the `Tab` key.
   - __Better Alternative__: Use `outline: auto;` or a custom focus style like:
 ```css
@@ -195,7 +193,7 @@ button:focus {
 outline: 2px solid blue;
 }
 ```
-- d. `<iframe>` __Without Titles__
+- `<iframe>` __Without Titles__
   - __Problem__: Screen readers don’t know what the iframe content is about.
   - __Better Alternative__: Always add a `title` attribute:
 
@@ -203,39 +201,39 @@ outline: 2px solid blue;
 <iframe src="example.html" title="Video Player"></iframe>
 ```
 
-### Case 1: Contrasts
+#### Case 1: Contrasts
 For visually impaired individuals, poor contrast can make a web page difficult to read, or even unreadable.
 
 According to RG2A rules, the minimum contrast should be 4.5:1 for "regular" text, and 3:1 for large text.
 
 To find the correct contrasts between two colors and obtain a ratio, use [Tanaguru Contrast-Finder](https://contrast-finder.tanaguru.com/) .
 
-### Case 2: Language
+#### Case 2: Language
 Using the NVDA speech viewer allows us to realize that it's necessary to define the language of a page if we don't want a page written in French to be read by the viewer in English: we end up with an incomprehensible accent.
 
 To do this, it's sufficient to define the language in the style file, using the `<html lang="en">` tag.
 
-### Case 3: Images
+#### Case 3: Images
 Without the alt attribute, it's impossible for a visually impaired person to know what the image is about because the screen reader will skip the image. Therefore, this attribute must always be used to describe the image as best as possible.
 ```html
 <img src="photo.jpg" alt="A scenic mountain view">
 ```
 
-### Case 4: Forms
+#### Case 4: Forms
 In the case of forms, the NVDA speech viewer encounters several problems when inputs are not correctly configured:
 - Reading labels: add the `for` attribute to the label to allow it to be read by the viewer.
 - Errors: add the `aria-describedby` attribute to allow the speech viewer to read error footnotes.
 - Required fields: add the `required attribute when a field is mandatory so that it is restituted by the screen reader.
 - Color: do not display error/validity information for a field only by color. Icons, footnotes, etc., can be added.
 
-### Case 5: Buttons
+#### Case 5: Buttons
 In the case of a button containing a label, or a button containing an image, it is important to use the `title` or `aria-label` attributes on the button tags so that the speech viewer can correctly transcribe what the button designates.
 
-### Case 6: Links
+#### Case 6: Links
 - Explicit links via aria-label attributes.
 - Clearly distinguish a link and a button: A button performs an action, a link redirects.
 
-### ARIA bonus:
+#### ARIA bonus:
 - The `aria-current` attribute allows vocalizing the current page.
 - The `aria-live` attribute allows vocalizing information from the moment the element's value changes.
 - The `aria-hidden` attribute allows hiding the element from screen readers because icons are not rendered correctly. To complement the icon, put a span with the .sr-only class and the label.
@@ -244,12 +242,12 @@ In the case of a button containing a label, or a button containing an image, it 
 ### Some accessibility verification tools for automated tests:
 - [AccessLint](https://github.com/accesslint) : a Github application that finds accessibility errors on PRs
 - [axe Linter - GitHub Marketplace](https://github.com/marketplace/axe-linter) : which also finds accessibility errors on Github PRs
-- [Accessibility testing | Playwright](https://playwright.dev/docs/accessibility-testing) : for automated tests with Playwright
+- [Accessibility testing - Playwright](https://playwright.dev/docs/accessibility-testing) : for automated tests with Playwright
 
 ### Useful links:
 - [RGAA criteria](https://accessibilite.numerique.gouv.fr/): Référentiel général d’amélioration de l’accessibilité - RGAA
 - [Dev Memo](https://design.numerique.gouv.fr/accessibilite-numerique/): Accessibilité numérique - DesignGouv
-- [Development and RGAA](https://www.info.gouv.fr/accessibilite/developpement): make your site accessible to all: Développement et RGAA : rendez votre site accessible à tous - L'accessibilité : un enjeu universel | info.gouv.fr
+- [Development and RGAA](https://www.info.gouv.fr/accessibilite/developpement): Make your site accessible to all
 
 ## Stop the triangles and quadrants, build a real test pyramid (Christophe Breheret-Girardin)
 ### Introduction
@@ -417,7 +415,7 @@ Objective: Encourage and measure user satisfaction.
 
 
 
-## From incident to excellence: the role of post-mortems in quality (Benoît Maggi)
+## From incident to excellence: the role of post-mortems in quality (Benoit Maggi)
 ### Introduction
 Despite all the precautions taken, a production incident always ends up occurring. Once services are restored, an essential question remains: how to prevent this problem from happening again?
 
