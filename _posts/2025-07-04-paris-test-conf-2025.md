@@ -68,6 +68,8 @@ Relevance + accessible information = I can share.
 
 Clarity + Relevance + Accessible Information = Quality Documentation
 
+![venn Diagram of quality doc](/images/posts/paris-test-conf-2025/ptc1.jpeg)
+
 ### Implementation of these 3 criteria
 Example of a simple and SAFE-TO-FAIL process:
 
@@ -76,6 +78,8 @@ Plan new rituals > Solo documentation review > Team comment review
 If the team comment review is KO, then we update the documentation, and we go back to the process.
 
 If the team comment review is OK, we don't publish it right away, we refine it.
+
+![criterias implementation process](/images/posts/paris-test-conf-2025/ptc2.jpeg)
 
 ### Solo documentation review:
 Comment cleverly by adding P and/or I and/or C at the beginning of a comment:
@@ -89,6 +93,8 @@ Use conventional comments:
 - Praise
 - Remark
 - Question
+
+![conventional comments usage diagram](/images/posts/paris-test-conf-2025/ptc3.jpeg)
 
 ### Team comment review:
 - Gather comments by theme in a support document
@@ -174,6 +180,9 @@ According to the Observatory of Accessibility Obligations Compliance, only 5% of
 From the very beginning of the project! Accessibility is not integrated at the end of the project because each page where accessibility is lacking will have to be redone, so it costs more to do it at the end.
 
 Digital accessibility concerns not only websites, but also intranet sites, extranet sites, and mobile applications.
+
+![non-accessible website](/images/posts/paris-test-conf-2025/ptc4.jpeg)
+
 
 Some __CSS and HTML tags__ can make web pages more inaccessible, especially for users with disabilities (e.g., screen reader users, keyboard users, low-vision users). Here are some common offenders:
 
@@ -313,6 +322,8 @@ QAs have a support role here.
 ### Introduction
 Test instability, or "flakiness", is a major problem that can significantly hinder a team's ability to deliver software effectively. Tests that fail randomly, without code modifications, create uncertainty and a loss of confidence in the testing process.
 
+![angry or painful testing](/images/posts/paris-test-conf-2025/ptc5.jpeg)
+
 ### Definition and Identification of Unstable Tests
 - A "flaky" test is a test that produces variable results (success or failure) during repeated executions, without any modification to the tested code.
 - It is crucial to ensure that the instability comes from the test itself, and not from an underlying problem in the code or the environment.
@@ -322,6 +333,8 @@ Test instability, or "flakiness", is a major problem that can significantly hind
 - Unstable tests lead to a considerable waste of time during debugging and failure analysis phases.
 - They erode the team's confidence in test results, which can lead to ignoring genuine problems.
 - "Flakiness" tends to worsen with "copy-paste" testing practices or the habit of turning a blind eye to random failures.
+
+![flaky tests impact](/images/posts/paris-test-conf-2025/ptc6.jpeg)
 
 ### Common Causes of Test Instability
 - Poorly written tests, with complex logic or poorly managed dependencies.
@@ -356,6 +369,8 @@ Effective management of test instability is essential to ensure software quality
 ## User-Centric QA, a test approach that listens to users (Camille Fournier)
 ### Introduction
 This conference, presented by Camille Fournier, suggests placing the user at the center of our quality assurance approaches.
+
+![QA not fun joke](/images/posts/paris-test-conf-2025/ptc7.jpeg)
 
 ### Listening to the user to identify and understand usages
 #### How?
@@ -418,6 +433,8 @@ Objective: Encourage and measure user satisfaction.
 ## From incident to excellence: the role of post-mortems in quality (Benoit Maggi)
 ### Introduction
 Despite all the precautions taken, a production incident always ends up occurring. Once services are restored, an essential question remains: how to prevent this problem from happening again?
+
+![post mortem introduction slide](/images/posts/paris-test-conf-2025/ptc8.jpeg)
 
 ### Why a Post-Mortem?
 Following an incident, the post-mortem goes well beyond simple technical analysis: it aims to understand the root causes, identify collective actions, and continuously improve processes.
