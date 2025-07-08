@@ -14,6 +14,9 @@ team_lft:
   name: LFTeam
 
 # people (alphabetically ordered)
+a_bochard:
+  name: Arthur Bochard
+  avatar: /images/avatar/a_bochard.jpeg
 a_caron:
   name: Antoine Caron
   avatar: /images/avatar/a_caron.jpeg
@@ -74,12 +77,18 @@ c_vanderzwaard:
   url: https://twitter.com/christianvdz
 d_cuny:
   name: Damien Cuny
+c_delgado:
+  name: Claire Delgado
+  avatar: /images/avatar/c_delgado.jpeg
 d_krieger:
   name: Damien Krieger
 d_larue:
   name: David Larue
 d_petrilli:
   name: Damien Petrilli
+d_purecel:
+  name: Dana Purecel
+  avatar: /images/avatar/d_purecel.jpeg
 d_roussel:
   name: Denis
   avatar: /images/avatar/d_roussel.jpg
@@ -256,6 +265,9 @@ q_nambot:
 r_panoyan:
   name: Rafi Panoyan
   url: https://twitter.com/rafipanoyan
+s_borrel:
+  name: Stéphanie Borrel
+  avatar: /images/avatar/s_borrel.jpeg
 s_drode:
   name: Sebastien Drode
 s_gougouzian:
