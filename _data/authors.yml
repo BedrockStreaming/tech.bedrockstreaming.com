@@ -12,6 +12,9 @@ team_frontend:
   name: Frontend teams
 team_lft:
   name: LFTeam
+team_bff:
+  name: BFF team
+  avatar: /images/avatar/bff_team.png
 
 # people (alphabetically ordered)
 a_caron:
@@ -164,6 +167,10 @@ l_caillet:
   name: Laurent Caillet
   avatar: /images/avatar/l_caillet.jpg
   url: https://www.linkedin.com/in/laurent-caillet/
+l_lasry:
+  name: Ludovic Lasry
+  avatar: /images/avatar/l_lasry.jpg
+  url: https://www.linkedin.com/in/ludovic-lasry-b511899
 l_penaguin:
   name: Léo Penaguin
   url: https://leopng.com
