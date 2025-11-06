@@ -7,8 +7,8 @@ author: [f_dubost, m_bernier]
 cover: /assets/images/perfnow-2025-cover.jpg
 color: rgb(251,87,66)
 language: en
-feature-img: ""
-thumbnail: ""
+feature-img: "/images/posts/2025-11-04-performance-now-2025/perfnow-2025.jpg"
+thumbnail: "/images/posts/2025-11-04-performance-now-2025/perfnow-2025.jpg"
 ---
 
 On October 30–31, the Bedrock Web & TV team attended **performance.now() 2025** in Amsterdam, one of the few conferences entirely dedicated to web frontend performance. Two intense days of real-world insights, browser deep-dives and discussions about what “fast” truly means in 2025.
@@ -86,12 +86,16 @@ Umar Hansa shared lesser-known DevTools features that help engineers explore, pr
 Highlights of useful features with Chrome devtools:
 
 - [**LCP Request Discovery**](https://developer.chrome.com/docs/performance/insights/lcp-discovery) (in the "Performance" tab) pinpoints the exact resource behind your Largest Contentful Paint
-  ![LCP Request Discovery on M6+](/images/posts/2025-11-04-performance-now-2025/LCP-request-discovery.png)
+
+![LCP Request Discovery on M6+](/images/posts/2025-11-04-performance-now-2025/LCP-request-discovery.png)
+
 - **Lighthouse Timespan** runs over a full user flow, perfect for analyzing workflows or transitions
 - [**Recorder Tab**](https://developer.chrome.com/docs/devtools/recorder/overview) captures interactions and replays them, useful to automate custom performance measures. It can also generate Playwright-compatible scripts, ideal for QA engineer. At Bedrock, this could reduce time spent manually documenting reproduction steps for bugs.
 - [**Network overrides**](https://developer.chrome.com/docs/devtools/overrides) allow developers to intercept and modify network responses directly in DevTools, without needing a local proxy. At Bedrock, we often use this feature to streamline debugging or testing API responses without backend changes.
 - **Per-URL throttling** and **network priority** (only by enabling the Chrome flag `#devtools-individual-request-throttling` in Canary/Dev version) simulate realistic various conditions without global settings
-  ![Individual request throttling](/images/posts/2025-11-04-performance-now-2025/individual-request-throttling.png)
+
+![Individual request throttling](/images/posts/2025-11-04-performance-now-2025/individual-request-throttling.png)
+
 - [**Annotations**](https://developer.chrome.com/docs/devtools/performance/annotations) in the Performance tab make profiling more collaborative
 - Finally, [**DevTools MCP**](https://developer.chrome.com/blog/chrome-devtools-mcp) brings AI assistance directly into debugging. By describing an issue, the AI can compare traces, identify anomalies, generate Lighthouse-style summaries or even produce scripts that can be used in CI pipelines for automated performance monitoring (e.g. based on your git diff) 🤯
 
@@ -101,7 +105,7 @@ Together, these tools turn DevTools into a true performance lab, fast to iterate
 
 ## 🎨 Rendering Efficiently
 
-**Michael Hladky (PushBased)**, **Barry Pollard (Google)**
+**Michael Hladky (PushBased)**, **Barry Pollard (Google)**, **Nadia Makarevich (Independent)**
 
 [Michael Hladky’s talk _Big Data, Zero JS_](https://docs.google.com/presentation/d/1LZleUtEN3aMNlJsPh1LOrzG3vxifufkEKqOCbQU6j3c/edit?slide=id.p#slide=id.p) focused on optimizing rendering through modern CSS rather than JavaScript. He explained how understanding the **browser rendering pipeline** — recalculate styles, layout, paint, composite — helps identify where things slow down.
 
@@ -117,13 +121,22 @@ By using new CSS properties like [`contain`](https://docs.google.com/presentatio
 }
 ```
 
-These properties are now well-supported and can drastically improve performance for large DOM structures like catalogs or carousels. We already use `content-visibility` and `contain-intrinsic-size` on few components in our Web apps, but we should definitively consider the potential gains from expanding the use of these properties.
+These properties are now well-supported and can drastically improve performance for large DOM structures like catalogs or carousels. We already use `content-visibility` and `contain-intrinsic-size` on few components in our web apps, but we should definitively consider the potential gains from expanding the use of these properties.
 
 For more detail, check [css-triggers.com](https://csstriggers.com/) to understand which CSS properties trigger layout or paint.
 
-On the other hand, [Barry Pollard introduced](https://docs.google.com/presentation/d/1YZR_Oay1nzE9ujHndF-1yNkjNx2bRXy3MRNY7P5ngZA/edit?slide=id.g38c479513fd_0_0#slide=id.g38c479513fd_0_0) the [**Speculation Rules API**](https://developer.chrome.com/docs/web-platform/implementing-speculation-rules), which allows browsers to prefetch or prerender future pages, reducing perceived latency in **multi-page apps** (MPA). Although caution should be exercised when using it, and although it is currently only available on Chrome (or almost!), it can have a big impact on user navigation, since the next page is prepared in advance.
+On the other hand, [Barry Pollard introduced](https://docs.google.com/presentation/d/1YZR_Oay1nzE9ujHndF-1yNkjNx2bRXy3MRNY7P5ngZA/edit?slide=id.g38c479513fd_0_0#slide=id.g38c479513fd_0_0) the [**Speculation Rules API**](https://developer.chrome.com/docs/web-platform/implementing-speculation-rules), which allows browsers to prefetch or prerender future pages, reducing perceived latency in **multi-page apps** (MPA). Although caution should be exercised when using it, and although it is currently only available on Chrome (or almost!), it can have a big impact on user navigation, since the next page is prepared in advance. While not relevant for Bedrock’s SPA-based apps, it perfectly illustrates a key idea: _efficiency is about making users wait less, not just doing less._
 
-While not relevant for Bedrock’s SPA-based apps, it perfectly illustrates a key idea: _efficiency is about making users wait less, not just doing less._
+Finally, [Nadia Makarevich compared](https://drive.google.com/file/d/18MURNelPY6RJmw6ashsk3mfDgkDX8sf_/view) CSR, SSR and React Server Components using the same React app and metrics to measure their real impact on rendering speed and runtime cost. Her approach was [very scientific and interesting](https://www.developerway.com/posts/react-server-components-performance).
+
+Key take-aways:
+
+- **CSR (Client-Side Rendering)**: the simplest setup, but all HTML and data are generated client-side, which delays both LCP and hydration
+- **SSR (Server-Side Rendering)**: brings immediate LCP improvement by sending pre-rendered HTML, but if user data is fetched on the client, it still causes visible delays and layout shifts
+- **SSR + Suspense/Streaming**: progressively improves Time-to-Display and user perception, as data is streamed and hydrated chunk by chunk
+- **RSC (React Server Components)**: theoretically reduces client JS and improves interactivity, but requires major architectural changes; the gains are limited (LCP is the same as "traditional" SSR).
+
+Our web platform uses anonymous SSR (highly cached) and client-side fetches for personalization. Migrating to RSC would require major changes to our architecture, with uncertain short-term gains. We will monitor the technology, but it’s not a priority right now.
 
 ---
 
