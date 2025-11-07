@@ -7,7 +7,7 @@ author: [f_dubost, m_bernier]
 cover: /assets/images/perfnow-2025-cover.jpg
 color: rgb(251,87,66)
 language: en
-feature-img: "/images/posts/2025-11-04-performance-now-2025/perfnow-2025.jpg"
+feature-img: "/images/posts/2025-11-04-performance-now-2025/perfnow-2025-1.jpg"
 thumbnail: "/images/posts/2025-11-04-performance-now-2025/perfnow-2025.jpg"
 ---
 
@@ -107,7 +107,9 @@ Together, these tools turn DevTools into a true performance lab, fast to iterate
 
 **Michael Hladky (PushBased)**, **Barry Pollard (Google)**, **Nadia Makarevich (Independent)**
 
-[Michael Hladky’s talk _Big Data, Zero JS_](https://docs.google.com/presentation/d/1LZleUtEN3aMNlJsPh1LOrzG3vxifufkEKqOCbQU6j3c/edit?slide=id.p#slide=id.p) focused on optimizing rendering through modern CSS rather than JavaScript. He explained how understanding the **browser rendering pipeline** — recalculate styles, layout, paint, composite — helps identify where things slow down.
+### Big Data, Zero JS
+
+[Michael Hladky’s talk](https://docs.google.com/presentation/d/1LZleUtEN3aMNlJsPh1LOrzG3vxifufkEKqOCbQU6j3c/edit?slide=id.p#slide=id.p) focused on optimizing rendering through modern CSS rather than JavaScript. He explained how understanding the **browser rendering pipeline** — recalculate styles, layout, paint, composite — helps identify where things slow down.
 
 ![Browser render waterfall](/images/posts/2025-11-04-performance-now-2025/browser-render-waterfall.png)
 
@@ -125,7 +127,11 @@ These properties are now well-supported and can drastically improve performance 
 
 For more detail, check [css-triggers.com](https://csstriggers.com/) to understand which CSS properties trigger layout or paint.
 
+### Speculations about webperf
+
 On the other hand, [Barry Pollard introduced](https://docs.google.com/presentation/d/1YZR_Oay1nzE9ujHndF-1yNkjNx2bRXy3MRNY7P5ngZA/edit?slide=id.g38c479513fd_0_0#slide=id.g38c479513fd_0_0) the [**Speculation Rules API**](https://developer.chrome.com/docs/web-platform/implementing-speculation-rules), which allows browsers to prefetch or prerender future pages, reducing perceived latency in **multi-page apps** (MPA). Although caution should be exercised when using it, and although it is currently only available on Chrome (or almost!), it can have a big impact on user navigation, since the next page is prepared in advance. While not relevant for Bedrock’s SPA-based apps, it perfectly illustrates a key idea: _efficiency is about making users wait less, not just doing less._
+
+### React, Rendering & Performance
 
 Finally, [Nadia Makarevich compared](https://drive.google.com/file/d/18MURNelPY6RJmw6ashsk3mfDgkDX8sf_/view) CSR, SSR and React Server Components using the same React app and metrics to measure their real impact on rendering speed and runtime cost. Her approach was [very scientific and interesting](https://www.developerway.com/posts/react-server-components-performance).
 
