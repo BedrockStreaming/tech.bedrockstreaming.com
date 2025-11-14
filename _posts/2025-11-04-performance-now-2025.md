@@ -97,7 +97,7 @@ Highlights of useful features with Chrome devtools:
 ![LCP Request Discovery on M6+](/images/posts/2025-11-04-performance-now-2025/LCP-request-discovery.png)
 
 - **Lighthouse Timespan** runs over a full user flow, perfect for analyzing workflows or transitions
-- [**Recorder Tab**](https://developer.chrome.com/docs/devtools/recorder/overview) captures interactions and replays them, useful to automate custom performance measures. It can also generate Playwright-compatible scripts, ideal for QA engineer. At Bedrock, this could reduce time spent manually documenting reproduction steps for bugs.
+- [**Recorder Tab**](https://developer.chrome.com/docs/devtools/recorder/overview) captures interactions and replays them, useful to automate custom performance measures. It can also generate Playwright-compatible scripts, ideal for QA engineers. At Bedrock, this could reduce time spent manually documenting reproduction steps for bugs.
 - [**Network overrides**](https://developer.chrome.com/docs/devtools/overrides) allow developers to intercept and modify network responses directly in DevTools, without needing a local proxy. At Bedrock, we often use this feature to streamline debugging or testing API responses without backend changes.
 - **Per-URL throttling** and **network priority** (only by enabling the Chrome flag `#devtools-individual-request-throttling` in Canary/Dev version) simulate realistic various conditions without global settings
 
