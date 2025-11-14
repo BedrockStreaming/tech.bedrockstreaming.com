@@ -132,7 +132,7 @@ By using new CSS properties like [`contain`](https://docs.google.com/presentatio
 
 These properties are now well-supported and can drastically improve performance for large DOM structures like catalogs or carousels. We already use `content-visibility` and `contain-intrinsic-size` on few components in our web apps, but we should definitively consider the potential gains from expanding the use of these properties.
 
-For more detail, check [css-triggers.com](https://css-triggers.com/) to understand which CSS properties trigger layout or paint.
+For more detail, check [CSS Triggers](https://lmame-geek.com/css-triggers/) to understand which CSS properties trigger layout or paint.
 
 ### Speculations about webperf
 
