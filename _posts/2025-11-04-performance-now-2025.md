@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Performance.now() 2025 – Pragmatic, Magical and Responsible Performance"
-description: "Takeaways from the Performance.now() 2025 conference in Amsterdam — investigating runtime costs, modern DevTools, and responsible performance."
+title: "Performance.now() 2025 - Pragmatic, Magical and Responsible Performance"
+description: "Takeaways from the Performance.now() 2025 conference in Amsterdam - investigating runtime costs, modern DevTools and responsible performance."
 tags: [performance, conference, webperf, javascript, react, web, frontend]
 author: [f_dubost, m_bernier]
 cover: /assets/images/perfnow-2025-cover.jpg
@@ -11,7 +11,7 @@ feature-img: "/images/posts/2025-11-04-performance-now-2025/perfnow-2025-1.jpg"
 thumbnail: "/images/posts/2025-11-04-performance-now-2025/perfnow-2025.jpg"
 ---
 
-On October 30–31, the Bedrock Web & TV team attended **performance.now() 2025** in Amsterdam, one of the few conferences entirely dedicated to web frontend performance. Two intense days of real-world insights, browser deep-dives and discussions about what “fast” truly means in 2025.
+On October 30-31, the Bedrock Web & TV team attended **performance.now() 2025** in Amsterdam, one of the few conferences entirely dedicated to web frontend performance. Two intense days of real-world insights, browser deep-dives and discussions about what “fast” truly means in 2025.
 
 ---
 
@@ -45,7 +45,7 @@ Harry Roberts reminded everyone that [performance engineering is not a checklist
 
 Key takeaways:
 
-- **Test realistically**: replicate actual network conditions, devices and cache states instead of relying on idealized lab setups.
+- **Test realistically**: replicate actual network conditions, devices and cache states instead of relying on idealized lab setups. Tools like [WebPageTest](https://www.webpagetest.org/), [CrUX](https://developer.chrome.com/docs/crux) and [Treo](https://treo.sh/) help capture real-world performance data.
 - **Don’t stop at P75**: optimizing for the 75th percentile hides real pain for the rest of your users.
 - **Focus on enablers**: [TTFB](https://web.dev/articles/ttfb) and [DOMContentLoaded](https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event) unlock good Core Web Vitals.
 
@@ -53,7 +53,7 @@ Key takeaways:
 
 [Michal Mocny then introduced](https://docs.google.com/presentation/d/e/2PACX-1vQDP5p4UfOanwMC3hXryp4nVI2vKKbFAqmF8kei26BHjPYW-SfgV4__4ClnWf9deuETAWoSJ_U3Feb-/pub?slide=id.g39da923945f_1_0) the [**Soft Navigation API**](https://developer.chrome.com/docs/web-platform/soft-navigations-experiment), a long-awaited feature for SPA developers. It enables tracking **LCP on soft navigations**, not just on the first page load. Combined with INP (Interaction to Next Paint), this finally gives a complete picture of user experience in single-page apps. Still experimental, but already testable in Chrome.
 
-At Bedrock, our Web & TV apps are SPAs, and being able to natively measure the user's navigation experience within the application was something we were sorely lacking. We will quickly experiment with this API and set up monitoring for these metrics.
+At Bedrock, our Web & TV apps are SPAs and being able to natively measure the user's navigation experience within the application was something we were sorely lacking. We will quickly experiment with this API and set up monitoring for these metrics.
 
 ---
 
@@ -71,13 +71,20 @@ Andy Davies explored how the browser renders frames, from JavaScript execution t
 
 [He introduced **LoAF (Long Animation Frames)**](https://noti.st/andydavies/9JOItx/making-sense-of-loaf), a method to detect frames taking more than 50 ms between start and paint. These “slow frames” often go unnoticed by the Long Tasks API but directly affect smoothness and interactivity.
 
+LoAF provides much richer data than the Long Tasks API, enabling deeper performance analysis:
+
+- **Complete script attribution**: Each LoAF entry includes a detailed list of scripts that executed during the frame, making it easy for developers to pinpoint the real causes of jank and delayed input. Unlike Long Tasks which only capture task execution, they also includes the full rendering pipeline (style, layout, paint), showing scripts that execute during the render phase (mutation observers...).
+- **Layout thrashing detection**: The `forcedStyleAndLayoutDuration` property reveals when code triggers multiple consecutive forced reflows, a common performance anti-pattern hard to detect in traditional profiling.
+- **Pre-milestone analysis**: By filtering LoAF entries, you can identify which scripts run before critical milestones like FCP (First Contentful Paint) or LCP, helping prioritize optimization efforts.
+
 LoAF helps answer key questions:
 
 - Which scripts are blocking the main thread?
 - Are long tasks tied to analytics, animations or specific components?
 - How do these correlate with INP?
+- What's causing layout thrashing in my app?
 
-By correlating LoAF data with script execution, developers can pinpoint the real causes of jank and delayed input. Andy released a DevTools extension that makes these insights easy to explore: [perf-timeline-to-devtools-profile](https://github.com/andydavies/perf-timeline-to-devtools-profile). We are eager to test this extension on our Web & TV apps to find areas for improvement!
+Andy released a DevTools extension that makes these insights easy to explore: [perf-timeline-to-devtools-profile](https://github.com/andydavies/perf-timeline-to-devtools-profile). For developers looking to implement LoAF monitoring, the [webperf-snippets collection](https://webperf-snippets.nucliweb.net/Interaction/Long-Animation-Frames-Helpers) provides ready-to-use helpers and the [web-vitals.js](https://github.com/GoogleChrome/web-vitals) library includes built-in LoAF support. We are eager to test these tools on our Web & TV apps to find areas for improvement!
 
 ### Modern Performance Workflows
 
@@ -129,7 +136,9 @@ For more detail, check [css-triggers.com](https://csstriggers.com/) to understan
 
 ### Speculations about webperf
 
-On the other hand, [Barry Pollard introduced](https://docs.google.com/presentation/d/1YZR_Oay1nzE9ujHndF-1yNkjNx2bRXy3MRNY7P5ngZA/edit?slide=id.g38c479513fd_0_0#slide=id.g38c479513fd_0_0) the [**Speculation Rules API**](https://developer.chrome.com/docs/web-platform/implementing-speculation-rules), which allows browsers to prefetch or prerender future pages, reducing perceived latency in **multi-page apps** (MPA). Although caution should be exercised when using it, and although it is currently only available on Chrome (or almost!), it can have a big impact on user navigation, since the next page is prepared in advance. While not relevant for Bedrock’s SPA-based apps, it perfectly illustrates a key idea: _efficiency is about making users wait less, not just doing less._
+On the other hand, [Barry Pollard introduced](https://docs.google.com/presentation/d/1YZR_Oay1nzE9ujHndF-1yNkjNx2bRXy3MRNY7P5ngZA/edit?slide=id.g38c479513fd_0_0#slide=id.g38c479513fd_0_0) the [**Speculation Rules API**](https://developer.chrome.com/docs/web-platform/implementing-speculation-rules), which allows browsers to prefetch or prerender future pages, reducing perceived latency in **multi-page apps** (MPA). Although caution should be exercised when using it, and although it is currently only available on Chrome (or almost!), it can have a big impact on user navigation, since the next page is prepared in advance.
+
+Companies like [Etsy](https://www.etsy.com/codeascraft/search-prefetching-performance) and [Shopify](https://performance.shopify.com/blogs/blog/speculation-rules-at-shopify) have already implemented speculation rules in production and reported significant improvements in perceived performance. While not relevant for Bedrock's SPA-based apps, it perfectly illustrates a key idea: _efficiency is about making users wait less, not just doing less._
 
 ### React, Rendering & Performance
 
