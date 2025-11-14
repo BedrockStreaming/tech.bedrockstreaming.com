@@ -73,7 +73,7 @@ Andy Davies explored how the browser renders frames, from JavaScript execution t
 
 LoAF provides much richer data than the Long Tasks API, enabling deeper performance analysis:
 
-- **Complete script attribution**: Each LoAF entry includes a detailed list of scripts that executed during the frame, making it easy for developers to pinpoint the real causes of jank and delayed input. Unlike Long Tasks which only capture task execution, they also includes the full rendering pipeline (style, layout, paint), showing scripts that execute during the render phase (mutation observers...).
+- **Complete script attribution**: Each LoAF entry includes a detailed list of scripts that executed during the frame, making it easy for developers to pinpoint the real causes of jank and delayed input. Unlike Long Tasks which only capture task execution, they also include the full rendering pipeline (style, layout, paint), showing scripts that execute during the render phase (mutation observers...).
 - **Layout thrashing detection**: The `forcedStyleAndLayoutDuration` property reveals when code triggers multiple consecutive forced reflows, a common performance anti-pattern hard to detect in traditional profiling.
 - **Pre-milestone analysis**: By filtering LoAF entries, you can identify which scripts run before critical milestones like FCP (First Contentful Paint) or LCP, helping prioritize optimization efforts.
 
