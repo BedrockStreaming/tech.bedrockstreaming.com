@@ -177,7 +177,7 @@ The principle is simple: a responsible and empathic web is often a faster one. S
 
 ## 🧠 Conclusion: Performance as a Mindset
 
-After two days in Amsterdam, one clear message emerged: performance is no longer just a number. It’s a mindset.
+After two days in Amsterdam, one clear message emerged: performance is no longer just a number... It’s a mindset.
 
 - **Technical intent**: understanding how browsers work and what causes runtime costs
 - **Cultural intent**: making performance a shared habit across teams
