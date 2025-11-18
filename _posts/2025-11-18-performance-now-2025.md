@@ -120,7 +120,7 @@ Together, these tools turn DevTools into a true performance lab, fast to iterate
 
 ![Browser render waterfall](/images/posts/2025-11-18-performance-now-2025/browser-render-waterfall.png)
 
-By using new CSS properties like `contain` ([1](<(https://docs.google.com/presentation/d/1LZleUtEN3aMNlJsPh1LOrzG3vxifufkEKqOCbQU6j3c/edit?slide=id.g11e3e1a882e_0_2475#slide=id.g11e3e1a882e_0_2475)>)), `content-visibility` and `contain-intrinsic-size` ([2](https://docs.google.com/presentation/d/1LZleUtEN3aMNlJsPh1LOrzG3vxifufkEKqOCbQU6j3c/edit?slide=id.g11a87b8eaef_0_22#slide=id.g11a87b8eaef_0_22)), developers can isolate DOM sections and prevent unnecessary reflows or paints.
+By using new CSS properties like `contain` ([1](https://docs.google.com/presentation/d/1LZleUtEN3aMNlJsPh1LOrzG3vxifufkEKqOCbQU6j3c/edit?slide=id.g11e3e1a882e_0_2475#slide=id.g11e3e1a882e_0_2475)), `content-visibility` and `contain-intrinsic-size` ([2](https://docs.google.com/presentation/d/1LZleUtEN3aMNlJsPh1LOrzG3vxifufkEKqOCbQU6j3c/edit?slide=id.g11a87b8eaef_0_22#slide=id.g11a87b8eaef_0_22)), developers can isolate DOM sections and prevent unnecessary reflows or paints.
 
 ```css
 .card {
