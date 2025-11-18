@@ -51,7 +51,7 @@ Key takeaways:
 
 > “The numbers you see represent a huge array of experiences. Test the right thing under the right conditions.”
 
-[Michal Mocny then introduced](https://docs.google.com/presentation/d/e/2PACX-1vQDP5p4UfOanwMC3hXryp4nVI2vKKbFAqmF8kei26BHjPYW-SfgV4__4ClnWf9deuETAWoSJ_U3Feb-/pub?slide=id.g39da923945f_1_0) the [**Soft Navigation API**](https://developer.chrome.com/docs/web-platform/soft-navigations-experiment), a long-awaited feature for SPA developers. It enables tracking **LCP on soft navigations**, not just on the first page load. Combined with INP (Interaction to Next Paint), this finally gives a complete picture of user experience in single-page apps. Still experimental, but already testable in Chrome.
+[Michal Mocny then introduced](https://docs.google.com/presentation/d/e/2PACX-1vQDP5p4UfOanwMC3hXryp4nVI2vKKbFAqmF8kei26BHjPYW-SfgV4__4ClnWf9deuETAWoSJ_U3Feb-/pub?slide=id.g39da923945f_1_0) the [**Soft Navigation API**](https://developer.chrome.com/docs/web-platform/soft-navigations-experiment), a long-awaited feature for SPA developers. It enables tracking **LCP (Largest Contentful Paint) on soft navigations**, not just on the first page load. Combined with INP (Interaction to Next Paint), this finally gives a complete picture of user experience in single-page apps. Still experimental, but already testable in Chrome.
 
 At Bedrock, our Web & TV apps are SPAs and being able to natively measure the user's navigation experience within the application was something we were sorely lacking. We will quickly experiment with this API and set up monitoring for these metrics.
 
