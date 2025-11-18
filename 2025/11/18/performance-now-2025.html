@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/2025-11-18-performance-now-2025/perfnow-2025.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Performance.now() 2025 - Pragmatic, Magical and Responsible Performance | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Performance.now() 2025 - Pragmatic, Magical and Responsible Performance" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Takeaways from the Performance.now() 2025 conference in Amsterdam - investigating runtime costs, modern DevTools and responsible performance." />
+<meta property="og:description" content="Takeaways from the Performance.now() 2025 conference in Amsterdam - investigating runtime costs, modern DevTools and responsible performance." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-11-18T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Performance.now() 2025 - Pragmatic, Magical and Responsible Performance" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","description":"Takeaways from the Performance.now() 2025 conference in Amsterdam - investigating runtime costs, modern DevTools and responsible performance.","headline":"Performance.now() 2025 - Pragmatic, Magical and Responsible Performance","dateModified":"2025-11-18T00:00:00+00:00","datePublished":"2025-11-18T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Performance.now() 2025 - Pragmatic, Magical and Responsible Performance">
+    <meta name="twitter:description" content="On October 30-31, the Bedrock Web &amp; TV team attended performance.now() 2025 in Amsterdam, one of the few conferences entirely dedicated to web frontend p...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/2025-11-18-performance-now-2025/perfnow-2025.jpg">
+    <meta name="twitter:image:alt" content="Performance.now() 2025 - Pragmatic, Magical and Responsible Performance">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Performance.now() 2025 - Pragmatic, Magical and Responsible Performance " aria-label="Performance.now() 2025 - Pragmatic, Magical and Responsible Performance" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Performance.now%28%29+2025+-+Pragmatic%2C+Magical+and+Responsible+Performance" class="title">Performance.now() 2025 - Pragmatic, Magical and Responsible Performance</h1>
+      <div class="post-info">
+
+
+<a
+      href="https://twitter.com/fooragnak"
+      target="_blank"
+      rel="noopener"
+      class="author">
+      <img alt="Author's avatar" src="/images/avatar/f_dubost.jpg" class="thumbnail">
+    
+
+    
+      <span class="name">
+        Florent Dubost
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+<span class="author">
+      <img alt="Author's avatar" src="/images/avatar/m_bernier.png" class="thumbnail">
+    
+
+    
+      <span class="name">
+        Maxence Bernier
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    November 18, 2025
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>On October 30-31, the Bedrock Web &amp; TV team attended <strong>performance.now() 2025</strong> in Amsterdam, one of the few conferences entirely dedicated to web frontend performance. Two intense days of real-world insights, browser deep-dives and discussions about what “fast” truly means in 2025.</p>
+
+<hr />
+
+<h2 id="-fast-is-pragmagical">⚡ Fast is Pragmagical</h2>
+
+<p><strong>Tammy Everts (SpeedCurve)</strong></p>
+
+<p>The conference opened with a simple but essential question: <a href="https://speakerdeck.com/tammyeverts/how-fast-is-fast-enough-perfnow-2025"><em>“How fast is fast enough?”</em></a></p>
+
+<p>The answer depends on who you are trying to please:</p>
+
+<ul>
+  <li>your <strong>boss</strong>, who cares about ROI and conversions</li>
+  <li><strong>Google</strong>, with its Core Web Vitals thresholds</li>
+  <li>or your <strong>users</strong>, who expect instant, seamless experiences</li>
+</ul>
+
+<p>Performance is not just numbers. Fast interfaces remove <strong>cognitive friction</strong>, keeping users focused and engaged. Tammy described performance as both <strong>pragmatic</strong> — measurable, business-driven — and <strong>magical</strong> — the kind of speed that feels effortless.</p>
+
+<p>Core Web Vitals remain a useful baseline, but they are not the finish line. Every product should define its own thresholds based on its users, context and KPIs.</p>
+
+<blockquote>
+  <p>“Fast eliminates cognitive friction, fast is magical. But fast also needs to be pragmatic.”</p>
+</blockquote>
+
+<p>That balance — <em>pragmagical</em> — became one of the recurring themes of the event.</p>
+
+<hr />
+
+<h2 id="-measure-what-matters">🧩 Measure What Matters</h2>
+
+<p><strong>Harry Roberts (CSS Wizardry)</strong>, <strong>Michal Mocny (Google)</strong></p>
+
+<p>Harry Roberts reminded everyone that <a href="https://speakerdeck.com/csswizardry/how-to-think-like-a-performance-engineer">performance engineering is not a checklist, but a way of thinking</a>. He emphasized that metrics only matter if they reflect real-world conditions.</p>
+
+<p>Key takeaways:</p>
+
+<ul>
+  <li><strong>Test realistically</strong>: replicate actual network conditions, devices and cache states instead of relying on idealized lab setups. Tools like <a href="https://www.webpagetest.org/">WebPageTest</a>, <a href="https://developer.chrome.com/docs/crux">CrUX</a> and <a href="https://treo.sh/">Treo</a> help capture real-world performance data.</li>
+  <li><strong>Don’t stop at P75</strong>: optimizing for the 75th percentile hides real pain for the rest of your users.</li>
+  <li><strong>Focus on enablers</strong>: <a href="https://web.dev/articles/ttfb">TTFB</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event">DOMContentLoaded</a> unlock good Core Web Vitals.</li>
+</ul>
+
+<blockquote>
+  <p>“The numbers you see represent a huge array of experiences. Test the right thing under the right conditions.”</p>
+</blockquote>
+
+<p><a href="https://docs.google.com/presentation/d/e/2PACX-1vQDP5p4UfOanwMC3hXryp4nVI2vKKbFAqmF8kei26BHjPYW-SfgV4__4ClnWf9deuETAWoSJ_U3Feb-/pub?slide=id.g39da923945f_1_0">Michal Mocny then introduced</a> the <a href="https://developer.chrome.com/docs/web-platform/soft-navigations-experiment"><strong>Soft Navigation API</strong></a>, a long-awaited feature for SPA developers. It enables tracking <strong>LCP (Largest Contentful Paint) on soft navigations</strong>, not just on the first page load. Combined with INP (Interaction to Next Paint), this finally gives a complete picture of user experience in single-page apps. Still experimental, but already testable in Chrome.</p>
+
+<p>At Bedrock, our Web &amp; TV apps are SPAs and being able to natively measure the user’s navigation experience within the application was something we were sorely lacking. We will quickly experiment with this API and set up monitoring for these metrics.</p>
+
+<hr />
+
+<h2 id="️-investigating-performance">🕵️ Investigating Performance</h2>
+
+<p><strong>Andy Davies (SpeedCurve)</strong>, <strong>Umar Hansa (Independent developer)</strong></p>
+
+<p>While measurement tells you <em>how fast</em> things are, investigation tells you <em>why</em>. Two excellent talks focused on this detective work: <strong>Andy Davies</strong> on runtime analysis and <strong>Umar Hansa</strong> on modern DevTools workflows.</p>
+
+<h3 id="loaf--making-sense-of-long-animation-frames">LoAF – Making Sense of Long Animation Frames</h3>
+
+<p>Andy Davies explored how the browser renders frames, from JavaScript execution to style recalculation, layout, paint and compositing.</p>
+
+<p><img src="/images/posts/2025-11-18-performance-now-2025/loaf.png" alt="Scripts execute during render phase too" /></p>
+
+<p><a href="https://noti.st/andydavies/9JOItx/making-sense-of-loaf">He introduced <strong>LoAF (Long Animation Frames)</strong></a>, a method to detect frames taking more than 50 ms between start and paint. These “slow frames” often go unnoticed by the Long Tasks API but directly affect smoothness and interactivity.</p>
+
+<p>LoAF provides much richer data than the Long Tasks API, enabling deeper performance analysis:</p>
+
+<ul>
+  <li><strong>Complete script attribution</strong>: Each LoAF entry includes a detailed list of scripts that executed during the frame, making it easy for developers to pinpoint the real causes of jank and delayed input. Unlike Long Tasks which only capture task execution, they also include the full rendering pipeline (style, layout, paint), showing scripts that execute during the render phase (mutation observers…).</li>
+  <li><strong>Layout thrashing detection</strong>: The <code class="language-plaintext highlighter-rouge">forcedStyleAndLayoutDuration</code> property reveals when code triggers multiple consecutive forced reflows, a common performance anti-pattern hard to detect in traditional profiling.</li>
+  <li><strong>Pre-milestone analysis</strong>: By filtering LoAF entries, you can identify which scripts run before critical milestones like FCP (First Contentful Paint) or LCP, helping prioritize optimization efforts.</li>
+</ul>
+
+<p>LoAF helps answer key questions:</p>
+
+<ul>
+  <li>Which scripts are blocking the main thread?</li>
+  <li>Are long tasks tied to analytics, animations or specific components?</li>
+  <li>How do these correlate with INP?</li>
+  <li>What’s causing layout thrashing in my app?</li>
+</ul>
+
+<p>Andy released a DevTools extension that makes these insights easy to explore: <a href="https://github.com/andydavies/perf-timeline-to-devtools-profile">perf-timeline-to-devtools-profile</a>. For developers looking to implement LoAF monitoring, the <a href="https://webperf-snippets.nucliweb.net/Interaction/Long-Animation-Frames-Helpers">webperf-snippets collection</a> provides ready-to-use helpers and the <a href="https://github.com/GoogleChrome/web-vitals">web-vitals.js</a> library includes built-in LoAF support. We are eager to test these tools on our Web &amp; TV apps to find areas for improvement!</p>
+
+<h3 id="modern-performance-workflows">Modern Performance Workflows</h3>
+
+<p>Umar Hansa shared lesser-known DevTools features that help engineers explore, profile and monitor performance in everyday work. His philosophy was simple: <strong>performance should be part of your daily workflow, not a quarterly audit</strong>.</p>
+
+<p>Highlights of useful features with Chrome devtools:</p>
+
+<ul>
+  <li><a href="https://developer.chrome.com/docs/performance/insights/lcp-discovery"><strong>LCP Request Discovery</strong></a> (in the “Performance” tab) pinpoints the exact resource behind your Largest Contentful Paint</li>
+</ul>
+
+<p><img src="/images/posts/2025-11-18-performance-now-2025/LCP-request-discovery.png" alt="LCP Request Discovery on M6+" /></p>
+
+<ul>
+  <li><strong>Lighthouse Timespan</strong> runs over a full user flow, perfect for analyzing workflows or transitions</li>
+  <li><a href="https://developer.chrome.com/docs/devtools/recorder/overview"><strong>Recorder Tab</strong></a> captures interactions and replays them, useful to automate custom performance measures. It can also generate Playwright-compatible scripts, ideal for QA engineers. At Bedrock, this could reduce time spent manually documenting reproduction steps for bugs.</li>
+  <li><a href="https://developer.chrome.com/docs/devtools/overrides"><strong>Network overrides</strong></a> allow developers to intercept and modify network responses directly in DevTools, without needing a local proxy. At Bedrock, we often use this feature to streamline debugging or testing API responses without backend changes.</li>
+  <li><strong>Per-URL throttling</strong> and <strong>network priority</strong> (only by enabling the Chrome flag <code class="language-plaintext highlighter-rouge">#devtools-individual-request-throttling</code> in Canary/Dev version) simulate realistic various conditions without global settings</li>
+</ul>
+
+<p><img src="/images/posts/2025-11-18-performance-now-2025/individual-request-throttling.png" alt="Individual request throttling" /></p>
+
+<ul>
+  <li><a href="https://developer.chrome.com/docs/devtools/performance/annotations"><strong>Annotations</strong></a> in the Performance tab make profiling more collaborative</li>
+  <li>Finally, <a href="https://developer.chrome.com/blog/chrome-devtools-mcp"><strong>DevTools MCP</strong></a> brings AI assistance directly into debugging. By describing an issue, the AI can compare traces, identify anomalies, generate Lighthouse-style summaries or even produce scripts that can be used in CI pipelines for automated performance monitoring (e.g. based on your git diff) 🤯</li>
+</ul>
+
+<p>Together, these tools turn DevTools into a true performance lab, fast to iterate, easy to share and powered by AI and automation. A new area of play that we will try to address within our teams.</p>
+
+<hr />
+
+<h2 id="-rendering-efficiently">🎨 Rendering Efficiently</h2>
+
+<p><strong>Michael Hladky (PushBased)</strong>, <strong>Barry Pollard (Google)</strong>, <strong>Nadia Makarevich (Independent)</strong></p>
+
+<h3 id="big-data-zero-js">Big Data, Zero JS</h3>
+
+<p><a href="https://docs.google.com/presentation/d/1LZleUtEN3aMNlJsPh1LOrzG3vxifufkEKqOCbQU6j3c/edit?slide=id.p#slide=id.p">Michael Hladky’s talk</a> focused on optimizing rendering through modern CSS rather than JavaScript. He explained how understanding the <strong>browser rendering pipeline</strong> — recalculate styles, layout, paint, composite — helps identify where things slow down.</p>
+
+<p><img src="/images/posts/2025-11-18-performance-now-2025/browser-render-waterfall.png" alt="Browser render waterfall" /></p>
+
+<p>By using new CSS properties like <code class="language-plaintext highlighter-rouge">contain</code> (<a href="https://docs.google.com/presentation/d/1LZleUtEN3aMNlJsPh1LOrzG3vxifufkEKqOCbQU6j3c/edit?slide=id.g11e3e1a882e_0_2475#slide=id.g11e3e1a882e_0_2475">1</a>), <code class="language-plaintext highlighter-rouge">content-visibility</code> and <code class="language-plaintext highlighter-rouge">contain-intrinsic-size</code> (<a href="https://docs.google.com/presentation/d/1LZleUtEN3aMNlJsPh1LOrzG3vxifufkEKqOCbQU6j3c/edit?slide=id.g11a87b8eaef_0_22#slide=id.g11a87b8eaef_0_22">2</a>), developers can isolate DOM sections and prevent unnecessary reflows or paints.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.card</span> <span class="p">{</span>
+  <span class="py">contain</span><span class="p">:</span> <span class="n">layout</span><span class="p">;</span>
+  <span class="py">content-visibility</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+  <span class="py">contain-intrinsic-size</span><span class="p">:</span> <span class="m">400px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>These properties are now well-supported and can drastically improve performance for large DOM structures like catalogs or carousels. We already use <code class="language-plaintext highlighter-rouge">content-visibility</code> and <code class="language-plaintext highlighter-rouge">contain-intrinsic-size</code> on few components in our web apps, but we should definitively consider the potential gains from expanding the use of these properties.</p>
+
+<p>For more detail, check <a href="https://lmame-geek.com/css-triggers/">CSS Triggers</a> to understand which CSS properties trigger layout or paint.</p>
+
+<h3 id="speculations-about-webperf">Speculations about webperf</h3>
+
+<p>On the other hand, <a href="https://docs.google.com/presentation/d/1YZR_Oay1nzE9ujHndF-1yNkjNx2bRXy3MRNY7P5ngZA/edit?slide=id.g38c479513fd_0_0#slide=id.g38c479513fd_0_0">Barry Pollard introduced</a> the <a href="https://developer.chrome.com/docs/web-platform/implementing-speculation-rules"><strong>Speculation Rules API</strong></a>, which allows browsers to prefetch or prerender future pages, reducing perceived latency in <strong>multi-page apps</strong> (MPA). Although caution should be exercised when using it, and although it is currently only available on Chrome (or almost!), it can have a big impact on user navigation, since the next page is prepared in advance.</p>
+
+<p>Companies like <a href="https://www.etsy.com/codeascraft/search-prefetching-performance">Etsy</a> and <a href="https://performance.shopify.com/blogs/blog/speculation-rules-at-shopify">Shopify</a> have already implemented speculation rules in production and reported significant improvements in perceived performance. While not relevant for Bedrock’s SPA-based apps, it perfectly illustrates a key idea: <em>efficiency is about making users wait less, not just doing less.</em></p>
+
+<h3 id="react-rendering--performance">React, Rendering &amp; Performance</h3>
+
+<p>Finally, <a href="https://drive.google.com/file/d/18MURNelPY6RJmw6ashsk3mfDgkDX8sf_/view">Nadia Makarevich compared</a> CSR, SSR and React Server Components using the same React app and metrics to measure their real impact on rendering speed and runtime cost. Her approach was <a href="https://www.developerway.com/posts/react-server-components-performance">very scientific and interesting</a>.</p>
+
+<p>Key take-aways:</p>
+
+<ul>
+  <li><strong>CSR (Client-Side Rendering)</strong>: the simplest setup, but all HTML and data are generated client-side, which delays both LCP and hydration</li>
+  <li><strong>SSR (Server-Side Rendering)</strong>: brings immediate LCP improvement by sending pre-rendered HTML, but if user data is fetched on the client, it still causes visible delays and layout shifts</li>
+  <li><strong>SSR + Suspense/Streaming</strong>: progressively improves Time-to-Display and user perception, as data is streamed and hydrated chunk by chunk</li>
+  <li><strong>RSC (React Server Components)</strong>: theoretically reduces client JS and improves interactivity, but requires major architectural changes; the gains are limited (LCP is the same as “traditional” SSR).</li>
+</ul>
+
+<p>Our web platform uses anonymous SSR (highly cached) and client-side fetches for personalization. Migrating to RSC would require major changes to our architecture, with uncertain short-term gains. We will monitor the technology, but it’s not a priority right now.</p>
+
+<hr />
+
+<h2 id="-responsible-performance">🌱 Responsible Performance</h2>
+
+<p><strong>Ines Akrap (Green Software Champion)</strong></p>
+
+<p>Ines Akrap’s session <em>Fast, Green, Responsible</em> looked at performance through an ethical and environmental lens. She shared a striking comparison:</p>
+
+<blockquote>
+  <p>80 petabytes of unused JavaScript shipped every month equals 54,000 tons of CO₂, roughly 37 million trees.</p>
+</blockquote>
+
+<p>But the talk wasn’t just about carbon footprint. It was about <strong>user respect</strong>. A lighter, more efficient app benefits those on low-end devices or limited networks first. And the web already provides APIs to adapt experiences responsibly:</p>
+
+<ul>
+  <li>user wants fewer or no animation (<code class="language-plaintext highlighter-rouge">prefers-reduced-motion</code>)</li>
+  <li>user prefers dark or light mode (<code class="language-plaintext highlighter-rouge">prefers-color-scheme</code>)</li>
+  <li>user has data-saving mode on</li>
+  <li>connection speed (<code class="language-plaintext highlighter-rouge">navigator.connection.saveData</code>)</li>
+  <li>the device is low on power (Battery API)</li>
+</ul>
+
+<p>The principle is simple: a responsible and empathic web is often a faster one. See <a href="https://www.w3.org/TR/web-sustainability-guidelines/">Web Sustainability Guidelines (W3C)</a> for more details.</p>
+
+<hr />
+
+<h2 id="-conclusion-performance-as-a-mindset">🧠 Conclusion: Performance as a Mindset</h2>
+
+<p>After two days in Amsterdam, one clear message emerged: performance is no longer just a number… It’s a mindset.</p>
+
+<ul>
+  <li><strong>Technical intent</strong>: understanding how browsers work and what causes runtime costs</li>
+  <li><strong>Cultural intent</strong>: making performance a shared habit across teams</li>
+  <li><strong>Responsible intent</strong>: optimizing for both users and the planet</li>
+</ul>
+
+<blockquote>
+  <p>“Fast is pragmatic. Fast is magical. And above all, fast is intentional.”</p>
+</blockquote>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Performance.now%28%29+2025+-+Pragmatic%2C+Magical+and+Responsible+Performance%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2025%2F11%2F18%2Fperformance-now-2025.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025.html&title=Performance.now%28%29+2025+-+Pragmatic%2C+Magical+and+Responsible+Performance%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Performance.now() 2025 - Pragmatic, Magical and Responsible Performance%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#conference">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#frontend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#javascript">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#performance">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> performance</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#react">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> react</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#web">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> web</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#webperf">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> webperf</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE" href="/2025/07/01/video-player-mse-introduction.html">
+            <p>Next post</p>
+            Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+  header#main { background-image: url('/images/posts/2025-11-18-performance-now-2025/perfnow-2025-1.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

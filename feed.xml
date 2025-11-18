@@ -1,4 +1,203 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2025-07-01T08:30:00+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE</title><link href="https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html" rel="alternate" type="text/html" title="Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE" /><published>2025-07-01T00:00:00+00:00</published><updated>2025-07-01T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html">&lt;p&gt;Streaming is now everywhere, an indispensable part of our daily lives, used by almost everyone for entertainment, communication, and learning. It appears effortless, almost magical, as high-quality video instantly appears on our screens. But beneath that seamless playback lies a complex and fascinating architecture of web technologies. Have you ever wondered what truly happens behind the frame to bring those pixels to life, adapting to your network, and ensuring a smooth experience right within your browser? Join us as we pull back the curtain and demystify the magic of modern web video playback.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2025-11-18T13:41:51+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Performance.now() 2025 - Pragmatic, Magical and Responsible Performance</title><link href="https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025.html" rel="alternate" type="text/html" title="Performance.now() 2025 - Pragmatic, Magical and Responsible Performance" /><published>2025-11-18T00:00:00+00:00</published><updated>2025-11-18T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025.html">&lt;p&gt;On October 30-31, the Bedrock Web &amp;amp; TV team attended &lt;strong&gt;performance.now() 2025&lt;/strong&gt; in Amsterdam, one of the few conferences entirely dedicated to web frontend performance. Two intense days of real-world insights, browser deep-dives and discussions about what “fast” truly means in 2025.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-fast-is-pragmagical&quot;&gt;⚡ Fast is Pragmagical&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Tammy Everts (SpeedCurve)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The conference opened with a simple but essential question: &lt;a href=&quot;https://speakerdeck.com/tammyeverts/how-fast-is-fast-enough-perfnow-2025&quot;&gt;&lt;em&gt;“How fast is fast enough?”&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The answer depends on who you are trying to please:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;your &lt;strong&gt;boss&lt;/strong&gt;, who cares about ROI and conversions&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Google&lt;/strong&gt;, with its Core Web Vitals thresholds&lt;/li&gt;
+  &lt;li&gt;or your &lt;strong&gt;users&lt;/strong&gt;, who expect instant, seamless experiences&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Performance is not just numbers. Fast interfaces remove &lt;strong&gt;cognitive friction&lt;/strong&gt;, keeping users focused and engaged. Tammy described performance as both &lt;strong&gt;pragmatic&lt;/strong&gt; — measurable, business-driven — and &lt;strong&gt;magical&lt;/strong&gt; — the kind of speed that feels effortless.&lt;/p&gt;
+
+&lt;p&gt;Core Web Vitals remain a useful baseline, but they are not the finish line. Every product should define its own thresholds based on its users, context and KPIs.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Fast eliminates cognitive friction, fast is magical. But fast also needs to be pragmatic.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That balance — &lt;em&gt;pragmagical&lt;/em&gt; — became one of the recurring themes of the event.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-measure-what-matters&quot;&gt;🧩 Measure What Matters&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Harry Roberts (CSS Wizardry)&lt;/strong&gt;, &lt;strong&gt;Michal Mocny (Google)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Harry Roberts reminded everyone that &lt;a href=&quot;https://speakerdeck.com/csswizardry/how-to-think-like-a-performance-engineer&quot;&gt;performance engineering is not a checklist, but a way of thinking&lt;/a&gt;. He emphasized that metrics only matter if they reflect real-world conditions.&lt;/p&gt;
+
+&lt;p&gt;Key takeaways:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Test realistically&lt;/strong&gt;: replicate actual network conditions, devices and cache states instead of relying on idealized lab setups. Tools like &lt;a href=&quot;https://www.webpagetest.org/&quot;&gt;WebPageTest&lt;/a&gt;, &lt;a href=&quot;https://developer.chrome.com/docs/crux&quot;&gt;CrUX&lt;/a&gt; and &lt;a href=&quot;https://treo.sh/&quot;&gt;Treo&lt;/a&gt; help capture real-world performance data.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Don’t stop at P75&lt;/strong&gt;: optimizing for the 75th percentile hides real pain for the rest of your users.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Focus on enablers&lt;/strong&gt;: &lt;a href=&quot;https://web.dev/articles/ttfb&quot;&gt;TTFB&lt;/a&gt; and &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event&quot;&gt;DOMContentLoaded&lt;/a&gt; unlock good Core Web Vitals.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“The numbers you see represent a huge array of experiences. Test the right thing under the right conditions.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.google.com/presentation/d/e/2PACX-1vQDP5p4UfOanwMC3hXryp4nVI2vKKbFAqmF8kei26BHjPYW-SfgV4__4ClnWf9deuETAWoSJ_U3Feb-/pub?slide=id.g39da923945f_1_0&quot;&gt;Michal Mocny then introduced&lt;/a&gt; the &lt;a href=&quot;https://developer.chrome.com/docs/web-platform/soft-navigations-experiment&quot;&gt;&lt;strong&gt;Soft Navigation API&lt;/strong&gt;&lt;/a&gt;, a long-awaited feature for SPA developers. It enables tracking &lt;strong&gt;LCP (Largest Contentful Paint) on soft navigations&lt;/strong&gt;, not just on the first page load. Combined with INP (Interaction to Next Paint), this finally gives a complete picture of user experience in single-page apps. Still experimental, but already testable in Chrome.&lt;/p&gt;
+
+&lt;p&gt;At Bedrock, our Web &amp;amp; TV apps are SPAs and being able to natively measure the user’s navigation experience within the application was something we were sorely lacking. We will quickly experiment with this API and set up monitoring for these metrics.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;️-investigating-performance&quot;&gt;🕵️ Investigating Performance&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Andy Davies (SpeedCurve)&lt;/strong&gt;, &lt;strong&gt;Umar Hansa (Independent developer)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;While measurement tells you &lt;em&gt;how fast&lt;/em&gt; things are, investigation tells you &lt;em&gt;why&lt;/em&gt;. Two excellent talks focused on this detective work: &lt;strong&gt;Andy Davies&lt;/strong&gt; on runtime analysis and &lt;strong&gt;Umar Hansa&lt;/strong&gt; on modern DevTools workflows.&lt;/p&gt;
+
+&lt;h3 id=&quot;loaf--making-sense-of-long-animation-frames&quot;&gt;LoAF – Making Sense of Long Animation Frames&lt;/h3&gt;
+
+&lt;p&gt;Andy Davies explored how the browser renders frames, from JavaScript execution to style recalculation, layout, paint and compositing.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2025-11-18-performance-now-2025/loaf.png&quot; alt=&quot;Scripts execute during render phase too&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://noti.st/andydavies/9JOItx/making-sense-of-loaf&quot;&gt;He introduced &lt;strong&gt;LoAF (Long Animation Frames)&lt;/strong&gt;&lt;/a&gt;, a method to detect frames taking more than 50 ms between start and paint. These “slow frames” often go unnoticed by the Long Tasks API but directly affect smoothness and interactivity.&lt;/p&gt;
+
+&lt;p&gt;LoAF provides much richer data than the Long Tasks API, enabling deeper performance analysis:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Complete script attribution&lt;/strong&gt;: Each LoAF entry includes a detailed list of scripts that executed during the frame, making it easy for developers to pinpoint the real causes of jank and delayed input. Unlike Long Tasks which only capture task execution, they also include the full rendering pipeline (style, layout, paint), showing scripts that execute during the render phase (mutation observers…).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Layout thrashing detection&lt;/strong&gt;: The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;forcedStyleAndLayoutDuration&lt;/code&gt; property reveals when code triggers multiple consecutive forced reflows, a common performance anti-pattern hard to detect in traditional profiling.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Pre-milestone analysis&lt;/strong&gt;: By filtering LoAF entries, you can identify which scripts run before critical milestones like FCP (First Contentful Paint) or LCP, helping prioritize optimization efforts.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;LoAF helps answer key questions:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Which scripts are blocking the main thread?&lt;/li&gt;
+  &lt;li&gt;Are long tasks tied to analytics, animations or specific components?&lt;/li&gt;
+  &lt;li&gt;How do these correlate with INP?&lt;/li&gt;
+  &lt;li&gt;What’s causing layout thrashing in my app?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Andy released a DevTools extension that makes these insights easy to explore: &lt;a href=&quot;https://github.com/andydavies/perf-timeline-to-devtools-profile&quot;&gt;perf-timeline-to-devtools-profile&lt;/a&gt;. For developers looking to implement LoAF monitoring, the &lt;a href=&quot;https://webperf-snippets.nucliweb.net/Interaction/Long-Animation-Frames-Helpers&quot;&gt;webperf-snippets collection&lt;/a&gt; provides ready-to-use helpers and the &lt;a href=&quot;https://github.com/GoogleChrome/web-vitals&quot;&gt;web-vitals.js&lt;/a&gt; library includes built-in LoAF support. We are eager to test these tools on our Web &amp;amp; TV apps to find areas for improvement!&lt;/p&gt;
+
+&lt;h3 id=&quot;modern-performance-workflows&quot;&gt;Modern Performance Workflows&lt;/h3&gt;
+
+&lt;p&gt;Umar Hansa shared lesser-known DevTools features that help engineers explore, profile and monitor performance in everyday work. His philosophy was simple: &lt;strong&gt;performance should be part of your daily workflow, not a quarterly audit&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Highlights of useful features with Chrome devtools:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.chrome.com/docs/performance/insights/lcp-discovery&quot;&gt;&lt;strong&gt;LCP Request Discovery&lt;/strong&gt;&lt;/a&gt; (in the “Performance” tab) pinpoints the exact resource behind your Largest Contentful Paint&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2025-11-18-performance-now-2025/LCP-request-discovery.png&quot; alt=&quot;LCP Request Discovery on M6+&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Lighthouse Timespan&lt;/strong&gt; runs over a full user flow, perfect for analyzing workflows or transitions&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.chrome.com/docs/devtools/recorder/overview&quot;&gt;&lt;strong&gt;Recorder Tab&lt;/strong&gt;&lt;/a&gt; captures interactions and replays them, useful to automate custom performance measures. It can also generate Playwright-compatible scripts, ideal for QA engineers. At Bedrock, this could reduce time spent manually documenting reproduction steps for bugs.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.chrome.com/docs/devtools/overrides&quot;&gt;&lt;strong&gt;Network overrides&lt;/strong&gt;&lt;/a&gt; allow developers to intercept and modify network responses directly in DevTools, without needing a local proxy. At Bedrock, we often use this feature to streamline debugging or testing API responses without backend changes.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Per-URL throttling&lt;/strong&gt; and &lt;strong&gt;network priority&lt;/strong&gt; (only by enabling the Chrome flag &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#devtools-individual-request-throttling&lt;/code&gt; in Canary/Dev version) simulate realistic various conditions without global settings&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2025-11-18-performance-now-2025/individual-request-throttling.png&quot; alt=&quot;Individual request throttling&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.chrome.com/docs/devtools/performance/annotations&quot;&gt;&lt;strong&gt;Annotations&lt;/strong&gt;&lt;/a&gt; in the Performance tab make profiling more collaborative&lt;/li&gt;
+  &lt;li&gt;Finally, &lt;a href=&quot;https://developer.chrome.com/blog/chrome-devtools-mcp&quot;&gt;&lt;strong&gt;DevTools MCP&lt;/strong&gt;&lt;/a&gt; brings AI assistance directly into debugging. By describing an issue, the AI can compare traces, identify anomalies, generate Lighthouse-style summaries or even produce scripts that can be used in CI pipelines for automated performance monitoring (e.g. based on your git diff) 🤯&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Together, these tools turn DevTools into a true performance lab, fast to iterate, easy to share and powered by AI and automation. A new area of play that we will try to address within our teams.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-rendering-efficiently&quot;&gt;🎨 Rendering Efficiently&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael Hladky (PushBased)&lt;/strong&gt;, &lt;strong&gt;Barry Pollard (Google)&lt;/strong&gt;, &lt;strong&gt;Nadia Makarevich (Independent)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;big-data-zero-js&quot;&gt;Big Data, Zero JS&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.google.com/presentation/d/1LZleUtEN3aMNlJsPh1LOrzG3vxifufkEKqOCbQU6j3c/edit?slide=id.p#slide=id.p&quot;&gt;Michael Hladky’s talk&lt;/a&gt; focused on optimizing rendering through modern CSS rather than JavaScript. He explained how understanding the &lt;strong&gt;browser rendering pipeline&lt;/strong&gt; — recalculate styles, layout, paint, composite — helps identify where things slow down.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2025-11-18-performance-now-2025/browser-render-waterfall.png&quot; alt=&quot;Browser render waterfall&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;By using new CSS properties like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;contain&lt;/code&gt; (&lt;a href=&quot;https://docs.google.com/presentation/d/1LZleUtEN3aMNlJsPh1LOrzG3vxifufkEKqOCbQU6j3c/edit?slide=id.g11e3e1a882e_0_2475#slide=id.g11e3e1a882e_0_2475&quot;&gt;1&lt;/a&gt;), &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;content-visibility&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;contain-intrinsic-size&lt;/code&gt; (&lt;a href=&quot;https://docs.google.com/presentation/d/1LZleUtEN3aMNlJsPh1LOrzG3vxifufkEKqOCbQU6j3c/edit?slide=id.g11a87b8eaef_0_22#slide=id.g11a87b8eaef_0_22&quot;&gt;2&lt;/a&gt;), developers can isolate DOM sections and prevent unnecessary reflows or paints.&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.card&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;py&quot;&gt;contain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;py&quot;&gt;content-visibility&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;py&quot;&gt;contain-intrinsic-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;400px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;These properties are now well-supported and can drastically improve performance for large DOM structures like catalogs or carousels. We already use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;content-visibility&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;contain-intrinsic-size&lt;/code&gt; on few components in our web apps, but we should definitively consider the potential gains from expanding the use of these properties.&lt;/p&gt;
+
+&lt;p&gt;For more detail, check &lt;a href=&quot;https://lmame-geek.com/css-triggers/&quot;&gt;CSS Triggers&lt;/a&gt; to understand which CSS properties trigger layout or paint.&lt;/p&gt;
+
+&lt;h3 id=&quot;speculations-about-webperf&quot;&gt;Speculations about webperf&lt;/h3&gt;
+
+&lt;p&gt;On the other hand, &lt;a href=&quot;https://docs.google.com/presentation/d/1YZR_Oay1nzE9ujHndF-1yNkjNx2bRXy3MRNY7P5ngZA/edit?slide=id.g38c479513fd_0_0#slide=id.g38c479513fd_0_0&quot;&gt;Barry Pollard introduced&lt;/a&gt; the &lt;a href=&quot;https://developer.chrome.com/docs/web-platform/implementing-speculation-rules&quot;&gt;&lt;strong&gt;Speculation Rules API&lt;/strong&gt;&lt;/a&gt;, which allows browsers to prefetch or prerender future pages, reducing perceived latency in &lt;strong&gt;multi-page apps&lt;/strong&gt; (MPA). Although caution should be exercised when using it, and although it is currently only available on Chrome (or almost!), it can have a big impact on user navigation, since the next page is prepared in advance.&lt;/p&gt;
+
+&lt;p&gt;Companies like &lt;a href=&quot;https://www.etsy.com/codeascraft/search-prefetching-performance&quot;&gt;Etsy&lt;/a&gt; and &lt;a href=&quot;https://performance.shopify.com/blogs/blog/speculation-rules-at-shopify&quot;&gt;Shopify&lt;/a&gt; have already implemented speculation rules in production and reported significant improvements in perceived performance. While not relevant for Bedrock’s SPA-based apps, it perfectly illustrates a key idea: &lt;em&gt;efficiency is about making users wait less, not just doing less.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;react-rendering--performance&quot;&gt;React, Rendering &amp;amp; Performance&lt;/h3&gt;
+
+&lt;p&gt;Finally, &lt;a href=&quot;https://drive.google.com/file/d/18MURNelPY6RJmw6ashsk3mfDgkDX8sf_/view&quot;&gt;Nadia Makarevich compared&lt;/a&gt; CSR, SSR and React Server Components using the same React app and metrics to measure their real impact on rendering speed and runtime cost. Her approach was &lt;a href=&quot;https://www.developerway.com/posts/react-server-components-performance&quot;&gt;very scientific and interesting&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Key take-aways:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;CSR (Client-Side Rendering)&lt;/strong&gt;: the simplest setup, but all HTML and data are generated client-side, which delays both LCP and hydration&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;SSR (Server-Side Rendering)&lt;/strong&gt;: brings immediate LCP improvement by sending pre-rendered HTML, but if user data is fetched on the client, it still causes visible delays and layout shifts&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;SSR + Suspense/Streaming&lt;/strong&gt;: progressively improves Time-to-Display and user perception, as data is streamed and hydrated chunk by chunk&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;RSC (React Server Components)&lt;/strong&gt;: theoretically reduces client JS and improves interactivity, but requires major architectural changes; the gains are limited (LCP is the same as “traditional” SSR).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Our web platform uses anonymous SSR (highly cached) and client-side fetches for personalization. Migrating to RSC would require major changes to our architecture, with uncertain short-term gains. We will monitor the technology, but it’s not a priority right now.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-responsible-performance&quot;&gt;🌱 Responsible Performance&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Ines Akrap (Green Software Champion)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Ines Akrap’s session &lt;em&gt;Fast, Green, Responsible&lt;/em&gt; looked at performance through an ethical and environmental lens. She shared a striking comparison:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;80 petabytes of unused JavaScript shipped every month equals 54,000 tons of CO₂, roughly 37 million trees.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;But the talk wasn’t just about carbon footprint. It was about &lt;strong&gt;user respect&lt;/strong&gt;. A lighter, more efficient app benefits those on low-end devices or limited networks first. And the web already provides APIs to adapt experiences responsibly:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;user wants fewer or no animation (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prefers-reduced-motion&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;user prefers dark or light mode (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prefers-color-scheme&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;user has data-saving mode on&lt;/li&gt;
+  &lt;li&gt;connection speed (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;navigator.connection.saveData&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;the device is low on power (Battery API)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The principle is simple: a responsible and empathic web is often a faster one. See &lt;a href=&quot;https://www.w3.org/TR/web-sustainability-guidelines/&quot;&gt;Web Sustainability Guidelines (W3C)&lt;/a&gt; for more details.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-conclusion-performance-as-a-mindset&quot;&gt;🧠 Conclusion: Performance as a Mindset&lt;/h2&gt;
+
+&lt;p&gt;After two days in Amsterdam, one clear message emerged: performance is no longer just a number… It’s a mindset.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Technical intent&lt;/strong&gt;: understanding how browsers work and what causes runtime costs&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Cultural intent&lt;/strong&gt;: making performance a shared habit across teams&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Responsible intent&lt;/strong&gt;: optimizing for both users and the planet&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Fast is pragmatic. Fast is magical. And above all, fast is intentional.”&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name>[&quot;f_dubost&quot;, &quot;m_bernier&quot;]</name></author><category term="performance" /><category term="conference" /><category term="webperf" /><category term="javascript" /><category term="react" /><category term="web" /><category term="frontend" /><summary type="html">On October 30-31, the Bedrock Web &amp;amp; TV team attended performance.now() 2025 in Amsterdam, one of the few conferences entirely dedicated to web frontend performance. Two intense days of real-world insights, browser deep-dives and discussions about what “fast” truly means in 2025.</summary></entry><entry><title type="html">Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE</title><link href="https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html" rel="alternate" type="text/html" title="Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE" /><published>2025-07-01T00:00:00+00:00</published><updated>2025-07-01T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html">&lt;p&gt;Streaming is now everywhere, an indispensable part of our daily lives, used by almost everyone for entertainment, communication, and learning. It appears effortless, almost magical, as high-quality video instantly appears on our screens. But beneath that seamless playback lies a complex and fascinating architecture of web technologies. Have you ever wondered what truly happens behind the frame to bring those pixels to life, adapting to your network, and ensuring a smooth experience right within your browser? Join us as we pull back the curtain and demystify the magic of modern web video playback.&lt;/p&gt;
 
 &lt;p&gt;Let’s say you want to create a player to watch your favorite TV Show.&lt;/p&gt;
 
@@ -2362,147 +2561,4 @@ We applied anomaly detection for example to the Payment feature since transactio
 &lt;p&gt;Overall, this solution has proven to be more effective and practical for our project, enabling us to maintain higher levels of stability and deliver a better experience for our clients. We’re confident that this improvement will continue to support our success and growth moving forward.&lt;/p&gt;
 
 &lt;h3 id=&quot;reference&quot;&gt;Reference:&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://newrelic.com/blog/how-to-relic/steal-this-dashboard&quot;&gt;Steal this dashboard&lt;/a&gt;&lt;/p&gt;</content><author><name>[&quot;m_benali&quot;, &quot;m_julieron&quot;]</name></author><category term="monitoring" /><category term="production" /><category term="newrelic" /><category term="shared practice" /><category term="alerting" /><summary type="html">At Bedrock, we develop a streaming solution tailored for European media companies. Our application is a customizable white-label product used by millions across Europe. Bedrock’s clients have high expectations for stability, early incident detection, quick resolution, and effective communication during those times. Naturally, our goal is to deliver a stable product, and we dedicate significant effort toward this objective.</summary></entry><entry><title type="html">How to manage hundreds of view templates?</title><link href="https://tech.bedrockstreaming.com/2024/08/22/how-to-manage-hundreds-of-templates.html" rel="alternate" type="text/html" title="How to manage hundreds of view templates?" /><published>2024-08-22T00:00:00+00:00</published><updated>2024-08-22T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/08/22/how-to-manage-hundreds-of-templates</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/08/22/how-to-manage-hundreds-of-templates.html">&lt;p&gt;Let’s dive together into the depths of a large scale template versioning for a white label streaming application.&lt;/p&gt;
-
-&lt;h2 id=&quot;the-context&quot;&gt;The context&lt;/h2&gt;
-
-&lt;p&gt;Today, at &lt;strong&gt;Bedrock&lt;/strong&gt;, we are providing a streaming service on:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;11 common &lt;strong&gt;CTV&lt;/strong&gt; platforms: Tizen, Philips, WebOS, Hisense, Panasonic, Orange, Xbox, PS4, Orsay, Smart Alliance, WhaleOS&lt;/li&gt;
-  &lt;li&gt;6 &lt;strong&gt;Android&lt;/strong&gt; platforms: mobile, AndroidTV, Bytel, Free, SFR, FireTV&lt;/li&gt;
-  &lt;li&gt;2 &lt;strong&gt;Apple&lt;/strong&gt; platforms: iOS / tvOS&lt;/li&gt;
-  &lt;li&gt;1 &lt;strong&gt;Web&lt;/strong&gt; platform&lt;/li&gt;
-  &lt;li&gt;a lot of specific devices&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Each of these platforms has their own guidelines and usage (interaction, screen sizes, etc) and is managed by a dedicated team in our organization. They also have their own native &lt;strong&gt;design components&lt;/strong&gt; which our implementations rely on to offer the best possible experience.&lt;/p&gt;
-
-&lt;p&gt;Bedrock has several clients (M6+, Videoland and others), that all have their dedicated application on each platform. But they also have their own design expectations and branding guidelines.&lt;br /&gt;
-We provide them with a &lt;strong&gt;design system&lt;/strong&gt;: a set of visual assets they can use to render pages. These components follow the atomic design model, which means that each layer is a composition of the previous one. Here is the list of the layers with their name and some items that belong to it:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;14 &lt;strong&gt;tokens&lt;/strong&gt;: base element that defines the brand (ex: Colors, FontSystem, Radius, Shadow, Breakpoints, Treatments…)&lt;/li&gt;
-  &lt;li&gt;9 &lt;strong&gt;atoms&lt;/strong&gt;: simplest design item that cannot be decomposed (ex: Icons, Avatar, CheckBox, ProgressBar, ServiceIcon, Separator…)&lt;/li&gt;
-  &lt;li&gt;62 &lt;strong&gt;molecules&lt;/strong&gt;: group of atoms that forms a visual unity (ex: Card, Poster, HorizontalCard, Button, CTA, Portrait, Totem…)&lt;/li&gt;
-  &lt;li&gt;12 &lt;strong&gt;organisms&lt;/strong&gt;: complex visual item or part of the interface (ex: Jumbotron, Hero, Solo, Banner…)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Hereunder are some sample screens composed of design system components for different customers:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/home-m6plus.png&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/home-videoland.png&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/home-rtlhu.png&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;This results in approximately one hundred design elements per client. However, not all components are always specific, and an &lt;strong&gt;inheritance&lt;/strong&gt; system is in place to allow clients to reuse default atoms, molecules, or organisms while applying the tokens corresponding to their brand.&lt;/p&gt;
-
-&lt;p&gt;The objectives and expectations regarding the design vary greatly among clients, resulting in &lt;strong&gt;numerous graphical element evolutions&lt;/strong&gt;. Managing the creation and progression of these elements through different processes is a major challenge in tracking designs across each platform. These demands sometimes lead to &lt;strong&gt;different integrations&lt;/strong&gt;. Whether or not the default design is inherited is crucial information to avoid manually comparing the app designs with documentation, which can lead to misunderstandings and wasted time during validation and approval processes.&lt;br /&gt;
-To achieve all these objectives, we need to be able to carefully follow the evolution of the design system on each plateform.&lt;/p&gt;
-
-&lt;h2 id=&quot;one-versioning-to-rule-them-all&quot;&gt;One versioning to rule them all&lt;/h2&gt;
-
-&lt;p&gt;Therefore, implementing a versioning system became essential to continue enriching and evolving our client’s design systems.&lt;br /&gt;
-To ensure its interest and effectiveness, this system had to address several issues:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Be specific&lt;/strong&gt; per platform and per client: evolution progress does not occur at the same pace across all platforms. This also allows for comparing design progress between platforms.&lt;/li&gt;
-  &lt;li&gt;Allow &lt;strong&gt;visualizing the inheritance&lt;/strong&gt; between the default design system and the client’s specific part on the same platform. We also wanted the ability to add comments on implementation details.&lt;/li&gt;
-  &lt;li&gt;Be &lt;strong&gt;directly accessible&lt;/strong&gt; with each build to stay in touch with the application it represents. On mobile, many builds are generated daily, making it difficult to track the arrival of new features.&lt;/li&gt;
-  &lt;li&gt;Stay &lt;strong&gt;up-to-date&lt;/strong&gt; with the constant evolutions of the design system to maintain the source of truth.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Exemple of a Design System release note:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/design-release-note.png&quot; alt=&quot;Release note of the design system&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Initially, the design team started by versioning its releases and all available components, which are accessible to technical teams in our online design documentation (hosted on &lt;a href=&quot;https://zeroheight.com/&quot;&gt;zeroheight&lt;/a&gt;). This versioning is &lt;strong&gt;common to all platforms&lt;/strong&gt; and all clients if there are no specificities for the component in question. Ultimately, versioning helps product and technical teams track the delivery progress of new designs. The version number follows these rules:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Code status&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Stage&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Rule&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Example&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;First release&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;New collection&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1.0.0&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1.0.0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Documentation update without impact on the anatomy of design element&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Documentation update&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Increment the third digit&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1.0.1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;New backward-compatible feature&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Minor release&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Increment the 2nd digit and reset the third&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1.1.0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Change on element that breaks backward compatibility&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Major release&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Increment the first digit and reset the second and the third&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;2.0.0&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Each frontend team were then responsible for implementing an equivalent versioning system representing the state of their platform. This was done through a &lt;strong&gt;feature team&lt;/strong&gt; including all front-end teams, design system managers, and the product team. This organization brought numerous benefits:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Facilitating the &lt;strong&gt;synchronization&lt;/strong&gt; and homogeneity of product templates&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Sharing&lt;/strong&gt; development challenges&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Limiting&lt;/strong&gt; versioning differences between all fronts&lt;/li&gt;
-  &lt;li&gt;Sharing &lt;strong&gt;industrialization&lt;/strong&gt; ideas&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;case-study-android-versioning-challenges&quot;&gt;Case study: Android versioning challenges&lt;/h2&gt;
-
-&lt;p&gt;For Android, we sometimes have different component implementations between mobile and TV, evolving at different paces. This required &lt;strong&gt;two separate versionings&lt;/strong&gt; to represent them. Moreover, we currently use comments to track the migration to Google’s new view system (Compose), which is happening alongside graphical evolutions.&lt;br /&gt;
-Each client has its &lt;strong&gt;versioning file&lt;/strong&gt; containing all the components available on the targeted platform. Regarding component inheritance from the default design system, there are two possibilities:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;The component is &lt;strong&gt;inherited&lt;/strong&gt; and thus has no specificities and no version in the client’s versioning file, using the generic Bedrock customer version&lt;/li&gt;
-  &lt;li&gt;It has its &lt;strong&gt;own implementation&lt;/strong&gt; and its associated version&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Default Versioning file&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Customer Versioning file&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/versioning-file-default.png&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/versioning-file-customer.png&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;From these &lt;strong&gt;versioning files&lt;/strong&gt;, we have been able to generate &lt;strong&gt;reports&lt;/strong&gt; for each platform containing only the available graphical elements and their version, whether inherited or not. To track their growing number, we opted for automatic generation of these reports with each build using a Gradle Plugin integrated on our continuous deployment and integration (CI/CD): &lt;a href=&quot;https://bitrise.io/&quot;&gt;Bitrise&lt;/a&gt;. Now, they are generated using a &lt;a href=&quot;https://www.mkdocs.org/&quot;&gt;Mkdocs&lt;/a&gt; plugin to be published online automatically with our technical documentation.&lt;/p&gt;
-
-&lt;p&gt;Automatically generated template versioning report for M6+:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/template-versioning-report.png&quot; alt=&quot;Template versioning report for a customer&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;Design system versioning reports offer a &lt;strong&gt;quick and exhaustive overview&lt;/strong&gt; of the design system at any given moment for any of our customers and simplifies the QA teams validation work. It is now an essential tool for tracking design progress across all supported platforms.&lt;/p&gt;
-
-&lt;p&gt;However, improvements are always possible:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Currently, developers are responsible for &lt;strong&gt;updating the versioning file&lt;/strong&gt; when adding or modifying graphical elements, which can lead to errors and omissions. To avoid this, we would like to link the concrete implementation of the component and its version in the versioning file. But as we are still using the android legacy view system, component can be a class but also some xml style or theme or even resource files. This should be easier after the migration to the new Android view system Compose.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Access through Bitrise&lt;/strong&gt; is not ideal. We currently centralize all generated builds (using CI as well) in &lt;a href=&quot;https://www.airtable.com/&quot;&gt;Airtable&lt;/a&gt;. A link would be preferable and more visible.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;These last improvements will perhaps be the subject of a follow-up to this article. Thank you for reading, we hope you found some useful information that can help you to better follow the graphical evolution of your project. Do not hesitate to contact us if you have some questions or suggestions.&lt;/p&gt;</content><author><name>[&quot;d_cuny&quot;, &quot;m_oudji&quot;]</name></author><category term="android" /><category term="versioning" /><category term="design" /><category term="atomic design" /><category term="design system" /><summary type="html">Let’s dive together into the depths of a large scale template versioning for a white label streaming application.</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://newrelic.com/blog/how-to-relic/steal-this-dashboard&quot;&gt;Steal this dashboard&lt;/a&gt;&lt;/p&gt;</content><author><name>[&quot;m_benali&quot;, &quot;m_julieron&quot;]</name></author><category term="monitoring" /><category term="production" /><category term="newrelic" /><category term="shared practice" /><category term="alerting" /><summary type="html">At Bedrock, we develop a streaming solution tailored for European media companies. Our application is a customizable white-label product used by millions across Europe. Bedrock’s clients have high expectations for stability, early incident detection, quick resolution, and effective communication during those times. Naturally, our goal is to deliver a stable product, and we dedicate significant effort toward this objective.</summary></entry></feed>
