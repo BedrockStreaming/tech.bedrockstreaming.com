@@ -7,8 +7,8 @@ author: [f_dubost, m_bernier]
 cover: /assets/images/perfnow-2025-cover.jpg
 color: rgb(251,87,66)
 language: en
-feature-img: "/images/posts/2025-11-04-performance-now-2025/perfnow-2025-1.jpg"
-thumbnail: "/images/posts/2025-11-04-performance-now-2025/perfnow-2025.jpg"
+feature-img: "/images/posts/2025-11-18-performance-now-2025/perfnow-2025-1.jpg"
+thumbnail: "/images/posts/2025-11-18-performance-now-2025/perfnow-2025.jpg"
 ---
 
 On October 30-31, the Bedrock Web & TV team attended **performance.now() 2025** in Amsterdam, one of the few conferences entirely dedicated to web frontend performance. Two intense days of real-world insights, browser deep-dives and discussions about what “fast” truly means in 2025.
@@ -67,7 +67,7 @@ While measurement tells you _how fast_ things are, investigation tells you _why_
 
 Andy Davies explored how the browser renders frames, from JavaScript execution to style recalculation, layout, paint and compositing.
 
-![Scripts execute during render phase too](/images/posts/2025-11-04-performance-now-2025/loaf.png)
+![Scripts execute during render phase too](/images/posts/2025-11-18-performance-now-2025/loaf.png)
 
 [He introduced **LoAF (Long Animation Frames)**](https://noti.st/andydavies/9JOItx/making-sense-of-loaf), a method to detect frames taking more than 50 ms between start and paint. These “slow frames” often go unnoticed by the Long Tasks API but directly affect smoothness and interactivity.
 
@@ -94,14 +94,14 @@ Highlights of useful features with Chrome devtools:
 
 - [**LCP Request Discovery**](https://developer.chrome.com/docs/performance/insights/lcp-discovery) (in the "Performance" tab) pinpoints the exact resource behind your Largest Contentful Paint
 
-![LCP Request Discovery on M6+](/images/posts/2025-11-04-performance-now-2025/LCP-request-discovery.png)
+![LCP Request Discovery on M6+](/images/posts/2025-11-18-performance-now-2025/LCP-request-discovery.png)
 
 - **Lighthouse Timespan** runs over a full user flow, perfect for analyzing workflows or transitions
 - [**Recorder Tab**](https://developer.chrome.com/docs/devtools/recorder/overview) captures interactions and replays them, useful to automate custom performance measures. It can also generate Playwright-compatible scripts, ideal for QA engineers. At Bedrock, this could reduce time spent manually documenting reproduction steps for bugs.
 - [**Network overrides**](https://developer.chrome.com/docs/devtools/overrides) allow developers to intercept and modify network responses directly in DevTools, without needing a local proxy. At Bedrock, we often use this feature to streamline debugging or testing API responses without backend changes.
 - **Per-URL throttling** and **network priority** (only by enabling the Chrome flag `#devtools-individual-request-throttling` in Canary/Dev version) simulate realistic various conditions without global settings
 
-![Individual request throttling](/images/posts/2025-11-04-performance-now-2025/individual-request-throttling.png)
+![Individual request throttling](/images/posts/2025-11-18-performance-now-2025/individual-request-throttling.png)
 
 - [**Annotations**](https://developer.chrome.com/docs/devtools/performance/annotations) in the Performance tab make profiling more collaborative
 - Finally, [**DevTools MCP**](https://developer.chrome.com/blog/chrome-devtools-mcp) brings AI assistance directly into debugging. By describing an issue, the AI can compare traces, identify anomalies, generate Lighthouse-style summaries or even produce scripts that can be used in CI pipelines for automated performance monitoring (e.g. based on your git diff) 🤯
@@ -118,9 +118,9 @@ Together, these tools turn DevTools into a true performance lab, fast to iterate
 
 [Michael Hladky’s talk](https://docs.google.com/presentation/d/1LZleUtEN3aMNlJsPh1LOrzG3vxifufkEKqOCbQU6j3c/edit?slide=id.p#slide=id.p) focused on optimizing rendering through modern CSS rather than JavaScript. He explained how understanding the **browser rendering pipeline** — recalculate styles, layout, paint, composite — helps identify where things slow down.
 
-![Browser render waterfall](/images/posts/2025-11-04-performance-now-2025/browser-render-waterfall.png)
+![Browser render waterfall](/images/posts/2025-11-18-performance-now-2025/browser-render-waterfall.png)
 
-By using new CSS properties like [`contain`](https://docs.google.com/presentation/d/1LZleUtEN3aMNlJsPh1LOrzG3vxifufkEKqOCbQU6j3c/edit?slide=id.g11e3e1a882e_0_2475#slide=id.g11e3e1a882e_0_2475), [`content-visibility` and `contain-intrinsic-size`](https://docs.google.com/presentation/d/1LZleUtEN3aMNlJsPh1LOrzG3vxifufkEKqOCbQU6j3c/edit?slide=id.g11a87b8eaef_0_22#slide=id.g11a87b8eaef_0_22), developers can isolate DOM sections and prevent unnecessary reflows or paints.
+By using new CSS properties like `contain` ([1](<(https://docs.google.com/presentation/d/1LZleUtEN3aMNlJsPh1LOrzG3vxifufkEKqOCbQU6j3c/edit?slide=id.g11e3e1a882e_0_2475#slide=id.g11e3e1a882e_0_2475)>)), `content-visibility` and `contain-intrinsic-size` ([2](https://docs.google.com/presentation/d/1LZleUtEN3aMNlJsPh1LOrzG3vxifufkEKqOCbQU6j3c/edit?slide=id.g11a87b8eaef_0_22#slide=id.g11a87b8eaef_0_22)), developers can isolate DOM sections and prevent unnecessary reflows or paints.
 
 ```css
 .card {
