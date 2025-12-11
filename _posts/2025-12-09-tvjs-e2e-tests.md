@@ -36,7 +36,7 @@ Then I should be on the clip n°3 page
 A few things can go wrong:
 
 - The page is displayed, but the navigation system hasn’t finished its own initialization, so nothing is focused when Cypress sends the first key.
-- Everything is ready, but Cypress fires “Right, Right” so fast that the navigation handler only processes one of them before the Enter key arrives.
+- Everything is ready, but Cypress fires `right` and “right” so fast that the navigation handler only processes one of them before the "enter" key arrives.
 
 
 The outcome of a navigation action is entirely dependent on which element was focused at the moment the key event was dispatched. A missing or incorrect focus leads to unpredictable navigation paths.
