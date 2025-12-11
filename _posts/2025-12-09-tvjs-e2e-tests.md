@@ -4,12 +4,9 @@ title: "TVJS: Stabilizing E2E Tests with Focus Assertions"
 description: "REX on stabilising e2e tests for a focused based app, using Cypress."
 tags: [smartTV, javascript, react, web, frontend, e2e, testing]
 color: rgb(251,87,66)
+cover: /assets/images/catalog.jpg
 language: en
-feature-img: ""
-thumbnail: ""
 ---
-
-## Context
 
 At TVJS, we work on a Smart TV app. It's a React webapp, but the user doesn't interact with it in the same way they would on a typical desktop or mobile application. Instead, the app implements LRUD (Left, Right, Up, Down) navigation: users interact exclusively through directional keys.
 
@@ -66,7 +63,7 @@ Then Item 3 of block 1 should be focused
 And I press the enter key
 Then I should be on the clip n°3 page
 ```
-These "X should be focused" assertions are implemented using [`cy.get()`](https://docs.cypress.io/api/commands/get), which brings Cypress's built-in retry and timeout mechanisms to our focus checks. It gives us the same stability guarantees as standard pointer interactions: if the focus isn't ready yey, Cypress waits and retries until it is or times out.
+These "X should be focused" assertions are implemented using [`cy.get()`](https://docs.cypress.io/api/commands/get), which brings Cypress's built-in retry and timeout mechanisms to our focus checks. It gives us the same stability guarantees as standard pointer interactions: if the focus isn't ready yet, Cypress waits and retries until it is or times out.
 
 This version is massively more robust because:
 
@@ -96,7 +93,7 @@ The "should be focused" assertion is effective and easy to lint, but verbose. We
 
 ## Conclusion
 
-Testing LRUD navigation with Cypress exposes a gap: Cypress is great at handling UI interactions that target DOM elements directly, but it has no built-in understanding of focus state or navigation flow. In a Smart TV app, where everything depends on which item is focused at each step, that gap becomes the main source of flaky tests.
+Testing LRUD navigation exposes a gap: Cypress is great at handling UI interactions that target DOM elements directly, but it has no built-in understanding of focus state or navigation flow. In a Smart TV app, where everything depends on which item is focused at each step, that gap becomes the main source of flaky tests.
 
 By adding explicit focus assertions before and after every navigation action, we give Cypress the information it needs to stay in sync with the app. The tests become deterministic and failures point to real issues. We now trust our tests, and while we still monitor stability with weekly "no-retry" runs, they are finally working for us, not against us.
 
