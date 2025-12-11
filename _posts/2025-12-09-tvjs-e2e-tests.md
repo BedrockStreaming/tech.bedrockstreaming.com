@@ -4,11 +4,11 @@ title: "TVJS: Stabilizing E2E Tests with Focus Assertions"
 description: "REX on stabilising e2e tests for a focused based app, using Cypress."
 tags: [smartTV, javascript, react, web, frontend, e2e, testing]
 color: rgb(251,87,66)
-cover: /assets/images/catalog.jpg
+feature-img: "/images/posts/2025-12-09-tvjs-e2e-tests/catalog.jpg"
 language: en
 ---
 
-At TVJS, we work on a Smart TV app. It's a React webapp, but the user doesn't interact with it in the same way they would on a typical desktop or mobile application. Instead, the app implements LRUD (Left, Right, Up, Down) navigation: users interact exclusively through directional keys.
+At TVJS, we work on a Smart TV app. It's a classic React app, but the user doesn't interact with it in the same way they would on a typical desktop or mobile application. Instead, the app implements LRUD (Left, Right, Up, Down) navigation: users interact exclusively through directional keys.
 
 For a while, the team had faced an issue: our E2E tests were filled with flaky feature tests, polluting CIs with false negatives, forcing us to rely on retries and relaunching CI jobs. This eroded trust in our test suite and slowed down development.
 
