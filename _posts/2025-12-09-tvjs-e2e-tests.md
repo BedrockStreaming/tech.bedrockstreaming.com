@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "TVJS: Stabilizing E2E Tests with Focus Assertions"
-description: "REX on stabilising e2e tests for a focused base app, using Cypress."
+description: "REX on stabilising e2e tests for a focused based app, using Cypress."
 tags: [TVJS, smartTV, javascript, react, web, frontend, e2e, testing]
 author: [m_bernier]
 cover: 
@@ -14,8 +14,14 @@ This article explains how we worked to add explicit focus assertions around ever
 ---
 
 ## Context
-At TVJS, we work on a Smart TV app. While it's a React webapp, it doesn’t behave like a typical desktop or mobile application. Instead, it uses LRUD (Left, Right, Up, Down) navigation: users interact exclusively through directional keys.
 
+At TVJS, we work on a Smart TV app. While it's a React webapp, the user doesn't interact with it in the same way they would on a typical desktop or mobile application. Instead, the app implements LRUD (Left, Right, Up, Down) navigation: users interact exclusively through directional keys.
+
+For a while, the team had faced an issue: our E2E tests were filled with flaky feature tests, polluting CIs with false negatives, forcing us to rely on retries and relaunching CI jobs. This eroded trust in our test suite and slowed down development.
+
+## The Challenge of Testing LRUD Navigation
+
+### Cypress's built-in stability
 Cypress, our end-to-end testing tool of choice, includes several powerful mechanisms that make tests stable out of the box. When interacting with an application using a pointer, Cypress will automatically:
 
 - Ensure the target element exists and is visible before interacting.
@@ -23,7 +29,8 @@ Cypress, our end-to-end testing tool of choice, includes several powerful mechan
 
 These features make Cypress tests naturally resilient against network delays, component rendering times, or asynchronous data fetching. They also make tests easier to write: when you know what behaviour to expect, Cypress handles the timing details, allowing you to focus on the feature test.
 
-## The Challenge of Testing LRUD Navigation
+
+### The challenge of LRUD navigation
 The trouble starts when we stop using pointer interactions and start testing keyboard-based LRUD navigation. Cypress can easily simulate key presses, but it has no idea what’s currently focused on the page and focus is everything in LRUD. Every navigation step is relative: pressing the “right” key only makes sense if the correct item is focused before the key event.
 
 In a simple navigation test like:
@@ -47,8 +54,7 @@ A missing or incorrect focus leads to unpredictable navigation paths.
 This created for us a bad case of flaky tests in our CI : the test only passes when the timing of network, rendering, and input perfectly aligns, which obviously is not a sustainable situation.
 
 
-
-## The Solution: Explicit Focus Assertions 
+### Explicit Focus Assertions 
 To solve this, we took inspiration from how Cypress stabilizes pointer interactions: before doing anything, confirm the app is in the expected state.
 
 For LRUD, the equivalent of “the element exists” is “the correct element is focused.” So we added explicit focus assertions before and after every navigation step.
@@ -106,6 +112,7 @@ While the "should be focused" assertion is effective and easy to lint, it can be
 
 Testing LRUD navigation with Cypress exposes a gap: Cypress is great at handling UI interactions that target DOM elements directly, but it has no built-in understanding of focus state or navigation flow. In a Smart TV app, where everything depends on which item is focused at each step, that gap becomes the main source of flaky tests.
 
-By adding explicit focus assertions before and after every navigation action, we give Cypress the information it needs to stay in sync with the app. The tests become deterministic and failures point to real issues.
+
+By adding explicit focus assertions before and after every navigation action, we give Cypress the information it needs to stay in sync with the app. The tests become deterministic and failures point to real issues. We now trust our tests, and while we still monitor stability with weekly "no-retry" runs, they are finally working for us, not against us.
 
 Enforcing this pattern with linting sealed the deal to get rid of tests derailing and give us confidence back in our tests.
