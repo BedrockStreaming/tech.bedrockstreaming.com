@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Righting e2e tests for a Smart TV app"
+title: "Writing e2e tests for a Smart TV app"
 description: "REX on stabilising e2e tests for a focused based app, using Cypress."
 tags: [smartTV, javascript, react, web, frontend, e2e, testing]
 color: rgb(251,87,66)
