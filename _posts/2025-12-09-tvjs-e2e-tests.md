@@ -23,7 +23,7 @@ timing details, allowing you to focus on the feature test.
 
 
 ### The challenge of LRUD navigation
-The trouble starts when we stop using pointer interactions and start testing keyboard-based LRUD navigation. Cypress can easily simulate key presses, but it has no idea what’s currently focused on the page and focus is everything in LRUD. Every navigation step is relative: pressing the “right” key only makes sense if the correct item is focused before the key event.
+The trouble starts when we stop using pointer interactions and start testing keyboard-based LRUD navigation. Cypress can easily simulate key presses, but it has no idea what’s currently focused on the page and focus is everything in LRUD. Every navigation step is relative: pressing the `right` key only makes sense if the correct item is focused before the key event.
 
 In a simple navigation test like:
 ```gherkin
@@ -36,7 +36,7 @@ Then I should be on the clip n°3 page
 A few things can go wrong:
 
 - The page is displayed, but the navigation system hasn’t finished its own initialization, so nothing is focused when Cypress sends the first key.
-- Everything is ready, but Cypress fires `right` and “right” so fast that the navigation handler only processes one of them before the "enter" key arrives.
+- Everything is ready, but Cypress fires `right` and `right` so fast that the navigation handler only processes one of them before the `enter` key arrives.
 
 
 The outcome of a navigation action is entirely dependent on which element was focused at the moment the key event was dispatched. A missing or incorrect focus leads to unpredictable navigation paths.
@@ -63,7 +63,7 @@ Then Item 3 of block 1 should be focused
 And I press the enter key
 Then I should be on the clip n°3 page
 ```
-These "X should be focused" assertions are implemented using [`cy.get()`](https://docs.cypress.io/api/commands/get), which brings Cypress's built-in retry and timeout mechanisms to our focus checks. It gives us the same stability guarantees as standard pointer interactions: if the focus isn't ready yet, Cypress waits and retries until it is or times out.
+These `X should be focused` assertions are implemented using [`cy.get()`](https://docs.cypress.io/api/commands/get), which brings Cypress's built-in retry and timeout mechanisms to our focus checks. It gives us the same stability guarantees as standard pointer interactions: if the focus isn't ready yet, Cypress waits and retries until it is or times out.
 
 This version is massively more robust because:
 
@@ -87,9 +87,9 @@ To implement this, the rule parses feature files line by line, keeps track of th
 
 ## Beyond "Should be Focused"
 
-The "should be focused" assertion is effective and easy to lint, but verbose. We also introduced other utilities to cover more scenarios:
-- "Navigate X direction to X": This action combines the navigation step with the final focus check. By specifying the end goal, we ensure the action itself is successful. Although it doesn't validate the initial focus, it significantly improves stability by verifying the outcome of the action.
-- Player state assertions: In a streaming app, focus isn't the only state that matters. We also validate player states (play/pause, playback progress, ...) after keyboard actions. Our lint rule accepts these as valid post-navigation assertions, ensuring that key presses have the expected effect on the media player.
+The `X should be focused` assertion is effective and easy to lint, but verbose. We also introduced other utilities to cover more scenarios:
+- `Navigate X direction to X`: This action combines the navigation step with the final focus check. By specifying the end goal, we ensure the action itself is successful. Although it doesn't validate the initial focus, it significantly improves stability by verifying the outcome of the action.
+- Player state assertions: In a streaming app, focus isn't the only state that matters. We also validate player states (`should be playing`, `should be at X progress`, ...) after keyboard actions. Our lint rule accepts these as valid post-navigation assertions, ensuring that key presses have the expected effect on the media player.
 
 ## Conclusion
 
