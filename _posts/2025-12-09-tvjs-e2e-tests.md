@@ -3,7 +3,7 @@ layout: post
 title: "TVJS: Stabilizing E2E Tests with Focus Assertions"
 description: "REX on stabilising e2e tests for a focused base app, using Cypress."
 tags: [TVJS, smartTV, javascript, react, web, frontend, e2e, testing]
-author: [ m_bernier]
+author: [m_bernier]
 cover: 
 color: rgb(251,87,66)
 language: en
@@ -23,7 +23,7 @@ Cypress, our end-to-end testing tool of choice, includes several powerful mechan
 
 These features make Cypress tests naturally resilient against network delays, component rendering times, or asynchronous data fetching. They also make tests easier to write: when you know what behaviour to expect, Cypress handles the timing details, allowing you to focus on the feature test.
 
-## The problem
+## The Challenge of Testing LRUD Navigation
 The trouble starts when we stop using pointer interactions and start testing keyboard-based LRUD navigation. Cypress can easily simulate key presses, but it has no idea what’s currently focused on the page and focus is everything in LRUD. Every navigation step is relative: pressing the “right” key only makes sense if the correct item is focused before the key event.
 
 In a simple navigation test like:
@@ -48,7 +48,7 @@ This created for us a bad case of flaky tests in our CI : the test only passes w
 
 
 
-## The fix 
+## The Solution: Explicit Focus Assertions 
 To solve this, we took inspiration from how Cypress stabilizes pointer interactions: before doing anything, confirm the app is in the expected state.
 
 For LRUD, the equivalent of “the element exists” is “the correct element is focused.” So we added explicit focus assertions before and after every navigation step.
@@ -81,7 +81,7 @@ This version is massively more robust because:
 The test no longer relies on internal timing or initialization sequences — only on deterministic focus transitions. In practice, this eliminated nearly all flaky LRUD tests, but introduced a new complexity in test writing: developers had to know about this layer of assertions to add and remember to write tests this way. After the initial round of test stabilisation, flakiness returned with every test written by developers unaware of this quirkiness of LRUD app testing
 
 
-## The next step
+## Enforcing Consistency with Linting
 
 Since our Gherkin tests are ultimately just code, the obvious solution was the same as for any coding convention:
 lint it.
@@ -94,11 +94,12 @@ To implement this, the rule parses feature files line by line, keeps track of th
 
 The work of clearing all lint errors and integrating the rule in our CI is still ongoing 
 
-## Other focus assertions
+## Beyond "Should be Focused"
 
-The "should be focused" asserion, while to use and lint for, is quite wordy. We also introduced other stabilisation utils, such as 
-- a "navigate X direction to X" action : extra precision of the end goal of the navigation help more precise actions. While it doesn't check for inital focus, it helps make sure that the action it self is successful, ensuring more stable tests.
-- Other types of assertions than focus : while our app usage is focused based, there are other elements that are important to check for, espicially in a streaming app. We have assertion on player state and advancement after keyboard actions. The lint rule includes them as valid assertions after an action, and they help make sure that the action had the expected effect on the media player.
+While the "should be focused" assertion is effective and easy to lint, it can be verbose. To address this and cover more scenarios, we introduced other stabilization utilities:
+
+- "Navigate X direction to X": This action combines the navigation step with the final focus check. By specifying the end goal, we ensure the action itself is successful. Although it doesn't validate the initial focus, it significantly improves stability by verifying the outcome.
+- State Assertions: In a streaming app, focus isn't the only state that matters. We also validate player states (e.g., play/pause, playback progress) after keyboard actions. Our lint rule accepts these as valid post-navigation assertions, ensuring that key presses have the expected effect on the media player.
 
 
 ## Conclusion
