@@ -2,15 +2,11 @@
 layout: post
 title: "TVJS: Stabilizing E2E Tests with Focus Assertions"
 description: "REX on stabilising e2e tests for a focused based app, using Cypress."
-tags: [TVJS, smartTV, javascript, react, web, frontend, e2e, testing]
-author: [m_bernier]
-cover: 
+tags: [smartTV, javascript, react, web, frontend, e2e, testing]
 color: rgb(251,87,66)
 language: en
 feature-img: ""
 thumbnail: ""
----
-This article explains how we worked to add explicit focus assertions around every navigation action restores determinism to LRUD tests, and how enforcing this pattern with a custom Gherkin lint rule ensures long-term consistency across the test suite.
 ---
 
 ## Context
