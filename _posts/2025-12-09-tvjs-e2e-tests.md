@@ -41,7 +41,7 @@ A few things can go wrong:
 
 The outcome of a navigation action is entirely dependent on which element was focused at the moment the key event was dispatched. A missing or incorrect focus leads to unpredictable navigation paths.
 
-This created for us a bad case of flaky tests in our CI : the test only passes when the timings perfectly aligned, which obviously is not a sustainable situation.
+This created for us a bad case of flaky tests in our CI: the test only passes when the timings perfectly aligned, which obviously is not a sustainable situation.
 
 
 ### Explicit Focus Assertions 
