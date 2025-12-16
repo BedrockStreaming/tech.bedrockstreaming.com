@@ -77,7 +77,7 @@ In practice, this eliminated nearly all flaky tests, but introduced a new comple
 ## Enforcing Consistency with Linting
 After the initial round of test stabilisation, flakiness returned with every test written by developers unaware of this quirkiness of LRUD app testing.
 Since our Gherkin tests are ultimately just code, the obvious solution was the same as for any coding convention:
-lint it.
+**lint it.**
 
 We used [gherkin-lint](https://github.com/vsiakka/gherkin-lint). It's a tool used by other teams in the company and supports custom rules. We wrote a custom rule to enforce our navigation discipline.
 
