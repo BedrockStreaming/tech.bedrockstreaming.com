@@ -79,7 +79,7 @@ After the initial round of test stabilisation, flakiness returned with every tes
 Since our Gherkin tests are ultimately just code, the obvious solution was the same as for any coding convention:
 lint it.
 
-We used [gherkin-lint](https://github.com/vsiakka/gherkin-lint). It's a tools used by other teams in the company and supports custom rules. We wrote a custom rule to enforce our navigation discipline.
+We used [gherkin-lint](https://github.com/vsiakka/gherkin-lint). It's a tool used by other teams in the company and supports custom rules. We wrote a custom rule to enforce our navigation discipline.
 
 The rule is simple and strict: any step that triggers LRUD navigation (“I press the X key”) must be immediately followed by a focus assertion (“X should be focused”).
 
