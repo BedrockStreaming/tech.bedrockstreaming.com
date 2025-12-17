@@ -129,6 +129,9 @@ h_detang:
 h_riffiod:
   name: Hugo Riffiod
   avatar: /images/avatar/h_riffiod.jpg
+jf_farge:
+  name: Jean-François Farge
+  avatar: /images/avatar/jf_farge.jpeg
 jy_camier:
   name: Jean-Yves Camier
   url: https://twitter.com/Saaraahka
@@ -296,6 +299,7 @@ t_geindre:
   url: https://github.com/t-geindre/
 t_gianella:
   name: Théo Gianella
+  avatar: /images/avatar/t_gianella.jpeg
 t_jarrand:
   name: Thomas Jarrand
 t_sontag:
