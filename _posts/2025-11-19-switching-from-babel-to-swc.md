@@ -19,7 +19,7 @@ Ever since websites started being made essentially from Javascript, transpiling 
 
 Generally, transpilation is the process by which you take some source code, transform it, and output a transformed version of source code (opposed to compilation where you output lower-level code than your source code).
 
-In the javascript/web context, this means taking your javascript code and transforming it into another version of javascript. But what is the point of transforming javascript into javascript ?
+In the JavaScript/web context, this means taking your code and transforming it into another version of the same language. But what is the point of transforming code into code ?
 
 The modern Javascript code we write often uses features that aren’t supported in all environments. For example, older browsers that we want to support don’t implement every new syntax we are using. Another use case is server-side code, on the Node.js side we sometimes end up using modules or JSX in files that the runtime still expects in CommonJS. All-in-all, the transpilation transforms our newest syntax into older/more standard syntax that is supported in more environments.
 
@@ -35,15 +35,15 @@ Over the years, as the web technologies evolved, a lot of transformations have b
 
 <br />
 
-Our project has relied on nearly **10 years of Babel**, a solid choice built on robustness and flexibility. Being a 10 years old tool is both a curse and a blessing ! Because of its huge community Babel can do almost anything: for nearly every need, there is a well-maintained and documented plugin available, and when you need to go off the beaten path, its API allows very specific and custom transformations. For a long time, this foundation was a real advantage, reliable, extensible, and almost indispensable for handling the transpilation of a complex project.
+**Babel is the first JavaScript transpiler**, created to enable developers to write modern JavaScript code that could run in older browsers. Our project has relied on nearly **10 years of Babel**, a solid choice built on robustness and flexibility. Being a 10 years old tool is both a curse and a blessing ! Because of its huge community Babel can do almost anything: for nearly every need, there is a well-maintained and documented plugin available, and when you need to go off the beaten path, its API allows very specific and custom transformations. For a long time, this foundation was a real advantage, reliable, extensible, and almost indispensable for handling the transpilation of a complex project.
 
 In Babel, all transformations happen through **presets** and **plugins**.
 
 > ℹ️ **Plugins** are pieces of code which perform a single transformation on a piece of code. A typical Babel pipeline consists of several plugins which sequentially transform the input source code.
 
-> ℹ️ **Presets** are plugins that are grouped together for convenience in order to fill a more general use case. For example, @babel/preset-env compiles modern JavaScript for the targeted browsers, `@babel/preset-react` handles JSX, and `@babel/preset-typescript` transpiles TypeScript. Each of those presets actually return an array of individual plugins.
+> ℹ️ **Presets** are plugins that are grouped together for convenience in order to fill a more general use case. For example, @babel/preset-env compiles modern JavaScript for the targeted browsers, `@babel/preset-react` handles JSX, and `@babel/preset-typescript` transpiles TypeScript. Each of those presets actually return a group of individual plugins, which are then applied sequentially to transform the code.
 
-The architecture of Babel allows us to enable different sets of plugin depending on the environment to achieve optimal bundle size/build time/developer experience. For instance, on top of all the traditional transformations (Typescript, JSX, preset-env…), here are some plugins we enable only conditionally:
+The architecture of Babel allows us to enable different sets of plugins depending on the environment to achieve optimal bundle size/build time/developer experience. For instance, on top of all the traditional transformations (Typescript, JSX, preset-env…), here are some plugins we enable only conditionally:
 
 **In development:**
 - `react-refresh/babel` to enable Hot Module Replacement and improve the Developer eXperience (DX)
@@ -174,13 +174,33 @@ What's more, **this hybrid setup is a temporary solution** while we finish migra
 
 <br />
 
-### 🏗️ Pnpm build (without cache)
+### 🏗️ Build times (without cache)
 
-<img src="/images/posts/2025-11-19-switching-from-babel-to-swc/build-performance.png" alt="Scripts execute during render phase too" style="border-radius: 8px; display: block; margin: 0 auto; padding: 0px;" />
+<br />
+
+<div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin: 20px 0;">
+  <div style="flex: 1; min-width: 300px; max-width: 50%;">
+    <img src="/images/posts/2025-11-19-switching-from-babel-to-swc/build-performance.png" alt="Build performance benchmark" style="border-radius: 8px; width: 100%; padding: 0px;" />
+  </div>
+  <div style="flex: 1; min-width: 300px; max-width: 50%;">
+    <img src="/images/posts/2025-11-19-switching-from-babel-to-swc/dev-build-performance.png" alt="Dev build performance benchmark" style="border-radius: 8px; width: 100%; padding: 0px;" />
+  </div>
+</div>
+
+<br />
 
 ### 📦 Bundle sizes
 
-<img src="/images/posts/2025-11-19-switching-from-babel-to-swc/bundle-size.png" alt="Scripts execute during render phase too" style="border-radius: 8px; display: block; margin: 0 auto; padding: 0px;" />
+<br />
+
+<div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin: 20px 0;">
+  <div style="flex: 1; min-width: 300px; max-width: 50%;">
+    <img src="/images/posts/2025-11-19-switching-from-babel-to-swc/bundle-size.png" alt="Bundle size comparison" style="border-radius: 8px; width: 100%; padding: 0px;" />
+  </div>
+  <div style="flex: 1; min-width: 300px; max-width: 50%;">
+    <img src="/images/posts/2025-11-19-switching-from-babel-to-swc/bundle-analysis.png" alt="Bundle analysis" style="border-radius: 8px; width: 100%; padding: 0px;" />
+  </div>
+</div>
 
 When looking at the bundle size graph, the difference is actually quite small: using SWC without stripping PropTypes results in a bundle that is only slightly larger than our hybrid setup combining SWC and Babel. On paper, this might suggest that the additional complexity is not strictly necessary.
 
@@ -188,14 +208,7 @@ However, we deliberately chose to prioritize bundle size over development-time c
 
 From our perspective, this is less about chasing a few kilobytes and more about maintaining a clean production pipeline. Even if the gains are small today, enforcing this separation keeps the build process explicit, predictable, and aligned with how the code is meant to be used.
 
-
-### 🔍 Bundle analysis
-
-<img src="/images/posts/2025-11-19-switching-from-babel-to-swc/bundle-analysis.png" alt="Scripts execute during render phase too" style="border-radius: 8px; display: block; margin: 0 auto; padding: 0px;" />
-
-### 👥 Devs analysis
-
-<img src="/images/posts/2025-11-19-switching-from-babel-to-swc/dev-build-performance.png" alt="Scripts execute during render phase too" style="border-radius: 8px; display: block; margin: 0 auto; padding: 0px;" />
+<br />
 
 ## 🚀 Next steps ?
 
