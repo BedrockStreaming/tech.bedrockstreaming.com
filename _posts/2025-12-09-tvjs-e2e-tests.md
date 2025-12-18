@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Writing end-to-end tests for a Smart TV app"
-description: "REX on stabilising e2e tests for a focused based app, using Cypress."
+description: "REX on stabilising end-to-end tests for a focused based app, using Cypress."
+author: [m_bernier]
 tags: [smartTV, javascript, react, web, frontend, e2e, testing]
 color: rgb(251,87,66)
 feature-img: "/images/posts/2025-12-09-tvjs-e2e-tests/catalog.jpg"
@@ -12,14 +13,14 @@ End-to-end can be challenging for focus-based interfaces like Smart TV apps that
 
 ---
 
-At TVJS, we work on a Smart TV app. It's a classic React app, but the user doesn't interact with it in the same way they would on a typical desktop or mobile application. Instead, the app implements LRUD (Left, Right, Up, Down) navigation: users interact exclusively through directional keys.
+At TVJS, we work on a Smart TV app. It's a classic React app, but the user doesn't interact with it in the same way they would on a typical desktop or mobile application. Instead, the app implements LRUD (Left, Right, Up, Down) navigation: users interact exclusively through directional keys on their remote control.
 
-For a while, the team had faced an issue: our E2E tests were filled with flaky feature tests, polluting CIs with false negatives, forcing us to rely on retries and relaunching CI jobs. This eroded trust in our test suite and slowed down development.
+For a while, the team had faced an issue: our end-to-end (e2e) tests were filled with flaky feature tests, polluting CIs with false negatives, forcing us to rely on retries and relaunching CI jobs. This eroded trust in our test suite and slowed down development.
 
 ## The Challenge of Testing LRUD Navigation
 
 ### Cypress's built-in stability
-[Cypress](https://docs.cypress.io/), our end-to-end testing tool of choice, includes powerful mechanisms that make tests stable out of the box. For pointer interactions, it automatically ensures the target element exists and is visible, and retries the action if the targeted element isn't ready.
+[Cypress](https://docs.cypress.io/), our e2e testing tool of choice, includes powerful mechanisms that make tests stable out of the box. For pointer interactions, it automatically ensures the target element exists and is visible, and retries the action if the targeted element isn't ready.
 
 These features make tests naturally resilient against network delays and rendering times, handling timing details so you can focus on the feature test. They also make tests 
 easier to write: when you know what behaviour to expect, Cypress handles the 
@@ -27,7 +28,7 @@ timing details, allowing you to focus on the feature test.
 
 
 ### The challenge of LRUD navigation
-The trouble starts when we stop using pointer interactions and start testing keyboard-based LRUD navigation. Cypress can easily simulate key presses, but it has no idea what’s currently focused on the page and focus is everything in LRUD. Every navigation step is relative: pressing the `right` key only makes sense if the correct item is focused before the key event.
+The trouble starts when we stop using pointer interactions and start testing keyboard-based LRUD navigation. Cypress can easily simulate remote key presses as keyboard events, but it has no idea what’s currently focused on the page and focus is everything in LRUD. Every navigation step is relative: pressing the `right` key only makes sense if the correct item is focused before the key event.
 
 In a simple navigation test like:
 ```gherkin
