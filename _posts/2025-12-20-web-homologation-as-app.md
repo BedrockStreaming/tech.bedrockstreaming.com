@@ -16,9 +16,9 @@ Given that our application is multi-customer, scaling testing efforts becomes in
 
 QA engineers are therefore a critical resource responsible for assessing product quality and ensuring high standards through continuous validation and _homologation_.
 
-In our context, _homologation_ specifically involves the rigorous, final assessment of a release candidate (RC). This process entails fully testing the RC across a matrix of multi-client configurations (customer-specific data/settings) and multi-browser environments on an iso-production environment before deployment.
+In our context, _homologation_ specifically involves the rigorous, final assessment of a release candidate (RC). This process entails fully testing the RC across a matrix of multi-client configurations (customer-specific data/settings) and multi-browser environments on an iso-production environment before deployment. _Homologation_ used to be a fully-manual process in the software release process.
 
-To make sure this process follows a more and more speedy release cycle and scales at a limited cost, automated testing becomes a must have and critical tool to support even shorter release cycle in the future. Homologation used to be a fully-manual process in the software release process.
+To make sure this process follows a more and more speedy release cycle and scales at a limited cost, automated testing becomes a must have and critical tool to support even shorter release cycle in the future.
 
 This article will cover the building foundation of our new homologation stack, dedicated to the validation of the frontend release candidates.
 
@@ -38,10 +38,10 @@ However, relying heavily on traditional manual QA processes presented a scalabil
 
 - Speed Constraint: To accommodate even shorter release cycles in the future, the homologation process needed to become faster, more reliable, and less expensive to execute repeatedly.
 
-**The goal:**
+**The Goal:**
 
 - Build a new, robust, and scalable homologation stack dedicated to validating frontend release candidates that can meet the current pace and future demands.
-- On another hand, traditional and fully manual QA processes were a bit dusty compared to the evolving environment around QA and AI and representing a source monotony in the QA engineers day-to-day. From “nice-to-have“, the automated tested shifted to critical need to sustain our evolution.
+- On another hand, traditional and fully manual QA processes were a bit dusty compared to the evolving environment around QA and AI and representing a source monotony in the QA engineers day-to-day. From “nice-to-have“, the automated testing shifted to critical need to sustain our evolution.
 
 ---
 
@@ -56,7 +56,7 @@ Our solution hinges on a deliberate choice of tools and methodologies designed f
 | [Playwright](https://playwright.dev/)                          | Browser Automation Engine | Speed and Reliability: Unified API for all major browsers (Chromium, Firefox, WebKit), mobile emulation, and excellent DX.          |
 | [playwright-bdd](https://vitalets.github.io/playwright-bdd/#/) | BDD Framework (Gherkin)   | Collaboration and Readability: Enables tests to be written in a natural, shared language while managing Playwright test generation. |
 
-Note: our dictionary of steps is greatly inspired by [uuv](https://github.com/Orange-OpenSource/uuv) which aims to provides an ecosystem that simplifies the writing of End to End tests in a BDD approach and a user-centric way and accessibility-first selectors.
+Note: our dictionary of steps is greatly inspired by [uuv](https://github.com/Orange-OpenSource/uuv) which aims to provides an ecosystem that simplifies the writing of End-to-End tests in a BDD approach and a user-centric way and accessibility-first selectors.
 
 **Requirements and rationale behind**
 
@@ -121,7 +121,7 @@ apps/homologation/
 │   └── clientN/                  # client N specific config
 │       ├── datas.config.ts       # Test data
 │       ├── urls.config.ts        # URL mappings
-│       └── translations.config.ts # Merged translation from different source
+│       └── translations.config.ts # Merged translations from different source
 ```
 
 ### 🔄 Data Flow Example: Multi-Tenant Magic
