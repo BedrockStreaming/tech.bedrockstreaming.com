@@ -1,11 +1,15 @@
 ---
 layout: post
-title: "Writing e2e tests for a Smart TV app"
+title: "Writing end-to-end tests for a Smart TV app"
 description: "REX on stabilising e2e tests for a focused based app, using Cypress."
 tags: [smartTV, javascript, react, web, frontend, e2e, testing]
 color: rgb(251,87,66)
 feature-img: "/images/posts/2025-12-09-tvjs-e2e-tests/catalog.jpg"
 language: en
+---
+
+End-to-end can be challenging for focus-based interfaces like Smart TV apps that rely on LRUD (Left, Right, Up, Down) navigation. This article shares how the TVJS team overcame the instability in their Cypress test suite by incorporating focus-aware assertions and adapting testing strategies for directional navigation, leading to more reliable and trustworthy automated tests.
+
 ---
 
 At TVJS, we work on a Smart TV app. It's a classic React app, but the user doesn't interact with it in the same way they would on a typical desktop or mobile application. Instead, the app implements LRUD (Left, Right, Up, Down) navigation: users interact exclusively through directional keys.
