@@ -2,7 +2,7 @@
 layout: post
 title: "Building a Scalable, Multi-Tenant Homologation Stack at Bedrock Streaming"
 description: "We share here QA context, key takeaways and reveal the architecture of the Web homologation stack."
-tags: [frontend, playwright, qa, web]
+tags: [bdd, frontend, ownership, playwright, QA, web]
 author: [m_bayard]
 color: rgb(251,87,66)
 language: en
