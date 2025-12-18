@@ -1,23 +1,22 @@
 ---
 layout: post
 title: "Building a Scalable, Multi-Tenant Homologation Stack at Bedrock Streaming"
-description: "We share here QA context,key takeaways and architecture decisions and reveal the architecture of the Web homologation stack."
+description: "We share here QA context, key takeaways and reveal the architecture of the Web homologation stack."
 tags: [frontend, playwright, qa, web]
 author: [m_bayard]
-cover: /assets/images/
 color: rgb(251,87,66)
 language: en
-feature-img: "/images/posts/"
-thumbnail: "/images/posts/"
+feature-img: "/images/posts/2025-12-20-web-homologation-as-app/homologation_qa_web.jpg"
+thumbnail: "/images/posts/2025-12-20-web-homologation-as-app/homologation_qa_web_1.jpg"
 ---
 
 At Bedrock Streaming, we create and operate full-scope streaming services for leading media companies with best-in-class user experience across AVOD, SVOD and hybrid business models.
 
 Given that our application is multi-customer, scaling testing efforts becomes increasingly challenging and costly due to the requirement for extensive manual validation.
 
-QA engineers are therefore a critical resource responsible for assessing product quality and ensuring high standards through continuous validation and homologation\*.
+QA engineers are therefore a critical resource responsible for assessing product quality and ensuring high standards through continuous validation and _homologation_.
 
-\*For clarity, homologation specifically involves the rigorous, final assessment of a release candidate (RC). This process entails fully testing the RC across a matrix of multi-client configurations (customer-specific data/settings) and multi-browser environments on an iso-production environment before deployment.
+In our context, _homologation_ specifically involves the rigorous, final assessment of a release candidate (RC). This process entails fully testing the RC across a matrix of multi-client configurations (customer-specific data/settings) and multi-browser environments on an iso-production environment before deployment.
 
 To make sure this process follows a more and more speedy release cycle and scales at a limited cost, automated testing becomes a must have and critical tool to support even shorter release cycle in the future. Homologation used to be a fully-manual process in the software release process.
 
@@ -52,10 +51,10 @@ Our solution hinges on a deliberate choice of tools and methodologies designed f
 
 **Core Stack**
 
-| Component      | Role                      | Key Benefit                                                                                                                         |
-| -------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| Playwright     | Browser Automation Engine | Speed and Reliability: Unified API for all major browsers (Chromium, Firefox, WebKit), mobile emulation, and excellent DX.          |
-| playwright-bdd | BDD Framework (Gherkin)   | Collaboration and Readability: Enables tests to be written in a natural, shared language while managing Playwright test generation. |
+| Component                                                      | Role                      | Key Benefit                                                                                                                         |
+| -------------------------------------------------------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| [Playwright](https://playwright.dev/)                          | Browser Automation Engine | Speed and Reliability: Unified API for all major browsers (Chromium, Firefox, WebKit), mobile emulation, and excellent DX.          |
+| [playwright-bdd](https://vitalets.github.io/playwright-bdd/#/) | BDD Framework (Gherkin)   | Collaboration and Readability: Enables tests to be written in a natural, shared language while managing Playwright test generation. |
 
 Note: our dictionary of steps is greatly inspired by [uuv](https://github.com/Orange-OpenSource/uuv) which aims to provides an ecosystem that simplifies the writing of End to End tests in a BDD approach and a user-centric way and accessibility-first selectors.
 
@@ -86,17 +85,21 @@ Note: our dictionary of steps is greatly inspired by [uuv](https://github.com/Or
 Today this architecture allows writing one test that runs across 4 customers × 2 platforms × multiple environments.
 The architecture follows a clean layered separation between business requirements (Gherkin), test logic (steps), and implementation details (utils).
 
-1. Feature Files (BDD Layer)
-   Path: features/@desktop/ & features/@webview/ Categorized by domain: @core (navigation), @player (VOD/Live), and @ulc (account/payment).
+**1. Feature Files (BDD Layer)**
+Path: `features/@desktop/` & `features/@webview/`
+Categorized by domain: `@core` (navigation), `@player` (VOD/Live), and `@ulc` (account/payment).
 
-2. Step Definitions (Glue Layer)
-   Path: features/steps/\*.steps.ts Standardized user actions (When) and assertions (Then) such as visibility.steps.ts or authentification.steps.ts.
+**2. Step Definitions (Glue Layer)**
+Path: `features/steps/\*.steps.ts`
+Standardized user actions (When) and assertions (Then) such as visibility.steps.ts or authentification.steps.ts.
 
-3. Utilities (Implementation Layer)
-   Path: features/steps/utils/\*.utils.ts The "brains" of the operation, including config.utils.ts for multi-tenant data retrieval and player.utils.ts for video interactions.
+**3. Utilities (Implementation Layer)**
+Path: `features/steps/utils/\*.utils.ts`
+The "brains" of the operation, including config.utils.ts for multi-tenant data retrieval and player.utils.ts for video interactions.
 
-4. Configuration (Multi-Tenant Layer)
-   Path: config/{customer}/ Where the magic happens. This layer stores customer-specific account.config.ts, translations.config.ts, and environment URLs.
+**4. Configuration (Multi-Tenant Layer)**
+Path: `config/{customer}/`
+Where the magic happens. This layer stores customer-specific account.config.ts, translations.config.ts, and environment URLs.
 
 ```
 apps/homologation/
@@ -108,21 +111,20 @@ apps/homologation/
 │       ├── interactivity.steps.ts
 │       ├── visibility.steps.ts
 │       │── ...
-│       └── utils/               # Utility functions for steps (getValue() for multi-tenant config)
-│
+│       └── utils/               # Utility functions for steps
 ├── config/                    # Customer-specific configuration
 │   ├── config.ts              # Main config aggregator
-│   ├── m6web/                 # M6+ specific config
+│   ├── selectors.ts           # Main selectors aggregator
+│   ├── clientA/               # client A specific config
 │   ├── .../
 │   ├── .../
 │   └── clientN/                  # client N specific config
 │       ├── datas.config.ts       # Test data
 │       ├── urls.config.ts        # URL mappings
-│       ├── selectors.config.ts   # selectors
-│       └── translations.config.ts
+│       └── translations.config.ts # Merged translation from different source
 ```
 
-## 🔄 Data Flow Example: Multi-Tenant Magic
+### 🔄 Data Flow Example: Multi-Tenant Magic
 
 When executing a test like:
 
@@ -132,7 +134,7 @@ Then the user should see the text "translation.account.menu.logout"
 
 Step receives the abstract key `"translation.account.menu.logout"`.
 
-Step calls `getValue("translation.account.menu.logout")`.
+Step calls a utils fonction `getValue("translation.account.menu.logout")`.
 
 Config resolves to the specific customer's value (e.g., `"Kijelentkezés"` for one customer, `"Logout"` for another).
 
@@ -148,7 +150,7 @@ Playwright locates the element with that specific text and validates visibility.
 
 All in all, this new stack is the backbone for delivering high-quality streaming experiences quickly.
 
-The architecture and overall approach are confirmed to be successful, leading to a reduced and continuously improving homologation time as test coverage increases. We've implemented new rituals to thoroughly analyze results and maintain a strategic focus on both manual exploratory testing and executing more complex tests.
+The architecture and overall approach are confirmed to be successful, leading to a reduced and continuously improving homologation time as test coverage increases. We've implemented new rituals to thoroughly analyze results and maintain a strategic focus on both manual exploratory testing and executing more complex tests. Also, time to get a first feeback on the overall outcome and quality of each release has been highly reduced from days to minutes.
 
 **Key takeaways for the QA community:**
 
@@ -160,6 +162,6 @@ The architecture and overall approach are confirmed to be successful, leading to
 
 **What's next:**
 
-More AI and bring the automated testing to the age of agentic.
+- More AI and bring the automated testing to the age of agentic.
 
-Merge the testing approach with our developers.
+- Merge the testing approach with our developers.
