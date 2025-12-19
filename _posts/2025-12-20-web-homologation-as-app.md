@@ -56,7 +56,7 @@ Our solution hinges on a deliberate choice of tools and methodologies designed f
 | [Playwright](https://playwright.dev/)                          | Browser Automation Engine | Speed and Reliability: Unified API for all major browsers (Chromium, Firefox, WebKit), mobile emulation, and excellent DX.          |
 | [playwright-bdd](https://vitalets.github.io/playwright-bdd/#/) | BDD Framework (Gherkin)   | Collaboration and Readability: Enables tests to be written in a natural, shared language while managing Playwright test generation. |
 
-> ℹ️ Note: our dictionary of steps is greatly inspired by [uuv](https://github.com/Orange-OpenSource/uuv) which aims to provides an ecosystem that simplifies the writing of End-to-End tests in a BDD approach and a user-centric way and accessibility-first selectors.
+> ℹ️ Our dictionary of steps is greatly inspired by [uuv](https://github.com/Orange-OpenSource/uuv) which aims to provides an ecosystem that simplifies the writing of End-to-End tests in a BDD approach and a user-centric way and accessibility-first selectors.
 
 **Requirements and rationale behind**
 
@@ -87,27 +87,31 @@ The architecture follows a clean layered separation between business requirement
 
 **1. Feature Files (BDD Layer)**
 
-Path: `features/@desktop/` & `features/@webview/`
-
-Categorized by domain: `@core` (navigation), `@player` (VOD/Live), and `@ulc` (account/payment).
+- Path: `features/@desktop/` & `features/@webview/`
+- Purpose: Plain-language Gherkin files defining the test scenarios.
+- Organization: Grouped by functional domains: `@core` (navigation), `@player` (VOD/Live/audio), and `@ulc` (accounts/payments).
 
 **2. Step Definitions (Glue Layer)**
 
-Path: `features/steps/\*.steps.ts`
-
-Standardized user actions (When) and assertions (Then) such as visibility.steps.ts or authentification.steps.ts.
+- Path: `features/steps/\*.steps.ts`
+- Purpose: The bridge between Gherkin and code.
+- Design: Standardized by action (When) or assertion (Then) to maximize reusability across different features.
 
 **3. Utilities (Implementation Layer)**
 
-Path: `features/steps/utils/\*.utils.ts`
-
-The "brains" of the operation, including some functions and helpers for multi-tenant data retrieval, video interactions, smart navigation and verification.
+- Path: `features/steps/utils/\*.utils.ts`
+- Purpose: The "brains" of the framework.
+- Responsibility: Instead of individual page objects, these shared utilities handle complex multi-tenant logic, video player interactions, and smart navigation.
 
 **4. Configuration (Multi-Tenant Layer)**
 
-Path: `config/{customer}/`
+- Path: `config/{customer}/`
+- Purpose: Environment and client-specific data.
+- Components: Holds the unique URLs, account information and localized strings (translations.config.ts) for each brand.
 
-Where the magic happens. This layer stores customer-specific account.config.ts, translations.config.ts, and environment URLs.
+> ℹ️ We have not implemented the Page Object Model (POM) in favor of a Functional Utility-Based approach. This avoids the heavy overhead of maintaining an excessive amount of page-specific classes across multiple brands. Instead, we centralize logic in a shared implementation Layer, allowing us to update core behaviors (like the Video Player) in a single place for all tenants.
+
+Finally the architecture looks like this:
 
 ```
 apps/homologation/
