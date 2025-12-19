@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Building a Scalable, Multi-Tenant Homologation Stack at Bedrock Streaming"
+title: "Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming"
 description: "We share here QA context, key takeaways and reveal the architecture of the Web homologation stack."
 tags: [bdd, frontend, ownership, playwright, QA, web]
 author: [m_bayard]
@@ -56,21 +56,21 @@ Our solution hinges on a deliberate choice of tools and methodologies designed f
 | [Playwright](https://playwright.dev/)                          | Browser Automation Engine | Speed and Reliability: Unified API for all major browsers (Chromium, Firefox, WebKit), mobile emulation, and excellent DX.          |
 | [playwright-bdd](https://vitalets.github.io/playwright-bdd/#/) | BDD Framework (Gherkin)   | Collaboration and Readability: Enables tests to be written in a natural, shared language while managing Playwright test generation. |
 
-Note: our dictionary of steps is greatly inspired by [uuv](https://github.com/Orange-OpenSource/uuv) which aims to provides an ecosystem that simplifies the writing of End-to-End tests in a BDD approach and a user-centric way and accessibility-first selectors.
+> ℹ️ Note: our dictionary of steps is greatly inspired by [uuv](https://github.com/Orange-OpenSource/uuv) which aims to provides an ecosystem that simplifies the writing of End-to-End tests in a BDD approach and a user-centric way and accessibility-first selectors.
 
 **Requirements and rationale behind**
 
-- Natural Language BDD (Gherkin): This is a key enabler for collaboration.
+- **Natural Language BDD (Gherkin)**: This is a key enabler for collaboration.
 
   - Easy Review: Allows QA Engineers, Product Owners (POs), and Developers (DEVs) to easily read, review, and contribute to the test specifications without needing deep coding knowledge.
 
-- Multi-Client / Multi-Platform Support: Leveraging Playwright's power, our stack should inherently supports validation across:
+- **Multi-Client / Multi-Platform Support**: Leveraging Playwright's power, our stack should inherently supports validation across:
 
   - Multiple Languages (leveraging our i18n packages).
   - Multiple Platforms (desktop and mobile browsers).
   - Multiple apps / projects.
 
-- Codebase Integration (the shift): The homologation application is part of the main Web codebase.
+- **Codebase Integration (the shift)**: The homologation application is part of the main Web codebase.
 
   - Better Context: QA engineers gain a better understanding of code changes and their impact.
 
@@ -86,19 +86,27 @@ Today this architecture allows writing one test that runs across 4 customers × 
 The architecture follows a clean layered separation between business requirements (Gherkin), test logic (steps), and implementation details (utils).
 
 **1. Feature Files (BDD Layer)**
+
 Path: `features/@desktop/` & `features/@webview/`
+
 Categorized by domain: `@core` (navigation), `@player` (VOD/Live), and `@ulc` (account/payment).
 
 **2. Step Definitions (Glue Layer)**
+
 Path: `features/steps/\*.steps.ts`
+
 Standardized user actions (When) and assertions (Then) such as visibility.steps.ts or authentification.steps.ts.
 
 **3. Utilities (Implementation Layer)**
+
 Path: `features/steps/utils/\*.utils.ts`
-The "brains" of the operation, including config.utils.ts for multi-tenant data retrieval and player.utils.ts for video interactions.
+
+The "brains" of the operation, including some functions and helpers for multi-tenant data retrieval, video interactions, smart navigation and verification.
 
 **4. Configuration (Multi-Tenant Layer)**
+
 Path: `config/{customer}/`
+
 Where the magic happens. This layer stores customer-specific account.config.ts, translations.config.ts, and environment URLs.
 
 ```
@@ -132,19 +140,16 @@ When executing a test like:
 Then the user should see the text "translation.account.menu.logout"
 ```
 
-Step receives the abstract key `"translation.account.menu.logout"`.
-
-Step calls a utils fonction `getValue("translation.account.menu.logout")`.
-
-Config resolves to the specific customer's value (e.g., `"Kijelentkezés"` for one customer, `"Logout"` for another).
-
-Playwright locates the element with that specific text and validates visibility.
+- Step receives the abstract key `"translation.account.menu.logout"`.
+- Step calls a utils fonction `getValue("translation.account.menu.logout")`.
+- Config resolves to the specific customer's value (e.g., `"Kijelentkezés"` for one customer, `"Logout"` for another).
+- Playwright locates the element with that specific text and validates visibility.
 
 ## ✦ The Future: AI Readiness and CI Integration
 
-- AI and BDD: The structured, human-readable format of Gherkin makes it an ideal input for future AI agents.
-- CI/CD In Action: Automated tests are integrated into our CI pipeline, ensuring quality gates are enforced before any release proceeds.
-- The Human Factor: We’ve transformed the QA role. By transitioning to "Quality Architects," our engineers now own the automated patrimony, supported by targeted training to bridge the gap between manual testing and code.
+- **AI and BDD**: The structured, human-readable format of Gherkin makes it an ideal input for future AI agents.
+- **CI/CD In Action**: Automated tests are integrated into our CI pipeline, ensuring quality gates are enforced before any release proceeds.
+- **The Human Factor**: We’ve transformed the QA role. By transitioning to "Quality Architects," our engineers now own the automated patrimony, supported by targeted training to bridge the gap between manual testing and code.
 
 ## Next
 
@@ -164,4 +169,4 @@ The architecture and overall approach are confirmed to be successful, leading to
 
 - More AI and bring the automated testing to the age of agentic.
 
-- Merge the testing approach with our developers.
+- Align the testing approach with our developers, who already have an automated E2E testing stack for Pull Request validation (currently based on [WebdriverIO & CucumberJS](https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html#our-e2e-tests)).
