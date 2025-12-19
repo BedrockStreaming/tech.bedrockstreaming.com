@@ -11,7 +11,9 @@ thumbnail: "/images/posts/2025-10-10-AI-neural-in-go-on-collab/neural_in_go.jpg"
 
 Today AI assistants are taking more and more place in our life and most of us have already used one in the past few months.
 But how are they working? How can they learn? It's a fascinating question and we'll need more than an article to explain it.
-However, we can start by thinking about the "base" of this technology, neural networks, used to learn how to compute an input to give a result as close as the attempted one. It uses "deep learning concept" in "machine learning".
+However, we can start by thinking about the "base" of this technology, neural networks, used to learn how to compute an input to give a result as close as the attempted one. 
+
+It uses "deep learning concept" in "machine learning".
 To do so I will guide you with an example in GO running in a Google Colab environment.
 Why go? Because when we talk about AI, most of the time you have code in python but we hardly use GO at Bedrock.
 Why Google Colab? Because it's an easy way to have the same, shareable, environment. 
