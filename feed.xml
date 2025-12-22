@@ -1,4 +1,234 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2025-11-18T13:41:51+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Performance.now() 2025 - Pragmatic, Magical and Responsible Performance</title><link href="https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025.html" rel="alternate" type="text/html" title="Performance.now() 2025 - Pragmatic, Magical and Responsible Performance" /><published>2025-11-18T00:00:00+00:00</published><updated>2025-11-18T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025.html">&lt;p&gt;On October 30-31, the Bedrock Web &amp;amp; TV team attended &lt;strong&gt;performance.now() 2025&lt;/strong&gt; in Amsterdam, one of the few conferences entirely dedicated to web frontend performance. Two intense days of real-world insights, browser deep-dives and discussions about what “fast” truly means in 2025.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2025-12-22T16:58:29+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Switching from Babel to SWC: Balancing performance with modern tools and legacy code</title><link href="https://tech.bedrockstreaming.com/2025/12/22/switching-from-babel-to-swc.html" rel="alternate" type="text/html" title="Switching from Babel to SWC: Balancing performance with modern tools and legacy code" /><published>2025-12-22T00:00:00+00:00</published><updated>2025-12-22T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/12/22/switching-from-babel-to-swc</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/12/22/switching-from-babel-to-swc.html">&lt;p&gt;Ever since websites started being made essentially from JavaScript, transpiling this code to run in the largest number of different browsers has been an essential step in the build process. From the very beginning, more than ten years ago, the BedrockStreaming web application has relied on &lt;a href=&quot;https://babeljs.io/&quot;&gt;Babel&lt;/a&gt; for this task. This year we migrated from Babel to its next-gen replacement, &lt;a href=&quot;https://swc.rs/&quot;&gt;SWC&lt;/a&gt;. It was not a smooth ride all the way, so let’s see what challenges we’ve had to overcome and if the payoff was worth the effort!&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;️-transpilation--whats-that-about-&quot;&gt;⚙️ Transpilation !? What’s that about ?&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Generally, transpilation is the process by which you take some source code, transform it, and output a transformed version of source code (opposed to compilation where you output lower-level code than your source code).&lt;/p&gt;
+
+&lt;p&gt;In the JavaScript/web context, this means taking your code and transforming it into another version of the same language. But what is the point of transforming code into code?&lt;/p&gt;
+
+&lt;p&gt;The modern JavaScript code we write often uses features that aren’t supported in all environments. For example, older browsers that we want to support don’t implement every new syntax we are using. Another use case is server-side code, on the Node.js side we sometimes end up using modules or JSX in files that the runtime still expects in CommonJS. All-in-all, the transpilation transforms our newest syntax into older/more standard syntax that is supported in more environments.&lt;/p&gt;
+
+&lt;p&gt;Most transpilers use a &lt;strong&gt;plugin-based architecture&lt;/strong&gt;: the core library is responsible only for parsing source code into an AST (Abstract Syntax Tree), performing the most common transformations (down-leveling the code to be compatible with older browsers for instance) and generating output code. All additional (more specific) transformations are handled by individual plugins, which are installed manually and added to the configuration. This separation of concerns allows easy customization and lets the community contribute new plugins without touching the core code. In other words, in modern transpilers, &lt;strong&gt;most custom code transformations are done via plugins.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Over the years, as the web technologies evolved, countless transformations have been added to the transpilation step. At BedrockStreaming, the transpiler handles all modern syntax, converting ESM to CJS modules, transforming TypeScript into JavaScript, transforming JSX into JS, etc., making it a cornerstone of our build process.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;So the question isn’t whether we transpile or not, but how.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;-the-starting-point-babel&quot;&gt;📦 The starting point: Babel&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Babel is the first JavaScript transpiler&lt;/strong&gt;, created to enable developers to write modern JavaScript code that could run in older browsers. &lt;strong&gt;Our project, &lt;a href=&quot;https://tech.bedrockstreaming.com/comment-ne-pas-jeter-son-application-frontend-tout-les-deux-ans&quot;&gt;now over 10 years old&lt;/a&gt;, has relied on Babel from the start&lt;/strong&gt;, a solid choice built on robustness and flexibility. Being a 10-year-old tool is both a curse and a blessing! Because of its huge community, Babel can do almost anything: for nearly every need, there is a well-maintained and documented plugin available, and when you need to go off the beaten path, its API allows very specific and custom transformations. For a long time, this foundation was a real advantage, reliable, extensible, and almost indispensable for handling the transpilation of a complex project.&lt;/p&gt;
+
+&lt;p&gt;In Babel, all transformations happen through &lt;strong&gt;presets&lt;/strong&gt; and &lt;strong&gt;plugins&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ℹ️ &lt;strong&gt;Plugins&lt;/strong&gt; are pieces of code which perform a single transformation on a piece of code. A typical Babel pipeline consists of several plugins which sequentially transform the input source code.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ℹ️ &lt;strong&gt;Presets&lt;/strong&gt; are plugins that are grouped together for convenience in order to fill a more general use case. For example, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@babel/preset-env&lt;/code&gt; compiles modern JavaScript for the targeted browsers, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@babel/preset-react&lt;/code&gt; handles JSX, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@babel/preset-typescript&lt;/code&gt; transpiles TypeScript. Each of those presets actually return a group of individual plugins, which are then applied sequentially to transform the code.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The architecture of Babel allows us to enable different sets of plugins depending on the environment to achieve optimal bundle size/build time/developer experience. For instance, on top of all the traditional transformations (TypeScript, JSX, preset-env…), here are some plugins we enable only conditionally:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;In development:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;react-refresh/babel&lt;/code&gt; to enable Hot Module Replacement and improve the Developer eXperience (DX)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;In production:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Code splitting via &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@loadable/babel-plugin&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Removal of attributes like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;data-testid&lt;/code&gt; with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;react-remove-properties&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Removal of PropTypes with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;transform-react-remove-prop-types&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2025-12-22-switching-from-babel-to-swc/babel-process.png&quot; alt=&quot;Scripts execute during render phase too&quot; style=&quot;border-radius: 8px; display: block; margin: 0 auto; padding: 0px;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;On the flip side, when we started looking more closely at our bundler, Webpack, compilation times, the limits of Babel became obvious. A quick analysis showed that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;babel-loader&lt;/code&gt; alone accounted for roughly &lt;strong&gt;50% of the total build time&lt;/strong&gt; (around 35 seconds out of a 1-minute build). In other words, even if everything else were optimized, transpilation would still remain our main bottleneck.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ℹ️ In a Webpack-based setup, &lt;strong&gt;most of the transpilation work happens inside loaders&lt;/strong&gt;. Webpack itself is responsible for building the dependency graph, but every file then goes through one or more loaders to be transformed before being bundled.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In our case, babel-loader sits on the hot path of the build: every JavaScript file passes through it (at the time of writing this article, we have almost &lt;strong&gt;5,000&lt;/strong&gt; JavaScript/TypeScript files in our project). This makes it one of the most impactful pieces of the pipeline in terms of performance. Optimizing this step, or replacing it with a faster alternative, is where the biggest gains can be achieved.&lt;/p&gt;
+
+&lt;p&gt;The long build time has a lot of implications: it is more costly in CI time, but above all, it translates to longer start times for our local development servers, which was starting to become a huge pain point as the application grew more and more with start times upwards of a minute. Since builds happen constantly—every time a developer starts their local environment, on every CI pipeline run, and during deployments—even small improvements compound into significant time savings across the entire team and infrastructure.&lt;/p&gt;
+
+&lt;p&gt;We were faced with a trade-off: continue benefiting from Babel’s massive ecosystem, or look for something significantly faster to improve compilation speed. Since our goal was clear: a better DX and higher performance, the question naturally arose.&lt;/p&gt;
+
+&lt;p&gt;This is where &lt;strong&gt;SWC (Speedy Web Compiler)&lt;/strong&gt; comes in. SWC is an extensible, Rust-based platform for the next generation of fast developer tools, already widely adopted by modern frameworks and companies. It is positioned as a much faster alternative to Babel, with a simple promise: “SWC is 20x faster than Babel on a single thread and 70x faster on four cores.” More than enough to seriously question our existing stack and justify exploring a migration to a compiler designed from the ground up for performance.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;️-the-proptypes-issue-missing-remove-prop-types-support&quot;&gt;⚠️ The PropTypes issue: missing remove-prop-types support&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;One limitation we quickly ran into was the lack of support for removing PropTypes in SWC. This became a problem because PropTypes, while largely deprecated in modern React applications, were still present in parts of our legacy codebase. Without stripping them, our production bundles remained unnecessarily large, and build times were impacted.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ℹ️ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prop-types&lt;/code&gt; is a legacy React library created to help type the props of React components. It has been deprecated since 2017 in favor of using TypeScript.
+The library allows you to declare the propTypes for a component in this way:&lt;/p&gt;
+  &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;MyComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;propTypes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;propA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PropTypes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;propB&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PropTypes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isRequired&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+  &lt;p&gt;It is this kind of code (only useful during development) that we want to remove from our production code.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;SWC’s core is written in Rust and compiled into a native binary executed by Node.js. Plugins are also written in Rust, but they are compiled to WebAssembly (WASM), producing a single portable file that can run anywhere in a sandboxed environment. This architecture makes SWC extremely fast and portable, but it also means that features available in older transpilers (like Babel) may not exist yet.&lt;/p&gt;
+
+&lt;p&gt;Our specific issue is that &lt;strong&gt;there is no WASM plugin in SWC to strip PropTypes&lt;/strong&gt;. PropTypes were effectively deprecated in 2017, so SWC being a modern transpiler doesn’t include this functionality out of the box. We found ourselves in a very specific case: trying to transpile a legacy app with cutting-edge tooling. It looks like we were not the only ones with this issue, the author of the Babel plugin to strip PropTypes opened an issue in 2021 exactly for this: &lt;a href=&quot;https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types/issues/201#top&quot;&gt;SWC support&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;At this point, we were faced with a frustrating dilemma: either renouncing and waiting for our codebase to be ready for the SWC migration, or trying to circumvent the issue to deliver the DX improvement as soon as possible. Here are the solutions we tried out.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;-the-solutions-we-evaluated&quot;&gt;💡 The solutions we evaluated&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;️-option-1---removing-all-proptypes-from-the-codebase&quot;&gt;🗑️ Option 1 - Removing all PropTypes from the codebase&lt;/h3&gt;
+
+&lt;p&gt;We initially considered simply dropping the library and removing all PropTypes in one shot. While this sounds somewhat ambitious for a large project, the PR would have been straightforward to review. Since we had started migrating parts of the codebase to TypeScript, we were on our way to removing the library anyway, albeit at our own pace.&lt;/p&gt;
+
+&lt;p&gt;This approach offers the “simplest” migration path from a technical standpoint and requires only a one-time effort with no ongoing maintenance afterward. It also results in a cleaner codebase because removing the library is our end goal anyway.&lt;/p&gt;
+
+&lt;p&gt;However, while this would require moderate effort, &lt;strong&gt;dropping PropTypes without adding TypeScript typing is risky,&lt;/strong&gt; as it degrades the developer experience and could introduce bugs. There is also a potential regression risk during the removal process, and the change creates a large pull request surface area, which increases the review burden for the team.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;-why-we-didnt-choose-this&quot;&gt;❌ Why we didn’t choose this&lt;/h4&gt;
+
+&lt;p&gt;After reflection and team discussions, we abandoned this approach given the extensive codebase. Even though the changes would have been theoretically simple to review, &lt;strong&gt;the sheer size of the PR&lt;/strong&gt; could have potentially introduced unexpected regressions that would be difficult to trace.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;-option-2---understanding-modernjs-wasm-plugins-vs-js-re-implementations&quot;&gt;🔌 Option 2 - Understanding ModernJS: WASM plugins vs JS re-implementations&lt;/h3&gt;
+
+&lt;p&gt;Because there are no official prop-types plugins for SWC we looked for community plugins. We found one in &lt;a href=&quot;https://github.com/web-infra-dev/swc-plugins&quot;&gt;swc-plugins&lt;/a&gt;, a plugins library for &lt;a href=&quot;https://github.com/web-infra-dev/modern.js&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Modern.js&lt;/code&gt;&lt;/a&gt;, an open-source web framework created by ByteDance.&lt;/p&gt;
+
+&lt;p&gt;This library has a system of extensions, which are plugins ported from Babel, and one of these extensions is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reactUtils&lt;/code&gt;. It features a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;removePropTypes&lt;/code&gt; option, so it looks like exactly what we were looking for!&lt;/p&gt;
+
+&lt;p&gt;We looked for a way to implement the plugin into our new SWC stack but we had a hard time simply plugging the plugin. This is because &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;swc-plugins&lt;/code&gt; is actually a re-implementation of SWC&lt;/strong&gt;: it’s a JS wrapper over SWC-core with a fixed set of available plugins. We were not the only ones to simply want the SWC plugin without the whole re-implementation, an &lt;a href=&quot;https://github.com/web-infra-dev/swc-plugins/issues/214&quot;&gt;issue&lt;/a&gt; was actually opened in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;swc-plugins&lt;/code&gt; since a year without any response.&lt;/p&gt;
+
+&lt;p&gt;We still tried to implement the standalone transpiler like in the docs, but quickly it was obvious that this would be an alternative to vanilla SWC and not a plugin. We were actually adding a whole new transpiler to our application!&lt;/p&gt;
+
+&lt;p&gt;We tried to make it work this way, but we soon found another issue: &lt;strong&gt;we couldn’t use official SWC plugins with this new compiler&lt;/strong&gt;. This was a major blocker for us because we already need some official plugins that are not available in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;swc-plugins&lt;/code&gt; compiler, like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;plugin-react-remove-properties&lt;/code&gt; to strip &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;data-testid&lt;/code&gt; attributes from our production builds. Moreover, it didn’t give us a lot of trust towards this stack and its future evolution: we were basically locking ourselves out of all the official and community plugins to use a compiler from a repository with 64 stars and no activity since September ‘24.&lt;/p&gt;
+
+&lt;p&gt;To sum it up, we lost a bit of time trying to make this solution work because the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;swc-plugins&lt;/code&gt; repo is pretty well referenced and it looks exactly like a collection of plugins for any SWC users (even though it was made for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Modern.js&lt;/code&gt;). It turns out that it is a very specific tool almost only used for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Modern.js&lt;/code&gt; and it isn’t suited for people using a normal SWC stack.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;-option-3---writing-the-missing-plugin-in-rust&quot;&gt;🦀 Option 3 - Writing the missing plugin in Rust&lt;/h3&gt;
+
+&lt;p&gt;Another solution we tried was to prototype a PropTypes removal plugin in Rust that would be compatible with SWC.&lt;/p&gt;
+
+&lt;p&gt;This was quite challenging since &lt;strong&gt;we’re not Rust developers&lt;/strong&gt; 😅. We had to move fast and see how far we could get by creating a POC with Cursor. The first step was to analyze what &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;babel-plugin-transform-remove-prop-types&lt;/code&gt; was doing. The entire logic was contained in a few source files, which we used to prompt the agent to translate into Rust.
+After reading the SWC documentation on &lt;a href=&quot;https://swc.rs/docs/plugin/ecmascript/getting-started&quot;&gt;how to write a plugin&lt;/a&gt;, setting up the environment, and initializing a new plugin project with Cargo, we began iterating with Cursor. We achieved a POC that works very similarly to the Babel plugin in a short amount of time.&lt;/p&gt;
+
+&lt;p&gt;However, the challenges with this approach are the ongoing development investment and, more importantly, the time needed to build a clean and well-tested plugin. Since we’re not Rust developers, &lt;strong&gt;building and maintaining this codebase could become costly&lt;/strong&gt;, even with agent assistance. We would also need feedback from the SWC Rust developers through the &lt;a href=&quot;https://github.com/swc-project/swc&quot;&gt;swc-project repository&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We plan to contribute this plugin to the community repository so it can be reviewed, merged and hopefully maintained by developers with real Rust expertise. We’re planning to move forward on this in the coming months.&lt;/p&gt;
+
+&lt;p&gt;In the meantime, we needed an alternative to avoid being blocked.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;-option-4-chosen---using-a-hybrid-setup-with-babel--swc&quot;&gt;🤝 Option 4 (chosen) - Using a hybrid setup with Babel + SWC&lt;/h3&gt;
+
+&lt;p&gt;In the end, we took a step back and reconsidered the problem: we had tried three alternative solutions to overcome the issue of removing propTypes from our production build. This proved very costly, if not outright impossible. We thus had to find a compromise: taken individually, &lt;strong&gt;removing propTypes is a minimal transformation compared to the 50+ other transformations&lt;/strong&gt; we apply to our JavaScript files. What if we kept Babel only for this transformation and still migrated to SWC for all the other transformations?&lt;/p&gt;
+
+&lt;p&gt;The implementation of this double setup was actually made fairly easy by leveraging Webpack loaders. In our webpack configuration for JavaScript files, we specify two different loaders. Babel-loader goes first and only removes prop-types (very importantly, it doesn’t perform any other transformation and returns untransformed files except for prop-types removal). Then the SWC loader takes the output of babel-loader and performs all the transformations.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Babel-loader is only enabled for prod builds&lt;/strong&gt; in order to keep the dev experience as smooth as possible.&lt;/p&gt;
+
+&lt;p&gt;This has a cost, of course, because there is the overhead of running all files through both Babel and SWC, but overall we expected an improvement in performance, only slightly less than what we could have achieved running only SWC.&lt;/p&gt;
+
+&lt;p&gt;What’s more, &lt;strong&gt;this hybrid setup is a temporary solution&lt;/strong&gt; while we finish migrating away from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prop-types&lt;/code&gt;, so we were looking for a solution that would allow us to bring the build time improvements as quick as possible, even if the setup isn’t definitive and will be tweaked in the future.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2025-12-22-switching-from-babel-to-swc/final-process.png&quot; alt=&quot;Scripts execute during render phase too&quot; style=&quot;border-radius: 8px; display: block; margin: 0 auto; padding: 0px;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;-benchmark-results&quot;&gt;📊 Benchmark results&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ℹ️ For the SWC part, we measure SWC here without removing PropTypes.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;️-build-times-without-cache&quot;&gt;🏗️ Build times (without cache)&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div style=&quot;display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin: 20px 0;&quot;&gt;
+  &lt;div style=&quot;flex: 1; min-width: 300px; max-width: 50%;&quot;&gt;
+    &lt;img src=&quot;/images/posts/2025-12-22-switching-from-babel-to-swc/build-performance.png&quot; alt=&quot;Build performance benchmark&quot; style=&quot;border-radius: 8px; width: 100%; padding: 0px;&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div style=&quot;flex: 1; min-width: 300px; max-width: 50%;&quot;&gt;
+    &lt;img src=&quot;/images/posts/2025-12-22-switching-from-babel-to-swc/dev-build-performance.png&quot; alt=&quot;Dev build performance benchmark&quot; style=&quot;border-radius: 8px; width: 100%; padding: 0px;&quot; /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Production builds improved significantly: &lt;strong&gt;77.4s (Babel) → 55s (hybrid SWC + Babel) → 40.4s (pure SWC)&lt;/strong&gt;. Development builds saw even more dramatic gains: &lt;strong&gt;dev server 54.5s → 14.1s&lt;/strong&gt; and &lt;strong&gt;dev client 27.4s → 15s&lt;/strong&gt;. Even with our hybrid approach, SWC delivers substantially faster builds.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;-bundle-sizes&quot;&gt;📦 Bundle sizes&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div style=&quot;display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin: 20px 0;&quot;&gt;
+  &lt;div style=&quot;flex: 1; min-width: 300px; max-width: 50%;&quot;&gt;
+    &lt;img src=&quot;/images/posts/2025-12-22-switching-from-babel-to-swc/bundle-size.png&quot; alt=&quot;Bundle size comparison&quot; style=&quot;border-radius: 8px; width: 100%; padding: 0px;&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div style=&quot;flex: 1; min-width: 300px; max-width: 50%;&quot;&gt;
+    &lt;img src=&quot;/images/posts/2025-12-22-switching-from-babel-to-swc/bundle-analysis.png&quot; alt=&quot;Bundle analysis&quot; style=&quot;border-radius: 8px; width: 100%; padding: 0px;&quot; /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;When looking at the bundle size graph, the difference is actually quite small (&lt;strong&gt;1 MiB&lt;/strong&gt;): using SWC without stripping PropTypes results in a bundle that is only slightly larger than our hybrid setup combining SWC and Babel. On paper, this might suggest that the additional complexity is not strictly necessary.&lt;/p&gt;
+
+&lt;p&gt;However, we deliberately chose to prioritize bundle size over development-time convenience. Production bundles are what ultimately get shipped to users, and keeping them as lean as possible is both a performance and a cleanliness concern. PropTypes are a development-time safety net; they provide no value in production and should not end up in the final bundle. Leaving them in, even with a marginal size impact, means knowingly shipping dead code.&lt;/p&gt;
+
+&lt;p&gt;From our perspective, this is less about chasing a few kilobytes and more about maintaining a clean production pipeline. Even if the gains are small today, enforcing this separation keeps the build process explicit, predictable, and aligned with how the code is meant to be used.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;-next-steps&quot;&gt;🚀 Next steps?&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Looking ahead, there are a few clear steps to further improve our setup.&lt;/p&gt;
+
+&lt;p&gt;One of the first improvements we plan to adopt is &lt;a href=&quot;https://swc.rs/docs/usage/jest&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@swc/jest&lt;/code&gt;&lt;/a&gt;. By replacing the default JavaScript-based Jest runner (like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ts-jest&lt;/code&gt;) with this drop-in Rust replacement, our tests can run significantly faster. SWC’s Rust/WASM architecture makes it possible to apply the same transformations much more efficiently, which should reduce overall CI times and improve the feedback loop for developers.&lt;/p&gt;
+
+&lt;p&gt;On a longer-term horizon, we also plan to remove the remaining parts of the legacy PropTypes code. The migration has been designed in a way that makes it easy to phase out the remaining Babel setup once these PropTypes are gone. Even with this hybrid setup for now, the performance gains are already significant, and the codebase is noticeably more efficient.&lt;/p&gt;
+
+&lt;p&gt;It’s also worth mentioning that SWC’s documentation can be limited when it comes to more specific or advanced use cases. A big part of this migration involved experimentation, reading source code, and validating assumptions through benchmarks. We hope this article can help others facing similar constraints and reduce some of the friction we encountered along the way.&lt;/p&gt;
+
+&lt;p&gt;Throughout this process, our goal was clear: push developer experience as far as possible without compromising the quality of the final production bundle. And while this migration alone already delivers strong gains, it really starts to shine when combined with other optimizations, such as smarter caching strategies. &lt;strong&gt;More on that in a follow-up article.&lt;/strong&gt;&lt;/p&gt;</content><author><name>[&quot;jf_farge&quot;, &quot;m_alves&quot;, &quot;t_gianella&quot;]</name></author><category term="swc" /><category term="babel" /><category term="JavaScript" /><category term="react" /><category term="web" /><category term="frontend" /><category term="performance" /><category term="bundler" /><summary type="html">Ever since websites started being made essentially from JavaScript, transpiling this code to run in the largest number of different browsers has been an essential step in the build process. From the very beginning, more than ten years ago, the BedrockStreaming web application has relied on Babel for this task. This year we migrated from Babel to its next-gen replacement, SWC. It was not a smooth ride all the way, so let’s see what challenges we’ve had to overcome and if the payoff was worth the effort!</summary></entry><entry><title type="html">Performance.now() 2025 - Pragmatic, Magical and Responsible Performance</title><link href="https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025.html" rel="alternate" type="text/html" title="Performance.now() 2025 - Pragmatic, Magical and Responsible Performance" /><published>2025-11-18T00:00:00+00:00</published><updated>2025-11-18T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025.html">&lt;p&gt;On October 30-31, the Bedrock Web &amp;amp; TV team attended &lt;strong&gt;performance.now() 2025&lt;/strong&gt; in Amsterdam, one of the few conferences entirely dedicated to web frontend performance. Two intense days of real-world insights, browser deep-dives and discussions about what “fast” truly means in 2025.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -2373,192 +2603,4 @@ une expérience utilisateur améliorée et des utilisateurs satisfaits !&lt;/p&g
 
 &lt;p&gt;Notre équipe est ressortie de cette conférence ravie et avec de nouvelles idées qui vont surement nous suivre sur nos
 projets personnels aussi. La We love speed ❤️ est une conférence à ne pas manquer pour tous les passionnés de
-performance web, on vous recommande chaudement d’y assister si vous en avez l’occasion !&lt;/p&gt;</content><author><name>[&quot;j_nginn&quot;, &quot;j_poissonnet&quot;]</name></author><category term="performance" /><category term="conference" /><category term="webperf" /><category term="javascript" /><category term="react" /><category term="web" /><category term="frontend" /><summary type="html">Nous avons eu la chance de participer à la conférence We love speed, une conférence annuelle axée sur la performance du web. C’est un domaine qui nous passionne et nous sommes très content d’avoir pu y assister. Le thème de cette édition, c’est l’INP. En effet, cette métrique de performance a été ajoutée aux core web vitals par Google récemment. L’objectif de cette métrique est de refléter l’expérience utilisateur en mesurant la réactivité d’une application. Elle observe le temps entre une action utilisateur et une réponse visuelle de notre interface.</summary></entry><entry><title type="html">Enhancing Production Monitoring with New Relic</title><link href="https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html" rel="alternate" type="text/html" title="Enhancing Production Monitoring with New Relic" /><published>2024-10-03T00:00:00+00:00</published><updated>2024-10-03T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html">&lt;p&gt;At &lt;em&gt;Bedrock&lt;/em&gt;, we develop a streaming solution tailored for European media companies. Our application is a customizable white-label product used by millions across Europe. Bedrock’s clients have high expectations for stability, early incident detection, quick resolution, and effective communication during those times. Naturally, our goal is to deliver a stable product, and we dedicate significant effort toward this objective.&lt;/p&gt;
-
-&lt;p&gt;However, about two and a half years ago, our mobile team faced serious challenges in monitoring production. The tagging systems were pushing events into a tool that developers were not kin to use. The graphs were not intuitive and difficult to generate, making them hard to interpret. Each team across the company was managing its own monitoring practices. Monitoring was largely manual.&lt;br /&gt;
-Too many problems were brought to the attention of the team by a complaint of our client to the support team. We knew we had to make a change.&lt;/p&gt;
-
-&lt;p&gt;Several organization-wide measures were implemented (like tools to streamline incident reporting and improved communication processes with our clients), but on the tech side, we also needed to play our part.&lt;/p&gt;
-
-&lt;h2 id=&quot;setting-our-goals-and-expectations&quot;&gt;Setting Our Goals and Expectations&lt;/h2&gt;
-
-&lt;p&gt;We began by defining our goals:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Confidence in Releases: We needed certainty that what we shipped was functioning as expected.&lt;/li&gt;
-  &lt;li&gt;Standardized Practices: It was crucial to align monitoring practices and tagging plans across teams.&lt;/li&gt;
-  &lt;li&gt;Early Problem Detection: Our goal was to identify issues as early as possible.&lt;/li&gt;
-  &lt;li&gt;Quick Data for Support Teams: We aimed to swiftly provide support with relevant metrics, such as the number of users impacted and the duration of incidents.&lt;/li&gt;
-  &lt;li&gt;Developer Adoption: The selected tool had to be user-friendly, offering easy graph creation, visually appealing layouts, straightforward querying, and an ergonomic interface.&lt;/li&gt;
-  &lt;li&gt;Automated Alerts: We needed a system that could automatically alert us of potential issues.&lt;/li&gt;
-  &lt;li&gt;Configuration Portability: Regularly exporting our dashboards and alerts configuration was key, ensuring we could redeploy the setup if needed.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Bedrock chose New Relic. It’s important to note that this is not the only monitoring tool available, and we’re not claiming that others can’t meet our needs (we didn’t explore them deeply enough to say). What we do know is that New Relic has been widely adopted across our tech teams and has proven to be an effective solution to reach our requirements.&lt;/p&gt;
-
-&lt;h2 id=&quot;our-implementation-path&quot;&gt;Our Implementation Path&lt;/h2&gt;
-
-&lt;p&gt;Here’s the approach we took:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Shared Documentation: We created unified documentation for technical tagging plans across front-end teams, organized by domain and feature.&lt;/li&gt;
-  &lt;li&gt;Common Dashboards: We developed shared dashboards for the Android and iOS teams, organized by domain (e.g., one for the Player, one for the Core, one for User Life Cycle, and one for iOS-specific features).&lt;/li&gt;
-  &lt;li&gt;Automated Notifications: A Slack notification system was set up to alert teams whenever the documentation changes, ensuring everyone stays informed.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;advanced-queries-with-new-relic-insights&quot;&gt;Advanced Queries with New Relic Insights&lt;/h2&gt;
-
-&lt;p&gt;New Relic Insights, powered by NRQL (New Relic Query Language), allows developers to create powerful queries to extract specific information. Below, we illustrate how various NRQL queries translate into different types of graphs and charts on our dashboard:&lt;/p&gt;
-
-&lt;h3 id=&quot;example-1-count-query-with-line-chart&quot;&gt;Example 1: Count Query with Line chart&lt;/h3&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; SELECT count(*) 
- FROM Actions 
- WHERE actionName = &apos;LoginAction&apos; 
- FACET status, authenticationMethod 
- TIMESERIES auto 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This query counts the number of occurrences of the ‘LoginAction’ event, faceted by the status and authenticationMethod fields. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TIMESERIES&lt;/code&gt; auto clause visualizes this count over time, showing trends or spikes in login activity.&lt;/p&gt;
-
-&lt;p&gt;How It Renders: The line chart displays the count of login actions over time, with different lines for each combination of status and authentication method (Google, Apple, Email). This allows us to track how login activity changes over time and to compare different types of logins or statuses.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/barchart.png&quot; alt=&quot;Bar chart rendering&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;example-2-count-query-with-pie-chart&quot;&gt;Example 2: Count Query with Pie chart&lt;/h3&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; SELECT count(*), WHERE status = &apos;error&apos; 
- FROM Actions 
- WHERE actionName = &apos;LoginAction&apos; 
- FACET authenticationMethod, errorCode 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This query counts the number of login actions that resulted in errors, faceting by authenticationMethod (Google, Apple, Email) and errorCode. It helps identify which authentication methods and error codes are most common.&lt;/p&gt;
-
-&lt;p&gt;How It Renders: The pie chart visualizes the distribution of login errors across different authentication methods and error codes. Each slice represents the proportion of errors associated with a particular method or error code, making it easy to see which are most problematic.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/piechart.png&quot; alt=&quot;Pie chart rendering&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;example-3-percentage-query-with-billboard-chart&quot;&gt;Example 3: Percentage Query with Billboard chart&lt;/h3&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; SELECT 100 - percentage(count(*), WHERE status = &apos;error&apos;)  
- as `Successful login` 
- FROM Actions 
- WHERE actionName = &apos;LoginAction&apos; 
- SINCE 2 hours ago 
- COMPARE WITH 1 day ago  
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This query calculates the percentage of successful login actions (i.e., those that did not result in errors) within the last two hours, compared to the same period one day ago. It helps track success rates and identify any improvements or declines in login performance.&lt;/p&gt;
-
-&lt;p&gt;How It Renders: The billboard chart prominently displays the percentage of successful logins as a large, bold number. The comparison with the previous day is also displayed, allowing for quick assessment of whether the success rate has improved or worsened.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/billboardchart.png&quot; alt=&quot;Billboard chart rendering&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;example-4-funnel-query&quot;&gt;Example 4: Funnel Query&lt;/h3&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   SELECT funnel(sessionId AS session, 
-   WHERE name = &apos;EmailValidationStatus&apos; AND isVerified IS false AS &apos;email not verified&apos;, 
-   WHERE name = &apos;EmailNotVerifiedPageOpe&apos; AS &apos;email validation page opened&apos;), 
-   WHERE name = &apos;LayoutPageOpen’ AS &apos;one layout event is called &apos;) 
-   FROM Actions 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This funnel query tracks user sessions through key steps in an email verification process. It identifies users with unverified emails and checks if they opened the email validation page. This helps monitor conversion rates and potential drop-offs in the user journey.&lt;/p&gt;
-
-&lt;p&gt;How It Renders: The funnel chart visualizes the sequence of user actions, showing the number of users at each step of the email verification process. This makes it easy to see where users drop off and which steps might need improvement.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/funnelchart.png&quot; alt=&quot;Funnel chart rendering&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;configuring-alerts-with-new-relic&quot;&gt;Configuring Alerts with New Relic&lt;/h2&gt;
-
-&lt;p&gt;When setting up New Relic alerts, we used both static and anomaly thresholds based on the feature’s behaviour:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Static Thresholds: Applied to features with predictable, consistent performance, where specific limits are well-defined.&lt;br /&gt;
-For example, we used static thresholds for the Login/Register and Consent features, where behaviour is stable and deviations are easily identifiable.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Anomaly Detection: Used for features with dynamic patterns where a fixed threshold isn’t suitable. 
-We applied anomaly detection for example to the Payment feature since transaction patterns can vary significantly based on many factors.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This combination allows us to accurately monitor both stable and variable features.&lt;/p&gt;
-
-&lt;h3 id=&quot;alert-policies&quot;&gt;Alert Policies&lt;/h3&gt;
-
-&lt;p&gt;An alert policy determines who should be notified when an alert is triggered. It defines notification channels, user groups, and actions to take. To create an alert policy:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Go to “Alerts &amp;amp; AI” in your New Relic dashboard.&lt;/li&gt;
-  &lt;li&gt;Create a new alert policy and define the actions to take when an alert is triggered.&lt;/li&gt;
-  &lt;li&gt;Associate the policy with the channels or emails that should receive the alert notifications.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;alert-conditions&quot;&gt;Alert Conditions&lt;/h3&gt;
-
-&lt;p&gt;Alert conditions define the thresholds at which an alert should be triggered. To configure an alert condition:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;In your New Relic dashboard, go to “Alerts &amp;amp; AI.”&lt;/li&gt;
-  &lt;li&gt;Create a new alert condition by specifying criteria such as response time or error rate.&lt;/li&gt;
-  &lt;li&gt;Define the thresholds and conditions necessary to trigger the alert. You can use anomaly detection or static thresholds depending on your feature needs.&lt;/li&gt;
-  &lt;li&gt;Associate this condition with the specific alert policy you have defined.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;code-of-alerts-with-terraform&quot;&gt;Code of alerts with Terraform&lt;/h3&gt;
-
-&lt;p&gt;Here’s a simple example of Terraform code to configure an alert condition that triggers when a spike in login errors (critical or warning) is detected:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  resource &quot;newrelic_nrql_alert_condition&quot; &quot;authentication_login_error&quot; { 
-  account_id                   = &quot;account_id&quot; 
-  policy_id                    = &quot;policy_id&quot; 
-  type                         = &quot;static&quot; 
-  name                         = &quot;authentication_login_error&quot; 
-  description                  = &quot;This alert fires when the % of login errors gets too high in a given time&quot; 
-  enabled                      = true 
-  violation_time_limit_seconds = 259200 
-
-  nrql { 
-    query = &quot;SELECT percentage(count(*), WHERE status = &apos;error&apos;) * IF(count(*)&amp;lt;100, 0, 1) FROM Actions WHERE actionName = &apos;LoginAction&apos;&quot; 
-  } 
-
-  critical { 
-    operator              = &quot;above&quot; 
-    threshold             = 10 
-    threshold_duration    = 3600 
-    threshold_occurrences = &quot;all&quot; 
-    
-  } 
-
-  warning { 
-    operator              = &quot;above&quot; 
-    threshold             = 8 
-    threshold_duration    = 3600 
-    threshold_occurrences = &quot;all&quot; 
-
-  } 
-
-  fill_option        = &quot;none&quot; 
-  aggregation_window = 3600 
-  aggregation_method = &quot;event_flow&quot; 
-  aggregation_delay  = 600 
-} 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Explanation:&lt;/p&gt;
-
-&lt;p&gt;This Terraform script configures an NRQL static alert condition for monitoring login errors. The alert triggers if the percentage of login errors exceeds a threshold. The NRQL query calculates the error percentage and multiplies it by 0 if the event count is less than 100 (to avoid false positives from low activity). The critical condition triggers if the error rate is above 10% for at least 1 hour. The warning condition triggers if the error rate is above 8% for the same duration.  The script also sets up an aggregation window and delay to smooth out any short-lived spikes. Once this condition is met, an alert is sent to the Slack channel configured in the previous steps.&lt;/p&gt;
-
-&lt;h2 id=&quot;brighter-outlook-with-enhanced-monitoring&quot;&gt;Brighter Outlook with Enhanced Monitoring&lt;/h2&gt;
-
-&lt;p&gt;Now, with our new monitoring solution in place, we’re seeing a significant improvement in how we handle critical issues. Alerts are delivered instantly, allowing us to respond to problems as they arise. Even when we receive warnings, we can act proactively to prevent potential issues from escalating.&lt;/p&gt;
-
-&lt;p&gt;This immediate and precise alerting system ensures that our dedicated teams whether they handle backend issues or other areas are promptly informed and can address concerns before they impact our users. This proactive approach not only enhances our overall performance but also improves our operational efficiency.&lt;/p&gt;
-
-&lt;p&gt;Overall, this solution has proven to be more effective and practical for our project, enabling us to maintain higher levels of stability and deliver a better experience for our clients. We’re confident that this improvement will continue to support our success and growth moving forward.&lt;/p&gt;
-
-&lt;h3 id=&quot;reference&quot;&gt;Reference:&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://newrelic.com/blog/how-to-relic/steal-this-dashboard&quot;&gt;Steal this dashboard&lt;/a&gt;&lt;/p&gt;</content><author><name>[&quot;m_benali&quot;, &quot;m_julieron&quot;]</name></author><category term="monitoring" /><category term="production" /><category term="newrelic" /><category term="shared practice" /><category term="alerting" /><summary type="html">At Bedrock, we develop a streaming solution tailored for European media companies. Our application is a customizable white-label product used by millions across Europe. Bedrock’s clients have high expectations for stability, early incident detection, quick resolution, and effective communication during those times. Naturally, our goal is to deliver a stable product, and we dedicate significant effort toward this objective.</summary></entry></feed>
+performance web, on vous recommande chaudement d’y assister si vous en avez l’occasion !&lt;/p&gt;</content><author><name>[&quot;j_nginn&quot;, &quot;j_poissonnet&quot;]</name></author><category term="performance" /><category term="conference" /><category term="webperf" /><category term="javascript" /><category term="react" /><category term="web" /><category term="frontend" /><summary type="html">Nous avons eu la chance de participer à la conférence We love speed, une conférence annuelle axée sur la performance du web. C’est un domaine qui nous passionne et nous sommes très content d’avoir pu y assister. Le thème de cette édition, c’est l’INP. En effet, cette métrique de performance a été ajoutée aux core web vitals par Google récemment. L’objectif de cette métrique est de refléter l’expérience utilisateur en mesurant la réactivité d’une application. Elle observe le temps entre une action utilisateur et une réponse visuelle de notre interface.</summary></entry></feed>
