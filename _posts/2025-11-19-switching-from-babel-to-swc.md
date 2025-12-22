@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Switching from Babel to SWC"
+title: "Switching from Babel to SWC: Balancing Performance with Modern Tools and Legacy Code"
 description: "From Babel to SWC: our journey of migrating from a 10-year-old transpiler to a next-gen compiler, overcoming challenges and achieving build performance improvements."
 tags: [swc, babel, JavaScript, react, web, frontend, performance, bundler]
 author: [jf_farge, m_alves, t_gianella]
@@ -35,13 +35,13 @@ Over the years, as the web technologies evolved, countless transformations have 
 
 <br />
 
-**Babel is the first JavaScript transpiler**, created to enable developers to write modern JavaScript code that could run in older browsers. Our project has relied on nearly **10 years of Babel**, a solid choice built on robustness and flexibility. Being a 10-year-old tool is both a curse and a blessing! Because of its huge community, Babel can do almost anything: for nearly every need, there is a well-maintained and documented plugin available, and when you need to go off the beaten path, its API allows very specific and custom transformations. For a long time, this foundation was a real advantage, reliable, extensible, and almost indispensable for handling the transpilation of a complex project.
+**Babel is the first JavaScript transpiler**, created to enable developers to write modern JavaScript code that could run in older browsers. **Our project, [now over 10 years old](https://tech.bedrockstreaming.com/comment-ne-pas-jeter-son-application-frontend-tout-les-deux-ans), has relied on Babel from the start**, a solid choice built on robustness and flexibility. Being a 10-year-old tool is both a curse and a blessing! Because of its huge community, Babel can do almost anything: for nearly every need, there is a well-maintained and documented plugin available, and when you need to go off the beaten path, its API allows very specific and custom transformations. For a long time, this foundation was a real advantage, reliable, extensible, and almost indispensable for handling the transpilation of a complex project.
 
 In Babel, all transformations happen through **presets** and **plugins**.
 
 > ℹ️ **Plugins** are pieces of code which perform a single transformation on a piece of code. A typical Babel pipeline consists of several plugins which sequentially transform the input source code.
 
-> ℹ️ **Presets** are plugins that are grouped together for convenience in order to fill a more general use case. For example, @babel/preset-env compiles modern JavaScript for the targeted browsers, `@babel/preset-react` handles JSX, and `@babel/preset-typescript` transpiles TypeScript. Each of those presets actually return a group of individual plugins, which are then applied sequentially to transform the code.
+> ℹ️ **Presets** are plugins that are grouped together for convenience in order to fill a more general use case. For example, `@babel/preset-env` compiles modern JavaScript for the targeted browsers, `@babel/preset-react` handles JSX, and `@babel/preset-typescript` transpiles TypeScript. Each of those presets actually return a group of individual plugins, which are then applied sequentially to transform the code.
 
 The architecture of Babel allows us to enable different sets of plugins depending on the environment to achieve optimal bundle size/build time/developer experience. For instance, on top of all the traditional transformations (TypeScript, JSX, preset-env…), here are some plugins we enable only conditionally:
 
@@ -50,7 +50,7 @@ The architecture of Babel allows us to enable different sets of plugins dependin
 
 **In production:**
 - Code splitting via `@loadable/babel-plugin`
-- Removal of attributes like data-testid with `react-remove-properties`
+- Removal of attributes like `data-testid` with `react-remove-properties`
 - Removal of PropTypes with `transform-react-remove-prop-types`
 
 <br />
@@ -59,13 +59,13 @@ The architecture of Babel allows us to enable different sets of plugins dependin
 
 <br />
 
-On the flip side, when we started looking more closely at our Webpack compilation times, the limits of Babel became obvious. A quick analysis showed that `babel-loader` alone accounted for roughly **50% of the total build time**. In other words, even if everything else were optimized, transpilation would still remain our main bottleneck.
+On the flip side, when we started looking more closely at our bundler, Webpack, compilation times, the limits of Babel became obvious. A quick analysis showed that `babel-loader` alone accounted for roughly **50% of the total build time** (around 35 seconds out of a 1-minute build). In other words, even if everything else were optimized, transpilation would still remain our main bottleneck.
 
 > ℹ️ In a Webpack-based setup, **most of the transpilation work happens inside loaders**. Webpack itself is responsible for building the dependency graph, but every file then goes through one or more loaders to be transformed before being bundled.
 
 In our case, babel-loader sits on the hot path of the build: every JavaScript file passes through it (at the time of writing this article, we have almost **5,000** JavaScript/TypeScript files in our project). This makes it one of the most impactful pieces of the pipeline in terms of performance. Optimizing this step, or replacing it with a faster alternative, is where the biggest gains can be achieved.
 
-The long build time has a lot of implications: it is more costly in CI time, but above all, it translates to longer start times for our local development servers, which was starting to become a huge pain point as the application grew more and more with start times upwards of a minute.
+The long build time has a lot of implications: it is more costly in CI time, but above all, it translates to longer start times for our local development servers, which was starting to become a huge pain point as the application grew more and more with start times upwards of a minute. Since builds happen constantly—every time a developer starts their local environment, on every CI pipeline run, and during deployments—even small improvements compound into significant time savings across the entire team and infrastructure.
 
 We were faced with a trade-off: continue benefiting from Babel’s massive ecosystem, or look for something significantly faster to improve compilation speed. Since our goal was clear: a better DX and higher performance, the question naturally arose.
 
@@ -189,6 +189,10 @@ What's more, **this hybrid setup is a temporary solution** while we finish migra
 
 <br />
 
+Production builds improved significantly: **77.4s (Babel) → 55s (hybrid SWC + Babel) → 40.4s (pure SWC)**. Development builds saw even more dramatic gains: **dev server 54.5s → 14.1s** and **dev client 27.4s → 15s**. Even with our hybrid approach, SWC delivers substantially faster builds.
+
+<br />
+
 ### 📦 Bundle sizes
 
 <br />
@@ -202,7 +206,7 @@ What's more, **this hybrid setup is a temporary solution** while we finish migra
   </div>
 </div>
 
-When looking at the bundle size graph, the difference is actually quite small: using SWC without stripping PropTypes results in a bundle that is only slightly larger than our hybrid setup combining SWC and Babel. On paper, this might suggest that the additional complexity is not strictly necessary.
+When looking at the bundle size graph, the difference is actually quite small (**1 MiB**): using SWC without stripping PropTypes results in a bundle that is only slightly larger than our hybrid setup combining SWC and Babel. On paper, this might suggest that the additional complexity is not strictly necessary.
 
 However, we deliberately chose to prioritize bundle size over development-time convenience. Production bundles are what ultimately get shipped to users, and keeping them as lean as possible is both a performance and a cleanliness concern. PropTypes are a development-time safety net; they provide no value in production and should not end up in the final bundle. Leaving them in, even with a marginal size impact, means knowingly shipping dead code.
 
