@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Switching from Babel to SWC: Balancing Performance with Modern Tools and Legacy Code"
+title: "Switching from Babel to SWC: Balancing performance with modern tools and legacy code"
 description: "From Babel to SWC: our journey of migrating from a 10-year-old transpiler to a next-gen compiler, overcoming challenges and achieving build performance improvements."
 tags: [swc, babel, JavaScript, react, web, frontend, performance, bundler]
 author: [jf_farge, m_alves, t_gianella]
 color: rgb(251,87,66)
 language: en
-thumbnail: "/images/posts/2025-11-19-switching-from-babel-to-swc/thumbnail.jpeg"
+thumbnail: "/images/posts/2025-12-22-switching-from-babel-to-swc/thumbnail.jpeg"
 ---
 
 Ever since websites started being made essentially from JavaScript, transpiling this code to run in the largest number of different browsers has been an essential step in the build process. From the very beginning, more than ten years ago, the BedrockStreaming web application has relied on [Babel](https://babeljs.io/) for this task. This year we migrated from Babel to its next-gen replacement, [SWC](https://swc.rs/). It was not a smooth ride all the way, so let’s see what challenges we’ve had to overcome and if the payoff was worth the effort!
@@ -55,7 +55,7 @@ The architecture of Babel allows us to enable different sets of plugins dependin
 
 <br />
 
-<img src="/images/posts/2025-11-19-switching-from-babel-to-swc/babel-process.png" alt="Scripts execute during render phase too" style="border-radius: 8px; display: block; margin: 0 auto; padding: 0px;" />
+<img src="/images/posts/2025-12-22-switching-from-babel-to-swc/babel-process.png" alt="Scripts execute during render phase too" style="border-radius: 8px; display: block; margin: 0 auto; padding: 0px;" />
 
 <br />
 
@@ -162,7 +162,7 @@ What's more, **this hybrid setup is a temporary solution** while we finish migra
 
 <br />
 
-<img src="/images/posts/2025-11-19-switching-from-babel-to-swc/final-process.png" alt="Scripts execute during render phase too" style="border-radius: 8px; display: block; margin: 0 auto; padding: 0px;" />
+<img src="/images/posts/2025-12-22-switching-from-babel-to-swc/final-process.png" alt="Scripts execute during render phase too" style="border-radius: 8px; display: block; margin: 0 auto; padding: 0px;" />
 
 <br />
 
@@ -180,10 +180,10 @@ What's more, **this hybrid setup is a temporary solution** while we finish migra
 
 <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin: 20px 0;">
   <div style="flex: 1; min-width: 300px; max-width: 50%;">
-    <img src="/images/posts/2025-11-19-switching-from-babel-to-swc/build-performance.png" alt="Build performance benchmark" style="border-radius: 8px; width: 100%; padding: 0px;" />
+    <img src="/images/posts/2025-12-22-switching-from-babel-to-swc/build-performance.png" alt="Build performance benchmark" style="border-radius: 8px; width: 100%; padding: 0px;" />
   </div>
   <div style="flex: 1; min-width: 300px; max-width: 50%;">
-    <img src="/images/posts/2025-11-19-switching-from-babel-to-swc/dev-build-performance.png" alt="Dev build performance benchmark" style="border-radius: 8px; width: 100%; padding: 0px;" />
+    <img src="/images/posts/2025-12-22-switching-from-babel-to-swc/dev-build-performance.png" alt="Dev build performance benchmark" style="border-radius: 8px; width: 100%; padding: 0px;" />
   </div>
 </div>
 
@@ -199,10 +199,10 @@ Production builds improved significantly: **77.4s (Babel) → 55s (hybrid SWC + 
 
 <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin: 20px 0;">
   <div style="flex: 1; min-width: 300px; max-width: 50%;">
-    <img src="/images/posts/2025-11-19-switching-from-babel-to-swc/bundle-size.png" alt="Bundle size comparison" style="border-radius: 8px; width: 100%; padding: 0px;" />
+    <img src="/images/posts/2025-12-22-switching-from-babel-to-swc/bundle-size.png" alt="Bundle size comparison" style="border-radius: 8px; width: 100%; padding: 0px;" />
   </div>
   <div style="flex: 1; min-width: 300px; max-width: 50%;">
-    <img src="/images/posts/2025-11-19-switching-from-babel-to-swc/bundle-analysis.png" alt="Bundle analysis" style="border-radius: 8px; width: 100%; padding: 0px;" />
+    <img src="/images/posts/2025-12-22-switching-from-babel-to-swc/bundle-analysis.png" alt="Bundle analysis" style="border-radius: 8px; width: 100%; padding: 0px;" />
   </div>
 </div>
 

@@ -38,7 +38,7 @@ Pour vous donner une petite idée de ce que l'on a fait, on vous partage un site
 ℹ️ On vous conseille quand même de regarder le replay, même le créateur de Remotion a aimé 😉
 
 <div style="display: flex; justify-content: center;">
-  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">A demo of Remotion in French at <a href="https://twitter.com/LyonJS?ref_src=twsrc%5Etfw">@LyonJS</a>!<br><br>Thanks for organizing this awesome talk <a href="https://twitter.com/Slashgear_?ref_src=twsrc%5Etfw">@Slashgear_</a> <a href="https://twitter.com/CruuzAzul?ref_src=twsrc%5Etfw">@CruuzAzul</a> 😃<a href="https://t.co/xujfC7tR6e">https://t.co/xujfC7tR6e</a></p>&mdash; Remotion (@remotion_dev) <a href="https://twitter.com/remotion_dev/status/1510684271010271249?ref_src=twsrc%5Etfw">April 3, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">A demo of Remotion in French at <a href="https://twitter.com/LyonJS?ref_src=twsrc%5Etfw">@LyonJS</a>!<br><br>Thanks for organizing this awesome talk <a href="https://twitter.com/Slashgear_?ref_src=twsrc%5Etfw">@Slashgear_</a> <a href="https://twitter.com/mickaelalvs?ref_src=twsrc%5Etfw">@mickaelalvs</a> 😃<a href="https://t.co/xujfC7tR6e">https://t.co/xujfC7tR6e</a></p>&mdash; Remotion (@remotion_dev) <a href="https://twitter.com/remotion_dev/status/1510684271010271249?ref_src=twsrc%5Etfw">April 3, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div><br>
 
 # One more thing… Petite surprise du chef ! 👨🏻‍🍳
@@ -49,4 +49,4 @@ Voilà un petit aperçu d'une vidéo surprise que l'on a fait grâce à Remotion
   <iframe src="https://www.youtube.com/embed/KbKXcQglRrU" title="YouTube video Trilogie du Samedi" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen height="460" width="854"></iframe>
 </div><br>
 
-Vous trouvez ça incroyable et vous voulez essayer ? N'hésitez pas à venir nous montrer vos vidéos, ou directement sur twitter avec [@Slashgear_](https://twitter.com/Slashgear_) et [@CruuzAzul](https://twitter.com/CruuzAzul) 🎞
+Vous trouvez ça incroyable et vous voulez essayer ? N'hésitez pas à venir nous montrer vos vidéos, ou directement sur twitter avec [@Slashgear_](https://twitter.com/Slashgear_) et [@mickaelalvs](https://twitter.com/mickaelalvs) 🎞
