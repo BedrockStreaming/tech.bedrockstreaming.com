@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/2025-12-23-tvjs-e2e-tests/catalog.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Writing end-to-end tests for a Smart TV app | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Writing end-to-end tests for a Smart TV app" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="REX on stabilising end-to-end tests for a focused based app, using Cypress." />
+<meta property="og:description" content="REX on stabilising end-to-end tests for a focused based app, using Cypress." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-12-23T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Writing end-to-end tests for a Smart TV app" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","description":"REX on stabilising end-to-end tests for a focused based app, using Cypress.","headline":"Writing end-to-end tests for a Smart TV app","dateModified":"2025-12-23T00:00:00+00:00","datePublished":"2025-12-23T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Writing end-to-end tests for a Smart TV app">
+    <meta name="twitter:description" content="End-to-end can be challenging for focus-based interfaces like Smart TV apps that rely on LRUD (Left, Right, Up, Down) navigation. This article shares how the...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/2025-12-23-tvjs-e2e-tests/catalog.jpg">
+    <meta name="twitter:image:alt" content="Writing end-to-end tests for a Smart TV app">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Writing end-to-end tests for a Smart TV app " aria-label="Writing end-to-end tests for a Smart TV app" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Writing+end-to-end+tests+for+a+Smart+TV+app" class="title">Writing end-to-end tests for a Smart TV app</h1>
+      <div class="post-info">
+
+
+<span class="author">
+      <img alt="Author's avatar" src="/images/avatar/m_bernier.png" class="thumbnail">
+    
+
+    
+      <span class="name">
+        Maxence Bernier
+      </span>
+    </span><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    December 23, 2025
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>End-to-end can be challenging for focus-based interfaces like Smart TV apps that rely on LRUD (Left, Right, Up, Down) navigation. This article shares how the TVJS team overcame the instability in their Cypress test suite by incorporating focus-aware assertions and adapting testing strategies for directional navigation, leading to more reliable and trustworthy automated tests.</p>
+
+<hr />
+
+<p>At TVJS, we work on a Smart TV app. It’s a classic React app, but the user doesn’t interact with it in the same way they would on a typical desktop or mobile application. Instead, the app implements LRUD (Left, Right, Up, Down) navigation: users interact exclusively through directional keys on their remote control.</p>
+
+<p>For a while, the team had faced an issue: our end-to-end (e2e) tests were filled with flaky feature tests, polluting CIs with false negatives, forcing us to rely on retries and relaunching CI jobs. This eroded trust in our test suite and slowed down development.</p>
+
+<h2 id="the-challenge-of-testing-lrud-navigation">The Challenge of Testing LRUD Navigation</h2>
+
+<h3 id="cypresss-built-in-stability">Cypress’s built-in stability</h3>
+<p><a href="https://docs.cypress.io/">Cypress</a>, our e2e testing tool of choice, includes powerful mechanisms that make tests stable out of the box. For pointer interactions, it automatically ensures the target element exists and is visible, and retries the action if the targeted element isn’t ready.</p>
+
+<p>These features make tests naturally resilient against network delays and rendering times, handling timing details so you can focus on the feature test. They also make tests 
+easier to write: when you know what behaviour to expect, Cypress handles the 
+timing details, allowing you to focus on the feature test.</p>
+
+<h3 id="the-challenge-of-lrud-navigation">The challenge of LRUD navigation</h3>
+<p>The trouble starts when we stop using pointer interactions and start testing keyboard-based LRUD navigation. Cypress can easily simulate remote key presses as keyboard events, but it has no idea what’s currently focused on the page and focus is everything in LRUD. Every navigation step is relative: pressing the <code class="language-plaintext highlighter-rouge">right</code> key only makes sense if the correct item is focused before the key event.</p>
+
+<p>In a simple navigation test like:</p>
+<div class="language-gherkin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">Given </span>I am on a program page
+<span class="nf">When </span>I press the right key twice
+<span class="nf">And </span>I press the enter key
+<span class="nf">Then </span>I should be on the clip n°3 page
+</code></pre></div></div>
+
+<p>A few things can go wrong:</p>
+
+<ul>
+  <li>The page is displayed, but the navigation system hasn’t finished its own initialization, so nothing is focused when Cypress sends the first key.</li>
+  <li>Everything is ready, but Cypress fires <code class="language-plaintext highlighter-rouge">right</code> and <code class="language-plaintext highlighter-rouge">right</code> so fast that the navigation handler only processes one of them before the <code class="language-plaintext highlighter-rouge">enter</code> key arrives.</li>
+</ul>
+
+<p>The outcome of a navigation action is entirely dependent on which element was focused at the moment the key event was dispatched. A missing or incorrect focus leads to unpredictable navigation paths.</p>
+
+<p>This created for us a bad case of flaky tests in our CI: the test only passes when the timings perfectly aligned, which obviously is not a sustainable situation.</p>
+
+<h3 id="explicit-focus-assertions">Explicit Focus Assertions</h3>
+<p>To solve this, we took inspiration from how Cypress stabilizes pointer interactions: before doing anything, confirm the app is in the expected state.</p>
+
+<p>For LRUD, the equivalent of “the element is ready” is “the correct element is focused.” So we added explicit focus assertions before and after every navigation step.</p>
+
+<p>The same test now looks like this:</p>
+<div class="language-gherkin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">Given </span>I am on a program page
+<span class="nf">Then </span>Item 1 of block 1 should be focused
+
+<span class="nf">When </span>I press the right key
+<span class="nf">Then </span>Item 2 of block 1 should be focused
+
+<span class="nf">When </span>I press the right key
+<span class="nf">Then </span>Item 3 of block 1 should be focused
+
+<span class="nf">And </span>I press the enter key
+<span class="nf">Then </span>I should be on the clip n°3 page
+</code></pre></div></div>
+<p>These <code class="language-plaintext highlighter-rouge">X should be focused</code> assertions are implemented using <a href="https://docs.cypress.io/api/commands/get"><code class="language-plaintext highlighter-rouge">cy.get()</code></a>, which brings Cypress’s built-in retry and timeout mechanisms to our focus checks. It gives us the same stability guarantees as standard pointer interactions: if the focus isn’t ready yet, Cypress waits and retries until it is or times out.</p>
+
+<p>This version is massively more robust because:</p>
+
+<ul>
+  <li>We never send a navigation key unless we’ve confirmed the app is ready for it.</li>
+  <li>Every navigation step is validated, so if something goes wrong, we catch the error immediately instead of cascading into unrelated failures.</li>
+</ul>
+
+<p>The test no longer relies on internal timing or initialization sequences. Only on deterministic focus transitions.</p>
+
+<p>In practice, this eliminated nearly all flaky tests, but introduced a new complexity in test writing: developers had to know about this layer of assertions to add and remember to write tests this way.</p>
+
+<h2 id="enforcing-consistency-with-linting">Enforcing Consistency with Linting</h2>
+<p>After the initial round of test stabilisation, flakiness returned with every test written by developers unaware of this quirkiness of LRUD app testing.
+Since our Gherkin tests are ultimately just code, the obvious solution was the same as for any coding convention:
+<strong>lint it.</strong></p>
+
+<p>We used <a href="https://github.com/vsiakka/gherkin-lint">gherkin-lint</a>. It’s a tool used by other teams in the company and supports custom rules. We wrote a custom rule to enforce our navigation discipline.</p>
+
+<p>The rule is simple and strict: any step that triggers LRUD navigation (“I press the X key”) must be immediately followed by a focus assertion (“X should be focused”).</p>
+
+<p>To implement this, the rule parses feature files line by line, keeps track of the last “effective step,” handles chaining with “And”, and flags any navigation step that isn’t followed by a matching assertion.</p>
+
+<h2 id="beyond-should-be-focused">Beyond “Should be Focused”</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">X should be focused</code> assertion is effective and easy to lint, but verbose. We also introduced other utilities to cover more scenarios:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Navigate X direction to X</code>: This action combines the navigation step with the final focus check. By specifying the end goal, we ensure the action itself is successful. Although it doesn’t validate the initial focus, it significantly improves stability by verifying the outcome of the action.</li>
+  <li>Player state assertions: In a streaming app, focus isn’t the only state that matters. We also validate player states (<code class="language-plaintext highlighter-rouge">should be playing</code>, <code class="language-plaintext highlighter-rouge">should be at X progress</code>, …) after keyboard actions. Our lint rule accepts these as valid post-navigation assertions, ensuring that key presses have the expected effect on the media player.</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Testing LRUD navigation exposes a gap: Cypress is great at handling UI interactions that target DOM elements directly, but it has no built-in understanding of focus state or navigation flow. In a Smart TV app, where everything depends on which item is focused at each step, that gap becomes the main source of flaky tests.</p>
+
+<p>By adding explicit focus assertions before and after every navigation action, we give Cypress the information it needs to stay in sync with the app. The tests become deterministic and failures point to real issues. We now trust our tests, and while we still monitor stability with weekly “no-retry” runs, they are finally working for us, not against us.</p>
+
+<p>Enforcing this pattern with linting sealed the deal to get rid of tests derailing and give us confidence back in our tests.</p>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Writing+end-to-end+tests+for+a+Smart+TV+app%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2025%2F12%2F23%2Ftvjs-e2e-tests.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests.html&title=Writing+end-to-end+tests+for+a+Smart+TV+app%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Writing end-to-end tests for a Smart TV app%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#cypress">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> cypress</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#e2e">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> e2e</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#frontend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#javascript">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#react">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> react</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#smartTV">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> smartTV</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#testing">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> testing</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#web">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> web</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="Switching from Babel to SWC: Balancing performance with modern tools and legacy code" href="/2025/12/22/switching-from-babel-to-swc.html">
+            <p>Next post</p>
+            Switching from Babel to SWC: Balancing performance with modern tools and legacy code
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+  header#main { background-image: url('/images/posts/2025-12-23-tvjs-e2e-tests/catalog.jpg'); }
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

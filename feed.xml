@@ -1,4 +1,98 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2025-12-22T16:58:29+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Switching from Babel to SWC: Balancing performance with modern tools and legacy code</title><link href="https://tech.bedrockstreaming.com/2025/12/22/switching-from-babel-to-swc.html" rel="alternate" type="text/html" title="Switching from Babel to SWC: Balancing performance with modern tools and legacy code" /><published>2025-12-22T00:00:00+00:00</published><updated>2025-12-22T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/12/22/switching-from-babel-to-swc</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/12/22/switching-from-babel-to-swc.html">&lt;p&gt;Ever since websites started being made essentially from JavaScript, transpiling this code to run in the largest number of different browsers has been an essential step in the build process. From the very beginning, more than ten years ago, the BedrockStreaming web application has relied on &lt;a href=&quot;https://babeljs.io/&quot;&gt;Babel&lt;/a&gt; for this task. This year we migrated from Babel to its next-gen replacement, &lt;a href=&quot;https://swc.rs/&quot;&gt;SWC&lt;/a&gt;. It was not a smooth ride all the way, so let’s see what challenges we’ve had to overcome and if the payoff was worth the effort!&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2025-12-23T09:38:17+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Writing end-to-end tests for a Smart TV app</title><link href="https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests.html" rel="alternate" type="text/html" title="Writing end-to-end tests for a Smart TV app" /><published>2025-12-23T00:00:00+00:00</published><updated>2025-12-23T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests.html">&lt;p&gt;End-to-end can be challenging for focus-based interfaces like Smart TV apps that rely on LRUD (Left, Right, Up, Down) navigation. This article shares how the TVJS team overcame the instability in their Cypress test suite by incorporating focus-aware assertions and adapting testing strategies for directional navigation, leading to more reliable and trustworthy automated tests.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;At TVJS, we work on a Smart TV app. It’s a classic React app, but the user doesn’t interact with it in the same way they would on a typical desktop or mobile application. Instead, the app implements LRUD (Left, Right, Up, Down) navigation: users interact exclusively through directional keys on their remote control.&lt;/p&gt;
+
+&lt;p&gt;For a while, the team had faced an issue: our end-to-end (e2e) tests were filled with flaky feature tests, polluting CIs with false negatives, forcing us to rely on retries and relaunching CI jobs. This eroded trust in our test suite and slowed down development.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-challenge-of-testing-lrud-navigation&quot;&gt;The Challenge of Testing LRUD Navigation&lt;/h2&gt;
+
+&lt;h3 id=&quot;cypresss-built-in-stability&quot;&gt;Cypress’s built-in stability&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.cypress.io/&quot;&gt;Cypress&lt;/a&gt;, our e2e testing tool of choice, includes powerful mechanisms that make tests stable out of the box. For pointer interactions, it automatically ensures the target element exists and is visible, and retries the action if the targeted element isn’t ready.&lt;/p&gt;
+
+&lt;p&gt;These features make tests naturally resilient against network delays and rendering times, handling timing details so you can focus on the feature test. They also make tests 
+easier to write: when you know what behaviour to expect, Cypress handles the 
+timing details, allowing you to focus on the feature test.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-challenge-of-lrud-navigation&quot;&gt;The challenge of LRUD navigation&lt;/h3&gt;
+&lt;p&gt;The trouble starts when we stop using pointer interactions and start testing keyboard-based LRUD navigation. Cypress can easily simulate remote key presses as keyboard events, but it has no idea what’s currently focused on the page and focus is everything in LRUD. Every navigation step is relative: pressing the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;right&lt;/code&gt; key only makes sense if the correct item is focused before the key event.&lt;/p&gt;
+
+&lt;p&gt;In a simple navigation test like:&lt;/p&gt;
+&lt;div class=&quot;language-gherkin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;Given &lt;/span&gt;I am on a program page
+&lt;span class=&quot;nf&quot;&gt;When &lt;/span&gt;I press the right key twice
+&lt;span class=&quot;nf&quot;&gt;And &lt;/span&gt;I press the enter key
+&lt;span class=&quot;nf&quot;&gt;Then &lt;/span&gt;I should be on the clip n°3 page
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;A few things can go wrong:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The page is displayed, but the navigation system hasn’t finished its own initialization, so nothing is focused when Cypress sends the first key.&lt;/li&gt;
+  &lt;li&gt;Everything is ready, but Cypress fires &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;right&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;right&lt;/code&gt; so fast that the navigation handler only processes one of them before the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;enter&lt;/code&gt; key arrives.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The outcome of a navigation action is entirely dependent on which element was focused at the moment the key event was dispatched. A missing or incorrect focus leads to unpredictable navigation paths.&lt;/p&gt;
+
+&lt;p&gt;This created for us a bad case of flaky tests in our CI: the test only passes when the timings perfectly aligned, which obviously is not a sustainable situation.&lt;/p&gt;
+
+&lt;h3 id=&quot;explicit-focus-assertions&quot;&gt;Explicit Focus Assertions&lt;/h3&gt;
+&lt;p&gt;To solve this, we took inspiration from how Cypress stabilizes pointer interactions: before doing anything, confirm the app is in the expected state.&lt;/p&gt;
+
+&lt;p&gt;For LRUD, the equivalent of “the element is ready” is “the correct element is focused.” So we added explicit focus assertions before and after every navigation step.&lt;/p&gt;
+
+&lt;p&gt;The same test now looks like this:&lt;/p&gt;
+&lt;div class=&quot;language-gherkin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;Given &lt;/span&gt;I am on a program page
+&lt;span class=&quot;nf&quot;&gt;Then &lt;/span&gt;Item 1 of block 1 should be focused
+
+&lt;span class=&quot;nf&quot;&gt;When &lt;/span&gt;I press the right key
+&lt;span class=&quot;nf&quot;&gt;Then &lt;/span&gt;Item 2 of block 1 should be focused
+
+&lt;span class=&quot;nf&quot;&gt;When &lt;/span&gt;I press the right key
+&lt;span class=&quot;nf&quot;&gt;Then &lt;/span&gt;Item 3 of block 1 should be focused
+
+&lt;span class=&quot;nf&quot;&gt;And &lt;/span&gt;I press the enter key
+&lt;span class=&quot;nf&quot;&gt;Then &lt;/span&gt;I should be on the clip n°3 page
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;These &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;X should be focused&lt;/code&gt; assertions are implemented using &lt;a href=&quot;https://docs.cypress.io/api/commands/get&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cy.get()&lt;/code&gt;&lt;/a&gt;, which brings Cypress’s built-in retry and timeout mechanisms to our focus checks. It gives us the same stability guarantees as standard pointer interactions: if the focus isn’t ready yet, Cypress waits and retries until it is or times out.&lt;/p&gt;
+
+&lt;p&gt;This version is massively more robust because:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We never send a navigation key unless we’ve confirmed the app is ready for it.&lt;/li&gt;
+  &lt;li&gt;Every navigation step is validated, so if something goes wrong, we catch the error immediately instead of cascading into unrelated failures.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The test no longer relies on internal timing or initialization sequences. Only on deterministic focus transitions.&lt;/p&gt;
+
+&lt;p&gt;In practice, this eliminated nearly all flaky tests, but introduced a new complexity in test writing: developers had to know about this layer of assertions to add and remember to write tests this way.&lt;/p&gt;
+
+&lt;h2 id=&quot;enforcing-consistency-with-linting&quot;&gt;Enforcing Consistency with Linting&lt;/h2&gt;
+&lt;p&gt;After the initial round of test stabilisation, flakiness returned with every test written by developers unaware of this quirkiness of LRUD app testing.
+Since our Gherkin tests are ultimately just code, the obvious solution was the same as for any coding convention:
+&lt;strong&gt;lint it.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We used &lt;a href=&quot;https://github.com/vsiakka/gherkin-lint&quot;&gt;gherkin-lint&lt;/a&gt;. It’s a tool used by other teams in the company and supports custom rules. We wrote a custom rule to enforce our navigation discipline.&lt;/p&gt;
+
+&lt;p&gt;The rule is simple and strict: any step that triggers LRUD navigation (“I press the X key”) must be immediately followed by a focus assertion (“X should be focused”).&lt;/p&gt;
+
+&lt;p&gt;To implement this, the rule parses feature files line by line, keeps track of the last “effective step,” handles chaining with “And”, and flags any navigation step that isn’t followed by a matching assertion.&lt;/p&gt;
+
+&lt;h2 id=&quot;beyond-should-be-focused&quot;&gt;Beyond “Should be Focused”&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;X should be focused&lt;/code&gt; assertion is effective and easy to lint, but verbose. We also introduced other utilities to cover more scenarios:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Navigate X direction to X&lt;/code&gt;: This action combines the navigation step with the final focus check. By specifying the end goal, we ensure the action itself is successful. Although it doesn’t validate the initial focus, it significantly improves stability by verifying the outcome of the action.&lt;/li&gt;
+  &lt;li&gt;Player state assertions: In a streaming app, focus isn’t the only state that matters. We also validate player states (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;should be playing&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;should be at X progress&lt;/code&gt;, …) after keyboard actions. Our lint rule accepts these as valid post-navigation assertions, ensuring that key presses have the expected effect on the media player.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Testing LRUD navigation exposes a gap: Cypress is great at handling UI interactions that target DOM elements directly, but it has no built-in understanding of focus state or navigation flow. In a Smart TV app, where everything depends on which item is focused at each step, that gap becomes the main source of flaky tests.&lt;/p&gt;
+
+&lt;p&gt;By adding explicit focus assertions before and after every navigation action, we give Cypress the information it needs to stay in sync with the app. The tests become deterministic and failures point to real issues. We now trust our tests, and while we still monitor stability with weekly “no-retry” runs, they are finally working for us, not against us.&lt;/p&gt;
+
+&lt;p&gt;Enforcing this pattern with linting sealed the deal to get rid of tests derailing and give us confidence back in our tests.&lt;/p&gt;</content><author><name>[&quot;m_bernier&quot;]</name></author><category term="smartTV" /><category term="javascript" /><category term="react" /><category term="web" /><category term="frontend" /><category term="e2e" /><category term="testing" /><category term="cypress" /><summary type="html">End-to-end can be challenging for focus-based interfaces like Smart TV apps that rely on LRUD (Left, Right, Up, Down) navigation. This article shares how the TVJS team overcame the instability in their Cypress test suite by incorporating focus-aware assertions and adapting testing strategies for directional navigation, leading to more reliable and trustworthy automated tests.</summary></entry><entry><title type="html">Switching from Babel to SWC: Balancing performance with modern tools and legacy code</title><link href="https://tech.bedrockstreaming.com/2025/12/22/switching-from-babel-to-swc.html" rel="alternate" type="text/html" title="Switching from Babel to SWC: Balancing performance with modern tools and legacy code" /><published>2025-12-22T00:00:00+00:00</published><updated>2025-12-22T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/12/22/switching-from-babel-to-swc</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/12/22/switching-from-babel-to-swc.html">&lt;p&gt;Ever since websites started being made essentially from JavaScript, transpiling this code to run in the largest number of different browsers has been an essential step in the build process. From the very beginning, more than ten years ago, the BedrockStreaming web application has relied on &lt;a href=&quot;https://babeljs.io/&quot;&gt;Babel&lt;/a&gt; for this task. This year we migrated from Babel to its next-gen replacement, &lt;a href=&quot;https://swc.rs/&quot;&gt;SWC&lt;/a&gt;. It was not a smooth ride all the way, so let’s see what challenges we’ve had to overcome and if the payoff was worth the effort!&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -2397,210 +2491,4 @@ flowchart LR
 &lt;ul&gt;
   &lt;li&gt;First, use Compute at-edge to serve a couple other highly-solicited routes.&lt;/li&gt;
   &lt;li&gt;And, for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/live/&lt;/code&gt; route, implement a few use-cases that were not required for this competition, in order to use Fastly Compute for this route all the time!&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>[&quot;p_martin&quot;]</name></author><category term="edge" /><category term="fastly" /><category term="cloud" /><category term="devops" /><category term="2024" /><summary type="html">During the UEFA Euro football cup in June and July 2024, M6 broadcasted several matches. Of course, this competition was available, live, on M6+. For every user joining right from the first second and or for all users hearing their neighbors shouting and wanting to re-watch the action, starting a live video stream had to work!</summary></entry><entry><title type="html">We love speed 2024 ❤️</title><link href="https://tech.bedrockstreaming.com/2024/10/29/we-love-speed-2024.html" rel="alternate" type="text/html" title="We love speed 2024 ❤️" /><published>2024-10-29T00:00:00+00:00</published><updated>2024-10-29T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/10/29/we-love-speed-2024</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/10/29/we-love-speed-2024.html">&lt;p&gt;Nous avons eu la chance de participer à la conférence We love speed, une conférence annuelle axée sur la
-performance du web. C’est un domaine qui nous passionne et nous sommes très content d’avoir pu y assister.
-Le thème de cette édition, c’est l’INP. En effet, cette métrique de performance a été ajoutée aux core web vitals par
-&lt;a href=&quot;https://developers.google.com/search/blog/2023/05/introducing-inp?hl=fr&quot;&gt;Google &lt;em&gt;récemment&lt;/em&gt;&lt;/a&gt;.
-L’objectif de cette métrique est de refléter l’expérience utilisateur en mesurant la réactivité d’une application.
-Elle observe le temps entre une action utilisateur et une réponse visuelle de notre interface.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-10-29-we-love-speed-2024/team_picture.jpeg&quot; alt=&quot;L&apos;équipe frontend à la we love speed&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;htmx-le-nouvel-atout-pour-vos-projets-ssr---ewen-quimerch&quot;&gt;HTMX, le nouvel atout pour vos projets SSR - &lt;a href=&quot;https://ewen.quimerch.com/&quot;&gt;Ewen Quimerc‘h&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Lors de ce talk, nous avons découvert un outil très intéressant. Il s’agit de HTMX : une bibliothèque Javascript qui
-permet d’ajouter des fonctionnalités de type SPA (Single Page Application) à une application web classique et de façon
-non intrusive. Par exemple, on peut surcharger les liens &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;a&amp;gt;&lt;/code&gt; pour qu’ils chargent une nouvelle page en AJAX grâce à un
-attribut ajouté au HTML. Ce mode de fonctionnement est très intéressant, car il permet de garder une application web
-classique avec tous ses comportements le temps que HTMX se charge. C’est-a-dire que si HTMX venait à ne pas démarrer,
-votre application web se comporterait de la même manière, mais sans les améliorations de temps d’interaction.&lt;/p&gt;
-
-&lt;p&gt;HTMX surcharge la manière dont vos liens et images vont être chargés par le navigateur.
-Ainsi, lors de la prochaine interaction, ce dernier sera déjà prêt à servir les ressources.
-Le principe de HTMX consiste à ajouter des balises HTML spécifiques dans le DOM qu’il va lire et en déduire les
-comportements à son chargement.
-Cette manipulation est appelée le “DOM morphing”. Grâce à ce processus le temps de chargement est réduit et on évite
-l’effet “blink” (page blanche lors du chargement de la page).
-Il est à noter que ces comportements ne sont qu’un embellissement proposé par HTMX, il est tout à fait possible
-d’ajouter par exemple l’attribut &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;preload&lt;/code&gt; sur une balise &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a&lt;/code&gt; pour demander le chargement en avance du lien par le
-navigateur.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;div style=&quot;display: flex&quot;&gt;
-&lt;img src=&quot;/images/avatar/j_nginn.jpeg&quot; alt=&quot;Julie&quot; style=&quot;padding: 0;border-radius: 50%; height: 70px; margin: 10px&quot; /&gt;
-Comme nous utilisons React pour notre application, l&apos;utilisation de HTMX n&apos;est pas vraiment utile.
-Il est déjà possible avec React de précharger les ressources en avance. Mais ça reste un outil intéressant...
-&lt;/div&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;div style=&quot;display: flex&quot;&gt;
-...effectivement, HTMX semble être intéressant, mais on se retrouve à ajouter
-beaucoup d&apos;attributs dans le HTML. Ça peut le rendre le markup moins lisible. Et en plus, ça donne l&apos;impression de recoder les comportements du navigateur.
-&lt;img src=&quot;/images/avatar/j_poissonnet.jpg&quot; alt=&quot;Jules&quot; style=&quot;padding: 0;border-radius: 50%; height: 70px; margin: 10px&quot; /&gt;
-&lt;/div&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;react--next-vs-inp---jean-pierre-vincent&quot;&gt;React / Next vs INP - &lt;a href=&quot;https://www.linkedin.com/in/jeanpierrevincent/&quot;&gt;Jean-Pierre Vincent&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Le deuxième talk a une place particulière dans notre cœur ❤️ puisqu’il a été donné par notre cher Jean-Pierre Vincent,
-qui a audité les performances du web de Bedrock, il y a deux ans.
-Lors de ce talk, Jean-Pierre nous a donné la feuille de route pour éviter au mieux la déferlante de Javascript que vos
-utilisateurs reçoivent au chargement de votre site.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-10-29-we-love-speed-2024/js_tsunami.jpeg&quot; alt=&quot;JS Tsunami storming your users&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;L’INP (Interaction to Next Paint) est une métrique qui mesure le temps entre une interaction utilisateur et le prochain
-rendu du navigateur. L’idée générale est de pouvoir mesurer l’incapacité du navigateur à réagir. Après avoir récupéré
-des mesures, il est bon de se rappeler qu’il y a un biais de selection pour les données de Crux. Pour rappel, Crux est
-une base de données qui contient des métriques de performance de sites web collectées par Google.
-En effet, il n’est calculé que sur les appareils Google (c’est le principe). Une fois qu’on a récolté des métriques de
-performance de nos utilisateurs, si on veut travailler sur notre site web et avoir une bonne idée du ressenti de nos
-utilisateurs, l’idéal est de tester avec un véritable Samsung S8 par exemple. Le S8 est un appareil sur lequel on a
-beaucoup de données et qui représente à l’heure actuelle une bonne représentation des capacités de l’utilisateur moyen.
-L’INP est une métrique qui peut être influencée par des interactions qui ne sont pas prévues par les devs. Par exemple,
-on a été étonnés de constater que lorsque les temps de chargement sont un poil trop longs à leur goût, les utilisateurs
-se mettent à cliquer partout 🤷 C’est pourquoi il est important de se baser sur des données réelles.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-10-29-we-love-speed-2024/inp_charge.jpeg&quot; alt=&quot;INP est bousculé par la charge de js!&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Parmi les bonnes pratiques qu’on peut appliquer dès maintenant, et qui je dois le dire m’a paru un peu contre-intuitif :
-faire passer Babel sur les node_modules.
-En fait, du point de vue d’un développeur, on peut se dire que cela va augmenter les temps de build drastiquement, et on
-aurait sûrement raison. Mais en fait, il faut voir le bénéfice qu’il y a derrière. Si on personnalise les règles Babel
-afin qu’elles correspondent aux navigateurs de nos utilisateurs, on évite des transformations inutiles qui
-augmenteraient le poids de nos fichiers Javascript.&lt;/p&gt;
-
-&lt;p&gt;Une nouvelle fonctionnalité de React appelée RSC (React Server Components) permet de combiner le rendu côté serveur avec
-l’interactivité côté client.
-Les RSC aident à réduire la taille du Javascript dans le navigateur ce qui permet d’améliorer le temps d’interaction et
-donc l’expérience utilisateur. Vous l’aurez compris, c’est l’ennemi n°1 de Jean-Pierre (et de vos navigateurs) !
-Le principe est de rendre les composants côté serveur et de faire en sorte que ces derniers ne rendent que du HTML, qui
-ne sera pas hydraté côté client.
-L’étape de réhydratation est une étape importante et trop souvent sous-estimée. Il s’agit d’une nouveauté de React qui
-est prometteuse et qui est déjà présente dans Next.js.&lt;/p&gt;
-
-&lt;p&gt;Pour nous montrer un exemple concret d’abus de JavaScript : il a montré du code Bedrock 😅.
-Il s’agit d’un FlameGraph du rendu de notre &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;Footer /&amp;gt;&lt;/code&gt; côté app web. Il y a une quantité conséquente de JS car nous
-faisions ce qu’on appelle du CSS-in-JS.
-Vous l’avez deviné, c’est la partie “in-JS” qui pose un problème. Cela signifie que pour appliquer du style sur notre
-site, c’est le Javascript qui s’en charge. Or dans un composant, comme le &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;Footer /&amp;gt;&lt;/code&gt;, il y a beaucoup d’éléments et
-chacun va avoir besoin de son propre style. Si l’idée de colocaliser le CSS dans le JS n’est pas nocive en soi, le plus
-gros problème était l’utilisation de &lt;a href=&quot;https://styled-components.com/&quot;&gt;Styled-Components&lt;/a&gt; qui calcule le style au moment
-du rendu, le rendant donc plus long. FYI : Entre temps, nous avons chez Bedrock entamé une migration pour quitter
-Styled-Components au profit de &lt;a href=&quot;https://linaria.dev/&quot;&gt;Linaria&lt;/a&gt; pour le projet web
-et &lt;a href=&quot;https://vanilla-extract.style/&quot;&gt;Vanilla Extract&lt;/a&gt; pour le projet smart TV.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-10-29-we-love-speed-2024/flamgraph.jpeg&quot; alt=&quot;Flamegraph du Footer de Bedrock&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Autre information qui nous concerne chez Bedrock, au moment d’écrire ces lignes, nous sommes en train de mettre en
-production la migration de React 17 vers React 18 sur le projet web.
-D’après les retours d’expérience de Jean-Pierre, cette version de React aura un impact positif sur l’INP car il permet
-de faire moins de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;render&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Enfin, Jean-Pierre nous laisse avec un ultime conseil pour que nos applications web soient pérennes : “Monitore (au
-moins une fois dans ta vie) l’origine des INP avec un vrai utilisateur.”&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;div style=&quot;display: flex&quot;&gt;
-&lt;img src=&quot;/images/avatar/j_nginn.jpeg&quot; alt=&quot;Julie&quot; style=&quot;padding: 0;border-radius: 50%; height: 70px; margin: 10px&quot; /&gt;
-J&apos;ai bien aimé ce talk ! J&apos;ai trouvé que sa présentation était très accessible, il a su vulgariser des concepts et rendre un sujet fastidieux (la performance) intéressant 👏
-&lt;/div&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;débogage-des-performances-à-laide-des-devtools--mise-en-pratique-approfondie---umar-hansa&quot;&gt;Débogage des performances à l’aide des DevTools : Mise en pratique approfondie - &lt;a href=&quot;https://umaar.com/&quot;&gt;Umar Hansa&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Avoir un œil sur ses performances est essentiel pour avancer dans la bonne direction et s’assurer qu’on
-fournit à nos utilisateurs une expérience optimale. Fort heureusement pour nous les devs, on est bien lotis avec de très
-bons outils. Il suffit d’ouvrir les Chrome DevTools pour s’en rendre compte. Ce talk nous a présenté comment bien
-utiliser les DevTools pour mesurer les performances de nos applications web et se mettre à la place de
-nos utilisateurs. Par exemple, on peut brider son réseau et son CPU pour simuler une connexion 3G et un CPU lent. Dans
-cette présentation, on nous a quand même rappelé que les DevTools ne sont pas une solution miracle, il est important de
-tester sur de vrais devices pour le ressenti.&lt;/p&gt;
-
-&lt;p&gt;Pour ce qui est de l’interprétation des données, une myriade d’outils est à notre disposition pour nous aider à
-comprendre ce que nous voyons. Par exemple, on peut ajouter des annotations dans le flamegraph comme des labels, des
-diagrammes ou encore des plages de temps. On peut aussi mettre en place des custom tracks pour suivre des événements
-spécifiques. Au sein de notre application, on peut utiliser l’API User Timing pour ajouter des points de repère dans
-notre code et ainsi mieux comprendre ce qui se passe au déclenchement d’événements spécifiques.&lt;/p&gt;
-
-&lt;h2 id=&quot;web-performance-testing---estela-franco&quot;&gt;Web Performance Testing - &lt;a href=&quot;https://x.com/guaca&quot;&gt;Estela Franco&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Nous avons également eu un talk sur l’intégration de Lighthouse, un outil de Google pour mesurer la performance de nos
-applications web, dans une CI. Cela permet de détecter les problèmes de performance avant qu’ils ne soient déployés en
-production. Il est possible de mettre des warnings, voire des erreurs empêchant de merger, si l’application ne respecte
-pas les standards que nous nous sommes fixés. L’idée est de s’assurer que la performance de
-notre application web est toujours au top et ne se dégrade pas dans le temps.
-&lt;img src=&quot;/images/posts/2024-10-29-we-love-speed-2024/Key%20Takeaways.jpeg&quot; alt=&quot;Key takeaways from the talk&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;div style=&quot;display: flex&quot;&gt;
-&lt;img src=&quot;/images/avatar/j_nginn.jpeg&quot; alt=&quot;Julie&quot; style=&quot;padding: 0;border-radius: 50%; height: 70px; margin: 10px&quot; /&gt;
-On envisage de l&apos;ajouter au projet smart TV, mais plus pour générer un rapport de performance quotidien plutôt que de le faire pour chaque push ou merge. 
-&lt;/div&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;comment-les-navigateurs-chargent-vraiment-les-pages-web---robin-marx&quot;&gt;Comment les navigateurs chargent VRAIMENT les pages web - &lt;a href=&quot;https://x.com/programmingart&quot;&gt;Robin Marx&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Dans ce qui est probablement le talk le plus technique de la journée, on nous a expliqué comment les navigateurs
-chargent les différentes ressources nécessaires à l’affichage d’une page web. Plus spécifiquement, on nous a expliqué
-comment les navigateurs interprètent le HTML pour déterminer quelles ressources charger en priorité.&lt;/p&gt;
-
-&lt;p&gt;Le talk était très intéressant, mais la conclusion est un peu frustrante : il est pour le moment impossible de prévoir
-l’ordre de chargement des ressources par le navigateur à partir du même HTML. En effet, les navigateurs ont des
-comportements différents entre eux et même par version 🤯. Chrome a, par exemple, un comportement très différent cette
-année
-par rapport à deux ans en arrière.&lt;/p&gt;
-
-&lt;p&gt;Même si on est tenté de vouloir contrôler le chargement des ressources, il est important de se rappeler que le
-navigateur
-est très bien optimisé pour charger les ressources de manière efficace. Il est donc préférable de laisser le navigateur
-faire son travail plutôt que de vouloir le contrôler. L’attribut &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;preload&lt;/code&gt; est un bon exemple de ce que l’on peut faire
-pour aider le navigateur à charger les ressources de manière plus efficace. Il faut cependant l’utiliser avec parcimonie
-et de manière chirurgicale pour ne pas interférer avec le travail du navigateur.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-10-29-we-love-speed-2024/preload_surgical.jpeg&quot; alt=&quot;Preload with surgical precision&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;mais-que-fait-la-police----eroan-boyer&quot;&gt;Mais que fait la police ? - &lt;a href=&quot;https://x.com/eroan&quot;&gt;Eroan Boyer&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Pour finir, on a eu un talk sur les polices de caractères. Elles sont essentielles pour l’identité visuelle de nos
-applications web, mais elles peuvent aussi être une source de problèmes de performance. En effet, les polices de
-caractères peuvent être très lourdes et ralentir le chargement de nos pages. Il est donc important de bien les choisir
-et de les optimiser pour garantir une bonne performance. Il existe plusieurs techniques pour optimiser les polices,
-notamment en réalisant un subset de la police pour ne télécharger que les glyphes dont on a besoin. (En français, on a
-besoin que de 165 glyphes, comparé à 528 pour le latin).
-Il existe des outils pour nous aider à réaliser ces subsets
-comme : &lt;a href=&quot;https://everythingfonts.com/subsetter&quot;&gt;Font Subsetter&lt;/a&gt;, &lt;a href=&quot;https://fonttools.readthedocs.io/&quot;&gt;fontTools&lt;/a&gt; ou
-&lt;a href=&quot;https://www.zachleat.com/web/glyphhanger/&quot;&gt;Glyphanger&lt;/a&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;div style=&quot;display: flex&quot;&gt;
-Attention à ne pas abuser des subsets, car cela peut entraîner des problèmes de lisibilité du texte. Le fameux t🠉fu .
-&lt;img src=&quot;/images/avatar/j_poissonnet.jpg&quot; alt=&quot;Jules&quot; style=&quot;padding: 0;border-radius: 50%; height: 70px; margin: 10px&quot; /&gt;
-&lt;/div&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-10-29-we-love-speed-2024/tofu.jpeg&quot; alt=&quot;Say no to tofu&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Il est aussi possible de minimiser le nombre de fichiers en utilisant des polices variables. Un bon exemple est la
-police Roboto Flex, qui est customisable et permet ainsi de pouvoir réduire le nombre de fichiers nécessaires à charger.
-Il est là aussi, possible de sélectionner les variations que l’on souhaite pour réduire encore plus le poids de la
-police.&lt;/p&gt;
-
-&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
-
-&lt;p&gt;Cette année, l’accent a été mis sur l’INP et la manière de l’améliorer. Il est important de garder en tête que l’INP est
-une métrique qui mesure l’expérience utilisateur, il est donc essentiel de la garder à l’œil. Il est bon de
-rappeler que la performance est plus une habitude à prendre qu’un constat à réaliser. Une application performante, c’est
-une expérience utilisateur améliorée et des utilisateurs satisfaits !&lt;/p&gt;
-
-&lt;p&gt;De notre côté, nous sommes rentrés avec quelques idées à mettre en place dans nos projets à Bedrock, notamment :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Etudier la possibilité d’ajouter des React Server Components pour réduire le poids de notre JS&lt;/li&gt;
-  &lt;li&gt;Mettre en place des tests de performance dans notre CI avec Lighthouse CI&lt;/li&gt;
-  &lt;li&gt;Vérifier que nos polices de caractères sont bien optimisées pour la performance&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Notre équipe est ressortie de cette conférence ravie et avec de nouvelles idées qui vont surement nous suivre sur nos
-projets personnels aussi. La We love speed ❤️ est une conférence à ne pas manquer pour tous les passionnés de
-performance web, on vous recommande chaudement d’y assister si vous en avez l’occasion !&lt;/p&gt;</content><author><name>[&quot;j_nginn&quot;, &quot;j_poissonnet&quot;]</name></author><category term="performance" /><category term="conference" /><category term="webperf" /><category term="javascript" /><category term="react" /><category term="web" /><category term="frontend" /><summary type="html">Nous avons eu la chance de participer à la conférence We love speed, une conférence annuelle axée sur la performance du web. C’est un domaine qui nous passionne et nous sommes très content d’avoir pu y assister. Le thème de cette édition, c’est l’INP. En effet, cette métrique de performance a été ajoutée aux core web vitals par Google récemment. L’objectif de cette métrique est de refléter l’expérience utilisateur en mesurant la réactivité d’une application. Elle observe le temps entre une action utilisateur et une réponse visuelle de notre interface.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>[&quot;p_martin&quot;]</name></author><category term="edge" /><category term="fastly" /><category term="cloud" /><category term="devops" /><category term="2024" /><summary type="html">During the UEFA Euro football cup in June and July 2024, M6 broadcasted several matches. Of course, this competition was available, live, on M6+. For every user joining right from the first second and or for all users hearing their neighbors shouting and wanting to re-watch the action, starting a live video stream had to work!</summary></entry></feed>
