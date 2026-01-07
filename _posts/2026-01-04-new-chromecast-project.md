@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Rebuilding Chromecast: From a Monolithic "Nightmare" to a High-Performance Standalone App"
+title: "Rebuilding Chromecast: From a Monolithic \"Nightmare\" to a High-Performance Standalone App"
 description: Chromecast used to be a nightmare for our clients and our teams, here is the story of how we made it one of our most interesting and modern project while dramaticaly improving performences.
 author: [a_gaudard]
 tags: [chromecast, TV, web, javascript, frontend, player, video, performences]
@@ -35,8 +35,8 @@ Following Bedrock’s **Request for Comment (RFC)** process, our Tech Lead condu
 This wasn't just a change of address; it was a total refresh:
 
 - **Modern Tech Stack:** We adopted updated tools better suited for the platform.
-- - BiomeJS
-- - Vite
+  - BiomeJS
+  - Vite
 
 - **Transformed Developer Experience:** By moving to a standalone project, we completely overhauled how we work. We built custom simulation tools to replicate the Chromecast environment locally, drastically increasing feature velocity.
 
