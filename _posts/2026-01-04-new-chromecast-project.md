@@ -1,24 +1,25 @@
 ---
 layout: post
 title: "Rebuilding Chromecast: From a Monolithic \"Nightmare\" to a High-Performance Standalone App"
-description: Chromecast used to be a nightmare for our clients and our teams, here is the story of how we made it one of our most interesting and modern project while dramaticaly improving performences.
+description: Chromecast used to be a nightmare for our clients and our teams, here is the story of how we made it one of our most interesting and modern project while dramaticaly improving performance.
 author: [a_gaudard]
-tags: [chromecast, TV, web, javascript, frontend, player, video, performences]
+tags: [chromecast, TV, web, javascript, frontend, player, video, performance]
 color: rgb(251,87,66)
 language: en
+thumbnail: "/images/posts/2026-01-04-new-chromecast-project/thumbnail.png"
 ---
 
 Chromecast can be a notoriously difficult platform to develop for. Over the years, the hardware has evolved significantly; while recent models are powerful, early versions are easily overloaded and struggle with modern web overhead.
 
 At Bedrock, we faced a specific architectural challenge: our Chromecast project was living as a single route within our massive main web repository. While this "monolith" approach worked initially, our rapid growth eventually turned it into a bottleneck.
 
-**📉 The Trouble with the Monolith**
+## 📉 The Trouble with the Monolith
 
 As the project scaled, we hit a wall with two primary issues:
 
-User Dissatisfaction: Performance wasn't meeting our standards. One of our major clients has massive Chromecast traffic, and the laggy experience was becoming a significant pain point.
+**User Dissatisfaction:** Performance wasn't meeting our standards. One of our major clients has massive Chromecast traffic, and the laggy experience was becoming a significant pain point.
 
-Developer Dread: The team grew to worry whenever a Chromecast ticket appeared in the sprint. Because it was tied to the main web project, it meant dealing with long, complex and painful developer experience.
+**Developer Dread:** The team grew to worry whenever a Chromecast ticket appeared in the sprint. Because it was tied to the main web project, it meant dealing with long, complex and painful developer experience.
 
 **🛠 The Challenge: Breaking Free**
 
@@ -28,21 +29,23 @@ We couldn't change the hardware our users owned, so we had to change how our sof
 
 2. **Deployment Velocity:** Our build and deployment processes were tethered to the main web project. We needed a workflow that allowed us to move fast without being slowed down by the main site's release cycle.
 
-**🚀 The Solution: Chromecast Standalone**
+## 🚀 The Solution: Chromecast Standalone
 
 Following Bedrock’s **Request for Comment (RFC)** process, our Tech Lead conducted a deep dive into our options. The verdict? **It was time to move to a dedicated, standalone repository**.
 
 This wasn't just a change of address; it was a total refresh:
 
 - **Modern Tech Stack:** We adopted updated tools better suited for the platform.
+  - Typescript
   - BiomeJS
   - Vite
+  - Vitest
 
 - **Transformed Developer Experience:** By moving to a standalone project, we completely overhauled how we work. We built custom simulation tools to replicate the Chromecast environment locally, drastically increasing feature velocity.
 
 - **The POC:** To prove our theory, we built a Proof of Concept. It was a very simplified version of what would become the Chromecast Standalone, however we could do so much with so little that we were all convinced.
 
-**📊 The Results: Impact by the Numbers**
+## 📊 The Results: Impact by the Numbers
 
 The results didn't just meet our expectations—they shattered them. By decoupling the project, we saw a significant and measurable increase in both stability and speed.
 
@@ -56,7 +59,7 @@ Core Performance Metrics
 
     **Note:** We are still in the process of migrating our entire user base, but the  data from the new implementation is already showing all the benefits.
 
-**💡 Lessons Learned**
+## 💡 Lessons Learned
 
 Decoupling a core feature from a monolith is a major undertaking, but this project highlighted several key principles for success:
 
