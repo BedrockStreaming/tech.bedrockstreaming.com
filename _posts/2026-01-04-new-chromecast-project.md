@@ -21,7 +21,7 @@ As the project scaled, we hit a wall with two primary issues:
 
 **Developer Dread:** The team grew to worry whenever a Chromecast ticket appeared in the sprint. Because it was tied to the main web project, it meant dealing with long, complex and painful developer experience.
 
-**🛠 The Challenge: Breaking Free**
+## 🛠 The Challenge: Breaking Free
 
 We couldn't change the hardware our users owned, so we had to change how our software interacted with it. We identified two core areas for improvement:
 
@@ -75,7 +75,7 @@ Decoupling a core feature from a monolith is a major undertaking, but this proje
 
 - **Platform-Specific Needs:** Low-power devices like the Chromecast don't just benefit from lean code—they require it. Tailoring the environment specifically for the hardware is often more effective than trying to optimize a shared codebase.
 
-- **Autonomy Drives Velocity:** Removing the dependency on the main web project's build and deployment cycles did more than just speed up our workflow; it removed the "developer dread" by giving the team full ownership of their release process.
+- **Autonomy Drives Velocity:** Removing the dependency on the main web project's build and deployment cycles did more than just speed up our workflow; it removed the "developer dread" by giving the team full ownership of their release process. This is valid for our chromecast team as well as our web team. Indeed their validation, homologation and release process don't need to include the Chromecast.
 
 - **Data-Driven Buy-In:** Highlighting clear KPIs, like the 50% reduction in video join time, made it easy to demonstrate the ROI to stakeholders and justify the time spent on refactoring.
 
