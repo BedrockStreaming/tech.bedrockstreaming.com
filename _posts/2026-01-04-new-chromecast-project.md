@@ -45,11 +45,17 @@ This wasn't just a change of address; it was a total refresh:
 
 - **The POC:** To prove our theory, we built a Proof of Concept. It was a very simplified version of what would become the Chromecast Standalone, however we could do so much with so little that we were all convinced.
 
+- **Project Architecture:** We choose the monorepo architecture for our Chromecast project to enforce best practices, improve code organization, and enable potential code reuse across projects.
+  - `apps/`: Contains the Chromecast receiver. It’s designed to be extensible, allowing us to add other targets (like Apple AirPlay) in the future while sharing the same core logic.
+  - `libs/`: The "source of truth" for reusable utilities. To prevent spaghetti code, these are strictly unidirectional: libs can import other libs, but they can never import from an app.
+  - `tools/`: Dedicated to the developer experience (DX). This houses non-production code like CLIs, documentation, and Storybook, keeping the main application bundles clean and light.
+  - `package.json` at root level: Centralizes all dev-dependencies and testing environments, ensuring consistency across the entire workspace.
+
 ## 📊 The Results: Impact by the Numbers
 
 The results didn't just meet our expectations—they shattered them. By decoupling the project, we saw a significant and measurable increase in both stability and speed.
 
-Core Performance Metrics
+### Core Performance Metrics
 
 - **Video Join Time:** Reduced from **~5.8s** to **~2.8s** 🚀 (A massive **52% improvement**!)
 
@@ -58,6 +64,8 @@ Core Performance Metrics
 - **Stability:** We have witnessed significantly fewer critical performance variations, leading to a much more consistent user experience.
 
     **Note:** We are still in the process of migrating our entire user base, but the  data from the new implementation is already showing all the benefits.
+
+![Join Time improvements](/images/posts/2026-01-04-new-chromecast-project/chromecast-standalone-join-time-2.png)
 
 ## 💡 Lessons Learned
 
