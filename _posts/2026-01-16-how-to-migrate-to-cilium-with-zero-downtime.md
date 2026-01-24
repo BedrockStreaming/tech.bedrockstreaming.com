@@ -108,7 +108,11 @@ To avoid making an ON/OFF migration we leverage on Haproxy to make a progressive
 
 ## Consul powered configuration update <a name="ConsulPoweredConfUpdate"></a>
 
-But how to update the weight on the fly and to advance in the migration or rollback in case of issue you'd ask us? We use Consul and consul-agent to update our Haproxy configuration on the fly. It helps us to hot update our load-balancing parameters and execute quick rollback in case of any undisired behaviour detected on our monitoring stack :
+But how to update the weight on the fly to advance in the migration or rollback in case of issue you'd ask us? 
 
-<center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image.png"></center>
+We use Consul and consul-agent to update our Haproxy configuration on the fly. It helps us to hot update our load-balancing parameters :
+
+<center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image4.png"></center>
 <br>
+
+As we feel confident to move some of our applications to our green cluster we just need to update both weights of our blue and green cluster for a specific API to start send traffic to our Cilium brand new cluster. It helps us to check how our cluster behaves with small amount of traffic, we observe different KPIs and Cilium behaviour. Making quick rollback in case of any issues.
