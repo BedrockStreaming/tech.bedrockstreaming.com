@@ -58,7 +58,6 @@ And that is an excellent question!
 And now you probably start to understand the main difference.
 
 While iptables relies on linear, sequential rule lists for packet filtering, which can slow down with scale, Cilium uses eBPF (extended Berkeley Packet Filter) to attach programs directly to the kernel, enabling high-performance and more observability. Cilium works directly at the kernel space level.
-
 ![Comparing Standard CNI with eBPF CNI](/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image0.png)
 <center><i>Comparing Standard CNI with eBPF CNI</i> [Inspired by schema from Isovalent]</center>
 
