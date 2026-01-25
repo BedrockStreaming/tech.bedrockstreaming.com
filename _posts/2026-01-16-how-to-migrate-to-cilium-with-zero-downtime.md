@@ -4,7 +4,7 @@ title: "How to migrate on Cilium with zero downtime"
 description: "How can you hot change your CNI from VPC CNI to Cilium on your kubernetes cluster with zero downtime in prod environnment?"
 author: [v_pelus, g_sanchez, j_menan]
 category:
-tags: [kubernetes, cloud, haproxy, aws, cloud, hace, cilium, consul, nlb]
+tags: [kubernetes, cloud, HAProxy, aws, cloud, hace, cilium, consul, nlb]
 color: rgb(0, 150, 255)
 thumbnail: "/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/main.png"
 feature-img:
@@ -16,9 +16,7 @@ At Bedrock at the begining of our journey to Kubernetes and AWS we opted for AWS
 
 At least that is what we thought in 2018 when we were migrating from on premise to the Cloud.
 
-At that time Cilium was not yet the MVP it is now in the Kubernetes ecosystem and VPC CNI was the safest choice for our needs to move on AWS. We did not have any needs for the large capabilities that Cilium could bring us at this moment.
-
-It has worked perfectly for a large amount of time and it filled it's mission pretty well. But as time went on and new customers were onboarded and new challenged rises we started needing additionnal capabilities for our CNI and we started facing some issues.
+At that time Cilium was not yet the MVP it is now in the Kubernetes ecosystem and VPC CNI was the safest choice for our needs to move on AWS. We did not have any needs for the large capabilities that Cilium could bring us at this moment. It has worked perfectly for a large amount of time and it filled it's mission pretty well. But as time went on and new customers were onboarded and new challenged rises we started needing additionnal capabilities for our CNI and we started facing some issues.
 
 ## Table of Contents
 
@@ -28,9 +26,12 @@ It has worked perfectly for a large amount of time and it filled it's mission pr
     * [What is kube-proxy, why iptables](#WhatIsKubeproxy)
     * [Why Cilium and eBPF](#WhyCiliunEbpf)
 * [Dig into live migration](#DigIntoLiveMigration)
-    * [Haproxy blue/green load balancing](#HaproxyBlueGreenLoadBalancing)
+    * [Handle live migration with zero downtime](#HandleLiveMigrationZeroDowntime)
+        * [Blue/Green deployment](#BlueGreenDeployment)
+        * [Canary deployment](#Canarydeployment)
+    * [HAProxy blue/green load balancing](#HAProxyBlueGreenLoadBalancing)
     * [Consul powered configuration update](#ConsulPoweredConfUpdate)
-* [Conclusion](#conclusion)
+* [A little Conclusion](#ALittleConslusion)
 
 # What about today? <a name="WhatAboutToday"></a>
 
@@ -59,7 +60,7 @@ And now you start to understand probably the main difference.
 While iptables relies on a linear, sequential rule lists for packet filtering, which could slow down with scale. Cilium uses eBPF (extended Berkeley Packet Filter) to attach programs directly to the kernel, enabling high-performance, more obervability. Cilium is working directly at kernel space level.
 
 ![Comparing Standard CNI with eBPF CNI](/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image0.png)
-<center><i>Comparing Standard CNI with eBPF CNI</i>[Inspired by schema from isovalent](https://cdn.sanity.io/images/xinsvxfu/production/d7e538715d25eddc181230273506aa9e58bd62bf-1600x973.webp?auto=format&q=80&fit=clip&w=1080)</center>
+<center><i>Comparing Standard CNI with eBPF CNI</i>[Inspired by schema from isovalent]</center>
 
 ## A bit more explanations <a name="BitMoreExplanations"></a>
 
@@ -95,24 +96,72 @@ For load balancing, iptables was never designed for highly scaled operations lik
 
 Ok ok now we understand a little bit more Cilium and on what technology it relies compared to kube-proxy and iptables. But how do you move from your old CNI to the new one without needing maintenance? Here is the time to get into how we executed our transition.
 
-## Haproxy blue/green load balancing <a name="HaproxyBlueGreenLoadBalancing"></a>
+## Handle live migration with zero downtime <a name="HandleLiveMigrationZeroDowntime"></a>
 
-Here at Bedrock we are still using Haproxy for some of our reverse proxy needs, it works perfectly fine and we now it well. Hence why it came to our mind when we wanted to find a why to migrate our clusters to our new CNI Cilium. 
+There are many ways to handle migration with or near zero downtime. The two most common approaches are Blue/Green deployment and Canary deployment. Each strategy has its own advantages depending on your infrastructure and risk tolerance. In our case, we evaluated both options before choosing the one that best fit our production requirements and operational constraints.
 
-There are many ways to handle such a migration. At Bedrock we chose to aims for Blue/Green deployment with controlled load spread between each new cluster.
+### Blue/Green deployment <a name="BlueGreenDeployment"></a>
 
-To avoid making an ON/OFF migration we leverage on Haproxy to make a progressive switch to our new Cilium cluster. We deployed a new layer of Load-balancing and ASG with Haproxy in front of our Kubernetes cluster with pre-defined weight between our blue and green cluster.
+Blue/Green deployment is a strategy that improves application availability and minimizes downtime and risks during deployments. You deploy to identical production environments called blue and green. The "blue" one is the outgoing live environment, while the "green" one serves as the next version.
+
+Once changes are fully tested in "green", traffic is switched from "blue" to "green". This swift transition minimizes dowtime and allow quick rollback in case of issues by reverting back traffic from "green" to "blue".
+
+<center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image5.png"></center>
+<br>
+
+### Canary deployment <a name="Canarydeployment"></a>
+
+Canary deployment takes a different approach by avoiding the need for duplicate production environments. Instead, you select a subset of servers or nodes to receive the new deployment first, serving as a testing ground before rolling out changes across the entire infrastructure.
+
+A typical canary deployment workflow using a load balancer looks like this:
+
+1. Your production infrastructure runs behind a load balancer with additional nodes kept in reserve.
+2. Deploy the new version to these spare nodes, which become your "canary" servers—the first to run the updated code in production.
+3. Configure the load balancer to route a small percentage of traffic to the canary nodes, exposing the new version to a limited number of users while monitoring for errors and gathering feedback.
+4. If metrics look healthy and no critical issues emerge, progressively increase traffic to the canary nodes until they handle 100% of requests.
+
+<center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image6.png"></center>
+<br>
+
+## HAProxy blue/green load balancing <a name="HAProxyBlueGreenLoadBalancing"></a>
+
+At Bedrock we chose to aim for a hybrid way to handle our live migration with Blue-Green Canary. We are still using [HAProxy](https://www.HAProxy.com) for some of our reverse proxy needs, it works perfectly fine and we now it well. Hence why it came to our mind when we wanted to find a why to migrate our clusters to our new CNI Cilium. 
+
+To avoid making an ON/OFF migration we leverage on HAProxy to make a progressive switch to our new Cilium cluster. We deployed a new layer of Load-balancing and ASG with HAProxy in front of our Kubernetes cluster with pre-defined weight between our blue and green cluster.
 
 <center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image3.png"></center>
 <br>
+
+We can then progressively increase or decrease the amount of traffic we want to send to our new new cluster. Analyze KPI and how Cilium behaves with our environment. Rollback quickly if any issue would be raised. This new layer of load balancinbg induced close to no increase in our response time so we felt confident to move on with this architecture.
 
 ## Consul powered configuration update <a name="ConsulPoweredConfUpdate"></a>
 
 But how to update the weight on the fly to advance in the migration or rollback in case of issue you'd ask us? 
 
-We use Consul and consul-agent to update our Haproxy configuration on the fly. It helps us to hot update our load-balancing parameters :
+We use Consul to update our HAProxy configuration on the fly. Leveraging on Consul-agent and Consul Kv/store we are able to synchronize all our HAProxy configuration :
 
 <center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image4.png"></center>
 <br>
 
-As we feel confident to move some of our applications to our green cluster we just need to update both weights of our blue and green cluster for a specific API to start send traffic to our Cilium brand new cluster. It helps us to check how our cluster behaves with small amount of traffic, we observe different KPIs and Cilium behaviour. Making quick rollback in case of any issues.
+As we feel confident to move some of our applications to our new cluster we just need to update both weights of our blue and green for a specific API on our Consul KV/Store to start send traffic to the new Cilium cluster. 
+The Consul agent detects that an update has been done to the key it watches in the KV/Store and trigger the hot update of HAProxy's through [the Runtime API](https://www.HAProxy.com/documentation/HAProxy-runtime-api/).
+
+## A little Conclusion <a name="ALittleConslusion"></a>
+
+So to recap, here's how we achieved our zero-downtime migration from VPC CNI to Cilium:
+
+1. **Deployed a new Kubernetes cluster** with Cilium as the CNI, running in parallel to our existing VPC CNI cluster
+2. **Set up HAProxy as a traffic orchestrator** in front of both clusters, with configurable weights to control traffic distribution
+3. **Leveraged Consul KV/Store** to manage HAProxy configuration dynamically, allowing us to adjust traffic weights on the fly
+4. **Gradually shifted traffic** from the blue (VPC CNI) cluster to the green (Cilium) cluster, application by application
+5. **Monitored KPIs closely** at each step to validate performance improvements and catch any potential issues early
+6. **Maintained rollback capability** throughout the process by simply adjusting weights back to the blue cluster if needed
+
+This hybrid Blue/Green Canary approach gave us the confidence to migrate production workloads without risking service disruption, while gaining all the benefits of eBPF-powered networking.
+
+There are still improvements to our solution that can be done:
+
+- **Automate weight adjustments** based on real-time metrics leveraging on our monitoring stack [Victoria Metrics](https://tech.bedrockstreaming.com/2022/09/06/monitoring-at-scale-with-victoriametrics.html)
+- **Implement automated rollback triggers** if error rates or latency thresholds are exceeded
+- **Create a self-service interface** for teams to control their own application migrations
+- **Target properly subset of users** and enable stick canaries, will ensure that a subset of users are always redirected to our new cluster.
