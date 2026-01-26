@@ -4,7 +4,7 @@ title: "How to migrate to Cilium with zero downtime"
 description: "How can you hot change your CNI from VPC CNI to Cilium on your Kubernetes cluster with zero downtime in a production environment?"
 author: [v_pelus, g_sanchez, j_menan]
 category:
-tags: [kubernetes, cloud, HAProxy, aws, cloud, hace, cilium, consul, nlb]
+tags: [kubernetes, cloud, HAProxy, aws, cilium, consul, nlb, ebpf]
 color: rgb(0, 150, 255)
 thumbnail: "/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/main.png"
 feature-img:
@@ -16,7 +16,7 @@ At Bedrock, at the beginning of our journey to Kubernetes and AWS, we opted for 
 
 At least that is what we thought in 2018 when we were migrating from on-premise to the Cloud.
 
-At that time, Cilium was not yet the MVP it is now in the Kubernetes ecosystem, and VPC CNI was the safest choice for our needs to move to AWS. We did not have any need for the large capabilities that Cilium could bring us at that moment. It worked perfectly for a long time and fulfilled its mission pretty well. But as time went on and new customers were onboarded and new challenges arose, we started needing additional capabilities for our CNI and we started facing some issues.
+At that time, Cilium was not yet the powerhouse it is today in the Kubernetes ecosystem, and VPC CNI was the safest choice for moving to AWS. We didn't require the extensive capabilities that Cilium offered at that moment. It worked perfectly for a long time and fulfilled its mission well. However, as time passed, new customers were onboarded, and new challenges arose. We needed additional capabilities from our CNI and began facing performance bottlenecks.
 
 ## Table of Contents
 
@@ -35,9 +35,9 @@ At that time, Cilium was not yet the MVP it is now in the Kubernetes ecosystem, 
 
 # What about today? <a name="WhatAboutToday"></a>
 
-Today in 2026, we think otherwise. Still relying on [KOps](https://kops.sigs.k8s.io/) managed Kubernetes clusters running on EC2 spot instances in private subnets at AWS. We needed to get more observability at our network layer on Kubernetes to have better insights about possible bottlenecks on our infrastructure or our ingress implementation, but not only.
+Fast forward to 2026, and our perspective has evolved. While still relying on [KOps](https://kops.sigs.k8s.io/)-managed Kubernetes clusters running on EC2 spot instances in private subnets on AWS, we needed greater observability at the network layer. Better insights into potential bottlenecks in our infrastructure.
 
-We started facing issues due to kube-proxy and the huge amount of iptables our nodes needed to manage. The fact that each node was managing thousands and thousands of iptables rules could sometimes create slowness or issues during huge scaling or downscaling events on our platform as our nodes would need to perform a lot of iptables rules management to ensure all our workloads were reachable.
+We faced issues with kube-proxy and the massive volume of iptables rules our nodes needed to manage. With each node handling thousands of iptables rules, we experienced slowness during large-scale scaling or downscaling events. The extensive iptables rule management required to ensure workload reachability became a significant bottleneck.
 
 But wait! Why is changing the CNI supposed to improve anything here on those matters?
 
@@ -51,37 +51,29 @@ But wait!
 
 <br>
 
-And that is an excellent question! 
-
-[eBPF](https://ebpf.io/what-is-ebpf/) stands for extended Berkeley Packet Filter. This capability fundamentally changes how the kernel's functionality can be extended at runtime. It's basically plugins that developers can make in a C-like language, then compiled into eBPF bytecode. The bytecode is loaded into the kernel via a system call, and the eBPF program is attached to a specific "hook" point within the kernel, such as a system call, network event, or function entry/exit point. When that event occurs, the eBPF program is automatically executed.
-
-And now you probably start to understand the main difference.
-
-While iptables relies on linear, sequential rule lists for packet filtering, which can slow down with scale, Cilium uses eBPF (extended Berkeley Packet Filter) to attach programs directly to the kernel, enabling high-performance and more observability. Cilium works directly at the kernel space level.
-![Comparing Standard CNI with eBPF CNI](/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image0.png)
-<center><i>Comparing Standard CNI with eBPF CNI</i> [Inspired by schema from Isovalent]</center>
+And that is an excellent question! We'll go a little bit more in details in the following chapters.
 
 ## A bit more explanations <a name="BitMoreExplanations"></a>
 
-To give a bit more context and explanations on the difference between each tool and why eBPF was more suited to our use case, we are going to go a little bit into detail on how iptables and eBPF behave and their fundamental differences.
+To provide more context on why eBPF was better suited to our use case, let's dive into how iptables and eBPF differ fundamentally in their behavior and architecture.
 
 ### What is kube-proxy, why iptables <a name="WhatIsKubeproxy"></a>
 
-Kube-proxy is the default networking component in Kubernetes installed on each node in a cluster. It's responsible for facilitating communication between services and pods. Picture it as the old phone operator—it helps link containers with the telephone network. It maintains network rules for service-to-pod mapping, allowing communication cluster-wide. It acts as an L3/L4 network proxy and load balancer.
-
-As it acts as a network proxy, it manages network rules necessary for traffic routing, including NAT when required.
+Kube-proxy is the default networking component installed on each node in a Kubernetes cluster, responsible for facilitating communication between services and pods. Think of it as an old telephone operator—connecting containers across the network. It maintains network rules for service-to-pod mapping, allowing cluster-wide communication, and acts as an L3/L4 network proxy and load balancer, managing traffic routing rules including NAT when required.
 
 It relies on iptables to accomplish its mission. Iptables is a packet filter and firewall tool within the Linux kernel, analyzing, modifying, and filtering network packets on a set of user-defined rules based on IP addresses or port-based rules (TCP/UDP).
 
-Iptables rules are organized into iptables tables and iptables chains. An iptables chain is an ordered list of rules that is evaluated sequentially when a packet traverses the chain. An iptables table is a way to group together chains of rules; iptables has five tables covering Filter, NAT, Mangle, Raw, and Security.
+Rules are organized into tables and chains. A chain is an ordered list of rules evaluated sequentially when a packet traverses it. A table groups chains together; there are five tables covering Filter, NAT, Mangle, Raw, and Security.
 
 Performance in iptables relies on a sequential algorithm, going through each rule one-by-one in the table to match rules against observed traffic. This means that the time taken scales linearly with each added rule, and performance strain quickly becomes apparent as more services and endpoints are added. A packet has to traverse each rule to find a match, introducing latency and causing problems with stability, especially when you have a lot of movement in your cluster during traffic surges and Kubernetes starts to spin up new nodes/pods to answer the load.
 
 ### Why Cilium and eBPF <a name="WhyCiliumEbpf"></a>
 
-For the uninitiated, eBPF is an efficient technology that has rapidly gained traction in Linux networking. It allows for programmable processing directly within the Linux kernel, like you would enable a plugin or mod, enabling a wide range of network, observability, and security-related tasks with highly efficient speed and flexibility.
+For the uninitiated, eBPF is a revolutionary technology that has rapidly gained traction in Linux networking. It enables programmable processing directly within the kernel—like installing a plugin or mod—supporting a wide range of network, observability, and security tasks with exceptional speed and flexibility.
 
-So contrary to iptables, eBPF programs are not running inside the user-space of Linux but in the kernel-space.
+[eBPF](https://ebpf.io/what-is-ebpf/) stands for extended Berkeley Packet Filter. This capability fundamentally changes how the kernel's functionality can be extended at runtime. It's basically plugins that developers can make in a C-like language, then compiled into eBPF bytecode. The bytecode is loaded into the kernel via a system call, and the eBPF program is attached to a specific "hook" point within the kernel, such as a system call, network event, or function entry/exit point. When that event occurs, the eBPF program is automatically executed.
+
+Unlike iptables, eBPF programs run in kernel-space rather than user-space, providing direct access to kernel operations.
 
 <center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image2.png"></center>
 <br>
@@ -90,20 +82,24 @@ For load balancing, iptables was never designed for highly scaled operations lik
 
 [A link to Isovalent blog article giving a lot of explanations and KPIs on the difference between kube-proxy iptables and Cilium eBPF](https://isovalent.com/blog/post/why-replace-iptables-with-ebpf)
 
+![Comparing Standard CNI with eBPF CNI](/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image0.png)
+<center><i>Comparing Standard CNI with eBPF CNI</i> [Inspired by schema from Isovalent]</center>
+
+We can clearly see on the schema upwards the overhead induced in our use-case by iptables usage and how Cilium offers an interesting alternative for environment with huge scaling capabilities.
 
 # Dig into live migration <a name="DigIntoLiveMigration"></a>
 
-Ok, ok, now we understand a little bit more about Cilium and what technology it relies on compared to kube-proxy and iptables. But how do you move from your old CNI to the new one without needing maintenance? Here is the time to get into how we executed our transition.
+Now that we understand Cilium's technological advantages over kube-proxy and iptables, the key question remains: how do you migrate from one CNI to another without downtime? Let's explore how we executed this transition.
 
 ## Handle live migration with zero downtime <a name="HandleLiveMigrationZeroDowntime"></a>
 
-There are many ways to handle migration with zero or near-zero downtime. The two most common approaches are Blue/Green deployment and Canary deployment. Each strategy has its own advantages depending on your infrastructure and risk tolerance. In our case, we evaluated both options before choosing the one that best fit our production requirements and operational constraints.
+Several strategies exist for achieving zero or near-zero downtime during migration. The two most common approaches are Blue/Green and Canary deployments. Each has distinct advantages depending on your infrastructure and risk tolerance. We evaluated both before selecting the approach that best aligned with our production requirements and operational constraints.
 
 ### Blue/Green deployment <a name="BlueGreenDeployment"></a>
 
-Blue/Green deployment is a strategy that improves application availability and minimizes downtime and risks during deployments. You deploy to identical production environments called blue and green. The "blue" one is the outgoing live environment, while the "green" one serves as the next version.
+Blue/Green deployment is a strategy that improves application availability while minimizing downtime and risk. You deploy to two identical production environments: "blue" represents the current live environment, while "green" hosts the next version.
 
-Once changes are fully tested in "green", traffic is switched from "blue" to "green". This swift transition minimizes downtime and allows quick rollback in case of issues by reverting traffic from "green" to "blue".
+Once thoroughly tested in green, traffic switches from blue to green. This swift transition minimizes downtime and enables instant rollback if issues arise—simply revert traffic back to blue.
 
 <center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image5.png"></center>
 <br>
@@ -124,26 +120,25 @@ A typical canary deployment workflow using a load balancer looks like this:
 
 ## HAProxy blue/green load balancing <a name="HAProxyBlueGreenLoadBalancing"></a>
 
-At Bedrock, we chose to aim for a hybrid way to handle our live migration with Blue-Green Canary. We are still using [HAProxy](https://www.haproxy.com) for some of our reverse proxy needs—it works perfectly fine and we know it well. Hence why it came to our mind when we wanted to find a way to migrate our clusters to our new CNI Cilium.
+At Bedrock, we opted for a hybrid Blue-Green Canary approach to handle our live migration. We still use [HAProxy](https://www.haproxy.com) for reverse proxy needs—it works perfectly-fin on our side and we know it well. This made it the natural choice for orchestrating our migration to Cilium.
 
 To avoid making an ON/OFF migration, we leveraged HAProxy to make a progressive switch to our new Cilium cluster. We deployed a new layer of load balancing and ASG with HAProxy in front of our Kubernetes cluster with pre-defined weights between our blue and green clusters.
 
 <center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image3.png"></center>
 <br>
 
-We can then progressively increase or decrease the amount of traffic we want to send to our new cluster, analyze KPIs and how Cilium behaves with our environment, and rollback quickly if any issue is raised. This new layer of load balancing induced close to no increase in our response time, so we felt confident to move forward with this architecture.
+This setup allowed us to progressively adjust traffic distribution to our new cluster, analyze KPIs, monitor Cilium's behavior in our environment, and rollback instantly if issues arose. Importantly, this load balancing layer added negligible latency to our response times, giving us confidence to proceed.
 
 ## Consul powered configuration update <a name="ConsulPoweredConfUpdate"></a>
 
-But how do you update the weight on the fly to advance in the migration or rollback in case of an issue, you'd ask us?
+But how do you update weights on the fly to advance the migration or rollback during issues?
 
-We use Consul to update our HAProxy configuration on the fly. Leveraging Consul-agent and Consul KV/Store, we are able to synchronize all our HAProxy configurations:
+We leverage [Consul](https://developer.hashicorp.com/consul) to dynamically update our HAProxy configuration. Using [Consul-agent](https://developer.hashicorp.com/consul/docs/automate/consul-template) and Consul KV/Store, we synchronize all HAProxy configurations across our infrastructure:
 
 <center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image4.png"></center>
 <br>
 
-As we feel confident to move some of our applications to our new cluster, we just need to update both weights of our blue and green for a specific API on our Consul KV/Store to start sending traffic to the new Cilium cluster. 
-The Consul agent detects that an update has been made to the key it watches in the KV/Store and triggers the hot update of HAProxy through [the Runtime API](https://www.haproxy.com/documentation/haproxy-runtime-api/).
+When ready to migrate an application, we simply update the blue and green weights for that specific API in our Consul KV/Store. The Consul-template opens a peristent connection to the Consul server KV/Store and detects the change to its watched keys and triggers a hot reload of HAProxy via [the Runtime API](https://www.haproxy.com/documentation/haproxy-runtime-api/), seamlessly shifting traffic distribution. Using the Runtime API saves us the need to execute HAProxy reload which could cause some loss of performance during high traffic events, same approach we use for our [HSDO project](https://tech.bedrockstreaming.com/2021/11/18/hsdo.html).
 
 ## A little Conclusion <a name="ALittleConclusion"></a>
 
@@ -156,9 +151,9 @@ So to recap, here's how we achieved our zero-downtime migration from VPC CNI to 
 5. **Monitored KPIs closely** at each step to validate performance improvements and catch any potential issues early
 6. **Maintained rollback capability** throughout the process by simply adjusting weights back to the blue cluster if needed
 
-This hybrid Blue/Green Canary approach gave us the confidence to migrate production workloads without risking service disruption, while gaining all the benefits of eBPF-powered networking.
+This hybrid approach enabled us to migrate production workloads without service disruption while unlocking all the benefits of eBPF-powered networking.
 
-There are still improvements to our solution that can be done:
+Potential enhancements to our solution include:
 
 - **Automate weight adjustments** based on real-time metrics leveraging our monitoring stack [Victoria Metrics](https://tech.bedrockstreaming.com/2022/09/06/monitoring-at-scale-with-victoriametrics.html)
 - **Implement automated rollback triggers** if error rates or latency thresholds are exceeded
