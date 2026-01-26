@@ -69,7 +69,7 @@ Performance in iptables relies on a sequential algorithm, going through each rul
 
 ### Why Cilium and eBPF <a name="WhyCiliumEbpf"></a>
 
-For the uninitiated, eBPF is a revolutionary technology that has rapidly gained traction in Linux networking. It enables programmable processing directly within the kernel—like installing a plugin or mod—supporting a wide range of network, observability, and security tasks with exceptional speed and flexibility.
+eBPF is a revolutionary technology that has rapidly gained traction in Linux networking. It enables programmable processing directly within the kernel—like installing a plugin or mod—supporting a wide range of network, observability, and security tasks with exceptional speed and flexibility.
 
 [eBPF](https://ebpf.io/what-is-ebpf/) stands for extended Berkeley Packet Filter. This capability fundamentally changes how the kernel's functionality can be extended at runtime. It's basically plugins that developers can make in a C-like language, then compiled into eBPF bytecode. The bytecode is loaded into the kernel via a system call, and the eBPF program is attached to a specific "hook" point within the kernel, such as a system call, network event, or function entry/exit point. When that event occurs, the eBPF program is automatically executed.
 
