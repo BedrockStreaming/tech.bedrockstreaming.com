@@ -129,7 +129,7 @@ Our HAProxy and Consul setup also gave us the flexibility to migrate traffic app
 <center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image3.png"></center>
 <br>
 
-This setup allowed us to progressively adjust traffic distribution to our new cluster, analyze KPIs, monitor Cilium's behavior in our environment, and rollback instantly if issues arose. Importantly, this load balancing layer added negligible latency to our response times, giving us confidence to proceed.
+Importantly, this load balancing layer added negligible latency to our response times, giving us confidence to proceed.
 
 ## Consul powered configuration update <a name="ConsulPoweredConfUpdate"></a>
 
