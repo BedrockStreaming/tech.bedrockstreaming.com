@@ -12,11 +12,11 @@ language: en
 comments: true
 ---
 
-At Bedrock, at the beginning of our journey to Kubernetes and AWS, we opted for AWS VPC CNI as our CNI on our clusters to ensure perfect compatibility with our cloud provider. It provides native integration with AWS and simplified network management.
+At Bedrock, we recently migrated our Kubernetes clusters from AWS VPC CNI to Cilium—with zero downtime. By leveraging HAProxy for progressive traffic shifting and Consul for dynamic configuration updates, we achieved a seamless transition to eBPF-powered networking. In this article, we'll share how we designed our hybrid Blue-Green Canary strategy, the technical implementation details, and the lessons we learned along the way.
 
-At least that is what we thought in 2018 when we were migrating from on-premise to the Cloud.
+When we first adopted Kubernetes on AWS back in 2018, we chose VPC CNI for its native integration and simplified network management.
 
-At that time, Cilium was not yet the powerhouse it is today in the Kubernetes ecosystem, and VPC CNI was the safest choice for moving to AWS. We didn't require the extensive capabilities that Cilium offered at that moment. It worked perfectly for a long time and fulfilled its mission well. However, as time passed, new customers were onboarded, and new challenges arose. We needed additional capabilities from our CNI and began facing performance bottlenecks.
+At that time, Cilium was not yet the powerhouse it is today in the Kubernetes ecosystem, and VPC CNI was the safest choice for moving to AWS. It worked perfectly for a long time and fulfilled its mission well. However, as time passed, new customers were onboarded, and new challenges arose. We needed additional capabilities from our CNI and began facing performance bottlenecks.
 
 ## Table of Contents
 
@@ -37,7 +37,7 @@ At that time, Cilium was not yet the powerhouse it is today in the Kubernetes ec
 
 Fast forward to 2026, and our perspective has evolved. While still relying on [KOps](https://kops.sigs.k8s.io/)-managed Kubernetes clusters running on EC2 spot instances in private subnets on AWS, we needed greater observability at the network layer. Better insights into potential bottlenecks in our infrastructure.
 
-We faced issues with kube-proxy and the massive volume of iptables rules our nodes needed to manage. With each node handling thousands of iptables rules, we experienced slowness during large-scale scaling or downscaling events. The extensive iptables rule management required to ensure workload reachability became a significant bottleneck.
+We faced issues with kube-proxy and the massive volume of iptables rules our nodes needed to manage. At our scale—clusters reaching up to 1,000 nodes and 40,000 pods, each node had to maintain thousands of iptables rules corresponding to all services and endpoints in the cluster. During large-scale scaling or downscaling events, we experienced significant slowness. The extensive iptables rule management required to ensure workload reachability became a critical performance bottleneck.
 
 But wait! Why is changing the CNI supposed to improve anything here on those matters?
 
@@ -124,6 +124,8 @@ At Bedrock, we opted for a hybrid Blue-Green Canary approach to handle our live 
 
 To avoid making an ON/OFF migration, we leveraged HAProxy to make a progressive switch to our new Cilium cluster. We deployed a new layer of load balancing and ASG with HAProxy in front of our Kubernetes cluster with pre-defined weights between our blue and green clusters.
 
+Our HAProxy and Consul setup also gave us the flexibility to migrate traffic application by application rather than switching everything at once. By maintaining separate weight configurations for each API or service in Consul's KV/Store, we could independently control the traffic distribution for individual workloads. This granular approach meant we could start with less critical services, validate Cilium's performance in production with real traffic, and progressively move more sensitive applications only after gaining confidence. If an issue appeared with a specific application on the Cilium cluster, we could immediately roll back just that service while keeping others on the new infrastructure—significantly reducing blast radius and risk compared to an all-or-nothing migration strategy.
+
 <center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image3.png"></center>
 <br>
 
@@ -152,6 +154,8 @@ So to recap, here's how we achieved our zero-downtime migration from VPC CNI to 
 6. **Maintained rollback capability** throughout the process by simply adjusting weights back to the blue cluster if needed
 
 This hybrid approach enabled us to migrate production workloads without service disruption while unlocking all the benefits of eBPF-powered networking.
+
+One significant advantage of this architecture is its reusability. The same HAProxy and Consul-based traffic orchestration can be leveraged for future infrastructure changes—such as upgrading to new Kubernetes versions. While we currently perform in-place upgrades, major version upgrades can be risky. With this pattern already in place, we can simply spin up a new cluster with the target Kubernetes version and progressively migrate traffic, significantly reducing the risk associated with potentially breaking changes.
 
 Potential enhancements to our solution include:
 
