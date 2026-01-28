@@ -127,8 +127,6 @@ Our hybrid approach also gave us the flexibility to migrate traffic application 
 
 We could start with less critical services, validate Cilium's performance in production with real traffic, and progressively move more sensitive applications only after gaining confidence. If an issue appeared with a specific application on the Cilium cluster, we could immediately roll back just that service while keeping others on the new infrastructure—significantly reducing blast radius and risk compared to an all-or-nothing migration strategy.
 
-Our HAProxy and Consul setup also gave us the flexibility to migrate traffic application by application rather than switching everything at once. By maintaining separate weight configurations for each API or service in Consul's KV/Store, we could independently control the traffic distribution for individual workloads. This granular approach meant we could start with less critical services, validate Cilium's performance in production with real traffic, and progressively move more sensitive applications only after gaining confidence. If an issue appeared with a specific application on the Cilium cluster, we could immediately roll back just that service while keeping others on the new infrastructure—significantly reducing blast radius and risk compared to an all-or-nothing migration strategy.
-
 <center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image3.png"></center>
 <br>
 
