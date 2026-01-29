@@ -110,7 +110,7 @@ We leverage [Consul](https://developer.hashicorp.com/consul) to dynamically upda
 
 When ready to migrate an application, we simply update the blue and green weights for that specific API in our Consul KV/Store. The Consul-template opens a peristent connection to the Consul server KV/Store and detects the change to its watched keys and triggers a hot reload of HAProxy via [the Runtime API](https://www.haproxy.com/documentation/haproxy-runtime-api/), seamlessly shifting traffic distribution. Using the Runtime API saves us the need to execute HAProxy reload which could cause some loss of performance during high traffic events, same approach we use for our [HSDO project](https://tech.bedrockstreaming.com/2021/11/18/hsdo.html).
 
-## A little Conclusion <a name="ALittleConclusion"></a>
+## Conclusion <a name="Conclusion"></a>
 
 So to recap, here's how we achieved our zero-downtime migration from VPC CNI to Cilium:
 
