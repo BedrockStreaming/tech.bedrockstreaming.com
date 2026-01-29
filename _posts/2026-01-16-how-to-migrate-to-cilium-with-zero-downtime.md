@@ -28,7 +28,7 @@ At that time, Cilium was not yet the powerhouse it is today in the Kubernetes ec
     * [HAProxy blue/green load balancing](#HAProxyBlueGreenLoadBalancing)
     * [Deploying and synchronizing applications on both clusters](#DeploySynchronizeApplications)
     * [Consul powered configuration update](#ConsulPoweredConfUpdate)
-* [A little Conclusion](#ALittleConclusion)
+* [Conclusion](#Conclusion)
 
 # What about today? <a name="WhatAboutToday"></a>
 
