@@ -20,76 +20,27 @@ At that time, Cilium was not yet the powerhouse it is today in the Kubernetes ec
 
 ## Table of Contents
 
-* [What about today](#WhatAboutToday)
-* [Enter Cilium](#EnterCilium)
-* [A bit more explanations](#BitMoreExplanations)
-    * [What is kube-proxy, why iptables](#WhatIsKubeproxy)
-    * [Why Cilium and eBPF](#WhyCiliumEbpf)
+* [What about today?](#WhatAboutToday)
 * [Dig into live migration](#DigIntoLiveMigration)
     * [Handle live migration with zero downtime](#HandleLiveMigrationZeroDowntime)
         * [Blue/Green deployment](#BlueGreenDeployment)
         * [Canary deployment](#CanaryDeployment)
     * [HAProxy blue/green load balancing](#HAProxyBlueGreenLoadBalancing)
+    * [Deploying and synchronizing applications on both clusters](#DeploySynchronizeApplications)
     * [Consul powered configuration update](#ConsulPoweredConfUpdate)
 * [A little Conclusion](#ALittleConclusion)
 
 # What about today? <a name="WhatAboutToday"></a>
 
-Fast forward to 2026, and our perspective has evolved. While still relying on [KOps](https://kops.sigs.k8s.io/)-managed Kubernetes clusters running on EC2 spot instances in private subnets on AWS, we needed greater observability at the network layer. Better insights into potential bottlenecks in our infrastructure.
+Today in 2026, we think otherwise. Still relying on [KOps](https://kops.sigs.k8s.io/) managed Kubernetes cluster running on EC2 spot instances in private subnets at AWS. We needed to get more observability at our network layer on Kubernetes to have better insights about possible bottlenecks on our infrastructure or our ingresses implementation, but not only.
 
-We faced issues with kube-proxy and the massive volume of iptables rules our nodes needed to manage. At our scale—clusters reaching up to 1,000 nodes and 40,000 pods, each node had to maintain thousands of iptables rules corresponding to all services and endpoints in the cluster. During large-scale scaling or downscaling events, we experienced significant slowness. The extensive iptables rule management required to ensure workload reachability became a critical performance bottleneck.
+To have more insights on the fundamental differences between iptables with kubeproxy and eBPF there's this very interesting blogpost from [Isolvalent](https://isovalent.com) that we encourage you to check. It contains a lot of usefull informations.
 
-But wait! Why is changing the CNI supposed to improve anything here on those matters?
-
-# Enter Cilium <a name="EnterCilium"></a>
-
-[Cilium](https://cilium.io/get-started/) is an open-source cloud-native solution for high-performance networking, security, and observability in container environments like Kubernetes, leveraging the Linux kernel's eBPF technology for deep visibility and control at the kernel level. It provides advanced features such as identity-based security policies and more.
-
-But wait!
-
-<center><img alt="what is eBPF" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image1.png"></center>
-
-<br>
-
-And that is an excellent question! We'll go a little bit more in details in the following chapters.
-
-## A bit more explanations <a name="BitMoreExplanations"></a>
-
-To provide more context on why eBPF was better suited to our use case, let's dive into how iptables and eBPF differ fundamentally in their behavior and architecture.
-
-### What is kube-proxy, why iptables <a name="WhatIsKubeproxy"></a>
-
-Kube-proxy is the default networking component installed on each node in a Kubernetes cluster, responsible for facilitating communication between services and pods. Think of it as an old telephone operator—connecting containers across the network. It maintains network rules for service-to-pod mapping, allowing cluster-wide communication, and acts as an L3/L4 network proxy and load balancer, managing traffic routing rules including NAT when required.
-
-It relies on iptables to accomplish its mission. Iptables is a packet filter and firewall tool within the Linux kernel, analyzing, modifying, and filtering network packets on a set of user-defined rules based on IP addresses or port-based rules (TCP/UDP).
-
-Rules are organized into tables and chains. A chain is an ordered list of rules evaluated sequentially when a packet traverses it. A table groups chains together; there are five tables covering Filter, NAT, Mangle, Raw, and Security.
-
-Performance in iptables relies on a sequential algorithm, going through each rule one-by-one in the table to match rules against observed traffic. This means that the time taken scales linearly with each added rule, and performance strain quickly becomes apparent as more services and endpoints are added. A packet has to traverse each rule to find a match, introducing latency and causing problems with stability, especially when you have a lot of movement in your cluster during traffic surges and Kubernetes starts to spin up new nodes/pods to answer the load.
-
-### Why Cilium and eBPF <a name="WhyCiliumEbpf"></a>
-
-eBPF is a revolutionary technology that has rapidly gained traction in Linux networking. It enables programmable processing directly within the kernel—like installing a plugin or mod—supporting a wide range of network, observability, and security tasks with exceptional speed and flexibility.
-
-[eBPF](https://ebpf.io/what-is-ebpf/) stands for extended Berkeley Packet Filter. This capability fundamentally changes how the kernel's functionality can be extended at runtime. It's basically plugins that developers can make in a C-like language, then compiled into eBPF bytecode. The bytecode is loaded into the kernel via a system call, and the eBPF program is attached to a specific "hook" point within the kernel, such as a system call, network event, or function entry/exit point. When that event occurs, the eBPF program is automatically executed.
-
-Unlike iptables, eBPF programs run in kernel-space rather than user-space, providing direct access to kernel operations.
-
-<center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image2.png"></center>
-<br>
-
-For load balancing, iptables was never designed for highly scaled operations like we see today with Kubernetes. The sequential rule matching and rigid IP-based rules struggle with frequently changing IP addresses. eBPF uses efficient hash tables allowing for almost unlimited scale.
-
-[A link to Isovalent blog article giving a lot of explanations and KPIs on the difference between kube-proxy iptables and Cilium eBPF](https://isovalent.com/blog/post/why-replace-iptables-with-ebpf)
-
-![Comparing Standard CNI with eBPF CNI](/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image0.png)
-<center><i>Comparing Standard CNI with eBPF CNI</i> [Inspired by schema from Isovalent]</center>
-
-We can clearly see on the schema upwards the overhead induced in our use-case by iptables usage and how Cilium offers an interesting alternative for environment with huge scaling capabilities.
+[What is Kube-Proxy and why move from iptables to eBPF?](https://isovalent.com/blog/post/why-replace-iptables-with-ebpf/)
 
 # Dig into live migration <a name="DigIntoLiveMigration"></a>
 
-Now that we understand Cilium's technological advantages over kube-proxy and iptables, the key question remains: how do you migrate from one CNI to another without downtime? Let's explore how we executed this transition.
+With a clear understanding of why we needed to migrate to Cilium, the critical question became: how do you execute such a migration in production without any downtime? This chapter explores the deployment strategies we evaluated, our hybrid approach combining Blue-Green and Canary patterns, and the technical infrastructure we built using HAProxy and Consul to orchestrate the migration safely.
 
 ## Handle live migration with zero downtime <a name="HandleLiveMigrationZeroDowntime"></a>
 
@@ -132,6 +83,22 @@ We could start with less critical services, validate Cilium's performance in pro
 
 Importantly, this load balancing layer added negligible latency to our response times, giving us confidence to proceed.
 
+## Deploying and synchronizing applications on both clusters <a name="DeploySynchronizeApplications"></a>
+
+A critical challenge in our migration strategy was ensuring application parity between clusters. Without a centralized orchestration tool to manage deployments across all environments globally, we needed to adapt our existing processes.
+
+At Bedrock, we use a common CI/CD workflow shared by all development teams to build and deploy their applications to Kubernetes. Our first step was updating this workflow to deploy applications to both clusters simultaneously. This ensured that all workloads remained synchronized between blue and green environments at all times.
+
+<center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image7.png"></center>
+<br>
+
+However, not all projects follow the same deployment cadence. Some applications are rarely redeployed, which meant we couldn't rely solely on the CI/CD pipeline to synchronize everything. We had to manually verify that all projects were deployed and ready to receive traffic on both clusters before proceeding with traffic shifting.
+
+This manual overhead highlighted the need for a more automated approach. To address this, we introduced a specific annotation to our Helm releases. This annotation is consumed by a workflow we developed, which can automatically redeploy releases from one cluster to another. This would significantly accelerates synchronization and will prove invaluable for any future blue/green migrations—whether for CNI changes, Kubernetes upgrades, or other infrastructure evolutions.
+
+<center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image8.png"></center>
+<br>
+
 ## Consul powered configuration update <a name="ConsulPoweredConfUpdate"></a>
 
 But how do you update weights on the fly to advance the migration or rollback during issues?
@@ -165,3 +132,6 @@ Potential enhancements to our solution include:
 - **Create a self-service interface** for teams to control their own application migrations
 - **Target specific subsets of users** and enable sticky canaries, which will ensure that a subset of users are always redirected to our new cluster
 
+---
+
+*Many thanks to all contributors and reviewers of this article, and especially to our beloved Lead at the time: [Vincent Gallissot](https://github.com/vgallissot)*
