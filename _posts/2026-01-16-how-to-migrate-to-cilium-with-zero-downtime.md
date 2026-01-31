@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to migrate to Cilium with zero downtime"
+title: "How Blue-Green helped us migrating critical components with zero downtime"
 description: "How can you hot change your CNI from VPC CNI to Cilium on your Kubernetes cluster with zero downtime in a production environment?"
 author: [v_pelus, g_sanchez, j_menan]
 category:
