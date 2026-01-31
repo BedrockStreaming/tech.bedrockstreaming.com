@@ -37,7 +37,7 @@ The Blue-Green canary clustering approach we'll describe is a reusable pattern f
 
 # What about today? <a name="WhatAboutToday"></a>
 
-Today in 2026, we think otherwise. Still relying on [KOps](https://kops.sigs.k8s.io/) managed Kubernetes cluster running on EC2 spot instances in private subnets at AWS. We needed to get more observability at our network layer on Kubernetes to have better insights about possible bottlenecks on our infrastructure or our ingresses implementation, but not only.
+Today in 2026, we are still relying on [KOps](https://kops.sigs.k8s.io/) managed Kubernetes cluster running on EC2 spot instances in private subnets at AWS. We needed to get more observability at our network layer on Kubernetes to have better insights about possible bottlenecks on our infrastructure or our ingresses implementation, but not only.
 
 To have more insights on the fundamental differences between iptables with kubeproxy and eBPF there's this very interesting blogpost from [Isolvalent](https://isovalent.com) that we encourage you to check. It contains a lot of usefull informations.
 
