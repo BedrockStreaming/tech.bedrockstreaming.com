@@ -2,7 +2,7 @@
 layout: post
 title: "How Blue-Green helped us migrating critical components with zero downtime"
 description: "How can you hot change your CNI from VPC CNI to Cilium on your Kubernetes cluster with zero downtime in a production environment?"
-author: [v_pelus, g_sanchez, j_menan]
+author: [v_pelus]
 category:
 tags: [kubernetes, cloud, HAProxy, aws, cilium, consul, nlb, ebpf]
 color: rgb(0, 150, 255)
@@ -141,4 +141,4 @@ Potential enhancements to our solution include:
 
 ---
 
-*Many thanks to all contributors and reviewers of this article, and especially to our beloved Lead at the time: [Vincent Gallissot](https://github.com/vgallissot)*
+*Many thanks to all contributors, reviewers of this article and people who worked on this project, and especially to our beloved Lead at the time: [Vincent Gallissot](https://github.com/vgallissot)*
