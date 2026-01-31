@@ -27,7 +27,6 @@ The Blue-Green canary clustering approach we'll describe is a reusable pattern f
 
 ## Table of Contents
 
-* [Why not just `kubectl apply -f cilium.yaml`?](#WhyNotJustApply)
 * [What about today?](#WhatAboutToday)
 * [Dig into live migration](#DigIntoLiveMigration)
     * [Handle live migration with zero downtime](#HandleLiveMigrationZeroDowntime)
