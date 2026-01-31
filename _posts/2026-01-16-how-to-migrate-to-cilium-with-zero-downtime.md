@@ -86,7 +86,7 @@ We could start with less critical services, validate Cilium's performance in pro
 <center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image2.png"></center>
 <br>
 
-In this architecture, each API is represented as an HAProxy backend with configurable weights that control traffic distribution between the blue and green clusters. By simply adjusting these backend weights, we can progressively increase traffic to the new cluster or instantly rollback if needed with a simple update of our Terraform state.
+In this architecture, each API is represented as an HAProxy backend with configurable weights that control traffic distribution between the blue and green clusters. By adjusting these backend weights, we can progressively increase traffic to the new cluster or instantly rollback if needed with a simple update of our Terraform state.
 
 Importantly, this load balancing layer added negligible latency to our response times, giving us confidence to proceed.
 
