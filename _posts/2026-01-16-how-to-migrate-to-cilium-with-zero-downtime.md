@@ -16,8 +16,6 @@ At Bedrock, we recently migrated our Kubernetes clusters from AWS VPC CNI to Cil
 
 You might wonder: why all this complexity around migration? Can't you simply install Cilium in place of VPC CNI with a straightforward `kubectl apply`?
 
-The reality is that migrating CNIs involves **breaking changes**. Unlike application deployments where you can gradually roll out pods, a CNI change affects the fundamental networking layer of your entire cluster. This means potential network disruptions, request losses, and connectivity issues during the transition—completely unacceptable in a production environment serving millions of users.
-
 But here's the key insight: **this isn't just about Cilium**. Whether you're migrating to Cilium, Karpenter, the AWS Load Balancer Controller, Keda, or any other core infrastructure component that introduces breaking changes, the challenge remains the same. You need to transition from one set of tools to an incompatible version or alternative without any downtime and with the ability to rollback in seconds if issues arise.
 
 The Blue-Green canary clustering approach we'll describe is a reusable pattern for handling any breaking change in your Kubernetes infrastructure. By creating a parallel cluster with the new configuration and progressively shifting traffic, you gain complete control over the migration while maintaining zero-downtime guarantees.
