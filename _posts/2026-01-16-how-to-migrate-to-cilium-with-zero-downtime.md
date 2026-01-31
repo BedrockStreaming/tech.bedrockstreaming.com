@@ -12,11 +12,9 @@ language: en
 comments: true
 ---
 
-At Bedrock, we recently migrated our Kubernetes clusters from AWS VPC CNI to Cilium—with zero downtime. By leveraging HAProxy for progressive traffic shifting and Consul for dynamic configuration updates, we achieved a seamless transition to eBPF-powered networking. In this article, we'll share how we designed our hybrid Blue-Green Canary strategy, the technical implementation details, and the lessons we learned along the way.
+At Bedrock, we recently migrated our Kubernetes clusters from AWS VPC CNI to Cilium—with zero downtime. By leveraging HAProxy for progressive traffic shifting and Consul for dynamic configuration updates, we achieved a seamless transition to eBPF-powered networking.
 
-When we first adopted Kubernetes on AWS back in 2018, we chose VPC CNI for its native integration and simplified network management.
-
-You might wonder: why all this complexity around blue/green-canary? Can't you simply install Cilium in place of VPC CNI with a straightforward `kubectl apply`?
+You might wonder: why all this complexity around migration? Can't you simply install Cilium in place of VPC CNI with a straightforward `kubectl apply`?
 
 The reality is that migrating CNIs involves **breaking changes**. Unlike application deployments where you can gradually roll out pods, a CNI change affects the fundamental networking layer of your entire cluster. This means potential network disruptions, request losses, and connectivity issues during the transition—completely unacceptable in a production environment serving millions of users.
 
