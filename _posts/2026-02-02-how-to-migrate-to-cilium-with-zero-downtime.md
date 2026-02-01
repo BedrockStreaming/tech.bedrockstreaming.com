@@ -4,15 +4,15 @@ title: "How Blue-Green helped us migrating critical components with zero downtim
 description: "How can you hot change your CNI from VPC CNI to Cilium on your Kubernetes cluster with zero downtime in a production environment?"
 author: [v_pelus]
 category:
-tags: [kubernetes, cloud, HAProxy, aws, cilium, consul, nlb, ebpf]
+tags: [kubernetes, cloud, HAProxy, aws, cilium, consul, nlb, ebpf, migration, bluegreen]
 color: rgb(0, 150, 255)
-thumbnail: "/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/main.png"
+thumbnail: "/images/posts/2026-02-02-how-to-migrate-to-cilium-with-zero-downtime/main.png"
 feature-img:
 language: en
 comments: true
 ---
 
-At Bedrock, we recently migrated our Kubernetes clusters from AWS VPC CNI to Cilium—with zero downtime. By leveraging HAProxy for progressive traffic shifting and Consul for dynamic configuration updates, we achieved a seamless transition to eBPF-powered networking.
+At Bedrock, we recently migrated our Kubernetes clusters from AWS VPC CNI to Cilium—with zero downtime. By leveraging Blue-Green canary with HAProxy for progressive traffic shifting and Consul for dynamic configuration updates, we achieved a seamless transition to eBPF-powered networking.
 
 You might wonder: why all this complexity around migration? Can't you simply install Cilium in place of VPC CNI with a straightforward `kubectl apply`?
 
@@ -55,7 +55,7 @@ Blue/Green deployment is a strategy that improves application availability while
 
 Once thoroughly tested in green, traffic switches from blue to green. This swift transition minimizes downtime and enables instant rollback if issues arise—simply revert traffic back to blue.
 
-<center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image0.png"></center>
+<center><img alt="" src="/images/posts/2026-02-02-how-to-migrate-to-cilium-with-zero-downtime/image0.png"></center>
 <br>
 
 ### Canary deployment <a name="CanaryDeployment"></a>
@@ -69,7 +69,7 @@ A typical canary deployment workflow using a load balancer looks like this:
 3. Configure the load balancer to route a small percentage of traffic to the canary nodes, exposing the new version to a limited number of users while monitoring for errors and gathering feedback.
 4. If metrics look healthy and no critical issues emerge, progressively increase traffic to the canary nodes until they handle 100% of requests.
 
-<center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image1.png"></center>
+<center><img alt="" src="/images/posts/2026-02-02-how-to-migrate-to-cilium-with-zero-downtime/image1.png"></center>
 <br>
 
 ## HAProxy blue/green load balancing <a name="HAProxyBlueGreenLoadBalancing"></a>
@@ -81,7 +81,7 @@ Our hybrid approach also gave us the flexibility to migrate traffic application 
 
 We could start with less critical services, validate Cilium's performance in production with real traffic, and progressively move more sensitive applications only after gaining confidence. If an issue appeared with a specific application on the Cilium cluster, we could immediately roll back just that service while keeping others on the new infrastructure—significantly reducing blast radius and risk compared to an all-or-nothing migration strategy.
 
-<center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image2.png"></center>
+<center><img alt="" src="/images/posts/2026-02-02-how-to-migrate-to-cilium-with-zero-downtime/image2.png"></center>
 <br>
 
 In this architecture, each API is represented as an HAProxy backend with configurable weights that control traffic distribution between the blue and green clusters. By adjusting these backend weights, we can progressively increase traffic to the new cluster or instantly rollback if needed with a simple update of our Terraform state.
@@ -94,14 +94,14 @@ A critical challenge in our migration strategy was ensuring application parity b
 
 At Bedrock, we use a common CI/CD workflow shared by all development teams to build and deploy their applications to Kubernetes. Our first step was updating this workflow to deploy applications to both clusters simultaneously. This ensured that all workloads remained synchronized between blue and green environments at all times.
 
-<center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image3.png"></center>
+<center><img alt="" src="/images/posts/2026-02-02-how-to-migrate-to-cilium-with-zero-downtime/image3.png"></center>
 <br>
 
 However, not all projects follow the same deployment cadence. Some applications are rarely redeployed, which meant we couldn't rely solely on the CI/CD pipeline to synchronize everything. We had to manually verify that all projects were deployed and ready to receive traffic on both clusters before proceeding with traffic shifting.
 
 This manual overhead highlighted the need for a more automated approach. To address this, we introduced a specific annotation to our Helm releases. This annotation is consumed by a workflow we developed, which can automatically redeploy releases from one cluster to another. This would significantly accelerates synchronization and will prove invaluable for any future blue/green migrations—whether for CNI changes, Kubernetes upgrades, or other infrastructure evolutions.
 
-<center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image4.png"></center>
+<center><img alt="" src="/images/posts/2026-02-02-how-to-migrate-to-cilium-with-zero-downtime/image4.png"></center>
 <br>
 
 ## Consul powered configuration update <a name="ConsulPoweredConfUpdate"></a>
@@ -110,7 +110,7 @@ But how do you update weights on the fly to advance the migration or rollback du
 
 We leverage [Consul](https://developer.hashicorp.com/consul) to dynamically update our HAProxy configuration. Using [Consul-agent](https://developer.hashicorp.com/consul/docs/automate/consul-template) and Consul KV/Store, we synchronize all HAProxy configurations across our infrastructure:
 
-<center><img alt="" src="/images/posts/2026-01-16-how-to-migrate-to-cilium-with-zero-downtime/image5.png"></center>
+<center><img alt="" src="/images/posts/2026-02-02-how-to-migrate-to-cilium-with-zero-downtime/image5.png"></center>
 <br>
 
 When ready to migrate an application, we simply update the blue and green weights for that specific API in our Consul KV/Store. The Consul-template opens a persistent connection to the Consul server KV/Store and detects the change to its watched keys and triggers a hot reload of HAProxy via [the Runtime API](https://www.haproxy.com/documentation/haproxy-runtime-api/), seamlessly shifting traffic distribution. Using the Runtime API saves us the need to execute HAProxy reload which could cause some loss of performance during high traffic events, same approach we use for our [HSDO project](https://tech.bedrockstreaming.com/2021/11/18/hsdo.html).
