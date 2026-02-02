@@ -1,4 +1,144 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2025-12-23T09:38:17+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Writing end-to-end tests for a Smart TV app</title><link href="https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests.html" rel="alternate" type="text/html" title="Writing end-to-end tests for a Smart TV app" /><published>2025-12-23T00:00:00+00:00</published><updated>2025-12-23T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests.html">&lt;p&gt;End-to-end can be challenging for focus-based interfaces like Smart TV apps that rely on LRUD (Left, Right, Up, Down) navigation. This article shares how the TVJS team overcame the instability in their Cypress test suite by incorporating focus-aware assertions and adapting testing strategies for directional navigation, leading to more reliable and trustworthy automated tests.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2026-02-02T00:47:59+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">How Blue-Green helped us migrating critical components with zero downtime</title><link href="https://tech.bedrockstreaming.com/2026/02/02/how-blue-green-helped-migrating-with-zero-downtime.html" rel="alternate" type="text/html" title="How Blue-Green helped us migrating critical components with zero downtime" /><published>2026-02-02T00:00:00+00:00</published><updated>2026-02-02T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2026/02/02/how-blue-green-helped-migrating-with-zero-downtime</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2026/02/02/how-blue-green-helped-migrating-with-zero-downtime.html">&lt;p&gt;At Bedrock, we recently migrated our Kubernetes clusters from AWS VPC CNI to Cilium—with zero downtime. By leveraging Blue-Green canary with HAProxy for progressive traffic shifting and Consul for dynamic configuration updates, we achieved a seamless transition to eBPF-powered networking.&lt;/p&gt;
+
+&lt;p&gt;You might wonder: why all this complexity around migration? Can’t you simply install Cilium in place of VPC CNI with a straightforward &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kubectl apply&lt;/code&gt;?&lt;/p&gt;
+
+&lt;p&gt;But here’s the key insight: &lt;strong&gt;this isn’t just about Cilium&lt;/strong&gt;. Whether you’re migrating to Cilium, Karpenter, the AWS Load Balancer Controller, Keda, or any other core infrastructure component that introduces breaking changes, the challenge remains the same. You need to transition from one set of tools to an incompatible version or alternative without any downtime and with the ability to rollback in seconds if issues arise.&lt;/p&gt;
+
+&lt;p&gt;The Blue-Green canary clustering approach we’ll describe is a reusable pattern for handling any breaking change in your Kubernetes infrastructure. By creating a parallel cluster with the new configuration and progressively shifting traffic, you gain complete control over the migration while maintaining zero-downtime guarantees.&lt;/p&gt;
+
+&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#WhatAboutToday&quot;&gt;What about today?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#DigIntoLiveMigration&quot;&gt;Dig into live migration&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#HandleLiveMigrationZeroDowntime&quot;&gt;Handle live migration with zero downtime&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#BlueGreenDeployment&quot;&gt;Blue/Green deployment&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#CanaryDeployment&quot;&gt;Canary deployment&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#HAProxyBlueGreenLoadBalancing&quot;&gt;HAProxy blue/green load balancing&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#DeploySynchronizeApplications&quot;&gt;Deploying and synchronizing applications on both clusters&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#ConsulPoweredConfUpdate&quot;&gt;Consul powered configuration update&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#Conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;what-about-today-&quot;&gt;What about today? &lt;a name=&quot;WhatAboutToday&quot;&gt;&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Today in 2026, we are still relying on &lt;a href=&quot;https://kops.sigs.k8s.io/&quot;&gt;KOps&lt;/a&gt; managed Kubernetes cluster running on EC2 spot instances in private subnets at AWS. We needed to get more observability at our network layer on Kubernetes to have better insights about possible bottlenecks on our infrastructure or our ingresses implementation, but not only.&lt;/p&gt;
+
+&lt;p&gt;To have more insights on the fundamental differences between iptables with kubeproxy and eBPF there’s this very interesting blogpost from &lt;a href=&quot;https://isovalent.com&quot;&gt;Isolvalent&lt;/a&gt; that we encourage you to check. It contains a lot of usefull informations.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://isovalent.com/blog/post/why-replace-iptables-with-ebpf/&quot;&gt;What is Kube-Proxy and why move from iptables to eBPF?&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;dig-into-live-migration-&quot;&gt;Dig into live migration &lt;a name=&quot;DigIntoLiveMigration&quot;&gt;&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;With a clear understanding of why we needed to migrate to Cilium, the critical question became: how do you execute such a migration in production without any downtime? This chapter explores the deployment strategies we evaluated, our hybrid approach combining Blue-Green and Canary patterns, and the technical infrastructure we built using HAProxy and Consul to orchestrate the migration safely.&lt;/p&gt;
+
+&lt;h2 id=&quot;handle-live-migration-with-zero-downtime-&quot;&gt;Handle live migration with zero downtime &lt;a name=&quot;HandleLiveMigrationZeroDowntime&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Several strategies exist for achieving zero or near-zero downtime during migration. The two most common approaches are Blue/Green and Canary deployments. Each has distinct advantages depending on your infrastructure and risk tolerance. We evaluated both before selecting the approach that best aligned with our production requirements and operational constraints.&lt;/p&gt;
+
+&lt;h3 id=&quot;bluegreen-deployment-&quot;&gt;Blue/Green deployment &lt;a name=&quot;BlueGreenDeployment&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Blue/Green deployment is a strategy that improves application availability while minimizing downtime and risk. You deploy to two identical production environments: “blue” represents the current live environment, while “green” hosts the next version.&lt;/p&gt;
+
+&lt;p&gt;Once thoroughly tested in green, traffic switches from blue to green. This swift transition minimizes downtime and enables instant rollback if issues arise—simply revert traffic back to blue.&lt;/p&gt;
+
+&lt;center&gt;&lt;img alt=&quot;&quot; src=&quot;/images/posts/2026-02-02-how-blue-green-helped-migrating-with-zero-downtime/image0.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;canary-deployment-&quot;&gt;Canary deployment &lt;a name=&quot;CanaryDeployment&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Canary deployment takes a different approach by avoiding the need for duplicate production environments. Instead, you select a subset of servers or nodes to receive the new deployment first, serving as a testing ground before rolling out changes across the entire infrastructure.&lt;/p&gt;
+
+&lt;p&gt;A typical canary deployment workflow using a load balancer looks like this:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Your production infrastructure runs behind a load balancer with additional nodes kept in reserve.&lt;/li&gt;
+  &lt;li&gt;Deploy the new version to these spare nodes, which become your “canary” servers—the first to run the updated code in production.&lt;/li&gt;
+  &lt;li&gt;Configure the load balancer to route a small percentage of traffic to the canary nodes, exposing the new version to a limited number of users while monitoring for errors and gathering feedback.&lt;/li&gt;
+  &lt;li&gt;If metrics look healthy and no critical issues emerge, progressively increase traffic to the canary nodes until they handle 100% of requests.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;center&gt;&lt;img alt=&quot;&quot; src=&quot;/images/posts/2026-02-02-how-blue-green-helped-migrating-with-zero-downtime/image1.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;haproxy-bluegreen-load-balancing-&quot;&gt;HAProxy blue/green load balancing &lt;a name=&quot;HAProxyBlueGreenLoadBalancing&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;At Bedrock, we opted for a hybrid Blue-Green Canary approach to handle our live migration. We still use &lt;a href=&quot;https://www.haproxy.com&quot;&gt;HAProxy&lt;/a&gt; for reverse proxy needs—it works perfectly-fin on our side and we know it well. This made it the natural choice for orchestrating our migration to Cilium.&lt;/p&gt;
+
+&lt;p&gt;To avoid making an ON/OFF migration, we leveraged HAProxy to make a progressive switch to our new Cilium cluster. We deployed a new layer of load balancing and ASG with HAProxy in front of our Kubernetes cluster with pre-defined weights between our blue and green clusters.
+Our hybrid approach also gave us the flexibility to migrate traffic application by application rather than switching everything at once. By maintaining separate weight configurations for each API or service, we could independently control the traffic distribution for individual applications. This granular approach was a mandatory prerequisite to ensure stability and security throughout the migration.&lt;/p&gt;
+
+&lt;p&gt;We could start with less critical services, validate Cilium’s performance in production with real traffic, and progressively move more sensitive applications only after gaining confidence. If an issue appeared with a specific application on the Cilium cluster, we could immediately roll back just that service while keeping others on the new infrastructure—significantly reducing blast radius and risk compared to an all-or-nothing migration strategy.&lt;/p&gt;
+
+&lt;center&gt;&lt;img alt=&quot;&quot; src=&quot;/images/posts/2026-02-02-how-blue-green-helped-migrating-with-zero-downtime/image2.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;In this architecture, each API is represented as an HAProxy backend with configurable weights that control traffic distribution between the blue and green clusters. By adjusting these backend weights, we can progressively increase traffic to the new cluster or instantly rollback if needed with a simple update of our Terraform state.&lt;/p&gt;
+
+&lt;p&gt;Importantly, this load balancing layer added negligible latency to our response times, giving us confidence to proceed.&lt;/p&gt;
+
+&lt;h2 id=&quot;deploying-and-synchronizing-applications-on-both-clusters-&quot;&gt;Deploying and synchronizing applications on both clusters &lt;a name=&quot;DeploySynchronizeApplications&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;A critical challenge in our migration strategy was ensuring application parity between clusters. Without a centralized orchestration tool to manage deployments across all environments globally, we needed to adapt our existing processes.&lt;/p&gt;
+
+&lt;p&gt;At Bedrock, we use a common CI/CD workflow shared by all development teams to build and deploy their applications to Kubernetes. Our first step was updating this workflow to deploy applications to both clusters simultaneously. This ensured that all workloads remained synchronized between blue and green environments at all times.&lt;/p&gt;
+
+&lt;center&gt;&lt;img alt=&quot;&quot; src=&quot;/images/posts/2026-02-02-how-blue-green-helped-migrating-with-zero-downtime/image3.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;However, not all projects follow the same deployment cadence. Some applications are rarely redeployed, which meant we couldn’t rely solely on the CI/CD pipeline to synchronize everything. We had to manually verify that all projects were deployed and ready to receive traffic on both clusters before proceeding with traffic shifting.&lt;/p&gt;
+
+&lt;p&gt;This manual overhead highlighted the need for a more automated approach. To address this, we introduced a specific annotation to our Helm releases. This annotation is consumed by a workflow we developed, which can automatically redeploy releases from one cluster to another. This would significantly accelerates synchronization and will prove invaluable for any future blue/green migrations—whether for CNI changes, Kubernetes upgrades, or other infrastructure evolutions.&lt;/p&gt;
+
+&lt;center&gt;&lt;img alt=&quot;&quot; src=&quot;/images/posts/2026-02-02-how-blue-green-helped-migrating-with-zero-downtime/image4.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;consul-powered-configuration-update-&quot;&gt;Consul powered configuration update &lt;a name=&quot;ConsulPoweredConfUpdate&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;But how do you update weights on the fly to advance the migration or rollback during issues?&lt;/p&gt;
+
+&lt;p&gt;We leverage &lt;a href=&quot;https://developer.hashicorp.com/consul&quot;&gt;Consul&lt;/a&gt; to dynamically update our HAProxy configuration. Using &lt;a href=&quot;https://developer.hashicorp.com/consul/docs/automate/consul-template&quot;&gt;Consul-agent&lt;/a&gt; and Consul KV/Store, we synchronize all HAProxy configurations across our infrastructure:&lt;/p&gt;
+
+&lt;center&gt;&lt;img alt=&quot;&quot; src=&quot;/images/posts/2026-02-02-how-blue-green-helped-migrating-with-zero-downtime/image5.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;When ready to migrate an application, we simply update the blue and green weights for that specific API in our Consul KV/Store. The Consul-template opens a persistent connection to the Consul server KV/Store and detects the change to its watched keys and triggers a hot reload of HAProxy via &lt;a href=&quot;https://www.haproxy.com/documentation/haproxy-runtime-api/&quot;&gt;the Runtime API&lt;/a&gt;, seamlessly shifting traffic distribution. Using the Runtime API saves us the need to execute HAProxy reload which could cause some loss of performance during high traffic events, same approach we use for our &lt;a href=&quot;https://tech.bedrockstreaming.com/2021/11/18/hsdo.html&quot;&gt;HSDO project&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion-&quot;&gt;Conclusion &lt;a name=&quot;Conclusion&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;So to recap, here’s how we achieved our zero-downtime migration from VPC CNI to Cilium:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Deployed a new Kubernetes cluster&lt;/strong&gt; with Cilium as the CNI, running in parallel to our existing VPC CNI cluster&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Set up HAProxy as a traffic orchestrator&lt;/strong&gt; in front of both clusters, with configurable weights to control traffic distribution&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Leveraged Consul KV/Store&lt;/strong&gt; to manage HAProxy configuration dynamically, allowing us to adjust traffic weights on the fly&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Gradually shifted traffic&lt;/strong&gt; from the blue (VPC CNI) cluster to the green (Cilium) cluster, application by application&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Monitored KPIs closely&lt;/strong&gt; at each step to validate performance improvements and catch any potential issues early&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Maintained rollback capability&lt;/strong&gt; throughout the process by simply adjusting weights back to the blue cluster if needed&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This hybrid approach enabled us to migrate production workloads without service disruption while unlocking all the benefits of eBPF-powered networking.&lt;/p&gt;
+
+&lt;p&gt;One significant advantage of this architecture is its reusability. The same HAProxy and Consul-based traffic orchestration can be leveraged for future infrastructure changes—such as upgrading to new Kubernetes versions. While we currently perform in-place upgrades, major version upgrades can be risky. With this pattern already in place, we can simply spin up a new cluster with the target Kubernetes version and progressively migrate traffic, significantly reducing the risk associated with potentially breaking changes.&lt;/p&gt;
+
+&lt;p&gt;Potential enhancements to our solution include:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Automate weight adjustments&lt;/strong&gt; based on real-time metrics leveraging our monitoring stack &lt;a href=&quot;https://tech.bedrockstreaming.com/2022/09/06/monitoring-at-scale-with-victoriametrics.html&quot;&gt;Victoria Metrics&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Implement automated rollback triggers&lt;/strong&gt; if error rates or latency thresholds are exceeded&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Create a self-service interface&lt;/strong&gt; for teams to control their own application migrations&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Target specific subsets of users&lt;/strong&gt; and enable sticky canaries, which will ensure that a subset of users are always redirected to our new cluster&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;em&gt;Many thanks to all contributors, reviewers of this article and people who worked on this project, and especially to our beloved Lead at the time: &lt;a href=&quot;https://github.com/vgallissot&quot;&gt;Vincent Gallissot&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>[&quot;v_pelus&quot;]</name></author><category term="kubernetes" /><category term="cloud" /><category term="HAProxy" /><category term="aws" /><category term="cilium" /><category term="consul" /><category term="nlb" /><category term="ebpf" /><category term="migration" /><category term="bluegreen" /><summary type="html">At Bedrock, we recently migrated our Kubernetes clusters from AWS VPC CNI to Cilium—with zero downtime. By leveraging Blue-Green canary with HAProxy for progressive traffic shifting and Consul for dynamic configuration updates, we achieved a seamless transition to eBPF-powered networking.</summary></entry><entry><title type="html">Writing end-to-end tests for a Smart TV app</title><link href="https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests.html" rel="alternate" type="text/html" title="Writing end-to-end tests for a Smart TV app" /><published>2025-12-23T00:00:00+00:00</published><updated>2025-12-23T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests.html">&lt;p&gt;End-to-end can be challenging for focus-based interfaces like Smart TV apps that rely on LRUD (Left, Right, Up, Down) navigation. This article shares how the TVJS team overcame the instability in their Cypress test suite by incorporating focus-aware assertions and adapting testing strategies for directional navigation, leading to more reliable and trustworthy automated tests.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -2220,275 +2360,4 @@ You can view his presentation slides &lt;a href=&quot;https://speakerdeck.com/je
 
 &lt;p&gt;The Golab conference in Florence provided a rich tapestry of knowledge, sparking inspiration and reaffirming our love for Go. From new architectural insights to innovative uses of Go in domains like automation and networking, we walked away with a toolkit full of ideas to bring back to our development practices. We’re eager to implement some of these learnings and contribute further to the vibrant Go community!&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-12-golab-firenze/golab_group.jpg&quot; alt=&quot;Bedrock devs&quot; /&gt;&lt;/p&gt;</content><author><name>[&quot;t_geindre&quot;, &quot;k_phan&quot;, &quot;j_hardeman&quot;]</name></author><category term="golang" /><category term="opensource" /><category term="community" /><category term="conference" /><category term="2024" /><summary type="html">Attending the Golab conference in Florence has been a thrilling experience for us as developers. Immersing ourselves in talks by some of the most brilliant minds in the Go community gave us a deeper understanding of advanced concepts, practical libraries, and the future of Go. We’ve summarized the key takeaways from the talks we attended to share some of the valuable lessons and fresh perspectives we gained.</summary></entry><entry><title type="html">Using Fastly’s Compute at-edge to personalize static pre-generated pages</title><link href="https://tech.bedrockstreaming.com/2024/11/07/compute-at-edge-personalize-static-pages.html" rel="alternate" type="text/html" title="Using Fastly’s Compute at-edge to personalize static pre-generated pages" /><published>2024-11-07T00:00:00+00:00</published><updated>2024-11-07T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/11/07/compute-at-edge-personalize-static-pages</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/11/07/compute-at-edge-personalize-static-pages.html">&lt;p&gt;During the &lt;a href=&quot;https://www.uefa.com/euro2024/&quot;&gt;UEFA Euro&lt;/a&gt; football cup in June and July 2024, M6 broadcasted several matches. Of course, this competition was available, live, on &lt;a href=&quot;https://www.6play.fr/&quot;&gt;M6+&lt;/a&gt;. For every user joining right from the first second and or for all users hearing their neighbors shouting and wanting to re-watch the action, starting a live video stream had to work!&lt;/p&gt;
-
-&lt;p&gt;When you use one of the platforms we manage, your goal is to start a video stream. You land on the homepage of a platform like M6+ or &lt;a href=&quot;https://www.videoland.com/&quot;&gt;Videoland&lt;/a&gt;, browse the catalog, register or login and, ultimately, you’ll start a video. It’s the one thing that causes the most frustration if it fails. And we don’t want that. We want users to enjoy their experience.&lt;/p&gt;
-
-&lt;p&gt;For Euro, we first worked on shortening the browsing part, to both provide a great experience for users arriving to watch a match, and to lower the load on our platform. We talked about this in &lt;a href=&quot;/2024/08/07/euro-resiliency-special-event-page.html&quot;&gt;How Special Event Page allowed us to handle more than 1 million of users&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;We also worked on reducing load on our backend applications, allowing our platform to handle far more users and load than it’s used to. This post is the story of how we used compute-at-edge for the first time!&lt;/p&gt;
-
-&lt;h1 id=&quot;our-backend-platform&quot;&gt;&lt;a href=&quot;#our-backend-platform&quot;&gt;Our backend platform&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;All our frontend (web/mobile/TV) applications communicate with our backend components through what we call &lt;a href=&quot;/2022/10/13/bff-notre-best-friend-forever-pour-faire-plein-d-applications-frontend.html&quot;&gt;BFF&lt;/a&gt;. This BFF then calls many other backend APIs and returns a &lt;em&gt;layout&lt;/em&gt; that contains everything an app needs. This layout will contain lists of rows and blocks when you are browsing the catalog, or most information required to start a stream when you are trying to do so.&lt;/p&gt;
-
-&lt;div class=&quot;mermaid&quot;&gt;
-flowchart LR
-    user1[User 1]
-    user2[User 2]
-    user3[User 3]
-
-    user1 --&amp;gt; bff
-    user2 --&amp;gt; bff
-    user3 --&amp;gt; bff
-
-    bff((BFF))
-
-    bff --&amp;gt; api1
-    bff --&amp;gt; api2
-    bff --&amp;gt; api3
-    bff --&amp;gt; api4
-    bff --&amp;gt; api5
-
-    api1[API-1]
-    api2[API-2]
-    api3[API-3]
-    api4[API-4]
-    api5[API-5]
-&lt;/div&gt;
-
-&lt;center&gt;&lt;ins&gt;&lt;strong&gt;Schema 1: one BFF between frontend apps and backend APIs.&lt;/strong&gt;&lt;/ins&gt;&lt;/center&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;With this architecture, BFF receives a lot of requests, and each of these causes up to dozens of requests to other services. This is greatly amplified by the fact that all BFF responses are personalized, which means we cannot cache entire responses.&lt;/p&gt;
-
-&lt;p&gt;As most of our APIs are running in a Kubernetes cluster, you might say &lt;em&gt;“use auto-scaling!”&lt;/em&gt;, and you’d be kind of right. We are using auto-scaling. But reactive auto-scaling, based on traffic or load metrics, is not fast enough to handle huge spikes in traffic – like big football matches can cause. For this, we have developed a &lt;a href=&quot;/2022/02/03/prescaling.html&quot;&gt;pre-scaling mechanism&lt;/a&gt;, and even &lt;a href=&quot;/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html&quot;&gt;open-sourced it&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;But we didn’t want to take any chances…&lt;/p&gt;
-
-&lt;h1 id=&quot;disabling-all-personalization&quot;&gt;&lt;a href=&quot;#disabling-all-personalization&quot;&gt;Disabling all personalization?&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;First, a word about an idea we used three years ago: disabling all personalization. It’s quite easy to implement: ensure BFF doesn’t do any personalization work, and return a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cache-control&lt;/code&gt; HTTP header so the CDN in front of the BFF backend application caches layouts and returns them to all users.&lt;/p&gt;
-
-&lt;p&gt;With BFF only generating a few dozen responses every minute, we solved all possible problems with load or scaling and traffic spikes. But this also means cutting many features for end-users, and not displaying personalized ads.&lt;/p&gt;
-
-&lt;p&gt;Our customers want to display personalized contents and ads, and users want to get all features from the platform. So, we decided not to enable this mechanism this year.&lt;/p&gt;
-
-&lt;h1 id=&quot;doing-more-work-in-front-of-the-backend-app&quot;&gt;&lt;a href=&quot;#doing-more-work-in-front-of-the-backend-app&quot;&gt;Doing more work… in front of the backend app!&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;Several months before the Euro competition, one of our Principal Engineers had done a few prototypes with &lt;a href=&quot;https://www.fastly.com/products/edge-compute&quot;&gt;Fastly’s compute and datastores at-edge&lt;/a&gt;, convinced being able to do more things &lt;em&gt;before the apps&lt;/em&gt; would one day prove useful. Well… We brought back this idea to focus. And our BFF application was already using Fastly as its CDN, what a coincidence ;-)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Fastly allows one to run &lt;em&gt;compute&lt;/em&gt; at-edge, on the CDN points-of-presence. Basically, you write code in Go/Rust/Javascript and compile it to WASM.&lt;/li&gt;
-  &lt;li&gt;It provides several datastores. The one we used here is called &lt;em&gt;KVStore&lt;/em&gt; – a basic key-value store.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;We reworked our architecture this way:&lt;/p&gt;
-
-&lt;div class=&quot;mermaid&quot;&gt;
-flowchart LR
-    user1[User 1]
-    user2[User 2]
-    user3[User 3]
-
-    subgraph In Front Of BFF
-        new(NEW)
-        datastore[(Datastore)]
-        
-        new -.-&amp;gt; datastore
-    end
-
-    user1 --&amp;gt; new
-    user2 --&amp;gt; new
-    user3 --&amp;gt; new
-
-    new -- cache --&amp;gt; bff
-
-    bff((BFF))
-
-    bff --&amp;gt; api1
-    bff --&amp;gt; api2
-    bff --&amp;gt; api3
-    bff --&amp;gt; api4
-    bff --&amp;gt; api5
-
-    api1[API-1]
-    api2[API-2]
-    api3[API-3]
-    api4[API-4]
-    api5[API-5]
-&lt;/div&gt;
-
-&lt;center&gt;&lt;ins&gt;&lt;strong&gt;Schema 2: doing work in front of the BFF.&lt;/strong&gt;&lt;/ins&gt;&lt;/center&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Our goal was to implement a lightweight personalization layer in front of our backend BFF application. The backend application would then only need to return non-personalized layouts – and those would be cacheable.&lt;/p&gt;
-
-&lt;p&gt;Note: as we have many frontend applications and did not want (and did not have enough time) to update all of them, we searched for a solution that would only require changes somewhere on the backend side.&lt;/p&gt;
-
-&lt;p&gt;This personalization layer would read some basic data &lt;em&gt;(does the current user have a subscription? Did they consent to tracking and analytics?)&lt;/em&gt; from a datastore-at-edge and use them to inject identifiers in the cached-non-personalized layout before returning it.&lt;/p&gt;
-
-&lt;p&gt;As BFF was already using a Fastly VCL service as its CDN and a VCL service cannot also do compute, we decided to insert a compute service between the VCL one and the backend, only for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/live/&lt;/code&gt; route. As time was limited and we wanted to confirm how this would work with real users, we chose to implement this approach only for one route and one layout, the one that would be called the most: the layout used to start a live stream.&lt;/p&gt;
-
-&lt;p&gt;This means our CDN architecture was looking like this:&lt;/p&gt;
-
-&lt;div class=&quot;mermaid&quot;&gt;
-flowchart LR
-    users[Users]
-    users --&amp;gt; fastlyVCL
-
-    subgraph Fastly CDN
-        fastlyVCL[Fastly&lt;br /&gt;VCL]
-
-        fastlyVCL -- /live --&amp;gt; fastlyCompute
-        fastlyCompute[Fastly&lt;br /&gt;Compute]
-
-        datastore[(Datastore)]
-        fastlyCompute -.-&amp;gt; datastore
-    end
-
-    fastlyVCL -- /* --&amp;gt; bff
-    fastlyCompute -- &quot;read&lt;br /&gt;(with cache)&quot; --&amp;gt; bff
-
-    bff((BFF))
-&lt;/div&gt;
-
-&lt;center&gt;&lt;ins&gt;&lt;strong&gt;Schema 3: chaining a VCL and a compute service.&lt;/strong&gt;&lt;/ins&gt;&lt;/center&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Before starting to actually implement this, we talked with our contacts at Fastly, to confirm this approach made sense to them and their systems would be able to handle the load and traffic spikes we were expecting. They validated the concept, and noted we should shard our data over several KVStores, as each KVStore is limited to 1000 writes/second and 5000 reads/second – good catch!&lt;/p&gt;
-
-&lt;p&gt;We then started implementing this approach, first with our compute-at-edge code doing static replacements, then with loading random data from the KVStores, and finally with loading the real data. Between each step, we ran synthetic load-tests, to ensure everything was running smoothly.&lt;/p&gt;
-
-&lt;p&gt;Also, we ensured from day-1 we would not have to throw all this &lt;em&gt;“do more work in front of BFF”&lt;/em&gt; approach away, if Fastly was not able to handle our needs. We had a fallback in mind: deploying this inside our Kubernetes cluster as a Go application and storing data in DynamoDB. Most of the code would still have worked.&lt;/p&gt;
-
-&lt;h1 id=&quot;getting-the-data-to-the-datastore-at-edge&quot;&gt;&lt;a href=&quot;#getting-the-data-to-the-datastore-at-edge&quot;&gt;Getting the data to the datastore-at-edge&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;Reading data from KVStores and using it to personalize the live layout being out of the way, it was time to think about how to get data into those KVStores.&lt;/p&gt;
-
-&lt;p&gt;We had to synchronize pieces of data from two different backend APIs to the at-edge KVStores. First is our “users” API, for GDPR consents. And the second is our “subscription” API. Both store their data in DynamoDB.&lt;/p&gt;
-
-&lt;p&gt;Several months before, one of our Principal Engineers had done a few demos and prototypes showing how to use DynamoDB Streams and Lambda &lt;em&gt;the right way&lt;/em&gt; and proving asynchronous is not necessarily &lt;em&gt;slow&lt;/em&gt;. This helped not start from scratch here, having confidence working with DDB Streams and Lambda would be OK, and providing some code foundations.&lt;/p&gt;
-
-&lt;p&gt;So, in both “users” and “subscriptions” projects, we added a DynamoDB Stream on the tables used to store the relevant data. Those streams are read from a couple of Lambda functions &lt;em&gt;(with retries, batches bisect, dead-letters queues… all natively handled by AWS)&lt;/em&gt;. And those functions call Fastly’s KVStore API to insert/update/delete data there. We did not forget to deal with the 1000 RPS per KVStore limit.&lt;/p&gt;
-
-&lt;div class=&quot;mermaid&quot;&gt;
-flowchart LR
-    subgraph &quot;API-2 (AWS)&quot;
-        api2[API-2]
-        ddb2[(DynamoDB)]
-        api2 --&amp;gt; ddb2
-        ddb2 -- DDB&lt;br /&gt;Stream --&amp;gt; lambda2
-        lambda2(Lambda)
-    end
-
-    subgraph &quot;API-4 (AWS)&quot;
-        api4[API-4]
-        ddb4[(DynamoDB)]
-        api4 --&amp;gt; ddb4
-        ddb4 -- DDB&lt;br /&gt;Stream --&amp;gt; lambda4
-        lambda4(Lambda)
-    end
-
-    lambda2 --&amp;gt; datastore
-    lambda4 --&amp;gt; datastore
-
-    subgraph &quot;Fastly CDN&quot;
-        datastore[(Datastore)]
-    end
-&lt;/div&gt;
-
-&lt;center&gt;&lt;ins&gt;&lt;strong&gt;Schema 4: pushing data asynchronously to Fastly’s KVStores.&lt;/strong&gt;&lt;/ins&gt;&lt;/center&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;With this mechanism, data in the KVstores is updated after 1 or 2 seconds &lt;em&gt;(we could speed things up a little by not using batching when reading from DynamoDB Streams)&lt;/em&gt;, which is fine for this use-case.&lt;/p&gt;
-
-&lt;p&gt;In addition to this synchronization mechanism, we also implemented a full import process, used to initialize data for all users and subscriptions – and to fix a few edge-cases with odd data we didn’t anticipate.&lt;/p&gt;
-
-&lt;h1 id=&quot;better-resiliency&quot;&gt;&lt;a href=&quot;#better-resiliency&quot;&gt;Better resiliency&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;Looking at the architecture schema shared before, one of our Principal Engineers noticed if the BFF backend component is down &lt;em&gt;(possibly because of an overload caused by too many users browsing the catalog)&lt;/em&gt;, it will not return non-personalized layouts. And Compute, at-edge, will not be able to do its personalization work.&lt;/p&gt;
-
-&lt;p&gt;So, we chose to asynchronously pre-generate the non-personalized layouts, and store them on Amazon S3. S3 would then be used as origin by Fastly Compute.&lt;/p&gt;
-
-&lt;div class=&quot;mermaid&quot;&gt;
-flowchart LR
-    users[Users]
-    users --&amp;gt; fastlyVCL
-
-    subgraph Fastly CDN
-        fastlyVCL[Fastly&lt;br /&gt;VCL]
-
-        fastlyVCL -- /live --&amp;gt; fastlyCompute
-        fastlyCompute[Fastly&lt;br /&gt;Compute]
-
-        datastore[(Datastore)]
-        fastlyCompute -.-&amp;gt; datastore
-    end
-
-    fastlyCompute -- &quot;read&lt;br /&gt;(with cache)&quot; --&amp;gt; s3
-    s3[(S3 Bucket)]
-
-    fastlyVCL -- /* --&amp;gt; bff
-    
-    bff((BFF))
-    bff -- &quot;Generate static&lt;br /&gt;files every X minutes&quot; --&amp;gt; s3
-&lt;/div&gt;
-
-&lt;center&gt;&lt;ins&gt;&lt;strong&gt;Schema 5: storing non-personalized layouts on Amazon S3.&lt;/strong&gt;&lt;/ins&gt;&lt;/center&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Of course, doing this requires a bit more development work. We’ve had to setup a background cronjob to generate static layouts and store them on S3. But, keeping in mind our &lt;em&gt;“users must be able to start a stream”&lt;/em&gt; goal, we estimated the potential gain on resiliency was worth it. Also, we already had a process to generate static layouts and push them to S3, so it wasn’t &lt;em&gt;that much&lt;/em&gt; additional work.&lt;/p&gt;
-
-&lt;p&gt;The &lt;a href=&quot;/2024/08/07/euro-resiliency-special-event-page.html&quot;&gt;Special Event Page&lt;/a&gt; helped ensure users would not have to actually call most our backend APIs at all between the homepage and starting a live stream.&lt;/p&gt;
-
-&lt;h1 id=&quot;load-testing-and-real-life&quot;&gt;&lt;a href=&quot;#load-testing-and-real-life&quot;&gt;Load-testing and real life&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;We carefully load-tested this solution, every step of the way while implementing it. Once fully implemented, we load-tested it again and again, to ensure it would handle as much traffic as we were expecting to get during high-stakes matches.&lt;/p&gt;
-
-&lt;p&gt;Doing those load-tests and analyzing their results with our contacts at Fastly helped us identify three points we quickly fixed:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;At first, our KVStores’ primary location was in the US. Fastly reconfigured our account to have them primarily located in the EU, gaining several dozen milliseconds of latency each time new users would do their first read.&lt;/li&gt;
-  &lt;li&gt;We compiled our Golang code to WASM with both Tinygo and Biggo. One produces WASM that used more CPU, and the other produces WASM that used more RAM. In the end, we followed Fastly’s recommendations, considering they know better than us what resource could be a bottleneck for their platform.&lt;/li&gt;
-  &lt;li&gt;The first time we ran tests in our production environment, results were not great. Far worse than in our staging environment, in fact. Well, we had not paid for the Compute option in our Fastly’s production account yet, and it was configured with lower rate-limits than in staging 😃&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;During these load-tests as well as during real events later, we monitored a few basic metrics: number of calls per second, CPU and RAM usage, latency and error-rate.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-compute-at-edge/compute-at-edge-monitoring-fastly-censored.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;center&gt;&lt;ins&gt;&lt;strong&gt;Schema 6: monitoring Fastly’s Compute during a load-test.&lt;/strong&gt;&lt;/ins&gt;&lt;/center&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;The high number of requests-per second we reached during our load-tests proved Fastly Compute is a viable approach for this workload, and for some others we are already thinking about migrating.&lt;/p&gt;
-
-&lt;p&gt;On our backend’s application side, we also checked the number of calls per second was going down while it was going up on Compute at-edge. In practice, it went down to 0 for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/live/&lt;/code&gt; route, and remained stable or even went up for other routes, as there were more users browsing the catalog.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-compute-at-edge/compute-at-edge-monitoring-backends-censored.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;center&gt;&lt;ins&gt;&lt;strong&gt;Schema 7: Backend (Kubernetes) and Fastly Compute for /live/, before and during a match.&lt;/strong&gt;&lt;/ins&gt;&lt;/center&gt;
-
-&lt;h1 id=&quot;conclusion&quot;&gt;&lt;a href=&quot;#conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;With this approach to generating personalized layouts at-edge for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/live/&lt;/code&gt; route, users of our platform have been able to enjoy the competition without any hiccup!&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;We personalized millions of live layout on the CDN at-edge, using Fastly Compute, enabling both users and customers to experience pretty much all features of the platform.&lt;/li&gt;
-  &lt;li&gt;Our backend BFF and other APIs have not been overloaded. They have been fully operational to serve requests for users browsing the catalog or starting videos on demand.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;And this proved edge computing is a viable option to implement some features of our platform. More than this, though, it proved we can separate our BFF software into several smaller parts, which is one of the major ideas we will implement next year while re-architecturing it.&lt;/p&gt;
-
-&lt;p&gt;What are the next steps, then?&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;First, use Compute at-edge to serve a couple other highly-solicited routes.&lt;/li&gt;
-  &lt;li&gt;And, for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/live/&lt;/code&gt; route, implement a few use-cases that were not required for this competition, in order to use Fastly Compute for this route all the time!&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>[&quot;p_martin&quot;]</name></author><category term="edge" /><category term="fastly" /><category term="cloud" /><category term="devops" /><category term="2024" /><summary type="html">During the UEFA Euro football cup in June and July 2024, M6 broadcasted several matches. Of course, this competition was available, live, on M6+. For every user joining right from the first second and or for all users hearing their neighbors shouting and wanting to re-watch the action, starting a live video stream had to work!</summary></entry></feed>
+&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-12-golab-firenze/golab_group.jpg&quot; alt=&quot;Bedrock devs&quot; /&gt;&lt;/p&gt;</content><author><name>[&quot;t_geindre&quot;, &quot;k_phan&quot;, &quot;j_hardeman&quot;]</name></author><category term="golang" /><category term="opensource" /><category term="community" /><category term="conference" /><category term="2024" /><summary type="html">Attending the Golab conference in Florence has been a thrilling experience for us as developers. Immersing ourselves in talks by some of the most brilliant minds in the Go community gave us a deeper understanding of advanced concepts, practical libraries, and the future of Go. We’ve summarized the key takeaways from the talks we attended to share some of the valuable lessons and fresh perspectives we gained.</summary></entry></feed>
