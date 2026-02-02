@@ -6,8 +6,7 @@ tags: [bdd, frontend, ownership, playwright, QA, web]
 author: [m_bayard]
 color: rgb(251,87,66)
 language: en
-feature-img: "/images/posts/2025-12-20-web-homologation-as-app/homologation_qa_web.jpg"
-thumbnail: "/images/posts/2025-12-20-web-homologation-as-app/homologation_qa_web_1.jpg"
+thumbnail: "/images/posts/2025-12-20-web-homologation-as-app/homologation_qa_web_10.jpg"
 ---
 
 At Bedrock Streaming, we create and operate full-scope streaming services for leading media companies with best-in-class user experience across AVOD, SVOD and hybrid business models.
@@ -41,7 +40,7 @@ However, relying heavily on traditional manual QA processes presented a scalabil
 **The Goal:**
 
 - Build a new, robust, and scalable homologation stack dedicated to validating frontend release candidates that can meet the current pace and future demands.
-- On another hand, traditional and fully manual QA processes were a bit dusty compared to the evolving environment around QA and AI and representing a source monotony in the QA engineers day-to-day. From “nice-to-have“, the automated testing shifted to critical need to sustain our evolution.
+- On another hand, traditional and fully manual QA processes were a bit dusty compared to the evolving environment around QA and AI and representing a source of monotony in the QA engineers day-to-day. From “nice-to-have“, the automated testing shifted to critical need to sustain our evolution.
 
 ---
 
