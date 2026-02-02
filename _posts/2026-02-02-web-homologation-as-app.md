@@ -135,7 +135,7 @@ apps/homologation/
 │       └── translations.config.ts # Merged translations from different source
 ```
 
-### 🔄 Data Flow Example: Multi-Tenant Magic
+**🔄 Data Flow Example: Multi-Tenant Magic**
 
 When executing a test like:
 
