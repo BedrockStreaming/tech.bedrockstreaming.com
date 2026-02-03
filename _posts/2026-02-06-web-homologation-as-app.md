@@ -6,7 +6,7 @@ tags: [bdd, frontend, ownership, playwright, QA, web]
 author: [m_bayard]
 color: rgb(251,87,66)
 language: en
-thumbnail: "/images/posts/2026-02-02-web-homologation-as-app/homologation_qa_web_10.jpg"
+thumbnail: "/images/posts/2026-02-06-web-homologation-as-app/homologation_qa_web_10.jpg"
 ---
 
 At Bedrock Streaming, we create and operate full-scope streaming services for leading media companies with best-in-class user experience across AVOD, SVOD and hybrid business models.
