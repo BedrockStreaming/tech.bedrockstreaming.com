@@ -154,7 +154,7 @@ Then the user should see the text "translation.account.menu.logout"
 - **CI/CD In Action**: Automated tests are integrated into our CI pipeline, ensuring quality gates are enforced before any release proceeds.
 - **The Human Factor**: We’ve transformed the QA role. By transitioning to "Quality Architects," our engineers now own the automated patrimony, supported by targeted training to bridge the gap between manual testing and code.
 
-## Next
+## 🤝🏻 Next
 
 All in all, this new stack is the backbone for delivering high-quality streaming experiences quickly.
 
@@ -162,11 +162,11 @@ The architecture and overall approach are confirmed to be successful, leading to
 
 **Key takeaways for the QA community:**
 
-- Embed tests in your codebase
+- Embed tests in your codebase.
 
-- BDD approach is great to align teams on the “What” and is AI future-proof
+- BDD approach is great to align teams on the “What” and is AI future-proof.
 
-- More automated testing means more time dedicated to valuable and strategic work from QA engineers (and less repetitive tasks)
+- More automated testing means more time dedicated to valuable and strategic work from QA engineers (and less repetitive tasks).
 
 **What's next:**
 
