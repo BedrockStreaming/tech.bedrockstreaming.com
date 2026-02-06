@@ -1,4 +1,233 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2026-02-02T00:47:59+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">How Blue-Green helped us migrating critical components with zero downtime</title><link href="https://tech.bedrockstreaming.com/2026/02/02/how-blue-green-helped-migrating-with-zero-downtime.html" rel="alternate" type="text/html" title="How Blue-Green helped us migrating critical components with zero downtime" /><published>2026-02-02T00:00:00+00:00</published><updated>2026-02-02T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2026/02/02/how-blue-green-helped-migrating-with-zero-downtime</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2026/02/02/how-blue-green-helped-migrating-with-zero-downtime.html">&lt;p&gt;At Bedrock, we recently migrated our Kubernetes clusters from AWS VPC CNI to Cilium—with zero downtime. By leveraging Blue-Green canary with HAProxy for progressive traffic shifting and Consul for dynamic configuration updates, we achieved a seamless transition to eBPF-powered networking.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2026-02-06T08:20:27+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming</title><link href="https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html" rel="alternate" type="text/html" title="Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming" /><published>2026-02-06T00:00:00+00:00</published><updated>2026-02-06T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html">&lt;p&gt;At Bedrock Streaming, we create and operate full-scope streaming services for leading media companies with best-in-class user experience across AVOD, SVOD and hybrid business models.&lt;/p&gt;
+
+&lt;p&gt;Given that our application is multi-customer, scaling testing efforts becomes increasingly challenging and costly due to the requirement for extensive manual validation.&lt;/p&gt;
+
+&lt;p&gt;QA engineers are therefore a critical resource responsible for assessing product quality and ensuring high standards through continuous validation and &lt;em&gt;homologation&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;In our context, &lt;em&gt;homologation&lt;/em&gt; specifically involves the rigorous, final assessment of a release candidate (RC). This process entails fully testing the RC across a matrix of multi-client configurations (customer-specific data/settings) and multi-browser environments on an iso-production environment before deployment. &lt;em&gt;Homologation&lt;/em&gt; used to be a fully-manual process in the software release process.&lt;/p&gt;
+
+&lt;p&gt;To make sure this process follows a more and more speedy release cycle and scales at a limited cost, automated testing becomes a must have and critical tool to support even shorter release cycle in the future.&lt;/p&gt;
+
+&lt;p&gt;This article will cover the building foundation of our new homologation stack, dedicated to the validation of the frontend release candidates.&lt;/p&gt;
+
+&lt;p&gt;Disclaimer: the strategy is home-made but the stack we’re using is composed of various open-source tools. We want to share with the QA community our journey in the automation world and expose our approach. Bedrock is evolving fast and it’s only a snapshot of our current way of working.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-transforming-frontend-homologation&quot;&gt;🚀 Transforming Frontend Homologation&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;The Challenge : Velocity meets Quality&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The Web team operates on a two-week release cycle, deploying major updates rapidly. This demanding pace places the QA engineers in a critical role, responsible for continuous validation and homologation to assure product quality.&lt;/p&gt;
+
+&lt;p&gt;However, relying heavily on traditional manual QA processes presented a scalability and cost challenge:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Growing Feature Set: As the number of features increases, the time required for comprehensive manual testing grows linearly, threatening to delay major releases and negatively impacting Time-to-Market (TTM).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Speed Constraint: To accommodate even shorter release cycles in the future, the homologation process needed to become faster, more reliable, and less expensive to execute repeatedly.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The Goal:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Build a new, robust, and scalable homologation stack dedicated to validating frontend release candidates that can meet the current pace and future demands.&lt;/li&gt;
+  &lt;li&gt;On another hand, traditional and fully manual QA processes were a bit dusty compared to the evolving environment around QA and AI and representing a source of monotony in the QA engineers day-to-day. From “nice-to-have“, the automated testing shifted to critical need to sustain our evolution.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;️-building-blocks-of-the-new-homologation-stack&quot;&gt;⚙️ Building Blocks of the New Homologation Stack&lt;/h2&gt;
+
+&lt;p&gt;Our solution hinges on a deliberate choice of tools and methodologies designed for readability, maintainability, and future-proofing:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Core Stack&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Component&lt;/th&gt;
+      &lt;th&gt;Role&lt;/th&gt;
+      &lt;th&gt;Key Benefit&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://playwright.dev/&quot;&gt;Playwright&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Browser Automation Engine&lt;/td&gt;
+      &lt;td&gt;Speed and Reliability: Unified API for all major browsers (Chromium, Firefox, WebKit), mobile emulation, and excellent DX.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://vitalets.github.io/playwright-bdd/#/&quot;&gt;playwright-bdd&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;BDD Framework (Gherkin)&lt;/td&gt;
+      &lt;td&gt;Collaboration and Readability: Enables tests to be written in a natural, shared language while managing Playwright test generation.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ℹ️ Our dictionary of steps is greatly inspired by &lt;a href=&quot;https://github.com/Orange-OpenSource/uuv&quot;&gt;uuv&lt;/a&gt; which aims to provides an ecosystem that simplifies the writing of End-to-End tests in a BDD approach and a user-centric way and accessibility-first selectors.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Requirements and rationale behind&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Natural Language BDD (Gherkin)&lt;/strong&gt;: This is a key enabler for collaboration.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Easy Review: Allows QA Engineers, Product Owners (POs), and Developers (DEVs) to easily read, review, and contribute to the test specifications without needing deep coding knowledge.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Multi-Client / Multi-Platform Support&lt;/strong&gt;: Leveraging Playwright’s power, our stack should inherently supports validation across:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Multiple Languages (leveraging our i18n packages).&lt;/li&gt;
+      &lt;li&gt;Multiple Platforms (desktop and mobile browsers).&lt;/li&gt;
+      &lt;li&gt;Multiple apps / projects.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Codebase Integration (the shift)&lt;/strong&gt;: The homologation application is part of the main Web codebase.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Better Context: QA engineers gain a better understanding of code changes and their impact.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Reduced Maintenance: We leverage the existing i18n language packages directly within the test environment, significantly limiting test maintenance when text strings change following editors update.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Leverage our CI environments and workflows for future integration with deployment.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;But also higher responsability regarding the quality of the injected tests and code overall 🥐. The fear of breaking things is natural but approved reviews and a green CI are always keeping up the quality level.&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;️-homologation-architecture-overview&quot;&gt;🏗️ Homologation Architecture Overview&lt;/h2&gt;
+
+&lt;p&gt;Today this architecture allows writing one test that runs across 4 customers × 2 platforms × multiple environments.
+The architecture follows a clean layered separation between business requirements (Gherkin), test logic (steps), and implementation details (utils).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Feature Files (BDD Layer)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Path: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;features/@desktop/&lt;/code&gt; &amp;amp; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;features/@webview/&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Purpose: Plain-language Gherkin files defining the test scenarios.&lt;/li&gt;
+  &lt;li&gt;Organization: Grouped by functional domains: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@core&lt;/code&gt; (navigation), &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@player&lt;/code&gt; (VOD/Live/audio), and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@ulc&lt;/code&gt; (accounts/payments).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Step Definitions (Glue Layer)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Path: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;features/steps/\*.steps.ts&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Purpose: The bridge between Gherkin and code.&lt;/li&gt;
+  &lt;li&gt;Design: Standardized by action (When) or assertion (Then) to maximize reusability across different features.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Utilities (Implementation Layer)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Path: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;features/steps/utils/\*.utils.ts&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Purpose: The “brains” of the framework.&lt;/li&gt;
+  &lt;li&gt;Responsibility: Instead of individual page objects, these shared utilities handle complex multi-tenant logic, video player interactions, and smart navigation.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;4. Configuration (Multi-Tenant Layer)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Path: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config/{customer}/&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Purpose: Environment and client-specific data.&lt;/li&gt;
+  &lt;li&gt;Components: Holds the unique URLs, account information and localized strings (translations.config.ts) for each brand.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ℹ️ We have not implemented the Page Object Model (POM) in favor of a Functional Utility-Based approach. This avoids the heavy overhead of maintaining an excessive amount of page-specific classes across multiple brands. Instead, we centralize logic in a shared implementation Layer, allowing us to update core behaviors (like the Video Player) in a single place for all tenants.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Finally the architecture looks like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apps/homologation/
+├── features/                    # Gherkin feature files organized by platform
+│   ├── @desktop/                # Desktop-specific test scenarios
+│   ├── @webview/                # Mobile-specific test scenarios (same structure)
+│   └── steps/                   # TypeScript step definitions
+│       ├── authentification.steps.ts
+│       ├── interactivity.steps.ts
+│       ├── visibility.steps.ts
+│       │── ...
+│       └── utils/               # Utility functions for steps
+├── config/                    # Customer-specific configuration
+│   ├── config.ts              # Main config aggregator
+│   ├── selectors.ts           # Main selectors aggregator
+│   ├── clientA/               # client A specific config
+│   ├── .../
+│   ├── .../
+│   └── clientN/                  # client N specific config
+│       ├── datas.config.ts       # Test data
+│       ├── urls.config.ts        # URL mappings
+│       └── translations.config.ts # Merged translations from different source
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;🔄 Data Flow Example: Multi-Tenant Magic&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;When executing a test like:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;Then&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;should&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;see&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;translation.account.menu.logout&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Step receives the abstract key &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;translation.account.menu.logout&quot;&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Step calls a utils fonction &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getValue(&quot;translation.account.menu.logout&quot;)&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Config resolves to the specific customer’s value (e.g., &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;Kijelentkezés&quot;&lt;/code&gt; for one customer, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;Logout&quot;&lt;/code&gt; for another).&lt;/li&gt;
+  &lt;li&gt;Playwright locates the element with that specific text and validates visibility.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;-the-future-ai-readiness-and-ci-integration&quot;&gt;✦ The Future: AI Readiness and CI Integration&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;AI and BDD&lt;/strong&gt;: The structured, human-readable format of Gherkin makes it an ideal input for future AI agents.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;CI/CD In Action&lt;/strong&gt;: Automated tests are integrated into our CI pipeline, ensuring quality gates are enforced before any release proceeds.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;The Human Factor&lt;/strong&gt;: We’ve transformed the QA role. By transitioning to “Quality Architects,” our engineers now own the automated patrimony, supported by targeted training to bridge the gap between manual testing and code.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;-next&quot;&gt;🤝🏻 Next&lt;/h2&gt;
+
+&lt;p&gt;All in all, this new stack is the backbone for delivering high-quality streaming experiences quickly.&lt;/p&gt;
+
+&lt;p&gt;The architecture and overall approach are confirmed to be successful, leading to a reduced and continuously improving homologation time as test coverage increases. We’ve implemented new rituals to thoroughly analyze results and maintain a strategic focus on both manual exploratory testing and executing more complex tests. Also, time to get a first feeback on the overall outcome and quality of each release has been highly reduced from days to minutes.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Key takeaways for the QA community:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Embed tests in your codebase.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;BDD approach is great to align teams on the “What” and is AI future-proof.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;More automated testing means more time dedicated to valuable and strategic work from QA engineers (and less repetitive tasks).&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;What’s next:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;More AI and bring the automated testing to the age of agentic.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Align the testing approach with our developers, who already have an automated E2E testing stack for Pull Request validation (currently based on &lt;a href=&quot;https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html#our-e2e-tests&quot;&gt;WebdriverIO &amp;amp; CucumberJS&lt;/a&gt;).&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>[&quot;m_bayard&quot;]</name></author><category term="bdd" /><category term="frontend" /><category term="ownership" /><category term="playwright" /><category term="QA" /><category term="web" /><summary type="html">At Bedrock Streaming, we create and operate full-scope streaming services for leading media companies with best-in-class user experience across AVOD, SVOD and hybrid business models.</summary></entry><entry><title type="html">How Blue-Green helped us migrating critical components with zero downtime</title><link href="https://tech.bedrockstreaming.com/2026/02/02/how-blue-green-helped-migrating-with-zero-downtime.html" rel="alternate" type="text/html" title="How Blue-Green helped us migrating critical components with zero downtime" /><published>2026-02-02T00:00:00+00:00</published><updated>2026-02-02T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2026/02/02/how-blue-green-helped-migrating-with-zero-downtime</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2026/02/02/how-blue-green-helped-migrating-with-zero-downtime.html">&lt;p&gt;At Bedrock, we recently migrated our Kubernetes clusters from AWS VPC CNI to Cilium—with zero downtime. By leveraging Blue-Green canary with HAProxy for progressive traffic shifting and Consul for dynamic configuration updates, we achieved a seamless transition to eBPF-powered networking.&lt;/p&gt;
 
 &lt;p&gt;You might wonder: why all this complexity around migration? Can’t you simply install Cilium in place of VPC CNI with a straightforward &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kubectl apply&lt;/code&gt;?&lt;/p&gt;
 
@@ -2201,163 +2430,4 @@ The accessibility is not only for the people with disabilities, it’s for every
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/new-scroll.gif&quot; alt=&quot;New and more fluid scroll&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;This frontend R&amp;amp;D project successfully addressed the scrolling performance issues on TV. The new scrolling solution dramatically improved performance by limiting re-renders. This optimization ensured a smoother scrolling experience, enhancing usability on TV devices. From this experience, we also moved on to implementing the same virtualization on the horizontal scroll of the catalog, which presented its own challenges but was also a success.&lt;/p&gt;</content><author><name>[&quot;m_bernier&quot;]</name></author><category term="TV" /><category term="performance" /><category term="javascript" /><category term="react" /><category term="web" /><category term="frontend" /><summary type="html">One of the core experiences of a Bedrock app for the end user is browsing the catalog. Scrolling vertically through blocks of content, and scrolling horizontally through lists of items. However, TVs do not offer high performance and provide poor user experience during heavy resource actions. We especially noticed that scrolling horizontally in a list was laggy and unpleasant. This article focuses on performance optimization to enhance the horizontal scroll experience on Smart TVs.</summary></entry><entry><title type="html">Insights from Golab Conference 2024, Florence</title><link href="https://tech.bedrockstreaming.com/2024/11/12/golab-florence.html" rel="alternate" type="text/html" title="Insights from Golab Conference 2024, Florence" /><published>2024-11-12T00:00:00+00:00</published><updated>2024-11-12T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/11/12/golab-florence</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/11/12/golab-florence.html">&lt;p&gt;Attending the &lt;a href=&quot;https://golab.io/&quot;&gt;Golab conference&lt;/a&gt; in Florence has been a thrilling experience for us as developers. Immersing ourselves in talks by some of the most brilliant minds in the Go community gave us a deeper understanding of advanced concepts, practical libraries, and the future of Go. We’ve summarized the key takeaways from the talks we attended to share some of the valuable lessons and fresh perspectives we gained.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;keynote-go-telemetry-wins&quot;&gt;Keynote: Go Telemetry Wins&lt;/h2&gt;
-
-&lt;p&gt;The opening keynote, delivered by Russ Cox, focused on the importance of telemetry in the Go ecosystem itself. Russ explained how telemetry data helps the Go team make informed decisions to improve the language and its ecosystem, emphasizing the strict measures taken to ensure user privacy. We learned how telemetry is carefully designed to protect sensitive information while still providing valuable insights.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-12-golab-firenze/go_telemetry_keynote.jpg&quot; alt=&quot;Go telemetry wins&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The session concluded with a call to action, encouraging everyone to enable telemetry (by running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;go telemetry on&lt;/code&gt;) on their Go installations to support ongoing enhancements and community-driven improvements.&lt;/p&gt;
-
-&lt;p&gt;All data collected are public and could be found &lt;a href=&quot;https://telemetry.go.dev/&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;instrumenting-go-apps-with-opentelemetry&quot;&gt;Instrumenting Go Apps With OpenTelemetry&lt;/h2&gt;
-
-&lt;p&gt;This talk introduced us to OpenTelemetry, an open source solution for instrumenting applications. The speaker introduced the topic with a specific situation, you have instrumenting with datadog and want to switch to another tool (for any reason such as better pricing, UX…).&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-12-golab-firenze/instrumenting_with_datadog.jpg&quot; alt=&quot;Instrumenting with datadog&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-12-golab-firenze/changing_agent.jpg&quot; alt=&quot;Changing tool due to cost&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Then he demonstrated how OpenTelemetry can be used to collect and analyze performance data (ie. through Grafana), and its benefits compared to an agent :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;No need to install an agent on the host&lt;/li&gt;
-  &lt;li&gt;No cost of install when changing agent&lt;/li&gt;
-  &lt;li&gt;Open source so it’s tool agnostic&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-12-golab-firenze/opentelemtry_schema.avif&quot; alt=&quot;Opentelemetry simple schema&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;At Bedrock, we mainly use &lt;a href=&quot;https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html&quot;&gt;NewRelic for our monitoring&lt;/a&gt;, but we are free either to use the NewRelic agent or to use OpenTelemetry to collect traces, metrics and logs.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;watermill-the-missing-standard-library-for-event-driven-applications&quot;&gt;Watermill: The Missing Standard Library for Event-Driven Applications&lt;/h2&gt;
-
-&lt;p&gt;The &lt;a href=&quot;https://watermill.io/&quot;&gt;Watermill library&lt;/a&gt; was highlighted as a game-changer for event-driven architecture in Go. Initially born out of a need to simplify the complexity of building event-driven systems, Watermill has evolved into a mature and widely adopted library. The talk inspired us by demonstrating how adopting Watermill can transform projects needing scalability and resilience, and it has now become a key consideration for us in future architectural designs.
-The design of this very complete library is thought out in three blocks that can be used independently or not:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://github.com/user-attachments/assets/ce78b1ab-6259-4fe1-91ec-fb421c3fdfdf&quot; alt=&quot;pyramid&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The first, on which the rest is based, is a simple &lt;a href=&quot;https://watermill.io/docs/pub-sub/&quot;&gt;Publisher/Subscriber brick&lt;/a&gt; with several implementations (go channel,kafka,RabbitMQ etc…).&lt;/p&gt;
-
-&lt;p&gt;The second is a &lt;a href=&quot;https://watermill.io/docs/messages-router/&quot;&gt;Router layer&lt;/a&gt; which manages advanced event dispatch processing and adds the possibility of using middleware such as metrics, poison queue, retrying, throttling, etc. .&lt;/p&gt;
-
-&lt;p&gt;The last block is the &lt;a href=&quot;https://watermill.io/docs/cqrs/&quot;&gt;CQRS management block&lt;/a&gt;.
-The project documentation is well supplied and full of examples that make bootstrapping in existing projects much easier.
-You will find its presentation materials &lt;a href=&quot;https://threedots.tech/presentations/2024/golab/&quot;&gt;here&lt;/a&gt;.
-—&lt;/p&gt;
-
-&lt;h2 id=&quot;lets-go-asynchronous&quot;&gt;Let’s Go Asynchronous&lt;/h2&gt;
-
-&lt;p&gt;Tomáš Sedláček tackled the common dilemma between synchronous and asynchronous communication.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/kedlas/presentations/tree/main/2024-golab-florence_lets_go_async/sync/http&quot;&gt;Real-world examples&lt;/a&gt; illustrated how synchronous patterns can lead to bottlenecks, while asynchronous designs promote efficiency. Techniques like load balancing, rate limiting, and implementing retries were demonstrated, showcasing Go’s flexibility with tools like RabbitMQ and PGQ. It’s a solid reminder to evaluate communication patterns carefully and how going asynchronous isn’t as daunting as it sounds.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;how-to-write-a-programming-language-and-shell-in-go-with-92-test-coverage&quot;&gt;How to Write a Programming Language and Shell in Go with 92% Test Coverage&lt;/h2&gt;
-
-&lt;p&gt;A fascinating exploration of &lt;a href=&quot;https://elv.sh/&quot;&gt;Elvish&lt;/a&gt;, a shell written in Go, broke down how to create a programming language.&lt;/p&gt;
-
-&lt;p&gt;Beyond the technical implementation, Qi Xiao provided insights into achieving impressive test coverage and setting up instant CI/CD pipelines. The talk underscored the power of Go in developing robust systems, even for complex challenges like creating a shell.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;from-bland-to-spiky-how-generics-made-my-service-super-robust&quot;&gt;From Bland to Spiky: How Generics Made My Service Super Robust&lt;/h2&gt;
-
-&lt;p&gt;This lively talk explored how generics have brought versatility to Go.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://linktr.ee/teea_golab24&quot;&gt;Teea Alarto&lt;/a&gt; used vivid examples, transforming generic code to create robust, maintainable services. The presentation not only demystified generics but also highlighted their practical benefits, such as eliminating repetition and enhancing code maintainability.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;tinygo-for-pet-automation&quot;&gt;TinyGo for Pet Automation&lt;/h2&gt;
-
-&lt;p&gt;This session was both fun and practical, demonstrating how TinyGo can be leveraged for pet automation using Arduino.&lt;/p&gt;
-
-&lt;p&gt;Josephine Winter presented a compelling case for TinyGo as an accessible platform for embedded programming, opening possibilities beyond traditional web development. Automation projects, whether for pets or other use cases, seem more achievable and engaging with TinyGo.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;gophers-gone-domain-driven-a-tale-of-go-and-ddd&quot;&gt;Gophers Gone Domain-Driven: A Tale of Go and DDD&lt;/h2&gt;
-
-&lt;p&gt;Domain-Driven Design (DDD) often intimidates developers, but this talk simplified the fundamentals for Go practitioners.&lt;/p&gt;
-
-&lt;p&gt;By exploring domain modeling, bounded contexts, and ubiquitous language, we gained insights into creating a codebase that aligns with business logic.&lt;/p&gt;
-
-&lt;p&gt;Davide Imola also discussed using hexagonal architecture to make Go applications scalable and maintainable, providing a practical roadmap for implementing DDD concepts.
-He provides a simple example of a structured &lt;a href=&quot;https://github.com/davideimola/ddd-onion-go&quot;&gt;Go project&lt;/a&gt; using the DDD and Onion Architecture concepts.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;to-cgo-or-not-cross-compiling-a-sqlite-driver&quot;&gt;To CGo or Not: Cross Compiling a SQLite Driver&lt;/h2&gt;
-
-&lt;p&gt;The challenge of cross-compiling without relying on CGo was explored in this technical deep dive.&lt;/p&gt;
-
-&lt;p&gt;Jan Mercl introduced a &lt;a href=&quot;https://modernc.org/sqlite&quot;&gt;CGo-free driver&lt;/a&gt;, explaining how transpilers and C runtime emulation make it feasible.&lt;/p&gt;
-
-&lt;p&gt;This was particularly eye-opening for those of us working on projects that need efficient and lightweight database solutions.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;graphs-and-games-can-go-take-a-ticket-to-ride&quot;&gt;Graphs and Games: Can Go Take a Ticket to Ride?&lt;/h2&gt;
-
-&lt;p&gt;Blending board games and Go programming, Michele Caci took us on a journey through graph algorithms inspired by “Ticket to Ride.”&lt;/p&gt;
-
-&lt;p&gt;He demonstrated how they implemented a &lt;a href=&quot;https://github.com/mcaci/go-ticket-to-ride&quot;&gt;Go-based version of the game&lt;/a&gt; and applied algorithms to improve gameplay.&lt;/p&gt;
-
-&lt;p&gt;It was a fun reminder of how computer science concepts can intersect with entertainment, sparking ideas for gamifying our projects.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;deep-dive-into-a-go-binary&quot;&gt;Deep Dive into a Go Binary&lt;/h2&gt;
-
-&lt;p&gt;Jesús Espino, Software developer at Mattermost and who loves to deep dive into technical details and previously talked about &lt;a href=&quot;https://www.youtube.com/watch?v=arH3jp_x8yQ&quot;&gt;Go Runtime&lt;/a&gt;, answered this question:&lt;/p&gt;
-
-&lt;p&gt;What lies inside a Go binary?&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-12-golab-firenze/deep_dive_go_binary.jpg&quot; alt=&quot;Deep dive in go binary&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Jesús unveiled the secrets of compiled Go programs while mirroring The Lord of the Rings making it very pedagogical, starting with ELF format composed of a set of headers, list of sections and segments to the internal mechanisms that make a binary tick.&lt;/p&gt;
-
-&lt;p&gt;Understanding the anatomy of a Go binary enhanced our appreciation for the Go compiler and the efficient executables it generates.
-You can view his presentation slides &lt;a href=&quot;https://speakerdeck.com/jespino/deep-dive-into-a-go-binary&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Here some of his references:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://youtu.be/nC1U1LJQL80?si=0-X8EnOUVgbmCkPp&quot;&gt;In-depth ELF&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/mandiant/GoReSym&quot;&gt;GoReSym&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/burrowers/garble&quot;&gt;Garble&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;The go source code (specifically the linker code)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;how-to-punch-holes-in-network-infrastructure-using-go&quot;&gt;How to Punch Holes in Network Infrastructure Using Go&lt;/h2&gt;
-
-&lt;p&gt;Finally, we delved into the intricacies of peer-to-peer networking. Using the &lt;a href=&quot;https://github.com/libp2p/go-libp2p&quot;&gt;go-libp2p&lt;/a&gt; module, the speaker showed how to establish decentralized connections by bypassing traditional network barriers.&lt;/p&gt;
-
-&lt;p&gt;This talk was both technical and visionary, providing us with ideas on how to optimize network performance using Go’s robust features.&lt;/p&gt;
-
-&lt;p&gt;You will be able to find his presentation materials &lt;a href=&quot;https://github.com/watjurk/talk-golab-2024-peer-to-peer-hole-punching?tab=readme-ov-file&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;closing-keynote-go-back-to-the-future&quot;&gt;Closing Keynote: Go Back to the Future&lt;/h2&gt;
-
-&lt;p&gt;The closing keynote was a captivating journey through Go’s past, present, and future, filled with live demos and unexpected surprises.&lt;/p&gt;
-
-&lt;p&gt;The speaker showcased the evolution of Go while exploring how the language might shape the future of programming. One of the highlights was a live demonstration where the presenter made a drone fly over the audience, all powered and controlled by Go. This thrilling spectacle illustrated the language’s potential in robotics and automation, leaving everyone inspired and in awe of what Go can achieve.&lt;/p&gt;
-
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;p&gt;The Golab conference in Florence provided a rich tapestry of knowledge, sparking inspiration and reaffirming our love for Go. From new architectural insights to innovative uses of Go in domains like automation and networking, we walked away with a toolkit full of ideas to bring back to our development practices. We’re eager to implement some of these learnings and contribute further to the vibrant Go community!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-12-golab-firenze/golab_group.jpg&quot; alt=&quot;Bedrock devs&quot; /&gt;&lt;/p&gt;</content><author><name>[&quot;t_geindre&quot;, &quot;k_phan&quot;, &quot;j_hardeman&quot;]</name></author><category term="golang" /><category term="opensource" /><category term="community" /><category term="conference" /><category term="2024" /><summary type="html">Attending the Golab conference in Florence has been a thrilling experience for us as developers. Immersing ourselves in talks by some of the most brilliant minds in the Go community gave us a deeper understanding of advanced concepts, practical libraries, and the future of Go. We’ve summarized the key takeaways from the talks we attended to share some of the valuable lessons and fresh perspectives we gained.</summary></entry></feed>
+&lt;p&gt;This frontend R&amp;amp;D project successfully addressed the scrolling performance issues on TV. The new scrolling solution dramatically improved performance by limiting re-renders. This optimization ensured a smoother scrolling experience, enhancing usability on TV devices. From this experience, we also moved on to implementing the same virtualization on the horizontal scroll of the catalog, which presented its own challenges but was also a success.&lt;/p&gt;</content><author><name>[&quot;m_bernier&quot;]</name></author><category term="TV" /><category term="performance" /><category term="javascript" /><category term="react" /><category term="web" /><category term="frontend" /><summary type="html">One of the core experiences of a Bedrock app for the end user is browsing the catalog. Scrolling vertically through blocks of content, and scrolling horizontally through lists of items. However, TVs do not offer high performance and provide poor user experience during heavy resource actions. We especially noticed that scrolling horizontally in a list was laggy and unpleasant. This article focuses on performance optimization to enhance the horizontal scroll experience on Smart TVs.</summary></entry></feed>

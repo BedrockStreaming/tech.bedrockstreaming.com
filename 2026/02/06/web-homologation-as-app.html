@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.0
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    
+    <!-- Theme Mode -->
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    
+
+    
+    <!-- KaTeX 0.15.2 -->
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+    <!-- Mermaid 8.13.10 -->
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bedrockstreaming.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- SEO tags -->
+    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/2026-02-06-web-homologation-as-app/homologation_qa_web_10.jpg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming | Bedrock Tech Blog</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="We share here QA context, key takeaways and reveal the architecture of the Web homologation stack." />
+<meta property="og:description" content="We share here QA context, key takeaways and reveal the architecture of the Web homologation stack." />
+<link rel="canonical" href="https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html" />
+<meta property="og:url" content="https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html" />
+<meta property="og:site_name" content="Bedrock Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-02-06T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","description":"We share here QA context, key takeaways and reveal the architecture of the Web homologation stack.","headline":"Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming","dateModified":"2026-02-06T00:00:00+00:00","datePublished":"2026-02-06T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming">
+    <meta name="twitter:description" content="At Bedrock Streaming, we create and operate full-scope streaming services for leading media companies with best-in-class user experience across AVOD, SVOD an...">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/2026-02-06-web-homologation-as-app/homologation_qa_web_10.jpg">
+    <meta name="twitter:image:alt" content="Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
+		</a>
+        
+        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
+        Bedrock Tech Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
+                     Jobs 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
+                     Last Friday Talks 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
+                     Meetups & Conferences 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
+                     OSS 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming " aria-label="Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="Building+a+Scalable%2C+Multi-Tenant+QA+Automation+Stack+at+Bedrock+Streaming" class="title">Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming</h1>
+      <div class="post-info">
+
+
+<a
+      href="https://www.linkedin.com/in/maximebayard/"
+      target="_blank"
+      rel="noopener"
+      class="author">
+      <img alt="Author's avatar" src="/images/avatar/m_bayard.png" class="thumbnail">
+    
+
+    
+      <span class="name">
+        Maxime Bayard
+      </span>
+    </a><span class="spacer"> - </span>
+
+
+
+  <span class="publication-date">
+    
+    February 06, 2026
+  </span>
+</div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <p>At Bedrock Streaming, we create and operate full-scope streaming services for leading media companies with best-in-class user experience across AVOD, SVOD and hybrid business models.</p>
+
+<p>Given that our application is multi-customer, scaling testing efforts becomes increasingly challenging and costly due to the requirement for extensive manual validation.</p>
+
+<p>QA engineers are therefore a critical resource responsible for assessing product quality and ensuring high standards through continuous validation and <em>homologation</em>.</p>
+
+<p>In our context, <em>homologation</em> specifically involves the rigorous, final assessment of a release candidate (RC). This process entails fully testing the RC across a matrix of multi-client configurations (customer-specific data/settings) and multi-browser environments on an iso-production environment before deployment. <em>Homologation</em> used to be a fully-manual process in the software release process.</p>
+
+<p>To make sure this process follows a more and more speedy release cycle and scales at a limited cost, automated testing becomes a must have and critical tool to support even shorter release cycle in the future.</p>
+
+<p>This article will cover the building foundation of our new homologation stack, dedicated to the validation of the frontend release candidates.</p>
+
+<p>Disclaimer: the strategy is home-made but the stack we’re using is composed of various open-source tools. We want to share with the QA community our journey in the automation world and expose our approach. Bedrock is evolving fast and it’s only a snapshot of our current way of working.</p>
+
+<hr />
+
+<h2 id="-transforming-frontend-homologation">🚀 Transforming Frontend Homologation</h2>
+
+<p><strong>The Challenge : Velocity meets Quality</strong></p>
+
+<p>The Web team operates on a two-week release cycle, deploying major updates rapidly. This demanding pace places the QA engineers in a critical role, responsible for continuous validation and homologation to assure product quality.</p>
+
+<p>However, relying heavily on traditional manual QA processes presented a scalability and cost challenge:</p>
+
+<ul>
+  <li>
+    <p>Growing Feature Set: As the number of features increases, the time required for comprehensive manual testing grows linearly, threatening to delay major releases and negatively impacting Time-to-Market (TTM).</p>
+  </li>
+  <li>
+    <p>Speed Constraint: To accommodate even shorter release cycles in the future, the homologation process needed to become faster, more reliable, and less expensive to execute repeatedly.</p>
+  </li>
+</ul>
+
+<p><strong>The Goal:</strong></p>
+
+<ul>
+  <li>Build a new, robust, and scalable homologation stack dedicated to validating frontend release candidates that can meet the current pace and future demands.</li>
+  <li>On another hand, traditional and fully manual QA processes were a bit dusty compared to the evolving environment around QA and AI and representing a source of monotony in the QA engineers day-to-day. From “nice-to-have“, the automated testing shifted to critical need to sustain our evolution.</li>
+</ul>
+
+<hr />
+
+<h2 id="️-building-blocks-of-the-new-homologation-stack">⚙️ Building Blocks of the New Homologation Stack</h2>
+
+<p>Our solution hinges on a deliberate choice of tools and methodologies designed for readability, maintainability, and future-proofing:</p>
+
+<p><strong>Core Stack</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Role</th>
+      <th>Key Benefit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://playwright.dev/">Playwright</a></td>
+      <td>Browser Automation Engine</td>
+      <td>Speed and Reliability: Unified API for all major browsers (Chromium, Firefox, WebKit), mobile emulation, and excellent DX.</td>
+    </tr>
+    <tr>
+      <td><a href="https://vitalets.github.io/playwright-bdd/#/">playwright-bdd</a></td>
+      <td>BDD Framework (Gherkin)</td>
+      <td>Collaboration and Readability: Enables tests to be written in a natural, shared language while managing Playwright test generation.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>ℹ️ Our dictionary of steps is greatly inspired by <a href="https://github.com/Orange-OpenSource/uuv">uuv</a> which aims to provides an ecosystem that simplifies the writing of End-to-End tests in a BDD approach and a user-centric way and accessibility-first selectors.</p>
+</blockquote>
+
+<p><strong>Requirements and rationale behind</strong></p>
+
+<ul>
+  <li>
+    <p><strong>Natural Language BDD (Gherkin)</strong>: This is a key enabler for collaboration.</p>
+
+    <ul>
+      <li>Easy Review: Allows QA Engineers, Product Owners (POs), and Developers (DEVs) to easily read, review, and contribute to the test specifications without needing deep coding knowledge.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Multi-Client / Multi-Platform Support</strong>: Leveraging Playwright’s power, our stack should inherently supports validation across:</p>
+
+    <ul>
+      <li>Multiple Languages (leveraging our i18n packages).</li>
+      <li>Multiple Platforms (desktop and mobile browsers).</li>
+      <li>Multiple apps / projects.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Codebase Integration (the shift)</strong>: The homologation application is part of the main Web codebase.</p>
+
+    <ul>
+      <li>
+        <p>Better Context: QA engineers gain a better understanding of code changes and their impact.</p>
+      </li>
+      <li>
+        <p>Reduced Maintenance: We leverage the existing i18n language packages directly within the test environment, significantly limiting test maintenance when text strings change following editors update.</p>
+      </li>
+      <li>
+        <p>Leverage our CI environments and workflows for future integration with deployment.</p>
+      </li>
+      <li>
+        <p>But also higher responsability regarding the quality of the injected tests and code overall 🥐. The fear of breaking things is natural but approved reviews and a green CI are always keeping up the quality level.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="️-homologation-architecture-overview">🏗️ Homologation Architecture Overview</h2>
+
+<p>Today this architecture allows writing one test that runs across 4 customers × 2 platforms × multiple environments.
+The architecture follows a clean layered separation between business requirements (Gherkin), test logic (steps), and implementation details (utils).</p>
+
+<p><strong>1. Feature Files (BDD Layer)</strong></p>
+
+<ul>
+  <li>Path: <code class="language-plaintext highlighter-rouge">features/@desktop/</code> &amp; <code class="language-plaintext highlighter-rouge">features/@webview/</code></li>
+  <li>Purpose: Plain-language Gherkin files defining the test scenarios.</li>
+  <li>Organization: Grouped by functional domains: <code class="language-plaintext highlighter-rouge">@core</code> (navigation), <code class="language-plaintext highlighter-rouge">@player</code> (VOD/Live/audio), and <code class="language-plaintext highlighter-rouge">@ulc</code> (accounts/payments).</li>
+</ul>
+
+<p><strong>2. Step Definitions (Glue Layer)</strong></p>
+
+<ul>
+  <li>Path: <code class="language-plaintext highlighter-rouge">features/steps/\*.steps.ts</code></li>
+  <li>Purpose: The bridge between Gherkin and code.</li>
+  <li>Design: Standardized by action (When) or assertion (Then) to maximize reusability across different features.</li>
+</ul>
+
+<p><strong>3. Utilities (Implementation Layer)</strong></p>
+
+<ul>
+  <li>Path: <code class="language-plaintext highlighter-rouge">features/steps/utils/\*.utils.ts</code></li>
+  <li>Purpose: The “brains” of the framework.</li>
+  <li>Responsibility: Instead of individual page objects, these shared utilities handle complex multi-tenant logic, video player interactions, and smart navigation.</li>
+</ul>
+
+<p><strong>4. Configuration (Multi-Tenant Layer)</strong></p>
+
+<ul>
+  <li>Path: <code class="language-plaintext highlighter-rouge">config/{customer}/</code></li>
+  <li>Purpose: Environment and client-specific data.</li>
+  <li>Components: Holds the unique URLs, account information and localized strings (translations.config.ts) for each brand.</li>
+</ul>
+
+<blockquote>
+  <p>ℹ️ We have not implemented the Page Object Model (POM) in favor of a Functional Utility-Based approach. This avoids the heavy overhead of maintaining an excessive amount of page-specific classes across multiple brands. Instead, we centralize logic in a shared implementation Layer, allowing us to update core behaviors (like the Video Player) in a single place for all tenants.</p>
+</blockquote>
+
+<p>Finally the architecture looks like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apps/homologation/
+├── features/                    # Gherkin feature files organized by platform
+│   ├── @desktop/                # Desktop-specific test scenarios
+│   ├── @webview/                # Mobile-specific test scenarios (same structure)
+│   └── steps/                   # TypeScript step definitions
+│       ├── authentification.steps.ts
+│       ├── interactivity.steps.ts
+│       ├── visibility.steps.ts
+│       │── ...
+│       └── utils/               # Utility functions for steps
+├── config/                    # Customer-specific configuration
+│   ├── config.ts              # Main config aggregator
+│   ├── selectors.ts           # Main selectors aggregator
+│   ├── clientA/               # client A specific config
+│   ├── .../
+│   ├── .../
+│   └── clientN/                  # client N specific config
+│       ├── datas.config.ts       # Test data
+│       ├── urls.config.ts        # URL mappings
+│       └── translations.config.ts # Merged translations from different source
+</code></pre></div></div>
+
+<p><strong>🔄 Data Flow Example: Multi-Tenant Magic</strong></p>
+
+<p>When executing a test like:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Then</span> <span class="nx">the</span> <span class="nx">user</span> <span class="nx">should</span> <span class="nx">see</span> <span class="nx">the</span> <span class="nx">text</span> <span class="dl">"</span><span class="s2">translation.account.menu.logout</span><span class="dl">"</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Step receives the abstract key <code class="language-plaintext highlighter-rouge">"translation.account.menu.logout"</code>.</li>
+  <li>Step calls a utils fonction <code class="language-plaintext highlighter-rouge">getValue("translation.account.menu.logout")</code>.</li>
+  <li>Config resolves to the specific customer’s value (e.g., <code class="language-plaintext highlighter-rouge">"Kijelentkezés"</code> for one customer, <code class="language-plaintext highlighter-rouge">"Logout"</code> for another).</li>
+  <li>Playwright locates the element with that specific text and validates visibility.</li>
+</ul>
+
+<h2 id="-the-future-ai-readiness-and-ci-integration">✦ The Future: AI Readiness and CI Integration</h2>
+
+<ul>
+  <li><strong>AI and BDD</strong>: The structured, human-readable format of Gherkin makes it an ideal input for future AI agents.</li>
+  <li><strong>CI/CD In Action</strong>: Automated tests are integrated into our CI pipeline, ensuring quality gates are enforced before any release proceeds.</li>
+  <li><strong>The Human Factor</strong>: We’ve transformed the QA role. By transitioning to “Quality Architects,” our engineers now own the automated patrimony, supported by targeted training to bridge the gap between manual testing and code.</li>
+</ul>
+
+<h2 id="-next">🤝🏻 Next</h2>
+
+<p>All in all, this new stack is the backbone for delivering high-quality streaming experiences quickly.</p>
+
+<p>The architecture and overall approach are confirmed to be successful, leading to a reduced and continuously improving homologation time as test coverage increases. We’ve implemented new rituals to thoroughly analyze results and maintain a strategic focus on both manual exploratory testing and executing more complex tests. Also, time to get a first feeback on the overall outcome and quality of each release has been highly reduced from days to minutes.</p>
+
+<p><strong>Key takeaways for the QA community:</strong></p>
+
+<ul>
+  <li>
+    <p>Embed tests in your codebase.</p>
+  </li>
+  <li>
+    <p>BDD approach is great to align teams on the “What” and is AI future-proof.</p>
+  </li>
+  <li>
+    <p>More automated testing means more time dedicated to valuable and strategic work from QA engineers (and less repetitive tasks).</p>
+  </li>
+</ul>
+
+<p><strong>What’s next:</strong></p>
+
+<ul>
+  <li>
+    <p>More AI and bring the automated testing to the age of agentic.</p>
+  </li>
+  <li>
+    <p>Align the testing approach with our developers, who already have an automated E2E testing stack for Pull Request validation (currently based on <a href="https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html#our-e2e-tests">WebdriverIO &amp; CucumberJS</a>).</p>
+  </li>
+</ul>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+<div class="share-buttons">
+    <ul class="share-buttons">
+        <li class="meta">Share</li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Building+a+Scalable%2C+Multi-Tenant+QA+Automation+Stack+at+Bedrock+Streaming%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2026%2F02%2F06%2Fweb-homologation-as-app.html"
+               target="_blank" title="">
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Tweet</span>
+            </a>
+        </li>
+             
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html&title=Building+a+Scalable%2C+Multi-Tenant+QA+Automation+Stack+at+Bedrock+Streaming%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html"
+               target="_blank" title=" LinkedIn">
+                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Share on LinkedIn</span>
+            </a>
+        </li>
+          
+        <li>
+            <a href="mailto:?subject=Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html"
+               target="_blank" title="">
+                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags/#QA">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> QA</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#bdd">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> bdd</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#frontend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#ownership">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> ownership</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#playwright">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> playwright</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#web">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> web</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+
+    
+    <div id="next-post">
+        <a alt="How Blue-Green helped us migrating critical components with zero downtime" href="/2026/02/02/how-blue-green-helped-migrating-with-zero-downtime.html">
+            <p>Next post</p>
+            How Blue-Green helped us migrating critical components with zero downtime
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  
+  .post-content a { color: rgb(251,87,66) !important; }
+  .share-buttons a { color: rgb(251,87,66) !important; }
+  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
+  div#post-nav a { color: rgb(251,87,66) !important; }
+  footer a { color: rgb(251,87,66) !important; }
+  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
+  a.button:hover {
+    background: rgb(251,87,66) !important;
+    border: 1px solid rgb(251,87,66) !important;
+    color: white;
+    text-decoration: none;
+    filter: none;
+  }
+  header#main {
+      background-color: rgb(251,87,66) !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/BedrockStreaming"
+               title="Follow on Github"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/company/bedrock-streaming"
+               title="Follow on Linkedin"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://twitter.com/Bedrock_Tech"
+               title="Follow on Twitter"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
+               title="Follow on Youtube"
+               target="_blank"
+               rel="noopener">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>
