@@ -61,21 +61,23 @@ const hasFeatureClass = Boolean(frontmatter.featureImg || frontmatter.color);
   <Navbar slot="header" currentPath={Astro.url.pathname} />
 
   <article class={hasFeatureClass ? 'feature-image' : ''}>
-    <header class="post-header">
-      <h1 class="title">{frontmatter.title}</h1>
-      <div class="post-meta">
-        {formattedDate && <time datetime={postDate?.toISOString()}>{formattedDate}</time>}
-        {authors.length > 0 && (
-          <span class="post-authors">
-            {' by '}
-            {authors.map((a, i) => (
-              <>
-                {i > 0 && ', '}
-                {a.url ? <a href={a.url}>{a.name}</a> : <span>{a.name}</span>}
-              </>
-            ))}
-          </span>
-        )}
+    <header id="main" class="post-header">
+      <div class="title-padder">
+        <h1 class="title">{frontmatter.title}</h1>
+        <div class="post-meta">
+          {formattedDate && <time datetime={postDate?.toISOString()}>{formattedDate}</time>}
+          {authors.length > 0 && (
+            <span class="post-authors">
+              {' by '}
+              {authors.map((a, i) => (
+                <>
+                  {i > 0 && ', '}
+                  {a.url ? <a href={a.url}>{a.name}</a> : <span>{a.name}</span>}
+                </>
+              ))}
+            </span>
+          )}
+        </div>
       </div>
     </header>
 
@@ -94,24 +96,35 @@ const hasFeatureClass = Boolean(frontmatter.featureImg || frontmatter.color);
 
   <Footer slot="footer" />
 
-  {frontmatter.color && (
+  {hasFeatureClass && (
     <style is:inline set:html={`
-      .post-content a { color: ${frontmatter.color} !important; }
-      .share-buttons a { color: ${frontmatter.color} !important; }
-      .tag-list a:not(:hover) { color: ${frontmatter.color} !important; }
-      div#post-nav a { color: ${frontmatter.color} !important; }
-      footer a { color: ${frontmatter.color} !important; }
-      .site-header nav a:hover { color: ${frontmatter.color} !important; }
-      a.button:hover {
-        background: ${frontmatter.color} !important;
-        border: 1px solid ${frontmatter.color} !important;
-        color: white;
-        text-decoration: none;
-        filter: none;
-      }
       header#main {
-        background-color: ${frontmatter.color} !important;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
       }
+      ${frontmatter.color ? `
+        .post-content a { color: ${frontmatter.color} !important; }
+        .share-buttons a { color: ${frontmatter.color} !important; }
+        .tag-list a:not(:hover) { color: ${frontmatter.color} !important; }
+        div#post-nav a { color: ${frontmatter.color} !important; }
+        footer a { color: ${frontmatter.color} !important; }
+        .site-header nav a:hover { color: ${frontmatter.color} !important; }
+        a.button:hover {
+          background: ${frontmatter.color} !important;
+          border: 1px solid ${frontmatter.color} !important;
+          color: white;
+          text-decoration: none;
+          filter: none;
+        }
+        header#main {
+          background-color: ${frontmatter.color} !important;
+          background-image: url('/assets/img/lineart.png');
+        }
+      ` : ''}
+      ${frontmatter.featureImg ? `
+        header#main { background-image: url('${frontmatter.featureImg.startsWith('/') || frontmatter.featureImg.startsWith('http') ? frontmatter.featureImg : '/' + frontmatter.featureImg}'); }
+      ` : ''}
     `} />
   )}
 </BaseLayout>
