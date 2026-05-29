@@ -1,0 +1,92 @@
+[
+  {
+    "from": "/pascal-martin-laduckconf/",
+    "to": "/2020/02/07/pascal-martin-laduckconf/",
+    "sourcePosts": "2020-02-07-pascal-martin-laduckconf.md"
+  },
+  {
+    "from": "/m6web-dev-facts-12/",
+    "to": "/2020/02/08/m6web-dev-facts-12/",
+    "sourcePosts": "2020-02-08-m6web-dev-facts-12.md"
+  },
+  {
+    "from": "/hunting-webpack-performances/",
+    "to": "/2020/03/05/hunting-webpack-performances/",
+    "sourcePosts": "2020-03-05-hunting-webpack-performances.md"
+  },
+  {
+    "from": "/react-redux-pitfalls-and-best-practices/",
+    "to": "/2020/04/27/react-redux-pitfalls-and-best-pratices/",
+    "sourcePosts": "2020-04-27-react-redux-pitfalls-and-best-pratices.md"
+  },
+  {
+    "from": "/Three-years-running-kubernetes-on-production-at-Bedrock/",
+    "to": "/2020/12/08/Three-years-running-kubernetes-on-production-at-Bedrock/",
+    "sourcePosts": "2020-12-08-Three-years-running-kubernetes-on-production-at-Bedrock.md"
+  },
+  {
+    "from": "/bedrock-dev-facts-13/",
+    "to": "/2021/03/02/bedrock-dev-facts-13/",
+    "sourcePosts": "2021-03-02-bedrock-dev-facts-13.md"
+  },
+  {
+    "from": "/organisational-challenge-building-data-team/",
+    "to": "/2021/05/19/organisational-challenge-building-data-team/",
+    "sourcePosts": "2021-05-19-organisational-challenge-building-data-team.md"
+  },
+  {
+    "from": "/bedrock-dev-facts-14/",
+    "to": "/2021/07/16/bedrock-dev-facts-14/",
+    "sourcePosts": "2021-07-16-bedrock-dev-facts-14.md"
+  },
+  {
+    "from": "/bonnes-pratiques-web/",
+    "to": "/2021/09/01/bonnes-pratiques-web/",
+    "sourcePosts": "2021-09-01-bonnes-pratiques-web.md"
+  },
+  {
+    "from": "/web-best-practices/",
+    "to": "/2021/09/06/web-best-practices/",
+    "sourcePosts": "2021-09-06-web-best-practices.md"
+  },
+  {
+    "from": "/live-streaming-lft/",
+    "to": "/2021/10/14/live-streaming-lft/",
+    "sourcePosts": "2021-10-14-live-streaming-lft.md"
+  },
+  {
+    "from": "/increase-performance-and-stability-by-adding-an-egress-controller/",
+    "to": "/2021/10/18/increase-performance-and-stability-by-adding-an-egress-controller/",
+    "sourcePosts": "2021-10-18-increase-performance-and-stability-by-adding-an-egress-controller.md"
+  },
+  {
+    "from": "/forum-php-2021/",
+    "to": "/2021/11/02/forum-php-2021/",
+    "sourcePosts": "2021-11-02-forum-php-2021.md"
+  },
+  {
+    "from": "/hsdo/",
+    "to": "/2021/11/18/hsdo/",
+    "sourcePosts": "2021-11-18-hsdo.md"
+  },
+  {
+    "from": "/scaling-bedrock-video-delivery-to-50-million-users/",
+    "to": "/2021/12/15/scaling-bedrock-video-delivery-to-50-million-users/",
+    "sourcePosts": "2021-12-15-scaling-bedrock-video-delivery-to-50-million-users.md"
+  },
+  {
+    "from": "/bedrock-dev-facts-15/",
+    "to": "/2021/12/20/bedrock-dev-facts-15/",
+    "sourcePosts": "2021-12-20-bedrock-dev-facts-15.md"
+  },
+  {
+    "from": "/prescaling/",
+    "to": "/2022/02/03/prescaling/",
+    "sourcePosts": "2022-02-03-prescaling.md"
+  },
+  {
+    "from": "/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique-et-seule-une-approche-progressive-et-incrementale-etait-viable.html/",
+    "to": "/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique/",
+    "sourcePosts": "2023-03-25-de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique.md"
+  }
+]

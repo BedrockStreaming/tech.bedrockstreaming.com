@@ -1,0 +1,46 @@
+---
+import PostLayout from '@/layouts/PostLayout.astro';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description?: string;
+    date?: Date | string;
+    author?: string | string[];
+    tags?: string[];
+    language?: 'fr' | 'en';
+    thumbnail?: string;
+    featureImg?: string;
+    color?: string;
+    youtubeId: string;
+    [key: string]: any;
+  };
+  slug: string;
+  prevPost?: { url: string; title: string };
+  nextPost?: { url: string; title: string };
+}
+
+const { frontmatter, slug, prevPost, nextPost } = Astro.props;
+---
+<PostLayout
+  frontmatter={frontmatter}
+  slug={slug}
+  collection="videos"
+  prevPost={prevPost}
+  nextPost={nextPost}
+>
+  <div class="video-embed">
+    <iframe
+      width="100%"
+      height="auto"
+      style="aspect-ratio: 16/9"
+      src={`https://www.youtube-nocookie.com/embed/${frontmatter.youtubeId}`}
+      title={frontmatter.title}
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <slot />
+</PostLayout>

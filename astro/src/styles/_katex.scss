@@ -1,0 +1,9 @@
+// KaTeX custom overrides
+// The core KaTeX CSS is vendored in external/_katex.scss and imported
+// via global.scss → @import './external/katex'
+// Add any KaTeX display/inline math overrides here.
+
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+}

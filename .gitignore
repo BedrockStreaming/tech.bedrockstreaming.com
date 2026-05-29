@@ -1,10 +1,12 @@
-_site
+# OS / IDE
 .DS_Store
+.idea/*
 *.sublime-project
 *.sublime-workspace
-codekit-config.json
+
+# Node / Astro (in addition to astro/.gitignore)
 node_modules
-vagrant/.vagrant/
-.jekyll-cache
-.jekyll-metadata
-.idea/*
+dist/
+
+# Planning artifacts (OhMyOpenCode tooling)
+.omo/

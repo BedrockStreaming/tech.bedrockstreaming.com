@@ -1,0 +1,88 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import PostLayout from '@/layouts/PostLayout.astro';
+import ConferenceLayout from '@/layouts/ConferenceLayout.astro';
+import VideoLayout from '@/layouts/VideoLayout.astro';
+
+type AnyPost =
+  | CollectionEntry<'blog'>
+  | CollectionEntry<'conferences'>
+  | CollectionEntry<'videos'>;
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  function getSlugForRoute(post: AnyPost): string {
+    // CRITICAL: honor permalinkOverride VERBATIM (just strip leading/trailing slashes
+    // because Astro re-adds them given trailingSlash:'always').
+    if (post.data.permalinkOverride) {
+      let p = post.data.permalinkOverride;
+      if (p.startsWith('/')) p = p.slice(1);
+      if (p.endsWith('/')) p = p.slice(0, -1);
+      return p;
+    }
+    // Default Jekyll pattern: YYYY/MM/DD/slug
+    const date = new Date(post.data.date!);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const slug = post.id.replace(/\.(md|mdx)$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, '');
+    return `${year}/${month}/${day}/${slug}`;
+  }
+
+  const [blog, conferences, videos] = await Promise.all([
+    getCollection('blog'),
+    getCollection('conferences'),
+    getCollection('videos'),
+  ]);
+
+  const allPosts: AnyPost[] = [...blog, ...conferences, ...videos]
+    .filter((p) => p.data.date)
+    .sort(
+      (a, b) =>
+        new Date(b.data.date!).getTime() - new Date(a.data.date!).getTime(),
+    );
+
+  return allPosts.map((post, idx) => {
+    const slug = getSlugForRoute(post);
+    const prev = idx + 1 < allPosts.length ? allPosts[idx + 1] : null; // OLDER
+    const next = idx > 0 ? allPosts[idx - 1] : null; // NEWER
+
+    return {
+      params: { slug },
+      props: {
+        post,
+        prevPost: prev
+          ? { url: '/' + getSlugForRoute(prev) + '/', title: prev.data.title }
+          : undefined,
+        nextPost: next
+          ? { url: '/' + getSlugForRoute(next) + '/', title: next.data.title }
+          : undefined,
+      },
+    };
+  });
+};
+
+interface Props {
+  post: AnyPost;
+  prevPost?: { url: string; title: string };
+  nextPost?: { url: string; title: string };
+}
+
+const { post, prevPost, nextPost } = Astro.props as unknown as Props;
+const { Content } = await render(post);
+
+const collection = post.collection;
+---
+{collection === 'conferences' ? (
+  <ConferenceLayout frontmatter={post.data as any} slug={post.id} prevPost={prevPost} nextPost={nextPost}>
+    <Content />
+  </ConferenceLayout>
+) : collection === 'videos' ? (
+  <VideoLayout frontmatter={post.data as any} slug={post.id} prevPost={prevPost} nextPost={nextPost}>
+    <Content />
+  </VideoLayout>
+) : (
+  <PostLayout frontmatter={post.data} slug={post.id} collection="blog" prevPost={prevPost} nextPost={nextPost}>
+    <Content />
+  </PostLayout>
+)}

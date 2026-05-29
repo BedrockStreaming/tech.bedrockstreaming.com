@@ -1,0 +1,17 @@
+---
+interface Props {
+  slideshareKey: string;
+  title?: string;
+}
+
+const { slideshareKey, title = 'Slides' } = Astro.props;
+const src = `https://www.slideshare.net/slideshow/embed_code/key/${slideshareKey}`;
+---
+<iframe
+  width="100%"
+  height="auto"
+  style="aspect-ratio: 16/9"
+  src={src}
+  frameborder="0"
+  allowfullscreen
+></iframe>

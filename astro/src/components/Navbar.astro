@@ -1,0 +1,69 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = "" } = Astro.props;
+
+const siteTitle = "Bedrock Tech Blog";
+const siteAvatar = "/images/common/br-site-logo.jpg";
+
+const navPages = [
+  { title: "Jobs", url: "/jobs/" },
+  { title: "Last Friday Talks", url: "/lft/" },
+  { title: "Meetups & Conferences", url: "/meetups/" },
+  { title: "OSS", url: "/oss/" },
+  { title: "Search", url: "/search/", icon: "fa-search" },
+  { title: "Tags", url: "/tags/", icon: "fa-tags" },
+];
+---
+
+<header class="site-header">
+
+    <!-- Logo and title -->
+  <div class="branding">
+        <a href="/">
+      <img alt="logo img" class="avatar" src={siteAvatar} />
+    </a>
+        <a class="site-title" aria-label={siteTitle} href="/">
+        {siteTitle}
+    </a>
+  </div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        {navPages.map((page) => (
+          <>
+            <li class="separator"> | </li>
+            <li>
+              <a
+                class="clear"
+                aria-label={page.title}
+                title={page.title}
+                href={page.url}
+                aria-current={currentPath === page.url ? "page" : undefined}
+              >
+                {page.icon
+                  ? <i class={`fas ${page.icon}`} aria-hidden="true"></i>
+                  : page.title}
+              </a>
+            </li>
+          </>
+        ))}
+
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="" aria-label="" onclick="themeToggle()"></a></li>
+    </ul>
+
+  </nav>
+</header>
+
+<style lang="scss">
+  // Component-scoped overrides if needed
+</style>

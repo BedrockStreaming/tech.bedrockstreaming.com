@@ -1,0 +1,55 @@
+---
+import { siteIcons, iconMap } from '@/data/icons';
+
+// URL patterns from _data/icons_builder.yml
+const urlBuilders: Record<string, { pre: string; pos?: string }> = {
+  github: { pre: 'https://github.com/' },
+  linkedin: { pre: 'https://www.linkedin.com/company/' },
+  twitter: { pre: 'https://twitter.com/' },
+  youtube: { pre: 'https://www.youtube.com/channel/' },
+};
+
+interface FooterIcon {
+  brand: string;
+  url: string;
+  icon: string;
+  title: string;
+}
+
+// Build enabled icons list from siteIcons (mirrors _data/icons.yml non-empty values)
+const footerIcons: FooterIcon[] = Object.entries(siteIcons)
+  .filter(([, value]) => Boolean(value))
+  .map(([brand, id]) => {
+    const builder = urlBuilders[brand] ?? { pre: '' };
+    const url = `${builder.pre}${id}${builder.pos ?? ''}`;
+    const icon = iconMap[brand] ?? `fab fa-${brand}`;
+    // Mirror Liquid: brand | remove: '-' | capitalize
+    const label = brand.replace(/-/g, '').replace(/^\w/, (c) => c.toUpperCase());
+    return { brand, url, icon, title: `Follow on ${label}` };
+  });
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+    <p class="text">
+        Built with <a href="https://astro.build/">Astro</a> — originally based on <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a></p>
+            <div class="footer-icons">
+                <ul>
+                {footerIcons.map(({ url, icon, title }) => (
+                    <li>
+                        <a href={url}
+                           title={title}
+                           target="_blank"
+                           rel="noopener">
+                        <span class="fa-stack fa-lg">
+                          <i class="fas fa-circle fa-stack-2x"></i>
+                          <i class={`${icon} fa-stack-1x fa-inverse`}></i>
+                        </span>
+                        </a>
+                    </li>
+                ))}
+                </ul>
+            </div>
+    <p class="copyright">&copy; {currentYear} Bedrock</p>
+</footer>

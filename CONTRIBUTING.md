@@ -1,184 +1,175 @@
-# Contributing
+# Contributing to tech.bedrockstreaming.com
 
-## How to install the project?
+Welcome! This repo is the source of the Bedrock Tech Blog, built with [Astro](https://astro.build).
 
-### Using Visual Studio Code
+## Local Development
 
-1. Install Docker or Podman on your machine
-2. Open the project in Visual Studio Code
-3. Install the recommended [Remote Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension
-4. When VS code prompts you, agree to "Reopen in Container"
-5. The blog should be built, refreshed and opened in a preview tab automagically. ✨
-    - If not, you can run the "Jekyll Serve" VS Code task manually.
+### Prerequisites
 
-### With Ruby and Gem
+- Node.js 22+
+- npm
 
-```shell
-git clone https://github.com/BedrockStreaming/tech.bedrockstreaming.com.git
-cd tech.bedrockstreaming.com
-sudo gem install jekyll bundler
-bundle install
+### Setup
+
+```bash
+cd astro
+npm ci
+npm run dev
 ```
 
-Then run this command to run a dev server locally.
-```shell
-bundle exec jekyll serve
+The dev server runs at `http://localhost:4321`.
+
+### Project Layout
+
+```
+astro/
+├── astro.config.mjs       # Astro config (site, integrations, redirects)
+├── package.json
+├── public/                # Static assets (images/, assets/, CNAME, robots.txt)
+├── src/
+│   ├── content/           # Content collections
+│   │   ├── blog/         # Standard blog posts (.md)
+│   │   ├── conferences/  # Conference posts
+│   │   └── videos/       # LFT video posts
+│   ├── content.config.ts  # Content collection schemas (Zod)
+│   ├── data/              # Typed data (authors, language, social, icons, conferences, biblio)
+│   ├── styles/            # SCSS (Type-on-Strap-inspired)
+│   ├── components/        # Shared Astro components
+│   ├── layouts/           # Base, Post, Page, Conference, Video layouts
+│   └── pages/             # Routes
+└── scripts/
+    ├── migrate-jekyll.ts  # Historical: Jekyll → Astro migration script
+    └── verify-urls.mjs    # CI: verifies URL preservation
 ```
 
-:warning: There are some issues to run this project on M1 archi for now.
+## Writing a New Post
 
-### With docker
+1. Create a Markdown file in the appropriate collection:
+   - `astro/src/content/blog/YYYY-MM-DD-slug.md` for standard posts
+   - `astro/src/content/conferences/YYYY-MM-DD-slug.md` for conference recaps
+   - `astro/src/content/videos/YYYY-MM-DD-slug.md` for LFT talk recaps
 
-You can use docker to run the tech blog locally.
+2. Required frontmatter (see `astro/src/content.config.ts` for the full schema):
 
-```shell
-docker buildx build --platform linux/arm64 --load -t tech-blog .
-docker run -it -v $(pwd):/var/content:ro -p 8080:8080 -p 35729:35729 tech-blog:latest
+   For blog posts:
+   ```yaml
+   ---
+   title: Your post title
+   description: Short SEO description
+   author: your_author_key  # or [author1, author2] for multiple
+   tags: [tag1, tag2]
+   language: fr  # or 'en'
+   thumbnail: /images/posts/<slug>/thumb.jpg  # optional
+   ---
+   ```
+
+   For conference posts (add):
+   ```yaml
+   eventName: Forum PHP 2026
+   eventUrl: https://event.afup.org/...
+   slideshareKey: <key>  # optional
+   ```
+
+   For video posts (add):
+   ```yaml
+   youtubeId: <yt-id>  # REQUIRED
+   ```
+
+3. Add yourself to `astro/src/data/authors.ts` if you're a new author.
+
+4. Add images to `astro/public/images/posts/<slug>/`. Reference them as `/images/posts/<slug>/image.jpg`.
+   Don't forget to compress them with tools like [TinyPNG](https://tinypng.com/).
+
+5. Test locally: `cd astro && npm run dev`
+
+6. Open a PR. CI will build and verify URLs.
+
+## Features Available in Posts
+
+- **Markdown** — standard CommonMark + GFM
+- **MDX** — embed Astro components by using `.mdx` extension instead of `.md`
+- **Math** — KaTeX via `$inline$` and `$$block$$`
+- **Diagrams** — Mermaid via fenced code blocks: ` ```mermaid `
+- **Tweets** — `<blockquote class="twitter-tweet">...</blockquote>` (widgets.js auto-loaded)
+- **Slideshare** — set `slideshareKey:` in frontmatter (conference posts)
+- **Code highlighting** — fenced code blocks with language identifier
+- **Citations** — `<Citation key="ref1" />` (MDX only); add entries to `astro/src/data/biblio.ts`
+
+## Add a LFT Replay
+
+1. Create `astro/src/content/videos/YYYY-MM-DD-slug.md`. Use the date the talk was first given in public.
+2. Required frontmatter:
+   ```yaml
+   ---
+   title: Title of your talk
+   description: Description of the video
+   author: author_key
+   tags: [lft, and, other, tags]
+   youtubeId: <yt-id>
+   ---
+   ```
+3. Add content below the frontmatter for context.
+
+## Add a Conference
+
+### Just add to the conference list
+
+Add your entry to `astro/src/data/conferences.ts`:
+
+```typescript
+{
+  title: "Title of the conference",
+  date: new Date("1970-01-01"),
+  author: "conference_speaker",
+  eventName: "Event Name",
+  eventUrl: "https://...",         // optional
+  youtubeId: "...",                // optional
+  slideshareKey: "...",            // optional
+  sponsored: true,                 // optional, default false
+  hosted: true,                    // optional, default false
+}
 ```
 
-Then open your browser on `http://localhost:8080` to see the blog.
+### Create a conference post
 
-:warning: You may need to change the `docker buildx` command if you are not using an M1 Mac.
+1. Create `astro/src/content/conferences/YYYY-MM-DD-slug.md`
+2. Required frontmatter:
+   ```yaml
+   ---
+   title: Title of your conference
+   description: Description for SEO
+   author: conference_speaker
+   tags: [example, of, tags]
+   eventName: Event Name
+   eventUrl: https://...
+   slideshareKey: <key>  # optional
+   youtubeId: <yt-id>    # optional
+   ---
+   ```
+3. Add content below the frontmatter.
 
-## How to add an article to the blog?
- 
-All articles are listed in the `_posts` folder.
-Each article is a Markdown file named like this `YYYY-MM-DD-article-slug.md` where date is the date of publication.
-:information: If you put a future date of publication, your article won't be visible until this date is passed.
+## Add an Author
 
-Make sure to complete the _frontmatter_ part of your Markdown file in order to define at least those attributes:
+Edit `astro/src/data/authors.ts` to add an author (sorted alphabetically).
 
-```markdown
----
-layout: post
-title: Title of your article
-description: Description of your article visible in search page results
-author: author_of_your_article 
-tags: [example, of, tags]
-color: rgb(251,87,66) # this is Bedrock color here
----
-```
+Authors have: `name`, `url` (optional), `avatar` (optional — path under `astro/public/images/avatar/`).
 
-We are using a community theme for Jekyll for this blog, you may find some useful examples here:
-- [How to add Table of content for your blog post ?](https://sylhare.github.io/Type-on-Strap/2014/11/28/markdown-and-html.html)
-- [How to customize the color used on a post page ?](https://sylhare.github.io/Type-on-Strap/2019/05/18/color-post.html)
-- [How to use images in your post ?](https://sylhare.github.io/Type-on-Strap/2018/10/29/feature-images.html)
-  You can store your images in _images/post_ folder of this repository.  
-  Don't forget to compress them for performances with tools like [TinyPNG](https://tinypng.com/)
-- [How to add code examples ?](https://sylhare.github.io/Type-on-Strap/2014/08/08/Markup-Syntax-Highlighting.html)
-- [How to add simple Diagrams with _Mermaids_?](https://sylhare.github.io/Type-on-Strap/2019/11/02/Tech-stuff-example.html#mermaid)
-  Mermaid is a really powerful tool to generate Diagram dynamically with some text.
-  Check [Mermaid documentation](https://mermaid-js.github.io/mermaid/#/).
+## Migrating Legacy Posts
 
-In order to add a new article, you should open a Pull Request on this repository.
-A preview will automatically be deployed on AWS thanks to AWS Amplify service.
+The Jekyll source is preserved in git history. See:
+- `astro/scripts/migrate-jekyll.ts` — the original migration script
+- `astro/REVIEW.md` — the pixel-parity review checklist used during cutover
+- `ROLLBACK.md` — rollback procedure if cutover needs reversal
 
-Don't hesitate to share your new post of **#proj-blog-tech-bedrock** slack room to ask for reviews from Bedrockers.
+## PR Workflow
+
+- All PRs run `integration.yml` CI: `npm ci`, `astro check`, `npm run build`, `verify-urls.mjs`
+- On merge to master: `deployment.yml` deploys to GitHub Pages via `withastro/action`
+- PR previews are currently being evaluated post-cutover (see `.omo/notes/amplify-decision.md`)
+
+Don't hesitate to share your new post in **#proj-blog-tech-bedrock** Slack to ask for reviews.
 When you have 2 approves and no change requested, you can merge your Pull Request.
 
-## Add an author
+## Need help?
 
-Edit `_data/authors.yml` to add an author (authors are sorted alphabetically).
-
-Authors could have a `name`, a `url` and an `avatar` (which could be a distant file or an image hosted in the `images/avatar` directory).
-
-Then you will be able to use the author ID in the frontmatter post configuration key named `author`.
-
-## Add a LFT replay
-
-1. Create a file in the `__post` folder name matching this format `YYYY-MM-DD-slug-of-your-article.md`
-    Use the date the talk was first given in public.
-2. Add the configuration of metadata at the beginning of this file
-    > :warning: **To make your videos appear in either `Last Friday Talks`page, tag your post with `lft`.**
-    ```markdown
-    ---
-    layout: video
-    # Unique ID of the Youtube video clip
-    youtubeId: $$$$$$$ 
-    # Title of the article
-    title: Title of your article
-    # Description (for SEO and context purpose)
-    description: Description of your article visible in search page results
-    # Authors of the article (can also be a list of authors such as: [first_author, second_author, third_author])
-    # The complete list of valid author IDs is in `_data/authors.yml`
-    author: author_of_your_article
-    # Use tags for grouping content in the blog
-    # Add `lft` to group with other LFT talks
-    tags: [lft, and, other, tags]
-    # Bedrock color
-    color: rgb(251,87,66) 
-    ---
-    ```
-3. Add content to the markdown file in order to add context to the video you are sharing.
-
-
-## Add a conference
-
-There are two ways to publish a conference where you were a speaker.
-Please note that creating a post is more likely to help our external communication.
-
-### Publish information about the conference
-
-If you just want to add a conference presentation to the listed ones, you can add your presentation in `_data/conferences.yaml`.
-
-List of the metadata allowed to add a new conference:
-
-```markdown
-- title: "Title of the conference"
-  # Conference date
-  date: 1970-01-01
-  # from _data/authors.yaml
-  author: conference_speaker 
-  # Public event name
-  eventName: ******
-  # Url to redirect to the event site (optional)
-  eventUrl: ******
-  # Youtube video id (optional)
-  youtubeId: ******
-  # Slideshare presentation key (from iframe integration) (optional)
-  slideshareKey: ******
-  # Bedrock sponsored the event? (default: false)
-  sponsored: true
-  # Bedrock hosted the event? (default: false)
-  hosted: true
-```
-
-That's all folks! Your conference will be displayed in "Meetups & Conferences" page. 
-If there is a `youtubeId` key, the video will also be added to the "Replay" section.
-
-
-### Create a post to present the conference
-
-1. Create a file in `__post` folder name matching this format `YYYY-MM-DD-slug-of-your-article.md`
-    Use the date the talk was first given in public.
-2. Add the configuration of metadata at the beginning of this file:
-    ```markdown
-    ---
-    layout: conference
-    
-    # Title of the conference
-    title: Title of your conference
-    # Description of the page (for SEO and context purpose)
-    description: Description of your article visible in search page results
-    # from _data/authors.yaml
-    author: conference_speaker
-    # Public event name
-    eventName: ******
-    # Url to redirect to the event site (optional)
-    eventUrl: ******
-    # Youtube video id (optional)
-    youtubeId: ******
-    # Slideshare presentation key (from iframe integration) (optional)
-    slideshareKey: ******
-    # Bedrock sponsored the event? (default: false)
-    sponsored: true
-    # Bedrock hosted the event? (default: false)
-    hosted: true
-    
-    # Use tags for grouping content in the blog.
-    tags: [example, of, tags]
-    # this is Bedrock color here
-    color: rgb(251,87,66)
-    ---
-    ```
-3. Add content to the markdown file in order to add context to the presentation you are sharing.
+Open an issue or ping the team on Slack.

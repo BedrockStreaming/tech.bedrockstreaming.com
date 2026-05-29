@@ -1,26 +1,38 @@
-name: Continous Deployment
+name: Deploy Astro to GitHub Pages
 
 on:
   push:
     branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   build:
-    name: 'Build 📦 & Deploy 🚀'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-ruby@v1
-        with:
-          ruby-version: '3.3'
-      - run: gem install bundler
-      - run: bundle install --jobs 4 --retry 3
+      - uses: actions/checkout@v4
 
-      - name: 'Build 📦'
-        run: bundle exec jekyll build
-
-      - uses: JamesIves/github-pages-deploy-action@v4.3.4
-        name: 'Deploy 🚀'
+      - name: Install, build, and upload Astro site
+        uses: withastro/action@v3
         with:
-          folder: _site
-          clean: true
+          path: ./astro
+          node-version: 22
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,246 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import { conferences as confData, type Conference } from '@/data/conferences';
+import { authors } from '@/data/authors';
+import { getCollection } from 'astro:content';
+
+const confPosts = await getCollection('conferences');
+
+interface ConferenceItem {
+  title: string;
+  date: Date;
+  author: string[];
+  eventName?: string;
+  eventUrl?: string;
+  youtubeId?: string;
+  sponsored: boolean;
+  hosted: boolean;
+  url?: string;
+}
+
+interface EventGroup {
+  eventName?: string;
+  eventUrl?: string;
+  displayDate: string;
+  hosted: boolean;
+  sponsored: boolean;
+  talks: {
+    title: string;
+    url?: string;
+    author: string[];
+  }[];
+}
+
+interface YearGroup {
+  year: number;
+  events: EventGroup[];
+}
+
+function normalizeAuthor(author: string | string[] | undefined): string[] {
+  if (!author) return [];
+  return Array.isArray(author) ? author : [author];
+}
+
+function getPostUrl(id: string, date: Date, permalinkOverride?: string): string {
+  if (permalinkOverride) {
+    let p = permalinkOverride;
+    if (!p.startsWith('/')) p = '/' + p;
+    if (!p.endsWith('/')) p += '/';
+    return p;
+  }
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const slug = id
+    .replace(/\.(md|mdx)$/, '')
+    .replace(/^\d{4}-\d{2}-\d{2}-/, '');
+  return `/${year}/${month}/${day}/${slug}/`;
+}
+
+const dataEntries: ConferenceItem[] = confData.map((c: Conference) => ({
+  title: c.title,
+  date: new Date(c.date),
+  author: normalizeAuthor(c.author),
+  eventName: c.eventName,
+  eventUrl: c.eventUrl,
+  youtubeId: c.youtubeId,
+  sponsored: c.sponsored ?? false,
+  hosted: c.hosted ?? false,
+}));
+
+const postEntries: ConferenceItem[] = confPosts
+  .filter(p => p.data.date)
+  .map(p => ({
+    title: p.data.title,
+    date: new Date(p.data.date!),
+    author: normalizeAuthor(p.data.author),
+    eventName: p.data.eventName,
+    eventUrl: p.data.eventUrl,
+    sponsored: p.data.sponsored,
+    hosted: p.data.hosted,
+    url: getPostUrl(p.id, new Date(p.data.date!), p.data.permalinkOverride),
+  }));
+
+const allConferences: ConferenceItem[] = [...dataEntries, ...postEntries]
+  .sort((a, b) => b.date.getTime() - a.date.getTime());
+
+// Build year → eventName → talks map
+const yearMap = new Map<number, Map<string, ConferenceItem[]>>();
+for (const c of allConferences) {
+  const year = c.date.getFullYear();
+  const key = c.eventName ?? c.title;
+  if (!yearMap.has(year)) yearMap.set(year, new Map());
+  const em = yearMap.get(year)!;
+  if (!em.has(key)) em.set(key, []);
+  em.get(key)!.push(c);
+}
+
+const yearGroups: YearGroup[] = [...yearMap.entries()]
+  .sort(([a], [b]) => b - a)
+  .map(([year, em]) => ({
+    year,
+    events: [...em.entries()].map(([, talks]) => {
+      const first = talks[0];
+      return {
+        eventName: first.eventName,
+        eventUrl: first.eventUrl,
+        displayDate: first.date.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit' }),
+        hosted: first.hosted,
+        sponsored: first.sponsored,
+        talks: talks.map(t => ({
+          title: t.title,
+          url: t.url,
+          author: t.author,
+        })),
+      };
+    }),
+  }));
+
+const videoPosts = allConferences.filter(c => c.youtubeId);
+---
+
+<PageLayout
+  title="Meetups & Conferences"
+  description="Bedrock at meetups and conferences"
+  featureImg="/images/common/travel.jpg"
+>
+  <p>
+    Bedrock through its actions, sponsors events in France, hosts Meetup and conferences in its
+    auditorium. Each of those events is an opportunity for Bedrock members to give conferences in
+    France or abroad.
+  </p>
+  <p>
+    <em>⭐ sponsored by Bedrock</em><br />
+    <em>🏠 hosted by Bedrock</em>
+  </p>
+
+  {yearGroups.map(yg => (
+    <div>
+      <h3>{yg.year}</h3>
+      <ul>
+        {yg.events.map(ev => (
+          <li>
+            <span>
+              {ev.displayDate} :{' '}
+              {ev.eventUrl
+                ? <a href={ev.eventUrl} target="_blank" rel="noopener">{ev.eventName}</a>
+                : ev.eventName
+              }
+              {ev.hosted && <>{' '}🏠</>}
+              {ev.sponsored && <>{' '}⭐️</>}
+            </span>
+            <ul>
+              {ev.talks.map(talk => (
+                <li>
+                  {talk.url
+                    ? <a href={talk.url}>{talk.title}</a>
+                    : <>{talk.title}</>
+                  }
+                  {talk.author.length > 0 && (
+                    <span>
+                      {' '}-{' '}
+                      {talk.author.map((aKey, i) => {
+                        const info = authors[aKey];
+                        const name = info?.name ?? aKey;
+                        const sep = i < talk.author.length - 1 ? ', ' : '';
+                        return info?.url
+                          ? <><a href={info.url}>{name}</a>{sep}</>
+                          : <>{name}{sep}</>;
+                      })}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+
+  {videoPosts.length > 0 && (
+    <div>
+      <h2>Replays</h2>
+      <p>Here is the list of the replay of talks given during these events:</p>
+      <section class="video-list">
+        {videoPosts.map(post => {
+          const info = post.author[0] ? authors[post.author[0]] : undefined;
+          const url = post.url ?? `https://www.youtube.com/watch?v=${post.youtubeId}`;
+          const dateStr = post.date.toLocaleDateString('en-US', {
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric',
+          });
+          return (
+            <div class="card">
+              <a href={url}>
+                <img
+                  loading="lazy"
+                  src={`https://img.youtube.com/vi/${post.youtubeId}/hqdefault.jpg`}
+                  alt=""
+                />
+              </a>
+              <div class="card-body">
+                <a href={url}><h5 class="card-title">{post.title}</h5></a>
+                <div class="card-content">
+                  {info?.name && <div>{info.name}</div>}
+                  <div>{dateStr}</div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </section>
+    </div>
+  )}
+</PageLayout>
+
+<style>
+  .video-list {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    gap: 32px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  .card { width: 100%; }
+  .card img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    padding: 0;
+  }
+  .card-content {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+  }
+  .card-title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+  }
+</style>

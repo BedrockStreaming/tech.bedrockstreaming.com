@@ -1,0 +1,51 @@
+---
+import { socialPlatforms } from '@/data/social';
+
+interface Props {
+  url: URL | string;
+  title: string;
+}
+
+const { url, title } = Astro.props;
+const urlString = url.toString();
+const enabledPlatforms = socialPlatforms.filter((platform) => platform.enabled);
+---
+
+{enabledPlatforms.length > 0 && (
+  <div class="share-buttons">
+    <ul class="share-buttons">
+      <li class="meta">Share</li>
+      {enabledPlatforms.map((platform) => {
+        const label =
+          platform.name === 'email'
+            ? 'Email'
+            : platform.name === 'twitter'
+              ? 'Tweet'
+              : platform.name === 'pinterest'
+                ? 'Pin it'
+                : platform.name === 'linkedin'
+                  ? 'Share on LinkedIn'
+                  : platform.name === 'facebook'
+                    ? 'Share on Facebook'
+                    : platform.name === 'tumblr'
+                      ? 'Share on Tumblr'
+                      : platform.name === 'pocket'
+                        ? 'Add to Pocket'
+                        : platform.name === 'reddit'
+                          ? 'Share on Reddit'
+                          : platform.name === 'wordpress'
+                            ? 'Share on WordPress'
+                            : `Share on ${platform.name}`;
+
+        return (
+          <li>
+            <a href={platform.urlTemplate(urlString, title)} target="_blank" title={label}>
+              <i class={platform.icon} aria-hidden="true"></i>
+              <span class="sr-only">{label}</span>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+)}

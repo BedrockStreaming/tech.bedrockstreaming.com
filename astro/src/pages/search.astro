@@ -1,0 +1,27 @@
+---
+/**
+ * search.astro — Client-side search powered by Pagefind.
+ * Mirrors pages/search.md + _layouts/search.liquid (Jekyll).
+ * Pagefind index is built post-build via `pagefind --site dist`.
+ */
+import PageLayout from '@/layouts/PageLayout.astro';
+---
+<PageLayout
+  title="Search"
+  description="Search the Bedrock Tech Blog"
+  subtitle="What are you looking for?"
+>
+  <div id="search"></div>
+</PageLayout>
+
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+<script src="/pagefind/pagefind-ui.js" is:inline></script>
+<script is:inline>
+  window.addEventListener('DOMContentLoaded', () => {
+    new PagefindUI({
+      element: '#search',
+      showSubResults: true,
+      showImages: false,
+    });
+  });
+</script>
