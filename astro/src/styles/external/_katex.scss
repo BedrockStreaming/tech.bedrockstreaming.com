@@ -1,5 +1,5 @@
 /* Custom */
-$katex-font-path: "../../assets/fonts/katex" !default;
+$katex-font-path: "/assets/fonts/katex" !default;
 .katex-display {
   @media screen and (max-width: $sm-break) {
     overflow-x: auto;
