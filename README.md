@@ -18,7 +18,7 @@
 
 Built with [Astro](https://astro.build) + Content Collections + TypeScript. Deployed to GitHub Pages.
 
-The site was migrated from Jekyll to Astro in 2026. See [astro/REVIEW.md](/astro/REVIEW.md) for the migration review checklist and [ROLLBACK.md](/ROLLBACK.md) for rollback details.
+The site was migrated from Jekyll to Astro in 2026. See [astro/REVIEW.md](/astro/REVIEW.md) for the migration review checklist.
 
 ## Show your support
 

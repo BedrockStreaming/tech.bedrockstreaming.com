@@ -165,10 +165,22 @@ The Jekyll source is preserved in git history. See:
 
 - All PRs run `integration.yml` CI: `npm ci`, `astro check`, `npm run build`, `verify-urls.mjs`
 - On merge to master: `deployment.yml` deploys to GitHub Pages via `withastro/action`
-- PR previews are currently being evaluated post-cutover (see `.omo/notes/amplify-decision.md`)
+- Every PR gets a live preview deployment on AWS Amplify (see below)
 
 Don't hesitate to share your new post in **#proj-blog-tech-bedrock** Slack to ask for reviews.
 When you have 2 approves and no change requested, you can merge your Pull Request.
+
+## PR Previews
+
+Every pull request automatically gets a preview deployment on AWS Amplify
+(configured via `amplify.yml` at the repo root). The preview URL is posted
+as a status check on the PR.
+
+If the Amplify build fails:
+- Check the Amplify console for build logs
+- Verify Node version (Amplify uses Node 22 per `amplify.yml`)
+- Verify `astro/package-lock.json` is up to date with `astro/package.json`
+- See `ROLLBACK.md` for migration rollback if needed
 
 ## Need help?
 
