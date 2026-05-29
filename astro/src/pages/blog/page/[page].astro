@@ -2,7 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Navbar from '@/components/Navbar.astro';
 import Footer from '@/components/Footer.astro';
-import TagList from '@/components/TagList.astro';
+import PostTeaser from '@/components/PostTeaser.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import type { GetStaticPaths, Page } from 'astro';
 
@@ -45,17 +45,19 @@ function getPostUrl(post: any): string {
 
   <main class="blog-index">
     <h1>Blog</h1>
-    <ul class="posts">
+    <div class="posts">
       {page.data.map((post: any) => (
-        <li class="post-teaser">
-          <a href={getPostUrl(post)}>
-            <h2>{post.data.title}</h2>
-            {post.data.description && <p>{post.data.description}</p>}
-          </a>
-          {post.data.tags && post.data.tags.length > 0 && <TagList tags={post.data.tags} />}
-        </li>
+        <PostTeaser
+          url={getPostUrl(post)}
+          title={post.data.title}
+          thumbnail={post.data.thumbnail}
+          description={post.data.description}
+          author={post.data.author}
+          date={post.data.date}
+          lang={post.data.language ?? 'fr'}
+        />
       ))}
-    </ul>
+    </div>
 
     <nav class="blog-nav">
       {page.url.prev && <a href={page.url.prev} rel="prev">← Prev</a>}

@@ -1,0 +1,40 @@
+---
+import { getAuthors, type Author } from '@/data/authors';
+import { t, type Locale } from '@/data/language';
+
+interface Props {
+  authors?: string | string[];
+  date?: Date | string;
+  lang?: Locale;
+}
+
+const { authors: authorKeys, date, lang = 'fr' } = Astro.props;
+const strings = t(lang);
+
+const authors: Author[] = authorKeys ? getAuthors(authorKeys) : [];
+
+const postDate = date ? new Date(date) : null;
+const day = postDate ? String(postDate.getDate()).padStart(2, '0') : '';
+const month = postDate ? strings.str_months[postDate.getMonth()] : '';
+const year = postDate ? postDate.getFullYear() : '';
+const formattedDate = postDate ? `${month} ${day}, ${year}` : '';
+---
+<div class="post-info">
+  {authors.map((author) => (
+    <>
+      {author.url ? (
+        <a href={author.url} target="_blank" rel="noopener" class="author">
+          {author.avatar && <img alt="Author's avatar" src={author.avatar} class="thumbnail" />}
+          {author.name && <span class="name">{author.name}</span>}
+        </a>
+      ) : (
+        <span class="author">
+          {author.avatar && <img alt="Author's avatar" src={author.avatar} class="thumbnail" />}
+          {author.name && <span class="name">{author.name}</span>}
+        </span>
+      )}
+      <span class="spacer"> - </span>
+    </>
+  ))}
+  {formattedDate && <span class="publication-date">{formattedDate}</span>}
+</div>

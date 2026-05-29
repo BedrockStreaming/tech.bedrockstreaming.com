@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Navbar from '@/components/Navbar.astro';
 import Footer from '@/components/Footer.astro';
+import PostTeaser from '@/components/PostTeaser.astro';
 import { getCollection } from 'astro:content';
 
 // Merge all 3 collections
@@ -63,29 +64,15 @@ const headerText = 'Creating Streaming Champions';
         </article>
       )}
       {recentPosts.map(post => (
-        <div class="post-teaser">
-          {post.data.thumbnail && (
-            <div class="post-img">
-              <a aria-label={post.data.title} href={getPostUrl(post)}>
-                <img alt={post.data.title} src={post.data.thumbnail} />
-              </a>
-            </div>
-          )}
-          <span>
-            <header>
-              <h1>
-                <a aria-label={post.data.title} class="post-link" href={getPostUrl(post)}>
-                  {post.data.title}
-                </a>
-              </h1>
-            </header>
-            {post.data.description && (
-              <div class="excerpt">
-                {post.data.description}
-              </div>
-            )}
-          </span>
-        </div>
+        <PostTeaser
+          url={getPostUrl(post)}
+          title={post.data.title}
+          thumbnail={post.data.thumbnail}
+          description={post.data.description}
+          author={post.data.author}
+          date={post.data.date}
+          lang={post.data.language ?? 'fr'}
+        />
       ))}
     </div>
 
