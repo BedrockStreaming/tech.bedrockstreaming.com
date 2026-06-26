@@ -1,5 +1,9 @@
 ---
 title: Introduction à la qualité logicielle avec Node.js
+description: >-
+  Retour d'expérience M6Web sur l'outillage qualité de nos projets Node.js :
+  tests unitaires avec Mocha et Chai, fonctionnels avec Supertest, checkstyle
+  JsHint et intégration continue Jenkins.
 tags:
   - nodejs
   - javascript

@@ -1,5 +1,9 @@
 ---
 title: Organiser des conférences technique en interne
+description: >-
+  Présentation des Last Friday Talk : retour d'expérience M6Web sur
+  l'organisation de conférences techniques mensuelles internes pour partager
+  la veille et créer du Team Building.
 tags:
   - conference
   - culture

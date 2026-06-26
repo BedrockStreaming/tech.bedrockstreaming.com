@@ -1,5 +1,9 @@
 ---
 title: 'JenkinsLight, mettez en lumière vos jobs Jenkins'
+description: >-
+  Présentation de JenkinsLight, notre outil open source basé sur AngularJS
+  qui affiche en quasi temps réel le statut des jobs Jenkins sur un Panic
+  Board mural.
 tags:
   - outil
   - jenkins

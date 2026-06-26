@@ -1,5 +1,9 @@
 ---
 title: 'CR Velocity Conférence Europe 2012 : Day 3'
+description: >-
+  Compte rendu de la dernière journée de la Velocity Europe 2012 : SPOF des
+  scripts tiers, WebPageTest avancé, HTTP/2.0 basé sur SPDY et expérience
+  multi-plateforme.
 tags:
   - conference
   - velocity

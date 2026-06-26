@@ -1,5 +1,9 @@
 ---
 title: Velocity Europe 2013 - Day 2
+description: >-
+  Compte rendu de la deuxième journée de la Velocity Europe 2013 à Londres :
+  performances gov.uk, HTTP Archive sur BigQuery, capacity planning Twitter
+  et casser la barrière des 1000ms en mobile.
 tags:
   - conference
   - velocity

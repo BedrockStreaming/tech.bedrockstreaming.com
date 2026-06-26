@@ -1,5 +1,8 @@
 ---
 title: 'M6Web Dev Facts #1'
+description: >-
+  Sélection humoristique des plus belles phrases prononcées par les équipes
+  techniques de M6Web Lyon.
 tags:
   - humour
   - devfacts

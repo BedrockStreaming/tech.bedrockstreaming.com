@@ -1,5 +1,9 @@
 ---
 title: 'CR Velocity Conference 2012 : Day 3 (DevOps/WebPerf)'
+description: >-
+  Compte rendu de la dernière journée de la Velocity Conference 2012 :
+  WebApps vs Apps, Akamai Insights, YSlow sur Node.js et PhantomJS, et
+  optimisation CSS.
 tags:
   - velocity
   - conference

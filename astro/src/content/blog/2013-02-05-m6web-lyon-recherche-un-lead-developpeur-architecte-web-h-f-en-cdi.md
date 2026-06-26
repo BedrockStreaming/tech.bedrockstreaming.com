@@ -1,5 +1,9 @@
 ---
 title: M6Web Lyon recherche un Lead Developpeur / Architecte web (H/F) en CDI
+description: >-
+  M6Web Lyon recrute en CDI un Lead Développeur LAMP expert PHP 5.4, MySQL,
+  Symfony2 et Git capable d'encadrer une équipe sur des sites à très forte
+  charge.
 tags:
   - recrutement
 comments: false

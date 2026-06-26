@@ -2,6 +2,9 @@
 title: >-
   Retrouvez l'intervention du CTO de M6 Web, Martin Boronski, à la table ronde
   du Forum PHP 2012
+description: >-
+  Vidéo de l'intervention de Martin Boronski, CTO de M6 Web, lors de la table
+  ronde DSI organisée pendant le Forum PHP 2012.
 tags:
   - forumphp
   - afup

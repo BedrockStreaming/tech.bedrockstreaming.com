@@ -1,5 +1,9 @@
 ---
 title: Velocity Europe 2013 - Day 1
+description: >-
+  Compte rendu de la première journée de la Velocity Europe 2013 à Londres :
+  rendering 60fps, détection d'anomalies chez Etsy, images responsive, JVM
+  et tuning réseau par Ilya Grigorik.
 tags:
   - conference
   - velocity

@@ -1,5 +1,8 @@
 ---
 title: 'Le NoSQL, Focus sur MongoDB par Cédric Derue (Altran)'
+description: >-
+  Vidéo d'un Last Friday Talk avec Cédric Derue (Altran) : tour d'horizon des
+  bases NoSQL puis focus complet sur MongoDB avec démonstrations.
 tags:
   - lft
   - nosql

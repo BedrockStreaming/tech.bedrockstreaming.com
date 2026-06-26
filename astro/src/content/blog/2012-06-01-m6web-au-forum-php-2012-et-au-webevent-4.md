@@ -1,5 +1,8 @@
 ---
 title: 'M6Web au Forum PHP 2012 et au WebEvent #4'
+description: >-
+  M6Web sponsorise le Forum PHP 2012 et le Web Event Lyon #4 avec des
+  interventions sur le monitoring applicatif et une keynote AFUP.
 tags:
   - php
   - afup

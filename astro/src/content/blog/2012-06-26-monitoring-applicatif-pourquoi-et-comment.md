@@ -1,5 +1,8 @@
 ---
 title: 'Monitoring applicatif : Pourquoi et comment ?'
+description: >-
+  Slides de la conférence donnée au Forum PHP 2012 et au WebEvent 4 : mettre
+  en place un monitoring applicatif complet avec StatsD, Graphite et Log BDD.
 tags:
   - monitoring
   - graphite

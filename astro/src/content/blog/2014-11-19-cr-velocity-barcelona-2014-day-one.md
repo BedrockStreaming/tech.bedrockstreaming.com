@@ -1,5 +1,9 @@
 ---
 title: Retour sur la Velocity Barcelone - premier jour
+description: >-
+  Compte rendu de la première journée de la Velocity Europe 2014 à Barcelone :
+  diversité dans la tech, refonte du Financial Times, performance TLS et
+  détection d'anomalies chez Twitter.
 tags:
   - conference
   - velocity

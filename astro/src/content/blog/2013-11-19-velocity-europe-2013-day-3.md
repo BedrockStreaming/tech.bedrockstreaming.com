@@ -1,5 +1,9 @@
 ---
 title: Velocity Europe 2013 - Day 3
+description: >-
+  Compte rendu de la dernière journée de la Velocity Europe 2013 : WebP et
+  JPEG XR, RWD chez BBC News, automatisation WebPageTest, sécurité par OWASP
+  ZAP et accélération du rendu Chrome.
 tags:
   - conference
   - velocity

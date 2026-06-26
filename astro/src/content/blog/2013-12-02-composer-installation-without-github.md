@@ -2,6 +2,9 @@
 title: >-
   Composer installation without github.com (nor packagist) dependency - like a
   boss !
+description: >-
+  How we deploy PHP applications without depending on github.com or
+  packagist availability, using Satis instances mirrored to AWS S3 buckets.
 tags:
   - satis
   - composer

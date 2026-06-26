@@ -1,5 +1,9 @@
 ---
 title: 'CR Velocity Conférence Europe 2012 : Day 1'
+description: >-
+  Compte rendu de la première journée de la Velocity Europe 2012 à Londres :
+  monitoring d'architectures complexes, gestion d'incidents, dashboards
+  WebPerf et analyse Premier League par Steve Souders.
 tags:
   - velocity
   - conference

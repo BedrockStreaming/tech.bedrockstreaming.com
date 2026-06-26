@@ -1,5 +1,9 @@
 ---
 title: How a fullscreen video mode ended up implementing React Native Portals?
+description: >-
+  How implementing a fullscreen video mode on the 6Play Refresh module led
+  to the creation of rn-reparentable, a React Native module providing
+  native-side portals for declarative view teleportation.
 category: 6play
 tags:
   - React

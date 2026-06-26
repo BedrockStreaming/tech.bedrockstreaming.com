@@ -1,5 +1,9 @@
 ---
 title: Tester fonctionnellement une API REST
+description: >-
+  Retour d'expérience sur les tests fonctionnels d'une API REST Symfony2 +
+  Doctrine + atoum : alternatives au mock de Doctrine et utilisation de
+  SQLite à la place de MySQL pour isoler les builds.
 tags:
   - qualite
   - symfony

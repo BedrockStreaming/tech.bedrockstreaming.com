@@ -1,5 +1,8 @@
 ---
 title: Encodage - packaging - DRM - tout sur la vidéo
+description: >-
+  Vidéo d'un Last Friday Talk qui met à plat les termes du monde de la vidéo :
+  encodage, transcodage, packaging et DRM.
 tags:
   - video
   - codec

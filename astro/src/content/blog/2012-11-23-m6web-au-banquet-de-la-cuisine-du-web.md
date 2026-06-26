@@ -1,5 +1,8 @@
 ---
 title: M6Web au banquet de la cuisine du web
+description: >-
+  L'équipe M6Web présente au banquet de la Cuisine du Web avec la fine fleur
+  du web lyonnais.
 tags:
   - conference
   - lcdw

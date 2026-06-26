@@ -1,5 +1,8 @@
 ---
 title: 'Coke, pour bien sniffer son code'
+description: >-
+  Présentation de Coke, notre script open source qui lance PHP CodeSniffer
+  avec une configuration par projet et s'intègre dans un hook git pre-commit.
 tags:
   - outil
   - qualite

@@ -1,5 +1,9 @@
 ---
 title: Retour sur la Velocity Barcelone - seconde journée
+description: >-
+  Compte rendu de la deuxième journée de la Velocity Europe 2014 à Barcelone :
+  CI mobile chez Etsy, breaking news en 1000ms au Guardian, microservices
+  et bonnes pratiques d'alerting.
 tags:
   - conference
   - velocity

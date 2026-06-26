@@ -1,5 +1,9 @@
 ---
 title: La POO Canada Dry
+description: >-
+  Vidéo d'un Last Friday Talk d'Olivier Mansour sur les concepts vitaux de
+  la Programmation Orientée Objet à travers des exemples de code legacy et
+  de bonnes pratiques.
 tags:
   - php
   - poo

@@ -1,5 +1,9 @@
 ---
 title: Tentative d'explication des Fast-Forward sous Git
+description: >-
+  Explication détaillée du fonctionnement des fast-forward sous Git : merge
+  automatique, gestion des branches divergentes et utilisation de l'option
+  --no-ff.
 tags:
   - git
 comments: true

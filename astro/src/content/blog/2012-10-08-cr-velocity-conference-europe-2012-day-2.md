@@ -1,5 +1,9 @@
 ---
 title: 'CR Velocity Conférence Europe 2012 : Day 2'
+description: >-
+  Compte rendu de la deuxième journée de la Velocity Europe 2012 : déploiement
+  rapide chez Facebook, Box Anemometer pour MySQL, HTML5 mobile et scaling
+  d'Instagram.
 tags:
   - velocity
   - conference

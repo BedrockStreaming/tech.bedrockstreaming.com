@@ -1,5 +1,9 @@
 ---
 title: Benchmarking WebSockets avec NodeJs
+description: >-
+  Retour d'expérience sur la scalabilité d'une application Node.js timeline
+  temps réel : migration de socket.io vers Faye et présentation de notre outil
+  open source websocket-bench.
 tags:
   - nodejs
   - websockets

@@ -1,5 +1,8 @@
 ---
 title: Intégration continue avec Jenkins et Atoum
+description: >-
+  Mise en place de l'intégration continue chez M6Web avec Jenkins et Atoum :
+  structure de composant PSR-0, configuration et couverture de code.
 tags:
   - php
   - atoum

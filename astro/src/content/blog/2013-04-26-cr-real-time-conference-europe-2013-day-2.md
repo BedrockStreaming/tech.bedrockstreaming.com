@@ -1,5 +1,9 @@
 ---
 title: CR Real Time Conférence Europe 2013 - Day 2
+description: >-
+  Compte rendu de la deuxième journée de la Real Time Conférence Europe 2013
+  à Lyon : édition collaborative WOOT, JSON conventions, DiscoRank
+  SoundCloud, SignalR et UX temps réel.
 tags:
   - conference
   - nodejs

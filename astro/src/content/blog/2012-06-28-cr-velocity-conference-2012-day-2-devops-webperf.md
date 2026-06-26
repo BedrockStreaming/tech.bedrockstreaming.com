@@ -1,5 +1,9 @@
 ---
 title: 'CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)'
+description: >-
+  Compte rendu de la deuxième journée de la Velocity Conference 2012 :
+  infrastructure Facebook, gestion d'incidents, Real User Monitoring et
+  performances CSS3.
 tags:
   - velocity
   - conference

@@ -1,5 +1,8 @@
 ---
 title: 'M6Web Dev Facts #2'
+description: >-
+  Deuxième volet des phrases cultes prononcées par nos développeurs M6Web
+  lors de leurs petits oublis cérébraux.
 tags:
   - humour
   - devfacts

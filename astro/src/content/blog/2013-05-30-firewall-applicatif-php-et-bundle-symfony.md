@@ -1,5 +1,9 @@
 ---
 title: Firewall applicatif PHP et bundle Symfony
+description: >-
+  Publication open source de notre firewall applicatif : un composant PHP et
+  un bundle Symfony pour restreindre l'accès des IPs avec listes
+  hiérarchisées et configurations prédéfinies.
 tags:
   - outil
   - php

@@ -1,5 +1,9 @@
 ---
 title: 'CR Velocity Conference 2012 : Day 1 (Dev/Webperf)'
+description: >-
+  Compte rendu de la première journée de la Velocity Conference 2012 à Santa
+  Clara : tutoriaux WebPerf, métriques de performance, optimisation mobile et
+  dashboards.
 tags:
   - velocity
   - conference

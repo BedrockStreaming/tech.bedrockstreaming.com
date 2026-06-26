@@ -1,5 +1,9 @@
 ---
 title: Bedrock au Devoxx 2025
+description: >-
+  Retour sur le Devoxx 2025 au Palais des Congrès de Paris : présentation
+  Bedrock sur les load tests M6+ pour l'Euro 2024, GitButler, Copilot,
+  Kubernetes, IA générative, architecture et OAuth2/OpenID Connect.
 tags:
   - devoxx
   - conference

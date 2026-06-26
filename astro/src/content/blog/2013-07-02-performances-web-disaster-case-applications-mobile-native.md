@@ -1,5 +1,9 @@
 ---
 title: Performances web et "Disaster case" sur applications mobile native
+description: >-
+  Tutoriel pour mesurer les performances réseau d'applications mobiles
+  natives avec CharlesProxy : Waterfall Charts, throttling 3G et tests de
+  disaster case via Blackhole.
 tags:
   - webperf
   - mobile

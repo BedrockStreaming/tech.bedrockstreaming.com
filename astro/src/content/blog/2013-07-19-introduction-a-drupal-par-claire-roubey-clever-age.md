@@ -1,5 +1,8 @@
 ---
 title: Introduction à Drupal par Claire Roubey (Clever Age)
+description: >-
+  Vidéo d'un Last Friday Talk avec Claire Roubey (Clever Age) qui présente le
+  CMS Drupal aux équipes M6Web.
 tags:
   - lft
   - drupal

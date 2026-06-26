@@ -1,5 +1,9 @@
 ---
 title: CR Real Time Conférence Europe 2013 - Day 1
+description: >-
+  Compte rendu de la première journée de la Real Time Conférence Europe 2013
+  à Lyon : Websockets, ZeroMQ, WebRTC, Bacon.js, RabbitMQ et CouchDB
+  Offline-first.
 tags:
   - conference
   - nodejs

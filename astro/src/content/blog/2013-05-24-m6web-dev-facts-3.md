@@ -1,5 +1,8 @@
 ---
 title: 'M6Web Dev Facts #3'
+description: >-
+  Troisième épisode des phrases cultes et perles humoristiques de nos
+  équipes techniques M6Web.
 tags:
   - devfacts
   - humour

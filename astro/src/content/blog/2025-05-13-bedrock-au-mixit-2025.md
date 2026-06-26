@@ -1,5 +1,9 @@
 ---
 title: Bedrock au MiXiT 2025
+description: >-
+  Retour sur le MiXiT 2025 à Lyon : pseudo-sciences en management, mesure
+  et chiffres, pattern Hive, TUI, onboarding des devs, réseaux sociaux,
+  accidents du travail et informatique quantique.
 tags:
   - conference
   - lyon

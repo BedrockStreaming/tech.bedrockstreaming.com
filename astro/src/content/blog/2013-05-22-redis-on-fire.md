@@ -1,5 +1,8 @@
 ---
 title: Redis on fire !
+description: >-
+  Vidéo d'un Last Friday Talk de Kenny Dits sur Redis et les cas d'utilisation
+  de cette technologie NoSQL.
 tags:
   - redis
   - nosql

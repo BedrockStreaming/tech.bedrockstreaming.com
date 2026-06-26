@@ -1,5 +1,8 @@
 ---
 title: Performances PHP chez M6Web
+description: >-
+  Slides de la présentation donnée à l'Epitech de Lyon : retour d'expérience
+  sur les axes d'optimisation des sites M6Web.
 tags:
   - graphite
   - monitoring

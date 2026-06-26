@@ -1,5 +1,9 @@
 ---
 title: 'Vigo, le fléau des Carpates'
+description: >-
+  Présentation de VigoJS, notre surcouche open source pour CasperJS qui
+  facilite l'écriture des tests fonctionnels web : configuration multi-env,
+  utilitaires et intégration continue.
 tags:
   - outil
   - qualite

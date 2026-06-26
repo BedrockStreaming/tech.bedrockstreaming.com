@@ -1,5 +1,9 @@
 ---
 title: Lancement du blog technique d'M6Web
+description: >-
+  Bienvenue sur le blog de la direction technique de M6 Web : retours
+  d'expérience et articles sur PHP, MySQL, Node.js, performance, monitoring,
+  vidéo, HTML5 et plus.
 tags: []
 comments: true
 author: bedrock

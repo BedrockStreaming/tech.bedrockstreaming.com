@@ -1,5 +1,8 @@
 ---
 title: M6 Web était présent au Forum PHP 2012
+description: >-
+  Retour en images sur la présence des équipes M6Web au Forum PHP 2012 :
+  conférence monitoring, table ronde DSI et participation AFUP.
 tags:
   - afup
   - forumphp

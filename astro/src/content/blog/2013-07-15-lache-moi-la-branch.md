@@ -1,5 +1,9 @@
 ---
 title: Lâche moi la branch !
+description: >-
+  Mise en place du test continu des Pull Requests GitHub avec Jenkins et le
+  plugin GitHub Pull Request Builder pour automatiser le workflow de
+  déploiement.
 tags:
   - qualite
   - jenkins

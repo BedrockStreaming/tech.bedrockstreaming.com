@@ -1,5 +1,9 @@
 ---
 title: The 6play platform goes international
+description: >-
+  In less than a year, m6web and techm6web launched websites and mobile
+  apps for three RTL TV channels in Belgium, Croatia and Hungary based on
+  the 6play technology.
 category: 6play
 tags:
   - 6play

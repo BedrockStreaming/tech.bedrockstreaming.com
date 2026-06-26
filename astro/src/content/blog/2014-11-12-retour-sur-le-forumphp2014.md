@@ -1,5 +1,9 @@
 ---
 title: Retour sur le forum PHP 2014 organisé par l'AFUP
+description: >-
+  Compte rendu des conférences marquantes du Forum PHP 2014 de l'AFUP :
+  twelve-factor app avec Docker, Lean Startup, PHP dans les RPM, Laravel
+  et avenir de PHP.
 tags:
   - afup
   - php

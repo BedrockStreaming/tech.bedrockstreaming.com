@@ -1,5 +1,8 @@
 ---
 title: 'M6Web Dev Facts #5'
+description: >-
+  Cinquième sélection de phrases chocs prononcées par nos développeurs M6Web,
+  servies un vendredi pour faire sourire.
 tags:
   - devfacts
   - humour

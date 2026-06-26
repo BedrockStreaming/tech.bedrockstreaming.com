@@ -1,5 +1,9 @@
 ---
 title: CR Conférence Agora Cms du 15 mai 2013
+description: >-
+  Compte rendu de la première édition de l'AgoraCMS à Paris : écosystème
+  des CMS, analyse de logs, Drupal, responsive design et retour d'expérience
+  France Télévisions.
 tags:
   - conference
   - cms

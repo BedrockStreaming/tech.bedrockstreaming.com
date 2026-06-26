@@ -1,5 +1,8 @@
 ---
 title: 'M6Web Dev Facts #4'
+description: >-
+  Quatrième volet des phrases chocs entendues dans les bureaux de M6Web pour
+  un vendredi placé sous le signe de l'humour.
 tags:
   - devfacts
   - humour

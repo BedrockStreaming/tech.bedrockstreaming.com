@@ -1,5 +1,8 @@
 ---
 title: 'M6Web au Web Event Lyon #4'
+description: >-
+  Photo souvenir de l'équipe M6 Web présente au Web Event Lyon #4 organisé par
+  La ferme du Web.
 tags:
   - webevent
 comments: true
