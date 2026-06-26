@@ -1,0 +1,12 @@
+---
+interface Props {
+  id: string;
+  user?: string;
+}
+
+const { id, user = 'unknown' } = Astro.props;
+const tweetUrl = `https://twitter.com/${user}/status/${id}`;
+---
+<blockquote class="twitter-tweet">
+  <a href={tweetUrl}>Tweet</a>
+</blockquote>

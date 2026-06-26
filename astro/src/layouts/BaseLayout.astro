@@ -1,0 +1,113 @@
+---
+/**
+ * BaseLayout — canonical HTML shell for every page on tech.bedrockstreaming.com.
+ *
+ * Responsibilities:
+ *   - <head> meta (title, description, canonical, favicon, RSS alternate)
+ *   - Open Graph + Twitter Card tags
+ *   - Inline dark-mode init (runs BEFORE first paint to prevent FOUC)
+ *   - Matomo analytics (env-gated by PUBLIC_MATOMO_ENABLED — absent when "false")
+ *   - KaTeX CSS imported globally for math rendering across all pages
+ *   - Named slots: `head`, `header`, `footer` plus the default content slot
+ *
+ * Matomo config (Bedrock production):
+ *   Site ID: 2
+ *   URL:     https://bedrockstreaming.matomo.cloud/
+ */
+import '../styles/global.scss';
+import 'katex/dist/katex.min.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  lang?: 'fr' | 'en';
+  canonicalURL?: URL | string;
+  bodyClass?: string;
+}
+
+const {
+  title,
+  description = 'Blog technique de Bedrock',
+  ogImage = '/images/common/banner_xl.jpg',
+  ogType = 'website',
+  lang = 'fr',
+  canonicalURL = new URL(Astro.url.pathname, Astro.site),
+  bodyClass,
+} = Astro.props;
+
+const fullTitle = title === 'Bedrock Tech Blog' ? title : `${title} | Bedrock Tech Blog`;
+const matomoEnabled = import.meta.env.PUBLIC_MATOMO_ENABLED !== 'false';
+const ogImageURL = new URL(ogImage, Astro.site).href;
+const canonicalHref = canonicalURL.toString();
+---
+<!doctype html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalHref} />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="alternate" type="application/rss+xml" title="Bedrock Tech Blog RSS" href="/feed.xml" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageURL} />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:url" content={canonicalHref} />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@Bedrock_Tech" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL} />
+
+  <!-- Dark mode init (BEFORE first paint to prevent FOUC) -->
+  <script is:inline>
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = stored || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+
+  {matomoEnabled && (
+    <script is:inline>
+      var _paq = window._paq = window._paq || [];
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function () {
+        var u = "https://bedrockstreaming.matomo.cloud/";
+        _paq.push(['setTrackerUrl', u + 'matomo.php']);
+        _paq.push(['setSiteId', '2']);
+        var d = document,
+          g = d.createElement('script'),
+          s = d.getElementsByTagName('script')[0];
+        g.async = true;
+        g.src = '//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js';
+        s.parentNode.insertBefore(g, s);
+      })();
+    </script>
+  )}
+
+  <slot name="head" />
+</head>
+<body class={bodyClass}>
+  <slot name="header" />
+  <slot />
+  <slot name="footer" />
+
+  <!-- Dark mode toggle script (will be wired in task 38) -->
+  <script src="/assets/js/partials/dark-mode.js" defer></script>
+</body>
+</html>

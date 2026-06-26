@@ -1,0 +1,111 @@
+---
+/**
+ * PostLayout — wrapper for blog posts, conferences, and videos.
+ *
+ * Mirrors _layouts/post.liquid:
+ *   - <article class="feature-image"> when featureImg or color is set
+ *   - Title + post-info (date + authors) header
+ *   - Content slot
+ *   - Share buttons + tag list
+ *   - Optional prev/next post navigation
+ *   - Inline <style> block driven by `frontmatter.color` (167 posts depend on it)
+ *
+ * Comments (Disqus/Cusdis/Utterances) are intentionally omitted per migration plan.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Navbar from '@/components/Navbar.astro';
+import Footer from '@/components/Footer.astro';
+import ShareButtons from '@/components/ShareButtons.astro';
+import PostNav from '@/components/PostNav.astro';
+import TagList from '@/components/TagList.astro';
+import PostInfo from '@/components/PostInfo.astro';
+import type { Locale } from '@/data/language';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description?: string;
+    date?: Date | string;
+    author?: string | string[];
+    tags?: string[];
+    language?: Locale;
+    thumbnail?: string;
+    featureImg?: string;
+    color?: string;
+    [key: string]: any;
+  };
+  slug: string;
+  collection: 'blog' | 'conferences' | 'videos';
+  prevPost?: { url: string; title: string };
+  nextPost?: { url: string; title: string };
+}
+
+const { frontmatter, prevPost, nextPost } = Astro.props;
+const lang: Locale = frontmatter.language ?? 'fr';
+const ogImage = frontmatter.featureImg || frontmatter.thumbnail;
+const hasFeatureClass = Boolean(frontmatter.featureImg || frontmatter.color);
+---
+<BaseLayout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ogImage={ogImage}
+  ogType="article"
+  lang={lang}
+>
+  <Navbar slot="header" currentPath={Astro.url.pathname} />
+
+  <article class={hasFeatureClass ? 'feature-image' : ''}>
+    <header id="main" class="post-header">
+      <div class="title-padder">
+        <h1 class="title">{frontmatter.title}</h1>
+        <PostInfo authors={frontmatter.author} date={frontmatter.date} lang={lang} />
+      </div>
+    </header>
+
+    <section class="post-content" data-pagefind-body>
+      <slot />
+    </section>
+
+    <ShareButtons url={Astro.url} title={frontmatter.title} />
+
+    {frontmatter.tags && frontmatter.tags.length > 0 && <TagList tags={frontmatter.tags} />}
+  </article>
+
+  {(prevPost || nextPost) && (
+    <PostNav prevPost={prevPost} nextPost={nextPost} lang={lang} />
+  )}
+
+  <Footer slot="footer" />
+
+  {hasFeatureClass && (
+    <style is:inline set:html={`
+      header#main {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      ${frontmatter.color ? `
+        .post-content a { color: ${frontmatter.color} !important; }
+        .share-buttons a { color: ${frontmatter.color} !important; }
+        .tag-list a:not(:hover) { color: ${frontmatter.color} !important; }
+        div#post-nav a { color: ${frontmatter.color} !important; }
+        footer a { color: ${frontmatter.color} !important; }
+        .site-header nav a:hover { color: ${frontmatter.color} !important; }
+        a.button:hover {
+          background: ${frontmatter.color} !important;
+          border: 1px solid ${frontmatter.color} !important;
+          color: white;
+          text-decoration: none;
+          filter: none;
+        }
+        header#main {
+          background-color: ${frontmatter.color} !important;
+          background-image: url('/assets/img/lineart.png');
+        }
+      ` : ''}
+      ${frontmatter.featureImg ? `
+        header#main { background-image: url('${frontmatter.featureImg.startsWith('/') || frontmatter.featureImg.startsWith('http') ? frontmatter.featureImg : '/' + frontmatter.featureImg}'); }
+      ` : ''}
+    `} />
+  )}
+</BaseLayout>

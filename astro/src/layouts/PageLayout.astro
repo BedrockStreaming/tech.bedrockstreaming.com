@@ -1,0 +1,55 @@
+---
+/**
+ * PageLayout — wrapper for simple static pages.
+ * Mirrors _layouts/page.liquid (title + optional subtitle + content + tags).
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Navbar from '@/components/Navbar.astro';
+import Footer from '@/components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  lang?: 'fr' | 'en';
+  ogImage?: string;
+  subtitle?: string;
+  hideTitle?: boolean;
+  featureImg?: string;
+}
+
+const { title, description, lang = 'fr', ogImage, subtitle, hideTitle, featureImg } = Astro.props;
+const ogImageResolved = ogImage ?? featureImg;
+---
+<BaseLayout
+  title={title}
+  description={description}
+  ogImage={ogImageResolved}
+  ogType="website"
+  lang={lang}
+>
+  <Navbar slot="header" currentPath={Astro.url.pathname} />
+
+  <article class={featureImg ? 'feature-image' : ''}>
+    <header
+      id="main"
+      style={featureImg ? `background-image: url('${featureImg}')` : undefined}
+    >
+      <div class="title-padder">
+        {hideTitle ? (
+          <div class="feature-image-padding"></div>
+        ) : (
+          <>
+            <h1 class="title">{title}</h1>
+            {subtitle && <h2 class="subtitle">{subtitle}</h2>}
+          </>
+        )}
+      </div>
+    </header>
+
+    <section class="post-content" data-pagefind-body>
+      <slot />
+    </section>
+  </article>
+
+  <Footer slot="footer" />
+</BaseLayout>

@@ -1,0 +1,106 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import { authors } from '@/data/authors';
+import { getCollection } from 'astro:content';
+
+const allVideos = await getCollection('videos');
+
+const sortedVideos = allVideos
+  .filter(v => v.data.date)
+  .sort((a, b) => new Date(b.data.date!).getTime() - new Date(a.data.date!).getTime());
+
+function getPostUrl(id: string, date: Date, permalinkOverride?: string): string {
+  if (permalinkOverride) {
+    let p = permalinkOverride;
+    if (!p.startsWith('/')) p = '/' + p;
+    if (!p.endsWith('/')) p += '/';
+    return p;
+  }
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const slug = id
+    .replace(/\.(md|mdx)$/, '')
+    .replace(/^\d{4}-\d{2}-\d{2}-/, '');
+  return `/${year}/${month}/${day}/${slug}/`;
+}
+---
+
+<PageLayout
+  title="Last Friday Talks"
+  description="Bedrock LFT video archive"
+  featureImg="/images/common/travel.jpg"
+>
+  <p>
+    Last Friday Talks were at first internal technical conferences at the end of each month given by
+    Bedrock employees about various subjects.
+  </p>
+  <p>
+    Since then, the event has evolved to include non-technical talks. Everyone can share their passion.
+  </p>
+  <p>Here are some replays of LFT available on Youtube:</p>
+
+  <section class="video-list">
+    {sortedVideos.map(v => {
+      const date = new Date(v.data.date!);
+      const url = getPostUrl(v.id, date, v.data.permalinkOverride);
+      const authorKey = v.data.author
+        ? (Array.isArray(v.data.author) ? v.data.author[0] : v.data.author)
+        : undefined;
+      const info = authorKey ? authors[authorKey] : undefined;
+      const dateStr = date.toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      });
+      return (
+        <div class="card">
+          <a href={url}>
+            <img
+              loading="lazy"
+              src={`https://img.youtube.com/vi/${v.data.youtubeId}/hqdefault.jpg`}
+              alt={v.data.title}
+            />
+          </a>
+          <div class="card-body">
+            <a href={url}><h5 class="card-title">{v.data.title}</h5></a>
+            <div class="card-content">
+              {info?.name && <div>{info.name}</div>}
+              <div>{dateStr}</div>
+            </div>
+          </div>
+        </div>
+      );
+    })}
+  </section>
+</PageLayout>
+
+<style>
+  .video-list {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    gap: 32px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  .card { width: 100%; }
+  .card img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    padding: 0;
+  }
+  .card-content {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+  }
+  .card-title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+  }
+</style>

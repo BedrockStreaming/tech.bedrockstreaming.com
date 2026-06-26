@@ -1,0 +1,69 @@
+---
+import PostLayout from '@/layouts/PostLayout.astro';
+import SlideshareEmbed from '@/components/SlideshareEmbed.astro';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description?: string;
+    date?: Date | string;
+    author?: string | string[];
+    tags?: string[];
+    language?: 'fr' | 'en';
+    thumbnail?: string;
+    featureImg?: string;
+    color?: string;
+    eventName?: string;
+    eventUrl?: string;
+    slideshareKey?: string;
+    sponsored?: boolean;
+    hosted?: boolean;
+    youtubeId?: string;
+    [key: string]: any;
+  };
+  slug: string;
+  prevPost?: { url: string; title: string };
+  nextPost?: { url: string; title: string };
+}
+
+const { frontmatter, slug, prevPost, nextPost } = Astro.props;
+---
+<PostLayout
+  frontmatter={frontmatter}
+  slug={slug}
+  collection="conferences"
+  prevPost={prevPost}
+  nextPost={nextPost}
+>
+  {frontmatter.eventName && (
+    <p class="event-info">
+      <strong>Event:</strong>{' '}
+      {frontmatter.eventUrl ? (
+        <a href={frontmatter.eventUrl} rel="noopener" target="_blank">{frontmatter.eventName}</a>
+      ) : (
+        frontmatter.eventName
+      )}
+      {frontmatter.sponsored && <span class="badge sponsored"> [Sponsored]</span>}
+      {frontmatter.hosted && <span class="badge hosted"> [Hosted]</span>}
+    </p>
+  )}
+
+  {frontmatter.slideshareKey && (
+    <SlideshareEmbed slideshareKey={frontmatter.slideshareKey} title={frontmatter.title} />
+  )}
+
+  {frontmatter.youtubeId && (
+    <iframe
+      width="100%"
+      height="auto"
+      style="aspect-ratio: 16/9"
+      src={`https://www.youtube-nocookie.com/embed/${frontmatter.youtubeId}`}
+      title={frontmatter.title}
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  )}
+
+  <slot />
+</PostLayout>

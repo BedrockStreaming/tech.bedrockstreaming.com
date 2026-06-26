@@ -1,0 +1,121 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Navbar from "@/components/Navbar.astro";
+import Footer from "@/components/Footer.astro";
+import PostTeaser from "@/components/PostTeaser.astro";
+import { getCollection } from "astro:content";
+
+// Merge all 3 collections
+const [blog, conferences, videos] = await Promise.all([
+  getCollection("blog"),
+  getCollection("conferences"),
+  getCollection("videos"),
+]);
+
+const allPosts = [...blog, ...conferences, ...videos];
+
+// Sort by date desc (matches Jekyll paginate: 10)
+const POSTS_PER_PAGE = 10;
+const datedPosts = allPosts
+  .filter((p) => p.data.date)
+  .sort(
+    (a, b) =>
+      new Date(b.data.date!).getTime() - new Date(a.data.date!).getTime(),
+  );
+const recentPosts = datedPosts.slice(0, POSTS_PER_PAGE);
+const totalPages = Math.ceil(datedPosts.length / POSTS_PER_PAGE);
+
+// Derive Jekyll-style URL from collection entry
+function getPostUrl(post: (typeof allPosts)[0]): string {
+  if (post.data.permalinkOverride) {
+    const p = post.data.permalinkOverride.startsWith("/")
+      ? post.data.permalinkOverride
+      : "/" + post.data.permalinkOverride;
+    return p.endsWith("/") ? p : p + "/";
+  }
+  const date = new Date(post.data.date!);
+  const year = date.getUTCFullYear();
+  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(date.getUTCDate()).padStart(2, "0");
+  // basename without extension, strip date prefix YYYY-MM-DD-
+  const basename =
+    post.id
+      .replace(/\.(md|mdx)$/, "")
+      .split("/")
+      .pop() ?? post.id;
+  const slug = basename.replace(/^\d{4}-\d{2}-\d{2}-/, "");
+  return `/${year}/${month}/${day}/${slug}/`;
+}
+
+const headerText = "Creating Streaming Champions";
+---
+
+<BaseLayout title="Bedrock Tech Blog" description="Blog technique de Bedrock">
+  <Navbar slot="header" currentPath={Astro.url.pathname} />
+
+  <div class="home">
+    <style>
+      .call-out_img {
+        background-image: url("/images/common/banner_xl.jpg");
+      }
+    </style>
+
+    <div id="main" class="call-out call-out_img">
+      <h1>{headerText}</h1>
+    </div>
+
+    <div class="posts">
+      {
+        recentPosts.length === 0 && (
+          <article>
+            <section class="post-content">
+              <p>There are no blog posts</p>
+            </section>
+          </article>
+        )
+      }
+      {
+        recentPosts.map((post) => (
+          <PostTeaser
+            url={getPostUrl(post)}
+            title={post.data.title}
+            thumbnail={post.data.thumbnail}
+            description={post.data.description}
+            author={post.data.author}
+            date={post.data.date}
+            lang={post.data.language ?? "fr"}
+          />
+        ))
+      }
+    </div>
+
+    <nav class="blog-nav pagination">
+      <div class="page_number">1 / {totalPages}</div>
+
+      <ul>
+        {
+          totalPages > 1 && (
+            <li class="next">
+              <a
+                aria-label="Last page"
+                href={`/blog/page/${totalPages}/`}
+                class="button"
+              >
+                <span>
+                  <i class="fas fa-angle-double-right" />
+                </span>
+              </a>
+            </li>
+          )
+        }
+        <li class="next">
+          <a href="/blog/page/2/" rel="next" class="button"
+            >Next <span><i class="fas fa-chevron-right"></i></span></a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

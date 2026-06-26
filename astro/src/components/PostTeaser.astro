@@ -1,0 +1,39 @@
+---
+import PostInfo from '@/components/PostInfo.astro';
+
+interface Props {
+  url: string;
+  title: string;
+  thumbnail?: string;
+  description?: string;
+  author?: string | string[];
+  date?: Date | string;
+  lang?: 'fr' | 'en';
+}
+
+const { url, title, thumbnail, description, author, date, lang } = Astro.props;
+---
+<div class="post-teaser">
+  {thumbnail && (
+    <div class="post-img">
+      <a aria-label={title} href={url}>
+        <img alt={title} src={thumbnail} />
+      </a>
+    </div>
+  )}
+  <span>
+    <header>
+      <h1>
+        <a aria-label={title} class="post-link" href={url}>
+          {title}
+        </a>
+      </h1>
+      <PostInfo authors={author} date={date} lang={lang} />
+    </header>
+    {description && (
+      <div class="excerpt">
+        {description}
+      </div>
+    )}
+  </span>
+</div>

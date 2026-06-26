@@ -1,0 +1,224 @@
+export interface Conference {
+  title: string;
+  date: string;
+  author: string | string[];
+  eventName?: string;
+  eventUrl?: string;
+  youtubeId?: string;
+  slideshareKey?: string;
+  sponsored?: boolean;
+  hosted?: boolean;
+  description?: string;
+}
+
+export const conferences: Conference[] = [
+  {
+    title: 'L’aventure d’une requête HTTP — ou le chemin de la vie des devs',
+    date: '2025-04-30',
+    author: 'p_martin',
+    eventName: 'MiXiT 2025',
+    eventUrl: 'https://mixitconf.org/2025/l-aventure-d-une-requete-http-ou-le-chemin-de-la-vie-des-devs',
+  },
+  {
+    title: 'Load-testons M6+ pour préparer l’Euro 2024 !',
+    date: '2025-04-17',
+    author: 'b_colin',
+    eventName: 'Devoxx France 2025',
+    eventUrl: 'https://www.devoxx.fr/en/agenda-2025/talk/load-testons-m6-pour-preparer-l-euro-2024/',
+  },
+  {
+    title: 'L’aventure d’une requête HTTP — ou le chemin de la vie des devs',
+    date: '2024-10-10',
+    author: 'p_martin',
+    eventName: 'Forum PHP',
+    eventUrl: 'https://www.youtube.com/watch?v=penIr9E0Qbo',
+  },
+  {
+    title: 'Une application résiliente, dans un monde partiellement dégradé',
+    date: '2024-04-17',
+    author: 'p_martin',
+    eventName: 'Devoxx France',
+    eventUrl: 'https://www.youtube.com/watch?v=exk5343fTuM',
+  },
+  {
+    title: 'Déploiement vers Kubernetes : autonomie et automatisation, mieux que copier-coller du YAML !',
+    date: '2023-06-06',
+    author: 'p_martin',
+    eventName: 'Meetup Café DevOps',
+    eventUrl: 'https://www.youtube.com/live/D8heuC6JKm0?feature=share&t=450',
+    sponsored: true,
+  },
+  {
+    title: ' Améliorons ensemble la doc de #Postgres',
+    date: '2023-06-19',
+    author: 's_haim',
+    description:
+      "La documentation est le meilleur moyen de rassembler le savoir et de rendre les informations disponibles pour le plus grand nombre et de faire progresser tout le monde, des personnes débutantes aux plus avancées dans PostgreSQL. Prenons quelques pages de documentation de votre logiciel préféré, et examinons comment nous pourrions les améliorer. Avec quelques efforts sur le contenu et la présentation, votre documentation pourrait être plus lisible, et plus utile à la communauté. Quelques astuces pour produire directement une bonne documentation sont également au menu, tout comme l'art de relire une documentation existante.",
+    eventName: 'PG Day France 2023 (Strasbourg)',
+    youtubeId: 'B665IfwnlU0',
+    sponsored: true,
+  },
+  {
+    title: 'Mentors : super-héros ou super-vilains ?',
+    date: '2023-05-12',
+    author: 'p_rambaud',
+    eventName: 'AFUP Day Lyon 2023',
+    eventUrl: 'https://event.afup.org/afup-day-2023/afup-day-2023-lyon/programme/#4190',
+    sponsored: true,
+  },
+  {
+    title: 'Bienvenue dans le monde merveilleux des systèmes distribués !',
+    date: '2023-04-13',
+    author: 'p_martin',
+    eventName: 'MiXiT 2023',
+    eventUrl: 'https://mixitconf.org/2023/bienvenue-dans-le-monde-merveilleux-des-systemes-distribues-',
+  },
+  {
+    title: 'Introducing the Tokio stack',
+    date: '2023-04-06',
+    author: 'o_thebault',
+    eventName: 'Meetup Rust Lyon',
+    eventUrl: 'https://www.meetup.com/fr-FR/rust-lyon/events/292283973/',
+    sponsored: true,
+    hosted: true,
+  },
+  {
+    title: 'Rust at Bedrock',
+    date: '2023-04-06',
+    author: 'y_clauss',
+    eventName: 'Meetup Rust Lyon',
+    eventUrl: 'https://www.meetup.com/fr-FR/rust-lyon/events/292283973/',
+    sponsored: true,
+    hosted: true,
+  },
+  {
+    title: 'Documentation : Let’s make it better, now, together!',
+    date: '2023-03-23',
+    author: 's_haim',
+    eventName: 'pgDay Paris 2023',
+    eventUrl: 'https://www.postgresql.eu/events/pgdayparis2023/schedule/session/4303-documentation-lets-make-it-better-now-together/',
+    youtubeId: 'MrcqWPEbwLI',
+    sponsored: true,
+  },
+  {
+    title: 'Documentation : Let’s make it better, now, together!',
+    date: '2022-10-28',
+    author: 's_haim',
+    eventName: 'PGConf Europe 2022',
+    eventUrl: 'https://www.postgresql.eu/events/pgconfeu2022/schedule/session/3881-documentation-lets-make-it-better-now-together/',
+    sponsored: true,
+  },
+  {
+    title: 'Open Policy Agent avec KICS de chez Checkmarx',
+    date: '2022-05-13',
+    author: 'jy_camier',
+    description:
+      "Chez Bedrock Streaming, tous le monde est responsable de son infrastructure Cloud : les développeurs backend et frontend, les data analyst, les ingénieurs vidéo et même les Ops et les DevOps ! De ce fait, une part considérable de notre travail consiste à accompagner les développeurs, de la montée en compétence sur l'usage de nos outils jusqu'à la conception d'architecture cloud résilliente. Il s'avère que dans le cadre d'une revue de code, en tant que DevOps, nous répétons souvent les mêmes choses. En mettant en place de l'analyse statique avec KICS et OPA, nous parions sur l'avenir d'un outil et d'une communauté jeune pour nous aider à réduire le temps entre la revue de code et la mise en production:\n- en augmentant la qualité de nos infrastructures cloud\n- en réduisant les coûts de cette infrastructure",
+    eventName: 'Docker meetup',
+    eventUrl: 'https://www.meetup.com/fr-FR/docker-lyon/events/285057478/',
+    sponsored: true,
+    hosted: true,
+  },
+  {
+    title: 'Êtes-vous bien architecturé ?',
+    date: '2022-04-12',
+    author: 'p_martin',
+    eventName: 'AWS Summit Paris',
+    eventUrl: 'https://aws.amazon.com/fr/events/summits/paris/',
+  },
+  {
+    title: 'Préparez et donnez votre premier talk',
+    date: '2022-04-12',
+    author: 'p_martin',
+    eventName: 'AWS Summit Paris',
+    eventUrl: 'https://aws.amazon.com/fr/events/summits/paris/',
+  },
+  {
+    title: 'Transformer le load balancing pour optimiser le cache : objectif 50 millions d’utilisateurs',
+    date: '2022-04-12',
+    author: 'v_gallissot',
+    eventName: 'AWS Summit Paris',
+    eventUrl: 'https://aws.amazon.com/fr/events/summits/paris/',
+  },
+  {
+    title: 'Comment ne pas jeter son application Frontend tous les deux ans ?',
+    date: '2022-02-05',
+    author: ['f_dubost', 'a_caron'],
+    eventName: 'Snowcamp 2022',
+    eventUrl: 'https://snowcamp.io/fr/',
+  },
+  {
+    title: '⚡️ Vite ⚡️ the Webpack killer',
+    date: '2021-11-10',
+    author: ['a_caron', 'm_mure'],
+    eventName: 'Devfest Nantes',
+    eventUrl: 'https://devfest2021.gdgnantes.com/sessions/_%EF%B8%8F_vite_%EF%B8%8Fthe_webpack_killer/',
+  },
+  {
+    title: '⚡️ Vite ⚡️ the Webpack killer',
+    date: '2021-09-08',
+    author: ['a_caron', 'm_mure'],
+    eventName: 'JUG Summer Camp',
+    eventUrl: 'https://www.jugsummercamp.org/edition/12/presentations/QYeD36ff9h4A8v243Hu3',
+  },
+  {
+    title: 'Productionizing ML Systems without Fear nor Heroism',
+    date: '2021-05-25',
+    author: 'n_saby',
+    eventName: 'DataTalks.Club',
+    eventUrl: 'https://datatalks.club/',
+    youtubeId: 'KkOGMaz4Xws',
+  },
+  {
+    title: 'Webpack Workshop',
+    date: '2020-09-07',
+    author: 'a_caron',
+    eventName: 'Paris Web',
+    eventUrl: 'https://www.paris-web.fr/2019/ateliers/webpack-workshop.php',
+  },
+  {
+    title: '⚡️ Vite ⚡️ the Webpack killer',
+    date: '2020-06-10',
+    author: ['a_caron', 'm_mure'],
+    eventName: 'LyonJS Meetup',
+    eventUrl: 'https://www.meetup.com/fr-FR/LyonJS/events/278441866/',
+  },
+  {
+    title: 'Apache Spark et le machine learning : rêves et réalités',
+    date: '2020-02-10',
+    author: 'n_saby',
+    eventName: 'Scala IO',
+    eventUrl: 'https://scala.io/',
+    youtubeId: '8e2TOelpqds',
+  },
+  {
+    title: 'Webpack Workshop',
+    date: '2020-01-22',
+    author: 'a_caron',
+    eventName: 'Snowcamp 2020',
+    eventUrl: 'https://snowcamp.io/fr/',
+  },
+  {
+    title: "Machine learning sans magie et sans s'arracher les cheveux",
+    date: '2019-11-14',
+    author: 'n_saby',
+    description: 'Comprendre le machine learning en prenant l’exemple d’un barbecue.',
+    youtubeId: '5c120IGLHk8',
+  },
+  {
+    title: 'Retour d’expérience : réaliser des Workers en PHP',
+    date: '2016-05-23',
+    author: 'f_desaintpern',
+    eventName: 'PHPTour Clermont‑Ferrand 2016',
+    eventUrl: 'https://event.afup.org/php-tour-2016/home-phptour-2016/',
+    youtubeId: '0A5tbrMarGA',
+  },
+  {
+    title: 'Le second écran chez M6Web, another (php) brick in the wall !',
+    date: '2015-05-13',
+    author: 'o_mansour',
+    eventName: 'PHPTour Luxembourg 2015',
+    eventUrl: 'https://event.afup.org/phptourluxembourg2015__programme/',
+    youtubeId: 'VPYFnaX_5Tg',
+  },
+];

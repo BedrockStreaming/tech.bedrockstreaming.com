@@ -1,0 +1,122 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Navbar from "@/components/Navbar.astro";
+import Footer from "@/components/Footer.astro";
+import PostInfo from "@/components/PostInfo.astro";
+import { getCollection } from "astro:content";
+
+const [blog, conferences, videos] = await Promise.all([
+  getCollection("blog"),
+  getCollection("conferences"),
+  getCollection("videos"),
+]);
+
+const allPosts = [...blog, ...conferences, ...videos];
+
+// Build tag frequency map and posts-by-tag map
+const tagCounts = new Map<string, number>();
+const postsByTag = new Map<string, typeof allPosts>();
+for (const post of allPosts) {
+  for (const tag of post.data.tags || []) {
+    tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+    if (!postsByTag.has(tag)) postsByTag.set(tag, []);
+    postsByTag.get(tag)!.push(post);
+  }
+}
+
+// Sort posts within each tag by date desc (undated posts at the bottom)
+for (const posts of postsByTag.values()) {
+  posts.sort((a, b) => {
+    const aTime = a.data.date ? new Date(a.data.date).getTime() : 0;
+    const bTime = b.data.date ? new Date(b.data.date).getTime() : 0;
+    return bTime - aTime;
+  });
+}
+
+// Sort tags alphabetically
+const sortedTags = Array.from(tagCounts.entries()).sort((a, b) =>
+  a[0].localeCompare(b[0]),
+);
+
+// Derive Jekyll-style URL from collection entry (mirrors index.astro)
+function getPostUrl(post: (typeof allPosts)[0]): string {
+  if (post.data.permalinkOverride) {
+    const p = post.data.permalinkOverride.startsWith("/")
+      ? post.data.permalinkOverride
+      : "/" + post.data.permalinkOverride;
+    return p.endsWith("/") ? p : p + "/";
+  }
+  if (!post.data.date) return "/";
+  const date = new Date(post.data.date);
+  const year = date.getUTCFullYear();
+  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(date.getUTCDate()).padStart(2, "0");
+  const basename =
+    post.id
+      .replace(/\.(md|mdx)$/, "")
+      .split("/")
+      .pop() ?? post.id;
+  const slug = basename.replace(/^\d{4}-\d{2}-\d{2}-/, "");
+  return `/${year}/${month}/${day}/${slug}/`;
+}
+---
+
+<BaseLayout title="Tags" description="All tags">
+  <Navbar slot="header" currentPath={Astro.url.pathname} />
+  <article id="Tags">
+    <header>
+      <div class="title-padder">
+        <h1 class="title">Tags</h1>
+      </div>
+    </header>
+    <section class="post-content">
+      <div class="tag-list">
+        <ul class="tag-list">
+          {
+            sortedTags.map(([tag, count]) => (
+              <li>
+                <a href={`#${encodeURIComponent(tag)}`} class="button">
+                  <i class="fas fa-tag fa-fw fa-sm" />
+                  {tag}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <!-- Displays the posts and pages that contain each tag -->
+      <div class="posts">
+        {
+          sortedTags.map(([tag]) => (
+            <>
+              <h3 id={encodeURIComponent(tag)} class="tag-anchor">
+                <a href={`#${encodeURIComponent(tag)}`}>
+                  <i class="fas fa-tag fa-fw fa-sm" /> {tag}
+                </a>
+                <a href="#Tags" style="float: right" aria-label="Back to top">
+                  <i class="fas fa-chevron-up fa-lg" aria-hidden="true" />
+                </a>
+              </h3>
+
+              <div class="tag-posts">
+                {(postsByTag.get(tag) || []).map((post) => (
+                  <h5 class="tag-title">
+                    <a href={getPostUrl(post)}>
+                      <i class="far fa-file-alt" aria-hidden="true" />{" "}
+                      {post.data.title}
+                    </a>
+                    <PostInfo
+                      date={post.data.date}
+                      lang={post.data.language ?? "fr"}
+                    />
+                  </h5>
+                ))}
+              </div>
+            </>
+          ))
+        }
+      </div>
+    </section>
+  </article>
+  <Footer slot="footer" />
+</BaseLayout>

@@ -1,0 +1,21 @@
+---
+title: 'La pression je ne la subis pas, je la fais #LFT 03/06/22'
+tags:
+  - homemade
+  - diy
+  - beer
+  - brewing
+  - lft
+  - partage
+comments: true
+color: 'rgb(251,87,66)'
+youtubeId: BWbmj3E3G7I
+author: m_lopez
+date: '2022-06-03'
+permalinkOverride: la-pression-je-ne-la-subis-pas-je-la-fais
+---
+
+Dans cette présentation, Mathieu Lopez nous présente un retour d'expérience sur le brassage de bière.  
+Brasser sa bière, comment ça marche ? Quelles sont les étapes clés ? 
+Au final, c'est quoi une bière ?
+

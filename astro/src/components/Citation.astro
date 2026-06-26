@@ -1,0 +1,15 @@
+---
+import { biblio } from '@/data/biblio';
+
+interface Props {
+  key: string;
+}
+
+const { key } = Astro.props;
+const entry = biblio[key];
+
+if (!entry) {
+  throw new Error(`Citation key not found: ${key}`);
+}
+---
+<span class="cit-authors">{entry.authors}</span>, <span class="cit-title">{entry.title}</span>

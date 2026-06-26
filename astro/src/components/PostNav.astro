@@ -1,0 +1,32 @@
+---
+import { t, type Locale } from '@/data/language';
+
+interface Props {
+  prevPost?: { url: string; title: string };
+  nextPost?: { url: string; title: string };
+  lang?: Locale;
+}
+
+const { prevPost, nextPost, lang = 'fr' } = Astro.props;
+const strings = t(lang);
+---
+
+<div id="post-nav">
+  {prevPost && (
+    <div id="previous-post">
+      <a {...({ alt: prevPost.title, href: prevPost.url } as any)}>
+        <p>{strings.str_previous_post}</p>
+        {prevPost.title}
+      </a>
+    </div>
+  )}
+
+  {nextPost && (
+    <div id="next-post">
+      <a {...({ alt: nextPost.title, href: nextPost.url } as any)}>
+        <p>{strings.str_next_post}</p>
+        {nextPost.title}
+      </a>
+    </div>
+  )}
+</div>

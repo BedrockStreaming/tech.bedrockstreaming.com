@@ -1,0 +1,131 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Navbar from "@/components/Navbar.astro";
+import Footer from "@/components/Footer.astro";
+import PostTeaser from "@/components/PostTeaser.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import type { GetStaticPaths, Page } from "astro";
+
+type AnyPost =
+  | CollectionEntry<"blog">
+  | CollectionEntry<"conferences">
+  | CollectionEntry<"videos">;
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const [blog, conferences, videos] = await Promise.all([
+    getCollection("blog"),
+    getCollection("conferences"),
+    getCollection("videos"),
+  ]);
+
+  const allPosts = [...blog, ...conferences, ...videos]
+    .filter((p) => p.data.date)
+    .sort(
+      (a, b) =>
+        new Date(b.data.date!).getTime() - new Date(a.data.date!).getTime(),
+    );
+
+  return paginate(allPosts, { pageSize: 10 });
+};
+
+const { page } = Astro.props as { page: Page<AnyPost> };
+
+function getPostUrl(post: any): string {
+  if (post.data.permalinkOverride) {
+    const p = post.data.permalinkOverride.startsWith("/")
+      ? post.data.permalinkOverride
+      : "/" + post.data.permalinkOverride;
+    return p.endsWith("/") ? p : p + "/";
+  }
+  const date = new Date(post.data.date!);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  const slug = post.id
+    .replace(/\.(md|mdx)$/, "")
+    .replace(/^\d{4}-\d{2}-\d{2}-/, "");
+  return `/${year}/${month}/${day}/${slug}/`;
+}
+
+const headerText = "Creating Streaming Champions";
+---
+
+<BaseLayout
+  title={`Blog - Page ${page.currentPage}`}
+  description="Bedrock Tech Blog"
+>
+  <Navbar slot="header" currentPath={Astro.url.pathname} />
+
+  <div class="home">
+    <style>
+      .call-out_img {
+        background-image: url("/images/common/banner_xl.jpg");
+      }
+    </style>
+
+    <div id="main" class="call-out call-out_img">
+      <h1>{headerText}</h1>
+    </div>
+    <div class="posts">
+      {
+        page.data.map((post: any) => (
+          <PostTeaser
+            url={getPostUrl(post)}
+            title={post.data.title}
+            thumbnail={post.data.thumbnail}
+            description={post.data.description}
+            author={post.data.author}
+            date={post.data.date}
+            lang={post.data.language ?? "fr"}
+          />
+        ))
+      }
+    </div>
+
+    <nav class="blog-nav pagination">
+      {
+        page.url.prev && (
+          <div class="previous">
+            {page.currentPage > 2 && (
+              <a aria-label="Prev" href="/" class="button">
+                <span>
+                  <i class="fas fa-angle-double-left" />
+                </span>
+              </a>
+            )}
+            <a href={page.url.prev} rel="prev" class="button">
+              <span>
+                <i class="fas fa-chevron-left" />
+              </span>{" "}
+              Prev
+            </a>
+          </div>
+        )
+      }
+      <span>{page.currentPage} / {page.lastPage}</span>
+      {
+        page.url.next && (
+          <div class="next">
+            <a href={page.url.next} rel="next" class="button">
+              Next
+              <span>
+                <i class="fas fa-angle-double-right" />
+              </span>
+            </a>
+            <a
+              aria-label="Last page"
+              href={`/blog/page/${page.lastPage}/`}
+              class="button"
+            >
+              <span>
+                <i class="fas fa-angle-double-right" />
+              </span>
+            </a>
+          </div>
+        )
+      }
+    </nav>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

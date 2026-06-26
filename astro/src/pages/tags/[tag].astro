@@ -1,0 +1,64 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Navbar from '@/components/Navbar.astro';
+import Footer from '@/components/Footer.astro';
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const [blog, conferences, videos] = await Promise.all([
+    getCollection('blog'),
+    getCollection('conferences'),
+    getCollection('videos'),
+  ]);
+
+  const allPosts = [...blog, ...conferences, ...videos];
+
+  // Collect all unique tags
+  const tagSet = new Set<string>();
+  for (const post of allPosts) {
+    (post.data.tags || []).forEach(t => tagSet.add(t));
+  }
+
+  return Array.from(tagSet).map(tag => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: allPosts
+        .filter(p => (p.data.tags || []).includes(tag))
+        .filter(p => p.data.date)
+        .sort((a, b) => new Date(b.data.date!).getTime() - new Date(a.data.date!).getTime()),
+    },
+  }));
+};
+
+const { tag, posts } = Astro.props as { tag: string; posts: any[] };
+
+function getPostUrl(post: any): string {
+  if (post.data.permalinkOverride) {
+    const p = post.data.permalinkOverride.startsWith('/') ? post.data.permalinkOverride : '/' + post.data.permalinkOverride;
+    return p.endsWith('/') ? p : p + '/';
+  }
+  const date = new Date(post.data.date!);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const slug = post.id.replace(/\.(md|mdx)$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, '');
+  return `/${year}/${month}/${day}/${slug}/`;
+}
+---
+<BaseLayout title={`Posts tagged "${tag}"`} description={`All posts tagged ${tag}`}>
+  <Navbar slot="header" currentPath={Astro.url.pathname} />
+  <main class="tag-archive">
+    <h1>Posts tagged "{tag}"</h1>
+    <ul>
+      {posts.map(post => (
+        <li>
+          <a href={getPostUrl(post)}>{post.data.title}</a>
+          {post.data.date && <time>{new Date(post.data.date).toLocaleDateString('fr-FR')}</time>}
+        </li>
+      ))}
+    </ul>
+  </main>
+  <Footer slot="footer" />
+</BaseLayout>
