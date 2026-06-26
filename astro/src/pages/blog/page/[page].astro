@@ -46,6 +46,8 @@ function getPostUrl(post: any): string {
     .replace(/^\d{4}-\d{2}-\d{2}-/, "");
   return `/${year}/${month}/${day}/${slug}/`;
 }
+
+const headerText = "Creating Streaming Champions";
 ---
 
 <BaseLayout
@@ -54,8 +56,16 @@ function getPostUrl(post: any): string {
 >
   <Navbar slot="header" currentPath={Astro.url.pathname} />
 
-  <main class="blog-index">
-    <h1>Blog</h1>
+  <div class="home">
+    <style>
+      .call-out_img {
+        background-image: url("/images/common/banner_xl.jpg");
+      }
+    </style>
+
+    <div id="main" class="call-out call-out_img">
+      <h1>{headerText}</h1>
+    </div>
     <div class="posts">
       {
         page.data.map((post: any) => (
@@ -115,7 +125,7 @@ function getPostUrl(post: any): string {
         )
       }
     </nav>
-  </main>
+  </div>
 
   <Footer slot="footer" />
 </BaseLayout>
