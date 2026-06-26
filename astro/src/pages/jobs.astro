@@ -1,5 +1,8 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro';
+import TagList from '@/components/TagList.astro';
+
+const tags = ['Page'];
 ---
 <PageLayout
   title="Jobs"
@@ -10,4 +13,5 @@ import PageLayout from '@/layouts/PageLayout.astro';
     Go to the <a href="https://www.bedrockstreaming.com/career">Join Us section</a> of our{' '}
     <a href="https://www.bedrockstreaming.com/">Bedrock Website</a>
   </p>
+  <TagList tags={tags} />
 </PageLayout>

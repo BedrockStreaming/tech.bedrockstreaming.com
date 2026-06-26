@@ -6,22 +6,28 @@ interface Props {
 const { tags } = Astro.props;
 ---
 
-{tags.length > 0 ? (
-  <div class="tag-list">
-    <ul>
-      {tags.length === 1 ? <li class="meta">Tag</li> : <li class="meta">Tags</li>}
+{
+  tags.length > 0 ? (
+    <div class="tag-list">
+      <ul>
+        {tags.length === 1 ? (
+          <li class="meta">Tag </li>
+        ) : (
+          <li class="meta">Tags </li>
+        )}
 
-      {tags.map((tag) => (
-        <li>
-          <a class="button" href={`/tags/#${encodeURIComponent(tag)}`}>
-            <p>
-              <i class="fas fa-tag fa-fw fa-sm"></i> {tag}
-            </p>
-          </a>
-        </li>
-      ))}
-    </ul>
-  </div>
-) : (
-  <div class="tag-list"></div>
-)}
+        {tags.map((tag) => (
+          <li>
+            <a class="button" href={`/tags/#${encodeURIComponent(tag)}`}>
+              <p>
+                <i class="fas fa-tag fa-fw fa-sm" /> {tag}
+              </p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  ) : (
+    <div class="tag-list" />
+  )
+}
