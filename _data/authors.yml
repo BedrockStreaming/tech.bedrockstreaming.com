@@ -310,6 +310,7 @@ t_sontag:
   name: Thomas Sontag
 v_chabrier:
   name: Valentin Chabrier
+  avatar: /images/avatar/v_chabrier.jpg
   url: https://github.com/Eriwyr
 v_claras:
   name: Valentin Claras
