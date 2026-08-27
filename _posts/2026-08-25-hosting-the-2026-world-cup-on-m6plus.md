@@ -61,7 +61,7 @@ Since Euro 2024, arming and disarming is fully automated. Nobody scales or downs
 
 ## Load tests: validate, and calibrate <a name="load-tests-validate-and-calibrate"></a>
 
-From March to June, we ran regular load-test sessions with [Gatling](https://gatling.io/), in production, in the evening.
+From March to June, we ran regular load-test sessions with [Gatling](https://gatling.io/), in production, in the morning.
 
 The first goal was the obvious one: prove that the platform holds well above the biggest audience forecast.
 
