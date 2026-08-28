@@ -128,7 +128,9 @@ None of it reached the viewers. That is what the preparation was for.
 
 54 matches, 39 days, zero major incident.
 
-On M6's side, the tournament gathered [60 million French viewers across the channel and M6+](https://www.businesswire.com/news/home/20260728735190/fr). M6+ broke several records: the platform signed its 13 best audiences ever, M6+ was the most downloaded app on the stores for the whole competition, and counted more than 100 million videos viewed, 11 million users and over 4 million new sign-ups.
+On M6's side, the tournament gathered 60 million French viewers across the channel and M6+. The platform signed its 13 best audiences ever, was the most downloaded app on the stores for the whole competition, and counted more than 100 million videos viewed, 11 million unique users and 4.2 million new accounts created.
+
+As the competition progressed, that attention translated into unprecedented streaming demand. M6+ surpassed 1M concurrent streams on three occasions, while at peak around 60K viewers arrived within a single minute. That last figure is the one that matters to us: the arrival rate is what the whole preparation was built for.
 
 Three things we take away from it:
 
