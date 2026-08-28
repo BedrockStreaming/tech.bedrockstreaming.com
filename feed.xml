@@ -1,4 +1,151 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2026-02-06T08:20:27+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming</title><link href="https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html" rel="alternate" type="text/html" title="Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming" /><published>2026-02-06T00:00:00+00:00</published><updated>2026-02-06T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html">&lt;p&gt;At Bedrock Streaming, we create and operate full-scope streaming services for leading media companies with best-in-class user experience across AVOD, SVOD and hybrid business models.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2026-08-28T07:56:31+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">Hosting the 2026 World Cup on M6+</title><link href="https://tech.bedrockstreaming.com/2026/08/25/hosting-the-2026-world-cup-on-m6plus.html" rel="alternate" type="text/html" title="Hosting the 2026 World Cup on M6+" /><published>2026-08-25T00:00:00+00:00</published><updated>2026-08-25T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2026/08/25/hosting-the-2026-world-cup-on-m6plus</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2026/08/25/hosting-the-2026-world-cup-on-m6plus.html">&lt;p&gt;On June 11th 2026, Mexico and South Africa kicked off the World Cup. For us, it was the start of 54 matches streamed on M6+ and 39 days of match-evening operations.&lt;/p&gt;
+
+&lt;p&gt;At Bedrock, we build and operate M6+, the M6 group’s streaming platform, along with the platforms of several other European broadcasters.&lt;/p&gt;
+
+&lt;p&gt;This was not our first international football championship on M6+ but it was the first at this scale. M6 acquired the rights to nearly every match of the tournament: we had never streamed that many matches, especially during the night, and we expected more simultaneous users than the platform had ever seen.&lt;/p&gt;
+
+&lt;p&gt;A football kickoff is a brutal load pattern. Millions of users arrive in a few minutes, all for the same live stream. Reactive autoscaling alone cannot follow that curve. But a kickoff has one good property: you know when it happens. Everything we did for this World Cup comes down to that: &lt;strong&gt;anticipate, prepare, verify&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here is how we validated the platform months ahead, how the match evenings went, and how we made a success of this worldwide event.&lt;/p&gt;
+
+&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#preparing-months-ahead&quot;&gt;Preparing months ahead&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#prescale-dont-react&quot;&gt;Prescale, don’t react&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#load-tests-validate-and-calibrate&quot;&gt;Load tests: validate, and calibrate&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#serve-the-match-from-the-edge&quot;&gt;Serve the match from the edge&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#plan-b-circuit-breakers-and-fallbacks&quot;&gt;Plan B: circuit breakers and fallbacks&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#freeze-then-keep-verifying&quot;&gt;Freeze, then keep verifying&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#match-evenings&quot;&gt;Match evenings&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#the-evening-ritual&quot;&gt;The evening ritual&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#the-lifecycle-of-a-match-evening&quot;&gt;The lifecycle of a match evening&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#when-the-unexpected-happens&quot;&gt;When the unexpected happens&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#wrap-up&quot;&gt;Wrap-up&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;preparing-months-ahead-&quot;&gt;Preparing months ahead &lt;a name=&quot;preparing-months-ahead&quot;&gt;&lt;/a&gt;&lt;/h1&gt;
+
+&lt;h2 id=&quot;prescale-dont-react-&quot;&gt;Prescale, don’t react &lt;a name=&quot;prescale-dont-react&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;In 2022, we explained &lt;a href=&quot;https://tech.bedrockstreaming.com/2022/02/03/prescaling.html&quot;&gt;how we prescale our platform&lt;/a&gt; for football evenings. The idea has not changed: for an event of this scale and importance, don’t bet on reactive autoscaling. When millions of users arrive in the same couple of minutes, capacity must already be there.&lt;/p&gt;
+
+&lt;p&gt;And we don’t try to optimize the last few euros of compute: a tournament like this happens about once a year. We would rather start a bit more machines than strictly needed and be certain that all the capacity is up before kickoff. Fewer scaling mechanisms in play means fewer things that can go wrong, and the best possible experience for viewers.&lt;/p&gt;
+
+&lt;p&gt;Concretely, three layers have to scale ahead of a match:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;the Kubernetes clusters themselves (nodes, managed by Karpenter),&lt;/li&gt;
+  &lt;li&gt;the applications deployed on them,&lt;/li&gt;
+  &lt;li&gt;the managed services around them (DynamoDB capacity, Fastly KV stores, etc.).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For the applications, we don’t touch the HPAs’ minimum replicas. Each project’s HPA scales on a dedicated prescaling metric, which varies with the prescaling size we want and the configuration set in the project itself. Every microservice gets a prescaling adapted to it. The exporter behind this mechanism is open source and maintained by Bedrock: &lt;a href=&quot;https://github.com/BedrockStreaming/prescaling-exporter&quot;&gt;prescaling-exporter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To drive all of this, we built our own solution. “prescaling-api” orchestrates the scaling actions through a system of scheduled jobs: it declares an event with a start time, an end time and an expected number of concurrent streams, and it arms each layer at the right moment before kickoff, then tears everything down after the match. On top of it, the Prescaling UI lets us register every match weeks in advance and choose the prescaling size for each one.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2026-08-25-hosting-the-2026-world-cup-on-m6plus/prescaling-ui.png&quot; alt=&quot;A football match registration in the Prescaling UI&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;&lt;em&gt;A football match registration in the Prescaling UI&lt;/em&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Since Euro 2024, arming and disarming is fully automated. Nobody scales or downscales anything manually anymore at the beginning of the match.&lt;/p&gt;
+
+&lt;h2 id=&quot;load-tests-validate-and-calibrate-&quot;&gt;Load tests: validate, and calibrate &lt;a name=&quot;load-tests-validate-and-calibrate&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;From March to June, we ran regular load-test sessions with &lt;a href=&quot;https://gatling.io/&quot;&gt;Gatling&lt;/a&gt;, in production, in the morning.&lt;/p&gt;
+
+&lt;p&gt;The first goal was the obvious one: prove that the platform holds well above the biggest audience forecast.&lt;/p&gt;
+
+&lt;p&gt;The second goal was to calibrate: we validated how the different components scale with the user arrival rate. That is what lets us determine the sizing to plan for each match, based on its forecast plus a safety margin.&lt;/p&gt;
+
+&lt;h2 id=&quot;serve-the-match-from-the-edge-&quot;&gt;Serve the match from the edge &lt;a name=&quot;serve-the-match-from-the-edge&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Being as static as possible and serving from the edge is the key to very-high-traffic events: every request answered by the CDN is pressure taken off the backends. And it is easy to do on a World Cup evening, because we know exactly what users come for: the match. That is the idea behind the features we deployed for the tournament. A few examples:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Static Homepage&lt;/strong&gt;: displayed in place of the classic home page on every match day, it gives users a fully static path into the platform, with no call to our backends.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Live@edge&lt;/strong&gt;: live responses are pre-generated per platform and user profile, then served entirely from the CDN edge, with no call to the origin.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Rate limiting on the ad router&lt;/strong&gt;: protects the ad stack from request storms.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Each of these features went through its own load-test validation before joining the match-evening setup.&lt;/p&gt;
+
+&lt;h2 id=&quot;plan-b-circuit-breakers-and-fallbacks-&quot;&gt;Plan B: circuit breakers and fallbacks &lt;a name=&quot;plan-b-circuit-breakers-and-fallbacks&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;If something breaks at 9pm in front of millions of viewers, we don’t want to improvise. Every critical path has a plan B, and we tested those too.&lt;/p&gt;
+
+&lt;p&gt;We have already experienced this kind of incident in the past: an error hits every viewer at the same time during playback, everyone refreshes at once, and the platform takes a massive arrival rate in an instant. So we built a dedicated Gatling scenario replaying that massive F5, and used it to validate the fallback and mitigation mechanisms in place to withstand this kind of trouble.&lt;/p&gt;
+
+&lt;p&gt;Same logic on authentication: if our auth provider fails during a match, a degradation bypass can open the gates rather than lock viewers out.&lt;/p&gt;
+
+&lt;p&gt;And as a last resort, for the worst-case scenario: if a backend fails entirely, our CDN automatically falls back to static response files stored on S3, regenerated every few minutes by a cron. The main layouts are covered (homepage, services, folders, live, navigation), programs and clips get an error layout. This mode drops authentication, locked content and personalization, but the platform stays browsable and the live reachable.&lt;/p&gt;
+
+&lt;h2 id=&quot;freeze-then-keep-verifying-&quot;&gt;Freeze, then keep verifying &lt;a name=&quot;freeze-then-keep-verifying&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;During the tournament, production deployments on M6+ were frozen. Exceptions had to go through an explicit validation process.&lt;/p&gt;
+
+&lt;p&gt;A freeze protects against regressions, but it proves nothing by itself. So we kept running no-regression load-test sessions: twice in the days before the first match, and once more mid-tournament. Same scenarios, same targets, one question: does the platform still respond exactly as when we validated it?&lt;/p&gt;
+
+&lt;h1 id=&quot;match-evenings-&quot;&gt;Match evenings &lt;a name=&quot;match-evenings&quot;&gt;&lt;/a&gt;&lt;/h1&gt;
+
+&lt;h2 id=&quot;the-evening-ritual-&quot;&gt;The evening ritual &lt;a name=&quot;the-evening-ritual&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Every match evening followed the same ritual. Infra teams online one hour before kickoff, application teams (web, mobile, TV) thirty minutes before. One permanent meet link for the whole tournament, and one Slack thread per evening where everything gets logged: checks, observations, decisions, and how long each action took. An AI agent monitors the platform throughout the evening, warns us when it spots an anomaly, and produces a technical report of the whole evening at the end.&lt;/p&gt;
+
+&lt;p&gt;Before kickoff, a checklist: prescaling armed on every layer, static homepage configured for the match window, World Cup features up, authentication provider checked. Each team then watches its own scope on shared dashboards. On the biggest matches, AWS engineers were on standby on a dedicated bridge.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-lifecycle-of-a-match-evening-&quot;&gt;The lifecycle of a match evening &lt;a name=&quot;the-lifecycle-of-a-match-evening&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;One hour before kickoff, the prescaling arms itself: nodes first, then applications, DynamoDB tables and KV stores, each layer at its own offset. Nobody scales anything: we verify.&lt;/p&gt;
+
+&lt;p&gt;At kickoff, the wave. The arrival rate is what stresses the platform, much more than the plateau that follows: users call our microservices mostly when they arrive and launch the live. Once it plays, it is mainly video consumption, served from the CDNs, and our backends are barely solicited. Halftime brings a dip, then a second wave.&lt;/p&gt;
+
+&lt;p&gt;If a match goes to extra time or penalties, we extend the event directly in the Prescaling UI and the capacity stays up. After the final whistle, users leave, the platform downscales automatically, and everyone goes to bed.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2026-08-25-hosting-the-2026-world-cup-on-m6plus/traffic-curve.png&quot; alt=&quot;A typical traffic curve for a soccer game&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;&lt;em&gt;A typical traffic curve for a soccer game&lt;/em&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;when-the-unexpected-happens-&quot;&gt;When the unexpected happens &lt;a name=&quot;when-the-unexpected-happens&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Zero major incident in 54 matches does not mean nothing happened. A few evenings tested the plan Bs:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Our authentication provider failed&lt;/strong&gt; right at the biggest peak of the tournament. Retries and fallbacks absorbed it, and the issue resolved itself. The “open the gates” bypass stayed ready, we never needed it.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;A storm in Philadelphia delayed a kickoff&lt;/strong&gt; by about two hours. The whole prescaling was rescheduled on the fly through the UI. A marathon evening for the teams, a non-event for viewers.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;The audience beat the forecasts&lt;/strong&gt; on some early matches (the tournament was an instant success), and reactive autoscaling took over without any trouble: the kickoff wall had already been absorbed, and the extra viewers arrived gradually. Elasticity stays on as a safety net on top of the prescaling. We adjusted the forecasts with M6 for the following matches.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;A small DDoS hit during a match.&lt;/strong&gt; The WAF absorbed it, nobody had to act.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;None of it reached the viewers. That is what the preparation was for.&lt;/p&gt;
+
+&lt;h1 id=&quot;wrap-up-&quot;&gt;Wrap-up &lt;a name=&quot;wrap-up&quot;&gt;&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;54 matches, 39 days, zero major incident.&lt;/p&gt;
+
+&lt;p&gt;On M6’s side, the tournament gathered 60 million French viewers across the channel and M6+. The platform signed its 13 best audiences ever, was the most downloaded app on the stores for the whole competition, and counted more than 100 million videos viewed, 11 million unique users and 4.2 million new accounts created.&lt;/p&gt;
+
+&lt;p&gt;As the competition progressed, that attention translated into unprecedented streaming demand. M6+ surpassed 1M concurrent streams on three occasions, while at peak around 60K viewers arrived within a single minute. That last figure is the one that matters to us: the arrival rate is what the whole preparation was built for.&lt;/p&gt;
+
+&lt;p&gt;Three things we take away from it:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Anticipating beats reacting&lt;/strong&gt;: for an event you can see coming, prescale rather than rely on autoscaling to keep up.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Load tests are as much about calibration as validation&lt;/strong&gt;: knowing how each component scales with the arrival rate is what let us size every match from its forecast.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Being static and served from the edge&lt;/strong&gt; is the most effective lever on very-high-traffic events.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And a few things we want to improve: bringing the platform back down earlier after a match, so teams get to sleep sooner and we save a little bit of money. Better graceful shutdown on our backend APIs during downscale. And sharper escalation paths with our external partners, the ones we depend on but do not operate.&lt;/p&gt;
+
+&lt;p&gt;See you at the next big event.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks to everyone who made these late nights look easy.&lt;/em&gt;&lt;/p&gt;</content><author><name>[&quot;v_chabrier&quot;]</name></author><category term="kubernetes" /><category term="scaling" /><category term="prescaling" /><category term="high availability" /><category term="aws" /><category term="cloud" /><category term="cdn" /><category term="resilience" /><category term="loadtesting" /><summary type="html">On June 11th 2026, Mexico and South Africa kicked off the World Cup. For us, it was the start of 54 matches streamed on M6+ and 39 days of match-evening operations.</summary></entry><entry><title type="html">Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming</title><link href="https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html" rel="alternate" type="text/html" title="Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming" /><published>2026-02-06T00:00:00+00:00</published><updated>2026-02-06T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html">&lt;p&gt;At Bedrock Streaming, we create and operate full-scope streaming services for leading media companies with best-in-class user experience across AVOD, SVOD and hybrid business models.&lt;/p&gt;
 
 &lt;p&gt;Given that our application is multi-customer, scaling testing efforts becomes increasingly challenging and costly due to the requirement for extensive manual validation.&lt;/p&gt;
 
@@ -2280,154 +2427,4 @@ The accessibility is not only for the people with disabilities, it’s for every
   &lt;li&gt;Accessibility Tools: &lt;a href=&quot;https://wave.webaim.org/&quot;&gt;Wave&lt;/a&gt; - &lt;a href=&quot;https://www.deque.com/axe/&quot;&gt;Axe&lt;/a&gt; - &lt;a href=&quot;https://www.nvaccess.org/&quot;&gt;Screen reader&lt;/a&gt; - &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector&quot;&gt;Browser accessibility panel&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;HTMLElement.focus(): &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus&quot;&gt;https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;WebOS audio guidance: &lt;a href=&quot;https://webostv.developer.lge.com/develop/references/luna-service-introduction&quot;&gt;https://webostv.developer.lge.com/develop/references/luna-service-introduction&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>[&quot;j_nginn&quot;]</name></author><category term="TVJS" /><category term="smartTV" /><category term="javascript" /><category term="react" /><category term="web" /><category term="frontend" /><category term="accessibility" /><category term="a11y" /><summary type="html">Accessibility is at the heart of our concerns, at Bedrock Streaming we work hard to make our applications accessible to everyone. In this article, I’m going to share with you how my team and I improved our accessibility score of our SmartTV apps by 18% in just a few months! This improvement is even more impressive because on smartTV we have to manage several constraints, including taking into account the specificities of each device (Tizen, WebOS, Hisense, Panasonic, etc.).</summary></entry><entry><title type="html">How we improved scroll performance on Smart TV apps</title><link href="https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html" rel="alternate" type="text/html" title="How we improved scroll performance on Smart TV apps" /><published>2024-11-22T00:00:00+00:00</published><updated>2024-11-22T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html">&lt;p&gt;One of the core experiences of a Bedrock app for the end user is browsing the catalog. Scrolling vertically through blocks of content, and scrolling horizontally through lists of items. However, TVs do not offer high performance and provide poor user experience during heavy resource actions. We especially noticed that scrolling horizontally in a list was laggy and unpleasant. This article focuses on performance optimization to enhance the horizontal scroll experience on Smart TVs.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/old-scroll.gif&quot; alt=&quot;Laggy scroll video&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Note : The GIF above shows a laggy scroll experience on TV. During the videos featured in this article, a x20 CPU throttle has been enforced on the browser, to mimic a low-performance TV device&lt;/em&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;context&quot;&gt;&lt;a href=&quot;#context&quot;&gt;Context&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;On TV, we scroll horizontally by focusing each item sequentially when the user presses the left or right arrow button on their remote.&lt;/p&gt;
-
-&lt;p&gt;Scrollable lists can be of various sizes and even include paginated content. In cases of paginated content, the next page is fetched preemptively during scroll, when the focus reaches a certain threshold.&lt;/p&gt;
-
-&lt;p&gt;Our old scroll component worked as follows: we would render a whole list of items, in a parent component handling scroll. When scrolling horizontally, the focus would switch to the next item. This would notify the parent component in charge of scroll, that would move the whole list laterally. The movement was computed from the measurements of the focused item, the size of the list, and the size of the container.&lt;/p&gt;
-
-&lt;p&gt;There are multiple chances for improvement in this implementation:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Since every item was rendered in the DOM, moving the whole list was very heavy. Subsequently, a whole page of lists was itself pretty heavy to render.&lt;/li&gt;
-  &lt;li&gt;Because the whole list is rendered, fetching a new page means that the new items are immediately all rendered to the DOM, imposing a heavy load by displaying content that is not even on the screen.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&quot;virtualization&quot;&gt;&lt;a href=&quot;#virtualization&quot;&gt;Virtualization&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;To address the first shortcoming of the initial approach, we introduced virtualization. Virtualization is a technique to render only the items that are visible on the screen.&lt;/p&gt;
-
-&lt;p&gt;For context, the content we display on each list is normalized and stored in a redux store. All the items are available in an array and can be selected by their respective index.&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ItemComponent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;position&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;useSelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;selectItemByIndex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Item&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;The virtualized scroll renders items based on a static array, each cell of the array being a slot for the item it’s going to display.&lt;/p&gt;
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ScrollComponent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SCROLLER_BASE_ARRAY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nbItemsToDisplay&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SCROLLER_BASE_ARRAY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;focusOffset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setFocusOffset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// focusOffset is a state updated upon user input: &lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// + 1 when the right arrow is clicked, -1 when the left arrow is clicked&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;position&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;focusOffset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-
-        &lt;span class=&quot;k&quot;&gt;return &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ItemComponent&lt;/span&gt;
-                &lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-                &lt;span class=&quot;nx&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-            &lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;        &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/empty-slots.png&quot; alt=&quot;Schema representing 4 empty slots&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Each cell is connected to the store and uses its own index as selection parameter to get the corresponding item in the store (cell of index 0 gets the first item, cell of index 1 gets the second, etc.)&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/filled-slots.png&quot; alt=&quot;Schema representing 4 slots with rendered items inside&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;At this point, only a subset of the list is rendered, as many items as the static array has cells.&lt;/p&gt;
-
-&lt;p&gt;Horizontal scroll is managed by incrementing the selection index upon user input (e.g., pressing the right arrow key). Using the same array, each cell now selects from the store the item for its index plus an “offset” that describes how much the list is scrolled.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/filled-slots-with-offset.png&quot; alt=&quot;Schema representing 4 slots with rendered items inside&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;By offsetting the items at every user input (negative offset to move the items to the right and positive offset to move the items to the left), we achieve a visual scroll, with only a subsection of the list displayed on screen.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/scrolling.gif&quot; alt=&quot;Animation showing a scrolling list.gif&quot; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;optimised-rendering-with-react-keys&quot;&gt;&lt;a href=&quot;#optimised-rendering-with-react-keys&quot;&gt;Optimised Rendering with React Keys&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;The heart of the implementation is to fill each cell with a new item at each scroll. From the point of view of a single cell, when we scroll, the item it displays is new. But we know that the item already existed in the DOM, just one cell over.&lt;/p&gt;
-
-&lt;p&gt;This is where we can leverage &lt;a href=&quot;https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key&quot;&gt;React’s keys mechanism&lt;/a&gt;. Items rendered use a key that combines the original cell index with the current scroll offset. These keys help React reconcile the item in cell 1 before render as the item in cell 2 after render as the same item, thus reusing the same DOM node. As a result, we get zero re-renders for the items that are shifting places, significantly reducing the performance impact of a scroll.&lt;/p&gt;
-
-&lt;figure&gt;
-  &lt;img src=&quot;/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/profiling.png&quot; alt=&quot;Profiling flame graph&quot; /&gt;
-  &lt;figcaption&gt;☝️Profiling during a single scroll right. The only items rendering are the ones with focus change (item losing focus and item gaining focus) and the new item that wasn’t on the screen. Every other item is unaffected by a horizontal scroll&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;optimised-pagination&quot;&gt;&lt;a href=&quot;#optimised-pagination&quot;&gt;Optimised pagination&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;A nice win from virtualization is the impact on pagination. Only a subset of items is rendered on the screen. Also, the list itself only needs to know about that subset of items since it uses a constant array to display its items. This means that a new page fetched has 0 impact on renders: the new items are added to the store, but the React component itself has no knowledge of that operation and triggers no re-renders.&lt;/p&gt;
-
-&lt;h1 id=&quot;results&quot;&gt;&lt;a href=&quot;#results&quot;&gt;Results&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;&lt;em&gt;Note: measurements presented here are taken with the Chrome DevTools performance tab, with x6 CPU throttle and network connection limited to fast 4G to mimic a low-performance TV device and keep a steady test environment. Times are scripting and rendering times added.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;We can compare a few benchmarks to exhibit the gains from the new scroller.&lt;/p&gt;
-
-&lt;p&gt;Scrolling right is obviously less expensive now. Here, measurements were taken from a single scroll right, in a 72 items list.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Before&lt;/th&gt;
-      &lt;th&gt;After, with new scroll&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;462ms&lt;/td&gt;
-      &lt;td&gt;41ms (-91%)&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;But more closely to the app’s actual use, here is a scenario measuring the cost of scrolling right through a list of 72 items, with 8 pages fetched during scroll.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Before&lt;/th&gt;
-      &lt;th&gt;After&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;11615ms&lt;/td&gt;
-      &lt;td&gt;8631ms (-26%)&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Here, we include everything else a list does when scrolling (fetching new pages, additional handlers…), so the gain is less, but still significant.&lt;/p&gt;
-
-&lt;p&gt;Scrolling down in a page with lighter lists is also more efficient. Here, measurements were taken during a scroll down 25 lists.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Before&lt;/th&gt;
-      &lt;th&gt;After&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;1308ms&lt;/td&gt;
-      &lt;td&gt;1038ms (-21%)&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Beyond benchmarks, on-device tests were also conclusive: the scroll is smoother, we almost eliminated the lag caused by a pagination fetch. Overall, it feels better to scroll through a list.&lt;/p&gt;
-&lt;h1 id=&quot;conclusion&quot;&gt;&lt;a href=&quot;#conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/new-scroll.gif&quot; alt=&quot;New and more fluid scroll&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This frontend R&amp;amp;D project successfully addressed the scrolling performance issues on TV. The new scrolling solution dramatically improved performance by limiting re-renders. This optimization ensured a smoother scrolling experience, enhancing usability on TV devices. From this experience, we also moved on to implementing the same virtualization on the horizontal scroll of the catalog, which presented its own challenges but was also a success.&lt;/p&gt;</content><author><name>[&quot;m_bernier&quot;]</name></author><category term="TV" /><category term="performance" /><category term="javascript" /><category term="react" /><category term="web" /><category term="frontend" /><summary type="html">One of the core experiences of a Bedrock app for the end user is browsing the catalog. Scrolling vertically through blocks of content, and scrolling horizontally through lists of items. However, TVs do not offer high performance and provide poor user experience during heavy resource actions. We especially noticed that scrolling horizontally in a list was laggy and unpleasant. This article focuses on performance optimization to enhance the horizontal scroll experience on Smart TVs.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>[&quot;j_nginn&quot;]</name></author><category term="TVJS" /><category term="smartTV" /><category term="javascript" /><category term="react" /><category term="web" /><category term="frontend" /><category term="accessibility" /><category term="a11y" /><summary type="html">Accessibility is at the heart of our concerns, at Bedrock Streaming we work hard to make our applications accessible to everyone. In this article, I’m going to share with you how my team and I improved our accessibility score of our SmartTV apps by 18% in just a few months! This improvement is even more impressive because on smartTV we have to manage several constraints, including taking into account the specificities of each device (Tizen, WebOS, Hisense, Panasonic, etc.).</summary></entry></feed>
