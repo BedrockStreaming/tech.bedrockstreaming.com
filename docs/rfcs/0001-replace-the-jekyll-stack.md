@@ -3,9 +3,8 @@
 - **Status:** Proposed
 - **Author:** Jules Poissonnet (`j_poissonnet`)
 - **Created:** 2026-08-28
-- **Comments close:** _TBD, propose two weeks from opening. Silence is assent._
-- **Tracking issue:** _TBD_
-- **Closes:** [#366](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/issues/366) (i18n content), [#317](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/issues/317) (dark mode not persisted)
+- **Comments close:** 2026-09-25
+- **Tracking issue:** #488
 
 ## 1. Summary
 
