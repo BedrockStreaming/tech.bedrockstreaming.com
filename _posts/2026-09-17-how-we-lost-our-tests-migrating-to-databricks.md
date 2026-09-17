@@ -6,7 +6,7 @@ tags: [data-engineering, databricks, spark, scala, python, terraform, testing, t
 author: [b_abbad]
 color: rgb(251,87,66)
 language: en
-thumbnail: "/images/posts/2026-09-01-how-we-lost-our-tests-migrating-to-databricks/thumbnail.png"
+thumbnail: "/images/posts/2026-09-17-how-we-lost-our-tests-migrating-to-databricks/thumbnail.png"
 comments: true
 ---
 
@@ -43,7 +43,7 @@ which is our attempt to keep both. It ends with the part we didn't plan: how thi
 verification infrastructure turned out to decide how much of our development we could
 hand to AI agents.
 
-<center><img alt="Three pipeline generations side by side: Scala jobs with tested importable modules, a Databricks rebuild with logic inline in notebooks and no seam for tests, and the new platform where a thin notebook wires an importable, tested Python package" src="/images/posts/2026-09-01-how-we-lost-our-tests-migrating-to-databricks/diagram-0-three-architectures.png"></center>
+<center><img alt="Three pipeline generations side by side: Scala jobs with tested importable modules, a Databricks rebuild with logic inline in notebooks and no seam for tests, and the new platform where a thin notebook wires an importable, tested Python package" src="/images/posts/2026-09-17-how-we-lost-our-tests-migrating-to-databricks/diagram-0-three-architectures.png"></center>
 
 ## Generation one: the Scala years
 
@@ -118,7 +118,7 @@ merge, and generation one's tests were only possible because of seams (injected
 dependencies, pure functions, importable modules) that the notebook form factor had
 quietly removed.
 
-<center><img alt="Five-dimension comparison of generation one and generation two: tenant onboarding, build and deploy, and data-quality checks improve with the rebuild, while the location of the logic and the unit tests are lost" src="/images/posts/2026-09-01-how-we-lost-our-tests-migrating-to-databricks/diagram-1-the-trade.png"></center>
+<center><img alt="Five-dimension comparison of generation one and generation two: tenant onboarding, build and deploy, and data-quality checks improve with the rebuild, while the location of the logic and the unit tests are lost" src="/images/posts/2026-09-17-how-we-lost-our-tests-migrating-to-databricks/diagram-1-the-trade.png"></center>
 
 ## Generation three: keeping both
 
@@ -220,7 +220,7 @@ the script, and a comment forbids adding one. As the platform grew, the gate cou
 from 10 to 31 without a single edit to the script, which is the point: coverage that
 tracks the codebase by construction instead of by diligence.
 
-<center><img alt="Four-step flow of a discovery gate: glob the repository for structural markers, derive the checklist per discovered item, assert every gate treating a skipped check as a failure, and exit listing exactly what is missing" src="/images/posts/2026-09-01-how-we-lost-our-tests-migrating-to-databricks/diagram-2-discovery-gates.png"></center>
+<center><img alt="Four-step flow of a discovery gate: glob the repository for structural markers, derive the checklist per discovered item, assert every gate treating a skipped check as a failure, and exit listing exactly what is missing" src="/images/posts/2026-09-17-how-we-lost-our-tests-migrating-to-databricks/diagram-2-discovery-gates.png"></center>
 
 ## Where AI comes in
 
@@ -256,7 +256,7 @@ our second generation: the verification infrastructure has to come first. Point 
 at a codebase with no invariants holding them and you don't get a faster team. You get
 our generation two at machine speed.
 
-<center><img alt="The development loop: an AI agent drafts tests and infrastructure, the output passes through a trust boundary of property tests, discovery gates and hazard guards, a human reviews the invariants, the change merges, and red builds feed back to the agent" src="/images/posts/2026-09-01-how-we-lost-our-tests-migrating-to-databricks/diagram-3-ai-loop.png"></center>
+<center><img alt="The development loop: an AI agent drafts tests and infrastructure, the output passes through a trust boundary of property tests, discovery gates and hazard guards, a human reviews the invariants, the change merges, and red builds feed back to the agent" src="/images/posts/2026-09-17-how-we-lost-our-tests-migrating-to-databricks/diagram-3-ai-loop.png"></center>
 
 ## If you want to try this
 
