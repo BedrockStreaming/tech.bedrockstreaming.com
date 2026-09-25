@@ -1,6 +1,6 @@
 # RFC 0001: Replace the Jekyll stack with Astro
 
-- **Status:** Proposed
+- **Status:** Accepted
 - **Author:** Jules Poissonnet (`j_poissonnet`)
 - **Created:** 2026-08-28
 - **Comments close:** 2026-09-25
