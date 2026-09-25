@@ -46,7 +46,7 @@ layout: page
     {{ content }}
 
     <section class="video-list">
-    {% for post in site.posts %}
+    {% for post in site.talks %}
         {% if post.tags contains page.filter_tag and post.youtubeId %}
             {% assign author = site.data.authors[post.author] %}
             {% assign date = post.date | default: "today" | date: "%B %-d, %Y" %}
