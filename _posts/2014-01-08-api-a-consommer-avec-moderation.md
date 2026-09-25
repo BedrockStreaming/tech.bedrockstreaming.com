@@ -31,15 +31,15 @@ Dans notre cas, chaque utilisateur possède son propre fichier de configuration 
 
 Il faut ensuite créer notre propre fournisseur d’authentification pour avoir une authentification par nom de domaine. Pour cela nous avons suivi et adapté le [cookbook de Symfony](https://symfony.com/doc/current/cookbook/security/custom_authentication_provider.html). Cette authentification s’articule autour de 2 classes : un FirewallListener et un AuthenticationProvider. Pour que notre FirewallListener puisse facilement récupérer le client associé, nous avons ajouté un paramètre au routing Symfony :
 
-{% highlight yaml %}
+```yaml
 host: {client}.api.monservice.fr
-{% endhighlight %}
+```
 
 Le FirewallListener utilise donc ce paramètre du routing comme nom d’utilisateur et le transmet à notre AuthenticationProvider. Celui-ci récupère le `User` grâce au `UserProvider` et profite de cette phase pour vérifier que l’adresse IP du client est bien autorisée dans sa configuration grâce au [FirewallBundle](https://github.com/BedrockStreaming/FirewallBundle).
 
 Effectivement, nous avons ajouté un filtrage initial (mais optionnel) sur les IPs pour chaque client, dans le fichiers `app/config/users/{username}.yml` :
 
-{% highlight yaml %}
+```yaml
 firewall:
     user_access:
         default_state: false
@@ -50,7 +50,7 @@ firewall:
             m6_lan: true
             m6_local: true
             m6_public: true
-{% endhighlight %}
+```
 
 Pour plus de précisions, voir la [documentation du FirewallBundle](https://github.com/BedrockStreaming/FirewallBundle#firewall-bundle-).
 
@@ -58,7 +58,7 @@ Pour plus de précisions, voir la [documentation du FirewallBundle](https://gith
 
 Pour gérer les autorisations d’accès des utilisateurs aux différentes routes, nous avons créé un EventListener qui écoute `kernel.request` et qui décide de laisser passer la requête ou non en fonction de la configuration de l’utilisateur.
 
-{% highlight yaml %}
+```yaml
 allow:
     default: true
     methods:
@@ -67,7 +67,7 @@ allow:
         exam: false
     routes:
         get_articles: false
-{% endhighlight %}
+```
 
 Dans cet exemple, l’utilisateur a accès par défaut à toutes les routes sauf les méthodes `DELETE`, les routes concernant les `exams` et la route spécifique `get_articles`.
 
@@ -80,22 +80,22 @@ Nous avons là-aussi créé un EventListener qui écoute cette fois `kernel.resp
 
 Nous pouvons offrir une "vue" différente de nos données à chaque client en définissant des critères de filtrage pour Doctrine (ex: date de publication, ressource activée, etc.) dans les fichiers de configuration des clients :
 
-{% highlight yaml %}
+```yaml
 entities:
     article:
         active: true
         publication: false
-{% endhighlight %}
+```
 
 Afin de ne pas modifier le comportement par défaut de Doctrine, nous avons ajouté une méthode [`findWithContext`](https://gist.github.com/oziks/8180382) à nos repositories qui reprend les mêmes paramètres que la méthode `findBy` en injectant le `SecurityContext`. Cette méthode permet donc de récupérer des entités filtrées en fonction des paramètres d'un client :
 
-{% highlight php %}
+```php
 <?php
 $article = $this
     ->get('m6_contents.article.manager')
     ->getRepository()
     ->findWithContext($this->container->get('security.context'), ['id' => $id]);
-{% endhighlight %}
+```
 
 #### Personnalisation avancée
 

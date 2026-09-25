@@ -86,17 +86,17 @@ A venir : Software Collections (scl) permet d’avoir TOUTES les versions de PHP
 
 Exemple d’utilisation des SCL en cli : 
 
-{% highlight bash %}
+```bash
 scl enable php56 -f myscript56.php
 scl enable php56 bash
 scl enable php53 -f myscript53only.php
 scl enable php53 bash
-{% endhighlight %}
+```
 
 
 Dans une config apache :
 
-{% highlight bash %}
+```bash
 <VirtualHost *:80>
     ServerName php56scl
     
@@ -105,7 +105,7 @@ Dans une config apache :
     SetHandler "proxy:fcgi://127.0.0.1:9006"
     </FilesMatch>
 </VirtualHost>
-{% endhighlight %}
+```
 
 ## Frameworks: A History of Violence
 

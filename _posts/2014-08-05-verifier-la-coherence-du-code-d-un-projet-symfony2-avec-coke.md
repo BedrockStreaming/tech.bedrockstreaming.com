@@ -20,13 +20,13 @@ Il y a un peu plus d'un an, chez M6Web, nous avons développé [coke](/coke-pour
 
 Depuis quelques mois, il est possible [d'installer coke via Composer](https://github.com/BedrockStreaming/Coke/pull/4) :
 
-{% highlight json %}
+```json
 {
   "require": {
     "m6web/coke": "~1.2"
   }
 }
-{% endhighlight %}
+```
 
 L'avantage de passer par Composer, c'est que coke va lui-même installer PHP_CodeSniffer en tant que dépendance Composer (dans le dossier `vendor`), permettant de ne pas avoir à suivre la [fastidieuse procédure d'installation via PEAR](https://pear.php.net/manual/en/guide.users.commandline.installing.php).
 
@@ -46,33 +46,33 @@ Si nous avons décidé de le forker, c'est que la structure ne correspondait pas
 
 Créer le fichier `composer.json` suivant :
 
-{% highlight json %}
+```json
 {
   "require-dev": {
     "m6web/coke"                       : "~1.2",
     "m6web/symfony2-coding-standard"   : "~1.1",
   }
 }
-{% endhighlight %}
+```
 
 Installer les dépendances Composer :
 
-{% highlight bash %}
+```bash
 composer install
-{% endhighlight %}
+```
 
 Créer le fichier `.coke` suivant :
 
-{% highlight bash %}
+```bash
 # Standard used by PHP CodeSniffer (required)
 standard=vendor/m6web/symfony2-coding-standard/Symfony2
-{% endhighlight %}
+```
 
 Il est désormais possible d'appeler la commande suivante pour valider le style de codage de votre projet
 
-{% highlight bash %}
+```bash
 ./vendor/bin/coke
-{% endhighlight %}
+```
 
 ## Conclusion
 

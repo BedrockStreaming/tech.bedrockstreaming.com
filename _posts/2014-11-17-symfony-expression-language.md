@@ -14,7 +14,7 @@ Nous souhaiterions maintenant avoir aussi d'autres informations plus dynamiques 
 
 Pour cela, nous avons donc ajouté la possibilité de configurer une expression qui sera évaluée par le composant [ExpressionLanguage](https://symfony.com/doc/current/components/expression_language/index.html) de Symfony de cette manière :
 
-{% highlight yaml %}
+```yaml
 m6_web_monolog_extra:
     processors:
         userProcessor:
@@ -22,11 +22,11 @@ m6_web_monolog_extra:
             config:
                 env: expr(container.getParameter('kernel.environment'))
                 user: expr(container.get('security.context').getToken() ? container.get('security.context').getToken().getUser().getUsername() : 'anonymous')
-{% endhighlight %}
+```
 
 Pour interpréter cette expression, nous avons injecté dans notre processeur Monolog une instance de `ExpressionLanguage` ainsi que le `container` :
 
-{% highlight yaml %}
+```yaml
 services:
   m6_web_monolog_extra.expression_language:
     class: Symfony\Component\ExpressionLanguage\ExpressionLanguage
@@ -39,11 +39,11 @@ services:
       - @m6_web_monolog_extra.expression_language
     calls:
       - [ setConfiguration, []]
-{% endhighlight %}
+```
 
 Nous utilisons une définition de service abstraite qui sert de modèle pour les services qui sont générés à partir de la [configuration sémantique](https://symfony.com/fr/doc/current/cookbook/bundles/extension.html) gérée par l'extension du bundle :
 
-{% highlight php %}
+```php
 <?php
 foreach ($config['processors'] as $name => $processor) {
     $serviceId = sprintf('%s.processor.%s', $alias, is_int($name) ? uniqid() : $name);
@@ -71,11 +71,11 @@ foreach ($config['processors'] as $name => $processor) {
 
     $container->setDefinition($serviceId, $definition);
 }
-{% endhighlight %}
+```
 
 Et l'expression est finalement évaluée par le processeur en utilisant le composant quand la valeur est de la forme `expr(...)`, ceci permettant de garder une compatibilité ascendante avec les configurations statiques précédentes.
 
-{% highlight php %}
+```php
 <?php 
 protected function evaluateValue($value)
 {
@@ -84,7 +84,7 @@ protected function evaluateValue($value)
     }
     return $value;
 }
-{% endhighlight %}
+```
 
 Avec la configuration présentée au début, nous récupérons ainsi l'environnement et l'utilisateur connecté dans le contexte de nos logs.
 

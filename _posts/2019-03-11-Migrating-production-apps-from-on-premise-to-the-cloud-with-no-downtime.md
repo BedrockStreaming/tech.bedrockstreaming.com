@@ -38,7 +38,7 @@ So, we decided to migrate only 1% of production HTTP requests to our Kubernetes 
 
 Here's a part of the associated HAProxy configuration:
 
-{% highlight ruby %}
+```ruby
 backend application-01
     http-response add-header X-Backend-Server %s
     balance roundrobin
@@ -46,7 +46,7 @@ backend application-01
     option httpchk GET /HealthCheck HTTP/1.1\r\nHost:\ application-01.6play.fr
     server aws-prod-Kubernetes-application-01 aQuiteLongURLCorrespondingToOurELBEndpoint.eu-west-3.elb.amazonaws.com:443 check ssl verify required sni req.hdr(host) check-sni application-01.6play.fr ca-file ca-certificates.crt inter 1s fall 1 rise 2 resolvers m6dns observe layer7 weight 25
     server onprem-prod-front-application-01 onprem-application-01.6play.fr:80 check resolvers m6dns weight 75
-{% endhighlight %}
+```
 
 Some explanations on key elements of this configuration:
 
@@ -218,7 +218,7 @@ We use a lot [GOReplay](https://github.com/buger/goreplay).
 Not only because it's light and easy to work with, but because we can do whatever we want with it to replicate traffic. It can rewrite headers, catch only a specific domain or a specific url. It's the perfect tool to complete our migration workflow.
 
 Here is a script we used in the step 5.b of the workflow above:
-{% highlight bash %}
+```bash
 #!/bin/bash
 
 replicate_traffic() {
@@ -259,7 +259,7 @@ replicate_traffic 40% 60s
 replicate_traffic 60% 60s
 replicate_traffic 80% 60s
 replicate_traffic 100% 7h
-{% endhighlight %}
+```
 
 We're using this script and not directly the gor command, to do a slow ramp-up of traffic to the application in Kubernetes.
 Otherwise, since the application is not stressed before traffic is replicated, replicating 100% of traffic all of a sudden would not be representative of real user behavior. It would led to unwanted alerts that would disappear in minutes with auto-scaling, but that would have rang anyway. So we chose to avoid that noise by doing a slow ramp-up to make traffic replication more real.
@@ -271,7 +271,7 @@ We could follow the replication with HAProxy dashboard, like the following graph
 ### HAProxy configuration
 
 To achieve a path-by-path migration of an application, we used this HAProxy configuration:
-{% highlight apache %}
+```apache
 frontend application-02
     ...
     # Defined with a "map" style, from file /etc/haproxy/domain2backend.map
@@ -299,7 +299,7 @@ backend application-02-mixed-critical
     option httpchk GET /HealthCheck HTTP/1.1\r\nHost:\ application-02.6play.fr
     server onprem-prod-front-application-02 onprem-application-02.6play.fr:80 check resolvers m6dns weight 99
     server aws-prod-Kubernetes-application-02 aQuiteLongURLCorrespondingToOurELBEndpoint.eu-west-3.elb.amazonaws.com:443 check ssl verify required sni req.hdr(host) check-sni application-02.6play.fr ca-file ca-certificates.crt resolvers m6dns inter 3s fall 1 rise 2 observe layer7 weight 1
-{% endhighlight %}
+```
 
 
 And here's the associated map file:
