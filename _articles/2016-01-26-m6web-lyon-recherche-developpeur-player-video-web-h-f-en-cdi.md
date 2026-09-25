@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2016-01-26
 permalink: /2016/01/26/m6web-lyon-recherche-developpeur-player-video-web-h-f-en-cdi.html
 title: "M6Web Lyon recherche un développeur player vidéo JavaScript (H/F) en CDI"

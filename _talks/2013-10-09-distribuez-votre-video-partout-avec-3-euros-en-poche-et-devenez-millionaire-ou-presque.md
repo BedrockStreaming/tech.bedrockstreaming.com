@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2013-10-09
 eventName: "Last Friday Talks"
 title: "Distribuez votre vidéo partout avec 3 euros en poche et devenez millionaire. Ou presque."

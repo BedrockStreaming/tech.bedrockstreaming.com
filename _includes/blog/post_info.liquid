@@ -37,4 +37,8 @@
     {% assign monthIndex = date | date: "%m" | minus: 1 %}
     {{ site.data.language.str_months[monthIndex] | default: date | date: "%B" }} {{ date | date: "%d, %Y" }}
   </span>
+  {% if include.language %}
+  <span class="spacer"> - </span>
+  <span class="publication-language">{{ include.language }}</span>
+  {% endif %}
 </div>

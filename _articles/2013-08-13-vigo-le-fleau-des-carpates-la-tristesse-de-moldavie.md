@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2013-08-13
 title: "Vigo, le fléau des Carpates"
 description: ""

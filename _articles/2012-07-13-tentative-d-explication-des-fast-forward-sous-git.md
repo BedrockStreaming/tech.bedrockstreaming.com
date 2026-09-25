@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2012-07-13
 title: "Tentative d'explication des Fast-Forward sous Git"
 description: ""

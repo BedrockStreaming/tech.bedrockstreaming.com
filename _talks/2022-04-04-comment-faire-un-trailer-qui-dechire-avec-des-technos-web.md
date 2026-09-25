@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2022-04-04
 permalink: /2022/04/04/comment-faire-un-trailer-qui-dechire-avec-des-technos-web.html
 

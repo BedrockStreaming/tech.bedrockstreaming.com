@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2015-02-10
 permalink: /2015/02/10/cr-react-conf-2015-day-two.html
 title: "CR React Conférence 2015 - Day 2"

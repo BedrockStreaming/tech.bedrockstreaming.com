@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2021-03-11
 permalink: /2021/03/11/migration-6play-vers-le-cloud-retour-experience-pascal-martin.html
 
@@ -10,7 +11,6 @@ eventName: Cloudsud
 eventUrl: https://cloudsud.fr/
 youtubeId: xZep9iv6tLY
 
-lang: fr
 tags: [conference, cloud, migration, cloudsud]
 ---
 

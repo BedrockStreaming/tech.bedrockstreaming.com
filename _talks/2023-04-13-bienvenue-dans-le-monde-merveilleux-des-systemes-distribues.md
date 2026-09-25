@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 title: "Bienvenue dans le monde merveilleux des systèmes distribués !"
 date: 2023-04-13
 author: "p_martin"

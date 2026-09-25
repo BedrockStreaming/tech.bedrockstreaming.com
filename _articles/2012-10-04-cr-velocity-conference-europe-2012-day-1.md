@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2012-10-04
 title: "CR Velocity Conférence Europe 2012 : Day 1"
 description: ""

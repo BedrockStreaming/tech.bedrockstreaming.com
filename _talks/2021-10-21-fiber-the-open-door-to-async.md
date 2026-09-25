@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2021-10-21
 permalink: /2021/10/21/fiber-the-open-door-to-async.html
 
@@ -10,7 +11,6 @@ eventName: ForumPHP 2021
 eventUrl: https://event.afup.org/forum-php-2021/
 youtubeId: KkRo7fAC28s
 
-lang: fr
 tags: [conference, php, afup]
 ---
 

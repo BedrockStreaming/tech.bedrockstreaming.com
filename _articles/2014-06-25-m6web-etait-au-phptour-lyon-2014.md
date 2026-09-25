@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2014-06-25
 permalink: /2014/06/25/m6web-etait-au-phptour-lyon-2014.html
 title: "M6Web était présent au PHPTour Lyon 2014"

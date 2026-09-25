@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2023-11-24
 eventName: "Last Friday Talks"
 title: "Jeux vidéo, websocket et binaire: temps réel efficace pour navigateur #LFT 24/11/23"

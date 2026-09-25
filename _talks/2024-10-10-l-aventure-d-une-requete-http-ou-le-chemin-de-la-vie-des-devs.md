@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 title: "L’aventure d’une requête HTTP — ou le chemin de la vie des devs"
 date: 2024-10-10
 author: "p_martin"

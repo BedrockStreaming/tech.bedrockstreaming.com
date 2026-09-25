@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2022-10-13
 permalink: /2022/10/13/revue-de-code-on-n-est-pas-venu-pour-souffrir.html
 title: "Revue de code : on n’est pas venu pour souffrir !"

@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2013-11-20
 title: "JenkinsLight, mettez en lumière vos jobs Jenkins"
 description:

@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2016-06-23
 permalink: /2016/06/23/video-phptour-worker-php.html
 title: "Retour d’expérience : réaliser des Workers en PHP - Fabien de Saint pern au PHP Tour 2016 "

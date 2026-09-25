@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2022-04-21
 permalink: /2022/04/21/vite-the-webpack-killer.html
 
@@ -9,7 +10,6 @@ eventName: Devoxx France
 eventUrl: https://www.devoxx.fr/
 youtubeId: Q6N7DoCNfAE
 
-lang: fr
 tags: [conference, js, webpack, vite, devoxx]
 ---
 

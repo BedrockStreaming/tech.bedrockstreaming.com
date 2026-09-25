@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2015-10-21
 permalink: /2015/10/21/beta-nouveau-6play-react-isomorphic.html
 title: "La bêta du nouveau 6play est disponible"

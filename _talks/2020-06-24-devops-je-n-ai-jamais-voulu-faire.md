@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2020-06-24
 permalink: /2020/06/24/devops-je-n-ai-jamais-voulu-faire.html
 
@@ -9,7 +10,6 @@ eventName: AFUP Day 2021
 eventUrl: https://event.afup.org/afup-day-2021/
 youtubeId: dNUIFe7S1A0
 
-lang: fr
 tags: [conference, afup, php, devops]
 ---
 

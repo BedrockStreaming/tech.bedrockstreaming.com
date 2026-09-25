@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2016-01-25
 permalink: /2016/01/25/tests-fonctionnels-app-js.html
 title: "On a testé fonctionnellement notre app JS"

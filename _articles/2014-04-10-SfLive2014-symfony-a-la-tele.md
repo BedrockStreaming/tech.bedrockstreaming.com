@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2014-04-10
 permalink: /2014/04/10/SfLive2014-symfony-a-la-tele.html
 title: "Conférence au Symfony Live 2014 : Symfony à la télé"

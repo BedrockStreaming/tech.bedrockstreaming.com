@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2022-10-13
 permalink: /2022/10/13/bff-notre-best-friend-forever-pour-faire-plein-d-applications-frontend.html
 title: "BFF, notre best friend forever pour faire plein d’applications frontend ?"

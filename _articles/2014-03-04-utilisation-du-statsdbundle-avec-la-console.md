@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2014-03-04
 permalink: /2014/03/04/utilisation-du-statsdbundle-avec-la-console.html
 title: "Utilisation du StatsdBundle avec le composant Console"

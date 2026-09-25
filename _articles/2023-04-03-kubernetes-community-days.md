@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2023-04-03
 permalink: /2023/04/03/kubernetes-community-days.html
 title: Bedrock au Kubernetes Community Days France 2023

@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2016-05-09
 permalink: /2016/05/09/6tech-phptour-clermont.html
 title: "M6web sera présent au PHPTour Clermont-Ferrand"

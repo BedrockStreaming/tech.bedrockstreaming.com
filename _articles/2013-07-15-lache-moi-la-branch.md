@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2013-07-15
 title: "Lâche moi la branch !"
 description: ""

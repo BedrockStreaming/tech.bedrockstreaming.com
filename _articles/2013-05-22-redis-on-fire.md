@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2013-05-22
 title: "Redis on fire !"
 description: ""

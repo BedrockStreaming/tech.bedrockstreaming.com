@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2018-03-07
 permalink: /2018/03/07/atteindre-les-etoiles-avec-php-et-symfony.html
 
@@ -11,7 +12,6 @@ eventUrl: https://confoo.ca/fr/yul2018
 conferenceUrl: https://confoo.ca/fr/yul2018/session/atteindre-les-etoiles-avec-php-et-symfony
 slideshareKey: 2CHGfkIFMor2BU
 
-lang: fr
 tags: [conference, confoo, PHP, Symfony]
 ---
 

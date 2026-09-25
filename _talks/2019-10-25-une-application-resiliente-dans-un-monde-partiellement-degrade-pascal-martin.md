@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2019-10-25
 permalink: /2019/10/25/une-application-resiliente-dans-un-monde-partiellement-degrade-pascal-martin.html
 
@@ -10,7 +11,6 @@ eventName: ForumPHP 2019
 eventUrl: https://event.afup.org/forumphp2019/
 youtubeId: U7wuMyv8YzA
 
-lang: fr
 tags: [conference, architecture, resilience, afup, cloud]
 ---
 

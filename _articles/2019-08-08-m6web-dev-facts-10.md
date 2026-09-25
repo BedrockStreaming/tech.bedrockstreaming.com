@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2019-08-08
 permalink: /2019/08/08/m6web-dev-facts-10.html
 title: "M6Web Dev Facts #10"

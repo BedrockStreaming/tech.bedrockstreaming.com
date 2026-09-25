@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2012-07-11
 title: "Intégration continue avec Jenkins et Atoum"
 description: ""

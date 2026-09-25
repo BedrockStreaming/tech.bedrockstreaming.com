@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2022-10-13
 permalink: /2022/10/13/sauve-une-dev-ecris-une-doc.html
 title: "Sauve un-e dév, écris une doc !"

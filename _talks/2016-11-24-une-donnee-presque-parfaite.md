@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2016-11-24
 permalink: /2016/11/24/une-donnee-presque-parfaite.html
 

@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2020-02-07
 permalink: /2020/02/07/pascal-martin-laduckconf.html
 

@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2014-11-24
 title: "Retour sur la Velocity Barcelone - seconde journée"
 description: ""

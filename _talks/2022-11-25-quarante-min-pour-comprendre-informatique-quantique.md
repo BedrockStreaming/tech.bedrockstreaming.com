@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2022-11-25
 eventName: "Last Friday Talks"
 title: "40 min pour (tenter de) comprendre l'informatique quantique #LFT 25/11/22"

@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2017-03-10
 permalink: /2017/03/10/confoo-2017-nouveau-socle-nouvelle-vie.html
 
@@ -11,7 +12,6 @@ eventUrl: https://confoo.ca/fr/yul2017
 conferenceUrl: https://afup.org/talks/3497-la-scalabilite-d-une-equipe-d-un-pole-technique
 slideshareKey: t7BqO8Q87GOIfl
 
-lang: fr
 tags: [conference, confoo, PHP, Symfony]
 ---
 

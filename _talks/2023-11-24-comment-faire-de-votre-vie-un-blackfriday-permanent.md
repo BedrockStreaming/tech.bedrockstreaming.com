@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2023-11-24
 eventName: "Last Friday Talks"
 title: "Comment faire de votre vie un BlackFriday permanent #LFT 24/11/23"

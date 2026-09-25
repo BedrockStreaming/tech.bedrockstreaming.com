@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2023-01-27
 eventName: "Last Friday Talks"
 title: "La philo et les livres : mes compagnons de route pour les défis sportifs #LFT 27/01/23"

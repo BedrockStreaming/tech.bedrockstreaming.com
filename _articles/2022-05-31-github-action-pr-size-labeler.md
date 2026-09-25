@@ -1,11 +1,11 @@
 ---
 layout: post
+language: en
 date: 2022-05-31
 permalink: /2022/05/31/github-action-pr-size-labeler.html
 title: Announcing BedrockStreaming/pr-size-labeler github action 🎉
 description: We have just published a github action that dynamically adds size labels to _Pull Requests_ based on the size of the diff and the number of modified files.
 author: a_caron
-lang: en
 tags: [oss, github, devops]
 ---
 

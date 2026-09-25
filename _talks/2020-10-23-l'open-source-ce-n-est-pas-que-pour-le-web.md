@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2020-10-23
 permalink: /2020/10/23/l'open-source-ce-n-est-pas-que-pour-le-web.html
 
