@@ -33,7 +33,7 @@
         {% if paginator.next_page and paginator.next_page != paginator.total_pages %}
         <!-- >> -->
         <a aria-label="{{ site.data.language.str_next_page | default: 'Next' }}"
-        href="{{ site.paginate_path | relative_url | replace: ':num', paginator.total_pages }}" class="button">
+        href="{{ '/blog/page' | append: paginator.total_pages | append: '/' | relative_url }}" class="button">
             <span><i class="fas fa-angle-double-right"></i></span>
         </a>
         {% endif %}
