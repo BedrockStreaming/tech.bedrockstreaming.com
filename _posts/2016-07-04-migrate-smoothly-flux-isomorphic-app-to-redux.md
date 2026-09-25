@@ -39,7 +39,7 @@ We tried it… And we succeeded! And this is quite simple.
 
 First, we define the store configuration like other Redux application.
 
-{% highlight javascript %}
+```javascript
 // configureStore.js
 
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
@@ -57,11 +57,11 @@ export default initialState => createStore(
     canUseDOM && window.devToolsExtension ? window.devToolsExtension() : f => f
   )
 );
-{% endhighlight %}
+```
 
 Then we initialize Redux store in our server file. For isomorphic purposes, we have to serialize stores' state and give it to the html so that client side can take control of the application with server's data. So here, we build data for the client by combining Redux and Fluxible states.
 
-{% highlight javascript %}
+```javascript
 // server.js
 
 import {provideContext} from 'fluxible-addons-react';
@@ -98,11 +98,11 @@ processAppRequest() {
     // ...
   }
 }
-{% endhighlight %}
+```
 
 On client side, we do the opposite operation.
 
-{% highlight javascript %}
+```javascript
 // client.js
 
 import {provideContext} from 'fluxible-addons-react';
@@ -129,7 +129,7 @@ app.rehydrate(dehydratedState, (error, fluxibleContext) => {
     document.getElementById(rootId)
   );
 });
-{% endhighlight %}
+```
 
 And that’s it! We can now use Redux in our component as usual, in combination with Fluxible. We can define actions and reducers for new features (instead of using Fluxible) but we can also transform progressively some Fluxible stores and actions into Redux flow, this is very easy. API requests stay in actions but data processing moves to reducers. Then data sorting and filtering logic in Fluxible stores moves to [selectors](https://redux.js.org/docs/recipes/ComputingDerivedData.html).
 
@@ -144,7 +144,7 @@ With Fluxible, we linked components with stores through `connectToStore` in the 
 
 From now on, components are files named `*.component.js` and stores connections are in `*.connector.js` files in the same folder. We can link a component both with Redux and Fluxible stores.
 
-{% highlight javascript %}
+```javascript
 // myComponent.connector.js
 
 import MyComponent from './myComponent.component';
@@ -170,7 +170,7 @@ export default connectToStores(
     dataFromFluxible: context.getStore(MyFluxibleStore).getSomeData(props.myProps1)
   })
 );
-{% endhighlight %}
+```
 
 We export `mapStateToProps` function because in a few cases it contains logic that may be interesting to unit test.
 
@@ -185,7 +185,7 @@ It means that if Redux state changes, the Fluxible wrapper component won’t be 
 
 * If one connection depends on data stored in the other library state, it has to be lower in components tree.
 
-{% highlight javascript %}
+```javascript
 // myComponent.connector.js
 
 import MyComponent from './myComponent.component';
@@ -213,7 +213,7 @@ export const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(MyComponentFluxibleConnector);
-{% endhighlight %}
+```
 
 * If the higher connection is made on Fluxible stores (like first example of `myComponent.connector.js`), data passed to props must be immutable otherwise it can cause edge effects. Indeed, Redux wrapper component checks if it has to rerender when props change by [comparing their references](https://github.com/reactjs/react-redux/blob/v4.4.5/src/components/connect.js#L216). So, if we mutate data in Fluxible store when dispatch is handled, references don’t change and Redux wrapper (and sub-components) will not rerender (unless you tell the `connect` method that your component isn’t ["pure"](https://github.com/reactjs/react-redux/blob/v4.4.5/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options)).
 

@@ -22,5 +22,5 @@ Quel est notre secret ? C’est ce que vous allez découvrir pendant ce talk !
 Automatisation des tâches courantes, gestion de la dette, testing et architecture seront des sujets abordés.
 Ce talk propose des thématiques qui ne concernent pas que le frontend !
 
-[Plus de détails dans l'article suivant.]({% post_url 2021-09-01-bonnes-pratiques-web %})
+[Plus de détails dans l'article suivant.](/2021/09/01/bonnes-pratiques-web.html)
 
