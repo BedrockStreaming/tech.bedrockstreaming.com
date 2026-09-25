@@ -13,8 +13,8 @@ youtubeId: HWRQp2Y1rbw
 sponsored: true
 hosted: true
 
-tags: [xstate, lyonjs, meetup, react, javascript, conference]
 language: fr
+topics: [frontend]
 ---
 
 Dans une application frontend moderne, la gestion d'état est un élément central de son bon fonctionnement. Malgré les nombreuses librairies disponibles (Redux, MobX, Recoil...), cette tache reste complexe à réaliser et il est facile de perdre le contrôle.

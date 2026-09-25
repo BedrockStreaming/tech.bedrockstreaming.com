@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2023-09-29
 eventName: "Last Friday Talks"
 title: "Mentors: super-héros ou super-vilains ? #LFT 29/09/23"
 description: ""
 author: p_rambaud
-tags: [lft, tech]
 youtubeId: QM5CDEtwsmo
 permalink: mentors-super-heros-ou-super-vilains
 ---

@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2022-11-25
 eventName: "Last Friday Talks"
 title: "Trois patterns avancés pour améliorer la résilience d’une application #LFT 25/11/22"
 description: ""
 author: p_martin
-tags: [lft, tech]
 youtubeId: O0nYbEBsPJ0
 permalink: trois-patterns-avances-pour-ameliorer-la-resilience-une-application
 ---

@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2022-11-25
 eventName: "Last Friday Talks"
 title: "40 min pour (tenter de) comprendre l'informatique quantique #LFT 25/11/22"
 description: ""
 author: g_forien
-tags: [lft, tech]
 youtubeId: _L2j8DdDUTo
 permalink: quarante-min-pour-comprendre-informatique-quantique
 ---

@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [backend]
 date: 2013-05-20
 title: "CR Conférence Agora Cms du 15 mai 2013"
 description: ""
 author: d_roussel 
-tags: [conference,cms]
 image:
   feature: 
   credit: 

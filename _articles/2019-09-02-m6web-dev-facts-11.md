@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [culture]
 date: 2019-09-02
 permalink: /2019/09/02/m6web-dev-facts-11.html
 title: "M6Web Dev Facts #11"
 description: "Les plus belles phrases de nos équipes techniques"
 author: bedrock  
-tags: [devfacts, humour]
 image:
   feature: posts/devfacts.jpg
   credit: Game Of Thrones

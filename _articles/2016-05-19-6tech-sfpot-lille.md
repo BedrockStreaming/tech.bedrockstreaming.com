@@ -1,6 +1,7 @@
 ---
 layout: post
 language: fr
+topics: []
 date: 2016-05-19
 permalink: /2016/05/19/6tech-sfpot-lille.html
 title: "M6web sera présent au sfpot de Lille du 16/06/16"
@@ -12,7 +13,6 @@ author:
   twitter:  techM6Web      
   facebook:       
   github:    
-tags: [6tech, lille, sfpot, conference]
 thumbnail: "images/posts/sfpot-lille/sfpot_juin.jpg"
 ---
 

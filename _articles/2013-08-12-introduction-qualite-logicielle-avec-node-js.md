@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [backend, frontend, practices]
 date: 2013-08-12
 title: "Introduction à la qualité logicielle avec Node.js"
 description: ""
 author: bedrock 
-tags: [nodejs,javascript,qualite]
 image:
   feature: 
   credit: 

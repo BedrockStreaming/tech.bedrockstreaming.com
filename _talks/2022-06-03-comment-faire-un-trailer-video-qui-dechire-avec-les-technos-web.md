@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: [video, frontend]
 date: 2022-06-03
 eventName: "Last Friday Talks"
 title: "Comment faire un trailer vidéo qui déchire avec les technos web ? #LFT 03/06/22"
 description: ""
 author: [m_alves, a_caron]
-tags: [video, react, js, remotion,ffmpeg, lft, tech]
 youtubeId: LvaHeKiwf0o
 permalink: comment-faire-un-trailer-video-qui-dechire-avec-les-technos-web
 ---

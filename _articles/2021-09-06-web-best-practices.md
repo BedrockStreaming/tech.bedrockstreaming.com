@@ -5,10 +5,10 @@ permalink: /2021/09/06/web-best-practices.html
 title: "Best practices for Web application maintenance"
 description: "How not to throw away your project after 2 years? Feedback based on best practices applied to the web platform developed at Bedrock Streaming."
 author: a_caron
-tags: [js, react, web, frontend]
 feature-img: "images/posts/bonnes-pratiques-web/bedrock.jpg"
 canonical: "https://slashgear.github.io/how-not-to-throw-away-your-web-application-after-two-years/"
 language: en
+topics: [frontend]
 redirect_from:
   - /web-best-practices/
 ---

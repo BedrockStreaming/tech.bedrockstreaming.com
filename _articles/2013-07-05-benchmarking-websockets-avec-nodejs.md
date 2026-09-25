@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [backend, performance, open-source]
 date: 2013-07-05
 title: "Benchmarking WebSockets avec NodeJs"
 description: ""
 author: bedrock 
-tags: [nodejs,websockets,benchmark,open-source]
 image:
   feature: 
   credit: 

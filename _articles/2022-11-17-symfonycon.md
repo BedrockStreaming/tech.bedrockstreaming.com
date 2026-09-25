@@ -3,9 +3,9 @@ layout: post
 title: Ce que nous avons retenu de la SymfonyCon - Disneyland Paris 2022
 description: "Nos retours de la SymfonyCon à Paris, les 17 et 18 novembre 2022"
 author: bedrock
-tags: [conferences, backend, symfony, php]
 thumbnail: "images/posts/symfonycon2022/header.jpg"
 language: fr
+topics: [backend]
 date: 2022-11-17
 permalink: /2022/11/17/symfonycon.html
 ---

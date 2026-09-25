@@ -4,8 +4,8 @@ date: 2022-07-26
 title: "Comment appliquer automatiquement des modifications sur une codebase JS 🤖"
 description: "Ou comment j'ai appris à ne plus m'en faire et à aimer JSCodeshift"
 author: m_schneider
-tags: [javascript, outil, cytron, frontend, react, refactor, js]
 language: fr
+topics: [frontend, practices, architecture]
 permalink: refactorer-avec-jscodeshift
 ---
 

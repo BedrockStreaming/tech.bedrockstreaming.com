@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [backend, video]
 date: 2013-05-22
 title: "Redis on fire !"
 description: ""
 author: o_mansour
-tags: [redis,nosql,lft,video]
 permalink: redis-on-fire
 ---
 

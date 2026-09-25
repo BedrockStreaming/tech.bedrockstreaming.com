@@ -1,6 +1,7 @@
 ---
 layout: conference
 language: fr
+topics: [practices]
 date: 2022-10-13
 permalink: /2022/10/13/sauve-une-dev-ecris-une-doc.html
 title: "Sauve un-e dév, écris une doc !"
@@ -10,7 +11,6 @@ eventName: "Forum PHP 2022"
 sponsored: true
 eventUrl: "https://event.afup.org/forum-php-2022/"
 youtubeId: MbLiKVnyGSY
-tags: [conference, afup, forumphp, doc]
 ---
 
 Vous êtes développeur ou développeuse PHP : vous aimez programmer, réfléchir. Vous aimez créer des applications ou des bibliothèques de qualité. Mais pourquoi personne ne les utilise ? Parce que votre documentation n'est pas à la hauteur !

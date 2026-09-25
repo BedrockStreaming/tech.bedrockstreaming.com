@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2022-11-25
 eventName: "Last Friday Talks"
 title: "To be or not to be, ou quelques réflexions sur la dette technique et humaine #LFT 25/11/22"
 description: ""
 author: e_herve
-tags: [lft, tech]
 youtubeId: 52JEUdJk2BY
 permalink: to-be-or-not-to-be
 ---

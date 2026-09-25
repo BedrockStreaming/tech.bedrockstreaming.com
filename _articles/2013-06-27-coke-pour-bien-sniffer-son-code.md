@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [practices, backend, open-source]
 date: 2013-06-27
 title: "Coke, pour bien sniffer son code"
 description: ""
 author: team_cytron
-tags: [outil, qualite, php, open-source]
 feature-img: "images/posts/cytron/sniff.jpg"
 thumbnail: "images/posts/cytron/sniff.jpg"
 permalink: coke-pour-bien-sniffer-son-code

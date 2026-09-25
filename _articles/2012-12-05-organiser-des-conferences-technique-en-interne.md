@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [culture]
 date: 2012-12-05
 title: "Organiser des conférences technique en interne"
 description: ""
 author: k_dits 
-tags: [conference,culture,lft]
 permalink: organiser-des-conferences-technique-en-interne
 ---
 

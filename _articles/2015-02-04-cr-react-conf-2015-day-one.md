@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [frontend]
 date: 2015-02-04
 permalink: /2015/02/04/cr-react-conf-2015-day-one.html
 title: "CR React Conférence 2015 - Day 1"
 description: "Compte rendu de la conférence React - Facebook HQ - Menlo Park - Day 1"
 author: k_dits
-tags: [javascript, react, flux, isomorphic, conference]
 feature-img: "images/posts/reactconf/reactconf.png"
 thumbnail: "images/posts/reactconf/reactconf.png"
 ---

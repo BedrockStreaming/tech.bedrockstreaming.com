@@ -5,9 +5,9 @@ permalink: /2019/03/11/Migrating-production-apps-from-on-premise-to-the-cloud-wi
 title: "Migrating production applications from on-premise to the cloud with no downtime"
 description: "How did we proceed, what lessons we learned and what tools we used"
 author: v_gallissot
-tags: [Cloud, AWS, Kubernetes, Kops, HAProxy, GOReplay]
 feature-img: "images/posts/migrating-production-apps-to-the-cloud/kaushik-panchal-37070-unsplash.jpg"
 language: en
+topics: [platform, testing]
 ---
 
 We are migrating all our on-premise applications to AWS cloud.

@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2023-11-24
 eventName: "Last Friday Talks"
 title: "Le futur du web est sur la périphérie du réseau #LFT 24/11/23"
 description: ""
 author: j_sulpis
-tags: [lft, tech]
 youtubeId: 2iQJgNB2DN0
 permalink: le-futur-du-web-est-sur-la-peripherie-du-reseau
 ---

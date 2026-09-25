@@ -5,8 +5,8 @@ permalink: /2024/01/10/journal-de-l-alternant-comment-jai-perdu-mes-dependences-
 title: Journal de l'alternant - Comment j'ai perdu mes dépendances pnpm
 description: "Comment la non-compréhension du hoisting m'a fait perdre des dépendances"
 author: [j_poissonnet]
-tags: [pnpm, hoisting, node_modules, alternant]
 language: fr
+topics: [frontend, culture]
 ---
 
 À Bedrock, on m’a chargé de faire un POC ([proof of concept](https://fr.wikipedia.org/wiki/Preuve_de_concept)) pour tester les avantages et les limites d’un double run entre notre app côté web (sur [une base maison React Server Side Rendering](https://tech.bedrockstreaming.com/2017/05/17/spa-mode-isomorphism-js.html)) en déléguant des pages progressivement vers une app [Next.js](https://nextjs.org/). Étant tout nouveau dans le dev et encore plus nouveau sur le projet, ma vie ces derniers temps est une suite d’obstacles, d’essais, d’erreurs et de triomphes (pas toujours, mais souvent) bien mérités. Je suis habitué à faire des erreurs plus lunaires les unes que les autres, mais je vais m’attarder dans cet article sur une erreur qui m’a retourné le cerveau. Au menu : erreurs soudaines, dépendances disparues et désespoir… Bonne lecture.

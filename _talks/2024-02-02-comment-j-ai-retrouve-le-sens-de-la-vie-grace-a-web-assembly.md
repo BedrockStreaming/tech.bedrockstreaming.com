@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2024-02-02
 eventName: "Last Friday Talks"
 title: "Comment j'ai retrouvé le sens de la vie grâce à WebAssembly #LFT 02/02/24"
 description: ""
 author: t_gianella
-tags: [lft, tech]
 youtubeId: kwG-RuEy_74
 permalink: comment-j-ai-retrouve-le-sens-de-la-vie-grace-a-web-assembly
 ---

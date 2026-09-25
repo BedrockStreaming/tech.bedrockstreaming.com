@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [culture]
 date: 2022-10-07
 permalink: /2022/10/07/bedrock-dev-facts-18.html
 title: "Bedrock Dev Facts #18"
 description: "Les plus belles phrases de nos équipes techniques"
 author: bedrock 
-tags: [devfacts, humour]
 ---
 
 C'est maintenant l'automne 🍁🎃, on vous propose les devfacts de cette fin d'été et il y a du lourd !

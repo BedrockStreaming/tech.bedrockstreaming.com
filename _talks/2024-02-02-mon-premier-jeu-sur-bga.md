@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2024-02-02
 eventName: "Last Friday Talks"
 title: "Mon premier jeu sur BGA #LFT 02/02/24"
 description: ""
 author: o_thebault
-tags: [lft, tech]
 youtubeId: zwiMJjc9n7g
 permalink: mon-premier-jeu-sur-bga
 ---

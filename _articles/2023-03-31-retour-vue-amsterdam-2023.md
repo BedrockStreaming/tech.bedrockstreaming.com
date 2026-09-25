@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [backend, frontend, testing]
 date: 2023-03-31
 permalink: /2023/03/31/retour-vue-amsterdam-2023.html
 title: Retour Conférence Vue Amsterdam 2023
 description: Retour sur la conférence Vuejs à Amsterdam 2023
 author: [pl_perez, l_penaguin, c_berard]
-tags: [node, Node, vue, vuex, pinia, vite, Vitest, TypeScript, developer, javascript]
 thumbnail: /images/posts/2023-03-31-retour-vue-amsterdam-2023/vue_amsterdam_logo.jpeg
 ---
 

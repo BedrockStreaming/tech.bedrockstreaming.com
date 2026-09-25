@@ -1,6 +1,7 @@
 ---
 layout: conference
 language: fr
+topics: [backend, platform]
 date: 2020-06-24
 permalink: /2020/06/24/devops-je-n-ai-jamais-voulu-faire.html
 
@@ -9,8 +10,6 @@ author: s_lescano
 eventName: AFUP Day 2021
 eventUrl: https://event.afup.org/afup-day-2021/
 youtubeId: dNUIFe7S1A0
-
-tags: [conference, afup, php, devops]
 ---
 
 Développeuse junior : première semaine. Mes collègues m'ont forcée à déployer ma première feature sur 6play ! Malgré un petit frisson, tout s'est bien passé, grâce aux outils et bonnes pratiques qui nous guident.

@@ -5,8 +5,8 @@ permalink: /2025/05/13/bedrock-au-mixit-2025.html
 title: Bedrock au MiXiT 2025
 description: 
 author: [y_ferlin, p_rambaud, a_moutounet, v_clavreul, h_detang, p_martin]
-tags: [conference, lyon, tech, agilité]
 language: fr
+topics: [practices]
 ---
 
 Bedrock était présent au [MiXiT 2025](https://mixitconf.org/fr/), les 29 et 30 avril à Lyon.

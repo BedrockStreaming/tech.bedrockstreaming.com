@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [culture]
 date: 2022-03-26
 permalink: /2022/03/26/bedrock-dev-facts-16.html
 title: "Bedrock Dev Facts #16"
 description: "Les plus belles phrases de nos équipes techniques"
 author: bedrock 
-tags: [devfacts, humour]
 ---
 
 Sur ce début 2022 les équipes de Bedrock se sont lachées ça promet pour le reste de l'année.

@@ -1,6 +1,7 @@
 ---
 layout: conference
 language: fr
+topics: [architecture, platform]
 date: 2019-10-25
 permalink: /2019/10/25/une-application-resiliente-dans-un-monde-partiellement-degrade-pascal-martin.html
 
@@ -10,8 +11,6 @@ author: p_martin
 eventName: ForumPHP 2019
 eventUrl: https://event.afup.org/forumphp2019/
 youtubeId: U7wuMyv8YzA
-
-tags: [conference, architecture, resilience, afup, cloud]
 ---
 
 Dans un monde en perpétuelle évolution, pouvons-nous toujours atteindre *« four-nines »* de disponibilité ?  

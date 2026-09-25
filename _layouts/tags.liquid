@@ -8,8 +8,8 @@ layout: page
     {% assign rawtags = "" %}
     {% assign docs = site.articles | concat: site.talks %}
     {% for post in docs %}
-    {% if post.tags.size > 0 %}
-    {% assign post_tags = post.tags | join:'|' | append:'|' %}
+    {% if post.topics.size > 0 %}
+    {% assign post_tags = post.topics | join:'|' | append:'|' %}
     {% assign rawtags = rawtags | append:post_tags %}
     {% endif %}
     {% endfor %}
@@ -36,7 +36,7 @@ layout: page
     <div class="posts">
         {% for tag in tags %}
         <h3 id="{{ tag | cgi_escape }}" class="tag-anchor">
-            <a href="#{{ tag | cgi_escape }}"><i class="fas fa-tag fa-fw fa-sm"></i> {{ tag }}</a>
+            <a href="#{{ tag | cgi_escape }}"><i class="fas fa-tag fa-fw fa-sm"></i> {{ site.data.topics[tag] | default: tag }}</a>
             <a href="#{{ page.title }}" style="float: right"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"> </i> </a>
 
         </h3>
@@ -60,7 +60,7 @@ layout: page
             <!-- Posts -->
             {% assign docs = site.articles | concat: site.talks %}
             {% for post in docs %}
-            {% if post.tags contains tag %}
+            {% if post.topics contains tag %}
             <h5 class="tag-title">
                 <a href="{{ post.url | relative_url }}">
                     <i class="far fa-file-alt" aria-hidden="true"></i>

@@ -1,6 +1,7 @@
 ---
 layout: conference
 language: fr
+topics: [video]
 date: 2020-02-07
 permalink: /2020/02/07/pascal-martin-laduckconf.html
 
@@ -11,7 +12,6 @@ eventName: La Duck Conf
 eventUrl: https://www.laduckconf.com/
 youtubeId: xLELSIEt2xA
 
-tags: [conference, video]
 feature-img: "images/posts/6play/logo.jpg"
 thumbnail: "images/posts/6play/logo.jpg"
 redirect_from:

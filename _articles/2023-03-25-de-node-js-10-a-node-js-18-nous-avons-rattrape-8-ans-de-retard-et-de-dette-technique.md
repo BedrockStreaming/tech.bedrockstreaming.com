@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [backend, frontend, testing, culture, platform]
 date: 2023-03-25
 permalink: /2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique.html
 title: De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique
 description: Difficile de faire évoluer des applications et améliorer une stack si l’ensemble est basé sur une version obsolète de Node.js… Dans cet article, nous verrons comment nous avons réussi à migrer vers une version récente et maintenue de Node.js grâce à une approche progressive et incrémentale.
 author: t_crespy 
-tags: [node, Node.js, vue, Vue.js, vuex, pinia, vite, Vite.js, Vitest, TypeScript, developer retention, migration]
 redirect_from:
    - /2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique-et-seule-une-approche-progressive-et-incrementale-etait-viable.html
 ---

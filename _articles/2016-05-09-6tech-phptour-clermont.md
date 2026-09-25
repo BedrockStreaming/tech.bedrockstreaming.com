@@ -1,6 +1,7 @@
 ---
 layout: post
 language: fr
+topics: [video]
 date: 2016-05-09
 permalink: /2016/05/09/6tech-phptour-clermont.html
 title: "M6web sera présent au PHPTour Clermont-Ferrand"
@@ -12,7 +13,6 @@ author:
   twitter:  techM6Web      
   facebook:       
   github:    
-tags: [6play, afup, phptour, conference]
 ---
 
 [Fabien de Saint Pern](https://twitter.com/fabdsp), un des leads devs sur la plateforme [6play](https://www.6play.fr), aura l'occasion de présenter une conférence au PHPTour Clermont-Ferrand le 24 Mai. Il fera un retour d'expérience concret sur nos pratiques autour de [la réalisation de workers asynchrones en PHP](https://event.afup.org/php-tour-2016/programme/#1761) (et oui !). 

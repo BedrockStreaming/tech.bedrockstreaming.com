@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [culture]
 date: 2013-06-14
 title: "M6Web Dev Facts #4"
 description: ""
 author: bedrock
-tags: [devfacts,humour]
 permalink: m6web-dev-facts-4
 ---
 

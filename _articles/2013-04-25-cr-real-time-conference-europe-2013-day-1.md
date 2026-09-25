@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [backend, performance]
 date: 2013-04-25
 title: "CR Real Time Conférence Europe 2013 - Day 1"
 description: ""
 author: k_dits
-tags: [conference,nodejs,zeromq,rabbitmq,realtime]
 image:
   feature: 
   credit: 

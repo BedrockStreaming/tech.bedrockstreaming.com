@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2023-11-24
 eventName: "Last Friday Talks"
 title: "STOP à l'espionnage ! Comment disparaître d'internet ? #LFT 24/11/23"
 description: ""
 author: [e_idoux, m_alves]
-tags: [lft, tech]
 youtubeId: t0qWEO9-BD4
 permalink: stop-a-l-espionnage-comment-disparaitre-d-internet
 ---

@@ -1,6 +1,7 @@
 ---
 layout: post
 language: fr
+topics: [performance, platform]
 date: 2014-12-03
 title: "Retour sur la Velocity Barcelone - troisième journée"
 description: "Retour sur la Vélocity Europe 2014 à Barcelone - Troisième journée"
@@ -11,7 +12,6 @@ author:
   twitter:  techM6Web
   facebook:
   github:
-tags: [conference,velocity,webperf,devops,sysadmin]
 feature-img: "images/posts/velocity2014/velocity_banner3.jpg"
 thumbnail: "images/posts/velocity2014/velocity_banner3.jpg"
 permalink: velocity-europe-2014-day-3

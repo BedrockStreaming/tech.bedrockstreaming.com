@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2022-11-25
 eventName: "Last Friday Talks"
 title: "git log --since=486-09-16T00:00:00-00:00 --until=1453-05-29T00:00:00 #LFT 25/11/22"
 description: ""
 author: [o_janin, t_briset]
-tags: [lft, tech]
 youtubeId: oANKiFUavA4
 permalink: reconstitution-medieval
 ---

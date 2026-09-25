@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [culture]
 date: 2013-04-09
 title: "M6Web Dev Facts #2"
 description: ""
 author: bedrock 
-tags: [humour,devfacts]
 image:
   feature: posts/devfacts.jpg
   credit: Game Of Thrones

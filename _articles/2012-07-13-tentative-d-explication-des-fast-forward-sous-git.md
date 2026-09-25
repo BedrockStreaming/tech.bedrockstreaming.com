@@ -1,10 +1,10 @@
 ---
 layout: post
 language: fr
+topics: [practices]
 date: 2012-07-13
 title: "Tentative d'explication des Fast-Forward sous Git"
 description: ""
-tags: [git]
 permalink: tentative-d-explication-des-fast-forward-sous-git
 ---
 

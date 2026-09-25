@@ -1,6 +1,7 @@
 ---
 layout: conference
 language: fr
+topics: [backend]
 date: 2021-10-21
 permalink: /2021/10/21/confiance-aux-devs-de-votre-team.html
 
@@ -10,8 +11,6 @@ eventName: ForumPHP 2021
 eventUrl: https://event.afup.org/forum-php-2021/
 youtubeId: tuGpNiy6e9s 
 
-
-tags: [conference, afup, php]
 ---
 
 Deadlines, besoins produit, pression forte et fonctionnalités à livrer : nos projets ont besoin de nous ! L'amélioration du quotidien se perd dans un second plan, alors qu’elle a un impact majeur sur l'augmentation de notre productivité et la qualité et maintenabilité de notre code.

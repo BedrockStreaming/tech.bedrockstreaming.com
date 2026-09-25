@@ -1,0 +1,16 @@
+# Closed Topic list. Front matter `topics` values must be keys of this map.
+frontend: Frontend
+backend: Backend
+mobile: Mobile
+video: Video
+data: Data
+machine-learning: Machine learning
+platform: Platform
+observability: Observability
+performance: Performance
+security: Security
+testing: Testing
+open-source: Open source
+architecture: Architecture
+practices: Practices
+culture: Culture

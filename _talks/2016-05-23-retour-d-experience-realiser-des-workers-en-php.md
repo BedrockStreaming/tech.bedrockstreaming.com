@@ -1,6 +1,7 @@
 ---
 layout: video
 language: fr
+topics: []
 title: "Retour d’expérience : réaliser des Workers en PHP"
 date: 2016-05-23
 author: "f_desaintpern"

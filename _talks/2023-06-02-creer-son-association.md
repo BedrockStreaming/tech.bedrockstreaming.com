@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2023-06-02
 eventName: "Last Friday Talks"
 title: "Créer son association #LFT 02/06/23"
 description: ""
 author: g_treme
-tags: [lft, tech]
 youtubeId: 7m-DM8A76UI
 permalink: creer-son-association
 ---

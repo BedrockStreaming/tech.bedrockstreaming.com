@@ -11,9 +11,9 @@ author:
   twitter:  techM6Web      
   facebook:       
   github:    
-tags: [6tech, lyon, symfony, security, php, jenkins]
 
 language: en
+topics: [backend, security, platform]
 ---
 
 Numerous vulnerabilities are detected every day. That's a good thing and a key benefit of using open source products. At m6web we don't want to be exposed to known vulnerabilities, so we use a service provided by Sensiolabs in our continuous integration tool ([Jenkins](https://jenkins.io/)) to check it.

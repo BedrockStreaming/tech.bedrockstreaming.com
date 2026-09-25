@@ -5,8 +5,8 @@ permalink: /2022/06/20/android-apktool-decompiling.html
 title: "Debugging and reviewing your Android dependencies with apktool"
 description: "How decompiling your Android app using apktool can help you find the source of instrumentation issues at the bytecode level, as well as improve your review process."
 author: b_candellier
-tags: [android, apktool, instrumentation, debugging, productivity]
 language: en
+topics: [mobile, observability, practices]
 ---
 
 If you maintain an Android application, you might be relying on performance monitoring SDKs like [Firebase Performance](https://firebase.google.com/docs/perf-mon) or [New Relic](https://newrelic.com/products/mobile-monitoring), to name a couple. These plugins usually have a light setup process—just apply a Gradle plugin, and they provide the ability to collect statistics about every network call and database query in your app automatically.

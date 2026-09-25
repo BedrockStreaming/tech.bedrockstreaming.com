@@ -47,7 +47,7 @@ layout: page
 
     <section class="video-list">
     {% for post in site.talks %}
-        {% if post.tags contains page.filter_tag and post.youtubeId %}
+        {% if post.youtubeId and post.eventName == page.filter_event %}
             {% assign author = site.data.authors[post.author] %}
             {% assign date = post.date | default: "today" | date: "%B %-d, %Y" %}
             <div class="card">

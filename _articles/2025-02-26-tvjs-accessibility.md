@@ -5,8 +5,8 @@ permalink: /2025/02/26/tvjs-accessibility.html
 title: How we made our apps more accessible on SmartTVs 📺
 description: In this article, I'm going to share with you how we improved our accessibility score of our apps at _TVJS_.
 author: [j_nginn]
-tags: [TVJS, smartTV, javascript, react, web, frontend, accessibility, a11y]
 language: en
+topics: [video, frontend]
 ---
 
 Accessibility is at the heart of our concerns, at Bedrock Streaming we work hard to make our applications accessible to everyone.

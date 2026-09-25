@@ -1,6 +1,7 @@
 ---
 layout: post
 language: fr
+topics: []
 date: 2016-05-25
 permalink: /2016/05/25/m6web-retourdxp-cassandra.html
 title: "M6web fera un retour d'expérience sur l'usage de Cassandra sur 6play le 14/06/2016"
@@ -12,7 +13,6 @@ author:
   twitter:  techM6Web      
   facebook:       
   github:    
-tags: [6tech, lyon, conference]
 ---
 
 

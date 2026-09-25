@@ -4,9 +4,9 @@ date: 2026-02-06
 permalink: /2026/02/06/web-homologation-as-app.html
 title: "Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming"
 description: "We share here QA context, key takeaways and reveal the architecture of the Web homologation stack."
-tags: [bdd, frontend, ownership, playwright, QA, web]
 author: [m_bayard]
 language: en
+topics: [testing, frontend, practices]
 thumbnail: "/images/posts/2026-02-06-web-homologation-as-app/homologation_qa_web_10.jpg"
 ---
 
