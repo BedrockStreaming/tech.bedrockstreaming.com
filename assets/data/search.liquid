@@ -6,7 +6,7 @@
   {
     "title"    : "{{ post.title | strip_newlines | escape }}",
     "category" : "{{ post.category }}",
-    "tags"     : "{{ post.tags | join: ', ' | prepend: " " }}",
+    "tags"     : "{{ post.topics | join: ', ' | prepend: " " }}",
     "url"      : "{{ post.url | relative_url }}",
     "date"     : "{{ post.date | date: "%B %-d, %Y" }}",
     "excerpt"  : {{ post.content | strip_html | truncate: '250' | escape | jsonify }},

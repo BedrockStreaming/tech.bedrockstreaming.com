@@ -1,12 +1,12 @@
 ---
 layout: post
 language: en
+topics: [platform, open-source, culture]
 date: 2023-12-18
 permalink: /2023/12/18/aws-reinvent-lasvegas-2023.html
 title: Bedrock at 2023 AWS re:Invent Las Vegas
 description: A look back at the 2023 edition of the Las Vegas AWS re:Invent
 author: [a_ferez, v_chabrier]
-tags: [kubernetes, cloud, devops, opensource, community, conference, aws, re:invent, las vegas, 2023]
 thumbnail: "/images/posts/2023-12-18-aws-reinvent-lasvegas-2023/aws-reinvent-2023-cover.jpeg"
 ---
 

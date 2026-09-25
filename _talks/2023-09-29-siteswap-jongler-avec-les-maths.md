@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2023-09-29
 eventName: "Last Friday Talks"
 title: "Siteswap: jongler avec les maths #LFT 29/09/23"
 description: ""
 author: d_krieger
-tags: [lft, tech]
 youtubeId: stp4lnxvyJk
 permalink: siteswap-jongler-avec-les-maths
 ---

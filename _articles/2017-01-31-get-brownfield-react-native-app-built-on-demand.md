@@ -5,10 +5,10 @@ permalink: /2017/01/31/get-brownfield-react-native-app-built-on-demand.html
 title: "Get your brownfield React Native app built on demand"
 description: "Get your brownfield React Native app built on demand"
 author: k_dits 
-tags: [mobile, github, ci, react-native]
 feature-img: "images/posts/rn-brownfield/feature.jpg"
 thumbnail: "images/posts/rn-brownfield/feature.jpg"
 language: en
+topics: [mobile, platform]
 ---
 As you may know, at M6Web we decided to embrace [React Native](https://facebook.github.io/react-native/) a few months ago.
 It’s a really exciting piece of software that adds a lot of value in the mobile development ecosystem.

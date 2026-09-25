@@ -1,6 +1,7 @@
 ---
 layout: post
 language: fr
+topics: [culture]
 date: 2015-05-07
 permalink: /2015/05/07/m6web-dev-facts-8.html
 title: "M6Web Dev Facts #8"
@@ -12,7 +13,6 @@ author:
   twitter:  techM6Web
   facebook:     
   github:
-tags: [devfacts, humour]
 image:
   feature: posts/devfacts.jpg
   credit: Game Of Thrones

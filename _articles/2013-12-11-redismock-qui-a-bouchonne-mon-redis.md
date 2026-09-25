@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [practices, backend, open-source]
 date: 2013-12-11
 title: "Qui a bouchonné mon Redis ?"
 description: "Présentation de la librairie RedisMock, un mock PHP open-source de Redis à utiliser dans vos tests fonctionnels."
 author: team_cytron
-tags: [qualite, outil, redis, cytron, open-source]
 thumbnail: "images/posts/cytron/redismock.jpg"
 feature-img: "images/posts/cytron/redismock.jpg"
 permalink: redismock-qui-a-bouchonne-mon-redis

@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [practices]
 date: 2022-07-28
 permalink: /2022/07/28/retour-sur-mixit-2022.html
 title: Retour sur la conférence MiXiT 2022
 description: Plusieurs Bedrockiens étaient présents à MiXiT 2022, voici un résumé de leurs conférences préférées.
 author: [s_haim,e_perrin,j_mastounga,s_zoccarato]
-tags: [conference, agile]
 thumbnail: "/images/posts/mixit-crepes.jpg"
 ---
 !["MiXiT, la conférence avec des crêpes et du cœur"](/images/posts/mixit-crepes.jpg)

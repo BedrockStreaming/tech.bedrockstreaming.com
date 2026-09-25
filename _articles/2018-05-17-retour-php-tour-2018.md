@@ -11,9 +11,9 @@ author:
   twitter:
   facebook:
   github:
-tags: [phptour, php, afup, 2018]
 feature-img: "images/posts/phptour2018/team.jpg"
 language: fr
+topics: [backend]
 ---
 
 Cette année encore, M6Web a sponsorisé le [PHP Tour, organisé cette année par l'AFUP à Montpellier](https://event.afup.org/en/phptourmontpellier2018/).

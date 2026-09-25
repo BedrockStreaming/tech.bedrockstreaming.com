@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [performance, frontend]
 date: 2014-09-30
 permalink: /2014/09/30/ameliorer-la-webperf-de-son-application-js-avec-gruntjs.html
 title: "Améliorer la webperf de son application JS avec GruntJs"
 description: "Comment automatiser les optimisations WebPerf sur son application AngularJS avec Grunt.Js"
 author: k_dits
-tags: [webperf, angular, grunt, performance]
 thumbnail: "images/posts/webperf.jpg"
 feature-img: "images/posts/webperf.jpg"
 ---

@@ -1,11 +1,11 @@
 ---
 layout: video
 language: fr
+topics: [mobile]
 date: 2022-06-03
 eventName: "Last Friday Talks"
 title: "Connaissez vous Cache°Cache ? #LFT 03/06/22"
 description: ""
-tags: [swift, ios, lft, tech]
 author: s_drode
 youtubeId: zZnnW_h78-s
 permalink: connaissez-vous-cache°cache

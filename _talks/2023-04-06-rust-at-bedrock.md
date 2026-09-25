@@ -1,6 +1,7 @@
 ---
 layout: conference
 language: en
+topics: []
 title: "Rust at Bedrock"
 date: 2023-04-06
 author: "y_clauss"

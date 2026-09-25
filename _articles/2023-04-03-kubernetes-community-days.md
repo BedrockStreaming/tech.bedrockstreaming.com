@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [platform, open-source, culture, practices]
 date: 2023-04-03
 permalink: /2023/04/03/kubernetes-community-days.html
 title: Bedrock au Kubernetes Community Days France 2023
 description: Notre retour sur cette édition de Kubernetes Community Days en France
 author: c_vanderzwaard
-tags: [kubernetes, cloud, devops, opensource, community, conference, rex]
 thumbnail: "images/posts/2023-kcd-france/KCD_LOGO_2023-color-2000px.png"
 ---
 

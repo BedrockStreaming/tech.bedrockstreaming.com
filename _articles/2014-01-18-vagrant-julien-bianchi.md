@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [platform, video]
 date: 2014-01-18
 permalink: /2014/01/18/vagrant-julien-bianchi.html
 title: "Vagrant & Cie, du Dév à la Prod avec Julien Bianchi"
 description: "Vagrant, Packer, Chef ... Du dév à la prod."
 author: o_mansour
-tags: [lft,vagrant,video]
 feature-img: "images/posts/vagrant/vagrant_header.png"
 thumbnail: "images/posts/vagrant/vagrant_header.png"
 ---

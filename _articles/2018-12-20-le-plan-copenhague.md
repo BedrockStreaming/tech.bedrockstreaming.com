@@ -5,9 +5,9 @@ permalink: /2018/12/20/le-plan-copenhague.html
 title: "Le Plan Copenhague : notre migration vers Le Cloud, retour d’expérience"
 description: "Comment nous avons migré la plateforme 6play vers Le Cloud, sur AWS et Kubernetes."
 author: p_martin
-tags: [cloud, kubernetes, aws, terraform, livre]
 feature-img: "images/posts/le-plan-copenhague/header.jpg"
 language: fr
+topics: [platform, culture]
 ---
 
 Nous avons commencé à migrer notre plateforme 6play vers *Le Cloud* il y a un an.

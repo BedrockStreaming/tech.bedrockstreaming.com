@@ -5,8 +5,8 @@ permalink: /2022/06/10/backend-bff-intro.html
 title: "Bedrock's backend architecture and its front API Gateway"
 description: "What is a BFF, and how does it simplify the development of frontend applications?"
 author: v_claras
-tags: [backend, php, api, api-gateway, back-for-front]
 language: en
+topics: [backend]
 ---
 
 What is a BFF, and how does it simplify the development of frontend applications?

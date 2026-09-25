@@ -5,10 +5,10 @@ permalink: /2019/11/25/retour-scalaio.html
 title: "ScalaIO Lyon 2019"
 description: "Nos retours sur la ScalaIO à Lyon, les 30 et 31 octobre 2019"
 author: data
-tags: [scalaio, scala, lyon, 2019]
 feature-img: "images/posts/scalaio2019/header.jpg"
 thumbnail: "images/posts/scalaio2019/header.jpg"
 language: fr
+topics: [data]
 ---
 
 Nous étions à la [ScalaIO 2019](https://schedule.scala.io/#/day/2) organisée à Lyon ! 

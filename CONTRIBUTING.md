@@ -58,7 +58,7 @@ author: author_of_your_article
 language: en
 date: 1970-01-01
 permalink: /1970/01/01/article-slug.html
-tags: [example, of, tags]
+topics: [frontend]
 ---
 ```
 
@@ -91,7 +91,7 @@ Then you will be able to use the author ID in the frontmatter post configuration
 1. Create a file in the `_talks` folder name matching this format `YYYY-MM-DD-slug-of-your-article.md`
     Use the date the talk was first given in public.
 2. Add the configuration of metadata at the beginning of this file
-    > :warning: **To make your videos appear in either `Last Friday Talks`page, tag your post with `lft`.**
+    > :warning: **To make your video appear on the Last Friday Talks page, set `eventName: Last Friday Talks`.**
     ```markdown
     ---
     layout: video
@@ -106,9 +106,8 @@ Then you will be able to use the author ID in the frontmatter post configuration
     author: author_of_your_article
     language: fr
     eventName: Last Friday Talks
-    # Use tags for grouping content in the blog
-    # Add `lft` to group with other LFT talks
-    tags: [lft, and, other, tags]
+    # Topics from _data/topics.yml
+    topics: [frontend]
     ---
     ```
 3. Add content to the markdown file in order to add context to the video you are sharing.
@@ -173,8 +172,8 @@ If there is a `youtubeId` key, the video will also be added to the "Replay" sect
     # Bedrock hosted the event? (default: false)
     hosted: true
     
-    # Use tags for grouping content in the blog.
-    tags: [example, of, tags]
+    # Topics from _data/topics.yml
+    topics: [backend]
     permalink: /1970/01/01/slug-of-your-article.html
     ---
     ```

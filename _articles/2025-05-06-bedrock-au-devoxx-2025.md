@@ -5,8 +5,8 @@ permalink: /2025/05/06/bedrock-au-devoxx-2025.html
 title: Bedrock au Devoxx 2025
 description: 
 author: [p_rambaud, f_ferriere, g_damour, b_colin]
-tags: [devoxx, conference, event, backend, go, kubernetes, github, IA, openid, oauth2, architecture]
 language: fr
+topics: [backend, platform, machine-learning, security, architecture]
 thumbnail: "/images/posts/2025-04-16_devoxx_2025/thumbnail.jpg"
 ---
 Le Devoxx est un événement incontournable pour les développeurs et les professionnels de la technologie, qui a eu lieu du 16 avril 2025 au 18 avril 2025 au Palais des Congrès de Paris.

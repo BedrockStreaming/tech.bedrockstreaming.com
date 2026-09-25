@@ -1,6 +1,7 @@
 ---
 layout: post
 language: fr
+topics: [performance]
 date: 2013-11-16
 title: "Velocity Europe 2013 - Day 2"
 description: ""
@@ -11,7 +12,6 @@ author:
   twitter:  techM6Web      
   facebook:       
   github:    
-tags: [conference,velocity,webperf]
 image:
   feature: 
   credit: 

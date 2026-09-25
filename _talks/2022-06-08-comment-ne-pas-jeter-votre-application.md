@@ -1,6 +1,7 @@
 ---
 layout: conference
 language: fr
+topics: [frontend]
 date: 2022-06-08
 permalink: /2022/06/08/comment-ne-pas-jeter-votre-application.html
 
@@ -11,8 +12,6 @@ eventUrl: https://www.meetup.com/fr-FR/lyonjs/events/285497869/
 youtubeId: t36UqNSmybM
 sponsored: true
 hosted: true
-
-tags: [conference, js, react, lyonjs, meetup]
 ---
 
 Bonnes pratiques pour la maintenance d'une application web

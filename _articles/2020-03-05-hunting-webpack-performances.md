@@ -5,10 +5,10 @@ permalink: /2020/03/05/hunting-webpack-performances.html
 title: "How to boost the speed of your webpack build?"
 description: "A story of performance optimization and application of the Pareto principle to a webpack build that has become far too long."
 author: a_caron
-tags: [js, webpack]
 feature-img: "images/posts/hunting-webpack-performances/julian-hochgesang-0Y_YNPW5qds-unsplash.jpg"
 canonical: "https://slashgear.github.io/hunting-webpack-performances/"
 language: en
+topics: [frontend]
 redirect_from:
   - /hunting-webpack-performances/
 ---

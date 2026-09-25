@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2023-09-29
 eventName: "Last Friday Talks"
 title: "Le Don du Sang (et +) #LFT 29/09/23"
 description: ""
 author: q_nambot
-tags: [lft, tech]
 youtubeId: PvtIvvx-ORI
 permalink: le-don-du-sang
 ---

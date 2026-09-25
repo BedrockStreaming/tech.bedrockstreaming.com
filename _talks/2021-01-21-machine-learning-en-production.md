@@ -9,8 +9,8 @@ eventName: Lyon Data Science Meetup
 eventUrl: http://www.lyondata.science/
 youtubeId: f93yCPq-VMc
 
-tags: [machine learning, Lyon Data Science, conference]
 language: fr
+topics: [machine-learning]
 ---
 
 Une fois passée la phase de prototype, comment va-t-on en production quand on fait du machine learning ?

@@ -5,10 +5,10 @@ permalink: /2026/02/02/how-blue-green-helped-migrating-with-zero-downtime.html
 title: "How Blue-Green helped us migrating critical components with zero downtime"
 description: "How can you hot change your CNI from VPC CNI to Cilium on your Kubernetes cluster with zero downtime in a production environment?"
 author: [v_pelus]
-tags: [kubernetes, cloud, HAProxy, aws, cilium, consul, nlb, ebpf, migration, bluegreen]
 thumbnail: "/images/posts/2026-02-02-how-blue-green-helped-migrating-with-zero-downtime/main.png"
 feature-img:
 language: en
+topics: [platform]
 ---
 
 At Bedrock, we recently migrated our Kubernetes clusters from AWS VPC CNI to Cilium—with zero downtime. By leveraging Blue-Green canary with HAProxy for progressive traffic shifting and Consul for dynamic configuration updates, we achieved a seamless transition to eBPF-powered networking.

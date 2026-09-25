@@ -5,8 +5,8 @@ permalink: /2024/10/03/enhancing-production-monitoring-with-newrelic.html
 title: Enhancing Production Monitoring with New Relic
 description: How did we improve the monitoring practices on the mobile service? Let's find out.
 author: [m_benali, m_julieron]
-tags: [monitoring, production, newrelic, shared practice, alerting]
 language: en
+topics: [observability, practices]
 thumbnail: "/images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/main.png"
 ---
  

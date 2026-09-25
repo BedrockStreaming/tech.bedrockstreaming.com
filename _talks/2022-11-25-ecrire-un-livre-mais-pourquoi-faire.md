@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2022-11-25
 eventName: "Last Friday Talks"
 title: "Écrire un livre, mais pourquoi faire ? #LFT 25/11/22"
 description: ""
 author: n_saby
-tags: [lft, tech]
 youtubeId: 9J3PeTHE56E
 permalink: ecrire-un-livre-mais-pourquoi-faire
 ---

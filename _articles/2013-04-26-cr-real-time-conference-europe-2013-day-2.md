@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [backend, performance]
 date: 2013-04-26
 title: "CR Real Time Conférence Europe 2013 - Day 2"
 description: ""
 author: o_noel
-tags: [conference,nodejs,realtime]
 permalink: cr-real-time-conference-europe-2013-day-2
 ---
 

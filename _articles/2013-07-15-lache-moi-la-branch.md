@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [practices, platform]
 date: 2013-07-15
 title: "Lâche moi la branch !"
 description: ""
 author: team_cytron
-tags: [qualite, jenkins, github]
 feature-img: "images/posts/cytron/branche.png"
 thumbnail: "images/posts/cytron/branche.png"
 permalink: lache-moi-la-branch

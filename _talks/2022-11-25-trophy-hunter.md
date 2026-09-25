@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2022-11-25
 eventName: "Last Friday Talks"
 title: "Trophy Hunter #LFT 25/11/22"
 description: ""
 author: o_thebault
-tags: [lft, tech]
 youtubeId: yueUdqkc3eo
 permalink: trophy-hunter
 ---

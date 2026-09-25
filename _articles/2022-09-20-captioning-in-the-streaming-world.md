@@ -1,10 +1,10 @@
 ---
 layout: post
 language: en
+topics: [video]
 title: Subtitles, open captions, closed captions, SDH, oh my!
 description: Dive into the complex world of subtitling/captioning in the streaming industry
 author: h_riffiod
-tags: [streaming, subtitles, captions, video, player]
 date: 2022-09-20
 permalink: /2022/09/20/captioning-in-the-streaming-world.html
 ---

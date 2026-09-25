@@ -5,8 +5,8 @@ permalink: /2023/07/07/gradle-convention-plugins.html
 title: You Need a Custom Gradle Plugin, and Here’s Why
 description: Convention plugins are the recommended way to modularize your builds. Let's see how to write one.
 author: b_candellier
-tags: [android, gradle, plugin]
 language: en
+topics: [mobile]
 thumbnail: "/images/posts/2023-07-07-gradle-convention-plugins/cover.jpg"
 feature-img: "/images/posts/2023-07-07-gradle-convention-plugins/cover.jpg"
 ---

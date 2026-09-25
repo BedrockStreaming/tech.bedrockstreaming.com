@@ -1,6 +1,7 @@
 ---
 layout: conference
 language: fr
+topics: [platform]
 date: 2021-03-11
 permalink: /2021/03/11/migration-6play-vers-le-cloud-retour-experience-pascal-martin.html
 
@@ -10,8 +11,6 @@ author: p_martin
 eventName: Cloudsud
 eventUrl: https://cloudsud.fr/
 youtubeId: xZep9iv6tLY
-
-tags: [conference, cloud, migration, cloudsud]
 ---
 
 En 2018, nous avons entamé la migration de la plateforme 6play vers Le Cloud.  

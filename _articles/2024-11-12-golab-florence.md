@@ -1,12 +1,12 @@
 ---
 layout: post
 language: en
+topics: [backend, open-source, culture]
 date: 2024-11-12
 permalink: /2024/11/12/golab-florence.html
 title: Insights from Golab Conference 2024, Florence
 description: TODO
 author: [t_geindre, k_phan, j_hardeman]
-tags: [golang, opensource, community, conference, 2024]
 thumbnail: "/images/posts/2024-11-12-golab-firenze/firenze.jpg"
 ---
 

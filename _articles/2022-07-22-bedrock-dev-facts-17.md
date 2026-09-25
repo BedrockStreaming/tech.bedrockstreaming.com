@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [culture]
 date: 2022-07-22
 permalink: /2022/07/22/bedrock-dev-facts-17.html
 title: "Bedrock Dev Facts #17"
 description: "Les plus belles phrases de nos équipes techniques"
 author: bedrock 
-tags: [devfacts, humour]
 ---
 
 L'été arrive, les vacances, le repos.  

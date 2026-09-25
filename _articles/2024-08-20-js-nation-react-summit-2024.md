@@ -1,12 +1,12 @@
 ---
 layout: post
 language: en
+topics: [frontend]
 date: 2024-08-20
 permalink: /2024/08/20/js-nation-react-summit-2024.html
 title: JS Nation x React Summit 2024 highlights
 description: "A few notes on the combo JS Nation x React Summit Amsterdam 2024 conferences"
 author: [f_dubost, y_frommelt]
-tags: [conference, frontend, react, javascript]
 feature-img: "/images/posts/2024-08-20-js-nation-react-summit-2024/reactSummit.png"
 thumbnail: "/images/posts/2024-08-20-js-nation-react-summit-2024/teamBedrock.jpg"
 ---

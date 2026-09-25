@@ -5,10 +5,10 @@ permalink: /2022/12/23/haproxyconf-paris-2022.html
 title: "Nos retours sur l'HAProxyConf Paris 2022"
 description: "Retour sur la virée de Bedrock à l'HAProxyconf Paris 2022, et ce que nous en retenons"
 author: bedrock
-tags: [haproxy, haproxyconf, conference]
 feature-img: "images/posts/2022-12-23-haproxyconf-paris-2022/haproxyconf_2022_paris.png"
 thumbnail: "images/posts/2022-12-23-haproxyconf-paris-2022/haproxyconf_2022_paris.png"
 language: fr
+topics: [platform]
 ---
 
 Bedrock était présent lors de la Conférence HAProxy qui se déroulait à Paris en novembre 2022 : en tant que speaker, avec [la présentation de Vincent Gallissot](https://www.youtube.com/watch?v=5jzOXlmRDao){:target="_blank"}, mais aussi en tant que spectateur. Cet article relate les points forts qui nous ont marqués.

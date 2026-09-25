@@ -13,8 +13,8 @@ youtubeId: YsHiH7qCjKM
 sponsored: true
 hosted: true
 
-tags: [redux, lyonjs, meetup, react, javascript, conference]
 language: fr
+topics: [frontend]
 ---
 
 Redux est le gestionnaire d'état global le plus populaire au sein de la communauté JS.

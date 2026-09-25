@@ -1,6 +1,7 @@
 ---
 layout: video
 language: en
+topics: []
 title: "Documentation : Let’s make it better, now, together!"
 date: 2023-03-23
 author: "s_haim"

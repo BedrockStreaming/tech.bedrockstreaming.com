@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [practices, backend, testing]
 date: 2013-10-14
 title: "Tester fonctionnellement une API REST"
 description: ""
 author: team_cytron
-tags: [qualite, symfony, atoum, tests fonctionnels]
 feature-img: "images/posts/cytron/husky.png"
 thumbnail: "images/posts/cytron/husky.png"
 permalink: 2013/10/tester-fonctionnellement-une-api-rest-symfony-doctrine-atoum

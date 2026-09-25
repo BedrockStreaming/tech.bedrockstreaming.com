@@ -1,7 +1,7 @@
 ---
 layout: video-list
 title: Last Friday Talks
-filter_tag: lft
+filter_event: Last Friday Talks
 permalink: /lft/
 feature-img: "images/common/travel.jpg"
 ---

@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [practices, open-source, backend]
 date: 2014-08-05
 permalink: /2014/08/05/verifier-la-coherence-du-code-d-un-projet-symfony2-avec-coke.html
 title: "Contrôlez facilement votre cohérence de code sur votre projet Symfony2 avec coke"
 description: "Voici comment facilement et rapidement mettre en place un système de contrôle de la cohérence du code d'un projet Symfony2 avec coke"
 author: m_randy
-tags: [code sniffing, coke, Symfony2]
 feature-img: "images/posts/coke-et-symfony2/feature.png"
 thumbnail: "images/posts/coke-et-symfony2/feature.png"
 ---

@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [backend]
 date: 2023-07-10
 permalink: /2023/07/10/gophercon-eu-2023-a-berlin.html
 title: Bedrock à la GopherCon EU (2023)
 description: Nous étions à Berlin pour l'édition 2023 de la GopherCon EU !
 author: team_backend
-tags: [conference, berlin, tech, go]
 thumbnail: "/images/posts/2023-07-10-gophercon-eu-2023-a-berlin/thumbnail.jpg"
 ---
 

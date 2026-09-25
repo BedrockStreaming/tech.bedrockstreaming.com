@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [video, frontend]
 date: 2015-10-21
 permalink: /2015/10/21/beta-nouveau-6play-react-isomorphic.html
 title: "La bêta du nouveau 6play est disponible"
 description: "La bêta du nouveau 6play est disponible"
 author: bedrock 
-tags: [6play, react, isomorphic, javascript, flux]
 feature-img: "images/posts/6play/logo.jpg"
 thumbnail: "images/posts/6play/logo.jpg"
 ---

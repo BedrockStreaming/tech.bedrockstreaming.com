@@ -11,9 +11,9 @@ author:
   twitter:
   facebook:
   github:
-tags: [kubernetes, KubeCon]
 feature-img: "images/posts/kubecon-2018/title-kubecon.jpg"
 language: en
+topics: [platform]
 ---
 
 After an interesting [first day at KubeCon 2018](/kubecon-2018-copenhaguen-day-1/), we are back for the second day!

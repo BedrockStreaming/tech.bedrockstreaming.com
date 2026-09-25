@@ -1,6 +1,7 @@
 ---
 layout: post
 language: fr
+topics: [performance]
 date: 2014-11-19
 title: "Retour sur la Velocity Barcelone - premier jour"
 description: ""
@@ -11,7 +12,6 @@ author:
   twitter:  techM6Web
   facebook:
   github:
-tags: [conference,velocity,webperf]
 feature-img: "images/posts/velocity2014/velocity_banner.jpg"
 thumbnail: "images/posts/velocity2014/velocity_banner.jpg"
 permalink: velocity-europe-2014-day-1

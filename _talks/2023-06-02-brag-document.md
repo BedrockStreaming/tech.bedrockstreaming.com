@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2023-06-02
 eventName: "Last Friday Talks"
 title: "Célébrons nos réussites grâce au Brag Document ! #LFT 02/06/23"
 description: ""
 author: al_deboissieu
-tags: [lft, tech]
 youtubeId: vktamvlVBx8
 permalink: brag-document
 ---

@@ -1,6 +1,7 @@
 ---
 layout: conference
 language: fr
+topics: [frontend]
 date: 2022-04-21
 permalink: /2022/04/21/vite-the-webpack-killer.html
 
@@ -9,8 +10,6 @@ author: [a_caron, m_mure]
 eventName: Devoxx France
 eventUrl: https://www.devoxx.fr/
 youtubeId: Q6N7DoCNfAE
-
-tags: [conference, js, webpack, vite, devoxx]
 ---
 
 Toute application web a besoin d’être packagée afin d’être livrée en production. Pour répondre à cette problématique, de nombreux outils, connus sous le nom de modules bundler, sont apparus, et ces dernières années, c’est Webpack qui semble s’être imposé comme l’outil incontournable.

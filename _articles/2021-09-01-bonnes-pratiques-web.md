@@ -5,10 +5,10 @@ permalink: /2021/09/01/bonnes-pratiques-web.html
 title: "Bonnes pratiques pour la maintenance d'une application web"
 description: "Comment ne pas jeter son projet au bout de 2 ans ? Retour d'expérience basé sur les bonnes pratiques appliquées à la plateforme web développée chez Bedrock Streaming."
 author: a_caron
-tags: [js, react, web, frontend]
 feature-img: "images/posts/bonnes-pratiques-web/bedrock.jpg"
 canonical: "https://slashgear.github.io/fr/comment-ne-pas-jeter-son-application-au-bout-de-deux-ans/"
 language: fr
+topics: [frontend]
 redirect_from:
   - /bonnes-pratiques-web/
 ---
