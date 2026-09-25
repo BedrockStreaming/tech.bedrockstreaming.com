@@ -1,5 +1,6 @@
 ---
 layout: post
+language: en
 date: 2022-09-05
 permalink: /2022/09/05/machine-learning-if-else.html
 title: Is machine learning a unicorn hiding a series of if and else?

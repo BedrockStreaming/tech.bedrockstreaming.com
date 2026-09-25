@@ -1,5 +1,6 @@
 ---
 layout: post
+language: en
 date: 2022-09-06
 permalink: /2022/09/06/monitoring-at-scale-with-victoriametrics.html
 title: Monitoring at scale with Victoria Metrics

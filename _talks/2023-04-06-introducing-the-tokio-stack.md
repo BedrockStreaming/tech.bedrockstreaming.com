@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: en
 title: "Introducing the Tokio stack"
 date: 2023-04-06
 author: "o_thebault"

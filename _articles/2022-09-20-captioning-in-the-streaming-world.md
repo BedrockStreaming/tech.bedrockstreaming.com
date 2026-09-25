@@ -1,5 +1,6 @@
 ---
 layout: post
+language: en
 title: Subtitles, open captions, closed captions, SDH, oh my!
 description: Dive into the complex world of subtitling/captioning in the streaming industry
 author: h_riffiod

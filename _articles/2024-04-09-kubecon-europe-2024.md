@@ -1,5 +1,6 @@
 ---
 layout: post
+language: en
 date: 2024-04-09
 permalink: /2024/04/09/kubecon-europe-2024.html
 title: KubeCon Europe 2024, Paris

@@ -1,5 +1,6 @@
 ---
 layout: post
+language: en
 date: 2024-11-22
 permalink: /2024/11/22/tvjs-scroll-performance-enhancement.html
 title: How we improved scroll performance on Smart TV apps
