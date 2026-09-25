@@ -1,5 +1,6 @@
 ---
 layout: post
+language: en
 date: 2022-09-01
 permalink: /2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html
 title: Prescaling pods in Kubernetes, we open source our solution

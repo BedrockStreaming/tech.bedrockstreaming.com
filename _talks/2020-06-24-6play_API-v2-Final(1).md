@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2020-06-24
 permalink: /2020/06/24/6play_API-v2-Final(1).html
 
@@ -10,7 +11,6 @@ eventName: AFUP Day 2021
 eventUrl: https://event.afup.org/afup-day-2021/
 youtubeId: Y_umU8mTWho
 
-lang: fr
 tags: [conference, php, afup, api]
 ---
 

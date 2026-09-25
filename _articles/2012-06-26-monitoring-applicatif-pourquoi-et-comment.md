@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2012-06-26
 title: "Monitoring applicatif : Pourquoi et comment ?"
 description: ""

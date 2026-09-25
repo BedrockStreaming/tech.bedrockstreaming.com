@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2023-01-27
 eventName: "Last Friday Talks"
 title: "Qu’est-ce que l’oignon dans le Web ? #LFT 27/01/23"

@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 title: "Le second écran chez M6Web, another (php) brick in the wall !"
 date: 2015-05-13
 author: "o_mansour"

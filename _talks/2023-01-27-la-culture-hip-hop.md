@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2023-01-27
 eventName: "Last Friday Talks"
 title: "La culture Hip-Hop #LFT 27/01/23"

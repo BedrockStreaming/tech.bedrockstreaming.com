@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2014-12-03
 title: "Retour sur la Velocity Barcelone - troisième journée"
 description: "Retour sur la Vélocity Europe 2014 à Barcelone - Troisième journée"

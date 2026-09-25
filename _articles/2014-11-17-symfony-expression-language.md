@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2014-11-17
 title: "Configuration dynamique avec Symfony ExpressionLanguage"
 description: "Comment utiliser le composant ExpressionLanguage de Symfony pour rendre dynamique la configuration."

@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2014-04-11
 permalink: /2014/04/11/m6web-lyon-recherche-un-lead-developpeur-architecte-web-h-f-en-cdi.html
 title: "M6Web Lyon recherche un Lead Developpeur / Architecte web (H/F) en CDI"

@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: en
 title: "Documentation : Let’s make it better, now, together!"
 date: 2022-10-28
 author: "s_haim"

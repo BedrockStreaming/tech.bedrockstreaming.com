@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2014-11-07
 title: "Github Team Reviewer pour gagner la course aux Pull Requests"
 description: "Voir toutes les pull requests de ses équipes en un seul endroit"

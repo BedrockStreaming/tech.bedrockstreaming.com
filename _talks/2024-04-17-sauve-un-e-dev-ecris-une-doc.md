@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2024-04-17
 permalink: /2024/04/17/sauve-un-e-dev-ecris-une-doc.html
 title: "Sauve un-e dév, écris une doc !"

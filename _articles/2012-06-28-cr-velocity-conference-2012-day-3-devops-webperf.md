@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2012-06-28
 title: "CR Velocity Conference 2012 : Day 3 (DevOps/WebPerf)"
 description: ""

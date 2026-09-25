@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2012-05-24
 title: "Performances PHP chez M6Web"
 description: ""

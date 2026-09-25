@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2022-06-08
 permalink: /2022/06/08/comment-ne-pas-jeter-votre-application.html
 
@@ -11,7 +12,6 @@ youtubeId: t36UqNSmybM
 sponsored: true
 hosted: true
 
-lang: fr
 tags: [conference, js, react, lyonjs, meetup]
 ---
 

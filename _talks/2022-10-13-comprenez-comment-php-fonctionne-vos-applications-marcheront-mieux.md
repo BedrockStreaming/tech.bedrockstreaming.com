@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2022-10-13
 permalink: /2022/10/13/comprenez-comment-php-fonctionne-vos-applications-marcheront-mieux.html
 title: Comprenez comment PHP fonctionne, vos applications marcheront mieux, Forum PHP 2022

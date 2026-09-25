@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 title: "Êtes-vous bien architecturé ?"
 date: 2022-04-12
 author: "p_martin"

@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2013-08-12
 title: "Introduction à la qualité logicielle avec Node.js"
 description: ""

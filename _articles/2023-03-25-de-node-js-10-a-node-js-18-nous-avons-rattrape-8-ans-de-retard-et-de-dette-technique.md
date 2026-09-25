@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2023-03-25
 permalink: /2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique.html
 title: De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique

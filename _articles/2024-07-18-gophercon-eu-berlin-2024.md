@@ -1,5 +1,6 @@
 ---
 layout: post
+language: en
 date: 2024-07-18
 permalink: /2024/07/18/gophercon-eu-berlin-2024.html
 title: Bedrock GopherCon Berlin 2024

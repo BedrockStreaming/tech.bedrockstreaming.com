@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2012-12-05
 title: "Organiser des conférences technique en interne"
 description: ""

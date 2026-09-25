@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2023-03-31
 eventName: "Last Friday Talks"
 title: "Montres bracelets, le guide pratique de l'amateur d'horlogerie #LFT 31/03/23"

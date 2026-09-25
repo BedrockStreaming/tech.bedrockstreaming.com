@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2013-04-09
 title: "M6Web Dev Facts #2"
 description: ""

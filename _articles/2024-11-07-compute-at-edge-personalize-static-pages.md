@@ -1,5 +1,6 @@
 ---
 layout: post
+language: en
 date: 2024-11-07
 permalink: /2024/11/07/compute-at-edge-personalize-static-pages.html
 title: Using Fastly's Compute at-edge to personalize static pre-generated pages

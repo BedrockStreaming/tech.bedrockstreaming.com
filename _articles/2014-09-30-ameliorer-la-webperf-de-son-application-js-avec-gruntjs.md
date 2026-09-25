@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2014-09-30
 permalink: /2014/09/30/ameliorer-la-webperf-de-son-application-js-avec-gruntjs.html
 title: "Améliorer la webperf de son application JS avec GruntJs"

@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2013-07-19
 title: "Introduction à Drupal par Claire Roubey (Clever Age)"
 description: ""

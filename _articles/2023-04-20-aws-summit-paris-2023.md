@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2023-04-20
 permalink: /2023/04/20/aws-summit-paris-2023.html
 title: Bedrock à l'AWS Summit Paris 2023

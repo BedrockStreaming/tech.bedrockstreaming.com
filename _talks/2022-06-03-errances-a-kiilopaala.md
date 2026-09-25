@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2022-06-03
 eventName: "Last Friday Talks"
 title: "Errances à Kiilopää #LFT 03/06/22"

@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2023-11-24
 eventName: "Last Friday Talks"
 title: "Le futur du web est sur la périphérie du réseau #LFT 24/11/23"

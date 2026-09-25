@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2022-07-28
 permalink: /2022/07/28/retour-sur-mixit-2022.html
 title: Retour sur la conférence MiXiT 2022

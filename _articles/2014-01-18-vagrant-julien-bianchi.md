@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2014-01-18
 permalink: /2014/01/18/vagrant-julien-bianchi.html
 title: "Vagrant & Cie, du Dév à la Prod avec Julien Bianchi"

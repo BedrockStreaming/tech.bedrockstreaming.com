@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 title: "Apache Spark et le machine learning : rêves et réalités"
 date: 2020-02-10
 author: "n_saby"

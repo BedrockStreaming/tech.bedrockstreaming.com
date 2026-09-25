@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2023-06-02
 eventName: "Last Friday Talks"
 title: "Du CSS aux shaders WebGL : panorama des techniques d'animation en 2023 #LFT 02/06/23"
