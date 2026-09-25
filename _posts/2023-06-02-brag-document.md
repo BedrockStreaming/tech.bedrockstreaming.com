@@ -4,7 +4,6 @@ title: "Célébrons nos réussites grâce au Brag Document ! #LFT 02/06/23"
 description: ""
 author: al_deboissieu
 tags: [lft, tech]
-color: rgb(251,87,66)
 youtubeId: vktamvlVBx8
 permalink: brag-document
 ---

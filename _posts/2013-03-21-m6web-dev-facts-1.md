@@ -3,9 +3,7 @@ layout: post
 title: "M6Web Dev Facts #1"
 description: ""
 author: bedrock
-category: 
 tags: [humour,devfacts]
-comments: true  
 permalink: m6web-dev-facts-1
 ---
 

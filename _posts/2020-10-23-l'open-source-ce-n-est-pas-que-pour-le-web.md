@@ -9,7 +9,6 @@ eventUrl: https://event.afup.org/forum-php-2020/
 youtubeId: riPzJ-IMs6k 
 
 tags: [conference, afup, open-source]
-color: rgb(251,87,66) 
 ---
 Une conférence sur l'open source hors des solutions informatiques uniquement, lors du forum PHP 2020 qui marquait les 20 ans de l'AFUP.
 

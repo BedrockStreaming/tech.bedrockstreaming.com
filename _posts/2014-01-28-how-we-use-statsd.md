@@ -3,10 +3,8 @@ layout: post
 title: "How we use StatsD"
 description: "How we use statsd to monitor our applications"
 author: o_mansour
-category:
 tags: [statsd, graphite, php, nodejs, monitoring]
 thumbnail: "images/posts/statsd/header_pourri.jpg"
-comments: true
 language: en
 ---
 

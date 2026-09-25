@@ -3,9 +3,7 @@ layout: post
 title: "Bedrock Dev Facts #18"
 description: "Les plus belles phrases de nos équipes techniques"
 author: bedrock 
-category: 
 tags: [devfacts, humour]
-color: rgb(251,87,66)
 ---
 
 C'est maintenant l'automne 🍁🎃, on vous propose les devfacts de cette fin d'été et il y a du lourd !

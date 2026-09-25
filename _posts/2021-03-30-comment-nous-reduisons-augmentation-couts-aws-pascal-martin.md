@@ -10,7 +10,6 @@ youtubeId: mMRVCtYjzLo
 
 lang: fr
 tags: [conference, aws, costs]
-color: rgb(251,87,66)
 ---
 
 Malgré les promesses du Cloud, votre facture AWS vous fait peur ? Je vous comprends !

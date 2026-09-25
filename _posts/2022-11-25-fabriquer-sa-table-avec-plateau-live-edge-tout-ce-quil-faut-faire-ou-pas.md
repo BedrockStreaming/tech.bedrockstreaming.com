@@ -4,8 +4,6 @@ title: "Fabriquer sa table avec plateau live edge : tout ce qu'il faut faire... 
 description: ""
 author: t_crespy
 tags: [lft, tech]
-comments: true
-color: rgb(251,87,66)
 youtubeId: SDdN_CWtv1c
 permalink: fabriquer-sa-table-avec-plateau-live-edge-tout-ce-quil-faut-faire-ou-pas
 ---

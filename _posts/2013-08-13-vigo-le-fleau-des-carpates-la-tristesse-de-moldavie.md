@@ -3,11 +3,9 @@ layout: post
 title: "Vigo, le fléau des Carpates"
 description: ""
 author: team_cytron
-category:
 tags: [outil, qualite, javascript, tests fonctionnels]
 feature-img: "images/posts/cytron/vigo.jpg"
 thumbnail: "images/posts/cytron/vigo.jpg"
-comments: true
 permalink: vigo-le-fleau-des-carpates-la-tristesse-de-moldavie
 ---
 

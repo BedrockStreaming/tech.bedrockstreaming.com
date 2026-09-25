@@ -4,7 +4,6 @@ title: "Jeux vidéo, websocket et binaire: temps réel efficace pour navigateur 
 description: ""
 author: t_jarrand
 tags: [lft, tech]
-color: rgb(251,87,66)
 youtubeId: jJ258c_C6Sc
 permalink: jeux-video-websocket-et-binaire-temps-reel-efficace-pour-navigateur
 ---

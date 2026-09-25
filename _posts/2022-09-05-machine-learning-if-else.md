@@ -4,7 +4,6 @@ title: Is machine learning a unicorn hiding a series of if and else?
 description: Let's think about what is behind machine learning
 author: n_saby
 tags: [machine learning, Data Science]
-color: rgb(251,87,66) # this is Bedrock color here
 ---
 
 Recently, a colleague asked me:

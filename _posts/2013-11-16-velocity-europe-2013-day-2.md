@@ -9,13 +9,11 @@ author:
   twitter:  techM6Web      
   facebook:       
   github:    
-category: 
 tags: [conference,velocity,webperf]
 image:
   feature: 
   credit: 
   creditlink: 
-comments: true  
 permalink: velocity-europe-2013-day-2
 ---
 

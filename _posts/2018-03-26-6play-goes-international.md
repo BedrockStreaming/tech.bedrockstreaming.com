@@ -3,11 +3,9 @@ layout: post
 title: "The 6play platform goes international"
 description: ""
 author: bedrock
-category: 6play
+permalink: /6play/2018/03/26/6play-goes-international.html
 tags: [6play, intl]
-color: rgb(45, 76, 141)
 thumbnail: "images/posts/6play-intl/feature.png"
-comments: true
 language: en
 ---
 

@@ -4,7 +4,6 @@ title: "La traversée du Finnmarksvidda: carnet de bord d’une aventure glacial
 description: ""
 author: s_guyon
 tags: [lft, tech]
-color: rgb(251,87,66)
 youtubeId: j7zdFR0DGyQ
 permalink: la-traversee-du-finnmarksvidda-carnet-de-bord-d-une-aventure-glaciale
 ---

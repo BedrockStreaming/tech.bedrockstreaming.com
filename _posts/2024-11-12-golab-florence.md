@@ -4,7 +4,6 @@ title: Insights from Golab Conference 2024, Florence
 description: TODO
 author: [t_geindre, k_phan, j_hardeman]
 tags: [golang, opensource, community, conference, 2024]
-color: rgb(251,87,66)
 thumbnail: "/images/posts/2024-11-12-golab-firenze/firenze.jpg"
 ---
 

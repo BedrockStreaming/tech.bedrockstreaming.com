@@ -4,7 +4,6 @@ title: "Au-delà des industries : Le pouvoir de l'état d'esprit #LFT 02/02/24"
 description: ""
 author: s_menassa
 tags: [lft, tech]
-color: rgb(251,87,66)
 youtubeId: IKT1-xuKR-0
 permalink: au-dela-des-industries-le-pouvoir-de-l-etat-d-esprit
 ---

@@ -3,9 +3,7 @@ layout: post
 title: "Bedrock Dev Facts #16"
 description: "Les plus belles phrases de nos équipes techniques"
 author: bedrock 
-category: 
 tags: [devfacts, humour]
-color: rgb(251,87,66)
 ---
 
 Sur ce début 2022 les équipes de Bedrock se sont lachées ça promet pour le reste de l'année.

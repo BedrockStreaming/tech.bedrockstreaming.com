@@ -9,11 +9,9 @@ author:
   twitter:  techM6Web
   facebook:
   github:
-category:
 tags: [afup, phptour, conference, video]
 feature-img: "images/posts/phptour2014/elephant.jpg"
 thumbnail: "images/posts/phptour2014/elephant.jpg"
-comments: true
 ---
 
 Le Lundi 23 et Mardi 24 juin a eu lieu l'événement PHP de l'année à Lyon : le PHPTour Lyon.

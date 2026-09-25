@@ -10,7 +10,6 @@ youtubeId: Cq1sR005B2E
 
 lang: fr
 tags: [conference, php, open-source, afup, docker, kubernetes]
-color: rgb(251,87,66)
 ---
 
 Kubernetes. À en croire certains articles, c’est une solution miracle. Développeurs, vous avez peut-être entendu ce mot ?  

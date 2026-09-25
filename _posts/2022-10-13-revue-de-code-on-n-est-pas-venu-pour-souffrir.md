@@ -8,7 +8,6 @@ sponsored: true
 eventUrl: "https://event.afup.org/forum-php-2022/"
 youtubeId: LVh6iQtJW2I
 tags: [conference, afup, forumphp, revue]
-color: rgb(251,87,66)
 ---
 
 J'ai rejoint ma nouvelle équipe il y a 6 mois, avec une appréhension. Comment allais-je vivre les revues de code par des collègues que je ne connais pas encore ? Incompréhensions, malentendus : la communication écrite rend cet exercice très délicat. Vous avez été blessé-e par un commentaire ? Etait-il vraiment mal intentionné ? Vous avez blessé quelqu'un sans le vouloir, à cause d'une tournure maladroite ?

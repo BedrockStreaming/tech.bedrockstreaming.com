@@ -4,7 +4,6 @@ title: "STOP à l'espionnage ! Comment disparaître d'internet ? #LFT 24/11/23"
 description: ""
 author: [e_idoux, m_alves]
 tags: [lft, tech]
-color: rgb(251,87,66)
 youtubeId: t0qWEO9-BD4
 permalink: stop-a-l-espionnage-comment-disparaitre-d-internet
 ---

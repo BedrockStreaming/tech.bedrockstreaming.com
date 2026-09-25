@@ -9,10 +9,8 @@ author:
   twitter:  techM6Web
   facebook:
   github:
-category:
 tags: [conference]
 feature-img: "images/posts/blend2016.jpg"
-comments: true
 ---
 
 Voici les slides de la conférence "Plus d'un milliard de vidéos vues par an sur 6play - Enquête exclusive au coeur de la technique" que nous avons donné le 2 novembre 2016 lors de la conférence Blend Web Mix à Lyon.

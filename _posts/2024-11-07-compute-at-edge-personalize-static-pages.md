@@ -4,7 +4,6 @@ title: Using Fastly's Compute at-edge to personalize static pre-generated pages
 description: How we used Fastly's Compute at-edge and KVStore to personalize static pre-generated pages, during UEFA Euro 2024.
 author: [p_martin]
 tags: [edge, fastly, cloud, devops, 2024]
-color: rgb(251,87,66)
 ---
 
 During the [UEFA Euro](https://www.uefa.com/euro2024/) football cup in June and July 2024, M6 broadcasted several matches. Of course, this competition was available, live, on [M6+](https://www.6play.fr/). For every user joining right from the first second and or for all users hearing their neighbors shouting and wanting to re-watch the action, starting a live video stream had to work!

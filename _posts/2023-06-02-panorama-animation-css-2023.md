@@ -4,7 +4,6 @@ title: "Du CSS aux shaders WebGL : panorama des techniques d'animation en 2023 #
 description: ""
 author: j_sulpis
 tags: [lft, tech]
-color: rgb(251,87,66)
 youtubeId: 41yhiAumEy4
 permalink: panorama-css-animations
 ---

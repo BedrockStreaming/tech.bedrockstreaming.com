@@ -4,9 +4,7 @@ title: "Streaming recommendations at Bedrock"
 description: "The first streaming recommendations with machine learning at Bedrock"
 author: n_saby
 twitter: Bedrock_Tech
-category:
 tags: [recommender systems, machine learning, data, data science]
-color: rgb(12,4,38)
 thumbnail: "images/posts/2022-02-27-streaming-recommendation/header.png"
 language: en
 ---

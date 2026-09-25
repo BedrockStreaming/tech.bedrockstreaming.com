@@ -3,11 +3,8 @@ layout: post
 title: "A journey into connected TVs industrialisation process, Part 1"
 description: "The Launcher App"
 author: bedrock
-category:
 tags: []
-color: rgb(251,87,66)
 language: en
-comments: true
 ---
 
 At Bedrock, we build and run streaming applications on a wide variety of OTT devices (more than 60 different ecosystems). While testing and experimenting is easy on web and mobile devices, even for non-developers, it’s not as easy for Connected TV (CTV). In this article, you’ll discover how all of our employees can now access testing and pre-release environments on TV devices, with ease and without any technical knowledge.

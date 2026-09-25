@@ -9,7 +9,6 @@ youtubeId: Q6N7DoCNfAE
 
 lang: fr
 tags: [conference, js, webpack, vite, devoxx]
-color: rgb(251,87,66)
 ---
 
 Toute application web a besoin d’être packagée afin d’être livrée en production. Pour répondre à cette problématique, de nombreux outils, connus sous le nom de modules bundler, sont apparus, et ces dernières années, c’est Webpack qui semble s’être imposé comme l’outil incontournable.

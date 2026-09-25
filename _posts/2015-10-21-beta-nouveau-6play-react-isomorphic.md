@@ -3,11 +3,9 @@ layout: post
 title: "La bêta du nouveau 6play est disponible"
 description: "La bêta du nouveau 6play est disponible"
 author: bedrock 
-category:
 tags: [6play, react, isomorphic, javascript, flux]
 feature-img: "images/posts/6play/logo.jpg"
 thumbnail: "images/posts/6play/logo.jpg"
-comments: true
 ---
 
 Nous vous parlions en fin d'année dernière sur ce blog, de notre vision de [la Single Page App parfaite](/2014/12/04/isomorphic-single-page-app-parfaite-react-flux).

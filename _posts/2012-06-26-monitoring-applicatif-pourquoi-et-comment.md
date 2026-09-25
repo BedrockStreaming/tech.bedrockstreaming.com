@@ -3,9 +3,7 @@ layout: post
 title: "Monitoring applicatif : Pourquoi et comment ?"
 description: ""
 author: k_dits 
-category: 
 tags: [monitoring,graphite,statsd,conference]
-comments: true  
 permalink: monitoring-applicatif-pourquoi-et-comment
 ---
 

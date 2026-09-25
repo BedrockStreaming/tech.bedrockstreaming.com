@@ -4,8 +4,6 @@ title: "Trois patterns avancés pour améliorer la résilience d’une applicati
 description: ""
 author: p_martin
 tags: [lft, tech]
-comments: true
-color: rgb(251,87,66)
 youtubeId: O0nYbEBsPJ0
 permalink: trois-patterns-avances-pour-ameliorer-la-resilience-une-application
 ---

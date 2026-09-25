@@ -8,7 +8,6 @@ eventUrl: https://scala.io/
 youtubeId: QCFnjpUL95I
 
 tags: [spark, scalaio, conference]
-color: rgb(251,87,66)
 language: fr
 ---
 

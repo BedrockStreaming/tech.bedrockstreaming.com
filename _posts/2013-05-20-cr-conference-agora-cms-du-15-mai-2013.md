@@ -3,13 +3,11 @@ layout: post
 title: "CR Conférence Agora Cms du 15 mai 2013"
 description: ""
 author: d_roussel 
-category: 
 tags: [conference,cms]
 image:
   feature: 
   credit: 
   creditlink: 
-comments: true  
 permalink: cr-conference-agora-cms-du-15-mai-2013
 ---
 

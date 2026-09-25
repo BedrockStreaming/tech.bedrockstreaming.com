@@ -3,7 +3,6 @@ layout: post
 title: "Comment appliquer automatiquement des modifications sur une codebase JS 🤖"
 description: "Ou comment j'ai appris à ne plus m'en faire et à aimer JSCodeshift"
 author: m_schneider
-category:
 tags: [javascript, outil, cytron, frontend, react, refactor, js]
 language: fr
 permalink: refactorer-avec-jscodeshift

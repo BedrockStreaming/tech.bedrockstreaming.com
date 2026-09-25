@@ -9,13 +9,11 @@ author:
   twitter:  techM6Web
   facebook:     
   github:
-category: 
 tags: [devfacts, humour]
 image:
   feature: posts/devfacts.jpg
   credit: Game Of Thrones
   creditlink: 
-comments: true  
 ---
 
 Une fois n'est pas coutume, cette nouvelle fournée des _Dev Facts_ est publiée un jeudi. Mais c'est pour vous donner de quoi lire en ce grand week-end !

@@ -3,9 +3,7 @@ layout: post
 title: "M6Web au Forum PHP 2012 et au WebEvent #4"
 description: ""
 author: k_dits
-category: 
 tags: [php,afup,monitoring,conference]
-comments: true  
 permalink: post/24184111542/m6web-au-forum-php-2012-et-au-webevent-4
 ---
 

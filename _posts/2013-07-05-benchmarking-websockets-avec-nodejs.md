@@ -3,13 +3,11 @@ layout: post
 title: "Benchmarking WebSockets avec NodeJs"
 description: ""
 author: bedrock 
-category: 
 tags: [nodejs,websockets,benchmark,open-source]
 image:
   feature: 
   credit: 
   creditlink: 
-comments: true  
 permalink: benchmarking-websockets-avec-nodejs
 ---
 

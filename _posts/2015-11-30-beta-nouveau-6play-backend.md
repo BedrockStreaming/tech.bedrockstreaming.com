@@ -3,11 +3,9 @@ layout: post
 title: "L'envers du décor du nouveau 6play"
 description: "Présentation du backend derrière les nouvelles applications 6play"
 author: bedrock   
-category:
 tags: [6play, REST, Symfony, Elasticsearch, Cassandra]
 feature-img: "images/posts/6play/logo.jpg"
 thumbnail: "images/posts/6play/logo.jpg"
-comments: true
 ---
 
 Il y a quelques semaines, nous vous parlions ici même de la [stack technique mise en place pour le nouveau front web de 6play](/beta-nouveau-6play-react-isomorphic/).

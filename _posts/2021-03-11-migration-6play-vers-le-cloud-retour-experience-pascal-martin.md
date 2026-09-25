@@ -10,7 +10,6 @@ youtubeId: xZep9iv6tLY
 
 lang: fr
 tags: [conference, cloud, migration, cloudsud]
-color: rgb(251,87,66)
 ---
 
 En 2018, nous avons entamé la migration de la plateforme 6play vers Le Cloud.  

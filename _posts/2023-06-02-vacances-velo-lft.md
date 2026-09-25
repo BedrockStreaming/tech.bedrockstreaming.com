@@ -4,7 +4,6 @@ title: "Et si vos prochaines vacances se passaient à vélo ? #LFT 02/06/23"
 description: ""
 author: t_jarrand
 tags: [lft, tech]
-color: rgb(251,87,66)
 youtubeId: hVzmy8HMg6k
 permalink: vacances-a-velo
 ---

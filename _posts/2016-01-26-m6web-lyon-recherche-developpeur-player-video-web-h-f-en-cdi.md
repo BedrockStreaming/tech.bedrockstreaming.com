@@ -9,13 +9,11 @@ author:
   twitter:  techM6Web      
   facebook:       
   github:    
-category: 
 tags: [recrutement]
 image:
   feature: 
   credit: 
   creditlink: 
-comments: false  
 ---
 
 Mise jour : Le poste n'est à plus pourvoir. Merci

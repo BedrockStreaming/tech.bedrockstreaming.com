@@ -3,9 +3,7 @@ layout: post
 title: "La POO Canada Dry"
 description: ""
 author: k_dits 
-category: 
 tags: [php,poo,lft,video]
-comments: true  
 permalink: la-poo-canada-dry
 ---
 

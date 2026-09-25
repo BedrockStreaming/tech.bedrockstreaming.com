@@ -10,7 +10,6 @@ youtubeId: U7wuMyv8YzA
 
 lang: fr
 tags: [conference, architecture, resilience, afup, cloud]
-color: rgb(251,87,66)
 ---
 
 Dans un monde en perpétuelle évolution, pouvons-nous toujours atteindre *« four-nines »* de disponibilité ?  
