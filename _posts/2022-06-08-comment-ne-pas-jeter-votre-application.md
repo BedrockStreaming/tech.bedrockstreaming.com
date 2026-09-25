@@ -11,7 +11,6 @@ hosted: true
 
 lang: fr
 tags: [conference, js, react, lyonjs, meetup]
-color: rgb(251,87,66)
 ---
 
 Bonnes pratiques pour la maintenance d'une application web

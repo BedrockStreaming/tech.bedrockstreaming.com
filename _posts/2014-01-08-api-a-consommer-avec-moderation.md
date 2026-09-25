@@ -3,11 +3,9 @@ layout: post
 title: "API à consommer avec modération"
 description: "Authentification des API par nom de domaine"
 author: team_cytron
-category:
 tags: [outil, api, symfony, doctrine, cytron, open-source]
 feature-img: "images/posts/cytron/domainuserbundle.png"
 thumbnail: "images/posts/cytron/domainuserbundle.png"
-comments: true
 ---
 
 Après avoir travaillé pendant plusieurs mois sur la création et les [tests](/redismock-qui-a-bouchonne-mon-redis) de nos API avec Symfony, le moment de leur publication est enfin arrivé !

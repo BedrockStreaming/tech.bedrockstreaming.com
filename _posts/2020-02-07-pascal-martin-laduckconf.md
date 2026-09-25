@@ -8,11 +8,9 @@ eventName: La Duck Conf
 eventUrl: https://www.laduckconf.com/
 youtubeId: xLELSIEt2xA
 
-category: 
 tags: [conference, video]
 feature-img: "images/posts/6play/logo.jpg"
 thumbnail: "images/posts/6play/logo.jpg"
-comments: true
 redirect_from:
   - /pascal-martin-laduckconf/
 ---

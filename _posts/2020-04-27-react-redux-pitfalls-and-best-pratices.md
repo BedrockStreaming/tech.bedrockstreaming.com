@@ -3,10 +3,8 @@ layout: post
 title: "React/Redux: pitfalls and best practices"
 description: "We use React and Redux for almost 4 years at Bedrock on our video platform named 6play.Good practices and mistakes to be avoided have been gathered in this article."
 author: a_caron
-category:
 tags: [js, react, redux, frontend]
 feature-img: "images/posts/react-redux/redux.jpg"
-comments: true
 canonical: "https://slashgear.github.io/react-redux-pitfalls-and-best-pratices/"
 language: en
 redirect_from:

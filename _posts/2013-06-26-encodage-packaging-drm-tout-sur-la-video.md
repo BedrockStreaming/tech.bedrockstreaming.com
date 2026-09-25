@@ -4,7 +4,6 @@ title: "Encodage - packaging - DRM - tout sur la vidéo"
 description: ""
 author: o_noel 
 tags: [video,codec,drm,lft]
-comments: true 
 permalink: encodage-packaging-drm-tout-sur-la-vidéo
 ---
 

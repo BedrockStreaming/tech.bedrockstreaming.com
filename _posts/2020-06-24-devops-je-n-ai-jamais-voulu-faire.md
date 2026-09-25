@@ -9,7 +9,6 @@ youtubeId: dNUIFe7S1A0
 
 lang: fr
 tags: [conference, afup, php, devops]
-color: rgb(251,87,66)
 ---
 
 Développeuse junior : première semaine. Mes collègues m'ont forcée à déployer ma première feature sur 6play ! Malgré un petit frisson, tout s'est bien passé, grâce aux outils et bonnes pratiques qui nous guident.

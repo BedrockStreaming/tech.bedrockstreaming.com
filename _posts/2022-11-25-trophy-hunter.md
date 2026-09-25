@@ -4,8 +4,6 @@ title: "Trophy Hunter #LFT 25/11/22"
 description: ""
 author: o_thebault
 tags: [lft, tech]
-comments: true
-color: rgb(251,87,66)
 youtubeId: yueUdqkc3eo
 permalink: trophy-hunter
 ---

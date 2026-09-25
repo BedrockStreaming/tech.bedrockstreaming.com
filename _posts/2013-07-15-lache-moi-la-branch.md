@@ -3,11 +3,9 @@ layout: post
 title: "Lâche moi la branch !"
 description: ""
 author: team_cytron
-category:
 tags: [qualite, jenkins, github]
 feature-img: "images/posts/cytron/branche.png"
 thumbnail: "images/posts/cytron/branche.png"
-comments: true
 permalink: lache-moi-la-branch
 ---
 

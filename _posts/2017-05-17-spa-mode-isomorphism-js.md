@@ -3,11 +3,9 @@ layout: post
 title: "Last night isomorphic JS saved our life!"
 description: "How we use isomorphism to ensure a high availability of our app."
 author: f_dubost
-category:
 tags: [SPA, SSR, isomorphic, javascript, node.js, high availability]
 feature-img: "images/posts/spamode/spamode.jpg"
 thumbnail: "images/posts/spamode/spamode.jpg"
-comments: true
 language: en
 ---
 

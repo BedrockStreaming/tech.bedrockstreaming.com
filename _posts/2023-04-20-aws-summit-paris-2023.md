@@ -4,7 +4,6 @@ title: Bedrock à l'AWS Summit Paris 2023
 description: Notre retour sur cette édition 2023 de l'AWS Summit Paris
 author: [p_martin, l_caillet, v_chabrier]
 tags: [kubernetes, cloud, devops, opensource, community, conference, aws, summit, paris, 2023]
-color: rgb(251,87,66)
 thumbnail: "/images/posts/2023-04-20-aws-summit-paris-2023/aws-summit-2023-keynote.jpg"
 ---
 

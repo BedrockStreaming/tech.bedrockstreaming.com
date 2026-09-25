@@ -9,10 +9,8 @@ author:
   twitter:  mfrachet
   facebook:
   github: M6Web
-category: 6play
+permalink: /6play/2018/04/15/how-a-fullscreen-video-mode-ended-up-implementing-react-native-portals.html
 tags: [React,ReactNative,mobile]
-color: rgb(95, 103, 155)
-comments: true
 language: en
 ---
 

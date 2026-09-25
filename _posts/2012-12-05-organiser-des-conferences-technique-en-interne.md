@@ -3,9 +3,7 @@ layout: post
 title: "Organiser des conférences technique en interne"
 description: ""
 author: k_dits 
-category: 
 tags: [conference,culture,lft]
-comments: true  
 permalink: organiser-des-conferences-technique-en-interne
 ---
 

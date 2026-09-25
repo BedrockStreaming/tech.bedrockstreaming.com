@@ -3,10 +3,8 @@ layout: post
 title: "How to boost the speed of your webpack build?"
 description: "A story of performance optimization and application of the Pareto principle to a webpack build that has become far too long."
 author: a_caron
-category:
 tags: [js, webpack]
 feature-img: "images/posts/hunting-webpack-performances/julian-hochgesang-0Y_YNPW5qds-unsplash.jpg"
-comments: true
 canonical: "https://slashgear.github.io/hunting-webpack-performances/"
 language: en
 redirect_from:

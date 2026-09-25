@@ -11,7 +11,6 @@ slideshareKey: t7BqO8Q87GOIfl
 
 lang: fr
 tags: [conference, confoo, PHP, Symfony]
-color: rgb(251,87,66) 
 ---
 
 A travers cette conférence, je me propose de vous tracer l’histoire de la migration de 6play (système de télévision de rattrapage du groupe M6, premier groupe de télévision privé français) d’une application monolithique vers un univers de micro-service, des avantages en terme de maintenance, d’évolution, de montée en charge, mais également des différents écueils rencontrés lors de ce changement de paradigme : caching, logging, complexité globale.

@@ -4,7 +4,6 @@ title: "Comment j'ai retrouvé le sens de la vie grâce à WebAssembly #LFT 02/0
 description: ""
 author: t_gianella
 tags: [lft, tech]
-color: rgb(251,87,66)
 youtubeId: kwG-RuEy_74
 permalink: comment-j-ai-retrouve-le-sens-de-la-vie-grace-a-web-assembly
 ---

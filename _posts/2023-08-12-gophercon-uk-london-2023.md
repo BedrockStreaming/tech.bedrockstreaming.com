@@ -4,7 +4,6 @@ title: "GopherCon UK 2023 highlights"
 description: My highlights of GopherCon UK 2023
 author: pa_bedu
 tags: [conference, london, tech, golang, go]
-color: rgb(251,87,66)
 thumbnail: /images/posts/gopherconuk2023/IMG_6877.jpeg
 ---
 Hello there! I'm Pierre-Alain, a senior back-end developer at Bedrock and I had the opportunity to go to London for the GopherCon UK.

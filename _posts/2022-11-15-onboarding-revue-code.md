@@ -5,7 +5,6 @@ description: "Comment l'exercice de la revue du delta du code, souvent redouté,
 un outil d'onboarding ?"
 author: al_deboissieu
 tags: [team]
-color: rgb(251,87,66)
 language: fr
 ---
 

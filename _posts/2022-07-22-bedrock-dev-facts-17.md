@@ -3,9 +3,7 @@ layout: post
 title: "Bedrock Dev Facts #17"
 description: "Les plus belles phrases de nos équipes techniques"
 author: bedrock 
-category: 
 tags: [devfacts, humour]
-color: rgb(251,87,66)
 ---
 
 L'été arrive, les vacances, le repos.  

@@ -9,7 +9,6 @@ eventUrl: https://www.meetup.com/fr-FR/lyonjs/events/284549533/
 youtubeId: 8nnDOT8b5Oc
 
 tags: [remotion, react, video, js, frontend, conference, lyonjs]
-color: rgb(251,87,66)
 thumbnail: "images/posts/2022-04-04-comment-faire-un-trailer-qui-dechire-avec-des-technos-web/main-image.png"
 ---
 

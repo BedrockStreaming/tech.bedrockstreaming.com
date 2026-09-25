@@ -3,12 +3,9 @@ layout: post
 title: "Hosting the 2026 World Cup on M6+"
 description: "How Bedrock prepared M6+ for the 2026 World Cup: prescaling, load tests, edge features and plan Bs. 54 matches, 39 days, zero major incident."
 author: [v_chabrier]
-category:
 tags: [kubernetes, scaling, prescaling, high availability, aws, cloud, cdn, resilience, loadtesting]
-color: rgb(251,87,66)
 thumbnail: "/images/posts/2026-08-25-hosting-the-2026-world-cup-on-m6plus/traffic-curve.png"
 language: en
-comments: true
 ---
 
 On June 11th 2026, Mexico and South Africa kicked off the World Cup. For us, it was the start of 54 matches streamed on M6+ and 39 days of match-evening operations.

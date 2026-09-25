@@ -5,7 +5,6 @@ description: "Some time ago, we shared with you an article explaining how we man
 author: a_caron
 lang: en
 tags: [lft, talks, live, stream, obs, streamyard, conference]
-color: rgb(251,87,66)
 thumbnail: images/posts/lft-streamyard/head.png
 ---
 ![LFT logo](/images/posts/lft-streamyard/head.png)

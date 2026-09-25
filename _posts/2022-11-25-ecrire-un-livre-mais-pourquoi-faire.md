@@ -4,8 +4,6 @@ title: "Écrire un livre, mais pourquoi faire ? #LFT 25/11/22"
 description: ""
 author: n_saby
 tags: [lft, tech]
-comments: true
-color: rgb(251,87,66)
 youtubeId: 9J3PeTHE56E
 permalink: ecrire-un-livre-mais-pourquoi-faire
 ---

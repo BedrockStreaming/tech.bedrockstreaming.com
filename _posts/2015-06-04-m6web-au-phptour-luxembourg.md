@@ -9,11 +9,9 @@ author:
   twitter:  techM6Web
   facebook:
   github:
-category:
 tags: [conference,afup,phptour]
 feature-img: "images/posts/phptourlux/inphinity.jpg"
 thumbnail: "images/posts/phptourlux/inphinity.jpg"
-comments: true
 permalink: 
 ---
 

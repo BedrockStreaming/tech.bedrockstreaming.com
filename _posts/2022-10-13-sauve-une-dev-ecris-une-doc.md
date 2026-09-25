@@ -8,7 +8,6 @@ sponsored: true
 eventUrl: "https://event.afup.org/forum-php-2022/"
 youtubeId: MbLiKVnyGSY
 tags: [conference, afup, forumphp, doc]
-color: rgb(251,87,66)
 ---
 
 Vous êtes développeur ou développeuse PHP : vous aimez programmer, réfléchir. Vous aimez créer des applications ou des bibliothèques de qualité. Mais pourquoi personne ne les utilise ? Parce que votre documentation n'est pas à la hauteur !

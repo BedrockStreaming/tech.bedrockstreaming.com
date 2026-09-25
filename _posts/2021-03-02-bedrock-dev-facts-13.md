@@ -3,9 +3,7 @@ layout: post
 title: "Bedrock Dev Facts #13"
 description: "Les plus belles phrases de nos équipes techniques"
 author: bedrock
-category: 
 tags: [devfacts, humour]
-comments: true
 redirect_from:
   - /bedrock-dev-facts-13/
 ---

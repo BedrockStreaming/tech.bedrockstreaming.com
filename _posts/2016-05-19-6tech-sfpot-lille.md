@@ -9,10 +9,8 @@ author:
   twitter:  techM6Web      
   facebook:       
   github:    
-category:
 tags: [6tech, lille, sfpot, conference]
 thumbnail: "images/posts/sfpot-lille/sfpot_juin.jpg"
-comments: true
 ---
 
 [Pierre Marichez](https://twitter.com/chtipepere), [Renaud Bougré](https://renaud.bougré.fr) et [Nicolas Beze](https://fr.linkedin.com/in/nicolas-beze-9222005b) une partie de l'équipe PHP de M6Web Lille, vous feront part d'un retour d'expérience sur l'industrialisation des développements.

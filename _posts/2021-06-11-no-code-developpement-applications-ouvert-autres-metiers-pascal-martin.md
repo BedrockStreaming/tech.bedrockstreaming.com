@@ -10,7 +10,6 @@ youtubeId: 9OM2gdMpCg0
 
 lang: fr
 tags: [conference, nocode, lowcode, afup]
-color: rgb(251,87,66)
 ---
 
 Construire une application sans coder ? C’est une idée que j’entends depuis le début de mes études… Et c’est la promesse de no-code !  

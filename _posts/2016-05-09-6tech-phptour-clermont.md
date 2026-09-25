@@ -9,9 +9,7 @@ author:
   twitter:  techM6Web      
   facebook:       
   github:    
-category:
 tags: [6play, afup, phptour, conference]
-comments: true
 ---
 
 [Fabien de Saint Pern](https://twitter.com/fabdsp), un des leads devs sur la plateforme [6play](https://www.6play.fr), aura l'occasion de présenter une conférence au PHPTour Clermont-Ferrand le 24 Mai. Il fera un retour d'expérience concret sur nos pratiques autour de [la réalisation de workers asynchrones en PHP](https://event.afup.org/php-tour-2016/programme/#1761) (et oui !). 

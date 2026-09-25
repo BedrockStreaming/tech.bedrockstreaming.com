@@ -9,13 +9,11 @@ author:
   twitter:  techM6Web      
   facebook:       
   github:    
-category: 
 tags: []
 image:
   feature: 
   credit: 
   creditlink: 
-comments: true  
 permalink: post/23664141031/lancement-du-blog-technique-dm6web
 ---
 

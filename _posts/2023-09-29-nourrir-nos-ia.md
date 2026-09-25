@@ -4,7 +4,6 @@ title: "Nourrir nos IA #LFT 29/09/23"
 description: ""
 author: n_saby
 tags: [lft, tech]
-color: rgb(251,87,66)
 youtubeId: gfXopH0v9Wg
 permalink: nourrir-nos-ia
 ---

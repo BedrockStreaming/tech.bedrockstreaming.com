@@ -4,7 +4,6 @@ title: Bedrock au MiXiT 2025
 description: 
 author: [y_ferlin, p_rambaud, a_moutounet, v_clavreul, h_detang, p_martin]
 tags: [conference, lyon, tech, agilité]
-color: rgb(251,87,66)
 language: fr
 ---
 

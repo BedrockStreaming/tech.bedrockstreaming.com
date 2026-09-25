@@ -12,8 +12,6 @@ sponsored: true
 hosted: true
 
 tags: [xstate, lyonjs, meetup, react, javascript, conference]
-comments: true
-color: rgb(251,87,66)
 language: fr
 ---
 
