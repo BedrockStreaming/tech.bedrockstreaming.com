@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2013-06-27
 title: "Coke, pour bien sniffer son code"
 description: ""

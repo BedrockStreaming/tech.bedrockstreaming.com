@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2022-09-30
 eventName: "Last Friday Talks"
 title: "Comment cloner Shazam ! #LFT 30/09/22"

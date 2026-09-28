@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2023-03-31
 eventName: "Last Friday Talks"
 title: "REX-Shape Up, un LFT dont vous êtes les héros #LFT 31/03/23"

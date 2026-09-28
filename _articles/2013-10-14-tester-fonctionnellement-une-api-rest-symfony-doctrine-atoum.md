@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2013-10-14
 title: "Tester fonctionnellement une API REST"
 description: ""

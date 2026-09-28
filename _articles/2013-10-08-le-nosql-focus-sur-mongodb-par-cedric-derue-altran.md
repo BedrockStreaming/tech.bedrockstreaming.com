@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2013-10-08
 title: "Le NoSQL, Focus sur MongoDB par Cédric Derue (Altran)"
 description: ""

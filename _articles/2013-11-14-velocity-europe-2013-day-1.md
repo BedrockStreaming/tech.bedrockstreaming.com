@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2013-11-14
 title: "Velocity Europe 2013 - Day 1"
 description: ""

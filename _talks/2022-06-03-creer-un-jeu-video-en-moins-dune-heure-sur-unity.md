@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2022-06-03
 eventName: "Last Friday Talks"
 title: "Créer un jeu vidéo en moins d’une heure sur Unity #LFT 03/06/22"

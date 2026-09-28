@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2013-05-06
 title: "La POO Canada Dry"
 description: ""

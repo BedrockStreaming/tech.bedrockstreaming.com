@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2015-04-01
 permalink: /2015/04/01/immutablejs-relay-graphql-react-native.html
 title: "Introduction à Immutable.Js, Relay + GraphQL et React Native"

@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2013-12-11
 title: "Qui a bouchonné mon Redis ?"
 description: "Présentation de la librairie RedisMock, un mock PHP open-source de Redis à utiliser dans vos tests fonctionnels."

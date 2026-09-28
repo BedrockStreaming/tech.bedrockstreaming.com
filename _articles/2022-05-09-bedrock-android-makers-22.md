@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2022-05-09
 permalink: /2022/05/09/bedrock-android-makers-22.html
 title: Retour sur l'Android Makers 2022

@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2013-04-25
 title: "CR Real Time Conférence Europe 2013 - Day 1"
 description: ""

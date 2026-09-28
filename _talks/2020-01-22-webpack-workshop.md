@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 title: "Webpack Workshop"
 date: 2020-01-22
 author: "a_caron"

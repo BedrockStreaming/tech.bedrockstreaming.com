@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2013-07-02
 title: "Performances web et \"Disaster case\" sur applications mobile native"
 description: ""

@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2014-09-24
 title: "Tests E2E sur son application AngularJS avec Protractor"
 description: "Comment mettre en place des tests E2E sur son application AngularJS : outils et problématiques."

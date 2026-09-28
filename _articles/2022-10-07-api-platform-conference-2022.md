@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 title: API Platform Conference 2022
 description: Venez avec nous assister aux conférences API Platform ! 
 author: bedrock

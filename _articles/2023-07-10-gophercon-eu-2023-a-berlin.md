@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2023-07-10
 permalink: /2023/07/10/gophercon-eu-2023-a-berlin.html
 title: Bedrock à la GopherCon EU (2023)

@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2013-05-30
 title: "Firewall applicatif PHP et bundle Symfony"
 description: ""

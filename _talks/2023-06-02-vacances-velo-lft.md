@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2023-06-02
 eventName: "Last Friday Talks"
 title: "Et si vos prochaines vacances se passaient à vélo ? #LFT 02/06/23"

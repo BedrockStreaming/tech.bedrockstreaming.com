@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2022-05-13
 permalink: /2022/05/13/docker-meetup-you-build-it-you-run-it.html
 

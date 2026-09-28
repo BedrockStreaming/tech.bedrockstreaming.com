@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2014-12-04
 permalink: /2014/12/04/isomorphic-single-page-app-parfaite-react-flux.html
 title: "App Isomorphic: la Single Page App parfaite ?"

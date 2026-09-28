@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2023-11-24
 eventName: "Last Friday Talks"
 title: "Comment ne pas jeter son application Frontend tout les deux ans ? #LFT 24/11/23"

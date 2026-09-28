@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 title: "Load-testons M6+ pour préparer l’Euro 2024 !"
 date: 2025-04-17
 author: "b_colin"

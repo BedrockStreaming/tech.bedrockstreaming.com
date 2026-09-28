@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2024-02-02
 eventName: "Last Friday Talks"
 title: "Du code à l'image : Aller et Retour #LFT 02/02/24"

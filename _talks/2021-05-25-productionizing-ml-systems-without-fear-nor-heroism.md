@@ -1,5 +1,6 @@
 ---
 layout: video
+language: en
 title: "Productionizing ML Systems without Fear nor Heroism"
 date: 2021-05-25
 author: "n_saby"

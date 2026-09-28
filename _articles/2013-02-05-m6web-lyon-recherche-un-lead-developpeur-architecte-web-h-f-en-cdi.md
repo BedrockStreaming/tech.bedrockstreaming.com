@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2013-02-05
 title: "M6Web Lyon recherche un Lead Developpeur / Architecte web (H/F) en CDI"
 description: ""

@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2020-11-23
 permalink: /2020/11/23/php-cest-vous-et-vous-pouvez-contribuer-pascal-martin.html
 
@@ -10,7 +11,6 @@ eventName: ForumPHP 2020
 eventUrl: https://event.afup.org/forum-php-2020/
 youtubeId: bGklD-ZxIjI
 
-lang: fr
 tags: [conference, php, open-source, afup]
 ---
 

@@ -1,5 +1,6 @@
 ---
 layout: post
+language: en
 date: 2024-11-12
 permalink: /2024/11/12/golab-florence.html
 title: Insights from Golab Conference 2024, Florence

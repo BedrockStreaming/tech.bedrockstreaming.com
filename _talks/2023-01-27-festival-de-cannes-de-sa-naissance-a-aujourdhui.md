@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2023-01-27
 eventName: "Last Friday Talks"
 title: "Le festival de cannes de sa naissance à aujourd’hui #LFT 27/01/23"

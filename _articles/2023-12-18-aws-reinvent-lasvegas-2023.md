@@ -1,5 +1,6 @@
 ---
 layout: post
+language: en
 date: 2023-12-18
 permalink: /2023/12/18/aws-reinvent-lasvegas-2023.html
 title: Bedrock at 2023 AWS re:Invent Las Vegas

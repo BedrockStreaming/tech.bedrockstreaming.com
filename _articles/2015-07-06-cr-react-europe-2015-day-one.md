@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2015-07-06
 permalink: /2015/07/06/cr-react-europe-2015-day-one.html
 title: "CR React Europe Conférence 2015 - Day 1"

@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2013-07-05
 title: "Benchmarking WebSockets avec NodeJs"
 description: ""

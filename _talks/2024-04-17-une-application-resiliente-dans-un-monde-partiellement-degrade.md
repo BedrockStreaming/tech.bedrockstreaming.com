@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 title: "Une application résiliente, dans un monde partiellement dégradé"
 date: 2024-04-17
 author: "p_martin"

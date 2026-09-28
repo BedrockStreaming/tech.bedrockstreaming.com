@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2022-04-20
 permalink: /2022/04/20/aws-summit-2022-notre-retour-dexperience.html
 title: Bedrock à l'AWS Summit 2022

@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2022-07-22
 permalink: /2022/07/22/bedrock-dev-facts-17.html
 title: "Bedrock Dev Facts #17"

@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2023-03-31
 eventName: "Last Friday Talks"
 title: "Couleur, Typographie, Logo: Analyse dune charte graphique #LFT 31/03/23"

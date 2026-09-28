@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2023-06-02
 eventName: "Last Friday Talks"
 title: "Créer son association #LFT 02/06/23"

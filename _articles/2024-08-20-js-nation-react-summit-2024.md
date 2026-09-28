@@ -1,5 +1,6 @@
 ---
 layout: post
+language: en
 date: 2024-08-20
 permalink: /2024/08/20/js-nation-react-summit-2024.html
 title: JS Nation x React Summit 2024 highlights

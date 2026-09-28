@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2014-10-09
 title: "Providers AngularJS et configuration dynamique"
 description: "Comment surcharger un provider AngularJS pour le rendre configurable dynamiquement."

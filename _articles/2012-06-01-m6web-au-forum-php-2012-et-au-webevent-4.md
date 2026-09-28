@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2012-06-01
 title: "M6Web au Forum PHP 2012 et au WebEvent #4"
 description: ""

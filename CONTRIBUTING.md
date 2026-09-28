@@ -55,6 +55,7 @@ layout: post
 title: Title of your article
 description: Description of your article visible in search page results
 author: author_of_your_article
+language: en
 date: 1970-01-01
 permalink: /1970/01/01/article-slug.html
 tags: [example, of, tags]
@@ -103,6 +104,7 @@ Then you will be able to use the author ID in the frontmatter post configuration
     # Authors of the article (can also be a list of authors such as: [first_author, second_author, third_author])
     # The complete list of valid author IDs is in `_data/authors.yml`
     author: author_of_your_article
+    language: fr
     eventName: Last Friday Talks
     # Use tags for grouping content in the blog
     # Add `lft` to group with other LFT talks
@@ -127,6 +129,7 @@ layout: conference
 title: "Title of the conference"
 date: 1970-01-01
 author: conference_speaker
+language: fr
 eventName: ******
 eventUrl: ******
 youtubeId: ******
@@ -156,6 +159,7 @@ If there is a `youtubeId` key, the video will also be added to the "Replay" sect
     description: Description of your article visible in search page results
     # from _data/authors.yaml
     author: conference_speaker
+    language: fr
     # Public event name
     eventName: ******
     # Url to redirect to the event site (optional)

@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 title: "Mentors : super-héros ou super-vilains ?"
 date: 2023-05-12
 author: "p_rambaud"

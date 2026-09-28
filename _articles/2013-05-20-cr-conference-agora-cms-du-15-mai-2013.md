@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2013-05-20
 title: "CR Conférence Agora Cms du 15 mai 2013"
 description: ""

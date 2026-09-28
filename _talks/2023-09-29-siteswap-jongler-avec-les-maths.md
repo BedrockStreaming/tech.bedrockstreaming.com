@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2023-09-29
 eventName: "Last Friday Talks"
 title: "Siteswap: jongler avec les maths #LFT 29/09/23"

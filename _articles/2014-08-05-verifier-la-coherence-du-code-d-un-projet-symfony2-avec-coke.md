@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2014-08-05
 permalink: /2014/08/05/verifier-la-coherence-du-code-d-un-projet-symfony2-avec-coke.html
 title: "Contrôlez facilement votre cohérence de code sur votre projet Symfony2 avec coke"

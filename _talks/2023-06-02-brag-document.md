@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2023-06-02
 eventName: "Last Friday Talks"
 title: "Célébrons nos réussites grâce au Brag Document ! #LFT 02/06/23"

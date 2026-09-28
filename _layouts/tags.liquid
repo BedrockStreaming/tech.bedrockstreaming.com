@@ -67,7 +67,7 @@ layout: page
                     {{ post.title }}
                 </a>
 
-                {% include blog/post_info.liquid date=post.date %}
+                {% include blog/post_info.liquid date=post.date language=post.language %}
             </h5>
             {% endif %}
             {% endfor %}

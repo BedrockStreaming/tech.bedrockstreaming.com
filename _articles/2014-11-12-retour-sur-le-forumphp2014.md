@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2014-11-12
 permalink: /2014/11/12/retour-sur-le-forumphp2014.html
 title: "Retour sur le forum PHP 2014 organisé par l'AFUP"

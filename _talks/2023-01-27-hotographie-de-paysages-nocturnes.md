@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2023-01-27
 eventName: "Last Friday Talks"
 title: "La photographie de paysages nocturnes #LFT 27/01/23"

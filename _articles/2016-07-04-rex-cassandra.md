@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2016-07-04
 permalink: /2016/07/04/rex-cassandra.html
 title: "Retour d'expérience sur l'utilisation de Cassandra sur 6play en vidéo"

@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2021-10-21
 permalink: /2021/10/21/confiance-aux-devs-de-votre-team.html
 
@@ -10,7 +11,6 @@ eventUrl: https://event.afup.org/forum-php-2021/
 youtubeId: tuGpNiy6e9s 
 
 
-lang: fr
 tags: [conference, afup, php]
 ---
 

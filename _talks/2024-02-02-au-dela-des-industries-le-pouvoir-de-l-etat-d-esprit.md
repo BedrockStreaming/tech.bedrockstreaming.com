@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2024-02-02
 eventName: "Last Friday Talks"
 title: "Au-delà des industries : Le pouvoir de l'état d'esprit #LFT 02/02/24"

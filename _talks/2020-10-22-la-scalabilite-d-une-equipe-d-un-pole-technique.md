@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2020-10-22
 permalink: /2020/10/22/la-scalabilite-d-une-equipe-d-un-pole-technique.html
 
@@ -12,7 +13,6 @@ conferenceUrl: https://afup.org/talks/3497-la-scalabilite-d-une-equipe-d-un-pole
 youtubeId: bECYd6Qo7Qw
 slideshareKey: 8bsndjV0GUOWnM
 
-lang: fr
 tags: [conference, forumPHP, PHP, Symfony]
 ---
 

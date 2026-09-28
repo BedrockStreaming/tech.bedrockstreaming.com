@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2015-11-30
 permalink: /2015/11/30/beta-nouveau-6play-backend.html
 title: "L'envers du décor du nouveau 6play"

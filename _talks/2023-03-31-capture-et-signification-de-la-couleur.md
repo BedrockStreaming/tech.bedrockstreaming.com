@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2023-03-31
 eventName: "Last Friday Talks"
 title: "Comment j'ai réussi à capturer la couleur et quelle est sa signification ? #LFT 31/03/23"

@@ -1,5 +1,6 @@
 ---
 layout: post
+language: en
 date: 2023-11-14
 permalink: /2023/11/14/swift-concurrency-in-a-nutshell.html
 title: Swift Concurrency in a Nutshell

@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2021-03-30
 permalink: /2021/03/30/comment-nous-reduisons-augmentation-couts-aws-pascal-martin.html
 
@@ -10,7 +11,6 @@ eventName: AWS Community Day France
 eventUrl: https://www.meetup.com/fr-FR/AWS-User-Group-Strasbourg/events/277030691/
 youtubeId: mMRVCtYjzLo
 
-lang: fr
 tags: [conference, aws, costs]
 ---
 

@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2012-05-24
 title: "Lancement du blog technique d'M6Web"
 description: ""

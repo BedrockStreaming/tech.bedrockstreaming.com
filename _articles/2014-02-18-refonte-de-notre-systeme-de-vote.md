@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2014-02-18
 permalink: /2014/02/18/refonte-de-notre-systeme-de-vote.html
 title: "Refonte de notre système de vote"

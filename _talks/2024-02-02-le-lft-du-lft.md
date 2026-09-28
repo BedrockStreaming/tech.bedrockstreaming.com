@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2024-02-02
 eventName: "Last Friday Talks"
 title: "Le LFT du LFT - PUB LFT #LFT 02/02/24"

@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 title: "⚡️ Vite ⚡️ the Webpack killer"
 date: 2020-06-10
 author: ["a_caron", "m_mure"]

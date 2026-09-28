@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2015-06-04
 permalink: /2015/06/04/m6web-au-phptour-luxembourg.html
 title: "On était au PHPTour ! "

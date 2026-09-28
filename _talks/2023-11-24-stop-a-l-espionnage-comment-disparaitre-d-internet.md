@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2023-11-24
 eventName: "Last Friday Talks"
 title: "STOP à l'espionnage ! Comment disparaître d'internet ? #LFT 24/11/23"

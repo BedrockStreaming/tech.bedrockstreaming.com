@@ -1,11 +1,11 @@
 ---
 layout: post
+language: en
 date: 2022-04-29
 permalink: /2022/04/29/how-we-simplify-our-lft-broadcast.html
 title: "How did we streamline the delivery of our internal conferences aka LFTs?"
 description: "Some time ago, we shared with you an article explaining how we managed to capture and broadcast our conferences in the Bedrock auditorium. We must admit, it worked great but we wanted to make it simpler."
 author: a_caron
-lang: en
 tags: [lft, talks, live, stream, obs, streamyard, conference]
 thumbnail: images/posts/lft-streamyard/head.png
 ---

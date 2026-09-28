@@ -1,5 +1,6 @@
 ---
 layout: post
+language: en
 date: 2024-08-07
 permalink: /2024/08/07/euro-resiliency-special-event-page.html
 title: How Special Event Page allowed us to handle more than 1 million of users

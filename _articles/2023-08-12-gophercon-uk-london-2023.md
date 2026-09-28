@@ -1,5 +1,6 @@
 ---
 layout: post
+language: en
 date: 2023-08-12
 permalink: /2023/08/12/gophercon-uk-london-2023.html
 title: "GopherCon UK 2023 highlights"

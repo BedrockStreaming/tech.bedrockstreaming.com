@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2023-03-31
 permalink: /2023/03/31/retour-vue-amsterdam-2023.html
 title: Retour Conférence Vue Amsterdam 2023

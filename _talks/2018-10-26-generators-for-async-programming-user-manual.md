@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2018-10-26
 permalink: /2018/10/26/generators-for-async-programming-user-manual.html
 
@@ -10,7 +11,6 @@ eventName: ForumPHP 2018
 eventUrl: https://event.afup.org/forumphp2018/
 youtubeId: 7TvIIt4c8uY
 
-lang: fr
 tags: [conference, php, afup]
 ---
 

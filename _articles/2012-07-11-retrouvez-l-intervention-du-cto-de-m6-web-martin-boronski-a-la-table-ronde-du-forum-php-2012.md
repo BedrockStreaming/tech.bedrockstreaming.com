@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2012-07-11
 title: "Retrouvez l'intervention du CTO de M6 Web, Martin Boronski, à la table ronde du Forum PHP 2012"
 description: ""

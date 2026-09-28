@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2023-03-20
 permalink: /2023/03/20/La-gamification-contre-le-legacy.html
 title: La gamification contre le legacy

@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2019-10-25
 permalink: /2019/10/25/one-year-of-asynchronous-code-in-production.html
 title: "One year of asynchronous PHP in production"
@@ -9,7 +10,6 @@ eventName: ForumPHP 2019
 eventUrl: https://event.afup.org/forumphp2019/
 youtubeId: R6ldQzXScCs
 
-lang: fr
 tags: [conference, php, afup]
 ---
 

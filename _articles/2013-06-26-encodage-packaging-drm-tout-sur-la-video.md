@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2013-06-26
 title: "Encodage - packaging - DRM - tout sur la vidéo"
 description: ""

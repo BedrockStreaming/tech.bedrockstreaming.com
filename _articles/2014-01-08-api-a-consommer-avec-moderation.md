@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2014-01-08
 permalink: /2014/01/08/api-a-consommer-avec-moderation.html
 title: "API à consommer avec modération"

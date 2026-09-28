@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 date: 2018-10-26
 permalink: /2018/10/26/docker-en-prod-oui-avec-kubernetes-pascal-martin.html
 
@@ -10,7 +11,6 @@ eventName: ForumPHP 2018
 eventUrl: https://event.afup.org/forumphp2018/
 youtubeId: Cq1sR005B2E
 
-lang: fr
 tags: [conference, php, open-source, afup, docker, kubernetes]
 ---
 

@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2023-03-13
 permalink: /2023/03/13/bedrock-dev-facts-19.html
 title: "Bedrock Dev Facts #19"

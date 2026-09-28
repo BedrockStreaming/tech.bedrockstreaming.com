@@ -1,5 +1,6 @@
 ---
 layout: video
+language: fr
 date: 2022-06-03
 eventName: "Last Friday Talks"
 title: "La pression je ne la subis pas, je la fais #LFT 03/06/22" 

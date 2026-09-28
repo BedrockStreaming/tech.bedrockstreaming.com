@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2012-06-20
 title: "M6Web au Web Event Lyon #4"
 description: ""

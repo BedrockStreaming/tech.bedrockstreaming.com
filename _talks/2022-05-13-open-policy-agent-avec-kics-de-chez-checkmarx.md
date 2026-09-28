@@ -1,5 +1,6 @@
 ---
 layout: conference
+language: fr
 title: "Open Policy Agent avec KICS de chez Checkmarx"
 date: 2022-05-13
 author: "jy_camier"

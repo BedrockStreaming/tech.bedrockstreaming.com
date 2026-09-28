@@ -1,5 +1,6 @@
 ---
 layout: post
+language: fr
 date: 2016-03-29
 permalink: /2016/03/29/retro-agile-garde-a-vous.html
 title: "La retrospective Agile ‘Garde à vous’"
