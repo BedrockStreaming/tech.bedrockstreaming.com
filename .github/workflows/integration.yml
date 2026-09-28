@@ -3,7 +3,6 @@ name: Continous Integration
 on:
   # Check that the static website is buildable for every PR
   pull_request:
-    branches: [master]
 
 jobs:
   build:
@@ -16,4 +15,5 @@ jobs:
           ruby-version: '3.3'
       - run: gem install bundler
       - run: bundle install --jobs 4 --retry 3
+      - run: python3 script/check-front-matter.py
       - run: bundle exec jekyll build
