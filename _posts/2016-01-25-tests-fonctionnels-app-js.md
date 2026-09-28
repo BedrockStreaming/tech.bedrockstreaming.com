@@ -26,7 +26,7 @@ Toutes [nos Pull Requests lancent les tests indépendamment via Jenkins](/lache-
 ### Arborescence
 Dans notre projet, nous avons un dossier pour les tests fonctionnels organisés comme suit :
 
-{% highlight bash %}
+```bash
 ├─┐ tests
 │ ├─┐ step_definitions
 │ │ └── my_feature.steps.js
@@ -38,12 +38,12 @@ Dans notre projet, nous avons un dossier pour les tests fonctionnels organisés 
 │ │ ├── hooks.js
 │ │ └── world.js
 │ └── my_feature.feature
-{% endhighlight %}
+```
 
 ### Features
 Une feature est un fichier testant une fonctionnalité de l’application et regroupant plusieurs scénarios de test. Il est écrit en langage naturel (Gherkin) de façon à être lisible par tous.
 
-{% highlight bash %}
+```bash
 # tests/support/cookie.feature
 Feature: Scenarios about the cookie banner
 
@@ -57,12 +57,12 @@ Feature: Scenarios about the cookie banner
 
     When I visit the "homepage" page
     Then I should not see a "cookie banner"
-{% endhighlight %}
+```
 
 ### World
 Le fichier `world.js` est le point de départ pour Cucumber.js. C’est ici que nous initialisons WebdriverIO et que nous mettons un place un contexte qui sera disponible pour tous les tests.
 
-{% highlight javascript %}
+```javascript
 // tests/support/world.js
 var Webdriver = require('webdriverio');
 var config = require('./config.json');
@@ -114,12 +114,12 @@ function WorldConstructor() {
 }
 
 module.exports = WorldConstructor;
-{% endhighlight %}
+```
 
 ### Hooks
 Cucumber.js permet de déclencher des traitements sur [certains évènements clés](https://github.com/cucumber/cucumber-js#hooks) lors de l’exécution de la suite de tests. Nous utilisons ce système pour réaliser une capture d’écran sur chaque scénario de test en échec qui viendra s'ajouter dans le dossier `screenshots`.
 
-{% highlight javascript %}
+```javascript
 // tests/support/hook.js
 var config = require('./config.json');
 var sprintf = require('sprintf-js').sprintf;
@@ -148,12 +148,12 @@ module.exports = function () {
     }
   });
 };
-{% endhighlight %}
+```
 
 ### Step definitions
 Ce sont les fichiers qui font le lien entre les features (écrit en langage naturel) et WebdriverIO (initialisé dans `world.js`).
 
-{% highlight javascript %}
+```javascript
 // tests/step_definitions/cookie.steps.js
 var sprintf = require('sprintf-js').sprintf;
 
@@ -198,7 +198,7 @@ module.exports = function () {
 
   // ...
 }
-{% endhighlight %}
+```
 
 ### Design
 Nous n'avons pas mis en œuvre le [pattern Page Object](https://blog.josephwilk.net/cucumber/page-object-pattern.html). Ce n'était pas un choix délibéré mais le contexte et les enjeux du projet nous ont fait passer à côté, ou ce n'était peut être simplement pas le moment. Malgré tout, nous avons tenté de rationaliser au mieux l'organisation du code. Par exemple, afin de ne pas se retrouver avec des sélecteurs CSS éparpillés dans plusieurs fichiers de “features” ou de “step definitions”, nous avons choisi de les regrouper dans un fichier `constants.json` et d’utiliser seulement des labels ailleurs. Nous faisons le lien entre le label et le sélecteur CSS avec la méthode `getDOMSelector`, visible ci-dessus et définie dans le fichier `world.js`.
@@ -253,13 +253,13 @@ C’est la première chose à faire et la plus importante de notre point de vue.
 Un autre problème que nous avons rencontré est la bonne exécution des rollovers. En utilisant la méthode [`moveToObject`](https://webdriver.io/api/action/moveToObject.html) pour pointer la souris sur un élément, il nous arrivait que le comportement “hover” ne soit pas déclenché, mettant en échec la suite du test. Nous avons donc changé notre manière d’effectuer le rollover : on répète l’action grâce au `waitUntil` tant que l’élement devant apparaître au hover n’est pas visible.
 
 Nous n’écrivons plus
-{% highlight bash %}
+```bash
 I rollover the "Header login icon"
-{% endhighlight %}
+```
 mais
-{% highlight bash %}
+```bash
 I rollover the "Header login icon" to make "Submenu" appear
-{% endhighlight %}
+```
 
 ### rerun
 [“Rerun”](https://github.com/cucumber/cucumber-js#formatters) est une fonctionnalité existante sur d’autres frameworks de tests fonctionnels tel que Behat et créée pour les tests récalcitrants encore instables. Elle permet de stocker dans un fichier texte la liste des scénarios en échec pour les relancer ensuite afin de vérifier qu’ils le sont réellement. Nous avons mis en place ce process sur Jenkins, bien qu’il y ait [quelques subtilités qui ne facilitent pas la tâche](https://github.com/cucumber/cucumber-js/issues/499) (mais qui devraient être bientôt corrigées), et nous en sommes satisfaits.

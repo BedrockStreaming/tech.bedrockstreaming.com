@@ -35,15 +35,15 @@ Nous avons développé [superagent-mock][superagent-mock], un plugin pour supera
 
 Comme superagent, superagent-mock s’installe via npm et peut être utilisé sur des applications serveurs ou clientes (via un bundler). Tout d’abord, il faut rajouter la dépendance à la librairie dans son  `package.json`.
 
-{% highlight bash %}
+```bash
 npm install superagent-mock --save-dev
-{% endhighlight %}
+```
 
 Il faut ensuite créer le fichier de configuration. C’est ici que vous allez décider des routes à bouchonner. Prenons l’exemple d’une route qui n’existe pas et qui devra nous retourner la liste des auteurs du blog technique de M6Web : `https://tech.bedrockstreaming.com/api/authors`.
 
 Voici la structure du fichier de configuration à mettre en place :
 
-{% highlight javascript %}
+```javascript
 // ./config.js file
 module.exports = [
   {
@@ -53,7 +53,7 @@ module.exports = [
       return { body : data };
     }
 ];
-{% endhighlight %}
+```
 
 * L’attribut `pattern` peut être une expression régulière, dans le cas d’une route qui contiendrait des paramètres variables (ex : `https://tech.bedrockstreaming.com/api/authors/(\\d+)`).
 * L’attribut `fixtures` représente le lien vers le fichier de fixtures ou une callback.
@@ -61,7 +61,7 @@ module.exports = [
 
 Ensuite, il faut créer le fichier de fixtures. C'est un fichier JS qui exporte une fonction retournant les données bouchonnées.
 
-{% highlight javascript %}
+```javascript
 // ./authors.js file
 module.exports = function () {
   return [
@@ -73,16 +73,16 @@ module.exports = function () {
     ...
   ];
 };
-{% endhighlight %}
+```
 
 Pour finir, au début du fichier JS appelé par node, il suffit de patcher [superagent][superagent] avec le plugin [superagent-mock][superagent-mock] de cette manière :
 
-{% highlight javascript %}
+```javascript
 // ./server.js file
 var request = require('superagent');
 var config = require('./config.js');
 require('superagent-mock')(request, config);
-{% endhighlight %}
+```
 
 Ces quelques lignes permettent de surcharger certaines méthodes de [superagent][superagent] pour lui appliquer la configuration et simuler les requêtes bouchonnées. Pour comprendre plus en détail le fonctionnement, [c’est par ici][superagent-mock-source].
 

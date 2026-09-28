@@ -43,7 +43,7 @@ Et d’un point de vue plus global, tout le monde sait aujourd’hui que la perf
 
 Autre sujet, qui peut être très problématique, si le site en question s’y prête. Ces applications vont fournir comme « source HTML » quelque chose de ce style (pour du Angular) :
 
-{% highlight html %}
+```html
 
 <!doctype html>
 <html class="no-js">
@@ -56,7 +56,7 @@ Autre sujet, qui peut être très problématique, si le site en question s’y p
     <script src="scripts/main.js"></script>
 </body>
 </html>
-{% endhighlight %}
+```
 
 > Container qui servira à recevoir le HTML généré par votre appli JS une fois exécutée.
 

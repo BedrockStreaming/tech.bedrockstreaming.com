@@ -9,7 +9,7 @@ thumbnail: "images/posts/cytron/console.png"
 ---
 ## Le StatsdBundle
 
-Chez M6Web, nous [utilisons StatsD]({% post_url 2014-01-28-how-we-use-statsd %}) et nous avons créé un [bundle](https://github.com/BedrockStreaming/StatsdBundle) pour cela.
+Chez M6Web, nous [utilisons StatsD](/2014/01/28/how-we-use-statsd.html) et nous avons créé un [bundle](https://github.com/BedrockStreaming/StatsdBundle) pour cela.
 Ce bundle permet d'ajouter facilement des incréments et des timings dans StatsD sur des événements Symfony2.
 
 ## De la Request à la console
@@ -27,7 +27,7 @@ La seconde solution a donc été de modifier le StatsdBundle et d'ajouter une co
 
 Ainsi, avec la configuration suivante :
 
-{% highlight yaml %}
+```yaml
 clients:
     event:
         console.exception:
@@ -35,6 +35,6 @@ clients:
             immediate_send: true
         m6kernel.exception:
             increment: mysite.errors.<status_code>
-{% endhighlight %}
+```
 
 L'incrément `mysite.command.<command.name>.exception` sera envoyé en temps réel, alors que les autres comme `mysite.errors.<status_code>` continueront à être envoyés pendant `kernel.terminate`.

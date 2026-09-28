@@ -284,4 +284,4 @@ Perry Dyball et Stephen Thair avaient préparé un quiz interactif avec les part
  Fin des conférences et direction les soirées offertes par Facebook (où nous avons pu discuter avec Santosh Janardhan, responsable des infrastructures de Facebook ^^ !) et Dyn.
 
 
-Le résumé de [la première journée]({% post_url 2014-11-19-cr-velocity-barcelona-2014-day-one %}) est également disponible.
+Le résumé de [la première journée](/velocity-europe-2014-day-1.html) est également disponible.

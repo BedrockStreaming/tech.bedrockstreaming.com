@@ -34,7 +34,7 @@ We've created a simple PHP lib to dispatch metrics over UDP. Check it out on [Gi
 
 The usage is pretty straightforward :
 
-{% highlight php %}
+```php
 <?php
 // client creation
 $client = new Statsd\Client(
@@ -46,7 +46,7 @@ $client = new Statsd\Client(
 // usage
 $client->increment('a.graphite.node');
 $client->timing('another.graphite.node', (float) $timing);
-{% endhighlight %}
+```
 
 ## From Symfony2
 
@@ -60,7 +60,7 @@ During Symfony 2 execution, metrics are collected and sent only at the kernel sh
 
 For example, in conjunction with the [M6Web\HttpKernelBundle](https://github.com/BedrockStreaming/HttpKernelBundle), just dropping this in ```config.yml``` is enough:
 
-{% highlight yaml %}
+```yaml
 m6_statsd:
     clients:
         default:
@@ -72,7 +72,7 @@ m6_statsd:
                 custom_timing: { node: memory.yourapp.<status_code>.<route_name>, method: getMemory }
               m6kernel.exception:
                 increment: errors.<status_code>.yourapp
-{% endhighlight %}
+```
 
 ![example of simple PHP dashboard](/images/posts/statsd/php_metrics.jpg)
 

@@ -154,9 +154,9 @@ Enfin, on découvre l’utilisation réel de ces concepts chez Webedia :
 
 Spencer Ahrens [@sahrens2012](https://twitter.com/sahrens2012) de chez Facebook nous présente une librairie, qui devrait être open sourcé sous peu pour gérer les animations dans React Native iOS : Animated.
 
-{% highlight javascript %} 
+```javascript
 var { Animated } = require(‘react-native’) 
-{% endhighlight %}
+```
 
 Cette librairie devrait marcher directement sur React Native Android et arriver ensuite sur le web.
 L’implémentation est 100% JS.
@@ -177,7 +177,7 @@ GraphQL permet au client de définir très précisément les données qu’il so
 
 Le principe de base est que la structure de la requête permet de définir le format de la réponse. Ex :
 
-{% highlight json %}
+```json
 Query
 {
   user(id: 4) {
@@ -197,7 +197,7 @@ Response
     "bigPic": "https://cdn.site.io/pic-4-1024.jpg"
   }
 }
-{% endhighlight %}
+```
 
 Le tout donne un code très facile à lire et à raisonner. Le serveur expose un schéma des données disponibles, ce qui permet : 
 

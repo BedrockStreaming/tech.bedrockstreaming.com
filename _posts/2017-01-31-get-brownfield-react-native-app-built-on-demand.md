@@ -97,10 +97,10 @@ So, we will need to clone the native app and the React Native repository.
 
 ## For Android
 
-{% highlight bash %}
+```bash
 git clone app-android
 git clone react-native-views
-{% endhighlight %}
+```
 
 So we will have two sibling folders:
 
@@ -111,12 +111,12 @@ So we will have two sibling folders:
 
 We decided to use symlink to have a cleaner structure (and that will make the CI configuration easy later, see Continuous Integration), so the setup for the Android project will look like this:
 
-{% highlight bash %}
+```bash
 cd app-android
 ln -s ../react-native-views ./react-native-views
 cd ../react-native-views
 npm install
-{% endhighlight %}
+```
 
 ```
 ├── app-android/
@@ -130,7 +130,7 @@ npm install
 
 Similar steps to the Android process, but it seems that Xcode has difficulty following package with a symlink … so we have to be a little smarter:
 
-{% highlight bash %}
+```bash
 git clone app-ios
 git clone react-native-views
 
@@ -139,7 +139,7 @@ mkdir -p react-native-views/node_modules
 cd ../react-native-views
 ln -s ../app-ios/react-native-views/node_modules ./node_modules
 npm install
-{% endhighlight %}
+```
 
 With this method, the `node_modules` files will be written in the symlink. So those files will be located in the source of the symlink, the `app-ios/react-native-views/node_modules` directory (This is pretty twisted, we had to admit).
 
@@ -189,21 +189,21 @@ The key here is to clone the React Native repository in the `postclone` buddybui
 
 buddybuild_postclone.sh:
 
-{% highlight bash %}
+```bash
 git clone react-native-views
 
 # Create the symbolic link of the package.json at the root to make buddybuild triggering the `npm install`
 ln -s react-native-views/package.json package.json
 # Make Xcode able to access to the node dependencies
 ln -s react-native-views/node_modules node_modules
-{% endhighlight %}
+```
 
 buddybuild_prebuild.sh:
 
-{% highlight bash %}
+```bash
 # export React Native bundle:
 node_modules/.bin/react-native bundle --platform ios --entry-file index.ios.js --bundle-output ../<appFolder>/main.ios.jsbundle --dev false
-{% endhighlight %}
+```
 
 ```
 ├── buddybuild workspace/ (app-ios inside)
@@ -218,21 +218,21 @@ node_modules/.bin/react-native bundle --platform ios --entry-file index.ios.js -
 
 buddybuild_postclone.sh:
 
-{% highlight bash %}
+```bash
 git clone react-native-views
 
 # Create the symbolic link of the package.json at the root to make buddybuild triggering the `npm install`
 ln -s react-native-views/package.json package.json
 # When buddybuild will run `npm install`, the node dependencies will be at the right place
 ln -s react-native-views/node_modules node_modules
-{% endhighlight %}
+```
 
 buddybuild_prebuild.sh:
 
-{% highlight bash %}
+```bash
 # export React Native bundle:
 node_modules/.bin/react-native bundle --platform android --entry-file index.android.js --bundle-output ../<appFolder>/main.android.jsbundle --dev false
-{% endhighlight %}
+```
 
 ```
 ├── buddybuild workspace/ (app-android inside)
@@ -253,7 +253,7 @@ Now, we’d like to easily test each `react-native-views` pull request on both i
 
 For that purpose, we used the buddybuild hook again. Here is the `buddybuild_postclone.sh`:
 
-{% highlight bash %}
+```bash
 # Create a react-native-views folder
 mkdir react-native-views
 # Move everything in it
@@ -278,7 +278,7 @@ mkdir -p react-native-views/node_modules
 ln -s react-native-views/node_modules node_modules
 # Create the symbolic link of the package.json at the root to make buddybuild triggering the `npm install`
 ln -s react-native-views/package.json package.json
-{% endhighlight %}
+```
 
 For iOS, you’ll have:
 
@@ -310,7 +310,7 @@ Using buddybuild, you can create the app for each platform, and trigger new buil
 
 Buddybuild makes it very easy to trigger a build programmatically via the API. We also use Jenkins for unit tests and lint, so we have a job triggered every time a push is made on the `master` branch of `react-native-views`. We have reused this job and append the following:
 
-{% highlight bash %}
+```bash
 # Our credentials
 ACCESS_TOKEN_BB=<AccessToken>
 APP_ID_BB_IOS=<buddybuildiOSAppID>
@@ -321,7 +321,7 @@ curl -X POST -H  'Authorization: Bearer '$ACCESS_TOKEN_BB” -d 'branch=master�
 
 # Build Android
 curl -X POST -H  'Authorization: Bearer '$ACCESS_TOKEN_BB” -d 'branch=master’ 'https://api.buddybuild.com/v1/apps/'$APP_ID_BB_ANDROID'/build'
-{% endhighlight %}
+```
 
 Now, you can activate the `master` build on the native iOS & Android buddybuild build, and you’ll have those apps up-to-date with the master branch.
 
@@ -337,7 +337,7 @@ A bridge for a native component (the authentication bridge as an example) would 
 
 By following this convention, we only have to checkout that branch when we clone the external repository in our `postclone` hooks:
 
-{% highlight bash %}
+```bash
 {
   # Detect with the env variable BUDDYBUILD_BRANCH (given by buddybuild) the branch we are on.
   echo "Git checkout branch: $BUDDYBUILD_BRANCH"
@@ -346,7 +346,7 @@ By following this convention, we only have to checkout that branch when we clone
   echo "Git default branch: master"
   git checkout master # if master is the name of your default branch
 }
-{% endhighlight %}
+```
 
 We do that branch name checking on the three repositories. This way, the four buddybuild projects (app-ios, app-android, react-native-views-ios, and react-native-views-android) can build native applications with modification on both sides.
 

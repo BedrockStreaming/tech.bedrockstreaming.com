@@ -61,15 +61,15 @@ Our rolling updates and rolling upgrades are 100% handled by kops which never fa
 Because we have several clusters, we use `kops toolbox template` instead of having a single YAML file per cluster. We have mutualized resources definitions, like AutoScalingGroups, DNS options or namespaces list, inside common files and use a dedicated template file per cluster, referencing mutualized configs through variables.  
 
 For example, the EC2 instance types will be defined as snippets:
-{% highlight bash %}
+```bash
 ± cat snippets/spot_4x_32Gb_machine_type.yaml:
 - c5.4xlarge
 - c5d.4xlarge
 - c5n.4xlarge
-{% endhighlight %}
+```
 
 And used inside a generic template file:
-{% highlight bash %}
+```bash
 ± cat templates/3_spot-nodes.yaml.tpl
 …
   mixedInstancesPolicy:
@@ -78,10 +78,10 @@ And used inside a generic template file:
     { { include "spot_4x_32Gb_machine_type.yaml" . | indent 4 } }
     { { end } }
 …
-{% endhighlight %}
+```
 
 Finally, if the cluster requires an ASG with instances size 4x with 32GB RAM on Spot instances:
-{% highlight bash %}
+```bash
 ± cat vars/prod-customer.k8s.foo.bar.yaml
 …
 spot_nodes:
@@ -92,7 +92,7 @@ spot_nodes:
       - eu-west-3c
     min: 1
     max: 100
-{% endhighlight %}
+```
 
 
 A bash script orchestrates all this. It generates manifest files, creates/updates clusters and checks everything is operating normally.  
@@ -142,7 +142,7 @@ We use a Jenkins job for that.
 
 We deploy k8s-tools the same way we deploy our apis in the cluster: with bash scripts and a helm chart, dedicated per application.  
 
-{% highlight bash %}
+```bash
 ± tree app/loki/.cloud/       
 app/loki/.cloud/
 ├── charts
@@ -154,7 +154,7 @@ app/loki/.cloud/
 └── jenkins
     ├── builder.sh
     └── deployer.sh
-{% endhighlight %}
+```
 
 A Jenkins job runs the `builder.sh`, then the `deployer.sh` script for every k8s-tool.  
 `builder.sh` is run when we need to build our own Docker images.  
@@ -257,9 +257,9 @@ Now, we’re setting CPU `limits`, at least for all applications not using dedic
 ```
 
 We don’t currently have alerting on Throttling, only a Grafana graph using the metric:
-{% highlight prometheus %}
+```prometheus
 sum by (pod) (rate(container_cpu_cfs_throttled_seconds_total{job="kubelet", image!="",container!="POD"}[1m]))
-{% endhighlight %}
+```
 
 
 After Prometheus, we later isolated Victoria Metrics and Grafana Loki on their own ASGs.  

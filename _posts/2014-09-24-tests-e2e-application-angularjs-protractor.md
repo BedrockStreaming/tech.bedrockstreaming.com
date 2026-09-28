@@ -18,18 +18,18 @@ Il s’agit d’une application web présentant des écrans différents à l’u
 ### Mettre en place Protractor
 
 La première étape consiste à installer [Protractor](https://angular.github.io/protractor/#/), framework de tests e2e dédié à AngularJS et utilisant Node.js. Si vous utilisez Grunt pour gérer les tâches de build de votre projet, il suffit d'exécuter la commande :
-{% highlight bash %}
+```bash
 npm install grunt-protractor-runner --save-dev
-{% endhighlight %}
+```
  
 Puis on crée le fichier de configuration dans le projet :
-{% highlight js %}
+```js
 /* protractor-local.conf.js */
 exports.config =  {
   specs: ['app/**/*.e2e.js'],
   baseUrl: 'https://localhost:9000/'
 };
-{% endhighlight %}
+```
 
 Tous les tests e2e de notre application sont écrits dans des fichiers javascript dont le nom est suffixé par `.e2e.js`. Nous avons en effet fait le choix d'une architecture modulaire se retrouvant dans l'organisation des dossiers de notre projet : les fichiers de tests e2e se trouvent dans les mêmes répertoires que les controllers auxquels ils sont rattachés [^1].
 
@@ -37,7 +37,7 @@ Tous les tests e2e de notre application sont écrits dans des fichiers javascrip
 
 Pour exécuter ses tests dans les conditions réelles de son application, il faut un navigateur. Nous développons sur un serveur distant en SSH. Le seul navigateur utilisable est donc un browser headless, le plus connu et utilisé étant [PhantomJS](https://phantomjs.org/). Cependant, combiné à Protractor, ce dernier est particulièrement instable pour le moment et il n'est pas recommandé de l'utiliser. Nous optons donc pour Chrome (via le plugin chromedriver). Nécessitant une interface graphique, nous ne pourrons donc pas lancer nos tests sur le serveur de développement mais nous devrons le faire en local sur nos machines.
 
-{% highlight js %}
+```js
 /* protractor-local.conf.js */
 exports.config =  {
   specs: ['app/**/*.e2e.js'],
@@ -47,15 +47,15 @@ exports.config =  {
     { browserName: 'chrome' }
   ]
 };
-{% endhighlight %}
+```
 On installe les binaires nécessaires au lancement de Chrome via Protractor :
 
-{% highlight bash %}
+```bash
 ./node_modules/grunt-protractor-runner/node_modules/.bin/webdriver-manager update
-{% endhighlight %}
+```
 
 Puis on ajoute les tâches Grunt :
-{% highlight js %}
+```js
 /* Gruntfile.js */
 grunt.initConfig({
   connect: {
@@ -81,7 +81,7 @@ grunt.registerTask('test', [
   'connect:dist',
   'protractor:local'
 ]);
-{% endhighlight %}
+```
 
 ### Intégration continue
 
@@ -89,7 +89,7 @@ L'ensemble de nos projets joue automatiquement leurs tests sur un serveur Jenkin
 
 Une fois enregistré sur le site, on crée un nouveau fichier de configuration Protractor :
 
-{% highlight js %}
+```js
 /* protractor-saucelabs.conf.js */
 exports.config =  {
   specs: ['app/**/*.e2e.js'],
@@ -120,11 +120,11 @@ exports.config =  {
     }
   ]
 };
-{% endhighlight %}
+```
 
 Notons que l'on peut lancer ses tests sur autant de couples OS/navigateurs que l'on souhaite en remplissant le tableau `multiCapabilities`. Le fichier de configuartion Grunt doit être adapté pour lancer *SauceConnect*, l’interface entre SauceLabs et l’application, avant le démarrage des tests :
 
-{% highlight js %}
+```js
 /* Gruntfile.js */
 grunt.initConfig({
   connect: {
@@ -194,7 +194,7 @@ grunt.registerTask('test-e2e', function (target) {
 
   grunt.task.run(tasks);
 });
-{% endhighlight %}
+```
 
 Avec cette configuration, nous lançons les tests en local sur notre machine avec la commande `grunt test-e2e:local` ou à distance sur SauceLabs avec `grunt test-e2e`.
 
@@ -202,14 +202,14 @@ Avec cette configuration, nous lançons les tests en local sur notre machine ave
 
 Le premier test que nous avons écrit pour valider l’architecture est plutôt basique :
 
-{% highlight js %}
+```js
 describe('Controller: MainCtrl', function () {
   it('should work', function () {
     browser.get(browser.baseUrl);
     expect(true).toBe(true);
   })
 });
-{% endhighlight %}
+```
 
 On remarque que l’écriture d’un test e2e utilise, comme les tests unitaires, la syntaxe du framework [Jasmine](https://jasmine.github.io/) : un bloc `describe` regroupe une suite de tests définis dans des blocs `it`. Les variables de configuration définies dans les fichiers de configuration Protractor sont utilisables via la variable globale `browser`, variable qui nous permettra d’entretenir le lien entre nos tests et le code exécuté dans le navigateur. Pour mieux appréhender les étapes du processus et les erreurs qui se produisent, il est en effet très important de bien comprendre la séparation entre le code Javascript exécuté dans Node.js via Protractor, qui correspond au déroulement des tests, et le code Javascript de notre application qui lui est exécuté dans le browser et avec lequel on ne peut interagir depuis les tests que par certaines fonctions du framework (`element`, `executeScript`, `addMockModule`, etc.)[^2]. Ce sont deux univers d'exécution bien distincts.
 
@@ -217,7 +217,7 @@ On remarque que l’écriture d’un test e2e utilise, comme les tests unitaires
 
 Lorsque vous lancerez les tests en local, vous remarquerez que Chrome est réellement exécuté mais vous ne verrez pas grand chose car l’affichage est bien trop rapide. Il est possible de mettre des points d’arrêt dans ses tests pour y voir plus clair et pour, par exemple, consulter la console Javascript du navigateur. Pour cela, il faut utiliser la fonction `browser.debugger()` comme point d’arrêt et ajouter l’option `debug` dans la configuration Grunt : 
 
-{% highlight js %}
+```js
 /* Gruntfile.js */
 protractor: {
   local: {
@@ -227,7 +227,7 @@ protractor: {
     }
   }
 }
-{% endhighlight %}
+```
 
 Pour passer d’un point d’arrêt à l’autre, on saisit `c` comme *continue*. Notez que cela ne fonctionnera pas si vous avez plus d'un navigateur dans le tableau `multiCapabilities` de votre configuration.
 
@@ -237,16 +237,16 @@ On peut également ajouter l’option `--debug` à la commande `grunt test-e2e:l
 
 Comme souvent dans les projets AngularJS, nous utilisons un module pour définir nos variables de configuration :
 
-{% highlight js %}
+```js
 angular.module("config", [])
   .constant("config", {
     'ma_variable': 'une_valeur'
   });
-{% endhighlight %}
+```
 
 Dans les tests e2e, on veut tout tester, en particulier les comportements qui diffèrent en fonction des valeurs de configuration. Comment faire puisque ce module est chargé une fois pour toute au lancement de l’application ? Protractor introduit la fonction `addMockModule` qui permet de bouchonner à la volée un module Angular.
 
-{% highlight js %}
+```js
 it('comportement avec une autre valeur', function () {
   browser.addMockModule('config', function () {
   	angular.module('config', []).constant('config', {
@@ -258,7 +258,7 @@ it('comportement avec une autre valeur', function () {
   
   browser.removeMockModule('config');
 });
-{% endhighlight %}
+```
 
 ### Mocker le service `$http`
 
@@ -267,7 +267,7 @@ Dans notre application, un fichier externe est requêté régulièrement via le 
 
 La difficulté dans notre cas réside dans le fait de pouvoir simuler le changement d’état du fichier distant dans un même test pour pouvoir vérifier les changements de vue qui en découlent. Il est possible de le faire directement via `$httpBackend` moyennant quelques acrobaties, mais la librairie [HttpBackend](https://github.com/nchaulet/httpbackend) simplifie grandement son utilisation pour ce type de tests [^3].
 
-{% highlight js %}
+```js
 var HttpBackend = require('httpbackend');  
 var backend;
 
@@ -300,7 +300,7 @@ describe('Test workflow', function() {
     });
   });
 });
-{% endhighlight %}
+```
 
 ### Oui, mais...
 Protractor nous a été indispensable pour implémenter les tests fonctionnels sur notre application car son intégration avec AngularJS offre des possibilités que les autres frameworks de tests fonctionnels n'ont pas. On pense principalement à la synchronisation qui est mise en œuvre entre les tests et l'initialisation d'Angular dans la page ("wait for angular"). Cependant, avec le recul que l'on peut avoir sur notre projet :

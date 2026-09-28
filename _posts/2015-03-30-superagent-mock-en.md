@@ -36,15 +36,15 @@ Then we developed [superagent-mock][superagent-mock], a superagent plugin dedica
   
 Like superagent, superagent-mock can be installed via npm, and be used by server or client side libraries. First, you need to add the library in your `package.json`.
   
-{% highlight bash %}
+```bash
 npm install superagent-mock --save-dev
-{% endhighlight %}  
+```
 
 Then, create the configuration file, where you will define which data will be mocked. Let's take for example a nonexistent API, the authors list on our technical blog: `https://tech.bedrockstreaming.com/api/authors`.
 
 Here is the file structure we need: 
 
-{% highlight javascript %}
+```javascript
 // ./config.js file
 module.exports = [
   {
@@ -54,7 +54,7 @@ module.exports = [
       return { body : data };
     }
 ];
-{% endhighlight %}
+```
 
 * The `pattern` attribute should be a regular expression, in case of a route containing variable parameters (ie: `https://tech.bedrockstreaming.com/api/authors/(\\d+)`).
 * The `fixtures` attribute represents the link to a file or a callback.
@@ -62,7 +62,7 @@ module.exports = [
 
 Next, you have to create the fixture file. This is a JS file exposing a function returning the mocked data.
 
-{% highlight javascript %}
+```javascript
 // ./authors.js file
 module.exports = function () {
   return [
@@ -74,16 +74,16 @@ module.exports = function () {
     ...
   ];
 };
-{% endhighlight %}
+```
 
 Finally, at the top of the file called by node, you have to patch [superagent][superagent] with [superagent-mock][superagent-mock] this way: 
 
-{% highlight javascript %}
+```javascript
 // ./server.js file
 var request = require('superagent');
 var config = require('./config.js');
 require('superagent-mock')(request, config);
-{% endhighlight %}
+```
 
 Those few lines allow us to overload some superagent methods to apply the configuration of the mocked requests (check the [source code][superagent-mock-source]).
 
