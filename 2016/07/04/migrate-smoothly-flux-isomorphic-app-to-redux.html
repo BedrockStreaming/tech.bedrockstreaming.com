@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Migrate smoothly your Flux isomorphic app to Redux" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"How we upgraded your big isomorphic web app from Fluxible to Redux, examples and tips.","author":{"@type":"Person","name":"Florent Dubost"},"dateModified":"2016-07-04T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2016/07/04/migrate-smoothly-flux-isomorphic-app-to-redux.html","datePublished":"2016-07-04T00:00:00+00:00","headline":"Migrate smoothly your Flux isomorphic app to Redux","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2016/07/04/migrate-smoothly-flux-isomorphic-app-to-redux.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"How we upgraded your big isomorphic web app from Fluxible to Redux, examples and tips.","author":{"@type":"Person","name":"Florent Dubost"},"headline":"Migrate smoothly your Flux isomorphic app to Redux","dateModified":"2016-07-04T00:00:00+00:00","datePublished":"2016-07-04T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2016/07/04/migrate-smoothly-flux-isomorphic-app-to-redux.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2016/07/04/migrate-smoothly-flux-isomorphic-app-to-redux.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -399,6 +361,10 @@
     
     July 04, 2016
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -406,7 +372,6 @@
   </header>
 
   <section class="post-content">
-  
       <h2 id="flux-history-reminders">Flux, history reminders…</h2>
 
 <p>« Flux is the application architecture that Facebook uses for building client-side web applications. » That’s the definition of Flux on the <a href="https://facebook.github.io/flux/">Facebook website</a>. So Flux is just a pattern, not a framework, that goes well with React, but not only. The model is focused on user interactions. Its main strength is the unidirectional data flow that enforces developers to be careful and ensures code consistency when application grows up.</p>
@@ -439,7 +404,7 @@
 
 <p>First, we define the store configuration like other Redux application.</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// configureStore.js</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// configureStore.js</span>
 
 <span class="k">import</span> <span class="p">{</span><span class="nx">createStore</span><span class="p">,</span> <span class="nx">combineReducers</span><span class="p">,</span> <span class="nx">applyMiddleware</span><span class="p">,</span> <span class="nx">compose</span><span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">redux</span><span class="dl">'</span><span class="p">;</span>
 <span class="k">import</span> <span class="nx">thunk</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">redux-thunk</span><span class="dl">'</span><span class="p">;</span>
@@ -455,11 +420,12 @@
     <span class="nf">applyMiddleware</span><span class="p">([</span><span class="nx">thunk</span><span class="p">]),</span>
     <span class="nx">canUseDOM</span> <span class="o">&amp;&amp;</span> <span class="nb">window</span><span class="p">.</span><span class="nx">devToolsExtension</span> <span class="p">?</span> <span class="nb">window</span><span class="p">.</span><span class="nf">devToolsExtension</span><span class="p">()</span> <span class="p">:</span> <span class="nx">f</span> <span class="o">=&gt;</span> <span class="nx">f</span>
   <span class="p">)</span>
-<span class="p">);</span></code></pre></figure>
+<span class="p">);</span>
+</code></pre></div></div>
 
 <p>Then we initialize Redux store in our server file. For isomorphic purposes, we have to serialize stores’ state and give it to the html so that client side can take control of the application with server’s data. So here, we build data for the client by combining Redux and Fluxible states.</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// server.js</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// server.js</span>
 
 <span class="k">import</span> <span class="p">{</span><span class="nx">provideContext</span><span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">fluxible-addons-react</span><span class="dl">'</span><span class="p">;</span>
 <span class="k">import</span> <span class="p">{</span><span class="nx">match</span><span class="p">,</span> <span class="nx">RouterContext</span><span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react-router</span><span class="dl">'</span><span class="p">;</span>
@@ -494,11 +460,12 @@
     <span class="c1">// Then build the response layout with the markup and the whole state as usual</span>
     <span class="c1">// ...</span>
   <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>On client side, we do the opposite operation.</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// client.js</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// client.js</span>
 
 <span class="k">import</span> <span class="p">{</span><span class="nx">provideContext</span><span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">fluxible-addons-react</span><span class="dl">'</span><span class="p">;</span>
 <span class="k">import</span> <span class="p">{</span><span class="nx">Router</span><span class="p">,</span> <span class="nx">browserHistory</span><span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react-router</span><span class="dl">'</span><span class="p">;</span>
@@ -523,7 +490,8 @@
     <span class="nx">React</span><span class="p">.</span><span class="nf">createElement</span><span class="p">(</span><span class="nx">Provider</span><span class="p">,</span> <span class="p">{</span><span class="na">store</span><span class="p">:</span> <span class="nx">reduxStore</span><span class="p">},</span> <span class="nx">rootElement</span><span class="p">),</span>
     <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="nx">rootId</span><span class="p">)</span>
   <span class="p">);</span>
-<span class="p">});</span></code></pre></figure>
+<span class="p">});</span>
+</code></pre></div></div>
 
 <p>And that’s it! We can now use Redux in our component as usual, in combination with Fluxible. We can define actions and reducers for new features (instead of using Fluxible) but we can also transform progressively some Fluxible stores and actions into Redux flow, this is very easy. API requests stay in actions but data processing moves to reducers. Then data sorting and filtering logic in Fluxible stores moves to <a href="https://redux.js.org/docs/recipes/ComputingDerivedData.html">selectors</a>.</p>
 
@@ -540,7 +508,7 @@
 
 <p>From now on, components are files named <code class="language-plaintext highlighter-rouge">*.component.js</code> and stores connections are in <code class="language-plaintext highlighter-rouge">*.connector.js</code> files in the same folder. We can link a component both with Redux and Fluxible stores.</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// myComponent.connector.js</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// myComponent.connector.js</span>
 
 <span class="k">import</span> <span class="nx">MyComponent</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./myComponent.component</span><span class="dl">'</span><span class="p">;</span>
 
@@ -564,7 +532,8 @@
   <span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">props</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
     <span class="na">dataFromFluxible</span><span class="p">:</span> <span class="nx">context</span><span class="p">.</span><span class="nf">getStore</span><span class="p">(</span><span class="nx">MyFluxibleStore</span><span class="p">).</span><span class="nf">getSomeData</span><span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">myProps1</span><span class="p">)</span>
   <span class="p">})</span>
-<span class="p">);</span></code></pre></figure>
+<span class="p">);</span>
+</code></pre></div></div>
 
 <p>We export <code class="language-plaintext highlighter-rouge">mapStateToProps</code> function because in a few cases it contains logic that may be interesting to unit test.</p>
 
@@ -580,7 +549,7 @@
   <li>If one connection depends on data stored in the other library state, it has to be lower in components tree.</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// myComponent.connector.js</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// myComponent.connector.js</span>
 
 <span class="k">import</span> <span class="nx">MyComponent</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./myComponent.component</span><span class="dl">'</span><span class="p">;</span>
 
@@ -606,7 +575,8 @@
   <span class="k">return</span> <span class="p">{</span><span class="na">myPropsFromRedux</span><span class="p">:</span> <span class="nf">getSomeDataFromState</span><span class="p">(</span><span class="nx">state</span><span class="p">)};</span>
 <span class="p">};</span>
 
-<span class="k">export</span> <span class="k">default</span> <span class="nf">connect</span><span class="p">(</span><span class="nx">mapStateToProps</span><span class="p">)(</span><span class="nx">MyComponentFluxibleConnector</span><span class="p">);</span></code></pre></figure>
+<span class="k">export</span> <span class="k">default</span> <span class="nf">connect</span><span class="p">(</span><span class="nx">mapStateToProps</span><span class="p">)(</span><span class="nx">MyComponentFluxibleConnector</span><span class="p">);</span>
+</code></pre></div></div>
 
 <ul>
   <li>If the higher connection is made on Fluxible stores (like first example of <code class="language-plaintext highlighter-rouge">myComponent.connector.js</code>), data passed to props must be immutable otherwise it can cause edge effects. Indeed, Redux wrapper component checks if it has to rerender when props change by <a href="https://github.com/reactjs/react-redux/blob/v4.4.5/src/components/connect.js#L216">comparing their references</a>. So, if we mutate data in Fluxible store when dispatch is handled, references don’t change and Redux wrapper (and sub-components) will not rerender (unless you tell the <code class="language-plaintext highlighter-rouge">connect</code> method that your component isn’t <a href="https://github.com/reactjs/react-redux/blob/v4.4.5/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options">“pure”</a>).</li>
@@ -617,44 +587,7 @@
 <p>In a nutshell, Redux can easily work in addition to Fluxible (and certainly to other Flux libraries), most likely because of the lightness of its implementation. It is very convenient to upgrade smoothly a big application on Redux! But be aware that it is only a transitory situation, the final goal is to use only Redux. We wrote 50% less code with this upgrade, not bad… Developers are lazy, don’t forget this! If you have some feedback on Redux and/or Fluxible, don’t hesitate to share your experience with us :)</p>
 
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Migrate+smoothly+your+Flux+isomorphic+app+to+Redux%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2016%2F07%2F04%2Fmigrate-smoothly-flux-isomorphic-app-to-redux.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2016/07/04/migrate-smoothly-flux-isomorphic-app-to-redux.html&title=Migrate+smoothly+your+Flux+isomorphic+app+to+Redux%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2016/07/04/migrate-smoothly-flux-isomorphic-app-to-redux.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Migrate smoothly your Flux isomorphic app to Redux%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2016/07/04/migrate-smoothly-flux-isomorphic-app-to-redux.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -664,32 +597,12 @@
   <div class="tag-list">
     <ul>
       
-        <li class="meta">Tags</li>
+        <li class="meta">Tag</li>
       
 
       
-        <li><a class="button" href="/tags/#flux">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> flux</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#fluxible">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> fluxible</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#isomorphic">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> isomorphic</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#javascript">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#react">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> react</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#redux">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> redux</p>
+        <li><a class="button" href="/tags/#frontend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
         </a></li>
       
     </ul>
@@ -723,24 +636,12 @@
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/redux.jpg'); }

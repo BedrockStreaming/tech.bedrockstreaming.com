@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Increase performance and stability by adding an Egress Controller in a Kubernetes cluster at AWS" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"How to avoid ErrorPortAllocation on AWS NAT Gateways, with PHP applications, at scale","author":{"@type":"Person","name":"Tanguy Falconnet"},"dateModified":"2021-10-18T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2021/10/18/increase-performance-and-stability-by-adding-an-egress-controller.html","datePublished":"2021-10-18T00:00:00+00:00","headline":"Increase performance and stability by adding an Egress Controller in a Kubernetes cluster at AWS","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2021/10/18/increase-performance-and-stability-by-adding-an-egress-controller.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"How to avoid ErrorPortAllocation on AWS NAT Gateways, with PHP applications, at scale","author":{"@type":"Person","name":"Tanguy Falconnet"},"headline":"Increase performance and stability by adding an Egress Controller in a Kubernetes cluster at AWS","dateModified":"2021-10-18T00:00:00+00:00","datePublished":"2021-10-18T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2021/10/18/increase-performance-and-stability-by-adding-an-egress-controller.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2021/10/18/increase-performance-and-stability-by-adding-an-egress-controller.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -399,6 +361,10 @@
     
     October 18, 2021
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -406,7 +372,6 @@
   </header>
 
   <section class="post-content">
-  
       <h1 id="introduction">Introduction</h1>
 
 <p>We recently encountered issues with our PHP applications at scale in our Kubernetes clusters at AWS. We will explain the root cause of these issues, how we fixed them with Egress Controller, and overall improvements. We also added a detailed configuration to use HAProxy as Egress Controller.</p>
@@ -521,44 +486,7 @@
 
 <p>The main problem with this approach is the fact that we are effectively creating a Single Point of Failure in our clusters if we choose to send all our egress traffic through it. Instead, we are carefully selecting applications that should use an Egress Controller to refine the configuration little by little. Some applications are tightly tied to external services and would massively gain from this and others would only be less resilient.</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Increase+performance+and+stability+by+adding+an+Egress+Controller+in+a+Kubernetes+cluster+at+AWS%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2021%2F10%2F18%2Fincrease-performance-and-stability-by-adding-an-egress-controller.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2021/10/18/increase-performance-and-stability-by-adding-an-egress-controller.html&title=Increase+performance+and+stability+by+adding+an+Egress+Controller+in+a+Kubernetes+cluster+at+AWS%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2021/10/18/increase-performance-and-stability-by-adding-an-egress-controller.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Increase performance and stability by adding an Egress Controller in a Kubernetes cluster at AWS%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2021/10/18/increase-performance-and-stability-by-adding-an-egress-controller.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -572,32 +500,16 @@
       
 
       
-        <li><a class="button" href="/tags/#HAProxy">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> HAProxy</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#aws">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> aws</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#cloud">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#kubernetes">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> kubernetes</p>
+        <li><a class="button" href="/tags/#backend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
         </a></li>
       
         <li><a class="button" href="/tags/#performance">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> performance</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#php">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> php</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#sysadmin">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> sysadmin</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
     </ul>
@@ -612,9 +524,9 @@
 <div id="post-nav">
     
     <div id="previous-post">
-        <a alt="Faites confiance aux développeurs.euses de votre équipe : voyez plus loin que les fonctionnalités" href="/2021/10/21/confiance-aux-devs-de-votre-team.html">
+        <a alt="Forum PHP 2021 - L'édition des retrouvailles" href="/2021/11/02/forum-php-2021.html">
             <p>Previous post</p>
-            Faites confiance aux développeurs.euses de votre équipe : voyez plus loin que les fonctionnalités
+            Forum PHP 2021 - L'édition des retrouvailles
         </a>
     </div>
     
@@ -631,24 +543,12 @@
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/bonnes-pratiques-web/bedrock.jpg'); }

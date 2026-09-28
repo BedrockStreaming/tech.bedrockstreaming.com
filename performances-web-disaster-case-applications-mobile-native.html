@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Performances web et “Disaster case” sur applications mobile native" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Blog technique de Bedrock","author":{"@type":"Person","name":"Kenny Dits"},"dateModified":"2013-07-02T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/performances-web-disaster-case-applications-mobile-native","datePublished":"2013-07-02T00:00:00+00:00","headline":"Performances web et “Disaster case” sur applications mobile native","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/performances-web-disaster-case-applications-mobile-native"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Blog technique de Bedrock","author":{"@type":"Person","name":"Kenny Dits"},"headline":"Performances web et “Disaster case” sur applications mobile native","dateModified":"2013-07-02T00:00:00+00:00","datePublished":"2013-07-02T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/performances-web-disaster-case-applications-mobile-native","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/performances-web-disaster-case-applications-mobile-native"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -399,6 +361,10 @@
     
     July 02, 2013
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -406,7 +372,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>La performance Web (ou grossièrement temps de chargement) est devenue aujourd’hui une problématique majeure dans tout développement Web.</p>
 
 <p>Les outils pour mesurer / comprendre sont plutôt reconnus désormais et arrivent a une certaine maturité. Il y a toutefois encore un créneau plutôt peu documenté (à mon goût) dans le domaine, celui permettant de mesurer les temps de chargement dans des applications mobiles natives (Android / iOs …)</p>
@@ -520,44 +485,7 @@
 <p>P.s: pour complément, n’hésitez pas à creuser le blogpost de Steve Souders sur les waterfall mobile, qui utilise une méthode très différente avec tcpdump et pcapperf <a href="https://www.stevesouders.com/blog/2013/03/26/mobile-waterfalls/">https://www.stevesouders.com/blog/2013/03/26/mobile-waterfalls/</a></p>
 
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Performances+web+et+%22Disaster+case%22+sur+applications+mobile+native%20https%3A%2F%2Ftech.bedrockstreaming.com%2Fperformances-web-disaster-case-applications-mobile-native"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/performances-web-disaster-case-applications-mobile-native&title=Performances+web+et+%22Disaster+case%22+sur+applications+mobile+native%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/performances-web-disaster-case-applications-mobile-native"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Performances web et "Disaster case" sur applications mobile native%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/performances-web-disaster-case-applications-mobile-native"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -575,8 +503,8 @@
           <p><i class="fas fa-tag fa-fw fa-sm"></i> mobile</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#webperf">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> webperf</p>
+        <li><a class="button" href="/tags/#performance">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> performance</p>
         </a></li>
       
     </ul>
@@ -610,24 +538,12 @@
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
 </style>

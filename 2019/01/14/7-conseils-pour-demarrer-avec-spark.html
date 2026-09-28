@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="7 conseils pour démarrer avec Spark" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Je suis entrée dans le monde de la data avec Spark. Il y a eu des moments clairement plus ou moins compliqués. Au début, c’était le Far West : un monde inconnu et dangereux (il ne fallait pas casser la production). Avec ce retour d’expérience, je vous propose de vous dire ce que j’aurais aimé qu’on me dise avant de me lancer. Je promets aussi de vous parler de ce que bien heureusement mes camarades plus expérimentés m’ont aussi donné comme astuces pour m’aider dans ce grand saut. Ce sera donc une entrée en matière dans le monde de Spark au travers de 7 conseils qui m’ont été ou m’auraient été bien pratiques pour démarrer.","author":{"@type":"Person","name":"Nastasia Saby"},"dateModified":"2019-01-14T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2019/01/14/7-conseils-pour-demarrer-avec-spark.html","datePublished":"2019-01-14T00:00:00+00:00","headline":"7 conseils pour démarrer avec Spark","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2019/01/14/7-conseils-pour-demarrer-avec-spark.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Je suis entrée dans le monde de la data avec Spark. Il y a eu des moments clairement plus ou moins compliqués. Au début, c’était le Far West : un monde inconnu et dangereux (il ne fallait pas casser la production). Avec ce retour d’expérience, je vous propose de vous dire ce que j’aurais aimé qu’on me dise avant de me lancer. Je promets aussi de vous parler de ce que bien heureusement mes camarades plus expérimentés m’ont aussi donné comme astuces pour m’aider dans ce grand saut. Ce sera donc une entrée en matière dans le monde de Spark au travers de 7 conseils qui m’ont été ou m’auraient été bien pratiques pour démarrer.","author":{"@type":"Person","name":"Nastasia Saby"},"headline":"7 conseils pour démarrer avec Spark","dateModified":"2019-01-14T00:00:00+00:00","datePublished":"2019-01-14T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2019/01/14/7-conseils-pour-demarrer-avec-spark.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2019/01/14/7-conseils-pour-demarrer-avec-spark.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -371,7 +333,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -397,6 +359,10 @@
     
     January 14, 2019
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -404,15 +370,13 @@
   </header>
 
   <section class="post-content">
-    
         <p>Je suis entrée dans le monde de la data avec Spark. 
 Il y a eu des moments clairement plus ou moins compliqués. 
 Au début, c’était le Far West : un monde inconnu et dangereux (il ne fallait pas casser la production). 
 Avec ce retour d’expérience, je vous propose de vous dire ce que j’aurais aimé qu’on me dise avant de me lancer. 
 Je promets aussi de vous parler de ce que bien heureusement mes camarades plus expérimentés m’ont aussi donné comme astuces pour m’aider dans ce grand saut. 
 Ce sera donc une entrée en matière dans le monde de Spark au travers de 7 conseils qui m’ont été ou m’auraient été bien pratiques pour démarrer.</p>
- 
-      
+
 
     
     <p>
@@ -439,42 +403,6 @@ Ce sera donc une entrée en matière dans le monde de Spark au travers de 7 cons
     
   </section>
 
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=7+conseils+pour+d%C3%A9marrer+avec+Spark%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2019%2F01%2F14%2F7-conseils-pour-demarrer-avec-spark.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2019/01/14/7-conseils-pour-demarrer-avec-spark.html&title=7+conseils+pour+d%C3%A9marrer+avec+Spark%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2019/01/14/7-conseils-pour-demarrer-avec-spark.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=7 conseils pour démarrer avec Spark%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2019/01/14/7-conseils-pour-demarrer-avec-spark.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
-
    <!-- Tag list -->
   
   
@@ -483,20 +411,12 @@ Ce sera donc une entrée en matière dans le monde de Spark au travers de 7 cons
   <div class="tag-list">
     <ul>
       
-        <li class="meta">Tags</li>
+        <li class="meta">Tag</li>
       
 
       
-        <li><a class="button" href="/tags/#conference">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#scalaio">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> scalaio</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#spark">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> spark</p>
+        <li><a class="button" href="/tags/#data">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> data</p>
         </a></li>
       
     </ul>
@@ -511,18 +431,18 @@ Ce sera donc une entrée en matière dans le monde de Spark au travers de 7 cons
 <div id="post-nav">
     
     <div id="previous-post">
-        <a alt="Migrating production applications from on-premise to the cloud with no downtime" href="/2019/03/11/Migrating-production-apps-from-on-premise-to-the-cloud-with-no-downtime.html">
+        <a alt="One year of asynchronous PHP in production" href="/2019/10/25/one-year-of-asynchronous-code-in-production.html">
             <p>Previous post</p>
-            Migrating production applications from on-premise to the cloud with no downtime
+            One year of asynchronous PHP in production
         </a>
     </div>
     
 
     
     <div id="next-post">
-        <a alt="Le Plan Copenhague : notre migration vers Le Cloud, retour d’expérience" href="/2018/12/20/le-plan-copenhague.html">
+        <a alt="Generators for Asynchronous Programming: User Manual" href="/2018/10/26/generators-for-async-programming-user-manual.html">
             <p>Next post</p>
-            Le Plan Copenhague : notre migration vers Le Cloud, retour d’expérience
+            Generators for Asynchronous Programming: User Manual
         </a>
     </div>
     
@@ -530,42 +450,12 @@ Ce sera donc une entrée en matière dans le monde de Spark au travers de 7 cons
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(251,87,66) !important; }
-  .share-buttons a { color: rgb(251,87,66) !important; }
-  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
-  div#post-nav a { color: rgb(251,87,66) !important; }
-  footer a { color: rgb(251,87,66) !important; }
-  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
-  a.button:hover {
-    background: rgb(251,87,66) !important;
-    border: 1px solid rgb(251,87,66) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(251,87,66) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="How AWS Cloudfront is helping us deliver our Web streaming platform? - Part 1" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"What is a CDN, how is it useful for us? Feedback on the use of the AWS Cloudfront service for the deployment of high traffic web applications. Configuration example, best practices.","author":{"@type":"Person","name":"Antoine Caron"},"dateModified":"2022-03-08T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/03/08/cloudfront-web-streaming-platform-part-1.html","datePublished":"2022-03-08T00:00:00+00:00","headline":"How AWS Cloudfront is helping us deliver our Web streaming platform? - Part 1","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/03/08/cloudfront-web-streaming-platform-part-1.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"What is a CDN, how is it useful for us? Feedback on the use of the AWS Cloudfront service for the deployment of high traffic web applications. Configuration example, best practices.","author":{"@type":"Person","name":"Antoine Caron"},"headline":"How AWS Cloudfront is helping us deliver our Web streaming platform? - Part 1","dateModified":"2022-03-08T00:00:00+00:00","datePublished":"2022-03-08T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/03/08/cloudfront-web-streaming-platform-part-1.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/03/08/cloudfront-web-streaming-platform-part-1.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -371,7 +333,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -399,6 +361,10 @@
     
     March 08, 2022
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -406,7 +372,6 @@
   </header>
 
   <section class="post-content">
-  
       <h2 id="a-bit-of-context">A bit of context</h2>
 
 <p>The web is a major platform for the distribution of our customers’ content at <a href="https://www.bedrockstreaming.com/">Bedrock</a>.
@@ -489,44 +454,7 @@ You can even activate the <a href="https://docs.aws.amazon.com/AmazonCloudFront/
   <li><a href="/2021/12/15/scaling-bedrock-video-delivery-to-50-million-users">Scaling Bedrock video delivery to 50 million users</a></li>
 </ul>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=How+AWS+Cloudfront+is+helping+us+deliver+our+Web+streaming+platform%3F+-+Part%C2%A01%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F03%2F08%2Fcloudfront-web-streaming-platform-part-1.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/03/08/cloudfront-web-streaming-platform-part-1.html&title=How+AWS+Cloudfront+is+helping+us+deliver+our+Web+streaming+platform%3F+-+Part%C2%A01%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/03/08/cloudfront-web-streaming-platform-part-1.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=How AWS Cloudfront is helping us deliver our Web streaming platform? - Part 1%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/03/08/cloudfront-web-streaming-platform-part-1.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -540,32 +468,20 @@ You can even activate the <a href="https://docs.aws.amazon.com/AmazonCloudFront/
       
 
       
-        <li><a class="button" href="/tags/#aws">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> aws</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#cdn">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> cdn</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#cloudfront">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloudfront</p>
+        <li><a class="button" href="/tags/#backend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
         </a></li>
       
         <li><a class="button" href="/tags/#frontend">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#javascript">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
+        <li><a class="button" href="/tags/#performance">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> performance</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#node.js">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> node.js</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#react">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> react</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
     </ul>
@@ -599,42 +515,12 @@ You can even activate the <a href="https://docs.aws.amazon.com/AmazonCloudFront/
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(255,99,71) !important; }
-  .share-buttons a { color: rgb(255,99,71) !important; }
-  .tag-list a:not(:hover) { color: rgb(255,99,71) !important; }
-  div#post-nav a { color: rgb(255,99,71) !important; }
-  footer a { color: rgb(255,99,71) !important; }
-  .site-header nav a:hover {  color: rgb(255,99,71) !important; }
-  a.button:hover {
-    background: rgb(255,99,71) !important;
-    border: 1px solid rgb(255,99,71) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(255,99,71) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

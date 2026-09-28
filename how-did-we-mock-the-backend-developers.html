@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="How did we mock the backend developers?" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Presentation of the superagent-mock library, a superagent plugin allowing to simulate HTTP calls by returning data fixtures based on the requested URL.","author":{"@type":"Person","name":"Cytron team"},"dateModified":"2015-03-30T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/how-did-we-mock-the-backend-developers","datePublished":"2015-03-30T00:00:00+00:00","headline":"How did we mock the backend developers?","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/how-did-we-mock-the-backend-developers"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Presentation of the superagent-mock library, a superagent plugin allowing to simulate HTTP calls by returning data fixtures based on the requested URL.","author":{"@type":"Person","name":"Cytron team"},"headline":"How did we mock the backend developers?","dateModified":"2015-03-30T00:00:00+00:00","datePublished":"2015-03-30T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/how-did-we-mock-the-backend-developers","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/how-did-we-mock-the-backend-developers"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -395,6 +357,10 @@
     
     March 30, 2015
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -402,7 +368,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>At M6Web we are currently working on a new version of a web site, with two separate teams:</p>
 <ul>
   <li>the backend team providing data access through APIs;</li>
@@ -429,13 +394,14 @@
 
 <p>Like superagent, superagent-mock can be installed via npm, and be used by server or client side libraries. First, you need to add the library in your <code class="language-plaintext highlighter-rouge">package.json</code>.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">npm <span class="nb">install </span>superagent-mock <span class="nt">--save-dev</span></code></pre></figure>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install </span>superagent-mock <span class="nt">--save-dev</span>
+</code></pre></div></div>
 
 <p>Then, create the configuration file, where you will define which data will be mocked. Let’s take for example a nonexistent API, the authors list on our technical blog: <code class="language-plaintext highlighter-rouge">https://tech.bedrockstreaming.com/api/authors</code>.</p>
 
 <p>Here is the file structure we need:</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// ./config.js file</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ./config.js file</span>
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">[</span>
   <span class="p">{</span>
     <span class="na">pattern</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://tech.bedrockstreaming.com/api/authors</span><span class="dl">'</span><span class="p">,</span>
@@ -443,7 +409,8 @@
     <span class="na">callback</span><span class="p">:</span> <span class="nf">function </span><span class="p">(</span><span class="nx">match</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="p">{</span> <span class="na">body</span> <span class="p">:</span> <span class="nx">data</span> <span class="p">};</span>
     <span class="p">}</span>
-<span class="p">];</span></code></pre></figure>
+<span class="p">];</span>
+</code></pre></div></div>
 
 <ul>
   <li>The <code class="language-plaintext highlighter-rouge">pattern</code> attribute should be a regular expression, in case of a route containing variable parameters (ie: <code class="language-plaintext highlighter-rouge">https://tech.bedrockstreaming.com/api/authors/(\\d+)</code>).</li>
@@ -453,7 +420,7 @@
 
 <p>Next, you have to create the fixture file. This is a JS file exposing a function returning the mocked data.</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// ./authors.js file</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ./authors.js file</span>
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">[</span>
     <span class="p">{</span>
@@ -463,14 +430,16 @@
     <span class="p">},</span>
     <span class="p">...</span>
   <span class="p">];</span>
-<span class="p">};</span></code></pre></figure>
+<span class="p">};</span>
+</code></pre></div></div>
 
 <p>Finally, at the top of the file called by node, you have to patch <a href="https://visionmedia.github.io/superagent/">superagent</a> with <a href="https://github.com/BedrockStreaming/superagent-mock">superagent-mock</a> this way:</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// ./server.js file</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ./server.js file</span>
 <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">superagent</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./config.js</span><span class="dl">'</span><span class="p">);</span>
-<span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">superagent-mock</span><span class="dl">'</span><span class="p">)(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">config</span><span class="p">);</span></code></pre></figure>
+<span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">superagent-mock</span><span class="dl">'</span><span class="p">)(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">config</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>Those few lines allow us to overload some superagent methods to apply the configuration of the mocked requests (check the <a href="https://github.com/BedrockStreaming/superagent-mock/blob/master/superagent-mock.js">source code</a>).</p>
 
@@ -487,44 +456,7 @@
 <p>Projects <a href="https://github.com/BedrockStreaming/superagent-mock">superagent-mock</a> and <a href="https://github.com/BedrockStreaming/sprintf-mock">sprintf-mock</a> are open source. Very easy to use, they allow us to parallelize our developments with the backend team and to make our functional tests autonomous. So don’t wait API completion to start your frontend developments!</p>
 
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=How+did+we+mock+the+backend+developers%3F%20https%3A%2F%2Ftech.bedrockstreaming.com%2Fhow-did-we-mock-the-backend-developers"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/how-did-we-mock-the-backend-developers&title=How+did+we+mock+the+backend+developers%3F%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/how-did-we-mock-the-backend-developers"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=How did we mock the backend developers?%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/how-did-we-mock-the-backend-developers"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -538,28 +470,16 @@
       
 
       
-        <li><a class="button" href="/tags/#cytron">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> cytron</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#isomorphic">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> isomorphic</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#javascript">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#mock">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> mock</p>
+        <li><a class="button" href="/tags/#frontend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
         </a></li>
       
         <li><a class="button" href="/tags/#open-source">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> open-source</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#superagent">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> superagent</p>
+        <li><a class="button" href="/tags/#testing">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> testing</p>
         </a></li>
       
     </ul>
@@ -593,24 +513,12 @@
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/cytron/superagent-mock.jpg'); }

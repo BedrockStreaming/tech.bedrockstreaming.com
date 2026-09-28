@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Nos retours sur l’HAProxyConf Paris 2022" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Retour sur la virée de Bedrock à l’HAProxyconf Paris 2022, et ce que nous en retenons","author":{"@type":"Person","name":"Bedrock"},"dateModified":"2022-12-23T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html","datePublished":"2022-12-23T00:00:00+00:00","headline":"Nos retours sur l’HAProxyConf Paris 2022","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Retour sur la virée de Bedrock à l’HAProxyconf Paris 2022, et ce que nous en retenons","author":{"@type":"Person","name":"Bedrock"},"headline":"Nos retours sur l’HAProxyConf Paris 2022","dateModified":"2022-12-23T00:00:00+00:00","datePublished":"2022-12-23T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -393,6 +355,10 @@
     
     December 23, 2022
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -400,7 +366,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>Bedrock était présent lors de la Conférence HAProxy qui se déroulait à Paris en novembre 2022 : en tant que speaker, avec <a href="https://www.youtube.com/watch?v=5jzOXlmRDao" target="_blank">la présentation de Vincent Gallissot</a>, mais aussi en tant que spectateur. Cet article relate les points forts qui nous ont marqués.</p>
 
 <p>La présentation de Vincent Gallissot, Lead Cloud Architect chez Bedrock, mettait en valeur l’usage d’HAProxy en tant que brique essentielle de notre infrastructure. Chez Bedrock, nous développons et maintenons une plateforme de streaming qui a été migrée dans le Cloud en 2019. Cette présentation était grandement inspirée de l’article intitulé <a href="https://tech.bedrockstreaming.com/2021/12/15/scaling-bedrock-video-delivery-to-50-million-users.html" target="_blank">“Scaling Bedrock video delivery to 50 million users”</a>, dans lequel vous trouverez pléthore d’informations concernant nos utilisations d’HAProxy.</p>
@@ -580,44 +545,7 @@ Dans cet article, nous n’avons pas pu faire mention de tout ce qui nous a int�
 
 <p>Suite à cette conférence, c’est HAProxy Fusion que nous attendons le plus. Fusion s’annonce comme l’outil idéal pour manager une flotte d’HAProxy. Jusqu’à présent, nous devions utiliser une solution maison <a href="https://tech.bedrockstreaming.com/2021/11/18/hsdo" target="_blank">HSDO</a>, fonctionnelle, mais très probablement moins bien intégrée qu’un outil directement fourni par HAProxy.</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Nos+retours+sur+l%27HAProxyConf+Paris+2022%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F12%2F23%2Fhaproxyconf-paris-2022.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html&title=Nos+retours+sur+l%27HAProxyConf+Paris+2022%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Nos retours sur l'HAProxyConf Paris 2022%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/12/23/haproxyconf-paris-2022.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -627,20 +555,12 @@ Dans cet article, nous n’avons pas pu faire mention de tout ce qui nous a int�
   <div class="tag-list">
     <ul>
       
-        <li class="meta">Tags</li>
+        <li class="meta">Tag</li>
       
 
       
-        <li><a class="button" href="/tags/#conference">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#haproxy">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> haproxy</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#haproxyconf">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> haproxyconf</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
     </ul>
@@ -664,9 +584,9 @@ Dans cet article, nous n’avons pas pu faire mention de tout ce qui nous a int�
 
     
     <div id="next-post">
-        <a alt="Trophy Hunter #LFT 25/11/22" href="/trophy-hunter">
+        <a alt="How many DynamoDB RCU and WCU should we reserve to achieve maximum cost reductions, when our workloads are changing all the time?" href="/2022/11/22/dynamodb-reservations.html">
             <p>Next post</p>
-            Trophy Hunter #LFT 25/11/22
+            How many DynamoDB RCU and WCU should we reserve to achieve maximum cost reductions, when our workloads are changing all the time?
         </a>
     </div>
     
@@ -674,42 +594,12 @@ Dans cet article, nous n’avons pas pu faire mention de tout ce qui nous a int�
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(251,87,66) !important; }
-  .share-buttons a { color: rgb(251,87,66) !important; }
-  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
-  div#post-nav a { color: rgb(251,87,66) !important; }
-  footer a { color: rgb(251,87,66) !important; }
-  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
-  a.button:hover {
-    background: rgb(251,87,66) !important;
-    border: 1px solid rgb(251,87,66) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(251,87,66) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
   header#main { background-image: url('/images/posts/2022-12-23-haproxyconf-paris-2022/haproxyconf_2022_paris.png'); }

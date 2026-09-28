@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Streaming recommendations at Bedrock" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"The first streaming recommendations with machine learning at Bedrock","author":{"@type":"Person","name":"Nastasia Saby"},"dateModified":"2022-02-27T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/02/27/streaming-recommendation.html","datePublished":"2022-02-27T00:00:00+00:00","headline":"Streaming recommendations at Bedrock","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/02/27/streaming-recommendation.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"The first streaming recommendations with machine learning at Bedrock","author":{"@type":"Person","name":"Nastasia Saby"},"headline":"Streaming recommendations at Bedrock","dateModified":"2022-02-27T00:00:00+00:00","datePublished":"2022-02-27T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/02/27/streaming-recommendation.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/02/27/streaming-recommendation.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -371,7 +333,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -397,6 +359,10 @@
     
     February 27, 2022
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -404,7 +370,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>Personalised recommendations are everywhere. No exception for the streaming world. To improve user experience, recommender systems with machine learning are uplifting.
 At Bedrock, until recently, there was no recommendation shaped this way.</p>
 
@@ -470,44 +435,7 @@ At Bedrock, until recently, there was no recommendation shaped this way.</p>
 
 <p>But, Personalize is expensive and a black box that we can’t integrate with Terraform easily (we’ll have to develop something for that, at least). It doesn’t suit our context. That’s why we’ve started to develop our first models.</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Streaming+recommendations+at+Bedrock%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F02%2F27%2Fstreaming-recommendation.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/02/27/streaming-recommendation.html&title=Streaming+recommendations+at+Bedrock%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/02/27/streaming-recommendation.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Streaming recommendations at Bedrock%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/02/27/streaming-recommendation.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -525,16 +453,8 @@ At Bedrock, until recently, there was no recommendation shaped this way.</p>
           <p><i class="fas fa-tag fa-fw fa-sm"></i> data</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#data+science">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> data science</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#machine+learning">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> machine learning</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#recommender+systems">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> recommender systems</p>
+        <li><a class="button" href="/tags/#machine-learning">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> machine-learning</p>
         </a></li>
       
     </ul>
@@ -568,42 +488,12 @@ At Bedrock, until recently, there was no recommendation shaped this way.</p>
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(12,4,38) !important; }
-  .share-buttons a { color: rgb(12,4,38) !important; }
-  .tag-list a:not(:hover) { color: rgb(12,4,38) !important; }
-  div#post-nav a { color: rgb(12,4,38) !important; }
-  footer a { color: rgb(12,4,38) !important; }
-  .site-header nav a:hover {  color: rgb(12,4,38) !important; }
-  a.button:hover {
-    background: rgb(12,4,38) !important;
-    border: 1px solid rgb(12,4,38) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(12,4,38) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

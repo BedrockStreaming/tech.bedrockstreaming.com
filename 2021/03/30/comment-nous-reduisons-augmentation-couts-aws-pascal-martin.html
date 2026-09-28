@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -79,7 +71,7 @@
 <meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="Comment nous réduisons l’augmentation de nos coûts AWS" />
 <meta name="author" content="Pascal Martin" />
-<meta property="og:locale" content="fr" />
+<meta property="og:locale" content="en_US" />
 <meta name="description" content="Malgré les promesses du Cloud, votre facture AWS vous fait peur ? Je vous comprends !" />
 <meta property="og:description" content="Malgré les promesses du Cloud, votre facture AWS vous fait peur ? Je vous comprends !" />
 <link rel="canonical" href="https://tech.bedrockstreaming.com/2021/03/30/comment-nous-reduisons-augmentation-couts-aws-pascal-martin.html" />
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Comment nous réduisons l’augmentation de nos coûts AWS" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Malgré les promesses du Cloud, votre facture AWS vous fait peur ? Je vous comprends !","author":{"@type":"Person","name":"Pascal Martin"},"dateModified":"2021-03-30T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2021/03/30/comment-nous-reduisons-augmentation-couts-aws-pascal-martin.html","datePublished":"2021-03-30T00:00:00+00:00","headline":"Comment nous réduisons l’augmentation de nos coûts AWS","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2021/03/30/comment-nous-reduisons-augmentation-couts-aws-pascal-martin.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Malgré les promesses du Cloud, votre facture AWS vous fait peur ? Je vous comprends !","author":{"@type":"Person","name":"Pascal Martin"},"headline":"Comment nous réduisons l’augmentation de nos coûts AWS","dateModified":"2021-03-30T00:00:00+00:00","datePublished":"2021-03-30T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2021/03/30/comment-nous-reduisons-augmentation-couts-aws-pascal-martin.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2021/03/30/comment-nous-reduisons-augmentation-couts-aws-pascal-martin.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -371,7 +333,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -397,6 +359,10 @@
     
     March 30, 2021
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -404,14 +370,12 @@
   </header>
 
   <section class="post-content">
-    
         <p>Malgré les promesses du Cloud, votre facture AWS vous fait peur ? Je vous comprends !</p>
 
 <p>Venez découvrir comment, chez Bedrock, nous suivons et catégorisons les coûts d’infrastructure de notre plateforme de VOD et de Replay. J’enchainerai avec un retour d’expérience basé sur trois ans de réponses à la question que nous nous posons tous : « comment réduire nos coûts AWS ? »</p>
 
 <p>Diviser par deux une facture DynamoDB ? Exploiter des instances spot à -70% ? Effectuer moins d’appels d’APIs ? Réduire les transferts inter-AZ, massifs lorsque nous manipulons des vidéos ? Ce ne sont que quelques-unes des pistes que nous avons envisagées…</p>
- 
-      
+
 
     
     <p>
@@ -438,42 +402,6 @@
     
   </section>
 
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Comment+nous+r%C3%A9duisons+l%E2%80%99augmentation+de+nos+co%C3%BBts+AWS%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2021%2F03%2F30%2Fcomment-nous-reduisons-augmentation-couts-aws-pascal-martin.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2021/03/30/comment-nous-reduisons-augmentation-couts-aws-pascal-martin.html&title=Comment+nous+r%C3%A9duisons+l%E2%80%99augmentation+de+nos+co%C3%BBts+AWS%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2021/03/30/comment-nous-reduisons-augmentation-couts-aws-pascal-martin.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Comment nous réduisons l’augmentation de nos coûts AWS%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2021/03/30/comment-nous-reduisons-augmentation-couts-aws-pascal-martin.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
-
    <!-- Tag list -->
   
   
@@ -482,20 +410,12 @@
   <div class="tag-list">
     <ul>
       
-        <li class="meta">Tags</li>
+        <li class="meta">Tag</li>
       
 
       
-        <li><a class="button" href="/tags/#aws">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> aws</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#conference">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#costs">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> costs</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
     </ul>
@@ -510,9 +430,9 @@
 <div id="post-nav">
     
     <div id="previous-post">
-        <a alt="The organisational challenge of building a Data team: lessons learnt" href="/data/2021/05/19/organisational-challenge-building-data-team.html">
+        <a alt="Productionizing ML Systems without Fear nor Heroism" href="/2021/05/25/productionizing-ml-systems-without-fear-nor-heroism.html">
             <p>Previous post</p>
-            The organisational challenge of building a Data team: lessons learnt
+            Productionizing ML Systems without Fear nor Heroism
         </a>
     </div>
     
@@ -529,42 +449,12 @@
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(251,87,66) !important; }
-  .share-buttons a { color: rgb(251,87,66) !important; }
-  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
-  div#post-nav a { color: rgb(251,87,66) !important; }
-  footer a { color: rgb(251,87,66) !important; }
-  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
-  a.button:hover {
-    background: rgb(251,87,66) !important;
-    border: 1px solid rgb(251,87,66) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(251,87,66) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -79,7 +71,7 @@
 <meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="No-code, ou le développement d’applications ouvert à d’autres métiers !" />
 <meta name="author" content="Pascal Martin" />
-<meta property="og:locale" content="fr" />
+<meta property="og:locale" content="en_US" />
 <meta name="description" content="Construire une application sans coder ? C’est une idée que j’entends depuis le début de mes études… Et c’est la promesse de no-code !" />
 <meta property="og:description" content="Construire une application sans coder ? C’est une idée que j’entends depuis le début de mes études… Et c’est la promesse de no-code !" />
 <link rel="canonical" href="https://tech.bedrockstreaming.com/2021/06/11/no-code-developpement-applications-ouvert-autres-metiers-pascal-martin.html" />
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="No-code, ou le développement d’applications ouvert à d’autres métiers !" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Construire une application sans coder ? C’est une idée que j’entends depuis le début de mes études… Et c’est la promesse de no-code !","author":{"@type":"Person","name":"Pascal Martin"},"dateModified":"2021-06-11T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2021/06/11/no-code-developpement-applications-ouvert-autres-metiers-pascal-martin.html","datePublished":"2021-06-11T00:00:00+00:00","headline":"No-code, ou le développement d’applications ouvert à d’autres métiers !","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2021/06/11/no-code-developpement-applications-ouvert-autres-metiers-pascal-martin.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Construire une application sans coder ? C’est une idée que j’entends depuis le début de mes études… Et c’est la promesse de no-code !","author":{"@type":"Person","name":"Pascal Martin"},"headline":"No-code, ou le développement d’applications ouvert à d’autres métiers !","dateModified":"2021-06-11T00:00:00+00:00","datePublished":"2021-06-11T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2021/06/11/no-code-developpement-applications-ouvert-autres-metiers-pascal-martin.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2021/06/11/no-code-developpement-applications-ouvert-autres-metiers-pascal-martin.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -371,7 +333,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -397,6 +359,10 @@
     
     June 11, 2021
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -404,7 +370,6 @@
   </header>
 
   <section class="post-content">
-    
         <p>Construire une application sans coder ? C’est une idée que j’entends depuis le début de mes études… Et c’est la promesse de no-code !<br />
 D’ailleurs, pendant que des discours déclarent que nos enfants doivent apprendre à coder à l’école, nous écrivons nous-même déjà des applications no-code ! N’avez-vous pas lancé Excel récemment ?</p>
 
@@ -413,8 +378,7 @@ Des entreprises, startups ou mastodontes, se lancent sur ce marché et publient 
 Je ne parle bien sûr pas (encore?) de supprimer nos métiers… Mais est-ce que no-code ou low-code ne permettraient pas à d’autres profils que les nôtres d’avancer plus rapidement sur leurs projets ?</p>
 
 <p>À travers cette introduction, vous découvrirez un pan de l’approche no-code et j’espère vous montrer que le développement d’applications n’est plus réservé qu’aux développeurs… Et que nos langages préférés ne sont plus la réponse à toutes les questions !</p>
- 
-      
+
 
     
     <p>
@@ -441,42 +405,6 @@ Je ne parle bien sûr pas (encore?) de supprimer nos métiers… Mais est-ce que
     
   </section>
 
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=No-code%2C+ou+le+d%C3%A9veloppement+d%E2%80%99applications+ouvert+%C3%A0+d%E2%80%99autres+m%C3%A9tiers+%21%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2021%2F06%2F11%2Fno-code-developpement-applications-ouvert-autres-metiers-pascal-martin.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2021/06/11/no-code-developpement-applications-ouvert-autres-metiers-pascal-martin.html&title=No-code%2C+ou+le+d%C3%A9veloppement+d%E2%80%99applications+ouvert+%C3%A0+d%E2%80%99autres+m%C3%A9tiers+%21%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2021/06/11/no-code-developpement-applications-ouvert-autres-metiers-pascal-martin.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=No-code, ou le développement d’applications ouvert à d’autres métiers !%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2021/06/11/no-code-developpement-applications-ouvert-autres-metiers-pascal-martin.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
-
    <!-- Tag list -->
   
   
@@ -485,24 +413,12 @@ Je ne parle bien sûr pas (encore?) de supprimer nos métiers… Mais est-ce que
   <div class="tag-list">
     <ul>
       
-        <li class="meta">Tags</li>
+        <li class="meta">Tag</li>
       
 
       
-        <li><a class="button" href="/tags/#afup">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> afup</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#conference">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#lowcode">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> lowcode</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#nocode">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> nocode</p>
+        <li><a class="button" href="/tags/#practices">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> practices</p>
         </a></li>
       
     </ul>
@@ -517,18 +433,18 @@ Je ne parle bien sûr pas (encore?) de supprimer nos métiers… Mais est-ce que
 <div id="post-nav">
     
     <div id="previous-post">
-        <a alt="Bedrock Dev Facts #14" href="/2021/07/16/bedrock-dev-facts-14.html">
+        <a alt="⚡️ Vite ⚡️ the Webpack killer" href="/2021/09/08/vite-the-webpack-killer.html">
             <p>Previous post</p>
-            Bedrock Dev Facts #14
+            ⚡️ Vite ⚡️ the Webpack killer
         </a>
     </div>
     
 
     
     <div id="next-post">
-        <a alt="The organisational challenge of building a Data team: lessons learnt" href="/data/2021/05/19/organisational-challenge-building-data-team.html">
+        <a alt="Productionizing ML Systems without Fear nor Heroism" href="/2021/05/25/productionizing-ml-systems-without-fear-nor-heroism.html">
             <p>Next post</p>
-            The organisational challenge of building a Data team: lessons learnt
+            Productionizing ML Systems without Fear nor Heroism
         </a>
     </div>
     
@@ -536,42 +452,12 @@ Je ne parle bien sûr pas (encore?) de supprimer nos métiers… Mais est-ce que
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(251,87,66) !important; }
-  .share-buttons a { color: rgb(251,87,66) !important; }
-  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
-  div#post-nav a { color: rgb(251,87,66) !important; }
-  footer a { color: rgb(251,87,66) !important; }
-  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
-  a.button:hover {
-    background: rgb(251,87,66) !important;
-    border: 1px solid rgb(251,87,66) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(251,87,66) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

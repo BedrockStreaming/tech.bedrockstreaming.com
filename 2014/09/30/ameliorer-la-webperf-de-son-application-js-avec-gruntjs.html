@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Améliorer la webperf de son application JS avec GruntJs" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Comment automatiser les optimisations WebPerf sur son application AngularJS avec Grunt.Js","author":{"@type":"Person","name":"Kenny Dits"},"dateModified":"2014-09-30T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2014/09/30/ameliorer-la-webperf-de-son-application-js-avec-gruntjs.html","datePublished":"2014-09-30T00:00:00+00:00","headline":"Améliorer la webperf de son application JS avec GruntJs","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2014/09/30/ameliorer-la-webperf-de-son-application-js-avec-gruntjs.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Comment automatiser les optimisations WebPerf sur son application AngularJS avec Grunt.Js","author":{"@type":"Person","name":"Kenny Dits"},"headline":"Améliorer la webperf de son application JS avec GruntJs","dateModified":"2014-09-30T00:00:00+00:00","datePublished":"2014-09-30T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2014/09/30/ameliorer-la-webperf-de-son-application-js-avec-gruntjs.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2014/09/30/ameliorer-la-webperf-de-son-application-js-avec-gruntjs.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -399,6 +361,10 @@
     
     September 30, 2014
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -406,7 +372,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>L’un des principaux problèmes que nous rencontrons sur nos développement chez M6Web est la tenue en charge.
 Quand elles sont liées à des sites à fort trafic ou à une émission télé (<a href="https://twitter.com/search?q=effetcapital&amp;src=typd">#effetcapital</a>), nos applications doivent être conçues pour supporter des pics de charge plus ou moins importants.</p>
 
@@ -427,13 +392,14 @@ Quand elles sont liées à des sites à fort trafic ou à une émission télé (
 <p>Afin de gagner quelques octets, nous allons minifier (suppression des espaces, retours charriot, et commentaires HTML) notre code HTML généré.
 Pour ceci, nous utilisons le plugin <a href="https://github.com/gruntjs/grunt-contrib-htmlmin">grunt-contrib-htmlmin</a>.</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">options</span><span class="p">:</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">options</span><span class="p">:</span> <span class="p">{</span>
         <span class="nl">collapseWhitespace</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
         <span class="nx">collapseBooleanAttributes</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
         <span class="nx">removeCommentsFromCDATA</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
         <span class="nx">removeOptionalTags</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
         <span class="nx">removeComments</span><span class="p">:</span> <span class="kc">true</span>
-      <span class="p">}</span></code></pre></figure>
+      <span class="p">}</span>
+</code></pre></div></div>
 
 <h3 id="minification-css">Minification CSS</h3>
 
@@ -456,9 +422,10 @@ Il est important de se concentrer uniquement sur les images « d’interface »,
 
 <p>Dans notre CSS principale, on pourra ensuite mettre cette image en background d’une classe CSS :</p>
 
-<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.faceless</span> <span class="p">{</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.faceless</span> <span class="p">{</span>
   <span class="nl">background-image</span><span class="p">:</span> <span class="err">@</span><span class="n">facelessImg</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>Et dans notre code HTML, on pourra placer l’image de la manière suivante :
 <code class="language-plaintext highlighter-rouge">&lt;span class="faceless"&gt;&lt;/span&gt;</code></p>
@@ -478,13 +445,14 @@ Nous passerons de <code class="language-plaintext highlighter-rouge">/images/inf
 La bonne pratique est d’avoir un fichier app.js avec son code maison, un fichier vendor.js avec les librairies tierces, et potentiellement un fichier de config.js
 Etant donné que dans notre cas, 99% du poids Js est concentré dans “Vendor”, nous avons décidé de concaténer l’ensemble dans un seul fichier.</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- build:js(.tmp) scripts/risingstar.js --&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- build:js(.tmp) scripts/risingstar.js --&gt;</span>
   <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"bower_components/jquery/dist/jquery.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
   <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"bower_components/angular/angular.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
   <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"config.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
   <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"app.js"</span><span class="nt">&gt;&lt;/script&gt;</span> 
 ….
-<span class="c">&lt;!-- endbuild —&gt;</span></code></pre></figure>
+<span class="c">&lt;!-- endbuild —&gt;
+</span></code></pre></div></div>
 
 <h3 id="inlining-des-templates">Inlining des templates</h3>
 
@@ -492,8 +460,8 @@ Etant donné que dans notre cas, 99% du poids Js est concentré dans “Vendor�
 Cela ne pose pas de problème en temps normal, mais dans notre cas, cela ne respecte pas nos ambitions de départ.</p>
 
 <p>Angular a la particularité de permettre d’utiliser la balise script pour charger des templates :</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/ng-template"</span> <span class="na">id=</span><span class="s">"views/info.html"</span><span class="nt">&gt;</span><span class="nx">Code</span> <span class="nx">HTML</span> <span class="nx">du</span> <span class="nx">template</span><span class="nt">&lt;/script&gt;</span></code></pre></figure>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/ng-template"</span> <span class="na">id=</span><span class="s">"views/info.html"</span><span class="nt">&gt;</span><span class="nx">Code</span> <span class="nx">HTML</span> <span class="nx">du</span> <span class="nx">template</span><span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
 
 <p>Si votre routeur ou une directive demande un template, avant de vérifier si le fichier existe, Angular vérifiera si une balise <code class="language-plaintext highlighter-rouge">&lt;script type=’text/ng-template’&gt;</code> a été déclarée avec l’identifiant correspondant au chemin demandé.</p>
 
@@ -506,44 +474,7 @@ Attention toutefois, cela signifie que le poids du fichier HTML original va forc
 
 <p>Attention, cela signifie aussi que votre projet en production devient relativement différent de celui que vous testé en développement. Il devient donc important de mettre en place des tests fonctionnels sur le build de production (avec <a href="/tests-e2e-application-angularjs-protractor">Protractor</a> par exemple, ou même <a href="https://docs.behat.org/en/latest/">Behat</a>), et de tester régulièrement la bonne génération et le bon fonctionnement du build de prod.</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Am%C3%A9liorer+la+webperf+de+son+application+JS+avec+GruntJs%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2014%2F09%2F30%2Fameliorer-la-webperf-de-son-application-js-avec-gruntjs.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2014/09/30/ameliorer-la-webperf-de-son-application-js-avec-gruntjs.html&title=Am%C3%A9liorer+la+webperf+de+son+application+JS+avec+GruntJs%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2014/09/30/ameliorer-la-webperf-de-son-application-js-avec-gruntjs.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Améliorer la webperf de son application JS avec GruntJs%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2014/09/30/ameliorer-la-webperf-de-son-application-js-avec-gruntjs.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -557,20 +488,12 @@ Attention toutefois, cela signifie que le poids du fichier HTML original va forc
       
 
       
-        <li><a class="button" href="/tags/#angular">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> angular</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#grunt">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> grunt</p>
+        <li><a class="button" href="/tags/#frontend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
         </a></li>
       
         <li><a class="button" href="/tags/#performance">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> performance</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#webperf">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> webperf</p>
         </a></li>
       
     </ul>
@@ -604,24 +527,12 @@ Attention toutefois, cela signifie que le poids du fichier HTML original va forc
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/webperf.jpg'); }

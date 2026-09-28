@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="CR React Europe Conférence 2015 - Day 1" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Compte rendu de la React Europe - Jour 1","author":{"@type":"Person","name":"Frédéric Vieudrin, Matthieu Guillermin, Florent Dubost, Kenny Dits"},"dateModified":"2015-07-06T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2015/07/06/cr-react-europe-2015-day-one.html","datePublished":"2015-07-06T00:00:00+00:00","headline":"CR React Europe Conférence 2015 - Day 1","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2015/07/06/cr-react-europe-2015-day-one.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Compte rendu de la React Europe - Jour 1","author":{"@type":"Person","name":"Frédéric Vieudrin, Matthieu Guillermin, Florent Dubost, Kenny Dits"},"headline":"CR React Europe Conférence 2015 - Day 1","dateModified":"2015-07-06T00:00:00+00:00","datePublished":"2015-07-06T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2015/07/06/cr-react-europe-2015-day-one.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2015/07/06/cr-react-europe-2015-day-one.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -419,6 +381,10 @@
     
     July 06, 2015
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -426,7 +392,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>Après la première conférence officielle sur React, que nous avons déjà couvert en janvier (<a href="/2015/02/04/cr-react-conf-2015-day-one">Jour 1</a> et <a href="/2015/02/10/cr-react-conf-2015-day-two">Jour 2</a>), nous nous sommes rendus les 2 et 3 juillet à Paris sous une chaleur infernale pour cette première édition de la <a href="https://www.react-europe.org/">React Europe</a> avec l’envie de voir et de mesurer les évolutions autour de ReactJS.</p>
 
 <h1 id="keynote">Keynote</h1>
@@ -586,8 +551,8 @@ Il compare aussi le développement de l’appli Ads de Facebook, réalisé avec 
 
 <p>Spencer Ahrens <a href="https://twitter.com/sahrens2012">@sahrens2012</a> de chez Facebook nous présente une librairie, qui devrait être open sourcé sous peu pour gérer les animations dans React Native iOS : Animated.</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"> 
-<span class="kd">var</span> <span class="p">{</span> <span class="nx">Animated</span> <span class="p">}</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="err">‘</span><span class="nx">react</span><span class="o">-</span><span class="nx">native</span><span class="err">’</span><span class="p">)</span> </code></pre></figure>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="p">{</span> <span class="nx">Animated</span> <span class="p">}</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="err">‘</span><span class="nx">react</span><span class="o">-</span><span class="nx">native</span><span class="err">’</span><span class="p">)</span> 
+</code></pre></div></div>
 
 <p>Cette librairie devrait marcher directement sur React Native Android et arriver ensuite sur le web.
 L’implémentation est 100% JS.
@@ -608,7 +573,7 @@ L’idée est de résoudre les problèmes de l’approche RESTful (qui entraîne
 
 <p>Le principe de base est que la structure de la requête permet de définir le format de la réponse. Ex :</p>
 
-<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="err">Query</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">Query</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="err">user(id:</span><span class="w"> </span><span class="mi">4</span><span class="err">)</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="err">id</span><span class="p">,</span><span class="w">
@@ -626,7 +591,8 @@ L’idée est de résoudre les problèmes de l’approche RESTful (qui entraîne
     </span><span class="nl">"smallPic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn.site.io/pic-4-64.jpg"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"bigPic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn.site.io/pic-4-1024.jpg"</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span></code></pre></figure>
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Le tout donne un code très facile à lire et à raisonner. Le serveur expose un schéma des données disponibles, ce qui permet :</p>
 
@@ -731,44 +697,7 @@ C’est déjà avec plein d’idées et de pistes d’améliorations pour nos pr
 
 <p><a href="/2015/02/10/cr-react-conf-2015-day-two">Vous pouvez retrouvez le compte rendu de la deuxième journée ici</a></p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=CR+React+Europe+Conf%C3%A9rence+2015+-+Day+1%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2015%2F07%2F06%2Fcr-react-europe-2015-day-one.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2015/07/06/cr-react-europe-2015-day-one.html&title=CR+React+Europe+Conf%C3%A9rence+2015+-+Day+1%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2015/07/06/cr-react-europe-2015-day-one.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=CR React Europe Conférence 2015 - Day 1%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2015/07/06/cr-react-europe-2015-day-one.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -782,20 +711,16 @@ C’est déjà avec plein d’idées et de pistes d’améliorations pour nos pr
       
 
       
-        <li><a class="button" href="/tags/#graphql">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> graphql</p>
+        <li><a class="button" href="/tags/#backend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#javascript">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
+        <li><a class="button" href="/tags/#frontend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#react">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> react</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#reactnative">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> reactnative</p>
+        <li><a class="button" href="/tags/#mobile">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> mobile</p>
         </a></li>
       
         <li><a class="button" href="/tags/#video">
@@ -833,24 +758,12 @@ C’est déjà avec plein d’idées et de pistes d’améliorations pour nos pr
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/reacteurope/reacteurope1.png'); }

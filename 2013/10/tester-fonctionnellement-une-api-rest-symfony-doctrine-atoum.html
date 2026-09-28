@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Tester fonctionnellement une API REST" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Blog technique de Bedrock","author":{"@type":"Person","name":"Cytron team"},"dateModified":"2013-10-14T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2013/10/tester-fonctionnellement-une-api-rest-symfony-doctrine-atoum","datePublished":"2013-10-14T00:00:00+00:00","headline":"Tester fonctionnellement une API REST","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2013/10/tester-fonctionnellement-une-api-rest-symfony-doctrine-atoum"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Blog technique de Bedrock","author":{"@type":"Person","name":"Cytron team"},"headline":"Tester fonctionnellement une API REST","dateModified":"2013-10-14T00:00:00+00:00","datePublished":"2013-10-14T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2013/10/tester-fonctionnellement-une-api-rest-symfony-doctrine-atoum","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2013/10/tester-fonctionnellement-une-api-rest-symfony-doctrine-atoum"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -395,6 +357,10 @@
     
     October 14, 2013
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -402,7 +368,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>Un des enjeux des tests fonctionnels est de pouvoir être joués dans un environnement complètement indépendant, dissocié de l’environnement de production, afin de ne pas être tributaires de données versatiles qui pourraient impacter leur résultat. Il faut, cependant, que cet environnement soit techniquement similaire à celui de production pour que les tests aient une réelle validité fonctionnelle.</p>
 
 <p>Avec la Team Cytron, nous sommes tombés face à cette problématique lorsque nous avons voulu tester fonctionnellement un service agnostique de contenu mettant à disposition une API REST et utilisant <a href="https://symfony.com/">Symfony2</a>, MySQL, Doctrine et <a href="https://www.atoum.org">atoum</a>.</p>
@@ -458,44 +423,7 @@
 
 <p>Notre service REST permettant des opérations CRUD, nous partons pour chaque test d’un contenu vide que nous remplissons à l’aide de notre propre service. Cela permet de tester beaucoup plus de cas d’utilisation. Mais surtout cela permet aussi de tester des cas plus réels, plus proches de son utilisation par nos clients.</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Tester+fonctionnellement+une+API+REST%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2013%2F10%2Ftester-fonctionnellement-une-api-rest-symfony-doctrine-atoum"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2013/10/tester-fonctionnellement-une-api-rest-symfony-doctrine-atoum&title=Tester+fonctionnellement+une+API+REST%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2013/10/tester-fonctionnellement-une-api-rest-symfony-doctrine-atoum"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Tester fonctionnellement une API REST%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2013/10/tester-fonctionnellement-une-api-rest-symfony-doctrine-atoum"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -509,20 +437,16 @@
       
 
       
-        <li><a class="button" href="/tags/#atoum">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> atoum</p>
+        <li><a class="button" href="/tags/#backend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#qualite">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> qualite</p>
+        <li><a class="button" href="/tags/#practices">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> practices</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#symfony">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> symfony</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#tests+fonctionnels">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> tests fonctionnels</p>
+        <li><a class="button" href="/tags/#testing">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> testing</p>
         </a></li>
       
     </ul>
@@ -546,9 +470,9 @@
 
     
     <div id="next-post">
-        <a alt="Distribuez votre vidéo partout avec 3 euros en poche et devenez millionaire. Ou presque." href="/2013/10/distribuez-votre-video-partout-avec-3-euros-en-poche-et-devenez-millionaire-ou-presque.html">
+        <a alt="Le NoSQL, Focus sur MongoDB par Cédric Derue (Altran)" href="/le-nosql-focus-sur-mongodb-par-cedric-derue-altran">
             <p>Next post</p>
-            Distribuez votre vidéo partout avec 3 euros en poche et devenez millionaire. Ou presque.
+            Le NoSQL, Focus sur MongoDB par Cédric Derue (Altran)
         </a>
     </div>
     
@@ -556,24 +480,12 @@
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/cytron/husky.png'); }

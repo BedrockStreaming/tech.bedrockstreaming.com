@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Three years running Kubernetes on production at Bedrock" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Running all our workloads on Kubernetes is not that simple. We’ve learned a lot and are still learning, but we can already share what we’re doing","author":{"@type":"Person","name":"Vincent Gallissot"},"dateModified":"2020-12-08T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2020/12/08/Three-years-running-kubernetes-on-production-at-Bedrock.html","datePublished":"2020-12-08T00:00:00+00:00","headline":"Three years running Kubernetes on production at Bedrock","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2020/12/08/Three-years-running-kubernetes-on-production-at-Bedrock.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Running all our workloads on Kubernetes is not that simple. We’ve learned a lot and are still learning, but we can already share what we’re doing","author":{"@type":"Person","name":"Vincent Gallissot"},"headline":"Three years running Kubernetes on production at Bedrock","dateModified":"2020-12-08T00:00:00+00:00","datePublished":"2020-12-08T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2020/12/08/Three-years-running-kubernetes-on-production-at-Bedrock.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2020/12/08/Three-years-running-kubernetes-on-production-at-Bedrock.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -397,6 +359,10 @@
     
     December 08, 2020
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -404,7 +370,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>We migrated our first application to a Kubernetes cluster at AWS in 2018 (a colleague even wrote <a href="https://leanpub.com/tci/">a book about it)</a>.<br />
 Three years later, we manage a dozen clusters, to which we have added a lot of tools and we have a much better grasp of certain subtleties.<br />
 Each cluster reaches, depending on the load, hundreds of nodes and thousands of pods.</p>
@@ -476,26 +441,25 @@ Our rolling updates and rolling upgrades are 100% handled by kops which never fa
 <p>Because we have several clusters, we use <code class="language-plaintext highlighter-rouge">kops toolbox template</code> instead of having a single YAML file per cluster. We have mutualized resources definitions, like AutoScalingGroups, DNS options or namespaces list, inside common files and use a dedicated template file per cluster, referencing mutualized configs through variables.</p>
 
 <p>For example, the EC2 instance types will be defined as snippets:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">± <span class="nb">cat </span>snippets/spot_4x_32Gb_machine_type.yaml:
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>± <span class="nb">cat </span>snippets/spot_4x_32Gb_machine_type.yaml:
 - c5.4xlarge
 - c5d.4xlarge
-- c5n.4xlarge</code></pre></figure>
+- c5n.4xlarge
+</code></pre></div></div>
 
 <p>And used inside a generic template file:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">± <span class="nb">cat </span>templates/3_spot-nodes.yaml.tpl
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>± <span class="nb">cat </span>templates/3_spot-nodes.yaml.tpl
 …
   mixedInstancesPolicy:
     instances:
     <span class="o">{</span> <span class="o">{</span> <span class="k">if </span>eq <span class="nv">$index</span> <span class="s2">"4x_32Gb"</span> <span class="o">}</span> <span class="o">}</span>
     <span class="o">{</span> <span class="o">{</span> include <span class="s2">"spot_4x_32Gb_machine_type.yaml"</span> <span class="nb">.</span> | indent 4 <span class="o">}</span> <span class="o">}</span>
     <span class="o">{</span> <span class="o">{</span> end <span class="o">}</span> <span class="o">}</span>
-…</code></pre></figure>
+…
+</code></pre></div></div>
 
 <p>Finally, if the cluster requires an ASG with instances size 4x with 32GB RAM on Spot instances:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">± <span class="nb">cat </span>vars/prod-customer.k8s.foo.bar.yaml
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>± <span class="nb">cat </span>vars/prod-customer.k8s.foo.bar.yaml
 …
 spot_nodes:
   4x_32Gb:
@@ -504,7 +468,8 @@ spot_nodes:
       - eu-west-3b
       - eu-west-3c
     min: 1
-    max: 100</code></pre></figure>
+    max: 100
+</code></pre></div></div>
 
 <p>A bash script orchestrates all this. It generates manifest files, creates/updates clusters and checks everything is operating normally.</p>
 
@@ -553,7 +518,7 @@ spot_nodes:
 
 <p>We deploy k8s-tools the same way we deploy our apis in the cluster: with bash scripts and a helm chart, dedicated per application.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">± tree app/loki/.cloud/       
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>± tree app/loki/.cloud/       
 app/loki/.cloud/
 ├── charts
 │   ├── Chart.yaml
@@ -563,7 +528,8 @@ app/loki/.cloud/
 │   └── values.customerY.yaml
 └── jenkins
     ├── builder.sh
-    └── deployer.sh</code></pre></figure>
+    └── deployer.sh
+</code></pre></div></div>
 
 <p>A Jenkins job runs the <code class="language-plaintext highlighter-rouge">builder.sh</code>, then the <code class="language-plaintext highlighter-rouge">deployer.sh</code> script for every k8s-tool.<br />
 <code class="language-plaintext highlighter-rouge">builder.sh</code> is run when we need to build our own Docker images.<br />
@@ -663,8 +629,8 @@ This means that our ASG <code class="language-plaintext highlighter-rouge">spot-
 </code></pre></div></div>
 
 <p>We don’t currently have alerting on Throttling, only a Grafana graph using the metric:</p>
-
-<figure class="highlight"><pre><code class="language-prometheus" data-lang="prometheus"><span class="nf">sum</span> <span class="k">by</span> <span class="p">(</span><span class="na">pod</span><span class="p">)</span> <span class="p">(</span><span class="nb">rate</span><span class="p">(</span><span class="n">container_cpu_cfs_throttled_seconds_total</span><span class="p">{</span><span class="na">job</span><span class="o">=</span><span class="s2">"kubelet"</span><span class="p">,</span> <span class="na">image</span><span class="o">!=</span><span class="s2">""</span><span class="p">,</span><span class="na">container</span><span class="o">!=</span><span class="s2">"POD"</span><span class="p">}[</span><span class="mi">1m</span><span class="p">]))</span></code></pre></figure>
+<div class="language-prometheus highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">sum</span> <span class="k">by</span> <span class="p">(</span><span class="na">pod</span><span class="p">)</span> <span class="p">(</span><span class="nb">rate</span><span class="p">(</span><span class="n">container_cpu_cfs_throttled_seconds_total</span><span class="p">{</span><span class="na">job</span><span class="o">=</span><span class="s2">"kubelet"</span><span class="p">,</span> <span class="na">image</span><span class="o">!=</span><span class="s2">""</span><span class="p">,</span><span class="na">container</span><span class="o">!=</span><span class="s2">"POD"</span><span class="p">}[</span><span class="mi">1m</span><span class="p">]))</span>
+</code></pre></div></div>
 
 <p>After Prometheus, we later isolated Victoria Metrics and Grafana Loki on their own ASGs.<br />
 We’re also isolating “admin” tools, like CoreDNS, cluster-autoscaler, HAProxy Ingress Controller, on dedicated “admin nodes” group. That way, admin tools can’t mess with applications pods and vice versa.</p>
@@ -1039,44 +1005,7 @@ Perhaps it will be by speeding up the start-up of pods. Maybe it won’t work. M
 
 <p><em>Thanks to all the reviewers, for their good advice and their time</em> ❤️</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Three+years+running+Kubernetes+on+production+at+Bedrock%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2020%2F12%2F08%2FThree-years-running-kubernetes-on-production-at-Bedrock.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2020/12/08/Three-years-running-kubernetes-on-production-at-Bedrock.html&title=Three+years+running+Kubernetes+on+production+at+Bedrock%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2020/12/08/Three-years-running-kubernetes-on-production-at-Bedrock.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Three years running Kubernetes on production at Bedrock%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2020/12/08/Three-years-running-kubernetes-on-production-at-Bedrock.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -1086,32 +1015,12 @@ Perhaps it will be by speeding up the start-up of pods. Maybe it won’t work. M
   <div class="tag-list">
     <ul>
       
-        <li class="meta">Tags</li>
+        <li class="meta">Tag</li>
       
 
       
-        <li><a class="button" href="/tags/#AWS">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> AWS</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#Cloud">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Cloud</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#HAProxy">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> HAProxy</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#Infrastructure">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Infrastructure</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#Kops">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Kops</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#Kubernetes">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Kubernetes</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
     </ul>
@@ -1126,18 +1035,18 @@ Perhaps it will be by speeding up the start-up of pods. Maybe it won’t work. M
 <div id="post-nav">
     
     <div id="previous-post">
-        <a alt="Machine Learning en production" href="/2021/01/21/machine-learning-en-production.html">
+        <a alt="Bedrock Dev Facts #13" href="/2021/03/02/bedrock-dev-facts-13.html">
             <p>Previous post</p>
-            Machine Learning en production
+            Bedrock Dev Facts #13
         </a>
     </div>
     
 
     
     <div id="next-post">
-        <a alt="PHP, c’est vous ! Et vous pouvez contribuer !" href="/2020/11/23/php-cest-vous-et-vous-pouvez-contribuer-pascal-martin.html">
+        <a alt="React/Redux: pitfalls and best practices" href="/2020/04/27/react-redux-pitfalls-and-best-pratices.html">
             <p>Next post</p>
-            PHP, c’est vous ! Et vous pouvez contribuer !
+            React/Redux: pitfalls and best practices
         </a>
     </div>
     
@@ -1145,24 +1054,12 @@ Perhaps it will be by speeding up the start-up of pods. Maybe it won’t work. M
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/2020-12-08-three-years-running-kubernetes/ihor-dvoretskyi-UGKfiS5CcZI-unsplash.jpg'); }

@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -89,7 +81,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="How we lost our tests migrating to Databricks (and how we’re getting them back)" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Three generations of data pipelines: a well-tested Scala stack, a Databricks rebuild that lost the tests along the way, and the platform we’re building to keep the best of both — property-based testing, self-discovering CI gates, and AI with guardrails.","dateModified":"2026-09-17T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2026/09/17/how-we-lost-our-tests-migrating-to-databricks.html","datePublished":"2026-09-17T00:00:00+00:00","headline":"How we lost our tests migrating to Databricks (and how we’re getting them back)","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2026/09/17/how-we-lost-our-tests-migrating-to-databricks.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Three generations of data pipelines: a well-tested Scala stack, a Databricks rebuild that lost the tests along the way, and the platform we’re building to keep the best of both — property-based testing, self-discovering CI gates, and AI with guardrails.","headline":"How we lost our tests migrating to Databricks (and how we’re getting them back)","dateModified":"2026-09-17T00:00:00+00:00","datePublished":"2026-09-17T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2026/09/17/how-we-lost-our-tests-migrating-to-databricks.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2026/09/17/how-we-lost-our-tests-migrating-to-databricks.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -198,41 +190,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -370,7 +332,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -398,6 +360,10 @@
     
     September 17, 2026
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -405,7 +371,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>Earlier this year, a one-character-wide fix closed a bug that had been failing one of our
 pipelines in a particularly instructive way:</p>
 
@@ -693,44 +658,7 @@ whatever it breaks.</p>
 <p><em>Thanks to the data engineering chapter, whose work this describes, to Jabrane Hajadi
 for backing the article, and to our reviewers in the blog channel.</em></p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=How+we+lost+our+tests+migrating+to+Databricks+%28and+how+we%27re+getting+them+back%29%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2026%2F09%2F17%2Fhow-we-lost-our-tests-migrating-to-databricks.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2026/09/17/how-we-lost-our-tests-migrating-to-databricks.html&title=How+we+lost+our+tests+migrating+to+Databricks+%28and+how+we%27re+getting+them+back%29%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2026/09/17/how-we-lost-our-tests-migrating-to-databricks.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=How we lost our tests migrating to Databricks (and how we're getting them back)%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2026/09/17/how-we-lost-our-tests-migrating-to-databricks.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -744,44 +672,20 @@ for backing the article, and to our reviewers in the blog channel.</em></p>
       
 
       
-        <li><a class="button" href="/tags/#ai">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> ai</p>
+        <li><a class="button" href="/tags/#backend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#ci">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> ci</p>
+        <li><a class="button" href="/tags/#data">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> data</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#data-engineering">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> data-engineering</p>
+        <li><a class="button" href="/tags/#machine-learning">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> machine-learning</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#databricks">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> databricks</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#hypothesis">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> hypothesis</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#python">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> python</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#scala">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> scala</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#spark">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> spark</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#tdd">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> tdd</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#terraform">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> terraform</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
         <li><a class="button" href="/tags/#testing">
@@ -812,42 +716,12 @@ for backing the article, and to our reviewers in the blog channel.</em></p>
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(251,87,66) !important; }
-  .share-buttons a { color: rgb(251,87,66) !important; }
-  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
-  div#post-nav a { color: rgb(251,87,66) !important; }
-  footer a { color: rgb(251,87,66) !important; }
-  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
-  a.button:hover {
-    background: rgb(251,87,66) !important;
-    border: 1px solid rgb(251,87,66) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(251,87,66) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

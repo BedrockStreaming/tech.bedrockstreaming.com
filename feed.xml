@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" /><updated>2026-09-25T07:45:44+00:00</updated><id>https://tech.bedrockstreaming.com/feed.xml</id><title type="html">Bedrock Tech Blog</title><subtitle>Blog technique de Bedrock</subtitle><entry><title type="html">How we lost our tests migrating to Databricks (and how we’re getting them back)</title><link href="https://tech.bedrockstreaming.com/2026/09/17/how-we-lost-our-tests-migrating-to-databricks.html" rel="alternate" type="text/html" title="How we lost our tests migrating to Databricks (and how we’re getting them back)" /><published>2026-09-17T00:00:00+00:00</published><updated>2026-09-17T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2026/09/17/how-we-lost-our-tests-migrating-to-databricks</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2026/09/17/how-we-lost-our-tests-migrating-to-databricks.html">&lt;p&gt;Earlier this year, a one-character-wide fix closed a bug that had been failing one of our
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator>
+  <link href="https://tech.bedrockstreaming.com/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://tech.bedrockstreaming.com/" rel="alternate" type="text/html" />
+  <updated>2026-09-28T12:24:53+00:00</updated>
+  <id>https://tech.bedrockstreaming.com/feed.xml</id>
+  <title type="html">Bedrock Tech Blog</title>
+  <subtitle>Blog technique de Bedrock</subtitle>
+  
+  
+  <entry>
+    <title type="html">How we lost our tests migrating to Databricks (and how we’re getting them back)</title>
+    <link href="https://tech.bedrockstreaming.com/2026/09/17/how-we-lost-our-tests-migrating-to-databricks.html" rel="alternate" type="text/html" title="How we lost our tests migrating to Databricks (and how we&apos;re getting them back)" />
+    <published>2026-09-17T00:00:00+00:00</published>
+    <updated>2026-09-17T00:00:00+00:00</updated>
+    <id>https://tech.bedrockstreaming.com/2026/09/17/how-we-lost-our-tests-migrating-to-databricks</id>
+    <content type="html" xml:base="https://tech.bedrockstreaming.com/2026/09/17/how-we-lost-our-tests-migrating-to-databricks.html">&lt;p&gt;Earlier this year, a one-character-wide fix closed a bug that had been failing one of our
 pipelines in a particularly instructive way:&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# before
@@ -283,7 +300,21 @@ this story is the parity run and the cutover, and we intend to report it here, i
 whatever it breaks.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Thanks to the data engineering chapter, whose work this describes, to Jabrane Hajadi
-for backing the article, and to our reviewers in the blog channel.&lt;/em&gt;&lt;/p&gt;</content><author><name>[&quot;b_abbad&quot;]</name></author><category term="data-engineering" /><category term="databricks" /><category term="spark" /><category term="scala" /><category term="python" /><category term="terraform" /><category term="testing" /><category term="tdd" /><category term="hypothesis" /><category term="ci" /><category term="ai" /><summary type="html">Earlier this year, a one-character-wide fix closed a bug that had been failing one of our pipelines in a particularly instructive way:</summary></entry><entry><title type="html">Hosting the 2026 World Cup on M6+</title><link href="https://tech.bedrockstreaming.com/2026/08/25/hosting-the-2026-world-cup-on-m6plus.html" rel="alternate" type="text/html" title="Hosting the 2026 World Cup on M6+" /><published>2026-08-25T00:00:00+00:00</published><updated>2026-08-25T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2026/08/25/hosting-the-2026-world-cup-on-m6plus</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2026/08/25/hosting-the-2026-world-cup-on-m6plus.html">&lt;p&gt;On June 11th 2026, Mexico and South Africa kicked off the World Cup. For us, it was the start of 54 matches streamed on M6+ and 39 days of match-evening operations.&lt;/p&gt;
+for backing the article, and to our reviewers in the blog channel.&lt;/em&gt;&lt;/p&gt;</content>
+    
+    
+    <summary type="html">Three generations of data pipelines: a well-tested Scala stack, a Databricks rebuild that lost the tests along the way, and the platform we&apos;re building to keep the best of both — property-based testing, self-discovering CI gates, and AI with guardrails.</summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Hosting the 2026 World Cup on M6+</title>
+    <link href="https://tech.bedrockstreaming.com/2026/08/25/hosting-the-2026-world-cup-on-m6plus.html" rel="alternate" type="text/html" title="Hosting the 2026 World Cup on M6+" />
+    <published>2026-08-25T00:00:00+00:00</published>
+    <updated>2026-08-25T00:00:00+00:00</updated>
+    <id>https://tech.bedrockstreaming.com/2026/08/25/hosting-the-2026-world-cup-on-m6plus</id>
+    <content type="html" xml:base="https://tech.bedrockstreaming.com/2026/08/25/hosting-the-2026-world-cup-on-m6plus.html">&lt;p&gt;On June 11th 2026, Mexico and South Africa kicked off the World Cup. For us, it was the start of 54 matches streamed on M6+ and 39 days of match-evening operations.&lt;/p&gt;
 
 &lt;p&gt;At Bedrock, we build and operate M6+, the M6 group’s streaming platform, along with the platforms of several other European broadcasters.&lt;/p&gt;
 
@@ -430,7 +461,21 @@ for backing the article, and to our reviewers in the blog channel.&lt;/em&gt;&lt
 
 &lt;p&gt;See you at the next big event.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Thanks to everyone who made these late nights look easy.&lt;/em&gt;&lt;/p&gt;</content><author><name>[&quot;v_chabrier&quot;]</name></author><category term="kubernetes" /><category term="scaling" /><category term="prescaling" /><category term="high availability" /><category term="aws" /><category term="cloud" /><category term="cdn" /><category term="resilience" /><category term="loadtesting" /><summary type="html">On June 11th 2026, Mexico and South Africa kicked off the World Cup. For us, it was the start of 54 matches streamed on M6+ and 39 days of match-evening operations.</summary></entry><entry><title type="html">Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming</title><link href="https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html" rel="alternate" type="text/html" title="Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming" /><published>2026-02-06T00:00:00+00:00</published><updated>2026-02-06T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html">&lt;p&gt;At Bedrock Streaming, we create and operate full-scope streaming services for leading media companies with best-in-class user experience across AVOD, SVOD and hybrid business models.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Thanks to everyone who made these late nights look easy.&lt;/em&gt;&lt;/p&gt;</content>
+    
+    
+    <summary type="html">How Bedrock prepared M6+ for the 2026 World Cup: prescaling, load tests, edge features and plan Bs. 54 matches, 39 days, zero major incident.</summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming</title>
+    <link href="https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html" rel="alternate" type="text/html" title="Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming" />
+    <published>2026-02-06T00:00:00+00:00</published>
+    <updated>2026-02-06T00:00:00+00:00</updated>
+    <id>https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app</id>
+    <content type="html" xml:base="https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html">&lt;p&gt;At Bedrock Streaming, we create and operate full-scope streaming services for leading media companies with best-in-class user experience across AVOD, SVOD and hybrid business models.&lt;/p&gt;
 
 &lt;p&gt;Given that our application is multi-customer, scaling testing efforts becomes increasingly challenging and costly due to the requirement for extensive manual validation.&lt;/p&gt;
 
@@ -659,7 +704,21 @@ The architecture follows a clean layered separation between business requirement
   &lt;li&gt;
     &lt;p&gt;Align the testing approach with our developers, who already have an automated E2E testing stack for Pull Request validation (currently based on &lt;a href=&quot;https://tech.bedrockstreaming.com/2021/09/06/web-best-practices.html#our-e2e-tests&quot;&gt;WebdriverIO &amp;amp; CucumberJS&lt;/a&gt;).&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>[&quot;m_bayard&quot;]</name></author><category term="bdd" /><category term="frontend" /><category term="ownership" /><category term="playwright" /><category term="QA" /><category term="web" /><summary type="html">At Bedrock Streaming, we create and operate full-scope streaming services for leading media companies with best-in-class user experience across AVOD, SVOD and hybrid business models.</summary></entry><entry><title type="html">How Blue-Green helped us migrating critical components with zero downtime</title><link href="https://tech.bedrockstreaming.com/2026/02/02/how-blue-green-helped-migrating-with-zero-downtime.html" rel="alternate" type="text/html" title="How Blue-Green helped us migrating critical components with zero downtime" /><published>2026-02-02T00:00:00+00:00</published><updated>2026-02-02T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2026/02/02/how-blue-green-helped-migrating-with-zero-downtime</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2026/02/02/how-blue-green-helped-migrating-with-zero-downtime.html">&lt;p&gt;At Bedrock, we recently migrated our Kubernetes clusters from AWS VPC CNI to Cilium—with zero downtime. By leveraging Blue-Green canary with HAProxy for progressive traffic shifting and Consul for dynamic configuration updates, we achieved a seamless transition to eBPF-powered networking.&lt;/p&gt;
+&lt;/ul&gt;</content>
+    
+    
+    <summary type="html">We share here QA context, key takeaways and reveal the architecture of the Web homologation stack.</summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">How Blue-Green helped us migrating critical components with zero downtime</title>
+    <link href="https://tech.bedrockstreaming.com/2026/02/02/how-blue-green-helped-migrating-with-zero-downtime.html" rel="alternate" type="text/html" title="How Blue-Green helped us migrating critical components with zero downtime" />
+    <published>2026-02-02T00:00:00+00:00</published>
+    <updated>2026-02-02T00:00:00+00:00</updated>
+    <id>https://tech.bedrockstreaming.com/2026/02/02/how-blue-green-helped-migrating-with-zero-downtime</id>
+    <content type="html" xml:base="https://tech.bedrockstreaming.com/2026/02/02/how-blue-green-helped-migrating-with-zero-downtime.html">&lt;p&gt;At Bedrock, we recently migrated our Kubernetes clusters from AWS VPC CNI to Cilium—with zero downtime. By leveraging Blue-Green canary with HAProxy for progressive traffic shifting and Consul for dynamic configuration updates, we achieved a seamless transition to eBPF-powered networking.&lt;/p&gt;
 
 &lt;p&gt;You might wonder: why all this complexity around migration? Can’t you simply install Cilium in place of VPC CNI with a straightforward &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kubectl apply&lt;/code&gt;?&lt;/p&gt;
 
@@ -799,7 +858,21 @@ Our hybrid approach also gave us the flexibility to migrate traffic application 
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;em&gt;Many thanks to all contributors, reviewers of this article and people who worked on this project, and especially to our beloved Lead at the time: &lt;a href=&quot;https://github.com/vgallissot&quot;&gt;Vincent Gallissot&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>[&quot;v_pelus&quot;]</name></author><category term="kubernetes" /><category term="cloud" /><category term="HAProxy" /><category term="aws" /><category term="cilium" /><category term="consul" /><category term="nlb" /><category term="ebpf" /><category term="migration" /><category term="bluegreen" /><summary type="html">At Bedrock, we recently migrated our Kubernetes clusters from AWS VPC CNI to Cilium—with zero downtime. By leveraging Blue-Green canary with HAProxy for progressive traffic shifting and Consul for dynamic configuration updates, we achieved a seamless transition to eBPF-powered networking.</summary></entry><entry><title type="html">Writing end-to-end tests for a Smart TV app</title><link href="https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests.html" rel="alternate" type="text/html" title="Writing end-to-end tests for a Smart TV app" /><published>2025-12-23T00:00:00+00:00</published><updated>2025-12-23T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests.html">&lt;p&gt;End-to-end can be challenging for focus-based interfaces like Smart TV apps that rely on LRUD (Left, Right, Up, Down) navigation. This article shares how the TVJS team overcame the instability in their Cypress test suite by incorporating focus-aware assertions and adapting testing strategies for directional navigation, leading to more reliable and trustworthy automated tests.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Many thanks to all contributors, reviewers of this article and people who worked on this project, and especially to our beloved Lead at the time: &lt;a href=&quot;https://github.com/vgallissot&quot;&gt;Vincent Gallissot&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content>
+    
+    
+    <summary type="html">How can you hot change your CNI from VPC CNI to Cilium on your Kubernetes cluster with zero downtime in a production environment?</summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Writing end-to-end tests for a Smart TV app</title>
+    <link href="https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests.html" rel="alternate" type="text/html" title="Writing end-to-end tests for a Smart TV app" />
+    <published>2025-12-23T00:00:00+00:00</published>
+    <updated>2025-12-23T00:00:00+00:00</updated>
+    <id>https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests</id>
+    <content type="html" xml:base="https://tech.bedrockstreaming.com/2025/12/23/tvjs-e2e-tests.html">&lt;p&gt;End-to-end can be challenging for focus-based interfaces like Smart TV apps that rely on LRUD (Left, Right, Up, Down) navigation. This article shares how the TVJS team overcame the instability in their Cypress test suite by incorporating focus-aware assertions and adapting testing strategies for directional navigation, leading to more reliable and trustworthy automated tests.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -893,7 +966,21 @@ Since our Gherkin tests are ultimately just code, the obvious solution was the s
 
 &lt;p&gt;By adding explicit focus assertions before and after every navigation action, we give Cypress the information it needs to stay in sync with the app. The tests become deterministic and failures point to real issues. We now trust our tests, and while we still monitor stability with weekly “no-retry” runs, they are finally working for us, not against us.&lt;/p&gt;
 
-&lt;p&gt;Enforcing this pattern with linting sealed the deal to get rid of tests derailing and give us confidence back in our tests.&lt;/p&gt;</content><author><name>[&quot;m_bernier&quot;]</name></author><category term="smartTV" /><category term="javascript" /><category term="react" /><category term="web" /><category term="frontend" /><category term="e2e" /><category term="testing" /><category term="cypress" /><summary type="html">End-to-end can be challenging for focus-based interfaces like Smart TV apps that rely on LRUD (Left, Right, Up, Down) navigation. This article shares how the TVJS team overcame the instability in their Cypress test suite by incorporating focus-aware assertions and adapting testing strategies for directional navigation, leading to more reliable and trustworthy automated tests.</summary></entry><entry><title type="html">Switching from Babel to SWC: Balancing performance with modern tools and legacy code</title><link href="https://tech.bedrockstreaming.com/2025/12/22/switching-from-babel-to-swc.html" rel="alternate" type="text/html" title="Switching from Babel to SWC: Balancing performance with modern tools and legacy code" /><published>2025-12-22T00:00:00+00:00</published><updated>2025-12-22T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/12/22/switching-from-babel-to-swc</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/12/22/switching-from-babel-to-swc.html">&lt;p&gt;Ever since websites started being made essentially from JavaScript, transpiling this code to run in the largest number of different browsers has been an essential step in the build process. From the very beginning, more than ten years ago, the BedrockStreaming web application has relied on &lt;a href=&quot;https://babeljs.io/&quot;&gt;Babel&lt;/a&gt; for this task. This year we migrated from Babel to its next-gen replacement, &lt;a href=&quot;https://swc.rs/&quot;&gt;SWC&lt;/a&gt;. It was not a smooth ride all the way, so let’s see what challenges we’ve had to overcome and if the payoff was worth the effort!&lt;/p&gt;
+&lt;p&gt;Enforcing this pattern with linting sealed the deal to get rid of tests derailing and give us confidence back in our tests.&lt;/p&gt;</content>
+    
+    
+    <summary type="html">REX on stabilising end-to-end tests for a focused based app, using Cypress.</summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Switching from Babel to SWC: Balancing performance with modern tools and legacy code</title>
+    <link href="https://tech.bedrockstreaming.com/2025/12/22/switching-from-babel-to-swc.html" rel="alternate" type="text/html" title="Switching from Babel to SWC: Balancing performance with modern tools and legacy code" />
+    <published>2025-12-22T00:00:00+00:00</published>
+    <updated>2025-12-22T00:00:00+00:00</updated>
+    <id>https://tech.bedrockstreaming.com/2025/12/22/switching-from-babel-to-swc</id>
+    <content type="html" xml:base="https://tech.bedrockstreaming.com/2025/12/22/switching-from-babel-to-swc.html">&lt;p&gt;Ever since websites started being made essentially from JavaScript, transpiling this code to run in the largest number of different browsers has been an essential step in the build process. From the very beginning, more than ten years ago, the BedrockStreaming web application has relied on &lt;a href=&quot;https://babeljs.io/&quot;&gt;Babel&lt;/a&gt; for this task. This year we migrated from Babel to its next-gen replacement, &lt;a href=&quot;https://swc.rs/&quot;&gt;SWC&lt;/a&gt;. It was not a smooth ride all the way, so let’s see what challenges we’ve had to overcome and if the payoff was worth the effort!&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -1123,7 +1210,21 @@ After reading the SWC documentation on &lt;a href=&quot;https://swc.rs/docs/plug
 
 &lt;p&gt;It’s also worth mentioning that SWC’s documentation can be limited when it comes to more specific or advanced use cases. A big part of this migration involved experimentation, reading source code, and validating assumptions through benchmarks. We hope this article can help others facing similar constraints and reduce some of the friction we encountered along the way.&lt;/p&gt;
 
-&lt;p&gt;Throughout this process, our goal was clear: push developer experience as far as possible without compromising the quality of the final production bundle. And while this migration alone already delivers strong gains, it really starts to shine when combined with other optimizations, such as smarter caching strategies. &lt;strong&gt;More on that in a follow-up article.&lt;/strong&gt;&lt;/p&gt;</content><author><name>[&quot;jf_farge&quot;, &quot;m_alves&quot;, &quot;t_gianella&quot;]</name></author><category term="swc" /><category term="babel" /><category term="JavaScript" /><category term="react" /><category term="web" /><category term="frontend" /><category term="performance" /><category term="bundler" /><summary type="html">Ever since websites started being made essentially from JavaScript, transpiling this code to run in the largest number of different browsers has been an essential step in the build process. From the very beginning, more than ten years ago, the BedrockStreaming web application has relied on Babel for this task. This year we migrated from Babel to its next-gen replacement, SWC. It was not a smooth ride all the way, so let’s see what challenges we’ve had to overcome and if the payoff was worth the effort!</summary></entry><entry><title type="html">Performance.now() 2025 - Pragmatic, Magical and Responsible Performance</title><link href="https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025.html" rel="alternate" type="text/html" title="Performance.now() 2025 - Pragmatic, Magical and Responsible Performance" /><published>2025-11-18T00:00:00+00:00</published><updated>2025-11-18T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025.html">&lt;p&gt;On October 30-31, the Bedrock Web &amp;amp; TV team attended &lt;strong&gt;performance.now() 2025&lt;/strong&gt; in Amsterdam, one of the few conferences entirely dedicated to web frontend performance. Two intense days of real-world insights, browser deep-dives and discussions about what “fast” truly means in 2025.&lt;/p&gt;
+&lt;p&gt;Throughout this process, our goal was clear: push developer experience as far as possible without compromising the quality of the final production bundle. And while this migration alone already delivers strong gains, it really starts to shine when combined with other optimizations, such as smarter caching strategies. &lt;strong&gt;More on that in a follow-up article.&lt;/strong&gt;&lt;/p&gt;</content>
+    
+    
+    <summary type="html">From Babel to SWC: our journey of migrating from a 10-year-old transpiler to a next-gen compiler, overcoming challenges and achieving build performance improvements.</summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Performance.now() 2025 - Pragmatic, Magical and Responsible Performance</title>
+    <link href="https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025.html" rel="alternate" type="text/html" title="Performance.now() 2025 - Pragmatic, Magical and Responsible Performance" />
+    <published>2025-11-18T00:00:00+00:00</published>
+    <updated>2025-11-18T00:00:00+00:00</updated>
+    <id>https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025</id>
+    <content type="html" xml:base="https://tech.bedrockstreaming.com/2025/11/18/performance-now-2025.html">&lt;p&gt;On October 30-31, the Bedrock Web &amp;amp; TV team attended &lt;strong&gt;performance.now() 2025&lt;/strong&gt; in Amsterdam, one of the few conferences entirely dedicated to web frontend performance. Two intense days of real-world insights, browser deep-dives and discussions about what “fast” truly means in 2025.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1322,7 +1423,21 @@ After reading the SWC documentation on &lt;a href=&quot;https://swc.rs/docs/plug
 
 &lt;blockquote&gt;
   &lt;p&gt;“Fast is pragmatic. Fast is magical. And above all, fast is intentional.”&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>[&quot;f_dubost&quot;, &quot;m_bernier&quot;]</name></author><category term="performance" /><category term="conference" /><category term="webperf" /><category term="javascript" /><category term="react" /><category term="web" /><category term="frontend" /><summary type="html">On October 30-31, the Bedrock Web &amp;amp; TV team attended performance.now() 2025 in Amsterdam, one of the few conferences entirely dedicated to web frontend performance. Two intense days of real-world insights, browser deep-dives and discussions about what “fast” truly means in 2025.</summary></entry><entry><title type="html">Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE</title><link href="https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html" rel="alternate" type="text/html" title="Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE" /><published>2025-07-01T00:00:00+00:00</published><updated>2025-07-01T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html">&lt;p&gt;Streaming is now everywhere, an indispensable part of our daily lives, used by almost everyone for entertainment, communication, and learning. It appears effortless, almost magical, as high-quality video instantly appears on our screens. But beneath that seamless playback lies a complex and fascinating architecture of web technologies. Have you ever wondered what truly happens behind the frame to bring those pixels to life, adapting to your network, and ensuring a smooth experience right within your browser? Join us as we pull back the curtain and demystify the magic of modern web video playback.&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+    
+    
+    <summary type="html">Takeaways from the Performance.now() 2025 conference in Amsterdam - investigating runtime costs, modern DevTools and responsible performance.</summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE</title>
+    <link href="https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html" rel="alternate" type="text/html" title="Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE" />
+    <published>2025-07-01T00:00:00+00:00</published>
+    <updated>2025-07-01T00:00:00+00:00</updated>
+    <id>https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction</id>
+    <content type="html" xml:base="https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html">&lt;p&gt;Streaming is now everywhere, an indispensable part of our daily lives, used by almost everyone for entertainment, communication, and learning. It appears effortless, almost magical, as high-quality video instantly appears on our screens. But beneath that seamless playback lies a complex and fascinating architecture of web technologies. Have you ever wondered what truly happens behind the frame to bring those pixels to life, adapting to your network, and ensuring a smooth experience right within your browser? Join us as we pull back the curtain and demystify the magic of modern web video playback.&lt;/p&gt;
 
 &lt;p&gt;Let’s say you want to create a player to watch your favorite TV Show.&lt;/p&gt;
 
@@ -1544,7 +1659,21 @@ It is because we now need to do the same segment management with the audio.&lt;/
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Media_Source_Extensions_API&quot;&gt;MDN Web Docs&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=VX9ppF6eMjc&quot;&gt;LyonJS - Play Pause - Les coulisses d’un player vidéo&lt;/a&gt; 🇫🇷&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>[&quot;a_gaudard&quot;]</name></author><category term="TVJS" /><category term="smartTV" /><category term="web" /><category term="javascript" /><category term="frontend" /><category term="player" /><category term="video" /><summary type="html">Streaming is now everywhere, an indispensable part of our daily lives, used by almost everyone for entertainment, communication, and learning. It appears effortless, almost magical, as high-quality video instantly appears on our screens. But beneath that seamless playback lies a complex and fascinating architecture of web technologies. Have you ever wondered what truly happens behind the frame to bring those pixels to life, adapting to your network, and ensuring a smooth experience right within your browser? Join us as we pull back the curtain and demystify the magic of modern web video playback.</summary></entry><entry><title type="html">Bedrock au MiXiT 2025</title><link href="https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025.html" rel="alternate" type="text/html" title="Bedrock au MiXiT 2025" /><published>2025-05-13T00:00:00+00:00</published><updated>2025-05-13T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025.html">&lt;p&gt;Bedrock était présent au &lt;a href=&quot;https://mixitconf.org/fr/&quot;&gt;MiXiT 2025&lt;/a&gt;, les 29 et 30 avril à Lyon.
+&lt;/ul&gt;</content>
+    
+    
+    <summary type="html">In this article, I&apos;m going to explain how to enhance your player using the Media Source Extension API.</summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Bedrock au MiXiT 2025</title>
+    <link href="https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025.html" rel="alternate" type="text/html" title="Bedrock au MiXiT 2025" />
+    <published>2025-05-13T00:00:00+00:00</published>
+    <updated>2025-05-13T00:00:00+00:00</updated>
+    <id>https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025</id>
+    <content type="html" xml:base="https://tech.bedrockstreaming.com/2025/05/13/bedrock-au-mixit-2025.html">&lt;p&gt;Bedrock était présent au &lt;a href=&quot;https://mixitconf.org/fr/&quot;&gt;MiXiT 2025&lt;/a&gt;, les 29 et 30 avril à Lyon.
 Voici un petit résumé des conférences qui nous ont le plus marqués.&lt;/p&gt;
 
 &lt;h2 id=&quot;de-la-pseudoscience-pour-mon-pseudo-management--anaïs-huet&quot;&gt;De la pseudoscience pour mon (pseudo) management — Anaïs Huet&lt;/h2&gt;
@@ -1721,7 +1850,21 @@ après son arrêt.&lt;/p&gt;
 
 &lt;p&gt;Dans ce talk, &lt;strong&gt;Codrina Maria Illie&lt;/strong&gt; vient nous parler de l’écosystème open-source du domaine géospatiale. Sans s’en rendre compte, c’est aujourd’hui utilisé dans la vie de tous les jours. Par exemple, sur votre téléphone, il suffit de constater toutes les applications qui utilisent votre localisation.&lt;/p&gt;
 
-&lt;p&gt;En tant que membre élu du conseil d’administration de la Fondation Open Source Geospatial (OSGeo), Codrina recense toutes les librairies open source de géospatiale afin d’offrir une documentation des différentes solutions disponibles, servir la communauté open source et guider les utilisateurs dans leur choix selon leurs besoins. La fondation promeut également ces différentes solutions auprès des agences spatiales internationales et a même reçu le soutien de l’agence spatiale européenne (ESA) en 2023.&lt;/p&gt;</content><author><name>[&quot;y_ferlin&quot;, &quot;p_rambaud&quot;, &quot;a_moutounet&quot;, &quot;v_clavreul&quot;, &quot;h_detang&quot;, &quot;p_martin&quot;]</name></author><category term="conference" /><category term="lyon" /><category term="tech" /><category term="agilité" /><summary type="html">Bedrock était présent au MiXiT 2025, les 29 et 30 avril à Lyon. Voici un petit résumé des conférences qui nous ont le plus marqués.</summary></entry><entry><title type="html">Bedrock au Devoxx 2025</title><link href="https://tech.bedrockstreaming.com/2025/05/06/bedrock-au-devoxx-2025.html" rel="alternate" type="text/html" title="Bedrock au Devoxx 2025" /><published>2025-05-06T00:00:00+00:00</published><updated>2025-05-06T00:00:00+00:00</updated><id>https://tech.bedrockstreaming.com/2025/05/06/bedrock-au-devoxx-2025</id><content type="html" xml:base="https://tech.bedrockstreaming.com/2025/05/06/bedrock-au-devoxx-2025.html">&lt;p&gt;Le Devoxx est un événement incontournable pour les développeurs et les professionnels de la technologie, qui a eu lieu du 16 avril 2025 au 18 avril 2025 au Palais des Congrès de Paris.&lt;/p&gt;
+&lt;p&gt;En tant que membre élu du conseil d’administration de la Fondation Open Source Geospatial (OSGeo), Codrina recense toutes les librairies open source de géospatiale afin d’offrir une documentation des différentes solutions disponibles, servir la communauté open source et guider les utilisateurs dans leur choix selon leurs besoins. La fondation promeut également ces différentes solutions auprès des agences spatiales internationales et a même reçu le soutien de l’agence spatiale européenne (ESA) en 2023.&lt;/p&gt;</content>
+    
+    
+    <summary type="html">Bedrock était présent au MiXiT 2025, les 29 et 30 avril à Lyon. Voici un petit résumé des conférences qui nous ont le plus marqués.</summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Bedrock au Devoxx 2025</title>
+    <link href="https://tech.bedrockstreaming.com/2025/05/06/bedrock-au-devoxx-2025.html" rel="alternate" type="text/html" title="Bedrock au Devoxx 2025" />
+    <published>2025-05-06T00:00:00+00:00</published>
+    <updated>2025-05-06T00:00:00+00:00</updated>
+    <id>https://tech.bedrockstreaming.com/2025/05/06/bedrock-au-devoxx-2025</id>
+    <content type="html" xml:base="https://tech.bedrockstreaming.com/2025/05/06/bedrock-au-devoxx-2025.html">&lt;p&gt;Le Devoxx est un événement incontournable pour les développeurs et les professionnels de la technologie, qui a eu lieu du 16 avril 2025 au 18 avril 2025 au Palais des Congrès de Paris.&lt;/p&gt;
 
 &lt;p&gt;Cette année, en plus d’avoir la chance d’y participer en tant que spectateur pour découvrir de nombreuses conférences passionnantes, nous avons eu l’honneur de présenter une conférence, avec &lt;a href=&quot;https://www.linkedin.com/in/becolin/&quot;&gt;Benoit Colin&lt;/a&gt;, Software Developer chez Bedrock, qui a co-présenté la conférence “&lt;a href=&quot;https://www.devoxx.fr/en/agenda-2025/talk/load-testons-m6-pour-preparer-l-euro-2024/&quot;&gt;Load-testons M6+ pour préparer l’Euro 2024 !&lt;/a&gt;” au cours de laquelle il a présenté le travail que nous avons accompli l’année dernière pour nous préparer à diffuser l’Euro 2024 de football sur M6+, une des marques que Bedrock héberge sur sa plateforme.&lt;/p&gt;
 
@@ -2469,4 +2612,12 @@ L’objectif : alimenter, une plateforme de décision en temps réel capable de 
 &lt;p&gt;Pour relever ce défi, Criteo a progressivement consolidé son architecture autour d’Aerospike.
 Ce choix leur a permis d’atteindre des niveaux de performance impressionnants tout en simplifiant leur stack technique.
 En s’appuyant sur les forces d’Aerospike : stockage hybride, réplication robuste, distribution intelligente des données.
-L’équipe a gagné en fiabilité et en efficacité opérationnelle. Un témoignage inspirant sur la façon dont des choix d’architecture bien assumés peuvent transformer une contrainte de performance en avantage stratégique.&lt;/p&gt;</content><author><name>[&quot;p_rambaud&quot;, &quot;f_ferriere&quot;, &quot;g_damour&quot;, &quot;b_colin&quot;]</name></author><category term="devoxx" /><category term="conference" /><category term="event" /><category term="backend" /><category term="go" /><category term="kubernetes" /><category term="github" /><category term="IA" /><category term="openid" /><category term="oauth2" /><category term="architecture" /><summary type="html">Le Devoxx est un événement incontournable pour les développeurs et les professionnels de la technologie, qui a eu lieu du 16 avril 2025 au 18 avril 2025 au Palais des Congrès de Paris.</summary></entry></feed>
+L’équipe a gagné en fiabilité et en efficacité opérationnelle. Un témoignage inspirant sur la façon dont des choix d’architecture bien assumés peuvent transformer une contrainte de performance en avantage stratégique.&lt;/p&gt;</content>
+    
+    
+    <summary type="html">Le Devoxx est un événement incontournable pour les développeurs et les professionnels de la technologie, qui a eu lieu du 16 avril 2025 au 18 avril 2025 au Palais des Congrès de Paris.</summary>
+    
+    
+  </entry>
+  
+</feed>

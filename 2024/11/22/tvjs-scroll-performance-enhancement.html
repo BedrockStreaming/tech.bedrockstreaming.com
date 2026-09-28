@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -89,7 +81,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="How we improved scroll performance on Smart TV apps" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"From an R&amp;D project came a new scroll implementation for our Smart TV apps, with better performance and experience.","dateModified":"2024-11-22T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html","datePublished":"2024-11-22T00:00:00+00:00","headline":"How we improved scroll performance on Smart TV apps","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"From an R&amp;D project came a new scroll implementation for our Smart TV apps, with better performance and experience.","headline":"How we improved scroll performance on Smart TV apps","dateModified":"2024-11-22T00:00:00+00:00","datePublished":"2024-11-22T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -198,41 +190,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -370,7 +332,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -394,6 +356,10 @@
     
     November 22, 2024
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -401,7 +367,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>One of the core experiences of a Bedrock app for the end user is browsing the catalog. Scrolling vertically through blocks of content, and scrolling horizontally through lists of items. However, TVs do not offer high performance and provide poor user experience during heavy resource actions. We especially noticed that scrolling horizontally in a list was laggy and unpleasant. This article focuses on performance optimization to enhance the horizontal scroll experience on Smart TVs.</p>
 
 <p><img src="/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/old-scroll.gif" alt="Laggy scroll video" /></p>
@@ -554,44 +519,7 @@
 
 <p>This frontend R&amp;D project successfully addressed the scrolling performance issues on TV. The new scrolling solution dramatically improved performance by limiting re-renders. This optimization ensured a smoother scrolling experience, enhancing usability on TV devices. From this experience, we also moved on to implementing the same virtualization on the horizontal scroll of the catalog, which presented its own challenges but was also a success.</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=How+we+improved+scroll+performance+on+Smart+TV+apps%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2024%2F11%2F22%2Ftvjs-scroll-performance-enhancement.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html&title=How+we+improved+scroll+performance+on+Smart+TV+apps%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=How we improved scroll performance on Smart TV apps%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2024/11/22/tvjs-scroll-performance-enhancement.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -605,28 +533,16 @@
       
 
       
-        <li><a class="button" href="/tags/#TV">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> TV</p>
-        </a></li>
-      
         <li><a class="button" href="/tags/#frontend">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#javascript">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
         </a></li>
       
         <li><a class="button" href="/tags/#performance">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> performance</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#react">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> react</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#web">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> web</p>
+        <li><a class="button" href="/tags/#video">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> video</p>
         </a></li>
       
     </ul>
@@ -660,42 +576,12 @@
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(251,87,66) !important; }
-  .share-buttons a { color: rgb(251,87,66) !important; }
-  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
-  div#post-nav a { color: rgb(251,87,66) !important; }
-  footer a { color: rgb(251,87,66) !important; }
-  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
-  a.button:hover {
-    background: rgb(251,87,66) !important;
-    border: 1px solid rgb(251,87,66) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(251,87,66) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

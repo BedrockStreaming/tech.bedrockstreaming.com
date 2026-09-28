@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -89,7 +81,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"We share here QA context, key takeaways and reveal the architecture of the Web homologation stack.","dateModified":"2026-02-06T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html","datePublished":"2026-02-06T00:00:00+00:00","headline":"Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"We share here QA context, key takeaways and reveal the architecture of the Web homologation stack.","headline":"Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming","dateModified":"2026-02-06T00:00:00+00:00","datePublished":"2026-02-06T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -198,41 +190,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -370,7 +332,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -398,6 +360,10 @@
     
     February 06, 2026
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -405,7 +371,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>At Bedrock Streaming, we create and operate full-scope streaming services for leading media companies with best-in-class user experience across AVOD, SVOD and hybrid business models.</p>
 
 <p>Given that our application is multi-customer, scaling testing efforts becomes increasingly challenging and costly due to the requirement for extensive manual validation.</p>
@@ -637,44 +602,7 @@ The architecture follows a clean layered separation between business requirement
   </li>
 </ul>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Building+a+Scalable%2C+Multi-Tenant+QA+Automation+Stack+at+Bedrock+Streaming%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2026%2F02%2F06%2Fweb-homologation-as-app.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html&title=Building+a+Scalable%2C+Multi-Tenant+QA+Automation+Stack+at+Bedrock+Streaming%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streaming%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2026/02/06/web-homologation-as-app.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -688,28 +616,16 @@ The architecture follows a clean layered separation between business requirement
       
 
       
-        <li><a class="button" href="/tags/#QA">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> QA</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#bdd">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> bdd</p>
-        </a></li>
-      
         <li><a class="button" href="/tags/#frontend">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#ownership">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> ownership</p>
+        <li><a class="button" href="/tags/#practices">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> practices</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#playwright">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> playwright</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#web">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> web</p>
+        <li><a class="button" href="/tags/#testing">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> testing</p>
         </a></li>
       
     </ul>
@@ -743,42 +659,12 @@ The architecture follows a clean layered separation between business requirement
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(251,87,66) !important; }
-  .share-buttons a { color: rgb(251,87,66) !important; }
-  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
-  div#post-nav a { color: rgb(251,87,66) !important; }
-  footer a { color: rgb(251,87,66) !important; }
-  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
-  a.button:hover {
-    background: rgb(251,87,66) !important;
-    border: 1px solid rgb(251,87,66) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(251,87,66) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

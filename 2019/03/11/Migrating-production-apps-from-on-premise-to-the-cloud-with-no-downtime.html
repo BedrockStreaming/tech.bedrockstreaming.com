@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Migrating production applications from on-premise to the cloud with no downtime" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"How did we proceed, what lessons we learned and what tools we used","author":{"@type":"Person","name":"Vincent Gallissot"},"dateModified":"2019-03-11T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2019/03/11/Migrating-production-apps-from-on-premise-to-the-cloud-with-no-downtime.html","datePublished":"2019-03-11T00:00:00+00:00","headline":"Migrating production applications from on-premise to the cloud with no downtime","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2019/03/11/Migrating-production-apps-from-on-premise-to-the-cloud-with-no-downtime.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"How did we proceed, what lessons we learned and what tools we used","author":{"@type":"Person","name":"Vincent Gallissot"},"headline":"Migrating production applications from on-premise to the cloud with no downtime","dateModified":"2019-03-11T00:00:00+00:00","datePublished":"2019-03-11T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2019/03/11/Migrating-production-apps-from-on-premise-to-the-cloud-with-no-downtime.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2019/03/11/Migrating-production-apps-from-on-premise-to-the-cloud-with-no-downtime.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -397,6 +359,10 @@
     
     March 11, 2019
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -404,7 +370,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>We are migrating all our on-premise applications to AWS cloud.
 Most of them are/will be migrated to Kops-managed Kubernetes clusters, and some are/will be migrated as lambdas.
 To secure this migration, we are using HAProxy in front of both on-prem and on-AWS deployments (first only sending 1% of each application’s requests to AWS, then 5%, then 25% and so on).
@@ -432,13 +397,14 @@ So, we decided to migrate only 1% of production HTTP requests to our Kubernetes 
 
 <p>Here’s a part of the associated HAProxy configuration:</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">backend</span> <span class="n">application</span><span class="o">-</span><span class="mo">01</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">backend</span> <span class="n">application</span><span class="o">-</span><span class="mo">01</span>
     <span class="n">http</span><span class="o">-</span><span class="n">response</span> <span class="n">add</span><span class="o">-</span><span class="n">header</span> <span class="no">X</span><span class="o">-</span><span class="no">Backend</span><span class="o">-</span><span class="no">Server</span> <span class="o">%</span><span class="n">s</span>
     <span class="n">balance</span> <span class="n">roundrobin</span>
     <span class="n">http</span><span class="o">-</span><span class="n">request</span> <span class="n">set</span><span class="o">-</span><span class="n">header</span> <span class="no">Host</span> <span class="n">application</span><span class="o">-</span><span class="mo">01</span><span class="o">.</span><span class="mi">6</span><span class="n">play</span><span class="p">.</span><span class="nf">fr</span>
     <span class="n">option</span> <span class="n">httpchk</span> <span class="no">GET</span> <span class="sr">/HealthCheck HTTP/</span><span class="mf">1.1</span><span class="p">\</span><span class="n">r</span><span class="p">\</span><span class="n">nHost</span><span class="p">:\</span> <span class="n">application</span><span class="o">-</span><span class="mo">01</span><span class="o">.</span><span class="mi">6</span><span class="n">play</span><span class="p">.</span><span class="nf">fr</span>
     <span class="n">server</span> <span class="n">aws</span><span class="o">-</span><span class="n">prod</span><span class="o">-</span><span class="no">Kubernetes</span><span class="o">-</span><span class="n">application</span><span class="o">-</span><span class="mo">01</span> <span class="n">aQuiteLongURLCorrespondingToOurELBEndpoint</span><span class="p">.</span><span class="nf">eu</span><span class="o">-</span><span class="n">west</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="nf">elb</span><span class="p">.</span><span class="nf">amazonaws</span><span class="p">.</span><span class="nf">com</span><span class="p">:</span><span class="mi">443</span> <span class="n">check</span> <span class="n">ssl</span> <span class="n">verify</span> <span class="n">required</span> <span class="n">sni</span> <span class="n">req</span><span class="p">.</span><span class="nf">hdr</span><span class="p">(</span><span class="n">host</span><span class="p">)</span> <span class="n">check</span><span class="o">-</span><span class="n">sni</span> <span class="n">application</span><span class="o">-</span><span class="mo">01</span><span class="o">.</span><span class="mi">6</span><span class="n">play</span><span class="p">.</span><span class="nf">fr</span> <span class="n">ca</span><span class="o">-</span><span class="n">file</span> <span class="n">ca</span><span class="o">-</span><span class="n">certificates</span><span class="p">.</span><span class="nf">crt</span> <span class="n">inter</span> <span class="mi">1</span><span class="n">s</span> <span class="n">fall</span> <span class="mi">1</span> <span class="n">rise</span> <span class="mi">2</span> <span class="n">resolvers</span> <span class="n">m6dns</span> <span class="n">observe</span> <span class="n">layer7</span> <span class="n">weight</span> <span class="mi">25</span>
-    <span class="n">server</span> <span class="n">onprem</span><span class="o">-</span><span class="n">prod</span><span class="o">-</span><span class="n">front</span><span class="o">-</span><span class="n">application</span><span class="o">-</span><span class="mo">01</span> <span class="n">onprem</span><span class="o">-</span><span class="n">application</span><span class="o">-</span><span class="mo">01</span><span class="o">.</span><span class="mi">6</span><span class="n">play</span><span class="p">.</span><span class="nf">fr</span><span class="p">:</span><span class="mi">80</span> <span class="n">check</span> <span class="n">resolvers</span> <span class="n">m6dns</span> <span class="n">weight</span> <span class="mi">75</span></code></pre></figure>
+    <span class="n">server</span> <span class="n">onprem</span><span class="o">-</span><span class="n">prod</span><span class="o">-</span><span class="n">front</span><span class="o">-</span><span class="n">application</span><span class="o">-</span><span class="mo">01</span> <span class="n">onprem</span><span class="o">-</span><span class="n">application</span><span class="o">-</span><span class="mo">01</span><span class="o">.</span><span class="mi">6</span><span class="n">play</span><span class="p">.</span><span class="nf">fr</span><span class="p">:</span><span class="mi">80</span> <span class="n">check</span> <span class="n">resolvers</span> <span class="n">m6dns</span> <span class="n">weight</span> <span class="mi">75</span>
+</code></pre></div></div>
 
 <p>Some explanations on key elements of this configuration:</p>
 
@@ -610,8 +576,7 @@ This schema shows how HAProxy were routing traffic according to specific paths.<
 Not only because it’s light and easy to work with, but because we can do whatever we want with it to replicate traffic. It can rewrite headers, catch only a specific domain or a specific url. It’s the perfect tool to complete our migration workflow.</p>
 
 <p>Here is a script we used in the step 5.b of the workflow above:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 
 replicate_traffic<span class="o">()</span> <span class="o">{</span>
     <span class="k">if</span> <span class="o">[[</span> <span class="nt">-z</span> <span class="nv">$1</span> <span class="o">]]</span>
@@ -650,7 +615,8 @@ replicate_traffic 20% 60s
 replicate_traffic 40% 60s
 replicate_traffic 60% 60s
 replicate_traffic 80% 60s
-replicate_traffic 100% 7h</code></pre></figure>
+replicate_traffic 100% 7h
+</code></pre></div></div>
 
 <p>We’re using this script and not directly the gor command, to do a slow ramp-up of traffic to the application in Kubernetes.
 Otherwise, since the application is not stressed before traffic is replicated, replicating 100% of traffic all of a sudden would not be representative of real user behavior. It would led to unwanted alerts that would disappear in minutes with auto-scaling, but that would have rang anyway. So we chose to avoid that noise by doing a slow ramp-up to make traffic replication more real.</p>
@@ -661,8 +627,7 @@ Otherwise, since the application is not stressed before traffic is replicated, r
 <h3 id="haproxy-configuration">HAProxy configuration</h3>
 
 <p>To achieve a path-by-path migration of an application, we used this HAProxy configuration:</p>
-
-<figure class="highlight"><pre><code class="language-apache" data-lang="apache">frontend application-02
+<div class="language-apache highlighter-rouge"><div class="highlight"><pre class="highlight"><code>frontend application-02
     <span class="err">...</span>
     <span class="c"># Defined with a "map" style, from file /etc/haproxy/domain2backend.map</span>
     <span class="c"># CF https://blog.haproxy.com/2015/01/26/web-application-name-to-backend-mapping-in-haproxy/</span>
@@ -688,7 +653,8 @@ backend application-02-mixed-critical
     http-response add-header X-Backend-Server %s
     <span class="nc">option</span> httpchk GET /HealthCheck HTTP/1.1\r\nHost:\ application-02.6play.fr
     <span class="nc">server</span> onprem-prod-front-application-02 onprem-application-02.6play.fr:80 check resolvers m6dns weight 99
-    <span class="nc">server</span> aws-prod-Kubernetes-application-02 aQuiteLongURLCorrespondingToOurELBEndpoint.eu-west-3.elb.amazonaws.com:443 check <span class="ss">ssl</span> verify required sni req.hdr(host) check-sni application-02.6play.fr ca-file ca-certificates.crt resolvers m6dns inter 3s fall 1 rise 2 observe layer7 weight 1</code></pre></figure>
+    <span class="nc">server</span> aws-prod-Kubernetes-application-02 aQuiteLongURLCorrespondingToOurELBEndpoint.eu-west-3.elb.amazonaws.com:443 check <span class="ss">ssl</span> verify required sni req.hdr(host) check-sni application-02.6play.fr ca-file ca-certificates.crt resolvers m6dns inter 3s fall 1 rise 2 observe layer7 weight 1
+</code></pre></div></div>
 
 <p>And here’s the associated map file:</p>
 
@@ -751,44 +717,7 @@ GOReplay is a wonderful asset to help us in this task.</p>
 
 <p>If you found this useful and you’d like more production return of experiences like this one, please let us know. We plan to write more in the coming weeks.</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Migrating+production+applications+from+on-premise+to+the+cloud+with+no+downtime%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2019%2F03%2F11%2FMigrating-production-apps-from-on-premise-to-the-cloud-with-no-downtime.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2019/03/11/Migrating-production-apps-from-on-premise-to-the-cloud-with-no-downtime.html&title=Migrating+production+applications+from+on-premise+to+the+cloud+with+no+downtime%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2019/03/11/Migrating-production-apps-from-on-premise-to-the-cloud-with-no-downtime.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Migrating production applications from on-premise to the cloud with no downtime%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2019/03/11/Migrating-production-apps-from-on-premise-to-the-cloud-with-no-downtime.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -802,28 +731,12 @@ GOReplay is a wonderful asset to help us in this task.</p>
       
 
       
-        <li><a class="button" href="/tags/#AWS">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> AWS</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#Cloud">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Cloud</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#GOReplay">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> GOReplay</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#HAProxy">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> HAProxy</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#Kops">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Kops</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#Kubernetes">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Kubernetes</p>
+        <li><a class="button" href="/tags/#testing">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> testing</p>
         </a></li>
       
     </ul>
@@ -847,9 +760,9 @@ GOReplay is a wonderful asset to help us in this task.</p>
 
     
     <div id="next-post">
-        <a alt="7 conseils pour démarrer avec Spark" href="/2019/01/14/7-conseils-pour-demarrer-avec-spark.html">
+        <a alt="Le Plan Copenhague : notre migration vers Le Cloud, retour d’expérience" href="/2018/12/20/le-plan-copenhague.html">
             <p>Next post</p>
-            7 conseils pour démarrer avec Spark
+            Le Plan Copenhague : notre migration vers Le Cloud, retour d’expérience
         </a>
     </div>
     
@@ -857,24 +770,12 @@ GOReplay is a wonderful asset to help us in this task.</p>
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/migrating-production-apps-to-the-cloud/kaushik-panchal-37070-unsplash.jpg'); }

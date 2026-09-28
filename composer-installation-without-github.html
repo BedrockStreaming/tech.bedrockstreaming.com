@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Composer installation without github.com (nor packagist) dependency - like a boss !" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Blog technique de Bedrock","author":{"@type":"Person","name":"Olivier Mansour"},"dateModified":"2013-12-02T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/composer-installation-without-github","datePublished":"2013-12-02T00:00:00+00:00","headline":"Composer installation without github.com (nor packagist) dependency - like a boss !","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/composer-installation-without-github"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Blog technique de Bedrock","author":{"@type":"Person","name":"Olivier Mansour"},"headline":"Composer installation without github.com (nor packagist) dependency - like a boss !","dateModified":"2013-12-02T00:00:00+00:00","datePublished":"2013-12-02T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/composer-installation-without-github","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/composer-installation-without-github"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -399,6 +361,10 @@
     
     December 02, 2013
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -406,7 +372,6 @@
   </header>
 
   <section class="post-content">
-  
       <p><img src="/images/posts/composer-installation-without-github/github_down.png" alt="github is down ! ok carry on" /></p>
 
 <p>First a thought about <a href="https://github.com/">github</a>, <a href="https://getcomposer.org/doc/">composer</a>, <a href="https://www.packagist.org">packagist</a> : we like / adore / thanks the contributors, for those great services and all the open source people dropping great software on it.</p>
@@ -623,44 +588,7 @@ s3cmd sync ./dist s3://6cloud-satis/satis-private/
 
 <p>Found a typo or bad english langage, just propose a <a href="https://github.com/BedrockStreaming/tech.bedrockstreaming.com/blob/master/_posts/2013-12-02-composer-installation-without-github.md">pull request</a>.</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Composer+installation+without+github.com+%28nor+packagist%29+dependency+-+like+a+boss+%21%20https%3A%2F%2Ftech.bedrockstreaming.com%2Fcomposer-installation-without-github"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/composer-installation-without-github&title=Composer+installation+without+github.com+%28nor+packagist%29+dependency+-+like+a+boss+%21%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/composer-installation-without-github"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Composer installation without github.com (nor packagist) dependency - like a boss !%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/composer-installation-without-github"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -674,32 +602,12 @@ s3cmd sync ./dist s3://6cloud-satis/satis-private/
       
 
       
-        <li><a class="button" href="/tags/#aws">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> aws</p>
+        <li><a class="button" href="/tags/#backend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#cloud">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#composer">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> composer</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#github">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> github</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#packagist">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> packagist</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#s3">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> s3</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#satis">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> satis</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
     </ul>
@@ -733,24 +641,12 @@ s3cmd sync ./dist s3://6cloud-satis/satis-private/
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/composer-installation-without-github/cloud.jpg'); }

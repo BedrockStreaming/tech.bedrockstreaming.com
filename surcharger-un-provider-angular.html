@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Providers AngularJS et configuration dynamique" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Comment surcharger un provider AngularJS pour le rendre configurable dynamiquement.","author":{"@type":"Person","name":"Cytron team"},"dateModified":"2014-10-09T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/surcharger-un-provider-angular","datePublished":"2014-10-09T00:00:00+00:00","headline":"Providers AngularJS et configuration dynamique","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/surcharger-un-provider-angular"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Comment surcharger un provider AngularJS pour le rendre configurable dynamiquement.","author":{"@type":"Person","name":"Cytron team"},"headline":"Providers AngularJS et configuration dynamique","dateModified":"2014-10-09T00:00:00+00:00","datePublished":"2014-10-09T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/surcharger-un-provider-angular","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/surcharger-un-provider-angular"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -395,6 +357,10 @@
     
     October 09, 2014
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -402,7 +368,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>Nous avons eu besoin de surcharger un <a href="https://docs.angularjs.org/guide/providers">provider AngularJS</a> – <a href="https://github.com/revolunet/angular-google-analytics">AnalyticsProvider</a> – pour le rendre configurable dynamiquement en fonction d’un paramètre de la route. Le service <code class="language-plaintext highlighter-rouge">$route</code> n’étant pas disponible dans la phase de configuration d’AngularJS, il a fallu ruser…</p>
 
 <p>Le but est donc de changer la méthode <code class="language-plaintext highlighter-rouge">$get</code> de ce provider afin de lui ajouter notre dépendance et ainsi finir notre configuration.</p>
@@ -411,21 +376,23 @@
 
 <p>Nous allons donc mettre les mains dans l’<code class="language-plaintext highlighter-rouge">$injector</code> pour récupérer et modifier à la volée le provider :</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nf">module</span><span class="p">(</span><span class="dl">'</span><span class="s1">myModule</span><span class="dl">'</span><span class="p">)</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">angular</span><span class="p">.</span><span class="nf">module</span><span class="p">(</span><span class="dl">'</span><span class="s1">myModule</span><span class="dl">'</span><span class="p">)</span>
   <span class="p">.</span><span class="nf">config</span><span class="p">(</span><span class="nf">function </span><span class="p">(</span><span class="nx">$injector</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">AnalyticsProvider</span> <span class="o">=</span> <span class="nx">$injector</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">AnalyticsProvider</span><span class="dl">'</span><span class="p">);</span>
     <span class="kd">var</span> <span class="nx">$get</span>              <span class="o">=</span> <span class="nx">AnalyticsProvider</span><span class="p">.</span><span class="nx">$get</span><span class="p">;</span>
     <span class="c1">// ...</span>
-  <span class="p">});</span></code></pre></figure>
+  <span class="p">});</span>
+</code></pre></div></div>
 
 <p>Maintenant que nous avons le <code class="language-plaintext highlighter-rouge">$get</code>, il faut le modifier pour ajouter notre dépendance. Et c’est assez simple vu qu’il utilise l’annotation sous forme de tableau :</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// https://github.com/revolunet/angular-google-analytics/blob/e821407fe0436677cb42eafd5b338d767990b723/src/angular-google-analytics.js#L99</span>
-<span class="k">this</span><span class="p">.</span><span class="nx">$get</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">$document</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">$rootScope</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">$location</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">$window</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$document</span><span class="p">,</span> <span class="nx">$rootScope</span><span class="p">,</span> <span class="nx">$location</span><span class="p">,</span> <span class="nx">$window</span><span class="p">)</span> <span class="p">{</span></code></pre></figure>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// https://github.com/revolunet/angular-google-analytics/blob/e821407fe0436677cb42eafd5b338d767990b723/src/angular-google-analytics.js#L99</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">$get</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">$document</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">$rootScope</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">$location</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">$window</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$document</span><span class="p">,</span> <span class="nx">$rootScope</span><span class="p">,</span> <span class="nx">$location</span><span class="p">,</span> <span class="nx">$window</span><span class="p">)</span> <span class="p">{</span>
+</code></pre></div></div>
 
 <p>Nous devons modifier ce tableau en ajoutant nos dépendances et en remplaçant la fonction :</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// la fonction d'origine est le dernier élément du tableau</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// la fonction d'origine est le dernier élément du tableau</span>
 <span class="kd">var</span> <span class="nx">origFn</span> <span class="o">=</span> <span class="nx">$get</span><span class="p">[</span><span class="nx">$get</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
 <span class="c1">// on la remplace par notre dépendance</span>
 <span class="nx">$get</span><span class="p">[</span><span class="nx">$get</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">$route</span><span class="dl">'</span><span class="p">;</span>
@@ -437,50 +404,14 @@
     <span class="nx">AnalyticsProvider</span><span class="p">.</span><span class="nf">setAccount</span><span class="p">(</span><span class="nx">$route</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">partner</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">partner-account</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">own-account</span><span class="dl">'</span><span class="p">);</span>
     <span class="c1">// et qui rappelle la fonction originale</span>
     <span class="k">return</span> <span class="nx">origFn</span><span class="p">.</span><span class="nf">apply</span><span class="p">(</span><span class="nx">AnalyticsProvider</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>
-<span class="p">};</span></code></pre></figure>
+<span class="p">};</span>
+</code></pre></div></div>
 
 <p>On peut noter l’utilisation de l’objet <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments"><code class="language-plaintext highlighter-rouge">arguments</code></a> qui permet de rester générique et de garder la compatibilité en cas de changement des dépendances du module surchargé.</p>
 
 <p>Grâce à cette astuce, notre service <code class="language-plaintext highlighter-rouge">Analytics</code> est maintenant configuré dynamiquement selon nos souhaits avant son utilisation.</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Providers+AngularJS+et+configuration+dynamique%20https%3A%2F%2Ftech.bedrockstreaming.com%2Fsurcharger-un-provider-angular"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/surcharger-un-provider-angular&title=Providers+AngularJS+et+configuration+dynamique%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/surcharger-un-provider-angular"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Providers AngularJS et configuration dynamique%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/surcharger-un-provider-angular"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -494,16 +425,12 @@
       
 
       
-        <li><a class="button" href="/tags/#angular">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> angular</p>
+        <li><a class="button" href="/tags/#frontend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#configuration">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> configuration</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#cytron">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> cytron</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
     </ul>
@@ -537,24 +464,12 @@
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/cytron/providersangular.jpg'); }

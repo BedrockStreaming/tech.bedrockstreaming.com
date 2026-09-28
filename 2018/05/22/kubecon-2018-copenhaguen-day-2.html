@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="KubeCon 2018 Copenhagen, day 2" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Our notes for the conferences we saw during the second day of KubeCon 2018 in Copenhagen","author":{"@type":"Person","name":"Vincent Gallissot, Pascal Martin"},"dateModified":"2018-05-22T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2018/05/22/kubecon-2018-copenhaguen-day-2.html","datePublished":"2018-05-22T00:00:00+00:00","headline":"KubeCon 2018 Copenhagen, day 2","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2018/05/22/kubecon-2018-copenhaguen-day-2.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Our notes for the conferences we saw during the second day of KubeCon 2018 in Copenhagen","author":{"@type":"Person","name":"Vincent Gallissot, Pascal Martin"},"headline":"KubeCon 2018 Copenhagen, day 2","dateModified":"2018-05-22T00:00:00+00:00","datePublished":"2018-05-22T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2018/05/22/kubecon-2018-copenhaguen-day-2.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2018/05/22/kubecon-2018-copenhaguen-day-2.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -419,6 +381,10 @@
     
     May 22, 2018
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -426,7 +392,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>After an interesting <a href="/kubecon-2018-copenhaguen-day-1/">first day at KubeCon 2018</a>, we are back for the second day!</p>
 
 <h1 id="autoscale-your-kubernetes-workload-with-prometheus---frederic-branczyk-coreos">Autoscale your Kubernetes Workload with Prometheus - Frederic Branczyk, CoreOS</h1>
@@ -495,44 +460,7 @@ So far, I don’t really see the point of having a lot of clusters and even less
 
 <p><img src="/images/posts/kubecon-2018/tivoli-gardens-pascal-and-vincent.jpg" alt="Pascal and Vincent at Tivoli" /></p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=KubeCon+2018+Copenhagen%2C+day+2%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2018%2F05%2F22%2Fkubecon-2018-copenhaguen-day-2.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2018/05/22/kubecon-2018-copenhaguen-day-2.html&title=KubeCon+2018+Copenhagen%2C+day+2%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2018/05/22/kubecon-2018-copenhaguen-day-2.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=KubeCon 2018 Copenhagen, day 2%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2018/05/22/kubecon-2018-copenhaguen-day-2.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -542,16 +470,12 @@ So far, I don’t really see the point of having a lot of clusters and even less
   <div class="tag-list">
     <ul>
       
-        <li class="meta">Tags</li>
+        <li class="meta">Tag</li>
       
 
       
-        <li><a class="button" href="/tags/#KubeCon">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> KubeCon</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#kubernetes">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> kubernetes</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
     </ul>
@@ -585,24 +509,12 @@ So far, I don’t really see the point of having a lot of clusters and even less
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/kubecon-2018/title-kubecon.jpg'); }

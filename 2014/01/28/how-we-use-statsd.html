@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="How we use StatsD" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"How we use statsd to monitor our applications","author":{"@type":"Person","name":"Olivier Mansour"},"dateModified":"2014-01-28T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2014/01/28/how-we-use-statsd.html","datePublished":"2014-01-28T00:00:00+00:00","headline":"How we use StatsD","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2014/01/28/how-we-use-statsd.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"How we use statsd to monitor our applications","author":{"@type":"Person","name":"Olivier Mansour"},"headline":"How we use StatsD","dateModified":"2014-01-28T00:00:00+00:00","datePublished":"2014-01-28T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2014/01/28/how-we-use-statsd.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2014/01/28/how-we-use-statsd.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -399,6 +361,10 @@
     
     January 28, 2014
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -406,7 +372,6 @@
   </header>
 
   <section class="post-content">
-  
       <h1 id="what-we-want">What we want</h1>
 
 <p>As developers, we (M6Web) want to keep our eyes open on what is going on in production.</p>
@@ -433,7 +398,7 @@
 
 <p>The usage is pretty straightforward :</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="c1">// client creation</span>
 <span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Statsd\Client</span><span class="p">(</span>
                     <span class="k">array</span><span class="p">(</span>
@@ -443,7 +408,8 @@
                 <span class="p">);</span>
 <span class="c1">// usage</span>
 <span class="nv">$client</span><span class="o">-&gt;</span><span class="nf">increment</span><span class="p">(</span><span class="s1">'a.graphite.node'</span><span class="p">);</span>
-<span class="nv">$client</span><span class="o">-&gt;</span><span class="nf">timing</span><span class="p">(</span><span class="s1">'another.graphite.node'</span><span class="p">,</span> <span class="p">(</span><span class="n">float</span><span class="p">)</span> <span class="nv">$timing</span><span class="p">);</span></code></pre></figure>
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="nf">timing</span><span class="p">(</span><span class="s1">'another.graphite.node'</span><span class="p">,</span> <span class="p">(</span><span class="n">float</span><span class="p">)</span> <span class="nv">$timing</span><span class="p">);</span>
+</code></pre></div></div>
 
 <h2 id="from-symfony2">From Symfony2</h2>
 
@@ -459,7 +425,7 @@ It provides these features:</p>
 
 <p>For example, in conjunction with the <a href="https://github.com/BedrockStreaming/HttpKernelBundle">M6Web\HttpKernelBundle</a>, just dropping this in <code class="language-plaintext highlighter-rouge">config.yml</code> is enough:</p>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">m6_statsd</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">m6_statsd</span><span class="pi">:</span>
     <span class="na">clients</span><span class="pi">:</span>
         <span class="na">default</span><span class="pi">:</span>
             <span class="na">servers</span><span class="pi">:</span> <span class="pi">[</span><span class="s1">'</span><span class="s">all'</span><span class="pi">]</span>
@@ -469,7 +435,8 @@ It provides these features:</p>
                 <span class="na">timing</span><span class="pi">:</span>        <span class="s">request.yourapp.&lt;status_code&gt;.&lt;route_name&gt;</span>
                 <span class="na">custom_timing</span><span class="pi">:</span> <span class="pi">{</span> <span class="nv">node</span><span class="pi">:</span> <span class="nv">memory.yourapp.&lt;status_code&gt;.&lt;route_name&gt;</span><span class="pi">,</span> <span class="nv">method</span><span class="pi">:</span> <span class="nv">getMemory</span> <span class="pi">}</span>
               <span class="na">m6kernel.exception</span><span class="pi">:</span>
-                <span class="na">increment</span><span class="pi">:</span> <span class="s">errors.&lt;status_code&gt;.yourapp</span></code></pre></figure>
+                <span class="na">increment</span><span class="pi">:</span> <span class="s">errors.&lt;status_code&gt;.yourapp</span>
+</code></pre></div></div>
 
 <p><img src="/images/posts/statsd/php_metrics.jpg" alt="example of simple PHP dashboard" /></p>
 
@@ -501,44 +468,7 @@ It provides these features:</p>
 
 <p>Found a typo or bad english langage, just propose a <a href="https://github.com/BedrockStreaming/tech.bedrockstreaming.com/blob/master/_posts/2014-01-28-how-we-use-statsd.md">pull request</a>.</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=How+we+use+StatsD%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2014%2F01%2F28%2Fhow-we-use-statsd.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2014/01/28/how-we-use-statsd.html&title=How+we+use+StatsD%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2014/01/28/how-we-use-statsd.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=How we use StatsD%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2014/01/28/how-we-use-statsd.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -552,24 +482,12 @@ It provides these features:</p>
       
 
       
-        <li><a class="button" href="/tags/#graphite">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> graphite</p>
+        <li><a class="button" href="/tags/#backend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#monitoring">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> monitoring</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#nodejs">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> nodejs</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#php">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> php</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#statsd">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> statsd</p>
+        <li><a class="button" href="/tags/#observability">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> observability</p>
         </a></li>
       
     </ul>
@@ -603,24 +521,12 @@ It provides these features:</p>
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
 </style>

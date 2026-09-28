@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Bonnes pratiques pour la maintenance d’une application web" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Comment ne pas jeter son projet au bout de 2 ans ? Retour d’expérience basé sur les bonnes pratiques appliquées à la plateforme web développée chez Bedrock Streaming.","author":{"@type":"Person","name":"Antoine Caron"},"dateModified":"2021-09-01T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2021/09/01/bonnes-pratiques-web.html","datePublished":"2021-09-01T00:00:00+00:00","headline":"Bonnes pratiques pour la maintenance d’une application web","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2021/09/01/bonnes-pratiques-web.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Comment ne pas jeter son projet au bout de 2 ans ? Retour d’expérience basé sur les bonnes pratiques appliquées à la plateforme web développée chez Bedrock Streaming.","author":{"@type":"Person","name":"Antoine Caron"},"headline":"Bonnes pratiques pour la maintenance d’une application web","dateModified":"2021-09-01T00:00:00+00:00","datePublished":"2021-09-01T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2021/09/01/bonnes-pratiques-web.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2021/09/01/bonnes-pratiques-web.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -399,6 +361,10 @@
     
     September 01, 2021
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -406,7 +372,6 @@
   </header>
 
   <section class="post-content">
-  
       <blockquote>
   <p>Comment ne pas jeter son application tous les deux ans ?</p>
 </blockquote>
@@ -886,44 +851,7 @@ Je suis cependant convaincu qu’elles peuvent probablement vous aider à identi
 <p>Enfin, si vous souhaitez que je revienne plus en détail sur certains chapitres présentés ici, n’hésitez pas à me le dire, je pourrais essayer d’y dédier un article spécifique.</p>
 
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Bonnes+pratiques+pour+la+maintenance+d%27une+application+web%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2021%2F09%2F01%2Fbonnes-pratiques-web.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2021/09/01/bonnes-pratiques-web.html&title=Bonnes+pratiques+pour+la+maintenance+d%27une+application+web%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2021/09/01/bonnes-pratiques-web.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Bonnes pratiques pour la maintenance d'une application web%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2021/09/01/bonnes-pratiques-web.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -933,24 +861,12 @@ Je suis cependant convaincu qu’elles peuvent probablement vous aider à identi
   <div class="tag-list">
     <ul>
       
-        <li class="meta">Tags</li>
+        <li class="meta">Tag</li>
       
 
       
         <li><a class="button" href="/tags/#frontend">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#js">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> js</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#react">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> react</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#web">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> web</p>
         </a></li>
       
     </ul>
@@ -984,24 +900,12 @@ Je suis cependant convaincu qu’elles peuvent probablement vous aider à identi
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/bonnes-pratiques-web/bedrock.jpg'); }

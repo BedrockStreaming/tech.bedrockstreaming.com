@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Handling dependencies failures in an API gateway" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"How are we handling downtime from the API we are calling, and what can we do about it?","author":{"@type":"Person","name":"Valentin Claras"},"dateModified":"2022-08-12T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html","datePublished":"2022-08-12T00:00:00+00:00","headline":"Handling dependencies failures in an API gateway","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"How are we handling downtime from the API we are calling, and what can we do about it?","author":{"@type":"Person","name":"Valentin Claras"},"headline":"Handling dependencies failures in an API gateway","dateModified":"2022-08-12T00:00:00+00:00","datePublished":"2022-08-12T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -371,7 +333,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -395,6 +357,10 @@
     
     August 12, 2022
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -402,7 +368,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>Welcome to our second article about the backend architecture and its api gateway.
 In <a href="/2022/06/10/backend-bff-intro.html">the first part</a>, we talked about the BFF and all services it depends on.
 Today we’re going to take a look at what to do when one of them (or many), fails to respond.</p>
@@ -565,44 +530,7 @@ Those values are chosen according to our platform usages where peak visitor last
   <li>🇫🇷 <a href="/2022/06/13/kubecon-2022-part-1.html">Bedrock à la kubecon 2022 (4 articles)</a></li>
 </ul>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Handling+dependencies+failures+in+an+API+gateway%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F08%2F12%2Fbackend-fallbacks.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html&title=Handling+dependencies+failures+in+an+API+gateway%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Handling dependencies failures in an API gateway%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -616,28 +544,12 @@ Those values are chosen according to our platform usages where peak visitor last
       
 
       
-        <li><a class="button" href="/tags/#api">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> api</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#api-gateway">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> api-gateway</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#back-for-front">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> back-for-front</p>
+        <li><a class="button" href="/tags/#architecture">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> architecture</p>
         </a></li>
       
         <li><a class="button" href="/tags/#backend">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#php">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> php</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#resiliency">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> resiliency</p>
         </a></li>
       
     </ul>
@@ -671,42 +583,12 @@ Those values are chosen according to our platform usages where peak visitor last
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(255,128,0) !important; }
-  .share-buttons a { color: rgb(255,128,0) !important; }
-  .tag-list a:not(:hover) { color: rgb(255,128,0) !important; }
-  div#post-nav a { color: rgb(255,128,0) !important; }
-  footer a { color: rgb(255,128,0) !important; }
-  .site-header nav a:hover {  color: rgb(255,128,0) !important; }
-  a.button:hover {
-    background: rgb(255,128,0) !important;
-    border: 1px solid rgb(255,128,0) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(255,128,0) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Tonight’s football time, let’s prescale Kubernetes to avoid a crash!" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Are you experiencing peak loads on your Kubernetes-hosted platform? At Bedrock, we have developed a prescaling solution. It allows us to handle sudden and abrupt, but predictable, traffic spikes.","author":{"@type":"Person","name":"Timothée Aufort"},"dateModified":"2022-02-03T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/02/03/prescaling.html","datePublished":"2022-02-03T00:00:00+00:00","headline":"Tonight’s football time, let’s prescale Kubernetes to avoid a crash!","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/02/03/prescaling.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Are you experiencing peak loads on your Kubernetes-hosted platform? At Bedrock, we have developed a prescaling solution. It allows us to handle sudden and abrupt, but predictable, traffic spikes.","author":{"@type":"Person","name":"Timothée Aufort"},"headline":"Tonight’s football time, let’s prescale Kubernetes to avoid a crash!","dateModified":"2022-02-03T00:00:00+00:00","datePublished":"2022-02-03T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/02/03/prescaling.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/02/03/prescaling.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -397,6 +359,10 @@
     
     February 03, 2022
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -404,7 +370,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>Are you experiencing peak loads on your Kubernetes-hosted platform? Rest assured, you are not alone.
 At Bedrock, we have developed a prescaling solution. It allows us to handle sudden and abrupt, but predictable, 
 traffic spikes, like soccer games.</p>
@@ -817,44 +782,7 @@ but not all of them. And still, even those autoscaling services have limits…</
 
 <p><em>Very special thanks to all my Bedrock Streaming colleagues who helped me improve this blog post.</em></p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Tonight%27s+football+time%2C+let%27s+prescale+Kubernetes+to+avoid+a+crash%21%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F02%2F03%2Fprescaling.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/02/03/prescaling.html&title=Tonight%27s+football+time%2C+let%27s+prescale+Kubernetes+to+avoid+a+crash%21%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/02/03/prescaling.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Tonight's football time, let's prescale Kubernetes to avoid a crash!%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/02/03/prescaling.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -868,24 +796,12 @@ but not all of them. And still, even those autoscaling services have limits…</
       
 
       
-        <li><a class="button" href="/tags/#aws">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> aws</p>
+        <li><a class="button" href="/tags/#performance">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> performance</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#cloud">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#high+availability">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> high availability</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#kubernetes">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> kubernetes</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#scaling">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> scaling</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
     </ul>
@@ -919,24 +835,12 @@ but not all of them. And still, even those autoscaling services have limits…</
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/2022-02-03-prescaling/davide_ragusa_unsplash.jpg'); }

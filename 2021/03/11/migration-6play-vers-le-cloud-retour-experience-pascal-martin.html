@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -79,7 +71,7 @@
 <meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="Migration de 6play vers Le Cloud, retour d’expérience." />
 <meta name="author" content="Pascal Martin" />
-<meta property="og:locale" content="fr" />
+<meta property="og:locale" content="en_US" />
 <meta name="description" content="En 2018, nous avons entamé la migration de la plateforme 6play vers Le Cloud. À présent, nous pilotons notre infrastructure AWS avec Terraform, utilisons des services managés et déployons nos applications sous Kubernetes." />
 <meta property="og:description" content="En 2018, nous avons entamé la migration de la plateforme 6play vers Le Cloud. À présent, nous pilotons notre infrastructure AWS avec Terraform, utilisons des services managés et déployons nos applications sous Kubernetes." />
 <link rel="canonical" href="https://tech.bedrockstreaming.com/2021/03/11/migration-6play-vers-le-cloud-retour-experience-pascal-martin.html" />
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Migration de 6play vers Le Cloud, retour d’expérience." />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"En 2018, nous avons entamé la migration de la plateforme 6play vers Le Cloud. À présent, nous pilotons notre infrastructure AWS avec Terraform, utilisons des services managés et déployons nos applications sous Kubernetes.","author":{"@type":"Person","name":"Pascal Martin"},"dateModified":"2021-03-11T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2021/03/11/migration-6play-vers-le-cloud-retour-experience-pascal-martin.html","datePublished":"2021-03-11T00:00:00+00:00","headline":"Migration de 6play vers Le Cloud, retour d’expérience.","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2021/03/11/migration-6play-vers-le-cloud-retour-experience-pascal-martin.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"En 2018, nous avons entamé la migration de la plateforme 6play vers Le Cloud. À présent, nous pilotons notre infrastructure AWS avec Terraform, utilisons des services managés et déployons nos applications sous Kubernetes.","author":{"@type":"Person","name":"Pascal Martin"},"headline":"Migration de 6play vers Le Cloud, retour d’expérience.","dateModified":"2021-03-11T00:00:00+00:00","datePublished":"2021-03-11T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2021/03/11/migration-6play-vers-le-cloud-retour-experience-pascal-martin.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2021/03/11/migration-6play-vers-le-cloud-retour-experience-pascal-martin.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -371,7 +333,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -397,6 +359,10 @@
     
     March 11, 2021
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -404,14 +370,12 @@
   </header>
 
   <section class="post-content">
-    
         <p>En 2018, nous avons entamé la migration de la plateforme 6play vers Le Cloud.<br />
 À présent, nous pilotons notre infrastructure AWS avec Terraform, utilisons des services managés et déployons nos applications sous Kubernetes.</p>
 
 <p>Pendant cette conférence, vous découvrirez comment nous avons réalisé cette migration. Vous trouverez des réponses aux questions que vous vous posez si vous envisagez de revoir votre hébergement.<br />
 Comment avons-nous transformé notre infrastructure ? Quels impacts sur nos projets ? Comment nous sommes-nous organisés ? Quels choix avons-nous effectués tout au long du processus ? Qu’avons-nous appris, qu’avons-nous fait évoluer ? Comment nos équipes se répartissent-elles les tâches ? Avons-nous dû adapter nos applications PHP ? Quelles difficultés avons-nous rencontrées ?</p>
- 
-      
+
 
     
     <p>
@@ -438,42 +402,6 @@ Comment avons-nous transformé notre infrastructure ? Quels impacts sur nos pro
     
   </section>
 
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Migration+de+6play+vers+Le+Cloud%2C+retour+d%E2%80%99exp%C3%A9rience.%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2021%2F03%2F11%2Fmigration-6play-vers-le-cloud-retour-experience-pascal-martin.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2021/03/11/migration-6play-vers-le-cloud-retour-experience-pascal-martin.html&title=Migration+de+6play+vers+Le+Cloud%2C+retour+d%E2%80%99exp%C3%A9rience.%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2021/03/11/migration-6play-vers-le-cloud-retour-experience-pascal-martin.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Migration de 6play vers Le Cloud, retour d’expérience.%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2021/03/11/migration-6play-vers-le-cloud-retour-experience-pascal-martin.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
-
    <!-- Tag list -->
   
   
@@ -482,24 +410,12 @@ Comment avons-nous transformé notre infrastructure ? Quels impacts sur nos pro
   <div class="tag-list">
     <ul>
       
-        <li class="meta">Tags</li>
+        <li class="meta">Tag</li>
       
 
       
-        <li><a class="button" href="/tags/#cloud">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#cloudsud">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloudsud</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#conference">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#migration">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> migration</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
     </ul>
@@ -523,9 +439,9 @@ Comment avons-nous transformé notre infrastructure ? Quels impacts sur nos pro
 
     
     <div id="next-post">
-        <a alt="Bedrock Dev Facts #13" href="/2021/03/02/bedrock-dev-facts-13.html">
+        <a alt="Machine Learning en production" href="/2021/01/21/machine-learning-en-production.html">
             <p>Next post</p>
-            Bedrock Dev Facts #13
+            Machine Learning en production
         </a>
     </div>
     
@@ -533,42 +449,12 @@ Comment avons-nous transformé notre infrastructure ? Quels impacts sur nos pro
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(251,87,66) !important; }
-  .share-buttons a { color: rgb(251,87,66) !important; }
-  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
-  div#post-nav a { color: rgb(251,87,66) !important; }
-  footer a { color: rgb(251,87,66) !important; }
-  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
-  a.button:hover {
-    background: rgb(251,87,66) !important;
-    border: 1px solid rgb(251,87,66) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(251,87,66) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

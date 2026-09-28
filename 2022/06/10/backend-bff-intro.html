@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Bedrock’s backend architecture and its front API Gateway" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"What is a BFF, and how does it simplify the development of frontend applications?","author":{"@type":"Person","name":"Valentin Claras"},"dateModified":"2022-06-10T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/06/10/backend-bff-intro.html","datePublished":"2022-06-10T00:00:00+00:00","headline":"Bedrock’s backend architecture and its front API Gateway","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/06/10/backend-bff-intro.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"What is a BFF, and how does it simplify the development of frontend applications?","author":{"@type":"Person","name":"Valentin Claras"},"headline":"Bedrock’s backend architecture and its front API Gateway","dateModified":"2022-06-10T00:00:00+00:00","datePublished":"2022-06-10T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/06/10/backend-bff-intro.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/06/10/backend-bff-intro.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -371,7 +333,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -395,6 +357,10 @@
     
     June 10, 2022
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -402,7 +368,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>What is a BFF, and how does it simplify the development of frontend applications?</p>
 
 <h2 id="introduction">Introduction</h2>
@@ -546,44 +511,7 @@ We’ve been using this model for more than 3 years now. It has undergone some m
   <li>🇫🇷 <a href="/2022/05/30/afup-day-lille-2022.html">Retour sur l’AFUP Day Lille 2022</a></li>
 </ul>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Bedrock%27s+backend+architecture+and+its+front+API+Gateway%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F06%2F10%2Fbackend-bff-intro.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/06/10/backend-bff-intro.html&title=Bedrock%27s+backend+architecture+and+its+front+API+Gateway%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/06/10/backend-bff-intro.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Bedrock's backend architecture and its front API Gateway%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/06/10/backend-bff-intro.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -593,28 +521,12 @@ We’ve been using this model for more than 3 years now. It has undergone some m
   <div class="tag-list">
     <ul>
       
-        <li class="meta">Tags</li>
+        <li class="meta">Tag</li>
       
 
       
-        <li><a class="button" href="/tags/#api">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> api</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#api-gateway">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> api-gateway</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#back-for-front">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> back-for-front</p>
-        </a></li>
-      
         <li><a class="button" href="/tags/#backend">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#php">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> php</p>
         </a></li>
       
     </ul>
@@ -638,9 +550,9 @@ We’ve been using this model for more than 3 years now. It has undergone some m
 
     
     <div id="next-post">
-        <a alt="Migration progressive vers Redux Toolkit" href="/2022/06/08/migration-progressive-vers-redux-toolkit.html">
+        <a alt="Announcing BedrockStreaming/pr-size-labeler github action 🎉" href="/2022/05/31/github-action-pr-size-labeler.html">
             <p>Next post</p>
-            Migration progressive vers Redux Toolkit
+            Announcing BedrockStreaming/pr-size-labeler github action 🎉
         </a>
     </div>
     
@@ -648,42 +560,12 @@ We’ve been using this model for more than 3 years now. It has undergone some m
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(255,128,0) !important; }
-  .share-buttons a { color: rgb(255,128,0) !important; }
-  .tag-list a:not(:hover) { color: rgb(255,128,0) !important; }
-  div#post-nav a { color: rgb(255,128,0) !important; }
-  footer a { color: rgb(255,128,0) !important; }
-  .site-header nav a:hover {  color: rgb(255,128,0) !important; }
-  a.button:hover {
-    background: rgb(255,128,0) !important;
-    border: 1px solid rgb(255,128,0) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(255,128,0) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Last night isomorphic JS saved our life!" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"How we use isomorphism to ensure a high availability of our app.","author":{"@type":"Person","name":"Florent Dubost"},"dateModified":"2017-05-17T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2017/05/17/spa-mode-isomorphism-js.html","datePublished":"2017-05-17T00:00:00+00:00","headline":"Last night isomorphic JS saved our life!","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2017/05/17/spa-mode-isomorphism-js.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"How we use isomorphism to ensure a high availability of our app.","author":{"@type":"Person","name":"Florent Dubost"},"headline":"Last night isomorphic JS saved our life!","dateModified":"2017-05-17T00:00:00+00:00","datePublished":"2017-05-17T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2017/05/17/spa-mode-isomorphism-js.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2017/05/17/spa-mode-isomorphism-js.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -399,6 +361,10 @@
     
     May 17, 2017
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -406,7 +372,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>For more than a year and a half, we use <a href="https://nodejs.org/en/">Node.js</a> and <a href="https://facebook.github.io/react/">React</a> together to make the best app possible for our users. These 2 technologies are complementary to write only once code executed on the server and the client side: that’s the isomorphic way! This approach helped us to develop a reliable app with <a href="/isomorphic-single-page-app-parfaite-react-flux/">a fast first render and SEO friendly</a>.</p>
 
 <h2 id="ssr-caching">SSR caching</h2>
@@ -433,44 +398,7 @@
 
 <p>You certainly know how difficult it is to find the code responsible for a memory leak in Node.js. It is often not a matter of hours but of days or weeks. With our SPA mode, we could debug our code with serenity. When the Node servers were down, the SPA mode took the reins. Then we simply restart the server to restore the nominal state when we were alerted (sometimes immediately, sometimes several hours after because it happened in the night). This situation went on some weeks. And we finally fixed the memory leak. No user has been affected. For us, this SPA mode is a significant safety for the high availability of our app.</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Last+night+isomorphic+JS+saved+our+life%21%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2017%2F05%2F17%2Fspa-mode-isomorphism-js.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2017/05/17/spa-mode-isomorphism-js.html&title=Last+night+isomorphic+JS+saved+our+life%21%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2017/05/17/spa-mode-isomorphism-js.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Last night isomorphic JS saved our life!%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2017/05/17/spa-mode-isomorphism-js.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -484,28 +412,16 @@
       
 
       
-        <li><a class="button" href="/tags/#SPA">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> SPA</p>
+        <li><a class="button" href="/tags/#backend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#SSR">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> SSR</p>
+        <li><a class="button" href="/tags/#frontend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#high+availability">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> high availability</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#isomorphic">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> isomorphic</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#javascript">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#node.js">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> node.js</p>
+        <li><a class="button" href="/tags/#performance">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> performance</p>
         </a></li>
       
     </ul>
@@ -539,24 +455,12 @@
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/spamode/spamode.jpg'); }

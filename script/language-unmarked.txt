@@ -1,0 +1,1 @@
+# Files allowed to omit language. Empty now that every Article and Talk is marked.

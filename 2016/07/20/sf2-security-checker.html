@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Use the Sensiolabs Security Checker to check potential vulnerabilities on Symfony projects" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Use the Sensiolabs Security Checker to check potential vulnerabilities on Symfony projects","author":{"@type":"Person","name":"TechM6Web"},"dateModified":"2016-07-20T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2016/07/20/sf2-security-checker.html","datePublished":"2016-07-20T00:00:00+00:00","headline":"Use the Sensiolabs Security Checker to check potential vulnerabilities on Symfony projects","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2016/07/20/sf2-security-checker.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Use the Sensiolabs Security Checker to check potential vulnerabilities on Symfony projects","author":{"@type":"Person","name":"TechM6Web"},"headline":"Use the Sensiolabs Security Checker to check potential vulnerabilities on Symfony projects","dateModified":"2016-07-20T00:00:00+00:00","datePublished":"2016-07-20T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2016/07/20/sf2-security-checker.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2016/07/20/sf2-security-checker.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -419,6 +381,10 @@
     
     July 20, 2016
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -426,7 +392,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>Numerous vulnerabilities are detected every day. That’s a good thing and a key benefit of using open source products. At m6web we don’t want to be exposed to known vulnerabilities, so we use a service provided by Sensiolabs in our continuous integration tool (<a href="https://jenkins.io/">Jenkins</a>) to check it.</p>
 
 <p>Just add those lines in your ant build file (and adapt basedir) :</p>
@@ -453,44 +418,7 @@
 
 <p>You can contribute to the <a href="https://github.com/FriendsOfPHP/security-advisories">vulnerabilities database</a> and the <a href="https://github.com/sensiolabs/security-checker">checker</a> via Github.com.</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Use+the+Sensiolabs+Security+Checker+to+check+potential+vulnerabilities+on+Symfony+projects%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2016%2F07%2F20%2Fsf2-security-checker.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2016/07/20/sf2-security-checker.html&title=Use+the+Sensiolabs+Security+Checker+to+check+potential+vulnerabilities+on+Symfony+projects%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2016/07/20/sf2-security-checker.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Use the Sensiolabs Security Checker to check potential vulnerabilities on Symfony projects%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2016/07/20/sf2-security-checker.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -504,28 +432,16 @@
       
 
       
-        <li><a class="button" href="/tags/#6tech">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> 6tech</p>
+        <li><a class="button" href="/tags/#backend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#jenkins">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> jenkins</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#lyon">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> lyon</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#php">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> php</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
         <li><a class="button" href="/tags/#security">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> security</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#symfony">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> symfony</p>
         </a></li>
       
     </ul>
@@ -559,24 +475,12 @@
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
 </style>

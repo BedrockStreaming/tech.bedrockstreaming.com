@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -89,7 +81,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Using Fastly’s Compute at-edge to personalize static pre-generated pages" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"How we used Fastly’s Compute at-edge and KVStore to personalize static pre-generated pages, during UEFA Euro 2024.","dateModified":"2024-11-07T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2024/11/07/compute-at-edge-personalize-static-pages.html","datePublished":"2024-11-07T00:00:00+00:00","headline":"Using Fastly’s Compute at-edge to personalize static pre-generated pages","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2024/11/07/compute-at-edge-personalize-static-pages.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"How we used Fastly’s Compute at-edge and KVStore to personalize static pre-generated pages, during UEFA Euro 2024.","headline":"Using Fastly’s Compute at-edge to personalize static pre-generated pages","dateModified":"2024-11-07T00:00:00+00:00","datePublished":"2024-11-07T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2024/11/07/compute-at-edge-personalize-static-pages.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2024/11/07/compute-at-edge-personalize-static-pages.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -198,41 +190,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -370,7 +332,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -396,6 +358,10 @@
     
     November 07, 2024
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -403,7 +369,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>During the <a href="https://www.uefa.com/euro2024/">UEFA Euro</a> football cup in June and July 2024, M6 broadcasted several matches. Of course, this competition was available, live, on <a href="https://www.6play.fr/">M6+</a>. For every user joining right from the first second and or for all users hearing their neighbors shouting and wanting to re-watch the action, starting a live video stream had to work!</p>
 
 <p>When you use one of the platforms we manage, your goal is to start a video stream. You land on the homepage of a platform like M6+ or <a href="https://www.videoland.com/">Videoland</a>, browse the catalog, register or login and, ultimately, you’ll start a video. It’s the one thing that causes the most frustration if it fails. And we don’t want that. We want users to enjoy their experience.</p>
@@ -677,44 +642,7 @@ flowchart LR
   <li>And, for the <code class="language-plaintext highlighter-rouge">/live/</code> route, implement a few use-cases that were not required for this competition, in order to use Fastly Compute for this route all the time!</li>
 </ul>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Using+Fastly%27s+Compute+at-edge+to+personalize+static+pre-generated+pages%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2024%2F11%2F07%2Fcompute-at-edge-personalize-static-pages.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2024/11/07/compute-at-edge-personalize-static-pages.html&title=Using+Fastly%27s+Compute+at-edge+to+personalize+static+pre-generated+pages%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2024/11/07/compute-at-edge-personalize-static-pages.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Using Fastly's Compute at-edge to personalize static pre-generated pages%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2024/11/07/compute-at-edge-personalize-static-pages.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -728,24 +656,12 @@ flowchart LR
       
 
       
-        <li><a class="button" href="/tags/#2024">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> 2024</p>
+        <li><a class="button" href="/tags/#performance">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> performance</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#cloud">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#devops">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> devops</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#edge">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> edge</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#fastly">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> fastly</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
     </ul>
@@ -779,42 +695,12 @@ flowchart LR
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(251,87,66) !important; }
-  .share-buttons a { color: rgb(251,87,66) !important; }
-  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
-  div#post-nav a { color: rgb(251,87,66) !important; }
-  footer a { color: rgb(251,87,66) !important; }
-  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
-  a.button:hover {
-    background: rgb(251,87,66) !important;
-    border: 1px solid rgb(251,87,66) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(251,87,66) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

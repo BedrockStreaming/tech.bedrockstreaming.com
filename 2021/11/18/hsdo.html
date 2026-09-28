@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="More efficient Load Balancing and Caching at AWS, using Consistent Hashing and HAProxy" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Why and how, we implement consistent hashing based load balancing at AWS with HSDO","author":{"@type":"Person","name":"Tanguy Falconnet"},"dateModified":"2021-11-18T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2021/11/18/hsdo.html","datePublished":"2021-11-18T00:00:00+00:00","headline":"More efficient Load Balancing and Caching at AWS, using Consistent Hashing and HAProxy","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2021/11/18/hsdo.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Why and how, we implement consistent hashing based load balancing at AWS with HSDO","author":{"@type":"Person","name":"Tanguy Falconnet"},"headline":"More efficient Load Balancing and Caching at AWS, using Consistent Hashing and HAProxy","dateModified":"2021-11-18T00:00:00+00:00","datePublished":"2021-11-18T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2021/11/18/hsdo.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2021/11/18/hsdo.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -399,6 +361,10 @@
     
     November 18, 2021
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -406,7 +372,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>AWS ALB &amp; NLB currently supports Round-Robin (RR) and Least Outstanding Requests (LOR) balancing algorithms. But what happens when you try to load balance cache servers with these algorithms? How to implement an effective cache in Cloud at scale?</p>
 
 <h1 id="context">Context</h1>
@@ -560,44 +525,7 @@ This list is stored in DynamoDB.</p>
 
 <p>Special thanks to all Ops team members in BedRock Streaming for re-re-re-and-rereading this blog post.</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=More+efficient+Load+Balancing+and+Caching+at+AWS%2C+using+Consistent+Hashing+and+HAProxy%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2021%2F11%2F18%2Fhsdo.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2021/11/18/hsdo.html&title=More+efficient+Load+Balancing+and+Caching+at+AWS%2C+using+Consistent+Hashing+and+HAProxy%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2021/11/18/hsdo.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=More efficient Load Balancing and Caching at AWS, using Consistent Hashing and HAProxy%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2021/11/18/hsdo.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -611,28 +539,16 @@ This list is stored in DynamoDB.</p>
       
 
       
-        <li><a class="button" href="/tags/#HAProxy">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> HAProxy</p>
+        <li><a class="button" href="/tags/#open-source">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> open-source</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#aws">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> aws</p>
+        <li><a class="button" href="/tags/#performance">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> performance</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#cloud">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#high+availability">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> high availability</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#opensource">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> opensource</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#sysadmin">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> sysadmin</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
         <li><a class="button" href="/tags/#video">
@@ -670,24 +586,12 @@ This list is stored in DynamoDB.</p>
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
 </style>

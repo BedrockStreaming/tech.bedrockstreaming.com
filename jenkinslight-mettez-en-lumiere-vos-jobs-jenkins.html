@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="JenkinsLight, mettez en lumière vos jobs Jenkins" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"L’idée de JenkinsLight a germé lorsque nous nous sommes fait taper sur les doigts pour la troisième fois (à juste titre) parce que l’on avait désactivé la publicité sur nos sites de chaîne lors d’une mise en production. Or la publicité est un point critique car directement reliée au chiffre d’affaires. Le pire est que nous testions déjà le bon fonctionnement de la publicité en intégration continue sur nos serveurs de preprod, avant la mise en production. Mais une configuration légèrement différente sur les serveurs de prod rendait le nouveau code instable. Cette situation rend donc impossible la détection de certaines anomalies avant la mise en production…","author":{"@type":"Person","name":"Cytron team"},"dateModified":"2013-11-20T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/jenkinslight-mettez-en-lumiere-vos-jobs-jenkins","datePublished":"2013-11-20T00:00:00+00:00","headline":"JenkinsLight, mettez en lumière vos jobs Jenkins","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/jenkinslight-mettez-en-lumiere-vos-jobs-jenkins"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"L’idée de JenkinsLight a germé lorsque nous nous sommes fait taper sur les doigts pour la troisième fois (à juste titre) parce que l’on avait désactivé la publicité sur nos sites de chaîne lors d’une mise en production. Or la publicité est un point critique car directement reliée au chiffre d’affaires. Le pire est que nous testions déjà le bon fonctionnement de la publicité en intégration continue sur nos serveurs de preprod, avant la mise en production. Mais une configuration légèrement différente sur les serveurs de prod rendait le nouveau code instable. Cette situation rend donc impossible la détection de certaines anomalies avant la mise en production…","author":{"@type":"Person","name":"Cytron team"},"headline":"JenkinsLight, mettez en lumière vos jobs Jenkins","dateModified":"2013-11-20T00:00:00+00:00","datePublished":"2013-11-20T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/jenkinslight-mettez-en-lumiere-vos-jobs-jenkins","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/jenkinslight-mettez-en-lumiere-vos-jobs-jenkins"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -395,6 +357,10 @@
     
     November 20, 2013
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -402,7 +368,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>L’idée de <a href="https://github.com/BedrockStreaming/JenkinsLight">JenkinsLight</a> a germé lorsque nous nous sommes fait taper sur les doigts pour la troisième fois (à juste titre) parce que l’on avait désactivé la publicité sur nos sites de chaîne lors d’une mise en production. Or la publicité est un point critique car directement reliée au chiffre d’affaires. Le pire est que nous testions déjà le bon fonctionnement de la publicité en intégration continue sur nos serveurs de preprod, avant la mise en production. Mais une configuration légèrement différente sur les serveurs de prod rendait le nouveau code instable. Cette situation rend donc impossible la détection de certaines anomalies avant la mise en production…</p>
 
 <p>D’où notre besoin d’avoir un tableau de bord nous permettant de vérifier chaque instant la disponibilité des fonctionnalités névralgiques de nos sites en production afin de réagir au plus vite en cas de problèmes. Et ce, avant même que l’anomalie ne nous soit remontée par les autres secteurs. Nous avions déjà nos tests dans <a href="https://jenkins-ci.org/">Jenkins</a> que nous avons alors fait pointer vers la prod. Il nous manquait donc juste une sorte de “Panic Board” sur un écran placé au sein de nos bureaux nous remontant rapidement le moindre problème sur nos sites en production.</p>
@@ -426,44 +391,7 @@
 
 <p>Enjoy !</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=JenkinsLight%2C+mettez+en+lumi%C3%A8re+vos+jobs+Jenkins%20https%3A%2F%2Ftech.bedrockstreaming.com%2Fjenkinslight-mettez-en-lumiere-vos-jobs-jenkins"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/jenkinslight-mettez-en-lumiere-vos-jobs-jenkins&title=JenkinsLight%2C+mettez+en+lumi%C3%A8re+vos+jobs+Jenkins%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/jenkinslight-mettez-en-lumiere-vos-jobs-jenkins"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=JenkinsLight, mettez en lumière vos jobs Jenkins%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/jenkinslight-mettez-en-lumiere-vos-jobs-jenkins"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -477,24 +405,16 @@
       
 
       
-        <li><a class="button" href="/tags/#ci">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> ci</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#cytron">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> cytron</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#jenkins">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> jenkins</p>
-        </a></li>
-      
         <li><a class="button" href="/tags/#open-source">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> open-source</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#outil">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> outil</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags/#practices">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> practices</p>
         </a></li>
       
     </ul>
@@ -528,24 +448,12 @@
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/cytron/jenkinslight.png'); }

@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -79,7 +71,7 @@
 <meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="Une application résiliente, dans un monde partiellement dégradé" />
 <meta name="author" content="Pascal Martin" />
-<meta property="og:locale" content="fr" />
+<meta property="og:locale" content="en_US" />
 <meta name="description" content="Dans un monde en perpétuelle évolution, pouvons-nous toujours atteindre « four-nines » de disponibilité ? Cloud et Kubernetes. APIs et Microservices… Nos architectures s’enrichissent et se complexifient. Au prix d’une certaine fragilité ?" />
 <meta property="og:description" content="Dans un monde en perpétuelle évolution, pouvons-nous toujours atteindre « four-nines » de disponibilité ? Cloud et Kubernetes. APIs et Microservices… Nos architectures s’enrichissent et se complexifient. Au prix d’une certaine fragilité ?" />
 <link rel="canonical" href="https://tech.bedrockstreaming.com/2019/10/25/une-application-resiliente-dans-un-monde-partiellement-degrade-pascal-martin.html" />
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Une application résiliente, dans un monde partiellement dégradé" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Dans un monde en perpétuelle évolution, pouvons-nous toujours atteindre « four-nines » de disponibilité ? Cloud et Kubernetes. APIs et Microservices… Nos architectures s’enrichissent et se complexifient. Au prix d’une certaine fragilité ?","author":{"@type":"Person","name":"Pascal Martin"},"dateModified":"2019-10-25T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2019/10/25/une-application-resiliente-dans-un-monde-partiellement-degrade-pascal-martin.html","datePublished":"2019-10-25T00:00:00+00:00","headline":"Une application résiliente, dans un monde partiellement dégradé","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2019/10/25/une-application-resiliente-dans-un-monde-partiellement-degrade-pascal-martin.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Dans un monde en perpétuelle évolution, pouvons-nous toujours atteindre « four-nines » de disponibilité ? Cloud et Kubernetes. APIs et Microservices… Nos architectures s’enrichissent et se complexifient. Au prix d’une certaine fragilité ?","author":{"@type":"Person","name":"Pascal Martin"},"headline":"Une application résiliente, dans un monde partiellement dégradé","dateModified":"2019-10-25T00:00:00+00:00","datePublished":"2019-10-25T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2019/10/25/une-application-resiliente-dans-un-monde-partiellement-degrade-pascal-martin.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2019/10/25/une-application-resiliente-dans-un-monde-partiellement-degrade-pascal-martin.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -371,7 +333,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -397,6 +359,10 @@
     
     October 25, 2019
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -404,7 +370,6 @@
   </header>
 
   <section class="post-content">
-    
         <p>Dans un monde en perpétuelle évolution, pouvons-nous toujours atteindre <em>« four-nines »</em> de disponibilité ?<br />
 Cloud et Kubernetes. APIs et Microservices… Nos architectures s’enrichissent et se complexifient. Au prix d’une certaine fragilité ?</p>
 
@@ -412,8 +377,7 @@ Cloud et Kubernetes. APIs et Microservices… Nos architectures s’enrichissent
 Nous montrerons ensuite comment, dans un contexte en permanence partiellement dégradé, nos assemblages de services distribués nuisent à la fiabilité de nos plateformes.</p>
 
 <p>En profitant de l’expérience acquise sur 6play, nous verrons quelques pistes pour améliorer la résilience de nos applications, pour qu’elles répondent à nouveau aux besoins de notre public. Nous prononcerons peut-être même le terme de <em>« Chaos Engineering »</em> ;-)</p>
- 
-      
+
 
     
     <p>
@@ -440,42 +404,6 @@ Nous montrerons ensuite comment, dans un contexte en permanence partiellement d�
     
   </section>
 
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Une+application+r%C3%A9siliente%2C+dans+un+monde+partiellement+d%C3%A9grad%C3%A9%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2019%2F10%2F25%2Fune-application-resiliente-dans-un-monde-partiellement-degrade-pascal-martin.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2019/10/25/une-application-resiliente-dans-un-monde-partiellement-degrade-pascal-martin.html&title=Une+application+r%C3%A9siliente%2C+dans+un+monde+partiellement+d%C3%A9grad%C3%A9%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2019/10/25/une-application-resiliente-dans-un-monde-partiellement-degrade-pascal-martin.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Une application résiliente, dans un monde partiellement dégradé%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2019/10/25/une-application-resiliente-dans-un-monde-partiellement-degrade-pascal-martin.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
-
    <!-- Tag list -->
   
   
@@ -488,24 +416,12 @@ Nous montrerons ensuite comment, dans un contexte en permanence partiellement d�
       
 
       
-        <li><a class="button" href="/tags/#afup">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> afup</p>
-        </a></li>
-      
         <li><a class="button" href="/tags/#architecture">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> architecture</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#cloud">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#conference">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#resilience">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> resilience</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
     </ul>
@@ -520,9 +436,9 @@ Nous montrerons ensuite comment, dans un contexte en permanence partiellement d�
 <div id="post-nav">
     
     <div id="previous-post">
-        <a alt="Forum PHP Paris 2019" href="/2019/11/04/retour-forum-php-2019.html">
+        <a alt="Machine learning sans magie et sans s'arracher les cheveux" href="/2019/11/14/machine-learning-sans-magie-et-sans-sarracher-les-cheveux.html">
             <p>Previous post</p>
-            Forum PHP Paris 2019
+            Machine learning sans magie et sans s'arracher les cheveux
         </a>
     </div>
     
@@ -539,42 +455,12 @@ Nous montrerons ensuite comment, dans un contexte en permanence partiellement d�
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(251,87,66) !important; }
-  .share-buttons a { color: rgb(251,87,66) !important; }
-  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
-  div#post-nav a { color: rgb(251,87,66) !important; }
-  footer a { color: rgb(251,87,66) !important; }
-  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
-  a.button:hover {
-    background: rgb(251,87,66) !important;
-    border: 1px solid rgb(251,87,66) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(251,87,66) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="API à consommer avec modération" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Authentification des API par nom de domaine","author":{"@type":"Person","name":"Cytron team"},"dateModified":"2014-01-08T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2014/01/08/api-a-consommer-avec-moderation.html","datePublished":"2014-01-08T00:00:00+00:00","headline":"API à consommer avec modération","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2014/01/08/api-a-consommer-avec-moderation.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Authentification des API par nom de domaine","author":{"@type":"Person","name":"Cytron team"},"headline":"API à consommer avec modération","dateModified":"2014-01-08T00:00:00+00:00","datePublished":"2014-01-08T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2014/01/08/api-a-consommer-avec-moderation.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2014/01/08/api-a-consommer-avec-moderation.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -395,6 +357,10 @@
     
     January 08, 2014
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -402,7 +368,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>Après avoir travaillé pendant plusieurs mois sur la création et les <a href="/redismock-qui-a-bouchonne-mon-redis">tests</a> de nos API avec Symfony, le moment de leur publication est enfin arrivé !</p>
 
 <p>Or, les clients de nos API sont multiples : il peut s’agir d’applications mobiles, de sites web mais aussi d’un <em>back office</em> interne. Chacun de ces clients peut nécessiter des “vues” différentes de l’API.</p>
@@ -427,13 +392,14 @@ Dans notre cas, chaque utilisateur possède son propre fichier de configuration 
 
 <p>Il faut ensuite créer notre propre fournisseur d’authentification pour avoir une authentification par nom de domaine. Pour cela nous avons suivi et adapté le <a href="https://symfony.com/doc/current/cookbook/security/custom_authentication_provider.html">cookbook de Symfony</a>. Cette authentification s’articule autour de 2 classes : un FirewallListener et un AuthenticationProvider. Pour que notre FirewallListener puisse facilement récupérer le client associé, nous avons ajouté un paramètre au routing Symfony :</p>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">host</span><span class="pi">:</span> <span class="pi">{</span><span class="nv">client</span><span class="pi">}</span><span class="s">.api.monservice.fr</span></code></pre></figure>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">host</span><span class="pi">:</span> <span class="pi">{</span><span class="nv">client</span><span class="pi">}</span><span class="s">.api.monservice.fr</span>
+</code></pre></div></div>
 
 <p>Le FirewallListener utilise donc ce paramètre du routing comme nom d’utilisateur et le transmet à notre AuthenticationProvider. Celui-ci récupère le <code class="language-plaintext highlighter-rouge">User</code> grâce au <code class="language-plaintext highlighter-rouge">UserProvider</code> et profite de cette phase pour vérifier que l’adresse IP du client est bien autorisée dans sa configuration grâce au <a href="https://github.com/BedrockStreaming/FirewallBundle">FirewallBundle</a>.</p>
 
 <p>Effectivement, nous avons ajouté un filtrage initial (mais optionnel) sur les IPs pour chaque client, dans le fichiers <code class="language-plaintext highlighter-rouge">app/config/users/{username}.yml</code> :</p>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">firewall</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">firewall</span><span class="pi">:</span>
     <span class="na">user_access</span><span class="pi">:</span>
         <span class="na">default_state</span><span class="pi">:</span> <span class="kc">false</span>
         <span class="na">lists</span><span class="pi">:</span>
@@ -442,7 +408,8 @@ Dans notre cas, chaque utilisateur possède son propre fichier de configuration 
             <span class="na">m6_dev</span><span class="pi">:</span> <span class="kc">true</span>
             <span class="na">m6_lan</span><span class="pi">:</span> <span class="kc">true</span>
             <span class="na">m6_local</span><span class="pi">:</span> <span class="kc">true</span>
-            <span class="na">m6_public</span><span class="pi">:</span> <span class="kc">true</span></code></pre></figure>
+            <span class="na">m6_public</span><span class="pi">:</span> <span class="kc">true</span>
+</code></pre></div></div>
 
 <p>Pour plus de précisions, voir la <a href="https://github.com/BedrockStreaming/FirewallBundle#firewall-bundle-">documentation du FirewallBundle</a>.</p>
 
@@ -450,14 +417,15 @@ Dans notre cas, chaque utilisateur possède son propre fichier de configuration 
 
 <p>Pour gérer les autorisations d’accès des utilisateurs aux différentes routes, nous avons créé un EventListener qui écoute <code class="language-plaintext highlighter-rouge">kernel.request</code> et qui décide de laisser passer la requête ou non en fonction de la configuration de l’utilisateur.</p>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">allow</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">allow</span><span class="pi">:</span>
     <span class="na">default</span><span class="pi">:</span> <span class="kc">true</span>
     <span class="na">methods</span><span class="pi">:</span>
         <span class="na">delete</span><span class="pi">:</span> <span class="kc">false</span>
     <span class="na">resources</span><span class="pi">:</span>
         <span class="na">exam</span><span class="pi">:</span> <span class="kc">false</span>
     <span class="na">routes</span><span class="pi">:</span>
-        <span class="na">get_articles</span><span class="pi">:</span> <span class="kc">false</span></code></pre></figure>
+        <span class="na">get_articles</span><span class="pi">:</span> <span class="kc">false</span>
+</code></pre></div></div>
 
 <p>Dans cet exemple, l’utilisateur a accès par défaut à toutes les routes sauf les méthodes <code class="language-plaintext highlighter-rouge">DELETE</code>, les routes concernant les <code class="language-plaintext highlighter-rouge">exams</code> et la route spécifique <code class="language-plaintext highlighter-rouge">get_articles</code>.</p>
 
@@ -470,18 +438,20 @@ Nous avons là-aussi créé un EventListener qui écoute cette fois <code class=
 
 <p>Nous pouvons offrir une “vue” différente de nos données à chaque client en définissant des critères de filtrage pour Doctrine (ex: date de publication, ressource activée, etc.) dans les fichiers de configuration des clients :</p>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">entities</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">entities</span><span class="pi">:</span>
     <span class="na">article</span><span class="pi">:</span>
         <span class="na">active</span><span class="pi">:</span> <span class="kc">true</span>
-        <span class="na">publication</span><span class="pi">:</span> <span class="kc">false</span></code></pre></figure>
+        <span class="na">publication</span><span class="pi">:</span> <span class="kc">false</span>
+</code></pre></div></div>
 
 <p>Afin de ne pas modifier le comportement par défaut de Doctrine, nous avons ajouté une méthode <a href="https://gist.github.com/oziks/8180382"><code class="language-plaintext highlighter-rouge">findWithContext</code></a> à nos repositories qui reprend les mêmes paramètres que la méthode <code class="language-plaintext highlighter-rouge">findBy</code> en injectant le <code class="language-plaintext highlighter-rouge">SecurityContext</code>. Cette méthode permet donc de récupérer des entités filtrées en fonction des paramètres d’un client :</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="nv">$article</span> <span class="o">=</span> <span class="nv">$this</span>
     <span class="o">-&gt;</span><span class="nf">get</span><span class="p">(</span><span class="s1">'m6_contents.article.manager'</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="nf">getRepository</span><span class="p">()</span>
-    <span class="o">-&gt;</span><span class="nf">findWithContext</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="n">container</span><span class="o">-&gt;</span><span class="nf">get</span><span class="p">(</span><span class="s1">'security.context'</span><span class="p">),</span> <span class="p">[</span><span class="s1">'id'</span> <span class="o">=&gt;</span> <span class="nv">$id</span><span class="p">]);</span></code></pre></figure>
+    <span class="o">-&gt;</span><span class="nf">findWithContext</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="n">container</span><span class="o">-&gt;</span><span class="nf">get</span><span class="p">(</span><span class="s1">'security.context'</span><span class="p">),</span> <span class="p">[</span><span class="s1">'id'</span> <span class="o">=&gt;</span> <span class="nv">$id</span><span class="p">]);</span>
+</code></pre></div></div>
 
 <p>#### Personnalisation avancée</p>
 
@@ -495,44 +465,7 @@ Nous avons là-aussi créé un EventListener qui écoute cette fois <code class=
 
 <p>Enjoy !</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=API+%C3%A0+consommer+avec+mod%C3%A9ration%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2014%2F01%2F08%2Fapi-a-consommer-avec-moderation.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2014/01/08/api-a-consommer-avec-moderation.html&title=API+%C3%A0+consommer+avec+mod%C3%A9ration%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2014/01/08/api-a-consommer-avec-moderation.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=API à consommer avec modération%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2014/01/08/api-a-consommer-avec-moderation.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -546,28 +479,16 @@ Nous avons là-aussi créé un EventListener qui écoute cette fois <code class=
       
 
       
-        <li><a class="button" href="/tags/#api">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> api</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#cytron">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> cytron</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#doctrine">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> doctrine</p>
+        <li><a class="button" href="/tags/#backend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
         </a></li>
       
         <li><a class="button" href="/tags/#open-source">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> open-source</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#outil">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> outil</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#symfony">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> symfony</p>
+        <li><a class="button" href="/tags/#practices">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> practices</p>
         </a></li>
       
     </ul>
@@ -601,24 +522,12 @@ Nous avons là-aussi créé un EventListener qui écoute cette fois <code class=
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/cytron/domainuserbundle.png'); }

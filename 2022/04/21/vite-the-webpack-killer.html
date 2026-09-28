@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -78,7 +70,7 @@
 <title>⚡️ Vite ⚡️ the Webpack killer | Bedrock Tech Blog</title>
 <meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="⚡️ Vite ⚡️ the Webpack killer" />
-<meta property="og:locale" content="fr" />
+<meta property="og:locale" content="en_US" />
 <meta name="description" content="Toute application web a besoin d’être packagée afin d’être livrée en production. Pour répondre à cette problématique, de nombreux outils, connus sous le nom de modules bundler, sont apparus, et ces dernières années, c’est Webpack qui semble s’être imposé comme l’outil incontournable." />
 <meta property="og:description" content="Toute application web a besoin d’être packagée afin d’être livrée en production. Pour répondre à cette problématique, de nombreux outils, connus sous le nom de modules bundler, sont apparus, et ces dernières années, c’est Webpack qui semble s’être imposé comme l’outil incontournable." />
 <link rel="canonical" href="https://tech.bedrockstreaming.com/2022/04/21/vite-the-webpack-killer.html" />
@@ -89,7 +81,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="⚡️ Vite ⚡️ the Webpack killer" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Toute application web a besoin d’être packagée afin d’être livrée en production. Pour répondre à cette problématique, de nombreux outils, connus sous le nom de modules bundler, sont apparus, et ces dernières années, c’est Webpack qui semble s’être imposé comme l’outil incontournable.","dateModified":"2022-04-21T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/04/21/vite-the-webpack-killer.html","datePublished":"2022-04-21T00:00:00+00:00","headline":"⚡️ Vite ⚡️ the Webpack killer","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/04/21/vite-the-webpack-killer.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Toute application web a besoin d’être packagée afin d’être livrée en production. Pour répondre à cette problématique, de nombreux outils, connus sous le nom de modules bundler, sont apparus, et ces dernières années, c’est Webpack qui semble s’être imposé comme l’outil incontournable.","headline":"⚡️ Vite ⚡️ the Webpack killer","dateModified":"2022-04-21T00:00:00+00:00","datePublished":"2022-04-21T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/04/21/vite-the-webpack-killer.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/04/21/vite-the-webpack-killer.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -198,41 +190,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -370,7 +332,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -412,6 +374,10 @@
     
     April 21, 2022
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -419,7 +385,6 @@
   </header>
 
   <section class="post-content">
-    
         <p>Toute application web a besoin d’être packagée afin d’être livrée en production. Pour répondre à cette problématique, de nombreux outils, connus sous le nom de modules bundler, sont apparus, et ces dernières années, c’est Webpack qui semble s’être imposé comme l’outil incontournable.</p>
 
 <p>On ne va pas se le cacher, si vous avez mis les mains dans une configuration webpack, c’est loin d’être un outil simple ni rapide.</p>
@@ -427,8 +392,7 @@
 <p>Ça n’a pas échappé à Evan You, le créateur de Vue.JS, qui voulait répondre à ces problématiques avec une nouvelle façon de procéder, avec des idées novatrices, reposant sur les dernières fonctionnalités des navigateurs : Vite.</p>
 
 <p>Quelles sont ces idées novatrices à la base de Vite ? En quoi concurrence-t-il Webpack ? C’est ce que nous allons voir dans ce talk et live coding!</p>
- 
-      
+
 
     
     <p>
@@ -461,42 +425,6 @@
     
   </section>
 
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=%E2%9A%A1%EF%B8%8F+Vite+%E2%9A%A1%EF%B8%8F+the+Webpack+killer%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F04%2F21%2Fvite-the-webpack-killer.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/04/21/vite-the-webpack-killer.html&title=%E2%9A%A1%EF%B8%8F+Vite+%E2%9A%A1%EF%B8%8F+the+Webpack+killer%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/04/21/vite-the-webpack-killer.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=⚡️ Vite ⚡️ the Webpack killer%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/04/21/vite-the-webpack-killer.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
-
    <!-- Tag list -->
   
   
@@ -505,28 +433,12 @@
   <div class="tag-list">
     <ul>
       
-        <li class="meta">Tags</li>
+        <li class="meta">Tag</li>
       
 
       
-        <li><a class="button" href="/tags/#conference">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#devoxx">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> devoxx</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#js">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> js</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#vite">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> vite</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#webpack">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> webpack</p>
+        <li><a class="button" href="/tags/#frontend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
         </a></li>
       
     </ul>
@@ -541,18 +453,18 @@
 <div id="post-nav">
     
     <div id="previous-post">
-        <a alt="How did we streamline the delivery of our internal conferences aka LFTs?" href="/2022/04/29/how-we-simplify-our-lft-broadcast.html">
+        <a alt="You Build it, you run it" href="/2022/05/13/docker-meetup-you-build-it-you-run-it.html">
             <p>Previous post</p>
-            How did we streamline the delivery of our internal conferences aka LFTs?
+            You Build it, you run it
         </a>
     </div>
     
 
     
     <div id="next-post">
-        <a alt="Bedrock à l'AWS Summit 2022" href="/2022/04/20/aws-summit-2022-notre-retour-dexperience.html">
+        <a alt="Transformer le load balancing pour optimiser le cache : objectif 50 millions d’utilisateurs" href="/2022/04/12/transformer-le-load-balancing-pour-optimiser-le-cache-objectif-50-millions-d-utilisateurs.html">
             <p>Next post</p>
-            Bedrock à l'AWS Summit 2022
+            Transformer le load balancing pour optimiser le cache : objectif 50 millions d’utilisateurs
         </a>
     </div>
     
@@ -560,42 +472,12 @@
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(251,87,66) !important; }
-  .share-buttons a { color: rgb(251,87,66) !important; }
-  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
-  div#post-nav a { color: rgb(251,87,66) !important; }
-  footer a { color: rgb(251,87,66) !important; }
-  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
-  a.button:hover {
-    background: rgb(251,87,66) !important;
-    border: 1px solid rgb(251,87,66) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(251,87,66) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

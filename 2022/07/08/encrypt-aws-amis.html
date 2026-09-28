@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Encrypt AWS AMIs: one way to do it wrong" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"By encrypting our AMIs, we wanted to overzealously increase our security. In the end, we reduced it and lost time. Here is the REX of this failure that we had to rollback.","author":{"@type":"Person","name":"Tanguy Falconnet"},"dateModified":"2022-07-08T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/07/08/encrypt-aws-amis.html","datePublished":"2022-07-08T00:00:00+00:00","headline":"Encrypt AWS AMIs: one way to do it wrong","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/07/08/encrypt-aws-amis.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"By encrypting our AMIs, we wanted to overzealously increase our security. In the end, we reduced it and lost time. Here is the REX of this failure that we had to rollback.","author":{"@type":"Person","name":"Tanguy Falconnet"},"headline":"Encrypt AWS AMIs: one way to do it wrong","dateModified":"2022-07-08T00:00:00+00:00","datePublished":"2022-07-08T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/07/08/encrypt-aws-amis.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/07/08/encrypt-aws-amis.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -371,7 +333,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -399,6 +361,10 @@
     
     July 08, 2022
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -406,7 +372,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>At Bedrock, we build our own privately shared AMIs (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html">Amazon Machine Images</a>) for different parts of our stack: kubernetes platform, vod platform, etc. We build those AMIs to optimize kernel parameters,to embed some tools, and more. We have been using Packer for a couple of years, and everything has been working just fine.</p>
 
 <p>Concerned about following AWS best-practices, we recently added <a href="https://aws.amazon.com/premiumsupport/knowledge-center/ebs-automatic-encryption/">encryption by default to all new EBS volumes</a> in all our accounts.</p>
@@ -506,44 +471,7 @@ But in case of a manual rotation: if a key is leaked for example, you will need 
 <h5 id="key-by-baboon-designs-from-nounprojectcom">Key by Baboon designs from NounProject.com</h5>
 <h5 id="gears-by-aybige-from-nounprojectcom">Gears by Aybige from NounProject.com</h5>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Encrypt+AWS+AMIs%3A+one+way+to+do+it+wrong%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F07%2F08%2Fencrypt-aws-amis.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/07/08/encrypt-aws-amis.html&title=Encrypt+AWS+AMIs%3A+one+way+to+do+it+wrong%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/07/08/encrypt-aws-amis.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Encrypt AWS AMIs: one way to do it wrong%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/07/08/encrypt-aws-amis.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -553,16 +481,12 @@ But in case of a manual rotation: if a key is leaked for example, you will need 
   <div class="tag-list">
     <ul>
       
-        <li class="meta">Tags</li>
+        <li class="meta">Tag</li>
       
 
       
-        <li><a class="button" href="/tags/#aws">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> aws</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#cloud">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
     </ul>
@@ -596,42 +520,12 @@ But in case of a manual rotation: if a key is leaked for example, you will need 
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(251,87,66) !important; }
-  .share-buttons a { color: rgb(251,87,66) !important; }
-  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
-  div#post-nav a { color: rgb(251,87,66) !important; }
-  footer a { color: rgb(251,87,66) !important; }
-  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
-  a.button:hover {
-    background: rgb(251,87,66) !important;
-    border: 1px solid rgb(251,87,66) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(251,87,66) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

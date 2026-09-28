@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="The organisational challenge of building a Data team: lessons learnt" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Over the past 4 years, we’ve scaled our Data team from 2 to 40 people. Down the road we met some unexpected challenges in the way we organised and staffed the team.","author":{"@type":"Person","name":"Cory Chaplin"},"dateModified":"2021-05-19T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/data/2021/05/19/organisational-challenge-building-data-team.html","datePublished":"2021-05-19T00:00:00+00:00","headline":"The organisational challenge of building a Data team: lessons learnt","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/data/2021/05/19/organisational-challenge-building-data-team.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Over the past 4 years, we’ve scaled our Data team from 2 to 40 people. Down the road we met some unexpected challenges in the way we organised and staffed the team.","author":{"@type":"Person","name":"Cory Chaplin"},"headline":"The organisational challenge of building a Data team: lessons learnt","dateModified":"2021-05-19T00:00:00+00:00","datePublished":"2021-05-19T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/data/2021/05/19/organisational-challenge-building-data-team.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/data/2021/05/19/organisational-challenge-building-data-team.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -399,6 +361,10 @@
     
     May 19, 2021
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -406,7 +372,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>Disclaimer: this is a post I’ve been meaning to share ever since the Dailymotion team published <a href="https://medium.com/dailymotion/collaboration-between-data-engineers-data-analysts-and-data-scientists-97c00ab1211f">this post</a>, so it’s going way back into our history but updated to our current status. It’s also an attempt to bring a counterpart to the blog posts of many web leaders that have written about what worked but rarely detail the difficulties they met and the lessons they learnt.
 Here’s a very personal (therefore biased) feedback of our story and the lessons we learnt down the road.</p>
 
@@ -487,44 +452,7 @@ If you want to go further, we spoke about this and some other challenges we face
 <p>Last but not least, Bedrock is scaling fast to help build streaming champions around Europe. If you’d like to join us, check out our <a href="https://www.bedrockstreaming.com/career">open positions</a></p>
 
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=The+organisational+challenge+of+building+a+Data+team%3A+lessons+learnt%20https%3A%2F%2Ftech.bedrockstreaming.com%2Fdata%2F2021%2F05%2F19%2Forganisational-challenge-building-data-team.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/data/2021/05/19/organisational-challenge-building-data-team.html&title=The+organisational+challenge+of+building+a+Data+team%3A+lessons+learnt%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/data/2021/05/19/organisational-challenge-building-data-team.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=The organisational challenge of building a Data team: lessons learnt%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/data/2021/05/19/organisational-challenge-building-data-team.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -538,28 +466,16 @@ If you want to go further, we spoke about this and some other challenges we face
       
 
       
-        <li><a class="button" href="/tags/#Agile">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Agile</p>
+        <li><a class="button" href="/tags/#culture">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> culture</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#BigData">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> BigData</p>
+        <li><a class="button" href="/tags/#data">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> data</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#Data">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Data</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#Data+Engineering">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Data Engineering</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#Data+Science">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Data Science</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#Organization">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Organization</p>
+        <li><a class="button" href="/tags/#practices">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> practices</p>
         </a></li>
       
     </ul>
@@ -574,18 +490,18 @@ If you want to go further, we spoke about this and some other challenges we face
 <div id="post-nav">
     
     <div id="previous-post">
-        <a alt="No-code, ou le développement d’applications ouvert à d’autres métiers !" href="/2021/06/11/no-code-developpement-applications-ouvert-autres-metiers-pascal-martin.html">
+        <a alt="Bedrock Dev Facts #14" href="/2021/07/16/bedrock-dev-facts-14.html">
             <p>Previous post</p>
-            No-code, ou le développement d’applications ouvert à d’autres métiers !
+            Bedrock Dev Facts #14
         </a>
     </div>
     
 
     
     <div id="next-post">
-        <a alt="Comment nous réduisons l’augmentation de nos coûts AWS" href="/2021/03/30/comment-nous-reduisons-augmentation-couts-aws-pascal-martin.html">
+        <a alt="Bedrock Dev Facts #13" href="/2021/03/02/bedrock-dev-facts-13.html">
             <p>Next post</p>
-            Comment nous réduisons l’augmentation de nos coûts AWS
+            Bedrock Dev Facts #13
         </a>
     </div>
     
@@ -593,24 +509,12 @@ If you want to go further, we spoke about this and some other challenges we face
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/data-org-challenge/team.jpg'); }

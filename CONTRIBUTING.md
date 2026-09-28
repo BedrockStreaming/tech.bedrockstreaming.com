@@ -42,8 +42,9 @@ Then open your browser on `http://localhost:8080` to see the blog.
 
 ## How to add an article to the blog?
  
-All articles are listed in the `_posts` folder.
+All articles are listed in the `_articles` folder.
 Each article is a Markdown file named like this `YYYY-MM-DD-article-slug.md` where date is the date of publication.
+Set `date` and `permalink` in the front matter. A collection does not take the publication date from the filename.
 :information: If you put a future date of publication, your article won't be visible until this date is passed.
 
 Make sure to complete the _frontmatter_ part of your Markdown file in order to define at least those attributes:
@@ -53,15 +54,16 @@ Make sure to complete the _frontmatter_ part of your Markdown file in order to d
 layout: post
 title: Title of your article
 description: Description of your article visible in search page results
-author: author_of_your_article 
-tags: [example, of, tags]
-color: rgb(251,87,66) # this is Bedrock color here
+author: author_of_your_article
+language: en
+date: 1970-01-01
+permalink: /1970/01/01/article-slug.html
+topics: [frontend]
 ---
 ```
 
 We are using a community theme for Jekyll for this blog, you may find some useful examples here:
 - [How to add Table of content for your blog post ?](https://sylhare.github.io/Type-on-Strap/2014/11/28/markdown-and-html.html)
-- [How to customize the color used on a post page ?](https://sylhare.github.io/Type-on-Strap/2019/05/18/color-post.html)
 - [How to use images in your post ?](https://sylhare.github.io/Type-on-Strap/2018/10/29/feature-images.html)
   You can store your images in _images/post_ folder of this repository.  
   Don't forget to compress them for performances with tools like [TinyPNG](https://tinypng.com/)
@@ -86,10 +88,10 @@ Then you will be able to use the author ID in the frontmatter post configuration
 
 ## Add a LFT replay
 
-1. Create a file in the `__post` folder name matching this format `YYYY-MM-DD-slug-of-your-article.md`
+1. Create a file in the `_talks` folder name matching this format `YYYY-MM-DD-slug-of-your-article.md`
     Use the date the talk was first given in public.
 2. Add the configuration of metadata at the beginning of this file
-    > :warning: **To make your videos appear in either `Last Friday Talks`page, tag your post with `lft`.**
+    > :warning: **To make your video appear on the Last Friday Talks page, set `eventName: Last Friday Talks`.**
     ```markdown
     ---
     layout: video
@@ -102,11 +104,10 @@ Then you will be able to use the author ID in the frontmatter post configuration
     # Authors of the article (can also be a list of authors such as: [first_author, second_author, third_author])
     # The complete list of valid author IDs is in `_data/authors.yml`
     author: author_of_your_article
-    # Use tags for grouping content in the blog
-    # Add `lft` to group with other LFT talks
-    tags: [lft, and, other, tags]
-    # Bedrock color
-    color: rgb(251,87,66) 
+    language: fr
+    eventName: Last Friday Talks
+    # Topics from _data/topics.yml
+    topics: [frontend]
     ---
     ```
 3. Add content to the markdown file in order to add context to the video you are sharing.
@@ -119,28 +120,23 @@ Please note that creating a post is more likely to help our external communicati
 
 ### Publish information about the conference
 
-If you just want to add a conference presentation to the listed ones, you can add your presentation in `_data/conferences.yaml`.
-
-List of the metadata allowed to add a new conference:
+If you just want the talk listed, add a Markdown file in `_talks` named `YYYY-MM-DD-slug.md`. The body can be empty.
 
 ```markdown
-- title: "Title of the conference"
-  # Conference date
-  date: 1970-01-01
-  # from _data/authors.yaml
-  author: conference_speaker 
-  # Public event name
-  eventName: ******
-  # Url to redirect to the event site (optional)
-  eventUrl: ******
-  # Youtube video id (optional)
-  youtubeId: ******
-  # Slideshare presentation key (from iframe integration) (optional)
-  slideshareKey: ******
-  # Bedrock sponsored the event? (default: false)
-  sponsored: true
-  # Bedrock hosted the event? (default: false)
-  hosted: true
+---
+layout: conference
+title: "Title of the conference"
+date: 1970-01-01
+author: conference_speaker
+language: fr
+eventName: ******
+eventUrl: ******
+youtubeId: ******
+slideshareKey: ******
+sponsored: true
+hosted: true
+permalink: /1970/01/01/title-of-the-conference.html
+---
 ```
 
 That's all folks! Your conference will be displayed in "Meetups & Conferences" page. 
@@ -149,7 +145,7 @@ If there is a `youtubeId` key, the video will also be added to the "Replay" sect
 
 ### Create a post to present the conference
 
-1. Create a file in `__post` folder name matching this format `YYYY-MM-DD-slug-of-your-article.md`
+1. Create a file in the `_talks` folder named `YYYY-MM-DD-slug-of-your-article.md`
     Use the date the talk was first given in public.
 2. Add the configuration of metadata at the beginning of this file:
     ```markdown
@@ -162,6 +158,7 @@ If there is a `youtubeId` key, the video will also be added to the "Replay" sect
     description: Description of your article visible in search page results
     # from _data/authors.yaml
     author: conference_speaker
+    language: fr
     # Public event name
     eventName: ******
     # Url to redirect to the event site (optional)
@@ -175,10 +172,9 @@ If there is a `youtubeId` key, the video will also be added to the "Replay" sect
     # Bedrock hosted the event? (default: false)
     hosted: true
     
-    # Use tags for grouping content in the blog.
-    tags: [example, of, tags]
-    # this is Bedrock color here
-    color: rgb(251,87,66)
+    # Topics from _data/topics.yml
+    topics: [backend]
+    permalink: /1970/01/01/slug-of-your-article.html
     ---
     ```
 3. Add content to the markdown file in order to add context to the presentation you are sharing.

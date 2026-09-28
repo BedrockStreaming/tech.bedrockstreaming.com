@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="React/Redux: pitfalls and best practices" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"We use React and Redux for almost 4 years at Bedrock on our video platform named 6play.Good practices and mistakes to be avoided have been gathered in this article.","author":{"@type":"Person","name":"Antoine Caron"},"dateModified":"2020-04-27T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html","datePublished":"2020-04-27T00:00:00+00:00","headline":"React/Redux: pitfalls and best practices","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"We use React and Redux for almost 4 years at Bedrock on our video platform named 6play.Good practices and mistakes to be avoided have been gathered in this article.","author":{"@type":"Person","name":"Antoine Caron"},"headline":"React/Redux: pitfalls and best practices","dateModified":"2020-04-27T00:00:00+00:00","datePublished":"2020-04-27T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -399,6 +361,10 @@
     
     April 27, 2020
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -406,7 +372,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>After 2 years using React with Redux for the video platform <a href="https://6play.fr">6play</a>, I was able to identify good practices and pitfalls to avoid at all costs.
 The <a href="https://www.bedrockstreaming.com/">Bedrock</a> team kept the technical stack of the project up to date to take advantage of the new features of <code class="language-plaintext highlighter-rouge">react</code>, <code class="language-plaintext highlighter-rouge">react-redux</code> and <code class="language-plaintext highlighter-rouge">redux</code>.</p>
 
@@ -863,44 +828,7 @@ You already have everything you need to manipulate a complex state.</p>
 <a href="https://github.com/ncuillery">@ncuillery</a>,
 <a href="https://github.com/renaudAmsellem">@renaudAmsellem</a></em></p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=React%2FRedux%3A+pitfalls+and+best+practices%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2020%2F04%2F27%2Freact-redux-pitfalls-and-best-pratices.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html&title=React%2FRedux%3A+pitfalls+and+best+practices%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=React/Redux: pitfalls and best practices%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2020/04/27/react-redux-pitfalls-and-best-pratices.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -910,24 +838,12 @@ You already have everything you need to manipulate a complex state.</p>
   <div class="tag-list">
     <ul>
       
-        <li class="meta">Tags</li>
+        <li class="meta">Tag</li>
       
 
       
         <li><a class="button" href="/tags/#frontend">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#js">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> js</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#react">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> react</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#redux">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> redux</p>
         </a></li>
       
     </ul>
@@ -942,9 +858,9 @@ You already have everything you need to manipulate a complex state.</p>
 <div id="post-nav">
     
     <div id="previous-post">
-        <a alt="6play_API-v2-Final(1).doc" href="/2020/06/24/6play_API-v2-Final(1).html">
+        <a alt="Three years running Kubernetes on production at Bedrock" href="/2020/12/08/Three-years-running-kubernetes-on-production-at-Bedrock.html">
             <p>Previous post</p>
-            6play_API-v2-Final(1).doc
+            Three years running Kubernetes on production at Bedrock
         </a>
     </div>
     
@@ -961,24 +877,12 @@ You already have everything you need to manipulate a complex state.</p>
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/react-redux/redux.jpg'); }

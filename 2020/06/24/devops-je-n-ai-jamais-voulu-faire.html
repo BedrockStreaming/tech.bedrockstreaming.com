@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -79,7 +71,7 @@
 <meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="DevOps ? Je n’ai jamais voulu faire ça, et pourtant …" />
 <meta name="author" content="Sofia Lescano" />
-<meta property="og:locale" content="fr" />
+<meta property="og:locale" content="en_US" />
 <meta name="description" content="Développeuse junior : première semaine. Mes collègues m’ont forcée à déployer ma première feature sur 6play ! Malgré un petit frisson, tout s’est bien passé, grâce aux outils et bonnes pratiques qui nous guident." />
 <meta property="og:description" content="Développeuse junior : première semaine. Mes collègues m’ont forcée à déployer ma première feature sur 6play ! Malgré un petit frisson, tout s’est bien passé, grâce aux outils et bonnes pratiques qui nous guident." />
 <link rel="canonical" href="https://tech.bedrockstreaming.com/2020/06/24/devops-je-n-ai-jamais-voulu-faire.html" />
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="DevOps ? Je n’ai jamais voulu faire ça, et pourtant …" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Développeuse junior : première semaine. Mes collègues m’ont forcée à déployer ma première feature sur 6play ! Malgré un petit frisson, tout s’est bien passé, grâce aux outils et bonnes pratiques qui nous guident.","author":{"@type":"Person","name":"Sofia Lescano"},"dateModified":"2020-06-24T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2020/06/24/devops-je-n-ai-jamais-voulu-faire.html","datePublished":"2020-06-24T00:00:00+00:00","headline":"DevOps ? Je n’ai jamais voulu faire ça, et pourtant …","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2020/06/24/devops-je-n-ai-jamais-voulu-faire.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Développeuse junior : première semaine. Mes collègues m’ont forcée à déployer ma première feature sur 6play ! Malgré un petit frisson, tout s’est bien passé, grâce aux outils et bonnes pratiques qui nous guident.","author":{"@type":"Person","name":"Sofia Lescano"},"headline":"DevOps ? Je n’ai jamais voulu faire ça, et pourtant …","dateModified":"2020-06-24T00:00:00+00:00","datePublished":"2020-06-24T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2020/06/24/devops-je-n-ai-jamais-voulu-faire.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2020/06/24/devops-je-n-ai-jamais-voulu-faire.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -371,7 +333,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -399,6 +361,10 @@
     
     June 24, 2020
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -406,7 +372,6 @@
   </header>
 
   <section class="post-content">
-    
         <p>Développeuse junior : première semaine. Mes collègues m’ont forcée à déployer ma première feature sur 6play ! Malgré un petit frisson, tout s’est bien passé, grâce aux outils et bonnes pratiques qui nous guident.</p>
 
 <p>Ce n’était que le début ! Depuis, je gère l’infrastructure de mon projet. Je choisis mes bases de données, caches, mécanismes de stockage, ressources… En prenant en compte leur coût, les modes de backups ou les compétences dans nos équipes. Et je suis libre d’expérimenter avec n’importe quel service que je voudrais tester.</p>
@@ -414,8 +379,7 @@
 <p>En un an, je suis passée de “simple développeuse” à quelqu’un qui a conscience de sa plateforme, qui monitore son code et est responsable de sa production. Comment ai-je vécu cette transition ? Comment ai-je grandi en tant que développeuse ?</p>
 
 <p>Vous aussi, profitez de votre nouvelle liberté : devenez DevOps !</p>
- 
-      
+
 
     
     <p>
@@ -442,42 +406,6 @@
     
   </section>
 
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=DevOps+%3F+Je+n%27ai+jamais+voulu+faire+%C3%A7a%2C+et+pourtant+%E2%80%A6%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2020%2F06%2F24%2Fdevops-je-n-ai-jamais-voulu-faire.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2020/06/24/devops-je-n-ai-jamais-voulu-faire.html&title=DevOps+%3F+Je+n%27ai+jamais+voulu+faire+%C3%A7a%2C+et+pourtant+%E2%80%A6%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2020/06/24/devops-je-n-ai-jamais-voulu-faire.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=DevOps ? Je n'ai jamais voulu faire ça, et pourtant …%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2020/06/24/devops-je-n-ai-jamais-voulu-faire.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
-
    <!-- Tag list -->
   
   
@@ -490,20 +418,12 @@
       
 
       
-        <li><a class="button" href="/tags/#afup">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> afup</p>
+        <li><a class="button" href="/tags/#backend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#conference">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#devops">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> devops</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#php">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> php</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
     </ul>
@@ -518,9 +438,9 @@
 <div id="post-nav">
     
     <div id="previous-post">
-        <a alt="La scalabilité d’une équipe / d’un pôle technique" href="/2020/10/22/la-scalabilite-d-une-equipe-d-un-pole-technique.html">
+        <a alt="Webpack Workshop" href="/2020/09/07/webpack-workshop.html">
             <p>Previous post</p>
-            La scalabilité d’une équipe / d’un pôle technique
+            Webpack Workshop
         </a>
     </div>
     
@@ -537,42 +457,12 @@
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(251,87,66) !important; }
-  .share-buttons a { color: rgb(251,87,66) !important; }
-  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
-  div#post-nav a { color: rgb(251,87,66) !important; }
-  footer a { color: rgb(251,87,66) !important; }
-  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
-  a.button:hover {
-    background: rgb(251,87,66) !important;
-    border: 1px solid rgb(251,87,66) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(251,87,66) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

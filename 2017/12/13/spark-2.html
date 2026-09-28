@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Migration to Spark 2.2" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Feedback from a migration to Spark 2.2","author":{"@type":"Person","name":"Nastasia Saby"},"dateModified":"2017-12-13T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2017/12/13/spark-2.html","datePublished":"2017-12-13T00:00:00+00:00","headline":"Migration to Spark 2.2","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2017/12/13/spark-2.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Feedback from a migration to Spark 2.2","author":{"@type":"Person","name":"Nastasia Saby"},"headline":"Migration to Spark 2.2","dateModified":"2017-12-13T00:00:00+00:00","datePublished":"2017-12-13T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2017/12/13/spark-2.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2017/12/13/spark-2.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -371,7 +333,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -397,6 +359,10 @@
     
     December 13, 2017
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -404,7 +370,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>To value our data in order to understand better our service and improve it, we use <a href="https://spark.apache.org/">Spark</a>. You can find more information in a <a href="/data/2017/10/23/genesis-of-m6-datalake">recent article about our datalake</a>. We recently migrated our biggest project from Spark 1.5 to Spark 2.2 and wanted to share that story.</p>
 
 <p>Spark 2 has been released a year ago (July 26, 2016). Maybe we are a bit late, but better late than never.</p>
@@ -539,44 +504,7 @@ Before, running our jobs lasted around three hours. Now, it lasts around two and
 
 <p>Nastasia Saby (<a href="https://www.zenika.com/">Zenika</a> consultant)</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Migration+to+Spark+2.2%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2017%2F12%2F13%2Fspark-2.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2017/12/13/spark-2.html&title=Migration+to+Spark+2.2%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2017/12/13/spark-2.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Migration to Spark 2.2%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2017/12/13/spark-2.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -590,32 +518,12 @@ Before, running our jobs lasted around three hours. Now, it lasts around two and
       
 
       
-        <li><a class="button" href="/tags/#Airflow">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Airflow</p>
+        <li><a class="button" href="/tags/#backend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#BigData">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> BigData</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#Data">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Data</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#Hadoop">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Hadoop</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#Hive">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Hive</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#Java">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Java</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#Spark">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Spark</p>
+        <li><a class="button" href="/tags/#data">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> data</p>
         </a></li>
       
     </ul>
@@ -630,9 +538,9 @@ Before, running our jobs lasted around three hours. Now, it lasts around two and
 <div id="post-nav">
     
     <div id="previous-post">
-        <a alt="Atteindre les étoiles avec PHP et Symfony" href="/2018/03/07/atteindre-les-etoiles-avec-php-et-symfony.html">
+        <a alt="Useful (or not) M6Web OSS stuff" href="/oss/2018/03/20/useful-or-not-usefull-m6web-stuff.html">
             <p>Previous post</p>
-            Atteindre les étoiles avec PHP et Symfony
+            Useful (or not) M6Web OSS stuff
         </a>
     </div>
     
@@ -649,42 +557,12 @@ Before, running our jobs lasted around three hours. Now, it lasts around two and
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(228, 88, 21) !important; }
-  .share-buttons a { color: rgb(228, 88, 21) !important; }
-  .tag-list a:not(:hover) { color: rgb(228, 88, 21) !important; }
-  div#post-nav a { color: rgb(228, 88, 21) !important; }
-  footer a { color: rgb(228, 88, 21) !important; }
-  .site-header nav a:hover {  color: rgb(228, 88, 21) !important; }
-  a.button:hover {
-    background: rgb(228, 88, 21) !important;
-    border: 1px solid rgb(228, 88, 21) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(228, 88, 21) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

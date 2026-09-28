@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Get your brownfield React Native app built on demand" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Get your brownfield React Native app built on demand","author":{"@type":"Person","name":"Kenny Dits"},"dateModified":"2017-01-31T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2017/01/31/get-brownfield-react-native-app-built-on-demand.html","datePublished":"2017-01-31T00:00:00+00:00","headline":"Get your brownfield React Native app built on demand","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2017/01/31/get-brownfield-react-native-app-built-on-demand.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Get your brownfield React Native app built on demand","author":{"@type":"Person","name":"Kenny Dits"},"headline":"Get your brownfield React Native app built on demand","dateModified":"2017-01-31T00:00:00+00:00","datePublished":"2017-01-31T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2017/01/31/get-brownfield-react-native-app-built-on-demand.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2017/01/31/get-brownfield-react-native-app-built-on-demand.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -399,6 +361,10 @@
     
     January 31, 2017
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -406,7 +372,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>As you may know, at M6Web we decided to embrace <a href="https://facebook.github.io/react-native/">React Native</a> a few months ago.
 It’s a really exciting piece of software that adds a lot of value in the mobile development ecosystem.</p>
 
@@ -506,8 +471,9 @@ So, we will need to clone the native app and the React Native repository.</p>
 
 <h2 id="for-android">For Android</h2>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone app-android
-git clone react-native-views</code></pre></figure>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone app-android
+git clone react-native-views
+</code></pre></div></div>
 
 <p>So we will have two sibling folders:</p>
 
@@ -517,10 +483,11 @@ git clone react-native-views</code></pre></figure>
 
 <p>We decided to use symlink to have a cleaner structure (and that will make the CI configuration easy later, see Continuous Integration), so the setup for the Android project will look like this:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>app-android
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>app-android
 <span class="nb">ln</span> <span class="nt">-s</span> ../react-native-views ./react-native-views
 <span class="nb">cd</span> ../react-native-views
-npm <span class="nb">install</span></code></pre></figure>
+npm <span class="nb">install</span>
+</code></pre></div></div>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── app-android/
 │   ├── react-native-views -&gt; ../react-native-views
@@ -533,14 +500,15 @@ npm <span class="nb">install</span></code></pre></figure>
 
 <p>Similar steps to the Android process, but it seems that Xcode has difficulty following package with a symlink … so we have to be a little smarter:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone app-ios
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone app-ios
 git clone react-native-views
 
 <span class="nb">cd </span>app-ios
 <span class="nb">mkdir</span> <span class="nt">-p</span> react-native-views/node_modules
 <span class="nb">cd</span> ../react-native-views
 <span class="nb">ln</span> <span class="nt">-s</span> ../app-ios/react-native-views/node_modules ./node_modules
-npm <span class="nb">install</span></code></pre></figure>
+npm <span class="nb">install</span>
+</code></pre></div></div>
 
 <p>With this method, the <code class="language-plaintext highlighter-rouge">node_modules</code> files will be written in the symlink. So those files will be located in the source of the symlink, the <code class="language-plaintext highlighter-rouge">app-ios/react-native-views/node_modules</code> directory (This is pretty twisted, we had to admit).</p>
 
@@ -595,17 +563,19 @@ During our research, we found a SAAS tool named <a href="https://www.buddybuild.
 
 <p>buddybuild_postclone.sh:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone react-native-views
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone react-native-views
 
 <span class="c"># Create the symbolic link of the package.json at the root to make buddybuild triggering the `npm install`</span>
 <span class="nb">ln</span> <span class="nt">-s</span> react-native-views/package.json package.json
 <span class="c"># Make Xcode able to access to the node dependencies</span>
-<span class="nb">ln</span> <span class="nt">-s</span> react-native-views/node_modules node_modules</code></pre></figure>
+<span class="nb">ln</span> <span class="nt">-s</span> react-native-views/node_modules node_modules
+</code></pre></div></div>
 
 <p>buddybuild_prebuild.sh:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># export React Native bundle:</span>
-node_modules/.bin/react-native bundle <span class="nt">--platform</span> ios <span class="nt">--entry-file</span> index.ios.js <span class="nt">--bundle-output</span> ../&lt;appFolder&gt;/main.ios.jsbundle <span class="nt">--dev</span> <span class="nb">false</span></code></pre></figure>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># export React Native bundle:</span>
+node_modules/.bin/react-native bundle <span class="nt">--platform</span> ios <span class="nt">--entry-file</span> index.ios.js <span class="nt">--bundle-output</span> ../&lt;appFolder&gt;/main.ios.jsbundle <span class="nt">--dev</span> <span class="nb">false</span>
+</code></pre></div></div>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── buddybuild workspace/ (app-ios inside)
 │   ├── react-native-views/
@@ -619,17 +589,19 @@ node_modules/.bin/react-native bundle <span class="nt">--platform</span> ios <sp
 
 <p>buddybuild_postclone.sh:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone react-native-views
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone react-native-views
 
 <span class="c"># Create the symbolic link of the package.json at the root to make buddybuild triggering the `npm install`</span>
 <span class="nb">ln</span> <span class="nt">-s</span> react-native-views/package.json package.json
 <span class="c"># When buddybuild will run `npm install`, the node dependencies will be at the right place</span>
-<span class="nb">ln</span> <span class="nt">-s</span> react-native-views/node_modules node_modules</code></pre></figure>
+<span class="nb">ln</span> <span class="nt">-s</span> react-native-views/node_modules node_modules
+</code></pre></div></div>
 
 <p>buddybuild_prebuild.sh:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># export React Native bundle:</span>
-node_modules/.bin/react-native bundle <span class="nt">--platform</span> android <span class="nt">--entry-file</span> index.android.js <span class="nt">--bundle-output</span> ../&lt;appFolder&gt;/main.android.jsbundle <span class="nt">--dev</span> <span class="nb">false</span></code></pre></figure>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># export React Native bundle:</span>
+node_modules/.bin/react-native bundle <span class="nt">--platform</span> android <span class="nt">--entry-file</span> index.android.js <span class="nt">--bundle-output</span> ../&lt;appFolder&gt;/main.android.jsbundle <span class="nt">--dev</span> <span class="nb">false</span>
+</code></pre></div></div>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── buddybuild workspace/ (app-android inside)
 │   ├── react-native-views/
@@ -649,7 +621,7 @@ node_modules/.bin/react-native bundle <span class="nt">--platform</span> android
 
 <p>For that purpose, we used the buddybuild hook again. Here is the <code class="language-plaintext highlighter-rouge">buddybuild_postclone.sh</code>:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Create a react-native-views folder</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Create a react-native-views folder</span>
 <span class="nb">mkdir </span>react-native-views
 <span class="c"># Move everything in it</span>
 <span class="nb">mv</span> <span class="k">*</span> react-native-views
@@ -672,7 +644,8 @@ node_modules/.bin/react-native bundle <span class="nt">--platform</span> android
 <span class="c"># Create the symbolic link for the app to be able to found the node_modules at the good place</span>
 <span class="nb">ln</span> <span class="nt">-s</span> react-native-views/node_modules node_modules
 <span class="c"># Create the symbolic link of the package.json at the root to make buddybuild triggering the `npm install`</span>
-<span class="nb">ln</span> <span class="nt">-s</span> react-native-views/package.json package.json</code></pre></figure>
+<span class="nb">ln</span> <span class="nt">-s</span> react-native-views/package.json package.json
+</code></pre></div></div>
 
 <p>For iOS, you’ll have:</p>
 
@@ -702,7 +675,7 @@ node_modules/.bin/react-native bundle <span class="nt">--platform</span> android
 
 <p>Buddybuild makes it very easy to trigger a build programmatically via the API. We also use Jenkins for unit tests and lint, so we have a job triggered every time a push is made on the <code class="language-plaintext highlighter-rouge">master</code> branch of <code class="language-plaintext highlighter-rouge">react-native-views</code>. We have reused this job and append the following:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Our credentials</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Our credentials</span>
 <span class="nv">ACCESS_TOKEN_BB</span><span class="o">=</span>&lt;AccessToken&gt;
 <span class="nv">APP_ID_BB_IOS</span><span class="o">=</span>&lt;buddybuildiOSAppID&gt;
 <span class="nv">APP_ID_BB_ANDROID</span><span class="o">=</span>&lt;buddybuildAndroidAppID&gt;
@@ -711,7 +684,8 @@ node_modules/.bin/react-native bundle <span class="nt">--platform</span> android
 curl <span class="nt">-X</span> POST <span class="nt">-H</span>  <span class="s1">'Authorization: Bearer '</span><span class="nv">$ACCESS_TOKEN_BB</span>” <span class="nt">-d</span> <span class="s1">'branch=master’ '</span>https://api.buddybuild.com/v1/apps/<span class="s1">'$APP_ID_BB_IOS'</span>/build<span class="s1">'
 
 # Build Android
-curl -X POST -H  '</span>Authorization: Bearer <span class="s1">'$ACCESS_TOKEN_BB” -d '</span><span class="nv">branch</span><span class="o">=</span>master’ <span class="s1">'https://api.buddybuild.com/v1/apps/'</span><span class="nv">$APP_ID_BB_ANDROID</span><span class="s1">'/build'</span></code></pre></figure>
+curl -X POST -H  '</span>Authorization: Bearer <span class="s1">'$ACCESS_TOKEN_BB” -d '</span><span class="nv">branch</span><span class="o">=</span>master’ <span class="s1">'https://api.buddybuild.com/v1/apps/'</span><span class="nv">$APP_ID_BB_ANDROID</span><span class="s1">'/build'</span>
+</code></pre></div></div>
 
 <p>Now, you can activate the <code class="language-plaintext highlighter-rouge">master</code> build on the native iOS &amp; Android buddybuild build, and you’ll have those apps up-to-date with the master branch.</p>
 
@@ -727,14 +701,15 @@ curl -X POST -H  '</span>Authorization: Bearer <span class="s1">'$ACCESS_TOKEN_B
 
 <p>By following this convention, we only have to checkout that branch when we clone the external repository in our <code class="language-plaintext highlighter-rouge">postclone</code> hooks:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">{</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span>
   <span class="c"># Detect with the env variable BUDDYBUILD_BRANCH (given by buddybuild) the branch we are on.</span>
   <span class="nb">echo</span> <span class="s2">"Git checkout branch: </span><span class="nv">$BUDDYBUILD_BRANCH</span><span class="s2">"</span>
   git checkout <span class="nv">$BUDDYBUILD_BRANCH</span>
 <span class="o">}</span> <span class="o">||</span> <span class="o">{</span>
   <span class="nb">echo</span> <span class="s2">"Git default branch: master"</span>
   git checkout master <span class="c"># if master is the name of your default branch</span>
-<span class="o">}</span></code></pre></figure>
+<span class="o">}</span>
+</code></pre></div></div>
 
 <p>We do that branch name checking on the three repositories. This way, the four buddybuild projects (app-ios, app-android, react-native-views-ios, and react-native-views-android) can build native applications with modification on both sides.</p>
 
@@ -746,44 +721,7 @@ curl -X POST -H  '</span>Authorization: Bearer <span class="s1">'$ACCESS_TOKEN_B
 
 <p>Special thanks to Nicolas Cuillery and Alysha for their proofreading!</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Get+your+brownfield+React+Native+app+built+on+demand%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2017%2F01%2F31%2Fget-brownfield-react-native-app-built-on-demand.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2017/01/31/get-brownfield-react-native-app-built-on-demand.html&title=Get+your+brownfield+React+Native+app+built+on+demand%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2017/01/31/get-brownfield-react-native-app-built-on-demand.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Get your brownfield React Native app built on demand%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2017/01/31/get-brownfield-react-native-app-built-on-demand.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -797,20 +735,12 @@ curl -X POST -H  '</span>Authorization: Bearer <span class="s1">'$ACCESS_TOKEN_B
       
 
       
-        <li><a class="button" href="/tags/#ci">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> ci</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#github">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> github</p>
-        </a></li>
-      
         <li><a class="button" href="/tags/#mobile">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> mobile</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#react-native">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> react-native</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
     </ul>
@@ -834,9 +764,9 @@ curl -X POST -H  '</span>Authorization: Bearer <span class="s1">'$ACCESS_TOKEN_B
 
     
     <div id="next-post">
-        <a alt="Une donnée presque parfaite sur 6play" href="/2016/11/24/une-donnee-presque-parfaite.html">
+        <a alt="Enquête exclusive au coeur de la technique de 6play. Les slides." href="/2016/11/03/blendwebmix-6play-conference.html">
             <p>Next post</p>
-            Une donnée presque parfaite sur 6play
+            Enquête exclusive au coeur de la technique de 6play. Les slides.
         </a>
     </div>
     
@@ -844,24 +774,12 @@ curl -X POST -H  '</span>Authorization: Bearer <span class="s1">'$ACCESS_TOKEN_B
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/rn-brownfield/feature.jpg'); }

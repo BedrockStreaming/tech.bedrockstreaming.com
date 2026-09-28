@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="BFF, notre best friend forever pour faire plein d’applications frontend ?" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Un Back For Front afin d’unifier et faciliter les interactions backend et frontend.","author":{"@type":"Person","name":"Valentin Claras"},"dateModified":"2022-10-13T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/10/13/bff-notre-best-friend-forever-pour-faire-plein-d-applications-frontend.html","datePublished":"2022-10-13T00:00:00+00:00","headline":"BFF, notre best friend forever pour faire plein d’applications frontend ?","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/10/13/bff-notre-best-friend-forever-pour-faire-plein-d-applications-frontend.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Un Back For Front afin d’unifier et faciliter les interactions backend et frontend.","author":{"@type":"Person","name":"Valentin Claras"},"headline":"BFF, notre best friend forever pour faire plein d’applications frontend ?","dateModified":"2022-10-13T00:00:00+00:00","datePublished":"2022-10-13T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/10/13/bff-notre-best-friend-forever-pour-faire-plein-d-applications-frontend.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/10/13/bff-notre-best-friend-forever-pour-faire-plein-d-applications-frontend.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -371,7 +333,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -395,6 +357,10 @@
     
     October 13, 2022
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -402,7 +368,6 @@
   </header>
 
   <section class="post-content">
-    
         <p>Chez Bedrock nous fournissons des applications de streaming (ASVOD, AVOD) pour plusieurs clients en France et en Europe, chaque application étant déployée sur de nombreux appareils (ordinateur, mobile, set top box, tv connecté, consoles de jeux, tv stick etc …). Il était devenu très difficile de gérer la création et l’évolution de ces nombreuses applications qui requêtaient et formataient chacune elles-mêmes les données dont elles avaient besoin.</p>
 
 <p>Pour cela, en 2018, nous avons décidé de nous lancer dans la création d’un Back For Front afin d’unifier et faciliter les interactions backend et frontend. Au cours de cette conférence nous passerons en revue :</p>
@@ -416,8 +381,7 @@
 </ul>
 
 <p>Aujourd’hui notre API Gateway BFF opère 92 frontends délivrant 1.5 milliards de vidéos par an pour 45 millions d’utilisateurs actifs (MaU). Venez découvrir notre retour d’expérience sur la mise en place d’un tel projet.</p>
- 
-      
+
 
     
     <p>
@@ -444,42 +408,6 @@
     
   </section>
 
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=BFF%2C+notre+best+friend+forever+pour+faire+plein+d%E2%80%99applications+frontend%C2%A0%3F%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F10%2F13%2Fbff-notre-best-friend-forever-pour-faire-plein-d-applications-frontend.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/10/13/bff-notre-best-friend-forever-pour-faire-plein-d-applications-frontend.html&title=BFF%2C+notre+best+friend+forever+pour+faire+plein+d%E2%80%99applications+frontend%C2%A0%3F%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/10/13/bff-notre-best-friend-forever-pour-faire-plein-d-applications-frontend.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=BFF, notre best friend forever pour faire plein d’applications frontend ?%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/10/13/bff-notre-best-friend-forever-pour-faire-plein-d-applications-frontend.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
-
    <!-- Tag list -->
   
   
@@ -488,28 +416,12 @@
   <div class="tag-list">
     <ul>
       
-        <li class="meta">Tags</li>
+        <li class="meta">Tag</li>
       
 
       
-        <li><a class="button" href="/tags/#afup">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> afup</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#bff">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> bff</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#conference">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#forumphp">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> forumphp</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#php">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> php</p>
+        <li><a class="button" href="/tags/#backend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
         </a></li>
       
     </ul>
@@ -533,9 +445,9 @@
 
     
     <div id="next-post">
-        <a alt="Bedrock Dev Facts #18" href="/2022/10/07/bedrock-dev-facts-18.html">
+        <a alt="Turn off your fracking notifications #LFT 30/09/22" href="/turn-off-your-notifications">
             <p>Next post</p>
-            Bedrock Dev Facts #18
+            Turn off your fracking notifications #LFT 30/09/22
         </a>
     </div>
     
@@ -543,42 +455,12 @@
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(251,87,66) !important; }
-  .share-buttons a { color: rgb(251,87,66) !important; }
-  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
-  div#post-nav a { color: rgb(251,87,66) !important; }
-  footer a { color: rgb(251,87,66) !important; }
-  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
-  a.button:hover {
-    background: rgb(251,87,66) !important;
-    border: 1px solid rgb(251,87,66) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(251,87,66) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

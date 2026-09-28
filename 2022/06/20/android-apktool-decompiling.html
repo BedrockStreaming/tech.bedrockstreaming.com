@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Debugging and reviewing your Android dependencies with apktool" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"How decompiling your Android app using apktool can help you find the source of instrumentation issues at the bytecode level, as well as improve your review process.","author":{"@type":"Person","name":"Baptiste Candellier"},"dateModified":"2022-06-20T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html","datePublished":"2022-06-20T00:00:00+00:00","headline":"Debugging and reviewing your Android dependencies with apktool","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"How decompiling your Android app using apktool can help you find the source of instrumentation issues at the bytecode level, as well as improve your review process.","author":{"@type":"Person","name":"Baptiste Candellier"},"headline":"Debugging and reviewing your Android dependencies with apktool","dateModified":"2022-06-20T00:00:00+00:00","datePublished":"2022-06-20T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -371,7 +333,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -399,6 +361,10 @@
     
     June 20, 2022
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -406,7 +372,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>If you maintain an Android application, you might be relying on performance monitoring SDKs like <a href="https://firebase.google.com/docs/perf-mon">Firebase Performance</a> or <a href="https://newrelic.com/products/mobile-monitoring">New Relic</a>, to name a couple. These plugins usually have a light setup process—just apply a Gradle plugin, and they provide the ability to collect statistics about every network call and database query in your app automatically.</p>
 
 <p>The usual way to achieve this is to rely on a process called <strong>instrumentation</strong>, which is supported <em>via</em> the Android Gradle Plugin’s <a href="https://developer.android.com/reference/tools/gradle-api/7.2/com/android/build/api/transform/Transform">Transform API</a>, or its successor, the <a href="https://developer.android.com/studio/releases/gradle-plugin-api-updates#transform-removed">Instrumentation API</a>. This feature is very powerful, and potentially dangerous; in our case, a minor patch of one of these SDKs caused a production bug that left one of our core features crippled.</p>
@@ -875,44 +840,7 @@ sequenceDiagram
 
 <p>Generating a diff of the effects of a library upgrade can seem overkill and hard to do in practice, but at least in the case of bug-fix releases with hopefully few changes, it can be very helpful to have an actual report of what changed. It’s an accepted practice to review the code your team checks in; why not review the code of others, since it ends up in the exact same artifact?</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Debugging+and+reviewing+your+Android+dependencies+with+apktool%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F06%2F20%2Fandroid-apktool-decompiling.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html&title=Debugging+and+reviewing+your+Android+dependencies+with+apktool%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Debugging and reviewing your Android dependencies with apktool%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/06/20/android-apktool-decompiling.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -926,24 +854,16 @@ sequenceDiagram
       
 
       
-        <li><a class="button" href="/tags/#android">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> android</p>
+        <li><a class="button" href="/tags/#mobile">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> mobile</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#apktool">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> apktool</p>
+        <li><a class="button" href="/tags/#observability">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> observability</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#debugging">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> debugging</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#instrumentation">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> instrumentation</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#productivity">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> productivity</p>
+        <li><a class="button" href="/tags/#practices">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> practices</p>
         </a></li>
       
     </ul>
@@ -977,42 +897,12 @@ sequenceDiagram
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(19,174,19) !important; }
-  .share-buttons a { color: rgb(19,174,19) !important; }
-  .tag-list a:not(:hover) { color: rgb(19,174,19) !important; }
-  div#post-nav a { color: rgb(19,174,19) !important; }
-  footer a { color: rgb(19,174,19) !important; }
-  .site-header nav a:hover {  color: rgb(19,174,19) !important; }
-  a.button:hover {
-    background: rgb(19,174,19) !important;
-    border: 1px solid rgb(19,174,19) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(19,174,19) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

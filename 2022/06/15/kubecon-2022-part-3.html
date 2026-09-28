@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Bedrock à la Kubecon 2022, 3ème partie : Dev XP, outillage, CI/CD, observabilité…" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Une partie des équipes infra Bedrock étaient à la KubeCon 2022, voici leur retour d’expérience.","author":{"@type":"Person","name":"Bedrock"},"dateModified":"2022-06-15T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/06/15/kubecon-2022-part-3.html","datePublished":"2022-06-15T00:00:00+00:00","headline":"Bedrock à la Kubecon 2022, 3ème partie : Dev XP, outillage, CI/CD, observabilité…","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/06/15/kubecon-2022-part-3.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Une partie des équipes infra Bedrock étaient à la KubeCon 2022, voici leur retour d’expérience.","author":{"@type":"Person","name":"Bedrock"},"headline":"Bedrock à la Kubecon 2022, 3ème partie : Dev XP, outillage, CI/CD, observabilité…","dateModified":"2022-06-15T00:00:00+00:00","datePublished":"2022-06-15T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/06/15/kubecon-2022-part-3.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/06/15/kubecon-2022-part-3.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -371,7 +333,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -393,6 +355,10 @@
     
     June 15, 2022
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -400,7 +366,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>Pour notre troisième article de cette série sur ce que nous avons retenu de la KubeCon Europe 2022, après 
 <a href="/2022/06/13/kubecon-2022-part-1.html">les performances applicatives et la scalabilité</a> et 
 <a href="/2022/06/14/kubecon-2022-part-2.html">les performances bas niveau, le système et le réseau</a>, 
@@ -481,44 +446,7 @@ Or nous n’en avons pas en place et depuis quatre ans n’avons toujours pas tr
 <p><img src="/images/posts/2022-06-13-kubecon-2022/end-part3.jpg" alt="&quot;Après une journée de conférences, une promenade à Valencia !&quot;" /></p>
 <center><i>Rejoignez-nos équipes et venez vivre les prochaines conférences avec nous l’an prochain</i></center>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Bedrock+%C3%A0+la+Kubecon+2022%2C+3%C3%A8me+partie%C2%A0%3A+Dev+XP%2C+outillage%2C+CI%2FCD%2C+observabilit%C3%A9%E2%80%A6%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F06%2F15%2Fkubecon-2022-part-3.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/06/15/kubecon-2022-part-3.html&title=Bedrock+%C3%A0+la+Kubecon+2022%2C+3%C3%A8me+partie%C2%A0%3A+Dev+XP%2C+outillage%2C+CI%2FCD%2C+observabilit%C3%A9%E2%80%A6%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/06/15/kubecon-2022-part-3.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Bedrock à la Kubecon 2022, 3ème partie : Dev XP, outillage, CI/CD, observabilité…%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/06/15/kubecon-2022-part-3.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -528,28 +456,12 @@ Or nous n’en avons pas en place et depuis quatre ans n’avons toujours pas tr
   <div class="tag-list">
     <ul>
       
-        <li class="meta">Tags</li>
+        <li class="meta">Tag</li>
       
 
       
-        <li><a class="button" href="/tags/#cloud">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#conference">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#k8s">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> k8s</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#kubecon">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> kubecon</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#kubernetes">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> kubernetes</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
     </ul>
@@ -583,42 +495,12 @@ Or nous n’en avons pas en place et depuis quatre ans n’avons toujours pas tr
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(251,87,66) !important; }
-  .share-buttons a { color: rgb(251,87,66) !important; }
-  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
-  div#post-nav a { color: rgb(251,87,66) !important; }
-  footer a { color: rgb(251,87,66) !important; }
-  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
-  a.button:hover {
-    background: rgb(251,87,66) !important;
-    border: 1px solid rgb(251,87,66) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(251,87,66) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

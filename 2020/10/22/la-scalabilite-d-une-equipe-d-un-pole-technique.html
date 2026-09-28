@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -79,7 +71,7 @@
 <meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="La scalabilité d’une équipe / d’un pôle technique" />
 <meta name="author" content="Mikael Randy" />
-<meta property="og:locale" content="fr" />
+<meta property="og:locale" content="en_US" />
 <meta name="description" content="Vous êtes dans l’équipe technique d’une entreprise, composée de quelques développeurs, dans 1 ou 2 équipes, et votre entreprise grandit, et il faut augmenter la capacité de production, et donc la taille de l’équipe technique. Sauf que comme 9 femmes ne font pas un bébé un 1 mois, 4 équipes de 6 personnes ne produisent pas automatiquement 2 fois plus que 2 équipes de 6 développeurs." />
 <meta property="og:description" content="Vous êtes dans l’équipe technique d’une entreprise, composée de quelques développeurs, dans 1 ou 2 équipes, et votre entreprise grandit, et il faut augmenter la capacité de production, et donc la taille de l’équipe technique. Sauf que comme 9 femmes ne font pas un bébé un 1 mois, 4 équipes de 6 personnes ne produisent pas automatiquement 2 fois plus que 2 équipes de 6 développeurs." />
 <link rel="canonical" href="https://tech.bedrockstreaming.com/2020/10/22/la-scalabilite-d-une-equipe-d-un-pole-technique.html" />
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="La scalabilité d’une équipe / d’un pôle technique" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Vous êtes dans l’équipe technique d’une entreprise, composée de quelques développeurs, dans 1 ou 2 équipes, et votre entreprise grandit, et il faut augmenter la capacité de production, et donc la taille de l’équipe technique. Sauf que comme 9 femmes ne font pas un bébé un 1 mois, 4 équipes de 6 personnes ne produisent pas automatiquement 2 fois plus que 2 équipes de 6 développeurs.","author":{"@type":"Person","name":"Mikael Randy"},"dateModified":"2020-10-22T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2020/10/22/la-scalabilite-d-une-equipe-d-un-pole-technique.html","datePublished":"2020-10-22T00:00:00+00:00","headline":"La scalabilité d’une équipe / d’un pôle technique","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2020/10/22/la-scalabilite-d-une-equipe-d-un-pole-technique.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Vous êtes dans l’équipe technique d’une entreprise, composée de quelques développeurs, dans 1 ou 2 équipes, et votre entreprise grandit, et il faut augmenter la capacité de production, et donc la taille de l’équipe technique. Sauf que comme 9 femmes ne font pas un bébé un 1 mois, 4 équipes de 6 personnes ne produisent pas automatiquement 2 fois plus que 2 équipes de 6 développeurs.","author":{"@type":"Person","name":"Mikael Randy"},"headline":"La scalabilité d’une équipe / d’un pôle technique","dateModified":"2020-10-22T00:00:00+00:00","datePublished":"2020-10-22T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2020/10/22/la-scalabilite-d-une-equipe-d-un-pole-technique.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2020/10/22/la-scalabilite-d-une-equipe-d-un-pole-technique.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -371,7 +333,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -399,6 +361,10 @@
     
     October 22, 2020
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -406,13 +372,11 @@
   </header>
 
   <section class="post-content">
-    
         <p>Vous êtes dans l’équipe technique d’une entreprise, composée de quelques développeurs, dans 1 ou 2 équipes, et votre entreprise grandit, et il faut augmenter la capacité de production, et donc la taille de l’équipe technique. Sauf que comme 9 femmes ne font pas un bébé un 1 mois, 4 équipes de 6 personnes ne produisent pas automatiquement 2 fois plus que 2 équipes de 6 développeurs.</p>
 
 <p>Je me propose de vous faire un retour d’expérience sur comment nous avons abordé la scalabilité du pôle technique de Bedrock, pour passer de 10 équipes réparties en 3 verticaux techniques, à plus de 30 équipes dans 5 verticaux techniques, en essayant de conserver une cohésion technique et fonctionnelle, et d’optimiser les flux de développements.</p>
 
- 
-      
+
 
     
     <p>
@@ -443,42 +407,6 @@
     
   </section>
 
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=La+scalabilit%C3%A9+d%E2%80%99une+%C3%A9quipe+%2F+d%E2%80%99un+p%C3%B4le+technique%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2020%2F10%2F22%2Fla-scalabilite-d-une-equipe-d-un-pole-technique.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2020/10/22/la-scalabilite-d-une-equipe-d-un-pole-technique.html&title=La+scalabilit%C3%A9+d%E2%80%99une+%C3%A9quipe+%2F+d%E2%80%99un+p%C3%B4le+technique%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2020/10/22/la-scalabilite-d-une-equipe-d-un-pole-technique.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=La scalabilité d’une équipe / d’un pôle technique%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2020/10/22/la-scalabilite-d-une-equipe-d-un-pole-technique.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
-
    <!-- Tag list -->
   
   
@@ -487,24 +415,12 @@
   <div class="tag-list">
     <ul>
       
-        <li class="meta">Tags</li>
+        <li class="meta">Tag</li>
       
 
       
-        <li><a class="button" href="/tags/#PHP">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> PHP</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#Symfony">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Symfony</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#conference">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#forumPHP">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> forumPHP</p>
+        <li><a class="button" href="/tags/#backend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
         </a></li>
       
     </ul>
@@ -528,9 +444,9 @@
 
     
     <div id="next-post">
-        <a alt="DevOps ? Je n'ai jamais voulu faire ça, et pourtant …" href="/2020/06/24/devops-je-n-ai-jamais-voulu-faire.html">
+        <a alt="Webpack Workshop" href="/2020/09/07/webpack-workshop.html">
             <p>Next post</p>
-            DevOps ? Je n'ai jamais voulu faire ça, et pourtant …
+            Webpack Workshop
         </a>
     </div>
     
@@ -538,42 +454,12 @@
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(251,87,66) !important; }
-  .share-buttons a { color: rgb(251,87,66) !important; }
-  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
-  div#post-nav a { color: rgb(251,87,66) !important; }
-  footer a { color: rgb(251,87,66) !important; }
-  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
-  a.button:hover {
-    background: rgb(251,87,66) !important;
-    border: 1px solid rgb(251,87,66) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(251,87,66) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Comment appliquer automatiquement des modifications sur une codebase JS 🤖" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Ou comment j’ai appris à ne plus m’en faire et à aimer JSCodeshift","author":{"@type":"Person","name":"Martin Schneider"},"dateModified":"2022-07-26T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift","datePublished":"2022-07-26T00:00:00+00:00","headline":"Comment appliquer automatiquement des modifications sur une codebase JS 🤖","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Ou comment j’ai appris à ne plus m’en faire et à aimer JSCodeshift","author":{"@type":"Person","name":"Martin Schneider"},"headline":"Comment appliquer automatiquement des modifications sur une codebase JS 🤖","dateModified":"2022-07-26T00:00:00+00:00","datePublished":"2022-07-26T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -399,6 +361,10 @@
     
     July 26, 2022
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -406,7 +372,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>Dans cet article, je vais vous présenter <a href="https://github.com/facebook/jscodeshift">JSCodeshift</a>, une libraire qui va vous permettre d’analyser et appliquer automatiquement des modifications sur du code Javascript ou Typescript.</p>
 
 <h1 id="cas-décole-">Cas d’école 👨‍🎓</h1>
@@ -608,44 +573,7 @@ Ceci permet de gagner un peu de temps sur l’exécution. ⌛️</p>
 
 <p>Merci à tous pour la lecture de mon premier article et JSCodeshiftez bien. 😘</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Comment+appliquer+automatiquement+des+modifications+sur+une+codebase+JS+%F0%9F%A4%96%20https%3A%2F%2Ftech.bedrockstreaming.com%2Frefactorer-avec-jscodeshift"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift&title=Comment+appliquer+automatiquement+des+modifications+sur+une+codebase+JS+%F0%9F%A4%96%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Comment appliquer automatiquement des modifications sur une codebase JS 🤖%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -659,32 +587,16 @@ Ceci permet de gagner un peu de temps sur l’exécution. ⌛️</p>
       
 
       
-        <li><a class="button" href="/tags/#cytron">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> cytron</p>
+        <li><a class="button" href="/tags/#architecture">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> architecture</p>
         </a></li>
       
         <li><a class="button" href="/tags/#frontend">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#javascript">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#js">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> js</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#outil">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> outil</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#react">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> react</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#refactor">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> refactor</p>
+        <li><a class="button" href="/tags/#practices">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> practices</p>
         </a></li>
       
     </ul>
@@ -718,24 +630,12 @@ Ceci permet de gagner un peu de temps sur l’exécution. ⌛️</p>
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
 </style>

@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -89,7 +81,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Enhancing Production Monitoring with New Relic" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"How did we improve the monitoring practices on the mobile service? Let’s find out.","dateModified":"2024-10-03T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html","datePublished":"2024-10-03T00:00:00+00:00","headline":"Enhancing Production Monitoring with New Relic","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"How did we improve the monitoring practices on the mobile service? Let’s find out.","headline":"Enhancing Production Monitoring with New Relic","dateModified":"2024-10-03T00:00:00+00:00","datePublished":"2024-10-03T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -198,41 +190,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -370,7 +332,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -406,6 +368,10 @@
     
     October 03, 2024
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -413,7 +379,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>At <em>Bedrock</em>, we develop a streaming solution tailored for European media companies. Our application is a customizable white-label product used by millions across Europe. Bedrock’s clients have high expectations for stability, early incident detection, quick resolution, and effective communication during those times. Naturally, our goal is to deliver a stable product, and we dedicate significant effort toward this objective.</p>
 
 <p>However, about two and a half years ago, our mobile team faced serious challenges in monitoring production. The tagging systems were pushing events into a tool that developers were not kin to use. The graphs were not intuitive and difficult to generate, making them hard to interpret. Each team across the company was managing its own monitoring practices. Monitoring was largely manual.<br />
@@ -605,44 +570,7 @@ We applied anomaly detection for example to the Payment feature since transactio
 <p><a href="https://newrelic.com/blog/how-to-relic/steal-this-dashboard">Steal this dashboard</a></p>
 
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Enhancing+Production+Monitoring+with+New+Relic%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2024%2F10%2F03%2Fenhancing-production-monitoring-with-newrelic.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html&title=Enhancing+Production+Monitoring+with+New+Relic%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Enhancing Production Monitoring with New Relic%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2024/10/03/enhancing-production-monitoring-with-newrelic.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -656,24 +584,12 @@ We applied anomaly detection for example to the Payment feature since transactio
       
 
       
-        <li><a class="button" href="/tags/#alerting">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> alerting</p>
+        <li><a class="button" href="/tags/#observability">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> observability</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#monitoring">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> monitoring</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#newrelic">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> newrelic</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#production">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> production</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#shared+practice">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> shared practice</p>
+        <li><a class="button" href="/tags/#practices">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> practices</p>
         </a></li>
       
     </ul>
@@ -707,42 +623,12 @@ We applied anomaly detection for example to the Payment feature since transactio
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(251,87,66) !important; }
-  .share-buttons a { color: rgb(251,87,66) !important; }
-  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
-  div#post-nav a { color: rgb(251,87,66) !important; }
-  footer a { color: rgb(251,87,66) !important; }
-  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
-  a.button:hover {
-    background: rgb(251,87,66) !important;
-    border: 1px solid rgb(251,87,66) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(251,87,66) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -89,7 +81,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Prescaling pods in Kubernetes, we open source our solution" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Reactive scaling in k8s is not always enough. We have built a solution and we share it with everyone now!","dateModified":"2022-09-01T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html","datePublished":"2022-09-01T00:00:00+00:00","headline":"Prescaling pods in Kubernetes, we open source our solution","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Reactive scaling in k8s is not always enough. We have built a solution and we share it with everyone now!","headline":"Prescaling pods in Kubernetes, we open source our solution","dateModified":"2022-09-01T00:00:00+00:00","datePublished":"2022-09-01T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -198,41 +190,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -370,7 +332,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -412,6 +374,10 @@
     
     September 01, 2022
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -419,7 +385,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>Previously we <a href="https://tech.bedrockstreaming.com/2022/02/03/prescaling.html">discussed</a> how we manage the load of our Kubernetes clusters and how we can anticipate our needs with prescaling. Today, we are here to share our solution that we have reworked and open sourced! 
 <img src="/images/posts/2022-09-01-kubernetes-prescaling-we-open-source-our-solution/br-opensource.png" alt="BedrockStreaming Logo" /></p>
 
@@ -514,44 +479,7 @@ One-time events allow to prescale all applications having annotations on their H
 
 <p>Authors:<a href="https://www.linkedin.com/in/jeremy-planckeel-44426112b/"> Jérémy Planckeel</a>, <a href="https://www.linkedin.com/in/valentin-chabrier-180937142/">Valentin Chabrier</a></p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Prescaling+pods+in+Kubernetes%2C+we+open+source+our+solution%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F09%2F01%2Fkubernetes-prescaling-we-open-source-our-solution.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html&title=Prescaling+pods+in+Kubernetes%2C+we+open+source+our+solution%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Prescaling pods in Kubernetes, we open source our solution%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/09/01/kubernetes-prescaling-we-open-source-our-solution.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -565,44 +493,28 @@ One-time events allow to prescale all applications having annotations on their H
       
 
       
-        <li><a class="button" href="/tags/#go">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> go</p>
+        <li><a class="button" href="/tags/#architecture">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> architecture</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#hpa">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> hpa</p>
+        <li><a class="button" href="/tags/#backend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#k8s">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> k8s</p>
+        <li><a class="button" href="/tags/#observability">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> observability</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#kubernetes">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> kubernetes</p>
+        <li><a class="button" href="/tags/#open-source">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> open-source</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#opensource">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> opensource</p>
+        <li><a class="button" href="/tags/#performance">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> performance</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#pods">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> pods</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#prescaling">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> prescaling</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#prometheus">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> prometheus</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#resiliency">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> resiliency</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#scaling">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> scaling</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
     </ul>
@@ -636,42 +548,12 @@ One-time events allow to prescale all applications having annotations on their H
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(251,87,66) !important; }
-  .share-buttons a { color: rgb(251,87,66) !important; }
-  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
-  div#post-nav a { color: rgb(251,87,66) !important; }
-  footer a { color: rgb(251,87,66) !important; }
-  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
-  a.button:hover {
-    background: rgb(251,87,66) !important;
-    border: 1px solid rgb(251,87,66) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(251,87,66) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Benchmarking WebSockets avec NodeJs" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Blog technique de Bedrock","author":{"@type":"Person","name":"Bedrock"},"dateModified":"2013-07-05T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/benchmarking-websockets-avec-nodejs","datePublished":"2013-07-05T00:00:00+00:00","headline":"Benchmarking WebSockets avec NodeJs","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/benchmarking-websockets-avec-nodejs"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Blog technique de Bedrock","author":{"@type":"Person","name":"Bedrock"},"headline":"Benchmarking WebSockets avec NodeJs","dateModified":"2013-07-05T00:00:00+00:00","datePublished":"2013-07-05T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/benchmarking-websockets-avec-nodejs","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/benchmarking-websockets-avec-nodejs"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -393,6 +355,10 @@
     
     July 05, 2013
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -400,7 +366,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>Nous avons récemment eu à repenser une application <a href="https://nodejs.org">Node.js</a> de timeline temps réel, basée sur les <a href="https://fr.wikipedia.org/wiki/Websocket">WebSockets</a> afin de tenir une charge plus élevée.</p>
 
 <h2 id="lapplication-timeline">L’application timeline</h2>
@@ -456,44 +421,7 @@
 <p>N’hésitez pas à remonter d’éventuels bug via les issues ou à contribuer au projet l’aide de pull request github (<a href="https://github.com/BedrockStreaming/websocket-bench">https://github.com/BedrockStreaming/websocket-bench</a>)</p>
 
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Benchmarking+WebSockets+avec+NodeJs%20https%3A%2F%2Ftech.bedrockstreaming.com%2Fbenchmarking-websockets-avec-nodejs"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/benchmarking-websockets-avec-nodejs&title=Benchmarking+WebSockets+avec+NodeJs%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/benchmarking-websockets-avec-nodejs"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Benchmarking WebSockets avec NodeJs%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/benchmarking-websockets-avec-nodejs"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -507,20 +435,16 @@
       
 
       
-        <li><a class="button" href="/tags/#benchmark">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> benchmark</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#nodejs">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> nodejs</p>
+        <li><a class="button" href="/tags/#backend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
         </a></li>
       
         <li><a class="button" href="/tags/#open-source">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> open-source</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#websockets">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> websockets</p>
+        <li><a class="button" href="/tags/#performance">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> performance</p>
         </a></li>
       
     </ul>
@@ -554,24 +478,12 @@
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
 </style>

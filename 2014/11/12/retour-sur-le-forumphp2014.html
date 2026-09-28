@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Retour sur le forum PHP 2014 organisé par l’AFUP" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Blog technique de Bedrock","author":{"@type":"Person","name":"Team Burton"},"dateModified":"2014-11-12T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2014/11/12/retour-sur-le-forumphp2014.html","datePublished":"2014-11-12T00:00:00+00:00","headline":"Retour sur le forum PHP 2014 organisé par l’AFUP","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2014/11/12/retour-sur-le-forumphp2014.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Blog technique de Bedrock","author":{"@type":"Person","name":"Team Burton"},"headline":"Retour sur le forum PHP 2014 organisé par l’AFUP","dateModified":"2014-11-12T00:00:00+00:00","datePublished":"2014-11-12T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2014/11/12/retour-sur-le-forumphp2014.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2014/11/12/retour-sur-le-forumphp2014.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -419,6 +381,10 @@
     
     November 12, 2014
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -426,7 +392,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>M6Web était présent en force avec 5 collaborateurs présent à l’évènement. Voici un retour des conférences qui nous ont le plus marquées.</p>
 
 <h2 id="vers-des-applications-12-factor-avec-symfony-et-docker">Vers des applications “12 factor” avec Symfony et Docker</h2>
@@ -507,21 +472,23 @@
 
 <p>Exemple d’utilisation des SCL en cli :</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">scl <span class="nb">enable </span>php56 <span class="nt">-f</span> myscript56.php
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scl <span class="nb">enable </span>php56 <span class="nt">-f</span> myscript56.php
 scl <span class="nb">enable </span>php56 bash
 scl <span class="nb">enable </span>php53 <span class="nt">-f</span> myscript53only.php
-scl <span class="nb">enable </span>php53 bash</code></pre></figure>
+scl <span class="nb">enable </span>php53 bash
+</code></pre></div></div>
 
 <p>Dans une config apache :</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">&lt;VirtualHost <span class="k">*</span>:80&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;VirtualHost <span class="k">*</span>:80&gt;
     ServerName php56scl
     
     <span class="c"># Redirect to FPM server in php56 SCL</span>
     &lt;FilesMatch <span class="se">\.</span>php<span class="nv">$&gt;</span>
     SetHandler <span class="s2">"proxy:fcgi://127.0.0.1:9006"</span>
     &lt;/FilesMatch&gt;
-&lt;/VirtualHost&gt;</code></pre></figure>
+&lt;/VirtualHost&gt;
+</code></pre></div></div>
 
 <h2 id="frameworks-a-history-of-violence">Frameworks: A History of Violence</h2>
 
@@ -606,44 +573,7 @@ Les débats ont été intenses et les invités ont pu répondre à des questions
 
 <p>Un grand merci à l’AFUP pour ce joli évènement ! Retrouvez pas mal de ressources partagés pendant l’event sur <a href="https://eventifier.com/event/frmphp/">eventifier</a>.</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Retour+sur+le+forum+PHP+2014+organis%C3%A9+par+l%27AFUP%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2014%2F11%2F12%2Fretour-sur-le-forumphp2014.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2014/11/12/retour-sur-le-forumphp2014.html&title=Retour+sur+le+forum+PHP+2014+organis%C3%A9+par+l%27AFUP%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2014/11/12/retour-sur-le-forumphp2014.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Retour sur le forum PHP 2014 organisé par l'AFUP%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2014/11/12/retour-sur-le-forumphp2014.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -653,24 +583,12 @@ Les débats ont été intenses et les invités ont pu répondre à des questions
   <div class="tag-list">
     <ul>
       
-        <li class="meta">Tags</li>
+        <li class="meta">Tag</li>
       
 
       
-        <li><a class="button" href="/tags/#afup">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> afup</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#conference">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> conference</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#forumphp">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> forumphp</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#php">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> php</p>
+        <li><a class="button" href="/tags/#backend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
         </a></li>
       
     </ul>
@@ -704,24 +622,12 @@ Les débats ont été intenses et les invités ont pu répondre à des questions
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/forumphp2014/cover.jpg'); }

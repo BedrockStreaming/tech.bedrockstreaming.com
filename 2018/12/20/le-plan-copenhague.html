@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Le Plan Copenhague : notre migration vers Le Cloud, retour d’expérience" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Comment nous avons migré la plateforme 6play vers Le Cloud, sur AWS et Kubernetes.","author":{"@type":"Person","name":"Pascal Martin"},"dateModified":"2018-12-20T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2018/12/20/le-plan-copenhague.html","datePublished":"2018-12-20T00:00:00+00:00","headline":"Le Plan Copenhague : notre migration vers Le Cloud, retour d’expérience","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2018/12/20/le-plan-copenhague.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Comment nous avons migré la plateforme 6play vers Le Cloud, sur AWS et Kubernetes.","author":{"@type":"Person","name":"Pascal Martin"},"headline":"Le Plan Copenhague : notre migration vers Le Cloud, retour d’expérience","dateModified":"2018-12-20T00:00:00+00:00","datePublished":"2018-12-20T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2018/12/20/le-plan-copenhague.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2018/12/20/le-plan-copenhague.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -397,6 +359,10 @@
     
     December 20, 2018
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -404,7 +370,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>Nous avons commencé à migrer notre plateforme 6play vers <em>Le Cloud</em> il y a un an.</p>
 
 <p>Depuis, nous avons découvert Kubernetes et Helm, AWS et ses services managés, Terraform, Prometheus et une multitude d’autres outils. Nous avons fait des choix, répondu à de nombreuses questions, rencontré et franchi des obstacles. Nous avons mis en place des bases solides ou, parfois, pris des raccourcis pour avancer plus vite.</p>
@@ -417,44 +382,7 @@
 
 <p>Bonne lecture !</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Le+Plan+Copenhague+%3A+notre+migration+vers+Le+Cloud%2C+retour+d%E2%80%99exp%C3%A9rience%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2018%2F12%2F20%2Fle-plan-copenhague.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2018/12/20/le-plan-copenhague.html&title=Le+Plan+Copenhague+%3A+notre+migration+vers+Le+Cloud%2C+retour+d%E2%80%99exp%C3%A9rience%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2018/12/20/le-plan-copenhague.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Le Plan Copenhague : notre migration vers Le Cloud, retour d’expérience%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2018/12/20/le-plan-copenhague.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -468,24 +396,12 @@
       
 
       
-        <li><a class="button" href="/tags/#aws">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> aws</p>
+        <li><a class="button" href="/tags/#culture">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> culture</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#cloud">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#kubernetes">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> kubernetes</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#livre">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> livre</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#terraform">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> terraform</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
     </ul>
@@ -500,9 +416,9 @@
 <div id="post-nav">
     
     <div id="previous-post">
-        <a alt="7 conseils pour démarrer avec Spark" href="/2019/01/14/7-conseils-pour-demarrer-avec-spark.html">
+        <a alt="Migrating production applications from on-premise to the cloud with no downtime" href="/2019/03/11/Migrating-production-apps-from-on-premise-to-the-cloud-with-no-downtime.html">
             <p>Previous post</p>
-            7 conseils pour démarrer avec Spark
+            Migrating production applications from on-premise to the cloud with no downtime
         </a>
     </div>
     
@@ -519,24 +435,12 @@
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/le-plan-copenhague/header.jpg'); }

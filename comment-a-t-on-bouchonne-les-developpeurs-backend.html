@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Comment a-t-on bouchonné les développeurs backend ?" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Présentation de la librairie superagent-mock, un plugin superagent open-source à utiliser pour mocker le retour de vos requêtes HTTP.","author":{"@type":"Person","name":"Cytron team"},"dateModified":"2015-03-30T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/comment-a-t-on-bouchonne-les-developpeurs-backend","datePublished":"2015-03-30T00:00:00+00:00","headline":"Comment a-t-on bouchonné les développeurs backend ?","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/comment-a-t-on-bouchonne-les-developpeurs-backend"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Présentation de la librairie superagent-mock, un plugin superagent open-source à utiliser pour mocker le retour de vos requêtes HTTP.","author":{"@type":"Person","name":"Cytron team"},"headline":"Comment a-t-on bouchonné les développeurs backend ?","dateModified":"2015-03-30T00:00:00+00:00","datePublished":"2015-03-30T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/comment-a-t-on-bouchonne-les-developpeurs-backend","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/comment-a-t-on-bouchonne-les-developpeurs-backend"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -395,6 +357,10 @@
     
     March 30, 2015
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -402,7 +368,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>Chez M6Web, nous travaillons actuellement sur la nouvelle version d’un site web pour lequel sont dédiées deux teams :</p>
 
 <ul>
@@ -430,13 +395,14 @@
 
 <p>Comme superagent, superagent-mock s’installe via npm et peut être utilisé sur des applications serveurs ou clientes (via un bundler). Tout d’abord, il faut rajouter la dépendance à la librairie dans son  <code class="language-plaintext highlighter-rouge">package.json</code>.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">npm <span class="nb">install </span>superagent-mock <span class="nt">--save-dev</span></code></pre></figure>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install </span>superagent-mock <span class="nt">--save-dev</span>
+</code></pre></div></div>
 
 <p>Il faut ensuite créer le fichier de configuration. C’est ici que vous allez décider des routes à bouchonner. Prenons l’exemple d’une route qui n’existe pas et qui devra nous retourner la liste des auteurs du blog technique de M6Web : <code class="language-plaintext highlighter-rouge">https://tech.bedrockstreaming.com/api/authors</code>.</p>
 
 <p>Voici la structure du fichier de configuration à mettre en place :</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// ./config.js file</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ./config.js file</span>
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">[</span>
   <span class="p">{</span>
     <span class="na">pattern</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://tech.bedrockstreaming.com/api/authors</span><span class="dl">'</span><span class="p">,</span>
@@ -444,7 +410,8 @@
     <span class="na">callback</span><span class="p">:</span> <span class="nf">function </span><span class="p">(</span><span class="nx">match</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="p">{</span> <span class="na">body</span> <span class="p">:</span> <span class="nx">data</span> <span class="p">};</span>
     <span class="p">}</span>
-<span class="p">];</span></code></pre></figure>
+<span class="p">];</span>
+</code></pre></div></div>
 
 <ul>
   <li>L’attribut <code class="language-plaintext highlighter-rouge">pattern</code> peut être une expression régulière, dans le cas d’une route qui contiendrait des paramètres variables (ex : <code class="language-plaintext highlighter-rouge">https://tech.bedrockstreaming.com/api/authors/(\\d+)</code>).</li>
@@ -454,7 +421,7 @@
 
 <p>Ensuite, il faut créer le fichier de fixtures. C’est un fichier JS qui exporte une fonction retournant les données bouchonnées.</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// ./authors.js file</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ./authors.js file</span>
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">[</span>
     <span class="p">{</span>
@@ -464,14 +431,16 @@
     <span class="p">},</span>
     <span class="p">...</span>
   <span class="p">];</span>
-<span class="p">};</span></code></pre></figure>
+<span class="p">};</span>
+</code></pre></div></div>
 
 <p>Pour finir, au début du fichier JS appelé par node, il suffit de patcher <a href="https://visionmedia.github.io/superagent/">superagent</a> avec le plugin <a href="https://github.com/BedrockStreaming/superagent-mock">superagent-mock</a> de cette manière :</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// ./server.js file</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ./server.js file</span>
 <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">superagent</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./config.js</span><span class="dl">'</span><span class="p">);</span>
-<span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">superagent-mock</span><span class="dl">'</span><span class="p">)(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">config</span><span class="p">);</span></code></pre></figure>
+<span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">superagent-mock</span><span class="dl">'</span><span class="p">)(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">config</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>Ces quelques lignes permettent de surcharger certaines méthodes de <a href="https://visionmedia.github.io/superagent/">superagent</a> pour lui appliquer la configuration et simuler les requêtes bouchonnées. Pour comprendre plus en détail le fonctionnement, <a href="https://github.com/BedrockStreaming/superagent-mock/blob/master/superagent-mock.js">c’est par ici</a>.</p>
 
@@ -488,44 +457,7 @@
 <p>Les projets <a href="https://github.com/BedrockStreaming/superagent-mock">superagent-mock</a> et <a href="https://github.com/BedrockStreaming/sprintf-mock">sprintf-mock</a> sont open source. Très simple d’utilisation, ils nous permettent de paralléliser nos développements avec l’équipe backend et de rendre autonomes nos tests fonctionnels. Alors n’attendez plus la finalisation de vos API pour commencer vos développements front !</p>
 
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Comment+a-t-on+bouchonn%C3%A9+les+d%C3%A9veloppeurs+backend+%3F%20https%3A%2F%2Ftech.bedrockstreaming.com%2Fcomment-a-t-on-bouchonne-les-developpeurs-backend"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/comment-a-t-on-bouchonne-les-developpeurs-backend&title=Comment+a-t-on+bouchonn%C3%A9+les+d%C3%A9veloppeurs+backend+%3F%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/comment-a-t-on-bouchonne-les-developpeurs-backend"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Comment a-t-on bouchonné les développeurs backend ?%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/comment-a-t-on-bouchonne-les-developpeurs-backend"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -539,28 +471,16 @@
       
 
       
-        <li><a class="button" href="/tags/#cytron">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> cytron</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#isomorphic">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> isomorphic</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#javascript">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#mock">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> mock</p>
+        <li><a class="button" href="/tags/#frontend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
         </a></li>
       
         <li><a class="button" href="/tags/#open-source">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> open-source</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#superagent">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> superagent</p>
+        <li><a class="button" href="/tags/#testing">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> testing</p>
         </a></li>
       
     </ul>
@@ -594,24 +514,12 @@
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/cytron/superagent-mock.jpg'); }

@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="How to ingest 400GB of logs per hour?" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"We wanted to exploit our CDN logs as they contain many valuable information.","author":{"@type":"Person","name":"Arthur Zinck"},"dateModified":"2022-08-08T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html","datePublished":"2022-08-08T00:00:00+00:00","headline":"How to ingest 400GB of logs per hour?","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"We wanted to exploit our CDN logs as they contain many valuable information.","author":{"@type":"Person","name":"Arthur Zinck"},"headline":"How to ingest 400GB of logs per hour?","dateModified":"2022-08-08T00:00:00+00:00","datePublished":"2022-08-08T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -371,7 +333,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -399,6 +361,10 @@
     
     August 08, 2022
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -406,7 +372,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>Bedrock Streaming is a company that sells a white labeled streaming and live platform. Our customers are media groups, TV channels, and streaming companies. Our goal is to deliver a state-of-the-art streaming platform to our customers.</p>
 
 <p>To achieve this goal, we have our own Content Delivery Network (CDN), made of several bare metal servers racked in our Data Centers. Those servers run Nginx and are designed to output hundreds of Gbps (several tens of Pb per month) to end-users. We use them to cache video content at our infrastructure’s edge.</p>
@@ -493,44 +458,7 @@ Those logs are now available for all the teams who may need them to improve thei
 <p>We chose <a href="https://vector.dev/">Vector</a> to transport our private CDN logs to an S3 Bucket. Then, we chose to reuse an AWS Stack using Lambda and Glue to extract information from these logs, asynchronously. This stack is used in production for several months on other projects.
 All the teams that needed to extract value from our CDN logs are now autonomous to do so. We are now able to bill our customers based on their CDN usage.</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=How+to+ingest+400GB+of+logs+per+hour%3F%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F08%2F08%2Fprivate-cdn-logs.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html&title=How+to+ingest+400GB+of+logs+per+hour%3F%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=How to ingest 400GB of logs per hour?%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/08/08/private-cdn-logs.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -544,48 +472,20 @@ All the teams that needed to extract value from our CDN logs are now autonomous 
       
 
       
-        <li><a class="button" href="/tags/#athena">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> athena</p>
+        <li><a class="button" href="/tags/#data">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> data</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#aws">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> aws</p>
+        <li><a class="button" href="/tags/#observability">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> observability</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#cdn">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> cdn</p>
+        <li><a class="button" href="/tags/#performance">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> performance</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#cloud">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> cloud</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#glue">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> glue</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#lambda">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> lambda</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#logs">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> logs</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#nginx">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> nginx</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#onprem">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> onprem</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#s3">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> s3</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#vector">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> vector</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
     </ul>
@@ -619,42 +519,12 @@ All the teams that needed to extract value from our CDN logs are now autonomous 
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(251,87,66) !important; }
-  .share-buttons a { color: rgb(251,87,66) !important; }
-  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
-  div#post-nav a { color: rgb(251,87,66) !important; }
-  footer a { color: rgb(251,87,66) !important; }
-  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
-  a.button:hover {
-    background: rgb(251,87,66) !important;
-    border: 1px solid rgb(251,87,66) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(251,87,66) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

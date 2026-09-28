@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="How many DynamoDB RCU and WCU should we reserve to achieve maximum cost reductions, when our workloads are changing all the time?" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"How many DynamoDB RCU and WCU should we reserve to achieve maximum cost reductions, when our workloads are changing all the time?","author":{"@type":"Person","name":"Pascal Martin"},"dateModified":"2022-11-22T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/11/22/dynamodb-reservations.html","datePublished":"2022-11-22T00:00:00+00:00","headline":"How many DynamoDB RCU and WCU should we reserve to achieve maximum cost reductions, when our workloads are changing all the time?","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/11/22/dynamodb-reservations.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"How many DynamoDB RCU and WCU should we reserve to achieve maximum cost reductions, when our workloads are changing all the time?","author":{"@type":"Person","name":"Pascal Martin"},"headline":"How many DynamoDB RCU and WCU should we reserve to achieve maximum cost reductions, when our workloads are changing all the time?","dateModified":"2022-11-22T00:00:00+00:00","datePublished":"2022-11-22T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/11/22/dynamodb-reservations.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/11/22/dynamodb-reservations.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -397,6 +359,10 @@
     
     November 22, 2022
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -404,7 +370,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>Many of the microservices in our VOD and Replay platform use DynamoDB as their database.<br />
 Performance is very good if the data is architected for it, scalability is reasonably fast, and the serverless aspect offloads a lot of the administration and hosting work. Whether it’s performance, resilience or time-to-market, DynamoDB helps us achieve our business goals.</p>
 
@@ -791,44 +756,7 @@ On our scale, this saving represents several tens of thousands of dollars per ye
   </ol>
 </div>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=How+many+DynamoDB+RCU+and+WCU+should+we+reserve+to+achieve+maximum+cost+reductions%2C+when+our+workloads+are+changing+all+the+time%3F%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2022%2F11%2F22%2Fdynamodb-reservations.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2022/11/22/dynamodb-reservations.html&title=How+many+DynamoDB+RCU+and+WCU+should+we+reserve+to+achieve+maximum+cost+reductions%2C+when+our+workloads+are+changing+all+the+time%3F%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2022/11/22/dynamodb-reservations.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=How many DynamoDB RCU and WCU should we reserve to achieve maximum cost reductions, when our workloads are changing all the time?%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2022/11/22/dynamodb-reservations.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -838,20 +766,12 @@ On our scale, this saving represents several tens of thousands of dollars per ye
   <div class="tag-list">
     <ul>
       
-        <li class="meta">Tags</li>
+        <li class="meta">Tag</li>
       
 
       
-        <li><a class="button" href="/tags/#aws">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> aws</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#dynamodb">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> dynamodb</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#finops">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> finops</p>
+        <li><a class="button" href="/tags/#platform">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
         </a></li>
       
     </ul>
@@ -866,9 +786,9 @@ On our scale, this saving represents several tens of thousands of dollars per ye
 <div id="post-nav">
     
     <div id="previous-post">
-        <a alt="Docteur qui ? #LFT 25/11/22" href="/docteur-qui">
+        <a alt="Nos retours sur l'HAProxyConf Paris 2022" href="/2022/12/23/haproxyconf-paris-2022.html">
             <p>Previous post</p>
-            Docteur qui ? #LFT 25/11/22
+            Nos retours sur l'HAProxyConf Paris 2022
         </a>
     </div>
     
@@ -885,24 +805,12 @@ On our scale, this saving represents several tens of thousands of dollars per ye
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/aws/dynamodb-reservations/cost-explorer-reserved-vs-not-reserved-CENSORED-inverted-colors.png'); }

@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -89,7 +81,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"In this article, I’m going to explain how to enhance your player using the Media Source Extension API.","dateModified":"2025-07-01T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html","datePublished":"2025-07-01T00:00:00+00:00","headline":"Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"In this article, I’m going to explain how to enhance your player using the Media Source Extension API.","headline":"Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE","dateModified":"2025-07-01T00:00:00+00:00","datePublished":"2025-07-01T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -198,41 +190,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -370,7 +332,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -396,6 +358,10 @@
     
     July 01, 2025
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -403,7 +369,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>Streaming is now everywhere, an indispensable part of our daily lives, used by almost everyone for entertainment, communication, and learning. It appears effortless, almost magical, as high-quality video instantly appears on our screens. But beneath that seamless playback lies a complex and fascinating architecture of web technologies. Have you ever wondered what truly happens behind the frame to bring those pixels to life, adapting to your network, and ensuring a smooth experience right within your browser? Join us as we pull back the curtain and demystify the magic of modern web video playback.</p>
 
 <p>Let’s say you want to create a player to watch your favorite TV Show.</p>
@@ -628,44 +593,7 @@ It is because we now need to do the same segment management with the audio.</p>
   <li><a href="https://www.youtube.com/watch?v=VX9ppF6eMjc">LyonJS - Play Pause - Les coulisses d’un player vidéo</a> 🇫🇷</li>
 </ul>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Crafting+Your+Own+Streamer%3A+A+Hands-on+Guide+to+JavaScript+MSE%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2025%2F07%2F01%2Fvideo-player-mse-introduction.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html&title=Crafting+Your+Own+Streamer%3A+A+Hands-on+Guide+to+JavaScript+MSE%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2025/07/01/video-player-mse-introduction.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -679,32 +607,12 @@ It is because we now need to do the same segment management with the audio.</p>
       
 
       
-        <li><a class="button" href="/tags/#TVJS">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> TVJS</p>
-        </a></li>
-      
         <li><a class="button" href="/tags/#frontend">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#javascript">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#player">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> player</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#smartTV">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> smartTV</p>
-        </a></li>
-      
         <li><a class="button" href="/tags/#video">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> video</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#web">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> web</p>
         </a></li>
       
     </ul>
@@ -738,42 +646,12 @@ It is because we now need to do the same segment management with the audio.</p>
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(251,87,66) !important; }
-  .share-buttons a { color: rgb(251,87,66) !important; }
-  .tag-list a:not(:hover) { color: rgb(251,87,66) !important; }
-  div#post-nav a { color: rgb(251,87,66) !important; }
-  footer a { color: rgb(251,87,66) !important; }
-  .site-header nav a:hover {  color: rgb(251,87,66) !important; }
-  a.button:hover {
-    background: rgb(251,87,66) !important;
-    border: 1px solid rgb(251,87,66) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(251,87,66) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>

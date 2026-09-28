@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="How to boost the speed of your webpack build?" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"A story of performance optimization and application of the Pareto principle to a webpack build that has become far too long.","author":{"@type":"Person","name":"Antoine Caron"},"dateModified":"2020-03-05T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2020/03/05/hunting-webpack-performances.html","datePublished":"2020-03-05T00:00:00+00:00","headline":"How to boost the speed of your webpack build?","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2020/03/05/hunting-webpack-performances.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"A story of performance optimization and application of the Pareto principle to a webpack build that has become far too long.","author":{"@type":"Person","name":"Antoine Caron"},"headline":"How to boost the speed of your webpack build?","dateModified":"2020-03-05T00:00:00+00:00","datePublished":"2020-03-05T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2020/03/05/hunting-webpack-performances.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2020/03/05/hunting-webpack-performances.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -399,6 +361,10 @@
     
     March 05, 2020
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">en</span>
+  
 </div>
 
       
@@ -406,7 +372,6 @@
   </header>
 
   <section class="post-content">
-  
       <h2 id="how-did-i-cut-in-half-my-projects-webpack-build-time-">How did I cut in half my project’s webpack build time ?</h2>
 
 <p>Who never complained about the infinite duration of a webpack build on a project ?
@@ -585,44 +550,7 @@ I could have lost whole days on futile modifications if I had not measured preci
   <li>Keep your webpack config up to date</li>
 </ul>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=How+to+boost+the+speed+of+your+webpack+build%3F%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2020%2F03%2F05%2Fhunting-webpack-performances.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2020/03/05/hunting-webpack-performances.html&title=How+to+boost+the+speed+of+your+webpack+build%3F%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2020/03/05/hunting-webpack-performances.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=How to boost the speed of your webpack build?%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2020/03/05/hunting-webpack-performances.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -632,16 +560,12 @@ I could have lost whole days on futile modifications if I had not measured preci
   <div class="tag-list">
     <ul>
       
-        <li class="meta">Tags</li>
+        <li class="meta">Tag</li>
       
 
       
-        <li><a class="button" href="/tags/#js">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> js</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#webpack">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> webpack</p>
+        <li><a class="button" href="/tags/#frontend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
         </a></li>
       
     </ul>
@@ -675,24 +599,12 @@ I could have lost whole days on futile modifications if I had not measured preci
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/hunting-webpack-performances/julian-hochgesang-0Y_YNPW5qds-unsplash.jpg'); }

@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -90,7 +82,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="On a testé fonctionnellement notre app JS" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Faire des tests fonctionnels avec Cucumber.js, WebdriverIO et PhantomJS sur une app JS isomorphique.","author":{"@type":"Person","name":"Florent Dubost"},"dateModified":"2016-01-25T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2016/01/25/tests-fonctionnels-app-js.html","datePublished":"2016-01-25T00:00:00+00:00","headline":"On a testé fonctionnellement notre app JS","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2016/01/25/tests-fonctionnels-app-js.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Faire des tests fonctionnels avec Cucumber.js, WebdriverIO et PhantomJS sur une app JS isomorphique.","author":{"@type":"Person","name":"Florent Dubost"},"headline":"On a testé fonctionnellement notre app JS","dateModified":"2016-01-25T00:00:00+00:00","datePublished":"2016-01-25T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2016/01/25/tests-fonctionnels-app-js.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2016/01/25/tests-fonctionnels-app-js.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -199,41 +191,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -399,6 +361,10 @@
     
     January 25, 2016
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -406,7 +372,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>L’utilité des tests fonctionnels pour les applications web n’est plus à démontrer (comment ça, vous ne testez pas encore vos apps ?). Malheureusement, tout ne peut pas être totalement testé fonctionnellement, ou de façon aisée : je pense par exemple au player chez nous, un composant stratégique mais pauvrement testé fonctionnellement de par sa nature un peu hybride (mélange de flash et de JS). Dans tous les cas, pour ce qui peut l’être, nous sommes partisans dans l’équipe Cytron d’user sans mesure (ou presque !) de cet outil de manière à être le plus zen possible au moment d’appuyer sur le bouton “deploy”.</p>
 
 <h2 id="quelle-stack-">Quelle stack ?</h2>
@@ -428,7 +393,7 @@
 <h3 id="arborescence">Arborescence</h3>
 <p>Dans notre projet, nous avons un dossier pour les tests fonctionnels organisés comme suit :</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">├─┐ tests
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├─┐ tests
 │ ├─┐ step_definitions
 │ │ └── my_feature.steps.js
 │ ├─┐ screenshots
@@ -438,12 +403,13 @@
 │ │ ├── constants.json
 │ │ ├── hooks.js
 │ │ └── world.js
-│ └── my_feature.feature</code></pre></figure>
+│ └── my_feature.feature
+</code></pre></div></div>
 
 <h3 id="features">Features</h3>
 <p>Une feature est un fichier testant une fonctionnalité de l’application et regroupant plusieurs scénarios de test. Il est écrit en langage naturel (Gherkin) de façon à être lisible par tous.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># tests/support/cookie.feature</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># tests/support/cookie.feature</span>
 Feature: Scenarios about the cookie banner
 
   Scenario: See the cookie banner and close it
@@ -455,12 +421,13 @@ Feature: Scenarios about the cookie banner
     Then I should not see a <span class="s2">"cookie banner"</span>
 
     When I visit the <span class="s2">"homepage"</span> page
-    Then I should not see a <span class="s2">"cookie banner"</span></code></pre></figure>
+    Then I should not see a <span class="s2">"cookie banner"</span>
+</code></pre></div></div>
 
 <h3 id="world">World</h3>
 <p>Le fichier <code class="language-plaintext highlighter-rouge">world.js</code> est le point de départ pour Cucumber.js. C’est ici que nous initialisons WebdriverIO et que nous mettons un place un contexte qui sera disponible pour tous les tests.</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// tests/support/world.js</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// tests/support/world.js</span>
 <span class="kd">var</span> <span class="nx">Webdriver</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">webdriverio</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./config.json</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">assert</span><span class="dl">'</span><span class="p">);</span>
@@ -510,12 +477,13 @@ Feature: Scenarios about the cookie banner
   <span class="k">return</span> <span class="nx">world</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">WorldConstructor</span><span class="p">;</span></code></pre></figure>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">WorldConstructor</span><span class="p">;</span>
+</code></pre></div></div>
 
 <h3 id="hooks">Hooks</h3>
 <p>Cucumber.js permet de déclencher des traitements sur <a href="https://github.com/cucumber/cucumber-js#hooks">certains évènements clés</a> lors de l’exécution de la suite de tests. Nous utilisons ce système pour réaliser une capture d’écran sur chaque scénario de test en échec qui viendra s’ajouter dans le dossier <code class="language-plaintext highlighter-rouge">screenshots</code>.</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// tests/support/hook.js</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// tests/support/hook.js</span>
 <span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./config.json</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">sprintf</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">sprintf-js</span><span class="dl">'</span><span class="p">).</span><span class="nx">sprintf</span><span class="p">;</span>
 
@@ -542,12 +510,13 @@ Feature: Scenarios about the cookie banner
       <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">browser</span><span class="p">.</span><span class="nf">end</span><span class="p">();</span>
     <span class="p">}</span>
   <span class="p">});</span>
-<span class="p">};</span></code></pre></figure>
+<span class="p">};</span>
+</code></pre></div></div>
 
 <h3 id="step-definitions">Step definitions</h3>
 <p>Ce sont les fichiers qui font le lien entre les features (écrit en langage naturel) et WebdriverIO (initialisé dans <code class="language-plaintext highlighter-rouge">world.js</code>).</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// tests/step_definitions/cookie.steps.js</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// tests/step_definitions/cookie.steps.js</span>
 <span class="kd">var</span> <span class="nx">sprintf</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">sprintf-js</span><span class="dl">'</span><span class="p">).</span><span class="nx">sprintf</span><span class="p">;</span>
 
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
@@ -590,7 +559,8 @@ Feature: Scenarios about the cookie banner
   <span class="p">});</span>
 
   <span class="c1">// ...</span>
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <h3 id="design">Design</h3>
 <p>Nous n’avons pas mis en œuvre le <a href="https://blog.josephwilk.net/cucumber/page-object-pattern.html">pattern Page Object</a>. Ce n’était pas un choix délibéré mais le contexte et les enjeux du projet nous ont fait passer à côté, ou ce n’était peut être simplement pas le moment. Malgré tout, nous avons tenté de rationaliser au mieux l’organisation du code. Par exemple, afin de ne pas se retrouver avec des sélecteurs CSS éparpillés dans plusieurs fichiers de “features” ou de “step definitions”, nous avons choisi de les regrouper dans un fichier <code class="language-plaintext highlighter-rouge">constants.json</code> et d’utiliser seulement des labels ailleurs. Nous faisons le lien entre le label et le sélecteur CSS avec la méthode <code class="language-plaintext highlighter-rouge">getDOMSelector</code>, visible ci-dessus et définie dans le fichier <code class="language-plaintext highlighter-rouge">world.js</code>.</p>
@@ -652,12 +622,11 @@ Feature: Scenarios about the cookie banner
 <p>Un autre problème que nous avons rencontré est la bonne exécution des rollovers. En utilisant la méthode <a href="https://webdriver.io/api/action/moveToObject.html"><code class="language-plaintext highlighter-rouge">moveToObject</code></a> pour pointer la souris sur un élément, il nous arrivait que le comportement “hover” ne soit pas déclenché, mettant en échec la suite du test. Nous avons donc changé notre manière d’effectuer le rollover : on répète l’action grâce au <code class="language-plaintext highlighter-rouge">waitUntil</code> tant que l’élement devant apparaître au hover n’est pas visible.</p>
 
 <p>Nous n’écrivons plus</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">I rollover the <span class="s2">"Header login icon"</span></code></pre></figure>
-
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I rollover the <span class="s2">"Header login icon"</span>
+</code></pre></div></div>
 <p>mais</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">I rollover the <span class="s2">"Header login icon"</span> to make <span class="s2">"Submenu"</span> appear</code></pre></figure>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I rollover the <span class="s2">"Header login icon"</span> to make <span class="s2">"Submenu"</span> appear
+</code></pre></div></div>
 
 <h3 id="rerun">rerun</h3>
 <p><a href="https://github.com/cucumber/cucumber-js#formatters">“Rerun”</a> est une fonctionnalité existante sur d’autres frameworks de tests fonctionnels tel que Behat et créée pour les tests récalcitrants encore instables. Elle permet de stocker dans un fichier texte la liste des scénarios en échec pour les relancer ensuite afin de vérifier qu’ils le sont réellement. Nous avons mis en place ce process sur Jenkins, bien qu’il y ait <a href="https://github.com/cucumber/cucumber-js/issues/499">quelques subtilités qui ne facilitent pas la tâche</a> (mais qui devraient être bientôt corrigées), et nous en sommes satisfaits.</p>
@@ -667,44 +636,7 @@ Feature: Scenarios about the cookie banner
 
 <p>Cet article est un retour d’expérience sur notre usage des tests fonctionnels sur un projet précis mais il est loin d’exposer des vérités absolues. Si vous avez des remarques ou n’êtes pas d’accord avec certaines choses, n’hésitez pas à nous le faire savoir !</p>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=On+a+test%C3%A9+fonctionnellement+notre+app+JS%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2016%2F01%2F25%2Ftests-fonctionnels-app-js.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2016/01/25/tests-fonctionnels-app-js.html&title=On+a+test%C3%A9+fonctionnellement+notre+app+JS%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2016/01/25/tests-fonctionnels-app-js.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=On a testé fonctionnellement notre app JS%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2016/01/25/tests-fonctionnels-app-js.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -718,24 +650,12 @@ Feature: Scenarios about the cookie banner
       
 
       
-        <li><a class="button" href="/tags/#Cytron">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Cytron</p>
+        <li><a class="button" href="/tags/#frontend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#javascript">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> javascript</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#phantomjs">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> phantomjs</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#tests+fonctionnels">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> tests fonctionnels</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#webdriver">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> webdriver</p>
+        <li><a class="button" href="/tags/#testing">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> testing</p>
         </a></li>
       
     </ul>
@@ -769,24 +689,12 @@ Feature: Scenarios about the cookie banner
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
 
   
   header#main { background-image: url('/images/posts/cytron/moon.jpg'); }

@@ -4,7 +4,7 @@
     Theme free for personal and commercial use under the MIT license
     https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
 -->
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
@@ -17,7 +17,7 @@
     </script>
     
 
-    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <!-- Main JS (navbar, dark mode, cookie consent) -->
     <script defer src="/assets/js/main.min.js"></script>
 
     <!-- CSS -->
@@ -25,14 +25,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <!-- KaTeX 0.15.2 -->
-    <script defer src="/assets/js/vendor/katex.min.js"></script>
-    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    
 
     
     <!-- Mermaid 8.13.10 -->
@@ -89,7 +81,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Journal de l’alternant - Comment j’ai perdu mes dépendances pnpm" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Comment la non-compréhension du hoisting m’a fait perdre des dépendances","dateModified":"2024-01-10T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2024/01/10/journal-de-l-alternant-comment-jai-perdu-mes-dependences-pnpm.html","datePublished":"2024-01-10T00:00:00+00:00","headline":"Journal de l’alternant - Comment j’ai perdu mes dépendances pnpm","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2024/01/10/journal-de-l-alternant-comment-jai-perdu-mes-dependences-pnpm.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Comment la non-compréhension du hoisting m’a fait perdre des dépendances","headline":"Journal de l’alternant - Comment j’ai perdu mes dépendances pnpm","dateModified":"2024-01-10T00:00:00+00:00","datePublished":"2024-01-10T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2024/01/10/journal-de-l-alternant-comment-jai-perdu-mes-dependences-pnpm.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2024/01/10/journal-de-l-alternant-comment-jai-perdu-mes-dependences-pnpm.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -198,41 +190,11 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
                      <i class="fas fa-tags" aria-hidden="true"></i>
                     
                 </a>
             </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
             
             
         
@@ -370,7 +332,7 @@
 </header>
 
     <div class="content">
-      <article class="feature-image" >
+      <article >
   <header id="main" style="">
     <div class="title-padder">
       
@@ -398,6 +360,10 @@
     
     January 10, 2024
   </span>
+  
+  <span class="spacer"> - </span>
+  <span class="publication-language">fr</span>
+  
 </div>
 
       
@@ -405,7 +371,6 @@
   </header>
 
   <section class="post-content">
-  
       <p>À Bedrock, on m’a chargé de faire un POC (<a href="https://fr.wikipedia.org/wiki/Preuve_de_concept">proof of concept</a>) pour tester les avantages et les limites d’un double run entre notre app côté web (sur <a href="https://tech.bedrockstreaming.com/2017/05/17/spa-mode-isomorphism-js.html">une base maison React Server Side Rendering</a>) en déléguant des pages progressivement vers une app <a href="https://nextjs.org/">Next.js</a>. Étant tout nouveau dans le dev et encore plus nouveau sur le projet, ma vie ces derniers temps est une suite d’obstacles, d’essais, d’erreurs et de triomphes (pas toujours, mais souvent) bien mérités. Je suis habitué à faire des erreurs plus lunaires les unes que les autres, mais je vais m’attarder dans cet article sur une erreur qui m’a retourné le cerveau. Au menu : erreurs soudaines, dépendances disparues et désespoir… Bonne lecture.</p>
 
 <p>Je suis alternant depuis un an à Bedrock et je travaille pour la première fois sur notre projet web interne. C’est un projet qui est très complexe, avec lequel vient énormément d’historique (premières briques écrite en 2014) et dont la lecture du code relève parfois autant de l’histoire que du développement.</p>
@@ -496,44 +461,7 @@ public-hoist-pattern[]=*prettier*
   <li>Il faut penser à voir plus loin que son fichier local de config et penser aux potentielles surcharges…</li>
 </ul>
 
-    
   </section>
-
-  <!-- Social media shares -->
-  
-
-<div class="share-buttons">
-    <ul class="share-buttons">
-        <li class="meta">Share</li>
-         
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=Journal+de+l%27alternant+-+Comment+j%27ai+perdu+mes+d%C3%A9pendances+pnpm%20https%3A%2F%2Ftech.bedrockstreaming.com%2F2024%2F01%2F10%2Fjournal-de-l-alternant-comment-jai-perdu-mes-dependences-pnpm.html"
-               target="_blank" title="">
-                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Tweet</span>
-            </a>
-        </li>
-             
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.bedrockstreaming.com/2024/01/10/journal-de-l-alternant-comment-jai-perdu-mes-dependences-pnpm.html&title=Journal+de+l%27alternant+-+Comment+j%27ai+perdu+mes+d%C3%A9pendances+pnpm%20%7C%20Bedrock+Tech+Blog&summary=&source=https://tech.bedrockstreaming.com/2024/01/10/journal-de-l-alternant-comment-jai-perdu-mes-dependences-pnpm.html"
-               target="_blank" title=" LinkedIn">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Share on LinkedIn</span>
-            </a>
-        </li>
-          
-        <li>
-            <a href="mailto:?subject=Journal de l'alternant - Comment j'ai perdu mes dépendances pnpm%20%7C%20Bedrock Tech Blog&body=https://tech.bedrockstreaming.com/2024/01/10/journal-de-l-alternant-comment-jai-perdu-mes-dependences-pnpm.html"
-               target="_blank" title="">
-                <i class="fas fa-envelope-square fa-2x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span></a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
 
    <!-- Tag list -->
   
@@ -547,20 +475,12 @@ public-hoist-pattern[]=*prettier*
       
 
       
-        <li><a class="button" href="/tags/#alternant">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> alternant</p>
+        <li><a class="button" href="/tags/#culture">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> culture</p>
         </a></li>
       
-        <li><a class="button" href="/tags/#hoisting">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> hoisting</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#node_modules">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> node_modules</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#pnpm">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> pnpm</p>
+        <li><a class="button" href="/tags/#frontend">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
         </a></li>
       
     </ul>
@@ -575,9 +495,9 @@ public-hoist-pattern[]=*prettier*
 <div id="post-nav">
     
     <div id="previous-post">
-        <a alt="Au-delà des industries : Le pouvoir de l'état d'esprit #LFT 02/02/24" href="/au-dela-des-industries-le-pouvoir-de-l-etat-d-esprit">
+        <a alt="KubeCon Europe 2024, Paris" href="/2024/04/09/kubecon-europe-2024.html">
             <p>Previous post</p>
-            Au-delà des industries : Le pouvoir de l'état d'esprit #LFT 02/02/24
+            KubeCon Europe 2024, Paris
         </a>
     </div>
     
@@ -594,42 +514,12 @@ public-hoist-pattern[]=*prettier*
 
 
 
-<!--Utterances-->
-
-
-<!-- Cusdis -->
-
-
-<!-- Disqus -->
-
-
-<!-- To change color of links in the page -->
 <style>
   header#main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
-
-  
-  .post-content a { color: rgb(254,91,73) !important; }
-  .share-buttons a { color: rgb(254,91,73) !important; }
-  .tag-list a:not(:hover) { color: rgb(254,91,73) !important; }
-  div#post-nav a { color: rgb(254,91,73) !important; }
-  footer a { color: rgb(254,91,73) !important; }
-  .site-header nav a:hover {  color: rgb(254,91,73) !important; }
-  a.button:hover {
-    background: rgb(254,91,73) !important;
-    border: 1px solid rgb(254,91,73) !important;
-    color: white;
-    text-decoration: none;
-    filter: none;
-  }
-  header#main {
-      background-color: rgb(254,91,73) !important;
-      background-image: url('/assets/img/lineart.png');
-  }
-  
 
   
 </style>
